@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Oct 22 13:17:19 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Second Darkness - Chapter 3: The Armageddon Echo	SOURCESHORT:PF15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
 # Original Entry by Eddy Anthony (MoSaT)
 
 # Drow Demon Lords
-# Deity Name	Domains									Desciption of Deity/Title				Deity Weapon						Alignment	Source Page
+# Deity Name	Domains									Description of Deity/Title				Deity Weapon						Alignment	Source Page
 Abraxas		DOMAINS:Chaos,Evil,Knowledge,Magic|PREALIGN:CE,CN,NE		DESC:Demon Lord of forbidden lore, magic		DEITYWEAP:Whip						ALIGN:CE	SOURCEPAGE:p. 65
 Andirifkhu		DOMAINS:Chaos,Evil,Luck,Trickery|PREALIGN:CE,CN,NE		DESC:Demon Lord of knives, traps			DEITYWEAP:Kukri						ALIGN:CE	SOURCEPAGE:p. 65
 Areshkagal		DOMAINS:Air,Chaos,Evil,Trickery|PREALIGN:CE,CN,NE		DESC:Demon Lord of portals, riddles			DEITYWEAP:Sickle						ALIGN:CE	SOURCEPAGE:p. 65

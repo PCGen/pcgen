@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2002-01
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -510,24 +510,24 @@ ALIGN:CE
 RACE:Demon (Orcus)	!PRERACE:1,%
 NAME:Demon: Orcus (Demon Prince of Undead)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Bluff					RANK:44
-SKILL:Concentration			RANK:48
-SKILL:Diplomacy				RANK:44
-SKILL:Escape Artist			RANK:18
-SKILL:Gather Information		RANK:35
-SKILL:Intimidate				RANK:46
-SKILL:Knowledge (Arcana)		RANK:48
-SKILL:Knowledge (History)		RANK:48
-SKILL:Knowledge (The Planes)		RANK:48
-SKILL:Knowledge (Religion)		RANK:48
-SKILL:Knowledge (Undead)		RANK:48
-SKILL:Listen				RANK:36
-SKILL:Move Silently			RANK:46
-SKILL:Search				RANK:48
-SKILL:Sense Motive			RANK:41
-SKILL:Spellcraft				RANK:44
-SKILL:Spot					RANK:48
-SKILL:Survival				RANK:48
+SKILL:Bluff				RANK:44
+SKILL:Concentration		RANK:48
+SKILL:Diplomacy			RANK:44
+SKILL:Escape Artist		RANK:18
+SKILL:Gather Information	RANK:35
+SKILL:Intimidate			RANK:46
+SKILL:Knowledge (Arcana)	RANK:48
+SKILL:Knowledge (History)	RANK:48
+SKILL:Knowledge (The Planes)	RANK:48
+SKILL:Knowledge (Religion)	RANK:48
+SKILL:Knowledge (Undead)	RANK:48
+SKILL:Listen			RANK:36
+SKILL:Move Silently		RANK:46
+SKILL:Search			RANK:48
+SKILL:Sense Motive		RANK:41
+SKILL:Spellcraft			RANK:44
+SKILL:Spot				RANK:48
+SKILL:Survival			RANK:48
 FEAT:Blind-Fight
 FEAT:Cleave
 FEAT:Combat Casting

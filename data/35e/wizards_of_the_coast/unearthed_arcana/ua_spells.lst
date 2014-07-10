@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 # This doesn't take into account (Paladin) spells from other sources.  No way to 'Remove spells from a spell list'
 # Spell Name				Classes of caster							Description
@@ -105,47 +106,47 @@ Unholy Sword				CLASSES:Paladin of Slaughter,Paladin of Tyranny=4	DESC:There is 
 
 
 #1st-
-Comprehend Languages.MOD	CLASSES:Ranger (Urban Ranger)=1
-Detect Chaos.MOD	CLASSES:Ranger (Urban Ranger)=1
-Detect Good.MOD	CLASSES:Ranger (Urban Ranger)=1
-Detect Evil.MOD	CLASSES:Ranger (Urban Ranger)=1
-Detect Law.MOD	CLASSES:Ranger (Urban Ranger)=1
-Detect Secret Doors.MOD	CLASSES:Ranger (Urban Ranger)=1
-Message.MOD	CLASSES:Ranger (Urban Ranger)=1
+Comprehend Languages.MOD		CLASSES:Ranger (Urban Ranger)=1
+Detect Chaos.MOD				CLASSES:Ranger (Urban Ranger)=1
+Detect Good.MOD				CLASSES:Ranger (Urban Ranger)=1
+Detect Evil.MOD				CLASSES:Ranger (Urban Ranger)=1
+Detect Law.MOD				CLASSES:Ranger (Urban Ranger)=1
+Detect Secret Doors.MOD			CLASSES:Ranger (Urban Ranger)=1
+Message.MOD					CLASSES:Ranger (Urban Ranger)=1
 #2nd-
-Detect Thoughts.MOD	CLASSES:Ranger (Urban Ranger)=2
-Knock.MOD	CLASSES:Ranger (Urban Ranger)=2
-Locate Object.MOD	CLASSES:Ranger (Urban Ranger)=2
-Eagle's Splendor.MOD	CLASSES:Ranger (Urban Ranger)=2
+Detect Thoughts.MOD			CLASSES:Ranger (Urban Ranger)=2
+Knock.MOD					CLASSES:Ranger (Urban Ranger)=2
+Locate Object.MOD				CLASSES:Ranger (Urban Ranger)=2
+Eagle's Splendor.MOD			CLASSES:Ranger (Urban Ranger)=2
 #3rd-
-Discern Lies.MOD	CLASSES:Ranger (Urban Ranger)=2
-Invisibility.MOD	CLASSES:Ranger (Urban Ranger)=2
-Speak with Dead.MOD	CLASSES:Ranger (Urban Ranger)=2
-Tongues.MOD	CLASSES:Ranger (Urban Ranger)=2
+Discern Lies.MOD				CLASSES:Ranger (Urban Ranger)=2
+Invisibility.MOD				CLASSES:Ranger (Urban Ranger)=2
+Speak with Dead.MOD			CLASSES:Ranger (Urban Ranger)=2
+Tongues.MOD					CLASSES:Ranger (Urban Ranger)=2
 #4th-
-Dimensional Anchor.MOD	CLASSES:Ranger (Urban Ranger)=4
-Locate Creature.MOD	CLASSES:Ranger (Urban Ranger)=4
-Mage's Faithful Hound.MOD	CLASSES:Ranger (Urban Ranger)=4
-True Seeing.MOD	CLASSES:Ranger (Urban Ranger)=4
+Dimensional Anchor.MOD			CLASSES:Ranger (Urban Ranger)=4
+Locate Creature.MOD			CLASSES:Ranger (Urban Ranger)=4
+Mage's Faithful Hound.MOD		CLASSES:Ranger (Urban Ranger)=4
+True Seeing.MOD				CLASSES:Ranger (Urban Ranger)=4
 
 # Cloistered Cleric
 #0-
-Message.MOD	CLASSES:Cleric (Cloistered Cleric)=0
+Message.MOD					CLASSES:Cleric (Cloistered Cleric)=0
 #1st-
-Erase.MOD	CLASSES:Cleric (Cloistered Cleric)=1
-Identify.MOD	CLASSES:Cleric (Cloistered Cleric)=1
-Unseen Servant.MOD	CLASSES:Cleric (Cloistered Cleric)=1
+Erase.MOD					CLASSES:Cleric (Cloistered Cleric)=1
+Identify.MOD				CLASSES:Cleric (Cloistered Cleric)=1
+Unseen Servant.MOD			CLASSES:Cleric (Cloistered Cleric)=1
 #2nd-
-Fox's Cunning.MOD	CLASSES:Cleric (Cloistered Cleric)=2
+Fox's Cunning.MOD				CLASSES:Cleric (Cloistered Cleric)=2
 #3rd-
-Illusory Script.MOD	CLASSES:Cleric (Cloistered Cleric)=3
-Secret Page.MOD	CLASSES:Cleric (Cloistered Cleric)=3
-Tongues.MOD	CLASSES:Cleric (Cloistered Cleric)=3
+Illusory Script.MOD			CLASSES:Cleric (Cloistered Cleric)=3
+Secret Page.MOD				CLASSES:Cleric (Cloistered Cleric)=3
+Tongues.MOD					CLASSES:Cleric (Cloistered Cleric)=3
 #4th-
-Detect Scrying.MOD	CLASSES:Cleric (Cloistered Cleric)=4
+Detect Scrying.MOD			CLASSES:Cleric (Cloistered Cleric)=4
 #6th-
-Analyze Dweomer.MOD	CLASSES:Cleric (Cloistered Cleric)=6
+Analyze Dweomer.MOD			CLASSES:Cleric (Cloistered Cleric)=6
 #7th-
-Sequester.MOD	CLASSES:Cleric (Cloistered Cleric)=7
+Sequester.MOD				CLASSES:Cleric (Cloistered Cleric)=7
 #9th-
-Vision.MOD	CLASSES:Cleric (Cloistered Cleric)=9
+Vision.MOD					CLASSES:Cleric (Cloistered Cleric)=9

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 #
@@ -163,8 +163,8 @@ CLASS:Karhollan Guard	STARTSKILLPTS:2	CSKILL:Climb|Craft (Stoneworking)|Diplomac
 
 #Class:The Returned (Complete except for Demon in Form class feature)
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus					Combat bonus
-CLASS:The Returned	HD:8		TYPE:PC.Prestige	ABB:Rtnd		MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:CHECKS|Fortitude,Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus					Combat bonus										Modify VAR
+CLASS:The Returned	HD:8		TYPE:PC.Prestige	ABB:Rtnd		MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:CHECKS|Fortitude,Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required AL					Req. Att.	Prohibited Check		Required Text
 CLASS:The Returned	PREALIGN:LN,LE,NG,TN,NE,CG,CN,CE	PREATT:4	!PRECHECK:1,Will=6	PRETEXT:The character must be a hero to a group of people and must undergo blasphemous rites. See text.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -224,8 +224,8 @@ CLASS:Ex Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidat
 
 #Class:Servants of the One
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
-CLASS:Servants of the One	HD:6		TYPE:PC.Prestige	ABB:Svnt1		MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:CHECKS|Fortitude|CL/3	BONUS:CHECKS|Reflex,Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus										Modify VAR
+CLASS:Servants of the One	HD:6		TYPE:PC.Prestige	ABB:Svnt1		MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:CHECKS|Fortitude|CL/3	BONUS:CHECKS|Reflex,Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name			Required AL	Required Feat			Required Race		Required Skill								Required Text
 CLASS:Servants of the One	PREALIGN:LE	PREFEAT:2,Iron Will,Toughness	PRERACE:1,Hobgoblin	PRESKILL:2,Knowledge (Arcana)=4,Knowledge (Religion)=4	PRETEXT:Character must be able to cast 3rd level spells from the domain of Conquest and be responsible for the desecration of no fewer than three holy sites of other races.
 # Class Name			Skill Pts/Lvl	Class Skill

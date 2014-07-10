@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Legends of the Ancients - Macedon	SOURCESHORT:Macedon	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=137	SOURCEDATE:2005-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
@@ -6,8 +6,8 @@ CLASS:Cavalry	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.F
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Tactics)|Ride|Spot|Survival
 ###Block: proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
-1		ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Martial
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial								AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard
 1	BONUS:VAR|MountedCombat|(CL/4)+1					ABILITY:Special Ability|AUTOMATIC|Mounted Combat ~ Cavalry					VFEAT:Mounted Combat
@@ -21,4 +21,3 @@ CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Ta
 13											ABILITY:Special Ability|AUTOMATIC|Tall in the saddle ~ Cavalry
 18											ABILITY:Special Ability|AUTOMATIC|Lightning Attack ~ Cavalry
 19											ABILITY:Special Ability|AUTOMATIC|Companion Mount ~ Cavalry
-

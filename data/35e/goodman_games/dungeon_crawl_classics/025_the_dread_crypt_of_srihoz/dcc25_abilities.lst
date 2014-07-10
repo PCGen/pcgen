@@ -1,3 +1,5 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 
-Camouflage	KEY:Camouflage ~ Vampiric Bloom	CATEGORY:Special Ability	TYPE:SpecialQuality
+# Ability Name	Unique Key					Category of Ability		Type
+Camouflage		KEY:Camouflage ~ Vampiric Bloom	CATEGORY:Special Ability	TYPE:SpecialQuality

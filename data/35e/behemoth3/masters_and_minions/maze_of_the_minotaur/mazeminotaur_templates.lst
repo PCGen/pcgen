@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 #Original Entry by: Aaron Divinsky
 
 ###Block: Racial templates
 
-# Template Name	Visible	Subrace	Lock Gender Selection
+# Template Name	Visible	Subrace		Lock Gender Selection
 Bull Lord		VISIBLE:NO	SUBRACE:Bull Lord
-Minotaur		VISIBLE:NO			GENDERLOCK:Male
-Minotrice		VISIBLE:NO			GENDERLOCK:Female
+Minotaur		VISIBLE:NO				GENDERLOCK:Male
+Minotrice		VISIBLE:NO				GENDERLOCK:Female
 
 ###Block: Natural Weapon Selectors
 # Template Name	Visible	Template

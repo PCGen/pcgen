@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 
 ### UNEARTHED ARCANA BUY DOWN:
@@ -15,81 +16,81 @@ Level Adjustment Buy down 8	VISIBLE:DISPLAY	LEVELADJUSTMENT:-8
 ###Block: Barbarian
 # Original Entry by: Tir-Gwaith
 
-# Template Name		Visible	Clone Movement
-Ape Totem ~ Climb Half	VISIBLE:NO	MOVECLONE:Walk,Climb,/2
-Ape Totem ~ Climb Full	VISIBLE:NO	MOVECLONE:Walk,Climb,*4
+# Template Name		Visible	Favored Class		Automatically Gained Language	Bonus Languages							Clone Movement		Subrace
+Ape Totem ~ Climb Half	VISIBLE:NO																			MOVECLONE:Walk,Climb,/2
+Ape Totem ~ Climb Full	VISIBLE:NO																			MOVECLONE:Walk,Climb,*4
 
-Bonus Language ~ Aquan	VISIBLE:NO	LANGBONUS:Aquan
+Bonus Language ~ Aquan	VISIBLE:NO										LANGBONUS:Aquan
 
 
-Aquatic Dwarf		VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:Aquatic		
-Aquatic Gnome		VISIBLE:NO	SUBRACE:Aquatic	
-Aquatic Goblin		VISIBLE:NO	SUBRACE:Aquatic	
-Aquatic Half-Elf		VISIBLE:NO	SUBRACE:Aquatic	
-Aquatic Half-Orc		VISIBLE:NO	SUBRACE:Aquatic	
-Aquatic Halfling		VISIBLE:NO	SUBRACE:Aquatic	
-Aquatic Human		VISIBLE:NO	SUBRACE:Aquatic	
-Aquatic Orc		VISIBLE:NO	SUBRACE:Aquatic	
-Arctic Dwarf		VISIBLE:NO	SUBRACE:Arctic	
-Arctic Elf		VISIBLE:NO	SUBRACE:Arctic	
-Arctic Gnome		VISIBLE:NO	SUBRACE:Arctic	
-Arctic Goblin		VISIBLE:NO	SUBRACE:Arctic	
-Arctic Half-Elf		VISIBLE:NO	SUBRACE:Arctic	
-Arctic Half-Orc		VISIBLE:NO	SUBRACE:Arctic	
-Arctic Halfling		VISIBLE:NO	SUBRACE:Arctic	
-Arctic Human		VISIBLE:NO	SUBRACE:Arctic	
-Arctic Orc		VISIBLE:NO	SUBRACE:Arctic	
-Desert Dwarf		VISIBLE:NO	SUBRACE:Desert	
-Desert Elf		VISIBLE:NO	SUBRACE:Desert	
-Desert Gnome		VISIBLE:NO	SUBRACE:Desert	
-Desert Goblin		VISIBLE:NO	SUBRACE:Desert	
-Desert Half-Elf		VISIBLE:NO	SUBRACE:Desert	
-Desert Half-Orc		VISIBLE:NO	SUBRACE:Desert	
-Desert Halfling		VISIBLE:NO	SUBRACE:Desert	
-Desert Human		VISIBLE:NO	SUBRACE:Desert	
-Desert Orc		VISIBLE:NO	SUBRACE:Desert	
-Jungle Dwarf		VISIBLE:NO	SUBRACE:Jungle	
-Jungle Elf		VISIBLE:NO	SUBRACE:Jungle	
-Jungle Gnome		VISIBLE:NO	SUBRACE:Jungle	
-Jungle Goblin		VISIBLE:NO	SUBRACE:Jungle	
-Jungle Half-Elf		VISIBLE:NO	SUBRACE:Jungle	
-Jungle Half-Orc		VISIBLE:NO	SUBRACE:Jungle	
-Jungle Halfling		VISIBLE:NO	SUBRACE:Jungle	
-Jungle Human		VISIBLE:NO	SUBRACE:Jungle	
-Jungle Orc		VISIBLE:NO	SUBRACE:Jungle	
+Aquatic Dwarf		VISIBLE:NO	FAVOREDCLASS:Fighter	AUTO:LANG|Common|Dwarven	LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon					SUBRACE:Aquatic
+Aquatic Gnome		VISIBLE:NO																							SUBRACE:Aquatic
+Aquatic Goblin		VISIBLE:NO																							SUBRACE:Aquatic
+Aquatic Half-Elf		VISIBLE:NO																							SUBRACE:Aquatic
+Aquatic Half-Orc		VISIBLE:NO																							SUBRACE:Aquatic
+Aquatic Halfling		VISIBLE:NO																							SUBRACE:Aquatic
+Aquatic Human		VISIBLE:NO																							SUBRACE:Aquatic
+Aquatic Orc			VISIBLE:NO																							SUBRACE:Aquatic
+Arctic Dwarf		VISIBLE:NO																							SUBRACE:Arctic
+Arctic Elf			VISIBLE:NO																							SUBRACE:Arctic
+Arctic Gnome		VISIBLE:NO																							SUBRACE:Arctic
+Arctic Goblin		VISIBLE:NO																							SUBRACE:Arctic
+Arctic Half-Elf		VISIBLE:NO																							SUBRACE:Arctic
+Arctic Half-Orc		VISIBLE:NO																							SUBRACE:Arctic
+Arctic Halfling		VISIBLE:NO																							SUBRACE:Arctic
+Arctic Human		VISIBLE:NO																							SUBRACE:Arctic
+Arctic Orc			VISIBLE:NO																							SUBRACE:Arctic
+Desert Dwarf		VISIBLE:NO																							SUBRACE:Desert
+Desert Elf			VISIBLE:NO																							SUBRACE:Desert
+Desert Gnome		VISIBLE:NO																							SUBRACE:Desert
+Desert Goblin		VISIBLE:NO																							SUBRACE:Desert
+Desert Half-Elf		VISIBLE:NO																							SUBRACE:Desert
+Desert Half-Orc		VISIBLE:NO																							SUBRACE:Desert
+Desert Halfling		VISIBLE:NO																							SUBRACE:Desert
+Desert Human		VISIBLE:NO																							SUBRACE:Desert
+Desert Orc			VISIBLE:NO																							SUBRACE:Desert
+Jungle Dwarf		VISIBLE:NO																							SUBRACE:Jungle
+Jungle Elf			VISIBLE:NO																							SUBRACE:Jungle
+Jungle Gnome		VISIBLE:NO																							SUBRACE:Jungle
+Jungle Goblin		VISIBLE:NO																							SUBRACE:Jungle
+Jungle Half-Elf		VISIBLE:NO																							SUBRACE:Jungle
+Jungle Half-Orc		VISIBLE:NO																							SUBRACE:Jungle
+Jungle Halfling		VISIBLE:NO																							SUBRACE:Jungle
+Jungle Human		VISIBLE:NO																							SUBRACE:Jungle
+Jungle Orc			VISIBLE:NO																							SUBRACE:Jungle
 #
-Air Gnome		VISIBLE:NO	SUBRACE:Air	
-Air Goblin		VISIBLE:NO	SUBRACE:Air	
-Earth Dwarf		VISIBLE:NO	SUBRACE:Earth	
-Earth Kobold		VISIBLE:NO	SUBRACE:Earth	
-Water Halfling		VISIBLE:NO	SUBRACE:Water	
-Water Orc		VISIBLE:NO	SUBRACE:Water	
-Fire Elf		VISIBLE:NO	SUBRACE:Fire	
-Fire Hobgoblin		VISIBLE:NO	SUBRACE:Fire	
+Air Gnome			VISIBLE:NO																							SUBRACE:Air
+Air Goblin			VISIBLE:NO																							SUBRACE:Air
+Earth Dwarf			VISIBLE:NO																							SUBRACE:Earth
+Earth Kobold		VISIBLE:NO																							SUBRACE:Earth
+Water Halfling		VISIBLE:NO																							SUBRACE:Water
+Water Orc			VISIBLE:NO																							SUBRACE:Water
+Fire Elf			VISIBLE:NO																							SUBRACE:Fire
+Fire Hobgoblin		VISIBLE:NO																							SUBRACE:Fire
 
 #
-Aquatic Kobold	VISIBLE:NO	SUBRACE:Aquatic
-Arctic Kobold	VISIBLE:NO	SUBRACE:Arctic
-Desert Kobold	VISIBLE:NO	SUBRACE:Desert
-Fire Half-Elf	VISIBLE:NO	SUBRACE:Fire
-Jungle Kobold	VISIBLE:NO	SUBRACE:Jungle
-Water Half-Orc	VISIBLE:NO	SUBRACE:Water
+Aquatic Kobold		VISIBLE:NO																							SUBRACE:Aquatic
+Arctic Kobold		VISIBLE:NO																							SUBRACE:Arctic
+Desert Kobold		VISIBLE:NO																							SUBRACE:Desert
+Fire Half-Elf		VISIBLE:NO																							SUBRACE:Fire
+Jungle Kobold		VISIBLE:NO																							SUBRACE:Jungle
+Water Half-Orc		VISIBLE:NO																							SUBRACE:Water
 
 
-#Hill			KEY:Hill Dwarf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:Hill		
+#Hill			KEY:Hill Dwarf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:Hill
 # Elf
-#High			KEY:High Elf				VISIBLE:NO				FAVOREDCLASS:Wizard			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:High		
+#High			KEY:High Elf				VISIBLE:NO				FAVOREDCLASS:Wizard			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:High
 #Aquatic		KEY:Aquatic Elf				VISIBLE:NO				FAVOREDCLASS:Fighter			AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan					MOVE:Swim,40	SUBRACE:Aquatic		RACESUBTYPE:Aquatic	VISION:Superior Low-Light Vision
 # Half-Elf
-#Half-Elf		KEY:Half-Elf				VISIBLE:NO				FAVOREDCLASS:HIGHESTLEVELCLASS	AUTO:LANG|Common|Elven				LANGBONUS:TYPE=Spoken						
+#Half-Elf		KEY:Half-Elf				VISIBLE:NO				FAVOREDCLASS:HIGHESTLEVELCLASS	AUTO:LANG|Common|Elven				LANGBONUS:TYPE=Spoken
 # Half-Orc
-#Half-Orc		KEY:Half-Orc				VISIBLE:NO				FAVOREDCLASS:Barbarian			AUTO:LANG|Common|Orc				LANGBONUS:Abyssal,Draconic,Giant,Gnoll,Goblin						
+#Half-Orc		KEY:Half-Orc				VISIBLE:NO				FAVOREDCLASS:Barbarian			AUTO:LANG|Common|Orc				LANGBONUS:Abyssal,Draconic,Giant,Gnoll,Goblin
 # Gnome
-#Rock			KEY:Rock Gnome				VISIBLE:NO				FAVOREDCLASS:Bard				AUTO:LANG|Common|Gnome				LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc								SUBRACE:Rock		
+#Rock			KEY:Rock Gnome				VISIBLE:NO				FAVOREDCLASS:Bard				AUTO:LANG|Common|Gnome				LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc								SUBRACE:Rock
 # Halfling
-#Lightfoot		KEY:Lightfoot Halfling			VISIBLE:NO	FAVOREDCLASS:Rogue						AUTO:LANG|Common|Halfling			LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc										SUBRACE:Lightfoot	
+#Lightfoot		KEY:Lightfoot Halfling			VISIBLE:NO	FAVOREDCLASS:Rogue						AUTO:LANG|Common|Halfling			LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc										SUBRACE:Lightfoot
 
-Goblin		VISIBLE:NO	
-Hobgoblin		VISIBLE:NO	
-Kobold		VISIBLE:NO	
-Orc			VISIBLE:NO	
+Goblin			VISIBLE:NO
+Hobgoblin			VISIBLE:NO
+Kobold			VISIBLE:NO
+Orc				VISIBLE:NO

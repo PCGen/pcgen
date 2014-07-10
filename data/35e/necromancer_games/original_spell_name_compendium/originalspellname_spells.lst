@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Original Spell Name Compendium	SOURCESHORT:SpellName	SOURCEWEB:http://www.necromancergames.com/legal.html	SOURCEDATE:2002-01
 # Original Entry by: Tir Gwaith
 
@@ -32,6 +32,6 @@ Floating Disk.MOD				OUTPUTNAME:Tensor's [NAME]
 Transformation.MOD			OUTPUTNAME:Tensor's [NAME]
 
 ###Block: Undetectable Aura (in the OSC revised, but not in SRD 3.5)
-# Spell Name						Description							Source Page
+# Spell Name						Source Page		Description
 Magic Aura.COPY=Nystal's Undetectable Aura
-Nystal's Undetectable Aura.MOD			DESC:Masks a magic item's aura from detection.	SOURCEPAGE:p.8
+Nystal's Undetectable Aura.MOD			SOURCEPAGE:p.8	DESC:Masks a magic item's aura from detection.

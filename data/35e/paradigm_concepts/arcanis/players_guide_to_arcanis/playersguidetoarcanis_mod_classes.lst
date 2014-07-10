@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -16,8 +16,8 @@ CLASS:Bard.MOD	CSKILL:Black Market|Research
 # Errata 2006-06-03 applied to cleric
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page			Bonus Languages			Save checks bonus											Combat bonus					Add domain number
-CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:ClassesI.rtf	LANGBONUS:Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:DOMAIN|NUMBER|2
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page			Bonus Languages			Save checks bonus											Combat bonus										Add domain number		Modify VAR
+CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:ClassesI.rtf	LANGBONUS:Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Deity
 CLASS:Cleric	PREDEITY:1,Y
 # Class Name	Skill Pts/Lvl	Class Skill

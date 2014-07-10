@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 ###Block: ~ Air Lord
@@ -49,11 +49,11 @@ Wyrmfoe Damage Resistance (Cold)							CATEGORY:Special Ability	TYPE:WyrmfoeDama
 Wyrmfoe Damage Resistance (Fire)							CATEGORY:Special Ability	TYPE:WyrmfoeDamageResistance	VISIBLE:DISPLAY	DEFINE:WyrmfoeDR|0																		ABILITY:Special Ability|AUTOMATIC|Resistance To Fire	BONUS:VAR|FireResistanceBonus|WyrmfoeDR
 
 ###Block: ~ Wyrm Spawn
-# Ability Name		Unique Key						Category of Ability		Description
+# Ability Name		Unique Key						Category of Ability		Description	Ability
 Draconic Blood		KEY:Draconic Blood ~ Wyrm Spawn		CATEGORY:Special Ability
 Resist Elements		KEY:Resist Elements ~ Wyrm Spawn		CATEGORY:Special Ability
 Immune to dragon fear	KEY:Immune to dragon fear ~ Wyrm Spawn	CATEGORY:Special Ability
 Innate Magic		KEY:Innate Magic ~ Wyrm Spawn			CATEGORY:Special Ability
 Draconic Hide		KEY:Draconic Hide ~ Wyrm Spawn		CATEGORY:Special Ability	DESC: +4
 Longevity			KEY:Longevity ~ Wyrm Spawn			CATEGORY:Special Ability
-Scent				KEY:Scent ~ Wyrm Spawn		CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Scent
+Scent				KEY:Scent ~ Wyrm Spawn				CATEGORY:Special Ability			ABILITY:Special Ability|AUTOMATIC|Scent

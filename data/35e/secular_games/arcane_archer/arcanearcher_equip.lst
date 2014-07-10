@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#aa	SOURCEDATE:2005-01
 
 #Originally done by Paul W. King
@@ -20,7 +20,7 @@ Hunter's Gift	TYPE:Armor.Light.Suit.Specific	COST:27000	WT:20		ACCHECK:-2		EQMOD
 Ring of Projectile Command	TYPE:Magic.Ring	COST:23000	SOURCEPAGE:34	VFEAT:Deflect Arrows
 
 ###BLOCK: Rod
-# Equipment Name		Output Name				Required Weapon Proficiency	Type																	Contains			Cost		Weight	Slot Needed	Base Item for EQMOD		Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Requires Modification?	Range		Source Page		Ability							Innate Spells																							Modify VAR			Weapon prop. bonus
+# Equipment Name		Output Name				Required Weapon Proficiency	Type																	Contains			Cost		Weight	Slot Needed	Base Item for EQMOD		Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Requires Modification?	Range		Source Page		Ability										Innate Spells																							Modify VAR			Weapon prop. bonus
 Rod (Hunter Might)	OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Longbow	TYPE:Magic.Rod.Weapon.Martial.Ranged.Standard.Piercing.Container.Projectile.Bow.Longbow.Composite	CONTAINS:1|Arrow=1	COST:51700	WT:3		SLOTS:2	BASEITEM:Longbow (Composite)	CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:MWORKW.PLUS2W.WOOD	MODS:REQUIRED		RANGE:110	SOURCEPAGE:p.34	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Seeker Arrow	SPELLS:Magic Item|TIMES=ATWILL|Darkvision|Detect Animals or Plants|Detect Snares and Pits	SPELLS:Magic Item|TIMES=3|Hold Person|Shield|True Strike	BONUS:VAR|SeekerArrow|1	BONUS:WEAPON|DAMAGE|min(STR,0)
 
 ###BLOCK: Shield

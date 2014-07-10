@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we	SOURCEDATE:2006-01
 # Original Entry by: Paul W. King, Jan 2007
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Heir of Balyk	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus										Modify VAR
+CLASS:Heir of Balyk	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required AL	Required Feat		Required Race		Required Skill									Req. Spell Type
 CLASS:Heir of Balyk	PREALIGN:LE	PREFEAT:1,Endurance	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Religion)=11,Knowledge (The Planes)=11	PRESPELLTYPE:1,Divine=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -24,8 +24,8 @@ CLASS:Heir of Balyk	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Scr
 9	BONUS:DOMAIN|NUMBER|1					ADD:SPELLCASTER|Divine
 10													ABILITY:Special Ability|AUTOMATIC|Extra Domain Spell
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Keeper of the Ice	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus										Modify VAR
+CLASS:Keeper of the Ice	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required Class				Multiple Requirements											Required Race		Required Skill						Req. Known Spell
 CLASS:Keeper of the Ice	PRECLASS:1,SPELLCASTER.Arcane=1	PREMULT:2,[PREFEAT:2,Spell Focus (Evocation),Endurance],[PREFEAT:2,TYPE.Metamagic]	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Arcana)=10,Survival=4	PRESPELL:1,Ice Storm
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -55,8 +55,8 @@ CLASS:Knight of the Frostfang	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Ani
 2	BONUS:VAR|SolidAsIce|CL/2	ABILITY:Special Ability|AUTOMATIC|Solid as Ice
 5						ABILITY:Special Ability|AUTOMATIC|Wolf Brotherhood
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Thrall of Gaulgardos	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus										Modify VAR
+CLASS:Thrall of Gaulgardos	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name			Required AL		Required Race		Required Skill								Req. Known Spell			Required Spell School
 CLASS:Thrall of Gaulgardos	PREALIGN:LE,NE,CE	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Arcana)=10,Knowledge (The Planes)=10	PRESPELL:1,Summon Monster IV	PRESPELLSCHOOL:2,Conjuration=3	PRESPELLSCHOOL:3,Conjuration=2
 # Class Name			Skill Pts/Lvl	Class Skill

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir-Gwaith
 
@@ -21,8 +21,8 @@ Knowledge (Cultures)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
 #	Conditionals that might be useful, but can be skipped for a first pass.
 
 ###Block: New skills
-# Skill Name		Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Classes			Type			Source Page		Bonus to skill
-Dragon Lore			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence	SOURCEPAGE:p.61	BONUS:SKILL|Knowledge (Dragons)|SKILL.Dragon Lore.RANK|TYPE=SkillGranted
+# Skill Name		Key Stat	Untrained?		Skill Penalty Apply	Exclusive?		Classes			Type			Source Page		Bonus to Situation										Bonus to skill
+Dragon Lore			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence	SOURCEPAGE:p.61														BONUS:SKILL|Knowledge (Dragons)|SKILL.Dragon Lore.RANK|TYPE=SkillGranted
 Improvised Trap Setting	KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	CLASSES:Ranger|Rogue	TYPE:Intelligence	SOURCEPAGE:p.62
 Sailing			KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES										TYPE:Dexterity	SOURCEPAGE:p.62
 Seduction			KEYSTAT:CHA	USEUNTRAINED:YES												TYPE:Charisma	SOURCEPAGE:p.63

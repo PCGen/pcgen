@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badaxegames.com	SOURCEDATE:2002-07
 # Original Entry by: Andrew Maitland
 
@@ -76,8 +76,8 @@ CLASS:Rune-Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 1	SPELLLEVEL:CLASS|Rune-Priest=5|Atonement,Commune,Flame Strike,Greater Command,Hallow,Healing Circle,Mark of Justice,Raise Dead,Righteous Might,Scrying,Spell Resistance,True Seeing
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Rock-Warden	HD:8		TYPE:PC.Prestige	ABB:RWarden		MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1BONUS:VAR|AnimalCompanionLVL|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus										Modify VAR
+CLASS:Rock-Warden	HD:8		TYPE:PC.Prestige	ABB:RWarden		MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1BONUS:VAR|AnimalCompanionLVL|CL
 # Class Name	Required Feat		Required Language	Required Skill							Req. Spell Type
 CLASS:Rock-Warden	PREFEAT:1,Blind-Fight	PRELANG:1,Terran	PRESKILL:3,Animal Empathy=8,Scry=8,Wilderness Lore=8	PRESPELLTYPE:1,Divine=2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -97,8 +97,8 @@ CLASS:Rock-Warden	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE
 ### COMMENT: Not sure if the types should be included - Can change to VAR if need be.
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
-CLASS:Stoneheart Ascetic	HD:8		TYPE:PC.Prestige	ABB:StoneA		MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus										Modify VAR
+CLASS:Stoneheart Ascetic	HD:8		TYPE:PC.Prestige	ABB:StoneA		MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name			Required Check Base		Required Feat													Required Skill					Required Text
 CLASS:Stoneheart Ascetic	PRECHECKBASE:1,Fortitude=6	PREFEAT:4,Endurance,Improved Unarmed Strike,Stunning Fist,Weapon Focus (Unarmed Strike)	PRESKILL:2,Concentration=6,Sense Motive=4	PRETEXT:Base unarmed damage 1d8
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -107,7 +107,7 @@ CLASS:Stoneheart Ascetic	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diploma
 ###Block: UDAM Progression
 1	BONUS:UDAM|CLASS.Monk|CL
 ###Block: Special Abilities
-1	BONUS:VAR|MonkStunningLVL|CL					
+1	BONUS:VAR|MonkStunningLVL|CL
 1	BONUS:VAR|WholenessHpLVL|CL	DEFINE:WholenessHpLVL|0
 1	BONUS:VAR|MonkACLVL|CL						ABILITY:Special Ability|VIRTUAL|Monk ~ AC Bonus
 ###Block: Level abilities
@@ -161,8 +161,8 @@ CLASS:Slayer ~ HoHFD	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Heal|
 10	BONUS:ABILITYPOOL|Slayer Feat|1	BONUS:ABILITYPOOL|Slayer Skill Mastery|1
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Tunnel-Fighter	HD:6		TYPE:PC.Prestige	ABB:TunFgt		MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus										Modify VAR
+CLASS:Tunnel-Fighter	HD:6		TYPE:PC.Prestige	ABB:TunFgt		MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Req. Att.	Required Feat								Required Race				Required Skill
 CLASS:Tunnel-Fighter	PREATT:5	PREFEAT:3,Alertness,Improved Initiative,Point Blank Shot	PRERACE:1,Dwarf,Gnome,Kobold,Goblin	PRESKILL:6,Craft (Trapmaking)=6,Hide=6,Survival=6,Move Silently=6,Spot=6,Tumble=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -178,8 +178,8 @@ CLASS:Tunnel-Fighter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disab
 10	BONUS:VAR|TunnelFightWall|-1
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Aceldamist	HD:6		TYPE:PC.Prestige	ABB:Aceld		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus										Modify VAR
+CLASS:Aceldamist	HD:6		TYPE:PC.Prestige	ABB:Aceld		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Check Base		Required Feat							Multiple Requirements											Required Skill									Required Casting Type	Req. Spell Type
 CLASS:Aceldamist	PRECHECKBASE:1,Fortitude=4	PREFEAT:3,Combat Casting,Dodge,Improved Initiative	PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]	PRESKILL:3,Concentration=6,Knowledge (Arcana)=6,Spellcraft=6	PRESPELLCAST:MEMORIZE=N	PRESPELLTYPE:1,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -198,8 +198,8 @@ CLASS:Aceldamist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Intimid
 10	BONUS:ABILITYPOOL|Aceldamist Feat|1	ADD:SPELLCASTER|Arcane
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Artificer	HD:6		TYPE:PC.Prestige	ABB:ArtF		MAXLEVEL:10	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus										Modify VAR
+CLASS:Artificer	HD:6		TYPE:PC.Prestige	ABB:ArtF		MAXLEVEL:10	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Feat					Multiple Requirements																																Required Skill											Req. Weapond Prof.
 CLASS:Artificer	PREFEAT:1,Craft Magic Arms and Armor	PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]	PREMULT:1,[PREFEAT:1,Shield Proficiency],[PREPROFWITHSHIELD:1,TYPE.Shield,TYPE.Buckler,TYPE.Tower,TYPE.Light,TYPE.Heavy]	PRESKILL:3,Craft (Armorsmithing)=9,Craft (Weaponsmithing)=9,Spellcraft=9	PREWEAPONPROF:2,TYPE.Simple,TYPE.Martial
 # Class Name	Skill Pts/Lvl	Class Skill

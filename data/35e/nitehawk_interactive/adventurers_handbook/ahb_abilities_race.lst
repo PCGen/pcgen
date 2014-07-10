@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir Gwaith
 
@@ -16,11 +16,11 @@ Gnome Halfling Blood										OUTPUTNAME:Gnome-Halfling Blood	CATEGORY:Special A
 Weapon Familiarity (Gnome Hooked Hammer)	KEY:Familiarity_Gnomling_gnome							CATEGORY:Special Ability	TYPE:SpecialQuality.GnomlingFamiliarity	VISIBLE:DISPLAY	DESC:Gnomlings raised in a gnomish community may treat gnome hooked hammers as martial weapons instead of exotic weapons.											CHANGEPROF:Hammer (Gnome Hooked)=Martial	SOURCEPAGE:p.11
 
 ###Block:Half-Dwarf abilities
-# Ability Name				Output Name												Category of Ability		Type						Visible		Description																												Ability									Bonus to skill																																						Source Page		Temporary effect description			Temporary Bonus
-Dwarven Blood																	CATEGORY:Special Ability	TYPE:SpecialQuality						DESC:For all purposes, half-dwarves are considered dwarves and may use weapons and items only useable by dwarves, and may be harmed by weapons meant to only harm dwarves.																																																			SOURCEPAGE:p.14
-Half Dwarf Stoneworking Skills	OUTPUTNAME:+1 bonus to Craft checks that are related to metal and stone.	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																																									BONUS:SKILL|Craft (Armorsmithing),Craft (Blacksmithing),Craft (Metalworking),Craft (Stonemasonry),Craft (Stoneworking),Craft (Weaponsmithing),Craft (Gemcutting),Craft (Lapidary),Craft (Stonemasonry),Craft (Whitesmithing)|1|TYPE=Racial	SOURCEPAGE:p.14	TEMPDESC:Adjusts Craft skill bonuses by 1	TEMPBONUS:PC|SKILL|TYPE.Craft|1|TYPE=Racial
+# Ability Name				Output Name												Category of Ability		Type						Visible		Description																												Ability												Bonus to skill																																						Source Page		Temporary effect description			Temporary Bonus
+Dwarven Blood																	CATEGORY:Special Ability	TYPE:SpecialQuality						DESC:For all purposes, half-dwarves are considered dwarves and may use weapons and items only useable by dwarves, and may be harmed by weapons meant to only harm dwarves.																																																						SOURCEPAGE:p.14
+Half Dwarf Stoneworking Skills	OUTPUTNAME:+1 bonus to Craft checks that are related to metal and stone.	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																																												BONUS:SKILL|Craft (Armorsmithing),Craft (Blacksmithing),Craft (Metalworking),Craft (Stonemasonry),Craft (Stoneworking),Craft (Weaponsmithing),Craft (Gemcutting),Craft (Lapidary),Craft (Stonemasonry),Craft (Whitesmithing)|1|TYPE=Racial	SOURCEPAGE:p.14	TEMPDESC:Adjusts Craft skill bonuses by 1	TEMPBONUS:PC|SKILL|TYPE.Craft|1|TYPE=Racial
 Raised in Dwarven community															CATEGORY:Special Ability	TYPE:Internal.HalfDwarfEarlyLife	VISIBLE:DISPLAY																														ABILITY:Special Ability|AUTOMATIC|Dwarf ~ Dodge Bonus|Dwarf ~ Attack Bonus																																									SOURCEPAGE:p.15
-Not raised in Dwarven community														CATEGORY:Special Ability	TYPE:Internal.HalfDwarfEarlyLife	VISIBLE:DISPLAY																																																																																SOURCEPAGE:p.15
+Not raised in Dwarven community														CATEGORY:Special Ability	TYPE:Internal.HalfDwarfEarlyLife	VISIBLE:DISPLAY																																																																																			SOURCEPAGE:p.15
 
 ###Block: Kiriton abilities
 # Ability Name		Output Name															Category of Ability		Type				Visible	Move		Ability																											Bonus to skill																																						Modify VAR				Source Page		Temporary effect description			Temporary Bonus

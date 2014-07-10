@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Elements of Magic (Revised)	SOURCESHORT:EOM	SOURCEWEB:http://www.enworld.org/forum/e-n-publishing/	SOURCEDATE:2002-01
 #Original Entry: Joe Frazier, Clean up by Andrew Maitland
 
@@ -11,7 +11,7 @@ Magic Points ~ Bonus	OUTPUTNAME:Bonus Magic Points	CATEGORY:Special Ability	TYPE
 Magic Points ~ Total	OUTPUTNAME:Total Magic Points	CATEGORY:Special Ability	TYPE:SpecialQuality																										DESC:%1|TotalSpellPoints																																																			ASPECT:Ability Benefit|(%1)|TotalSpellPoints
 
 ###Block: Skill Mastery
-# Ability Name						Type
+# Ability Name										Type
 CATEGORY=Special Ability|Rogue Special Ability ~ Skill Mastery.MOD	TYPE:TaskmageSkillMastery
 
 ###Block: Boons ---------------------------------------------------------------------------

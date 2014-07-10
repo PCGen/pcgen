@@ -1,11 +1,9 @@
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 # To be placed in Central location once finished
 
 # Unearthed Arcana Sources
 
 
+# Skill Name			Untrained?		Exclusive?
 Knowledge (Forbidden Lore)	USEUNTRAINED:NO	EXCLUSIVE:YES
-
-
-
-

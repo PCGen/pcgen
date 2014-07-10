@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Secrets of Theurgy	SOURCESHORT:SoTheurgy	SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&	SOURCEDATE:2004-07
 
 # Class Name
@@ -9,9 +9,9 @@ CLASS:Mystic Theurge.MOD
 CLASS:Druid.MOD
 SUBSTITUTIONCLASS:Elemental Druid Option
 SUBSTITUTIONLEVEL:1			BONUS:DOMAIN|NUMBER|1
-SUBSTITUTIONLEVEL:1															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies											AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
-SUBSTITUTIONLEVEL:1															ABILITY:Special Ability|AUTOMATIC|Druid ~ Wild Shape
-SUBSTITUTIONLEVEL:1															ABILITY:Special Ability|AUTOMATIC|Druid ~ Animal Companion|Druid ~ Nature Sense|Spontaneous casting ~ Summon Nature's Ally|Druid ~ Wild Empathy
+SUBSTITUTIONLEVEL:1																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+SUBSTITUTIONLEVEL:1																ABILITY:Special Ability|AUTOMATIC|Druid ~ Wild Shape
+SUBSTITUTIONLEVEL:1																ABILITY:Special Ability|AUTOMATIC|Druid ~ Animal Companion|Druid ~ Nature Sense|Spontaneous casting ~ Summon Nature's Ally|Druid ~ Wild Empathy
 SUBSTITUTIONLEVEL:1							BONUS:VAR|DruidWildShape|CL
 #SUBSTITUTIONLEVEL:1			PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
 #SUBSTITUTIONLEVEL:1			PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG

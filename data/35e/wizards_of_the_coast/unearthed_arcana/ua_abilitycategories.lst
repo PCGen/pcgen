@@ -1,74 +1,74 @@
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
-ABILITYCATEGORY:Totem Barbarian	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF	TYPE:Totem Barbarian	PLURAL:Totem Barbarian Variants	DISPLAYLOCATION:Class Features
-
-
-
-# Ability Category	Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object	Display Location
-ABILITYCATEGORY:Flaws	VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Flaws		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Traits	VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Traits		DISPLAYLOCATION:Racial Abilities
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list		Plural description for UI			Display Location
+ABILITYCATEGORY:Totem Barbarian					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF			TYPE:Totem Barbarian									PLURAL:Totem Barbarian Variants		DISPLAYLOCATION:Class Features
 
 
 
-# Ability Category				Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object					Plural description for UI		Display Location
-ABILITYCATEGORY:Human Paragon Stat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HumanParagon					PLURAL:Human Paragon Stats		DISPLAYLOCATION:Race Abilities
-ABILITYCATEGORY:Adaptive Learning Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HumanParagonAdaptiveLearningChoice	PLURAL:Adaptive Learning Choice	DISPLAYLOCATION:Race Abilities
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list		Plural description for UI			Display Location
+ABILITYCATEGORY:Flaws							VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Flaws																		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Traits							VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Traits																		DISPLAYLOCATION:Racial Abilities
 
 
 
-ABILITYCATEGORY:Elf Paragon Weapon Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WeaponFocusElfParagon									DISPLAYLOCATION:Race Abilities
-ABILITYCATEGORY:Half-Elf Paragon Stat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HalfElfParagonStat				PLURAL:Half-Elf Paragon Stats		DISPLAYLOCATION:Race Abilities
-
-ABILITYCATEGORY:Tiefling Resistance Boost	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TieflingResistanceChoice			PLURAL:Tiefling Resistance Boost	DISPLAYLOCATION:Race Abilities
-
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list		Plural description for UI			Display Location
+ABILITYCATEGORY:Human Paragon Stat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:HumanParagon										PLURAL:Human Paragon Stats			DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Adaptive Learning Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:HumanParagonAdaptiveLearningChoice						PLURAL:Adaptive Learning Choice		DISPLAYLOCATION:Race Abilities
 
 
 
+ABILITYCATEGORY:Elf Paragon Weapon Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WeaponFocusElfParagon															DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Half-Elf Paragon Stat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:HalfElfParagonStat									PLURAL:Half-Elf Paragon Stats			DISPLAYLOCATION:Race Abilities
 
-
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI		Display Location
-ABILITYCATEGORY:Barbarian Rage Variant	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RageChoice	PLURAL:Barbarian Rage Variants	DISPLAYLOCATION:Class Abilities
-
-# Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
-ABILITYCATEGORY:Bard Variant	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BardVariant	PLURAL:Bard Variants		DISPLAYLOCATION:Class Abilities
-
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Prestige Bard Unique Spells	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AddBardSpellCasting	PLURAL:Prestige Bard Unique Spells	DISPLAYLOCATION:Class Abilities
-
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Prestige Paladin Unique Spells	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AddPaladinSpellCasting	PLURAL:Prestige Paladin Unique Spells	DISPLAYLOCATION:Class Abilities
-
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Prestige Ranger Bonus Feats	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PrestigeRangerBonusFeat	PLURAL:Prestige Ranger Bonus Feats		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Prestige Ranger Unique Spells	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AddRangerSpellCasting	PLURAL:Prestige Ranger Unique Spells	DISPLAYLOCATION:Class Abilities
-
-ABILITYCATEGORY:Thug Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Fighter	ABILITYLIST:Urban Tracking			PLURAL:Thug Feats		DISPLAYLOCATION:Feats
-
-ABILITYCATEGORY:Monk Fighting Style	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:MonkFightingStyle		PLURAL:Monk Fighting Styles		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Tiefling Resistance Boost				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:TieflingResistanceChoice								PLURAL:Tiefling Resistance Boost		DISPLAYLOCATION:Race Abilities
 
 
 
-ABILITYCATEGORY:Expert Good Save				CATEGORY:Internal	TYPE:GenericExpertSave			DISPLAYLOCATION:Class Features	EDITABLE:YES	VISIBLE:QUALIFY	EDITPOOL:NO
-ABILITYCATEGORY:Divine Spellcaster Good Save		CATEGORY:Internal	TYPE:GenericDivineSpellCasterSave	DISPLAYLOCATION:Class Features	EDITABLE:YES	VISIBLE:QUALIFY	EDITPOOL:NO
-ABILITYCATEGORY:Arcane Spellcaster Good Save		CATEGORY:Internal	TYPE:GenericArcaneSpellCasterSave	DISPLAYLOCATION:Class Features	EDITABLE:YES	VISIBLE:QUALIFY	EDITPOOL:NO
-ABILITYCATEGORY:Warrior Good Save				CATEGORY:Internal	TYPE:GenericWarriorSave			DISPLAYLOCATION:Class Features	EDITABLE:YES	VISIBLE:QUALIFY	EDITPOOL:NO
-
-ABILITYCATEGORY:Generic Class Bonus Selection		CATEGORY:Internal	TYPE:GenericClassFeatChoice		DISPLAYLOCATION:Class Features	EDITABLE:YES	VISIBLE:QUALIFY	EDITPOOL:NO
 
 
-ABILITYCATEGORY:Generic Class Bonus Feat			CATEGORY:FEAT	TYPE:*			DISPLAYLOCATION:Feats	EDITABLE:YES	VISIBLE:QUALIFY	EDITPOOL:NO
-ABILITYCATEGORY:Generic Class Feature			CATEGORY:Special Ability	TYPE:GenericClassFeature			DISPLAYLOCATION:Class Features	EDITABLE:YES	VISIBLE:QUALIFY	EDITPOOL:NO
 
-ABILITYCATEGORY:Generic Arcane Spellcaster Stat Selection		CATEGORY:Internal	TYPE:GCArcaneCasterStat		DISPLAYLOCATION:Class Features	EDITABLE:YES	VISIBLE:QUALIFY	EDITPOOL:NO
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list		Plural description for UI			Display Location
+ABILITYCATEGORY:Barbarian Rage Variant				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RageChoice										PLURAL:Barbarian Rage Variants		DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Bloodline					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:Bloodline		PLURAL:Bloodlines		DISPLAYLOCATION:Misc
-ABILITYCATEGORY:Swift Scion Ability				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:SwiftScionAbility		PLURAL:Swift Scion Abilities		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Item Familiar Special Ability		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:Item Familiar Special Ability		PLURAL:Swift Scion Abilities		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Contact						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:Contact		PLURAL:Contacts		DISPLAYLOCATION:Class Features
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list		Plural description for UI			Display Location
+ABILITYCATEGORY:Bard Variant						VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BardVariant										PLURAL:Bard Variants				DISPLAYLOCATION:Class Abilities
+
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list		Plural description for UI			Display Location
+ABILITYCATEGORY:Prestige Bard Unique Spells			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AddBardSpellCasting								PLURAL:Prestige Bard Unique Spells		DISPLAYLOCATION:Class Abilities
+
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list		Plural description for UI			Display Location
+ABILITYCATEGORY:Prestige Paladin Unique Spells			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AddPaladinSpellCasting								PLURAL:Prestige Paladin Unique Spells	DISPLAYLOCATION:Class Abilities
+
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list		Plural description for UI			Display Location
+ABILITYCATEGORY:Prestige Ranger Bonus Feats			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PrestigeRangerBonusFeat								PLURAL:Prestige Ranger Bonus Feats		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Prestige Ranger Unique Spells			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AddRangerSpellCasting								PLURAL:Prestige Ranger Unique Spells	DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Thug Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Fighter					ABILITYLIST:Urban Tracking	PLURAL:Thug Feats					DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Monk Fighting Style					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MonkFightingStyle									PLURAL:Monk Fighting Styles			DISPLAYLOCATION:Class Abilities
 
 
-ABILITYCATEGORY:Reputation Modifier				VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:ReputationRules		PLURAL:Reputation Modifer		DISPLAYLOCATION:Misc
-ABILITYCATEGORY:Honor Modifier				VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:HonorAdjustment		PLURAL:Honor Modifer		DISPLAYLOCATION:Misc
-ABILITYCATEGORY:Taint System					VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:TaintSystem		PLURAL:Taint Modifer		DISPLAYLOCATION:Misc
-ABILITYCATEGORY:Fobidden Lore Modifier			VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO	FRACTIONALPOOL:NO		CATEGORY:Internal				TYPE:ForbiddenLore		PLURAL:Forbidden Lore Modifer		DISPLAYLOCATION:Misc
+
+ABILITYCATEGORY:Expert Good Save					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:GenericExpertSave																DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Divine Spellcaster Good Save			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:GenericDivineSpellCasterSave														DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Arcane Spellcaster Good Save			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:GenericArcaneSpellCasterSave														DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Warrior Good Save					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:GenericWarriorSave																DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Generic Class Bonus Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:GenericClassFeatChoice															DISPLAYLOCATION:Class Features
 
 
+ABILITYCATEGORY:Generic Class Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:FEAT			TYPE:*																		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Generic Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:GenericClassFeature															DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Generic Arcane Spellcaster Stat Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:GCArcaneCasterStat																DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Bloodline						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Bloodline										PLURAL:Bloodlines					DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Swift Scion Ability					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SwiftScionAbility									PLURAL:Swift Scion Abilities			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Item Familiar Special Ability			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Item Familiar Special Ability							PLURAL:Swift Scion Abilities			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Contact							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Contact										PLURAL:Contacts					DISPLAYLOCATION:Class Features
+
+
+ABILITYCATEGORY:Reputation Modifier					VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ReputationRules									PLURAL:Reputation Modifer			DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Honor Modifier					VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HonorAdjustment									PLURAL:Honor Modifer				DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Taint System						VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TaintSystem										PLURAL:Taint Modifer				DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Fobidden Lore Modifier				VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:ForbiddenLore									PLURAL:Forbidden Lore Modifer			DISPLAYLOCATION:Misc

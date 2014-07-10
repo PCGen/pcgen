@@ -1,13 +1,13 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
 
 #Chain Dancer
-# Ability Name						Unique Key										Category of Ability		Type							Req. Weapond Prof.				Prohibited Weapond Prof.		Special ABility					Define					Description																																											Stackable?	Multiple?	Choose															Automatically Gained Feat				Automatically Gained Language	Automatically Gained Weapon Prof.	Add 			Bonus to skill					Modify VAR					Weapon prof. bonus							Temporary effect description																																							Temporary Bonus
-Enthrall							KEY:Enthrall ~ Chain Dancer							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																						DEFINE:EnthralledCreatures|0		DESC:%1d4 creatures effected for %2 rounds|EnthralledCreatures|EnthrallDuration|PREVARLT:EnthralledCreatures,4																																																																											BONUS:VAR|EnthralledCreatures|CL
-Master Enthrall						KEY:Master Enthrall ~ Chain Dancer						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																						DEFINE:EnthrallDuration|0		DESC:%1d4 creatures effected for %2 rounds|EnthralledCreatures|EnthrallDuration|PREVARGTEQ:EnthralledCreatures,4																																																																											BONUS:VAR|EnthrallDuration|CL
-Chain Parry							KEY:Chain Parry ~ Chain Dancer						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																						DEFINE:ChainParryAC|0			DESC:+%1|ChainParryAC																																																													AUTO:FEAT|Weapon Specialization(Chain (Spiked))																						BONUS:VAR|ChainParryAC|CL												TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	TEMPBONUS:PC|COMBAT|AC|ChainParryAC|TYPE=Temporary
+# Ability Name						Unique Key										Category of Ability		Type							Req. Weapond Prof.				Prohibited Weapond Prof.		Special ABility					Define					Description																																											Stackable?	Multiple?	Choose															Automatically Gained Feat				Automatically Gained Language	Automatically Gained Weapon Prof.	Bonus to Ability Pool		Bonus to skill					Modify VAR					Weapon prof. bonus							Temporary effect description																																							Temporary Bonus
+Enthrall							KEY:Enthrall ~ Chain Dancer							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																						DEFINE:EnthralledCreatures|0		DESC:%1d4 creatures effected for %2 rounds|EnthralledCreatures|EnthrallDuration|PREVARLT:EnthralledCreatures,4																																																																													BONUS:VAR|EnthralledCreatures|CL
+Master Enthrall						KEY:Master Enthrall ~ Chain Dancer						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																						DEFINE:EnthrallDuration|0		DESC:%1d4 creatures effected for %2 rounds|EnthralledCreatures|EnthrallDuration|PREVARGTEQ:EnthralledCreatures,4																																																																													BONUS:VAR|EnthrallDuration|CL
+Chain Parry							KEY:Chain Parry ~ Chain Dancer						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																						DEFINE:ChainParryAC|0			DESC:+%1|ChainParryAC																																																													AUTO:FEAT|Weapon Specialization(Chain (Spiked))																								BONUS:VAR|ChainParryAC|CL												TEMPDESC:when armed with a spiked chain or elongated spiked chain the chain dancer can use his weapon of choice to attempt to automatically parry other attacks. This will apply an AC bonus valid when the character has a spiked chain and is not flatfooted.	TEMPBONUS:PC|COMBAT|AC|ChainParryAC|TYPE=Temporary
 Weapon Use (Elongated Spiked Chain)			KEY:Weapon Use (Elongated Spiked Chain) ~ Chain Dancer		CATEGORY:Special Ability	TYPE:SpecialQuality
 Weapon Proficiency (Elongated Spiked Chain)	KEY:Weapon Proficiency (Elongated Spiked Chain) ~ Chain Dancer	CATEGORY:Special Ability	TYPE:SpecialQuality
 
@@ -65,16 +65,16 @@ Damned							KEY:Damned ~ Shadowtamer							CATEGORY:Special Ability	TYPE:Specia
 # Feat Name					Type				Visible	Req. Weapond Prof.				Prohibited Weapond Prof.		Special ABility					Stackable?	Multiple?	Choose																Automatically Gained Weapon Prof.	Add 			Automatic Languages	Bonus to skill						Weapon prof. bonus							Temporary effect description
 Military Longsword Proficiency														CATEGORY:Special Ability	TYPE:SpecialQuality.MilitaryWeapon									!PREWEAPONPROF:1,Longsword																																																																																												AUTO:WEAPONPROF|Longsword
 Military Shortsword Proficiency														CATEGORY:Special Ability	TYPE:SpecialQuality.MilitaryWeapon									!PREWEAPONPROF:1,Sword (Short)																																																																																											AUTO:WEAPONPROF|Sword (Short)
-Military Longsword Competence															CATEGORY:Special Ability	TYPE:SpecialQuality.MilitaryWeapon		PREWEAPONPROF:2,Longsword,Sword (Short)																																																																																																																							BONUS:WEAPONPROF=Longsword|DAMAGE|1|TYPE=Competence
-Military Shortsword Competence														CATEGORY:Special Ability	TYPE:SpecialQuality.MilitaryWeapon		PREWEAPONPROF:2,Longsword,Sword (Short)																																																																																																																							BONUS:WEAPONPROF=Sword (Short)|DAMAGE|1|TYPE=Competence
+Military Longsword Competence															CATEGORY:Special Ability	TYPE:SpecialQuality.MilitaryWeapon		PREWEAPONPROF:2,Longsword,Sword (Short)																																																																																																																									BONUS:WEAPONPROF=Longsword|DAMAGE|1|TYPE=Competence
+Military Shortsword Competence														CATEGORY:Special Ability	TYPE:SpecialQuality.MilitaryWeapon		PREWEAPONPROF:2,Longsword,Sword (Short)																																																																																																																									BONUS:WEAPONPROF=Sword (Short)|DAMAGE|1|TYPE=Competence
 
-Tutored Knowledge																	CATEGORY:Special Ability	TYPE:SpecialQuality.BackgroundSupport																																																																							STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Knowledge																																BONUS:SKILL|LIST|2|PREFEAT:1,Tutored
-Tutored Craft																	CATEGORY:Special Ability	TYPE:SpecialQuality.BackgroundSupport																																																																							STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Craft																																BONUS:SKILL|LIST|2|PREFEAT:1,Tutored
+Tutored Knowledge																	CATEGORY:Special Ability	TYPE:SpecialQuality.BackgroundSupport																																																																							STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Knowledge																																		BONUS:SKILL|LIST|2|PREFEAT:1,Tutored
+Tutored Craft																	CATEGORY:Special Ability	TYPE:SpecialQuality.BackgroundSupport																																																																							STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Craft																																		BONUS:SKILL|LIST|2|PREFEAT:1,Tutored
 
 Speaks Homish																	CATEGORY:Special Ability	TYPE:SpecialQuality.HomeLanguage																																																																																																				AUTO:LANG|Homish
 Does not speak Homish																CATEGORY:Special Ability	TYPE:SpecialQuality.HomeLanguage
 
-Fame - Standard Usage																CATEGORY:Special Ability	TYPE:SpecialQuality.FameSupport															SAB:+1 to Social skills when in %CHOICE																																																			STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Remarian|Shintai																																														TEMPDESC:Apply this temporary bonus when you are in the country you are famous in																														TEMPBONUS:PC|SKILL|TYPE=Social|1|TYPE=Fame
+Fame - Standard Usage																CATEGORY:Special Ability	TYPE:SpecialQuality.FameSupport															SAB:+1 to Social skills when in %CHOICE																																																			STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Remarian|Shintai																																																TEMPDESC:Apply this temporary bonus when you are in the country you are famous in																														TEMPBONUS:PC|SKILL|TYPE=Social|1|TYPE=Fame
 Fame - Optional Usage																CATEGORY:Special Ability	TYPE:SpecialQuality.FameSupport															SAB:+2 to Social skills when in %CHOICE																																																			STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Remarian|Shintai																				BONUS:ABILITYPOOL|Infamous|1																								TEMPDESC:Apply this temporary bonus when you are in the country you are famous in																														TEMPBONUS:PC|SKILL|TYPE=Social|2|TYPE=Fame
 Infamous																		CATEGORY:Special Ability	TYPE:SpecialQuality.Special																SAB:-1 to Charisma checks when in %CHOICE																																																			STACK:NO	MULT:YES	CHOOSE:STRING|Aeylamdyarian|Calisian|Desolati|Gadohig|Galkarnan|Home|Launhym|Remarian|Shintai
 
@@ -82,14 +82,14 @@ Infamous																		CATEGORY:Special Ability	TYPE:SpecialQuality.Special		
 
 # Feat support for - Triumphant Hero of Launhym
 # Feat Name					Type				Visible		Description												Stackable?	Multiple?	Choose					Caster level				Bonus to skill		Stat bonus
-# Ability Name				Category of Ability		Type						Visible		Description												Stackable?	Multiple?	Choose				Caster level				Bonus to skill		Stat bonus
-Triumphant Hero Ability Score Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.Special																		STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL													BONUS:STAT|%LIST|1
-Leadership					CATEGORY:Special Ability	AUTO:FEAT|Leadership	
+# Ability Name				Category of Ability		Type						Visible		Description												Stackable?	Multiple?	Choose				Automatically Gained Feat	Caster level				Bonus to skill		Stat bonus
+Triumphant Hero Ability Score Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.Special																		STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL																		BONUS:STAT|%LIST|1
+Leadership					CATEGORY:Special Ability																																AUTO:FEAT|Leadership
 
 # Feat support for - Damnation (aka Ylviuss' Wish)
-Damnation ~ Skill Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|ALL							BONUS:SKILL|%LIST|5
-Damnation ~ Arcane Power		CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:SCHOOLS|ALL		BONUS:CASTERLEVEL|SCHOOL.%LIST|1
-Damnation ~ Might				CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL														BONUS:STAT|%LIST|2
+Damnation ~ Skill Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|ALL												BONUS:SKILL|%LIST|5
+Damnation ~ Arcane Power		CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:SCHOOLS|ALL							BONUS:CASTERLEVEL|SCHOOL.%LIST|1
+Damnation ~ Might				CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You have effectively been granted a wish by Ylviuss.				STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL																		BONUS:STAT|%LIST|2
 Damnation ~ Mystic Forces		CATEGORY:Special Ability	TYPE:SpecialQuality.DamnationReward	VISIBLE:EXPORT	DESC:You may cast one arcane or divine spell once as a caster of 20th level.
 
 ###Block: Racial Abilties --------------------------------------------------------------------------------
@@ -105,7 +105,7 @@ Light Blindness	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	TEMPD
 
 ###Block: Homefront Guardian
 # Feat Name					Type			Visible	Stackable?	Multiple?	Choose													Bonus to skill
-# Ability Name				Category of Ability		Type						Stackable?	Multiple?	Choose												Bonus to skill
+# Ability Name				Category of Ability		Type						Stackable?	Multiple?	Choose															Bonus to skill
 Homefront Guardian Skill Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassFeature	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Craft (Alchemy)|Bluff|Climb|Forgery|Hide|Open Lock|Move Silently	BONUS:SKILL|LIST|2|TYPE=Class
 
 ###Block: Knight of Pure Heart
@@ -155,24 +155,24 @@ Blood Oath (Direct Action)	CATEGORY:Special Ability	TYPE:SpecialQuality.Special	
 
 ###Block: Shadowtamer
 # Feat Name			Type			Visible	Special ABility		Define			Allow Follower			Allowed Companions
-# Ability Name		Category of Ability		Type					Define			Allow Follower			Allowed Companions
-Summon Shadow Beast	CATEGORY:Special Ability	TYPE:SpecialQuality.Special	DEFINE:ShadowBeast|0	FOLLOWERS:Shadow Beast|1	COMPANIONLIST:Shadow Beast|Baboon,Badger,Bat,Cat,Dog,Dog (Riding),Donkey,Eagle,Hawk,Hyena,Lizard,Monkey,Octopus,Owl,Pony,Pony (War),Porpoise,Rat,Raven,Snake (Viper/Medium),Snake (Viper/Small),Snake (Viper/Tiny),Toad,Weasel,Wolf,Wolverine
+# Ability Name		Unique Key						Category of Ability		Type					Define			Allow Follower			Allowed Companions
+Summon Shadow Beast								CATEGORY:Special Ability	TYPE:SpecialQuality.Special	DEFINE:ShadowBeast|0	FOLLOWERS:Shadow Beast|1	COMPANIONLIST:Shadow Beast|Baboon,Badger,Bat,Cat,Dog,Dog (Riding),Donkey,Eagle,Hawk,Hyena,Lizard,Monkey,Octopus,Owl,Pony,Pony (War),Porpoise,Rat,Raven,Snake (Viper/Medium),Snake (Viper/Small),Snake (Viper/Tiny),Toad,Weasel,Wolf,Wolverine
 
 #
 # End
 #
 
-Enhance Arrow	KEY:Enhance Arrow ~ Blizzard Archer		CATEGORY:Special Ability	TYPE:SpecialQuality
-Imbue Arrow		KEY:Imbue Arrow ~ Blizzard Archer		CATEGORY:Special Ability	TYPE:SpecialQuality
-Frost Arrow		KEY:Frost Arrow ~ Blizzard Archer		CATEGORY:Special Ability	TYPE:SpecialQuality
-Winter Wolf Bite	KEY:Winter Wolf Bite ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
-Freezing Arrow	KEY:Freezing Arrow ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
-Icy Burst Arrow	KEY:Icy Burst Arrow ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
-Hail of Arrows	KEY:Hail of Arrows ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
-Arrow of Death	KEY:Arrow of Death ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Enhance Arrow		KEY:Enhance Arrow ~ Blizzard Archer		CATEGORY:Special Ability	TYPE:SpecialQuality
+Imbue Arrow			KEY:Imbue Arrow ~ Blizzard Archer		CATEGORY:Special Ability	TYPE:SpecialQuality
+Frost Arrow			KEY:Frost Arrow ~ Blizzard Archer		CATEGORY:Special Ability	TYPE:SpecialQuality
+Winter Wolf Bite		KEY:Winter Wolf Bite ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Freezing Arrow		KEY:Freezing Arrow ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Icy Burst Arrow		KEY:Icy Burst Arrow ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Hail of Arrows		KEY:Hail of Arrows ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Arrow of Death		KEY:Arrow of Death ~ Blizzard Archer	CATEGORY:Special Ability	TYPE:SpecialQuality
 
-Imbue Arrow		KEY:Imbue Arrow ~ Deepwood Guardian			CATEGORY:Special Ability	TYPE:SpecialQuality
-True Strike		KEY:True Strike ~ Deepwood Guardian			CATEGORY:Special Ability	TYPE:SpecialQuality
-Arrow of Sleep	KEY:Arrow of Sleep ~ Deepwood Guardian		CATEGORY:Special Ability	TYPE:SpecialQuality
-Arrow of Slow	KEY:Arrow of Slow ~ Deepwood Guardian		CATEGORY:Special Ability	TYPE:SpecialQuality
-Arrow of Death	KEY:Arrow of Death ~ Deepwood Guardian		CATEGORY:Special Ability	TYPE:SpecialQuality
+Imbue Arrow			KEY:Imbue Arrow ~ Deepwood Guardian		CATEGORY:Special Ability	TYPE:SpecialQuality
+True Strike			KEY:True Strike ~ Deepwood Guardian		CATEGORY:Special Ability	TYPE:SpecialQuality
+Arrow of Sleep		KEY:Arrow of Sleep ~ Deepwood Guardian	CATEGORY:Special Ability	TYPE:SpecialQuality
+Arrow of Slow		KEY:Arrow of Slow ~ Deepwood Guardian	CATEGORY:Special Ability	TYPE:SpecialQuality
+Arrow of Death		KEY:Arrow of Death ~ Deepwood Guardian	CATEGORY:Special Ability	TYPE:SpecialQuality

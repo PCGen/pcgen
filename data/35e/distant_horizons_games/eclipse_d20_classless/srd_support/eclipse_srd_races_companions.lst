@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 
 
@@ -5,7 +6,8 @@
 
 
 ###Block: Familiars
-#Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel	
+#Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel
+# Race Name			Race Subtype
 Bat.MOD			RACESUBTYPE:Familiar
 Cat.MOD			RACESUBTYPE:Familiar
 Hawk.MOD			RACESUBTYPE:Familiar

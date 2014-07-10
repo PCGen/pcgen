@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jun 22 17:23:35 2014 -- reformated by prettylst.pl v1.51 (build 24190)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 
 
@@ -32,10 +32,10 @@ ABILITYCATEGORY:Familiar Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO					
 
 
 ###Block: Alternate Class Features
-# Ability Category				Visible	Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI		Display Location
+# Ability Category				Visible	Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI		Display Location
 ABILITYCATEGORY:ACF				VISIBLE:NO	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF
-ABILITYCATEGORY:Alternate Class Feature	VISIBLE:YES	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF		TYPE:ACF		PLURAL:Alternate Class Features	DISPLAYLOCATION:Misc
-ABILITYCATEGORY:Alternate Rules				VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:AltRules		PLURAL:Alternate Rules	DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Alternate Class Feature	VISIBLE:YES	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF			TYPE:ACF		PLURAL:Alternate Class Features	DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Alternate Rules		VISIBLE:YES	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AltRules	PLURAL:Alternate Rules			DISPLAYLOCATION:Misc
 
 ###Block: Homebrew and Supplemental Support
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object	Specific choices list				Display Location

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Bastion Press - Into the Black	SOURCESHORT:itblk	SOURCEDATE:2003-01
 #Original Entry: Andrew (LegacyKing) Maitland
 
@@ -111,14 +111,14 @@ Detach Spores									CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	
 Population Explosion								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																																																												SOURCEPAGE:p.69
 
 ###Block: Extras ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name	Unique Key		Category of Ability		Type								Visible	Source Page
-Adhesive Grapple				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary					SOURCEPAGE:p.22
+# Ability Name			Unique Key		Category of Ability		Type								Visible	Source Page
+Adhesive Grapple						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary					SOURCEPAGE:p.22
 #Blindsense					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense				SOURCEPAGE:rsrd
-Consume Item				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.23
-Consume Magic				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.23
-Magic Aura					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.22
-See in Darkness				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		VISIBLE:YES	SOURCEPAGE:p.66
-Telepathy		KEY:Telepathy ~Su	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES	SOURCEPAGE:p.28
+Consume Item						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.23
+Consume Magic						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.23
+Magic Aura							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.22
+See in Darkness						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		VISIBLE:YES	SOURCEPAGE:p.66
+Telepathy				KEY:Telepathy ~Su	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES	SOURCEPAGE:p.28
 
 #
-Canny Defense ~ Pallemon		CATEGORY:Special Ability	TYPE:SpecialQuality
+Canny Defense ~ Pallemon				CATEGORY:Special Ability	TYPE:SpecialQuality

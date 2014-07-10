@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Aug 22 00:14:43 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:CCTPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/v5748btpy806v	SOURCEDATE:2008-02
 
 # Deities of Golarion
-# Deity Name	Product Identity?	Domains												Desciption of Deity/Title					Deity Weapon						Alignment	Source Page
+# Deity Name	Product Identity?	Domains												Description of Deity/Title					Deity Weapon						Alignment	Source Page
 Erastil		NAMEISPI:YES	DOMAINS:Animal,Community,Good,Law,Plant|PREALIGN:LG,NG,LN				DESC:God Of Farming, Hunting, Trade, Family		DEITYWEAP:Longbow						ALIGN:LG	SOURCEPAGE:p. 9
 Iomedae		NAMEISPI:YES	DOMAINS:Glory,Good,Law,Sun,War|PREALIGN:LG,NG,LN					DESC:Goddess Of Valor, Rulership, Justice, Honor	DEITYWEAP:Longsword					ALIGN:LG	SOURCEPAGE:p. 9
 Torag			NAMEISPI:YES	DOMAINS:Artifice,Earth,Good,Law,Protection|PREALIGN:LG,NG,LN			DESC:God Of The Forge, Protection, Strategy		DEITYWEAP:Warhammer					ALIGN:LG	SOURCEPAGE:p. 9

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir Gwaith
 
@@ -15,10 +15,10 @@ CLASS:Bounty Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Gather Informat
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies|Bounty Hunter Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1																						AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block:Level Progression
-1																							AUTO:FEAT|Track
+1																									AUTO:FEAT|Track
 1	BONUS:ABILITYPOOL|Favored Prey Choice|1
-2																							AUTO:FEAT|Endurance
-3																							AUTO:FEAT|Improved Unarmed Strike
+2																									AUTO:FEAT|Endurance
+3																									AUTO:FEAT|Improved Unarmed Strike
 5	BONUS:ABILITYPOOL|Favored Prey Choice|CL/5
 8													ABILITY:Special Ability|AUTOMATIC|Base of Operations
 10									BONUS:VAR|Reputation|1	ABILITY:Special Ability|AUTOMATIC|Reputation|Ranger ~ Swift Tracker
@@ -126,8 +126,8 @@ CLASS:Ex-Shamans	HD:6		SOURCEPAGE:p.42	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BA
 18	BONUS:VAR|ShamanBAB|1
 20	BONUS:VAR|ShamanBAB|1
 
-# Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
-CLASS:Witch		HD:4		TYPE:Base.PC	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus										Modify VAR
+CLASS:Witch		HD:4		TYPE:Base.PC	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required AL
 CLASS:Witch		PREALIGN:LN,NG,TN,CN,NE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -135,10 +135,10 @@ CLASS:Witch		STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Craft (Alchemy)|Craft (A
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Witch|CL
 ###Block:Proficiencies
-1																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies		AUTO:FEAT|Simple Weapon Proficiency
 #Block: Level Progression
 1						BONUS:ABILITYPOOL|Witch Favored Race|1	BONUS:VAR|EmpoweredCharmBonus|2	DEFINE:EmpoweredCharmBonus|0	ABILITY:Special Ability|AUTOMATIC|Empowered Charm|Wizard ~ Familiar	AUTO:FEAT|Scribe Scroll
-3																																			AUTO:FEAT|Brew Potion
+3																																				AUTO:FEAT|Brew Potion
 5						BONUS:ABILITYPOOL|Witch Favored Race|CL/5	BONUS:VAR|EmpoweredCharmBonus|CL/5
 13																								ABILITY:Special Ability|AUTOMATIC|Improved Brewing
 #Block: Spell Casting Progression
@@ -166,8 +166,8 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Witch|CL
 #Witch has exclass, but all it says is you can't advance without atonement, no loss of spells, or powers.
 
 
-# Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Mentalist	HD:8		TYPE:Base.PC	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus										Modify VAR
+CLASS:Mentalist	HD:8		TYPE:Base.PC	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL
 # Class Name	Restricted AL
 CLASS:Mentalist	!PREALIGN:CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -185,8 +185,8 @@ CLASS:Mentalist	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|
 7																																		DEFINE:WeapSpecQualify|1
 
 
-# Class Name			Source Page		Save checks bonus											Combat bonus
-CLASS:Psionist (Alternate)	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Source Page		Save checks bonus											Combat bonus										Modify VAR
+CLASS:Psionist (Alternate)	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Psionist (Alternate)	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Concentration|TYPE=Craft|Diplomacy|Knowledge (Psionics)|Listen|Psicraft|Sense Motive|Tumble
 # Remote View - Not found in any 3.5 sources - not listed, left over from 3e.

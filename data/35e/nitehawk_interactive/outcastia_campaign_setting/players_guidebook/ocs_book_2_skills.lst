@@ -1,56 +1,56 @@
-# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
 # ORIGINAL ENTRY BY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 2011-11-26
 ###Block: Skills
-# Skill Name						Key Stat	Untrained?		Type
-Craft (apothecary)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
-Craft (Brewing)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
-Craft (Cooking)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
-Craft (Embroidery)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
-Craft (Glassblowing)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
-Craft (Locksmithing)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
-Craft (Scrimshaw)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+# Skill Name				Key Stat	Untrained?		Type					Source Page
+Craft (apothecary)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Craft (Brewing)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Craft (Cooking)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Craft (Embroidery)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Craft (Glassblowing)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Craft (Locksmithing)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Craft (Scrimshaw)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
 #Craft (Shipmaking)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
-Craft (Tailor)						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
-Dragon Handling						KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom
-Knowledge (Librarian)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
-Knowledge (Weaponology)					KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
+Craft (Tailor)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft
+Dragon Handling				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom
+Knowledge (Librarian)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
+Knowledge (Weaponology)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
 
 # COMMENT: Lore referenced, but no entry
 
-Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Lore
+Lore						KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Lore
 
 # Requires the synergy bonuses below this point
-Perform (Juggling/Awe)					KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Perform
-Perform (Juggling/Manuevers)				KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Perform
-Profession (Barrister)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Beggar)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Bookkepper)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Driver)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Fisher)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Harlot)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Herder)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Lumberjack)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Magistrate)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Miller)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Perform (Juggling/Awe)			KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Perform
+Perform (Juggling/Manuevers)		KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Perform
+Profession (Barrister)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Beggar)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Bookkepper)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Driver)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Fisher)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Harlot)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Herder)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Lumberjack)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Magistrate)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Miller)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
 #Profession (Miner)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Porter)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Sailor)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Scribe)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Porter)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Sailor)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Scribe)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
 #Profession (Siege Engineer)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Smelter)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Tanner)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Smelter)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Tanner)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
 #Profession (Teamster)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Woodcutter)					KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
-Profession (Tailor)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Woodcutter)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
+Profession (Tailor)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession
 #Tactics.MOD	SITUATION:Guerrilla Warfare Only
 
-Tactics (guerrilla warfare only)			KEYSTAT:INT	USEUNTRAINED:NO												TYPE:Intelligence	SOURCEPAGE:p.65
+Tactics (guerrilla warfare only)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence			SOURCEPAGE:p.65
 
 #Speak Language					USEUNTRAINED:NO
 #Spot				KEYSTAT:WIS
-Weaponcraft							KEYSTAT:INT	USEUNTRAINED:NO
+Weaponcraft					KEYSTAT:INT	USEUNTRAINED:NO
 
 
 ###Block: Skill Synergy Mods

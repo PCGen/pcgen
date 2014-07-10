@@ -1,10 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 
-FOLLOWER:TL=1	TYPE:Item Familiar	ABILITY:Special Ability|AUTOMATIC|Item Familiar ~ Invest life energy|Item Familiar ~ invest skill ranks|Item Familiar ~ invest spell slots
-FOLLOWER:TL=7	TYPE:Item Familiar	ABILITY:Special Ability|AUTOMATIC|Item Familiar ~ Sapience|Item Familiar ~ senses|Item Familiar ~ communication
+# Class of the Master	Type				Ability																							Bonus to Ability Pool
+FOLLOWER:TL=1		TYPE:Item Familiar	ABILITY:Special Ability|AUTOMATIC|Item Familiar ~ Invest life energy|Item Familiar ~ invest skill ranks|Item Familiar ~ invest spell slots
+FOLLOWER:TL=7		TYPE:Item Familiar	ABILITY:Special Ability|AUTOMATIC|Item Familiar ~ Sapience|Item Familiar ~ senses|Item Familiar ~ communication
 #ABILITY:Special Ability|AUTOMATIC|Item Familiar ~ Special ability
-FOLLOWER:TL=10	TYPE:Item Familiar															BONUS:ABILITYPOOL|Item Familiar Special Ability|1
-FOLLOWER:TL=14	TYPE:Item Familiar																									BONUS:ABILITYPOOL|Item Familiar Special Ability|1
-FOLLOWER:TL=18	TYPE:Item Familiar																									BONUS:ABILITYPOOL|Item Familiar Special Ability|1
-FOLLOWER:TL=21	TYPE:Item Familiar																									BONUS:ABILITYPOOL|Item Familiar Special Ability|(18-MASTERVAR("TL"))/3
-
+FOLLOWER:TL=10		TYPE:Item Familiar																									BONUS:ABILITYPOOL|Item Familiar Special Ability|1
+FOLLOWER:TL=14		TYPE:Item Familiar																									BONUS:ABILITYPOOL|Item Familiar Special Ability|1
+FOLLOWER:TL=18		TYPE:Item Familiar																									BONUS:ABILITYPOOL|Item Familiar Special Ability|1
+FOLLOWER:TL=21		TYPE:Item Familiar																									BONUS:ABILITYPOOL|Item Familiar Special Ability|(18-MASTERVAR("TL"))/3

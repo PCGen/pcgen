@@ -1,21 +1,23 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 
 
-Renown			KEY:Renown ~ Gladiator Champion				CATEGORY:Special Ability	TYPE:SpecialQuality
-Perform Bonus			KEY:Perform Bonus ~ Gladiator Champion				CATEGORY:Special Ability	TYPE:SpecialQuality
-Stable Status			KEY:Stable Status ~ Gladiator Champion				CATEGORY:Special Ability	TYPE:SpecialQuality
-Devastating Attack		KEY:Devastating Attack ~ Gladiator Champion			CATEGORY:Special Ability	TYPE:SpecialQuality
-Lightning Strike			KEY:Lightning Strike ~ Gladiator Champion			CATEGORY:Special Ability	TYPE:SpecialQuality
-Improved Death Move		KEY:Improved Death Move ~ Gladiator Champion			CATEGORY:Special Ability	TYPE:SpecialQuality
+# Ability Name		Unique Key									Category of Ability		Type
+Renown			KEY:Renown ~ Gladiator Champion					CATEGORY:Special Ability	TYPE:SpecialQuality
+Perform Bonus		KEY:Perform Bonus ~ Gladiator Champion				CATEGORY:Special Ability	TYPE:SpecialQuality
+Stable Status		KEY:Stable Status ~ Gladiator Champion				CATEGORY:Special Ability	TYPE:SpecialQuality
+Devastating Attack	KEY:Devastating Attack ~ Gladiator Champion			CATEGORY:Special Ability	TYPE:SpecialQuality
+Lightning Strike		KEY:Lightning Strike ~ Gladiator Champion				CATEGORY:Special Ability	TYPE:SpecialQuality
+Improved Death Move	KEY:Improved Death Move ~ Gladiator Champion			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 
-Favoured Beast		KEY:Favoured Beast ~ Beast Handler		CATEGORY:Special Ability	TYPE:SpecialQuality
-Blood Frenzy		KEY:Blood Frenzy ~ Beast Handler							CATEGORY:Special Ability	TYPE:SpecialQuality
-Teamwork			KEY:Teamwork ~ Beast Handler							CATEGORY:Special Ability	TYPE:SpecialQuality
-Improved Training		KEY:Improved Training ~ Beast Handler						CATEGORY:Special Ability	TYPE:SpecialQuality
-Undying Loyalty		KEY:Undying Loyalty ~ Beast Handler						CATEGORY:Special Ability	TYPE:SpecialQuality
+Favoured Beast		KEY:Favoured Beast ~ Beast Handler					CATEGORY:Special Ability	TYPE:SpecialQuality
+Blood Frenzy		KEY:Blood Frenzy ~ Beast Handler					CATEGORY:Special Ability	TYPE:SpecialQuality
+Teamwork			KEY:Teamwork ~ Beast Handler						CATEGORY:Special Ability	TYPE:SpecialQuality
+Improved Training		KEY:Improved Training ~ Beast Handler				CATEGORY:Special Ability	TYPE:SpecialQuality
+Undying Loyalty		KEY:Undying Loyalty ~ Beast Handler					CATEGORY:Special Ability	TYPE:SpecialQuality
 Loyalty			KEY:Loyalty ~ Beast Handler
 
-Superb Control		KEY:Superb Control ~ Charioteer							CATEGORY:Special Ability	TYPE:SpecialQuality
-Love of the Crowd		KEY:Love of the Crowd ~ Charioteer|Survivor ~ Charioteer			CATEGORY:Special Ability	TYPE:SpecialQuality
-Lethal Sideswipe		KEY:Lethal Sideswipe ~ Charioteer							CATEGORY:Special Ability	TYPE:SpecialQuality
+Superb Control		KEY:Superb Control ~ Charioteer					CATEGORY:Special Ability	TYPE:SpecialQuality
+Love of the Crowd		KEY:Love of the Crowd ~ Charioteer|Survivor ~ Charioteer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Lethal Sideswipe		KEY:Lethal Sideswipe ~ Charioteer					CATEGORY:Special Ability	TYPE:SpecialQuality

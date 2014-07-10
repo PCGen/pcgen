@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 # Class Name	Product Identity?	Hit Dice	Starting Feats	Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
@@ -52,8 +52,8 @@ CLASS:Student of the Dragon	STARTSKILLPTS:4	CSKILL:Balance|TYPE=Climb|Concentrat
 9											ABILITY:Special Ability|AUTOMATIC|Thunder of the Dragon ~ Student of the Dragon
 10											ABILITY:Special Ability|AUTOMATIC|Master of the Dragon ~ Student of the Dragon
 
-# Class Name	Product Identity?	Hit Dice	Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
-CLASS:Wyrmfoe	NAMEISPI:NO		HD:4		ABB:WFoe		MAXLEVEL:10	SOURCEPAGE:p.40-42	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Product Identity?	Hit Dice	Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus										Modify VAR
+CLASS:Wyrmfoe	NAMEISPI:NO		HD:4		ABB:WFoe		MAXLEVEL:10	SOURCEPAGE:p.40-42	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wyrmfoe	STARTSKILLPTS:2	CSKILL:TYPE=Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
 1									BONUS:VAR|DragonMagicProgression|(CL+2)/3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Dragon Magic ~ Wyrmfoe

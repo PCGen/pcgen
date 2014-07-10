@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 16:25:26 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
-# Deity Name	Domains											Desciption of Deity/Title	Deity Weapon				Source Page
+# Deity Name	Domains											Description of Deity/Title	Deity Weapon				Source Page
 Galtorzuk		DOMAINS:Earth,Strength|PREALIGN:LG,LN,NG,TN,CG,CN				DESC:Cult				DEITYWEAP:Warhammer			SOURCEPAGE:p.19
 Halshara		DOMAINS:Healing,Protection|PREALIGN:LG,LN,NG,TN,CG,CN				DESC:Cult				DEITYWEAP:Dagger				SOURCEPAGE:p.19
 Kagrua		DOMAINS:Death,Water|PREALIGN:LN,LE,TN,NE,CN,CE					DESC:Cult				DEITYWEAP:Trident				SOURCEPAGE:p.19

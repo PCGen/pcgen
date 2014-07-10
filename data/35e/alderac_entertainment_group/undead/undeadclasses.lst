@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 # Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
 SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
@@ -23,8 +23,8 @@ CLASS:Champion of the Dead	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Intimidate|Knowledg
 9							ABILITY:Special Ability|AUTOMATIC|Unholy Radiance ~ Champion of the Dead
 10							ABILITY:Special Ability|AUTOMATIC|Warlord of the Dead ~ Champion of the Dead
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
-CLASS:Chirurgeon	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.31-34	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus										Modify VAR
+CLASS:Chirurgeon	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.31-34	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required AL				Required Feat								Required Skill										Req. Known Spell			Required Spell School		Required Text
 CLASS:Chirurgeon	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Craft Wondrous Item,Spell Focus (Necromancy)	PRESKILL:4,Craft (Autopsy)=6,Heal=3,Alchemy=8,Knowledge (Arcana)=8	PRESPELL:1,Gentle Repose	PRESPELLSCHOOL:4,Necromancy=0	PRETEXT:Must have successfully studied, dissected, and reassembled the fresh corpse of at least one creature with a CR of 5 or higher.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -62,8 +62,8 @@ CLASS:The Dying	STARTSKILLPTS:2
 9	VISION:Darkvision (60')	DR:15/+2																				ABILITY:Special Ability|AUTOMATIC|Blindness ~ The Dying
 10																										ABILITY:Special Ability|AUTOMATIC|Death ~ The Dying
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
-CLASS:Exorcist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.37-40	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus										Modify VAR
+CLASS:Exorcist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.37-40	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required AL				Required Feat		Required Skill
 CLASS:Exorcist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Extra Turning	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -179,8 +179,8 @@ CLASS:Puppet	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Decipher Script|Disguise|Gat
 9	BONUS:VAR|ThyMastersWill|1																						AUTO:FEAT|Toughness
 10	BONUS:VAR|ThyMastersWill|1
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Raider	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus										Modify VAR
+CLASS:Raider	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Skill											Required Text
 CLASS:Raider	PRESKILL:4,Hide=6,Move Silently=6,Intuit Direction=4,Knowledge (Arcana)=4	PRETEXT:Special (see text)
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -212,8 +212,8 @@ CLASS:Risen		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Swim
 9	BONUS:VAR|Blood,WotG|1
 10											ABILITY:Special Ability|AUTOMATIC|Rejecting the Crypt ~ Risen										AUTO:FEAT|Toughness
 
-# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
-CLASS:Sacred Theurgist	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.54-56	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus										Modify VAR
+CLASS:Sacred Theurgist	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.54-56	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required AL				Required Feat				Required Skill				Required Spell School		Req. Spell Type		Required Text
 CLASS:Sacred Theurgist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:1,Knowledge (Religion)=8	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLTYPE:1,Arcane=3	PRETEXT:Special (see text)
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -230,8 +230,8 @@ CLASS:Sacred Theurgist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|T
 10								ABILITY:Special Ability|AUTOMATIC|Master of the Dead ~ Sacred Theurgis
 
 
-# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
-CLASS:Unbeating Heart	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.57-59	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus										Modify VAR
+CLASS:Unbeating Heart	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.57-59	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required AL		Req. Att.
 CLASS:Unbeating Heart	PREALIGN:LE,NE,CE	PREATT:4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -252,8 +252,8 @@ CLASS:Unbeating Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|
 9																							ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Beyond the Veil ~ Unbeating Heart
 10																											ABILITY:Special Ability|AUTOMATIC|Beyond Death ~ Unbeating Heart		TEMPLATE:Undeath
 
-# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
-CLASS:Wasteland Druid	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.59-60	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus										Modify VAR
+CLASS:Wasteland Druid	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.59-60	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required AL	Required Feat			Required Skill													Required Spell School		Req. Spell Type		Required Text
 CLASS:Wasteland Druid	PREALIGN:NE	PREFEAT:2,Iron Will,Toughness	PRESKILL:4,Knowledge (Arcana)=4,Wilderness Lore=8,Knowledge (Nature)=8,Animal Empathy=8	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLTYPE:1,Divine=3	PRETEXT:Special (see text)
 # Class Name		Skill Pts/Lvl	Class Skill

@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
 
 # Move Rogue Proficiency change into hidden feat from SRD's new method.
 
 #TBD - implement Language requirement (2 languages other than Common or native language)
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Agent of the Crown	HD:6		TYPE:PC.Prestige	ABB:AgC		MAXLEVEL:5	SOURCEPAGE:p.21-23	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus										Modify VAR
+CLASS:Agent of the Crown	HD:6		TYPE:PC.Prestige	ABB:AgC		MAXLEVEL:5	SOURCEPAGE:p.21-23	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name			Required Feat									Multiple Requirements																						Required Text
 CLASS:Agent of the Crown	PREFEAT:1,Skill Focus (Diplomacy),Skill Focus (Sense Motive)	PREMULT:2,[PRESKILL:2,Diplomacy=8,Sense Motive=8],[PRESKILL:1,Knowledge (Local)=8,Knowledge (Nobility and Royalty)=8,Knowledge (Court Protocol)=8]	PRETEXT:Gain an officially recognised position within a government as an operative.
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -36,8 +36,8 @@ CLASS:Commando	STARTSKILLPTS:2	CSKILL:Balance|Climb|Hide|Intuit Direction|Listen
 3							ABILITY:Special Ability|AUTOMATIC|Prepare Ambush ~ Commando
 5							ABILITY:Special Ability|AUTOMATIC|Sniper ~ Commando
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Crusading Footpad	HD:6		TYPE:PC.Prestige	ABB:CrF		MAXLEVEL:10	SOURCEPAGE:p.24-26	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus										Modify VAR
+CLASS:Crusading Footpad	HD:6		TYPE:PC.Prestige	ABB:CrF		MAXLEVEL:10	SOURCEPAGE:p.24-26	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required AL		Req. Att.	Required Feat			Required Skill				Req. Spell Type
 CLASS:Crusading Footpad	PREALIGN:LG,NG,CG	PREATT:4	PREFEAT:2,Dodge,Iron Will	PRESKILL:1,Knowledge (Religion)=4	PRESPELLTYPE:1,Divine=0
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -52,8 +52,8 @@ CLASS:Crusading Footpad	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE
 
 #TBD - implement Language requirement
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Deep Tracker	HD:6		TYPE:PC.Prestige	ABB:DTr		MAXLEVEL:5	SOURCEPAGE:p.26-28	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus										Modify VAR
+CLASS:Deep Tracker	HD:6		TYPE:PC.Prestige	ABB:DTr		MAXLEVEL:5	SOURCEPAGE:p.26-28	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required Feat				Required Skill
 CLASS:Deep Tracker	PREFEAT:3,Alertness,Endurance,Track	PRESKILL:1,Wilderness Lore=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -104,8 +104,8 @@ CLASS:Shadowy Avenger	STARTSKILLPTS:4	CSKILL:Alchemy|Climb|TYPE=Craft|Disable De
 
 #TBD - implement Superior Knowledge?
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Tomb Raider	HD:6		TYPE:PC.Prestige	ABB:TmR		MAXLEVEL:5	SOURCEPAGE:p.32-33	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus										Modify VAR
+CLASS:Tomb Raider	HD:6		TYPE:PC.Prestige	ABB:TmR		MAXLEVEL:5	SOURCEPAGE:p.32-33	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Feat											Multiple Requirements								Required Stat
 CLASS:Tomb Raider	PREFEAT:4,Dodge,Lightning Reflexes,Mobility,Skill Focus (TYPE.Knowledge)	PREMULT:2,[PRESKILL:1,Tumble=10],[PRESKILL:2,TYPE.Knowledge=4]	PRESTAT:1,DEX=15
 # Class Name	Skill Pts/Lvl	Class Skill

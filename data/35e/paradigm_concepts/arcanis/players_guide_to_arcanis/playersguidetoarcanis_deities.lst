@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 # all 2006-06-03 errata applied
 
 #Deity Name	Domains														Desciption of Deity/Title				Holy Item					Deity Weapon			ALIGN		Source Index
-# Deity Name	Product Identity?	Domains														Desciption of Deity/Title			Holy Item					Deity Weapon							Alignment	Pantheon			Source Page				Multiple Requirements
+# Deity Name	Product Identity?	Domains														Description of Deity/Title			Holy Item					Deity Weapon							Alignment	Pantheon			Source Page				Multiple Requirements
 Althares		NAMEISPI:YES	DOMAINS:Artificer,Commerce,Divination,Holy,Knowledge							DESC:Artificer of the Gods			SYMBOL:Holy Book on a Chain		DEITYWEAP:Warhammer|Altherian Flintlock (Pistol)	ALIGN:TN	PANTHEON:Man		SOURCEPAGE:p.7			PREMULT:1,[!PRECLASS:1,Cleric=1],[PRESUBCLASS:1,Althares]
 Anshar		NAMEISPI:YES	DOMAINS:Healing,Holy,Pain,Strength,Suffering,Travel							DESC:The Far Traveler				SYMBOL:Strand of Thorn Bush		DEITYWEAP:Unarmed Strike					ALIGN:TN	PANTHEON:Man		SOURCEPAGE:p.10			PREMULT:1,[!PRECLASS:1,Cleric=1],[PRESUBCLASS:1,Anshar]
 Belisarda		NAMEISPI:YES	DOMAINS:Air,Animal,Earth,Fire,Healing,Holy,Plant,Protection,Refuge,Storm,Travel,War,Water	DESC:God of the Elorii				SYMBOL:(Known only to the Elorii)	DEITYWEAP:Longbow							ALIGN:TN	PANTHEON:Elorii		SOURCEPAGE:p.178			PREMULT:1,[PREMULT:2,[PRERACE:1,Elorii],[PREMULT:1,[!PRECLASS:1,Cleric=1],[PRESUBCLASS:1,Belisarda]]],[PREMULT:2,[!PRERACE:1,Elorii],[PREREGION:Western Lands (Lhyllifel)]]

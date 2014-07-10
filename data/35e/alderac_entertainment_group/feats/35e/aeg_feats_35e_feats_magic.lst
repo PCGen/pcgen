@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Alderac Entertainment Group (AEG) - Feats	SOURCESHORT:Feats	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-07
 
 # Original Entry: Andrew Maitland
@@ -39,7 +39,7 @@ Bane Lattice			TYPE:Metamagic												PREFEAT:2,TYPE.Metamagic															
 Blessed Heath			TYPE:General						PRECLASS:1,SPELLCASTER.Divine=7	PREFEAT:1,Disease Resistance																																					PRESTAT:1,CON=13															DESC:Your health is an obvious blessing from the gods.															BONUS:STAT|CON|2	SOURCEPAGE:p.101
 Bind Spirit				TYPE:General												PREFEAT:1,TYPE.ItemCreation,[Brew Potion,Scribe Scroll]																																			PRETEXT:Ability to summon spirits.									DESC:You can craft inexpensive, temporary magic items.																		SOURCEPAGE:p.101
 Blighted Spell			TYPE:Metamagic			PREALIGN:LE,NE,CE							PREFEAT:2,TYPE.Metamagic																																																						DESC:You may taint your spells with raw blighted energy.																		SOURCEPAGE:p.101
-Blind-Casting			TYPE:General												PREFEAT:1,Blind-Fight																																																					DESC:You are adept at casting spells against unseen opponents. Specialized training has taught you how to target spells using non-visual cues.				SOURCEPAGE:p.102
+Blind-Casting			TYPE:General												PREFEAT:1,Blind-Fight																																																							DESC:You are adept at casting spells against unseen opponents. Specialized training has taught you how to target spells using non-visual cues.				SOURCEPAGE:p.102
 Blood Beyond Blood		TYPE:Metamagic																										PREMULT:1,[PRESPELLCAST:TYPE=Arcane],[PRESPELLCAST:MEMORIZE=N]																	PRESTAT:1,CHA=13	PRETEXT:Must be able to cast arcane spells without preparation.				DESC:You may cast spells at a higher level than normal.																		SOURCEPAGE:p.102
 Blood Burn				TYPE:Metamagic																																																					PRESTAT:1,CON=13															DESC:You may draw upon yourself to fuel the power of magic items. The process is painful, but effective.										SOURCEPAGE:p.102
 Blood of Magic			TYPE:Bloodgift.Metamagic				PRECLASS:1,SPELLCASTER.Arcane=1															PREMULT:2,[PREFEAT:1,Drakeblood],[PREFEAT:2,TYPE.Metamagic]									PREPCLEVEL:MAX=1							PRESTAT:1,CHA=13															DESC:Your draconic heritage allows you to apply metamagic feats to your spells quickly and instinctively.										SOURCEPAGE:p.102
