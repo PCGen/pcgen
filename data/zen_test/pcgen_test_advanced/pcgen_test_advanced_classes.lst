@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
 CLASS:Sorcerer	HD:4		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -30,7 +30,8 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
-CLASS:Variable Test Cases	TYPE:PC.BASE.TEST	DEFINE:VarTestCase|0	DEFINE:Var_Test_Case|0	BONUS:VAR|VarTestCase,Var_Test_Case|CL	DEFINE:SoulknifeLVL|0	BONUS:VAR|SoulknifeLVL|CL+10
+# Class Name			Type			Define											Modify VAR
+CLASS:Variable Test Cases	TYPE:PC.BASE.TEST	DEFINE:VarTestCase|0	DEFINE:Var_Test_Case|0	DEFINE:SoulknifeLVL|0	BONUS:VAR|VarTestCase,Var_Test_Case|CL	BONUS:VAR|SoulknifeLVL|CL+10
 
 1	ABILITY:Special Ability|AUTOMATIC|Variable Test Cases ~ Version One
 1	ABILITY:Special Ability|AUTOMATIC|Variable Test Cases ~ Version Two|PREVARGTEQ:VarTestCase,1
@@ -390,10 +391,18 @@ CLASS:Test Current	CSKILL:Speak Language
 
 
 #RSRD Support - prevent errors in loading
+
+# Class Name
 CLASS:Adept
+
+# Class Name
 CLASS:Cleric
+
+# Class Name
 CLASS:Druid
+
+# Class Name
 CLASS:Paladin
+
+# Class Name
 CLASS:Ranger
-
-

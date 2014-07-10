@@ -1,2 +1,4 @@
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
-PREQUALIFIER FAKE OUT		SCHOOL:CODE-2441	DESC:Fake PRExxx Spell	TYPE:Code.Arcane	COMPS:V	RANGE:0 ft.	SAVEINFO:None
+# Spell Name		School		Type			Components	Range		Save Info		Description
+PREQUALIFIER FAKE OUT	SCHOOL:CODE-2441	TYPE:Code.Arcane	COMPS:V	RANGE:0 ft.	SAVEINFO:None	DESC:Fake PRExxx Spell

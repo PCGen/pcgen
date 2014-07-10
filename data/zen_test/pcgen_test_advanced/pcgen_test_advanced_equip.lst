@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 #Equip
 # Equipment Name			Required Weapon Proficiency			Required Armor Proficiency	Required Shield Proficiency	Type										Cost		Weight	Slot Needed	!PREEQUIP							Define			Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Wield Category	Range		Size		Source Page		Add 				Ability													Combat bonus				Bonus to nb of slots					Modify VAR			Special Property
 Test Equipment																				TYPE:CODE433																																																					ABILITY:Any Feat Choice|VIRTUAL|AFC 1	ABILITY:Any Feat Choice|AUTOMATIC|AFC 2
@@ -57,6 +57,5 @@ Test 1 Item																					TYPE:Equipment.Test.Count																				DEF
 
 
 
-CODE-496a	TYPE:General.Test.Code496	ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)
-CODE-496b	TYPE:General.Test.Code496	ABILITY:FEAT|AUTOMATIC|Weapon Focus(Longsword)
-
+CODE-496a																					TYPE:General.Test.Code496																																																			ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)
+CODE-496b																					TYPE:General.Test.Code496																																																			ABILITY:FEAT|AUTOMATIC|Weapon Focus(Longsword)

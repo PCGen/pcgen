@@ -1,65 +1,66 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
-DISGUISE	USEUNTRAINED:NO
-Concentration				USEUNTRAINED:NO
+# Skill Name							Unique Key			Key Stat	Untrained?		Exclusive?		Classes			Type						Visible		Req. Rule (in options)		Required Var. value		Prohibited Var. Value										Source Page			Choose			Bonus to Situation													Bonus to skill															Bonus to skill rank																																														Modify VAR														Add
+DISGUISE														USEUNTRAINED:NO
+Concentration													USEUNTRAINED:NO
 
 # COMMENT: Do not ADD USEUNTRAINED:YES Skills, they will alter Alice, Bob and Charlie's test suites.
-# Skill Name							Unique Key			Key Stat	Untrained?		Exclusive?		Classes			Type						Visible		Req. Rule (in options)		Prohibited Var. Value										Source Page			Choose			Bonus to skill																Bonus to skill rank																																														Modify VAR														Add
+# Skill Name							Unique Key			Key Stat	Untrained?		Exclusive?		Classes			Type						Visible		Req. Rule (in options)		Required Var. value		Prohibited Var. Value										Source Page			Choose			Bonus to Situation													Bonus to skill															Bonus to skill rank																																														Modify VAR														Add
 Balance												KEYSTAT:DEX	USEUNTRAINED:NO
 Hide													KEYSTAT:DEX	USEUNTRAINED:NO
 Move Silently											KEYSTAT:DEX	USEUNTRAINED:NO
 Swim													KEYSTAT:STR	USEUNTRAINED:NO
 
 
-# Skill Name							Unique Key			Key Stat	Untrained?		Exclusive?		Classes			Type						Visible		Req. Rule (in options)		Prohibited Var. Value										Source Page			Choose			Bonus to skill																Bonus to skill rank																																														Modify VAR														Add
-Deception												KEYSTAT:CHA	USEUNTRAINED:NO				CLASSES:ALL			TYPE:Charisma																																BONUS:SITUATION|Thievery=Sleight of Hand|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Deception=5		BONUS:SKILL|Persuasion|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Deception=5
-Deception (Act in character)									KEYSTAT:CHA	USEUNTRAINED:YES				CLASSES:ALL			TYPE:SkillUse				VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Deception (Act in character).MISC"),SKILL.Deception.MISC	SOURCEPAGE:SkillsI.rtf
-Deception.MOD																																																										BONUS:SKILL|Deception (Act in character)|SKILL.Deception.MISC								BONUS:SKILLRANK|Deception (Act in character)|skillinfo("TOTALRANK","Deception")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Deception (Act in character).MISC"),SKILL.Deception.MISC
+# Skill Name							Unique Key			Key Stat	Untrained?		Exclusive?		Classes			Type						Visible		Req. Rule (in options)		Required Var. value		Prohibited Var. Value										Source Page			Choose			Bonus to Situation													Bonus to skill															Bonus to skill rank																																														Modify VAR														Add
+Deception												KEYSTAT:CHA	USEUNTRAINED:NO				CLASSES:ALL			TYPE:Charisma																																						BONUS:SITUATION|Thievery=Sleight of Hand|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Deception=5	BONUS:SKILL|Persuasion|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Deception=5
+Deception (Act in character)									KEYSTAT:CHA	USEUNTRAINED:YES				CLASSES:ALL			TYPE:SkillUse				VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE						PREVARNEQ:var("SKILL.Deception (Act in character).MISC"),SKILL.Deception.MISC	SOURCEPAGE:SkillsI.rtf
+Deception.MOD																																																																															BONUS:SKILL|Deception (Act in character)|SKILL.Deception.MISC							BONUS:SKILLRANK|Deception (Act in character)|skillinfo("TOTALRANK","Deception")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Deception (Act in character).MISC"),SKILL.Deception.MISC
 
 #Persuasion			KEYSTAT:CHA					USEUNTRAINED:NO			TYPE:Charisma
-Persuasion.MOD																			CLASSES:Test Nothing																																				BONUS:SKILL|Persuasion (Diplomacy)|SKILL.Persuasion.MISC									BONUS:SKILLRANK|Persuasion (Diplomacy)|skillinfo("TOTALRANK","Persuasion")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Persuasion (Diplomacy).MISC"),SKILL.Persuasion.MISC
-Persuasion.MOD																																																										BONUS:SKILL|Persuasion (Intimidate)|SKILL.Persuasion.MISC									BONUS:SKILLRANK|Persuasion (Intimidate)|skillinfo("TOTALRANK","Persuasion")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Persuasion (Intimidate).MISC"),SKILL.Persuasion.MISC
-Persuasion.MOD																																																										BONUS:SKILL|Deception (Act in character)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Persuasion=5
-Persuasion (Diplomacy)										KEYSTAT:CHA	USEUNTRAINED:YES				CLASSES:ALL			TYPE:SkillUse				VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Persuasion (Diplomacy).MISC"),SKILL.Persuasion.MISC
-Persuasion (Intimidate)										KEYSTAT:CHA	USEUNTRAINED:YES				CLASSES:ALL			TYPE:SkillUse				VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Persuasion (Intimidate).MISC"),SKILL.Persuasion.MISC
+Persuasion.MOD																			CLASSES:Test Nothing																																																									BONUS:SKILL|Persuasion (Diplomacy)|SKILL.Persuasion.MISC								BONUS:SKILLRANK|Persuasion (Diplomacy)|skillinfo("TOTALRANK","Persuasion")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Persuasion (Diplomacy).MISC"),SKILL.Persuasion.MISC
+Persuasion.MOD																																																																															BONUS:SKILL|Persuasion (Intimidate)|SKILL.Persuasion.MISC								BONUS:SKILLRANK|Persuasion (Intimidate)|skillinfo("TOTALRANK","Persuasion")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Persuasion (Intimidate).MISC"),SKILL.Persuasion.MISC
+Persuasion.MOD																																																																															BONUS:SKILL|Deception (Act in character)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Persuasion=5
+Persuasion (Diplomacy)										KEYSTAT:CHA	USEUNTRAINED:YES				CLASSES:ALL			TYPE:SkillUse				VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE						PREVARNEQ:var("SKILL.Persuasion (Diplomacy).MISC"),SKILL.Persuasion.MISC
+Persuasion (Intimidate)										KEYSTAT:CHA	USEUNTRAINED:YES				CLASSES:ALL			TYPE:SkillUse				VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE						PREVARNEQ:var("SKILL.Persuasion (Intimidate).MISC"),SKILL.Persuasion.MISC
 
 
-Test59														USEUNTRAINED:NO								TYPE:Test																																																				BONUS:SKILLRANK|Test59b|5
+Test59														USEUNTRAINED:NO								TYPE:Test																																																																								BONUS:SKILLRANK|Test59b|5
 Test59b														USEUNTRAINED:NO								TYPE:Test
 
 
-Test59a														USEUNTRAINED:NO								TYPE:Test																																																				BONUS:SKILLRANK|Test59c|skillinfo("TOTAL","Test59a")|PRECLASS:1,Test Nothing=4
+Test59a														USEUNTRAINED:NO								TYPE:Test																																																																								BONUS:SKILLRANK|Test59c|skillinfo("TOTAL","Test59a")|PRECLASS:1,Test Nothing=4
 Test59c														USEUNTRAINED:NO								TYPE:Test
-Test59p			KEYSTAT:CHA	USEUNTRAINED:YES	PREVAREQ:MonkeyAllowed,1
+Test59p												KEYSTAT:CHA	USEUNTRAINED:YES																						PREVAREQ:MonkeyAllowed,1
 
-Test96a		USEUNTRAINED:NO	EXCLUSIVE:YES
+Test96a														USEUNTRAINED:NO	EXCLUSIVE:YES
 #Give to the PC as a CLASS skill (any method you choose), but provide no ranks
-Test96b		USEUNTRAINED:YES	EXCLUSIVE:YES
+Test96b														USEUNTRAINED:YES	EXCLUSIVE:YES
 #Do not provide in any way to the PC
-Test96c		USEUNTRAINED:NO	EXCLUSIVE:NO
+Test96c														USEUNTRAINED:NO	EXCLUSIVE:NO
 #Do not provide in any way to the PC (CROSS_CLASS by default)
-Test96d	USEUNTRAINED:YES	EXCLUSIVE:NO
+Test96d														USEUNTRAINED:YES	EXCLUSIVE:NO
 #Do not provide in any way to the PC (CROSS_CLASS by default)
-Test96e	USEUNTRAINED:NO	EXCLUSIVE:NO
+Test96e														USEUNTRAINED:NO	EXCLUSIVE:NO
 #Provide direct Ranks to the PC (selected by the user)
-Test96f	USEUNTRAINED:NO	EXCLUSIVE:NO
+Test96f														USEUNTRAINED:NO	EXCLUSIVE:NO
 #Provide ranks to the PC via BONUS:SKILLRANK
-Test96g	USEUNTRAINED:YES	EXCLUSIVE:NO	KEYSTAT:STR
+Test96g												KEYSTAT:STR	USEUNTRAINED:YES	EXCLUSIVE:NO
 #Provide no ranks, but bonuses to the PC from STAT/SIZE only (may already be there by default, if so, that's ok)
-Test96h	USEUNTRAINED:YES	EXCLUSIVE:NO
+Test96h														USEUNTRAINED:YES	EXCLUSIVE:NO
 #Provide no ranks, but bonuses to the PC from something other than STAT/SIZE
 
 
 # Bug Code 453
-TestMasterSkill													USEUNTRAINED:NO								TYPE:ClassSkill																																																			BONUS:SKILLRANK|TestSubSkill|skillinfo("TOTAL","TestMasterSkill")
+TestMasterSkill													USEUNTRAINED:NO								TYPE:ClassSkill																																																																							BONUS:SKILLRANK|TestSubSkill|skillinfo("TOTAL","TestMasterSkill")
 TestSubSkill													USEUNTRAINED:NO				CLASSES:ALL			TYPE:Test
 
 # Mod Tests for Synergies
-Athletics.MOD																																																										BONUS:SKILL|Athletics (Jump)|max(floor((var("MOVE[Walk]")-30)/10)*4,0)|TYPE=Speed.STACK
-Athletics.MOD																																																										BONUS:SKILL|Athletics (Jump)|min(ceil((var("MOVE[Walk]")-30)/10)*6,0)|TYPE=Speed.STACK
-Athletics.MOD																																																										BONUS:SKILL|Acrobatics|SynergyBonus|PRESKILL:1,Althetics=5|TYPE=Synergy.STACK
-Athletics.MOD																																																										BONUS:SKILL|Athletics (Jump)|skillinfo("MODIFIER","Athletics")
-Athletics.MOD																																																																												BONUS:SKILLRANK|Athletics (Jump)|skillinfo("TOTALRANK","Athletics")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREMULT:1,[PREVARGT:skillinfo("TOTAL","Athletics (Jump)"),skillinfo("TOTAL","Athletics")],[PREVARNEQ:skillinfo("MODIFIER","Athletics (Jump)"),skillinfo("MODIFIER","Athletics")]
+Athletics.MOD																																																																															BONUS:SKILL|Athletics (Jump)|max(floor((var("MOVE[Walk]")-30)/10)*4,0)|TYPE=Speed.STACK
+Athletics.MOD																																																																															BONUS:SKILL|Athletics (Jump)|min(ceil((var("MOVE[Walk]")-30)/10)*6,0)|TYPE=Speed.STACK
+Athletics.MOD																																																																															BONUS:SKILL|Acrobatics|SynergyBonus|PRESKILL:1,Althetics=5|TYPE=Synergy.STACK
+Athletics.MOD																																																																															BONUS:SKILL|Athletics (Jump)|skillinfo("MODIFIER","Athletics")
+Athletics.MOD																																																																																																BONUS:SKILLRANK|Athletics (Jump)|skillinfo("TOTALRANK","Athletics")|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREMULT:1,[PREVARGT:skillinfo("TOTAL","Athletics (Jump)"),skillinfo("TOTAL","Athletics")],[PREVARNEQ:skillinfo("MODIFIER","Athletics (Jump)"),skillinfo("MODIFIER","Athletics")]
 
 
 Athletics (Jump)											KEYSTAT:STR	USEUNTRAINED:NO				CLASSES:ALL			TYPE:SkillUse
@@ -69,7 +70,7 @@ Athletics (Jump)											KEYSTAT:STR	USEUNTRAINED:NO				CLASSES:ALL			TYPE:Ski
 #
 Test Skill														USEUNTRAINED:NO								TYPE:HiddenSkill
 
-Climb.MOD																																																											BONUS:SKILL|Test Skill|skillinfo("TOTAL", "Climb")|TYPE=NoStacking
+Climb.MOD																																																																																BONUS:SKILL|Test Skill|skillinfo("TOTAL", "Climb")|TYPE=NoStacking
 
 
 
@@ -85,7 +86,7 @@ Test Coding Script										KEYSTAT:INT											TYPE:Intelligence
 Poetry												KEYSTAT:CHA											TYPE:Charisma.Performance.Poetry
 
 #Conditional Skills
-Uber Scripting from five ranks in Test Coding Script					KEYSTAT:INT																																														BONUS:SKILL|Uber Scripting from five ranks in Test Coding Script|CHA							BONUS:SKILLRANK|Uber Scripting from five ranks in Test Coding Script|SKILLRANK=Poetry
+Uber Scripting from five ranks in Test Coding Script					KEYSTAT:INT																																																																			BONUS:SKILL|Uber Scripting from five ranks in Test Coding Script|CHA						BONUS:SKILLRANK|Uber Scripting from five ranks in Test Coding Script|SKILLRANK=Poetry
 Poetry Recitation Specialty									KEYSTAT:CHA
 
 # A named only - should have no bonuses from stats - by default this is usable, untrained.
@@ -94,7 +95,7 @@ Monkey Building
 Linguistics																								TYPE:TestSkills
 
 # THese are tests against the SUBSTITUTION and SUBCLASS methods.
-Test Skill (Class Level)																					TYPE:ClassLevelTest																												CHOOSE:SKILL|ALL
+Test Skill (Class Level)																					TYPE:ClassLevelTest																																	CHOOSE:SKILL|ALL
 Test Skill (Sub)							KEY:Test Skill_Sub			USEUNTRAINED:NO								TYPE:Test
 
 
@@ -138,7 +139,7 @@ Class Skill 1													USEUNTRAINED:NO
 Class Skill 2													USEUNTRAINED:NO
 
 # Design Theory - If you take a Rank in this skill you should have a FEAT added - ADD:FEAT|Add Feat Skill
-Add Feat Skill													USEUNTRAINED:NO				CLASSES:ALL																																																																																																																								ADD:FEAT|Add Feat Skill
+Add Feat Skill													USEUNTRAINED:NO				CLASSES:ALL																																																																																																																																												ADD:FEAT|Add Feat Skill
 
 # Test Sub Skills Section
 
@@ -165,13 +166,13 @@ Tumble														USEUNTRAINED:NO
 
 
 
-Perform (Dance)											KEYSTAT:CHA	USEUNTRAINED:NO								TYPE:Charisma.Perform																								SOURCEPAGE:SkillsII.rtf
-Perform (Sing)											KEYSTAT:CHA	USEUNTRAINED:NO								TYPE:Charisma.Perform																								SOURCEPAGE:SkillsII.rtf
+Perform (Dance)											KEYSTAT:CHA	USEUNTRAINED:NO								TYPE:Charisma.Perform																													SOURCEPAGE:SkillsII.rtf
+Perform (Sing)											KEYSTAT:CHA	USEUNTRAINED:NO								TYPE:Charisma.Perform																													SOURCEPAGE:SkillsII.rtf
 
 
 # Mystic Artist Sub Skills
-Perform (Dance).MOD																						TYPE:AdeptChoice.NormalSkill																																																																																																		BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Dance)")|TYPE=PerformSkill
-Perform (Sing).MOD																						TYPE:AdeptChoice.NormalSkill																																																																																																		BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Sing)")|TYPE=PerformSkill
+Perform (Dance).MOD																						TYPE:AdeptChoice.NormalSkill																																																																																																																						BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Dance)")|TYPE=PerformSkill
+Perform (Sing).MOD																						TYPE:AdeptChoice.NormalSkill																																																																																																																						BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Sing)")|TYPE=PerformSkill
 
 
 
@@ -181,8 +182,8 @@ Knowledge (Beards)										KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence
 Knowledge (Monkey-Fu)										KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge
 
 
-Speak Language													USEUNTRAINED:NO								TYPE:None.Language																												CHOOSE:LANG|TYPE=Spoken
-Read Language													USEUNTRAINED:NO								TYPE:None.Language																												CHOOSE:LANG|TYPE=Read
+Speak Language													USEUNTRAINED:NO								TYPE:None.Language																																	CHOOSE:LANG|TYPE=Spoken
+Read Language													USEUNTRAINED:NO								TYPE:None.Language																																	CHOOSE:LANG|TYPE=Read
 
 #Martial Arts ~ Hiten Mitsurugi Ryuu								OUTPUTNAME:Martial Arts (Hiten Mitsurugi Ryuu)	KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.AdeptChoice.MartialArtsStyle.MartialArts																														ABILITY:Special Ability|AUTOMATIC|Hiten Mitsurugi Ryuu (Dex)	BONUS:ABILITYPOOL|Martial Arts ~ Hiten Mitsurugi Ryuu|(1+skillinfo("TOTAL", "Martial Arts ~ Hiten Mitsurugi Ryuu"))/2																																																																				BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Hiten Mitsurugi Ryuu"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Hiten Mitsurugi Ryuu")|TYPE=MartialArts
 

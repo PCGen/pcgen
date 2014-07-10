@@ -1,9 +1,9 @@
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
+# Modifier Name	Type		Type granted
 Add Ranged		TYPE:Weapon	ITYPE:Ranged
 Add Range		TYPE:Weapon	ITYPE:Range
 Add Thrown		TYPE:Weapon	ITYPE:Thrown
 Add Reach		TYPE:Weapon	ITYPE:Reach
 Add Weapon				ITYPE:Weapon
 Add Melee		TYPE:Weapon	ITYPE:Melee
-
-

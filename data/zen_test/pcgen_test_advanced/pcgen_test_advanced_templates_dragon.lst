@@ -1,3 +1,5 @@
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# Template Name	Hit Dice
 SIZE_MASTER
 #	ABILITY:Internal|AUTOMATIC|FACE_0|PRESIZEEQ:F	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:F
 #	ABILITY:Internal|AUTOMATIC|FACE_1|PRESIZEEQ:D	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:D
@@ -10,87 +12,90 @@ SIZE_MASTER
 #	ABILITY:Internal|AUTOMATIC|FACE_30|PRESIZEEQ:P	ABILITY:Internal|AUTOMATIC|REACH_30|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_20|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,1
 
 
-Black Dragon	HD:1:ABILITY:Special Ability|AUTOMATIC|Acid Pool ~ Black Dragon	HD:1:TEMPLATE:Dragon (Tiny)	
+Black Dragon	HD:1:ABILITY:Special Ability|AUTOMATIC|Acid Pool ~ Black Dragon	HD:1:TEMPLATE:Dragon (Tiny)
 #HD:6-7:TEMPLATE:Dragon (Small)	HD:6-7:TEMPLATE:Dragon (Small)	HD:8-11:TEMPLATE:Dragon (Medium)	HD:12-17:TEMPLATE:Dragon (Large)	HD:18-23:TEMPLATE:Dragon (Huge)	HD:24+:TEMPLATE:Dragon (Gargantuan)
 
-SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+SOURCELONG:PCGen Testing Set	SOURCESHORT:PTS	SOURCEWEB:http://pcgen.sourceforge.net
 
 ###Block: Dragon Size templates
-# Template Name		Face/Space	Reach		Visible	Define				Required Size	Modify VAR																							Weapon prof. bonus											Ability															Move			Natural Attacks
-Dragon (Tiny)		FACE:2.5	REACH:0	BONUS:WEAPONPROF=Bite|REACH|5		VISIBLE:YES	DEFINE:Maneuverability|3			BONUS:VAR|BreathWeaponCone|15	BONUS:VAR|BreathWeaponLine|30															BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)								ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability							MOVE:Fly,100	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+# Template Name	Face/Space	Reach		Visible	Define				Modify VAR									Weapon prof. bonus									Ability									Move			Natural Attacks
+Dragon (Tiny)	FACE:2.5	REACH:0	VISIBLE:YES	DEFINE:Maneuverability|3	BONUS:VAR|BreathWeaponCone|15	BONUS:VAR|BreathWeaponLine|30	BONUS:WEAPONPROF=Bite|REACH|5	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	MOVE:Fly,100	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
 
 
 
 ###Block: Size Mods for Automatic Changes
-REACH_0	VISIBLE:NO	REACH:0
-REACH_5	VISIBLE:NO	REACH:5
-REACH_10	VISIBLE:NO	REACH:10
-REACH_15	VISIBLE:NO	REACH:15
-REACH_20	VISIBLE:NO	REACH:20
-REACH_30	VISIBLE:NO	REACH:30
+# Template Name		Size				Face/Space	Reach		Visible	Level Adjustment
+REACH_0									REACH:0	VISIBLE:NO
+REACH_5									REACH:5	VISIBLE:NO
+REACH_10									REACH:10	VISIBLE:NO
+REACH_15									REACH:15	VISIBLE:NO
+REACH_20									REACH:20	VISIBLE:NO
+REACH_30									REACH:30	VISIBLE:NO
 # - Face not working???
-FACE_0	VISIBLE:NO	FACE:0
-FACE_1	VISIBLE:NO	FACE:1
-FACE_2	VISIBLE:NO	FACE:2.5
-FACE_5	VISIBLE:NO	FACE:5
-FACE_10	VISIBLE:NO	FACE:10
-FACE_15	VISIBLE:NO	FACE:15
-FACE_20	VISIBLE:NO	FACE:20
-FACE_30	VISIBLE:NO	FACE:30
+FACE_0							FACE:0			VISIBLE:NO
+FACE_1							FACE:1			VISIBLE:NO
+FACE_2							FACE:2.5			VISIBLE:NO
+FACE_5							FACE:5			VISIBLE:NO
+FACE_10							FACE:10			VISIBLE:NO
+FACE_15							FACE:15			VISIBLE:NO
+FACE_20							FACE:20			VISIBLE:NO
+FACE_30							FACE:30			VISIBLE:NO
 #
-DRAGON_SIZE_TRACKER	VISIBLE:NO	SIZE:DragonSizeTracker
+DRAGON_SIZE_TRACKER	SIZE:DragonSizeTracker					VISIBLE:NO
 #
-SIZE_F	VISIBLE:NO	SIZE:F
-SIZE_D	VISIBLE:NO	SIZE:D
-SIZE_T	VISIBLE:NO	SIZE:T
-SIZE_S	VISIBLE:NO	SIZE:S
-SIZE_M	VISIBLE:NO	SIZE:M
-SIZE_L	VISIBLE:NO	SIZE:L
-SIZE_H	VISIBLE:NO	SIZE:H
-SIZE_G	VISIBLE:NO	SIZE:G
-SIZE_C	VISIBLE:NO	SIZE:C
-SIZE_C+	VISIBLE:NO	SIZE:P
+SIZE_F			SIZE:F							VISIBLE:NO
+SIZE_D			SIZE:D							VISIBLE:NO
+SIZE_T			SIZE:T							VISIBLE:NO
+SIZE_S			SIZE:S							VISIBLE:NO
+SIZE_M			SIZE:M							VISIBLE:NO
+SIZE_L			SIZE:L							VISIBLE:NO
+SIZE_H			SIZE:H							VISIBLE:NO
+SIZE_G			SIZE:G							VISIBLE:NO
+SIZE_C			SIZE:C							VISIBLE:NO
+SIZE_C+			SIZE:P							VISIBLE:NO
 #
-LEVEL_ADJUSTMENT_1	VISIBLE:NO	LEVELADJUSTMENT:1
-LEVEL_ADJUSTMENT_2	VISIBLE:NO	LEVELADJUSTMENT:2
-LEVEL_ADJUSTMENT_3	VISIBLE:NO	LEVELADJUSTMENT:3
-LEVEL_ADJUSTMENT_4	VISIBLE:NO	LEVELADJUSTMENT:4
-LEVEL_ADJUSTMENT_5	VISIBLE:NO	LEVELADJUSTMENT:5
-LEVEL_ADJUSTMENT_6	VISIBLE:NO	LEVELADJUSTMENT:6
-LEVEL_ADJUSTMENT_7	VISIBLE:NO	LEVELADJUSTMENT:7
-LEVEL_ADJUSTMENT_8	VISIBLE:NO	LEVELADJUSTMENT:8
-LEVEL_ADJUSTMENT_9	VISIBLE:NO	LEVELADJUSTMENT:9
+LEVEL_ADJUSTMENT_1									VISIBLE:NO	LEVELADJUSTMENT:1
+LEVEL_ADJUSTMENT_2									VISIBLE:NO	LEVELADJUSTMENT:2
+LEVEL_ADJUSTMENT_3									VISIBLE:NO	LEVELADJUSTMENT:3
+LEVEL_ADJUSTMENT_4									VISIBLE:NO	LEVELADJUSTMENT:4
+LEVEL_ADJUSTMENT_5									VISIBLE:NO	LEVELADJUSTMENT:5
+LEVEL_ADJUSTMENT_6									VISIBLE:NO	LEVELADJUSTMENT:6
+LEVEL_ADJUSTMENT_7									VISIBLE:NO	LEVELADJUSTMENT:7
+LEVEL_ADJUSTMENT_8									VISIBLE:NO	LEVELADJUSTMENT:8
+LEVEL_ADJUSTMENT_9									VISIBLE:NO	LEVELADJUSTMENT:9
 #
 ###Block: Dragon Age
-Wyrmling		SUBRACE:Wyrmling	
-Very Young		SUBRACE:Very Young	
-Young			SUBRACE:Young		
-Juvenile		SUBRACE:Juvenile	
-Young Adult		SUBRACE:Young Adult	
-Adult			SUBRACE:Adult		
+# Template Name	Subrace
+Wyrmling		SUBRACE:Wyrmling
+Very Young		SUBRACE:Very Young
+Young			SUBRACE:Young
+Juvenile		SUBRACE:Juvenile
+Young Adult		SUBRACE:Young Adult
+Adult			SUBRACE:Adult
 Mature Adult	SUBRACE:Mature Adult
-Old			SUBRACE:Old		
-Very Old		SUBRACE:Very Old	
-Ancient		SUBRACE:Ancient	
-Wyrm			SUBRACE:Wyrm		
-Great Wyrm		SUBRACE:Great Wyrm	
+Old			SUBRACE:Old
+Very Old		SUBRACE:Very Old
+Ancient		SUBRACE:Ancient
+Wyrm			SUBRACE:Wyrm
+Great Wyrm		SUBRACE:Great Wyrm
 ###Block: Dragon Attacks
-DRAGON_ATTACKS_T	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+# Template Name		Visible	Define				Weapon prof. bonus			Move			Natural Attacks
+DRAGON_ATTACKS_T		VISIBLE:NO						BONUS:WEAPONPROF=Bite|REACH|5					NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
 #Bite (5' reach)
-DRAGON_ATTACKS_S	VISIBLE:NO							NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+DRAGON_ATTACKS_S		VISIBLE:NO															NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
 #Bite (5' reach)
-DRAGON_ATTACKS_M	VISIBLE:NO							NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+DRAGON_ATTACKS_M		VISIBLE:NO															NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
 #Bite (5' reach)
-DRAGON_ATTACKS_L	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+DRAGON_ATTACKS_L		VISIBLE:NO						BONUS:WEAPONPROF=Bite|REACH|5					NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
 #Bite (10' reach)
-DRAGON_ATTACKS_H	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+DRAGON_ATTACKS_H		VISIBLE:NO						BONUS:WEAPONPROF=Bite|REACH|5					NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
 #Bite (15' reach)
-DRAGON_ATTACKS_G	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+DRAGON_ATTACKS_G		VISIBLE:NO						BONUS:WEAPONPROF=Bite|REACH|5					NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
 #Bite (20' reach)
-DRAGON_ATTACKS_C	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|10	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d8|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+DRAGON_ATTACKS_C		VISIBLE:NO						BONUS:WEAPONPROF=Bite|REACH|10				NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d8|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
 #Bite (30' reach)
 
 
-DRAGON_FLY_SPEED_100		MOVE:Fly,100	DEFINE:Maneuverability|3
-DRAGON_FLY_SPEED_150		MOVE:Fly,150	DEFINE:Maneuverability|2
-DRAGON_FLY_SPEED_200		MOVE:Fly,200	DEFINE:Maneuverability|1
+DRAGON_FLY_SPEED_100			DEFINE:Maneuverability|3							MOVE:Fly,100
+DRAGON_FLY_SPEED_150			DEFINE:Maneuverability|2							MOVE:Fly,150
+DRAGON_FLY_SPEED_200			DEFINE:Maneuverability|1							MOVE:Fly,200
