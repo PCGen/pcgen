@@ -91,6 +91,7 @@ Oracle		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT
 Summoner		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Summoner")
 Witch			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Witch")
 
+
 ###Block: Favored Class Bonus Abilities
 #
 # Gnome Ranger
@@ -114,7 +115,7 @@ Bonus Bomb Damage						KEY:Favored Class Bonus ~ Bomb Damage						CATEGORY:Speci
 # Gnome Alchemist
 Bonus Bombs							KEY:Favored Class Bonus ~ Bombs							CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist				VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Alchemist		PRECLASS:1,Alchemist=1		PRERACE:1,Gnome%,RACESUBTYPE=Gnome																									DEFINE:BonusBombCount|0										DESC:Add +1/2 to the number of bombs per day the alchemist can create.																																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Bonus Bomb Tracker																																																				BONUS:VAR|BonusBombCount|1
 # Dwarf Cleric, Halfling Cleric
-Bonus Cleric Domain Power Use				KEY:Favored Class Bonus ~ Cleric Domain Power Use				CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric				VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Cleric		PRECLASS:1,Cleric=1		PRERACE:1,Dwarf%,RACESUBTYPE=Dwarf,Halfling%,RACESUBTYPE=Halfling																																				DESC:Select one domain power granted at 1st level that is normally usable for a number of times per day equal to 3 + the cleric's Wisdom modifier. The cleric adds 1/2 to the number of uses per day of that domain power.																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Bonus Cleric Domain Power Use				KEY:Favored Class Bonus ~ Cleric Domain Power Use				CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric				VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Cleric		PRECLASS:1,Cleric=1		PRERACE:1,Dwarf%,RACESUBTYPE=Dwarf,Halfling%,RACESUBTYPE=Halfling																																				DESC:Select one domain power granted at 1st level that is normally usable for a number of times per day equal to 3 + the cleric's Wisdom modifier. The cleric adds 1/2 to the number of uses per day of that domain power.																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Favored Bonus Count Tracker
 # Human Fighter
 Bonus CMD							KEY:Favored Class Bonus ~ CMD								CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter				VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Fighter		PRECLASS:1,Fighter=1		PRERACE:1,Human%,RACESUBTYPE=Human																									DEFINE:BonusCMDCount|0										DESC:Add +1 to the fighter's CMD when resisting two combat maneuvers of the character's choice.																																															STACK:YES	MULT:YES	CHOOSE:NOCHOICE												BONUS:ABILITYPOOL|Bonus CMD Choice|2																																										BONUS:VAR|BonusCMDCount|1
 # Dwarf Fighter
@@ -255,6 +256,9 @@ Sorcerer Spell Level 5									CATEGORY:Special Ability	TYPE:BonusSpellKnownSorc
 Sorcerer Spell Level 6									CATEGORY:Special Ability	TYPE:BonusSpellKnownSorcerer																															PREVARGTEQ:(charbonusto("PCLEVEL","Sorcerer") + classlevel("Sorcerer")),14																																																																																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																				BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|1
 Sorcerer Spell Level 7									CATEGORY:Special Ability	TYPE:BonusSpellKnownSorcerer																															PREVARGTEQ:(charbonusto("PCLEVEL","Sorcerer") + classlevel("Sorcerer")),16																																																																																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																				BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|1
 Sorcerer Spell Level 8									CATEGORY:Special Ability	TYPE:BonusSpellKnownSorcerer																															PREVARGTEQ:(charbonusto("PCLEVEL","Sorcerer") + classlevel("Sorcerer")),18																																																																																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																				BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=8|1
+# Misc
+Favored Bonus Count Tracker	CATEGORY:Internal			BONUS:ABILITYPOOL|First Level Domain Power Times|count("ABILITIES","KEY=Favored Class Bonus ~ Cleric ~ Drow")/2+count("ABILITIES","KEY=Favored Class Bonus ~ Cleric Domain Power Use")/2
+
 
 #
 # End

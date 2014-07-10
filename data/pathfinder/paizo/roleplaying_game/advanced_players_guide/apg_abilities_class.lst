@@ -2853,3 +2853,51 @@ Favored Community Bonus Four	CATEGORY:Special Ability	TYPE:FavoredCommunityBonus
 CATEGORY=Internal|Default.MOD	DEFINE:TempBonusDisplayNaturalist|0	ABILITY:Special Ability|AUTOMATIC|ASPECT DISPLAY for Naturalist|PREVARGTEQ:TempBonusDisplayNaturalist,1
 
 ASPECT DISPLAY for Naturalist	CATEGORY:Special Ability	ASPECT:CombatBonus|+%1 insight bonus to AC and on attack rolls and saving throws against exceptional, supernatural, and spell-like abilities used by creatures of that specific kind of monster|TempBonusDisplayNaturalist
+
+###Block: Domain Power Times Bonus
+#Block: Core Rule Domains	DomainPowerTimesLVL1
+Lightning Arc	PREABILITY:1,CATEGORY=Special Ability,Air Domain ~ Lightning Arc	KEY:Bonus Domain Times ~ Lightning Arc	BONUS:VAR|LightningArcTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Artificer's Touch	PREABILITY:1,CATEGORY=Special Ability,Artifice Domain ~ Artificer's Touch	KEY:Bonus Domain Times ~ Artificer's Touch	BONUS:VAR|ArtificersTouchTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Touch of Chaos	PREABILITY:1,CATEGORY=Special Ability,Chaos Domain ~ Touch of Chaos	KEY:Bonus Domain Times ~ Touch of Chaos	BONUS:VAR|TouchofChaosTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Dazing Touch	PREABILITY:1,CATEGORY=Special Ability,Charm Domain ~ Dazing Touch	KEY:Bonus Domain Times ~ Dazing Touch	BONUS:VAR|DazingTouchTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Calming Touch	PREABILITY:1,CATEGORY=Special Ability,Community Domain ~ Calming Touch	KEY:Bonus Domain Times ~ Calming Touch	BONUS:VAR|CalmingTouchTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Touch of Darkness	PREABILITY:1,CATEGORY=Special Ability,Darkness Domain ~ Touch of Darkness	KEY:Bonus Domain Times ~ Touch of Darkness	BONUS:VAR|TouchofDarknessTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Bleeding Touch	PREABILITY:1,CATEGORY=Special Ability,Death Domain ~ Bleeding Touch	KEY:Bonus Domain Times ~ Bleeding Touch	BONUS:VAR|BleedingTouchTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Destructive Smite	PREABILITY:1,CATEGORY=Special Ability,Destruction Domain ~ Destructive Smite	KEY:Bonus Domain Times ~ 	BONUS:VAR|DestructiveSmiteTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Acid Dart		PREABILITY:1,CATEGORY=Special Ability,Earth Domain ~ Acid Dart	KEY:Bonus Domain Times ~ Acid Dart	BONUS:VAR|AcidDartTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Touch of Evil	PREABILITY:1,CATEGORY=Special Ability,Evil Domain ~ Touch of Evil	KEY:Bonus Domain Times ~ Touch of Evil	BONUS:VAR|TouchofEvilTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Fire Bolt		PREABILITY:1,CATEGORY=Special Ability,Fire Domain ~ Fire Bolt	KEY:Bonus Domain Times ~ Fire Bolt	BONUS:VAR|FireBoltTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Touch of Glory	PREABILITY:1,CATEGORY=Special Ability,Glory Domain ~ Touch of Glory	KEY:Bonus Domain Times ~ Touch of Glory	BONUS:VAR|TouchofGloryTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Touch of Good	PREABILITY:1,CATEGORY=Special Ability,Good Domain ~ Touch of Good	KEY:Bonus Domain Times ~ Touch of Good	BONUS:VAR|TouchofGoodTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Rebuke Death	PREABILITY:1,CATEGORY=Special Ability,Healing Domain ~ Rebuke Death	KEY:Bonus Domain Times ~ Rebuke Death	BONUS:VAR|RebukeDeathTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Touch of Law	PREABILITY:1,CATEGORY=Special Ability,Law Domain ~ Touch of Law		KEY:Bonus Domain Times ~ Touch of Law	BONUS:VAR|TouchofLawTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Bit of Luck		PREABILITY:1,CATEGORY=Special Ability,Luck Domain ~ Bit of Luck		KEY:Bonus Domain Times ~ Bit of Luck	BONUS:VAR|BitofLuckTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Vision of Madness	PREABILITY:1,CATEGORY=Special Ability,Madness Domain ~ Vision of Madness	KEY:Bonus Domain Times ~ Vision of Madness	BONUS:VAR|VisionofMadnessTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Hand of the Acolyte	PREABILITY:1,CATEGORY=Special Ability,Magic Domain ~ Hand of the Acolyte	KEY:Bonus Domain Times ~ Hand of the Acolyte	BONUS:VAR|HandoftheAcolyteTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Resistant Touch	PREABILITY:1,CATEGORY=Special Ability,Protection Domain ~ Resistant Touch	KEY:Bonus Domain Times ~ Resistant Touch	BONUS:VAR|ResistantTouchTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Gentle Rest		PREABILITY:1,CATEGORY=Special Ability,Repose Domain ~ Gentle Rest	KEY:Bonus Domain Times ~ Gentle Rest	BONUS:VAR|GentleRestTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Blast Rune		PREABILITY:1,CATEGORY=Special Ability,Rune Domain ~ Blast Rune	KEY:Bonus Domain Times ~ Blast Rune	BONUS:VAR|BlastRuneTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Strength Surge	PREABILITY:1,CATEGORY=Special Ability,Strength Domain ~ Strength Surge	KEY:Bonus Domain Times ~ Strength Surge	BONUS:VAR|StrengthSurgeTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Agile Feet		PREABILITY:1,CATEGORY=Special Ability,Travel Domain ~ Agile Feet	KEY:Bonus Domain Times ~ Agile Feet	BONUS:VAR|AgileFeetTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Copycat		PREABILITY:1,CATEGORY=Special Ability,Trickery Domain ~ Copycat		KEY:Bonus Domain Times ~ Copycat	BONUS:VAR|CopycatTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Battle Rage		PREABILITY:1,CATEGORY=Special Ability,War Domain ~ Battle Rage	KEY:Bonus Domain Times ~ Battle Rage	BONUS:VAR|BattleRageTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Icicle		PREABILITY:1,CATEGORY=Special Ability,Water Domain ~ Icicle	KEY:Bonus Domain Times ~ Icicle	BONUS:VAR|IcicleTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Storm Burst		PREABILITY:1,CATEGORY=Special Ability,Weather Domain ~ Storm Burst	KEY:Bonus Domain Times ~ Storm Burst	BONUS:VAR|StormBurstTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+
+# Expansion Blank	KEY:Bonus Domain Times ~ 	BONUS:VAR||1	TYPE:DomainBonusTimes.DomainPowerTimesLVL1	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+
+
+# Level 8 Domain Powers
+Dancing Weapons	PREABILITY:1,CATEGORY=Special Ability,Artifice Domain ~ Dancing Weapons	KEY:Bonus Domain Times ~ Dancing Weapons	BONUS:VAR|DancingWeaponTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL8	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Chaos Blade	PREABILITY:1,CATEGORY=Special Ability,Chaos Domain ~ Chaos Blade	KEY:Bonus Domain Times ~ Chaos Blade	BONUS:VAR|ChaosBladeTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL8	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Unity	PREABILITY:1,CATEGORY=Special Ability,Community Domain ~ Unity	KEY:Bonus Domain Times ~ Unity	BONUS:VAR|UnityTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL8	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Scythe of Evil	PREABILITY:1,CATEGORY=Special Ability,Evil Domain ~ Scythe of Evil	KEY:Bonus Domain Times ~ Scythe of Evil	BONUS:VAR|ScytheOfEvilTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL8	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Holy Lance	PREABILITY:1,CATEGORY=Special Ability,Good Domain ~ Holy Lance	KEY:Bonus Domain Times ~ Holy Lance	BONUS:VAR|HolyLanceTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL8	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Staff of Order	PREABILITY:1,CATEGORY=Special Ability,Law Domain ~ Staff of Order	KEY:Bonus Domain Times ~ Staff of Order	BONUS:VAR|StaffOfOrderTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL8	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Good Fortune	PREABILITY:1,CATEGORY=Special Ability,Luck Domain ~ Good Fortune	KEY:Bonus Domain Times ~ Good Fortune	BONUS:VAR|GoodFortuneTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL8	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Dispelling Touch	PREABILITY:1,CATEGORY=Special Ability,Magic Domain ~ Dispelling Touch	KEY:Bonus Domain Times ~ Dispelling Touch	BONUS:VAR|DispellingTouchTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL8	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+Lightning Lord	PREABILITY:1,CATEGORY=Special Ability,Weather Domain ~ Lightning Lord	KEY:Bonus Domain Times ~ Lightning Lord	BONUS:VAR|WeatherLightningLordTimes|1	TYPE:DomainBonusTimes.DomainPowerTimesLVL8	CATEGORY:Internal	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
+
+
+
+
