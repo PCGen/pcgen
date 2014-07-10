@@ -10,7 +10,7 @@ SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcept
 ###Block: Altherian Artificer ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Altherian Artificer	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Altherian Artificer	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Altherian Artificer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Disable Device|Jump|TYPE=Knowledge|Listen|TYPE=Profession|Research|Ride|Search|Speak Language|Spellcraft|Spot|Swim|Use Magic Device|Use Psionic Device
 # Class Name			Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
@@ -60,7 +60,7 @@ CLASS:Altherian Artificer	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELL
 ###Block: Hedge Mage ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Hedge Mage	HD:4		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2
+CLASS:Hedge Mage	HD:4		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Race
 CLASS:Hedge Mage	PRERACE:1,Human,Half-Hobgoblins
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -107,7 +107,7 @@ CLASS:Hedge Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Hedge Mage|CL
 ###Block: Shaman ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Shaman	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Shaman	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.29	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shaman	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Dreaming|Heal|Intimidate|TYPE=Arcana|TYPE=Nature|Knowledge (The Planes ~ Spirit Creatures)|Knowledge (The Planes ~ Spirit World)|Listen|TYPE=Profession|Sense Motive|Spellcraft|Spot|Survival
 # Class Name	Spell Stat		Spell Type		Caster level
@@ -148,7 +148,7 @@ CLASS:Shaman	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shaman|CL
 ###Block: Spellblade --------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Spellblade	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.43	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Spellblade	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.43	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellblade	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Examine Martial Technique|Handle Animal|Intimidate|TYPE=Arcana|Knowledge (Warfare & Tactics)|TYPE=Profession|Ride|Spellcraft|Swim|Tumble
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
@@ -185,7 +185,7 @@ CLASS:Spellblade	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS
 ###Block: Suromar -------------------------------------------------
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Suromar	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.45	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Suromar	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.45	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Suromar	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE=Craft|Gather Information|Hide|Jump|TYPE=Arcana|Knowledge (Psionics)|Knowledge (Warfare & Tactics)|Listen|Move Silently|TYPE=Profession|Psicraft|Search|Sense Motive|Spellcraft|Spot|Swim|Survival|Tumble|Use Psionic Device
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
@@ -228,7 +228,7 @@ CLASS:Suromar	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CA
 ###Block: Warder -----------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus								Combat bonus
-CLASS:Warder	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.45	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Warder	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.45	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warder	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Hide|Intimidate|Jump|TYPE=Arcana|TYPE=Dungeoneering|TYPE=Geography|TYPE=Local|TYPE=Nature|Listen|Move Silently|TYPE=Profession|Search|Spellcraft|Spot|Survival|Swim|Use Rope
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level

@@ -35,6 +35,7 @@ ABILITYCATEGORY:Familiar Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO					
 # Ability Category				Visible	Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI		Display Location
 ABILITYCATEGORY:ACF				VISIBLE:NO	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF
 ABILITYCATEGORY:Alternate Class Feature	VISIBLE:YES	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF		TYPE:ACF		PLURAL:Alternate Class Features	DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Alternate Rules				VISIBLE:YES		EDITABLE:YES		EDITPOOL:NO	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:AltRules		PLURAL:Alternate Rules	DISPLAYLOCATION:Misc
 
 ###Block: Homebrew and Supplemental Support
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object	Specific choices list				Display Location

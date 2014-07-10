@@ -2,7 +2,7 @@
 SOURCELONG:Quests	SOURCESHORT:Quests	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup	SOURCEDATE:2005-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus
-CLASS:Honor Guard	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Honor Guard	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required AL		Req. Att.	Required Feat		Required Skill								Required Text
 CLASS:Honor Guard	PREALIGN:LG,NG,CG	PREATT:5	PREFEAT:1,Alertness	PRESKILL:2,Diplomacy=2,Knowledge (Nobility and Royalty)=2	PRETEXT:Honor Guard, Honor score of 25+
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -17,7 +17,7 @@ CLASS:Honor Guard	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Listen|Kno
 10							ABILITY:Special Ability|AUTOMATIC|Blanket Protection ~ Honor Guard
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Questing Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Questing Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Req. Att.	Required Feat	Required Skill									Required Text
 CLASS:Questing Knight	PREATT:5	PREFEAT:1,Quest	PRESKILL:2,Knowledge (Local)=2,Knowledge (Nobility and Royalty)=2	PRETEXT:Bound by an Oath
 # Class Name		Skill Pts/Lvl	Class Skill

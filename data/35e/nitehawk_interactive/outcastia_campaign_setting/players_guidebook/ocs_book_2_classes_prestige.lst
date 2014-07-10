@@ -8,7 +8,7 @@ SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.ni
 ###Block: ~ Arcane Juggler
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
-CLASS:Arcane Juggler	HD:6		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.80	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Arcane Juggler	HD:6		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.80	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Juggler	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy|Knowledge (local)|Knowledge (history)|Listen|TYPE=Perform|TYPE=Profession|Tumble
 ###Block:
@@ -28,7 +28,7 @@ CLASS:Arcane Juggler	STARTSKILLPTS:6	CSKILL:Balance|Concentration|TYPE=Craft|Dip
 ###Block: ~ Beast Lord
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus
-CLASS:Beast Lord	HD:8		TYPE:Prestige.PC	ABB:Bel		MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Beast Lord	HD:8		TYPE:Prestige.PC	ABB:Bel		MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Feat				Required Skill
 CLASS:Beast Lord	PREFEAT:2,Animal Affinity,Track	PRESKILL:3,Handle Animal=8,Knowledge (nature)=4,Survival=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -61,7 +61,7 @@ CLASS:Beast Lord	STARTSKILLPTS:6	CSKILL:Balance|Climb|Diplomacy|Handle Animal|Hi
 ###:Block: Bone Mage
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus					Bonus to skill
-CLASS:Bone Mage	HD:12		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE	BONUS:SKILL|Concentration,TYPE=Craft,Knowledge (arcana),Spellcraft|CHA
+CLASS:Bone Mage	HD:12		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SKILL|Concentration,TYPE=Craft,Knowledge (arcana),Spellcraft|CHA
 # Class Name	Required AL	Required Feat			Required Race		Required Text
 CLASS:Bone Mage	PREALIGN:NE	PREFEAT:1,Improved Initiative	PRERACE:1,Skeleton	PRETEXT:Special: Must have been the target of the create bone mage spell (see the spells chapter).
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -100,7 +100,7 @@ CLASS:Bone Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcan
 ###Block: ~ Cerberus Agent
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
-CLASS:Cerberus Agent	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Cerberus Agent	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required AL		Required Feat		Required Skill
 CLASS:Cerberus Agent	PREALIGN:LE,NE,CE	PREFEAT:1,Deceitful	PRESKILL:4,Bluff=4,Hide=4,Listen=4,Gather Information=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -128,7 +128,7 @@ CLASS:Cerberus Agent	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Diplomacy|Disguise|Forge
 ###Block: Cord
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus
-CLASS:Cord		HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+CLASS:Cord		HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Feat			Req. Spell Type		Required Text
 CLASS:Cord		PREFEAT:2,Craft Wand,Dodge	PRESPELLTYPE:1,ANY=3	PRETEXT:Special: Must have worked onboard a ship for an extended period (at least one month at sea)
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -353,7 +353,7 @@ CLASS:Horok Guardian	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Intim
 ###Block: ~ Hundite Dragon
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus
-CLASS:Hundite Dragon	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.112	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Hundite Dragon	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.112	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Req. Att.	Required Feat		Required Skill				Required Text
 CLASS:Hundite Dragon	PREATT:5	PREFEAT:1,Alertness	PRESKILL:1,Knowledge (history)=5	PRETEXT:Special: To become a hundite dragon a character must be from a hundite tribe. Additionally, he must fast for 14 days in the volcanic base of the mountain known as Dragon Forge
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -378,7 +378,7 @@ CLASS:Hundite Dragon	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Dragon Lore
 ###Block: ~ Keeper
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
-CLASS:Keeper	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.113	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+CLASS:Keeper	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.113	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Feat			Required Language		Required Race				Required Skill
 CLASS:Keeper	PREFEAT:1,Animal Affinity	PRELANG:1,Draconic	PRERACE:1,Human,Half-Elf,Valhuru	PRESKILL:4,Diplomacy=2,Handle Animal=4,Knowledge (dragons)=8,Speak Language=1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -450,7 +450,7 @@ CLASS:Living Compass	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Cra
 ###Block: Mastermind
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
-CLASS:Mastermind	HD:4		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.119	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+CLASS:Mastermind	HD:4		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.119	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Feat							Required Skill						Req. Spell Type
 CLASS:Mastermind	PREFEAT:2,Skill Focus (Psicraft),Psionic Meditation	PRESKILL:2,Knowledge (psionics)=15,Psicraft=15	PRESPELLTYPE:1,Psionic=7
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -469,7 +469,7 @@ CLASS:Mastermind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|TY
 ###Block: Metaphysician
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
-CLASS:Metaphysician	HD:4		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.121	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Metaphysician	HD:4		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.121	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required Feat			Required Skill							Req. Spell Type
 CLASS:Metaphysician	PREFEAT:1,Magical Aptitude	PRESKILL:3,Heal=6,Knowledge (nature)=2,Spellcraft=8	PRESPELLTYPE:1,Arcane=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -556,7 +556,7 @@ CLASS:Observer	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hide|Intimida
 ###Block: ~ Permissionist
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
-CLASS:Permissionist	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.129	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Permissionist	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.129	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required Feat								Multiple Requirements																			Req. Known Spell
 CLASS:Permissionist	PREFEAT:2,Improved Counterspell,Skill Focus (Concentration)	PREMULT:2,[PRESKILL:2,Concentration=8,Spellcraft=8],[PRESKILL:1,Knowledge (arcana)=5,Knowledge (nature)=5,Knowledge (religion)=5]	PRESPELL:1,dispel magic,dispel magic (Greater),stop,power word dispel,power word unbind,reflection,word of averting,word of dispelling,word of reflection,word of undoing
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -579,7 +579,7 @@ CLASS:Permissionist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplom
 ###Block: ~ Scarlet Rose
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus
-CLASS:Scarlet Rose	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.130	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Scarlet Rose	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.130	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required Ability							Restricted AL		Req. Att.	Required Domain		Required Feat		Req. Spell Type
 CLASS:Scarlet Rose	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	!PREALIGN:LE,NE,CE	PREATT:4	PREDOMAIN:1,Sun,Glory	PREFEAT:1,Extra Turning	PRESPELLTYPE:1,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -625,7 +625,7 @@ CLASS:Shakasan	STARTSKILLPTS:6	CSKILL:Balance|Climb|Hide|Intimidate|Jump|Listen|
 ###Block: # ~ Troubadour
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define			Save checks bonus																Combat bonus
-CLASS:Troubadour	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.135	DEFINE:TroubadourLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Troubadour	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.135	DEFINE:TroubadourLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Restricted AL		Required Feat		Required Language	Multiple Requirements
 CLASS:Troubadour	!PREALIGN:LG,LN,LE	PREFEAT:1,Persuasive	PRELANG:3,ANY	PREMULT:5,[PRESKILL:1,Diplomacy=4],[PRESKILL:1,Perform (Act)=6,Perform (Comedy)=6,Perform (Dance)=6],[PRESKILL:1,Perform (Oratory)=8,Perform (Sing)=8],[PRESKILL:1,Perform (Keyboard)=8,Perform (Wind)=8],[PRESKILL:1,Perform (Percussion)=8,Perform (String)=8]
 # Class Name	Skill Pts/Lvl	Class Skill

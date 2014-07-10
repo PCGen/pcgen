@@ -74,6 +74,10 @@ Holy Avenger Spell Resistance			CATEGORY:Internal																															
 Goggles of Minute Seeing			CATEGORY:Special Ability																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	ASPECT:SkillBonus|Goggles of Minute Seeing grant +5 competence bonus on Search checks to find secret doors, traps, and similar concealed objects.
 
 
+#
+Variant Rule - Use Fractional Base Attack Bonus		CATEGORY:Special Ability	TYPE:AltRules.SpecialQuality	COST:0	DESC:Uses the Fractional BAB System		DEFINE:UseFractionalBAB|0	BONUS:VAR|UseFractionalBAB|1	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1
+#Variant Rule - Use Fractional Save Progression Bonus	CATEGORY:Special Ability	TYPE:AltRules.SpecialQuality	COST:0	DESC:Uses the Fractional Save System	
+
 
 #
 #EOF
