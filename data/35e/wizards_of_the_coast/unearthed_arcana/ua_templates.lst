@@ -89,3 +89,7 @@ Water Half-Orc	VISIBLE:NO	SUBRACE:Water
 # Halfling
 #Lightfoot		KEY:Lightfoot Halfling			VISIBLE:NO	FAVOREDCLASS:Rogue						AUTO:LANG|Common|Halfling			LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc										SUBRACE:Lightfoot	
 
+Goblin		VISIBLE:NO	
+Hobgoblin		VISIBLE:NO	
+Kobold		VISIBLE:NO	
+Orc			VISIBLE:NO	
