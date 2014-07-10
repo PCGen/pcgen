@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php	SOURCEDATE:2002-01
 
-# Deity Name	Domains										Desciption of Deity/Title					Holy Item	Deity Weapon			Alignment
+# Deity Name	Domains										Description of Deity/Title					Holy Item	Deity Weapon			Alignment
 Apollo		DOMAINS:Art,Good,Knowledge,Travel|PREALIGN:NG,CG,CN			DESC:Worshippers: artists, xcrawlers, bards		SYMBOL:None	DEITYWEAP:Dagger			ALIGN:CG
 Bacchus		DOMAINS:Chaos,Good,Wine|PREALIGN:LG,NG,CG					DESC:Worshippers: decadents, brewers			SYMBOL:None						ALIGN:NG
 Ceres			DOMAINS:Fertility,Good,Healing,Plant|PREALIGN:LN,NG,TN,NE,CE	DESC:Worshippers: mothers, farmers				SYMBOL:None	DEITYWEAP:Sickle			ALIGN:TN
