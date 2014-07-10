@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 # Original Entry by Tir Gwaith
 
@@ -117,13 +117,13 @@ CATEGORY=Special Ability|Turn Plant.MOD		ASPECT:TurnType|Turn	ASPECT:TurnKind|Pl
 CATEGORY=Special Ability|Rebuke Plant.MOD		ASPECT:TurnType|Rebuke	ASPECT:TurnKind|Plant	ASPECT:TurnTimes|%1|TurnTimesPlant	ASPECT:TurnLevel|%1|TurnLevelPlant	ASPECT:TurnDamage|%1d%2+%3|TurnDicePlant|TurnDieSizePlant|TurnDamagePlusPlant	ASPECT:TurnCheck|%1|TurnCheckPlant	ASPECT:TurnNotes|You command Plant creatures with total hit dice up to %1.|TurnLevelPlant/2
 
 ###Block: Druid abilities
-# Ability Name		Category of Ability		Type						Visible	Bonus to skill					Source Page
+# Ability Name		Category of Ability		Type						Visible	Bonus to skill							Source Page
 Nature Sense		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	BONUS:SKILL|Knowledge (Nature),Wilderness Lore|2	SOURCEPAGE:ClassesI.rtf
-Trackless Step		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES								SOURCEPAGE:ClassesI.rtf
-Woodland Stride		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES								SOURCEPAGE:ClassesI.rtf
-Resist Nature's Lure	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES								SOURCEPAGE:ClassesI.rtf
-Immune to Poisons		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES								SOURCEPAGE:ClassesI.rtf
-A Thousand Faces		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES								SOURCEPAGE:ClassesI.rtf
+Trackless Step		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES										SOURCEPAGE:ClassesI.rtf
+Woodland Stride		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES										SOURCEPAGE:ClassesI.rtf
+Resist Nature's Lure	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES										SOURCEPAGE:ClassesI.rtf
+Immune to Poisons		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES										SOURCEPAGE:ClassesI.rtf
+A Thousand Faces		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES										SOURCEPAGE:ClassesI.rtf
 ###Block: Druid Wild Shape ability
 # Ability Name		Category of Ability		Type						Visible	Define														Description																																																																																																																					Modify VAR					Vision				Aspects
 Wild Shape			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:WildShapeTimes|0	DEFINE:WildShapeElementalTimes|0	DEFINE:WildShapeProgression|0	DESC:%1 times per day|WildShapeTimes|PREVAREQ:WildShapeProgression,1	DESC:%1 times per day (Large)|WildShapeTimes|PREVAREQ:WildShapeProgression,2	DESC:%1 times per day (Large, Tiny)|WildShapeTimes|PREVAREQ:WildShapeProgression,3	DESC:%1 times per day (Large, Tiny, Dire)|WildShapeTimes|PREVAREQ:WildShapeProgression,4	DESC:%1 times per day (Large, Tiny, Dire, Huge)|WildShapeTimes|PREVAREQ:WildShapeProgression,5	DESC:%1 times per day (Large, Tiny, Dire, Huge) %2/day (Elemental)|WildShapeTimes|WildShapeElementalTimes|PREVAREQ:WildShapeProgression,6	DESC:%1 times per day (Large, Tiny, Dire, Huge) %2/day (Huge Elemental)|WildShapeTimes|WildShapeElementalTimes|PREVARGTEQ:WildShapeProgression,7	BONUS:VAR|WildShapeProgression|1						ASPECT:Ability Benefit|%1/day|WildShapeTimes

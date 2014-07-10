@@ -1,10 +1,12 @@
-SOURCELONG:Quintessential Samurai	SOURCESHORT:mpgqs	
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:MPG - Quintessential Samurai	SOURCESHORT:mpgqs
 #SOURCEWEB:www.mongoose.com
 # Original Entry by: Andrew Maitland
 
 
-Katana	TYPE:Martial.Exotic
-Wakizashi	TYPE:Martial
+# Weapon Name	Type
+Katana		TYPE:Martial.Exotic
+Wakizashi		TYPE:Martial
 
-Daikyu	TYPE:Martial
-Yumi		TYPE:Martial
+Daikyu		TYPE:Martial
+Yumi			TYPE:Martial

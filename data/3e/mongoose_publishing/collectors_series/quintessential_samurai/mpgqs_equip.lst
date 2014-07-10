@@ -1,42 +1,46 @@
-SOURCELONG:Quintessential Samurai	SOURCESHORT:mpgqs	
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:MPG - Quintessential Samurai	SOURCESHORT:mpgqs
 #SOURCEWEB:www.mongoose.com
 # Original Entry by: Andrew Maitland
 
 ###Block: Tools
-Armourer Kit		SOURCEPAGE:p.45	TYPE:Tool	COST:50	WT:10
-Battle Fan			SOURCEPAGE:p.45	TYPE:Tool	COST:10	WT:1
-Saddle (Masterwork)	SOURCEPAGE:p.46	TYPE:Tool	COST:100	WT:25
-Signal Mirror (Hand)	SOURCEPAGE:p.46	TYPE:Tool	COST:5	WT:0.1
-Signal Mirror (Tower)	SOURCEPAGE:p.46	TYPE:Tool	COST:100	WT:20
+# Equipment Name		Type		Cost		Weight	Source Page
+Armourer Kit		TYPE:Tool	COST:50	WT:10		SOURCEPAGE:p.45
+Battle Fan			TYPE:Tool	COST:10	WT:1		SOURCEPAGE:p.45
+Saddle (Masterwork)	TYPE:Tool	COST:100	WT:25		SOURCEPAGE:p.46
+Signal Mirror (Hand)	TYPE:Tool	COST:5	WT:0.1	SOURCEPAGE:p.46
+Signal Mirror (Tower)	TYPE:Tool	COST:100	WT:20		SOURCEPAGE:p.46
 
 ###Block: Bows and Arrows
-Daikyu			PROFICIENCY:WEAPON|Daikyu	SOURCEPAGE:p.46	TYPE:Weapon.Ranged.Bow.Piercing	RANGE:110	DAMAGE:1d8	CRITMULT:x3	CRITRANGE:1	COST:100	WT:5
-Daikyu (Mighty +1)	PROFICIENCY:WEAPON|Daikyu	SOURCEPAGE:p.46	TYPE:Weapon.Ranged.Bow.Piercing	RANGE:110	DAMAGE:1d8	CRITMULT:x3	CRITRANGE:1	COST:200	WT:5	BONUS:WEAPON|DAMAGE|min(STR,1)
-Daikyu (Mighty +2)	PROFICIENCY:WEAPON|Daikyu	SOURCEPAGE:p.46	TYPE:Weapon.Ranged.Bow.Piercing	RANGE:110	DAMAGE:1d8	CRITMULT:x3	CRITRANGE:1	COST:300	WT:5	BONUS:WEAPON|DAMAGE|min(STR,2)
-Daikyu (Mighty +3)	PROFICIENCY:WEAPON|Daikyu	SOURCEPAGE:p.46	TYPE:Weapon.Ranged.Bow.Piercing	RANGE:110	DAMAGE:1d8	CRITMULT:x3	CRITRANGE:1	COST:400	WT:5	BONUS:WEAPON|DAMAGE|min(STR,3)
-Daikyu (Mighty +4)	PROFICIENCY:WEAPON|Daikyu	SOURCEPAGE:p.46	TYPE:Weapon.Ranged.Bow.Piercing	RANGE:110	DAMAGE:1d8	CRITMULT:x3	CRITRANGE:1	COST:500	WT:5	BONUS:WEAPON|DAMAGE|min(STR,4)
-Daikyu (Mighty +5)	PROFICIENCY:WEAPON|Daikyu	SOURCEPAGE:p.46	TYPE:Weapon.Ranged.Bow.Piercing	RANGE:110	DAMAGE:1d8	CRITMULT:x3	CRITRANGE:1	COST:600	WT:5	BONUS:WEAPON|DAMAGE|min(STR,5)
-Yumi				PROFICIENCY:WEAPON|Yumi		SOURCEPAGE:p.46	TYPE:Weapon.Ranged.Bow.Piercing	RANGE:70	DAMAGE:1d8	CRITMULT:x3	CRITRANGE:1	COST:75	WT:3
-Yumi (Mighty +1)		PROFICIENCY:WEAPON|Yumi		SOURCEPAGE:p.46	TYPE:Weapon.Ranged.Bow.Piercing	RANGE:70	DAMAGE:1d8	CRITMULT:x3	CRITRANGE:1	COST:150	WT:3	BONUS:WEAPON|DAMAGE|min(STR,1)
-Yumi (Mighty +2)		PROFICIENCY:WEAPON|Yumi		SOURCEPAGE:p.46	TYPE:Weapon.Ranged.Bow.Piercing	RANGE:70	DAMAGE:1d8	CRITMULT:x3	CRITRANGE:1	COST:250	WT:3	BONUS:WEAPON|DAMAGE|min(STR,2)
-Yumi (Mighty +3)		PROFICIENCY:WEAPON|Yumi		SOURCEPAGE:p.46	TYPE:Weapon.Ranged.Bow.Piercing	RANGE:70	DAMAGE:1d8	CRITMULT:x3	CRITRANGE:1	COST:350	WT:3	BONUS:WEAPON|DAMAGE|min(STR,3)
-Yumi (Mighty +4)		PROFICIENCY:WEAPON|Yumi		SOURCEPAGE:p.46	TYPE:Weapon.Ranged.Bow.Piercing	RANGE:70	DAMAGE:1d8	CRITMULT:x3	CRITRANGE:1	COST:450	WT:3	BONUS:WEAPON|DAMAGE|min(STR,4)
-Yumi (Mighty +5)		PROFICIENCY:WEAPON|Yumi		SOURCEPAGE:p.46	TYPE:Weapon.Ranged.Bow.Piercing	RANGE:70	DAMAGE:1d8	CRITMULT:x3	CRITRANGE:1	COST:550	WT:3	BONUS:WEAPON|DAMAGE|min(STR,5)
+# Equipment Name		Required Weapon Proficiency	Type						Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page		Weapon prof. bonus				Bonus Weapon Modifiers		Weapon prop. bonus
+Daikyu			PROFICIENCY:WEAPON|Daikyu	TYPE:Weapon.Ranged.Bow.Piercing	COST:100	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:110	SOURCEPAGE:p.46
+Daikyu (Mighty +1)	PROFICIENCY:WEAPON|Daikyu	TYPE:Weapon.Ranged.Bow.Piercing	COST:200	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:110	SOURCEPAGE:p.46													BONUS:WEAPON|DAMAGE|min(STR,1)
+Daikyu (Mighty +2)	PROFICIENCY:WEAPON|Daikyu	TYPE:Weapon.Ranged.Bow.Piercing	COST:300	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:110	SOURCEPAGE:p.46													BONUS:WEAPON|DAMAGE|min(STR,2)
+Daikyu (Mighty +3)	PROFICIENCY:WEAPON|Daikyu	TYPE:Weapon.Ranged.Bow.Piercing	COST:400	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:110	SOURCEPAGE:p.46													BONUS:WEAPON|DAMAGE|min(STR,3)
+Daikyu (Mighty +4)	PROFICIENCY:WEAPON|Daikyu	TYPE:Weapon.Ranged.Bow.Piercing	COST:500	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:110	SOURCEPAGE:p.46													BONUS:WEAPON|DAMAGE|min(STR,4)
+Daikyu (Mighty +5)	PROFICIENCY:WEAPON|Daikyu	TYPE:Weapon.Ranged.Bow.Piercing	COST:600	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:110	SOURCEPAGE:p.46													BONUS:WEAPON|DAMAGE|min(STR,5)
+Yumi				PROFICIENCY:WEAPON|Yumi		TYPE:Weapon.Ranged.Bow.Piercing	COST:75	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:70	SOURCEPAGE:p.46
+Yumi (Mighty +1)		PROFICIENCY:WEAPON|Yumi		TYPE:Weapon.Ranged.Bow.Piercing	COST:150	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:70	SOURCEPAGE:p.46													BONUS:WEAPON|DAMAGE|min(STR,1)
+Yumi (Mighty +2)		PROFICIENCY:WEAPON|Yumi		TYPE:Weapon.Ranged.Bow.Piercing	COST:250	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:70	SOURCEPAGE:p.46													BONUS:WEAPON|DAMAGE|min(STR,2)
+Yumi (Mighty +3)		PROFICIENCY:WEAPON|Yumi		TYPE:Weapon.Ranged.Bow.Piercing	COST:350	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:70	SOURCEPAGE:p.46													BONUS:WEAPON|DAMAGE|min(STR,3)
+Yumi (Mighty +4)		PROFICIENCY:WEAPON|Yumi		TYPE:Weapon.Ranged.Bow.Piercing	COST:450	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:70	SOURCEPAGE:p.46													BONUS:WEAPON|DAMAGE|min(STR,4)
+Yumi (Mighty +5)		PROFICIENCY:WEAPON|Yumi		TYPE:Weapon.Ranged.Bow.Piercing	COST:550	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	RANGE:70	SOURCEPAGE:p.46													BONUS:WEAPON|DAMAGE|min(STR,5)
 
-Arrow (Ya)			TYPE:Ammo.Arrow	SOURCEPAGE:p.47	COST:1
-Arrow (Karimata)		TYPE:Ammo.Arrow	SOURCEPAGE:p.47	COST:1	DAMAGE:1d10		BONUS:EQMWEAPON|RANGEADD|-20
-Arrow (Togari-Ya)		TYPE:Ammo.Arrow	SOURCEPAGE:p.47	COST:1	DAMAGE:1d6
-Arrow (Yanagi-Ba)		TYPE:Ammo.Arrow	SOURCEPAGE:p.47	COST:1	DAMAGE:1d12		BONUS:WEAPONPROF=TYPE.Bow|CRITMULTADD|-1
-Arrow (Watakusi)		TYPE:Ammo.Arrow	SOURCEPAGE:p.48	COST:1	DAMAGE:1d10		BONUS:EQMWEAPON|RANGEADD|-10
-Arrow (Demonslayer)	TYPE:Ammo.Arrow	SOURCEPAGE:p.48	COST:2	DAMAGE:1d10
+Arrow (Ya)								TYPE:Ammo.Arrow				COST:1															SOURCEPAGE:p.47
+Arrow (Karimata)							TYPE:Ammo.Arrow				COST:1											DAMAGE:1d10			SOURCEPAGE:p.47								BONUS:EQMWEAPON|RANGEADD|-20
+Arrow (Togari-Ya)							TYPE:Ammo.Arrow				COST:1											DAMAGE:1d6			SOURCEPAGE:p.47
+Arrow (Yanagi-Ba)							TYPE:Ammo.Arrow				COST:1											DAMAGE:1d12			SOURCEPAGE:p.47	BONUS:WEAPONPROF=TYPE.Bow|CRITMULTADD|-1
+Arrow (Watakusi)							TYPE:Ammo.Arrow				COST:1											DAMAGE:1d10			SOURCEPAGE:p.48								BONUS:EQMWEAPON|RANGEADD|-10
+Arrow (Demonslayer)						TYPE:Ammo.Arrow				COST:2											DAMAGE:1d10			SOURCEPAGE:p.48
 
 ###Block: Accessories
-Fudeko (8 oz.)		TYPE:Accessories	SOURCEPAGE:p.48	COST:2
-Tsuru				TYPE:Accessories	SOURCEPAGE:p.48	COST:1
-Tsuru (Masterwork)	TYPE:Accessories	SOURCEPAGE:p.48	COST:20
-Tsurumaki			TYPE:Accessories	SOURCEPAGE:p.48	COST:5
-Yazutsu			TYPE:Accessories	SOURCEPAGE:p.48	COST:10
-Yumibukuro			TYPE:Accessories	SOURCEPAGE:p.48	COST:20
+# Equipment Name		Required Weapon Proficiency	Required Armor Proficiency	Type						Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus						Modify VAR							Weapon prop. bonus
+Fudeko (8 oz.)												TYPE:Accessories				COST:2																								SOURCEPAGE:p.48
+Tsuru														TYPE:Accessories				COST:1																								SOURCEPAGE:p.48
+Tsuru (Masterwork)											TYPE:Accessories				COST:20																								SOURCEPAGE:p.48
+Tsurumaki													TYPE:Accessories				COST:5																								SOURCEPAGE:p.48
+Yazutsu													TYPE:Accessories				COST:10																								SOURCEPAGE:p.48
+Yumibukuro													TYPE:Accessories				COST:20																								SOURCEPAGE:p.48
 
 
 
@@ -44,27 +48,24 @@ Yumibukuro			TYPE:Accessories	SOURCEPAGE:p.48	COST:20
 
 
 # Weapons
-Katana		PROFICIENCY:WEAPON|Katana		TYPE:Weapon.Melee.Slashing.Exotic	DAMAGE:1d10		SIZE:M	WIELD:TwoHanded	CRITRANGE:2	CRITMULT:x2	WT:6			BONUS:WEAPON|WIELDCATEGORY|-1|PREFEAT:1,Exotic Weapon Proficiency (Katana)
-Wakizashi		PROFICIENCY:WEAPON|Wakizashi		TYPE:Weapon.Melee.Slashing		DAMAGE:1d6		SIZE:S	WIELD:OneHanded	CRITRANGE:2	CRITMULT:x2	WT:3	COST:100
+Katana			PROFICIENCY:WEAPON|Katana						TYPE:Weapon.Melee.Slashing.Exotic			WT:6					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	WIELD:TwoHanded				SIZE:M																								BONUS:WEAPON|WIELDCATEGORY|-1|PREFEAT:1,Exotic Weapon Proficiency (Katana)
+Wakizashi			PROFICIENCY:WEAPON|Wakizashi						TYPE:Weapon.Melee.Slashing		COST:100	WT:3					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	WIELD:OneHanded				SIZE:S
 
 # Armors - This is a Piece Meal operation, will take some consideration to implement correctly.
 # Do = Base Armor, everything else is built upon it.
-Do (Leather)	COST:10	PROFICIENCY:ARMOR|Do	TYPE:Armor.Specific.Light	BONUS:COMBAT|AC|SamuraiArmorBonus|TYPE=Armor	BONUS:VAR|SamuraiArmorBonus|2|TYPE=Do	MAXDEX:6	ACCHECK:0	SPELLFAILURE:10	WT:10
-Do (Metal)		COST:75	PROFICIENCY:ARMOR|Do	TYPE:Armor.Specific.Light	BONUS:COMBAT|AC|SamuraiArmorBonus|TYPE=Armor	BONUS:VAR|SamuraiArmorBonus|3|TYPE=Do	MAXDEX:5	ACCHECK:0	SPELLFAILURE:15	WT:15
+Do (Leather)							PROFICIENCY:ARMOR|Do		TYPE:Armor.Specific.Light		COST:10	WT:10		ACCHECK:0															MAXDEX:6							SPELLFAILURE:10		BONUS:COMBAT|AC|SamuraiArmorBonus|TYPE=Armor	BONUS:VAR|SamuraiArmorBonus|2|TYPE=Do
+Do (Metal)								PROFICIENCY:ARMOR|Do		TYPE:Armor.Specific.Light		COST:75	WT:15		ACCHECK:0															MAXDEX:5							SPELLFAILURE:15		BONUS:COMBAT|AC|SamuraiArmorBonus|TYPE=Armor	BONUS:VAR|SamuraiArmorBonus|3|TYPE=Do
 #
-Haidate (Leather)	COST:10	TYPE:SamuraiArmorAddon	BONUS:VAR|SamuraiArmorBonus|1|TYPE=Haidate	MAXDEX:-1	ACCHECK:-1	SPELLFAILURE:0	WT:5
-Haidate (Metal)	COST:50	TYPE:SamuraiArmorAddon	BONUS:VAR|SamuraiArmorBonus|2|TYPE=Haidate	MAXDEX:-1	ACCHECK:-2	SPELLFAILURE:5	WT:10
-Haidate (Kabuto)	COST:50	TYPE:SamuraiArmorAddon	BONUS:VAR|SamuraiArmorBonus|1|TYPE=Haidate	MAXDEX:0	ACCHECK:-1	SPELLFAILURE:5	WT:5
+Haidate (Leather)												TYPE:SamuraiArmorAddon			COST:10	WT:5		ACCHECK:-1															MAXDEX:-1							SPELLFAILURE:0										BONUS:VAR|SamuraiArmorBonus|1|TYPE=Haidate
+Haidate (Metal)												TYPE:SamuraiArmorAddon			COST:50	WT:10		ACCHECK:-2															MAXDEX:-1							SPELLFAILURE:5										BONUS:VAR|SamuraiArmorBonus|2|TYPE=Haidate
+Haidate (Kabuto)												TYPE:SamuraiArmorAddon			COST:50	WT:5		ACCHECK:-1															MAXDEX:0							SPELLFAILURE:5										BONUS:VAR|SamuraiArmorBonus|1|TYPE=Haidate
 
-Kote (Leather)	COST:10	TYPE:SamuraiArmorAddon	BONUS:VAR|SamuraiArmorBonus|1|TYPE=Kote	MAXDEX:-1	ACCHECK:-1	SPELLFAILURE:5	WT:3
-Kote (Metal)	COST:50	TYPE:SamuraiArmorAddon	BONUS:VAR|SamuraiArmorBonus|2|TYPE=Kote	MAXDEX:-1	ACCHECK:-1	SPELLFAILURE:10	WT:6
-Kote (Mempo)	COST:25	TYPE:SamuraiArmorAddon	BONUS:VAR|SamuraiArmorBonus|0|TYPE=Kote	MAXDEX:0	ACCHECK:0	SPELLFAILURE:0	WT:2
-Kote (Sode)		COST:30	TYPE:SamuraiArmorAddon	BONUS:VAR|SamuraiArmorBonus|1|TYPE=Kote	MAXDEX:0	ACCHECK:-1	SPELLFAILURE:5	WT:5
+Kote (Leather)												TYPE:SamuraiArmorAddon			COST:10	WT:3		ACCHECK:-1															MAXDEX:-1							SPELLFAILURE:5										BONUS:VAR|SamuraiArmorBonus|1|TYPE=Kote
+Kote (Metal)												TYPE:SamuraiArmorAddon			COST:50	WT:6		ACCHECK:-1															MAXDEX:-1							SPELLFAILURE:10										BONUS:VAR|SamuraiArmorBonus|2|TYPE=Kote
+Kote (Mempo)												TYPE:SamuraiArmorAddon			COST:25	WT:2		ACCHECK:0															MAXDEX:0							SPELLFAILURE:0										BONUS:VAR|SamuraiArmorBonus|0|TYPE=Kote
+Kote (Sode)													TYPE:SamuraiArmorAddon			COST:30	WT:5		ACCHECK:-1															MAXDEX:0							SPELLFAILURE:5										BONUS:VAR|SamuraiArmorBonus|1|TYPE=Kote
 
-Sune-Ate (Leather)	COST:15	TYPE:SamuraiArmorAddon	BONUS:VAR|SamuraiArmorBonus|1|TYPE=SuneAte	MAXDEX:-1	ACCHECK:-1	SPELLFAILURE:0	WT:5
-Sune-Ate (Metal)		COST:50	TYPE:SamuraiArmorAddon	BONUS:VAR|SamuraiArmorBonus|2|TYPE=SuneAte	MAXDEX:-2	ACCHECK:-2	SPELLFAILURE:0	WT:10
-Sune-Ate (Wakibiki)	COST:10	TYPE:SamuraiArmorAddon	BONUS:VAR|SamuraiArmorBonus|1|TYPE=SuneAte	MAXDEX:-1	ACCHECK:-1	SPELLFAILURE:5	WT:5
-Sune-Ate (Yugake)		COST:10	TYPE:SamuraiArmorAddon	BONUS:VAR|SamuraiArmorBonus|0|TYPE=SuneAte	MAXDEX:0	ACCHECK:0	SPELLFAILURE:0	WT:1
-
-
-
+Sune-Ate (Leather)											TYPE:SamuraiArmorAddon			COST:15	WT:5		ACCHECK:-1															MAXDEX:-1							SPELLFAILURE:0										BONUS:VAR|SamuraiArmorBonus|1|TYPE=SuneAte
+Sune-Ate (Metal)												TYPE:SamuraiArmorAddon			COST:50	WT:10		ACCHECK:-2															MAXDEX:-2							SPELLFAILURE:0										BONUS:VAR|SamuraiArmorBonus|2|TYPE=SuneAte
+Sune-Ate (Wakibiki)											TYPE:SamuraiArmorAddon			COST:10	WT:5		ACCHECK:-1															MAXDEX:-1							SPELLFAILURE:5										BONUS:VAR|SamuraiArmorBonus|1|TYPE=SuneAte
+Sune-Ate (Yugake)												TYPE:SamuraiArmorAddon			COST:10	WT:1		ACCHECK:0															MAXDEX:0							SPELLFAILURE:0										BONUS:VAR|SamuraiArmorBonus|0|TYPE=SuneAte

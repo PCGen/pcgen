@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 # VAR SynergyBonus defined in statsandchecks.lst to allow raising the value of the Synergy bonus - Frank
@@ -102,7 +102,7 @@ Wilderness Lore					KEYSTAT:WIS											TYPE:Wisdom.Base							SOURCEPAGE:srds
 
 
 ###Block: MM skills
-# Skill Name			Key Stat	Untrained?		Exclusive?		Type						Source Page
+# Skill Name			Key Stat	Untrained?		Exclusive?		Type						Source Page					Situational Skill Use
 Control Shape			KEYSTAT:WIS	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Wisdom.Base				SOURCEPAGE:srdmonsterstemplates.rtf
 Craft (Metalworking)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Craft.Base		SOURCEPAGE:srdmonstersd.rtf
 Knowledge (Geology)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge.Base	SOURCEPAGE:srdmonstersd.rtf
@@ -111,4 +111,4 @@ Knowledge (Plane of Air)	KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowle
 Knowledge (Plane of Water)	KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge.Base	SOURCEPAGE:srdmonsterst.rtf
 Profession (Hunt)			KEYSTAT:WIS	USEUNTRAINED:NO				TYPE:Wisdom.Profession.Base		SOURCEPAGE:srdmonsterss.rtf
 
-Search.MOD	SITUATION:Notice unusual stonework
+Search.MOD																								SITUATION:Notice unusual stonework

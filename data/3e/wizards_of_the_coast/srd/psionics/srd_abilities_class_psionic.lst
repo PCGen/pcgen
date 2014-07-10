@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 ###Block: Psionic Combat Modes
@@ -68,21 +68,21 @@ Breach Power Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YE
 Blast Feedback			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 
 ###Block: Soulknife
-# Ability Name		Category of Ability		Type				Visible	Define									Description							Aspects
-Imbed Power			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Imbed Psionic Attack	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Free Draw			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Sever Life			CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES
-Upgrade			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Knife to the Soul		CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES
+# Ability Name		Unique Key				Category of Ability		Type				Visible	Define									Description							Stackable?	Multiple?	Choose				Bonus to skill		Aspects
+Imbed Power								CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Imbed Psionic Attack						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Free Draw								CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Sever Life								CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES
+Upgrade								CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Knife to the Soul							CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES
 #
-Mind-Blade Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES	DEFINE:SneakAttackDie|6	DEFINE:MindBladeSneakAttack|0		DESC:+%1d%2|MindBladeSneakAttack|SneakAttackDie	ASPECT:Ability Benefit|+%1d%2|MindBladeSneakAttack|SneakAttackDie
-Mind-Blade			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:MindBladeAllowed|1	DEFINE:MindBladeEnchantment|0	DESC:+%1|MindBladeEnchantment				ASPECT:Ability Bonus|+%1|MindBladeEnchantment
-Throw Mind-Blade		CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES	DEFINE:MindBladeRange|0							DESC:%1 ft.|MindBladeRange				ASPECT:Ability Benefit|%1 ft.|MindBladeRange
+Mind-Blade Sneak Attack						CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES	DEFINE:SneakAttackDie|6	DEFINE:MindBladeSneakAttack|0		DESC:+%1d%2|MindBladeSneakAttack|SneakAttackDie														ASPECT:Ability Benefit|+%1d%2|MindBladeSneakAttack|SneakAttackDie
+Mind-Blade								CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:MindBladeAllowed|1	DEFINE:MindBladeEnchantment|0	DESC:+%1|MindBladeEnchantment																	ASPECT:Ability Bonus|+%1|MindBladeEnchantment
+Throw Mind-Blade							CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES	DEFINE:MindBladeRange|0							DESC:%1 ft.|MindBladeRange																	ASPECT:Ability Benefit|%1 ft.|MindBladeRange
 
 #
 # End
 #
 
 
-Crystal Mask	KEY:Equipment ~ Crystal Mask		BONUS:SKILL|LIST|5	CHOOSE:SKILL|Knowledge %	CATEGORY:Internal	MULT:YES	STACK:NO
+Crystal Mask		KEY:Equipment ~ Crystal Mask	CATEGORY:Internal																											STACK:NO	MULT:YES	CHOOSE:SKILL|Knowledge %	BONUS:SKILL|LIST|5
