@@ -253,7 +253,7 @@ clean {
  
 test {
 	exclude 'pcgen/testsupport/**'
-	maxParallelForks 4
+//	maxParallelForks 4
     testLogging {
         exceptionFormat = 'full'
     }
