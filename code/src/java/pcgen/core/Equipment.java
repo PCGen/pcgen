@@ -6432,12 +6432,6 @@ public final class Equipment extends PObject implements Serializable,
 		r *= rangeMult;
 		r += postAdd;
 
-		// If it's a ranged, thrown or projectile, it must have a range
-		if ((isRanged() || isThrown() || isProjectile()) && (r <= 0))
-		{
-			r = 10;
-		}
-
 		return r;
 	}
 

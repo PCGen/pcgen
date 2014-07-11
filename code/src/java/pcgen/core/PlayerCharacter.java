@@ -3472,7 +3472,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			// for both heads for thrown double weapons when
 			// it should only show one
 			//
-			else if (equip.isMelee() && equip.isRanged() && (equip.getRange(this).intValue() != 0))
+			else if (equip.isMelee() && equip.isRanged())
 			{
 				//
 				// Strip off the Ranged portion, set range to 0

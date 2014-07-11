@@ -1068,28 +1068,28 @@ BIO
 			</melee>
 			<ranges>
 				<range>
-					<distance>10 ft.</distance>
+					<distance>0 ft.</distance>
 					<to_hit>+8/+8/+8/+8/+8/+8</to_hit>
 					<damage>1d3</damage>
 				</range>
 				<range>
-					<distance>20 ft.</distance>
-					<to_hit>+6/+6/+6/+6/+6/+6</to_hit>
+					<distance>0 ft.</distance>
+					<to_hit>+8/+8/+8/+8/+8/+8</to_hit>
 					<damage>1d3</damage>
 				</range>
 				<range>
-					<distance>30 ft.</distance>
-					<to_hit>+4/+4/+4/+4/+4/+4</to_hit>
+					<distance>0 ft.</distance>
+					<to_hit>+8/+8/+8/+8/+8/+8</to_hit>
 					<damage>1d3</damage>
 				</range>
 				<range>
-					<distance>40 ft.</distance>
-					<to_hit>+2/+2/+2/+2/+2/+2</to_hit>
+					<distance>0 ft.</distance>
+					<to_hit>+8/+8/+8/+8/+8/+8</to_hit>
 					<damage>1d3</damage>
 				</range>
 				<range>
-					<distance>50 ft.</distance>
-					<to_hit>+0/+0/+0/+0/+0/+0</to_hit>
+					<distance>0 ft.</distance>
+					<to_hit>+8/+8/+8/+8/+8/+8</to_hit>
 					<damage>1d3</damage>
 				</range>
 			</ranges>
