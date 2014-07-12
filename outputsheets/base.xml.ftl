@@ -59,12 +59,12 @@
 			<short>${pcstring('ALIGNMENT.SHORT')}</short>
 		</alignment>
 		<archetypes>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; trait , trait_has_next>
+		<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; trait , trait_has_next>
 			<archetype>
 				<name>${pcstring('ABILITY.Archetype.VISIBLE.${trait}.TYPE=Archetype')}</name>
 				<type>${pcstring('ABILITY.Archetype.VISIBLE.${trait}.TYPE=Archetype.TYPE')}</type>
 			</archetype>
-</@loop>
+		</@loop>
 		</archetypes>
 		<bab>${pcstring('ATTACK.MELEE.BASE')}</bab>
 		<bio>${pcstring('BIO')}</bio>
@@ -72,7 +72,7 @@
 		<birthplace>${pcstring('BIRTHPLACE')}</birthplace>
 		<catchphrase>${pcstring('CATCHPHRASE')}</catchphrase>
 		<classes>
-<@loop from=0 to=pcvar('COUNT[CLASSES]-1') ; class , class_has_next>
+			<@loop from=0 to=pcvar('COUNT[CLASSES]-1') ; class , class_has_next>
 			<class>
 				<name>${pcstring('CLASS.${class}')}</name>
 				<abbreviation>${pcstring('CLASSABB.${class}')}</abbreviation>
@@ -81,7 +81,7 @@
 				<sequence>${class}</sequence>
 				<sequence_shortform><@pcstring tag="CLASSABB.${class}"/><@pcstring tag="CLASS.${class}.LEVEL"/></sequence_shortform>
 			</class>
-</@loop><#-- Classes -->
+			</@loop><#-- Classes -->
 			<levels_total>${pcstring('TOTALLEVELS')}</levels_total>
 			<levels_ecl>${pcstring('ECL')}</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
@@ -143,23 +143,23 @@
 		<image>file:${pcstring('DIR.PCG')}/${pcstring('NAME')}.jpg</image>
 		<interests>${pcstring('INTERESTS')}</interests>
 		<languages>
-<@loop from=0 to=pcvar('COUNT[LANGUAGES]-1') ; lang , lang_has_next>
+		<@loop from=0 to=pcvar('COUNT[LANGUAGES]-1') ; lang , lang_has_next>
 			<language>${pcstring('LANGUAGES.${lang}')}</language>
-</@loop>
+		</@loop>
 			<all>${pcstring('LANGUAGES')}</all>
 		</languages>
 		<location>${pcstring('LOCATION')}</location>
 		<move>
-<@loop from=0 to=pcvar('COUNT[MOVE]-1') ; move , move_has_next>
+		<@loop from=0 to=pcvar('COUNT[MOVE]-1') ; move , move_has_next>
 			<move>
 				<name>${pcstring('MOVE.${move}.NAME')}</name>
 				<rate>${pcstring('MOVE.${move}.RATE')}</rate>
 				<squares>${pcstring('MOVE.${move}.SQUARES')}</squares>
-<#if (pcstring("MOVE.${move}.NAME") = "Fly")>
+		<#if (pcstring("MOVE.${move}.NAME") = "Fly")>
 				<maneuverability>(${pcstring('ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability')})</maneuverability>
-</#if>
+		</#if>
 			</move>
-</@loop>
+		</@loop>
 			<all>${pcstring('MOVEMENT')}</all>
 		</move>
 		<personality>
@@ -173,13 +173,13 @@
 		<phobias>${pcstring('PHOBIAS')}</phobias>
 		<race>${pcstring('RACE')}</race>
 		<race>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Internal","ASPECT=RaceExtra")-1') ; ability , ability_has_next>
+		<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Internal","ASPECT=RaceExtra")-1') ; ability , ability_has_next>
 			<raceextra>${pcstring('ABILITYALL.Internal.HIDDEN.${ability}.ASPECT.RaceExtra')}</raceextra>
-</@loop>
+		</@loop>
 			<racetype>${pcstring('RACETYPE')}</racetype>
-<@loop from=0 to=pcvar('COUNT[RACESUBTYPE]-1') ; racesubtype , racesubtype_has_next>
+		<@loop from=0 to=pcvar('COUNT[RACESUBTYPE]-1') ; racesubtype , racesubtype_has_next>
 			<racesubtype>${pcstring('RACESUBTYPE.${racesubtype}')}</racesubtype>
-</@loop>
+		</@loop>
 		</race>
 		<reach>
 			<reach>${pcstring('REACH')}</reach>
@@ -195,9 +195,9 @@
 		<speechtendency>${pcstring('SPEECHTENDENCY')}</speechtendency>
 		<type>${pcstring('TYPE')}</type>
 		<vision>
-<@loop from=0 to=pcvar('COUNT[VISION]-1') ; vision , vision_has_next>
+		<@loop from=0 to=pcvar('COUNT[VISION]-1') ; vision , vision_has_next>
 			<vision>${pcstring('VISION.${vision}')}</vision>
-</@loop>
+		</@loop>
 			<all>${pcstring('VISION')}</all>
 		</vision>
 		<wealth>${pcstring('VAR.WEALTH.INTVAL')}</wealth>
@@ -211,26 +211,26 @@
 			<current>${pcstring('POOL.CURRENT')}</current>
 		</poolpoints>
 		<notes>
-<@loop from=0 to=pcvar('COUNT[NOTES]-1') ; note , note_has_next>
-<#if (pcstring("NOTE.${note}.NAME") = "DM Notes")>
-<#else>
+		<@loop from=0 to=pcvar('COUNT[NOTES]-1') ; note , note_has_next>
+		<#if (pcstring("NOTE.${note}.NAME") = "DM Notes")>
+		<#else>
 			<note>
 				<name>${pcstring('NOTE.${note}.NAME')}</name>
 				<value>${pcstring('NOTE.${note}.VALUE.')}</value>
 			</note>
 
-</#if>
-</@loop>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","ASPECT=NotesSection")-1') ; ability , ability_has_next>
+		</#if>
+		</@loop>
+		<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","ASPECT=NotesSection")-1') ; ability , ability_has_next>
 			<note>
 				<name>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT.NotesSection')}</name>
 				<value>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT.Notes')}</value>
 			</note>
-</@loop>
+		</@loop>
 		</notes>
 	</basics>
 
-<!-- Use ASPECT${pcstring('NotesSection')}x and ASPECT${pcstring('Notes')}y	-->
+	<!-- Use ASPECT${pcstring('NotesSection')}x and ASPECT${pcstring('Notes')}y	-->
 	<!--
 	  ====================================
 	  ====================================
@@ -238,7 +238,7 @@
 	  ====================================
 	  ====================================-->
 	<abilities>
-<@loop from=0 to=pcvar('COUNT[STATS]-1') ; stat , stat_has_next>
+	<@loop from=0 to=pcvar('COUNT[STATS]-1') ; stat , stat_has_next>
 		<ability>
 			<name>
 				<long>${pcstring('STAT.${stat}.LONGNAME')}</long>
@@ -246,13 +246,13 @@
 			</name>
 			<score>${pcstring('STAT.${stat}')}</score>
 			<modifier>${pcstring('STAT.${stat}.MOD')}</modifier>
-<!--
+		<!--
 		Old BASE tag does not give stats with racial, and other permentant adjustments.
 		Use NOTEMP.NOEQUIP instead of BASE gives the correct results.
 
 			<base>${pcstring('STAT.${stat}.BASE')}</base>
 			<basemod>${pcstring('STAT.${stat}.BASEMOD')}</basemod>
--->
+		-->
 			<base>${pcstring('STAT.${stat}.NOTEMP.NOEQUIP')}</base>
 			<basemod>${pcstring('STAT.${stat}.MOD.NOTEMP.NOEQUIP')}</basemod>
 
@@ -261,7 +261,7 @@
 			<no_temp_score>${pcstring('STAT.${stat}.NOTEMP')}</no_temp_score>
 			<no_temp_modifier>${pcstring('STAT.${stat}.MOD.NOTEMP')}</no_temp_modifier>
 		</ability>
-</@loop>
+	</@loop>
 	</abilities>
 	<!--
 	  ====================================
@@ -280,14 +280,14 @@
 		<damage_reduction>${pcstring('DR')}</damage_reduction>
 		<damage_threshold>${pcstring('VAR.DAMAGETHRESHOLD.INTVAL')}</damage_threshold>
 		<history>
-<@loop from=1 to=pcvar('ECL') ; level , level_has_next>
+		<@loop from=1 to=pcvar('ECL') ; level , level_has_next>
 			<roll>
 				<level>${level}</level>
 				<roll>${pcstring('HPROLL.${level}')}</roll>
 				<stat>${pcstring('HPROLL.${level}.STAT')}</stat>
 				<total>${pcstring('HPROLL.${level}.TOTAL')}</total>
 			</roll>
-</@loop>
+		</@loop>
 		</history>
 	</hit_points>
 	<!--
@@ -311,9 +311,9 @@
 		<dodge>${pcstring('AC.Dodge')}</dodge>
 		<dodge_bonus>${pcstring('AC.Dodge')}</dodge_bonus>
 		<class_bonus>${pcstring('AC.ClassDefense')}</class_bonus>
-<#if (gamemodename = "Modern" || gamemodename = "Darwins_World_2" || gamemodename = "Sidewinder") >
+		<#if (gamemodename = "Modern" || gamemodename = "Darwins_World_2" || gamemodename = "Sidewinder") >
 		<equipment_bonus>${pcstring('AC.Equipment')}</equipment_bonus>
-</#if>
+		</#if>
 		<misc>${pcstring('AC.Misc')}</misc>
 		<insight>${pcstring('AC.Insight')}</insight>
 		<morale>${pcstring('AC.Morale')}</morale>
@@ -347,20 +347,20 @@
 	  ====================================-->
 	<skillinfo>
 		<conditional_modifiers>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SkillBonus")-1') ; ability , ability_has_next>
+		<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SkillBonus")-1') ; ability , ability_has_next>
 			<skillbonus>
 				<description>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SkillBonus.ASPECT.SkillBonus')}</description>
 			</skillbonus>
-</@loop>
+		</@loop>
 		</conditional_modifiers>
 	</skillinfo>
 	<skills>
 		<conditional_modifiers>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SkillBonus")-1') ; ability , ability_has_next>
+		<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SkillBonus")-1') ; ability , ability_has_next>
 			<skillbonus>
 				<description>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SkillBonus.ASPECT.SkillBonus')}</description>
 			</skillbonus>
-</@loop>
+		</@loop>
 		</conditional_modifiers>
 		<skillpoints>
 			<total>${pcstring('SKILLPOINTS.TOTAL')}</total>
@@ -371,7 +371,7 @@
 		<list_mods>${pcstring('SKILLLISTMODS')}</list_mods>
 		<max_class_skill_level>${pcstring('MAXSKILLLEVEL')}</max_class_skill_level>
 		<max_cross_class_skill_level>${pcstring('MAXCCSKILLLEVEL')}</max_cross_class_skill_level>
-<@loop from=0 to=pcvar('count("SKILLSIT")')-1 ; skill ,skill_has_next>
+	<@loop from=0 to=pcvar('count("SKILLSIT")')-1 ; skill ,skill_has_next>
 		<skill>
 			<name>${pcstring('SKILLSIT.${skill}')}</name>
 			<ranks>${pcstring('SKILLSIT.${skill}.RANK')}</ranks>
@@ -391,9 +391,9 @@
 			<classes>${pcstring('SKILLSIT.${skill}.CLASSES')}</classes>
 			<type>${pcstring('SKILLSIT.${skill}.TYPE')}</type>
 		</skill>
-</@loop>
+	</@loop>
 
-<!-- Skills -->
+	<!-- Skills -->
 	</skills>
 	<!--
 	  ====================================
@@ -403,13 +403,13 @@
 	  ====================================-->
 	<saving_throws>
 		<conditional_modifiers>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SaveBonus")-1') ; ability , ability_has_next>
+		<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SaveBonus")-1') ; ability , ability_has_next>
 			<savebonus>
 				<description>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus.ASPECT.SaveBonus')}</description>
 			</savebonus>
-</@loop>
+		</@loop>
 		</conditional_modifiers>
-<@loop from=0 to=pcvar('COUNT[CHECKS]-1') ; check , check_has_next>
+		<@loop from=0 to=pcvar('COUNT[CHECKS]-1') ; check , check_has_next>
 		<#assign checkName = pcstring('CHECK.${check}.NAME')?lower_case />
 		<#assign checkShortName = checkName />
 		<#if (checkName = 'reflex')>
@@ -442,7 +442,7 @@
 			<epic_mod>${pcstring('CHECK.${check}.EPIC')}</epic_mod>
 			<temp_mod/>
 		</saving_throw>
-</@loop>
+		</@loop>
 	</saving_throws>
 	<!--
 	  ====================================
@@ -452,17 +452,17 @@
 	  ====================================-->
 	<attack>
 			<conditional_modifiers>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=CombatBonus")-1') ; ability , ability_has_next>
+				<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=CombatBonus")-1') ; ability , ability_has_next>
 				<combatbonus>
 					<description>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=CombatBonus.ASPECT.CombatBonus')}</description>
 				</combatbonus>
-</@loop>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SaveBonus")-1') ; ability , ability_has_next>
-			<savebonus>
+				</@loop>
+				<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SaveBonus")-1') ; ability , ability_has_next>
+				<savebonus>
 				<description>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus.ASPECT.SaveBonus')}</description>
-			</savebonus>
-</@loop>
-		</conditional_modifiers>
+				</savebonus>
+				</@loop>
+			</conditional_modifiers>
 
 		<melee>
 			<total>${pcstring('ATTACK.MELEE.TOTAL')}</total>
@@ -489,9 +489,9 @@
 			<!-- ${pcstring('ATTACK.RANGED.EPIC')} -->
 			<temp_mod/>
 		</ranged>
-		<!-- Either CMB block, or Grapple Block -->
-<#-- |IIF(HASVAR:CMB.OR.HASFEAT:CMB Output)| -->
-<#if (pchasvar('CMB') || pcboolean('VAR.HASFEAT:CMB Output')) >
+			<!-- Either CMB block, or Grapple Block -->
+			<#-- |IIF(HASVAR:CMB.OR.HASFEAT:CMB Output)| -->
+			<#if (pchasvar('CMB') || pcboolean('VAR.HASFEAT:CMB Output')) >
 			<cmb>
 				<!-- Base stuff for standard block -->
 				<title>CMB</title>
@@ -511,7 +511,7 @@
 				<bullrush_base>${pcstring('VAR.CMB_Bull.INTVAL.SIGN')}</bullrush_base>
 				<overrun_base>${pcstring('VAR.CMB_Overrun.INTVAL.SIGN')}</overrun_base>
 				<!-- Defense values -->
-<#if (pchasvar('CMB'))>
+				<#if (pchasvar('CMB'))>
 				<!-- Pathfinder (final release) -->
 				<!-- Attack values -->
 				<grapple_attack>${pcstring('VAR.CMB_Grapple.INTVAL.SIGN')}</grapple_attack>
@@ -524,18 +524,18 @@
 				<defense>${pcstring('VAR.CMD.INTVAL')}</defense>
 				<grapple_defense>${pcstring('VAR.CMD_Grapple.INTVAL')}</grapple_defense>
 				<trip_defense>
-<#if (pchasvar("CantBeTripped"))>
-Immune
-<#else>
-${pcstring('VAR.CMD_Trip.INTVAL')}
-</#if>
+				<#if (pchasvar("CantBeTripped"))>
+				Immune
+				<#else>
+				${pcstring('VAR.CMD_Trip.INTVAL')}
+				</#if>
 				</trip_defense>
 				<disarm_defense>${pcstring('VAR.CMD_Disarm.INTVAL')}</disarm_defense>
 				<sunder_defense>${pcstring('VAR.CMD_Sunder.INTVAL')}</sunder_defense>
 				<bullrush_defense>${pcstring('VAR.CMD_BullRush.INTVAL')}</bullrush_defense>
 				<overrun_defense>${pcstring('VAR.CMD_Overrun.INTVAL')}</overrun_defense>
 
-<#else>
+				<#else>
 				<!-- Pathfinder Beta version -->
 				<!-- Attack values -->
 				<grapple_attack>${pcstring('VAR.CMB_Grapple_OFF.INTVAL.SIGN')}</grapple_attack>
@@ -552,9 +552,9 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 				<sunder_defense>${pcstring('VAR.CMB_Sunder_DEF.INTVAL')}</sunder_defense>
 				<bullrush_defense>${pcstring('VAR.CMB_Bull_DEF.INTVAL')}</bullrush_defense>
 				<overrun_defense>${pcstring('VAR.CMB_Overrun_DEF.INTVAL')}</overrun_defense>
-</#if>
+				</#if>
 			</cmb>
-<#else>
+			<#else>
 			<grapple>
 				<total>${pcstring('ATTACK.GRAPPLE.TOTAL')}</total>
 				<bab>${pcstring('ATTACK.GRAPPLE.BASE')}</bab>
@@ -565,7 +565,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 				<epic_mod>${pcstring('ATTACK.GRAPPLE.EPIC')}</epic_mod>
 				<temp_mod/>
 			</grapple>
-</#if>
+			</#if>
 		<!-- End CMB / Grapple Block -->
 	</attack>
 	<!--
@@ -574,7 +574,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			WEAPONS
 	  ====================================
 	  ====================================-->
-<#macro weapCommonBlock weap>
+			<#macro weapCommonBlock weap>
 			<common>
 				<name>
 					<short>${pcstring('WEAPON.${weap}.NAME')}</short>
@@ -630,8 +630,8 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 				<islight>${pcstring('WEAPON.${weap}.ISLIGHT')}</islight>
 				<sequence>${weap}</sequence>
 			</common>
-</#macro>
-<#macro weapMeleeBlock weap>
+			</#macro>
+			<#macro weapMeleeBlock weap>
 			<melee>
 				<invalidtext>
 					<tohit>${pcstring('INVALIDTEXT.TOHIT')}</tohit>
@@ -669,8 +669,8 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 					<damage>${pcstring('WEAPON.${weap}.OHDAMAGE')}</damage>
 				</w2_o>
 			</melee>
-</#macro>
-<#macro weapRangeBlock weap range>
+			</#macro>
+			<#macro weapRangeBlock weap range>
 				<range>
 					<distance>${pcstring('WEAPON.${weap}.RANGELIST.${range}')}</distance>
 					<to_hit>${pcstring('WEAPON.${weap}.RANGELIST.${range}.TOTALHIT')}</to_hit>
@@ -682,83 +682,82 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 					<tohit_2weap_light>${pcstring('WEAPON.${weap}.RANGELIST.${range}.TWPHITL')}</tohit_2weap_light>
 					<tohit_2weap_offhand>${pcstring('WEAPON.${weap}.RANGELIST.${range}.TWOHIT')}</tohit_2weap_offhand>
 				</range>
-</#macro>
+			</#macro>
 
 	<weapons>
-<#if (pcvar("VAR.UseMartialArts") = 1)>
+		<#if (pcvar("VAR.UseMartialArts") = 1)>
 		<martialarts>
 			<total>${pcstring('WEAPONH.TOTALHIT')}</total>
-<#if (pcvar("VAR.MartialArtsBonusDamage") < 0)>
+			<#if (pcvar("VAR.MartialArtsBonusDamage") < 0)>
 			<damage>${pcstring('VAR.MartialArtsDie.INTVAL')}d${pcstring('VAR.MartialArtsDieSize.INTVAL')}-${pcstring('VAR.MartialArtsBonusDamage.INTVAL')}</damage>
-<#else>
+			<#else>
 			<damage>${pcstring('VAR.MartialArtsDie.INTVAL')}d${pcstring('VAR.MartialArtsDieSize.INTVAL')}+${pcstring('VAR.MartialArtsBonusDamage.INTVAL')}</damage>
-</#if>
+			</#if>
 			<critical>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}</critical>
-		<!-- Should be changed to a variable due to improved crit -->
+			<!-- Should be changed to a variable due to improved crit -->
 			<reach>${pcstring('REACH')}</reach>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; NaturalAttack , NaturalAttack_has_next>
+			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; NaturalAttack , NaturalAttack_has_next>
 			<special_property>${pcstring('ABILITYALL.Special Ability.${NaturalAttack}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}</special_property>
-</@loop>
+			</@loop>
 		</martialarts>
-<#else>
+		<#else>
 		<unarmed>
 			<total>${pcstring('WEAPONH.TOTALHIT')}</total>
 			<damage>${pcstring('WEAPONH.DAMAGE')}</damage>
 			<critical>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 			<reach>${pcstring('REACH')}</reach>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; NaturalAttack , NaturalAttack_has_next>
+			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; NaturalAttack , NaturalAttack_has_next>
 			<special_property>${pcstring('ABILITYALL.Special Ability.${NaturalAttack}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}</special_property>
-</@loop>
+			</@loop>
 						<!-- Commenting this out (will need a test as well)
 			3.0 uses "Subdual", 3.5 uses "nonlethal".  We'll need a separate node for both.	-->
-<#if (gamemodename = "3e")>
-<#if (pcvar('VAR.Unarmed') > 0)>
+			<#if (gamemodename = "3e")>
+			<#if (pcvar('VAR.Unarmed') > 0)>
 			<type>(subdual or normal)</type>
-<#else>
+			<#else>
 			<type>(subdual only)</type>
-</#if>
-<#else>
-<#if (pcvar('VAR.UnarmedLethal') > 0)>
+			</#if>
+			<#else>
+			<#if (pcvar('VAR.UnarmedLethal') > 0)>
 			<type>(lethal or nonlethal)</type>
-<#else>
+			<#else>
 			<type>(nonlethal only)</type>
-</#if>
-</#if>
+			</#if>
+			</#if>
 		</unarmed>
-
-</#if>
-<!-- Spirit Weapon - Melee -->
-<#if (pcstring("VAR.UseSpiritWeaponMelee") = "1")>
+		</#if>
+		<!-- Spirit Weapon - Melee -->
+		<#if (pcstring("VAR.UseSpiritWeaponMelee") = "1")>
 		<spiritweaponmelee>
 			<total>+${pcstring('VAR.SpiritWeaponMeleeToHit.INTVAL')}</total>
-<#if (pcvar("VAR.SpiritWeaponMeleeBonusDamage") < 0)>
+			<#if (pcvar("VAR.SpiritWeaponMeleeBonusDamage") < 0)>
 			<damage>${pcstring('VAR.SpiritWeaponMeleeDie.INTVAL')}d${pcstring('VAR.SpiritWeaponMeleeDieSize.INTVAL')}-${pcstring('VAR.SpiritWeaponMeleeBonusDamage.INTVAL')}</damage>
-<#else>
+			<#else>
 			<damage>${pcstring('VAR.SpiritWeaponMeleeDie.INTVAL')}d${pcstring('VAR.SpiritWeaponMeleeDieSize.INTVAL')}+${pcstring('VAR.SpiritWeaponMeleeBonusDamage.INTVAL')}</damage>
-</#if>
+			</#if>
 			<critical>${pcstring('VAR.SpiritWeaponMeleeCritRange.INTVAL')}/x${pcstring('VAR.SpiritWeaponMeleeCritMult.INTVAL')}</critical>
 			<reach>${pcstring('REACH')}</reach>
 		</spiritweaponmelee>
-</#if>
+		</#if>
 
-<!-- Spirit Weapon - Ranged -->
-<#if (pcstring("VAR.UseSpiritWeaponRanged") = "1")>
+		<!-- Spirit Weapon - Ranged -->
+		<#if (pcstring("VAR.UseSpiritWeaponRanged") = "1")>
 		<spiritweaponranged>
 			<total>+${pcstring('VAR.SpiritWeaponRangedToHit.INTVAL')}</total>
-<#if (pcvar("VAR.SpiritWeaponRangedBonusDamage") < 0)>
+			<#if (pcvar("VAR.SpiritWeaponRangedBonusDamage") < 0)>
 			<damage>${pcstring('VAR.SpiritWeaponRangedDie.INTVAL')}d${pcstring('VAR.SpiritWeaponRangedDieSize.INTVAL')}-${pcstring('VAR.SpiritWeaponRangedBonusDamage.INTVAL')}</damage>
-<#else>
+			<#else>
 			<damage>${pcstring('VAR.SpiritWeaponRangedDie.INTVAL')}d${pcstring('VAR.SpiritWeaponRangedDieSize.INTVAL')}+${pcstring('VAR.SpiritWeaponRangedBonusDamage.INTVAL')}</damage>
-</#if>
+			</#if>
 			<critical>${pcstring('VAR.SpiritWeaponRangedCritRange.INTVAL')}/x${pcstring('VAR.SpiritWeaponRangedCritMult.INTVAL')}</critical>
 			<range>${pcstring('VAR.SpiritWeaponRangedRange.INTVAL')}</range>
 		</spiritweaponranged>
-</#if>
-<!-- End Spirit Weapon - Ranged -->
+		</#if>
+	<!-- End Spirit Weapon - Ranged -->
 
 	<!-- Blank Natural Attack -->
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Natural Attack","NAME=BlankNaturalAttack")-1') ; NaturalAttack , NaturalAttack_has_next>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Natural Attack","NAME=BlankNaturalAttack")-1') ; NaturalAttack , NaturalAttack_has_next>
 	<naturalattack>
 		<name>Weapon</name>
 		<tohit></tohit>
@@ -770,10 +769,10 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 		<rangeincrement>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackRangeIncrement')}</rangeincrement>
 		<notes>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackNotes')}${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.DESC')}</notes>
 	</naturalattack>
-</@loop>
+	</@loop>
 
 	<!-- Natural Attack -->
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Natural Attack","TYPE=NaturalAttack")-1') ; NaturalAttack , NaturalAttack_has_next>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Natural Attack","TYPE=NaturalAttack")-1') ; NaturalAttack , NaturalAttack_has_next>
 	<naturalattack>
 		<name>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackName')}</name>
 		<tohit>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackToHit')}</tohit>
@@ -784,131 +783,140 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 		<range>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.${NaturalAttackRange}.TYPE=NaturalAttack.ASPECT.NaturalAttackRange')}</range>
 		<rangeincrement>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackRangeIncrement')}</rangeincrement>
 
-<@loop from=0 to=4 ; NaturalAttackRange , NaturalAttackRange_has_next>
+		<@loop from=0 to=4 ; NaturalAttackRange , NaturalAttackRange_has_next>
 		<range>
 			<distance>${pcstring('ABILITYALL.Natural Attack.${NaturalAttackRange}.TYPE=NaturalAttack.ASPECT.NaturalAttackRange')}</distance>
 			<rangeincrement>${pcstring('ABILITYALL.Natural Attack.${NaturalAttackRange}.TYPE=NaturalAttack.ASPECT.NaturalAttackRangeIncrement')}</rangeincrement>
 			<distance_unit>${pcstring('UNITSET.DISTANCEUNIT')}</distance_unit>
 		</range>
-</@loop>
+		</@loop>
 		<notes>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackNotes')}${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.DESC')}</notes>
-<!--> Used to Validate Word Toggle between Crit / Mult vs. Crit <-->
+		<!--> Used to Validate Word Toggle between Crit / Mult vs. Crit <-->
 		<critmult>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackCritMult')}</critmult>
 		<!--${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackDamageBonus.SIGN')}-->
 		<distance_unit>${pcstring('UNITSET.DISTANCEUNIT')}</distance_unit>
 	</naturalattack>
-</@loop>
+	</@loop>
 
-<#-- Equipped weapon loop -->
-<@loop from=0 to=pcvar('COUNT[EQTYPE.WEAPON]-1') ; weap , weap_has_next><#-- TODO: Loop was of early exit type 1 -->
-<#assign weaponCategory>
-	${pcstring('WEAPON.${weap}.CATEGORY')?lower_case}
-</#assign>
-<#if (weaponCategory?contains('both'))>
+		<#-- Equipped weapon loop -->
+		<@loop from=0 to=pcvar('COUNT[EQTYPE.WEAPON]-1') ; weap , weap_has_next><#-- TODO: Loop was of early exit type 1 -->
+		<#assign weaponCategory>
+			${pcstring('WEAPON.${weap}.CATEGORY')?lower_case}
+		</#assign>
+		<#if (weaponCategory?contains('both'))>
 
- <#if (weaponCategory?contains('ranged'))>
- <#else><#-- IIF(WEAPON.${weap}.CATEGORY:Ranged) -->
+		<#if (weaponCategory?contains('ranged'))>
+		<#else><#-- IIF(WEAPON.${weap}.CATEGORY:Ranged) -->
 		<weapon>
 			<@weapCommonBlock weap="${weap}" />
 			<@weapMeleeBlock weap="${weap}" />
- </#if><#-- IIF(WEAPON.${weap}.CATEGORY:Ranged) -->
- <#if (weaponCategory?contains('ranged'))><#-- We work out now whether this is a Ranged Only or Thrown -->
-  <#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))><#-- Valid only if we find the Thrown Value -->
+			</#if><#-- IIF(WEAPON.${weap}.CATEGORY:Ranged) -->
+			<#if (weaponCategory?contains('ranged'))><#-- We work out now whether this is a Ranged Only or Thrown -->
+			<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))><#-- Valid only if we find the Thrown Value -->
 			<ranges>
 				<rangetype>Thrown</rangetype>
-<@loop from=0 to=5 ; range , range_has_next>
-			<@weapRangeBlock weap="${weap}" range="${range}" />
-</@loop><#-- Range -->
+			<#if (pcvar("WEAPON.${weap}.range") > "0")>
+				<@loop from=0 to=5 ; range , range_has_next>
+				<@weapRangeBlock weap="${weap}" range="${range}" />
+				</@loop><#-- Range -->
+			</#if><#-- if (pcvar("WEAPON.${weap}.range") > "0") -->
 			</ranges>
-  <#else><#-- IIF(WEAPON.${weap}.ISTYPE.Thrown) but IS Ranged -->
+			<#else><#-- IIF(WEAPON.${weap}.ISTYPE.Thrown) but IS Ranged -->
 
-<!-- New Ranges Section -->
+			<!-- New Ranges Section -->
 			<ranges>
 			<rangetype>Ranged</rangetype>
-<@loop from=0 to=10 ; range , range_has_next>
-			<@weapRangeBlock weap="${weap}" range="${range}" />
-</@loop>	<#-- Range -->
+			<#if (pcvar("WEAPON.${weap}.range") > "0")>
+				<@loop from=0 to=10 ; range , range_has_next>
+				<@weapRangeBlock weap="${weap}" range="${range}" />
+				</@loop><#-- Range -->
+			</#if><#-- if (pcvar("WEAPON.${weap}.range") > "0") -->
 			</ranges>
 
-  </#if><#-- IIF(WEAPON.${weap}.ISTYPE.Thrown) -->
+	</#if><#-- IIF(WEAPON.${weap}.ISTYPE.Thrown) -->
 		</weapon>
- <#else><#-- CATEGORY:Ranged) -->
- </#if><#-- CATEGORY:Ranged) -->
-<!-- End New Ranges Section -->
-<#else><#-- IIF(WEAPON.${weap}.CATEGORY:BOTH) -->
-<#if (weaponCategory?contains('ranged'))>
+	<#else><#-- CATEGORY:Ranged) -->
+	</#if><#-- CATEGORY:Ranged) -->
+	<!-- End New Ranges Section -->
+	<#else><#-- IIF(WEAPON.${weap}.CATEGORY:BOTH) -->
+	<#if (weaponCategory?contains('ranged'))>
 		<weapon>
 			<@weapCommonBlock weap="${weap}" />
-<#if (pcstring("WEAPON.${weap}.CONTENTS") = "0")>
+			<#if (pcstring("WEAPON.${weap}.CONTENTS") = "0")>
 			<ranges>
-<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))>
+			<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))>
 
 				<rangetype>Thrown</rangetype>
-<@loop from=0 to=5 ; range , range_has_next>
-			<@weapRangeBlock weap="${weap}" range="${range}" />
-</@loop>	<!-- Range -->
-<#else><#-- Thrown -->
+				<#if (pcvar("WEAPON.${weap}.range") > "0")>
+					<@loop from=0 to=5 ; range , range_has_next>
+						<@weapRangeBlock weap="${weap}" range="${range}" />
+					</@loop><!-- Range -->
+				</#if><#-- if (pcvar("WEAPON.${weap}.range") > "0") -->
+				<#else><#-- Thrown -->
 				<rangetype>Ranged</rangetype>
-<@loop from=0 to=10 ; range , range_has_next>
-			<@weapRangeBlock weap="${weap}" range="${range}" />
-</@loop><#-- Range -->
-</#if><#-- Thrown -->
+			<#if (pcvar("WEAPON.${weap}.range") > "0")>
+				<@loop from=0 to=10 ; range , range_has_next>
+				<@weapRangeBlock weap="${weap}" range="${range}" />
+				</@loop><#-- Range -->
+			</#if><#-- if (pcvar("WEAPON.${weap}.range") > "0") -->
+			</#if><#-- Thrown -->
 			</ranges>
-<#else><#-- IIF(WEAPON.${weap}.CONTENTS:0) -->
-<@loop from=0 to=pcvar('WEAPON.${weap}.CONTENTS-1') ; ammo , ammo_has_next>
+			<#else><#-- IIF(WEAPON.${weap}.CONTENTS:0) -->
+			<@loop from=0 to=pcvar('WEAPON.${weap}.CONTENTS-1') ; ammo , ammo_has_next>
 			<ranges>
 				<ammunition>
 					<name>${pcstring('WEAPON.${weap}.CONTENTS.${ammo}')}</name>
 					<special_properties>${pcstring('WEAPON.${weap}.CONTENTS.${ammo}.SPROP')}</special_properties>
 					<quantity>${pcstring('EQ.IS.WEAPON.${weap}.CONTENTS.${ammo}.QTY')}</quantity>
 				</ammunition>
-<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))>
+				<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))>
 				<rangetype>Thrown</rangetype>
-<@loop from=0 to=5 ; range , range_has_next>
-			<@weapRangeBlock weap="${weap}" range="${range}" />
-</@loop><#-- Range -->
-<#else><#--IIF(WEAPON.%weap.ISTYPE.Thrown) -->
+				<#if (pcvar("WEAPON.${weap}.range") > "0")>
+					<@loop from=0 to=5 ; range , range_has_next>
+					<@weapRangeBlock weap="${weap}" range="${range}" />
+					</@loop><#-- Range -->
+				</#if><#-- if (pcvar("WEAPON.${weap}.range") > "0") -->
+				<#else><#--IIF(WEAPON.%weap.ISTYPE.Thrown) -->
 				<rangetype>Ranged</rangetype>
+				<#if (pcvar("WEAPON.${weap}.range") > "0")>
+					<@loop from=0 to=10 ; range , range_has_next>
+					<@weapRangeBlock weap="${weap}" range="${range}" />
+					</@loop><#-- Range -->
+				</#if><#-- if (pcvar("WEAPON.${weap}.range") > "0") -->
 
-<@loop from=0 to=10 ; range , range_has_next>
-			<@weapRangeBlock weap="${weap}" range="${range}" />
-</@loop><#-- Range -->
-
-</#if><#--IIF(WEAPON.%weap.ISTYPE.Thrown) -->
+			</#if><#--IIF(WEAPON.%weap.ISTYPE.Thrown) -->
 
 			</ranges>
-</@loop><#-- FOR,${ammo},0,WEAPON.${weap}.CONTENTS-1,1,1 -->
-</#if><#-- IIF(WEAPON.${weap}.CONTENTS:0) -->
+		</@loop><#-- FOR,${ammo},0,WEAPON.${weap}.CONTENTS-1,1,1 -->
+		</#if><#-- IIF(WEAPON.${weap}.CONTENTS:0) -->
 		</weapon>
 
-<#else><#-- IIF(WEAPON.${weap}.CATEGORY:Ranged) -->
+		<#else><#-- IIF(WEAPON.${weap}.CATEGORY:Ranged) -->
 
-
-<#if (pcboolean('WEAPON.${weap}.ISTYPE.Double') || pcboolean('WEAPON.${weap}.ISTYPE.TwoHanded') || 
-	weaponCategory?contains('non-standard-melee') || weaponCategory?contains('natural'))>
+		<#if (pcboolean('WEAPON.${weap}.ISTYPE.Double') || pcboolean('WEAPON.${weap}.ISTYPE.TwoHanded') || weaponCategory?contains('non-standard-melee') || weaponCategory?contains('natural'))>
 		<weapon>
 			<@weapCommonBlock weap="${weap}" />
 			<simple>
 				<to_hit>${pcstring('WEAPON.${weap}.TOTALHIT')}</to_hit>
 				<damage>${pcstring('WEAPON.${weap}.DAMAGE')}</damage>
 				<range>${pcstring('WEAPON.${weap}.RANGE')}</range>
-<!-- This is an Addition by Itwally for the Monk Flurry of Blows Fix per DATA-73 -->
+				<!-- This is an Addition by Itwally for the Monk Flurry of Blows Fix per DATA-73 -->
 				<name>${pcstring('WEAPON.${weap}.NAME')}</name>
 				<class><@loop from=0 to=pcvar('countdistinct("CLASSES")')-1 ; class , class_has_next ><#rt>
 				<#t><@pcstring tag="CLASSABB.${class}"/><@pcstring tag="CLASS.${class}.LEVEL"/><#if class_has_next> </#if>
 			<#t></@loop></class>
-<!-- End DATA-73 Work Around-->
+		<!-- End DATA-73 Work Around-->
 			</simple>
 		</weapon>
-<#else><#-- IIF(WEAPON.${weap}.ISTYPE.Double.OR.WEAPON.${weap}.CATEGORY:Non-Standard-Melee) -->
+		<#else><#-- IIF(WEAPON.${weap}.ISTYPE.Double.OR.WEAPON.${weap}.CATEGORY:Non-Standard-Melee) -->
 		<weapon>
 			<@weapCommonBlock weap="${weap}" />
 			<@weapMeleeBlock weap="${weap}" />
 		</weapon>
-</#if><#-- IIF(WEAPON.weap}.ISTYPE.Double.OR.WEAPON.${weap}.CATEGORY:Non-Standard-Melee) -->
-</#if><#-- IIF(WEAPON.weap}.CATEGORY:Ranged) -->
-</#if><#-- IIF(WEAPON.weap}.CATEGORY:BOTH) -->
-</@loop><#-- FOR,weap},0,COUNT[EQTYPE.WEAPON]-1,1,1 -->
+		</#if><#-- IIF(WEAPON.weap}.ISTYPE.Double.OR.WEAPON.${weap}.CATEGORY:Non-Standard-Melee) -->
+		</#if><#-- IIF(WEAPON.weap}.CATEGORY:Ranged) -->
+		</#if><#-- IIF(WEAPON.weap}.CATEGORY:BOTH) -->
+	</@loop><#-- FOR,weap},0,COUNT[EQTYPE.WEAPON]-1,1,1 -->
 	</weapons>
 	<!--
 	  ====================================
@@ -917,7 +925,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================
 	  ====================================-->
 	<protection>
-<@loop from=0 to=pcvar('COUNT[EQTYPE.Armor]-1') ; armor , armor_has_next>
+		<@loop from=0 to=pcvar('COUNT[EQTYPE.Armor]-1') ; armor , armor_has_next>
 		<armor>
 			<name>${pcstring('ARMOR.Armor.ALL.${armor}.NAME')}</name>
 			<acbonus>${pcstring('ARMOR.Armor.ALL.${armor}.ACBONUS')}</acbonus>
@@ -931,11 +939,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<totalac>${pcstring('ARMOR.Armor.ALL.${armor}.TOTALAC')}</totalac>
 			<type>${pcstring('ARMOR.Armor.ALL.${armor}.TYPE')}</type>
 			<wt>${pcstring('ARMOR.Armor.ALL.${armor}.WT')}</wt>
-            <fulltype>${pcstring('EQTYPE.Armor.${armor}.TYPE')}</fulltype>
-            <location>${pcstring('EQTYPE.Armor.${armor}.LOCATION')}</location>
+			<fulltype>${pcstring('EQTYPE.Armor.${armor}.TYPE')}</fulltype>
+			<location>${pcstring('EQTYPE.Armor.${armor}.LOCATION')}</location>
 		</armor>
-</@loop>
-<@loop from=0 to=pcvar('COUNT[EQTYPE.SHIELD]-1') ; armor , armor_has_next>
+		</@loop>
+		<@loop from=0 to=pcvar('COUNT[EQTYPE.SHIELD]-1') ; armor , armor_has_next>
 		<shield>
 			<name>${pcstring('ARMOR.SHIELD.ALL.${armor}.NAME')}</name>
 			<acbonus>${pcstring('ARMOR.SHIELD.ALL.${armor}.ACBONUS')}</acbonus>
@@ -950,8 +958,8 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<type>${pcstring('ARMOR.SHIELD.ALL.${armor}.TYPE')}</type>
 			<wt>${pcstring('ARMOR.SHIELD.ALL.${armor}.WT')}</wt>
 		</shield>
-</@loop>
-<@loop from=0 to=pcvar('COUNT[EQTYPE.ACITEM]-1') ; armor , armor_has_next>
+		</@loop>
+		<@loop from=0 to=pcvar('COUNT[EQTYPE.ACITEM]-1') ; armor , armor_has_next>
 		<item>
 			<name>${pcstring('ARMOR.ACITEM.${armor}.NAME')}</name>
 			<acbonus>${pcstring('ARMOR.ACITEM.${armor}.ACBONUS')}</acbonus>
@@ -966,7 +974,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<type>${pcstring('ARMOR.ACITEM.${armor}.TYPE')}</type>
 			<wt>${pcstring('ARMOR.ACITEM.${armor}.WT')}</wt>
 		</item>
-</@loop>
+		</@loop>
 	</protection>
 	<!--
 	  ====================================
@@ -975,84 +983,84 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================
 	  ====================================-->
 	<class_features>
-<!-- Pathfinder -->
-<#if (pcvar("VAR.BardicPerformanceLVL") >= 1) >
-        <bardic_music>
+		<!-- Pathfinder -->
+		<#if (pcvar("VAR.BardicPerformanceLVL") >= 1) >
+		<bardic_music>
 			<uses_per_day>${pcstring('VAR.BardicPerformanceDuration.INTVAL')}</uses_per_day>
 		</bardic_music>
-</#if>
-<!-- D&D 3.0 -->
-<#if (pcvar("VAR.BardicMusicLevel") >= 1) >
+		</#if>
+		<!-- D&D 3.0 -->
+		<#if (pcvar("VAR.BardicMusicLevel") >= 1) >
 		<bardic_music>
 			<uses_per_day>${pcstring('VAR.BardicMusicLevel.INTVAL')}</uses_per_day>
 			<effects>Effects (Perform ranks required)</effects>
 			<text>Inspire Courage(3), Countersong(3), Fascinate(3),Inspire Competence(6), Suggestion(9), Inspire Greatness(12)</text>
 		</bardic_music>
-</#if>
-<!-- D&D 3.5 -->
-<#if (pcvar("VAR.BardicMusicTimes") >= 1) >
+		</#if>
+		<!-- D&D 3.5 -->
+		<#if (pcvar("VAR.BardicMusicTimes") >= 1) >
 		<bardic_music>
 			<uses_per_day>${pcstring('VAR.BardicMusicTimes.INTVAL')}</uses_per_day>
 			<text>
-</#if>
-<#if (pcvar("VAR.CountersongDuration") >= 1) >
-	Countersong(duration = ${pcstring('VAR.CountersongDuration.INTVAL')} rounds)
-</#if>
-<#if (pcvar("VAR.FascinateCreatures.INTVAL") >= 1) >
-	Fascinate(up to ${pcstring('VAR.FascinateCreatures.INTVAL')} creatures for up to ${pcstring('VAR.FacinateDuration.INTVAL')} rounds)
-</#if>
-<#if (pcvar("VAR.InspireCourageSaves") >= 1) >
-	Inspire Courage(save bonus = ${pcstring('VAR.InspireCourageSaves.INTVAL.SIGN')}, attack and damage bonus = ${pcstring('VAR.InspireCourageAttack.INTVAL.SIGN')})
-</#if>
-<#if (pcvar("VAR.InspireCompetenceBonus.INTVAL") >= 1) >
-	Inspire Competence(skill check bonus = ${pcstring('VAR.InspireCompetenceBonus.INTVAL.SIGN')} for up to ${pcstring('VAR.InspireCompetenceDuration.INTVAL')} minutes)
-</#if>
-<#if (pcvar("VAR.SingleSuggestionDC.INTVAL") >= 1) >
-	Suggestion(DC: ${pcstring('VAR.SingleSuggestionDC.INTVAL')})
-</#if>
-<#if (pcvar("VAR.InspireGreatnessAllies.INTVAL") >= 1) >
-	Inspire Greatness(number of allies = ${pcstring('VAR.InspireGreatnessAllies.INTVAL')}, bonus HD = ${pcstring('VAR.InspireGreatnessHD.INTVAL')}, attack bonus = ${pcstring('VAR.InspireGreatnessAttack.INTVAL.SIGN')}, Fortitude bonus = ${pcstring('VAR.InspireGreatnessSaves.INTVAL.SIGN')})
-</#if>
-<#if (pcvar("VAR.SongOfFreedomLVL.INTVAL") >= 1) >
-	Song of Freedom(effective caster level = ${pcstring('VAR.SongOfFreedomLVL.INTVAL')})
-</#if>
-<#if (pcvar("VAR.InspireHeroicsAllies.INTVAL") >= 1) >
-	Inspire Greatness(number of allies = ${pcstring('VAR.InspireHeroicsAllies.INTVAL')}, save bonus = ${pcstring('VAR.InspireHeroicsSaves.INTVAL.SIGN')}, dodge bonus = ${pcstring('VAR.InspireHeroicsDodge.INTVAL.SIGN')})
-</#if>
-<#if (pcvar("VAR.MassSuggestionDC.INTVAL") >= 1) >
-	Mass Suggestion(DC: ${pcstring('VAR.MassSuggestionDC.INTVAL')})
-</#if>
-<#if (pcvar("VAR.BardicMusicTimes") >= 1) >
+			</#if>
+			<#if (pcvar("VAR.CountersongDuration") >= 1) >
+			Countersong(duration = ${pcstring('VAR.CountersongDuration.INTVAL')} rounds)
+			</#if>
+			<#if (pcvar("VAR.FascinateCreatures.INTVAL") >= 1) >
+			Fascinate(up to ${pcstring('VAR.FascinateCreatures.INTVAL')} creatures for up to ${pcstring('VAR.FacinateDuration.INTVAL')} rounds)
+			</#if>
+			<#if (pcvar("VAR.InspireCourageSaves") >= 1) >
+			Inspire Courage(save bonus = ${pcstring('VAR.InspireCourageSaves.INTVAL.SIGN')}, attack and damage bonus = ${pcstring('VAR.InspireCourageAttack.INTVAL.SIGN')})
+			</#if>
+			<#if (pcvar("VAR.InspireCompetenceBonus.INTVAL") >= 1) >
+			Inspire Competence(skill check bonus = ${pcstring('VAR.InspireCompetenceBonus.INTVAL.SIGN')} for up to ${pcstring('VAR.InspireCompetenceDuration.INTVAL')} minutes)
+			</#if>
+			<#if (pcvar("VAR.SingleSuggestionDC.INTVAL") >= 1) >
+			Suggestion(DC: ${pcstring('VAR.SingleSuggestionDC.INTVAL')})
+			</#if>
+			<#if (pcvar("VAR.InspireGreatnessAllies.INTVAL") >= 1) >
+			Inspire Greatness(number of allies = ${pcstring('VAR.InspireGreatnessAllies.INTVAL')}, bonus HD = ${pcstring('VAR.InspireGreatnessHD.INTVAL')}, attack bonus = ${pcstring('VAR.InspireGreatnessAttack.INTVAL.SIGN')}, Fortitude bonus = ${pcstring('VAR.InspireGreatnessSaves.INTVAL.SIGN')})
+			</#if>
+			<#if (pcvar("VAR.SongOfFreedomLVL.INTVAL") >= 1) >
+			Song of Freedom(effective caster level = ${pcstring('VAR.SongOfFreedomLVL.INTVAL')})
+			</#if>
+			<#if (pcvar("VAR.InspireHeroicsAllies.INTVAL") >= 1) >
+			Inspire Greatness(number of allies = ${pcstring('VAR.InspireHeroicsAllies.INTVAL')}, save bonus = ${pcstring('VAR.InspireHeroicsSaves.INTVAL.SIGN')}, dodge bonus = ${pcstring('VAR.InspireHeroicsDodge.INTVAL.SIGN')})
+			</#if>
+			<#if (pcvar("VAR.MassSuggestionDC.INTVAL") >= 1) >
+			Mass Suggestion(DC: ${pcstring('VAR.MassSuggestionDC.INTVAL')})
+			</#if>
+			<#if (pcvar("VAR.BardicMusicTimes") >= 1) >
 			</text>
 		</bardic_music>
-</#if>	<!-- Bard -->
+		</#if>	<!-- Bard -->
 
 
 
 
-<!-- Pathfinder -->
-<#if (pcvar("VAR.RageLVL") >= 1) >	<!-- If character can Rage -->
-        <rage>
-            <uses_per_day>${pcstring('VAR.RageDuration.INTVAL')}</uses_per_day>
-			<uses_per_day.title>Rounds/day</uses_per_day.title>
-        </rage>
-</#if>	<!-- Character Rage -->
-<#if (pcvar("VAR.RageTimes") >= 1) >	<!-- If character can Rage -->
+	<!-- Pathfinder -->
+	<#if (pcvar("VAR.RageLVL") >= 1) >	<!-- If character can Rage -->
+	<rage>
+		<uses_per_day>${pcstring('VAR.RageDuration.INTVAL')}</uses_per_day>
+		<uses_per_day.title>Rounds/day</uses_per_day.title>
+	</rage>
+	</#if>	<!-- Character Rage -->
+	<#if (pcvar("VAR.RageTimes") >= 1) >	<!-- If character can Rage -->
 	<rage>
 		<uses_per_day>${pcstring('VAR.RageTimes.INTVAL')}</uses_per_day>
 		<uses_per_day.title>Uses per day</uses_per_day.title>
-<#if (pcboolean('ABILITYALL.Special Ability.0.TYPE=RageDescription.HASASPECT.RageDescription')) >
+		<#if (pcboolean('ABILITYALL.Special Ability.0.TYPE=RageDescription.HASASPECT.RageDescription')) >
 		<description>${pcstring('ABILITYALL.Special Ability.0.TYPE=RageDescription.ASPECT.RageDescription')}</description>
-<#else>
+		<#else>
 		<description>The Barbarian gains +${pcstring('VAR.RageStrBonus.INTVAL')} to Strength, +${pcstring('VAR.RageConBonus.INTVAL')} to Constitution, and a +${pcstring('VAR.RageMorale.INTVAL')} morale bonus on Will saves, but suffers a -${pcstring('VAR.RageACPenalty.INTVAL')} penalty to AC for ${pcvar('VAR.RageConBonus.INTVAL+3')} rounds. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter. The barbarian can only rage once per encounter. Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
-</#if>
+		</#if>
 	</rage>
 	<!-- this stuff needs a bit of work to display correct info for both 3e and 3.5e properly. - Tir Gwaith -->
-</#if>	<!-- Character Rage -->
+	</#if>	<!-- Character Rage -->
 
 	<!-- Turning ability -->
 
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","ASPECT=TurnType")-1') ; turncount , turncount_has_next>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","ASPECT=TurnType")-1') ; turncount , turncount_has_next>
 	<turning kind="${pcstring('TEXT.UPPER.ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnKind')}" type="${pcstring('TEXT.UPPER.ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnType')}">
 		<level>${pcstring('ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel.INTVAL')}</level>
 		<turn_check>1d20${pcstring('ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnCheck.INTVAL.SIGN')}</turn_check>
@@ -1060,10 +1068,10 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 		<uses_per_day>${pcstring('ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnTimes.INTVAL')}</uses_per_day>
 		<notes>${pcstring('ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnNotes')}</notes>
 	</turning>
-</@loop>
+	</@loop>
 
-<!-- Eclipse Channeling -->
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","ASPECT=ChannelingType")-1') ; eclipsecount , eclipsecount_has_next>
+	<!-- Eclipse Channeling -->
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","ASPECT=ChannelingType")-1') ; eclipsecount , eclipsecount_has_next>
 	<eclipse_channeling kind="${pcstring('TEXT.UPPER.ABILITYALL.Special Ability.${eclipsecount}.ASPECT=ChannelingType.ASPECT.ChannelingKind')}" type="${pcstring('TEXT.UPPER.ABILITYALL.Special Ability.${eclipsecount}.ASPECT=ChannelingType.ASPECT.ChannelingType')}">
 		<level>${pcstring('ABILITYALL.Special Ability.${eclipsecount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel.INTVAL')}</level>
 		<channeling_check>1d20${pcstring('ABILITYALL.Special Ability.${eclipsecount}.ASPECT=ChannelingType.ASPECT.ChannelingCheck.INTVAL.SIGN')}</channeling_check>
@@ -1076,10 +1084,10 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 		<notes>${pcstring('ABILITYALL.Special Ability.${eclipsecount}.ASPECT=ChannelingType.ASPECT.ChannelingNotes')}</notes>
 		<factor>${pcstring('ABILITYALL.Special Ability.${eclipsecount}.ASPECT=ChannelingType.ASPECT.ChannelingMagnitudeFactor')}</factor>
 	</eclipse_channeling>
-</@loop>
+	</@loop>
 
-<!-- Channel Energy -->
-<#if (pcvar("VAR.ChannelEnergyLVL") >= 1) >
+	<!-- Channel Energy -->
+	<#if (pcvar("VAR.ChannelEnergyLVL") >= 1) >
 	<channel_energy>
 		<level>${pcstring('VAR.ChannelEnergyLVL.INTVAL')}</level>
 		<uses_per_day>${pcstring('VAR.ChannelEnergyTimes.INTVAL')}</uses_per_day>
@@ -1087,118 +1095,118 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 		<save_dc>${pcstring('VAR.ChannelEnergyDC.INTVAL')}</save_dc>
 		<dice>${pcstring('VAR.ChannelEnergyDice.INTVAL')}</dice>
 		<die_size>${pcstring('VAR.ChannelEnergyDieSize.INTVAL')}</die_size>
-<#if (pcstring("VAR.ChannelPositiveEnergyDC") = "1")>
+		<#if (pcstring("VAR.ChannelPositiveEnergyDC") = "1")>
 		<description>You can unleash a wave of positive energy dealing ${pcstring('VAR.ChannelEnergyDice.INTVAL')}d${pcstring('VAR.ChannelEnergyDieSize.INTVAL')} (DC ${pcstring('VAR.ChannelEnergyDC.INTVAL')} for half)</description>
-<#else>
+		<#else>
 		<description>You can unleash a wave of negative energy dealing ${pcstring('VAR.ChannelEnergyDice.INTVAL')}d${pcstring('VAR.ChannelEnergyDieSize.INTVAL')} (DC ${pcstring('VAR.ChannelEnergyDC.INTVAL')} for half)</description>
-</#if>
+		</#if>
 	</channel_energy>
-</#if>
+	</#if>
 
-<#if (pcvar("VAR.KiPoolLVL") >= 1) >
+		<#if (pcvar("VAR.KiPoolLVL") >= 1) >
 		<ki_pool>
 			<uses_per_day>${pcstring('VAR.KiPoints.INTVAL')}</uses_per_day>
 		</ki_pool>
-</#if>	<!-- 3.0 stunning fist -->
+		</#if>	<!-- 3.0 stunning fist -->
 
-<#if (pcvar("VAR.StunningAttack") >= 1) >
+		<#if (pcvar("VAR.StunningAttack") >= 1) >
 		<stunning_fist>
 			<save_dc>${pcstring('VAR.StunDC.INTVAL')}</save_dc>
 			<uses_per_day>${pcstring('VAR.StunningAttack.INTVAL')}</uses_per_day>
 		</stunning_fist>
-</#if>	<!-- 3.0 stunning fist -->
+		</#if>	<!-- 3.0 stunning fist -->
 
-<#if (pcvar("VAR.StunningFistAttack") >= 1) >
+		<#if (pcvar("VAR.StunningFistAttack") >= 1) >
 		<stunning_fist>
 			<save_dc>${pcstring('VAR.StunningFistDC.INTVAL')}</save_dc>
 			<uses_per_day>${pcstring('VAR.StunningFistAttack.INTVAL')}</uses_per_day>
-            <description>You know just where to strike to temporarily stun a foe. ${pcstring('VAR.StunningFistAttack.INTVAL')}/day (DC ${pcstring('VAR.StunningFistDC.INTVAL')})</description>
+			<description>You know just where to strike to temporarily stun a foe. ${pcstring('VAR.StunningFistAttack.INTVAL')}/day (DC ${pcstring('VAR.StunningFistDC.INTVAL')})</description>
 		</stunning_fist>
-</#if>	<!-- 3.5 stunning fist -->
+		</#if>	<!-- 3.5 stunning fist -->
 
-<#if (pcvar("VAR.WholenessHpLVL") >= 1) >
+		<#if (pcvar("VAR.WholenessHpLVL") >= 1) >
 		<wholeness_of_body>
 			<hp_per_day>${pcstring('VAR.WholenessHpLVL.INTVAL*2')}</hp_per_day>
 		</wholeness_of_body>
-</#if>	<!-- 3.0 wholeness of body -->
+		</#if>	<!-- 3.0 wholeness of body -->
 
-<#if (pcvar("VAR.WholenessBody") >= 1) >
+		<#if (pcvar("VAR.WholenessBody") >= 1) >
 		<wholeness_of_body>
 			<hp_per_day>${pcstring('VAR.WholenessBody.INTVAL')}</hp_per_day>
 		</wholeness_of_body>
-</#if>	<!-- 3.5 wholeness of body -->
+		</#if>	<!-- 3.5 wholeness of body -->
 
-<#if (pcvar("VAR.TOTALPOWERPOINTS") >= 1) >	<!-- Psionics -->
+		<#if (pcvar("VAR.TOTALPOWERPOINTS") >= 1) >	<!-- Psionics -->
 		<psionics>
-<#if (pchasvar("Manifester") || pchasvar("PsychicWarriorManifester"))>
+			<#if (pchasvar("Manifester") || pchasvar("PsychicWarriorManifester"))>
 			<type>3.0</type>
-<#else>
+			<#else>
 			<type>3.5</type>
-</#if>
+			</#if>
 			<base_pp>${pcstring('VAR.BASEPOWERPOINTS.INTVAL')}</base_pp>
 			<bonus_pp>${pcstring('VAR.BONUSPOWERPOINTS.INTVAL')}</bonus_pp>
 			<total_pp>${pcstring('VAR.TOTALPOWERPOINTS.INTVAL')}</total_pp>
 		</psionics>
-</#if>	<!-- Psionics -->
+		</#if>	<!-- Psionics -->
 
-<#if (pcvar("VAR.LayOnHands") >= 1) > <!-- D&D 3.0 and 3.5 -->
+		<#if (pcvar("VAR.LayOnHands") >= 1) > <!-- D&D 3.0 and 3.5 -->
 		<layonhands>
 			<hp_per_day>${pcstring('VAR.LayOnHands.INTVAL')}</hp_per_day>
 			<hp_per_day.title>HP per day</hp_per_day.title>
 		</layonhands>
-</#if>
+		</#if>
 
-<#if (pcvar("VAR.LayOnHandsTimes") >= 1) > <!-- Pathfinder -->
+		<#if (pcvar("VAR.LayOnHandsTimes") >= 1) > <!-- Pathfinder -->
 		<layonhands>
 			<hp_per_day>${pcstring('VAR.LayOnHandsTimes.INTVAL')}</hp_per_day>
 			<hp_per_day.title>Uses per day</hp_per_day.title>
-            <description>cure ${pcstring('VAR.LayOnHandsDice.INTVAL')}d6 per use</description>
+			<description>cure ${pcstring('VAR.LayOnHandsDice.INTVAL')}d6 per use</description>
 		</layonhands>
-</#if>
+		</#if>
 
-<#if (pcvar("VAR.WildshapeTimes") >= 1) >
+		<#if (pcvar("VAR.WildshapeTimes") >= 1) >
 		<wildshape>
 			<uses_per_day>${pcstring('VAR.WildShapeTimes.INTVAL')}</uses_per_day>
 			<elemental_uses_per_day>${pcstring('VAR.WildShapeElementalTimes.INTVAL')}</elemental_uses_per_day>
 			<duration>${pcstring('VAR.WildShapeDuration.INTVAL')}</duration>
 		</wildshape>
-</#if>
+		</#if>
 
 
-<#if (pcvar("VAR.LeadershipScore") >= 1) >
+		<#if (pcvar("VAR.LeadershipScore") >= 1) >
 		<leadership>
 			<score>${pcstring('VAR.LeadershipScore.INTVAL')}</score>
 			<max_cohort_level>${pcstring('VAR.LeadershipMaxCohortLvl')}</max_cohort_level>
 		</leadership>
-</#if>
+		</#if>
 	</class_features>
 
 	<!-- Abilites with check lists - master/child abilities -->
 	<checklists>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","ASPECT=CheckType")-1') ; ability , ability_has_next>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","ASPECT=CheckType")-1') ; ability , ability_has_next>
 		<checklist>
-<#if (pcstring("ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.TYPE")?lower_case?contains("extraordinary"))>
+		<#if (pcstring("ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.TYPE")?lower_case?contains("extraordinary"))>
 			<name>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT=CheckType')} (Ex)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.TYPE")?lower_case?contains("supernatural"))>
+		<#else>
+		<#if (pcstring("ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.TYPE")?lower_case?contains("supernatural"))>
 			<name>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT=CheckType')} (Su)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.TYPE")?lower_case?contains("spelllike"))>
+		<#else>
+		<#if (pcstring("ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.TYPE")?lower_case?contains("spelllike"))>
 			<name>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT=CheckType')} (Sp)</name>
-<#else>
-</#if>
-</#if>
-</#if>
+		<#else>
+		</#if>
+		</#if>
+		</#if>
 			<header>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT=CheckType')}</header>
 			<description>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.DESC')}</description>
 			<type>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.TYPE')}</type>
 			<source>${pcstring('ABILITYALL.Special Ability.VISIBLE.${ability}.ASPECT=CheckType.SOURCE')}</source>
 			<check_count>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.ASPECT.CheckCount.INTVAL')}</check_count>
 			<check_type>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.ASPECT.CheckType')}</check_type>
-<#if (pcstring("ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.HASASPECT.MasterAbility") = "Y")>
+			<#if (pcstring("ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.HASASPECT.MasterAbility") = "Y")>
 			<master>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.ASPECT.MasterAbility')}</master>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability")-1') ; subability , subability_has_next>
-<#if (pcstring("ABILITYALL.Special Ability.${subability}.ASPECT.ChildAbility") = pcstring("ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.ASPECT.MasterAbility"))>
+			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability")-1') ; subability , subability_has_next>
+			<#if (pcstring("ABILITYALL.Special Ability.${subability}.ASPECT.ChildAbility") = pcstring("ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.ASPECT.MasterAbility"))>
 			<subability>
 				<name>${pcstring('ABILITYALL.Special Ability.${subability}')}</name>
 				<description>${pcstring('ABILITYALL.Special Ability.${subability}.DESC')}</description>
@@ -1206,36 +1214,36 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 				<source>${pcstring('ABILITYALL.Special Ability.${subability}.SOURCE')}</source>
 				<child>${pcstring('ABILITYALL.Special Ability.${subability}.ASPECT.ChildAbility')}</child>
 			</subability>
-</#if>
-</@loop>
-</#if>
+			</#if>
+			</@loop>
+			</#if>
 		</checklist>
-</@loop>
+	</@loop>
 	</checklists>
 
 	<!-- Proficiency lists -->
 	<proficiency_specials>
-<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Special Ability";"TYPE=ProfOutput")') = 0)>
-<#else>
+	<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Special Ability";"TYPE=ProfOutput")') = 0)>
+	<#else>
 	<!--  -->
-</#if>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=ProfOutput")-1') ; ability , ability_has_next>
+	</#if>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=ProfOutput")-1') ; ability , ability_has_next>
 		<proficiency>
 			<name>${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=ProfOutput')}</name>
 			<proficient>${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=ProfOutput.ASPECT.Proficiency')}</proficient>
 			<forte>${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=ProfOutput.ASPECT.Forte')}</forte>
 		</proficiency>
-</@loop>
+	</@loop>
 	</proficiency_specials>
 
-<!--
+	<!--
 	  ====================================
 	  ====================================
 			EQUIPMENT
 	  ====================================
 	  ====================================-->
 	<equipment>
-<@loop from=0 to=pcvar('COUNT[EQUIPMENT.MERGELOC]-1') ; equip , equip_has_next><#lt><#-- TODO: Loop was of early exit type 1 -->
+		<@loop from=0 to=pcvar('COUNT[EQUIPMENT.MERGELOC]-1') ; equip , equip_has_next><#lt><#-- TODO: Loop was of early exit type 1 -->
 		<item>
 			<longname>${pcstring('EQ.MERGELOC.${equip}.LONGNAME')}</longname>
 			<id>${pcstring('EQ.MERGELOC.${equip}.ID')}</id>
@@ -1282,7 +1290,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<source>${pcstring('EQ.MERGELOC.${equip}.SOURCE')}</source>
 			<quality>${pcstring('EQ.MERGELOC.${equip}.QUALITY')}</quality>
 		</item>
-</@loop><#lt><#-- Equipment -->
+		</@loop><#lt><#-- Equipment -->
 		<total>
 			<weight>${pcstring('TOTAL.WEIGHT')}</weight>
 			<value>${pcstring('TOTAL.VALUE')}</value>
@@ -1290,9 +1298,9 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<capacity>${pcstring('TOTAL.CAPACITY')}</capacity>
 		</total>
 		<equipmentsets>
-<@equipsetloop><#lt>
+		<@equipsetloop><#lt>
 		<equipmentset name="${pcstring('EQSET.NAME')}">
-<@loop from=0 to=pcvar('COUNT[EQUIPMENT.MERGELOC]-1') ; equip , equip_has_next>
+			<@loop from=0 to=pcvar('COUNT[EQUIPMENT.MERGELOC]-1') ; equip , equip_has_next>
 				<item>
 					<longname>${pcstring('EQ.MERGELOC.${equip}.LONGNAME')}</longname>
 					<name>${pcstring('EQ.MERGELOC.${equip}.NAME')}</name>
@@ -1337,9 +1345,9 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 					<source>${pcstring('EQ.MERGELOC.${equip}.SOURCE')}</source>
 					<quality>EQ.0.QUALITY</quality>
 				</item>
-</@loop><#lt><#-- Equipment -->
+			</@loop><#lt><#-- Equipment -->
 			</equipmentset>
-</@equipsetloop><#lt>
+			</@equipsetloop><#lt>
 		</equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1358,19 +1366,19 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================
 	  ====================================-->
 	<special_abilities>
-<@loop from=0 to=pcvar('COUNT[SA]-1') ; sa , sa_has_next>
+		<@loop from=0 to=pcvar('COUNT[SA]-1') ; sa , sa_has_next>
 		<ability>
 			<name>${pcstring('SPECIALABILITY.${sa}')}</name>
 			<description>${pcstring('SPECIALABILITY.${sa}.DESCRIPTION')}</description>
 		</ability>
-</@loop>
+		</@loop>
 		<race>${pcstring('RACE.ABILITYLIST')}</race>
-<@loop from=0 to=pcvar('COUNT[CLASSES]-1') ; class , class_has_next>
+		<@loop from=0 to=pcvar('COUNT[CLASSES]-1') ; class , class_has_next>
 		<class>
 			<class>${pcstring('CLASS.${class}')}</class>
 			<ability>${pcstring('CLASS.${class}.SALIST')}</ability>
 		</class>
-</@loop>
+		</@loop>
 	</special_abilities>
 	<!--
 	  ====================================
@@ -1380,7 +1388,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================-->
 	<feats>
 		<!-- Visible standard feats (not including the auto feats) -->
-<@loop from=0 to=pcvar('COUNT[FEATS.VISIBLE]-1') ; feat , feat_has_next>
+		<@loop from=0 to=pcvar('COUNT[FEATS.VISIBLE]-1') ; feat , feat_has_next>
 		<feat>
 			<name>${pcstring('FEAT.VISIBLE.${feat}')}</name>
 			<description>${pcstring('FEAT.VISIBLE.${feat}.DESC')}</description>
@@ -1393,10 +1401,10 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<virtual>F</virtual>
 			<source>${pcstring('FEAT.VISIBLE.${feat}.SOURCE')}</source>
 		</feat>
-</@loop>
+		</@loop>
 
 		<!-- Auto feats -->
-<@loop from=0 to=pcvar('COUNT[FEATSAUTO.VISIBLE]-1') ; feat , feat_has_next>
+		<@loop from=0 to=pcvar('COUNT[FEATSAUTO.VISIBLE]-1') ; feat , feat_has_next>
 		<feat>
 			<name>${pcstring('FEATAUTO.VISIBLE.${feat}')}</name>
 			<description>${pcstring('FEATAUTO.VISIBLE.${feat}.DESC')}</description>
@@ -1409,10 +1417,10 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<virtual>F</virtual>
 			<source>${pcstring('FEATAUTO.VISIBLE.${feat}.SOURCE')}</source>
 		</feat>
-</@loop>
+		</@loop>
 
 		<!-- Virtual Feats -->
-<@loop from=0 to=pcvar('COUNT[VFEATS.VISIBLE]-1') ; feat , feat_has_next>
+		<@loop from=0 to=pcvar('COUNT[VFEATS.VISIBLE]-1') ; feat , feat_has_next>
 		<feat>
 			<name>${pcstring('VFEAT.VISIBLE.${feat}')} (Granted)</name>
 			<description>${pcstring('VFEAT.VISIBLE.${feat}.DESC')}</description>
@@ -1425,10 +1433,10 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<virtual>T</virtual>
 			<source>${pcstring('VFEAT.VISIBLE.${feat}.SOURCE')}</source>
 		</feat>
-</@loop>
+		</@loop>
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
-<@loop from=0 to=pcvar('COUNT[FEATS.HIDDEN]-1') ; feat , feat_has_next>
+		<@loop from=0 to=pcvar('COUNT[FEATS.HIDDEN]-1') ; feat , feat_has_next>
 		<feat>
 			<name>${pcstring('FEAT.HIDDEN.${feat}')}</name>
 			<description>${pcstring('FEAT.HIDDEN.${feat}.DESC')}</description>
@@ -1441,9 +1449,9 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<virtual>F</virtual>
 			<source>${pcstring('FEAT.HIDDEN.${feat}.SOURCE')}</source>
 		</feat>
-</@loop>
-<!-- Hidden VFEATS -->
-<@loop from=0 to=pcvar('COUNT[VFEATS.HIDDEN]-1') ; feat , feat_has_next>
+		</@loop>
+		<!-- Hidden VFEATS -->
+		<@loop from=0 to=pcvar('COUNT[VFEATS.HIDDEN]-1') ; feat , feat_has_next>
 		<feat>
 			<name>${pcstring('VFEAT.HIDDEN.${feat}')}</name>
 			<description>${pcstring('VFEAT.HIDDEN.${feat}.DESC')}</description>
@@ -1456,9 +1464,9 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<virtual>T</virtual>
 			<source>${pcstring('VFEAT.HIDDEN.${feat}.SOURCE')}</source>
 		</feat>
-</@loop>
-<!-- END Hidden VFEATS -->
-<@loop from=0 to=pcvar('COUNT[FEATSAUTO.HIDDEN]-1') ; feat , feat_has_next>
+		</@loop>
+		<!-- END Hidden VFEATS -->
+		<@loop from=0 to=pcvar('COUNT[FEATSAUTO.HIDDEN]-1') ; feat , feat_has_next>
 		<feat>
 			<name>${pcstring('FEATAUTO.HIDDEN.${feat}')}</name>
 			<description>${pcstring('FEATAUTO.HIDDEN.${feat}.DESC')}</description>
@@ -1471,11 +1479,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<virtual>F</virtual>
 			<source>${pcstring('FEATAUTO.HIDDEN.${feat}.SOURCE')}</source>
 		</feat>
-</@loop>
+		</@loop>
 	</feats>
 
-<#-- ABILITY OBJECTS -->
-<#macro abilityBlock category nature hidden typeName nodeName >
+	<#-- ABILITY OBJECTS -->
+	<#macro abilityBlock category nature hidden typeName nodeName >
 	<#if hidden>
 		<#assign visCriteria = 'VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY' />
 		<#assign visName = 'HIDDEN' />
@@ -1544,7 +1552,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<source>${pcstring('${abilityExportToken}.SOURCE')}</source>
 		</${nodeName}>
 	</@loop>
-</#macro>
+	</#macro>
 	<!--
 	  ====================================
 	  ====================================
@@ -1552,11 +1560,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================
 	  ====================================-->
 	<archetypes>
-<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Archetype")') = 0)>
-<#else>
+	<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Archetype")') = 0)>
+	<#else>
 	<!-- Archetypes -->
-</#if>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Archetype")-1') ; archetype , archetype_has_next>
+	</#if>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Archetype")-1') ; archetype , archetype_has_next>
 		<archetype>
 			<name>${pcstring('ABILITYALL.Archetype.VISIBLE.${archetype}.TYPE=Archetype')}</name>
 			<description>${pcstring('ABILITYALL.Archetype.VISIBLE.${archetype}.TYPE=Archetype.DESC')}</description>
@@ -1566,7 +1574,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<category>Archetype</category>
 			<source>${pcstring('ABILITYALL.Archetype.VISIBLE.${archetype}.TYPE=Archetype.SOURCE')}</source>
 		</archetype>
-</@loop>
+	</@loop>
 	</archetypes>
 	<!--
 	  ====================================
@@ -1595,31 +1603,31 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================-->
 
 	<racial_traits>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=RaceTrait")-1') ; ability , ability_has_next>
-<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.HASASPECT.RaceTraitMaster") = "Y")>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=RaceTrait")-1') ; ability , ability_has_next>
+	<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.HASASPECT.RaceTraitMaster") = "Y")>
 		<racial_trait>
-<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.TYPE") = "Extraordinary")>
+	<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.TYPE") = "Extraordinary")>
 			<name>${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait')} (Ex)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.TYPE") = "Supernatural")>
+	<#else>
+	<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.TYPE") = "Supernatural")>
 			<name>${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait')} (Su)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.TYPE") = "SpellLike")>
+	<#else>
+	<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.TYPE") = "SpellLike")>
 			<name>${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait')} (Sp)</name>
-<#else>
-</#if>
-</#if>
-</#if>
+	<#else>
+	</#if>
+	</#if>
+	</#if>
 			<header>${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait')}</header>
 			<description>${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.DESC')}</description>
 			<type>${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.TYPE')}</type>
 			<source>${pcstring('ABILITYALL.Special Ability.VISIBLE.${ability}.TYPE=RaceTrait.SOURCE')}</source>
 			<check_count>${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.ASPECT.CheckCount.INTVAL')}</check_count>
 			<check_type>${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.ASPECT.CheckType')}</check_type>
-<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.HASASPECT.MasterAbility") = "Y")>
+	<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.HASASPECT.MasterAbility") = "Y")>
 			<master>${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.ASPECT.MasterAbility')}</master>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability")-1') ; subability , subability_has_next>
-<#if (pcstring("ABILITYALL.Special Ability.${subability}.ASPECT.ChildAbility") = pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.ASPECT.MasterAbility"))>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability")-1') ; subability , subability_has_next>
+	<#if (pcstring("ABILITYALL.Special Ability.${subability}.ASPECT.ChildAbility") = pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceTrait.ASPECT.MasterAbility"))>
 			<subability>
 				<name>${pcstring('ABILITYALL.Special Ability.${subability}')}</name>
 				<description>${pcstring('ABILITYALL.Special Ability.${subability}.DESC')}</description>
@@ -1627,12 +1635,12 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 				<source>${pcstring('ABILITYALL.Special Ability.${subability}.SOURCE')}</source>
 				<child>${pcstring('ABILITYALL.Special Ability.${subability}.ASPECT.ChildAbility')}</child>
 			</subability>
-</#if>
-</@loop>
-</#if>
+	</#if>
+	</@loop>
+	</#if>
 		</racial_trait>
-</#if>
-</@loop>
+	</#if>
+	</@loop>
 	</racial_traits>
 
 		<!--
@@ -1655,7 +1663,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	<@abilityBlock category="Talent" nature="ALL" hidden=false typeName="Talent" nodeName="talent" />
 	</talents>
 
-<!--
+	<!--
 	  ====================================
 	  ====================================
 			Intelligent Item
@@ -1695,7 +1703,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	</occupations>
 
 
-<!-- Eclipse Section -->
+	<!-- Eclipse Section -->
 		<!--
 	  ====================================
 	  ====================================
@@ -1786,7 +1794,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	<channelings>
 	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="ChannelingOutput" nodeName="channeling" />
 	</channelings>
-<!-- END ECLIPSE SECION -->
+	<!-- END ECLIPSE SECION -->
 
 	<!--
 	  ====================================
@@ -1795,64 +1803,64 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================
 	  ====================================-->
 	<powers_classfeatures>
-<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ClassFeature")') = 0)>
-<#else>
+	<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ClassFeature")') = 0)>
+	<#else>
 	<!-- Standard Special Qualities -->
-</#if>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ClassFeature")-1') ; classFeature , classFeature_has_next>
+	</#if>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ClassFeature")-1') ; classFeature , classFeature_has_next>
 		<power_classfeature>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.TYPE") = "Extraordinary")>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.TYPE") = "Extraordinary")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature')} (Ex)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.TYPE") = "Supernatural")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.TYPE") = "Supernatural")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature')} (Su)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.TYPE") = "SpellLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.TYPE") = "SpellLike")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature')} (Sp)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.TYPE") = "PsiLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.TYPE") = "PsiLike")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature')} (Ps)</name>
-<#else>
+			<#else>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature')}</name>
-</#if>
-</#if>
-</#if>
-</#if>
+			</#if>
+			</#if>
+			</#if>
+			</#if>
 			<description>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.DESC')}</description>
 
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Power Type") = "Y")>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Power Type") = "Y")>
 			<power_type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.ASPECT.Power Type')}</power_type>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Power Use") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Power Use") = "Y")>
 			<power_use>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.ASPECT.Power Use')}</power_use>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Action Type") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Action Type") = "Y")>
 			<action_type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.ASPECT.Action Type')}</action_type>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Special") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Special") = "Y")>
 			<special>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.ASPECT.Special')}</special>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Trigger") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Trigger") = "Y")>
 			<trigger>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.ASPECT.Trigger')}</trigger>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Target") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Target") = "Y")>
 			<target>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.ASPECT.Target')}</target>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Attack") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Attack") = "Y")>
 			<attack>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.ASPECT.Attack')}</attack>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Hit") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Hit") = "Y")>
 			<hit>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.ASPECT.Hit')}</hit>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Miss") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Miss") = "Y")>
 			<miss>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.ASPECT.Miss')}</miss>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Effect") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Effect") = "Y")>
 			<effect>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.ASPECT.Effect')}</effect>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Sustain") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.HASASPECT.Sustain") = "Y")>
 			<sustain>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.ASPECT.Sustain')}</sustain>
-</#if>
+			</#if>
 			<type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.TYPE')}</type>
 			<associated>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.ASSOCIATED')}</associated>
 			<count>${pcstring('ABILITYALL.Special Ability.VISIBLE.${classFeature}.TYPE=ClassFeature.ASSOCIATEDCOUNT')}</count>
@@ -1861,7 +1869,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</power_classfeature>
-</@loop>
+	</@loop>
 	</powers_classfeatures>
 
 		<!--
@@ -1871,64 +1879,63 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================
 	  ====================================-->
 	<powers_classfeatures>
-<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Power";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Class Feature")') = 0)>
-<#else>
+	<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Power";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Class Feature")') = 0)>
+	<#else>
 	<!-- Standard Special Qualities -->
-</#if>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Power","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Class Feature")-1') ; classFeature , classFeature_has_next>
+	</#if>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Power","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Class Feature")-1') ; classFeature , classFeature_has_next>
 		<power_classfeature>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.TYPE") = "Extraordinary")>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.TYPE") = "Extraordinary")>
 			<name>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature')} (Ex)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.TYPE") = "Supernatural")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.TYPE") = "Supernatural")>
 			<name>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature')} (Su)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.TYPE") = "SpellLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.TYPE") = "SpellLike")>
 			<name>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature')} (Sp)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.TYPE") = "PsiLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.TYPE") = "PsiLike")>
 			<name>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature')} (Ps)</name>
-<#else>
+			<#else>
 			<name>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature')}</name>
-</#if>
-</#if>
-</#if>
-</#if>
+			</#if>
+			</#if>
+			</#if>
+			</#if>
 			<description>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.DESC')}</description>
-
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Power Type") = "Y")>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Power Type") = "Y")>
 			<power_type>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.ASPECT.Power Type')}</power_type>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Power Use") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Power Use") = "Y")>
 			<power_use>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.ASPECT.Power Use')}</power_use>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Action Type") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Action Type") = "Y")>
 			<action_type>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.ASPECT.Action Type')}</action_type>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Special") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Special") = "Y")>
 			<special>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.ASPECT.Special')}</special>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Trigger") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Trigger") = "Y")>
 			<trigger>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.ASPECT.Trigger')}</trigger>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Target") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Target") = "Y")>
 			<target>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.ASPECT.Target')}</target>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Attack") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Attack") = "Y")>
 			<attack>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.ASPECT.Attack')}</attack>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Hit") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Hit") = "Y")>
 			<hit>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.ASPECT.Hit')}</hit>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Miss") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Miss") = "Y")>
 			<miss>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.ASPECT.Miss')}</miss>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Effect") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Effect") = "Y")>
 			<effect>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.ASPECT.Effect')}</effect>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Sustain") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.HASASPECT.Sustain") = "Y")>
 			<sustain>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.ASPECT.Sustain')}</sustain>
-</#if>
+			</#if>
 			<type>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.TYPE')}</type>
 			<associated>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.ASSOCIATED')}</associated>
 			<count>${pcstring('ABILITYALL.Power.VISIBLE.${classFeature}.TYPE=Class Feature.ASSOCIATEDCOUNT')}</count>
@@ -1937,7 +1944,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<virtual>F</virtual>
 			<category>Power</category>
 		</power_classfeature>
-</@loop>
+	</@loop>
 	</powers_classfeatures><!--
 	  ====================================
 	  ====================================
@@ -1945,64 +1952,64 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================
 	  ====================================-->
 	<powers_featpowers>
-<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Feat Power")') = 0)>
-<#else>
+	<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Feat Power")') = 0)>
+	<#else>
 	<!-- Standard Special Qualities -->
-</#if>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Feat Power")-1') ; featPower , featPower_has_next>
+	</#if>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Feat Power")-1') ; featPower , featPower_has_next>
 		<power_featpower>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.TYPE") = "Extraordinary")>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.TYPE") = "Extraordinary")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power')} (Ex)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.TYPE") = "Supernatural")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.TYPE") = "Supernatural")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power')} (Su)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.TYPE") = "SpellLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.TYPE") = "SpellLike")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power')} (Sp)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.TYPE") = "PsiLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.TYPE") = "PsiLike")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power')} (Ps)</name>
-<#else>
+			<#else>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power')}</name>
-</#if>
-</#if>
-</#if>
-</#if>
+			</#if>
+			</#if>
+			</#if>
+			</#if>
 			<description>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.DESC')}</description>
 
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Power Type") = "Y")>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Power Type") = "Y")>
 			<power_type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.ASPECT.Power Type')}</power_type>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Power Use") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Power Use") = "Y")>
 			<power_use>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.ASPECT.Power Use')}</power_use>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Action Type") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Action Type") = "Y")>
 			<action_type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.ASPECT.Action Type')}</action_type>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Special") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Special") = "Y")>
 			<special>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.ASPECT.Special')}</special>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Trigger") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Trigger") = "Y")>
 			<trigger>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.ASPECT.Trigger')}</trigger>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Target") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Target") = "Y")>
 			<target>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.ASPECT.Target')}</target>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Attack") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Attack") = "Y")>
 			<attack>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.ASPECT.Attack')}</attack>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Hit") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Hit") = "Y")>
 			<hit>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.ASPECT.Hit')}</hit>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Miss") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Miss") = "Y")>
 			<miss>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.ASPECT.Miss')}</miss>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Effect") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Effect") = "Y")>
 			<effect>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.ASPECT.Effect')}</effect>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Sustain") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.HASASPECT.Sustain") = "Y")>
 			<sustain>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.ASPECT.Sustain')}</sustain>
-</#if>
+			</#if>
 			<type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.TYPE')}</type>
 			<associated>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.ASSOCIATED')}</associated>
 			<count>${pcstring('ABILITYALL.Special Ability.VISIBLE.${featPower}.TYPE=Feat Power.ASSOCIATEDCOUNT')}</count>
@@ -2011,7 +2018,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</power_featpower>
-</@loop>
+	</@loop>
 	</powers_featpowers>
 
 	<!--
@@ -2021,62 +2028,62 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================
 	  ====================================-->
 	<powers_atwills>
-<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=AtWill")') = 0)>
-<#else>
+	<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=AtWill")') = 0)>
+	<#else>
 	<!-- Standard At Will Powers -->
-</#if>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AtWill")-1') ; atWill , atWill_has_next>
+	</#if>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AtWill")-1') ; atWill , atWill_has_next>
 		<powers_atwill>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.TYPE") = "Extraordinary")>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.TYPE") = "Extraordinary")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill')} (Ex)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.TYPE") = "Supernatural")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.TYPE") = "Supernatural")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill')} (Su)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.TYPE") = "SpellLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.TYPE") = "SpellLike")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill')} (Sp)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.TYPE") = "PsiLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.TYPE") = "PsiLike")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill')} (Ps)</name>
-<#else>
+			<#else>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill')}</name>
-</#if>
-</#if>
-</#if>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Power Use") = "Y")>
+			</#if>
+			</#if>
+			</#if>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Power Use") = "Y")>
 			<power_use>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.ASPECT.Power Use')}</power_use>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Power Type") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Power Type") = "Y")>
 			<power_type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.ASPECT.Power Type')}</power_type>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Action Type") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Action Type") = "Y")>
 			<action_type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.ASPECT.Action Type')}</action_type>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Special") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Special") = "Y")>
 			<special>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.ASPECT.Special')}</special>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Trigger") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Trigger") = "Y")>
 			<trigger>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.ASPECT.Trigger')}</trigger>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Target") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Target") = "Y")>
 			<target>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.ASPECT.Target')}</target>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Attack") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Attack") = "Y")>
 			<attack>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.ASPECT.Attack')}</attack>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Hit") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Hit") = "Y")>
 			<hit>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.ASPECT.Hit')}</hit>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Miss") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Miss") = "Y")>
 			<miss>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.ASPECT.Miss')}</miss>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Effect") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Effect") = "Y")>
 			<effect>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.ASPECT.Effect')}</effect>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Sustain") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.HASASPECT.Sustain") = "Y")>
 			<sustain>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.ASPECT.Sustain')}</sustain>
-</#if>
+			</#if>
 			<description>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.DESC')}</description>
 			<type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.TYPE')}</type>
 			<associated>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.ASSOCIATED')}</associated>
@@ -2087,7 +2094,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<category>Special Ability</category>
 			<source>${pcstring('ABILITYALL.Special Ability.VISIBLE.${atWill}.TYPE=AtWill.SOURCE')}</source>
 		</powers_atwill>
-</@loop>
+	</@loop>
 	</powers_atwills>
 
 	<!--
@@ -2097,62 +2104,62 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================
 	  ====================================-->
 	<powers_atwills>
-<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Power";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=At-Will")') = 0)>
-<#else>
+	<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Power";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=At-Will")') = 0)>
+	<#else>
 	<!-- Standard At Will Powers -->
-</#if>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Power","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=At-Will")-1') ; atWill , atWill_has_next>
+	</#if>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Power","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=At-Will")-1') ; atWill , atWill_has_next>
 		<powers_atwill>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.TYPE") = "Extraordinary")>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.TYPE") = "Extraordinary")>
 			<name>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will')} (Ex)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.TYPE") = "Supernatural")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.TYPE") = "Supernatural")>
 			<name>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will')} (Su)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.TYPE") = "SpellLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.TYPE") = "SpellLike")>
 			<name>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will')} (Sp)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.TYPE") = "PsiLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.TYPE") = "PsiLike")>
 			<name>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will')} (Ps)</name>
-<#else>
+			<#else>
 			<name>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will')}</name>
-</#if>
-</#if>
-</#if>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Power Use") = "Y")>
+			</#if>
+			</#if>
+			</#if>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Power Use") = "Y")>
 			<power_use>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.ASPECT.Power Use')}</power_use>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Power Type") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Power Type") = "Y")>
 			<power_type>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.ASPECT.Power Type')}</power_type>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Action Type") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Action Type") = "Y")>
 			<action_type>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.ASPECT.Action Type')}</action_type>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Special") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Special") = "Y")>
 			<special>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.ASPECT.Special')}</special>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Trigger") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Trigger") = "Y")>
 			<trigger>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.ASPECT.Trigger')}</trigger>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Target") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Target") = "Y")>
 			<target>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.ASPECT.Target')}</target>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Attack") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Attack") = "Y")>
 			<attack>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.ASPECT.Attack')}</attack>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Hit") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Hit") = "Y")>
 			<hit>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.ASPECT.Hit')}</hit>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Miss") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Miss") = "Y")>
 			<miss>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.ASPECT.Miss')}</miss>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Effect") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Effect") = "Y")>
 			<effect>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.ASPECT.Effect')}</effect>
-</#if>
-<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Sustain") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.HASASPECT.Sustain") = "Y")>
 			<sustain>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.ASPECT.Sustain')}</sustain>
-</#if>
+			</#if>
 			<description>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.DESC')}</description>
 			<type>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.TYPE')}</type>
 			<associated>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.ASSOCIATED')}</associated>
@@ -2163,7 +2170,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<category>Power</category>
 			<source>${pcstring('ABILITYALL.Power.VISIBLE.${atWill}.TYPE=At-Will.SOURCE')}</source>
 		</powers_atwill>
-</@loop>
+	</@loop>
 	</powers_atwills>
 
 	<!--
@@ -2174,62 +2181,62 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================-->
 
 	<powers_encounters>
-<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Encounter")') = 0)>
-<#else>
+	<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Encounter")') = 0)>
+	<#else>
 	<!-- Standard Encounter Powers -->
-</#if>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Encounter")-1') ; encounter , encounter_has_next>
+	</#if>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Encounter")-1') ; encounter , encounter_has_next>
 		<powers_encounter>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.TYPE") = "Extraordinary")>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.TYPE") = "Extraordinary")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter')} (Ex)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.TYPE") = "Supernatural")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.TYPE") = "Supernatural")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter')} (Su)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.TYPE") = "SpellLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.TYPE") = "SpellLike")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter')} (Sp)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.TYPE") = "PsiLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.TYPE") = "PsiLike")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter')} (Ps)</name>
-<#else>
+			<#else>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter')}</name>
-</#if>
-</#if>
-</#if>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Power Use") = "Y")>
+			</#if>
+			</#if>
+			</#if>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Power Use") = "Y")>
 			<power_use>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.ASPECT.Power Use')}</power_use>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Power Type") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Power Type") = "Y")>
 			<power_type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.ASPECT.Power Type')}</power_type>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Action Type") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Action Type") = "Y")>
 			<action_type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.ASPECT.Action Type')}</action_type>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Trigger") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Trigger") = "Y")>
 			<trigger>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.ASPECT.Trigger')}</trigger>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Special") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Special") = "Y")>
 			<special>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.ASPECT.Special')}</special>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Target") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Target") = "Y")>
 			<target>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.ASPECT.Target')}</target>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Attack") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Attack") = "Y")>
 			<attack>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.ASPECT.Attack')}</attack>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Hit") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Hit") = "Y")>
 			<hit>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.ASPECT.Hit')}</hit>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Miss") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Miss") = "Y")>
 			<miss>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.ASPECT.Miss')}</miss>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Effect") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Effect") = "Y")>
 			<effect>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.ASPECT.Effect')}</effect>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Sustain") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.HASASPECT.Sustain") = "Y")>
 			<sustain>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.ASPECT.Sustain')}</sustain>
-</#if>
+			</#if>
 			<description>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.DESC')}</description>
 			<type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.TYPE')}</type>
 			<associated>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.ASSOCIATED')}</associated>
@@ -2240,7 +2247,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<category>Special Ability</category>
 			<source>${pcstring('ABILITYALL.Special Ability.VISIBLE.${encounter}.TYPE=Encounter.SOURCE')}</source>
 		</powers_encounter>
-</@loop>
+	</@loop>
 	</powers_encounters>
 	<!--
 	  ====================================
@@ -2249,62 +2256,62 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================
 	  ====================================-->
 	<powers_dailies>
-<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Daily")') = 0)>
-<#else>
+	<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Daily")') = 0)>
+	<#else>
 	<!-- Standard Daily Powers -->
-</#if>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Daily")-1') ; daily , daily_has_next>
+	</#if>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Daily")-1') ; daily , daily_has_next>
 		<powers_daily>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.TYPE") = "Extraordinary")>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.TYPE") = "Extraordinary")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily')} (Ex)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.TYPE") = "Supernatural")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.TYPE") = "Supernatural")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily')} (Su)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.TYPE") = "SpellLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.TYPE") = "SpellLike")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily')} (Sp)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.TYPE") = "PsiLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.TYPE") = "PsiLike")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily')} (Ps)</name>
-<#else>
+			<#else>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily')}</name>
-</#if>
-</#if>
-</#if>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Power Type") = "Y")>
+			</#if>
+			</#if>
+			</#if>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Power Type") = "Y")>
 			<power_type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.ASPECT.Power Type')}</power_type>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Power Use") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Power Use") = "Y")>
 			<power_use>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.ASPECT.Power Use')}</power_use>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Action Type") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Action Type") = "Y")>
 			<action_type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.ASPECT.Action Type')}</action_type>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Special") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Special") = "Y")>
 			<special>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.ASPECT.Special')}</special>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Trigger") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Trigger") = "Y")>
 			<trigger>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.ASPECT.Trigger')}</trigger>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Target") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Target") = "Y")>
 			<target>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.ASPECT.Target')}</target>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Attack") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Attack") = "Y")>
 			<attack>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.ASPECT.Attack')}</attack>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Hit") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Hit") = "Y")>
 			<hit>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.ASPECT.Hit')}</hit>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Miss") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Miss") = "Y")>
 			<miss>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.ASPECT.Miss')}</miss>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Effect") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Effect") = "Y")>
 			<effect>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.ASPECT.Effect')}</effect>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Sustain") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.HASASPECT.Sustain") = "Y")>
 			<sustain>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.ASPECT.Sustain')}</sustain>
-</#if>
+			</#if>
 			<description>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.DESC')}</description>
 			<type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.TYPE')}</type>
 			<associated>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.ASSOCIATED')}</associated>
@@ -2315,7 +2322,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<category>Special Ability</category>
 			<source>${pcstring('ABILITYALL.Special Ability.VISIBLE.${daily}.TYPE=Daily.SOURCE')}</source>
 		</powers_daily>
-</@loop>
+	</@loop>
 	</powers_dailies>
 	<!--
 	  ====================================
@@ -2325,62 +2332,62 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================-->
 
 	<powers_utilities>
-<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Utility")') = 0)>
-<#else>
+	<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Utility")') = 0)>
+	<#else>
 	<!-- Standard Utility Powers -->
-</#if>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Utility")-1') ; utility , utility_has_next>
+	</#if>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Utility")-1') ; utility , utility_has_next>
 		<powers_utility>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.TYPE") = "Extraordinary")>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.TYPE") = "Extraordinary")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility')} (Ex)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.TYPE") = "Supernatural")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.TYPE") = "Supernatural")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility')} (Su)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.TYPE") = "SpellLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.TYPE") = "SpellLike")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility')} (Sp)</name>
-<#else>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.TYPE") = "PsiLike")>
+			<#else>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.TYPE") = "PsiLike")>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility')} (Ps)</name>
-<#else>
+			<#else>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility')}</name>
-</#if>
-</#if>
-</#if>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Power Type") = "Y")>
+			</#if>
+			</#if>
+			</#if>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Power Type") = "Y")>
 			<power_type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.ASPECT.Power Type')}</power_type>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Power Use") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Power Use") = "Y")>
 			<power_use>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.ASPECT.Power Use')}</power_use>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Action Type") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Action Type") = "Y")>
 			<action_type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.ASPECT.Action Type')}</action_type>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Special") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Special") = "Y")>
 			<special>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.ASPECT.Special')}</special>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Trigger") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Trigger") = "Y")>
 			<trigger>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.ASPECT.Trigger')}</trigger>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Target") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Target") = "Y")>
 			<target>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.ASPECT.Target')}</target>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Attack") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Attack") = "Y")>
 			<attack>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.ASPECT.Attack')}</attack>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Hit") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Hit") = "Y")>
 			<hit>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.ASPECT.Hit')}</hit>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Miss") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Miss") = "Y")>
 			<miss>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.ASPECT.Miss')}</miss>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Effect") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Effect") = "Y")>
 			<effect>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.ASPECT.Effect')}</effect>
-</#if>
-<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Sustain") = "Y")>
+			</#if>
+			<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.HASASPECT.Sustain") = "Y")>
 			<sustain>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.ASPECT.Sustain')}</sustain>
-</#if>
+			</#if>
 			<description>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.DESC')}</description>
 			<type>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.TYPE')}</type>
 			<associated>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.ASSOCIATED')}</associated>
@@ -2391,7 +2398,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<category>Special Ability</category>
 			<source>${pcstring('ABILITYALL.Special Ability.VISIBLE.${utility}.TYPE=Utility.SOURCE')}</source>
 		</powers_utility>
-</@loop>
+	</@loop>
 	</powers_utilities>
 
 	<!--
@@ -2459,7 +2466,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="ForceSecrets" nodeName="force_secret" />
 	</force_secrets>
 
-<!--
+	<!--
 	====================================
 	====================================
 			MUTATIONS
@@ -2479,17 +2486,17 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================
 	  ====================================-->
 	<traits>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; trait , trait_has_next>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; trait , trait_has_next>
 		<trait>
-<#if (pcstring("VABILITY.Special Ability.VISIBLE.${trait}.TYPE=Trait") != "")><#-- TODO: THis doesn't work unless all the virtual abilities are at the start of the loop. Need a new subtag on ABILITYALL of nature -->
+			<#if (pcstring("VABILITY.Special Ability.VISIBLE.${trait}.TYPE=Trait") != "")><#-- TODO: THis doesn't work unless all the virtual abilities are at the start of the loop. Need a new subtag on ABILITYALL of nature -->
 			<name>${pcstring('VABILITY.Special Ability.VISIBLE.${trait}.TYPE=Trait')} (Granted)</name>
-<#else>
+			<#else>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${trait}.TYPE=Trait')}</name>
-</#if>
+			</#if>
 			<description>${pcstring('ABILITYALL.Special Ability.VISIBLE.${trait}.TYPE=Trait.DESC')}</description>
 			<source>${pcstring('ABILITYALL.Special Ability.VISIBLE.${trait}.TYPE=Trait.SOURCE')}</source>
 		</trait>
-</@loop>
+	</@loop>
 	</traits>
 
 	<!--
@@ -2499,13 +2506,13 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================
 	  ====================================-->
 	<afflictions>
-<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Affliction","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; affliction , affliction_has_next>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Affliction","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; affliction , affliction_has_next>
 		<affliction>
 			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${affliction}.TYPE=Affliction')}</name>
 			<description>${pcstring('ABILITYALL.Special Ability.VISIBLE.${affliction}.TYPE=Affliction.DESC')}</description>
 			<source>${pcstring('ABILITYALL.Special Ability.VISIBLE.${affliction}.TYPE=Affliction.SOURCE')}</source>
 		</affliction>
-</@loop>
+	</@loop>
 	</afflictions>
 
 	<!--
@@ -2515,12 +2522,12 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================
 	  ====================================-->
 	<tempbonuses>
-<@loop from=0 to=pcvar('COUNT[TEMPBONUSNAMES]-1') ; tempbonus , tempbonus_has_next>
+	<@loop from=0 to=pcvar('COUNT[TEMPBONUSNAMES]-1') ; tempbonus , tempbonus_has_next>
 		<tempbonus>
 			<name>${pcstring('TEMPBONUS.${tempbonus}.NAME')}</name>
 			<description>${pcstring('TEMPBONUS.${tempbonus}.DESC')}</description>
 		</tempbonus>
-</@loop>
+	</@loop>
 	</tempbonuses>
 
 	<!--
@@ -2531,22 +2538,22 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================-->
 
 
-<#if (pcvar("COUNT[DOMAINS]") > 0) >
+	<#if (pcvar("COUNT[DOMAINS]") > 0) >
 	<domains>
-<@loop from=1 to=pcvar('COUNT[DOMAINS]') ; domain , domain_has_next>
+	<@loop from=1 to=pcvar('COUNT[DOMAINS]') ; domain , domain_has_next>
 		<domain>
 			<name>${pcstring('DOMAIN.${domain}')}</name>
 			<power>${pcstring('DOMAIN.${domain}.POWER')}</power>
 		</domain>
-</@loop>	<!-- Domains -->
+	</@loop>	<!-- Domains -->
 	</domains>
-</#if>	<!-- Domains -->
+	</#if>	<!-- Domains -->
 	<weapon_proficiencies>${pcstring('WEAPONPROFS')}</weapon_proficiencies>
 	<languages>${pcstring('LANGUAGES')}</languages>
-<#if (pcvar("COUNT[TEMPLATES]") > 0) >
+	<#if (pcvar("COUNT[TEMPLATES]") > 0) >
 	<templates>
 		<list>${pcstring('TEMPLATELIST')}</list>
-<@loop from=0 to=pcvar('COUNT[TEMPLATES]-1') ; template , template_has_next><#-- TODO: Loop was of early exit type 1 -->
+		<@loop from=0 to=pcvar('COUNT[TEMPLATES]-1') ; template , template_has_next><#-- TODO: Loop was of early exit type 1 -->
 		<template>
 			<name>${pcstring('TEMPLATE.${template}.NAME')}</name>
 			<strmod>${pcstring('TEMPLATE.${template}.STRMOD')}</strmod>
@@ -2562,32 +2569,32 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<sr>${pcstring('TEMPLATE.${template}.SR')}</sr>
 			<bonuslist>${pcstring('TEMPLATE.${template}.BONUSLIST')}</bonuslist>
 		</template>
-</@loop>
+		</@loop>
 	</templates>
-</#if>
+	</#if>
 
-<#if (pcvar("PROHIBITEDLIST") > 0) >
+	<#if (pcvar("PROHIBITEDLIST") > 0) >
 	<prohibited_schools>${pcstring('PROHIBITEDLIST')}</prohibited_schools>
-</#if>
+	</#if>
 
 	<misc>
 			<gold>${pcstring('GOLD')}</gold>
 
-<#if (pcvar("MISC.FUNDS") > 0) >
+		<#if (pcvar("MISC.FUNDS") > 0) >
 		<funds>
 			<fund>${pcstring('MISC.FUNDS')}</fund>
 		</funds>
-</#if>
-<#if (pcvar("MISC.COMPANIONS") > 0) >
+		</#if>
+		<#if (pcvar("MISC.COMPANIONS") > 0) >
 		<companions>
 			<companion>${pcstring('MISC.COMPANIONS')}</companion>
 		</companions>
-</#if>
-<#if (pcvar("MISC.MAGIC") > 0) >
+		</#if>
+		<#if (pcvar("MISC.MAGIC") > 0) >
 		<magics>
 			<magic>${pcstring('MISC.MAGIC')}</magic>
 		</magics>
-</#if>
+		</#if>
 	</misc>
 	<!--
 	  ====================================
@@ -2596,8 +2603,8 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================
 	  ====================================-->
 	<companions>
-<#if (pcvar("FOLLOWERTYPE.FAMILIAR") > 0) >
-<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.FAMILIAR]-1') ; companion , companion_has_next>
+		<#if (pcvar("FOLLOWERTYPE.FAMILIAR") > 0) >
+		<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.FAMILIAR]-1') ; companion , companion_has_next>
 		<familiar>
 			<name>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.NAME')}</name>
 			<race>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.RACE')}</race>
@@ -2610,7 +2617,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<special_properties>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack')}${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialQuality')}</special_properties>
 
 			<attacks>
-<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.FAMILIAR.${companion}.EQTYPE.WEAPON]-1') ; weap , weap_has_next>
+			<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.FAMILIAR.${companion}.EQTYPE.WEAPON]-1') ; weap , weap_has_next>
 				<attack>
 					<common>
 						<name>
@@ -2645,14 +2652,14 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 						<range>${pcstring('FOLLOWERTYPE.FAMILIAR.${companion}.WEAPON.${weap}.RANGE')}</range>
 					</simple>
 				</attack>
-</@loop>
+			</@loop>
 			</attacks>
 		</familiar>
-</@loop>
+		</@loop>
 
-</#if>
-<#if (pcvar("FOLLOWERTYPE.Psicrystal") > 0) >
-<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.Psicrystal]-1') ; companion , companion_has_next>
+		</#if>
+		<#if (pcvar("FOLLOWERTYPE.Psicrystal") > 0) >
+		<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.Psicrystal]-1') ; companion , companion_has_next>
 		<psicrystal>
 			<name>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.NAME')}</name>
 			<race>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.RACE')}</race>
@@ -2665,7 +2672,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<special_properties>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack')}${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialQuality')}</special_properties>
 
 			<attacks>
-<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.Psicrystal.${companion}.EQTYPE.WEAPON]-1') ; weap , weap_has_next>
+			<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.Psicrystal.${companion}.EQTYPE.WEAPON]-1') ; weap , weap_has_next>
 				<attack>
 					<common>
 						<name>
@@ -2700,15 +2707,15 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 						<range>${pcstring('FOLLOWERTYPE.Psicrystal.${companion}.WEAPON.${weap}.RANGE')}</range>
 					</simple>
 				</attack>
-</@loop>
+			</@loop>
 			</attacks>
 		</psicrystal>
-</@loop>
-</#if>
+		</@loop>
+		</#if>
 
 
-<#if (pcvar("FOLLOWERTYPE.SPECIAL MOUNT") > 0) >
-<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.SPECIAL MOUNT]-1') ; companion , companion_has_next>
+		<#if (pcvar("FOLLOWERTYPE.SPECIAL MOUNT") > 0) >
+		<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.SPECIAL MOUNT]-1') ; companion , companion_has_next>
 		<mount>
 			<!-- Note that only one mount is allowed, so no support for multiple mounts
 			Added Support as Eclipse allows for more than one Mount; also handy if you have a shapeshifting
@@ -2722,10 +2729,8 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<will>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.${companion}.CHECK.WILL.TOTAL')}</will>
 			<initiative_mod>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.${companion}.INITIATIVEMOD')}</initiative_mod>
 			<special_properties>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.${companion}.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack')}${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.${companion}.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialQuality')}</special_properties>
-
 			<attacks>
-
-<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.SPECIAL MOUNT.EQTYPE.WEAPON]-1') ; weap , weap_has_next>
+			<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.SPECIAL MOUNT.EQTYPE.WEAPON]-1') ; weap , weap_has_next>
 				<attack>
 					<common>
 						<name>
@@ -2760,13 +2765,13 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 						<range>${pcstring('FOLLOWERTYPE.SPECIAL MOUNT.0.WEAPON.${weap}.RANGE')}</range>
 					</simple>
 				</attack>
-</@loop>
+			</@loop>
 			</attacks>
 		</mount>
-</@loop>
-</#if>
-<#if (pcvar("FOLLOWERTYPE.ANIMAL COMPANION") > 0) >
-<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.ANIMAL COMPANION]-1') ; companion , companion_has_next>
+		</@loop>
+		</#if>
+		<#if (pcvar("FOLLOWERTYPE.ANIMAL COMPANION") > 0) >
+		<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.ANIMAL COMPANION]-1') ; companion , companion_has_next>
 		<companion>
 			<name>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.NAME')}</name>
 			<race>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.RACE')}</race>
@@ -2779,7 +2784,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<special_properties>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack')}${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialQuality')}</special_properties>
 			<trick>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=AnimalTrick')}</trick>
 			<attacks>
-<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.ANIMAL COMPANION.${companion}.EQTYPE.WEAPON]-1') ; weap , weap_has_next>
+			<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.ANIMAL COMPANION.${companion}.EQTYPE.WEAPON]-1') ; weap , weap_has_next>
 				<attack>
 					<common>
 						<name>
@@ -2814,13 +2819,13 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 						<range>${pcstring('FOLLOWERTYPE.ANIMAL COMPANION.${companion}.WEAPON.${weap}.RANGE')}</range>
 					</simple>
 				</attack>
-</@loop>
+			</@loop>
 			</attacks>
 		</companion>
-</@loop>	<!-- Followertype Animal -->
-</#if>
-<#if (pcvar("FOLLOWERTYPE.FOLLOWER") > 0) >
-<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.FOLLOWER]') ; companion , companion_has_next>
+		</@loop>	<!-- Followertype Animal -->
+		</#if>
+		<#if (pcvar("FOLLOWERTYPE.FOLLOWER") > 0) >
+		<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.FOLLOWER]') ; companion , companion_has_next>
 		<follower>
 			<name>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.NAME')}</name>
 			<race>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.RACE')}</race>
@@ -2832,7 +2837,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 			<initiative_mod>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.INITIATIVEMOD')}</initiative_mod>
 			<special_properties>${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack')}${pcstring('FOLLOWERTYPE.FOLLOWER.${companion}.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialQuality')}</special_properties>
 			<attacks>
-<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.FOLLOWER.${companion}.EQTYPE.WEAPON]-1') ; weap , weap_has_next>
+			<@loop from=0 to=pcvar('COUNT[FOLLOWERTYPE.FOLLOWER.${companion}.EQTYPE.WEAPON]-1') ; weap , weap_has_next>
 				<attack>
 					<common>
 						<name>
@@ -2870,11 +2875,11 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 						<sequence>${weap}</sequence>
 					</common>
 				</attack>
-</@loop>
+			</@loop>
 			</attacks>
 		</follower>
-</@loop>	<!-- Followertype Follower -->
-</#if>
+		</@loop>	<!-- Followertype Follower -->
+		</#if>
 	</companions>
 	<!--
 	  ====================================
@@ -2884,17 +2889,17 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 	  ====================================-->
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
-<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]') ; spellrace , spellrace_has_next>
-<#if (spellrace = 0)>
+	<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]') ; spellrace , spellrace_has_next>
+	<#if (spellrace = 0)>
 	<spells_innate number="none"/>
-<#else>
+	<#else>
 	<spells_innate>
-<#assign spellbook = 1 /> 
-<#assign class = 0 /> 
-<#assign level = 0 />
-<#if (pcvar("COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]") > 0) >
+	<#assign spellbook = 1 /> 
+	<#assign class = 0 /> 
+	<#assign level = 0 />
+	<#if (pcvar("COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]") > 0) >
 		<racial_innate>
-<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
+			<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
 			<spell>
 					<name>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</name>
 					<outputname>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.OUTPUTNAME')}</outputname>
@@ -2926,18 +2931,18 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 					<spell_resistance>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.SR')}</spell_resistance>
 					<description>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DESCRIPTION')}</description>
 					<bonusspell>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.BONUSSPELL')}</bonusspell>
-				</spell>
-</@loop>
+			</spell>
+			</@loop>
 		</racial_innate>
-</#if>
+		</#if>
 
 		<class_innate>
-<@loop from=2 to=pcvar('COUNT[SPELLBOOKS]-1') ; spellbook , spellbook_has_next>
-<#assign class = 0 /> 
-<#assign level = 0 /> 
-<#if (pcvar("COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]") > 0) >
+			<@loop from=2 to=pcvar('COUNT[SPELLBOOKS]-1') ; spellbook , spellbook_has_next>
+			<#assign class = 0 /> 
+			<#assign level = 0 /> 
+			<#if (pcvar("COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]") > 0) >
 			<spellbook number="${spellbook}" name="${pcstring('SPELLBOOKNAME.${spellbook}')}">
-<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
+			<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
 				<spell>
 						<name>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</name>
 						<outputname>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.OUTPUTNAME')}</outputname>
@@ -2970,27 +2975,27 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 						<description>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DESCRIPTION')}</description>
 						<bonusspell>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.BONUSSPELL')}</bonusspell>
 					</spell>
-</@loop>
+			</@loop>
 			</spellbook>
-</#if>
-</@loop>
+			</#if>
+			</@loop>
 		</class_innate>
 		</spells_innate>
-</#if>
-<!-- ### END Innate spells ### -->
-</@loop>
+		</#if>
+		<!-- ### END Innate spells ### -->
+		</@loop>
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
-<@loop from=0 to=0 ; spellbook , spellbook_has_next>
-<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]+COUNT[CLASSES]-1') ; class , class_has_next><#-- TODO: Loop was of early exit type 1 -->
-<#if (pcstring("SPELLLISTCLASS.${class}") != '') >
-	<class number="${class}" spelllistclass="${pcstring('SPELLLISTCLASS.${class}')}" spellcasterlevel="${pcstring('SPELLLISTCLASS.${class}.CASTERLEVEL')}" spellcastertype="${pcstring('SPELLLISTTYPE.${class}')}" memorize="${pcstring('SPELLLISTMEMORIZE.${class}')}" concentration="${pcstring('SPELLLISTCLASS.${class}.CONCENTRATION')}">
-<@loop from=0 to=pcvar('MAXSPELLLEVEL.${class}') ; level , level_has_next><#-- TODO: Loop was of early exit type 1 -->
-<@loop from=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') ; spellcount , spellcount_has_next>
+		<@loop from=0 to=0 ; spellbook , spellbook_has_next>
+		<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]+COUNT[CLASSES]-1') ; class , class_has_next><#-- TODO: Loop was of early exit type 1 -->
+		<#if (pcstring("SPELLLISTCLASS.${class}") != '') >
+		<class number="${class}" spelllistclass="${pcstring('SPELLLISTCLASS.${class}')}" spellcasterlevel="${pcstring('SPELLLISTCLASS.${class}.CASTERLEVEL')}" spellcastertype="${pcstring('SPELLLISTTYPE.${class}')}" memorize="${pcstring('SPELLLISTMEMORIZE.${class}')}" concentration="${pcstring('SPELLLISTCLASS.${class}.CONCENTRATION')}">
+			<@loop from=0 to=pcvar('MAXSPELLLEVEL.${class}') ; level , level_has_next><#-- TODO: Loop was of early exit type 1 -->
+			<@loop from=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') ; spellcount , spellcount_has_next>
 			<level number="${level}" known="${pcstring('SPELLLISTKNOWN.${class}.${level}')}" cast="${pcstring('SPELLLISTCAST.${class}.${level}')}">
-<#if (spellcount = 0)>
-<#else>
-<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
+			<#if (spellcount = 0)>
+			<#else>
+			<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
 				<spell>
 						<name>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</name>
 						<outputname>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.OUTPUTNAME')}</outputname>
@@ -3022,36 +3027,36 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 						<description>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DESCRIPTION')}</description>
 						<bonusspell>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.BONUSSPELL')}</bonusspell>
 				</spell>
-</@loop>
-</#if>
+			</@loop>
+			</#if>
 			</level>
-</@loop>
-</@loop>
+			</@loop>
+			</@loop>
 		</class>
-</#if>
-</@loop>
-</@loop>
+		</#if>
+		</@loop>
+		</@loop>
 	</known_spells>
 		<!-- ### END Known spells ### -->
 
 		<!-- ### BEGIN memorized spells ### -->
-<@loop from=pcvar('COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2') to=pcvar('COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2') ; memorised , memorised_has_next>
-<#if (memorised = 0)>
+	<@loop from=pcvar('COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2') to=pcvar('COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2') ; memorised , memorised_has_next>
+	<#if (memorised = 0)>
 	<memorized_spells/>
-<#else>
+	<#else>
 	<memorized_spells>
 			<!-- ### BEGIN innate memorized spell section -->
-<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]') ; spellrace , spellrace_has_next>
-<#if (spellrace = 0)>
-<#else>
+	<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]') ; spellrace , spellrace_has_next>
+	<#if (spellrace = 0)>
+	<#else>
 
-<!-- ### BEGIN innate memorized spells ### -->
- <#assign spellbook = 1 />
- <#assign class = 0 /> 
- <#assign level = 0 /> 
- <#if (pcvar("COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]") > 0) >
+	<!-- ### BEGIN innate memorized spells ### -->
+	 <#assign spellbook = 1 />
+	 <#assign class = 0 /> 
+	 <#assign level = 0 /> 
+	 <#if (pcvar("COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]") > 0) >
 		<racial_innate_memorized>
-  <@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
+		  <@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
 			<spell>
 					<name>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</name>
 					<outputname>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.OUTPUTNAME')}</outputname>
@@ -3084,18 +3089,18 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 					<description>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DESCRIPTION')}</description>
 					<bonusspell>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.BONUSSPELL')}</bonusspell>
 				</spell>
-  </@loop>
+		  </@loop>
 		</racial_innate_memorized>
-  </#if>
-<!-- ### END innate memorized spells ### -->
+	  </#if>
+			<!-- ### END innate memorized spells ### -->
 			<!-- ### BEGIN class innate memorized spells ### -->
 			<class_innate_memorized>
-  <@loop from=2 to=pcvar('COUNT[SPELLBOOKS]-1') ; spellbook , spellbook_has_next>
-   <#assign class = 0 /> 
-   <#assign level = 0 /> 
-   <#if (pcvar("COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]") > 0) >
+		  <@loop from=2 to=pcvar('COUNT[SPELLBOOKS]-1') ; spellbook , spellbook_has_next>
+		   <#assign class = 0 /> 
+		   <#assign level = 0 /> 
+		   <#if (pcvar("COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]") > 0) >
 			<spellbook number="${spellbook}" name="${pcstring('SPELLBOOKNAME.${spellbook}')}">
-    <@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
+			<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
 				<spell>
 						<name>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</name>
 						<outputname>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.OUTPUTNAME')}</outputname>
@@ -3128,33 +3133,33 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 						<description>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DESCRIPTION')}</description>
 						<bonusspell>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.BONUSSPELL')}</bonusspell>
 					</spell>
-    </@loop>
+			</@loop>
 			</spellbook>
-   </#if>
-  </@loop>
+		   </#if>
+		  </@loop>
 		</class_innate_memorized>
 			<!-- ### END class innate memorized spells ### -->
- </#if>
-</@loop>
-<!-- ### END innate memorized spell section -->
+		 </#if>
+		</@loop>
+			<!-- ### END innate memorized spell section -->
 			<!-- ### BEGIN class Spellbook memorized spells ### -->
-<@loop from=2 to=pcvar('COUNT[SPELLBOOKS]-1') ; spellbook , spellbook_has_next>
-<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]') ; foo , foo_has_next><#-- TODO: Loop was of early exit type 1 -->
-<!-- FOR,${foo},COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
-<@loop from=pcvar('COUNT[SPELLSINBOOK0.${spellbook}.0]') to=pcvar('COUNT[SPELLSINBOOK0.${spellbook}.0]') ; bar , bar_has_next><#-- TODO: Loop was of early exit type 1 -->
-<!-- FOR,${bar},COUNT[SPELLSINBOOK0.${spellbook}.0],COUNT[SPELLSINBOOK0.${spellbook}.0],1,1 -->
-<#if (foo = 0 || bar = 0) >
-<!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
+			<@loop from=2 to=pcvar('COUNT[SPELLBOOKS]-1') ; spellbook , spellbook_has_next>
+			<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]') ; foo , foo_has_next><#-- TODO: Loop was of early exit type 1 -->
+			<!-- FOR,${foo},COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
+			<@loop from=pcvar('COUNT[SPELLSINBOOK0.${spellbook}.0]') to=pcvar('COUNT[SPELLSINBOOK0.${spellbook}.0]') ; bar , bar_has_next><#-- TODO: Loop was of early exit type 1 -->
+			<!-- FOR,${bar},COUNT[SPELLSINBOOK0.${spellbook}.0],COUNT[SPELLSINBOOK0.${spellbook}.0],1,1 -->
+			<#if (foo = 0 || bar = 0) >
+			<!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
 			<spellbook number="${spellbook}" name="${pcstring('SPELLBOOKNAME.${spellbook}')}">
-<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]+COUNT[CLASSES]-1') ; class , class_has_next><#-- TODO: Loop was of early exit type 1 -->
+			<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]+COUNT[CLASSES]-1') ; class , class_has_next><#-- TODO: Loop was of early exit type 1 -->
 			<class number="${class}" spelllistclass="${pcstring('SPELLLISTCLASS.${class}')}" spellcasterlevel="${pcstring('SPELLLISTCLASS.${class}.LEVEL')}" spellcastertype="${pcstring('SPELLLISTTYPE.${class}')}" memorize="${pcstring('SPELLLISTMEMORIZE.${class}')}">
- <@loop from=0 to=pcvar('MAXSPELLLEVEL.${class}') ; level , level_has_next><#-- TODO: Loop was of early exit type 1 -->
-  <@loop from=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') ; spelllevelcount , spelllevelcount_has_next>
-   <#if (spelllevelcount = 0)>
+			 <@loop from=0 to=pcvar('MAXSPELLLEVEL.${class}') ; level , level_has_next><#-- TODO: Loop was of early exit type 1 -->
+			  <@loop from=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') ; spelllevelcount , spelllevelcount_has_next>
+			   <#if (spelllevelcount = 0)>
 				<level number="${level}" spellcount="${spelllevelcount}"/>
-   <#else>
+			   <#else>
 				<level number="${level}" spellcount="${spelllevelcount}">
-    <@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
+				   <@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
 					<spell>
 							<name>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</name>
 							<outputname>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.OUTPUTNAME')}</outputname>
@@ -3187,27 +3192,27 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 							<description>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DESCRIPTION')}</description>
 							<bonusspell>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.BONUSSPELL')}</bonusspell>
 						</spell>
-    </@loop>
+				   </@loop>
 				</level>
-   </#if>
-  </@loop>
- </@loop>
+			   </#if>
+			  </@loop>
+			 </@loop>
 			</class>
-</@loop>
+		</@loop>
 		</spellbook>
-<#else>
-</#if>
-<!-- END FOR,${bar},COUNT[SPELLSINBOOK0.${spellbook}.0],COUNT[SPELLSINBOOK0.${spellbook}.0],1,1 -->
-</@loop>
-<!-- END FOR,${foo},COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
-</@loop>
-</@loop>
+	<#else>
+	</#if>
+	<!-- END FOR,${bar},COUNT[SPELLSINBOOK0.${spellbook}.0],COUNT[SPELLSINBOOK0.${spellbook}.0],1,1 -->
+	</@loop>
+	<!-- END FOR,${foo},COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
+	</@loop>
+	</@loop>
 	</memorized_spells>
-</#if>
-</@loop>
-<!-- ### END class Spellbook memorized spells ### -->
+	</#if>
+	</@loop>
+	<!-- ### END class Spellbook memorized spells ### -->
 	</spells>
-<!-- ### Additional House Rules for Variables in the xsl:fo code ### -->
+	<!-- ### Additional House Rules for Variables in the xsl:fo code ### -->
 	<house_var>
 		<spelldisplaydc>${pcstring('VAR.SpellDisplayDC')}</spelldisplaydc>
 		<OldStyleAbilityStatBlockDisplay>${pcstring('VAR.OldStyleAbilityStatBlockDisplay')}</OldStyleAbilityStatBlockDisplay>
