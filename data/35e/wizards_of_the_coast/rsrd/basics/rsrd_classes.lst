@@ -124,7 +124,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 2	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Woodland Stride|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWoodlandStride
 3	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Trackless Step|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidTracklessStep
 4	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Resist Nature's Lure|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidResistNaturesLure
-1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Wild Shape|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWildShape
+5	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Wild Shape|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWildShape
 9	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Venom Immunity|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidVenomImmunity
 13	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ A Thousand Faces|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidAThousandFaces
 15	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Timeless Body|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidTimelessBody
