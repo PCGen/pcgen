@@ -100,6 +100,7 @@
 			</xsl:choose>	
 			<fo:table-body>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-columns-spanned="3">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio'"/>
@@ -164,6 +165,7 @@
 					</xsl:if>
 				</fo:table-row>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-columns-spanned="3">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio.title'"/>
@@ -202,6 +204,7 @@
 				</fo:table-row>
 <!-- Second Row -->
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-columns-spanned="3">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio'"/>
@@ -285,6 +288,7 @@
 					<fo:table-cell/>
 				</fo:table-row>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-columns-spanned="3">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio.title'"/>
@@ -325,6 +329,7 @@
 				</fo:table-row>
 <!--	Third Row-->
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio'"/>
@@ -397,6 +402,7 @@
 
 <!-- Third ROW Text-->
 				<fo:table-row>
+											<xsl:message>Test END</xsl:message>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bio.title'"/>

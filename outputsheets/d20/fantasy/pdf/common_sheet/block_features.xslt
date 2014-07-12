@@ -660,6 +660,7 @@
 			<fo:table-column column-width="63mm"/>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell padding-top="1pt" number-columns-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'checklist'"/>
@@ -670,6 +671,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell padding-top="1pt" text-align="end">
 							<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'checklist'"/>
@@ -688,6 +690,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test END</xsl:message>
 					<fo:table-cell padding="3pt" number-columns-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'checklist'"/>

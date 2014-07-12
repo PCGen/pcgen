@@ -20,6 +20,7 @@
 		<xsl:param name="title"/>
 		<xsl:param name="value"/>
 		<fo:table-row>
+											<xsl:message>Test</xsl:message>
 			<fo:table-cell padding-top="1pt" height="9pt">
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'bio'"/>
@@ -79,6 +80,7 @@
 							</xsl:choose>
 							<fo:table-body>
 								<fo:table-row>
+											<xsl:message>Test</xsl:message>
 									<fo:table-cell>
 										<xsl:call-template name="attrib">
 											<xsl:with-param name="attribute" select="'bio'"/>
@@ -101,6 +103,7 @@
 									</xsl:if>
 								</fo:table-row>
 								<fo:table-row>
+											<xsl:message>Test</xsl:message>
 									<fo:table-cell padding-top="1pt">
 										<xsl:call-template name="attrib">
 											<xsl:with-param name="attribute" select="'bio.title'"/>
@@ -113,6 +116,7 @@
 									<xsl:with-param name="value" select="age"/>
 								</xsl:call-template>
 								<fo:table-row>
+											<xsl:message>Test</xsl:message>
 									<fo:table-cell padding-top="1pt" height="9pt">
 										<xsl:call-template name="attrib">
 											<xsl:with-param name="attribute" select="'bio'"/>
@@ -125,6 +129,7 @@
 									</fo:table-cell>
 								</fo:table-row>
 								<fo:table-row>
+											<xsl:message>Test</xsl:message>
 									<fo:table-cell padding-top="0.5pt">
 										<xsl:call-template name="attrib">
 											<xsl:with-param name="attribute" select="'bio.title'"/>
@@ -215,6 +220,7 @@
 								</xsl:call-template>
 								<!-- Attempt to change Style -->
 								<fo:table-row>
+											<xsl:message>Test END</xsl:message>
 									<fo:table-cell>
 										<xsl:call-template name="attrib">
 											<xsl:with-param name="attribute" select="'bio'"/>

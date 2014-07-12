@@ -53,6 +53,7 @@
 					<!-- SPEED -->
 					<fo:table-body>
 						<fo:table-row>
+											<xsl:message>Test</xsl:message>
 							<fo:table-cell/>
 							<fo:table-cell/>
 							<fo:table-cell>
@@ -76,6 +77,7 @@
 							</fo:table-cell>
 						</fo:table-row>
 						<fo:table-row>
+											<xsl:message>Test</xsl:message>
 							<fo:table-cell>
 								<xsl:call-template name="attrib">
 									<xsl:with-param name="attribute" select="'hp.title'"/>
@@ -167,6 +169,7 @@
 					<!-- SPEED -->
 					<fo:table-body>
 						<fo:table-row>
+											<xsl:message>Test</xsl:message>
 							<fo:table-cell/><!-- TITLE Vitality -->
 							<fo:table-cell/><!-- space -->
 							<fo:table-cell>	<!-- TOTAL Vitality -->
@@ -196,6 +199,7 @@
 							</fo:table-cell>
 						</fo:table-row>
 						<fo:table-row>
+											<xsl:message>Test</xsl:message>
 							<fo:table-cell>
 								<xsl:call-template name="attrib">
 									<xsl:with-param name="attribute" select="'hp.title'"/>
@@ -370,6 +374,7 @@
 			<!-- SR <33 columns> -->
 			<fo:table-body>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell>	
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'ac.title'"/>
@@ -555,6 +560,7 @@
 				</fo:table-row>
 <!--				<fo:table-row height="0.5pt"/>	-->
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell/>	<!--	1	-->
 					<fo:table-cell/>	<!--	2	-->
 					<fo:table-cell>
@@ -678,9 +684,11 @@
 			<!-- SR -->
 			<fo:table-body>
 				<fo:table-row height="2pt">
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell/>
 				</fo:table-row>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'initiative.title'"/>
@@ -758,6 +766,7 @@
 				</fo:table-row>
 <!--				<fo:table-row height="0.5pt"/>	-->
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell/>		<!--	1	-->
 					<fo:table-cell/>		<!--	2	-->
 					<fo:table-cell>
@@ -812,9 +821,11 @@
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row height="2pt">
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell/>
 				</fo:table-row>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'bab.title'"/>
@@ -861,9 +872,11 @@
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row height="2pt">
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell/>
 				</fo:table-row>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'initiative.title'"/>
@@ -903,6 +916,7 @@
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<xsl:apply-templates select="." mode="saves"/>
 					</fo:table-cell>
@@ -947,6 +961,7 @@
 			<fo:table-column column-width="6mm"/>
 			<fo:table-body>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<fo:block text-align="center" space-before.optimum="1pt" font-size="6pt">SAVING THROWS</fo:block>
 					</fo:table-cell>
@@ -979,6 +994,7 @@
 				</fo:table-row>
 				<xsl:for-each select="saving_throw">
 					<fo:table-row space-before="2pt">
+											<xsl:message>Test</xsl:message>
 						<fo:table-cell>
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'saves.title'"/>
@@ -1012,6 +1028,7 @@
 						</fo:table-cell>
 					</fo:table-row>
 					<fo:table-row height="2pt">
+											<xsl:message>Test END</xsl:message>
 						<fo:table-cell/>
 					</fo:table-row>
 				</xsl:for-each>

@@ -53,6 +53,7 @@
 		<xsl:when test="/character/house_var/oldstyleabilitystatblockdisplay &gt; 0">
 			<fo:table-body>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<fo:block text-align="center" font-size="4pt">ABILITY NAME</fo:block>
 					</fo:table-cell>
@@ -83,6 +84,7 @@
 				</fo:table-row>
 				<xsl:for-each select="ability">
 					<fo:table-row>
+											<xsl:message>Test</xsl:message>
 						<fo:table-cell>
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'stat.title'"/>
@@ -154,6 +156,7 @@
 						</fo:table-cell>
 					</fo:table-row>
 					<fo:table-row height="2pt">
+											<xsl:message>Test</xsl:message>
 						<fo:table-cell/>
 					</fo:table-row>
 				</xsl:for-each>
@@ -163,6 +166,7 @@
 <!--><xsl:if test="/character/house_var/oldstyleabilitystatblockdisplay &lt; 1">-->
 			<fo:table-body>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<fo:block text-align="center" space-before.optimum="4.5pt" font-size="4pt">ABILITY NAME</fo:block>
 					</fo:table-cell>
@@ -189,6 +193,7 @@
 				</fo:table-row>
 				<xsl:for-each select="ability">
 					<fo:table-row>
+											<xsl:message>Test</xsl:message>
 						<fo:table-cell>
 						<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'stat.title'"/>
@@ -262,6 +267,7 @@
 						</fo:table-cell>
 					</fo:table-row>
 					<fo:table-row height="2pt">
+											<xsl:message>Test END</xsl:message>
 						<fo:table-cell>
 							<fo:block>
 							</fo:block>

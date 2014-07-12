@@ -31,6 +31,7 @@
 				<fo:table-column column-width="10mm"/>
 				<fo:table-header>
 					<fo:table-row>
+											<xsl:message>Test</xsl:message>
 						<fo:table-cell padding-top="1pt" number-columns-spanned="5">
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'equipment.title'"/>
@@ -39,6 +40,7 @@
 						</fo:table-cell>
 					</fo:table-row>
 					<fo:table-row>
+											<xsl:message>Test</xsl:message>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'equipment.title'"/>
 						</xsl:call-template>
@@ -61,6 +63,7 @@
 				</fo:table-header>
 				<fo:table-footer>
 					<fo:table-row>
+											<xsl:message>Test</xsl:message>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'equipment.title'"/>
 						</xsl:call-template>
@@ -95,6 +98,7 @@
 						</xsl:variable>
 
 						<fo:table-row>
+											<xsl:message>Test</xsl:message>
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('equipment.', $shade)"/></xsl:call-template>
 							<fo:table-cell>
 								<fo:block space-before.optimum="1pt" font-size="8pt">
@@ -179,6 +183,7 @@
 						</fo:table-row>
 <!-- Special Properties Now Span entire row -->
 						<fo:table-row>
+											<xsl:message>Test</xsl:message>
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('equipment.', $shade)"/></xsl:call-template>
 							<fo:table-cell number-columns-spanned="5">
 								<fo:block space-before.optimum="1pt" font-size="5pt">
@@ -244,6 +249,7 @@
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell padding-top="1pt" number-columns-spanned="6">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weight.title'"/>
@@ -252,6 +258,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<xsl:call-template name="weight.entry">
 						<xsl:with-param name="title" select="'Light'"/>
 						<xsl:with-param name="value" select="light"/>
@@ -266,6 +273,7 @@
 					</xsl:call-template>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<xsl:call-template name="weight.entry">
 						<xsl:with-param name="title" select="'Lift over head'"/>
 						<xsl:with-param name="value" select="lift_over_head"/>
@@ -301,6 +309,7 @@
 				</fo:table-column>
 				<fo:table-header>
 					<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 						<fo:table-cell padding-top="1pt">
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'money.title'"/>
@@ -311,6 +320,7 @@
 				</fo:table-header>
 				<fo:table-footer>
 					<fo:table-row>
+											<xsl:message>Test</xsl:message>
 						<fo:table-cell>
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'money.title'"/>
@@ -341,6 +351,7 @@
 							</xsl:choose>
 						</xsl:variable>
 						<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('money.', $shade)"/></xsl:call-template>
 							<fo:table-cell>
 								<fo:block>
@@ -362,6 +373,7 @@
 							</xsl:choose>
 						</xsl:variable>
 						<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('money.', $shade)"/></xsl:call-template>
 							<fo:table-cell>
 								<fo:block>
@@ -376,6 +388,7 @@
 					<!-- misc gold -->
 					<xsl:for-each select="misc/gold">
 						<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 							<fo:table-cell>
 								<fo:block font-size="7pt">
 									<xsl:call-template name="paragraghlist">
@@ -395,6 +408,7 @@
 							</xsl:choose>
 						</xsl:variable>
 						<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('money.', $shade)"/></xsl:call-template>
 							<fo:table-cell>
 								<fo:block font-size="7pt">
@@ -426,6 +440,7 @@
 				</fo:table-column>
 				<fo:table-header>
 					<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 						<fo:table-cell padding-top="1pt">
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'magic.title'"/>
@@ -436,6 +451,7 @@
 				</fo:table-header>
 				<fo:table-body>
 					<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test END</xsl:message>
 						<fo:table-cell>
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'magic.lightline'"/>

@@ -27,6 +27,8 @@
 					<xsl:with-param name="attribute" select="'border'"/>
 				</xsl:call-template>
 						<fo:table-row>
+											<xsl:message>Test</xsl:message>
+
 							<fo:table-cell>
 							<xsl:if test="count(conditional_modifiers/savebonus) &gt; 0">
 								<fo:block text-align="center" font-size="8pt" font-weight="bold">Conditional Save Modifiers:</fo:block>	
@@ -75,12 +77,14 @@
 					<xsl:with-param name="title" select="'MELEE'"/>
 				</xsl:apply-templates>
 				<fo:table-row height="2.5pt">
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell />
 				</fo:table-row>
 				<xsl:apply-templates select="ranged" mode="to_hit">
 					<xsl:with-param name="title" select="'RANGED'"/>
 				</xsl:apply-templates>
 				<fo:table-row height="2.5pt">
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell />
 				</fo:table-row>
 				<xsl:apply-templates select="grapple" mode="to_hit">
@@ -98,6 +102,7 @@
 	<xsl:template name="to_hit.header">
 		<xsl:param name="dalign" select="'after'"/>
 		<fo:table-row>
+											<xsl:message>Test</xsl:message>
 			<fo:table-cell/>
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'TOTAL'"/><xsl:with-param name="font.size" select="'6pt'"/></xsl:call-template>
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'BASE ATTACK BONUS'"/></xsl:call-template>
@@ -123,6 +128,7 @@
 	<xsl:template match="melee|ranged|grapple|cmb" mode="to_hit">
 		<xsl:param name="title"/>
 		<fo:table-row>
+											<xsl:message>Test</xsl:message>
 			<fo:table-cell>
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'tohit.title'"/>
@@ -189,6 +195,7 @@
 			<fo:table-body>
 				<xsl:call-template name="cmb.moves_header" />
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell display-align="center">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'tohit.title'" />
@@ -208,10 +215,12 @@
 				</fo:table-row>
 			
 				<fo:table-row height="2.5pt">
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell/>
 				</fo:table-row>
 <!-- Defense entries -->
 				<fo:table-row>		
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell display-align="center">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'tohit.title'" />
@@ -235,6 +244,7 @@
 
 	<xsl:template name="cmb.moves_header">
 		<fo:table-row>
+											<xsl:message>Test</xsl:message>
 			<fo:table-cell/>
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'GRAPPLE'"/></xsl:call-template>
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'TRIP'"/></xsl:call-template>

@@ -63,6 +63,7 @@
 			<fo:table-column column-width="16mm"/>
 			<fo:table-body>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -95,6 +96,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
@@ -129,6 +131,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -160,6 +163,7 @@
 			<fo:table-column column-width="16mm"/>
 			<fo:table-body>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -192,6 +196,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
@@ -226,6 +231,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -257,6 +263,7 @@
 			<fo:table-column column-width="16mm"/>
 			<fo:table-body>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -289,6 +296,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
@@ -323,6 +331,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -356,6 +365,7 @@
 			<fo:table-column column-width="16mm"/>
 			<fo:table-body>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -388,7 +398,8 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
-					<fo:table-cell number-rows-spanned="2">
+												<xsl:message>Test</xsl:message>
+				<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
 						</xsl:call-template>
@@ -422,6 +433,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell >
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -434,6 +446,7 @@
 			<xsl:choose>
 				<xsl:when test="string-length(special_property) &gt; 1">	
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-columns-spanned="1">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -483,6 +496,7 @@
 			<fo:table-column column-width="16mm"/>
 			<fo:table-body>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -532,6 +546,7 @@
 				</fo:table-row>
 			<xsl:for-each select="naturalattack">
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.hilight'"/>
@@ -577,6 +592,7 @@
 				</fo:table-row>
 <!-- New Row -->
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -589,6 +605,7 @@
 			<xsl:choose>
 				<xsl:when test="string-length(notes) &gt; 1">
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-columns-spanned="1">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -611,6 +628,7 @@
 			</xsl:choose>
 			</xsl:for-each>
 			<fo:table-row>
+											<xsl:message>Test</xsl:message>
 				<fo:table-cell/>
 			</fo:table-row>
 		</fo:table-body>
@@ -654,6 +672,7 @@
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
 							<xsl:call-template name="attrib">
 									<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -712,6 +731,7 @@
 							</fo:table-cell>
 						</fo:table-row>	
 						<fo:table-row>
+											<xsl:message>Test</xsl:message>
 								<fo:table-cell padding-top="2pt" padding-bottom="2pt" padding-left="2pt">
 							<xsl:call-template name="attrib">
 									<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -860,6 +880,7 @@
 			<fo:table-body>
 			
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<!-- Name row (including Hand, Type, Size and Crit -->
 					<fo:table-cell number-rows-spanned="2">
 						<xsl:call-template name="attrib">
@@ -912,6 +933,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<!-- Hand, Type, Size and Crit -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
@@ -992,6 +1014,7 @@
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row>
+											<xsl:message>Test</xsl:message>
 				<xsl:if test="special_properties != ''">
 					<fo:table-cell  number-columns-spanned="2" >
 						<xsl:call-template name="attrib">
@@ -1035,6 +1058,7 @@
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -1049,6 +1073,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 <!-- DATA-73 Temporary Work Around -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib">
@@ -1164,6 +1189,7 @@
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<!-- To hit and Damage titles -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1190,6 +1216,7 @@
 				</fo:table-row>
 				<xsl:if test="not(w1_h1_p/to_hit = /character/export/invalidtext/tohit and w1_h1_p/damage = /character/export/invalidtext/damage and w2_p_oh/to_hit = /character/export/invalidtext/tohit and w2_p_oh/damage = /character/export/invalidtext/damage)">
 					<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 						<!-- 1HP, 2WP-OH -->
 						<xsl:call-template name="weapon.complex.tohit">
 							<xsl:with-param name="title" select="'1H-P'"/>
@@ -1205,6 +1232,7 @@
 				</xsl:if>
 				<xsl:if test="not(w1_h1_o/to_hit = /character/export/invalidtext/tohit and w1_h1_o/damage = /character/export/invalidtext/damage and w2_p_ol/to_hit = /character/export/invalidtext/tohit and w2_p_ol/damage = /character/export/invalidtext/damage)">
 					<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 						<!-- 1HO, 2WPOL -->
 						<xsl:call-template name="weapon.complex.tohit">
 							<xsl:with-param name="title" select="'1H-O'"/>
@@ -1219,6 +1247,7 @@
 					</fo:table-row>
 				</xsl:if>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<!-- 2H, OH -->
 					<xsl:call-template name="weapon.complex.tohit">
 						<xsl:with-param name="title" select="'2H'"/>
@@ -1263,6 +1292,7 @@
 			
 				<xsl:if test="./ammunition">
 					<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 						<fo:table-cell number-columns-spanned="6">
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'weapon.title'"/>
@@ -1285,6 +1315,7 @@
 	<!-->		<xsl:if test="range[position() &gt; 5 or ../../common/range &gt; 10]">	-->
 	<!-->			<xsl:if test="count(./ranges/range) = 6 or count(./ranges/range) = 11">-->
 					<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 						<xsl:for-each select="range[position() &lt; 2]">	
 							<fo:table-cell number-columns-spanned="2">
 							<xsl:call-template name="attrib">
@@ -1319,6 +1350,7 @@
 
 			<xsl:if test="range[position() &gt; 6]">
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<!-- Distances -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1333,6 +1365,7 @@
 					</xsl:for-each>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<!-- Range To-Hits -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1354,6 +1387,7 @@
 					</xsl:for-each>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<!-- Damages -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1377,6 +1411,7 @@
 			<xsl:choose>
 			<xsl:when test="range[position() &gt; 6]">
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<!-- Distances -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1391,6 +1426,7 @@
 					</xsl:for-each>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<!-- Range To-Hits -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1412,6 +1448,7 @@
 					</xsl:for-each>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<!-- Damages -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1433,6 +1470,7 @@
 
 <!-->			<xsl:when test="contains(rangetype, 'Thrown')"> -->
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<!-- Distances -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1447,6 +1485,7 @@
 					</xsl:for-each>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<!-- Range To-Hits -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1468,6 +1507,7 @@
 					</xsl:for-each>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<!-- Damages -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1490,10 +1530,12 @@
 
 <!-->						<xsl:when test="range[position() &lt; 8]">	-->
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
 					<!-- Distances -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
 					</fo:table-cell>
+											<xsl:message>Test END unless Ranged</xsl:message>
 
 <!-->					<xsl:for-each select="range[position() &lt; 6]">	-->
 					<xsl:for-each select="range[position() &gt; 1 and position() &lt; 7]">
@@ -1506,7 +1548,8 @@
 					</xsl:for-each>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
-					<!-- Range To-Hits -->
+												<xsl:message>Test</xsl:message>
+				<!-- Range To-Hits -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
 						<fo:block font-size="6pt" font-weight="bold">TH</fo:block>
@@ -1528,6 +1571,7 @@
 					</xsl:for-each>
 				</fo:table-row>
 				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test END</xsl:message>
 					<!-- Damages -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
