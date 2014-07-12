@@ -12,11 +12,11 @@
 
 
 	<!--
-====================================
-====================================
-	TEMPLATE - Protection
-====================================
-====================================-->
+	====================================
+	====================================
+		TEMPLATE - Protection
+	====================================
+	====================================-->
 	<xsl:template match="protection">
 		<!-- BEGIN Armor table -->
 		<fo:table table-layout="fixed" space-before="2mm">
@@ -74,7 +74,6 @@
 							<xsl:otherwise>lightline</xsl:otherwise>
 						</xsl:choose>
 					</xsl:variable>
-
 					<fo:table-row>
 											<xsl:message>Test</xsl:message>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('protection.', $shade)"/></xsl:call-template>
@@ -120,7 +119,7 @@
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
-</xsl:if>
+					</xsl:if>
 				</xsl:for-each>
 			</fo:table-body>
 		</fo:table>

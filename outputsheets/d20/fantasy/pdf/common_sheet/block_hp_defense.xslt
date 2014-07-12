@@ -1029,7 +1029,11 @@
 					</fo:table-row>
 					<fo:table-row height="2pt">
 											<xsl:message>Test END</xsl:message>
-						<fo:table-cell/>
+						<fo:table-cell>
+						<fo:block>
+						</fo:block>
+						</fo:table-cell>
+
 					</fo:table-row>
 				</xsl:for-each>
 			</fo:table-body>

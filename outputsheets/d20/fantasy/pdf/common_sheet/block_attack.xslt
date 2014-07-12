@@ -244,7 +244,7 @@
 
 	<xsl:template name="cmb.moves_header">
 		<fo:table-row>
-											<xsl:message>Test</xsl:message>
+											<xsl:message>Test END</xsl:message>
 			<fo:table-cell/>
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'GRAPPLE'"/></xsl:call-template>
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'TRIP'"/></xsl:call-template>
@@ -282,7 +282,9 @@
 		<xsl:param name="bab" />
 		<xsl:param name="separator" select="'+'"/>
 <xsl:param name="fontsize" select="'6pt'"/>
+											<xsl:message>Test END</xsl:message>
 		<fo:table-cell>
+											<xsl:message>Test END</xsl:message>
 			<xsl:call-template name="attrib">
 				<xsl:with-param name="attribute" select="'tohit'"/>
 			</xsl:call-template>
