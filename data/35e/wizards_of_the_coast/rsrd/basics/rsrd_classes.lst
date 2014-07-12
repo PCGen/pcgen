@@ -275,7 +275,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Enemy|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerFavoredEnemy
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Track|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerTrack
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Wild Empathy|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerWildEmpathy
-1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Combat Style|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerCombatTree,TYPE.RangerCombatStyle
+2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Combat Style|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerCombatTree,TYPE.RangerCombatStyle
 3	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Endurance|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerEndurance
 4	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Animal Companion|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerAnimalCompanion
 4	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Spells
