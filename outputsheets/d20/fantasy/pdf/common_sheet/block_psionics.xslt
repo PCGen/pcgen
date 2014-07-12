@@ -5,6 +5,9 @@
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
 	xmlns:str="http://xsltsl.sourceforge.net/string.html"
 	xmlns:xalan="http://xml.apache.org/xalan"
+	xmlns:Psionics="my:Psionics"
+	xmlns:myAttribs="my:Attribs"
+	exclude-result-prefixes="myAttribs Psionics"
 	>
 
 	<xsl:import href="../../../../xsltsl-1.1/stdlib.xsl"/>
