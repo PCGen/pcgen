@@ -81,11 +81,11 @@ Use Rope						KEYSTAT:DEX								TYPE:Dexterity.Standard.Base.Use Rope										
 
 ###Block: From Epic - Prevent situational Conflicts
 # Skill Name		Key Stat	Untrained?		Type				Visible		Source Page					Temporary effect description													Temporary Bonus
-Craft (Dreamweaving)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	VISIBLE:DISPLAY	SOURCEPAGE:EpicMonsters(A-E).rtf	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Dreamweaving)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools
-Craft (Gemcutting)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	VISIBLE:DISPLAY	SOURCEPAGE:EpicMagicItems2.rtf	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Gemcutting)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools
-Craft (Metalworking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	VISIBLE:DISPLAY	SOURCEPAGE:EpicMonsters(A-E).rtf	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Metalworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools
-Craft (Stoneworking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	VISIBLE:DISPLAY	SOURCEPAGE:EpicMonsters(A-E).rtf	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Stoneworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools
-Profession (Bookkeeper)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	VISIBLE:DISPLAY	SOURCEPAGE:EpicMonsters(G-W).rtf
+Craft (Dreamweaving)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Standard.Base.Craft (Dreamweaving)		VISIBLE:DISPLAY	SOURCEPAGE:EpicMonsters(A-E).rtf	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Dreamweaving)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools
+Craft (Gemcutting)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Standard.Base.Craft (Gemcutting)		VISIBLE:DISPLAY	SOURCEPAGE:EpicMagicItems2.rtf	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Gemcutting)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools
+Craft (Metalworking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Standard.Base.Craft (Metalworking)		VISIBLE:DISPLAY	SOURCEPAGE:EpicMonsters(A-E).rtf	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Metalworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools
+Craft (Stoneworking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Standard.Base.Craft (Stoneworking)		VISIBLE:DISPLAY	SOURCEPAGE:EpicMonsters(A-E).rtf	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Stoneworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools
+Profession (Bookkeeper)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession.Standard.Base.Profession (Bookkeeper)	VISIBLE:DISPLAY	SOURCEPAGE:EpicMonsters(G-W).rtf
 
 
 ###Block: Conditional Skills for output only

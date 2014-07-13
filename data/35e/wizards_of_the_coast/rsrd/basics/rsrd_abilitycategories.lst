@@ -23,11 +23,15 @@ ABILITYCATEGORY:Turn Undead					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTI
 ABILITYCATEGORY:Expert Class Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:ExpertClassSkills										PLURAL:Expert Class Skills			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Simple Weapon Proficiency Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability						ABILITYLIST:Single Simple Weapon Proficiency	PLURAL:Simple Weapon Proficiency Choice	DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Special Mount Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:SpecialMountSelection																DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Animal Trick					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:AnimalTrick											PLURAL:Animal Tricks				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Raven Language Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Internal								ABILITYLIST:Raven Language Choice										DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Familiar Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Special Ability	TYPE:FamiliarChoice										PLURAL:Familiar Choice				DISPLAYLOCATION:Class Features
+# Selection Pools for Optional Choices
+ABILITYCATEGORY:Animal Companion Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal	TYPE:AnimalCompanionSelection										PLURAL:Familiar Choice				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Special Mount Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal	TYPE:SpecialMountSelection																DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Familiar Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal	TYPE:FamiliarSelection										PLURAL:Familiar Choice				DISPLAYLOCATION:Class Features
 
+#
+ABILITYCATEGORY:Raven Language Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Internal								ABILITYLIST:Raven Language Choice										DISPLAYLOCATION:Race Traits
+
+ABILITYCATEGORY:Animal Trick					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:AnimalTrick											PLURAL:Animal Tricks				DISPLAYLOCATION:Class Features
 
 
 
