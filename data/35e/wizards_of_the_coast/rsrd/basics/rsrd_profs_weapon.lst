@@ -19,7 +19,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Weapon Name			Type																			Nb Hands
 Gauntlet				TYPE:Simple.Melee.Unarmed.Bludgeoning
 Grapple				TYPE:Simple.Melee.Unarmed.Bludgeoning
-Unarmed Strike			TYPE:Simple.Melee.Unarmed.Bludgeoning
+Unarmed Strike			TYPE:Simple.Melee.Unarmed.Bludgeoning.Monk
 
 #Spells(Energy Missile)		TYPE:Simple
 Spells (Ray)			TYPE:Simple.RangedTouch.Spell
