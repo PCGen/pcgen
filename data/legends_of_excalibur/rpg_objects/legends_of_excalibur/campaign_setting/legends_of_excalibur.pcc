@@ -81,7 +81,7 @@ FORWARDREF:RACE|Dire Animal (Dire Rat),Ape,Baboon,Badger,Bear (Black),Bear (Brow
 FORWARDREF:TEMPLATE|Inspire Courage ~ Is The Bard,Inspire Competence ~ Is The Bard,Spell Like Ability ~ Cleric,Spellbook,Awakened Animal_Standard,Awakened Animal_Will,Dragon Disciple Attacks,Dragon Disciple Attacks Large,Dragon Disciple Attacks Medium,Dragon Disciple Attacks Small,RighteousMightDR,Timeless Body,Timeless Body ~ Adult,Timeless Body ~ Middle Age,Timeless Body ~ Old,Timeless Body ~ Venerable
 FORWARDREF:LANGUAGE|Goblin,Aquan,Common,Drow Sign Language,Dwarven,Elven,Giant,Gnoll,Gnome,Halfling,Orc,Telepathy,Terran,Undercommon
 
-FORWARDREF:ABILITY=Special Ability|Flurry of Blows
+FORWARDREF:ABILITY=Special Ability|Flurry of Blows|Animal Companion
 FORWARDREF:CLASS|Bard,Wizard,Sorcerer,Cleric,Animal,Dragon,Magical Beast,Outsider,Ranger,Undead,Undead (Mindless)
 
 #
