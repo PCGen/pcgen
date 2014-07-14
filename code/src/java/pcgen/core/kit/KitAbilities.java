@@ -252,7 +252,7 @@ public final class KitAbilities extends BaseKit
 	{
 		for (CNAbilitySelection cnas : abilitiesToAdd)
 		{
-			aPC.addAbility(cnas, UserSelection.getInstance(), this);
+			aPC.addAbility(cnas, UserSelection.getInstance(), UserSelection.getInstance());
 			
 			if (isFree())
 			{
