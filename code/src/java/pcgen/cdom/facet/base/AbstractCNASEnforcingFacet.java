@@ -166,7 +166,12 @@ public class AbstractCNASEnforcingFacet extends
 		List<List<SourcedCNAS>> list = getList(source);
 		if (list != null)
 		{
-			getConstructingList(copy).addAll(list);
+			List<List<SourcedCNAS>> constructingList = getConstructingList(copy);
+			for (List<SourcedCNAS> orig : list)
+			{
+				List<SourcedCNAS> newCnasList = new ArrayList<AbstractCNASEnforcingFacet.SourcedCNAS>(orig);
+				constructingList.add(newCnasList);
+			}
 		}
 	}
 
