@@ -417,6 +417,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 				}
 			}
 			equipInfoHandler.refreshInfo();
+			availableTable.refilter();
 		}
 
 	}
@@ -442,6 +443,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 				}
 			}
 			equipInfoHandler.refreshInfo();
+			availableTable.refilter();
 		}
 
 	}
