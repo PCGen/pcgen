@@ -22,7 +22,7 @@ Dragon Empire ~ Wayang													CATEGORY:Internal																			TEMPLATE:
 
 
 
-Race Traits ~ Kitsune													CATEGORY:Internal																																															BONUS:ABILITYPOOL|Kitsune Racial Trait|-4
+Race Traits ~ Kitsune													CATEGORY:Internal
 #
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Change Shape|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneChangeShape
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Agile|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile

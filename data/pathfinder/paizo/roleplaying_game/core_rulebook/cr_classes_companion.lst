@@ -7,8 +7,8 @@ CLASS:Companion	OUTPUTNAME:Animal	HD:8		TYPE:Monster.Companion	CLASSTYPE:Compani
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Companion	STARTSKILLPTS:1	CSKILL:Acrobatics|Climb|Fly|Perception|Stealth|Swim
 ###Block: Level Advancement
-1	BONUS:ABILITYPOOL|FEAT|-1	AUTO:FEAT|CMB Output
-
+1	AUTO:FEAT|CMB Output
+3:REPEATLEVEL:2	BONUS:ABILITYPOOL|FEAT|-1
 
 # Class Name			Output Name		Hit Dice	Type				Class Type			Abbreviation	Max Level	Ex Class		Source Page		Ability											Visible	Save checks bonus											Combat bonus
 CLASS:Companion (Mindless)	OUTPUTNAME:Animal	HD:8		TYPE:Monster.Companion	CLASSTYPE:Companion	ABB:AC		MAXLEVEL:20	EXCLASS:Companion	SOURCEPAGE:p.52	ABILITY:Special Ability|AUTOMATIC|Animal Traits|PREVAREQ:NoTypeTraits,0	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
