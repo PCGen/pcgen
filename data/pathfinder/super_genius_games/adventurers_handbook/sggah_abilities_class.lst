@@ -2,6 +2,14 @@
 SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
 # Original Entry by: Paul Shipley (elro the onk)
 
+# Favored Class
+Archon		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|ArchonLVL
+Death Mage		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|DeathMageLVL
+Magister		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|MagisterLVL
+Shadow Assassin	CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|ShadowAssassinLVL
+War Master		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|WarMasterLVL
+
+
 ###Block: Archon
 
 # Archon Special Abilities
