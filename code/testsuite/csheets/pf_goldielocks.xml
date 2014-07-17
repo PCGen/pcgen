@@ -76,9 +76,9 @@ BIO
 		</skin>
 		<cr>23</cr>
 		<face>
-		<face>30 ft.</face>
-			<short>30 ft.</short>
-			<squares>6</squares>
+		<face>30 ft. by 30 ft.</face>
+			<short>30 ft. x 30 ft.</short>
+			<squares>6 x 6</squares>
 		</face>
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
@@ -2076,6 +2076,28 @@ BIO
 			<virtual>F</virtual>
 			<category>Internal</category>
 		</ability_object>
+		<ability_object>
+			<name>FACE_30</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>REACH_20</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
 	</ability_objects>
 	<!--
 	  ====================================
@@ -2088,7 +2110,7 @@ BIO
 	<languages>Draconic</languages>
 
 	<templates>
-		<list>Base Dragon HD (8), Dragon (Colossal), Dragon Attacks HD (8), Dragon Size HD (8), Great Wyrm</list>
+		<list>Base Dragon HD (8), Dragon (Colossal), Dragon Attacks HD (8), Dragon Size HD (8)</list>
 		<template>
 			<name>Base Dragon HD (8)</name>
 			<strmod>0</strmod>
@@ -2136,21 +2158,6 @@ BIO
 		</template>
 		<template>
 			<name>Dragon Size HD (8)</name>
-			<strmod>0</strmod>
-			<dexmod>0</dexmod>
-			<conmod>0</conmod>
-			<intmod>0</intmod>
-			<wismod>0</wismod>
-			<chamod>0</chamod>
-			<cr>0</cr>
-			<dr>20/Magic</dr>
-			<feat></feat>
-			<sa></sa>
-			<sr>0</sr>
-			<bonuslist></bonuslist>
-		</template>
-		<template>
-			<name>Great Wyrm</name>
 			<strmod>0</strmod>
 			<dexmod>0</dexmod>
 			<conmod>0</conmod>
