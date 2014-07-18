@@ -64,8 +64,7 @@ Critical Strike	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SA
 
 ###Block:Martial Artist --------------------------------------------------------
 # Ability Name	Category of Ability		Special ABility																Define
-Living Weapon	CATEGORY:Special Ability	SAB:Living Weapon 1d%|LivingWeaponDie												DEFINE:LivingWeaponDie|0
-	ABILITY:Internal|AUTOMATIC|Unarmed Damage	BONUS:VAR|UnarmedDamageProgression|3+(MartialArtistLVL>3)+(MartialArtistLVL>7)|TYPE=Base
+Living Weapon	CATEGORY:Special Ability	SAB:Living Weapon 1d%|LivingWeaponDie												DEFINE:LivingWeaponDie|0	ABILITY:Internal|AUTOMATIC|Unarmed Damage	BONUS:VAR|UnarmedDamageProgression|3+(MartialArtistLVL>3)+(MartialArtistLVL>7)|TYPE=Base
 Flying Kick		CATEGORY:Special Ability	SAB:Flying Kick
 Iron Fist		CATEGORY:Special Ability	SAB:Iron Fist (one attack)|PREVAREQ:IronFistLvl,1	SAB:Iron Fist (all attacks)|PREVAREQ:IronFistLvl,2	DEFINE:IronFistLvl|0
 Flurry of Blows	CATEGORY:Special Ability	SAB:Flurry of Blows
