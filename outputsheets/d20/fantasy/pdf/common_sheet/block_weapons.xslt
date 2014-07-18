@@ -1289,7 +1289,6 @@
 				<xsl:attribute name="column-width"><xsl:value-of select="0.2 * ($column_width - 5)" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
-			
 				<xsl:if test="./ammunition">
 					<fo:table-row keep-with-next.within-column="always">
 											<xsl:message>Test</xsl:message>
@@ -1404,8 +1403,7 @@
 				</fo:table-row>
 				</xsl:if>
 <!-- For Thrown Weapons -->
-				
-			
+
 <!-- New Row For Actual Range with 10 increments 
 		CHOOSE tests for Thrown or Ranged and then grants the -->
 			<xsl:choose>
@@ -1592,6 +1590,9 @@
 
 
 			</xsl:otherwise>
+			<fo:table-cell>
+			<fo:block/>
+			</fo:table-cell>
 		</xsl:choose>
 
 
