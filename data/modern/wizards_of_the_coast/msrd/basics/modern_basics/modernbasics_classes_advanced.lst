@@ -22,7 +22,7 @@ CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge
 10																						ABILITY:Special Ability|AUTOMATIC|Critical Strike
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Save checks bonus															Combat bonus		Modify VAR
-CLASS:Martial Artist	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Mart		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL)	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+CLASS:Martial Artist	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Mart		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL)	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	DEFINE:MartialArtistLVL|0	BONUS:VAR|MartialArtistLVL|CL
 # Class Name		Req. Att.	Required Feat							Required Skill
 CLASS:Martial Artist	PREATT:3	PREFEAT:2,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Jump=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -39,7 +39,7 @@ CLASS:Martial Artist	STARTSKILLPTS:2	CSKILL:Balance|Climb|Escape Artist|Hide|Int
 9	UDAM:1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10
 10	UDAM:1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10
 ###Block: Normal progression
-1								BONUS:CHECKS|BASE.Reflex|var("CL=Martial Artist")/2+2	BONUS:VAR|LivingWeaponDie|6	ABILITY:Special Ability|AUTOMATIC|Living Weapon
+1								BONUS:CHECKS|BASE.Reflex|var("CL=Martial Artist")/2+2	BONUS:VAR|LivingWeaponDie|6	ABILITY:Special Ability|AUTOMATIC|Living Weapon	ABILITY:Internal|AUTOMATIC|Unarmed Damage
 2																						ABILITY:Special Ability|AUTOMATIC|Flying Kick
 3	BONUS:ABILITYPOOL|Martial Artist Feat|1
 4																	BONUS:VAR|LivingWeaponDie|2

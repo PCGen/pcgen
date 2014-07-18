@@ -65,9 +65,27 @@ Critical Strike	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SA
 ###Block:Martial Artist --------------------------------------------------------
 # Ability Name	Category of Ability		Special ABility																Define
 Living Weapon	CATEGORY:Special Ability	SAB:Living Weapon 1d%|LivingWeaponDie												DEFINE:LivingWeaponDie|0
+	ABILITY:Internal|AUTOMATIC|Unarmed Damage	BONUS:VAR|UnarmedDamageProgression|3+(MartialArtistLVL>3)+(MartialArtistLVL>7)|TYPE=Base
 Flying Kick		CATEGORY:Special Ability	SAB:Flying Kick
 Iron Fist		CATEGORY:Special Ability	SAB:Iron Fist (one attack)|PREVAREQ:IronFistLvl,1	SAB:Iron Fist (all attacks)|PREVAREQ:IronFistLvl,2	DEFINE:IronFistLvl|0
 Flurry of Blows	CATEGORY:Special Ability	SAB:Flurry of Blows
+
+###Block: Unarmed Damage Tracker
+# Ability Name			Category of Ability	Define											Unarmed Damage						Unarmed Multiplier	Ability																																																																																															Modify VAR
+Unarmed Damage		CATEGORY:Internal		DEFINE:UnarmedDamageProgression|0														ABILITY:Internal|AUTOMATIC|Unarmed Damage ~ d3|PREVAREQ:UnarmedDamageProgression,1	ABILITY:Internal|AUTOMATIC|Unarmed Damage ~ d4|PREVAREQ:UnarmedDamageProgression,2	ABILITY:Internal|AUTOMATIC|Unarmed Damage ~ d6|PREVAREQ:UnarmedDamageProgression,3	ABILITY:Internal|AUTOMATIC|Unarmed Damage ~ d8|PREVAREQ:UnarmedDamageProgression,4	ABILITY:Internal|AUTOMATIC|Unarmed Damage ~ d10|PREVARGTEQ:UnarmedDamageProgression,5		BONUS:VAR|UnarmedDamageProgression|1|TYPE=Base
+#
+Unarmed Damage ~ d3	CATEGORY:Internal	UDAM:1d3,1d3,1d3,1d3,1d3,1d3,1d3,1d3,1d3			UMULT:2
+Unarmed Damage ~ d4	CATEGORY:Internal	UDAM:1d4,1d4,1d4,1d4,1d4,1d4,1d4,1d4,1d4			UMULT:2
+Unarmed Damage ~ d6	CATEGORY:Internal	UDAM:1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6			UMULT:2
+Unarmed Damage ~ d8	CATEGORY:Internal	UDAM:1d8,1d8,1d8,1d8,1d8,1d8,1d8,1d8,1d8			UMULT:2
+Unarmed Damage ~ d10	CATEGORY:Internal	UDAM:1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10,1d10	UMULT:2
+
+Brawl	CATEGORY:Internal	DEFINE:BrawlProgression|0	BONUS:VAR|BrawlProgression|1|TYPE=Base	ABILITY:Internal|AUTOMATIC|Brawl Damage ~ d6|PREVAREQ:BrawlProgression,1	ABILITY:Internal|AUTOMATIC|Brawl Damage ~ d8|PREVAREQ:BrawlProgression,2
+#
+Brawl Damage ~ d6	CATEGORY:Internal	NATURALATTACKS:Brawl,Weapon.Natural.Brawl,*1,1d6
+Brawl Damage ~ d8	CATEGORY:Internal	NATURALATTACKS:Brawl,Weapon.Natural.Brawl,*1,1d8
+
+
 
 
 ###Block:Gunslinger ------------------------------------------------------------
