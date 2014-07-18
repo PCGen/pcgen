@@ -18,6 +18,10 @@
 #NAME:CraftItemPenalty			VAR:SYS_CIP		DEFAULT:Yes					DESC:Improper tools incure a -2 circumstance penalty
 NAME:LoadPenaltyToAcAndSkills		VAR:SYS_LDPACSK		DEFAULT:Yes					DESC:Apply Load Penalty to AC and Skills
 NAME:WeightPenaltyToSkill		VAR:SYS_WTPSK		DEFAULT:Yes					DESC:Apply Weight Penalty to Skills
+NAME:UseFullSpellDescriptions		VAR:DisplayFullSpell	DEFAULT:No					DESC:Use Full Spell Descriptions from the Core Books
+# Homebrew Support
+NAME:UseFullEquipmentDescriptions	VAR:DisplayFullEquip	DEFAULT:No					DESC:Use Full Equipment Descriptions (Homebrew Support)
+NAME:UseFullAbilityDescriptions	VAR:DisplayFullAbility	DEFAULT:No					DESC:Use Full Ability Descriptions (Homebrew Support)
 
 #
 # The following are all hardcoded in the java code
