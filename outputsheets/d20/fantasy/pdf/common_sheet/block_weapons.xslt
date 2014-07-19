@@ -1590,12 +1590,7 @@
 
 
 			</xsl:otherwise>
-			<fo:table-cell>
-			<fo:block/>
-			</fo:table-cell>
-		</xsl:choose>
-
-
+			</xsl:choose>
 			</fo:table-body>
 		</fo:table>
 	</xsl:template>
