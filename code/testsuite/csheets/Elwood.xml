@@ -1196,8 +1196,8 @@ BIO
 	  ====================================-->
 	<weapons>
 		<unarmed>
-			<total>+4</total>
-			<damage>1d6</damage>
+			<total>+3</total>
+			<damage>1d4</damage>
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
@@ -1264,8 +1264,8 @@ BIO
 		<weapon>
 			<common>
 				<name>
-					<short>*Unarmed Lethal Strike</short>
-					<long>*Unarmed Lethal Strike (Natural/Primary)</long>
+					<short>*Brawl</short>
+					<long>*Brawl (Natural/Primary)</long>
 				</name>
 				<category>Natural-Natural,Melee</category>
 				<critical>
@@ -1282,15 +1282,15 @@ BIO
 				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
-				<special_properties></special_properties>
+				<special_properties>Non-Lethal</special_properties>
 				<template></template>
-				<type>Bl</type>
+				<type></type>
 				<weight>0</weight>
 				<sequence>1</sequence>
 			</common>
 			<simple>
 				<to_hit>+4</to_hit>
-				<damage>1d4</damage>
+				<damage>1d6</damage>
 				<range>0 ft.</range>
 			</simple>
 		</weapon>
@@ -1333,18 +1333,18 @@ BIO
 	  ====================================-->
 	<equipment>
 		<item>
-			<longname>Aluminum Travel Case (75 lb)</longname>
+			<longname>Colt Python (.357 revolver)</longname>
 			<id></id>
-			<name>Aluminum Travel Case (75 lb)</name>
+			<name>Colt Python (.357 revolver)</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>1 lbs., 1 PDA (Satellite Datalink Gadget), 1 Camera, Digital</contents>
-			<contents_num>2</contents_num>
-			<content_weight>1</content_weight>
-			<cost>12</cost>
-			<equipped>N</equipped>
-			<location>Carried</location>
+			<contents>0 lbs., 6 .357 Bullet</contents>
+			<contents_num>1</contents_num>
+			<content_weight>0</content_weight>
+			<cost>5</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1353,9 +1353,9 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties></special_properties>
-			<type>GOODS.CONTAINER.GENERAL</type>
-			<weight>15</weight>
+			<special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
+			<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.MASTERCRAFT</type>
+			<weight>3</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
@@ -1385,16 +1385,68 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Bullet (.357/50)</longname>
+			<longname>Brawl (Natural/Primary)</longname>
 			<id></id>
-			<name>.357 Bullets, 50 pack</name>
+			<name>Brawl</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
 			<contents_num>0</contents_num>
 			<content_weight>0</content_weight>
-			<cost>5</cost>
+			<cost>0</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties>Non-Lethal</special_properties>
+			<type>WEAPON.NATURAL.MELEE.BRAWL</type>
+			<weight>0</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Clothing Outfit (Normal Everday)</longname>
+			<id></id>
+			<name>Normal Everday Clothing</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>0</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.CLOTHING.RESIZABLE</type>
+			<weight>0</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Aluminum Travel Case (75 lb)</longname>
+			<id></id>
+			<name>Aluminum Travel Case (75 lb)</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents>1 lbs., 1 Camera, Digital, 1 PDA (Satellite Datalink Gadget)</contents>
+			<contents_num>2</contents_num>
+			<content_weight>1</content_weight>
+			<cost>12</cost>
 			<equipped>N</equipped>
 			<location>Carried</location>
 			<maxcharges>0</maxcharges>
@@ -1406,7 +1458,33 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>AMMUNITION.STANDARD.METAL.BULLET</type>
+			<type>GOODS.CONTAINER.GENERAL</type>
+			<weight>15</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Mercedes E55 AMG</longname>
+			<id></id>
+			<name>Mercedes E55 AMG</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents>0 lbs.</contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>32</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties>Crew: 1, Pass: 4, Cargo: 325 lbs., Init: -2, Maneuver:+0, Top Speed: 280(28), Defense: 8, Hardness: 5, hp 34, Size:H</special_properties>
+			<type>GOODS.TRANSPORTATION.CIVILIAN.CAR.CONTAINER</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1437,84 +1515,6 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Clothing Outfit (Normal Everday)</longname>
-			<id></id>
-			<name>Normal Everday Clothing</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>0</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>GOODS.CLOTHING.RESIZABLE</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Colt Python (.357 revolver)</longname>
-			<id></id>
-			<name>Colt Python (.357 revolver)</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents>0 lbs., 6 .357 Bullet</contents>
-			<contents_num>1</contents_num>
-			<content_weight>0</content_weight>
-			<cost>5</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
-			<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.MASTERCRAFT</type>
-			<weight>3</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Mercedes E55 AMG</longname>
-			<id></id>
-			<name>Mercedes E55 AMG</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents>0 lbs.</contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>32</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties>Crew: 1, Pass: 4, Cargo: 325 lbs., Init: -2, Maneuver:+0, Top Speed: 280(28), Defense: 8, Hardness: 5, hp 34, Size:H</special_properties>
-			<type>GOODS.TRANSPORTATION.CIVILIAN.CAR.CONTAINER</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
 			<longname>PDA (Satellite Datalink Gadget)</longname>
 			<id></id>
 			<name>PDA (Satellite Datalink Gadget)</name>
@@ -1541,18 +1541,18 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Unarmed Lethal Strike (Natural/Primary)</longname>
+			<longname>Bullet (.357/50)</longname>
 			<id></id>
-			<name>Unarmed Lethal Strike</name>
+			<name>.357 Bullets, 50 pack</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
 			<contents_num>0</contents_num>
 			<content_weight>0</content_weight>
-			<cost>0</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
+			<cost>5</cost>
+			<equipped>N</equipped>
+			<location>Carried</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1562,7 +1562,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.MELEE.BLUDGEONING</type>
+			<type>AMMUNITION.STANDARD.METAL.BULLET</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1576,14 +1576,14 @@ BIO
 
       <equipmentset name="Default Set">
 		<item>
-					<name>Aluminum Travel Case (75 lb)</name>
+					<name>Colt Python (.357 revolver)</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
-					<contents>1 lbs., 1 PDA (Satellite Datalink Gadget), 1 Camera, Digital</contents>
-					<cost>12</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
+					<contents>0 lbs., 6 .357 Bullet</contents>
+					<cost>5</cost>
+					<equipped>Y</equipped>
+					<location>Equipped</location>
 					<maxcharges>0</maxcharges>
 					<note></note>
 					<quantity>1</quantity>
@@ -1591,9 +1591,9 @@ BIO
 						<long>Medium</long>
 						<short>M</short>
 					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CONTAINER.GENERAL</type>
-					<weight>15</weight>
+					<special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
+					<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.MASTERCRAFT</type>
+					<weight>3</weight>
 					<bonuslist></bonuslist>
 				</item>
 		<item>
@@ -1618,12 +1618,54 @@ BIO
 					<bonuslist></bonuslist>
 				</item>
 		<item>
-					<name>.357 Bullets, 50 pack</name>
+					<name>Brawl</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
 					<contents></contents>
-					<cost>5</cost>
+					<cost>0</cost>
+					<equipped>Y</equipped>
+					<location>Equipped</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties>Non-Lethal</special_properties>
+					<type>WEAPON.NATURAL.MELEE.BRAWL</type>
+					<weight>0</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Normal Everday Clothing</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>0</cost>
+					<equipped>Y</equipped>
+					<location>Equipped</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>GOODS.CLOTHING.RESIZABLE</type>
+					<weight>0</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Aluminum Travel Case (75 lb)</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents>1 lbs., 1 Camera, Digital, 1 PDA (Satellite Datalink Gadget)</contents>
+					<cost>12</cost>
 					<equipped>N</equipped>
 					<location>Carried</location>
 					<maxcharges>0</maxcharges>
@@ -1634,7 +1676,28 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>AMMUNITION.STANDARD.METAL.BULLET</type>
+					<type>GOODS.CONTAINER.GENERAL</type>
+					<weight>15</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Mercedes E55 AMG</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents>0 lbs.</contents>
+					<cost>32</cost>
+					<equipped>Y</equipped>
+					<location>Equipped</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties>Crew: 1, Pass: 4, Cargo: 325 lbs., Init: -2, Maneuver:+0, Top Speed: 280(28), Defense: 8, Hardness: 5, hp 34, Size:H</special_properties>
+					<type>GOODS.TRANSPORTATION.CIVILIAN.CAR.CONTAINER</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1660,69 +1723,6 @@ BIO
 					<bonuslist></bonuslist>
 				</item>
 		<item>
-					<name>Normal Everday Clothing</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>GOODS.CLOTHING.RESIZABLE</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Colt Python (.357 revolver)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>0 lbs., 6 .357 Bullet</contents>
-					<cost>5</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
-					<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.MASTERCRAFT</type>
-					<weight>3</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Mercedes E55 AMG</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents>0 lbs.</contents>
-					<cost>32</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>Crew: 1, Pass: 4, Cargo: 325 lbs., Init: -2, Maneuver:+0, Top Speed: 280(28), Defense: 8, Hardness: 5, hp 34, Size:H</special_properties>
-					<type>GOODS.TRANSPORTATION.CIVILIAN.CAR.CONTAINER</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
 					<name>PDA (Satellite Datalink Gadget)</name>
 					<carried>1.0</carried>
 					<charges></charges>
@@ -1744,14 +1744,14 @@ BIO
 					<bonuslist></bonuslist>
 				</item>
 		<item>
-					<name>Unarmed Lethal Strike</name>
+					<name>.357 Bullets, 50 pack</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
 					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
+					<cost>5</cost>
+					<equipped>N</equipped>
+					<location>Carried</location>
 					<maxcharges>0</maxcharges>
 					<note></note>
 					<quantity>1</quantity>
@@ -1760,7 +1760,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.MELEE.BLUDGEONING</type>
+					<type>AMMUNITION.STANDARD.METAL.BULLET</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1953,6 +1953,28 @@ BIO
 		</ability_object>
 	<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
+			<name>Brawl</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Brawl Damage ~ d6</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>Default</name>
 			<description></description>
 			<type></type>
@@ -1974,6 +1996,28 @@ BIO
 			<virtual>F</virtual>
 			<category>Internal</category>
 		</ability_object>
+		<ability_object>
+			<name>Unarmed Damage</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Unarmed Damage ~ d4</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
 	</ability_objects>
 	<!--
 	  ====================================
@@ -1982,26 +2026,11 @@ BIO
 	  ====================================
 	  ====================================-->
 	<!-- Domains -->
-	<weapon_proficiencies>Air Pistol, Air Rifle, AKM/AK-47, Barrett Light Fifty, Beam Sword, Benelli 121 M1, Beretta 92F, Beretta 93R, Beretta M3P, Blowgun, Brass Knuckles, Browning BPS, Cleaver, Club, Colt Double Eagle, Colt M1911, Colt Python, Concussion Rifle, Concussion Rod, Crossbow, Cryonic Rifle, Crystal Pistol, Derringer, Desert Eagle, Disintegrator, Falcon .45, Flamethrower, Flare Gun, Gauntlet, Glock 17, Glock 20, Gravity Snare, Heavy Mace, High Frequency Sword, HK G3, HK MP5, HK MP5K, HK PSG1, Javelin, Ketch-all Pole, Knife, Laser Optics, Laser Pistol, Laser Rifle, Laser Sniper Rifle, Light Mace, Lightning Gun, M-60, M16A2, M4 Carbine, MAC Ingram M10, Metal Baton, Mini-Grenade Launcher, Mini-Rocket Launcher, Mossberg, OICW Assault Rifle, Paint Ball Gun, Pathfinder, Pepper Spray, Pistol Whip, Plasma Pistol, Plasma Rifle, Pulse Rifle, Punching Dagger, Quarterstaff, Rail Gun, Remington 700, Rifle Butt, Ruger Service-Six, S and W M29, Sap, Sawed-Off Shotgun, Shortspear, Sickle, SITES M9, Skorpion, Slingshot, Sonic Beam, Speargun, Spiked Club, Steyr AUG, Sticky Foam Sprayer, Stun Baton, Stun Gun, Super Watergun, TACMIL Sniper Rifle, Tangler Gun, Taser, TEC-9, Tonfa, Twin thunder machine gun, Unarmed Lethal Strike, Unarmed Strike, Uzi, Walther PPK, Water Cannon, Whip, Winchester 94</weapon_proficiencies>
+	<weapon_proficiencies>Air Pistol, Air Rifle, AKM/AK-47, Barrett Light Fifty, Beam Sword, Benelli 121 M1, Beretta 92F, Beretta 93R, Beretta M3P, Blowgun, Brass Knuckles, Brawl, Browning BPS, Cleaver, Club, Colt Double Eagle, Colt M1911, Colt Python, Concussion Rifle, Concussion Rod, Crossbow, Cryonic Rifle, Crystal Pistol, Derringer, Desert Eagle, Disintegrator, Falcon .45, Flamethrower, Flare Gun, Gauntlet, Glock 17, Glock 20, Gravity Snare, Heavy Mace, High Frequency Sword, HK G3, HK MP5, HK MP5K, HK PSG1, Javelin, Ketch-all Pole, Knife, Laser Optics, Laser Pistol, Laser Rifle, Laser Sniper Rifle, Light Mace, Lightning Gun, M-60, M16A2, M4 Carbine, MAC Ingram M10, Metal Baton, Mini-Grenade Launcher, Mini-Rocket Launcher, Mossberg, OICW Assault Rifle, Paint Ball Gun, Pathfinder, Pepper Spray, Pistol Whip, Plasma Pistol, Plasma Rifle, Pulse Rifle, Punching Dagger, Quarterstaff, Rail Gun, Remington 700, Rifle Butt, Ruger Service-Six, S and W M29, Sap, Sawed-Off Shotgun, Shortspear, Sickle, SITES M9, Skorpion, Slingshot, Sonic Beam, Speargun, Spiked Club, Steyr AUG, Sticky Foam Sprayer, Stun Baton, Stun Gun, Super Watergun, TACMIL Sniper Rifle, Tangler Gun, Taser, TEC-9, Tonfa, Twin thunder machine gun, Unarmed Strike, Uzi, Walther PPK, Water Cannon, Whip, Winchester 94</weapon_proficiencies>
 	<languages>English, German</languages>
 
 	<templates>
-		<list>Unarmed Lethal Strike</list>
-		<template>
-			<name>Unarmed Lethal Strike</name>
-			<strmod>0</strmod>
-			<dexmod>0</dexmod>
-			<conmod>0</conmod>
-			<intmod>0</intmod>
-			<wismod>0</wismod>
-			<chamod>0</chamod>
-			<cr>0</cr>
-			<dr></dr>
-			<feat></feat>
-			<sa></sa>
-			<sr>0</sr>
-			<bonuslist></bonuslist>
-		</template>
+		<list></list>
 	</templates>
 
 
