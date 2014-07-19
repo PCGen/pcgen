@@ -8,11 +8,16 @@ Greatcoat																					TYPE:Armor.Light								COST:20	WT:5				!PREEQUIP:
 Longbow				PROFICIENCY:WEAPON|Longbow													TYPE:Weapon.Ranged.Piercing.Cool.Magic.RangeIncrementTen					SLOTS:2													CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8				WIELD:TwoHanded	RANGE:100	SIZE:M																																								SPROP:This is a test bow
 
 
+Flurry of Blows																	PROFICIENCY:WEAPON|Unarmed Strike			TYPE:Weapon.Melee.Special.Unarmed.Monk.Bludgeoning.Finesseable.Close																							COST:0	WT:0				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3																		WIELD:Light		MODS:NO										SIZE:M	SOURCEPAGE:p.57																																																																																																													BONUS:WEAPON|WEAPONBAB|FlurryBABBonus	BONUS:WEAPON|ATTACKS|FlurryExtraAttacks	BONUS:WEAPON|TOHIT|-2	BONUS:WEAPON|WIELDCATEGORY|3
+Unarmed Strike																	PROFICIENCY:WEAPON|Unarmed Strike			TYPE:Weapon.Melee.Special.Unarmed.Monk.Bludgeoning.Finesseable.Close																							COST:0	WT:0				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d3																		WIELD:Light		MODS:NO										SIZE:M	SOURCEPAGE:p.142
+
+
+
 Torch																						TYPE:Goods
 Lantern																					TYPE:Goods.Lightsource.Latern
 
 Item Test 42 Virtual Pre																		TYPE:Goods.CODE347																																																				ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MIN=4
-Item Test 42 VCirtual Pre Max																		TYPE:Goods.CODE347																																																				ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MAX=4
+Item Test 42 Virtual Pre Max																		TYPE:Goods.CODE347																																																				ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MAX=4
 Item Test 42 Virtual																			TYPE:Goods.CODE347																																																				ABILITY:FEAT|VIRTUAL|Weapon Focus(Longsword)|PRELEVEL:MIN=4
 
 Item Test 42 Auto Pre																			TYPE:Goods.CODE347																																																				ABILITY:FEAT|AUTOMATIC|Weapon Focus(Longsword)|PRELEVEL:MIN=4
