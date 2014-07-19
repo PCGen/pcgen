@@ -1309,6 +1309,9 @@
 				</xsl:when>
 				<xsl:when test="range[position()=11 and distance='']">
 				</xsl:when>
+				<xsl:when test="count(./range) = 0]">
+					<!--  Don't output table rows if there are no ranges -->
+				</xsl:when>
 				<xsl:otherwise>
 	<!-->			<xsl:if test="range[position() &gt; 5]">	-->
 	<!-->		<xsl:if test="range[position() &gt; 5 or ../../common/range &gt; 10]">	-->

@@ -815,22 +815,22 @@
 			<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))><#-- Valid only if we find the Thrown Value -->
 			<ranges>
 				<rangetype>Thrown</rangetype>
-			<#if (pcvar("WEAPON.${weap}.range") > 0)>
+			<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
 				<@loop from=0 to=5 ; range , range_has_next>
 				<@weapRangeBlock weap="${weap}" range="${range}" />
 				</@loop><#-- Range -->
-			</#if><#-- if (pcvar("WEAPON.${weap}.range") > 0) -->
+			</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
 			</ranges>
 			<#else><#-- IIF(WEAPON.${weap}.ISTYPE.Thrown) but IS Ranged -->
 
 			<!-- New Ranges Section -->
 			<ranges>
-			<rangetype>Ranged</rangetype>
-			<#if (pcvar("WEAPON.${weap}.range") > 0)>
+			<rangetype>Ranged</rangetype><!-- ranged first -->
+			<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
 				<@loop from=0 to=10 ; range , range_has_next>
 				<@weapRangeBlock weap="${weap}" range="${range}" />
 				</@loop><#-- Range -->
-			</#if><#-- if (pcvar("WEAPON.${weap}.range") > 0) -->
+			</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
 			</ranges>
 
 	</#if><#-- IIF(WEAPON.${weap}.ISTYPE.Thrown) -->
@@ -847,18 +847,18 @@
 			<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))>
 
 				<rangetype>Thrown</rangetype>
-				<#if (pcvar("WEAPON.${weap}.range") > 0)>
+				<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
 					<@loop from=0 to=5 ; range , range_has_next>
 						<@weapRangeBlock weap="${weap}" range="${range}" />
 					</@loop><!-- Range -->
-				</#if><#-- if (pcvar("WEAPON.${weap}.range") > 0) -->
+				</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
 				<#else><#-- Thrown -->
-				<rangetype>Ranged</rangetype>
-			<#if (pcvar("WEAPON.${weap}.range") > 0)>
+				<rangetype>Ranged</rangetype><!-- ranged second -->
+			<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
 				<@loop from=0 to=10 ; range , range_has_next>
 				<@weapRangeBlock weap="${weap}" range="${range}" />
 				</@loop><#-- Range -->
-			</#if><#-- if (pcvar("WEAPON.${weap}.range") > 0) -->
+			</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
 			</#if><#-- Thrown -->
 			</ranges>
 			<#else><#-- IIF(WEAPON.${weap}.CONTENTS:0) -->
@@ -871,18 +871,18 @@
 				</ammunition>
 				<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))>
 				<rangetype>Thrown</rangetype>
-				<#if (pcvar("WEAPON.${weap}.range") > 0)>
+				<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
 					<@loop from=0 to=5 ; range , range_has_next>
 					<@weapRangeBlock weap="${weap}" range="${range}" />
 					</@loop><#-- Range -->
-				</#if><#-- if (pcvar("WEAPON.${weap}.range") > 0) -->
+				</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
 				<#else><#--IIF(WEAPON.%weap.ISTYPE.Thrown) -->
-				<rangetype>Ranged</rangetype>
-				<#if (pcvar("WEAPON.${weap}.range") > 0)>
+				<rangetype>Ranged</rangetype><!-- Ranged third -->
+				<#if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0)>
 					<@loop from=0 to=10 ; range , range_has_next>
 					<@weapRangeBlock weap="${weap}" range="${range}" />
 					</@loop><#-- Range -->
-				</#if><#-- if (pcvar("WEAPON.${weap}.range") > 0) -->
+				</#if><#-- if (pcvar("WEAPON.${weap}.RANGE.NOUNITS") > 0) -->
 
 			</#if><#--IIF(WEAPON.%weap.ISTYPE.Thrown) -->
 
