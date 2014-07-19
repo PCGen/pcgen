@@ -81,8 +81,8 @@ Unarmed Damage ~ d10	CATEGORY:Internal	UDAM:1d10,1d10,1d10,1d10,1d10,1d10,1d10,1
 
 Brawl	CATEGORY:Internal	DEFINE:BrawlProgression|0	BONUS:VAR|BrawlProgression|1|TYPE=Base	ABILITY:Internal|AUTOMATIC|Brawl Damage ~ d6|PREVAREQ:BrawlProgression,1	ABILITY:Internal|AUTOMATIC|Brawl Damage ~ d8|PREVAREQ:BrawlProgression,2
 #
-Brawl Damage ~ d6	CATEGORY:Internal	NATURALATTACKS:Brawl,Weapon.Natural.Brawl,*1,1d6
-Brawl Damage ~ d8	CATEGORY:Internal	NATURALATTACKS:Brawl,Weapon.Natural.Brawl,*1,1d8
+Brawl Damage ~ d6	CATEGORY:Internal	NATURALATTACKS:Brawl,Weapon.Natural.Melee.Brawl,*1,1d6,SPROP=Non-Lethal
+Brawl Damage ~ d8	CATEGORY:Internal	NATURALATTACKS:Brawl,Weapon.Natural.Melee.Brawl,*1,1d8,SPROP=Non-Lethal
 
 
 
