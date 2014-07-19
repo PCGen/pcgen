@@ -230,7 +230,7 @@
 		</notes>
 	</basics>
 
-	<!-- Use ASPECT${pcstring('NotesSection')}x and ASPECT${pcstring('Notes')}y	-->
+	<!-- Use ASPECT.NotesSection.x and ASPECT.Notes.y	-->
 	<!--
 	  ====================================
 	  ====================================

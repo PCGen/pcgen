@@ -56,7 +56,7 @@
 				<abbreviation><@pcstring tag="CLASSABB.${class}"/></abbreviation>
 				<level><@pcstring tag="CLASS.${class}.LEVEL"/></level>
 				<bonuslist><@pcstring tag="CLASS.${class}.BONUSLIST"/></bonuslist>
-				<sequence><@pcstring tag="${class}"/></sequence>
+				<sequence>${class}</sequence>
 			</class>
 			</#list>
 			</#if>		
@@ -221,7 +221,7 @@
 		<history>
 <@loop from=1 to=pcvar('ECL') ; level , level_has_next >
 			<roll>
-				<level><@pcstring tag="${level}"/></level>
+				<level>${level}</level>
 				<roll><@pcstring tag="HPROLL.${level}"/></roll>
 				<stat><@pcstring tag="HPROLL.${level}.STAT"/></stat>
 				<total><@pcstring tag="HPROLL.${level}.TOTAL"/></total>
@@ -427,7 +427,7 @@
 				<template><@pcstring tag="WEAPON.${weap}.TEMPLATE"/></template>
 				<type><@pcstring tag="WEAPON.${weap}.TYPE"/></type>
 				<weight><@pcstring tag="WEAPON.${weap}.WT"/></weight>
-				<sequence><@pcstring tag="${weap}"/></sequence>
+				<sequence>${weap}</sequence>
 			</common>
 </#macro>
 <#macro weapMeleeBlock weap>
@@ -684,7 +684,7 @@
 
 <#if (pcvar('TOTALPOWERPOINTS') >= 1) >	<!-- Psionics -->
 		<psionics>
-	<#if (pcboolean('HASVAR:Manifester.OR.HASVAR:PsychicWarriorManifester')) >
+	<#if (pchasvar("Manifester") || pchasvar('PsychicWarriorManifester')) >
 			<type>3.0</type>
 	<#else>
 			<type>3.5</type>

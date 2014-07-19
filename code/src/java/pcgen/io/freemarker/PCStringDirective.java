@@ -89,6 +89,12 @@ public class PCStringDirective extends CharacterExportAction implements
 		String tag = params.get("tag").toString();
 		String value = getExportVariable(tag, pc, eh);
 		
+		if (tag.equals(value))
+		{
+			throw new TemplateModelException("Invalid export tag '" + tag
+				+ "'.");
+		}
+		
 		env.getOut().append(value);
 	}
 
@@ -107,6 +113,12 @@ public class PCStringDirective extends CharacterExportAction implements
 		
 		String tag = arg0.get(0).toString();
 		String value = getExportVariable(tag, pc, eh);
+		
+		if (tag.equals(value))
+		{
+			throw new TemplateModelException("Invalid export tag '" + tag
+				+ "'.");
+		}
 		return value;
 	}
 }

@@ -73,6 +73,12 @@ public class PCBooleanFunction extends CharacterExportAction implements Template
 		{
 			return Boolean.TRUE;
 		}
+		
+		if (tag.equals(value))
+		{
+			throw new TemplateModelException("Invalid export tag '" + tag
+				+ "'.");
+		}
 
 		return Boolean.valueOf(value);
 	}
