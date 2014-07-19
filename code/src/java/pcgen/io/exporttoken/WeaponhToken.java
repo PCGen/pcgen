@@ -91,7 +91,7 @@ public class WeaponhToken extends WeaponToken
 
 		if (eq != null)
 		{
-			return getWeaponToken(pc, eq, aTok);
+			return getWeaponToken(pc, eq, aTok, tokenSource);
 		}
 		else if (eh != null && eh.getExistsOnly())
 		{

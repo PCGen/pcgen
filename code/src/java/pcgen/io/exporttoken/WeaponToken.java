@@ -209,7 +209,7 @@ public class WeaponToken extends Token
 			{
 				eh.setNoMoreItems(true);
 			}
-			return getWeaponToken(pc, eq, aTok);
+			return getWeaponToken(pc, eq, aTok, tokenSource);
 		}
 		else if (eh != null && eh.getExistsOnly())
 		{
@@ -223,14 +223,16 @@ public class WeaponToken extends Token
 	}
 
 	/**
-	 * Get the Weapon Token
-	 * @param pc
-	 * @param eq
-	 * @param aTok
-	 * @return Weapon Token
+	 * Get the Weapon Token output
+	 * 
+	 * @param pc The character being exported
+	 * @param eq The weapon being exported
+	 * @param aTok The exporttoken split by . and up to the weapon property 
+	 * @param tokenSource The original source of the export token (for error reporting.)
+	 * @return The output for the token for the weapon and character.
 	 */
 	public String getWeaponToken(PlayerCharacter pc, Equipment eq,
-		StringTokenizer aTok)
+		StringTokenizer aTok, String tokenSource)
 	{
 		String token = "";
 		if (aTok.hasMoreTokens())
@@ -521,6 +523,7 @@ public class WeaponToken extends Token
 		{
 			return getIsLightToken(pc, eq);
 		}
+		Logging.errorPrint("Invalid WEAPON token: " + tokenSource, new Throwable());
 		return "";
 	}
 

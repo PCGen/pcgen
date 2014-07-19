@@ -75,7 +75,7 @@ public class WeaponpToken extends WeaponToken
 		if (pc.getDisplay().hasPrimaryWeapons())
 		{
 			Equipment eq = pc.getDisplay().getPrimaryWeapons().iterator().next();
-			return getWeaponToken(pc, eq, aTok);
+			return getWeaponToken(pc, eq, aTok, tokenSource);
 		}
 		else if (eh != null && eh.getExistsOnly())
 		{
