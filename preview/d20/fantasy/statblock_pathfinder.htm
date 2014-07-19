@@ -924,7 +924,7 @@ at will)
 <p>
 <b>Skills</b>
 |MANUALWHITESPACE|
-|FOR,%skill,0,COUNT[SKILLSIT]-1,1,0|
+|FOR,%skill,0,${count("SKILLSIT")-1},1,0|
 |SKILL.%skill||SPACE|
 <!--|IIF(SKILL.%skill.TOTAL.INTVAL>=0)|-->
 |SKILL.%skill.TOTAL.INTVAL.SIGN|
