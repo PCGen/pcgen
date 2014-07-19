@@ -10,10 +10,10 @@ Alchemical Cartridge (Flare)				TYPE:Ammunition.FirearmGear.FirearmCartridge	COS
 Alchemical Cartridge (Paper/Bullet)			TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:12
 Alchemical Cartridge (Paper/Pellet)			TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:12
 Alchemical Cartridge (Salt Shot)			TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:12
-Arrow (Iron-tipped Distance/20)			TYPE:Ammunition.Arrow												EQMOD:STEEL.WOOD	SPROP:Iron-tipped distance arrows increase their bow's range increment by 10 feet but take a –1 penalty on damage dealt per range increment.	BONUS:EQMWEAPON|RANGEADD|10	BONUS:WEAPON|DAMAGE|-1
-Arrow (Whistling)						TYPE:Ammunition.Arrow												EQMOD:STEEL.WOOD
+Arrow (Iron-tipped Distance/20)			TYPE:Ammunition.Arrow					COST:1	WT:4					EQMOD:STEEL.WOOD	SPROP:Iron-tipped distance arrows increase their bow's range increment by 10 feet but take a –1 penalty on damage dealt per range increment.	BONUS:EQMWEAPON|RANGEADD|10	BONUS:WEAPON|DAMAGE|-1
+Arrow (Whistling)						TYPE:Ammunition.Arrow					COST:2	WT:3					EQMOD:STEEL.WOOD
 Atlatl Dart							TYPE:Ammunition.AtlatlDart				COST:1	WT:2
-Bamboo Shaft (10)						TYPE:Ammunition.BambooShaft				COST:10	WT:0.5				EQMOD:STEEL.WOOD	SIZE:M
+Bamboo Shaft (10)						TYPE:Ammunition.BambooShaft				COST:1	WT:0.5				EQMOD:STEEL.WOOD	SIZE:M
 Bullet (Adamantine)					TYPE:Ammunition.FirearmGear.FirearmBullet		COST:61
 Bullet (Firearm)						TYPE:Ammunition.FirearmGear.FirearmBullet		COST:1
 Bullet (Firearm/30)					TYPE:Ammunition.FirearmGear.FirearmBullet		COST:30	WT:0.5	BASEQTY:30
