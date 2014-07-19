@@ -2,10 +2,11 @@ PCGVERSION:2.0
 
 # System Information
 CAMPAIGN:MSRD - Basics|CAMPAIGN:MSRD - Future|CAMPAIGN:MSRD - Menaces|CAMPAIGN:MSRD - Arcana
-VERSION:6.01.02-dev
+VERSION:6.03.03
 ROLLMETHOD:0|EXPRESSION:0
 PURCHASEPOINTS:N
 CHARACTERTYPE:PC
+PREVIEWSHEET:standard.htm
 POOLPOINTS:0
 POOLPOINTSAVAIL:-1
 GAMEMODE:Modern
@@ -17,6 +18,7 @@ LOADCOMPANIONS:N
 USETEMPMODS:Y
 AUTOSORTGEAR:Y
 SKILLSOUTPUTORDER:0
+SKILLFILTER:2
 IGNORECOST:N
 ALLOWDEBT:N
 AUTORESIZEGEAR:Y
@@ -56,8 +58,8 @@ STAT:CHA|SCORE:10
 RACE:Human
 
 # Character Class(es)
-CLASS:Tough|SUBCLASS:Tough Hero|LEVEL:3|SKILLPOOL:0
-CLASS:Strong|SUBCLASS:Strong Hero|LEVEL:3|SKILLPOOL:0
+CLASS:Tough|SUBCLASS:Tough Hero|LEVEL:3|SKILLPOOL:0|SPELLBASE:None|CANCASTPERDAY:
+CLASS:Strong|SUBCLASS:Strong Hero|LEVEL:3|SKILLPOOL:0|SPELLBASE:None|CANCASTPERDAY:
 CLASSABILITIESLEVEL:Tough=1|HITPOINTS:10|SKILLSGAINED:12|SKILLSREMAINING:0
 CLASSABILITIESLEVEL:Tough=2|HITPOINTS:8|SKILLSGAINED:3|SKILLSREMAINING:0
 CLASSABILITIESLEVEL:Strong=1|HITPOINTS:6|SKILLSGAINED:3|SKILLSREMAINING:0
@@ -78,112 +80,285 @@ REGION:None
 
 # Character Skills
 SKILL:Balance|OUTPUTORDER:1|
-SKILL:Bluff|OUTPUTORDER:2|
-SKILL:Climb|OUTPUTORDER:3|CLASSBOUGHT:[CLASS:Tough|RANKS:1.0|COST:1|CLASSSKILL:Y]
-SKILL:Computer Use|OUTPUTORDER:4|
-SKILL:Concentration|OUTPUTORDER:5|
-SKILL:Craft (Structural)|OUTPUTORDER:6|
-SKILL:Craft (Visual Art)|OUTPUTORDER:7|
 SKILL:Craft (Writing)|OUTPUTORDER:8|
-SKILL:Diplomacy|OUTPUTORDER:9|
-SKILL:Disguise|OUTPUTORDER:10|
-SKILL:Drive|OUTPUTORDER:11|CLASSBOUGHT:[CLASS:Tough|RANKS:5.0|COST:1|CLASSSKILL:Y]
+SKILL:Listen|OUTPUTORDER:19|CLASSBOUGHT:[CLASS:Tough|RANKS:1.0|COST:2|CLASSSKILL:N]
+SKILL:Perform (Keyboards)|OUTPUTORDER:24|
+SKILL:Perform (Stringed Instruments)|OUTPUTORDER:28|
 SKILL:Escape Artist|OUTPUTORDER:12|
 SKILL:Forgery|OUTPUTORDER:13|
-SKILL:Gamble|OUTPUTORDER:14|
-SKILL:Gather Information|OUTPUTORDER:15|
-SKILL:Hide|OUTPUTORDER:16|
-SKILL:Intimidate|OUTPUTORDER:17|CLASSBOUGHT:[CLASS:Strong|RANKS:1.0|COST:2|CLASSSKILL:N]
-SKILL:Jump|OUTPUTORDER:18|CLASSBOUGHT:[CLASS:Strong|RANKS:2.0|COST:1|CLASSSKILL:Y]
-SKILL:Listen|OUTPUTORDER:19|CLASSBOUGHT:[CLASS:Tough|RANKS:1.0|COST:2|CLASSSKILL:N]
-SKILL:Move Silently|OUTPUTORDER:20|
-SKILL:Navigate|OUTPUTORDER:21|
-SKILL:Perform (Act)|OUTPUTORDER:22|
-SKILL:Perform (Dance)|OUTPUTORDER:23|
-SKILL:Perform (Keyboards)|OUTPUTORDER:24|
-SKILL:Perform (Percussion Instruments)|OUTPUTORDER:25|
-SKILL:Perform (Sing)|OUTPUTORDER:26|
-SKILL:Perform (Stand-Up)|OUTPUTORDER:27|
-SKILL:Perform (Stringed Instruments)|OUTPUTORDER:28|
-SKILL:Perform (Wind Instruments)|OUTPUTORDER:29|
-SKILL:Profession|OUTPUTORDER:30|
-SKILL:Research|OUTPUTORDER:32|
 SKILL:Ride|OUTPUTORDER:33|
-SKILL:Search|OUTPUTORDER:34|CLASSBOUGHT:[CLASS:Tough|RANKS:2.0|COST:2|CLASSSKILL:N]
-SKILL:Sense Motive|OUTPUTORDER:35|
-SKILL:Spot|OUTPUTORDER:37|CLASSBOUGHT:[CLASS:Tough|RANKS:3.0|COST:1|CLASSSKILL:Y]
-SKILL:Survival|OUTPUTORDER:38|CLASSBOUGHT:[CLASS:Tough|RANKS:1.0|COST:1|CLASSSKILL:Y]
-SKILL:Swim|OUTPUTORDER:39|CLASSBOUGHT:[CLASS:Strong|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Move Silently|OUTPUTORDER:20|
+SKILL:Diplomacy|OUTPUTORDER:9|
+SKILL:Concentration|OUTPUTORDER:5|
+SKILL:Perform (Sing)|OUTPUTORDER:26|
+SKILL:Computer Use|OUTPUTORDER:4|
+SKILL:Gamble|OUTPUTORDER:14|
+SKILL:Repair|OUTPUTORDER:31|CLASSBOUGHT:[CLASS:Tough|RANKS:1.0|COST:1|CLASSSKILL:Y]CLASSBOUGHT:[CLASS:Strong|RANKS:4.0|COST:1|CLASSSKILL:Y]
+SKILL:Drive|OUTPUTORDER:11|CLASSBOUGHT:[CLASS:Tough|RANKS:5.0|COST:1|CLASSSKILL:Y]
 SKILL:Treat Injury|OUTPUTORDER:40|
-SKILL:Repair|OUTPUTORDER:31|CLASSBOUGHT:[CLASS:Strong|RANKS:4.0|COST:1|CLASSSKILL:Y]CLASSBOUGHT:[CLASS:Tough|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Sense Motive|OUTPUTORDER:35|
+SKILL:Research|OUTPUTORDER:32|
+SKILL:Search|OUTPUTORDER:34|CLASSBOUGHT:[CLASS:Tough|RANKS:2.0|COST:2|CLASSSKILL:N]
+SKILL:Bluff|OUTPUTORDER:2|
+SKILL:Disguise|OUTPUTORDER:10|
+SKILL:Hide|OUTPUTORDER:16|
+SKILL:Jump|OUTPUTORDER:18|CLASSBOUGHT:[CLASS:Strong|RANKS:2.0|COST:1|CLASSSKILL:Y]
+SKILL:Perform (Stand-Up)|OUTPUTORDER:27|
+SKILL:Perform (Wind Instruments)|OUTPUTORDER:29|
 SKILL:Speak Language|OUTPUTORDER:36|CLASSBOUGHT:[CLASS:Tough|RANKS:1.0|COST:1|CLASSSKILL:Y]|ASSOCIATEDDATA:English
+SKILL:Survival|OUTPUTORDER:38|CLASSBOUGHT:[CLASS:Tough|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Perform (Act)|OUTPUTORDER:22|
+SKILL:Craft (Visual Art)|OUTPUTORDER:7|
+SKILL:Gather Information|OUTPUTORDER:15|
+SKILL:Profession|OUTPUTORDER:30|
+SKILL:Navigate|OUTPUTORDER:21|
+SKILL:Intimidate|OUTPUTORDER:17|CLASSBOUGHT:[CLASS:Strong|RANKS:1.0|COST:2|CLASSSKILL:N]
+SKILL:Craft (Structural)|OUTPUTORDER:6|
+SKILL:Climb|OUTPUTORDER:3|CLASSBOUGHT:[CLASS:Tough|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Perform (Dance)|OUTPUTORDER:23|
+SKILL:Spot|OUTPUTORDER:37|CLASSBOUGHT:[CLASS:Tough|RANKS:3.0|COST:1|CLASSSKILL:Y]
+SKILL:Perform (Percussion Instruments)|OUTPUTORDER:25|
+SKILL:Swim|OUTPUTORDER:39|CLASSBOUGHT:[CLASS:Strong|RANKS:1.0|COST:1|CLASSSKILL:Y]
 
 # Character Languages
 LANGUAGE:English|LANGUAGE:Russian ~ Written
 
 # Character Feats
-FEATPOOL:-4.0
+FEATPOOL:0.0
 
 # Character Abilities
-ABILITY:Blue Collar Occupation Skills|TYPE:NORMAL|CATEGORY:Starting Occupation|KEY:Drive(+1 to skill)|TYPE:Occupation_Skill.Adventurer_Skills.Athlete_Skills.Blue_Collar_Skills.Emergency_Services_Skills.Law_Enforcement_Skills.Military_Skills.Rural_Skills.Transporter_Skills
+ABILITY:*LANGBONUS|TYPE:VIRTUAL|CATEGORY:*LANGBONUS|KEY:*LANGBONUS|APPLIEDTO:Russian ~ Written|TYPE:
+USERPOOL:*LANGBONUS|POOLPOINTS:0.0
+USERPOOL:Aberration Proficiency|POOLPOINTS:0.0
+USERPOOL:Academic Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Acolyte Feat|POOLPOINTS:0.0
+USERPOOL:Adventurer Feat|POOLPOINTS:0.0
+USERPOOL:Adventurer Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Ambassador Feat|POOLPOINTS:0.0
+USERPOOL:Apothecary Feat|POOLPOINTS:0.0
+USERPOOL:Apothecary Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Arcane Arranger Feat|POOLPOINTS:0.0
+USERPOOL:Archaic Weaponmaster Feat|POOLPOINTS:0.0
+USERPOOL:Artificer Feat|POOLPOINTS:0.0
+USERPOOL:Astronaut Trainee Feat|POOLPOINTS:0.0
+USERPOOL:Astronaut Trainee Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Athlete Feat|POOLPOINTS:0.0
+USERPOOL:Athlete Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Battlemind Feat|POOLPOINTS:0.0
 ABILITY:Blue Collar Occupation Skills|TYPE:NORMAL|CATEGORY:Starting Occupation|KEY:Climb(+1 to skill)|TYPE:Occupation_Skill.Adventurer_Skills.Athlete_Skills.Blue_Collar_Skills.Emergency_Services_Skills.Military_Skills.Rural_Skills.Squire_Skills
+ABILITY:Blue Collar Occupation Skills|TYPE:NORMAL|CATEGORY:Starting Occupation|KEY:Drive(+1 to skill)|TYPE:Occupation_Skill.Adventurer_Skills.Athlete_Skills.Blue_Collar_Skills.Emergency_Services_Skills.Law_Enforcement_Skills.Military_Skills.Rural_Skills.Transporter_Skills
 ABILITY:Blue Collar Occupation Skills|TYPE:NORMAL|CATEGORY:Starting Occupation|KEY:Repair(class skill)|TYPE:Occupation_Skill.Blue_Collar_Skills.Rural_Skills.Technician_Skills.Astronaut_Trainee_Skills.Colonist_Skills.Scavenger_Skills.Transporter_Skills.Apothecary_Skills
 USERPOOL:Blue Collar Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Bodyguard Feat|POOLPOINTS:0.0
+USERPOOL:Builder|POOLPOINTS:0.0
+USERPOOL:Celebrity Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Charismatic Feat|POOLPOINTS:0.0
+USERPOOL:Charismatic Plus Talent|POOLPOINTS:0.0
+USERPOOL:Charismatic Talent|POOLPOINTS:0.0
+USERPOOL:Colonist Feat|POOLPOINTS:0.0
+USERPOOL:Colonist Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Cosmetic Mutations|POOLPOINTS:0.0
+USERPOOL:Craft Artifice|POOLPOINTS:0.0
+USERPOOL:Creative Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Criminal Feat|POOLPOINTS:0.0
+USERPOOL:Criminal Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Daredevil Feat|POOLPOINTS:0.0
+USERPOOL:Dedicated Feat|POOLPOINTS:0.0
+USERPOOL:Dedicated Plus Talent|POOLPOINTS:0.0
+USERPOOL:Dedicated Talent|POOLPOINTS:0.0
+USERPOOL:Dilettante Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Doctor Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Dogfighter Feat|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Adult|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Ancient|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Emperor|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Juvenile|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ King|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Mature|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Old|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Very Old|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Young|POOLPOINTS:0.0
+USERPOOL:Dragon Spelllike Ability ~ Young Adult|POOLPOINTS:0.0
+USERPOOL:Drawbacks|POOLPOINTS:0.0
+USERPOOL:Dreadnought Feat|POOLPOINTS:0.0
+USERPOOL:Drifter Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Emergency Services Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Engineer Feat|POOLPOINTS:0.0
+USERPOOL:Entrepreneur Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Exotic Melee Weapon Proficiency Selection|POOLPOINTS:0.0
+USERPOOL:Explorer Feat|POOLPOINTS:0.0
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Brawl|TYPE:General.Athlete.Criminal.Investigative.Military.Rural.Strong.Tough.Soldier.Infiltrator.Daredevil.Investigator.Adventurer.Dogfighter.Dreadnought.Explorer.SpaceMonkey.Gladiator.ShadowHunter.SpeedDemon.Thrasher|DESC:When making an unarmed attack, the character receives a +1 competence bonus on attack rolls, and the character deals nonlethal damage equal to 1d6 + his or her Strength modifier
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Personal Firearms Proficiency|TYPE:General.Occultist.Criminal.Investigative.Law_Enforcement.Military.Rural.Fast.FieldScientist.Techie.Investigator.FieldMedic.Negotiator.Adventurer.MechaJockey.StreetWarrior.TechnoMage.Wildlord|DESC:The character can fire any personal firearm without penalty
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Surface Vehicle Operation|APPLIEDTO:Heavy Wheeled|TYPE:General.Daredevil.FieldMedic.Engineer.HelixWarrior|DESC:Select a class of surface vehicle (heavy wheeled, powerboat, sailboat, ship, or tracked). The character is proficient at operating that class of vehicle
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Vehicle Expert|TYPE:General.Tough.Smart.Daredevil.Bodyguard.FieldMedic.Engineer.Explorer.Transporter.Technosavant|DESC:The character gets a +2 bonus on all Drive checks and Pilot checks
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Personal Firearms Proficiency|TYPE:General.Occultist.Criminal.Investigative.Law_Enforcement.Military.Rural.Fast.FieldScientist.Techie.Investigator.FieldMedic.Negotiator.Adventurer.MechaJockey.StreetWarrior.TechnoMage.Wildlord|DESC:The character can fire any personal firearm without penalty
 USERPOOL:FEAT|POOLPOINTS:0.0
+USERPOOL:Fast Feat|POOLPOINTS:0.0
+USERPOOL:Fast Plus Talent|POOLPOINTS:0.0
+USERPOOL:Fast Talent|POOLPOINTS:0.0
+USERPOOL:Fey Proficiency|POOLPOINTS:0.0
+USERPOOL:Field Medic Feat|POOLPOINTS:0.0
+USERPOOL:Field Scientist Feat|POOLPOINTS:0.0
+USERPOOL:FieldOfficer Feat|POOLPOINTS:0.0
+USERPOOL:Fiend Burrow Movement|POOLPOINTS:0.0
+USERPOOL:Fiend Climbing Movement|POOLPOINTS:0.0
+USERPOOL:Fiend Damage Reduction|POOLPOINTS:0.0
+USERPOOL:Fiend Fly Movement|POOLPOINTS:0.0
+USERPOOL:Fiend Immunity|POOLPOINTS:0.0
+USERPOOL:Fiend Land Movement|POOLPOINTS:0.0
+USERPOOL:Fiend Resistance|POOLPOINTS:0.0
+USERPOOL:Fiend Swim Movement|POOLPOINTS:0.0
+USERPOOL:Find the Mark|POOLPOINTS:0.0
+USERPOOL:Giant Proficiency|POOLPOINTS:0.0
+USERPOOL:Gladiator Feat|POOLPOINTS:0.0
+USERPOOL:Gladiator Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Glamourist Feat|POOLPOINTS:0.0
+USERPOOL:Greater Weapon Focus|POOLPOINTS:0.0
+USERPOOL:Greater Weapon Specialization|POOLPOINTS:0.0
+USERPOOL:Gunslinger Feat|POOLPOINTS:0.0
+USERPOOL:Hedge Wizard Feat|POOLPOINTS:0.0
+USERPOOL:Hedge Wizard Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Heir Occupation Skills|POOLPOINTS:0.0
+USERPOOL:HelixWarrior Feat|POOLPOINTS:0.0
+USERPOOL:High Fiend Knowledge|POOLPOINTS:0.0
+USERPOOL:Humanoid Proficiency|POOLPOINTS:0.0
+USERPOOL:Improved Critical|POOLPOINTS:0.0
+USERPOOL:Increased Weapon Critical Selection|POOLPOINTS:0.0
+USERPOOL:Infiltrator Feat|POOLPOINTS:0.0
+USERPOOL:Internal|POOLPOINTS:0.0
+USERPOOL:Investigative Feat|POOLPOINTS:0.0
+USERPOOL:Investigative Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Investigator Feat|POOLPOINTS:0.0
+USERPOOL:Law Enforcement Feat|POOLPOINTS:0.0
+USERPOOL:Law Enforcement Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Low Fiend Knowledge|POOLPOINTS:0.0
+USERPOOL:Mage Feat|POOLPOINTS:0.0
+USERPOOL:Martial Artist Feat|POOLPOINTS:0.0
+USERPOOL:Mecha Jockey Feat|POOLPOINTS:0.0
+USERPOOL:Military Feat|POOLPOINTS:0.0
+USERPOOL:Military Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Monstrous Humanoid Proficiency|POOLPOINTS:0.0
+USERPOOL:Mutation|POOLPOINTS:0.0
+USERPOOL:Mutations|POOLPOINTS:0.0
+USERPOOL:Mystic Feat|POOLPOINTS:0.0
+USERPOOL:Negotiator Feat|POOLPOINTS:0.0
+USERPOOL:Novitiate Feat|POOLPOINTS:0.0
+USERPOOL:Novitiate Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Occultist Feat|POOLPOINTS:0.0
 ABILITY:Occupation|TYPE:NORMAL|CATEGORY:Starting Occupation|KEY:Blue Collar|TYPE:Occupation|DESC:Blue collar occupations include factory work, food service jobs, construction, service industry jobs, taxi drivers, postal workers, and other jobs that are usually not considered to be desk jobs.
 USERPOOL:Occupation|POOLPOINTS:0.0
+USERPOOL:Outcast Feat|POOLPOINTS:0.0
+USERPOOL:Outcast Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Outsider Proficiency|POOLPOINTS:0.0
+USERPOOL:Personality Feat|POOLPOINTS:0.0
+USERPOOL:Psionic Agent Feat|POOLPOINTS:0.0
+USERPOOL:Psionic Focus|POOLPOINTS:0.0
+USERPOOL:Psychic Feat|POOLPOINTS:0.0
+USERPOOL:Psychic Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Religious Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Revenant Special Vulnerability|POOLPOINTS:0.0
+USERPOOL:Rural Feat|POOLPOINTS:0.0
+USERPOOL:Rural Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Savant|POOLPOINTS:0.0
+USERPOOL:Scavenger Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Shadow Hunter Feat|POOLPOINTS:0.0
+USERPOOL:Shadow Scholar Feat|POOLPOINTS:0.0
+USERPOOL:Shadow Scholar Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Shadow Slayer Favored Enemy|POOLPOINTS:0.0
+USERPOOL:Shadow Slayer Feat|POOLPOINTS:0.0
+USERPOOL:Shadowjack Feat|POOLPOINTS:0.0
+USERPOOL:Shadowkind Human Feat|POOLPOINTS:0.0
+USERPOOL:Smart Feat|POOLPOINTS:0.0
+USERPOOL:Smart Plus Talent|POOLPOINTS:0.0
+USERPOOL:Smart Talent|POOLPOINTS:0.0
+USERPOOL:Soldier Feat|POOLPOINTS:0.0
+USERPOOL:SpaceMonkey Feat|POOLPOINTS:0.0
+USERPOOL:Special Ability|POOLPOINTS:0.0
+USERPOOL:Speed Demon Feat|POOLPOINTS:0.0
+USERPOOL:Spell Focus Selection|POOLPOINTS:0.0
+USERPOOL:Spell Mastery|POOLPOINTS:0.0
+USERPOOL:Squire Feat|POOLPOINTS:0.0
+USERPOOL:Squire Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Starting Occupation|POOLPOINTS:0.0
+USERPOOL:Street Warrior Feat|POOLPOINTS:0.0
 ABILITY:Strong Feat|TYPE:NORMAL|CATEGORY:FEAT|KEY:Improved Brawl|TYPE:General.Strong.Tough.Daredevil.Bodyguard.Dogfighter.Dreadnought.SpaceMonkey.ShadowHunter.SpeedDemon.StreetWarrior.Thrasher|DESC:When making an unarmed attack, the character receives a +2 competence bonus on his or her attack roll, and the character deals nonlethal damage equal to 1d8 + the character's Strength modifier
 USERPOOL:Strong Feat|POOLPOINTS:0.0
+USERPOOL:Strong Plus Talent|POOLPOINTS:0.0
 ABILITY:Strong Talent|TYPE:NORMAL|CATEGORY:Talent|KEY:Improved Melee Smash|TYPE:Talent.StrongTalent.MeleeSmash.StrongPlus|DESC:See text
 ABILITY:Strong Talent|TYPE:NORMAL|CATEGORY:Talent|KEY:Melee Smash|TYPE:Talent.StrongTalent.MeleeSmash|DESC:See text
 USERPOOL:Strong Talent|POOLPOINTS:0.0
+USERPOOL:Student Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Swashbuckler Feat|POOLPOINTS:0.0
+USERPOOL:Swindler Feat|POOLPOINTS:0.0
+USERPOOL:Talent|POOLPOINTS:0.0
+USERPOOL:Techie Feat|POOLPOINTS:0.0
+USERPOOL:Techie Mastercraft|POOLPOINTS:0.0
+USERPOOL:Technician Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Techno Mage Feat|POOLPOINTS:0.0
+USERPOOL:Techno Mage Spontaneous Casting|POOLPOINTS:0.0
+USERPOOL:Technosavant Feat|POOLPOINTS:0.0
+USERPOOL:Telepath Feat|POOLPOINTS:0.0
+USERPOOL:Thrasher Feat|POOLPOINTS:0.0
 ABILITY:Tough Feat|TYPE:NORMAL|CATEGORY:FEAT|KEY:Alertness|TYPE:Mage.Telepath.General.ShadowSlayer.Personality.Dedicated.Tough.Infiltrator.Occultist.Tracer.Glamourist.Mystic.Shadowjack.Thrasher.ShadowkindHuman|DESC:The character gets a +2 bonus on all Listen checks and Spot checks
 USERPOOL:Tough Feat|POOLPOINTS:0.0
-ABILITY:Tough Talent|TYPE:NORMAL|CATEGORY:Talent|KEY:Cold Resistance|TYPE:Talent.ToughTalent.EnergyResistance|DESC:See text
+USERPOOL:Tough Plus Talent|POOLPOINTS:0.0
 ABILITY:Tough Talent|TYPE:NORMAL|CATEGORY:Talent|KEY:Acid Resistance|TYPE:Talent.ToughTalent.EnergyResistance|DESC:See text
+ABILITY:Tough Talent|TYPE:NORMAL|CATEGORY:Talent|KEY:Cold Resistance|TYPE:Talent.ToughTalent.EnergyResistance|DESC:See text
 USERPOOL:Tough Talent|POOLPOINTS:0.0
+USERPOOL:Tracer Feat|POOLPOINTS:0.0
+USERPOOL:Transporter Feat|POOLPOINTS:0.0
+USERPOOL:Transporter Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Undead Proficiency|POOLPOINTS:0.0
+USERPOOL:Vivilor A Ability|POOLPOINTS:0.0
+USERPOOL:Vivilor Ability Swap|POOLPOINTS:0.0
+USERPOOL:Vivilor B Ability|POOLPOINTS:0.0
+USERPOOL:Wealth|POOLPOINTS:0.0
 ABILITY:Wealth Roll|TYPE:NORMAL|CATEGORY:Wealth|KEY:Wealth Roll ~ 2|TYPE:Wealth.WealthRoll
 USERPOOL:Wealth Roll|POOLPOINTS:0.0
-ABILITY:*LANGBONUS|TYPE:VIRTUAL|CATEGORY:*LANGBONUS|KEY:*LANGBONUS|APPLIEDTO:Russian ~ Written|TYPE:
-USERPOOL:*LANGBONUS|POOLPOINTS:0.0
+USERPOOL:Weapon Finesse Selection|POOLPOINTS:0.0
+USERPOOL:Weapon Focus|POOLPOINTS:0.0
+USERPOOL:Weapon Specialization|POOLPOINTS:0.0
+USERPOOL:White Collar Occupation Skills|POOLPOINTS:0.0
+USERPOOL:Wildlord Feat|POOLPOINTS:0.0
+USERPOOL:Wildlord Skill Mastery|POOLPOINTS:0.0
+USERPOOL:Xenophile Feat|POOLPOINTS:0.0
+USERPOOL:Xenotype|POOLPOINTS:0.0
+USERPOOL:Xenotype Bonus|POOLPOINTS:0.0
 
 # Character Weapon proficiencies
 WEAPONPROF:[WEAPON:Air Pistol|WEAPON:Air Rifle|WEAPON:AKM/AK-47|WEAPON:Barrett Light Fifty|WEAPON:Beam Sword|WEAPON:Benelli 121 M1|WEAPON:Beretta 92F|WEAPON:Beretta 93R|WEAPON:Beretta M3P|WEAPON:Blowgun]
-WEAPONPROF:[WEAPON:Brass Knuckles|WEAPON:Browning BPS|WEAPON:Cleaver|WEAPON:Club|WEAPON:Colt Double Eagle|WEAPON:Colt M1911|WEAPON:Colt Python|WEAPON:Concussion Rifle|WEAPON:Concussion Rod|WEAPON:Crossbow]
-WEAPONPROF:[WEAPON:Cryonic Rifle|WEAPON:Crystal Pistol|WEAPON:Derringer|WEAPON:Desert Eagle|WEAPON:Disintegrator|WEAPON:Falcon .45|WEAPON:Flamethrower|WEAPON:Flare Gun|WEAPON:Gauntlet|WEAPON:Glock 17]
-WEAPONPROF:[WEAPON:Glock 20|WEAPON:Gravity Snare|WEAPON:Heavy Mace|WEAPON:High Frequency Sword|WEAPON:HK G3|WEAPON:HK MP5|WEAPON:HK MP5K|WEAPON:HK PSG1|WEAPON:Javelin|WEAPON:Ketch-all Pole]
-WEAPONPROF:[WEAPON:Knife|WEAPON:Laser Optics|WEAPON:Laser Pistol|WEAPON:Laser Rifle|WEAPON:Laser Sniper Rifle|WEAPON:Light Mace|WEAPON:Lightning Gun|WEAPON:M-60|WEAPON:M16A2|WEAPON:M4 Carbine]
-WEAPONPROF:[WEAPON:MAC Ingram M10|WEAPON:Metal Baton|WEAPON:Mini-Grenade Launcher|WEAPON:Mini-Rocket Launcher|WEAPON:Mossberg|WEAPON:OICW Assault Rifle|WEAPON:Paint Ball Gun|WEAPON:Pathfinder|WEAPON:Pepper Spray|WEAPON:Pistol Whip]
-WEAPONPROF:[WEAPON:Plasma Pistol|WEAPON:Plasma Rifle|WEAPON:Pulse Rifle|WEAPON:Punching Dagger|WEAPON:Quarterstaff|WEAPON:Rail Gun|WEAPON:Remington 700|WEAPON:Rifle Butt|WEAPON:Ruger Service-Six|WEAPON:S and W M29]
-WEAPONPROF:[WEAPON:Sap|WEAPON:Sawed-Off Shotgun|WEAPON:Shortspear|WEAPON:Sickle|WEAPON:SITES M9|WEAPON:Skorpion|WEAPON:Slingshot|WEAPON:Sonic Beam|WEAPON:Speargun|WEAPON:Spiked Club]
-WEAPONPROF:[WEAPON:Steyr AUG|WEAPON:Sticky Foam Sprayer|WEAPON:Stun Baton|WEAPON:Stun Gun|WEAPON:Super Watergun|WEAPON:TACMIL Sniper Rifle|WEAPON:Tangler Gun|WEAPON:Taser|WEAPON:TEC-9|WEAPON:Tonfa]
-WEAPONPROF:[WEAPON:Twin thunder machine gun|WEAPON:Unarmed Strike|WEAPON:Uzi|WEAPON:Walther PPK|WEAPON:Water Cannon|WEAPON:Whip|WEAPON:Winchester 94]
+WEAPONPROF:[WEAPON:Brass Knuckles|WEAPON:Brawl|WEAPON:Browning BPS|WEAPON:Cleaver|WEAPON:Club|WEAPON:Colt Double Eagle|WEAPON:Colt M1911|WEAPON:Colt Python|WEAPON:Concussion Rifle|WEAPON:Concussion Rod]
+WEAPONPROF:[WEAPON:Crossbow|WEAPON:Cryonic Rifle|WEAPON:Crystal Pistol|WEAPON:Derringer|WEAPON:Desert Eagle|WEAPON:Disintegrator|WEAPON:Falcon .45|WEAPON:Flamethrower|WEAPON:Flare Gun|WEAPON:Gauntlet]
+WEAPONPROF:[WEAPON:Glock 17|WEAPON:Glock 20|WEAPON:Gravity Snare|WEAPON:Heavy Mace|WEAPON:High Frequency Sword|WEAPON:HK G3|WEAPON:HK MP5|WEAPON:HK MP5K|WEAPON:HK PSG1|WEAPON:Javelin]
+WEAPONPROF:[WEAPON:Ketch-all Pole|WEAPON:Knife|WEAPON:Laser Optics|WEAPON:Laser Pistol|WEAPON:Laser Rifle|WEAPON:Laser Sniper Rifle|WEAPON:Light Mace|WEAPON:Lightning Gun|WEAPON:M-60|WEAPON:M16A2]
+WEAPONPROF:[WEAPON:M4 Carbine|WEAPON:MAC Ingram M10|WEAPON:Metal Baton|WEAPON:Mini-Grenade Launcher|WEAPON:Mini-Rocket Launcher|WEAPON:Mossberg|WEAPON:OICW Assault Rifle|WEAPON:Paint Ball Gun|WEAPON:Pathfinder|WEAPON:Pepper Spray]
+WEAPONPROF:[WEAPON:Pistol Whip|WEAPON:Plasma Pistol|WEAPON:Plasma Rifle|WEAPON:Pulse Rifle|WEAPON:Punching Dagger|WEAPON:Quarterstaff|WEAPON:Rail Gun|WEAPON:Remington 700|WEAPON:Rifle Butt|WEAPON:Ruger Service-Six]
+WEAPONPROF:[WEAPON:S and W M29|WEAPON:Sap|WEAPON:Sawed-Off Shotgun|WEAPON:Shortspear|WEAPON:Sickle|WEAPON:SITES M9|WEAPON:Skorpion|WEAPON:Slingshot|WEAPON:Sonic Beam|WEAPON:Speargun]
+WEAPONPROF:[WEAPON:Spiked Club|WEAPON:Steyr AUG|WEAPON:Sticky Foam Sprayer|WEAPON:Stun Baton|WEAPON:Stun Gun|WEAPON:Super Watergun|WEAPON:TACMIL Sniper Rifle|WEAPON:Tangler Gun|WEAPON:Taser|WEAPON:TEC-9]
+WEAPONPROF:[WEAPON:Tonfa|WEAPON:Twin thunder machine gun|WEAPON:Unarmed Strike|WEAPON:Uzi|WEAPON:Walther PPK|WEAPON:Water Cannon|WEAPON:Whip|WEAPON:Winchester 94]
 
 # Character Equipment
-MONEY:0.00
-EQUIPNAME:Brass Knuckles (Medium)|OUTPUTORDER:4|COST:10|WT:10.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Brass Knuckles|DATA:NAME=Brass Knuckles (Medium)$KEY=AUTOSIZEMBrass Knuckles$SIZE=M]
-EQUIPNAME:Clothing Outfit (Stealth)|OUTPUTORDER:7|COST:9|WT:2.0|QUANTITY:1.0
-EQUIPNAME:Backpack|OUTPUTORDER:5|COST:10|WT:3.0|QUANTITY:1.0
-EQUIPNAME:Clothing Outfit (Formal)|OUTPUTORDER:6|COST:15|WT:3.0|QUANTITY:1.0
-EQUIPNAME:Binoculars (Standard)|OUTPUTORDER:3|COST:7|WT:2.0|QUANTITY:1.0
-EQUIPNAME:Bullet (9mm/50)|OUTPUTORDER:8|COST:5|WT:0.0|QUANTITY:1.0
-EQUIPNAME:Clothing Outfit (Casual)|OUTPUTORDER:2|COST:8|WT:2.0|QUANTITY:1.0
-EQUIPNAME:Beretta 92F (9mm autoloader) (Medium)|OUTPUTORDER:1|COST:16|WT:6.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Beretta 92F (9mm autoloader)|DATA:NAME=Beretta 92F (9mm autoloader) (Medium)$KEY=AUTOSIZEMBeretta 92F (9mm autoloader)$SIZE=M]
-EQUIPNAME:Dagger (Punching) (Medium)|OUTPUTORDER:9|COST:10|WT:20.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Dagger (Punching)|DATA:NAME=Dagger (Punching) (Medium)$KEY=AUTOSIZEMDagger (Punching)$SIZE=M]
+MONEY:0
+EQUIPNAME:Backpack|OUTPUTORDER:6|COST:10|WT:3.0|QUANTITY:1.0|NOTE:
+EQUIPNAME:Beretta 92F (9mm autoloader) (Medium)|OUTPUTORDER:1|COST:16|WT:6.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Beretta 92F (9mm autoloader)|DATA:NAME=Beretta 92F (9mm autoloader) (Medium)$KEY=AUTOSIZEMBeretta 92F (9mm autoloader)$SIZE=M]
+EQUIPNAME:Binoculars (Standard)|OUTPUTORDER:4|COST:7|WT:2.0|QUANTITY:1.0|NOTE:
+EQUIPNAME:Brass Knuckles (Medium)|OUTPUTORDER:5|COST:10|WT:10.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Brass Knuckles|DATA:NAME=Brass Knuckles (Medium)$KEY=AUTOSIZEMBrass Knuckles$SIZE=M]
+EQUIPNAME:Brawl (Natural/Primary)|OUTPUTORDER:2|COST:0|WT:0.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Brawl|DATA:KEY=Brawl]
+EQUIPNAME:Bullet (9mm/50)|OUTPUTORDER:10|COST:5|WT:0.0|QUANTITY:1.0|NOTE:
+EQUIPNAME:Clothing Outfit (Casual)|OUTPUTORDER:3|COST:8|WT:2.0|QUANTITY:1.0|NOTE:
+EQUIPNAME:Clothing Outfit (Formal)|OUTPUTORDER:8|COST:15|WT:3.0|QUANTITY:1.0|NOTE:
+EQUIPNAME:Clothing Outfit (Stealth)|OUTPUTORDER:9|COST:9|WT:2.0|QUANTITY:1.0|NOTE:
+EQUIPNAME:Dagger (Punching) (Medium)|OUTPUTORDER:7|COST:10|WT:20.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Dagger (Punching)|DATA:NAME=Dagger (Punching) (Medium)$KEY=AUTOSIZEMDagger (Punching)$SIZE=M]
 EQUIPSET:Default Set|ID:0.1|USETEMPMODS:Y
 EQUIPSET:Primary Hand|ID:0.1.01|VALUE:Beretta 92F (9mm autoloader) (Medium)|QUANTITY:1.0|USETEMPMODS:Y
-EQUIPSET:Carried|ID:0.1.02|VALUE:Brass Knuckles (Medium)|QUANTITY:1.0|USETEMPMODS:Y
-EQUIPSET:Torso|ID:0.1.03|VALUE:Clothing Outfit (Casual)|QUANTITY:1.0|USETEMPMODS:Y
-EQUIPSET:Carried|ID:0.1.04|VALUE:Backpack|QUANTITY:1.0|USETEMPMODS:Y
-EQUIPSET:Backpack|ID:0.1.04.01|VALUE:Clothing Outfit (Formal)|QUANTITY:1.0|USETEMPMODS:Y
-EQUIPSET:Backpack|ID:0.1.04.02|VALUE:Clothing Outfit (Stealth)|QUANTITY:1.0|USETEMPMODS:Y
-EQUIPSET:Backpack|ID:0.1.04.03|VALUE:Bullet (9mm/50)|QUANTITY:1.0|USETEMPMODS:Y
-EQUIPSET:Carried|ID:0.1.05|VALUE:Dagger (Punching) (Medium)|QUANTITY:1.0|USETEMPMODS:Y
-EQUIPSET:Equipped|ID:0.1.06|VALUE:Binoculars (Standard)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Torso|ID:0.1.02|VALUE:Clothing Outfit (Casual)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Equipped|ID:0.1.03|VALUE:Binoculars (Standard)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Carried|ID:0.1.04|VALUE:Brass Knuckles (Medium)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Carried|ID:0.1.05|VALUE:Backpack|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Carried|ID:0.1.06|VALUE:Dagger (Punching) (Medium)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.06.01|VALUE:Clothing Outfit (Formal)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.06.02|VALUE:Clothing Outfit (Stealth)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.06.03|VALUE:Bullet (9mm/50)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Natural-Primary|ID:0.1.07|VALUE:Brawl (Natural/Primary)|QUANTITY:1.0|USETEMPMODS:Y
 CALCEQUIPSET:0.1
 
 # Temporary Bonuses
