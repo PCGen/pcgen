@@ -44,3 +44,5 @@ Profession (Psychologist)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession			
 Profession (Scientist)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession									SOURCEPAGE:p.77
 Profession (Teacher)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession									SOURCEPAGE:p.77
 Profession (Pharmacist)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession									SOURCEPAGE:p.77
+
+Spot.MOD	SITUATION:Sensor

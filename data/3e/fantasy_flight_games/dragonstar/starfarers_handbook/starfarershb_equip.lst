@@ -21,7 +21,7 @@ Datachip (Imperial Encyclopedia)		TYPE:HighTechGoods.CommGear		COST:50	WT:0					
 Datachip (Languages and Linguistics)	TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Decipher Script|2|TYPE=Circumstance
 Datachip (Military Surplus Guide)		TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Appraise|2|TYPE=Circumstance
 Datachip (Survival Guide)			TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Wilderness Lore|2|TYPE=Circumstance
-Datachip (Technical Design Database)	TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Engineering)|2|TYPE=Circumstance
+Datachip (Technical Design Database)	TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Architecture and Engineering)|2|TYPE=Circumstance
 Datachip (Unification Bible)			TYPE:HighTechGoods.CommGear		COST:50	WT:0						SOURCEPAGE:p.106	BONUS:SKILL|Knowledge (Religion)|2|TYPE=Circumstance
 Datapad						TYPE:HighTechGoods.CommGear.Datapad	COST:300	WT:1		MODS:YES			SOURCEPAGE:p.106
 Language translator				TYPE:HighTechGoods.CommGear		COST:200	WT:1						SOURCEPAGE:p.107

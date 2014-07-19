@@ -35,3 +35,8 @@ Normal			KEY:SF_TOOLSNM	TYPE:Tools	COST:100	ITYPE:SkillTool			SOURCEPAGE:p.112-1
 Masterwork			KEY:SF_TOOLSMW	TYPE:Tools	COST:300	ITYPE:Masterwork			SOURCEPAGE:p.112-115	BONUS:SKILL|%CHOICE|2|TYPE=EquipmentCircumstance	SPROP:Negates -2 circumstance penalty for not having tools/ applies +2 skill bonus	CHOOSE:SKILL|TYPE=STRENGTH|TYPE=DEXTERITY|TYPE=CONSTITUTION|TYPE=INTELLIGENCE|TYPE=WISDOM|TYPE=CHARISMA
 Specialized			KEY:SF_TOOLSSP	TYPE:Tools	COST:400	ITYPE:Specialized			SOURCEPAGE:p.112-115	BONUS:SKILL|%CHOICE|2|TYPE=EquipmentCircumstance	SPROP:Negates -2 circumstance penalty for not having tools					CHOOSE:SKILL|Craft (Electronics)|Craft (Mechanics)|Craft (Robotics)
 Specialized Masterwork	KEY:SF_TOOLSSPM	TYPE:Tools	COST:1000	ITYPE:Specialized Masterwork	SOURCEPAGE:p.112-115	BONUS:SKILL|%CHOICE|2|TYPE=EquipmentCircumstance	SPROP:Negates -2 circumstance penalty for not having tools/applies +2 skill bonus	CHOOSE:SKILL|Craft (Electronics)|Craft (Mechanics)|Craft (Robotics)
+
+# Future work... when code supports
+#Bayonet			KEY:SF_BAYONET	TYPE:Weapon			ITYPE:Double	PRETYPE:1,Rifle,Carbine		ALTTYPE:Weapon.Double.Piercing	ALTCRITMULT:x3			ALTCRITRANGE:2			ALTDAMAGE:1d6
+#Grenade Launcher		KEY:SF_GRENADE	TYPE:Weapon			ITYPE:Double	PRETYPE:1,Assault			ALTTYPE:Weapon.Ranged.Explosive	ALTCRITMULT:x2			ALTCRITRANGE:1			ALTDAMAGE:0		SPROP:RANGE 200	RANGE:200
+
