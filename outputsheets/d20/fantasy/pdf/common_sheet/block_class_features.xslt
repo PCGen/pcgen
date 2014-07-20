@@ -200,7 +200,7 @@ first page
 	<xsl:template match="wildshape">
 		<xsl:call-template name="class.feature.perday">
 			<xsl:with-param name="attribute" select="'wildshape'"/>
-			<xsl:with-param name="name" select="'DRUID WILDSHAPE'"/>
+			<xsl:with-param name="name" select="'Druid Wildshape'"/>
 			<xsl:with-param name="uses" select="uses_per_day"/>
 			<xsl:with-param name="description" select="concat('Duration = ',duration,' Hours')"/>
 		</xsl:call-template>
@@ -214,7 +214,7 @@ first page
 	<xsl:template match="bardic_music">
 		<xsl:call-template name="class.feature.perday">
 			<xsl:with-param name="attribute" select="'bard'"/>
-			<xsl:with-param name="name" select="'BARDIC MUSIC'"/>
+			<xsl:with-param name="name" select="'Bardic Music'"/>
 			<xsl:with-param name="uses" select="uses_per_day"/>
 <!--			<xsl:with-param name="description.title" select="effects"/> -->
 			<xsl:with-param name="description" select="text"/>
@@ -322,8 +322,8 @@ first page
 											<xsl:message>Test</xsl:message>
 									<fo:table-cell>
 										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
-										<fo:block font-size="7pt">INTENSITY CHECK</fo:block>
-										<fo:block font-size="7pt">RESULT</fo:block>
+										<fo:block font-size="7pt">Intensity Check</fo:block>
+										<fo:block font-size="7pt">Result</fo:block>
 									</fo:table-cell>
 									<fo:table-cell>
 										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
@@ -588,13 +588,13 @@ first page
 											<xsl:message>Test</xsl:message>
 									<fo:table-cell>
 										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
-										<fo:block font-size="7pt">TURNING CHECK</fo:block>
-										<fo:block font-size="7pt">RESULT</fo:block>
+										<fo:block font-size="7pt">Turning Check</fo:block>
+										<fo:block font-size="7pt">Result</fo:block>
 									</fo:table-cell>
 									<fo:table-cell>
 										<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
-										<fo:block font-size="7pt"><xsl:value-of select="@kind"/> AFFECTED</fo:block>
-										<fo:block font-size="6pt">(MAXIMUM HIT DICE)</fo:block>
+										<fo:block font-size="7pt"><xsl:value-of select="@kind"/> Affected</fo:block>
+										<fo:block font-size="6pt">(Maximum Hit Dice)</fo:block>
 									</fo:table-cell>
 								</fo:table-row>
 							</fo:table-body>
@@ -750,7 +750,7 @@ first page
 	<xsl:template match="channel_energy">
 		<xsl:call-template name="class.feature.perday">
 			<xsl:with-param name="attribute" select="'bard'"/>
-			<xsl:with-param name="name" select="'CHANNEL ENERGY'"/>
+			<xsl:with-param name="name" select="'Channel Energy'"/>
 			<xsl:with-param name="uses" select="uses_per_day"/>
 			<xsl:with-param name="uses.title" select="uses_per_day.title"/>
 			<xsl:with-param name="description.title" select="' '"/>
@@ -767,7 +767,7 @@ first page
 	<xsl:template match="stunning_fist">
 		<xsl:call-template name="class.feature.perday">
 			<xsl:with-param name="attribute" select="'stunningfist'"/>
-			<xsl:with-param name="name" select="'STUNNING FIST'"/>
+			<xsl:with-param name="name" select="'Stunning Fist'"/>
 			<xsl:with-param name="uses" select="uses_per_day"/>
 			<xsl:with-param name="description.title" select="' '"/>
 			<xsl:with-param name="description" select="description"/>
@@ -782,7 +782,7 @@ first page
 	<xsl:template match="ki_pool">
 		<xsl:call-template name="class.feature.perday">
 			<xsl:with-param name="attribute" select="'stunningfist'"/>
-			<xsl:with-param name="name" select="'ki Pool'"/>
+			<xsl:with-param name="name" select="'Ki Pool'"/>
 			<xsl:with-param name="uses" select="uses_per_day"/>
 		</xsl:call-template>
 	</xsl:template>

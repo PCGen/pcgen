@@ -1344,7 +1344,7 @@
 					</fo:table-row>
 				</xsl:if>	
 
-<!--	FIRST ROW	-->
+<!--	FIRST ROW 	-->
 				<xsl:message><xsl:value-of select="count(./range)"/></xsl:message>
 
 			<xsl:if test="count(./range) = 6 or count(./range) = 11">
@@ -1582,13 +1582,6 @@
 				</fo:table-row>
 			</xsl:if>
 <!-- End Second Row 10 Increments	-->
-
-
-
-
-
-
-
 
 			</xsl:otherwise>
 			</xsl:choose>

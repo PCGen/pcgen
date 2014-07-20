@@ -985,12 +985,6 @@
 	  ====================================
 	  ====================================-->
 	<class_features>
-		<!-- Pathfinder -->
-		<#if (pcvar("VAR.BardicPerformanceLVL") >= 1) >
-		<bardic_music>
-			<uses_per_day>${pcstring('VAR.BardicPerformanceDuration.INTVAL')}</uses_per_day>
-		</bardic_music>
-		</#if>
 		<!-- D&D 3.0 -->
 		<#if (pcvar("VAR.BardicMusicLevel") >= 1) >
 		<bardic_music>
