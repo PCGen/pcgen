@@ -73,6 +73,7 @@
 		<catchphrase>${pcstring('CATCHPHRASE')}</catchphrase>
 		<classes>
 			<@loop from=0 to=pcvar('COUNT[CLASSES]-1') ; class , class_has_next>
+			<#if (pcvar(pcstring('CLASS.${class}.LEVEL')) > 0) >
 			<class>
 				<name>${pcstring('CLASS.${class}')}</name>
 				<abbreviation>${pcstring('CLASSABB.${class}')}</abbreviation>
@@ -81,6 +82,7 @@
 				<sequence>${class}</sequence>
 				<sequence_shortform><@pcstring tag="CLASSABB.${class}"/><@pcstring tag="CLASS.${class}.LEVEL"/></sequence_shortform>
 			</class>
+			</#if>
 			</@loop><#-- Classes -->
 			<levels_total>${pcstring('TOTALLEVELS')}</levels_total>
 			<levels_ecl>${pcstring('ECL')}</levels_ecl>
