@@ -1159,6 +1159,7 @@
 						<xsl:apply-templates select="special_qualities" />
 						<xsl:apply-templates select="feats" />
 <!-->						<xsl:apply-templates select="feats/feat[contains(., 'OCCUPATION')]" mode="starting_occupation" />	-->
+						<xsl:apply-templates select="companions" />
 						<xsl:apply-templates select="occupations" />
 						<xsl:apply-templates select="talents" />
 
@@ -3964,6 +3965,295 @@
 	</xsl:template>
 
 
+	<!--
+====================================
+====================================
+	TEMPLATE - COMPANIONS
+====================================
+====================================-->
+	<xsl:template match="companions">
+		<!-- BEGIN Companions Table -->
+		<xsl:apply-templates select="familiar"/>
+		<xsl:apply-templates select="psicrystal"/>
+		<xsl:apply-templates select="mount"/>
+		<xsl:apply-templates select="companion"/>
+		<xsl:call-template name="followers.list"/>
+		<!-- END Companions Table -->
+	</xsl:template>
+	<xsl:template match="familiar">
+		<!-- BEGIN Familiar Table -->
+		<xsl:call-template name="show_companion">
+			<xsl:with-param name="followerType" select="'Familiar'"/>
+		</xsl:call-template>
+		<!-- END Familiar Table -->
+	</xsl:template>
+	<xsl:template match="psicrystal">
+		<!-- BEGIN Psicrystal Table -->
+		<xsl:call-template name="show_companion">
+			<xsl:with-param name="followerType" select="'Psicrystal'"/>
+		</xsl:call-template>
+		<!-- END Familiar Table -->
+	</xsl:template>
+	<xsl:template match="mount">
+		<!-- BEGIN Familiar Table -->
+		<xsl:call-template name="show_companion">
+			<xsl:with-param name="followerType" select="'Special Mount'"/>
+		</xsl:call-template>
+		<!-- END Familiar Table -->
+	</xsl:template>
+	<xsl:template match="companion">
+		<!-- BEGIN Familiar Table -->
+		<xsl:call-template name="show_companion">
+			<xsl:with-param name="followerType" select="'Animal Companion'"/>
+		</xsl:call-template>
+		<!-- END Familiar Table -->
+	</xsl:template>
+	<xsl:template name="followers.list">
+		<xsl:if test="count(follower) &gt; 0">
+			<fo:table table-layout="fixed" space-after.optimum="2mm">
+				<fo:table-column>
+					<xsl:attribute name="column-width"><xsl:value-of select="0.5 * ($pagePrintableWidth - 2)" />mm</xsl:attribute>
+				</fo:table-column>
+				<fo:table-body>
+					<fo:table-row keep-with-next.within-column="always">
+												<xsl:message>Test</xsl:message>
+					<fo:table-cell>
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'companions.title'"/>
+							</xsl:call-template>
+							<fo:block font-size="10pt" font-weight="bold">Followers: </fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+					<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+						<fo:table-cell>
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'companions'"/>
+							</xsl:call-template>
+							<xsl:for-each select="follower">
+								<fo:block font-size="8pt">
+									<xsl:value-of select="name"/>
+								</fo:block>
+							</xsl:for-each>
+						</fo:table-cell>
+					</fo:table-row>
+				</fo:table-body>
+			</fo:table>
+		</xsl:if>
+	</xsl:template>
+	<xsl:template name="show_companion">
+		<xsl:param name="followerType" select="Follower"/>
+		<fo:table table-layout="fixed" space-before.optimum="2mm" keep-together="always">
+				<fo:table-column>
+					<xsl:attribute name="column-width"><xsl:value-of select="0.5 * ($pagePrintableWidth - 2) - 69" />mm</xsl:attribute>
+				</fo:table-column>
+			<fo:table-column column-width="15mm"/>
+			<fo:table-column column-width="13mm"/>
+			<fo:table-column column-width="14mm"/>
+			<fo:table-column column-width="13mm"/>
+			<fo:table-column column-width="14mm"/>
+			<fo:table-body keep-together="always">
+				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+					<fo:table-cell number-columns-spanned="6">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="10pt" font-weight="bold">
+							<xsl:value-of select="$followerType"/>: <xsl:value-of select="name"/> (<xsl:value-of select="race"/>)</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+					<fo:table-cell text-align="end">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">HP:</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="hp"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell text-align="end">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">AC:</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="ac"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell text-align="end">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">INIT:</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="initiative_mod"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+					<fo:table-cell text-align="end">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">FORT:</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="fortitude"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell text-align="end">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">REF:</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="reflex"/>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell text-align="end">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">WILL:</fo:block>
+					</fo:table-cell>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">
+							<xsl:value-of select="will"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<xsl:for-each select="attacks/attack">
+					<xsl:if test="string-length(common/name/long) &gt; 0">
+						<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+							<fo:table-cell text-align="end">
+								<xsl:call-template name="attrib">
+									<xsl:with-param name="attribute" select="'companions.title'"/>
+								</xsl:call-template>
+								<fo:block font-size="8pt">
+									<xsl:variable name="name" select="substring-before(common/name/long,'(')"/>
+									<xsl:variable name="description" select="substring-after(common/name/long,'(')"/>
+									<xsl:value-of select="$name"/>
+									<xsl:if test="string-length($name) = 0">
+										<xsl:value-of select="common/name/long"/>
+									</xsl:if>
+									<xsl:if test="string-length($description) &gt; 0">
+										<fo:inline font-size="5pt">
+											<xsl:text>(</xsl:text>
+											<xsl:value-of select="$description"/>
+										</fo:inline>
+									</xsl:if>
+								</fo:block>
+							</fo:table-cell>
+							<fo:table-cell>
+								<xsl:call-template name="attrib">
+									<xsl:with-param name="attribute" select="'companions'"/>
+								</xsl:call-template>
+								<fo:block font-size="8pt">
+									<xsl:value-of select="simple/to_hit"/>
+								</fo:block>
+							</fo:table-cell>
+							<fo:table-cell text-align="end">
+								<xsl:call-template name="attrib">
+									<xsl:with-param name="attribute" select="'companions.title'"/>
+								</xsl:call-template>
+								<fo:block font-size="8pt">DAM:</fo:block>
+							</fo:table-cell>
+							<fo:table-cell>
+								<xsl:call-template name="attrib">
+									<xsl:with-param name="attribute" select="'companions'"/>
+								</xsl:call-template>
+								<fo:block font-size="8pt">
+									<xsl:value-of select="simple/damage"/>
+								</fo:block>
+							</fo:table-cell>
+							<fo:table-cell text-align="end">
+								<xsl:call-template name="attrib">
+									<xsl:with-param name="attribute" select="'companions.title'"/>
+								</xsl:call-template>
+								<fo:block font-size="8pt">CRIT:</fo:block>
+							</fo:table-cell>
+							<fo:table-cell>
+								<xsl:call-template name="attrib">
+									<xsl:with-param name="attribute" select="'companions'"/>
+								</xsl:call-template>
+								<fo:block font-size="8pt">
+									<xsl:value-of select="common/critical/range"/>/x<xsl:value-of select="common/critical/multiplier"/>
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+					</xsl:if>
+				</xsl:for-each>
+				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+					<fo:table-cell text-align="left">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt">Special:</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-columns-spanned="5">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'companions'"/>
+						</xsl:call-template>
+						<fo:block font-size="7pt" text-align="left">
+							<xsl:value-of select="special_properties"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				<xsl:if test="count(companion/trick) &gt; 0">
+					<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+						<fo:table-cell text-align="left">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'companions.title'"/>
+							</xsl:call-template>
+							<fo:block font-size="8pt" text-align="left">Tricks:</fo:block>
+						</fo:table-cell>
+						<fo:table-cell number-columns-spanned="5">
+							<xsl:call-template name="attrib">
+								<xsl:with-param name="attribute" select="'companions'"/>
+							</xsl:call-template>
+							<fo:block font-size="7pt">
+								<xsl:value-of select="trick"/>
+							</fo:block>
+						</fo:table-cell>
+					</fo:table-row>
+				</xsl:if>
+			</fo:table-body>
+		</fo:table>
+	</xsl:template>
 
 <!--
 ====================================
