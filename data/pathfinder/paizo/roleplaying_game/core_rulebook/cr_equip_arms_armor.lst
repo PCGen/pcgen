@@ -7,20 +7,20 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 
 ###BLOCK: Ammunition
 # Equipment Name			Output Name						Type								Cost		Weight	Base Quantity	Modifier					Requires Modification?	Source Page		Weapon prop. bonus		Special Property
-Arrows (20)											TYPE:Ammunition.Standard.Arrow			COST:1	WT:3		BASEQTY:20		EQMOD:STEEL.WOOD				MODS:YES			SOURCEPAGE:p.145
-Bolts (Crossbow/10)		OUTPUTNAME:Bolts, Crossbow (10)		TYPE:Ammunition.Standard.Bolt				COST:1	WT:1		BASEQTY:10		EQMOD:STEEL.WOOD				MODS:YES			SOURCEPAGE:p.145
-Bolts (Crossbow/Repeating/5)	OUTPUTNAME:Bolts, Repeating, Crossbow (5)	TYPE:Ammunition.Standard.Bolt				COST:1	WT:1		BASEQTY:5		EQMOD:STEEL.WOOD				MODS:YES			SOURCEPAGE:p.145
-Bullets (Sling/10)		OUTPUTNAME:Bullets, Sling (10)		TYPE:Ammunition.Standard.Bullet			COST:0.1	WT:5		BASEQTY:10		EQMOD:STEEL					MODS:YES			SOURCEPAGE:p.145
-Darts (Blowgun/10)		OUTPUTNAME:Darts, Blowgun (10)		TYPE:Ammunition.Standard.Dart				COST:0.5	WT:0		BASEQTY:10		EQMOD:STEEL					MODS:YES			SOURCEPAGE:p.142
-Arrow												TYPE:Ammunition.Standard.Arrow.Individual		COST:0.05	WT:0.15	BASEQTY:1		EQMOD:STEEL.WOOD				MODS:YES			SOURCEPAGE:p.145
-Bolt (Crossbow)			OUTPUTNAME:Bolt, [NAME]				TYPE:Ammunition.Standard.Bolt.Individual		COST:0.1	WT:0.1	BASEQTY:1		EQMOD:STEEL.WOOD				MODS:YES			SOURCEPAGE:p.145
-Bolt (Crossbow/Repeating)	OUTPUTNAME:Bolt, [NAME]				TYPE:Ammunition.Standard.Bolt.Individual		COST:0.2	WT:0.2	BASEQTY:1		EQMOD:STEEL.WOOD				MODS:YES			SOURCEPAGE:p.145
-Bullet (Sling)			OUTPUTNAME:Bullet, [NAME]			TYPE:Ammunition.Standard.Bullet.Individual	COST:0.01	WT:0.5	BASEQTY:1		EQMOD:STEEL					MODS:YES			SOURCEPAGE:p.145
-Dart (Blowgun)			OUTPUTNAME:Darts, [NAME]			TYPE:Ammunition.Standard.Dart				COST:0.05	WT:0		BASEQTY:1		EQMOD:STEEL					MODS:YES			SOURCEPAGE:p.142
-Bolt (Screaming)			OUTPUTNAME:Screaming Bolt			TYPE:Ammunition.Specific.Bolt.Individual		COST:101	WT:0.1	BASEQTY:1		EQMOD:PLUS2M.STEEL			MODS:NO			SOURCEPAGE:p.475						SPROP:screams when fired, forcing all enemies within 20 feet of the path of the bolt to make a Will save (DC 14) or become shaken.
-Arrow (Slaying)			OUTPUTNAME:Slaying Arrow			TYPE:Ammunition.SpecificArrow.Individual		COST:2282	WT:0					EQMOD:MAGIC_COST|2116.PLUS2M.STEEL	MODS:NO			SOURCEPAGE:p.476	BONUS:WEAPON|DAMAGE,TOHIT|1	SPROP:This +1 arrow is keyed to a particular type or subtype of creature. If it strikes such a creature, the target must make a DC 20 Fortitude save or take 50 points of damage. Note that even creatures normally exempt from Fortitude saves (undead and constructs) are subject to this attack.
-Arrow (Slaying/Greater)		OUTPUTNAME:Greater Slaying Arrow		TYPE:Ammunition.SpecificArrow.Individual		COST:4057	WT:0					EQMOD:MAGIC_COST|3891.PLUS2M.STEEL	MODS:NO			SOURCEPAGE:p.476	BONUS:WEAPON|DAMAGE,TOHIT|1	SPROP:This +1 arrow is keyed to a particular type or subtype of creature. If it strikes such a creature, the target must make a DC 23 Fortitude save or take 100 points of damage. Note that even creatures normally exempt from Fortitude saves (undead and constructs) are subject to this attack.
-Arrow (Sleep)			OUTPUTNAME:Sleep Arrow				TYPE:Ammunition.SpecificArrow.Individual		COST:86	WT:0					EQMOD:PLUS1M.STEEL			MODS:NO			SOURCEPAGE:p.476						SPROP:Opponent must made a fortitude save (DC 11) or fall asleep
+Arrows (20)											TYPE:Ammunition.Resizable.Standard.Arrow			COST:1	WT:3		BASEQTY:20		EQMOD:STEEL.WOOD				MODS:YES			SOURCEPAGE:p.145
+Bolts (Crossbow/10)		OUTPUTNAME:Bolts, Crossbow (10)		TYPE:Ammunition.Resizable.Standard.Bolt				COST:1	WT:1		BASEQTY:10		EQMOD:STEEL.WOOD				MODS:YES			SOURCEPAGE:p.145
+Bolts (Crossbow/Repeating/5)	OUTPUTNAME:Bolts, Repeating, Crossbow (5)	TYPE:Ammunition.Resizable.Standard.Bolt				COST:1	WT:1		BASEQTY:5		EQMOD:STEEL.WOOD				MODS:YES			SOURCEPAGE:p.145
+Bullets (Sling/10)		OUTPUTNAME:Bullets, Sling (10)		TYPE:Ammunition.Resizable.Standard.Bullet			COST:0.1	WT:5		BASEQTY:10		EQMOD:STEEL					MODS:YES			SOURCEPAGE:p.145
+Darts (Blowgun/10)		OUTPUTNAME:Darts, Blowgun (10)		TYPE:Ammunition.Resizable.Standard.Dart				COST:0.5	WT:0		BASEQTY:10		EQMOD:STEEL					MODS:YES			SOURCEPAGE:p.142
+Arrow												TYPE:Ammunition.Resizable.Standard.Arrow.Individual		COST:0.05	WT:0.15	BASEQTY:1		EQMOD:STEEL.WOOD				MODS:YES			SOURCEPAGE:p.145
+Bolt (Crossbow)			OUTPUTNAME:Bolt, [NAME]				TYPE:Ammunition.Resizable.Standard.Bolt.Individual		COST:0.1	WT:0.1	BASEQTY:1		EQMOD:STEEL.WOOD				MODS:YES			SOURCEPAGE:p.145
+Bolt (Crossbow/Repeating)	OUTPUTNAME:Bolt, [NAME]				TYPE:Ammunition.Resizable.Standard.Bolt.Individual		COST:0.2	WT:0.2	BASEQTY:1		EQMOD:STEEL.WOOD				MODS:YES			SOURCEPAGE:p.145
+Bullet (Sling)			OUTPUTNAME:Bullet, [NAME]			TYPE:Ammunition.Resizable.Standard.Bullet.Individual	COST:0.01	WT:0.5	BASEQTY:1		EQMOD:STEEL					MODS:YES			SOURCEPAGE:p.145
+Dart (Blowgun)			OUTPUTNAME:Darts, [NAME]			TYPE:Ammunition.Resizable.Standard.Dart				COST:0.05	WT:0		BASEQTY:1		EQMOD:STEEL					MODS:YES			SOURCEPAGE:p.142
+Bolt (Screaming)			OUTPUTNAME:Screaming Bolt			TYPE:Ammunition.Resizable.Specific.Bolt.Individual		COST:101	WT:0.1	BASEQTY:1		EQMOD:PLUS2M.STEEL			MODS:NO			SOURCEPAGE:p.475						SPROP:screams when fired, forcing all enemies within 20 feet of the path of the bolt to make a Will save (DC 14) or become shaken.
+Arrow (Slaying)			OUTPUTNAME:Slaying Arrow			TYPE:Ammunition.Resizable.SpecificArrow.Individual		COST:2282	WT:0					EQMOD:MAGIC_COST|2116.PLUS2M.STEEL	MODS:NO			SOURCEPAGE:p.476	BONUS:WEAPON|DAMAGE,TOHIT|1	SPROP:This +1 arrow is keyed to a particular type or subtype of creature. If it strikes such a creature, the target must make a DC 20 Fortitude save or take 50 points of damage. Note that even creatures normally exempt from Fortitude saves (undead and constructs) are subject to this attack.
+Arrow (Slaying/Greater)		OUTPUTNAME:Greater Slaying Arrow		TYPE:Ammunition.Resizable.SpecificArrow.Individual		COST:4057	WT:0					EQMOD:MAGIC_COST|3891.PLUS2M.STEEL	MODS:NO			SOURCEPAGE:p.476	BONUS:WEAPON|DAMAGE,TOHIT|1	SPROP:This +1 arrow is keyed to a particular type or subtype of creature. If it strikes such a creature, the target must make a DC 23 Fortitude save or take 100 points of damage. Note that even creatures normally exempt from Fortitude saves (undead and constructs) are subject to this attack.
+Arrow (Sleep)			OUTPUTNAME:Sleep Arrow				TYPE:Ammunition.Resizable.SpecificArrow.Individual		COST:86	WT:0					EQMOD:PLUS1M.STEEL			MODS:NO			SOURCEPAGE:p.476						SPROP:Opponent must made a fortitude save (DC 11) or fall asleep
 
 
 ###Block: Armor

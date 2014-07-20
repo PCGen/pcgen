@@ -6,7 +6,7 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 
 ###BLOCK: Ammunition
 # Equipment Name		Type								Cost		Weight	Base Quantity	Source Page		Weapon prop. bonus	Special Property
-Heartstake Bolts (5)	TYPE:Ammunition.Specific.Bolt.Racial.Dhampir	COST:100	WT:3		BASEQTY:5		SOURCEPAGE:p.99	BONUS:WEAPON|TOHIT|-2	SPROP:A vampire struck with a heartstake bolt takes the normal damage but must also succeed at a DC 20 Fortitude saving throw or fall to the ground helpless for 1 round.
+Heartstake Bolts (5)	TYPE:Ammunition.Resizable.Specific.Bolt.Racial.Dhampir	COST:100	WT:3		BASEQTY:5		SOURCEPAGE:p.99	BONUS:WEAPON|TOHIT|-2	SPROP:A vampire struck with a heartstake bolt takes the normal damage but must also succeed at a DC 20 Fortitude saving throw or fall to the ground helpless for 1 round.
 #Note: Heartstake Bolts - decreases crossbow range by half
 
 ###BLOCK: Armor

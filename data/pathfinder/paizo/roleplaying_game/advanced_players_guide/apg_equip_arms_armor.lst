@@ -4,16 +4,16 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 
 ### BLOCK: Ammunition
 # Equipment Name		Output Name				Type								Cost		Weight	Base Quantity	Modifier				Requires Modification?	Source Page		Special Property
-Arrows (Blunt/20)		OUTPUTNAME:Arrow, Blunt (20)	TYPE:Ammunition.Standard.Arrow			COST:2	WT:3		BASEQTY:20		EQMOD:STEEL.WOOD			MODS:YES			SOURCEPAGE:p.177
-Arrows (Flight/20)	OUTPUTNAME:Arrow, Flight (20)	TYPE:Ammunition.Standard.Arrow			COST:2	WT:3		BASEQTY:20		EQMOD:STEEL.WOOD			MODS:YES			SOURCEPAGE:p.177
-Arrows (Smoke/20)		OUTPUTNAME:Arrow, Smoke (20)	TYPE:Ammunition.Standard.Arrow			COST:10	WT:3		BASEQTY:20		EQMOD:STEEL.WOOD			MODS:YES			SOURCEPAGE:p.177
-Arrow (Blunt)		OUTPUTNAME:Arrow, Blunt		TYPE:Ammunition.Standard.Arrow.Individual		COST:0.1	WT:0.15	BASEQTY:1		EQMOD:STEEL.WOOD			MODS:YES			SOURCEPAGE:p.177
-Arrow (Flight)		OUTPUTNAME:Arrow, Flight	TYPE:Ammunition.Standard.Arrow.Individual		COST:0.1	WT:0.15	BASEQTY:1		EQMOD:STEEL.WOOD			MODS:YES			SOURCEPAGE:p.177
-Arrow (Smoke)		OUTPUTNAME:Arrow, Smoke		TYPE:Ammunition.Standard.Arrow.Individual		COST:0.5	WT:0.15	BASEQTY:1		EQMOD:STEEL.WOOD			MODS:YES			SOURCEPAGE:p.177
-Arrow (Searing)		OUTPUTNAME:Arrow, Searing	TYPE:Ammunition.Specific.Arrow.Individual		COST:1350	WT:0.15	BASEQTY:1		EQMOD:PLUS1M.STEEL.WOOD						SOURCEPAGE:p.291	SPROP:A successful attack deals 1d6 fire damage for 3 rounds.
-Arrow (Sizzling)		OUTPUTNAME:Arrow, Sizzling	TYPE:Ammunition.Specific.Arrow.Individual		COST:1350	WT:0.15	BASEQTY:1		EQMOD:PLUS1M.STEEL.WOOD						SOURCEPAGE:p.291	SPROP:A successful attack deals 1d6 acid damage for 3 rounds.
-Bolt (Tangle)		OUTPUTNAME:Bolt, Tangle		TYPE:Ammunition.Specific.Bolt.Individual		COST:60	WT:0.1	BASEQTY:1		EQMOD:PLUS1M.SEEK.STEEL.WOOD					SOURCEPAGE:p.291	SPROP:Target is entangled as if it had been hit by a tanglefoot bag.
-Bullet (Dustburst)	OUTPUTNAME:Bullet, Dustburst	TYPE:Ammunition.Specific.Bullet.Individual	COST:0.01	WT:0.5	BASEQTY:1		EQMOD:PLUS1M.STEEL						SOURCEPAGE:p.290	SPROP:Explodes into a cloud of choking dust when it strikes its target.
+Arrows (Blunt/20)		OUTPUTNAME:Arrow, Blunt (20)	TYPE:Ammunition.Resizable.Standard.Arrow			COST:2	WT:3		BASEQTY:20		EQMOD:STEEL.WOOD			MODS:YES			SOURCEPAGE:p.177
+Arrows (Flight/20)	OUTPUTNAME:Arrow, Flight (20)	TYPE:Ammunition.Resizable.Standard.Arrow			COST:2	WT:3		BASEQTY:20		EQMOD:STEEL.WOOD			MODS:YES			SOURCEPAGE:p.177
+Arrows (Smoke/20)		OUTPUTNAME:Arrow, Smoke (20)	TYPE:Ammunition.Resizable.Standard.Arrow			COST:10	WT:3		BASEQTY:20		EQMOD:STEEL.WOOD			MODS:YES			SOURCEPAGE:p.177
+Arrow (Blunt)		OUTPUTNAME:Arrow, Blunt		TYPE:Ammunition.Resizable.Standard.Arrow.Individual		COST:0.1	WT:0.15	BASEQTY:1		EQMOD:STEEL.WOOD			MODS:YES			SOURCEPAGE:p.177
+Arrow (Flight)		OUTPUTNAME:Arrow, Flight	TYPE:Ammunition.Resizable.Standard.Arrow.Individual		COST:0.1	WT:0.15	BASEQTY:1		EQMOD:STEEL.WOOD			MODS:YES			SOURCEPAGE:p.177
+Arrow (Smoke)		OUTPUTNAME:Arrow, Smoke		TYPE:Ammunition.Resizable.Standard.Arrow.Individual		COST:0.5	WT:0.15	BASEQTY:1		EQMOD:STEEL.WOOD			MODS:YES			SOURCEPAGE:p.177
+Arrow (Searing)		OUTPUTNAME:Arrow, Searing	TYPE:Ammunition.Resizable.Specific.Arrow.Individual		COST:1350	WT:0.15	BASEQTY:1		EQMOD:PLUS1M.STEEL.WOOD						SOURCEPAGE:p.291	SPROP:A successful attack deals 1d6 fire damage for 3 rounds.
+Arrow (Sizzling)		OUTPUTNAME:Arrow, Sizzling	TYPE:Ammunition.Resizable.Specific.Arrow.Individual		COST:1350	WT:0.15	BASEQTY:1		EQMOD:PLUS1M.STEEL.WOOD						SOURCEPAGE:p.291	SPROP:A successful attack deals 1d6 acid damage for 3 rounds.
+Bolt (Tangle)		OUTPUTNAME:Bolt, Tangle		TYPE:Ammunition.Resizable.Specific.Bolt.Individual		COST:60	WT:0.1	BASEQTY:1		EQMOD:PLUS1M.SEEK.STEEL.WOOD					SOURCEPAGE:p.291	SPROP:Target is entangled as if it had been hit by a tanglefoot bag.
+Bullet (Dustburst)	OUTPUTNAME:Bullet, Dustburst	TYPE:Ammunition.Resizable.Specific.Bullet.Individual	COST:0.01	WT:0.5	BASEQTY:1		EQMOD:PLUS1M.STEEL						SOURCEPAGE:p.290	SPROP:Explodes into a cloud of choking dust when it strikes its target.
 
 
 ###Block: Armor

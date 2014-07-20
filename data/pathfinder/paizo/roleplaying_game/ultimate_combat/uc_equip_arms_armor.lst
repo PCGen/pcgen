@@ -4,35 +4,35 @@ SOURCELONG:Ultimate Combat	SOURCESHORT:UC	SOURCEWEB:http://paizo.com/products/bt
 
 ###Block: Ammunition
 # Equipment Name						Type								Cost		Weight	Base Quantity	Modifier		Size		Source Page		Special Property
-Alchemical Cartridge (Dragon's Breath)		TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:40
-Alchemical Cartridge (Entangling Shot)		TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:40
-Alchemical Cartridge (Flare)				TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:10
-Alchemical Cartridge (Paper/Bullet)			TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:12
-Alchemical Cartridge (Paper/Pellet)			TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:12
-Alchemical Cartridge (Salt Shot)			TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:12
-Arrow (Iron-tipped Distance/20)			TYPE:Ammunition.Arrow					COST:1	WT:4					EQMOD:STEEL.WOOD	SPROP:Iron-tipped distance arrows increase their bow's range increment by 10 feet but take a –1 penalty on damage dealt per range increment.	BONUS:EQMWEAPON|RANGEADD|10	BONUS:WEAPON|DAMAGE|-1
-Arrow (Whistling)						TYPE:Ammunition.Arrow					COST:2	WT:3					EQMOD:STEEL.WOOD
-Atlatl Dart							TYPE:Ammunition.AtlatlDart				COST:1	WT:2
-Bamboo Shaft (10)						TYPE:Ammunition.BambooShaft				COST:1	WT:0.5				EQMOD:STEEL.WOOD	SIZE:M
-Bullet (Adamantine)					TYPE:Ammunition.FirearmGear.FirearmBullet		COST:61
-Bullet (Firearm)						TYPE:Ammunition.FirearmGear.FirearmBullet		COST:1
-Bullet (Firearm/30)					TYPE:Ammunition.FirearmGear.FirearmBullet		COST:30	WT:0.5	BASEQTY:30
-Bullet (Firearm/Pitted)					TYPE:Ammunition.FirearmGear.FirearmBullet		COST:5
-Bullet (Firearm/Silver)					TYPE:Ammunition.FirearmGear.FirearmBullet		COST:25
-Burrowing Bullet						TYPE:Ammunition.FirearmGear.FirearmBullet.Magic	COST:1722											SOURCEPAGE:p.142	SPROP:This +1 firearm bullet deals normal damage, but when it hits a living creature, it burrows into the creature's flesh, causing wracking pain until removed or until the bullet burrows its way out of the creature. While these bullets burrow, the creature is staggered. This effect lasts for 1d3 rounds or until the bullet is removed with a DC 15 Heal check made as a standard action.
-Burrowing Bullet (Greater)				TYPE:Ammunition.FirearmGear.FirearmBullet.Magic	COST:3447											SOURCEPAGE:p.142	SPROP:This +1 firearm bullet deals normal damage, but when it hits a living creature, it burrows into the creature's flesh, causing wracking pain until removed or until the bullet burrows its way out of the creature. While these bullets burrow, the creature is staggered. This effect lasts for 1d3+2 rounds or until the bullet is removed with a DC 20 Heal check made as a standard action.
-Kestros Dart (10)						TYPE:Ammunition.KestrosDart				COST:5	WT:5
-Metal Cartridge						TYPE:Ammunition.FirearmGear.FirearmCartridge	COST:15
-Pellets (Handful)						TYPE:Ammunition.FirearmGear.FirearmPellet		COST:1
-Pellets (Handful/30)					TYPE:Ammunition.FirearmGear.FirearmPellet		COST:30	WT:0.5	BASEQTY:30
-Siege Engine Ammunition (Alchemist's Fire)	TYPE:Ammunition.SiegeAmmo				COST:200	WT:10
-Siege Engine Ammunition (Blast Shot)		TYPE:Ammunition.SiegeAmmo				COST:30	WT:25
-Siege Engine Ammunition (Bomb)			TYPE:Ammunition.SiegeAmmo				COST:600	WT:30
-Siege Engine Ammunition (Chain Shot)		TYPE:Ammunition.SiegeAmmo				COST:50	WT:30
-Siege Engine Ammunition (Liquid Ice)		TYPE:Ammunition.SiegeAmmo				COST:400	WT:20
-Siege Engine Ammunition (Plague Bundle)		TYPE:Ammunition.SiegeAmmo				COST:80	WT:20
-Siege Engine Ammunition (Smoke Shot)		TYPE:Ammunition.SiegeAmmo				COST:250	WT:20
-Tracer Bullet						TYPE:Magic.Ammunition.FirearmGear.FirearmBullet	COST:100											SOURCEPAGE:p.142	SPROP:These +1 firearm bullets deal no damage, but instead cause a pale glow to outline the target, granting the effect of a faerie fire spell and causing the target to take a -2 penalty to AC against ranged attacks. These effects last for 1d4 rounds.
+Alchemical Cartridge (Dragon's Breath)		TYPE:Ammunition.Resizable.FirearmGear.FirearmCartridge	COST:40
+Alchemical Cartridge (Entangling Shot)		TYPE:Ammunition.Resizable.FirearmGear.FirearmCartridge	COST:40
+Alchemical Cartridge (Flare)				TYPE:Ammunition.Resizable.FirearmGear.FirearmCartridge	COST:10
+Alchemical Cartridge (Paper/Bullet)			TYPE:Ammunition.Resizable.FirearmGear.FirearmCartridge	COST:12
+Alchemical Cartridge (Paper/Pellet)			TYPE:Ammunition.Resizable.FirearmGear.FirearmCartridge	COST:12
+Alchemical Cartridge (Salt Shot)			TYPE:Ammunition.Resizable.FirearmGear.FirearmCartridge	COST:12
+Arrow (Iron-tipped Distance/20)			TYPE:Ammunition.Resizable.Arrow					COST:1	WT:4					EQMOD:STEEL.WOOD	SPROP:Iron-tipped distance arrows increase their bow's range increment by 10 feet but take a –1 penalty on damage dealt per range increment.	BONUS:EQMWEAPON|RANGEADD|10	BONUS:WEAPON|DAMAGE|-1
+Arrow (Whistling)						TYPE:Ammunition.Resizable.Arrow					COST:2	WT:3					EQMOD:STEEL.WOOD
+Atlatl Dart							TYPE:Ammunition.Resizable.AtlatlDart				COST:1	WT:2
+Bamboo Shaft (10)						TYPE:Ammunition.Resizable.BambooShaft				COST:1	WT:0.5				EQMOD:STEEL.WOOD	SIZE:M
+Bullet (Adamantine)					TYPE:Ammunition.Resizable.FirearmGear.FirearmBullet		COST:61
+Bullet (Firearm)						TYPE:Ammunition.Resizable.FirearmGear.FirearmBullet		COST:1
+Bullet (Firearm/30)					TYPE:Ammunition.Resizable.FirearmGear.FirearmBullet		COST:30	WT:0.5	BASEQTY:30
+Bullet (Firearm/Pitted)					TYPE:Ammunition.Resizable.FirearmGear.FirearmBullet		COST:5
+Bullet (Firearm/Silver)					TYPE:Ammunition.Resizable.FirearmGear.FirearmBullet		COST:25
+Burrowing Bullet						TYPE:Ammunition.Resizable.FirearmGear.FirearmBullet.Magic	COST:1722											SOURCEPAGE:p.142	SPROP:This +1 firearm bullet deals normal damage, but when it hits a living creature, it burrows into the creature's flesh, causing wracking pain until removed or until the bullet burrows its way out of the creature. While these bullets burrow, the creature is staggered. This effect lasts for 1d3 rounds or until the bullet is removed with a DC 15 Heal check made as a standard action.
+Burrowing Bullet (Greater)				TYPE:Ammunition.Resizable.FirearmGear.FirearmBullet.Magic	COST:3447											SOURCEPAGE:p.142	SPROP:This +1 firearm bullet deals normal damage, but when it hits a living creature, it burrows into the creature's flesh, causing wracking pain until removed or until the bullet burrows its way out of the creature. While these bullets burrow, the creature is staggered. This effect lasts for 1d3+2 rounds or until the bullet is removed with a DC 20 Heal check made as a standard action.
+Kestros Dart (10)						TYPE:Ammunition.Resizable.KestrosDart				COST:5	WT:5
+Metal Cartridge						TYPE:Ammunition.Resizable.FirearmGear.FirearmCartridge	COST:15
+Pellets (Handful)						TYPE:Ammunition.Resizable.FirearmGear.FirearmPellet		COST:1
+Pellets (Handful/30)					TYPE:Ammunition.Resizable.FirearmGear.FirearmPellet		COST:30	WT:0.5	BASEQTY:30
+Siege Engine Ammunition (Alchemist's Fire)	TYPE:Ammunition.Resizable.SiegeAmmo				COST:200	WT:10
+Siege Engine Ammunition (Blast Shot)		TYPE:Ammunition.Resizable.SiegeAmmo				COST:30	WT:25
+Siege Engine Ammunition (Bomb)			TYPE:Ammunition.Resizable.SiegeAmmo				COST:600	WT:30
+Siege Engine Ammunition (Chain Shot)		TYPE:Ammunition.Resizable.SiegeAmmo				COST:50	WT:30
+Siege Engine Ammunition (Liquid Ice)		TYPE:Ammunition.Resizable.SiegeAmmo				COST:400	WT:20
+Siege Engine Ammunition (Plague Bundle)		TYPE:Ammunition.Resizable.SiegeAmmo				COST:80	WT:20
+Siege Engine Ammunition (Smoke Shot)		TYPE:Ammunition.Resizable.SiegeAmmo				COST:250	WT:20
+Tracer Bullet						TYPE:Magic.Ammunition.Resizable.FirearmGear.FirearmBullet	COST:100											SOURCEPAGE:p.142	SPROP:These +1 firearm bullets deal no damage, but instead cause a pale glow to outline the target, granting the effect of a faerie fire spell and causing the target to take a -2 penalty to AC against ranged attacks. These effects last for 1d4 rounds.
 
 
 ###Block: Armor
