@@ -1305,17 +1305,14 @@
 					</fo:table-row>
 				</xsl:if>
 				<xsl:choose>
-				<xsl:when test="range[position()=6 and distance='']">
-				</xsl:when>
-				<xsl:when test="range[position()=11 and distance='']">
-				</xsl:when>
 				<xsl:when test="count(./range) = 0]">
 					<!--  Don't output table rows if there are no ranges -->
 				</xsl:when>
 				<xsl:otherwise>
 	<!-->			<xsl:if test="range[position() &gt; 5]">	-->
 	<!-->		<xsl:if test="range[position() &gt; 5 or ../../common/range &gt; 10]">	-->
-	<!-->			<xsl:if test="count(./ranges/range) = 6 or count(./ranges/range) = 11">-->
+	<!-->			<xsl:if test="count(./ranges/range) = 6 or count(./ranges/range) = 11">	-->
+					<xsl:if test="count(./range) = 6 or count(./range) = 11">
 					<fo:table-row keep-with-next.within-column="always">
 											<xsl:message>Test</xsl:message>
 						<xsl:for-each select="range[position() &lt; 2]">	
@@ -1345,14 +1342,16 @@
 							</fo:table-cell>
 						</xsl:for-each>	
 					</fo:table-row>
-			<!-->	</xsl:if>	-->
-				</xsl:otherwise>
-				</xsl:choose>
+				</xsl:if>	
 
+<!--	FIRST ROW	-->
+				<xsl:message><xsl:value-of select="count(./range)"/></xsl:message>
 
-			<xsl:if test="range[position() &gt; 6]">
+			<xsl:if test="count(./range) = 6 or count(./range) = 11">
+		<!-->		<xsl:if test="range[position() &gt; 6]">	-->
 				<fo:table-row keep-with-next.within-column="always">
-											<xsl:message>Test</xsl:message>
+											<xsl:message>Test</xsl:message>				<xsl:message><xsl:value-of select="count(./range)"/></xsl:message>
+
 					<!-- Distances -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
@@ -1405,12 +1404,70 @@
 					</xsl:for-each>
 				</fo:table-row>
 				</xsl:if>
-<!-- For Thrown Weapons -->
+<!-- For Thrown Weapons		-->
 
-<!-- New Row For Actual Range with 10 increments 
-		CHOOSE tests for Thrown or Ranged and then grants the -->
-			<xsl:choose>
-			<xsl:when test="range[position() &gt; 6]">
+<!-- First Row - only 5 Increments or 10 Increments	-->
+
+			<xsl:if test="count(./range) = 5 or count(./range) = 10">
+		<!-->		<xsl:if test="range[position() &gt; 6]">	-->
+				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+					<!-- Distances -->
+					<fo:table-cell>
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+					</fo:table-cell>
+					<xsl:for-each select="range[position() &gt; 0 and position() &lt; 6]">
+						<fo:table-cell>
+							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+							<fo:block font-size="5pt" font-weight="bold">
+								<xsl:value-of select="distance"/>
+							</fo:block>
+						</fo:table-cell>
+					</xsl:for-each>
+				</fo:table-row>
+				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+					<!-- Range To-Hits -->
+					<fo:table-cell>
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+						<fo:block font-size="6pt" font-weight="bold">TH</fo:block>
+					</fo:table-cell>
+					<xsl:for-each select="range[position() &gt; 0 and position() &lt; 6]">
+						<fo:table-cell>
+							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
+							<fo:block space-before="1pt">
+								<xsl:attribute name="font-size">
+									<xsl:choose>
+										<xsl:when test="string-length(to_hit) &gt; 15">6pt</xsl:when>
+										<xsl:otherwise>7pt</xsl:otherwise>
+									</xsl:choose>
+								</xsl:attribute>
+								<xsl:value-of select="to_hit"/>
+							</fo:block>
+						</fo:table-cell>
+					</xsl:for-each>
+				</fo:table-row>
+				<fo:table-row keep-with-next.within-column="always">
+											<xsl:message>Test</xsl:message>
+					<!-- Damages -->
+					<fo:table-cell>
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
+						<fo:block font-size="6pt" font-weight="bold">Dam</fo:block>
+					</fo:table-cell>
+					<xsl:for-each select="range[position() &gt; 0 and position() &lt; 6]">
+						<fo:table-cell>
+							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
+							<fo:block font-size="7pt" space-before="1pt">
+								<xsl:value-of select="damage"/>
+							</fo:block>
+						</fo:table-cell>
+					</xsl:for-each>
+				</fo:table-row>
+				</xsl:if>
+<!-- First Row 5 or 10 Increments	-->
+
+<!-- Second Row 11 Increments	-->
+				<xsl:if test="count(./range) = 11">
 				<fo:table-row keep-with-next.within-column="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Distances -->
@@ -1464,19 +1521,19 @@
 						</fo:table-cell>
 					</xsl:for-each>
 				</fo:table-row>
+			</xsl:if>
 
+<!-- End second Row 11 Increments	-->
 
-			</xsl:when>
-			<xsl:when test="range[position()=6 and distance='']">
-
-<!-->			<xsl:when test="contains(rangetype, 'Thrown')"> -->
+<!-- Second Row 10 Increments	-->
+				<xsl:if test="count(./range) = 10">
 				<fo:table-row keep-with-next.within-column="always">
 											<xsl:message>Test</xsl:message>
 					<!-- Distances -->
 					<fo:table-cell>
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
 					</fo:table-cell>
-					<xsl:for-each select="range[position() &lt; 6]">	
+					<xsl:for-each select="range[position() &gt; 5 and position() &lt; 11]">
 						<fo:table-cell>
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
 							<fo:block font-size="5pt" font-weight="bold">
@@ -1492,7 +1549,7 @@
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
 						<fo:block font-size="6pt" font-weight="bold">TH</fo:block>
 					</fo:table-cell>
-					<xsl:for-each select="range[position() &lt; 6]">	
+					<xsl:for-each select="range[position() &gt; 5 and position() &lt; 11]">
 						<fo:table-cell>
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
 							<fo:block space-before="1pt">
@@ -1514,82 +1571,23 @@
 						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
 						<fo:block font-size="6pt" font-weight="bold">Dam</fo:block>
 					</fo:table-cell>
-					<xsl:for-each select="range[position() &lt; 6]">
+					<xsl:for-each select="range[position() &gt; 5 and position() &lt; 11]">
 						<fo:table-cell>
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
 							<fo:block font-size="7pt" space-before="1pt">
 								<xsl:value-of select="damage"/>
 							</fo:block>
 						</fo:table-cell>
-					</xsl:for-each>	
-				</fo:table-row>
-
-			</xsl:when>
-
-			<xsl:otherwise>
-
-
-<!-->						<xsl:when test="range[position() &lt; 8]">	-->
-				<fo:table-row keep-with-next.within-column="always">
-											<xsl:message>Test</xsl:message>
-					<!-- Distances -->
-					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-					</fo:table-cell>
-											<xsl:message>Test END unless Ranged</xsl:message>
-
-<!-->					<xsl:for-each select="range[position() &lt; 6]">	-->
-					<xsl:for-each select="range[position() &gt; 1 and position() &lt; 7]">
-						<fo:table-cell>
-							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-							<fo:block font-size="5pt" font-weight="bold">
-								<xsl:value-of select="distance"/>
-							</fo:block>
-						</fo:table-cell>
 					</xsl:for-each>
 				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
-												<xsl:message>Test</xsl:message>
-				<!-- Range To-Hits -->
-					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-						<fo:block font-size="6pt" font-weight="bold">TH</fo:block>
-					</fo:table-cell>
-	<!-->				<xsl:for-each select="range[position() &lt; 6]">	-->
-						<xsl:for-each select="range[position() &gt; 1 and position() &lt; 8]">
-						<fo:table-cell>
-							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
-							<fo:block space-before="1pt">
-								<xsl:attribute name="font-size">
-									<xsl:choose>
-										<xsl:when test="string-length(to_hit) &gt; 15">6pt</xsl:when>
-										<xsl:otherwise>7pt</xsl:otherwise>
-									</xsl:choose>
-								</xsl:attribute>
-								<xsl:value-of select="to_hit"/>
-							</fo:block>
-						</fo:table-cell>
-					</xsl:for-each>
-				</fo:table-row>
-				<fo:table-row keep-with-next.within-column="always">
-											<xsl:message>Test END</xsl:message>
-					<!-- Damages -->
-					<fo:table-cell>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.title'"/></xsl:call-template>
-						<fo:block font-size="6pt" font-weight="bold">Dam</fo:block>
-					</fo:table-cell>
-					<xsl:for-each select="range[position() &gt; 1 and position() &lt; 7]">
-<!--					<xsl:for-each select="range[position() &lt; 6]">	-->
-						<fo:table-cell>
-							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
-							<fo:block font-size="7pt" space-before="1pt">
-								<xsl:value-of select="damage"/>
-							</fo:block>
-						</fo:table-cell>
-					</xsl:for-each>	
-				</fo:table-row>
+			</xsl:if>
+<!-- End Second Row 10 Increments	-->
 
-				
+
+
+
+
+
 
 
 			</xsl:otherwise>

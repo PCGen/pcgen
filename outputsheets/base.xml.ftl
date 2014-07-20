@@ -671,6 +671,7 @@
 			</melee>
 			</#macro>
 			<#macro weapRangeBlock weap range>
+				<#if (pcstring('WEAPON.${weap}.RANGELIST.${range}') != "") >
 				<range>
 					<distance>${pcstring('WEAPON.${weap}.RANGELIST.${range}')}</distance>
 					<to_hit>${pcstring('WEAPON.${weap}.RANGELIST.${range}.TOTALHIT')}</to_hit>
@@ -682,6 +683,7 @@
 					<tohit_2weap_light>${pcstring('WEAPON.${weap}.RANGELIST.${range}.TWPHITL')}</tohit_2weap_light>
 					<tohit_2weap_offhand>${pcstring('WEAPON.${weap}.RANGELIST.${range}.TWOHIT')}</tohit_2weap_offhand>
 				</range>
+				</#if>
 			</#macro>
 
 	<weapons>
