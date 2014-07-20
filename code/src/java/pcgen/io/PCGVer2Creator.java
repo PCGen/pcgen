@@ -94,10 +94,10 @@ import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.display.BonusDisplay;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
+import pcgen.facade.core.CampaignFacade;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
@@ -2010,8 +2010,9 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendSkillLines(StringBuilder buffer)
 	{
-		Collection<Skill> skillSet = charDisplay.getSkillSet();
-		for (Skill skill : skillSet)
+		List<Skill> skillList = new ArrayList<Skill>(charDisplay.getSkillSet());
+		Collections.sort(skillList);
+		for (Skill skill : skillList)
 		{
 			Integer outputIndex = thePC.getSkillOrder(skill);
 			if ((thePC.getRank(skill).doubleValue() > 0)
