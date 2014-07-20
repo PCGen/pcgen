@@ -22,11 +22,11 @@ Astral Suit Ram 4			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYP
 
 ###Block: Crystal Shard from Metacreative Talent trait
 # Equipment Name	Required Weapon Proficiency		Type								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page
-Crystal Shard	PROFICIENCY:WEAPON|Crystal Shard	TYPE:Weapon.Ranged.Standard.Slashing.Thrown	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	RANGE:10	SOURCEPAGE:p.35
+Crystal Shard	PROFICIENCY:WEAPON|Crystal Shard	TYPE:Weapon.Resizable.Ranged.Standard.Slashing.Thrown	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	RANGE:10	SOURCEPAGE:p.35
 
 ###Block: Mundane items
 # Equipment Name	Required Weapon Proficiency		Type																Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Source Page
-Xephyr Knife	PROFICIENCY:WEAPON|Xephyr Knife	TYPE:Weapon.Melee.Light.Finesseable.Ranged.Thrown.Exotic.Standard.Piercing.Slashing.BladeLight	COST:15	WT:1		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6	SOURCEPAGE:p.33
+Xephyr Knife	PROFICIENCY:WEAPON|Xephyr Knife	TYPE:Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Exotic.Standard.Piercing.Slashing.BladeLight	COST:15	WT:1		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6	SOURCEPAGE:p.33
 
 
 ###Block: Psionic items
