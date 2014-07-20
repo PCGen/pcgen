@@ -1124,8 +1124,8 @@ BIO
 	  ====================================-->
 	<weapons>
 		<unarmed>
-			<total>+8</total>
-			<damage>1d8+3</damage>
+			<total>+6</total>
+			<damage>1d3+3</damage>
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
@@ -1188,6 +1188,39 @@ BIO
 		<weapon>
 			<common>
 				<name>
+					<short>*Brawl</short>
+					<long>*Brawl (Natural/Primary)</long>
+				</name>
+				<category>Natural-Natural,Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+8</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+8</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Primary</hand>
+				<num_attacks>1</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties>Non-Lethal</special_properties>
+				<template></template>
+				<type></type>
+				<weight>0</weight>
+				<sequence>1</sequence>
+			</common>
+			<simple>
+				<to_hit>+8</to_hit>
+				<damage>1d8+3</damage>
+				<range>0 ft.</range>
+			</simple>
+		</weapon>
+		<weapon>
+			<common>
+				<name>
 					<short>Brass Knuckles (Medium)</short>
 					<long>Brass Knuckles (Medium)</long>
 				</name>
@@ -1210,7 +1243,7 @@ BIO
 				<template></template>
 				<type>Bl</type>
 				<weight>10</weight>
-				<sequence>1</sequence>
+				<sequence>2</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1270,7 +1303,7 @@ BIO
 				<template></template>
 				<type>P</type>
 				<weight>20</weight>
-				<sequence>2</sequence>
+				<sequence>3</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1367,6 +1400,32 @@ BIO
 			<special_properties>Magazine 15,Lic(+1)</special_properties>
 			<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.CUSTOM</type>
 			<weight>6</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Brawl (Natural/Primary)</longname>
+			<id></id>
+			<name>Brawl</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>0</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties>Non-Lethal</special_properties>
+			<type>WEAPON.NATURAL.MELEE.BRAWL</type>
+			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
@@ -1474,6 +1533,32 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Dagger (Punching) (Medium)</longname>
+			<id></id>
+			<name>Dagger (Punching) (Medium)</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>10</cost>
+			<equipped>N</equipped>
+			<location>Carried</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>WEAPON.SIMPLE.MELEE.PIERCING.STANDARD.METAL.FINESSEABLE.CUSTOM</type>
+			<weight>20</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
 			<longname>Clothing Outfit (Formal)</longname>
 			<id></id>
 			<name>Formal Outfit</name>
@@ -1551,32 +1636,6 @@ BIO
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
-		<item>
-			<longname>Dagger (Punching) (Medium)</longname>
-			<id></id>
-			<name>Dagger (Punching) (Medium)</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>10</cost>
-			<equipped>N</equipped>
-			<location>Carried</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>WEAPON.SIMPLE.MELEE.PIERCING.STANDARD.METAL.FINESSEABLE.CUSTOM</type>
-			<weight>20</weight>
-			<bonuslist></bonuslist>
-		</item>
 		<total>
 			<weight>46 lbs.</weight>
 			<value>90 Wlth</value>
@@ -1605,6 +1664,27 @@ BIO
 					<special_properties>Magazine 15,Lic(+1)</special_properties>
 					<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.CUSTOM</type>
 					<weight>6</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Brawl</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>0</cost>
+					<equipped>Y</equipped>
+					<location>Equipped</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties>Non-Lethal</special_properties>
+					<type>WEAPON.NATURAL.MELEE.BRAWL</type>
+					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
 		<item>
@@ -1692,6 +1772,27 @@ BIO
 					<bonuslist></bonuslist>
 				</item>
 		<item>
+					<name>Dagger (Punching) (Medium)</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>10</cost>
+					<equipped>N</equipped>
+					<location>Carried</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>WEAPON.SIMPLE.MELEE.PIERCING.STANDARD.METAL.FINESSEABLE.CUSTOM</type>
+					<weight>20</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
 					<name>Formal Outfit</name>
 					<carried>1.0</carried>
 					<charges></charges>
@@ -1752,27 +1853,6 @@ BIO
 					<special_properties></special_properties>
 					<type>AMMUNITION.STANDARD.METAL.BULLET</type>
 					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Dagger (Punching) (Medium)</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>10</cost>
-					<equipped>N</equipped>
-					<location>Carried</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.SIMPLE.MELEE.PIERCING.STANDARD.METAL.FINESSEABLE.CUSTOM</type>
-					<weight>20</weight>
 					<bonuslist></bonuslist>
 				</item>
 			</equipmentset>
@@ -1956,6 +2036,28 @@ BIO
 		</ability_object>
 	<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
+			<name>Brawl</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Brawl Damage ~ d8</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>Default</name>
 			<description></description>
 			<type></type>
@@ -1985,7 +2087,7 @@ BIO
 	  ====================================
 	  ====================================-->
 	<!-- Domains -->
-	<weapon_proficiencies>Air Pistol, Air Rifle, AKM/AK-47, Barrett Light Fifty, Beam Sword, Benelli 121 M1, Beretta 92F, Beretta 93R, Beretta M3P, Blowgun, Brass Knuckles, Browning BPS, Cleaver, Club, Colt Double Eagle, Colt M1911, Colt Python, Concussion Rifle, Concussion Rod, Crossbow, Cryonic Rifle, Crystal Pistol, Derringer, Desert Eagle, Disintegrator, Falcon .45, Flamethrower, Flare Gun, Gauntlet, Glock 17, Glock 20, Gravity Snare, Heavy Mace, High Frequency Sword, HK G3, HK MP5, HK MP5K, HK PSG1, Javelin, Ketch-all Pole, Knife, Laser Optics, Laser Pistol, Laser Rifle, Laser Sniper Rifle, Light Mace, Lightning Gun, M-60, M16A2, M4 Carbine, MAC Ingram M10, Metal Baton, Mini-Grenade Launcher, Mini-Rocket Launcher, Mossberg, OICW Assault Rifle, Paint Ball Gun, Pathfinder, Pepper Spray, Pistol Whip, Plasma Pistol, Plasma Rifle, Pulse Rifle, Punching Dagger, Quarterstaff, Rail Gun, Remington 700, Rifle Butt, Ruger Service-Six, S and W M29, Sap, Sawed-Off Shotgun, Shortspear, Sickle, SITES M9, Skorpion, Slingshot, Sonic Beam, Speargun, Spiked Club, Steyr AUG, Sticky Foam Sprayer, Stun Baton, Stun Gun, Super Watergun, TACMIL Sniper Rifle, Tangler Gun, Taser, TEC-9, Tonfa, Twin thunder machine gun, Unarmed Strike, Uzi, Walther PPK, Water Cannon, Whip, Winchester 94</weapon_proficiencies>
+	<weapon_proficiencies>Air Pistol, Air Rifle, AKM/AK-47, Barrett Light Fifty, Beam Sword, Benelli 121 M1, Beretta 92F, Beretta 93R, Beretta M3P, Blowgun, Brass Knuckles, Brawl, Browning BPS, Cleaver, Club, Colt Double Eagle, Colt M1911, Colt Python, Concussion Rifle, Concussion Rod, Crossbow, Cryonic Rifle, Crystal Pistol, Derringer, Desert Eagle, Disintegrator, Falcon .45, Flamethrower, Flare Gun, Gauntlet, Glock 17, Glock 20, Gravity Snare, Heavy Mace, High Frequency Sword, HK G3, HK MP5, HK MP5K, HK PSG1, Javelin, Ketch-all Pole, Knife, Laser Optics, Laser Pistol, Laser Rifle, Laser Sniper Rifle, Light Mace, Lightning Gun, M-60, M16A2, M4 Carbine, MAC Ingram M10, Metal Baton, Mini-Grenade Launcher, Mini-Rocket Launcher, Mossberg, OICW Assault Rifle, Paint Ball Gun, Pathfinder, Pepper Spray, Pistol Whip, Plasma Pistol, Plasma Rifle, Pulse Rifle, Punching Dagger, Quarterstaff, Rail Gun, Remington 700, Rifle Butt, Ruger Service-Six, S and W M29, Sap, Sawed-Off Shotgun, Shortspear, Sickle, SITES M9, Skorpion, Slingshot, Sonic Beam, Speargun, Spiked Club, Steyr AUG, Sticky Foam Sprayer, Stun Baton, Stun Gun, Super Watergun, TACMIL Sniper Rifle, Tangler Gun, Taser, TEC-9, Tonfa, Twin thunder machine gun, Unarmed Strike, Uzi, Walther PPK, Water Cannon, Whip, Winchester 94</weapon_proficiencies>
 	<languages>English, Russian</languages>
 
 	<templates>
