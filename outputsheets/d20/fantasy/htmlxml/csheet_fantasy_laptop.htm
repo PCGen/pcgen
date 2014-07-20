@@ -4716,14 +4716,14 @@ function BarbMods( newRageState )
 		conMod = -|VAR.RageConBonus.INTVAL|;
 		strModMod = -(|VAR.RageStrBonus.INTVAL|/2);
 		conModMod = -(|VAR.RageConBonus.INTVAL|/2);
-		acMod = |VAR.RageACPenalty.INTVAL|;
+		acMod = -|VAR.RageACPenalty.INTVAL|;
 		willMod = -|VAR.RageSaveBonus.INTVAL|;
 |ELSE|
 		strMod = -|VAR.RageStrBonus|;
 		conMod = -|VAR.RageConBonus|;
 		strModMod = -(|VAR.RageStrBonus|/2);
 		conModMod = -(|VAR.RageConBonus|/2);
-		acMod = |VAR.RageACPenalty|;
+		acMod = -|VAR.RageACPenalty|;
 		willMod = -|VAR.RageMorale|;
 |ENDIF|
 	} 
@@ -4744,14 +4744,14 @@ function BarbMods( newRageState )
 		conMod = -|VAR.RageConBonus.INTVAL|;
 		strModMod = -(|VAR.RageStrBonus.INTVAL|/2);
 		conModMod = -(|VAR.RageConBonus.INTVAL|/2);
-		acMod = |VAR.RageACPenalty.INTVAL|;
+		acMod = -|VAR.RageACPenalty.INTVAL|;
 		willMod = -|VAR.RageSaveBonus.INTVAL|;
 |ELSE|
 		strMod = -(|VAR.RageStrBonus| + 2);
 		conMod = -(|VAR.RageConBonus| + 2);
 		strModMod = -((|VAR.RageStrBonus|+2)/2);
 		conModMod = -((|VAR.RageConBonus|+2)/2);
-		acMod = |VAR.RageACPenalty|;
+		acMod = -|VAR.RageACPenalty|;
 		willMod = -(|VAR.RageMorale|+1);
 |ENDIF|
 	}
@@ -4762,14 +4762,14 @@ function BarbMods( newRageState )
 		conMod = -|VAR.RageConBonus.INTVAL|;
 		strModMod = -(|VAR.RageStrBonus.INTVAL|/2);
 		conModMod = -(|VAR.RageConBonus.INTVAL|/2);
-		acMod = |VAR.RageACPenalty.INTVAL|;
+		acMod = -|VAR.RageACPenalty.INTVAL|;
 		willMod = -|VAR.RageSaveBonus.INTVAL|;
 |ELSE|
 		strMod = -(|VAR.RageStrBonus| + 4);
 		conMod = -(|VAR.RageConBonus| + 4);
 		strModMod = -((|VAR.RageStrBonus|+4)/2);
 		conModMod = -((|VAR.RageConBonus|+4)/2);
-		acMod = |VAR.RageACPenalty|;
+		acMod = -|VAR.RageACPenalty|;
 		willMod = -(|VAR.RageMorale|+2);
 |ENDIF|
 	}
@@ -4785,14 +4785,14 @@ function BarbMods( newRageState )
 		conMod = conMod+|VAR.RageConBonus.INTVAL|;
 		strModMod = strModMod+(|VAR.RageStrBonus.INTVAL|/2);
 		conModMod = conModMod+(|VAR.RageConBonus.INTVAL|/2);
-		acMod = acMod-(|VAR.RageACPenalty.INTVAL|);
+		acMod = acMod+(|VAR.RageACPenalty.INTVAL|);
 		willMod = willMod+|VAR.RageSaveBonus.INTVAL|;
 |ELSE|
 		strMod = strMod+|VAR.RageStrBonus|;
 		conMod = conMod+|VAR.RageConBonus|;
 		strModMod = strModMod+(|VAR.RageStrBonus|/2);
 		conModMod = conModMod+(|VAR.RageConBonus|/2);
-		acMod = acMod-(|VAR.RageACPenalty|);
+		acMod = acMod+(|VAR.RageACPenalty|);
 		willMod = willMod+|VAR.RageMorale|;
 |ENDIF|
 	}
@@ -4821,14 +4821,14 @@ function BarbMods( newRageState )
 		conMod = conMod+|VAR.RageConBonus.INTVAL|;
 		strModMod = strModMod(|VAR.RageStrBonus.INTVAL|/2);
 		conModMod = conModMod(|VAR.RageConBonus.INTVAL|/2);
-		acMod = acMod-(|VAR.RageACPenalty.INTVAL|);
+		acMod = acMod+(|VAR.RageACPenalty.INTVAL|);
 		willMod = willMod+|VAR.RageSaveBonus.INTVAL|;
 |ELSE|
 		strMod = strMod+|VAR.RageStrBonus|+2;
 		conMod = conMod+|VAR.RageConBonus|+2;
 		strModMod = strModMod+((|VAR.RageStrBonus|+2)/2);
 		conModMod = conModMod+((|VAR.RageConBonus|+2)/2);
-		acMod = acMod-(|VAR.RageACPenalty|);
+		acMod = acMod+(|VAR.RageACPenalty|);
 		willMod = willMod+|VAR.RageMorale|+1;
 |ENDIF|
 	}
@@ -4843,14 +4843,14 @@ function BarbMods( newRageState )
 		conMod = conMod+|VAR.RageConBonus.INTVAL|;
 		strModMod = strModMod(|VAR.RageStrBonus.INTVAL|/2);
 		conModMod = conModMod(|VAR.RageConBonus.INTVAL|/2);
-		acMod = acMod-(|VAR.RageACPenalty.INTVAL|);
+		acMod = acMod+(|VAR.RageACPenalty.INTVAL|);
 		willMod = willMod+|VAR.RageSaveBonus.INTVAL|;
 |ELSE|
 		strMod = strMod+|VAR.RageStrBonus|+4;
 		conMod = conMod+|VAR.RageConBonus|+4;
 		strModMod = strModMod+((|VAR.RageStrBonus|+4)/2);
 		conModMod = conModMod+((|VAR.RageConBonus|+4)/2);
-		acMod = acMod-(|VAR.RageACPenalty|);
+		acMod = acMod+(|VAR.RageACPenalty|);
 		willMod = willMod+|VAR.RageMorale|+2;
 |ENDIF|
 	}
