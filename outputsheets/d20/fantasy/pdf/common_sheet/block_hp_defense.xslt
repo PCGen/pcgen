@@ -860,7 +860,7 @@
 ====================================-->
 	<xsl:template name="encumberance">
 		<!-- BEGIN encumberance table -->
-<xsl:if test="/character/equipment/total/load != 'Light'">
+<!--	<xsl:if test="/character/equipment/total/load != 'Light'">	-->
 		<fo:table table-layout="fixed">
 			<!-- 0.26 * $pagePrintableWidth - 2 mm -->
 			<fo:table-column>
@@ -895,7 +895,7 @@
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
-</xsl:if>
+<!--	</xsl:if>	-->
 		<!-- END encumberance table -->
 	</xsl:template>
 
@@ -921,15 +921,16 @@
 						<xsl:apply-templates select="." mode="saves"/>
 					</fo:table-cell>
 					<fo:table-cell/>
+<!--	Square Box Conditional Save area that we no longer need
 					<fo:table-cell padding-start="1pt">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'border'"/>
 						</xsl:call-template>
-<!-->						<fo:block font-size="4pt">Conditional Save Modifiers</fo:block>	-->
+						<fo:block font-size="4pt">Conditional Save Modifiers</fo:block>
 						<xsl:for-each select="conditional_modifiers/savebonus">
 							<fo:block font-size="4pt" space-before.optimum="1pt"><xsl:value-of select="description"/></fo:block>
 						</xsl:for-each>
-					</fo:table-cell>
+					</fo:table-cell>		-->
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
