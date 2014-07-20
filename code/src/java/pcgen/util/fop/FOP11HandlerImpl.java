@@ -29,8 +29,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Date;
 
+import javax.xml.transform.ErrorListener;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
+import javax.xml.transform.SourceLocator;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -289,10 +291,12 @@ public class FOP11HandlerImpl implements FOPHandler
 
             Result res = new SAXResult(fop.getDefaultHandler());
 
+            FOPErrorListener errListener = new FOPErrorListener();
+            transformer.setErrorListener(errListener);
             transformer.transform(src, res);
         } catch (TransformerException e) {
             errBuffer.append(e.getMessage()).append(Constants.LINE_SEPARATOR);
-            Logging.errorPrint("Exception in FOPHandler:setInputFile", e);
+            Logging.errorPrint("Exception in FOPHandler:run", e);
         } catch (FOPException fopex) {
             errBuffer.append(fopex.getMessage()).append(Constants.LINE_SEPARATOR);
 				Logging.errorPrint("Exception in FOPHandler:run", fopex);
@@ -320,4 +324,76 @@ public class FOP11HandlerImpl implements FOPHandler
 
         out = null;
 	}
+    
+    
+    /**
+     * The Class <code>FOPErrorListener</code> listens for notifications of issues when generating PDF files and 
+     * responds accordingly.
+     */
+    public class FOPErrorListener implements ErrorListener
+    {
+
+		/**
+		 * @{inheritdoc}
+		 */
+		@Override
+		public void error(TransformerException exception)
+			throws TransformerException
+		{
+			SourceLocator locator = exception.getLocator();
+			Logging.errorPrint("FOP Error " + exception.getMessage() + " at " + getLocation(locator));
+			throw exception;
+		}
+
+		/**
+		 * @{inheritdoc}
+		 */
+		@Override
+		public void fatalError(TransformerException exception)
+			throws TransformerException
+		{
+			SourceLocator locator = exception.getLocator();
+			Logging.errorPrint("FOP Fatal Error " + exception.getMessage() + " at " + getLocation(locator));
+			throw exception;
+		}
+
+		/**
+		 * @{inheritdoc}
+		 */
+		@Override
+		public void warning(TransformerException exception)
+			throws TransformerException
+		{
+			SourceLocator locator = exception.getLocator();
+			Logging.log(Logging.WARNING, getLocation(locator) + exception.getMessage());
+		}
+		
+		private String getLocation(SourceLocator locator)
+		{
+			if (locator == null)
+			{
+				return "Unknown; ";
+			}
+			StringBuilder builder = new StringBuilder();
+			if (locator.getSystemId() != null)
+			{
+				builder.append(locator.getSystemId());
+				builder.append("; ");
+			}
+			if (locator.getLineNumber() > -1)
+			{
+				builder.append("Line#: ");
+				builder.append(locator.getLineNumber());
+				builder.append("; ");
+			}
+			if (locator.getColumnNumber() > -1)
+			{
+				builder.append("Column#: ");
+				builder.append(locator.getColumnNumber());
+				builder.append("; ");
+			}
+			return builder.toString();
+		}
+    	
+    }
 }

@@ -208,8 +208,9 @@ public final class ExportHandler
 	 *
 	 * @param aPC the PlayerCharacter to write
 	 * @param out the Writer to be written to
+	 * @throws ExportException If the export fails.
 	 */
-	public void write(PlayerCharacter aPC, BufferedWriter out)
+	public void write(PlayerCharacter aPC, BufferedWriter out) throws ExportException
 	{
 		if (templateFile == null)
 		{
@@ -308,8 +309,9 @@ public final class ExportHandler
 	 * 
 	 * @param aPC The character being output.
 	 * @param outputWriter The destination for the output.
+	 * @throws ExportException If the export fails.
 	 */
-	private void exportCharacterUsingFreemarker(PlayerCharacter aPC, BufferedWriter outputWriter)
+	private void exportCharacterUsingFreemarker(PlayerCharacter aPC, BufferedWriter outputWriter) throws ExportException
 	{
 		Configuration cfg = new Configuration();
 
@@ -343,11 +345,15 @@ public final class ExportHandler
 		}
 		catch (IOException exc)
 		{
-			Logging.errorPrint("Error exporting character using template " + templateFile, exc);
+			String message = "Error exporting character using template " + templateFile;
+			Logging.errorPrint(message, exc);
+			throw new ExportException(exc, message + " : " + exc.getLocalizedMessage());
 		}
 		catch (TemplateException e)
 		{
-			Logging.errorPrint("Error exporting character using template " + templateFile, e);
+			String message = "Error exporting character using template " + templateFile;
+			Logging.errorPrint(message, e);
+			throw new ExportException(e, message + " : " + e.getLocalizedMessage());
 		}
 		finally
 		{

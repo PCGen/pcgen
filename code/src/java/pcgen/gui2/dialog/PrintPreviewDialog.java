@@ -82,6 +82,7 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
+import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.fop.FOPHandler;
@@ -89,9 +90,11 @@ import pcgen.util.fop.FOPHandlerFactory;
 import pcgen.util.Logging;
 
 /**
- *
+ * Dialog to allow the preview of character export.
+ * 
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+@SuppressWarnings("serial")
 public class PrintPreviewDialog extends JDialog implements ActionListener
 {
 
@@ -574,7 +577,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 	}
 
 	private static void printToXMLFile(File outFile, CharacterFacade character)
-			throws IOException
+			throws IOException, ExportException
 	{
 		final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
 

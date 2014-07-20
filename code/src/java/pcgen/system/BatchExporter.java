@@ -42,6 +42,7 @@ import pcgen.facade.core.UIDelegate;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.ExportUtilities;
 import pcgen.io.PCGFile;
@@ -258,7 +259,11 @@ public class BatchExporter
 		{
 			Logging.errorPrint("BatchExporter.exportCharacterToPDF failed", e); //$NON-NLS-1$
 			return false;
-
+		}
+		catch (ExportException e)
+		{
+			Logging.errorPrint("BatchExporter.exportCharacterToPDF failed", e); //$NON-NLS-1$
+			return false;
 		}
 		return true;
 
@@ -299,6 +304,11 @@ public class BatchExporter
 		{
 			Logging.errorPrint(
 				"Unable to create output file " + outFile.getAbsolutePath(), e);
+			return false;
+		}
+		catch (ExportException e)
+		{
+			// Error will already be reported to the log
 			return false;
 		}
 	}
@@ -374,9 +384,13 @@ public class BatchExporter
 		}
 		catch (IOException e)
 		{
-			Logging.errorPrint("BatchExporter.exportCharacterToPDF failed", e);
+			Logging.errorPrint("BatchExporter.exportPartyToPDF failed", e);
 			return false;
-
+		}
+		catch (ExportException e)
+		{
+			Logging.errorPrint("BatchExporter.exportPartyToPDF failed", e);
+			return false;
 		}
 		return true;
 	}
@@ -458,7 +472,7 @@ public class BatchExporter
 	}
 
 	private static void printToXMLFile(File outFile, CharacterFacade character)
-		throws IOException
+		throws IOException, ExportException
 	{
 		final BufferedWriter bw =
 				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
@@ -469,7 +483,7 @@ public class BatchExporter
 	}
 
 	private static void printToXMLFile(File outFile, PartyFacade party)
-		throws IOException
+		throws IOException, ExportException
 	{
 		final BufferedWriter bw =
 				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
@@ -483,7 +497,7 @@ public class BatchExporter
 	}
 
 	private static void printToFile(File outFile, 
-		File templateFile, CharacterFacade character) throws IOException
+		File templateFile, CharacterFacade character) throws IOException, ExportException
 	{
 		final BufferedWriter bw =
 				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(

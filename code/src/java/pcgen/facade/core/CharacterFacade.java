@@ -39,6 +39,7 @@ import pcgen.core.VariableProcessor;
 import pcgen.facade.util.event.ChangeListener;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 
 /**
@@ -443,8 +444,9 @@ public interface CharacterFacade extends CompanionFacade
 	 * 
 	 * @param theHandler The ExportHandler that defines how the output will be formatted.
 	 * @param buf The writer the character details are to be output to.
+	 * @throws ExportException If the export fails.
 	 */
-	public void export(ExportHandler theHandler, BufferedWriter buf);
+	public void export(ExportHandler theHandler, BufferedWriter buf) throws ExportException;
 
 	/**
 	 * gets the UIDelegate that this character uses to display messages

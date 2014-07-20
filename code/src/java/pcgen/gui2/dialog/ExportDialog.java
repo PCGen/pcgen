@@ -407,7 +407,12 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			}
 			else
 			{
-				printToFile(outFile);
+				if (!printToFile(outFile))
+				{
+					String message = "The character export failed. Please see the log for details.";
+					pcgenFrame.showErrorMessage(Constants.APPLICATION_NAME, message);
+					return;
+				}
 				maybeOpenFile(outFile);
 				Globals.executePostExportCommandStandard(outFile.getAbsolutePath());
 			}
@@ -488,7 +493,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		return new File(osPath.resolve(uri));
 	}
 
-	private void printToFile(File outFile)
+	private boolean printToFile(File outFile)
 			throws IOException
 	{
 		File template = getSelectedTemplate();
@@ -497,12 +502,12 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		{
 			SettingsHandler.setSelectedPartyHTMLOutputSheet(template.getAbsolutePath());
 			PartyFacade party = CharacterManager.getCharacters();
-			BatchExporter.exportPartyToNonPDF(party, outFile, template);
+			return BatchExporter.exportPartyToNonPDF(party, outFile, template);
 		}
 		else
 		{
 			CharacterFacade character = (CharacterFacade) characterBox.getSelectedItem();
-			BatchExporter.exportCharacterToNonPDF(character, outFile, template);
+			return BatchExporter.exportCharacterToNonPDF(character, outFile, template);
 		}
 	}
 

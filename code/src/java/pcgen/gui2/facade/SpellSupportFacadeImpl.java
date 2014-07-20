@@ -1510,13 +1510,21 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 			// Output the file
 			File templateFile = new File(template);
+			boolean success;
 			if (ExportUtilities.isPdfTemplate(templateFile))
 			{
-				BatchExporter.exportCharacterToPDF(pcFacade, outFile, templateFile);
+				success = BatchExporter.exportCharacterToPDF(pcFacade, outFile, templateFile);
 			}
 			else
 			{
-				BatchExporter.exportCharacterToNonPDF(pcFacade, outFile, templateFile);
+				success = BatchExporter.exportCharacterToNonPDF(pcFacade, outFile, templateFile);
+			}
+			
+			if (!success)
+			{
+				delegate.showErrorMessage(Constants.APPLICATION_NAME, 
+					LanguageBundle.getFormattedString(
+						"InfoSpells.export.failed", charDisplay.getDisplayName())); //$NON-NLS-1$ 
 			}
 		}
 		catch (Exception ex)

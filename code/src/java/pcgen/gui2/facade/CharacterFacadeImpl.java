@@ -173,6 +173,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.HtmlInfoBuilder;
+import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.system.CharacterManager;
@@ -2666,7 +2667,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @see pcgen.core.facade.CharacterFacade#export(pcgen.io.ExportHandler, java.io.BufferedWriter)
 	 */
 	@Override
-	public void export(ExportHandler theHandler, BufferedWriter buf)
+	public void export(ExportHandler theHandler, BufferedWriter buf) throws ExportException
 	{
 		final int maxRetries = 3;
 		for (int i = 0; i < maxRetries; i++)
