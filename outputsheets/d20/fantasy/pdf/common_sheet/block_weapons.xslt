@@ -1305,7 +1305,7 @@
 					</fo:table-row>
 				</xsl:if>
 				<xsl:choose>
-				<xsl:when test="count(./range) = 0]">
+				<xsl:when test="count(./range) = 0">
 					<!--  Don't output table rows if there are no ranges -->
 				</xsl:when>
 				<xsl:otherwise>
