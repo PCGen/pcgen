@@ -115,7 +115,7 @@
 									<xsl:with-param name="title" select="'AGE'"/>
 									<xsl:with-param name="value" select="age"/>
 								</xsl:call-template>
-								<fo:table-row>
+		<!--	Remove VISION TEST					<fo:table-row>
 											<xsl:message>Test</xsl:message>
 									<fo:table-cell padding-top="1pt" height="9pt">
 										<xsl:call-template name="attrib">
@@ -127,7 +127,7 @@
 											<xsl:if test="vision/all = ''">Normal</xsl:if>
 										</fo:block>
 									</fo:table-cell>
-								</fo:table-row>
+								</fo:table-row>	-->
 								<fo:table-row>
 											<xsl:message>Test</xsl:message>
 									<fo:table-cell padding-top="0.5pt">
