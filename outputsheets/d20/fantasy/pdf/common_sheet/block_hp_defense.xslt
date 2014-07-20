@@ -558,7 +558,7 @@
 					</fo:table-cell>	<!--	33	-->
 				<!-->	<fo:table-cell/>	-->
 				</fo:table-row>
-<!--				<fo:table-row height="0.5pt"/>	-->
+				<fo:table-row height="0.5pt"/>
 				<fo:table-row>
 											<xsl:message>Test</xsl:message>
 					<fo:table-cell/>	<!--	1	-->
