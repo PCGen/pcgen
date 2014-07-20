@@ -9,14 +9,12 @@
 	exclude-result-prefixes="myAttribs Psionics">
 
 	<xsl:import href="fantasy_common.xsl"/>
-	<xsl:import href="leadership.xsl"/>
 
 	<xsl:output indent="yes"/>
 
 	<xsl:variable name="vAttribs_tree">
 		<myAttribs:myAttribs>
 			<xsl:copy-of select="$vAttribs/*"/>
-			<xsl:copy-of select="document('leadership.xsl')/*/myAttribs:*/*"/>
 		</myAttribs:myAttribs>
 	</xsl:variable>
 	<xsl:variable name="vAttribs_all" select="xalan:nodeset($vAttribs_tree)"/>
@@ -400,7 +398,6 @@
 						<xsl:apply-templates select="powers_utilities"/>	
 						<!-- End 4th Edition Style -->
 						<xsl:apply-templates select="salient_divine_abilities"/>
-						<xsl:apply-templates select="leadership"/>
 						<xsl:apply-templates select="feats"/>
 						<xsl:apply-templates select="domains"/>
 						<xsl:apply-templates select="weapon_proficiencies"/>
