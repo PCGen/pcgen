@@ -166,7 +166,7 @@ public final class Main
 		}
 	}
 
-	public static void loadCharacterAndExport(String characterFile, String exportSheet, String outputFile, String configFile)
+	public static boolean loadCharacterAndExport(String characterFile, String exportSheet, String outputFile, String configFile)
 	{
 		Main.characterFile = characterFile;
 		Main.exportSheet = exportSheet;
@@ -176,7 +176,7 @@ public final class Main
 		configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance(configFile));
 		
-		startupWithoutGUI();
+		return startupWithoutGUI();
 	}
 	
 	private static void parseCommands(String[] args)
@@ -535,7 +535,7 @@ public final class Main
 	}
 
 
-	private static void startupWithoutGUI()
+	private static boolean startupWithoutGUI()
 	{
 		loadProperties(false);
 		validateEnvironment(false);
@@ -550,15 +550,18 @@ public final class Main
 	
 		BatchExporter exporter = new BatchExporter(exportSheet, uiDelegate);
 		
+		boolean result = true;
 		if (partyFile != null)
 		{
-			exporter.exportParty(partyFile, outputFile);
+			result = exporter.exportParty(partyFile, outputFile);
 		}
 
 		if (characterFile != null)
 		{
-			exporter.exportCharacter(characterFile, outputFile);
+			result = exporter.exportCharacter(characterFile, outputFile);
 		}
+		
+		return result;
 	}
 	
 	public static void shutdown()

@@ -137,8 +137,9 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 			String characterFile = "code/testsuite/PCGfiles/" + character
 				+ Constants.EXTENSION_CHARACTER_FILE;
 
-			Main.loadCharacterAndExport(characterFile,
-				getSheetName(), outputFile, TEST_CONFIG_FILE);
+			assertTrue("Export of " + character + " failed.",
+				Main.loadCharacterAndExport(characterFile, getSheetName(),
+					outputFile, TEST_CONFIG_FILE));
 
 			// Read in the actual XML produced by PCGen
 			actual = readFile(new File(outputFile));

@@ -4835,7 +4835,8 @@ public final class Equipment extends PObject implements Serializable,
 	{
 
 		Capacity totalCap = get(ObjectKey.TOTAL_CAPACITY);
-		BigDecimal capValue = totalCap.getCapacity();
+		BigDecimal capValue =
+				totalCap == null ? BigDecimal.ZERO : totalCap.getCapacity();
 
 		if (getChildType("Total") == null)
 		{
