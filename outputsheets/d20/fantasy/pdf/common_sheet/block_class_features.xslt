@@ -111,10 +111,10 @@ first page
 			<fo:table-column>
 				<xsl:if test="$width = 'wide' ">
 				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 20" />mm</xsl:attribute>
- </xsl:if>
+				 </xsl:if>
 				<xsl:if test="$width = 'narrow' ">
 <xsl:attribute name="column-width"><xsl:value-of select="0.45 * $pagePrintableWidth - 18" />mm</xsl:attribute>
- </xsl:if>
+				</xsl:if>
 			</fo:table-column>
 			<fo:table-body>
 				<fo:table-row keep-with-next.within-column="always">
@@ -148,7 +148,8 @@ first page
 				<xsl:if test="$description != '' ">
 					<fo:table-row keep-with-next.within-column="always">
 											<xsl:message>Test</xsl:message>
-						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
+			<!--	Remove Line
+						<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>	-->
 						<xsl:choose>
 							<xsl:when test="$description.title != '' ">
 								<fo:table-cell padding-top="1pt" text-align="end">
