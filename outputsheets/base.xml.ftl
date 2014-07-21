@@ -814,14 +814,6 @@
 		<weapon>
 			<@weapCommonBlock weap="${weap}" />
 			<@weapMeleeBlock weap="${weap}" />
-			<flurry>
-				<@loop from=0 to=pcvar('COUNT[CLASSES]-1') ; class , class_has_next>
-				<class>${pcstring('CLASSABB.${class}')}</class>
-				</@loop><#-- Classes -->
-				<name>>${pcstring('WEAPON.${weap}.NAME')}</name>
-				<to_hit>>${pcstring('WEAPON.${weap}.TOTALHIT')}</to_hit>
-				<damage>>${pcstring('WEAPON.${weap}.RANGELIST.0.DAMAGE')}</damage>
-			</flurry>
 			</#if><#-- IIF(WEAPON.${weap}.CATEGORY:Ranged) -->
 			<#if (weaponCategory?contains('ranged'))><#-- We work out now whether this is a Ranged Only or Thrown -->
 			<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))><#-- Valid only if we find the Thrown Value -->
@@ -908,15 +900,6 @@
 		<#if (pcboolean('WEAPON.${weap}.ISTYPE.Double') || pcboolean('WEAPON.${weap}.ISTYPE.TwoHanded') || weaponCategory?contains('non-standard-melee') || weaponCategory?contains('natural'))>
 		<weapon>
 			<@weapCommonBlock weap="${weap}" />
-						<flurry>
-				<@loop from=0 to=pcvar('COUNT[CLASSES]-1') ; class , class_has_next>
-				<class>${pcstring('CLASSABB.${class}')}</class>
-				</@loop><#-- Classes -->
-				<name>>${pcstring('WEAPON.${weap}.NAME')}</name>
-				<to_hit>>${pcstring('WEAPON.${weap}.TOTALHIT')}</to_hit>
-				<damage>>${pcstring('WEAPON.${weap}.DAMAGE')}</damage>
-			</flurry>
-
 			<simple>
 				<to_hit>${pcstring('WEAPON.${weap}.TOTALHIT')}</to_hit>
 				<damage>${pcstring('WEAPON.${weap}.DAMAGE')}</damage>
