@@ -262,7 +262,7 @@
 						</xsl:call-template>
 						<fo:block font-size="8pt" padding-top="3pt">
 							<xsl:value-of select="size/long"/>
-							<xsl:if test="face/face != ''"> / <xsl:value-of select="face/face"/></xsl:if>
+							<xsl:if test="face/squares != ''"> / <xsl:value-of select="face/squares"/></xsl:if>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>	<!-- SPACE -->
