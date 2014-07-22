@@ -70,9 +70,9 @@ import pcgen.util.TestHelper;
 public class FtlMigrationTest
 {
 	/** The name of the original, legacy sheet. */
-	private static final String ORIG_SHEET = "outputsheets/base.xml";
+	private static final String ORIG_SHEET = "outputsheets/d20/fantasy/htmlxml/csheet_fantasy_std.htm";
 	/** The name of the FreeMarker conversion of the sheet. */
-	private static final String FTL_SHEET = "outputsheets/base.xml.ftl";
+	private static final String FTL_SHEET = "outputsheets/d20/fantasy/htmlxml/csheet_fantasy_std.htm.ftl";
 	/** The settings file we will generate and use. */
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
@@ -92,7 +92,10 @@ public class FtlMigrationTest
 	@Test
 	public void testLegacyAndFtlGen() throws Exception
 	{
-		runTest("PFRPGPaladin", "Pathfinder_RPG");
+		//runTest("PFRPGPaladin", "Pathfinder_RPG");
+		//runTest("PFRPGRogue", "Pathfinder_RPG");
+		//runTest("PFRPGCleric", "Pathfinder_RPG");
+		runTest("pf_goldielocks", "Pathfinder_RPG");
 		//runTest("msrd_Ilyana", "msrd");
 		//runTest("Quasvin", "35e");
 		//runTest("FigFae", "3e");
@@ -117,8 +120,8 @@ public class FtlMigrationTest
 		assertTrue("Ouptut sheet " + originalSheet + " should exist", originalSheet.exists());
 		assertTrue("Ouptut sheet " + ftlSheet + " should exist", ftlSheet.exists());
 
-		String outputFileName = character + ".xml";
-		String outputFileNameFtl = character + "-new.xml";
+		String outputFileName = character + ".html";
+		String outputFileNameFtl = character + "-new.html";
 		File outputFileFileOrig = new File(outputFolder, outputFileName);
 		File outputFileFileFtl = new File(outputFolder, outputFileNameFtl);
 		outputFileFileOrig.delete();
@@ -149,12 +152,12 @@ public class FtlMigrationTest
 			CharacterFacade pc = loadCharacter(characterFile);
 
 			Logging.log(Logging.INFO, "Output using template " + originalSheet + " to " + outputFileFileOrig);
-			BatchExporter.exportCharacterToNonPDF(pc,
-				outputFileFileOrig, originalSheet);
+			assertTrue("FTL export failed", BatchExporter.exportCharacterToNonPDF(pc,
+				outputFileFileOrig, originalSheet));
 
 			Logging.log(Logging.INFO, "Output using template " + ftlSheet + " to " + outputFileFileFtl);
-			BatchExporter.exportCharacterToNonPDF(pc,
-				outputFileFileFtl, ftlSheet);
+			assertTrue("Legacy export failed.", BatchExporter.exportCharacterToNonPDF(pc,
+				outputFileFileFtl, ftlSheet));
 
 			// Read in the XML produced by the old sheet
 			expected = readFile(outputFileFileOrig);
