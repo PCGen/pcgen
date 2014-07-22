@@ -206,8 +206,8 @@ Spindle of Perfect Knowledge	KEY:Equipment ~ Spindle of Perfect Knowledge	CATEGO
 
 ###Block: Optional System Rules
 # Ability Name			Unique Key						Category of Ability	Type				PRECHARACTERTYPE		Ability
-Use Hero Points			KEY:Rules ~ Use Hero Points			CATEGORY:Internal		TYPE:OptionalRules	PRECHARACTERTYPE:1,PC
-Use Hero Points (Antihero)	KEY:Rules ~ Use Hero Points (Antihero)	CATEGORY:Internal		TYPE:OptionalRules	PRECHARACTERTYPE:1,PC	ABILITY:Special Ability|AUTOMATIC|Antihero
+Use Hero Points			KEY:Rules ~ Use Hero Points			CATEGORY:Internal		TYPE:OptionalRules	PRECHARACTERTYPE:1,PC									COST:0
+Use Hero Points (Antihero)	KEY:Rules ~ Use Hero Points (Antihero)	CATEGORY:Internal		TYPE:OptionalRules	PRECHARACTERTYPE:1,PC	ABILITY:Special Ability|AUTOMATIC|Antihero	COST:0
 
 ###Block: Hero Points System
 # Ability Name			Define										Ability									Modify VAR
