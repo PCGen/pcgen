@@ -896,7 +896,7 @@
 		</weapon>
 
 		<#else><#-- IIF(WEAPON.${weap}.CATEGORY:Ranged) -->
-
+	<!--	Request to remove the Double Weapon Block OS-133		-->
 		<#if (pcboolean('WEAPON.${weap}.ISTYPE.Double') || pcboolean('WEAPON.${weap}.ISTYPE.TwoHanded') || weaponCategory?contains('non-standard-melee') || weaponCategory?contains('natural'))>
 		<weapon>
 			<@weapCommonBlock weap="${weap}" />
@@ -2579,20 +2579,21 @@
 			<gold>${pcstring('GOLD')}</gold>
 
 		<#if (pcvar("MISC.FUNDS") > 0) >
+		</#if>
 		<funds>
 			<fund>${pcstring('MISC.FUNDS')}</fund>
 		</funds>
-		</#if>
-		<#if (pcvar("MISC.COMPANIONS") > 0) >
 		<companions>
 			<companion>${pcstring('MISC.COMPANIONS')}</companion>
 		</companions>
-		</#if>
+<!--	This doesn't work - AM
+	<#if (pcvar("MISC.COMPANIONS") > 0) >	-->
+<!--		</#if>	-->
 		<#if (pcvar("MISC.MAGIC") > 0) >
+		</#if>
 		<magics>
 			<magic>${pcstring('MISC.MAGIC')}</magic>
 		</magics>
-		</#if>
 	</misc>
 	<!--
 	  ====================================

@@ -24,7 +24,7 @@
 		<!-- BEGIN Domains Table -->
 		<xsl:call-template name="bold.list">
 			<xsl:with-param name="attribute" select="'domains'" />
-			<xsl:with-param name="title" select="'DOMAINS'" />
+			<xsl:with-param name="title" select="'Domains'" />
 			<xsl:with-param name="list" select="domain"/>
 			<xsl:with-param name="name.tag" select="'name'"/>
 			<xsl:with-param name="desc.tag" select="'power'"/>
@@ -41,7 +41,7 @@
 		<!-- BEGIN weapon_proficiencies Table -->
 		<xsl:call-template name="list">
 			<xsl:with-param name="attribute" select="'proficiencies'"/>
-			<xsl:with-param name="title" select="'PROFICIENCIES'"/>
+			<xsl:with-param name="title" select="'Proficiencies'"/>
 			<xsl:with-param name="value" select="." />
 		</xsl:call-template>
 		<!-- END weapon_proficiencies Table -->
@@ -56,7 +56,7 @@
 		<!-- BEGIN Languages Table -->
 		<xsl:call-template name="list">
 			<xsl:with-param name="attribute" select="'languages'"/>
-			<xsl:with-param name="title" select="'LANGUAGES'"/>
+			<xsl:with-param name="title" select="'Languages'"/>
 			<xsl:with-param name="value" select="." />
 		</xsl:call-template>
 		<!-- END Languages Table -->
@@ -71,7 +71,7 @@
 		<!-- BEGIN Templates Table -->
 		<xsl:call-template name="stripped.list">
 			<xsl:with-param name="attribute" select="'templates'" />
-			<xsl:with-param name="title" select="'TEMPLATES'" />
+			<xsl:with-param name="title" select="'Templates'" />
 			<xsl:with-param name="list" select="template"/>
 			<xsl:with-param name="name.tag" select="'name'"/>
 		</xsl:call-template>
@@ -87,7 +87,7 @@
 		<xsl:if test=". != ''">
 			<xsl:call-template name="list">
 				<xsl:with-param name="attribute" select="'prohibited'"/>
-				<xsl:with-param name="title" select="'PROHIBITED'"/>
+				<xsl:with-param name="title" select="'Prohibited'"/>
 				<xsl:with-param name="value" select="." />
 			</xsl:call-template>
 		</xsl:if>
@@ -391,7 +391,7 @@
 ====================================
 ====================================-->
 	<xsl:template match="misc/companions">
-		<xsl:if test="count(companion) &gt; 0">
+		<xsl:if test="count(companion) &gt; 0">	
 			<fo:table table-layout="fixed" space-before.optimum="2mm">
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'magic.border'"/>
@@ -406,7 +406,7 @@
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'magic.title'"/>
 							</xsl:call-template>
-							<fo:block font-size="9pt">OTHER COMPANIONS</fo:block>
+							<fo:block font-size="9pt">Other Companions</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
 				</fo:table-header>
@@ -438,7 +438,7 @@
 		<xsl:if test="count(tempbonus) &gt; 0">
 			<xsl:call-template name="stripped.list">
 				<xsl:with-param name="attribute" select="'tempbonuses'" />
-				<xsl:with-param name="title" select="'TEMPORARY BONUS'" />
+				<xsl:with-param name="title" select="'Temporary Bonus'" />
 				<xsl:with-param name="list" select="tempbonus" />
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="''"/>
