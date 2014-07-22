@@ -69,7 +69,7 @@ public class PCBooleanFunction extends CharacterExportAction implements Template
 
 		String value = getExportVariable(tag, pc, eh);
 		
-		if ("1.0".equals(value) || "1".equals(value))
+		if ("1.0".equals(value) || "1".equals(value) || "Y".equals(value))
 		{
 			return Boolean.TRUE;
 		}
@@ -80,7 +80,8 @@ public class PCBooleanFunction extends CharacterExportAction implements Template
 				+ "'.");
 		}
 
-		return Boolean.valueOf(value);
+		Boolean valueOf = Boolean.valueOf(value);
+		return valueOf;
 	}
 
 }
