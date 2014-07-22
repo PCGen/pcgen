@@ -2,41 +2,66 @@
 # Original Entry by: Eric Smith (Maredudd), Stefan Radermacher
 
 # Conditional skills for bard's Versatile Performance ability
-# Skill Name							Key Stat	Untrained?		Classes	Type			Visible		Required Ability									Req. Rule (in options)		Source Page
-Bluff (Perform (Act))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
-Disguise (Perform (Act))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.95
-#
-Bluff (Perform (Comedy))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Comedy				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
-Intimidate (Perform (Comedy))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Comedy				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.99
-#
-Acrobatics (Perform (Dance))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.87
-Fly (Perform (Dance))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.96
-#
-Diplomacy (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
-Sense Motive (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
-#
-Diplomacy (Perform (Oratory))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
-Sense Motive (Perform (Oratory))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
-#
-Handle Animal (Perform (Percussion Instruments))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
-Intimidate (Perform (Percussion Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.99
-#
-Bluff (Perform (Sing))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Sing				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
-Sense Motive (Perform (Sing))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Sing				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
-#
-Bluff (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
-Diplomacy (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
-#
-Diplomacy (Perform (Wind Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
-Handle Animal (Perform (Wind Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
+# Verasatile Performance includes:
+#• Ability score: use Cha instead of the original score
+#• Ranks: use Perform ranks instead of rank in Diplomacy, Sense Motive, Acrobatics, etc.
+#• +3 because Perform is a class skill
+#• Bonuses: any random bonuses to Perform, like Skill Focus
 
-Samurai Mount							KEYSTAT:DEX						TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai			PRERULE:1,DISPLAYSKILLUSE
+# Skill Name							Key Stat	Untrained?		Classes	Type			Visible		Required Ability									Req. Rule (in options)		Source Page
+Bluff (Perform (Act))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Disguise (Perform (Act))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.95
+#
+Bluff (Perform (Comedy))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Comedy				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Intimidate (Perform (Comedy))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Comedy				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.99
+#
+Acrobatics (Perform (Dance))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.87
+Fly (Perform (Dance))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.96
+#
+Diplomacy (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Sense Motive (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
+#
+Diplomacy (Perform (Oratory))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Sense Motive (Perform (Oratory))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
+#
+Handle Animal (Perform (Percussion Instruments))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
+Intimidate (Perform (Percussion Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.99
+#
+Bluff (Perform (Sing))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Sing				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Sense Motive (Perform (Sing))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Sing				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
+#
+Bluff (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Diplomacy (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+#
+Diplomacy (Perform (Wind Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Handle Animal (Perform (Wind Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
+
+Samurai Mount							KEYSTAT:DEX						TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai							PRERULE:1,DISPLAYSKILLUSE
 
 ###Block:
+Perform (Act).MOD					BONUS:SKILL|Bluff (Perform (Act))|var("SKILL.Perform (Act).MISC")									BONUS:SKILLRANK|Bluff (Perform (Act))|skillinfo("TOTALRANK", "Perform (Act)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Act
+Perform (Act).MOD					BONUS:SKILL|Disguise (Perform (Act))|var("SKILL.Perform (Act).MISC")								BONUS:SKILLRANK|Disguise (Perform (Act))|skillinfo("TOTALRANK", "Perform (Act)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Act
+Perform (Comedy).MOD				BONUS:SKILL|Bluff (Perform (Comedy))|var("SKILL.Perform (Comedy).MISC")								BONUS:SKILLRANK|Bluff (Perform (Comedy))|skillinfo("TOTALRANK", "Perform (Comedy)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Comedy
+Perform (Comedy).MOD				BONUS:SKILL|Intimidate (Perform (Comedy))|var("SKILL.Perform (Comedy).MISC")							BONUS:SKILLRANK|Intimidate (Perform (Comedy))|skillinfo("TOTALRANK", "Perform (Comedy)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Comedy
+Perform (Dance).MOD				BONUS:SKILL|Acrobatics (Perform (Dance))|var("SKILL.Perform (Dance).MISC")							BONUS:SKILLRANK|Acrobatics (Perform (Dance))|skillinfo("TOTALRANK", "Perform (Dance)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Dance
+Perform (Dance).MOD				BONUS:SKILL|Fly (Perform (Dance))|var("SKILL.Perform (Dance).MISC")								BONUS:SKILLRANK|Fly (Perform (Dance))|skillinfo("TOTALRANK", "Perform (Dance)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Dance
+Perform (Keyboard Instruments).MOD		BONUS:SKILL|Diplomacy (Perform (Keyboard Instruments))|var("SKILL.Perform (Keyboard Instruments).MISC")		BONUS:SKILLRANK|Diplomacy (Perform (Keyboard Instruments))|skillinfo("TOTALRANK", "Perform (Keyboard Instruments)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Keyboard Instruments
+Perform (Keyboard Instruments).MOD		BONUS:SKILL|Sense Motive (Perform (Keyboard Instruments))|var("SKILL.Perform (Keyboard Instruments).MISC")		BONUS:SKILLRANK|Sense Motive (Perform (Keyboard Instruments))|skillinfo("TOTALRANK", "Perform (Keyboard Instruments)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Keyboard Instruments
+Perform (Oratory).MOD				BONUS:SKILL|Diplomacy (Perform (Oratory))|var("SKILL.Perform (Oratory).MISC")							BONUS:SKILLRANK|Diplomacy (Perform (Oratory))|skillinfo("TOTALRANK", "Perform (Oratory)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Oratory
+Perform (Oratory).MOD				BONUS:SKILL|Sense Motive (Perform (Oratory))|var("SKILL.Perform (Oratory).MISC")						BONUS:SKILLRANK|Sense Motive (Perform (Oratory))|skillinfo("TOTALRANK", "Perform (Oratory)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Oratory
+Perform (Percussion Instruments).MOD	BONUS:SKILL|Handle Animal (Perform (Percussion Instruments))|var("SKILL.Perform (Percussion Instruments).MISC")	BONUS:SKILLRANK|Handle Animal (Perform (Percussion Instruments))|skillinfo("TOTALRANK", "Perform (Percussion Instruments)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Percussion Instruments
+Perform (Percussion Instruments).MOD	BONUS:SKILL|Intimidate (Perform (Percussion Instruments))|var("SKILL.Perform (Percussion Instruments).MISC")	BONUS:SKILLRANK|Intimidate (Perform (Percussion Instruments))|skillinfo("TOTALRANK", "Perform (Percussion Instruments)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Percussion Instruments
+Perform (Sing).MOD				BONUS:SKILL|Bluff (Perform (Sing))|var("SKILL.Perform (Sing).MISC")								BONUS:SKILLRANK|Bluff (Perform (Sing))|skillinfo("TOTALRANK", "Perform (Sing)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Sing
+Perform (Sing).MOD				BONUS:SKILL|Sense Motive (Perform (Sing))|var("SKILL.Perform (Sing).MISC")							BONUS:SKILLRANK|Sense Motive (Perform (Sing))|skillinfo("TOTALRANK", "Perform (Sing)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Sing
+Perform (String Instruments).MOD		BONUS:SKILL|Bluff (Perform (String Instruments))|var("SKILL.Perform (String Instruments).MISC")				BONUS:SKILLRANK|Bluff (Perform (String Instruments))|skillinfo("TOTALRANK", "Perform (String Instruments)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ String Instruments
+Perform (String Instruments).MOD		BONUS:SKILL|Diplomacy (Perform (String Instruments))|var("SKILL.Perform (String Instruments).MISC")			BONUS:SKILLRANK|Diplomacy (Perform (String Instruments))|skillinfo("TOTALRANK", "Perform (String Instruments)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ String Instruments
+Perform (Wind Instruments).MOD		BONUS:SKILL|Diplomacy (Perform (Wind Instruments))|var("SKILL.Perform (Wind Instruments).MISC")				BONUS:SKILLRANK|Diplomacy (Perform (Wind Instruments))|skillinfo("TOTALRANK", "Perform (Wind Instruments)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Wind Instruments
+Perform (Wind Instruments).MOD		BONUS:SKILL|Handle Animal (Perform (Wind Instruments))|var("SKILL.Perform (Wind Instruments).MISC")			BONUS:SKILLRANK|Handle Animal (Perform (Wind Instruments))|skillinfo("TOTALRANK", "Perform (Wind Instruments)")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Wind Instruments
+
 ###Block:
 # Skill Name	Define														Bonus to Situation
 Acrobatics.MOD																BONUS:SITUATION|Acrobatics=Jump|floor((var("MOVE[Walk]")-30)/10)*4|TYPE=Move
-Ride.MOD		DEFINE:RideACP|var("ARMOR.0.ACCHECK")	DEFINE:SamuraiMountACP|RideACP-(RideACP*2)	BONUS:SITUATION|Samurai Mount|SamuraiMountACP
+Ride.MOD		DEFINE:RideACP|0	BONUS:VAR|RideACP|var("ARMOR.0.ACCHECK")	DEFINE:SamuraiMountACP|0	BONUS:VAR|SamuraiMountACP|RideACP-(RideACP*2)	BONUS:SITUATION|Samurai Mount|SamuraiMountACP
 #BONUS:SKILLRANK|Samurai Mount|skillinfo("TOTALRANK", "Ride")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai	BONUS:SKILL|Samurai Mount|var("SKILL.Ride.MISC")
 ###Block: New Skill
 # Skill Name			Key Stat	Untrained?		Type				Source, Long Desc.		Source, Short Desc.	Source URI																		Source Page		Bonus to skill																						Source Pub. Date
@@ -214,32 +239,23 @@ Appraise.MOD			SITUATION:Giant subtype
 Perception.MOD			SITUATION:sight-based
 
 
-
-
-
-
-
-
-
-
-
 ###Block: Versatile Performance
 # Skill Name	Situational Skill Use
-Bluff.MOD		SITUATION:Versatile Performance (Act)
-Disguise.MOD	SITUATION:Versatile Performance (Act)
-Bluff.MOD		SITUATION:Versatile Performance (Comedy)
-Intimidate.MOD	SITUATION:Versatile Performance (Comedy)
-Acrobatics.MOD	SITUATION:Versatile Performance (Dance)
-Fly.MOD		SITUATION:Versatile Performance (Dance)
-Diplomacy.MOD	SITUATION:Versatile Performance (Keyboard Instruments)
-Sense Motive.MOD	SITUATION:Versatile Performance (Keyboard Instruments)
-Diplomacy.MOD	SITUATION:Versatile Performance (Oratory)
-Sense Motive.MOD	SITUATION:Versatile Performance (Oratory)
-Handle Animal.MOD	SITUATION:Versatile Performance (Percussion Instruments)
-Intimidate.MOD	SITUATION:Versatile Performance (Percussion Instruments)
-Bluff.MOD		SITUATION:Versatile Performance (Sing)
-Sense Motive.MOD	SITUATION:Versatile Performance (Sing)
-Bluff.MOD		SITUATION:Versatile Performance (String Instruments)
-Diplomacy.MOD	SITUATION:Versatile Performance (String Instruments)
-Diplomacy.MOD	SITUATION:Versatile Performance (Wind Instruments)
-Handle Animal.MOD	SITUATION:Versatile Performance (Wind Instruments)
+#	Bluff.MOD		SITUATION:Versatile Performance (Act)
+#	Disguise.MOD	SITUATION:Versatile Performance (Act)
+#	Bluff.MOD		SITUATION:Versatile Performance (Comedy)
+#	Intimidate.MOD	SITUATION:Versatile Performance (Comedy)
+#	Acrobatics.MOD	SITUATION:Versatile Performance (Dance)
+#	Fly.MOD		SITUATION:Versatile Performance (Dance)
+#	Diplomacy.MOD	SITUATION:Versatile Performance (Keyboard Instruments)
+#	Sense Motive.MOD	SITUATION:Versatile Performance (Keyboard Instruments)
+#	Diplomacy.MOD	SITUATION:Versatile Performance (Oratory)
+#	Sense Motive.MOD	SITUATION:Versatile Performance (Oratory)
+#	Handle Animal.MOD	SITUATION:Versatile Performance (Percussion Instruments)
+#	Intimidate.MOD	SITUATION:Versatile Performance (Percussion Instruments)
+#	Bluff.MOD		SITUATION:Versatile Performance (Sing)
+#	Sense Motive.MOD	SITUATION:Versatile Performance (Sing)
+#	Bluff.MOD		SITUATION:Versatile Performance (String Instruments)
+#	Diplomacy.MOD	SITUATION:Versatile Performance (String Instruments)
+#	Diplomacy.MOD	SITUATION:Versatile Performance (Wind Instruments)
+#	Handle Animal.MOD	SITUATION:Versatile Performance (Wind Instruments)
