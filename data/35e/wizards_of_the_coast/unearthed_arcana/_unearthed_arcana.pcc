@@ -25,6 +25,8 @@ COPYRIGHT:Unearthed Arcana Copyright 2004, Wizards of the Coast, Inc.; Andy Coll
 COPYRIGHT:PCGen Variant OGC Rules Dataset Copyright 2006-2014, PCGen Data Team, including, but not limited to, Andrew Maitland
 
 #INFOTEXT:
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
 
 
 ABILITY:ua_abilities.lst
