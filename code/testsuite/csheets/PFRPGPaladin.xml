@@ -1499,7 +1499,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
-			<type>MAGIC.WEAPON.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>10</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1525,7 +1525,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
-			<type>MAGIC.WEAPON.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1837,7 +1837,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.METAL</type>
+			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.METAL</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1863,7 +1863,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
+			<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
 			<weight>2</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1889,7 +1889,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
+			<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
 			<weight>2</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1915,7 +1915,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>10 hp/inch, hardness 8</special_properties>
-			<type>WEAPON.MELEE.ONEHANDED.MARTIAL.STANDARD.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
+			<type>WEAPON.RESIZABLE.MELEE.ONEHANDED.MARTIAL.STANDARD.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
 			<weight>4</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1941,7 +1941,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.CUSTOM.WOODEN</type>
+			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.CUSTOM.WOODEN</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2149,7 +2149,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.MELEE.LIGHT.FINESSEABLE.SIMPLE.STANDARD.PIERCING.UNARMED.GAUNTLET.CLOSE.WEAPON GROUP NATURAL.WEAPON GROUP CLOSE.METAL</type>
+			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.SIMPLE.STANDARD.PIERCING.UNARMED.GAUNTLET.CLOSE.WEAPON GROUP NATURAL.WEAPON GROUP CLOSE.METAL</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2227,7 +2227,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.WOODEN</type>
+			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.WOODEN</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2256,7 +2256,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
-				<type>MAGIC.WEAPON.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>10</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2277,7 +2277,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
-				<type>MAGIC.WEAPON.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2529,7 +2529,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.METAL</type>
+				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.METAL</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2550,7 +2550,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
+				<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
 				<weight>2</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2571,7 +2571,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
+				<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
 				<weight>2</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2592,7 +2592,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties>10 hp/inch, hardness 8</special_properties>
-				<type>WEAPON.MELEE.ONEHANDED.MARTIAL.STANDARD.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
+				<type>WEAPON.RESIZABLE.MELEE.ONEHANDED.MARTIAL.STANDARD.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
 				<weight>4</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2613,7 +2613,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.CUSTOM.WOODEN</type>
+				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.CUSTOM.WOODEN</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2781,7 +2781,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.MELEE.LIGHT.FINESSEABLE.SIMPLE.STANDARD.PIERCING.UNARMED.GAUNTLET.CLOSE.WEAPON GROUP NATURAL.WEAPON GROUP CLOSE.METAL</type>
+				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.SIMPLE.STANDARD.PIERCING.UNARMED.GAUNTLET.CLOSE.WEAPON GROUP NATURAL.WEAPON GROUP CLOSE.METAL</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2844,7 +2844,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.WOODEN</type>
+				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.WOODEN</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
