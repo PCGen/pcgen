@@ -21,7 +21,7 @@
 		<xsl:if test="count(ability) &gt; 0">
 			<xsl:call-template name="stripped.list">
 				<xsl:with-param name="attribute" select="'special_abilities'" />
-				<xsl:with-param name="title" select="'SPECIAL ABILITIES'" />
+				<xsl:with-param name="title" select="'Special Abilities'" />
 				<xsl:with-param name="list" select="ability" />
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="''"/>
@@ -161,7 +161,7 @@
 		<xsl:if test="count(disadvantage) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'disadvantages'"/>
-				<xsl:with-param name="title" select="'DISADVANTAGES'"/>
+				<xsl:with-param name="title" select="'Disadvantages'"/>
 				<xsl:with-param name="list" select="disadvantage"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -473,7 +473,7 @@
 		<xsl:if test="count(power_classfeature) &gt; 0">
 			<xsl:call-template name="power.list">
 				<xsl:with-param name="attribute" select="'powers_classfeatures'" />
-				<xsl:with-param name="title" select="'CLASSFEATURE POWERS'" />
+				<xsl:with-param name="title" select="'Class Feature Powers'" />
 				<xsl:with-param name="list" select="power_classfeature"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
@@ -501,7 +501,7 @@
 		<xsl:if test="count(power_featpower) &gt; 0">
 			<xsl:call-template name="power.list">
 				<xsl:with-param name="attribute" select="'powers_featpowers'" />
-				<xsl:with-param name="title" select="'FEAT POWERS'" />
+				<xsl:with-param name="title" select="'Feat Powers'" />
 				<xsl:with-param name="list" select="power_featpower"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>

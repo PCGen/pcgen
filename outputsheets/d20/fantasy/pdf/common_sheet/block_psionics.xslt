@@ -21,11 +21,11 @@
 	====================================
 	====================================-->
 	<Psionics:attacks>
-		<attack name="ego.whip" title="EGO WHIP" damage="1d4 DEX" pp="3"/>
-		<attack name="id.insinuation" title="ID INSINUATION" damage="1d2 STR" pp="3"/>
-		<attack name="mind.blast" title="MIND BLAST" damage="1d4 CHA" pp="9"/>
-		<attack name="mind.thrust" title="MIND THRUST" damage="1d2 INT" pp="1"/>
-		<attack name="psychic.crush" title="PSYCHIC CRUSH" damage="2d4 WIS" pp="5"/>
+		<attack name="ego.whip" title="Ego Whip" damage="1d4 DEX" pp="3"/>
+		<attack name="id.insinuation" title="Id Insinuation" damage="1d2 STR" pp="3"/>
+		<attack name="mind.blast" title="Mind Blast" damage="1d4 CHA" pp="9"/>
+		<attack name="mind.thrust" title="Mind Thrust" damage="1d2 INT" pp="1"/>
+		<attack name="psychic.crush" title="Psychic Crush" damage="2d4 WIS" pp="5"/>
 		<defences>
 			<defence name="Empty Mind" pp="1" mentalhardness="">
 				<attack name="ego.whip" value="+1" />
