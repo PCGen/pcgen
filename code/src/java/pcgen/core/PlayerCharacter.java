@@ -46,6 +46,7 @@ import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.HashMapToList;
+import pcgen.base.util.IdentityList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.BonusContainer;
 import pcgen.cdom.base.CDOMList;
@@ -6032,10 +6033,16 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		int bonus = 0;
 
 		int penaltyForLoad = (Load.MEDIUM == load) ? -3 : (Load.HEAVY == load) ? -6 : 0;
-
+		
+		final IdentityList<Equipment> vEqList = new IdentityList<Equipment>(getTempBonusItemList());
+		
 		for (Equipment eq : getEquippedEquipmentSet())
 		{
-			bonus += eq.acCheck(this).intValue();
+			// Do not count virtual items created by temporary bonuses
+			if (!vEqList.contains(eq))
+			{
+				bonus += eq.acCheck(this).intValue();
+			}
 		}
 
 		bonus = Math.min(bonus, penaltyForLoad);
