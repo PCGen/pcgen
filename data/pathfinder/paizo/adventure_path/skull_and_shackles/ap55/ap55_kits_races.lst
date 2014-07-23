@@ -54,15 +54,15 @@ SKILL:Swim				RANK:4.0
 FEAT:Improved Initiative
 FEAT:Lightning Reflexes
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|slipstream
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|hydraulic push
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|obscuring mist
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|acid splash
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|dancing lights
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|daze
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|detect poison
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|mage hand
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|touch of fatigue
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Slipstream
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Hydraulic Push
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Obscuring Mist
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
 
 
 STARTPACK:Incutilis Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Incutilis],[!PRERACE:1,%]	SOURCEPAGE:p.84
