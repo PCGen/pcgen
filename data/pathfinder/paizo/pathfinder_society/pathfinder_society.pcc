@@ -61,12 +61,12 @@ PCC:@/pathfinder/paizo/pathfinder_society/organized_play/guide_to_pathfinder_soc
 # Equipment: boots of the mire, elixir of the peaks, fog-cutting lenses, medusa mask, robe of runes, sadist's lash, snakeskin tunic, staff of heaven and earth, staff of mithral might, talons of Leng are legal for play;
 # Spells: Blood money, covetous aura, deathwine, raiment of command, sign of wrath, swipe, and unconscious agenda are legal for play.
 #EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/players_guide_ae/rotrpgae_equipment.lst
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap2/ap2_equip_magic_items.lst|(INCLUDE:Medusa Mask|Snakeskin Tunic)
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap3/ap3_equip_magic_items.lst|(INCLUDE:Boots of the Mire)
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap4/ap4_equip_magic_items.lst
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap5/ap5_equip_magic_items.lst|(INCLUDE:Staff of Mithral Might)
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap6/ap6_equip_magic_items.lst|(INCLUDE:Elixir of the Peaks|Talons of Leng)
-SPELL:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap5/ap5_spells.lst|(EXCLUDE:Waters of Lamashtu|Vision of Lamashtu)
+#EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap2/ap2_equip_magic_items.lst|(INCLUDE:Medusa Mask|Snakeskin Tunic)
+#EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap3/ap3_equip_magic_items.lst|(INCLUDE:Boots of the Mire)
+#EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap4/ap4_equip_magic_items.lst
+#EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap5/ap5_equip_magic_items.lst|(INCLUDE:Staff of Mithral Might)
+#EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap6/ap6_equip_magic_items.lst|(INCLUDE:Elixir of the Peaks|Talons of Leng)
+#SPELL:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/ap5/ap5_spells.lst|(EXCLUDE:Waters of Lamashtu|Vision of Lamashtu)
 
 #
 # Curse of the Crimson Throne
