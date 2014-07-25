@@ -4,7 +4,7 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 # ORIGINAL ENTRY DATE: 2011-01-01
 #.MOD							TYPE:AdeptChoice.NormalSkill		ABILITY:Internal|VIRTUAL|Make CSKILL ~ x1|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(x1),Full Skill Buy(x1)
 
-#Block: RSRD SKILLS
+#Block: PF SKILLS
 # Skill Name					Type					Ability																																		Bonus to skill														Modify VAR
 Acrobatics.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Acrobatics|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Acrobatics),Full Skill Buy (Acrobatics)
 Appraise.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Appraise|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Appraise),Full Skill Buy (Appraise)
@@ -52,7 +52,7 @@ Knowledge (Nobility).MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL
 Knowledge (Planes).MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (Planes)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Knowledge (Planes)),Full Skill Buy (Knowledge (Planes))
 Knowledge (Religion).MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (Religion)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Knowledge (Religion)),Full Skill Buy (Knowledge (Religion))
 Linguistics.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Linguistics|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Linguistics),Full Skill Buy (Linguistics)
-Perception.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Perception|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Perception),Full Skill Buy (Perception)
+Perception.MOD					TYPE:AdeptChoice.NormalSkill.Perception.Sensory	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Perception|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Perception),Full Skill Buy (Perception)
 Perform (Act).MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Perform (Act)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Perform (Act)),Full Skill Buy (Perform (Act))
 Perform (Comedy).MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Perform (Comedy)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Perform (Comedy)),Full Skill Buy (Perform (Comedy))
 Perform (Dance).MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Perform (Dance)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Perform (Dance)),Full Skill Buy (Perform (Dance))

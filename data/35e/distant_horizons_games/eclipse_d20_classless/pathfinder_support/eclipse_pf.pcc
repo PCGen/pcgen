@@ -47,7 +47,7 @@ SKILL:eclipse_pf_skills.lst
 ABILITY:../eclipse_abilities.lst
 ABILITY:../eclipse_abilities_disadvantages.lst
 ABILITY:../eclipse_abilities_enchantments.lst
-ABILITY:../eclipse_abilities_martial_arts.lst
+#ABILITY:../eclipse_abilities_martial_arts.lst
 ABILITY:../eclipse_abilities_misc.lst
 ABILITY:../eclipse_abilities_mods.lst
 ABILITY:../eclipse_abilities_paths.lst
@@ -61,7 +61,8 @@ ABILITYCATEGORY:../eclipse_ability_categories.lst
 
 CLASS:../eclipse_class.lst
 
-COMPANIONMOD:../eclipse_companionmods.lst
+# Make something for PF
+#COMPANIONMOD:../eclipse_companionmods.lst
 
 EQUIPMENT:../eclipse_equip.lst
 

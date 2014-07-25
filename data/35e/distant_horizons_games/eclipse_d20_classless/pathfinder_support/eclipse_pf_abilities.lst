@@ -308,3 +308,5 @@ Druid Learn Level 7	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MU
 Druid Learn Level 8	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE														COST:1
 Druid Learn Level 9	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE														COST:1
 #
+
+CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Sure Step.MOD	BONUS:SKILL|Acrobatics,Climb|10|TYPE=Competence
