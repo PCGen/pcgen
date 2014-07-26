@@ -1,0 +1,1113 @@
+<#ftl encoding="UTF-8" strip_whitespace=true >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<!--
+Pathfinder Statblock Template
+==============================
+Author: Stefan Radermacher (Zaister)
+Email: stefanATzaisterDOTde
+
+$Revision: 15961 $
+$Author: zaister $
+$Date: 2012-02-02 13:23:59 +0100 (Do, 02 Feb 2012) $
+-->
+<#include "common/misc.ftl" />
+<head>
+	<title>${pcstring('NAME')}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<style type="text/css">
+		body  {
+			font-family: Gandhi Sans, Arial, sans-serif;
+			font-size: 11pt;
+			text-align: left;
+			color: black;
+			background: white;
+			font-weight: normal;
+			margin: 0px;
+			padding: 5px;
+		}
+		p {
+			text-indent: -1em;
+			margin-left: 1em;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		p.xp {
+			font-size: 110%;
+		}
+		p.spells {
+			margin-left: 2em;
+		}
+		table.section {
+			width: 100%;
+			font-size: 9pt;
+			font-weight: bold;
+			border-top-width: 1px;
+			border-top-color: black;
+			border-top-style: solid;
+			border-bottom-width: 1px;
+			border-bottom-color: black;
+			border-bottom-style: solid;
+			margin-top: 2px;
+			margin-bottom: 2px;
+		}
+		table.name {
+			width: 100%;
+			color: white;
+			background: black;
+			font-weight: bold;
+		}
+		td.name {
+			font-variant: small-caps;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+	</style>
+</head>
+
+<body>
+<table class="name">
+	<tr>
+		<td class="name">${pcstring('TEXT.UPPER.NAME')}</td>
+		<td class="name" align="right">CR
+<#if (pcstring("CR") = "0")>
+&mdash;
+<#else>
+${pcstring('CR')}
+</#if>
+		</td>
+	</tr>
+</table>
+
+<!-- xp award -->
+<p class="xp">
+<b>XP ${pcstring('XPAWARD')}</b>
+</p>
+
+<!-- gender, classes -->
+<p>
+<#if (pcstring("NAME") = pcstring("RACE") && pcvar("COUNT[TEMPLATES]") = 0)><#--  |IIF(NAME:RACE.AND.VAR.COUNT[TEMPLATES]:0.0)| -->
+<#else>
+${pcstring('GENDER.LONG')}
+<@loop from=0 to=pcvar('COUNT[TEMPLATES]-1') ; template , template_has_next>
+${pcstring('TEXT.LOWERCASE.TEMPLATE.${template}.APPLIEDNAME')}
+</@loop>
+<#if (pcstring("AGE.CATEGORY") = "Adult")>
+<#else>
+${pcstring('TEXT.LOWERCASE.AGE.CATEGORY')}
+</#if>
+${pcstring('TEXT.LOWERCASE.RACE')}
+<@loop from=0 to=pcvar('COUNT[CLASSES]-1') ; class , class_has_next>
+<#if (pcstring("CLASS.${class}.ISMONSTER") = "N")>
+${pcstring('TEXT.LOWERCASE.CLASS.${class}')}
+<#if (pcstring("CLASS.${class}")?lower_case?contains("cleric"))>
+of ${pcstring('DEITY')}
+</#if>
+${pcstring('CLASS.${class}.LEVEL')}
+<#if (class_has_next) >
+/
+</#if>
+</#if>
+</@loop>
+</#if>
+</p>
+
+<!-- alignment, size, race -->
+<p>
+<#if (pcstring("ALIGNMENT.SHORT") = "TN")>
+N
+<#else>
+${pcstring('ALIGNMENT.SHORT')}
+</#if>
+${pcstring('SIZELONG')}
+<#if (pcstring("RACETYPE") = "None")>
+${pcstring('TEXT.LOWER.TYPE')}
+<#else>
+${pcstring('TEXT.LOWER.RACETYPE')}
+</#if>
+<#if (pcvar("COUNT[RACESUBTYPES]")= 0)>
+<#else>
+(<#t>
+<@loop from=0 to=pcvar('COUNT[RACESUBTYPES]-1') ; subtype , subtype_has_next>
+${pcstring('TEXT.LOWER.RACESUBTYPE.${subtype}')}<#if (subtype_has_next)>, </#if><#t>
+</@loop>
+)
+</#if>
+</p>
+
+<!-- initiative, senses -->
+<p>
+<b>Init</b> ${pcstring('INITIATIVEMOD')};
+<b>Senses</b>
+<!-- Sense and Vision TYPE Abilities --><#t>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=Sense[or]TYPE=Vision","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAbilities , specialAbilities_has_next>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision.ASPECT.Ability Bonus')}&nbsp;<#t>
+</#if>
+<#t>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision.HASASPECT.Vision") = "Y")>
+${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision.ASPECT.Vision')}<#t>
+<#else>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision.TYPE")?lower_case?contains("spelllike"))>
+<i>${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision')}</i><#t>
+<#else>
+${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision')}<#t>
+</#if>
+</#if>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision.HASASPECT.Ability Benefit") = "Y")>
+&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision.ASPECT.Ability Benefit')}<#t>
+</#if>
+, <#t>
+</@loop>
+<!-- End Sense TYPE Abilities -->
+Perception&nbsp;${pcstring('SKILL.Perception.TOTAL.SIGN')}<#lt>
+</p>
+
+<!-- auras -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=Aura","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<p>
+<!-- Aura TYPE Abilities -->
+<b>Aura&nbsp;</b><#t>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=Aura","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAbilities , specialAbilities_has_next>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura.ASPECT.Ability Bonus')}&nbsp;<#t>
+</#if>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura.TYPE")?lower_case?contains("spelllike"))>
+<i>${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura')}</i><#t>
+<#else>
+${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura')}<#t>
+</#if>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura.HASASPECT.Ability Benefit") = "Y")>
+&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura.ASPECT.Ability Benefit')}<#t>
+</#if>
+<#if (specialAbilities_has_next) >
+,${' '}<#t>
+</#if>
+</@loop>
+
+<!-- End Aura TYPE Abilities -->
+</p>
+</#if>
+
+<table class="section">
+  <tr>
+    <td>DEFENSE</td>
+  </tr>
+</table>
+
+<!-- armor class -->
+<p>
+<b>AC</b>&nbsp;${pcstring('AC.Total')},&nbsp;<b>touch</b>&nbsp;${pcstring('AC.Touch')},&nbsp;<b>flat-footed</b>&nbsp;${pcstring('AC.Flatfooted')}&nbsp;(<#t>
+<#t>
+<#if (pcstring("AC.Armor") = "0")>
+<#else>
+${pcstring('AC.Armor.SIGN')}&nbsp;armor<#t>
+</#if>
+<#if (pcstring("AC.Armor") = "0")>
+<#else>
+<#if (pcvar("AC.Deflection") = 0 && pcvar("AC.Ability") = 0 && pcvar("AC.Dodge") = 0 && pcvar("AC.NaturalArmor") = 0 && pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
+<#else>
+,&nbsp;<#t>
+</#if>
+</#if>
+<#t>
+<#if (pcstring("AC.Deflection") = "0")>
+<#else>
+${pcstring('AC.Deflection.SIGN')}&nbsp;deflection<#t>
+</#if>
+<#if (pcstring("AC.Deflection") = "0")>
+<#else>
+<#if (pcvar("AC.Ability") = 0 && pcvar("AC.Dodge") = 0 && pcvar("AC.NaturalArmor") = 0 && pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
+<#else>
+,&nbsp;<#t>
+</#if>
+</#if>
+<#t>
+<#if (pcstring("AC.Ability") = "0")>
+<#else>
+${pcstring('AC.Ability.SIGN')}&nbsp;Dex<#t>
+</#if>
+<#if (pcstring("AC.Ability") = "0")>
+<#else>
+<#if (pcvar("AC.Dodge") = 0 && pcvar("AC.NaturalArmor") = 0 && pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
+<#else>
+,&nbsp;<#t>
+</#if>
+</#if>
+<#t>
+<#if (pcstring("AC.Dodge") = "0")>
+<#else>
+${pcstring('AC.Dodge.SIGN')}&nbsp;dodge<#t>
+</#if>
+<#if (pcstring("AC.Dodge") = "0")>
+<#else>
+<#if (pcvar("AC.NaturalArmor") = 0 && pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
+<#else>
+,&nbsp;<#t>
+</#if>
+</#if>
+<#t>
+<#if (pcstring("AC.NaturalArmor") = "0")>
+<#else>
+${pcstring('AC.NaturalArmor.SIGN')}&nbsp;natural<#t>
+</#if>
+<#if (pcstring("AC.NaturalArmor") = "0")>
+<#else>
+<#if (pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
+<#else>
+,&nbsp;<#t>
+</#if>
+</#if>
+<#t>
+<#if (pcstring("AC.Size") = "0")>
+<#else>
+${pcstring('AC.Size.SIGN')}&nbsp;size<#t>
+</#if>
+<#if (pcstring("AC.Size") = "0")>
+<#else>
+<#if (pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
+<#else>
+,&nbsp;<#t>
+</#if>
+</#if>
+<#t>
+<#if (pcstring("AC.Shield") = "0")>
+<#else>
+${pcstring('AC.Shield.SIGN')}&nbsp;shield<#t>
+</#if>
+<#if (pcstring("AC.Shield") = "0")>
+<#else>
+<#if (pcstring("AC.Misc") = "0")>
+<#else>
+,&nbsp;<#t>
+</#if>
+</#if>
+<#t>
+<#if (pcstring("AC.Misc") = "0")>
+<#else>
+${pcstring('AC.Misc.SIGN')}&nbsp;misc
+</#if>
+)<#lt>
+</p>
+
+<!-- hit points -->
+<b>hp</b>&nbsp;${pcstring('HP')}&nbsp;(${pcstring('HITDICE.MEDIUM')})<#t>
+<#t>
+<!-- ModifyHP TYPE Abilities --><#t>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=ModifyHP","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialHitPoints , specialHitPoints_has_next>
+<#if (specialHitPoints_has_next) >
+; <#lt>
+</#if>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialHitPoints}.TYPE=ModifyHP.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialHitPoints}.TYPE=ModifyHP.ASPECT.Ability Bonus')}&nbsp;<#t>
+</#if>
+${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialHitPoints}.TYPE=ModifyHP')}<#t>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialHitPoints}.TYPE=ModifyHP.HASASPECT.Ability Benefit") = "Y")>
+&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialHitPoints}.TYPE=ModifyHP.ASPECT.Ability Benefit')}<#t>
+</#if>
+<#if (specialHitPoints_has_next) >
+; <#lt>
+</#if>
+</@loop>
+<!-- End ModifyHP TYPE Abilities -->
+<br>
+<#t>
+<b>Fort</b>&nbsp;${pcstring('CHECK.FORTITUDE.TOTAL')},&nbsp;<b>Ref</b>&nbsp;${pcstring('CHECK.REFLEX.TOTAL')},&nbsp;<b>Will</b>&nbsp;${pcstring('CHECK.2.TOTAL')}<#t>
+<#t>
+<!-- SaveBonus TYPE Abilities --><#t>
+<@loop from=0 to=pcvar('count("ABILITIES","ASPECT=SaveBonus","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; savebonus , savebonus_has_next>
+,&nbsp;${pcstring('ABILITYALL.ANY.VISIBLE.${savebonus}.ASPECT=SaveBonus.ASPECT.SaveBonus')}<#t>
+</@loop>
+<br>
+<!-- End SaveBonus TYPE Abilities -->
+
+<!--- defensive abilities, damager reduction, immune, resist, SR --->
+<p>
+<!-- Defensive TYPE Abilities -->
+<#if (pcvar('count("ABILITIES","TYPE=Defensive","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<@compress single_line=true>
+<b>Defensive&nbsp;Abilities&nbsp;</b><#t>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=Defensive","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; defensiveAbilities , defensiveAbilities_has_next>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${defensiveAbilities}.TYPE=Defensive.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${defensiveAbilities}.TYPE=Defensive.ASPECT.Ability Bonus')}&nbsp;<#t>
+</#if>
+${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${defensiveAbilities}.TYPE=Defensive')}<#t>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${defensiveAbilities}.TYPE=Defensive.HASASPECT.Ability Benefit") = "Y")>
+&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${defensiveAbilities}.TYPE=Defensive.ASPECT.Ability Benefit')}<#t>
+</#if>
+<#if (defensiveAbilities_has_next) >
+,${' '}<#t>
+</#if>
+</@loop>
+</@compress>
+;
+</#if>
+<!-- End Defensive TYPE Abilities -->
+<#assign dr = pcstring('DR') />
+<#if (dr != '')>
+<b>DR</b> ${dr?lower_case}
+<#if (pcvar('count("ABILITIES","TYPE=Immunity","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0 || pcvar('count("ABILITIES","TYPE=Resistance","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0 || pcvar('SR') > 0) >
+;${" "}<#t>
+</#if>
+</#if>
+
+<!-- Immunity TYPE Abilities -->
+<@compress single_line=true>
+<#if (pcvar('count("ABILITIES","TYPE=Immunity","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<b>Immune&nbsp;</b><#t>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=Immunity","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; immunities , immunities_has_next>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity.ASPECT.Ability Bonus')}&nbsp;<#t>
+</#if>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity.HASASPECT.Immunity") = "Y")>
+${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity.ASPECT.Immunity')}<#t>
+<#else>
+${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity')}<#t>
+</#if>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity.HASASPECT.Ability Benefit") = "Y")>
+&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity.ASPECT.Ability Benefit')}<#t>
+</#if>
+<#if (immunities_has_next) >
+,${" "}
+<#else>
+<#if (pcvar('count("ABILITIES","TYPE=Resistance","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0 || pcvar('SR') > 0) >
+;${" "}
+</#if>
+</#if>
+</@loop>
+</#if>
+</@compress>
+
+<!-- End Immunity TYPE Abilities -->
+
+<!-- Resistance TYPE Abilities -->
+<@compress single_line=true>
+<#if (pcvar('count("ABILITIES","TYPE=Resistance","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<b>Resist&nbsp;</b>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=Resistance","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; resistances , resistances_has_next>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance.ASPECT.Ability Bonus')}&nbsp;
+</#if>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance.HASASPECT.Resistance") = "Y")>
+${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance.ASPECT.Resistance')}
+<#else>
+${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance')}
+</#if>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance.HASASPECT.Ability Benefit") = "Y")>
+&nbsp; ${pcstring('ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance.ASPECT.Ability Benefit')}
+</#if>
+<#if (resistances_has_next) >
+,${' '}
+<#else>
+<#if (pcstring("SR") = "0")>
+<#else>
+;${' '}
+</#if>
+</#if>
+</@loop>
+</#if>
+</@compress>
+<!-- End Resistance TYPE Abilities -->
+
+<#if (pcstring("SR") = "0")>
+<#else>
+<b>SR</b> ${pcstring('SR')}
+</#if>
+</p>
+
+<!-- Weakness TYPE Abilities -->
+<#if (pcvar('count("ABILITIES","TYPE=Weakness","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<@compress single_line=true>
+<b>Weaknesses&nbsp;</b><#t>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=Weakness","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; weaknesses , weaknesses_has_next>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${weaknesses}.TYPE=Weakness.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${weaknesses}.TYPE=Weakness.ASPECT.Ability Bonus')}&nbsp;<#t>
+</#if>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${weaknesses}.TYPE=Weakness')}<#t>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${weaknesses}.TYPE=Weakness.HASASPECT.Ability Benefit") = "Y")>
+&nbsp; ${pcstring('ABILITYALL.Special Ability.VISIBLE.${weaknesses}.TYPE=Weakness.ASPECT.Ability Benefit')}<#t>
+</#if>
+,${' '}<#t>
+</@loop>
+<br><#t>
+</@compress>
+</#if>
+<!-- End Weakness TYPE Abilities -->
+
+<!-- Defensive Gear -->
+<#if (pcvar('COUNT[EQTYPE.DefensiveGear]') > 0) >
+<b>Defensive Gear </b>
+<@loop from=0 to=pcvar('COUNT[EQTYPE.DefensiveGear]-1') ; defensiveGear , defensiveGear_has_next> <#-- TODO: Loop was of early exit type 1 -->
+<i>${pcstring('TEXT.LOWER.EQ.IS.DefensiveGear.${defensiveGear}.NAME')}; </i>
+</@loop>
+<br>
+</#if>
+<!-- End Defensive Gear -->
+
+<table class="section">
+  <tr>
+    <td>OFFENSE</td>
+  </tr>
+</table>
+<#t>
+<@compress single_line=true>
+<b>Speed</b><#t>
+<@loop from=0 to=pcvar('COUNT[MOVE]-1') ; movement , movement_has_next>
+<#if (pcstring("MOVE.0.NAME") = "Walk")>
+<#if (pcstring("MOVE.${movement}.NAME") = "Walk")>
+&nbsp;${pcstring('MOVE.${movement}.RATE')}<#t>
+<#else>
+&nbsp;${pcstring('TEXT.LOWERCASE.MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}<#t>
+</#if>
+<#else>
+&nbsp;${pcstring('TEXT.LOWERCASE.MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}<#t>
+</#if>
+<#if (pcstring("MOVE.${movement}.NAME") = "Fly")>
+&nbsp;(${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability')})<#t>
+</#if>
+</@loop>
+<#t>
+<!-- ModifyMovement TYPE Abilities --><#t>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Feat","TYPE=ModifyMovement","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; movementAbilities , movementAbilities_has_next>
+,${' '}<#t>
+<#if (pcstring("ABILITYALL.Feat.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Feat.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.ASPECT.Ability Bonus')}&nbsp;<#t>
+</#if>
+${pcstring('ABILITYALL.Feat.VISIBLE.${movementAbilities}.TYPE=ModifyMovement')}
+<#if (pcstring("ABILITYALL.Feat.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.HASASPECT.Ability Benefit") = "Y")>
+&nbsp;${pcstring('ABILITYALL.Feat.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.ASPECT.Ability Benefit')}<#t>
+</#if>
+</@loop>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=ModifyMovement","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; movementAbilities , movementAbilities_has_next>
+,${' '}<#t>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.ASPECT.Ability Bonus')}&nbsp;<#t>
+</#if>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${movementAbilities}.TYPE=ModifyMovement')}
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.HASASPECT.Ability Benefit") = "Y")>
+&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.ASPECT.Ability Benefit')}<#t>
+</#if>
+</@loop>
+</@compress>
+
+<!-- End ModifyMovement TYPE Abilities -->
+
+<!-- Attacks -->
+<@compress single_line=true>
+<@loop from=0 to=pcvar('COUNT[EQTYPE.Weapon]-1') ; weap , weap_has_next>
+<br><#t>
+<#if (pcstring("WEAPON.${weap}.NAME") = "Swarm")>
+<b>Melee&nbsp;</b><i>${pcstring('TEXT.LOWER.WEAPON.${weap}.NAME.NOSTAR')}&nbsp;</i>&nbsp;(${pcstring('WEAPON.${weap}.DAMAGE')})<#t>
+<#else>
+<#if (pcboolean("WEAPON.${weap}.ISTYPE.Ranged")) >
+<b>Ranged&nbsp;</b><#t>
+<#else>
+<b>Melee&nbsp;</b><#t>
+</#if>
+<i>${pcstring('TEXT.LOWER.WEAPON.${weap}.NAME.NOSTAR')}&nbsp;</i><#t>
+<#if (pcstring("WEAPON.${weap}.BASEHIT") = pcstring("INVALIDTEXT.TOHIT"))>
+(two&nbsp;handed)&nbsp;${pcstring('WEAPON.${weap}.THHIT')}&nbsp;((two&nbsp;handed)&nbsp;${pcstring('WEAPON.${weap}.THDAMAGE')}<#t>
+<#if (pcstring('WEAPON.${weap}.CRIT')?length = 2)>
+<#else>
+/${pcstring('WEAPON.${weap}.CRIT')}<#t>
+</#if>
+<#if (pcstring("WEAPON.${weap}.MULT") = "2")>
+<#else>
+/x${pcstring('WEAPON.${weap}.MULT')}<#t>
+</#if>
+)<#t>
+<#else>
+${pcstring('WEAPON.${weap}.BASEHIT')}&nbsp;<#t>
+
+<#if (pcstring("WEAPON.${weap}.TYPE")?lower_case?contains("ranged")) >
+(${pcstring('WEAPON.${weap}.RANGELIST.1.DAMAGE')}<#t>
+<#else>
+(${pcstring('WEAPON.${weap}.DAMAGE')}<#t>
+</#if>
+<#if (pcstring('WEAPON.${weap}.CRIT')?length = 2)>
+<#else>
+/${pcstring('WEAPON.${weap}.CRIT')}<#t>
+</#if>
+<#if (pcstring("WEAPON.${weap}.MULT") = "2")>
+<#else>
+/x${pcstring('WEAPON.${weap}.MULT')}<#t>
+</#if>
+)<#t>
+<#if (pcstring("WEAPON.${weap}.TYPE")?lower_case?contains("ranged") && (pcboolean('VAR.HASFEAT:Point-Blank Shot') || pcboolean('VAR.HASFEAT:Point Blank Shot'))) >
+,&nbsp;within&nbsp;30&nbsp;ft.&nbsp;${pcstring('WEAPON.${weap}.RANGELIST.0.BASEHIT')}&nbsp;(${pcstring('WEAPON.${weap}.RANGELIST.0.DAMAGE')})<#t>
+</#if>
+</#if>
+</#if>
+</@loop>
+</@compress>
+
+<!-- End Attacks -->
+
+<!-- Space and Reach -->
+<#if (pcstring("FACE") != "5 ft. by 5 ft." || pcstring("REACH") != "5 ft.") >
+<br><b>Space</b> ${pcstring('FACE')}; <b>Reach</b> ${pcstring('REACH')}
+</#if>
+
+<!-- SpecialAttack TYPE Abilities -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<@compress single_line=true>
+<br><b>Special&nbsp;Attacks</b>${' '}<#t>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialActions , specialActions_has_next>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpecialAttack.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpecialAttack.ASPECT.Ability Bonus')}&nbsp;<#t>
+</#if>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpecialAttack')}<#t>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpecialAttack.HASASPECT.Ability Benefit") = "Y")>
+&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpecialAttack.ASPECT.Ability Benefit')}<#t>
+</#if>
+,${' '}<#t>
+</@loop>
+</@compress>
+</#if>
+
+<!-- End SpecialAttack TYPE Abilities -->
+
+<!-- Offensive Gear -->
+<#if (pcvar("COUNT[EQTYPE.OffensiveGear]") > 0)>
+<br><b>Offensive Gear </b>
+<@loop from=0 to=pcvar('COUNT[EQTYPE.OffensiveGear]-1') ; offensiveGear , offensiveGear_has_next> <#-- TODO: Loop was of early exit type 1 -->
+<i>${pcstring('TEXT.LOWER.EQ.IS.OffensiveGear.${offensiveGear}.NAME')}; </i>
+</@loop>
+<br>
+</#if>
+<!-- End Offensive Gear -->
+
+<!-- Innate Spell-Like Abilities -->
+<#if (pcvar("COUNT[SPELLSINBOOK.0.1.0]") > 0)>
+<br><b>Spell-Like Abilities:</b>
+<#assign spellbook=1/>
+<#assign class=0/>
+<#assign level=0/>
+<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
+<i>${pcstring('TEXT.LOWER.SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</i> (
+<#if (pcstring("SPELLMEM.${class}.${spellbook}.${level}.${spell}.SAVEINFO")?contains("None"))>
+<#else>
+DC ${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')},
+</#if>
+<#if (pcstring("SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES") = "At Will")>
+at will)
+<#else>
+${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')}/${pcstring('TEXT.LOWER.SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMEUNIT')})
+</#if>
+</@loop>
+</#if>
+<!-- End Innate Spell-Like Abilities -->
+
+<!-- Other Spell-Like Abilities -->
+<@loop from=2 to=pcvar('COUNT[SPELLBOOKS]-1') ; spellbook , spellbook_has_next>
+<#if (pcstring("SPELLBOOK.${spellbook}.TYPE") = "Innate Spell List")>
+<#if (pcvar("COUNT[SPELLSINBOOK.0.${spellbook}.0]") > 0)>
+<br><b>${pcstring('SPELLBOOK.${spellbook}.NAME')} Spell-Like Abilities:</b>
+<#assign class = 0/>
+<#assign level = 0/>
+<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
+<i>${pcstring('TEXT.LOWER.SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</i> (
+<#if (pcstring("SPELLMEM.${class}.${spellbook}.${level}.${spell}.SAVEINFO")?contains("None"))>
+<#else>
+DC ${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')},
+</#if>
+<#if (pcstring("SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES") = "At Will")>
+at will)
+<#else>
+${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')}/${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMEUNIT')})
+</#if>
+</@loop>
+</#if>
+</#if>
+</@loop>
+<!-- End Other Spell-Like Abilities -->
+
+<!-- Domain Power Spell-Like Abilities -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=SpellLike.DomainPower","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<br><b>Domain Power Spell-Like Abilities</b>${' '}
+<@compress single_line=true>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=SpellLike.DomainPower","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialActions , specialActions_has_next>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpellLike.DomainPower.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpellLike.DomainPower.ASPECT.Ability Bonus')}&nbsp;<#t>
+</#if>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpellLike.DomainPower')}<#t>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpellLike.DomainPower.HASASPECT.Ability Benefit") = "Y")>
+&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpellLike.DomainPower.ASPECT.Ability Benefit')}<#t>
+</#if>
+<#if specialActions_has_next >
+,${' '}<#t>
+</#if>
+</@loop>
+</@compress>
+</#if>
+
+
+<!-- Known Spells -->
+<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]+COUNT[CLASSES]-1') ; class , class_has_next>
+<#if (pcstring("SPELLLISTMEMORIZE.${class}") = "false")>
+<br><b>Known ${pcstring('SPELLLISTCLASS.${class}')} Spells</b>
+<#if (pcstring('SPELLLISTCLASS.${class}.CONCENTRATION') = "")>
+(CL <@suffixnum num=pcvar('SPELLLISTCLASS.${class}.CASTERLEVEL') />
+<#else>
+(CL <@suffixnum num=pcvar('SPELLLISTCLASS.${class}.CASTERLEVEL') />, concentration ${pcstring('SPELLLISTCLASS.${class}.CONCENTRATION')}):
+</#if>
+<@loop from=9 to=0 step=-1; level, level_has_next >
+<@loop from=pcvar('COUNT[SPELLSINBOOK.${class}.0.${level}]') to=pcvar('COUNT[SPELLSINBOOK.${class}.0.${level}]') ; spelllevelcount , spelllevelcount_has_next>
+<#if (spelllevelcount = 0)>
+<!-- no memorized spells for SPELLSINBOOK.${class} 0 ${level} -->
+<#else>
+<p class="spells"><@compress single_line=true>
+<#if (level = 0)>
+0&nbsp;(at&nbsp;will)<#t>
+<#else>
+<@suffixnum num=level/>&nbsp;(${pcstring('SPELLLISTCAST.${class}.${level}')}/day)<#t>
+</#if>
+&mdash;<#t>
+<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.0.${level}]-2') ; spell , spell_has_next>
+<i>${pcstring('TEXT.LOWER.SPELLMEM.${class}.0.${level}.${spell}.NAME')}</i><#t>
+ <#assign saveinfo = pcstring('SPELLMEM.${class}.0.${level}.${spell}.SAVEINFO')?lower_case /> 
+ <#if (saveinfo?contains("none") || saveinfo?contains("harmless") || pcstring("SPELLMEM.${class}.0.${level}.${spell}.RANGE")?lower_case?contains("personal"))>
+ <#else>
+&nbsp;(DC&nbsp;${pcstring('SPELLMEM.${class}.0.${level}.${spell}.DC')})<#t>
+ </#if>
+,&nbsp;<#t>
+</@loop>
+<@loop from=pcvar('COUNT[SPELLSINBOOK.${class}.0.${level}]-1') to=pcvar('COUNT[SPELLSINBOOK.${class}.0.${level}]-1') ; spell , spell_has_next>
+${pcstring('SPELLMEM.${class}.0.${level}.${spell}.BONUSSPELL')}<i>${pcstring('TEXT.LOWER.SPELLMEM.${class}.0.${level}.${spell}.NAME')}</i><#t>
+ <#assign saveinfo = pcstring('SPELLMEM.${class}.0.${level}.${spell}.SAVEINFO')?lower_case /> 
+ <#if (saveinfo?contains("none") || saveinfo?contains("harmless") || pcstring("SPELLMEM.${class}.0.${level}.${spell}.RANGE")?lower_case?contains("personal"))>
+ <#else>
+&nbsp;(DC&nbsp;${pcstring('SPELLMEM.${class}.0.${level}.${spell}.DC')})<#t>
+ </#if>
+</@loop>
+</@compress>
+
+</p>
+</#if>
+</@loop>
+</@loop>
+</#if>
+</@loop>
+<!-- End Known Spells -->
+
+<!-- Prepared Spells -->
+<@loop from=2 to=pcvar('COUNT[SPELLBOOKS]-1') ; spellbook , spellbook_has_next>
+<#if (pcstring("SPELLBOOK.${spellbook}.TYPE") = "Prepared Spell List" && pcvar("SPELLBOOK.${spellbook}.NUMPAGES") = 0) >
+<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]+COUNT[CLASSES]-1') ; class , class_has_next>
+<#if (pcboolean("SPELLLISTMEMORIZE.${class}"))>
+<p><b>${pcstring('SPELLLISTCLASS.${class}')} Spells Prepared</b>
+(CL <@suffixnum num=pcvar('SPELLLISTCLASS.${class}.LEVEL') />, concentration ${pcstring('SPELLLISTCLASS.${class}.CONCENTRATION')}):
+</p>
+<@loop from=9 to=0 step=-1; level, level_has_next >
+ <#assign spelllevelcount = pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') />
+ <#if (spelllevelcount = 0)>
+<!-- no memorized spells for SPELLSINBOOK.${class} ${spellbook} ${level} -->
+ <#else>
+<p class="spells"><@compress single_line=true>
+  <#if (level = 0)>
+0${' '}(at&nbsp;will)<#t>
+  <#else>
+<@suffixnum num=level /><#t>
+  </#if>
+&mdash;<#t>
+  <@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
+${pcstring('TEXT.LOWER.SPELLMEM.${class}.${spellbook}.${level}.${spell}.APPLIEDNAME')}<#t>
+<i>${pcstring('TEXT.LOWER.SPELLMEM.${class}.${spellbook}.${level}.${spell}.BASENAME')}</i><#t>
+   <#if (pcvar("DOMAIN.1") > 0) >
+<sup>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.BONUSSPELLD')}</sup><#t>
+   </#if>
+   <#if (pcstring("SPELLMEM.${class}.${spellbook}.${level}.${spell}.SOURCESHORT") = "CR")>
+   <#else>
+<sup>${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.SOURCESHORT')}</sup><#t>
+   </#if>
+   <#if (pcstring("SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES") = "1")>
+   <#else>
+${' '}(${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')})<#t>
+   </#if>
+   <#assign saveinfo = pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.SAVEINFO')?lower_case /> 
+   <#if (saveinfo?contains("none") || saveinfo?contains("harmless") || pcstring("SPELLMEM.${class}.${spellbook}.${level}.${spell}.RANGE")?lower_case?contains("personal"))>
+   <#else>
+ ${' '}(DC&nbsp;${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})<#t>
+   </#if>
+   <#if (spell_has_next)>
+,${' '}<#t>
+   </#if>
+  </@loop>
+ </@compress>
+
+</p>
+</#if>
+</@loop>
+</#if>
+</@loop>
+<#else>
+</#if>
+</@loop>
+<!-- End Prepared Spells -->
+
+<!-- domains -->
+<#if (pcvar("COUNT[DOMAINS]") > 0) >
+<p class="spells">
+<b>D</b> Domain spell;
+<b>Domains</b>
+<@compress single_line=true>
+<@loop from=1 to=pcvar('COUNT[DOMAINS]') ; domain , domain_has_next>
+${pcstring('DOMAIN.${domain}')}<#t>
+<#if (domain_has_next)>
+,${' '}<#t>
+</#if>
+</@loop>
+</@compress>
+</p>
+</#if>
+<!-- End Domain list -->
+
+<table class="section">
+  <tr>
+    <td>STATISTICS</td>
+  </tr>
+</table>
+
+<@compress single_line=true>
+<@loop from=0 to=pcvar('COUNT[STATS]-1') ; stat , stat_has_next> <#-- TODO: Loop was of early exit type 1 -->
+<b>${pcstring('TEXT.TITLECASE.STAT.${stat}.NAME')}</b>${' '}<#t>
+<#if (pcstring("STAT.${stat}.ISNONABILITY") = "Y")>
+&mdash;<#t>
+<#else>
+${pcstring('STAT.${stat}')}<#t>
+</#if>
+<#if (stat_has_next)>
+,${' '}<#t>
+</#if>
+</@loop>
+</@compress>
+
+<br>
+
+<@compress single_line=true>
+<b>Base&nbsp;Atk</b>&nbsp;${pcstring('ATTACK.MELEE.BASE')};&nbsp;<#t>
+<#if (pcvar("UseCombatManueverBonus") = 1)>
+ <#assign useAPGCombatManuevers = (pcvar("UseAPGCombatManuevers") = 1) />
+ <b>CMB</b>&nbsp;${pcstring('VAR.CMB.INTVAL.SIGN')}<#t>
+ <#if (pcvar("CMB") != pcvar("CMB_BullRush")) >
+&nbsp;(${pcstring('VAR.CMB_BullRush.INTVAL.SIGN')}&nbsp;bull&nbsp;rush)<#t>
+</#if>
+ <#if (useAPGCombatManuevers && pcvar("CMB") != pcvar("CMB_DirtyTricks")) >
+&nbsp;(${pcstring('VAR.CMB_DirtyTricks.INTVAL.SIGN')}&nbsp;dirty&nbsp;tricks)<#t>
+ </#if>
+ <#if (pcvar("CMB") != pcvar("CMB_Disarm")) >
+&nbsp;(${pcstring('VAR.CMB_Disarm.INTVAL.SIGN')}&nbsp;disarm)<#t>
+ </#if>
+ <#if (useAPGCombatManuevers && pcvar("CMB") != pcvar("CMB_Drag")) >
+&nbsp;(${pcstring('VAR.CMB_Drag.INTVAL.SIGN')}&nbsp;drag)<#t>
+ </#if>
+ <#if (pcvar("CMB") != pcvar("CMB_Grapple")) >
+&nbsp;(${pcstring('VAR.CMB_Grapple.INTVAL.SIGN')}&nbsp;grapple)<#t>
+ </#if>
+ <#if (pcvar("CMB") != pcvar("CMB_Overrun")) >
+&nbsp;(${pcstring('VAR.CMB_Overrun.INTVAL.SIGN')}&nbsp;overrun)<#t>
+ </#if>
+ <#if (useAPGCombatManuevers && pcvar("CMB") != pcvar("CMB_Reposition"))>
+&nbsp;(${pcstring('VAR.CMB_Reposition.INTVAL.SIGN')}&nbsp;reposition)<#t>
+ </#if>
+ <#if (useAPGCombatManuevers && pcvar("CMB") != pcvar("CMB_Steal"))>
+&nbsp;(${pcstring('VAR.CMB_Steal.INTVAL.SIGN')}&nbsp;steal)<#t>
+ </#if>
+ <#if (pcvar("CMB") != pcvar("CMB_Sunder")) >
+&nbsp;(${pcstring('VAR.CMB_Sunder.INTVAL.SIGN')}&nbsp;sunder)<#t>
+ </#if>
+ <#if (pcvar("CMB") != pcvar("CMB_Trip")) >
+&nbsp;(${pcstring('VAR.CMB_Trip.INTVAL.SIGN')}&nbsp;trip)<#t>
+ </#if>
+ <#if (pcvar("CMD") > 0) >
+<b>;&nbsp;CMD</b>&nbsp;${pcstring('VAR.CMD.INTVAL')}<#t>
+  <#if (pcvar("CMD") != pcvar("CMD_BullRush")) >
+&nbsp;(${pcstring('VAR.CMD_BullRush.INTVAL')}&nbsp;vs.&nbsp;bull&nbsp;rush)<#t>
+  </#if>
+  <#if (useAPGCombatManuevers && pcvar("CMD") != pcvar("CMD_DirtyTricks")) >
+&nbsp;(${pcstring('VAR.CMD_DirtyTricks.INTVAL')}&nbsp;vs.&nbsp;dirty&nbsp;tricks)<#t>
+  </#if>
+  <#if (pcvar("CMD") != pcvar("CMD_Disarm")) >
+&nbsp;(${pcstring('VAR.CMD_Disarm.INTVAL')}&nbsp;vs.&nbsp;disarm)<#t>
+  </#if>
+  <#if (useAPGCombatManuevers && pcvar("CMD") != pcvar("CMD_Drag")) >
+&nbsp;(${pcstring('VAR.CMD_Drag.INTVAL')}&nbsp;vs.&nbsp;drag)<#t>
+  </#if>
+  <#if (pcvar("CMD") != pcvar("CMD_Grapple")) >
+&nbsp;(${pcstring('VAR.CMD_Grapple.INTVAL')}&nbsp;vs.&nbsp;grapple)<#t>
+  </#if>
+  <#if (pcvar("CMD") != pcvar("CMD_Overrun")) >
+&nbsp;(${pcstring('VAR.CMD_Overrun.INTVAL')}&nbsp;vs.&nbsp;overrun)<#t>
+  </#if>
+  <#if (useAPGCombatManuevers && pcvar("CMD") != pcvar("CMD_Reposition")) >
+&nbsp;(${pcstring('VAR.CMD_Reposition.INTVAL')}&nbsp;vs.&nbsp;reposition)<#t>
+  </#if>
+  <#if (useAPGCombatManuevers && pcvar("CMD") != pcvar("CMD_Steal")) >
+&nbsp;(${pcstring('VAR.CMD_Steal.INTVAL')}&nbsp;vs.&nbsp;steal)<#t>
+  </#if>
+  <#if (pcvar("CMD") != pcvar("CMD_Sunder")) >
+&nbsp;(${pcstring('VAR.CMD_Sunder.INTVAL')}&nbsp;vs.&nbsp;sunder)<#t>
+  </#if>
+  <#if (pcvar("CantBeTripped") != 0) >
+&nbsp;(can't&nbsp;be&nbsp;tripped)<#t>
+  <#elseif (pcvar("CMD") != pcvar("CMD_Trip")) >
+&nbsp;(${pcstring('VAR.CMD_Trip.INTVAL')}&nbsp;vs.&nbsp;trip)<#t>
+  </#if>
+ </#if>
+<#else>
+<b>Grp</b>
+ <#if (pcvar("CanNotGrapple")=0)>
+${pcvar('VAR.(STR+BAB+(SIZE-4)+(SIZE-4)+(SIZE-4)+(SIZE-4)+(ATTACK.GRAPPLE.MISC)).INTVAL.SIGN')}<#t>
+ <#else>
+&mdash;<#t>
+ </#if>
+</#if>
+</@compress>
+
+<br>
+
+<p>
+<b>Feats</b>
+${pcstring('FEATALLLIST')}
+</p>
+
+<!--
+<b>FEATS</b>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Feat","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; feat , feat_has_next>
+,${' '}
+<#if (pcstring("ABILITYALL.Feat.VISIBLE.${feat}.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Feat.VISIBLE.${feat}.ASPECT.Ability Bonus')}&nbsp;
+</#if>
+${pcstring('ABILITYALL.Feat.VISIBLE.${feat}')}
+<#if (pcstring("ABILITYALL.Feat.VISIBLE.${feat}.HASASPECT.Ability Benefit") = "Y")>
+&nbsp;${pcstring('ABILITYALL.Feat.VISIBLE.${feat}.ASPECT.Ability Benefit')}
+</#if>
+</@loop>
+-->
+
+<p>
+<b>Skills</b>
+<@compress single_line=true>
+<@loop from=0 to=pcvar('count("SKILLSIT")')-1 ; skill, skill_has_next >
+${pcstring('SKILLSIT.${skill}')}${' '}<#t>
+${pcstring('SKILLSIT.${skill}.TOTAL.INTVAL.SIGN')}<#t>
+<#if (skill_has_next)>
+,${' '}<#t>
+</#if>
+</@loop>
+</@compress>
+
+</p>
+
+<#macro communicationBlock>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAbilities , specialAbilities_has_next>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Communicate.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Communicate.ASPECT.Ability Bonus')}&nbsp;<#t>
+</#if>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Communicate')}<#t>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Communicate.HASASPECT.Ability Benefit") = "Y")>
+&nbsp; ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Communicate.ASPECT.Ability Benefit')}<#t>
+</#if>
+,${' '}<#t>
+</@loop>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Feat","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAbilities , specialAbilities_has_next>
+<#if (pcstring("ABILITYALL.Feat.VISIBLE.${specialAbilities}.TYPE=Communicate.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Feat.VISIBLE.${specialAbilities}.TYPE=Communicate.ASPECT.Ability Bonus')}&nbsp;<#t>
+</#if>
+${pcstring('ABILITYALL.Feat.VISIBLE.${specialAbilities}.TYPE=Communicate')}<#t>
+<#if (pcstring("ABILITYALL.Feat.VISIBLE.${specialAbilities}.TYPE=Communicate.HASASPECT.Ability Benefit") = "Y")>
+&nbsp; ${pcstring('ABILITYALL.Feat.VISIBLE.${specialAbilities}.TYPE=Communicate.ASPECT.Ability Benefit')}<#t>
+</#if>
+,${' '}<#t>
+</@loop>
+</#macro>
+
+<!-- Languages and Communicate TYPE Abilities -->
+<@compress single_line=true>
+<#if pcstring("LANGUAGES")?length = 0 >
+ <#if (pcvar('count("ABILITIES","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<b>Communication</b>&nbsp;<#t>
+ <@communicationBlock />
+<br><#t>
+ </#if>
+<#else>
+<p><#t>
+<b>Languages</b>&nbsp;${pcstring('LANGUAGES')}<#t>
+ <#if (pcvar('count("ABILITIES","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+,${' '}<#t>
+ </#if>
+ <@communicationBlock />
+</p>
+</#if>
+</@compress>
+
+<!-- End Languages Communicate TYPE Abilities -->
+
+<!-- Start of Archetypes -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<b>Archetypes </b>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; archetype , archetype_has_next>
+${pcstring('ABILITYALL.Archetype.VISIBLE.${archetype}.TYPE=Archetype')},
+</@loop>
+<br>
+</#if>
+<!-- STOP Archetypes Table -->
+
+<!-- SpecialQuality TYPE Abilities -->
+<@compress single_line=true>
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<b>SQ</b>${' '}<#t>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAbilities , specialAbilities_has_next>
+<#assign sqType = pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality.TYPE')?lower_case /> 
+<#if (sqType?contains('implicit') || sqType?contains('immunity') || sqType?contains('resistance') || sqType?contains('defensive') 
+	|| sqType?contains('weakness') || sqType?contains('communicate')) >
+<#else>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality.ASPECT.Ability Bonus')}&nbsp;<#t>
+</#if>
+${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality')}<#t>
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality.HASASPECT.Ability Benefit") = "Y")>
+&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality.ASPECT.Ability Benefit')}<#t>
+</#if>
+,${' '}<#t>
+</#if>
+</@loop>
+<br><#t>
+</#if>
+</@compress>
+
+<!-- End SpecialQuality TYPE Abilities -->
+
+<!-- Animal Tricks TYPE Abilities -->
+<@compress single_line=true>
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=AnimalTrick","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<b>Animal&nbsp;Tricks</b>${' '}${pcstring('ABILITYALLLIST.Special Ability.VISIBLE.TYPE=AnimalTrick')}<br><#t>
+</#if>
+</@compress>
+<!-- End Animal Tricks TYPE Abilities -->
+
+<#if (pcvar("COUNT[SA]") > 0) >
+<b>Special Abilities </b> ${pcstring('SPECIALLIST')}<br>
+</#if>
+
+<!-- Afflictions Start -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Afflictions","TYPE=Affliction","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<b>Afflictions </b>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Afflictions","TYPE=Affliction","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; affliction , affliction_has_next>
+${pcstring('ABILITYALL.Afflictions.VISIBLE.${affliction}.TYPE=Affliction')}
+(${pcstring('ABILITYALL.Afflictions.VISIBLE.${affliction}.TYPE=Affliction.DESC')}),
+</@loop>
+<br>
+</#if>
+<!-- Afflictions End -->
+
+<b>Gear </b>
+<@loop from=0 to=pcvar('COUNT[EQUIPMENT.Not.Contained.NOT.Container.NOT.Natural]-1') ; equip , equip_has_next> <#-- TODO: Loop was of early exit type 1 -->
+<#if (pcstring("EQ.NOT.CONTAINED.NOT.Container.NOT.Natural.${equip}.QTY.INTVAL") = "1")>
+<i>${pcstring('TEXT.LOWER.EQ.NOT.CONTAINED.NOT.Container.NOT.Natural.${equip}.NAME')}; </i>
+<#else>
+<i>${pcstring('TEXT.LOWER.EQ.NOT.CONTAINED.NOT.Container.NOT.Natural.${equip}.NAME')} (x${pcstring('TEXT.LOWER.EQ.NOT.Contained.NOT.CONTAINER.NOT.Natural.${equip}.QTY.INTVAL')}); </i>
+</#if>
+</@loop>
+
+<@loop from=0 to=pcvar('COUNT[CONTAINERS]-1') ; container , container_has_next> <#-- TODO: Loop was of early exit type 1 -->
+${pcstring('EQ.IS.Container.${container}.NAME')}
+<#if (pcstring("EQ.IS.Container.${container}.CONTENTSNUM.QTY.INTVAL") = "0")>
+<#else>
+[
+</#if>
+<@loop from=0 to=pcvar('EQ.IS.Container.${container}.CONTENTSNUM-1') ; equip , equip_has_next> <#-- TODO: Loop was of early exit type 1 -->
+<#if (pcstring("EQ.IS.Container.${container}.CONTENTS.${equip}.QTY.INTVAL") = "1")>
+${pcstring('EQ.IS.Container.${container}.CONTENTS.${equip}.NAME')};
+<#else>
+${pcstring('EQ.IS.Container.${container}.CONTENTS.${equip}.NAME')} (x${pcstring('EQ.IS.Container.${container}.CONTENTS.${equip}.QTY.INTVAL')});
+</#if>
+</@loop>
+<#if (pcstring("EQ.IS.Container.${container}.CONTENTSNUM.QTY.INTVAL") = "0")>
+;
+<#else>
+];
+</#if>
+</@loop>
+
+<!-- SpellBooks -->
+<@loop from=2 to=pcvar('COUNT[SPELLBOOKS]-1') ; spellbook , spellbook_has_next>
+<#if (pcstring("SPELLBOOK.${spellbook}.TYPE") = "Spell Book")>
+<br><b>${pcstring('SPELLBOOKNAME.${spellbook}')}</b>
+<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]+COUNT[CLASSES]-2') ; class , class_has_next> <#-- TODO: Loop was of early exit type 1 -->
+<#if (pcstring("SPELLLISTMEMORIZE.${class}") = "false")>
+<#else>
+<@loop from=0 to=pcvar('9') ; level , level_has_next> <#-- TODO: Loop was of early exit type 1 -->
+<@loop from=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') ; spelllevelcount , spelllevelcount_has_next>
+<#if (spelllevelcount = 0)>
+<!-- no memorized spells for SPELLSINBOOK.${class} ${spellbook} ${level} -->
+<#else>
+<br><@suffixnum num=level />
+<@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-2') ; spell , spell_has_next>
+<i>${pcstring('TEXT.LOWER.SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</i>
+<#if (pcstring("SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES") = "1")>
+<#else>
+(${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')})
+</#if>
+<#if (pcstring("SPELLMEM.${class}.${spellbook}.${level}.${spell}.SAVEINFO")?contains("None"))>
+<#else>
+(DC ${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})
+</#if>
+,
+</@loop>
+<@loop from=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]-1') ; spell , spell_has_next>
+${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.BONUSSPELL')}<i>${pcstring('TEXT.LOWER.SPELLMEM.${class}.${spellbook}.${level}.${spell}.NAME')}</i>
+<#if (pcstring("SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES") = "1")>
+<#else>
+(${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')})
+</#if>
+<#if (pcstring("SPELLMEM.${class}.${spellbook}.${level}.${spell}.SAVEINFO")?contains("None"))>
+<#else>
+(DC ${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})
+</#if>
+</@loop>
+</#if>
+</@loop>
+</@loop>
+</#if>
+</@loop>
+</#if>
+</@loop>
+<!-- End SpellBooks -->
+
+<p></p>
+<table class="section">
+  <tr>
+    <td>SPECIAL ABILITIES</td>
+  </tr>
+</table>
+
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; allAbilities , allAbilities_has_next>
+<#assign typeOfAbility = pcstring("ABILITYALL.Special Ability.VISIBLE.${allAbilities}.TYPE")?lower_case />
+<#if (typeOfAbility = "Implicit")>
+<#else>
+<p><b>${pcstring('ABILITYALL.Special Ability.VISIBLE.${allAbilities}')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+</b> ${pcstring('ABILITYALL.Special Ability.VISIBLE.${allAbilities}.DESC')}</p>
+</#if>
+</@loop>
+
+<!-- Start of Temporary Bonuses Added -->
+<p></p>
+<#if (pcvar("COUNT[TEMPBONUSNAMES]") > 0) >
+<table class="section">
+  <tr>
+    <td>TEMPORARY BONUSES</td>
+  </tr>
+</table>
+<b>Temporary Bonuses Applied</b>
+<@loop from=0 to=pcvar('COUNT[TEMPBONUSNAMES]-1') ; temp , temp_has_next>
+${pcstring('TEMPBONUS.${temp}')},
+</@loop>
+<br>
+</#if>
+<!-- End of Temporary Bonuses Added -->
+
+</body>
+</html>
+
