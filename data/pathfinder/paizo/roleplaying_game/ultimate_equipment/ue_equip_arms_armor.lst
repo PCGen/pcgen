@@ -252,7 +252,7 @@ Bamboo Shaft Arrows (10)																					TYPE:Ammunition.Resizable.Standard.
 Blunt Arrows (20)																							TYPE:Ammunition.Resizable.Standard.Arrow														COST:2	WT:3					BASEQTY:20		EQMOD:WOOD											MODS:YES			SOURCEPAGE:p.24
 Flight Arrows (20)																						TYPE:Ammunition.Resizable.Standard.Arrow														COST:2	WT:3					BASEQTY:20		EQMOD:STEEL.WOOD										MODS:YES			SOURCEPAGE:p.27	SPROP:A flight arrow's range increment is 20 feet greater with longbows, 10 feet greater with shortbows. They deal damage as if one size category smaller.	BONUS:EQMWEAPON|RANGEADD|10|PRETYPE:1,Shortbow	BONUS:EQMWEAPON|RANGEADD|20|PRETYPE:1,Longbow	BONUS:WEAPON|DAMAGESIZE|-1
 Kestros Dart (10)																							TYPE:Ammunition.Resizable.Standard.KestrosDart													COST:5	WT:5					BASEQTY:10		EQMOD:STEEL.WOOD										MODS:YES			SOURCEPAGE:p.30
-Smoke Arrow																								TYPE:Ammunition.Resizable.Standard.Arrow														COST:10	WT:0					BASEQTY:1		EQMOD:STEEL.WOOD										MODS:YES			SOURCEPAGE:p.37
+Smoke Arrow																								TYPE:Ammunition.Resizable.Standard.Arrow														COST:10	WT:0.15				BASEQTY:1		EQMOD:STEEL.WOOD										MODS:YES			SOURCEPAGE:p.37
 Whistling Arrows (20)																						TYPE:Ammunition.Resizable.Standard.Arrow														COST:2	WT:3					BASEQTY:20		EQMOD:STEEL.WOOD										MODS:YES			SOURCEPAGE:p.40
 Alchemical Cartridge (Dragon's Breath)																			TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:40
 Alchemical Cartridge (Entangling Shot)																			TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:40
