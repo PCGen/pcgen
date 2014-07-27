@@ -445,19 +445,19 @@ public class WeaponToken extends Token
 		}
 		else if (token.equals("FEATDAMAGE"))
 		{
-			Delta.toString(getFeatDamageToken(pc, eq));
+			return Delta.toString(getFeatDamageToken(pc, eq));
 		}
 		else if (token.equals("FEATHIT"))
 		{
-			Delta.toString(getFeatHitToken(pc, eq));
+			return Delta.toString(getFeatHitToken(pc, eq));
 		}
 		else if (token.equals("TEMPLATEDAMAGE"))
 		{
-			Delta.toString(getTemplateDamageToken(pc, eq));
+			return Delta.toString(getTemplateDamageToken(pc, eq));
 		}
 		else if (token.equals("TEMPLATEHIT"))
 		{
-			Delta.toString(getTemplateHitToken(pc, eq));
+			return Delta.toString(getTemplateHitToken(pc, eq));
 		}
 		else if (token.equals("DAMAGE"))
 		{

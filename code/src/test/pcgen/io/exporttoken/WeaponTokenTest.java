@@ -85,6 +85,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	private Equipment bite = null;
 	private Equipment longbow = null;
 	private Equipment arrow;
+	private Ability wpnBonusAbility;
+	private PCTemplate wpnBonusPct;
 
 	/**
 	 * Quick test suite creation - adds all methods beginning with "test"
@@ -386,6 +388,19 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(pct, "AUTO",
 				"WEAPONPROF|KEY_Sword (Bastard)|KEY_LONGSWORD|SillyBite");
 		character.addTemplate(pct);
+		
+		wpnBonusPct = new PCTemplate();
+		context.unconditionallyProcess(wpnBonusPct, "BONUS",
+				"WEAPONPROF=DoubleWpn|DAMAGE|3");
+		context.unconditionallyProcess(wpnBonusPct, "BONUS",
+				"WEAPONPROF=DoubleWpn|TOHIT|4");
+		
+		wpnBonusAbility = TestHelper.makeAbility("FEAT_BONUS", AbilityCategory.FEAT, "General");
+		context.unconditionallyProcess(wpnBonusAbility, "BONUS",
+				"WEAPONPROF=DoubleWpn|DAMAGE|1");
+		context.unconditionallyProcess(wpnBonusAbility, "BONUS",
+				"WEAPONPROF=DoubleWpn|TOHIT|2");
+
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 	}
 
@@ -879,4 +894,47 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		
 	}	
 	
+	/**
+	 * Check the FEATHIT and FEATDAMAGE weapon subtokens.
+	 */
+	public void testFeatBonus()
+	{
+		PlayerCharacter character = getCharacter();
+		WeaponToken token = new WeaponToken();
+		assertEquals("weapon name", dblWpn.getName(),
+			token.getToken("WEAPON.0.NAME.NOSTAR", character, null));
+		assertEquals("feat tohit bonus, before adding", "+0",
+			token.getToken("WEAPON.0.FEATHIT", character, null));
+		assertEquals("feat damage bonus, before adding", "+0",
+			token.getToken("WEAPON.0.FEATDAMAGE", character, null));
+		
+		addAbility(AbilityCategory.FEAT, wpnBonusAbility);
+		character.calcActiveBonuses();
+		assertEquals("feat tohit bonus, after adding", "+2",
+			token.getToken("WEAPON.0.FEATHIT", character, null));
+		assertEquals("feat damage bonus, after adding", "+1",
+			token.getToken("WEAPON.0.FEATDAMAGE", character, null));
+	}
+	
+	/**
+	 * Check the TEMPLATEHIT and TEMPLATEDAMAGE weapon subtokens.
+	 */
+	public void testTemplateBonus()
+	{
+		PlayerCharacter character = getCharacter();
+		WeaponToken token = new WeaponToken();
+		assertEquals("weapon name", dblWpn.getName(),
+			token.getToken("WEAPON.0.NAME.NOSTAR", character, null));
+		assertEquals("feat tohit bonus, before adding", "+0",
+			token.getToken("WEAPON.0.TEMPLATEHIT", character, null));
+		assertEquals("feat damage bonus, before adding", "+0",
+			token.getToken("WEAPON.0.TEMPLATEDAMAGE", character, null));
+		
+		character.addTemplate(wpnBonusPct);
+		character.calcActiveBonuses();
+		assertEquals("feat tohit bonus, after adding", "+4",
+			token.getToken("WEAPON.0.TEMPLATEHIT", character, null));
+		assertEquals("feat damage bonus, after adding", "+3",
+			token.getToken("WEAPON.0.TEMPLATEDAMAGE", character, null));
+	}
 }

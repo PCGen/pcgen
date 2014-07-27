@@ -3543,10 +3543,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(AbilityCategory.FEAT, Nature.VIRTUAL));
 		List<Ability> aggregateFeatList = new ArrayList<Ability>();
-		aggregateFeatList.addAll(aHashMap.values());
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(AbilityCategory.FEAT, Nature.AUTOMATIC));
-		//TODO Is this a bug?
-		aggregateFeatList = new ArrayList<Ability>();
 		aggregateFeatList.addAll(aHashMap.values());
 		return getPObjectWithCostBonusTo(aggregateFeatList, aType.toUpperCase(), aName.toUpperCase());
 	}

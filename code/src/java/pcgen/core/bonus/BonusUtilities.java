@@ -57,7 +57,7 @@ public final class BonusUtilities
 		{
 			for ( BonusObj aBonus : bonusList )
 			{
-				if (!aBonus.getTypeOfBonus().startsWith(aType))
+				if (!aBonus.getTypeOfBonus().equals(aType))
 				{
 					continue;
 				}
