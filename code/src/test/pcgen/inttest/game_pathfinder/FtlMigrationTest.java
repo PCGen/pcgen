@@ -65,6 +65,7 @@ import pcgen.util.TestHelper;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
+@Ignore
 @SuppressWarnings("nls")
 public class FtlMigrationTest
 {
