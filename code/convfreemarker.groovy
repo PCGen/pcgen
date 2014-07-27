@@ -122,7 +122,17 @@ pcgenExportFile.eachLine {
     // Raw variables
     // |%level|
     replaceStr = Matcher.quoteReplacement('${') + "\$1}";
-	line = line.replaceAll("\\|%([A-Za-z0-9|]+)\\|", replaceStr)
+	line = line.replaceAll("\\|%([A-Za-z0-9]+)\\|", replaceStr)
+
+    // Formatting tags
+    line = line.replaceAll("\\|MANUALWHITESPACE\\|", '<@compress single_line=true><#-- TODO: Add <#t> at the end of each following line with output to ensure no extra spaces are output. -->')
+    line = line.replaceAll("\\|ENDMANUALWHITESPACE\\|", '</@compress>')
+    replaceStr = Matcher.quoteReplacement('${') + "' '}";
+    line = line.replaceAll("\\|SPACE\\|", replaceStr)
+
+    // |IIF(%class<%class!MAX)|
+    line = line.replaceAll("\\|IIF\\(%([a-zA-Z0-9+-]+)<%([a-zA-Z0-9+-]+)\\!MAX\\)\\|", "<#if (\$1_has_next)>")
+    line = line.replaceAll("\\|IIF\\(%([a-zA-Z0-9+-]+):%([a-zA-Z0-9+-]+)\\!MAX\\)\\|", "<#if (\$1_has_next)>")
 	
     // General tags
     def replaceStr = Matcher.quoteReplacement('${pcstring(') + "'\$1')}"; 
@@ -136,7 +146,7 @@ pcgenExportFile.eachLine {
 
     if (line ==~ ".*\\|.*") {
     	// If we couldn't conert everything report the line and revert back to the original content
-    	println "Unable to convert line ${linenum}: ${origLine}"
+    	println "Unable to convert line ${linenum}: ${origLine} got to ${line}"
     	line = origLine
     	numSkipped++
     }
