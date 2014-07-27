@@ -684,6 +684,15 @@
 					<tohit_2weap_heavy>${pcstring('WEAPON.${weap}.RANGELIST.${range}.TWPHITH')}</tohit_2weap_heavy>
 					<tohit_2weap_light>${pcstring('WEAPON.${weap}.RANGELIST.${range}.TWPHITL')}</tohit_2weap_light>
 					<tohit_2weap_offhand>${pcstring('WEAPON.${weap}.RANGELIST.${range}.TWOHIT')}</tohit_2weap_offhand>
+					<@loop from=0 to=pcvar('WEAPON.${weap}.CONTENTS-1') ; ammo , ammo_has_next>
+					<ammunition>
+						<name>${pcstring('WEAPON.${weap}.CONTENTS.${ammo}')}</name>
+						<special_properties>${pcstring('WEAPON.${weap}.CONTENTS.${ammo}.SPROP')}</special_properties>
+						<quantity>${pcstring('EQ.IS.WEAPON.${weap}.CONTENTS.${ammo}.QTY')}</quantity>
+						<to_hit>${pcstring('WEAPON.${weap}.RANGELIST.${range}.CONTENTS.${ammo}.TOTALHIT')}</to_hit>
+						<damage>${pcstring('WEAPON.${weap}.RANGELIST.${range}.CONTENTS.${ammo}.DAMAGE')}</damage>
+					</ammunition>
+					</@loop>
 				</range>
 				</#if>
 			</#macro>
@@ -869,9 +878,7 @@
 			<@loop from=0 to=pcvar('WEAPON.${weap}.CONTENTS-1') ; ammo , ammo_has_next>
 			<ranges>
 				<ammunition>
-					<name>${pcstring('WEAPON.${weap}.CONTENTS.${ammo}')}</name>
-					<special_properties>${pcstring('WEAPON.${weap}.CONTENTS.${ammo}.SPROP')}</special_properties>
-					<quantity>${pcstring('EQ.IS.WEAPON.${weap}.CONTENTS.${ammo}.QTY')}</quantity>
+						<name>${pcstring('WEAPON.${weap}.CONTENTS.${ammo}')}</name>
 				</ammunition>
 				<#if (pcboolean('WEAPON.${weap}.ISTYPE.Thrown'))>
 				<rangetype>Thrown</rangetype>
