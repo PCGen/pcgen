@@ -302,7 +302,7 @@
 								<fo:table-row>
 									<fo:table-cell>
 								<!-->		<xsl:apply-templates select="basics/bab" mode="bab"/>	-->
-										<xsl:call-template name="encumberance"/>
+										<xsl:call-template name="encumbrance"/>
 									</fo:table-cell>
 									<fo:table-cell number-rows-spanned="2">
 										<xsl:apply-templates select="skills">

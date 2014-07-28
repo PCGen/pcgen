@@ -857,11 +857,11 @@
 	<!--
 ====================================
 ====================================
-	TEMPLATE - encumberance TABLE
+	TEMPLATE - encumbrance TABLE
 ====================================
 ====================================-->
-	<xsl:template name="encumberance">
-		<!-- BEGIN encumberance table -->
+	<xsl:template name="encumbrance">
+		<!-- BEGIN encumbrance table -->
 <!--	<xsl:if test="/character/equipment/total/load != 'Light'">	-->
 		<fo:table table-layout="fixed">
 			<!-- 0.26 * $pagePrintableWidth - 2 mm -->
@@ -883,7 +883,7 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'initiative.title'"/>
 						</xsl:call-template>
-					<fo:block line-height="10pt" font-weight="bold" font-size="7pt" space-before="1pt">ENCUMBERANCE</fo:block>
+					<fo:block line-height="10pt" font-weight="bold" font-size="7pt" space-before="1pt">Encumbrance</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell>

@@ -283,7 +283,7 @@
 								<fo:table-row>
 									<fo:table-cell>
 								<!-->		<xsl:apply-templates select="basics/bab" mode="bab"/>	-->
-										<xsl:call-template name="encumberance"/>
+										<xsl:call-template name="encumbrance"/>
 									</fo:table-cell>
 									<fo:table-cell number-rows-spanned="2">
 										<xsl:apply-templates select="skills">
@@ -2093,12 +2093,11 @@
 	<!--
 ====================================
 ====================================
-	TEMPLATE - encumberance TABLE
+	TEMPLATE - encumbrance TABLE
 ====================================
 ====================================-->
-	<xsl:template name="encumberance">
-		<!-- BEGIN encumberance table -->
-        <xsl:if test="/character/equipment/total/load != 'Light'">
+	<xsl:template name="encumbrance">
+		<!-- BEGIN encumbrance table -->
 		<fo:table table-layout="fixed">
 			<!-- 0.26 * $pagePrintableWidth - 2 mm -->
 			<fo:table-column>
@@ -2117,7 +2116,7 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'initiative.title'"/>
 						</xsl:call-template>
-					<fo:block line-height="10pt" font-weight="bold" font-size="12pt" space-before="1pt">ENCUMBERANCE</fo:block>
+					<fo:block line-height="10pt" font-weight="bold" font-size="12pt" space-before="1pt">Encumbrance</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
 					<fo:table-cell>
@@ -2131,8 +2130,7 @@
 				</fo:table-row>
 			</fo:table-body>
 		</fo:table>
-        </xsl:if>
-		<!-- END encumberance table -->
+		<!-- END encumbrance table -->
 	</xsl:template>
 
 	<xsl:template name="skills.empty">
