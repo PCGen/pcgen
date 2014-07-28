@@ -1,0 +1,9 @@
+
+Race Traits ~ Companion Toad	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=Companion Toad RacialTrait
+
+Grasping Tongue	KEY:Companion Toad ~ Grasping Tongue				CATEGORY:Special Ability	TYPE:Companion Toad RacialTrait.Race Traits.SpecialQuality				SOURCEPAGE:p.	DESC:(may make a grapple maneuver with its tongue on targets up to 10 feet away without provoking an attack of opportunity).|CompanionToadTongueReach	DEFINE:CompanionToadTongueReach|0	BONUS:VAR|CompanionToadTongueReach|10	BONUS:VAR|CompanionToadTongueReach|10|PRESIZEGTEQ:M
+Marsh Move		KEY:Companion Toad ~ Marsh Move					CATEGORY:Special Ability	TYPE:Companion Toad RacialTrait.Race Traits.SpecialQuality.Extraordinary	SOURCEPAGE:p.	DESC:A toad suffers no movement penalties for moving through marshes or mud.
+
+
+#
+Companion Advancement ~ Toad	CATEGORY:Special Ability	BONUS:SIZEMOD|NUMBER|1
