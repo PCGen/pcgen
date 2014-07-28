@@ -877,6 +877,13 @@
 			<#else><#-- IIF(WEAPON.${weap}.CONTENTS:0) -->
 			<@loop from=0 to=pcvar('WEAPON.${weap}.CONTENTS-1') ; ammo , ammo_has_next>
 			<ranges>
+					<ammunition>
+						<name>${pcstring('WEAPON.${weap}.CONTENTS.${ammo}')}</name>
+						<special_properties>${pcstring('WEAPON.${weap}.CONTENTS.${ammo}.SPROP')}</special_properties>
+						<quantity>${pcstring('EQ.IS.WEAPON.${weap}.CONTENTS.${ammo}.QTY')}</quantity>
+						<to_hit>${pcstring('WEAPON.${weap}.RANGELIST.${weap}.CONTENTS.${ammo}.TOTALHIT')}</to_hit>
+						<damage>${pcstring('WEAPON.${weap}.RANGELIST.${weap}.CONTENTS.${ammo}.DAMAGE')}</damage>
+					</ammunition>
 				<ammunition>
 						<name>${pcstring('WEAPON.${weap}.CONTENTS.${ammo}')}</name>
 				</ammunition>
