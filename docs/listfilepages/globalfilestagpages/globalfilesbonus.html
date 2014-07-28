@@ -1399,6 +1399,7 @@
 			<li><code>TOHIT</code> adds to the attack bonus of the weapon.</li>
 			<li><code>TOHIT-SHORTRANGE</code> adds to the attack bonus of the weapon at short range as defined in the GameMode files.</li>
 			<li><code>TOHITOVERSIZE</code> decreases the handedness of a weapon.</li>
+			<li><code>WEAPONBAB</code> - Modifies the character's BAB for the weapon proficiency the bonus is applied to, affecting both to-hit and attack progression.</li>
 			<li><code>WIELDCATEGORY</code> raises or lowers the wieldcatagory of the weapon.</li>
 		</ul>
 		</li>
@@ -1429,6 +1430,9 @@
   	<p class="indent2"><code>BONUS:WEAPONPROF=Dagger|DAMAGEMULT:0|.5</code></p>
   	<p class="indent3">Increases the damage multiplier of the dagger weapon by half your 
   		strength bonus when wielding it off handed.</p>
+  	<p class="indent2"><code>BONUS:WEAPONPROF=Unarmed Strike|WEAPONBAB|MonkLVL-BAB</code></p>
+  	<p class="indent3">When applied to a monk, this will change the monk's BAB for Unarmed Strike to the full 
+  		BAB as if the monk were a fighter</p>
 	<p></p>
 
 <hr>
