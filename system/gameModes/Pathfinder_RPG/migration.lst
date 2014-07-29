@@ -2346,3 +2346,21 @@ ABILITY:Special Ability|Ape Shaman ~ Druid Archetype			MAXVER:6.4.0	NEWKEY:Druid
 ABILITY:Special Ability|Bat Shaman ~ Druid Archetype			MAXVER:6.4.0	NEWKEY:Druid Archetype ~ Bat Shaman	
 ABILITY:Special Ability|Boar Shaman ~ Druid Archetype			MAXVER:6.4.0	NEWKEY:Druid Archetype ~ Boar Shaman	
 ABILITY:Special Ability|World Walker ~ Druid Archetype		MAXVER:6.4.0	NEWKEY:Druid Archetype ~ World Walker	
+ABILITY:Special Ability|Companion Advancement (Ant (Giant))				MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Ant (Giant)		
+ABILITY:Special Ability|Companion Advancement (Beetle (Giant))			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Beetle (Giant)	
+ABILITY:Special Ability|Companion Advancement (Centipede (Giant))			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Centipede (Giant)	
+ABILITY:Special Ability|Companion Advancement (Crab (Giant))			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Crab (Giant)		
+ABILITY:Special Ability|Companion Advancement (Leech (Giant))			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Leech (Giant)		
+ABILITY:Special Ability|Companion Advancement (Mantis (Giant))			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Mantis (Giant)	
+ABILITY:Special Ability|Companion Advancement (Scorpion (Giant))			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Scorpion (Giant)	
+ABILITY:Special Ability|Companion Advancement (Slug (Giant))			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Slug (Giant)		
+ABILITY:Special Ability|Companion Advancement (Spider (Giant))			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Spider (Giant)	
+ABILITY:Special Ability|Companion Advancement (Wasp (Giant))			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Wasp (Giant)		
+ABILITY:Special Ability|Companion Advancement (Carnivorous Flower)	MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Carnivorous Flower	
+ABILITY:Special Ability|Companion Advancement (Crawling Vine)		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Crawling Vine		
+ABILITY:Special Ability|Companion Advancement (Puffball)			MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Puffball		
+ABILITY:Special Ability|Companion Advancement (Sapling Treant)		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Sapling Treant	
+ABILITY:Special Ability|Companion Advancement (Pygmy Hippopotamus)	MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Pygmy Hippopotamus
+ABILITY:Special Ability|Companion Advancement (Thylacine)	MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Thylacine
+ABILITY:Special Ability|Companion Advancement (Elk)		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Elk		
+ABILITY:Special Ability|Companion Advancement (Hippogriff)		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Hippogriff
