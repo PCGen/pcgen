@@ -1667,7 +1667,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Frightful Presence</name>
-			<description>A dragon&#39;s frightful presence has a range equal to 30 feet x the dragon&#39;s age category, but otherwise functions as detailed on page 300.</description>
+			<description>A dragon&#39;s frightful presence has a range equal to 30 feet x the dragon&#39;s age category [360&#39;], but otherwise functions as detailed on page 300.</description>
 			<type>RACEABILITY.SPECIALQUALITY.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
