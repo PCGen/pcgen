@@ -77,10 +77,11 @@ public class Bonus
 		for ( final BonusObj bonus : listToSort )
 		{
 			int iFound = 0;
+			String bonusInfo = bonus.getBonusInfo();
 			for (int ii = 0; ii < tempList.size(); ii++)
 			{
 				final BonusObj tempBonus = tempList.get(ii);
-				if (tempBonus.getDependsOn(bonus.getBonusInfo()))
+				if (tempBonus.getDependsOn(bonusInfo))
 				{
 					iFound = ii;
 				}
