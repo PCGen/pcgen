@@ -88,7 +88,7 @@ Jinx			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality				DESC:Jinx			
 ###Block: Maverick class features
 # Feat Name			Type			Visible	Special ABility		Virtual Feat		Save checks bonus						Modify VAR				Source Page
 # Ability Name		Category of Ability		Type						Description			Virtual Feat		Save checks bonus						Modify VAR				Source Page
-Extraordinary Luck	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DESC:Extraordinary Luck					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)						SOURCEPAGE:p.34
+Extraordinary Luck	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DESC:Extraordinary Luck					BONUS:SAVE|Fortitude,Reflex,Will|max(CHA,0)						SOURCEPAGE:p.34
 Gambler's Luck		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DESC:Gambler's Luck																		SOURCEPAGE:p.34
 Maverick Sneak Attack	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					VFEAT:Sneak Attack									BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.34
 Slippery Mind		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DESC:Slippery Mind																		SOURCEPAGE:p.34

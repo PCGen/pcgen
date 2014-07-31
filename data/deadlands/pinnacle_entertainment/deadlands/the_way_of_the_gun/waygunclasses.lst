@@ -2,7 +2,7 @@
 SOURCELONG:The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Bounty Hunter	HD:8		TYPE:PC.Prestige	ABB:Bht		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Bounty Hunter	HD:8		TYPE:PC.Prestige	ABB:Bht		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Skill
 CLASS:Bounty Hunter	PREATT:6	PRESKILL:2,Gather Information=6,Wilderness Lore=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -20,7 +20,7 @@ CLASS:Bounty Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Gather Informa
 10										BONUS:VAR|DetectVulnerability|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Card Sharp	HD:6		TYPE:PC.Prestige	ABB:Cds		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Card Sharp	HD:6		TYPE:PC.Prestige	ABB:Cds		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:SAVE|BASE.Fortitude|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Skill
 CLASS:Card Sharp	PREATT:4	PRESKILL:4,Bluff=6,Gamblin'=9,Sleight o' Hand=9,Spot=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -38,7 +38,7 @@ CLASS:Card Sharp	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Gambli
 10											BONUS:VAR|Cheating|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Crusader	HD:8		TYPE:PC.Prestige	ABB:Cru		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Crusader	HD:8		TYPE:PC.Prestige	ABB:Cru		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.
 CLASS:Crusader	PREALIGN:LG,NG,CG	PREATT:6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -58,14 +58,14 @@ CLASS:Crusader	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Gunplay|Holdout|Int
 10														BONUS:VAR|ArcaneShield|3
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Desperado	HD:8		TYPE:PC.Prestige	ABB:Dsp		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Desperado	HD:8		TYPE:PC.Prestige	ABB:Dsp		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Required AL			Req. Att.	Required Skill
 CLASS:Desperado	PREALIGN:LE,TN,NE,CE	PREATT:6	PRESKILL:3,Gunplay=4,Ride=6,Wilderness Lore=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Desperado	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Demolitions|Forgery|Gamblin'|Gunplay|Hide|Holdout|Intimidate|Jump|Knowledge (Geography)|Knowledge (Local)|Move Silently|Open Lock|TYPE=Profession|Ride|Search|Speed Load|Wilderness Lore
 1	AUTO:FEAT|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Normal Progression
-1	SAB:Mean as a Rattler	SAB:Sneak Attack +%d6|SneakAttackDice	BONUS:SKILL|Diplomacy|-2	BONUS:VAR|SneakAttackDice|(CL+2)/3	DEFINE:SneakAttackDice|0
+1	SAB:Mean as a Rattler	SAB:Sneak Attack +%d6|SneakAttackDice	BONUS:SKILL|Diplomacy|-2	BONUS:VAR|SneakAttackDice|(classlevel("APPLIEDAS=NONEPIC")+2)/3	DEFINE:SneakAttackDice|0
 2	SAB:Paunch (%/day)|Paunch												BONUS:VAR|Paunch|1			DEFINE:Paunch|0
 3	SAB:Hideout %|Hideout													BONUS:VAR|Hideout|1			DEFINE:Hideout|0
 5																	BONUS:VAR|Paunch|1
@@ -74,7 +74,7 @@ CLASS:Desperado	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Demolitions|Forger
 9																	BONUS:VAR|Paunch|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatically Gained Weapon Prof.						Save checks bonus																			Combat bonus
-CLASS:Gunsmith	HD:6		TYPE:PC.Prestige	ABB:Gsm		MAXLEVEL:10	SOURCEPAGE:p.23	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|1+floor(CL/5)+floor((CL+3)/5)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Gunsmith	HD:6		TYPE:PC.Prestige	ABB:Gsm		MAXLEVEL:10	SOURCEPAGE:p.23	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Skill
 CLASS:Gunsmith	PREATT:6	PRESKILL:2,Gunplay=4,Tinkerin'=9
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -91,7 +91,7 @@ CLASS:Gunsmith	STARTSKILLPTS:4	CSKILL:Alchemy|TYPE=Craft|Demolitions|Disable Dev
 10										BONUS:VAR|FieldMods|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Law Dog	HD:8		TYPE:PC.Prestige	ABB:Lwd		MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Law Dog	HD:8		TYPE:PC.Prestige	ABB:Lwd		MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Skill
 CLASS:Law Dog	PREALIGN:LG,NG,CG	PREATT:6	PRESKILL:3,Diplomacy=4,Gunplay=6,Ride=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -101,24 +101,24 @@ CLASS:Law Dog	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gamblin'|G
 ###Block: Normal Progression
 1	SAB:Law o'the West						ADD:FEAT|Ambidexterity,Automatic Weapon Proficiency,Dead Eye,Dodge,Exotic Weapon Proficiency,Fannin',Far Shot,Grim Servant o' Death,Improved Critical,Improved Initiative,Improved Two-Weapon Fighting,Law Man (County),Law Man (National),Level-Headed,Marksman,Mercy Shot,Point Blank Shot,Precise Shot,Quick Draw,Renown,Slip Shot,Special Draw,Steady Shot,The Stare,Two-Weapon Fighting,Weapon Focus	AUTO:FEAT|Law Man (Town/City)
 2	SAB:Outlaw Eye
-3	SAB:Call Posse %|CallPosse	DEFINE:CallPosse|CL/3
+3	SAB:Call Posse %|CallPosse	DEFINE:CallPosse|classlevel("APPLIEDAS=NONEPIC")/3
 4										ADD:FEAT|Ambidexterity,Automatic Weapon Proficiency,Dead Eye,Dodge,Exotic Weapon Proficiency,Fannin',Far Shot,Grim Servant o' Death,Improved Critical,Improved Initiative,Improved Two-Weapon Fighting,Law Man (National),Level-Headed,Marksman,Mercy Shot,Point Blank Shot,Precise Shot,Quick Draw,Renown,Slip Shot,Special Draw,Steady Shot,The Stare,Two-Weapon Fighting,Weapon Focus
 7										ADD:FEAT|Ambidexterity,Automatic Weapon Proficiency,Dead Eye,Dodge,Exotic Weapon Proficiency,Fannin',Far Shot,Grim Servant o' Death,Improved Critical,Improved Initiative,Improved Two-Weapon Fighting,Law Man (National),Level-Headed,Marksman,Mercy Shot,Point Blank Shot,Precise Shot,Quick Draw,Renown,Slip Shot,Special Draw,Steady Shot,The Stare,Two-Weapon Fighting,Weapon Focus
 10										ADD:FEAT|Ambidexterity,Automatic Weapon Proficiency,Dead Eye,Dodge,Exotic Weapon Proficiency,Fannin',Far Shot,Grim Servant o' Death,Improved Critical,Improved Initiative,Improved Two-Weapon Fighting,Law Man (National),Level-Headed,Marksman,Mercy Shot,Point Blank Shot,Precise Shot,Quick Draw,Renown,Slip Shot,Special Draw,Steady Shot,The Stare,Two-Weapon Fighting,Weapon Focus
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatically Gained Weapon Prof.						Save checks bonus																Combat bonus
-CLASS:Rifleman	HD:8		TYPE:PC.Prestige	ABB:Rfm		MAXLEVEL:10	SOURCEPAGE:p.27	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Rifleman	HD:8		TYPE:PC.Prestige	ABB:Rfm		MAXLEVEL:10	SOURCEPAGE:p.27	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat
 CLASS:Rifleman	PREATT:8	PREFEAT:1,Firearms Proficiency (Pistol),Firearms Proficiency (Rifle),Firearms Proficiency (Shotgun)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rifleman	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Gunplay|Hide|Intimidate|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Ride|Ridicule|Spot|Wilderness Lore|Use Rope
 1																			ADD:FEAT|Dead Eye,Grim Servant o' Death,Improved Initiative,Level-Headed,Marksman,Weapon Focus	AUTO:FEAT|Simple Weapon Proficiency
 2	SAB:Increased Range
-3	SAB:Sneak Attack (% feet)|RifleSneak	BONUS:VAR|RifleSneak|floor(CL/3)*100	DEFINE:RifleSneak|100
+3	SAB:Sneak Attack (% feet)|RifleSneak	BONUS:VAR|RifleSneak|floor(classlevel("APPLIEDAS=NONEPIC")/3)*100	DEFINE:RifleSneak|100
 5	SAB:Coup de Grace
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatically Gained Weapon Prof.						Save checks bonus																	Combat bonus
-CLASS:Spy		HD:6		TYPE:PC.Prestige	ABB:Spy		MAXLEVEL:10	SOURCEPAGE:p.22	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun	BONUS:CHECKS|BASE.Fortitude|max((CL-1)/2,0)	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Spy		HD:6		TYPE:PC.Prestige	ABB:Spy		MAXLEVEL:10	SOURCEPAGE:p.22	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun	BONUS:SAVE|BASE.Fortitude|max((classlevel("APPLIEDAS=NONEPIC")-1)/2,0)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL			Req. Att.	Required Skill
 CLASS:Spy		PREALIGN:LE,TN,NE,CE	PREATT:6	PRESKILL:3,Gunplay=4,Ride=6,Wilderness Lore=4
 # Class Name	Skill Pts/Lvl	Class Skill

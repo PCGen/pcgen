@@ -79,7 +79,7 @@ Jinx			TYPE:ClassAbility	VISIBLE:NO	SAB:Jinx						SOURCEPAGE:p.32
 
 ###Block: Maverick class features
 # Feat Name			Type			Visible	Special ABility		Virtual Feat		Save checks bonus						Modify VAR				Source Page
-Extraordinary Luck	TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Luck					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)						SOURCEPAGE:p.34
+Extraordinary Luck	TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Luck					BONUS:SAVE|Fortitude,Reflex,Will|max(CHA,0)						SOURCEPAGE:p.34
 Gambler's Luck		TYPE:ClassAbility	VISIBLE:NO	SAB:Gambler's Luck																		SOURCEPAGE:p.34
 Maverick Sneak Attack	TYPE:ClassAbility	VISIBLE:NO					VFEAT:Sneak Attack									BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.34
 Slippery Mind		TYPE:ClassAbility	VISIBLE:NO	SAB:Slippery Mind																			SOURCEPAGE:p.34
