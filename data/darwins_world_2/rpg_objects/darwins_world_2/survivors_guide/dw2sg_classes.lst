@@ -4,7 +4,7 @@ SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_
 ###Block:DW2 Base Class
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus			Modify VAR
-CLASS:Post Apocalyptic Hero	HD:8		TYPE:Base.PC	ABB:PApoc		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3/4)	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/4
+CLASS:Post Apocalyptic Hero	HD:8		TYPE:Base.PC	ABB:PApoc		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3/4)	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Post Apocalyptic Hero	STARTSKILLPTS:5	CSKILL:Climb|Hide|Jump|Knowledge (Mutant Lore)|Knowledge (Ancient Lore)|Knowledge (Twisted Earth)|Listen|Move Silently|Navigate|Repair|Search|Spot|Survival
 #
