@@ -40,4 +40,4 @@ Baleful Shriek	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:
 Reason to Hate	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Reason to Hate (Su)
 Self-Loathing	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Self-Loathing (Ex)
 Sense Murderer	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO																															VISION:Sense Murderer
-Unholy Fortitude	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Unholy Fortitude										BONUS:CHECKS|Fortitude|CHA	BONUS:HP|CURRENTMAX|CHA*TL
+Unholy Fortitude	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Unholy Fortitude										BONUS:SAVE|Fortitude|CHA	BONUS:HP|CURRENTMAX|CHA*TL

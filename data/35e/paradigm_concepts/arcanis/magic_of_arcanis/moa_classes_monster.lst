@@ -6,7 +6,7 @@ SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcept
 ###Block: Bio Construct
 
 # Class Name		Hit Dice	Type				Save checks bonus								Combat bonus
-CLASS:Bio-Construct	HD:10		TYPE:Base.PC.Monster	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+CLASS:Bio-Construct	HD:10		TYPE:Base.PC.Monster	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
 # Class Name		Skill Pts/Lvl
 CLASS:Bio-Construct	STARTSKILLPTS:4
 1	ABILITY:Special Ability|AUTOMATIC|BioConstruct

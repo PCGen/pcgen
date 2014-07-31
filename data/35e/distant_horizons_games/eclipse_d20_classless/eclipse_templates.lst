@@ -82,11 +82,11 @@ The Faithful Steed																																																					ABILITY:S
 
 
 # Positive Levels grant +1 to AC, To Hit, and Saves along with 6 CP
-Positive Level (+1)																						BONUS:ABILITYPOOL|Character Points|6			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1	BONUS:COMBAT|AC|1
-Positive Level (+2)																						BONUS:ABILITYPOOL|Character Points|12			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|2	BONUS:COMBAT|AC|2
-Positive Level (+3)																						BONUS:ABILITYPOOL|Character Points|18			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|3	BONUS:COMBAT|BAB|3	BONUS:COMBAT|AC|3
-Positive Level (+4)																						BONUS:ABILITYPOOL|Character Points|24			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|4	BONUS:COMBAT|BAB|4	BONUS:COMBAT|AC|4
-Positive Level (+5)																						BONUS:ABILITYPOOL|Character Points|30			BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|5	BONUS:COMBAT|BAB|5	BONUS:COMBAT|AC|5
+Positive Level (+1)																						BONUS:ABILITYPOOL|Character Points|6			BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BASEAB|1	BONUS:COMBAT|AC|1
+Positive Level (+2)																						BONUS:ABILITYPOOL|Character Points|12			BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BASEAB|2	BONUS:COMBAT|AC|2
+Positive Level (+3)																						BONUS:ABILITYPOOL|Character Points|18			BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|3	BONUS:COMBAT|BASEAB|3	BONUS:COMBAT|AC|3
+Positive Level (+4)																						BONUS:ABILITYPOOL|Character Points|24			BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|4	BONUS:COMBAT|BASEAB|4	BONUS:COMBAT|AC|4
+Positive Level (+5)																						BONUS:ABILITYPOOL|Character Points|30			BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|5	BONUS:COMBAT|BASEAB|5	BONUS:COMBAT|AC|5
 
 
 # Template Levels - Grant Points to a Separate Pool for easier Selections - These are for template level creation.

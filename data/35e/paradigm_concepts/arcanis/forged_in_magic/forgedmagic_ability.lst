@@ -5,10 +5,10 @@
 EloriiBonusforArmguardofTalisos	CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																																									BONUS:WEAPONPROF=TYPE.Bow|TOHIT|2|TYPE=Competence
 Emerald Scale Tail Bracer		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																																									BONUS:WEAPONPROF=Tail|TOHIT,DAMAGE|1|TYPE=Enhancement	BONUS:WEAPONPROF=Tail|DAMAGESIZE|1
 Helm of Protection Penalty		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																										BONUS:MISC|ACCHECK|-3	BONUS:MISC|SPELLFAILURE|-10
-Mask of Ancient Yhassremore		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO	SAB:Serpentine Dance 1/day; see Mask of Ancient Yhassremore				BONUS:CHECKS|ALL|1|TYPE=Profane	BONUS:COMBAT|AC|1|TYPE=Profane
+Mask of Ancient Yhassremore		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO	SAB:Serpentine Dance 1/day; see Mask of Ancient Yhassremore				BONUS:SAVE|ALL|1|TYPE=Profane	BONUS:COMBAT|AC|1|TYPE=Profane
 Monkey Gloves				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO											MOVE:Climb,20
 Ranseur of Wind and Wave		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO											MOVE:Fly,30
-Toga of Office				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO														BONUS:CHECKS|ALL|4|TYPE=Resistance	BONUS:COMBAT|AC|6|TYPE=Armor											BONUS:STAT|CHA|6|TYPE=Enhancement
+Toga of Office				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO														BONUS:SAVE|ALL|4|TYPE=Resistance	BONUS:COMBAT|AC|6|TYPE=Armor											BONUS:STAT|CHA|6|TYPE=Enhancement
 Red Howler Mask				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																																																								NATURALATTACKS:Red Howler Mask ~ Bite,Melee.Piercing.Slashing.Bludgeoning,*1,1d6
 
 Duelist Blade				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO

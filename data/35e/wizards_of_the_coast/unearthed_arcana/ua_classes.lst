@@ -120,14 +120,14 @@ CLASS:Cleric (Cloistered Cleric)	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Cleric (Cloistered Cleric)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric (Cloistered Cleric)|CL
 ###Block:Proficiencies
-1								ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=ArmorProfLight
+1								ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple
 1								ABILITY:Special Ability|AUTOMATIC|Cloistered Cleric ~ Lore
 1	DOMAIN:Knowledge	BONUS:DOMAIN|NUMBER|1
 # This is Phase I of the Turn abilities improvement (for 5.6).  Futher enhancements are planned,
 #	both OS and data to include modifications for differences in Turning ability for Undead,
 #	Air, Fire, etc.
 ###Block: Turn Undead stuff
-1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Turn or Rebuke Undead|Cleric ~ Spontaneous Casting|Cleric ~ Aura
+1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Aura|Cleric ~ Spontaneous Casting|Cleric ~ Turn or Rebuke Undead
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
@@ -266,7 +266,7 @@ CLASS:Paladin of Freedom	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVE
 ###Block: Level progression
 1				BONUS:VAR|AuraGood,DetectEvilLVL,PaladinSmiteEvilLVL|CL	BONUS:VAR|AllowHolyAvenger|1	DEFINE:AllowHolyAvenger|0	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Good|Paladin ~ Detect Evil|Paladin ~ Smite Evil
 2				BONUS:VAR|LayOnHandsLVL|CL																ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Grace|Paladin ~ Lay on Hands
-3																								ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Freedom ~ Aura of Resolve|Paladin ~ Divine Health
+3																								ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Health|Paladin of Freedom ~ Aura of Resolve
 4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL																ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Turn Undead
 5	CAST:0,0		BONUS:VAR|SpecialMountLVL|CL																ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Special Mount
 6	CAST:0,1		BONUS:VAR|RemoveDiseaseLVL|CL																ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Remove Disease
@@ -297,8 +297,8 @@ CLASS:Paladin of Slaughter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LE
 1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency
 ###Block: Level progression
 1				BONUS:VAR|AuraEvil,DetectGoodLVL,PaladinSmiteGoodLVL|CL	BONUS:VAR|AllowHolyAvenger|1	DEFINE:AllowUnholyAvenger|0	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Slaughter ~ Aura of Evil|Paladin of Slaughter ~ Detect Good|Paladin of Slaughter ~ Smite Good
-2				BONUS:VAR|DeadlyTouchLVL|CL																ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Slaughter ~ Deadly Touch|Paladin ~ Divine Grace
-3																								ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Slaughter ~ Debilitating Aura|Paladin ~ Divine Health
+2				BONUS:VAR|DeadlyTouchLVL|CL																ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Grace|Paladin of Slaughter ~ Deadly Touch
+3																								ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Health|Paladin of Slaughter ~ Debilitating Aura
 4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL																ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Slaughter ~ Rebuke Undead
 5	CAST:0,0		BONUS:VAR|SpecialMountLVL|CL																ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Special Mount
 6	CAST:0,1		BONUS:VAR|CauseDiseaseLVL|CL																ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Slaughter ~ Cause Disease
@@ -331,8 +331,8 @@ CLASS:Paladin of Tyranny	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVE
 
 ###Block: Level progression
 1				BONUS:VAR|AuraEvil,DetectGoodLVL,PaladinSmiteGoodLVL|CL	BONUS:VAR|AllowHolyAvenger|1	DEFINE:AllowUnholyAvenger|0	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Tyranny ~ Aura of Evil|Paladin of Tyranny ~ Detect Good|Paladin of Tyranny ~ Smite Good
-2				BONUS:VAR|DeadlyTouchLVL|CL																ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Tyranny ~ Deadly Touch|Paladin ~ Divine Grace
-3																								ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Tyranny ~ Aura of Despair|Paladin ~ Divine Health
+2				BONUS:VAR|DeadlyTouchLVL|CL																ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Grace|Paladin of Tyranny ~ Deadly Touch
+3																								ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Health|Paladin of Tyranny ~ Aura of Despair
 4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL																ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Tyranny ~ Rebuke Undead
 5	CAST:0,0		BONUS:VAR|SpecialMountLVL|CL																ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Special Mount
 6	CAST:0,1		BONUS:VAR|CauseDiseaseLVL|CL																ABILITY:Paladin Class Feature|AUTOMATIC|Paladin of Tyranny ~ Cause Disease
@@ -609,7 +609,7 @@ CLASS:Cleric (Spontaneous)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Cler
 #Animal
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Calm Animals|Cleric (Spontaneous)=2|Hold Animal|Cleric (Spontaneous)=3|Dominate Animal|Cleric (Spontaneous)=4|Summon Nature's Ally IV|Cleric (Spontaneous)=5|Commune with Nature|Cleric (Spontaneous)=6|Antilife Shell|Cleric (Spontaneous)=7|Animal Shapes|Cleric (Spontaneous)=8|Summon Nature's Ally VIII|Cleric (Spontaneous)=9|Shapechange|PREDOMAIN:1,Animal
 #Chaos
-1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Protection from Law|Cleric (Spontaneous)=2|Shatter|Cleric (Spontaneous)=3|Magic Circle against Law|Cleric (Spontaneous)=4|Chaos Hammer|Cleric (Spontaneous)=5|Dispel Law|Cleric (Spontaneous)=6|Animate Objects|Cleric (Spontaneous)=7|Word of Chaos|Cleric (Spontaneous)=8|Cloak of Chaos|Cleric (Spontaneous)=9|Summon Monster IX|PREDOMAIN:1,Chaos
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Protection from Law|Cleric (Spontaneous)=2|Shatter|Cleric (Spontaneous)=3|Magic Circle Against Law|Cleric (Spontaneous)=4|Chaos Hammer|Cleric (Spontaneous)=5|Dispel Law|Cleric (Spontaneous)=6|Animate Objects|Cleric (Spontaneous)=7|Word of Chaos|Cleric (Spontaneous)=8|Cloak of Chaos|Cleric (Spontaneous)=9|Summon Monster IX|PREDOMAIN:1,Chaos
 #Death
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Cause Fear|Cleric (Spontaneous)=2|Death Knell|Cleric (Spontaneous)=3|Animate Dead|Cleric (Spontaneous)=4|Death Ward|Cleric (Spontaneous)=5|Slay Living|Cleric (Spontaneous)=6|Create Undead|Cleric (Spontaneous)=7|Destruction|Cleric (Spontaneous)=8|Create Greater Undead|Cleric (Spontaneous)=9|Wail of the Banshee|PREDOMAIN:1,Death
 #Destruction
@@ -617,11 +617,11 @@ CLASS:Cleric (Spontaneous)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Cler
 #Earth
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Magic Stone|Cleric (Spontaneous)=2|Soften Earth and Stone|Cleric (Spontaneous)=3|Stone Shape|Cleric (Spontaneous)=4|Spike Stones|Cleric (Spontaneous)=5|Wall of Stone|Cleric (Spontaneous)=6|Stoneskin|Cleric (Spontaneous)=7|Earthquake|Cleric (Spontaneous)=8|Iron Body|Cleric (Spontaneous)=9|Elemental Swarm|PREDOMAIN:1,Earth
 #Evil
-1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Protection from Good|Cleric (Spontaneous)=2|Desecrate|Cleric (Spontaneous)=3|Magic Circle against Good|Cleric (Spontaneous)=4|Unholy Blight|Cleric (Spontaneous)=5|Dispel Good|Cleric (Spontaneous)=6|Create Undead|Cleric (Spontaneous)=7|Blasphemy|Cleric (Spontaneous)=8|Unholy Aura|Cleric (Spontaneous)=9|Summon Monster IX|PREDOMAIN:1,Evil
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Protection from Good|Cleric (Spontaneous)=2|Desecrate|Cleric (Spontaneous)=3|Magic Circle Against Good|Cleric (Spontaneous)=4|Unholy Blight|Cleric (Spontaneous)=5|Dispel Good|Cleric (Spontaneous)=6|Create Undead|Cleric (Spontaneous)=7|Blasphemy|Cleric (Spontaneous)=8|Unholy Aura|Cleric (Spontaneous)=9|Summon Monster IX|PREDOMAIN:1,Evil
 #Fire
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Burning Hands|Cleric (Spontaneous)=2|Produce Flame|Cleric (Spontaneous)=3|Resist Energy|Cleric (Spontaneous)=4|Wall of Fire|Cleric (Spontaneous)=5|Fire Shield|Cleric (Spontaneous)=6|Fire Seeds|Cleric (Spontaneous)=7|Fire Storm|Cleric (Spontaneous)=8|Incendiary Cloud|Cleric (Spontaneous)=9|Elemental Swarm|PREDOMAIN:1,Fire
 #Good
-1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Protection from Evil|Cleric (Spontaneous)=2|Aid|Cleric (Spontaneous)=3|Magic Circle against Evil|Cleric (Spontaneous)=4|Holy Smite|Cleric (Spontaneous)=5|Dispel Evil|Cleric (Spontaneous)=6|Blade Barrier|Cleric (Spontaneous)=7|Holy Word|Cleric (Spontaneous)=8|Holy Aura|Cleric (Spontaneous)=9|Summon Monster IX|PREDOMAIN:1,Good
+1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Protection from Evil|Cleric (Spontaneous)=2|Aid|Cleric (Spontaneous)=3|Magic Circle Against Evil|Cleric (Spontaneous)=4|Holy Smite|Cleric (Spontaneous)=5|Dispel Evil|Cleric (Spontaneous)=6|Blade Barrier|Cleric (Spontaneous)=7|Holy Word|Cleric (Spontaneous)=8|Holy Aura|Cleric (Spontaneous)=9|Summon Monster IX|PREDOMAIN:1,Good
 #Healing
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Cure Light Wounds|Cleric (Spontaneous)=2|Cure Moderate Wounds|Cleric (Spontaneous)=3|Cure Serious Wounds|Cleric (Spontaneous)=4|Cure Critical Wounds|Cleric (Spontaneous)=5|Cure Light Wounds (Mass)|Cleric (Spontaneous)=6|Heal|Cleric (Spontaneous)=7|Regenerate|Cleric (Spontaneous)=8|Cure Critical Wounds (Mass)|Cleric (Spontaneous)=9|Heal (Mass)|PREDOMAIN:1,Healing
 #Knowledge
@@ -1002,7 +1002,7 @@ CLASS:Tiefling Paragon	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Disguise|Hide|Kno
 
 # Class Name	Max Level
 CLASS:Bloodline	MAXLEVEL:3
-1:REPEATLEVEL:1	BONUS:CASTERLEVEL|ALLSPELLS|1	DONOTADD:SKILLPOINTS|HITDIE
+1:REPEATLEVEL:1	BONUS:CASTERLEVEL|ALLSPELLS|1	DONOTADD:HITDIE|SKILLPOINTS
 
 
 
@@ -1011,7 +1011,7 @@ CLASS:Bloodline	MAXLEVEL:3
 # Class Name	Unique Key		Output Name		Hit Dice	Type				Max Level	Source, Long Desc.	Source, Short Desc.	Source Page		Bonus to Ability Pool				Combat bonus								Bonus
 CLASS:Expert	KEY:GC_Expert	OUTPUTNAME:Expert	HD:6		TYPE:GenericClass.PC	MAXLEVEL:20	SOURCELONG:UA		SOURCESHORT:UA		SOURCEPAGE:p.77	BONUS:ABILITYPOOL|Expert Good Save|2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ExpertFortitudeSaveGood,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ExpertReflexSaveGood,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ExpertWillSaveGood,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ExpertFortitudeSaveGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ExpertReflexSaveGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ExpertWillSaveGood,1
 # Class Name	Multiple Requirements
-CLASS:Expert	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,TYPE.GenericClass=1]
+CLASS:Expert	PREMULT:1,[!PRECLASS:1,%=1],[PRECLASS:1,TYPE.GenericClass=1]
 # Class Name	Skill Pts/Lvl
 CLASS:Expert	STARTSKILLPTS:6
 ###Block:
@@ -1024,7 +1024,7 @@ CLASS:Expert	STARTSKILLPTS:6
 # Class Name	Unique Key				Output Name				Hit Dice	Type				Max Level	Source, Long Desc.	Source, Short Desc.	Source Page		Bonus to Ability Pool						Combat bonus								Bonus
 CLASS:Spellcaster	KEY:GC_Divine Spellcaster	OUTPUTNAME:Divine Spellcaster	HD:4		TYPE:GenericClass.PC	MAXLEVEL:20	SOURCELONG:UA		SOURCESHORT:UA		SOURCEPAGE:p.77	BONUS:ABILITYPOOL|Divine Spellcaster Good Save|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:DivineSpellCasterFortitudeSaveGood,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:DivineSpellCasterReflexSaveGood,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:DivineSpellCasterWillSaveGood,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:DivineSpellCasterFortitudeSaveGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:DivineSpellCasterReflexSaveGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:DivineSpellCasterWillSaveGood,1
 # Class Name	Multiple Requirements
-CLASS:Spellcaster	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,TYPE.GenericClass=1]
+CLASS:Spellcaster	PREMULT:1,[!PRECLASS:1,%=1],[PRECLASS:1,TYPE.GenericClass=1]
 # Class Name	Skill Pts/Lvl
 CLASS:Spellcaster	STARTSKILLPTS:6
 
@@ -1084,7 +1084,7 @@ CLASS:GC_Divine Spellcaster	SPELLSTAT:WIS	BONUS:CASTERLEVEL|GC_Divine Spellcaste
 # Class Name	Unique Key				Output Name				Hit Dice	Type				Max Level	Source, Long Desc.	Source, Short Desc.	Source Page		Bonus to Ability Pool						Combat bonus								Bonus
 CLASS:Spellcaster	KEY:GC_Arcane Spellcaster	OUTPUTNAME:Arcane Spellcaster	HD:4		TYPE:GenericClass.PC	MAXLEVEL:20	SOURCELONG:UA		SOURCESHORT:UA		SOURCEPAGE:p.77	BONUS:ABILITYPOOL|Arcane Spellcaster Good Save|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ArcaneSpellCasterFortitudeSaveGood,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ArcaneSpellCasterReflexSaveGood,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ArcaneSpellCasterWillSaveGood,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ArcaneSpellCasterFortitudeSaveGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ArcaneSpellCasterReflexSaveGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ArcaneSpellCasterWillSaveGood,1
 # Class Name	Multiple Requirements
-CLASS:Spellcaster	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,TYPE.GenericClass=1]
+CLASS:Spellcaster	PREMULT:1,[!PRECLASS:1,%=1],[PRECLASS:1,TYPE.GenericClass=1]
 # Class Name	Skill Pts/Lvl
 CLASS:Spellcaster	STARTSKILLPTS:2
 
@@ -1144,7 +1144,7 @@ CLASS:GC_Arcane Spellcaster	SPELLSTAT:INT	BONUS:CASTERLEVEL|GC_Arcane Spellcaste
 # Class Name	Unique Key		Output Name			Hit Dice	Type				Max Level	Source, Long Desc.	Source, Short Desc.	Source Page		Bonus to Ability Pool				Combat bonus							Bonus
 CLASS:Warrior	KEY:GC_Warrior	OUTPUTNAME:Warrior	HD:10		TYPE:GenericClass.PC	MAXLEVEL:20	SOURCELONG:UA		SOURCESHORT:UA		SOURCEPAGE:p.78	BONUS:ABILITYPOOL|Warrior Good Save|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:WarriorFortitudeSaveGood,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:WarriorReflexSaveGood,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:WarriorWillSaveGood,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:WarriorFortitudeSaveGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:WarriorReflexSaveGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:WarriorWillSaveGood,1
 # Class Name	Multiple Requirements
-CLASS:Warrior	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,TYPE.GenericClass=1]
+CLASS:Warrior	PREMULT:1,[!PRECLASS:1,%=1],[PRECLASS:1,TYPE.GenericClass=1]
 # Class Name	Skill Pts/Lvl
 CLASS:Warrior	STARTSKILLPTS:2
 
@@ -1192,20 +1192,20 @@ CLASS:Swift Scion	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Diplomac
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus								Bonus
 CLASS:Tainted Sorcerer	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.192	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Restricted AL		Required Check Base	Required Skill						Required Text
-CLASS:Tainted Sorcerer	!PREALIGN:LG,NG,CG	PRECHECKBASE:1,Will=4	PRESKILL:2,Concentration=8,Knowledge (Arcana)=4	PRETEXT:Alignment: Any nongood. Base Will Save: +4. Skills: Concentration 8 ranks, Knowledge (arcana) 4 ranks. Spells: Ability to cast 1st-level spells. Taint: Character’s taint score must be 4 or higher. Special: Must have learned the basics of taint magic from a tainted sorcerer of at least 4th level, or must have summoned a demon or devil to gain instruction.
+CLASS:Tainted Sorcerer	!PREALIGN:LG,NG,CG	PRECHECKBASE:1,Will=4	PRESKILL:2,Concentration=8,Knowledge (Arcana)=4	PRETEXT:Alignment: Any nongood. Base Will Save: +4. Skills: Concentration 8 ranks, Knowledge (arcana) 4 ranks. Spells: Ability to cast 1st-level spells. Taint: Character's taint score must be 4 or higher. Special: Must have learned the basics of taint magic from a tainted sorcerer of at least 4th level, or must have summoned a demon or devil to gain instruction.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Tainted Sorcerer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Disguise|Hide|Knowledge (Arcana)|Knowledge (The Planes)|Spellcraft
 ###Block:
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 ###Block:
-1	ABILITY:Special Ability|AUTOMATIC|Tainted Sorcerer ~ Weapon and Armor Proficiency|Tainted Sorcerer ~ Spells per Day/ Spells Known
-1	ABILITY:Special Ability|AUTOMATIC|Tainted Sorcerer ~ Blood Component|Tainted Sorcerer ~ Taint Suppression|Tainted Sorcerer ~ Tainted Metamagic|Tainted Sorcerer ~ Tainted Spellcasting
+1	ABILITY:Special Ability|AUTOMATIC|Tainted Sorcerer ~ Spells per Day/ Spells Known|Tainted Sorcerer ~ Weapon and Armor Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Tainted Sorcerer ~ Blood Component|Tainted Sorcerer ~ Tainted Metamagic|Tainted Sorcerer ~ Tainted Spellcasting|Tainted Sorcerer ~ Taint Suppression
 
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus							Modify VAR					Bonus
 CLASS:Tainted Warrior	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.192	DEFINE:TaintedWarriorLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|TaintedWarriorLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Restricted AL		Required Text																													PRETOTALAB
-CLASS:Tainted Warrior	!PREALIGN:LG,NG,CG	PRETEXT:Alignment: Any nongood. Base Attack Bonus: +5. Taint: Character’s taint score must be 10 or more. Special: Character must locate and join a temple devoted to an evil deity.	PRETOTALAB:5
+CLASS:Tainted Warrior	!PREALIGN:LG,NG,CG	PRETEXT:Alignment: Any nongood. Base Attack Bonus: +5. Taint: Character's taint score must be 10 or more. Special: Character must locate and join a temple devoted to an evil deity.	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Tainted Warrior	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Ride|Sense Motive|Swim
 ###Block:

@@ -3,7 +3,7 @@ SOURCELONG:Dark Markets: A Guide to Katapesh	SOURCESHORT:DMGK	SOURCEWEB:http://p
 # Original Entry by: Stefan Radermacher
 
 # Class Name				Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Balanced Scale of Abadar	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:BSA		MAXLEVEL:6	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Balanced Scale of Abadar	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:BSA		MAXLEVEL:6	SOURCEPAGE:p.55	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
 # Class Name				Required Deity	Required Skill				Req. Spell Type
 CLASS:Balanced Scale of Abadar	PREDEITY:1,Abadar	PRESKILL:2,Appraise=4,Open Lock=4	PRESPELLTYPE:1,Divine=3
 # Class Name				Skill Pts/Lvl	Class Skill

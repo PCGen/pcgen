@@ -4,7 +4,7 @@ SOURCELONG:Bastion Press - Into the Green	SOURCESHORT:ittg	SOURCEDATE:2003-01
 
 
 # Class Name	Hit Dice	Type			Max Level		Source Page		Ability											Save checks bonus											Combat bonus										Modify VAR
-CLASS:Plant (Fey)	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.	ABILITY:Special Ability|AUTOMATIC|Plant Traits|PREVAREQ:NoTypeTraits,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Plant (Fey)	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.	ABILITY:Special Ability|AUTOMATIC|Plant Traits|PREVAREQ:NoTypeTraits,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Reg. Race Type
 CLASS:Plant (Fey)	PRERACETYPE:Plant
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit

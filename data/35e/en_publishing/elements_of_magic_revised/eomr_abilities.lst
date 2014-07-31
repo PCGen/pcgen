@@ -42,9 +42,9 @@ Two Minor Boons									CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoo
 Greater Animagus			CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon
 Improved Signature Spell	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon
 #
-Magical Protection ~ INT	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																										BONUS:CHECKS|ALL|min(INT,5)|TYPE=Resistance									SOURCEPAGE:p.7
-Magical Protection ~ WIS	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																										BONUS:CHECKS|ALL|min(WIS,5)|TYPE=Resistance									SOURCEPAGE:p.7
-Magical Protection ~ CHA	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																										BONUS:CHECKS|ALL|min(CHA,5)|TYPE=Resistance									SOURCEPAGE:p.7
+Magical Protection ~ INT	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																										BONUS:SAVE|ALL|min(INT,5)|TYPE=Resistance									SOURCEPAGE:p.7
+Magical Protection ~ WIS	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																										BONUS:SAVE|ALL|min(WIS,5)|TYPE=Resistance									SOURCEPAGE:p.7
+Magical Protection ~ CHA	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																										BONUS:SAVE|ALL|min(CHA,5)|TYPE=Resistance									SOURCEPAGE:p.7
 #
 Magical Defense ~ INT		CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																																		BONUS:COMBAT|AC|min(INT,5)|TYPE=Deflection	SOURCEPAGE:p.7
 Magical Defense ~ WIS		CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																																		BONUS:COMBAT|AC|min(WIS,5)|TYPE=Deflection	SOURCEPAGE:p.7

@@ -96,11 +96,11 @@ MASTERBONUSRACE:Companion ~ Cat			TYPE:Familiar										BONUS:SKILL|Move Silent
 MASTERBONUSRACE:Companion ~ Hawk			TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
 MASTERBONUSRACE:Companion ~ Lizard			TYPE:Familiar										BONUS:SKILL|Climb|3		VFEAT:Alertness
 MASTERBONUSRACE:Companion ~ Owl			TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
-MASTERBONUSRACE:Companion ~ Rat			TYPE:Familiar	BONUS:CHECKS|Fortitude|2										VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Rat			TYPE:Familiar	BONUS:SAVE|Fortitude|2										VFEAT:Alertness
 MASTERBONUSRACE:Companion ~ Raven			TYPE:Familiar										BONUS:SKILL|Appraise|3		VFEAT:Alertness
 MASTERBONUSRACE:Companion ~ Snake (Viper/Tiny)	TYPE:Familiar										BONUS:SKILL|Bluff|3		VFEAT:Alertness
 MASTERBONUSRACE:Companion ~ Toad			TYPE:Familiar						BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
-MASTERBONUSRACE:Companion ~ Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Weasel			TYPE:Familiar	BONUS:SAVE|Reflex|2											VFEAT:Alertness
 #
 
 ###Block:Animal Companion

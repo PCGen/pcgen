@@ -254,7 +254,7 @@ Voices on the Leaves		CATEGORY:Special Ability	TYPE:GnomeRacialTalent.SpecialQua
 
 ###Block: Gnome Racial Transformations
 # Ability Name	Category of Ability		Type										Visible	Ability								Save checks bonus					Modify VAR					Source Page
-Heart of Autumn	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES										BONUS:CHECKS|Fortitude|2|TYPE=Talent							SOURCEPAGE:p.34
+Heart of Autumn	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES										BONUS:SAVE|Fortitude|2|TYPE=Talent							SOURCEPAGE:p.34
 Heart of Spring	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																							SOURCEPAGE:p.34
 Heart of Summer	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES	ABILITY:Special Ability|VIRTUAL|Resistance To Fire								BONUS:VAR|FireResistanceBonus|5	SOURCEPAGE:p.34
 Heart of Winter	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES	ABILITY:Special Ability|VIRTUAL|Resistance To Cold								BONUS:VAR|ColdResistanceBonus|5	SOURCEPAGE:p.34
@@ -319,7 +319,7 @@ Larakis		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISI
 Ironwall		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Martial]|EQUIPMENT[TYPE=Simple]	SELECT:3								BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent																SOURCEPAGE:p.47
 #TODO:zzzzz Ironwall...
 Riversend		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																																														SOURCEPAGE:p.47
-Seaward		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																	BONUS:CHECKS|Fortitude|2|TYPE=Talent																							SOURCEPAGE:p.47
+Seaward		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																	BONUS:SAVE|Fortitude|2|TYPE=Talent																							SOURCEPAGE:p.47
 Saranor		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																																														SOURCEPAGE:p.48
 Stormhaven		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																															BONUS:SKILL|Decipher Script,Forgery|2|TYPE=Talent	CSKILL:Decipher Script|Forgery	SOURCEPAGE:p.48
 
@@ -520,7 +520,7 @@ Wall Walking		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality
 Embracing the Taint						CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality			VISIBLE:YES																																										SOURCEPAGE:p.115
 Becoming the Taint						CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES													!PREABILITY:1,CATEGORY=Special Ability,Bite Attack,Natural Armor,Balancing Tail																SOURCEPAGE:p.116
 Improved Grab		KEY:Thinblood Improved Grab	CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation						VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bite Attack,Lashing Tail															ABILITY:Special Ability|AUTOMATIC|Improved Grab								SOURCEPAGE:p.116
-Balancing Tail							CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																																			BONUS:CHECKS|Reflex|1|TYPE=Transformation	SOURCEPAGE:p.116
+Balancing Tail							CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																																			BONUS:SAVE|Reflex|1|TYPE=Transformation	SOURCEPAGE:p.116
 Lashing Tail							CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Balancing Tail																																SOURCEPAGE:p.116
 Constricting Tail							CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lashing Tail																																SOURCEPAGE:p.116
 

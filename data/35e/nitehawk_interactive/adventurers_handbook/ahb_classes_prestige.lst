@@ -6,7 +6,7 @@ SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-g
 # - Per Nitehawk, they'll likely do a rev2 of the book correcting some of these oddities, for now, the progression CANNOT be done at this time.
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
-CLASS:Ghost Hunter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.130	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|min(1,CL/2)+min(1,CL/5)	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Ghost Hunter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.130	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|min(1,classlevel("APPLIEDAS=NONEPIC")/2)+min(1,classlevel("APPLIEDAS=NONEPIC")/5)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat		Required Skill						Required Text
 CLASS:Ghost Hunter	PREATT:4	PREFEAT:1,Alertness	PRESKILL:2,Knowledge (Undead)=4,Sense Motive=4	PRETEXT:To become a ghost hunter the player character must have encountered and defied the approaches of at least one ghost, without the aid of others or magical assistance.
 # Class Name		Class Skill
@@ -24,7 +24,7 @@ CLASS:Ghost Hunter	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Undead)|
 9								ABILITY:Special Ability|AUTOMATIC|Contact Ether Plane
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus														Combat bonus
-CLASS:Master Chef	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.132	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/2-1	BONUS:CHECKS|BASE.Will|max(CL-3,0)+1	BONUS:COMBAT|BAB|max(0,CL-1)|TYPE=Base.REPLACE
+CLASS:Master Chef	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.132	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2-1	BONUS:SAVE|BASE.Will|max(classlevel("APPLIEDAS=NONEPIC")-3,0)+1	BONUS:COMBAT|BASEAB|max(0,classlevel("APPLIEDAS=NONEPIC")-1)|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Skill															Required Text
 CLASS:Master Chef	PREATT:1	PRESKILL:1,Craft (Cooking)=4	PRESKILL:2,Knowledge (Agriculture)=2,Knowledge (Spices and Herbs)=2	PRETEXT:To become a master chef, the character must have trained under a chef or cook for 10 years.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -41,7 +41,7 @@ CLASS:Master Chef	STARTSKILLPTS:2	CSKILL:Craft (Alchemy)|Craft (Cooking)|Knowled
 10																ABILITY:Special Ability|AUTOMATIC|Master Chef Purify Food and Drink
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
-CLASS:Seasoned Veteran	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.134	BONUS:CHECKS|BASE.Fortitude|CL	BONUS:CHECKS|BASE.Reflex|(CL+3)/3	BONUS:CHECKS|BASE.Will|CL/2	BONUS:COMBAT|BAB|CL+1|TYPE=Base.REPLACE
+CLASS:Seasoned Veteran	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.134	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")+1|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat			Required Text
 CLASS:Seasoned Veteran	PREATT:6	PREFEAT:1,Combat Reflexes	PRETEXT:To become a Seasoned Veteran, the character must have actively participated in a minimum of three major campaign battles.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -60,7 +60,7 @@ CLASS:Seasoned Veteran	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Handle Animal|Int
 
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																									Combat bonus
-CLASS:Shark Charmer	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.136	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2+max(0,CL/2-3)	BONUS:CHECKS|BASE.Reflex|max(1,(CL+1)/3)	BONUS:CHECKS|BASE.Will|min(1,CL/4)+floor(max(0,min(2,(CL-5)/2)))	BONUS:COMBAT|BAB|CL/2+floor(min(1,CL/9))|TYPE=Base.REPLACE
+CLASS:Shark Charmer	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.136	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2+max(0,classlevel("APPLIEDAS=NONEPIC")/2-3)	BONUS:SAVE|BASE.Reflex|max(1,(classlevel("APPLIEDAS=NONEPIC")+1)/3)	BONUS:SAVE|BASE.Will|min(1,classlevel("APPLIEDAS=NONEPIC")/4)+floor(max(0,min(2,(classlevel("APPLIEDAS=NONEPIC")-5)/2)))	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2+floor(min(1,classlevel("APPLIEDAS=NONEPIC")/9))|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat		Required Skill								Required Text
 CLASS:Shark Charmer	PREATT:4	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Seas and Oceans)=2	PRESKILL:1,Swim=4	PRETEXT:To become a shark charmer the character must have killed at least one shark without aid from others.
 # Class Name		Skill Pts/Lvl	Class Skill

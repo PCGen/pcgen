@@ -47,7 +47,7 @@ Improved Brewing									CATEGORY:Special Ability	TYPE:SpecialQuality
 Reputation		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:Reputation|0	DESC:Reputation +%1|Reputation	SOURCEPAGE:p.36,140
 # Used by Bounty Hunter and Ruffian
 
-
+Slave Weapon Selection	CATEGORY:Special Ability	TYPE:SlaveWeaponProfSelection	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[WIELD=Light],TYPE=Simple	AUTO:WEAPONPROF|%LIST
 
 
 #

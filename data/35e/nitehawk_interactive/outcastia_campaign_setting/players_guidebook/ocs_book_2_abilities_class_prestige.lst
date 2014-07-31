@@ -210,7 +210,7 @@ Dragon Riding	KEY:Dragon Riding ~ Keeper	CATEGORY:Special Ability	TYPE:SpecialQu
 Aura of Courage		KEY:Aura of Courage ~ Knight of Manunzul		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Each ally within 10 feet of you gains a +4 morale bonus on saving throws against fear effects.																																							SOURCEPAGE:p.116
 Turn Undead			KEY:Turn Undead ~ Knight of Manunzul		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric ~ Turn or Rebuke Undead|Turn Undead									SOURCEPAGE:p.116
 Mounted Archery		KEY:Mounted Archery ~ Knight of Manunzul		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:The penalty taken when using a ranged weapon while mounted is further halved to -1 and -2.|PRETEMPLATE:1,Has Mounted Archery Feat		TEMPLATE:Select Knight of Manuzul Bonus																									SOURCEPAGE:p.116
-Divine Grace		KEY:Divine Grace ~ Knight of Manunzul		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)	SOURCEPAGE:p.116
+Divine Grace		KEY:Divine Grace ~ Knight of Manunzul		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																BONUS:SAVE|Fortitude,Reflex,Will|max(CHA,0)	SOURCEPAGE:p.116
 Critical Strike		KEY:Critical Strike ~ Knight of Manunzul		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:against a corporeal undead creature, they are able to deliver critical damage on such abominations (as they would a normal creature).																																SOURCEPAGE:p.116
 Weapon of Disruption	KEY:Weapon of Disruption ~ Knight of Manunzul	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																								SOURCEPAGE:p.116
 
@@ -255,7 +255,7 @@ Defensive Roll		KEY:Defensive Roll ~ Monolith Sentinel		CATEGORY:Special Ability
 ###Block:# ~ Mystic Teacher
 # Ability Name				Unique Key						Category of Ability		Type						Define					Multiple?	Choose				Bonus to Ability Pool									Save checks bonus					Combat bonus												Bonus to skill				Source Page
 Guide Other					KEY:Guide Other ~ Mystic Teacher		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																					SOURCEPAGE:p.126
-Insight					KEY:Insight ~ Mystic Teacher			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																										BONUS:CHECKS|ALL|1|TYPE=Insight.STACK	BONUS:COMBAT|TOHIT|1|TYPE=Insight.STACK	BONUS:COMBAT|AC|1|TYPE=Insight.STACK							SOURCEPAGE:p.126
+Insight					KEY:Insight ~ Mystic Teacher			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																										BONUS:SAVE|ALL|1|TYPE=Insight.STACK	BONUS:COMBAT|TOHIT|1|TYPE=Insight.STACK	BONUS:COMBAT|AC|1|TYPE=Insight.STACK							SOURCEPAGE:p.126
 #Navitus Flemen				KEY:Navitus Flemen				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																															SOURCEPAGE:p.126
 Gained Knowledge				KEY:Gained Knowledge ~ Mystic Teacher	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary														BONUS:ABILITYPOOL|Mystic Teacher Gained Knowledge|MysticTeacherLvl																												SOURCEPAGE:p.126
 Tactical Insight				KEY:Tactical Insight ~ Mystic Teacher	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																					SOURCEPAGE:p.126

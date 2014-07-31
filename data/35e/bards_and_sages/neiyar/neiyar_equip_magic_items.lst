@@ -48,7 +48,7 @@ Bestial Boots																					TYPE:Magic.Wondrous.Boot							COST:4000	WT:1	
 Bicycle of Speed																					TYPE:Magic.Wondrous								COST:4000	WT:20		SLOTS:0																																SOURCEPAGE:p.81
 Bracelet of Useful Things																			TYPE:Magic.Wondrous.Bracelet							COST:6000	WT:1		SLOTS:0																																SOURCEPAGE:p.81
 Bracelet of Useful Things (Greater)				OUTPUTNAME:[NAME] Bracelet of Useful Things							TYPE:Magic.Wondrous.Bracelet							COST:10000	WT:1		SLOTS:0																																SOURCEPAGE:p.81
-Circlet of the Warrior																				TYPE:Magic.Wondrous.Headgear							COST:10000	WT:1		SLOTS:1																																SOURCEPAGE:p.81														BONUS:CHECKS|ALL|1|TYPE=Resistance	BONUS:COMBAT|AC|1|TYPE=Deflection																		BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|1
+Circlet of the Warrior																				TYPE:Magic.Wondrous.Headgear							COST:10000	WT:1		SLOTS:1																																SOURCEPAGE:p.81														BONUS:SAVE|ALL|1|TYPE=Resistance	BONUS:COMBAT|AC|1|TYPE=Deflection																		BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|1
 Death Crown																						TYPE:Magic.Wondrous.Headgear							COST:75000	WT:1		SLOTS:1																																SOURCEPAGE:p.82
 Echo Earrings																					TYPE:Magic.Wondrous								COST:2000	WT:0		SLOTS:0																																SOURCEPAGE:p.82																										BONUS:SKILL|Listen|10|TYPE=Circumstance
 Fetish (Death)							OUTPUTNAME:[NAME], Fetish										TYPE:Magic.Wondrous								COST:8000	WT:1		SLOTS:0																																SOURCEPAGE:p.82
@@ -62,11 +62,11 @@ Mother's Brooch (+3)																				TYPE:Magic.Wondrous.Amulet							COST:20
 Mother's Brooch (+4)																				TYPE:Magic.Wondrous.Amulet							COST:30000	WT:0		SLOTS:1																																SOURCEPAGE:p.83																				BONUS:COMBAT|AC|4|TYPE=Deflection
 Mother's Brooch (+5)																				TYPE:Magic.Wondrous.Amulet							COST:50000	WT:0		SLOTS:1																																SOURCEPAGE:p.83																				BONUS:COMBAT|AC|5|TYPE=Deflection
 Translator Earrings																				TYPE:Magic.Wondrous								COST:4000	WT:0		SLOTS:0																																SOURCEPAGE:p.83
-Rose Amulet (+1)																					TYPE:Magic.Wondrous.Amulet							COST:3000	WT:0		SLOTS:1																																SOURCEPAGE:p.83														BONUS:CHECKS|ALL|1
-Rose Amulet (+2)																					TYPE:Magic.Wondrous.Amulet							COST:7000	WT:0		SLOTS:1																																SOURCEPAGE:p.83														BONUS:CHECKS|ALL|2
-Rose Amulet (+3)																					TYPE:Magic.Wondrous.Amulet							COST:15000	WT:0		SLOTS:1																																SOURCEPAGE:p.83														BONUS:CHECKS|ALL|3
-Rose Amulet (+4)																					TYPE:Magic.Wondrous.Amulet							COST:36000	WT:0		SLOTS:1																																SOURCEPAGE:p.83														BONUS:CHECKS|ALL|4
-Rose Amulet (+5)																					TYPE:Magic.Wondrous.Amulet							COST:30000	WT:0		SLOTS:1																																SOURCEPAGE:p.83														BONUS:CHECKS|ALL|5
+Rose Amulet (+1)																					TYPE:Magic.Wondrous.Amulet							COST:3000	WT:0		SLOTS:1																																SOURCEPAGE:p.83														BONUS:SAVE|ALL|1
+Rose Amulet (+2)																					TYPE:Magic.Wondrous.Amulet							COST:7000	WT:0		SLOTS:1																																SOURCEPAGE:p.83														BONUS:SAVE|ALL|2
+Rose Amulet (+3)																					TYPE:Magic.Wondrous.Amulet							COST:15000	WT:0		SLOTS:1																																SOURCEPAGE:p.83														BONUS:SAVE|ALL|3
+Rose Amulet (+4)																					TYPE:Magic.Wondrous.Amulet							COST:36000	WT:0		SLOTS:1																																SOURCEPAGE:p.83														BONUS:SAVE|ALL|4
+Rose Amulet (+5)																					TYPE:Magic.Wondrous.Amulet							COST:30000	WT:0		SLOTS:1																																SOURCEPAGE:p.83														BONUS:SAVE|ALL|5
 Pearl of Dispelling																				TYPE:Magic.Wondrous								COST:4000	WT:0		SLOTS:0																																SOURCEPAGE:p.83
 Sharlette's Fabulous Bicycle		NAMEISPI:YES															TYPE:Magic.Wondrous								COST:8000	WT:20		SLOTS:0																																SOURCEPAGE:p.83
 
@@ -88,7 +88,7 @@ Voklod'hapthuk's Armor			NAMEISPI:YES							PROFICIENCY:ARMOR|Leather							TYPE
 ###Amphikin Artifacts
 Obar's Scepter				NAMEISPI:YES	PROFICIENCY:WEAPON|Mace (Light)												TYPE:Magic.Artifact.Enhancement.Weapon.Melee.Simple.Specific.Bludgeoning.Mace	WT:12					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:BANE_M.PLUS4W.STEEL			WIELD:Light					SIZE:M	SOURCEPAGE:p.85																																			BONUS:WEAPON|DAMAGE,TOHIT|4|TYPE=Enhancement
 ###COMMENT: +4 bane light mace
-Doldanda's Shell Armor			NAMEISPI:YES							PROFICIENCY:ARMOR|Scale Mail							TYPE:Magic.Artifact.Armor.Medium.Suit.Specific						WT:15		ACCHECK:-1												EQMOD:STEEL									MAXDEX:5				SOURCEPAGE:p.86	SPELLFAILURE:5		BONUS:CHECKS|ALL|4|PRERACE:1,Amphikin	BONUS:COMBAT|AC|4|TYPE=Armor	BONUS:COMBAT|AC|3|TYPE=Divine|!PRERACE:1,Amphikin	BONUS:COMBAT|AC|10|TYPE=Armor|PRERACE:1,Amphikin
+Doldanda's Shell Armor			NAMEISPI:YES							PROFICIENCY:ARMOR|Scale Mail							TYPE:Magic.Artifact.Armor.Medium.Suit.Specific						WT:15		ACCHECK:-1												EQMOD:STEEL									MAXDEX:5				SOURCEPAGE:p.86	SPELLFAILURE:5		BONUS:SAVE|ALL|4|PRERACE:1,Amphikin	BONUS:COMBAT|AC|4|TYPE=Armor	BONUS:COMBAT|AC|3|TYPE=Divine|!PRERACE:1,Amphikin	BONUS:COMBAT|AC|10|TYPE=Armor|PRERACE:1,Amphikin
 ###CLARIFY:+10 more to Armor for total of +14 or total of +10? -- Andrew
 
 ###Block: Appendix Items pg 139 - 143:

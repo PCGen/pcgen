@@ -73,7 +73,7 @@ Lesser Spirit Gift - Butterfly		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:
 Lesser Spirit Gift - Cat			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 Lesser Spirit Gift - Dog			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																							ABILITY:Special Ability|AUTOMATIC|Scent
 Lesser Spirit Gift - Dolphin			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																														MOVECLONE:Walk,Swim,*1
-Lesser Spirit Gift - Dragonfly		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																															BONUS:CHECKS|Reflex|1								BONUS:MOVEADD|TYPE.Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Lesser Spirit Gift - Dragonfly		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																															BONUS:SAVE|Reflex|1								BONUS:MOVEADD|TYPE.Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
 Lesser Spirit Gift - Eagle			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
 Lesser Spirit Gift - Fire			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.SpellLike.Extraordinary
 Lesser Spirit Gift - Horse			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
@@ -286,8 +286,8 @@ Sapienti Ability IV - Split Mind			CATEGORY:Special Ability	TYPE:SpecialQuality.
 Arcane Reserve			KEY:Arcane Reserve ~ Tears of Almeric	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Quickened Spell Resistance								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Quicken Escape										CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Improved Iron Will									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	BONUS:CHECKS|Will|2|TYPE=Inherent
-Improved Lightning Reflexes								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	BONUS:CHECKS|Reflex|2|TYPE=Inherent
+Improved Iron Will									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	BONUS:SAVE|Will|2|TYPE=Inherent
+Improved Lightning Reflexes								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	BONUS:SAVE|Reflex|2|TYPE=Inherent
 #Inner Strength			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 #Evasion				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Potence											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
@@ -434,7 +434,7 @@ Arcane Strength																		CATEGORY:Special Ability	TYPE:SpecialQuality.Su
 ###Block: The Master-Smith ------------------------------------------------------------------------------------------------
 # Ability Name				Output Name				Category of Ability		Type				Define				Virtual Feat				Add 																			Bonus to skill
 Apprenticeship									CATEGORY:Special Ability	TYPE:SpecialQuality
-Skill Mastery (Master-Smith)		OUTPUTNAME:Skill Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SkillMasteryBonus|0																										BONUS:SKILL|Craft (Armorsmithing),Craft (Weaponsmithing),Knowledge (Science: Metallurgy),Profession (Blacksmith)|SkillMasteryBonus|TYPE=Competence
+Skill Mastery (Master-Smith)		OUTPUTNAME:Skill Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SkillMasteryBonus|0																										BONUS:SKILL|Craft (Armorsmithing),Craft (Weaponsmithing),Knowledge (Science/Metallurgy),Profession (Blacksmith)|SkillMasteryBonus|TYPE=Competence
 Silvered Weapon									CATEGORY:Special Ability	TYPE:SpecialQuality
 Master Craftsman (Armorsmith)							CATEGORY:Special Ability	TYPE:SpecialQuality												ADD:ABILITY|Special Ability|NORMAL|Master Craftsman (Armorsmithing) Feat,Master Craftsman (Weaponsmithing) Bonus
 Master Craftsman (Weaponsmith)						CATEGORY:Special Ability	TYPE:SpecialQuality												ADD:ABILITY|Special Ability|NORMAL|Master Craftsman (Weaponsmithing) Bonus,Master Craftsman (Weaponsmithing) Feat
@@ -716,7 +716,7 @@ BioConstruct							CATEGORY:Special Ability																															VISION
 Flesh Weapons							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
 Magic Disruption							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 Ymandragoran Thrall Paralysis	OUTPUTNAME:Paralysis	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
-Bio-construct traits						CATEGORY:Special Ability	TYPE:SpecialQuality			ABILITY:Special Ability|AUTOMATIC|Immunity To Mind-Affecting|Immunity To Sleep	BONUS:CHECKS|Will|4|TYPE=Racial
+Bio-construct traits						CATEGORY:Special Ability	TYPE:SpecialQuality			ABILITY:Special Ability|AUTOMATIC|Immunity To Mind-Affecting|Immunity To Sleep	BONUS:SAVE|Will|4|TYPE=Racial
 Arcane Sight							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Flesh Shield							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Vulnerability to Chaos						CATEGORY:Special Ability	TYPE:SpecialQuality

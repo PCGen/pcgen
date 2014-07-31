@@ -11,7 +11,7 @@ SUBSTITUTIONCLASS:Elemental Druid Option
 SUBSTITUTIONLEVEL:1			BONUS:DOMAIN|NUMBER|1
 SUBSTITUTIONLEVEL:1																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 SUBSTITUTIONLEVEL:1																ABILITY:Special Ability|AUTOMATIC|Druid ~ Wild Shape
-SUBSTITUTIONLEVEL:1																ABILITY:Special Ability|AUTOMATIC|Druid ~ Animal Companion|Druid ~ Nature Sense|Spontaneous casting ~ Summon Nature's Ally|Druid ~ Wild Empathy
+SUBSTITUTIONLEVEL:1																ABILITY:Special Ability|AUTOMATIC|Druid ~ Animal Companion|Druid ~ Nature Sense|Druid ~ Wild Empathy|Spontaneous casting ~ Summon Nature's Ally
 SUBSTITUTIONLEVEL:1							BONUS:VAR|DruidWildShape|CL
 #SUBSTITUTIONLEVEL:1			PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
 #SUBSTITUTIONLEVEL:1			PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG

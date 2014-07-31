@@ -9,7 +9,7 @@ Resistance to Fire 5		KEY:ShalraekuZarakku_Resistance_Fire		CATEGORY:Special Abi
 Resistance to Electrical 5	KEY:ShalraekuZarakku_Resistance_Electrical	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity											BONUS:VAR|ElectricityResistanceBonus|5
 Resistance to Cold 5		KEY:ShalraekuZarakku_Resistance_Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Cold												BONUS:VAR|ColdResistanceBonus|5
 Levitate				KEY:ShalraekuZarakku_Levitate				CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Levitate
-Saving Throw +1			KEY:ShalraekuZarakku_SavingThrow			CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																																		BONUS:CHECKS|ALL|1
+Saving Throw +1			KEY:ShalraekuZarakku_SavingThrow			CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																																		BONUS:SAVE|ALL|1
 Dimension Door			KEY:ShalraekuZarakku_Dimention_Door			CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Dimension Door
 AC Bonus				KEY:Shalraeku_AC						CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku							VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=Deflection
 AC Bonus				KEY:Zarakku_AC						CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku							VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor
@@ -149,6 +149,9 @@ Clerical Spells			KEY:Clerical Spells					CATEGORY:Special Ability	TYPE:SpecialQ
 Divine Talent			KEY:Divine Talent						CATEGORY:Special Ability	TYPE:SpecialQuality
 Divine Beauty			KEY:Divine Beauty						CATEGORY:Special Ability	TYPE:SpecialQuality
 Swanmorph				KEY:Swanmorph						CATEGORY:Special Ability	TYPE:SpecialQuality
+
+Swan Bard ~ Domain Selection	MULT:YES	CATEGORY:Special Ability	TYPE:SwanBardDomain	CHOOSE:DOMAIN|Air|Animal|Chaos
+
 
 # ~ Wild Walker
 Charm Monster			KEY:Charm Monster						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural

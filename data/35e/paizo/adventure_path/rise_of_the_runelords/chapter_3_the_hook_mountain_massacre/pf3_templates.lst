@@ -6,7 +6,7 @@ Ogrekin		CR:1			LEVELADJUSTMENT:2	SOURCEPAGE:p.90	PRERACE:1,RACETYPE=Fey,RACETYP
 
 ###Block: Custom NPC Templates
 # Template Name			Hit Dice Size	Challenge Rating	Visible	Level Adjustment	Template						Special ABility											Define			Save checks bonus			Combat bonus						Bonus to HP						Bonus to skill							Stat bonus									Modify VAR										Class Skill		Ability												Move		Subrace		Main Race Type	Race Subtype		Vision
-NPC Raging																																							BONUS:CHECKS|Will|RageMorale	BONUS:COMBAT|AC|-1*(RageACPenalty)																			BONUS:STAT|CON|RageConBonus	BONUS:STAT|STR|RageStrBonus	BONUS:VAR|RageDuration|-(RageConBonus/2)	BONUS:VAR|Enraged|1
+NPC Raging																																							BONUS:SAVE|Will|RageMorale	BONUS:COMBAT|AC|-1*(RageACPenalty)																			BONUS:STAT|CON|RageConBonus	BONUS:STAT|STR|RageStrBonus	BONUS:VAR|RageDuration|-(RageConBonus/2)	BONUS:VAR|Enraged|1
 Dorella Kreeg's Magic Buffs																																									BONUS:COMBAT|AC|4|TYPE=Armor
 Barl Breakbones Skills								VISIBLE:NO																																																																														CSKILL:Listen
 Barl Breakbones Magic Buffs																																									BONUS:COMBAT|AC|4|TYPE=Armor				BONUS:HP|CURRENTMAX|11|TYPE=Enhancement

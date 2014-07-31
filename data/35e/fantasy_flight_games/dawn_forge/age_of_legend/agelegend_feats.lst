@@ -44,7 +44,7 @@ Farmer's Son	TYPE:Cultural									PRESTAT:1,CON=13	PRETEMPLATE:1,Region (Anderl
 Healer's Hands	TYPE:Cultural									PRESTAT:1,DEX=13	PRETEMPLATE:1,Region (Anderland)					DESC:Your dextrous hands can bind wounds quickly and efficiently																		SOURCEPAGE:p.40
 Hunter's Wealth	TYPE:Cultural									PRESTAT:1,WIS=13	PRETEMPLATE:1,Region (Anderland)					DESC:You have a gift for finding plenty even in the harshest conditions																	SOURCEPAGE:p.40
 Traveler's Step	TYPE:Cultural									PRESTAT:1,STR=13	PRETEMPLATE:1,Region (Anderland)					DESC:You have gained a longer stride from traveling the wide plains of Anderland															SOURCEPAGE:p.40
-Able-Bodied		TYPE:Cultural												PRETEMPLATE:1,Region (Dreaming Isles)				DESC:Long hours in the rigging have given you remarkable physical fitness					BONUS:CHECKS|Reflex,Fortitude|1						SOURCEPAGE:p.40
+Able-Bodied		TYPE:Cultural												PRETEMPLATE:1,Region (Dreaming Isles)				DESC:Long hours in the rigging have given you remarkable physical fitness					BONUS:SAVE|Reflex,Fortitude|1						SOURCEPAGE:p.40
 Bilge Rat		TYPE:Cultural												PRETEMPLATE:1,Region (Dreaming Isles)				DESC:You have worked the worst job in the fleet. What you saw there toughened your nerves and stomach												SOURCEPAGE:p.40
 Explorer		TYPE:Cultural												PRETEMPLATE:1,Region (Dreaming Isles)				DESC:Years of privation at sea allow you to go for long periods of time without food or water													SOURCEPAGE:p.40
 Seer			TYPE:Cultural					PRESPELLTYPE:1,Any=1				PRETEMPLATE:1,Region (Dreaming Isles)				DESC:The blood of a powerful dreamer and diviner courses through your veins.																SOURCEPAGE:p.41
@@ -92,7 +92,7 @@ Under the Stars		TYPE:Cultural																								PRETEMPLATE:1,Region (Suns
 Windweaver			TYPE:Cultural																				PRESPELLTYPE:1,Divine=0	PRETEMPLATE:1,Region (Sunset Reach)			DESC:You know the simple magic that calls the wind																				SOURCEPAGE:p.76
 Grim Resignation		TYPE:Cultural																								PRETEMPLATE:1,Region (Tamerland)			DESC:You long ago let go of the illusions others cling to so tenaciously																SOURCEPAGE:p.76
 Strength of Illusion	TYPE:Cultural																								PRETEMPLATE:1,Region (Tamerland)			DESC:You cling tightly to the rudiments of civilization																			SOURCEPAGE:p.77
-True Name			TYPE:Cultural																								PRETEMPLATE:1,Region (Tamerland)			DESC:Living in the borders between civilization and savagery has taught you the meaning of your own name	BONUS:CHECKS|Will|1							SOURCEPAGE:p.77
+True Name			TYPE:Cultural																								PRETEMPLATE:1,Region (Tamerland)			DESC:Living in the borders between civilization and savagery has taught you the meaning of your own name	BONUS:SAVE|Will|1							SOURCEPAGE:p.77
 Unspoken Wisdom		TYPE:Cultural																								PRETEMPLATE:1,Region (Tamerland)			DESC:You have learned things that cannot be expressed in words																		SOURCEPAGE:p.77
 Carefree Heart		TYPE:Cultural																								PRETEMPLATE:1,Region (Faring Folk)			DESC:You have shed the burdens of the world																					SOURCEPAGE:p.77
 Lay a Wreath		TYPE:Cultural																								PRETEMPLATE:1,Region (Faring Folk)			DESC:You honor your dead by living on																						SOURCEPAGE:p.77
@@ -111,7 +111,7 @@ Improved Quick Draw	TYPE:Cultural						PREFEAT:1,Quick Draw																					
 Infernal Favor		TYPE:Metamagic															!PREFEAT:2,CHECKMULT,Infernal Favor																			PRETEMPLATE:1,Region (Valhedar Dominion)	DESC:For reasons known only to them, the demonic patrons of the Dominion favor you over the other disciples										STACK:YES	MULT:YES	CHOOSE:NOCHOICE										SOURCEPAGE:p.92
 #Infernal Favor can be taken twice, might need a CHOOSE....
 Inspiring Poet		TYPE:Cultural																								PRESKILL:1,TYPE.Perform=5					PRESTAT:1,CHA=13				PRETEMPLATE:1,Region (Valhedar Dominion)	DESC:The character is a poet in the Valhedrin tradition, and by reciting epics of heroes past, he can inspire his allies to greater heights of martial skill																	SOURCEPAGE:p.92
-Lordling Reflexes		TYPE:Cultural						PREFEAT:2,Lightning Reflexes,Improved Initiative																									PRETEMPLATE:1,Region (Valhedar Dominion)	DESC:The character's reflexes are as practiced as those of the most well-trained tiefling lordling																		BONUS:CHECKS|Reflex|1	BONUS:COMBAT|INITIATIVE|2	SOURCEPAGE:p.92
+Lordling Reflexes		TYPE:Cultural						PREFEAT:2,Lightning Reflexes,Improved Initiative																									PRETEMPLATE:1,Region (Valhedar Dominion)	DESC:The character's reflexes are as practiced as those of the most well-trained tiefling lordling																		BONUS:SAVE|Reflex|1	BONUS:COMBAT|INITIATIVE|2	SOURCEPAGE:p.92
 Skilled Duelist		TYPE:Cultural																																							PRETEMPLATE:1,Region (Valhedar Dominion)	DESC:The character is skilled at making nonlethal attacks with his weapon																															SOURCEPAGE:p.92
 Stalwart Legionnaire	TYPE:Cultural																																	PRESTAT:1,STR=13	PRESTAT:1,DEX=13	PRETEMPLATE:1,Region (Valhedar Dominion)	DESC:The legionnaires of the Dominion are famous for undertaking long marches while carrying heavy loads																										SOURCEPAGE:p.92
 #zzzzzzz add the Bonuses!!!

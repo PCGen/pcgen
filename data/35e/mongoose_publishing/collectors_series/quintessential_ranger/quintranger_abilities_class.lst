@@ -53,8 +53,8 @@ Boar's Cunning	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Boar's 
 
 ###Block:Animal Champion ~ (Camel)	PREFEAT:1,Endurance
 # Ability Name			Category of Ability		Type			Visible	Special ABility				Save checks bonus
-Camel's Wilful Fortitude	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Camel's Wilful Fortitude (Ex)	BONUS:CHECKS|Fortitude|min(WIS,0)
-Camel's Fortified Will		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Camel's Fortified Will (Ex)	BONUS:CHECKS|Will|min(CON,0)
+Camel's Wilful Fortitude	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Camel's Wilful Fortitude (Ex)	BONUS:SAVE|Fortitude|min(WIS,0)
+Camel's Fortified Will		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Camel's Fortified Will (Ex)	BONUS:SAVE|Will|min(CON,0)
 Camel's Hardiness			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Camel's Hardiness (Ex)
 
 ###Block:Animal Champion ~ (Cheetah)	PREFEAT:1,Run
@@ -79,7 +79,7 @@ Terrible Lizard	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Terrib
 ###Block:Animal Champion ~ (Dog/Riding Dog)	PREFEAT:1,Track
 # Ability Name	Category of Ability		Type			Visible	Special ABility		Save checks bonus					Bonus to skill
 Dog's Nose		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Dog's Nose (Ex)								BONUS:SKILL|Search|2|TYPE=Innate
-Doggedness		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Doggedness (Ex)	BONUS:CHECKS|Fortitude|2|TYPE=Innate
+Doggedness		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Doggedness (Ex)	BONUS:SAVE|Fortitude|2|TYPE=Innate
 Dog Guardian	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Dog Guardian (Ex)
 
 ###Block:Animal Champion ~ (Eagle)			PREFEAT:1,Alertness

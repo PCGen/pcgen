@@ -2,24 +2,27 @@
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Advanced, true dragons added by Matt Chambers (Otiendikil)
 
+### COMMENT: TODO - Switch Epic Gains to Actual Dragon Progressions (AM 2014-07-30)
+
+
 ###
 ###Block: Epic Force and Prismatic Dragons
 ###
 
 # Class Name		Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus								Combat bonus
-CLASS:Force Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:EpicMonsters(A-E).rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Force Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:EpicMonsters(A-E).rtf	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE
 # Class Name		Required Race
 CLASS:Force Dragon	PRERACE:1,Dragon (Force%
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Force Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
 19										ADD:SPELLCASTER|Sorcerer
-20			BONUS:PCLEVEL|Sorcerer|(((CL-15)/5)*3)-1
+20			BONUS:PCLEVEL|Sorcerer|(((classlevel()-15)/5)*3)-1
 
 54:REPEATLEVEL:5								ADD:FEAT|Improved Spell Capacity
 
 
 # Class Name		Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus								Combat bonus
-CLASS:Prismatic Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:EpicMonsters(A-E).rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Prismatic Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:EpicMonsters(A-E).rtf	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE
 # Class Name		Required Race
 CLASS:Prismatic Dragon	PRERACE:1,Dragon (Prismatic%
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?

@@ -32,11 +32,11 @@ Ring of the Quick												TYPE:Magic.Ring	COST:66000	WT:0.02	SOURCEPAGE:p.49	
 Ring of the Quick (Greater)			OUTPUTNAME:Ring of the Quick, [NAME]	TYPE:Magic.Ring	COST:86000	WT:0.02	SOURCEPAGE:p.49									ABILITY:Special Ability|VIRTUAL|Turn Resistance																																									BONUS:VAR|TurnResistBonus|4	SPROP:Cloaks corporeal undead creatures in illusions that show them as living and unharmed to all senses
 Ring of the Reluctant Warrior										TYPE:Magic.Ring	COST:10000	WT:0.02	SOURCEPAGE:p.49
 # "Val Bloodline Ability Reluctant Warrior?"
-Ring of Resistance +1											TYPE:Magic.Ring	COST:1500	WT:0.02	SOURCEPAGE:p.49																																									BONUS:CHECKS|ALL|1|TYPE=Resistance
-Ring of Resistance +2											TYPE:Magic.Ring	COST:6000	WT:0.02	SOURCEPAGE:p.49																																									BONUS:CHECKS|ALL|2|TYPE=Resistance
-Ring of Resistance +3											TYPE:Magic.Ring	COST:13500	WT:0.02	SOURCEPAGE:p.49																																									BONUS:CHECKS|ALL|3|TYPE=Resistance
-Ring of Resistance +4											TYPE:Magic.Ring	COST:24000	WT:0.02	SOURCEPAGE:p.49																																									BONUS:CHECKS|ALL|4|TYPE=Resistance
-Ring of Resistance +5											TYPE:Magic.Ring	COST:37500	WT:0.02	SOURCEPAGE:p.49																																									BONUS:CHECKS|ALL|5|TYPE=Resistance
+Ring of Resistance +1											TYPE:Magic.Ring	COST:1500	WT:0.02	SOURCEPAGE:p.49																																									BONUS:SAVE|ALL|1|TYPE=Resistance
+Ring of Resistance +2											TYPE:Magic.Ring	COST:6000	WT:0.02	SOURCEPAGE:p.49																																									BONUS:SAVE|ALL|2|TYPE=Resistance
+Ring of Resistance +3											TYPE:Magic.Ring	COST:13500	WT:0.02	SOURCEPAGE:p.49																																									BONUS:SAVE|ALL|3|TYPE=Resistance
+Ring of Resistance +4											TYPE:Magic.Ring	COST:24000	WT:0.02	SOURCEPAGE:p.49																																									BONUS:SAVE|ALL|4|TYPE=Resistance
+Ring of Resistance +5											TYPE:Magic.Ring	COST:37500	WT:0.02	SOURCEPAGE:p.49																																									BONUS:SAVE|ALL|5|TYPE=Resistance
 Ring of the Shocking Palm										TYPE:Magic.Ring	COST:9000	WT:0.02	SOURCEPAGE:p.49																																																														SPROP:Natural attacks gain Shocking Burst quality.
 Ring of Silence												TYPE:Magic.Ring	COST:20000	WT:0.02	SOURCEPAGE:p.49																																																														SPROP:Silence effect that only applies to wearer.
 Ring of Spirit's Warning										TYPE:Magic.Ring	COST:20000	WT:0.02	SOURCEPAGE:p.49									ABILITY:Special Ability|VIRTUAL|Uncanny Dodge																															BONUS:SKILL|Spot,Listen|5|TYPE=Competence

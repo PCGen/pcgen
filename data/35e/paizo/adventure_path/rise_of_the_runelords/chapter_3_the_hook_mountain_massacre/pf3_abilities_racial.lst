@@ -45,15 +45,15 @@ Triple-Jointed	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPL
 Ovesized Maw	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Oversized Maw																																														NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4
 Vestigal Limb	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Vestigal Limb																				BONUS:COMBAT|TOHIT.GRAPPLE|4|TYPE=Racial
 Fierce Visage	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Fierce Visage																											BONUS:SKILL|Intimidate|4|TYPE=Racial
-Quick Metabolism	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Quick Metabolism ~ You heal faster than normal when at rest.					BONUS:CHECKS|Fortitude|2|TYPE=Racial
-Vestigal Twin	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Vestigal Twin													BONUS:CHECKS|Will|2|TYPE=Racial
+Quick Metabolism	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Quick Metabolism ~ You heal faster than normal when at rest.					BONUS:SAVE|Fortitude|2|TYPE=Racial
+Vestigal Twin	CATEGORY:Special Ability	TYPE:AdvantageousDeformity	VISIBLE:DISPLAY	SAB:Vestigal Twin													BONUS:SAVE|Will|2|TYPE=Racial
 
 ###Block: Ogrekin Special Qualities: Disadvantageous Deformities
 # Ability Name	Category of Ability		Type					Visible		Special ABility									Save checks bonus		Combat bonus									Add to base move			Bonus to skill		Stat bonus
 Obese			CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Obese																																		BONUS:STAT|DEX|-2
 Extra Ugly		CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Extra Ugly																													BONUS:SKILL|STAT.CHA|-4
 Light-Sensitive	CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Light-Sensitive ~ You are dazzled by bright sunlight.
-Weak Mind		CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Weak Mind									BONUS:CHECKS|Will|-2
+Weak Mind		CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Weak Mind									BONUS:SAVE|Will|-2
 Speech Impediment	CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Speech Impediment
 Deformed Hand	CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Deformed Hand													BONUS:COMBAT|TOHIT.MELEE|-2|TYPE=Racial|PREEQUIPBOTH:1,TYPE=Melee
 Stunted Leg		CATEGORY:Special Ability	TYPE:DisadvantageousDeformity	VISIBLE:DISPLAY	SAB:Stunted Leg																								BONUS:MOVEADD|TYPE.Walk|-10

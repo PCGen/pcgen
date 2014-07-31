@@ -26,11 +26,11 @@ Collar (Protection +2)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Colla
 Collar (Protection +3)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:18000	WT:0.02	SOURCEPAGE:p.153								BONUS:COMBAT|AC|3|TYPE=Deflection
 Collar (Protection +4)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:32000	WT:0.02	SOURCEPAGE:p.153								BONUS:COMBAT|AC|4|TYPE=Deflection
 Collar (Protection +5)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:50000	WT:0.02	SOURCEPAGE:p.153								BONUS:COMBAT|AC|5|TYPE=Deflection
-Collar (Resistance +1)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:1000	WT:0.02	SOURCEPAGE:p.153	BONUS:CHECKS|Fortitude,Reflex,Will|1
-Collar (Resistance +2)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:4000	WT:0.02	SOURCEPAGE:p.153	BONUS:CHECKS|Fortitude,Reflex,Will|2
-Collar (Resistance +3)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:9000	WT:0.02	SOURCEPAGE:p.153	BONUS:CHECKS|Fortitude,Reflex,Will|3
-Collar (Resistance +4)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:16000	WT:0.02	SOURCEPAGE:p.153	BONUS:CHECKS|Fortitude,Reflex,Will|4
-Collar (Resistance +5)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:25000	WT:0.02	SOURCEPAGE:p.153	BONUS:CHECKS|Fortitude,Reflex,Will|5
+Collar (Resistance +1)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:1000	WT:0.02	SOURCEPAGE:p.153	BONUS:SAVE|Fortitude,Reflex,Will|1
+Collar (Resistance +2)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:4000	WT:0.02	SOURCEPAGE:p.153	BONUS:SAVE|Fortitude,Reflex,Will|2
+Collar (Resistance +3)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:9000	WT:0.02	SOURCEPAGE:p.153	BONUS:SAVE|Fortitude,Reflex,Will|3
+Collar (Resistance +4)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:16000	WT:0.02	SOURCEPAGE:p.153	BONUS:SAVE|Fortitude,Reflex,Will|4
+Collar (Resistance +5)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:25000	WT:0.02	SOURCEPAGE:p.153	BONUS:SAVE|Fortitude,Reflex,Will|5
 Harness of Hauling										TYPE:Magic.Wondrous.Belt.Tack		COST:16000	WT:0.02	SOURCEPAGE:p.154														BONUS:VAR|LOADSCORE|4
 
 ###Block: Other Items for Animals

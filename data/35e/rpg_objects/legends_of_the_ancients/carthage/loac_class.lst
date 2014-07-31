@@ -2,7 +2,7 @@
 SOURCELONG:Legends of the Ancients - Carthage	SOURCESHORT:Carthage	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99	SOURCEDATE:2005-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Mercenary	HD:12		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Mercenary	HD:12		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mercenary	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Intimidate|Jump|Ride|Sense Motive|Survival|Swim
 1																			ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial

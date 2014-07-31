@@ -5,7 +5,7 @@ SOURCELONG:Secrets of the Planes - Planar Magic	SOURCESHORT:PlanarMagic	SOURCEWE
 # - This was one heck of a workaround with hidden classes. - Tir Gwaith
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Planar Mage	HD:4		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Planar Mage	HD:4		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.4	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Planar Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft|Survival
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level

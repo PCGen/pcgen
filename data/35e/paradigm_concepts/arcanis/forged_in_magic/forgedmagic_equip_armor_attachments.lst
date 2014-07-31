@@ -12,7 +12,7 @@ Cuirass of the Hussar			TYPE:ArmorAttachment.Specific	COST:4660	SOURCEPAGE:p.12	
 Defender of the Woodlands Tabard	TYPE:ArmorAttachment.Specific	COST:63300	SOURCEPAGE:p.12																														BONUS:VAR|TurnUndeadTimes|2	SPROP:Empower one spell 1/day, +4 enhancement bonus to Wisdom; druids may wild shape 1 additional time, clerics may make two additional turn attempts
 Dolphin Tabard				TYPE:ArmorAttachment.Specific	COST:16500	SOURCEPAGE:p.13																BONUS:MOVEADD|TYPE.Swim|20															SPROP:Breath water, Swim of 20
 Legionnaire's Pin				TYPE:ArmorAttachment.Specific	COST:9000	SOURCEPAGE:p.13																																			SPROP:Permanent protection from evil spell
-Legionnaire's Plume			TYPE:ArmorAttachment.Specific	COST:16000	SOURCEPAGE:p.13											BONUS:CHECKS|ALL|4|TYPE=Luck																				SPROP:+4 luck bonus to saving throws and other checks made to resist fear effects.
+Legionnaire's Plume			TYPE:ArmorAttachment.Specific	COST:16000	SOURCEPAGE:p.13											BONUS:SAVE|ALL|4|TYPE=Luck																				SPROP:+4 luck bonus to saving throws and other checks made to resist fear effects.
 Nier's Hart					TYPE:ArmorAttachment.Specific	COST:25500	SOURCEPAGE:p.13																																			SPROP:Fire resistance 10 to fire, haste [free action] for five rounds each day
 Pin of Sarish's Might			TYPE:ArmorAttachment.Specific	COST:15000	SOURCEPAGE:p.13																																			SPROP:Infernal must make DC 23 Will save or be unable touch or attack wearer.
 Plume of Righteous Victory		TYPE:ArmorAttachment.Specific	COST:22000	SOURCEPAGE:p.13																																			SPROP:1/day message; telepathic bond [9th level] 1/day

@@ -29,7 +29,7 @@ Lycanthrope (Hybrid Form).MOD										PRE:.CLEAR		PRETEMPLATE:1,Lycanthrope,Lyc
 Girrigz's Magic Buffs			VISIBLE:YES								BONUS:COMBAT|AC|3|TYPE=Deflection
 Yvicca's Magic Buffs			VISIBLE:YES								BONUS:COMBAT|AC|2|TYPE=NaturalArmorEnhancement																				BONUS:STAT|STR|4|TYPE=Enhancement	BONUS:WEAPONPROF=Claw|TOHIT,DAMAGE|1|TYPE=Enhancement
 Jolistina Susperio's Magic Buffs	VISIBLE:YES								BONUS:COMBAT|AC|2|TYPE=Shield																							BONUS:STAT|DEX|4|TYPE=Enhancement
-Rolth's Magic Buffs			VISIBLE:YES	BONUS:CHECKS|Fortitude|3|TYPE=Resistance	BONUS:COMBAT|AC|4|TYPE=Armor	BONUS:COMBAT|AC|4|TYPE=Shield											BONUS:HP|CURRENTMAX|12|TYPE=Enhancement
+Rolth's Magic Buffs			VISIBLE:YES	BONUS:SAVE|Fortitude|3|TYPE=Resistance	BONUS:COMBAT|AC|4|TYPE=Armor	BONUS:COMBAT|AC|4|TYPE=Shield											BONUS:HP|CURRENTMAX|12|TYPE=Enhancement
 Priest of Urgathoa's Magic Buffs	VISIBLE:YES								BONUS:COMBAT|AC|2|TYPE=Deflection																												BONUS:WEAPONPROF=Scythe|DAMAGE|1|TYPE=Enhancement
 Lady Andaisin's Magic Buffs		VISIBLE:YES								BONUS:COMBAT|AC|1|TYPE=Enhancement	BONUS:COMBAT|AC|4|TYPE=NaturalArmorEnhancement	BONUS:COMBAT|AC|3|TYPE=Deflection								BONUS:STAT|CON|4|TYPE=Enhancement	BONUS:WEAPONPROF=Scythe|TOHIT,DAMAGE|2|TYPE=Enhancement
 

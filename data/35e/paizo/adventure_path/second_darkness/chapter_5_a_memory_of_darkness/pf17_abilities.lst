@@ -5,7 +5,7 @@ SOURCELONG:Second Darkness - Chapter 5: A Memory of Darkness	SOURCESHORT:PF17	SO
 ###Block: Banshee Abilities
 # Ability Name	Category of Ability		Type							Description														Save checks bonus			Bonus to HP				Source Page
 Hear Heartbeat	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense	DESC:A banshee can sense the beating hearts of living creatures with horrific ease.												SOURCEPAGE:p. 80
-Unholy Fortitude	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																	BONUS:CHECKS|Fortitude|CHA	BONUS:HP|CURRENTMAX|CHA*TL	SOURCEPAGE:p. 80
+Unholy Fortitude	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																	BONUS:SAVE|Fortitude|CHA	BONUS:HP|CURRENTMAX|CHA*TL	SOURCEPAGE:p. 80
 Wail			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		DESC:A banshee's wail is its most notorious and devastating attack, DC %1|10+(HD/2)+CHA											SOURCEPAGE:p. 80
 
 ###Block: Leucrotta Abilities

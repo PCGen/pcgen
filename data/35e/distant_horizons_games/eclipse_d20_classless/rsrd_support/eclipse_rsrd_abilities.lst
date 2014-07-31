@@ -231,5 +231,5 @@ Druid Learn Level 9	CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK:YES	MU
 
 CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Sure Step.MOD	BONUS:SKILL|Balance,Climb,Jump,Tumble|10|TYPE=Competence
 CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Scalywrath.MOD	BONUS:SKILL|Balance,Jump,Swim|4|TYPE=Racial
-CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Jump.MOD			BONUS:SKILL|Jump|2|TYPE=Competence		
-CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Light Foot.MOD		BONUS:SKILL|Jump|10|TYPE=Circumstance	
+CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Jump.MOD			BONUS:SKILL|Jump|2|TYPE=Competence
+CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Light Foot.MOD		BONUS:SKILL|Jump|10|TYPE=Circumstance
