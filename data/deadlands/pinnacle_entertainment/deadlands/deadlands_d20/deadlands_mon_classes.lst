@@ -3,149 +3,149 @@ SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.pe
 # This needs to refer to the MM TYPE file. - Tir Gwaith
 
 
-# classlevel()ass Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus															Combat bonus
-classlevel()ASS:Aberration	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
-# classlevel()ass Name	Reg. Race Type
-classlevel()ASS:Aberration	PRERACETYPE:Aberration
-# classlevel()ass Name	Skill Pts/Lvl	Add INT to Skill Points?
-classlevel()ASS:Aberration	STARTSKILLPTS:2	MODTOSKILLS:NO
+# Class Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus															Combat bonus
+CLASS:Aberration	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Aberration	PRERACETYPE:Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Aberration	STARTSKILLPTS:2	MODTOSKILLS:NO
 
-# classlevel()ass Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
-classlevel()ASS:Animal	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:0	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
-# classlevel()ass Name	Reg. Race Type
-classlevel()ASS:Animal	PRERACETYPE:Animal
-# classlevel()ass Name	Add INT to Skill Points?
-classlevel()ASS:Animal	MODTOSKILLS:NO
+# Class Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
+CLASS:Animal	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:0	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Animal	PRERACETYPE:Animal
+# Class Name	Add INT to Skill Points?
+CLASS:Animal	MODTOSKILLS:NO
 
-# classlevel()ass Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
-classlevel()ASS:Beast		HD:10		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:0	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
-# classlevel()ass Name	Reg. Race Type
-classlevel()ASS:Beast		PRERACETYPE:Beast
-# classlevel()ass Name	Skill Pts/Lvl	Add INT to Skill Points?
-classlevel()ASS:Beast		STARTSKILLPTS:1	MODTOSKILLS:NO
+# Class Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
+CLASS:Beast		HD:10		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:0	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Beast		PRERACETYPE:Beast
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Beast		STARTSKILLPTS:1	MODTOSKILLS:NO
 
-# classlevel()ass Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus														Combat bonus
-classlevel()ASS:Construct	HD:10		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:0	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
-# classlevel()ass Name	Reg. Race Type
-classlevel()ASS:Construct	PRERACETYPE:Construct
-# classlevel()ass Name	Add INT to Skill Points?
-classlevel()ASS:Construct	MODTOSKILLS:NO
+# Class Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus														Combat bonus
+CLASS:Construct	HD:10		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:0	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Construct	PRERACETYPE:Construct
+# Class Name	Add INT to Skill Points?
+CLASS:Construct	MODTOSKILLS:NO
 
-# classlevel()ass Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																	Combat bonus
-classlevel()ASS:Dragon	HD:12		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE
-# classlevel()ass Name	Reg. Race Type
-classlevel()ASS:Dragon	PRERACETYPE:Dragon
-# classlevel()ass Name	Skill Pts/Lvl
-classlevel()ASS:Dragon	STARTSKILLPTS:6
+# Class Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																	Combat bonus
+CLASS:Dragon	HD:12		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Dragon	PRERACETYPE:Dragon
+# Class Name	Skill Pts/Lvl
+CLASS:Dragon	STARTSKILLPTS:6
 
-# classlevel()ass Name		Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
-classlevel()ASS:Elemental (Air)	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
-# classlevel()ass Name		Reg. Race Type
-classlevel()ASS:Elemental (Air)	PRERACETYPE:Elemental(Air)
-# classlevel()ass Name		Skill Pts/Lvl	Add INT to Skill Points?
-classlevel()ASS:Elemental (Air)	STARTSKILLPTS:2	MODTOSKILLS:NO
+# Class Name		Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
+CLASS:Elemental (Air)	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
+# Class Name		Reg. Race Type
+CLASS:Elemental (Air)	PRERACETYPE:Elemental(Air)
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Air)	STARTSKILLPTS:2	MODTOSKILLS:NO
 
-# classlevel()ass Name		Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus															Combat bonus
-classlevel()ASS:Elemental (Earth)	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
-# classlevel()ass Name		Reg. Race Type
-classlevel()ASS:Elemental (Earth)	PRERACETYPE:Elemental(Earth)
-# classlevel()ass Name		Skill Pts/Lvl	Add INT to Skill Points?
-classlevel()ASS:Elemental (Earth)	STARTSKILLPTS:2	MODTOSKILLS:NO
+# Class Name		Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus															Combat bonus
+CLASS:Elemental (Earth)	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
+# Class Name		Reg. Race Type
+CLASS:Elemental (Earth)	PRERACETYPE:Elemental(Earth)
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Earth)	STARTSKILLPTS:2	MODTOSKILLS:NO
 
-# classlevel()ass Name		Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
-classlevel()ASS:Elemental (Fire)	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
-# classlevel()ass Name		Reg. Race Type
-classlevel()ASS:Elemental (Fire)	PRERACETYPE:Elemental(Fire)
-# classlevel()ass Name		Skill Pts/Lvl	Add INT to Skill Points?
-classlevel()ASS:Elemental (Fire)	STARTSKILLPTS:2	MODTOSKILLS:NO
+# Class Name		Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
+CLASS:Elemental (Fire)	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
+# Class Name		Reg. Race Type
+CLASS:Elemental (Fire)	PRERACETYPE:Elemental(Fire)
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Fire)	STARTSKILLPTS:2	MODTOSKILLS:NO
 
-# classlevel()ass Name		Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus															Combat bonus
-classlevel()ASS:Elemental (Water)	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
-# classlevel()ass Name		Reg. Race Type
-classlevel()ASS:Elemental (Water)	PRERACETYPE:Elemental(Water)
-# classlevel()ass Name		Skill Pts/Lvl	Add INT to Skill Points?
-classlevel()ASS:Elemental (Water)	STARTSKILLPTS:2	MODTOSKILLS:NO
+# Class Name		Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus															Combat bonus
+CLASS:Elemental (Water)	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
+# Class Name		Reg. Race Type
+CLASS:Elemental (Water)	PRERACETYPE:Elemental(Water)
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Water)	STARTSKILLPTS:2	MODTOSKILLS:NO
 
-# classlevel()ass Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
-classlevel()ASS:Fey		HD:6		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE
-# classlevel()ass Name	Reg. Race Type
-classlevel()ASS:Fey		PRERACETYPE:Fey
-# classlevel()ass Name	Skill Pts/Lvl	Add INT to Skill Points?
-classlevel()ASS:Fey		STARTSKILLPTS:2	MODTOSKILLS:NO
+# Class Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
+CLASS:Fey		HD:6		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Fey		PRERACETYPE:Fey
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Fey		STARTSKILLPTS:2	MODTOSKILLS:NO
 
-# classlevel()ass Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus															Combat bonus
-classlevel()ASS:Giant		HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
-# classlevel()ass Name	Reg. Race Type
-classlevel()ASS:Giant		PRERACETYPE:Giant
-# classlevel()ass Name	Skill Pts/Lvl	Add INT to Skill Points?
-classlevel()ASS:Giant		STARTSKILLPTS:1	MODTOSKILLS:NO
+# Class Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus															Combat bonus
+CLASS:Giant		HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Giant		PRERACETYPE:Giant
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Giant		STARTSKILLPTS:1	MODTOSKILLS:NO
 
-# classlevel()ass Name	Hit Dice	Type			Max Level		Source Page		Levels per Feat	Save checks bonus												Combat bonus
-classlevel()ASS:Humanoid	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/2+2	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE
-# classlevel()ass Name	Reg. Race Type
-classlevel()ASS:Humanoid	PRERACETYPE:Humanoid
-# classlevel()ass Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
-classlevel()ASS:Humanoid	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2+INT			MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
+# Class Name	Hit Dice	Type			Max Level		Source Page		Levels per Feat	Save checks bonus												Combat bonus
+CLASS:Humanoid	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/2+2	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Humanoid	PRERACETYPE:Humanoid
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points	Extra Hit Die Skills Limit
+CLASS:Humanoid	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2+INT			MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
 
-# classlevel()ass Name		Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
-classlevel()ASS:Magical Beast	HD:10		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE
-# classlevel()ass Name		Reg. Race Type
-classlevel()ASS:Magical Beast	PRERACETYPE:Magical Beast
-# classlevel()ass Name		Skill Pts/Lvl	Add INT to Skill Points?
-classlevel()ASS:Magical Beast	STARTSKILLPTS:1	MODTOSKILLS:NO
+# Class Name		Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
+CLASS:Magical Beast	HD:10		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE
+# Class Name		Reg. Race Type
+CLASS:Magical Beast	PRERACETYPE:Magical Beast
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Magical Beast	STARTSKILLPTS:1	MODTOSKILLS:NO
 
-# classlevel()ass Name			Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
-classlevel()ASS:Magical Beast (Cold)	HD:10		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE
-# classlevel()ass Name			Reg. Race Type
-classlevel()ASS:Magical Beast (Cold)	PRERACETYPE:Magical Beast
-# classlevel()ass Name			Skill Pts/Lvl	Add INT to Skill Points?
-classlevel()ASS:Magical Beast (Cold)	STARTSKILLPTS:1	MODTOSKILLS:NO
+# Class Name			Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
+CLASS:Magical Beast (Cold)	HD:10		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Magical Beast (Cold)	PRERACETYPE:Magical Beast
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Magical Beast (Cold)	STARTSKILLPTS:1	MODTOSKILLS:NO
 
-# classlevel()ass Name			Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
-classlevel()ASS:Monstrous Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE
-# classlevel()ass Name			Reg. Race Type
-classlevel()ASS:Monstrous Humanoid	PRERACETYPE:Monstrous Humanoid
-# classlevel()ass Name			Skill Pts/Lvl	Add INT to Skill Points?
-classlevel()ASS:Monstrous Humanoid	STARTSKILLPTS:2	MODTOSKILLS:NO
+# Class Name			Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																Combat bonus
+CLASS:Monstrous Humanoid	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Monstrous Humanoid	PRERACETYPE:Monstrous Humanoid
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Monstrous Humanoid	STARTSKILLPTS:2	MODTOSKILLS:NO
 
-# classlevel()ass Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus														Combat bonus
-classlevel()ASS:Ooze		HD:10		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:0	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
-# classlevel()ass Name	Reg. Race Type
-classlevel()ASS:Ooze		PRERACETYPE:Ooze
-# classlevel()ass Name	Add INT to Skill Points?
-classlevel()ASS:Ooze		MODTOSKILLS:NO
+# Class Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus														Combat bonus
+CLASS:Ooze		HD:10		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:0	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Ooze		PRERACETYPE:Ooze
+# Class Name	Add INT to Skill Points?
+CLASS:Ooze		MODTOSKILLS:NO
 
-# classlevel()ass Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																	Combat bonus
-classlevel()ASS:Outsider	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE
-# classlevel()ass Name	Reg. Race Type
-classlevel()ASS:Outsider	PRERACETYPE:Outsider
-# classlevel()ass Name	Skill Pts/Lvl
-classlevel()ASS:Outsider	STARTSKILLPTS:8
+# Class Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																	Combat bonus
+CLASS:Outsider	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Outsider	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl
+CLASS:Outsider	STARTSKILLPTS:8
 
-# classlevel()ass Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus															Combat bonus
-classlevel()ASS:Plant		HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:0	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
-# classlevel()ass Name	Reg. Race Type
-classlevel()ASS:Plant		PRERACETYPE:Plant
-# classlevel()ass Name	Add INT to Skill Points?
-classlevel()ASS:Plant		MODTOSKILLS:NO
+# Class Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus															Combat bonus
+CLASS:Plant		HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:0	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Plant		PRERACETYPE:Plant
+# Class Name	Add INT to Skill Points?
+CLASS:Plant		MODTOSKILLS:NO
 
-# classlevel()ass Name		Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																	Combat bonus
-classlevel()ASS:Shapechanger	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
-# classlevel()ass Name		Reg. Race Type
-classlevel()ASS:Shapechanger	PRERACETYPE:Shapechanger
-# classlevel()ass Name		Skill Pts/Lvl	Add INT to Skill Points?
-classlevel()ASS:Shapechanger	STARTSKILLPTS:1	MODTOSKILLS:NO
+# Class Name		Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus																	Combat bonus
+CLASS:Shapechanger	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|2+(classlevel()/2)	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
+# Class Name		Reg. Race Type
+CLASS:Shapechanger	PRERACETYPE:Shapechanger
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Shapechanger	STARTSKILLPTS:1	MODTOSKILLS:NO
 
-# classlevel()ass Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus															Combat bonus
-classlevel()ASS:Undead	HD:12		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE
-# classlevel()ass Name	Reg. Race Type
-classlevel()ASS:Undead	PRERACETYPE:Undead
-# classlevel()ass Name	Skill Pts/Lvl	Add INT to Skill Points?
-classlevel()ASS:Undead	STARTSKILLPTS:2	MODTOSKILLS:NO
+# Class Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus															Combat bonus
+CLASS:Undead	HD:12		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|2+(classlevel()/2)	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Undead	PRERACETYPE:Undead
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Undead	STARTSKILLPTS:2	MODTOSKILLS:NO
 
-# classlevel()ass Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus															Combat bonus
-classlevel()ASS:Vermin	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:0	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
-# classlevel()ass Name	Reg. Race Type
-classlevel()ASS:Vermin	PRERACETYPE:Vermin
-# classlevel()ass Name	Add INT to Skill Points?
-classlevel()ASS:Vermin	MODTOSKILLS:NO
+# Class Name	Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus															Combat bonus
+CLASS:Vermin	HD:8		TYPE:Monster	SOURCEPAGE:p.4	LEVELSPERFEAT:0	BONUS:SAVE|BASE.Fortitude|2+(classlevel()/2)	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Vermin	PRERACETYPE:Vermin
+# Class Name	Add INT to Skill Points?
+CLASS:Vermin	MODTOSKILLS:NO
