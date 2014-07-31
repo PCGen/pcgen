@@ -10,9 +10,9 @@ SOURCELONG:Shadowforce Archer	SOURCESHORT:Shadowforce Archer	SOURCEWEB:http://ww
 # Equipment Name				Unique Key		Product Identity?	Type							Cost		Weight	Critical Hit Range	Fumble Range	Damage	Size		Source Page		Save checks bonus			Stat bonus				Special Property
 Beowulf's Hilt							NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.231						BONUS:STAT|DEX,CON,STR|2
 Dream Catcher							NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.231
-Dream Catcher (Owl feather)					NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.231	BONUS:CHECKS|Will|2
-Dream Catcher (Eagle feather)					NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.231	BONUS:CHECKS|Fortitude|2
-Dream Catcher (Falcon feather)				NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.231	BONUS:CHECKS|Reflex|2
+Dream Catcher (Owl feather)					NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.231	BONUS:SAVE|Will|2
+Dream Catcher (Eagle feather)					NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.231	BONUS:SAVE|Fortitude|2
+Dream Catcher (Falcon feather)				NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.231	BONUS:SAVE|Reflex|2
 The Feather of Ma'at						NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.232											SPROP:agent may spend an action die to determine the level and class of one NPC as a half action
 The Gordian Knot							NAMEISPI:YES	TYPE:Mystic.Relic					COST:0	WT:0													SOURCEPAGE:p.232											SPROP:Whenever an agent possesses one half of the knot, he may make an inspiration roll without spending an action die, once per session. If he controls both halves of the knot, the roll is automatically successful
 Guan Gong's Halberd						NAMEISPI:YES	TYPE:Mystic.Relic.Weapon.Melee.Slashing	COST:0	WT:10		CRITRANGE:3			FUMBLERANGE:-	DAMAGE:3d8	SIZE:L	SOURCEPAGE:p.232

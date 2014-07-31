@@ -62,7 +62,7 @@ Reduced Vitality Cost			KEY:Reduced Vitality Cost ~ Physical Adept	CATEGORY:Spec
 
 # ~ Telepath	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Driver|Electronics|Gather Information|Handle Animal|TYPE=Hobby|Intimidate|TYPE=Knowledge|Languages|TYPE=Profession|Sense Motive|TYPE=Sport
 Force of Will				KEY:Force of Will ~ Telepath				CATEGORY:Special Ability	TYPE:SpecialQuality																					DEFINE:ForceOfWill|0		DESC: (%1/session)|ForceOfWill
-Psychic Escape				KEY:Psychic Escape ~ Telepath				CATEGORY:Special Ability	TYPE:SpecialQuality																					DEFINE:PsychicEscape|0		DESC: (+%1)|PsychicEscape																																					BONUS:CHECKS|ALL|PsychicEscape
+Psychic Escape				KEY:Psychic Escape ~ Telepath				CATEGORY:Special Ability	TYPE:SpecialQuality																					DEFINE:PsychicEscape|0		DESC: (+%1)|PsychicEscape																																					BONUS:SAVE|ALL|PsychicEscape
 Blind Spot					KEY:Blind Spot ~ Telepath				CATEGORY:Special Ability	TYPE:SpecialQuality																					DEFINE:BlindSpot|0		DESC: (%1/session)|BlindSpot
 Mind Wipe					KEY:Mind Wipe ~ Telepath				CATEGORY:Special Ability	TYPE:SpecialQuality
 
