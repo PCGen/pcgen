@@ -2,7 +2,7 @@
 SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196	SOURCEDATE:2005-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:G Man		HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
+CLASS:G Man		HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
 # Class Name	Req. Att.	Required Feat					Required Skill
 CLASS:G Man		PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Investigate=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -17,7 +17,7 @@ CLASS:G Man		STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Drive|Gather Information|Int
 10							BONUS:VAR|StillBuster|1
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Hitman	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
+CLASS:Hitman	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
 # Class Name	Req. Att.	Required Feat					Required Skill
 CLASS:Hitman	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Streetwise)=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -28,7 +28,7 @@ CLASS:Hitman	STARTSKILLPTS:2	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|D
 7			SAB:Calling Card
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
-CLASS:Intrepid Reporter	HD:6		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3
+CLASS:Intrepid Reporter	HD:6		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3
 # Class Name		Required Feat		Required Skill
 CLASS:Intrepid Reporter	PREFEAT:1,Trustworthy	PRESKILL:2,Gather Information=6,Knowledge (Current Events)=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -41,7 +41,7 @@ CLASS:Intrepid Reporter	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Diplomac
 8			SAB:Extra!
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
-CLASS:Mob Boss	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3
+CLASS:Mob Boss	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3
 # Class Name	Required Feat		Required Skill
 CLASS:Mob Boss	PREFEAT:1,Henchmen	PRESKILL:2,Bluff=6,Knowledge (Streetwise)=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -55,7 +55,7 @@ CLASS:Mob Boss	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Drive|Forgery|Gamble|Gathe
 10			SAB:Godfather
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
-CLASS:Mystery Man	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+CLASS:Mystery Man	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Feat			Required Skill
 CLASS:Mystery Man	PREATT:2	PREFEAT:1,Secret Identity	PRESKILL:2,Intimidate=6,Knowledge (Streetwise)=6
 # Class Name	Skill Pts/Lvl	Class Skill

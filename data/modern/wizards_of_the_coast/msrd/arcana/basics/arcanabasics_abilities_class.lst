@@ -134,7 +134,7 @@ Innovative Turning			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE
 
 
 #Block:Holy Unholy Knight ---------------------------------------------------------------------------------------------------------------------------------
-Divine Grace				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Divine Grace																																																																																									BONUS:CHECKS|Fortitude,Reflex,Will|CHA|PRESTAT:1,CHA=12
+Divine Grace				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Divine Grace																																																																																									BONUS:SAVE|Fortitude,Reflex,Will|CHA|PRESTAT:1,CHA=12
 Sense Allegiance				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Sense Allegiance
 Smite Allegiance				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Smite Allegiance
 Divine Touch				CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Divine Touch

@@ -80,7 +80,7 @@ Psi-Ability (Vigor)						VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=T
 # Template Name	Visible	Source Page							Save checks bonus				Bonus to skill						Modify VAR									Ability								Automatically Gained Feat	Vision
 Aquan			VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf																									ABILITY:Special Ability|AUTOMATIC|Amphibious		AUTO:FEAT|Athletic		VISION:Blindsight (60')|Low-light
 Healer		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf															BONUS:VAR|FastHealingRate|3	BONUS:VAR|DamageThreshold|-3	ABILITY:Special Ability|AUTOMATIC|Fast Healing
-Morphean		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf	BONUS:CHECKS|Will|2|TYPE=Species																			ABILITY:Special Ability|AUTOMATIC|Hibernate|Sleepless
+Morphean		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf	BONUS:SAVE|Will|2|TYPE=Species																			ABILITY:Special Ability|AUTOMATIC|Hibernate|Sleepless
 Nocturnal		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering.rtf							BONUS:SKILL|Listen,Move Silently|2|TYPE=Species											ABILITY:Special Ability|AUTOMATIC|Light Sensitivity	AUTO:FEAT|Blind-Fight		VISION:Darkvision (60')
 
 #

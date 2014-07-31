@@ -12,7 +12,7 @@ SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodB
 #children to advance in a class and this way the user could apply the template to a "real" class and play a child that way.
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
-CLASS:Cheerleader	HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL-1	BONUS:VAR|ClassDefense|CL/3+2	BONUS:VAR|Reputation|CL/4+2	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
+CLASS:Cheerleader	HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.5	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1	BONUS:VAR|ClassDefense|CL/3+2	BONUS:VAR|Reputation|CL/4+2	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name	Multiple Requirements
 CLASS:Cheerleader	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Cheerleader=1]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -23,7 +23,7 @@ CLASS:Cheerleader	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Disable Device|Hide|Move Sil
 5	SAB:Pretty Please?(Ex) (Will Save DC %)|10+var("CL=Cheerleader")+CHA
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
-CLASS:Jock		HD:6		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+2)/4+3	BONUS:VAR|Reputation|CL/4+2	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
+CLASS:Jock		HD:6		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+2)/4+3	BONUS:VAR|Reputation|CL/4+2	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name	Multiple Requirements
 CLASS:Jock		PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Jock=1]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -34,7 +34,7 @@ CLASS:Jock		STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Spot|Swim|Tumble
 5	SAB:Team Spirit(Ex)
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus								Combat bonus		Modify VAR
-CLASS:Mundane	HD:6		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/4+1	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
+CLASS:Mundane	HD:6		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/4+1	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name	Multiple Requirements
 CLASS:Mundane	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Mundane=1]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -43,7 +43,7 @@ CLASS:Mundane	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Drive|TYPE=Knowledge|Profession
 1			SAB:You MUST continue to advance in the Mundane class until you have reached 5th level|PREVARLT:CL,5					TEMPLATE:Starting Sanity
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
-CLASS:Nerd		HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|CL/3+2	BONUS:VAR|Reputation|CL/4+1	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
+CLASS:Nerd		HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|ClassDefense|CL/3+2	BONUS:VAR|Reputation|CL/4+1	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name	Multiple Requirements
 CLASS:Nerd		PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Nerd=1]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -53,7 +53,7 @@ CLASS:Nerd		STARTSKILLPTS:2	CSKILL:Computer Use|Craft (Chemical)|Craft (Electron
 4	SAB:Enforce Logic(Ex) - Will Save DC %|10+CL/2+INT
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus								Combat bonus		Modify VAR
-CLASS:Outcast	HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|CL/2+4	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
+CLASS:Outcast	HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.8	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|ClassDefense|CL/2+4	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name	Multiple Requirements
 CLASS:Outcast	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Outcast=1]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -64,7 +64,7 @@ CLASS:Outcast	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Hide|Spot|Move Silently|TY
 5	SAB:Hide in Plain Sight(Ex)
 
 # Class Name		Hit Dice	Type				Max Level	Source Page		Save checks bonus								Combat bonus		Modify VAR
-CLASS:Scream Queen	HD:8		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.9	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2+2	BONUS:VAR|ClassDefense|CL/2+2	BONUS:VAR|Reputation|CL/2+2	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
+CLASS:Scream Queen	HD:8		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.9	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|CL/2+2	BONUS:VAR|Reputation|CL/2+2	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name		Multiple Requirements
 CLASS:Scream Queen	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Scream Queen=1]
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -76,7 +76,7 @@ CLASS:Scream Queen	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Escape Artist|H
 5	SAB:Prophetic Vision
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
-CLASS:Stoner	HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL-1	BONUS:VAR|ClassDefense|CL/3+2	BONUS:VAR|Reputation|CL/4+2	BONUS:VAR|Action|CL*8	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
+CLASS:Stoner	HD:4		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.10	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1	BONUS:VAR|ClassDefense|CL/3+2	BONUS:VAR|Reputation|CL/4+2	BONUS:VAR|Action|CL*8	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name	Multiple Requirements
 CLASS:Stoner	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Stoner=1]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -88,7 +88,7 @@ CLASS:Stoner	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Chemical)|Gather Information|Kn
 5	SAB:Dude!(Ex)
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
-CLASS:Tough Guy	HD:8		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|CL/3+2	BONUS:VAR|Reputation|CL/4+1	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
+CLASS:Tough Guy	HD:8		TYPE:Base.PC.Victim	MAXLEVEL:5	SOURCEPAGE:p.11	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|CL/3+2	BONUS:VAR|Reputation|CL/4+1	BONUS:VAR|Action|CL*3	BONUS:VAR|Action|floor(TL*TL/4)|TYPE=NonStackingAP
 # Class Name	Multiple Requirements
 CLASS:Tough Guy	PREMULT:1,[PREPCLEVEL:MAX=1],[PRECLASS:1,Tough Guy=1]
 # Class Name	Skill Pts/Lvl	Class Skill

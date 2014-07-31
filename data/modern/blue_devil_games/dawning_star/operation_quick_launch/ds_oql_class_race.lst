@@ -2,7 +2,7 @@
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus									Combat bonus		Modify VAR
-CLASS:Human Survivor	HD:8		TYPE:PC.Race	MAXLEVEL:3	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*5
+CLASS:Human Survivor	HD:8		TYPE:PC.Race	MAXLEVEL:3	SOURCEPAGE:p.48	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*5
 # Class Name		Required Lvl	Required Race
 CLASS:Human Survivor	PRELEVEL:MIN=2	PRERACE:1,Human
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -12,7 +12,7 @@ CLASS:Human Survivor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Drive|Jump|Knowledge (Cu
 3	SAB:Last Man Standing	BONUS:STAT|CHA|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Velin Hunter	HD:8		TYPE:PC.Race	MAXLEVEL:3	SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:COMBAT|BAB|CL	BONUS:VAR|Action|CL*5	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/3
+CLASS:Velin Hunter	HD:8		TYPE:PC.Race	MAXLEVEL:3	SOURCEPAGE:p.49	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|Action|CL*5	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/3
 # Class Name		Required Lvl	Required Race
 CLASS:Velin Hunter	PRELEVEL:MIN=2	PRERACE:1,Velin
 # Class Name		Skill Pts/Lvl	Class Skill

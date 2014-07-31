@@ -4,10 +4,10 @@ SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodB
 
 ###Block:Mental Disorders
 # Feat Name					Type					Visible	Special ABility																		Stackable?	Multiple?	Choose																						Save checks bonus				Combat bonus				Bonus to skill										Source Page
-Motor Tension				TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Motor Tension) - all checks involving STR,DEX or CON tak a -2 penalty																															BONUS:CHECKS|Fortitude|-2		BONUS:COMBAT|TOHIT|-2			BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution|-2		SOURCEPAGE:p.29
-Autonomic Hyperactivity			TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Autonomic Hyperactivity)																																						BONUS:CHECKS|ALL|-2			BONUS:COMBAT|TOHIT|-2			BONUS:SKILL|ALL|-2									SOURCEPAGE:p.29
-Expectations of Doom			TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Expectations of Doom)																																							BONUS:CHECKS|ALL|-2|TYPE=Morale	BONUS:COMBAT|TOHIT|-2|TYPE=Morale	BONUS:SKILL|ALL|-2|TYPE=Morale							SOURCEPAGE:p.29
-Vigilance					TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Vigilance)																																									BONUS:CHECKS|Will|-4|TYPE=Morale							BONUS:SKILL|TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-4|TYPE=Morale	SOURCEPAGE:p.29
+Motor Tension				TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Motor Tension) - all checks involving STR,DEX or CON tak a -2 penalty																															BONUS:SAVE|Fortitude|-2		BONUS:COMBAT|TOHIT|-2			BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution|-2		SOURCEPAGE:p.29
+Autonomic Hyperactivity			TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Autonomic Hyperactivity)																																						BONUS:SAVE|ALL|-2			BONUS:COMBAT|TOHIT|-2			BONUS:SKILL|ALL|-2									SOURCEPAGE:p.29
+Expectations of Doom			TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Expectations of Doom)																																							BONUS:SAVE|ALL|-2|TYPE=Morale	BONUS:COMBAT|TOHIT|-2|TYPE=Morale	BONUS:SKILL|ALL|-2|TYPE=Morale							SOURCEPAGE:p.29
+Vigilance					TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Vigilance)																																									BONUS:SAVE|Will|-4|TYPE=Morale							BONUS:SKILL|TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-4|TYPE=Morale	SOURCEPAGE:p.29
 Panic Disorder				TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Panic Disorder)																																																																SOURCEPAGE:p.29
 Agoraphobia					TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Agoraphobia)																																																																SOURCEPAGE:p.30
 Obsessive Disorder			TYPE:Anxiety			VISIBLE:NO	SAB:Mental Disorder - Anxiety(Obsessive)																																																																	SOURCEPAGE:p.30
@@ -23,8 +23,8 @@ Compulsive Gambling			TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impu
 Kleptomania					TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Kleptomania)																																																															SOURCEPAGE:p.31
 Pathological Lying			TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Pathological Lying)																																																														SOURCEPAGE:p.31
 Pyromania					TYPE:ImpulseControl		VISIBLE:NO	SAB:Mental Disorder - Impulse Control(Pyromania)																																																															SOURCEPAGE:p.31
-Depression					TYPE:Mood				VISIBLE:NO	SAB:Mental Disorder - Mood(Depression)																																									BONUS:CHECKS|ALL|-4|TYPE=Morale	BONUS:COMBAT|TOHIT|-4|TYPE=Morale	BONUS:SKILL|ALL|-4|TYPE=Morale							SOURCEPAGE:p.31
-Mania						TYPE:Mood				VISIBLE:NO	SAB:Mental Disorder - Mood(Mania)																																										BONUS:CHECKS|ALL|-4|TYPE=Morale	BONUS:COMBAT|TOHIT|-4|TYPE=Morale	BONUS:SKILL|ALL|-4|TYPE=Morale							SOURCEPAGE:p.31
+Depression					TYPE:Mood				VISIBLE:NO	SAB:Mental Disorder - Mood(Depression)																																									BONUS:SAVE|ALL|-4|TYPE=Morale	BONUS:COMBAT|TOHIT|-4|TYPE=Morale	BONUS:SKILL|ALL|-4|TYPE=Morale							SOURCEPAGE:p.31
+Mania						TYPE:Mood				VISIBLE:NO	SAB:Mental Disorder - Mood(Mania)																																										BONUS:SAVE|ALL|-4|TYPE=Morale	BONUS:COMBAT|TOHIT|-4|TYPE=Morale	BONUS:SKILL|ALL|-4|TYPE=Morale							SOURCEPAGE:p.31
 Bipolar Disorder				TYPE:Mood				VISIBLE:NO	SAB:Mental Disorder - Mood(Manic Depressive)																																																																SOURCEPAGE:p.31
 Antisocial					TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Antisocial)																																																																SOURCEPAGE:p.31
 Avoidant					TYPE:PersonalityDisorder	VISIBLE:NO	SAB:Mental Disorder - Personality(Avoidant)																																																																SOURCEPAGE:p.31

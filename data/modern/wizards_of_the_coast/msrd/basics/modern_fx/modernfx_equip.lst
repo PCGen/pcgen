@@ -108,9 +108,9 @@ Leather Jacket of Damage Reduction								TYPE:FX.Wondrous.Magic.Shirt			COST:31
 Running Shoes of Striding and Springing							TYPE:FX.Wondrous.Magic.Boot			COST:33	WT:1		SLOTS:2																	SOURCEPAGE:msrdfxitems.rtf																							SPROP:Wearer moves at double her normal speed
 Screaming Amulet											TYPE:FX.Wondrous.Psionic.Amulet		COST:34	WT:0																				SOURCEPAGE:msrdfxitems.rtf																							SPROP:need 10 power points to activate, see text
 Six-Demon Bag											TYPE:FX.Wondrous.Magic				COST:34	WT:0																				SOURCEPAGE:msrdfxitems.rtf																							SPROP:see text
-Windbreaker of Resistance +1									TYPE:FX.Wondrous.Magic.Shirt			COST:22	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf											BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Resistance				SPROP:restistance BONUS to all saves
-Windbreaker of Resistance +2									TYPE:FX.Wondrous.Magic.Shirt			COST:25	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf											BONUS:CHECKS|Fortitude,Reflex,Will|2|TYPE=Resistance				SPROP:restistance BONUS to all saves
-Windbreaker of Resistance +3									TYPE:FX.Wondrous.Magic.Shirt			COST:28	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf											BONUS:CHECKS|Fortitude,Reflex,Will|3|TYPE=Resistance				SPROP:restistance BONUS to all saves
+Windbreaker of Resistance +1									TYPE:FX.Wondrous.Magic.Shirt			COST:22	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf											BONUS:SAVE|Fortitude,Reflex,Will|1|TYPE=Resistance				SPROP:restistance BONUS to all saves
+Windbreaker of Resistance +2									TYPE:FX.Wondrous.Magic.Shirt			COST:25	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf											BONUS:SAVE|Fortitude,Reflex,Will|2|TYPE=Resistance				SPROP:restistance BONUS to all saves
+Windbreaker of Resistance +3									TYPE:FX.Wondrous.Magic.Shirt			COST:28	WT:1				BASEITEM:Windbreaker													SOURCEPAGE:msrdfxitems.rtf											BONUS:SAVE|Fortitude,Reflex,Will|3|TYPE=Resistance				SPROP:restistance BONUS to all saves
 
 ###Block: Base Items
 

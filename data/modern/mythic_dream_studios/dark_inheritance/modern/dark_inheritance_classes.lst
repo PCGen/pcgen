@@ -8,7 +8,7 @@ SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT
 ###Advanced Classes
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus														Combat bonus		Modify VAR
-CLASS:Stim Freak	HD:10		TYPE:Advanced.PC	ABB:StFrk		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
+CLASS:Stim Freak	HD:10		TYPE:Advanced.PC	ABB:StFrk		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
 # Class Name	Req. Att.	Required Check Base		Required Feat
 CLASS:Stim Freak	PREATT:3	PRECHECKBASE:1,Fortitude=2	PREFEAT:1,Brawl
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -25,7 +25,7 @@ CLASS:Stim Freak	STARTSKILLPTS:3	CSKILL:Climb|Craft (Structural)|Intimidate|Jump
 10	SAB:Ultimate Weapon
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus														Combat bonus		Modify VAR
-CLASS:Super Soldier	HD:10		TYPE:Advanced.PC	ABB:SSldr		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|ceil(CL*2/3)	BONUS:VAR|Reputation|CL/3
+CLASS:Super Soldier	HD:10		TYPE:Advanced.PC	ABB:SSldr		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|ceil(CL*2/3)	BONUS:VAR|Reputation|CL/3
 # Class Name		Req. Att.	Required Feat								Required Skill				Required Text
 CLASS:Super Soldier	PREATT:3	PREFEAT:2,Combat Martial Arts,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=6	PRETEXT:The character must be part of an organization with the technology to continue to alter her DNA. Should she lose this status, she can no longer advance in this advanced class, but keeps any abilities she has already gained.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -42,7 +42,7 @@ CLASS:Super Soldier	STARTSKILLPTS:3	CSKILL:Climb|Craft (Structural)|Intimidate|J
 10	ADD:FEAT|TYPE=PhysicalEnhancement
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus						Modify VAR
-CLASS:Eldritch Monk	HD:8		TYPE:Advanced.PC	ABB:EldMk		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
+CLASS:Eldritch Monk	HD:8		TYPE:Advanced.PC	ABB:EldMk		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name		Req. Att.	Required Feat					Required Skill						Required Text
 CLASS:Eldritch Monk	PREATT:2	PREFEAT:2,Combat Martial Arts,Focused	PRESKILL:2,Knowledge (Arcane Lore)=3,Tumble=6	PRETEXT:Must be inducted into an order or monastery that ritually marks the character with the proper tattoos or scars to cast spells without foci.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -64,7 +64,7 @@ CLASS:Eldritch Monk	SPELLSTAT:CHA	SPELLTYPE:Any	BONUS:CASTERLEVEL|Eldritch Monk|
 10	CAST:5,4,3,2,1	KNOWN:5,5,4,4,2	SAB:Counterstrike
 
 # Class Name		Output Name			Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus		Modify VAR
-CLASS:Explorer (Dk_Inh)	OUTPUTNAME:Explorer	HD:10		TYPE:Advanced.PC	ABB:Expl		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
+CLASS:Explorer (Dk_Inh)	OUTPUTNAME:Explorer	HD:10		TYPE:Advanced.PC	ABB:Expl		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
 # Class Name		Req. Att.	Required Feat		Required Skill
 CLASS:Explorer (Dk_Inh)	PREATT:2	PREFEAT:1,Athletic	PRESKILL:2,Gather Information=3,Survival=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -81,7 +81,7 @@ CLASS:Explorer (Dk_Inh)	STARTSKILLPTS:5	CSKILL:Balance|Climb|Decipher Script|Dri
 10	SAB:Damage Threshold +%|var("CL=Explorer (Dk_Inh)")
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus											Combat bonus					Modify VAR
-CLASS:Initiate	HD:6		TYPE:Advanced.PC	ABB:Init		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
+CLASS:Initiate	HD:6		TYPE:Advanced.PC	ABB:Init		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
 # Class Name	Required Feat		Required Skill									Required Text
 CLASS:Initiate	PREFEAT:1,Educated	PRESKILL:3,Decipher Script=6,Knowledge (Arcane Lore)=6,Research=6	PRETEXT:Must be accepted as a novitiate into a magical order.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -100,7 +100,7 @@ CLASS:Initiate	SPELLSTAT:INT	SPELLTYPE:Any	SPELLBOOK:YES	BONUS:CASTERLEVEL|Initi
 10	CAST:7,5,4,3,3,2	SAB:Sacrificial Heighten
 
 # Class Name		Output Name		Hit Dice	Type			Abbreviation	Max Level	Save checks bonus											Combat bonus					Modify VAR
-CLASS:Mystic (Dk_Inh)	OUTPUTNAME:Mystic	HD:6		TYPE:Advanced.PC	ABB:Myst		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3+1
+CLASS:Mystic (Dk_Inh)	OUTPUTNAME:Mystic	HD:6		TYPE:Advanced.PC	ABB:Myst		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3+1
 # Class Name		Required Ability					Required Skill
 CLASS:Mystic (Dk_Inh)	PREABILITY:1,CATEGORY=Talent,Empathy	PRESKILL:4,Knowledge (Arcane Lore)=6,Sense Motive=6,Knowledge (History)=4,Knowledge (Theology and Philosophy)=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -119,7 +119,7 @@ CLASS:Mystic (Dk_Inh)	SPELLSTAT:WIS	SPELLTYPE:Any	PROHIBITED:Conjuration,Evocati
 10	CAST:6,5,5,4,4,3									SPELLS:Class|TIMES=1|CASTERLEVEL=var("CL=Mystic (Dk_Inh)")|Mindlink,10+var("CL=Mystic (Dk_Inh)")
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Save checks bonus											Combat bonus					Modify VAR
-CLASS:Crusading Advocate	HD:8		TYPE:Advanced.PC	ABB:CrAdv		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
+CLASS:Crusading Advocate	HD:8		TYPE:Advanced.PC	ABB:CrAdv		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
 # Class Name			Required Feat		Multiple Requirements
 CLASS:Crusading Advocate	PREFEAT:1,Iron Will	PREMULT:2,[PRESKILL:1,Diplomacy=6],[PRESKILL:1,TYPE.Knowledge=6,TYPE.Craft=6]
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -138,7 +138,7 @@ CLASS:Crusading Advocate	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|TYPE=Craft|Di
 ###Prestige Classes
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus															Combat bonus					Modify VAR
-CLASS:Spec Ops	HD:10		TYPE:Advanced.PC	ABB:SpOps		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL)/3
+CLASS:Spec Ops	HD:10		TYPE:Advanced.PC	ABB:SpOps		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL)/3
 # Class Name	Required Ability							Req. Att.	Required Class									Required Feat																											Required Skill
 CLASS:Spec Ops	PREABILITY:1,CATEGORY=Starting Occupation,Military	PREATT:7	PRECLASS:1,Infiltrator=1,Soldier=1,Stim Freak=1,Super Soldier=1	PREFEAT:7,Advanced Firearms Proficiency,Armor Proficiency (Light),Armor Proficiency (Medium),Burst Fire,Improved Damage Threshold,Personal Firearms Proficiency,Stealthy	PRESKILL:4,Spot=10,Demolitions=6,Hide=6,Move Silently=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -150,7 +150,7 @@ CLASS:Spec Ops	STARTSKILLPTS:5	CSKILL:Balance|Climb|Demolitions|Disable Device|D
 5	SAB:Terrain Mastery
 
 # Class Name			Output Name					Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus					Modify VAR
-CLASS:Two Fisted God of Guns	OUTPUTNAME:Two-Fisted God of Guns	HD:8		TYPE:Advanced.PC	ABB:TFGoG		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
+CLASS:Two Fisted God of Guns	OUTPUTNAME:Two-Fisted God of Guns	HD:8		TYPE:Advanced.PC	ABB:TFGoG		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
 # Class Name			Req. Att.	Required Feat																	Required Skill					Required Text
 CLASS:Two Fisted God of Guns	PREATT:5	PREFEAT:5,Advanced Firearms Proficiency,Dodge,Personal Firearms Proficiency,Precise Shot,Two-Weapon Fighting	PRESKILL:2,Sleight of Hand=10,Tumble=10	PRETEXT:You must possess the ability to make ranged attacks with a Medium-size or smaller firearm while in a threatened area without provoking an attack of opportunity.
 # Class Name			Skill Pts/Lvl	Class Skill

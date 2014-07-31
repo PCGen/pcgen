@@ -3,7 +3,7 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 #Original Entry by: Paul King
 
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
-CLASS:Archmage	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+CLASS:Archmage	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
 # Class Name	Required Skill										Required Casting Type
 CLASS:Archmage	PRESKILL:3,Knowledge (Arcane Lore)=12,Concentration=12,Spellcraft=12	PRESPELLCAST:TYPE=Arcane
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -15,7 +15,7 @@ CLASS:Archmage	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemical
 5								ABILITY:Special Ability|AUTOMATIC|Granted Incantations
 
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus															Combat bonus		Modify VAR
-CLASS:Artificer	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+CLASS:Artificer	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
 # Class Name	Multiple Requirements												Req. Spell Type
 CLASS:Artificer	PREMULT:2,[PRESKILL:2,Knowledge (Arcane Lore)=9,Spellcraft=9],[PRESKILL:1,TYPE.Craft=9]	PRESPELLTYPE:1,Arcane=2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -24,7 +24,7 @@ CLASS:Artificer	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Craft (Chemica
 2	BONUS:ABILITYPOOL|Artificer Feat|CL/2
 
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
-CLASS:Ecclesiarch	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
+CLASS:Ecclesiarch	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
 # Class Name	Required Ability						Required Skill												Required Casting Type
 CLASS:Ecclesiarch	PREABILITY:1,CATEGORY=Special Ability,Base Turn	PRESKILL:3,Concentration=10,Knowledge (Theology and Philosophy)=10,Spellcraft=10	PRESPELLCAST:TYPE=Divine
 # Class Name	Skill Pts/Lvl	Class Skill
