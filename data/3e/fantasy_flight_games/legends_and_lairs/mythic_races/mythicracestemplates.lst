@@ -3,9 +3,9 @@ SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:
 
 # Template Name			Visible	Damage Reduction	Source Page		Special ABility																															Required AL				Required Race		Save checks bonus					Combat bonus					Add to base move			Bonus to skill				Stat bonus														Class Skill			Favored Class		Automatically Gained Feat		Automatically Gained Weapon Prof.	Move				Removable?		Subrace
 Fur					VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Fur)	SAB:+4 to saving throws vs. Cold																												PRERACE:1,Animan%																																																																					SUBRACE:Fur
-Inhuman Grace			VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Inhuman Grace)																																PRERACE:1,Animan%		BONUS:CHECKS|Reflex|2|TYPE=Racial																																																														SUBRACE:Inhuman Grace
-Steadfastness			VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Steadfastness)																																PRERACE:1,Animan%		BONUS:CHECKS|Fortitude|2|TYPE=Racial																																																													SUBRACE:Steadfastness
-Orneriness				VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Orneriness)																																	PRERACE:1,Animan%		BONUS:CHECKS|Will|2|TYPE=Racial																																																														SUBRACE:Orneriness
+Inhuman Grace			VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Inhuman Grace)																																PRERACE:1,Animan%		BONUS:SAVE|Reflex|2|TYPE=Racial																																																														SUBRACE:Inhuman Grace
+Steadfastness			VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Steadfastness)																																PRERACE:1,Animan%		BONUS:SAVE|Fortitude|2|TYPE=Racial																																																													SUBRACE:Steadfastness
+Orneriness				VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Orneriness)																																	PRERACE:1,Animan%		BONUS:SAVE|Will|2|TYPE=Racial																																																														SUBRACE:Orneriness
 Blood of the Hunter		VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Blood of the Hunter)																															PRERACE:1,Animan%																																																		AUTO:FEAT|Track																	SUBRACE:Blood of the Hunter
 Animal Acuity (Listen)		VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Listen Animal Acuity)																															PRERACE:1,Animan%																					BONUS:SKILL|Listen|2|TYPE=Racial																																											SUBRACE:Animal Acuity
 Animal Acuity (Spot)		VISIBLE:NO				SOURCEPAGE:p.20	SAB:Bestial Heritage (Spot Animal Acuity)																																PRERACE:1,Animan%																					BONUS:SKILL|Spot|2|TYPE=Racial																																											SUBRACE:Animal Acuity
@@ -36,7 +36,7 @@ Pevishan (Necromancy)		VISIBLE:NO				SOURCEPAGE:p.94	SAB:+4 to spellcraft checks
 Pevishan (Transmutation)	VISIBLE:NO				SOURCEPAGE:p.94	SAB:+4 to spellcraft checks on Transmutation magic	SAB:+4 to saves vs. Transmutation magic	SAB:Spell like abilities (Detect Magic/Expeditious Retreat/Message) Cha mod times per day								PRERACE:1,Pevishan																																																																				SUBRACE:Transmutation
 F(Seelie)				VISIBLE:NO				SOURCEPAGE:p.56	SAB:Faerie Fire	SAB:Spell like abilities 2/day (bless/detect evil/dispel magic/daylight/dancing lights/sleep/obscuring mist/wood shape)											PREALIGN:LG,LN,NG,TN,CG,CN	PRERACE:1,Fairy																																																																					SUBRACE:Seelie
 F(Unseelie)				VISIBLE:NO				SOURCEPAGE:p.56	SAB:Dark Faerie Fire	SAB:Faerie Fire when use spell like ability	SAB:Spell like abilities 2/day (bane/detect good/dispel magic/darkness/dancing lights/sleep/obscuring mist/chill touch)		PREALIGN:LN,LE,TN,NE,CN,CE	PRERACE:1,Fairy																																																																					SUBRACE:Unseelie
-Buerin				VISIBLE:YES	DR:15/Silver	SOURCEPAGE:p.105	SAB:Alternate Form	SAB:Damage Reduction 15/Silver in animal or hybrid form	SAB:Animal Empathy	SAB:Sacred Lycanthropy	SAB:Ferocity	SAB:Scent												PRERACE:1,Rezurbek	BONUS:CHECKS|Fortitude,Will|2			BONUS:COMBAT|AC|8|TYPE=NaturalArmor.STACK						BONUS:SKILL|Search,Spot,Listen|4	BONUS:STAT|STR|4	BONUS:STAT|CON|6																		AUTO:FEAT|Improved Control Shape	AUTO:WEAPONPROF|Gore			MOVE:Walk,40		REMOVABLE:YES
+Buerin				VISIBLE:YES	DR:15/Silver	SOURCEPAGE:p.105	SAB:Alternate Form	SAB:Damage Reduction 15/Silver in animal or hybrid form	SAB:Animal Empathy	SAB:Sacred Lycanthropy	SAB:Ferocity	SAB:Scent												PRERACE:1,Rezurbek	BONUS:SAVE|Fortitude,Will|2			BONUS:COMBAT|AC|8|TYPE=NaturalArmor.STACK						BONUS:SKILL|Search,Spot,Listen|4	BONUS:STAT|STR|4	BONUS:STAT|CON|6																		AUTO:FEAT|Improved Control Shape	AUTO:WEAPONPROF|Gore			MOVE:Walk,40		REMOVABLE:YES
 
 ###Block: Verminous Traits chooser template
 
@@ -48,8 +48,8 @@ Verminous Traits	VISIBLE:NO	TEMPLATE:CHOOSE:Verminous Trait (Mandibles)|Verminou
 # Template Name				Visible	Source Page		Special ABility														Save checks bonus					Combat bonus				Bonus to skill				Clone Movement		Innate Spells								Natural Attacks
 Verminous Trait (Mandibles)		VISIBLE:NO	SOURCEPAGE:p.167	SAB:Mandibles																																															NATURALATTACKS:Mandibles,Weapon.Natural.Melee.Piercing,*1,1d4
 Verminous Trait (Chitin)		VISIBLE:NO	SOURCEPAGE:p.167	SAB:Chitin																						BONUS:COMBAT|AC|2|TYPE=Toughness
-Verminous Trait (Scurry)		VISIBLE:NO	SOURCEPAGE:p.167	SAB:Scurry															BONUS:CHECKS|Reflex|2|TYPE=Racial
-Verminous Trait (Survivor)		VISIBLE:NO	SOURCEPAGE:p.167	SAB:Survivor														BONUS:CHECKS|Fortitude|2|TYPE=Racial
+Verminous Trait (Scurry)		VISIBLE:NO	SOURCEPAGE:p.167	SAB:Scurry															BONUS:SAVE|Reflex|2|TYPE=Racial
+Verminous Trait (Survivor)		VISIBLE:NO	SOURCEPAGE:p.167	SAB:Survivor														BONUS:SAVE|Fortitude|2|TYPE=Racial
 Verminous Trait (Poison)		VISIBLE:NO	SOURCEPAGE:p.167	SAB:Spit Poison up to 10ft 1/day (DC % for 1d4+%/1d4+% CON Damage)|10+(TL/2)+CON|TL/4|TL/4
 Verminous Trait (Extreme Revulsion)	VISIBLE:NO	SOURCEPAGE:p.167	SAB:Extreme Revulsion
 Verminous Trait (Web)			VISIBLE:NO	SOURCEPAGE:p.167	SAB:Web																																						SPELLS:Innate|TIMES=1|CASTERLEVEL=min(TL,8)|Web,12+INT

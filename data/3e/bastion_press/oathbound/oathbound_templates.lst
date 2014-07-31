@@ -40,7 +40,7 @@ Arrival Gift (Understanding 2/3)			VISIBLE:YES				SOURCEPAGE:p.21															
 Arrival Gift (Understanding 3/3)			VISIBLE:YES				SOURCEPAGE:p.21																																																																CHOOSE:LANGAUTO|Asherake|Ceptu|Chromithian|Deep Fey|Dover|Faust|Frey|Ith'n Ya'roo|Knuk|Kraggon|Lunar|Makkru|Nightling|Picker|Silver|Trusk|Urgoda|Valco|Vogel
 Arrival Gift (Valiant)					VISIBLE:YES				SOURCEPAGE:p.21																									PREFEAT:1,Leadership
 Arrival Gift (Wild Talent)				VISIBLE:YES				SOURCEPAGE:p.21	SAB:Wild Talent (Su) %/day|WildTalentUsage				DEFINE:WildTalentUsage|(1+(TL/5))
-Arrival Gift (Willful)					VISIBLE:YES				SOURCEPAGE:p.21																													BONUS:CHECKS|Will|2|TYPE=Competence
+Arrival Gift (Willful)					VISIBLE:YES				SOURCEPAGE:p.21																													BONUS:SAVE|Will|2|TYPE=Competence
 Arrival Gift (Youthful)					VISIBLE:YES				SOURCEPAGE:p.21																																																							BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|CON|1
 Arrival Gift (Zealous)					VISIBLE:YES				SOURCEPAGE:p.21
 

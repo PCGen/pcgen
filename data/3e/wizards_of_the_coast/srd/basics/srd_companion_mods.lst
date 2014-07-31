@@ -38,11 +38,11 @@ MASTERBONUSRACE:Bat			TYPE:Familiar
 MASTERBONUSRACE:Cat			TYPE:Familiar						BONUS:SKILL|Move Silently|2
 MASTERBONUSRACE:Hawk			TYPE:Familiar
 MASTERBONUSRACE:Owl			TYPE:Familiar						BONUS:SKILL|Move Silently|2
-MASTERBONUSRACE:Rat			TYPE:Familiar	BONUS:CHECKS|Fortitude|2
+MASTERBONUSRACE:Rat			TYPE:Familiar	BONUS:SAVE|Fortitude|2
 MASTERBONUSRACE:Raven			TYPE:Familiar
 MASTERBONUSRACE:Snake (Tiny Viper)	TYPE:Familiar
 MASTERBONUSRACE:Toad			TYPE:Familiar											BONUS:STAT|CON|2
-MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2
+MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:SAVE|Reflex|2
 
 ###Block:Fiendish Servant
 # Class of the Master			Type				Hit Dice	Spell Res.	Ability																									Define			Combat bonus					Stat bonus		Modify VAR

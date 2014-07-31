@@ -8,7 +8,7 @@ SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Demagogue	HD:6		TYPE:PC.Prestige	ABB:Dem		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Demagogue	HD:6		TYPE:PC.Prestige	ABB:Dem		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Lvl	Required Skill						Required Stat
 CLASS:Demagogue	PREFEAT:1,Iron Will	PRELEVEL:MIN=5	PRESKILL:3,Bluff=4,Intimidate=4,Diplomacy=6	PRESTAT:1,CHA=12
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -30,7 +30,7 @@ CLASS:Demagogue	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|City Lore|Concentration|TY
 10	SAB:Control Crowd (Sp) %/day (% ft)|DemPowerUse|DemPowerRange													DEFINE:DemPowerRange|(CHA*250)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Hone		HD:10		TYPE:PC.Prestige	ABB:Hn		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Hone		HD:10		TYPE:PC.Prestige	ABB:Hn		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Feat										Required Lvl
 CLASS:Hone		PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:3,Improved Unarmed Strike,Weapon Focus,Weapon Specialization	PRELEVEL:MIN=5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -52,7 +52,7 @@ CLASS:Hone		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jum
 # Divine Protection bonus type depends on alignment. Advice on implementing required.
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Inquisitor	HD:6		TYPE:PC.Prestige	ABB:Inq		MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Inquisitor	HD:6		TYPE:PC.Prestige	ABB:Inq		MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat						Required Lvl	Required Skill												Required Stat
 CLASS:Inquisitor	PREFEAT:1,Skill Focus (Knowledge (Religion))	PRELEVEL:MIN=5	PRESKILL:1,Knowledge (Religion)=6,Knowledge (Nature)=6	PRESKILL:1,Diplomacy=4	PRESTAT:1,CHA=12
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -63,18 +63,18 @@ CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:City Lore|Concentration|TYPE=Craft|Diplo
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Smite the Heathen (Ex)
-2	SAB:Divine Protection (Ex)							BONUS:CHECKS|Fortitude,Reflex,Will|CHA																	ADD:SPELLCASTER|Divine
+2	SAB:Divine Protection (Ex)							BONUS:SAVE|Fortitude,Reflex,Will|CHA																	ADD:SPELLCASTER|Divine
 3	SAB:Convert the Unbeliever (Su) %/day (DC%)|ConvertUse|ConvertDC														DEFINE:ConvertDC|CL+CHA+10	DEFINE:ConvertUse|CL+CHA	ADD:SPELLCASTER|Divine
 4																																			ADD:SPELLCASTER|Divine
 5	SAB:Empower Congregation  (Ex) %/day|EmpowerUse																	DEFINE:EmpowerUse|CHA							ADD:SPELLCASTER|Divine
-6	SAB:Divine Knowledge (Su)							BONUS:CHECKS|Reflex|2|TYPE=Insight		BONUS:COMBAT|AC|2|TYPE=Insight
+6	SAB:Divine Knowledge (Su)							BONUS:SAVE|Reflex|2|TYPE=Insight		BONUS:COMBAT|AC|2|TYPE=Insight
 7	SAB:Foster Martyr (Sp) (DC%)|FosterMartyrDC																	DEFINE:FosterMartyrDC|CL+CHA+10					ADD:SPELLCASTER|Divine
 8																																			ADD:SPELLCASTER|Divine
 9	SAB:Enrapture (Ex) %/day|EmpowerUse																													ADD:SPELLCASTER|Divine
 10	SAB:Convert the Masses (Su)																														ADD:SPELLCASTER|Divine
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Rafter	HD:8		TYPE:PC.Prestige	ABB:Raf		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Rafter	HD:8		TYPE:PC.Prestige	ABB:Raf		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Lvl	Required Skill
 CLASS:Rafter	PREFEAT:1,Blind-Fight	PRELEVEL:MIN=5	PRESKILL:4,Appraise=2,Intuit Direction=4,Knowledge (Arcana)=4,Craft (Maps)=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -95,7 +95,7 @@ CLASS:Rafter	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE=
 10	SAB:Greater Make Map (Ex)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Stalker	HD:6		TYPE:PC.Prestige	ABB:Sta		MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Stalker	HD:6		TYPE:PC.Prestige	ABB:Sta		MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat	Required Lvl	Required Skill
 CLASS:Stalker	PREFEAT:1,Track	PRELEVEL:MIN=5	PRESKILL:5,Balance=2,City Lore=2,Disguise=2,Hide=4,Move Silently=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -116,7 +116,7 @@ CLASS:Stalker	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE
 10	SAB:Nondetection (Su)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Vigilante	HD:8		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Vigilante	HD:8		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat					Required Lvl
 CLASS:Vigilante	PREATT:5	PREFEAT:3,Alertness,Combat Reflexes,Dodge	PRELEVEL:MIN=5
 # Class Name	Skill Pts/Lvl	Class Skill

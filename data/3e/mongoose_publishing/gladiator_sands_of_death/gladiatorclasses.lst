@@ -4,7 +4,7 @@ SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death	SOURCESHORT:Gladiato
 # Updated Entry: Andrew Maitland
 
 # Class Name	Hit Dice	Type		Max Level	Source Page		Save checks bonus								Combat bonus
-CLASS:Slave		HD:6		TYPE:NPC	MAXLEVEL:5	SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Slave		HD:6		TYPE:NPC	MAXLEVEL:5	SOURCEPAGE:p.35	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slave		STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Jump|Listen|Spot|Swim|Use Rope
 1	BONUS:ABILITYPOOL|Slave Weapon Choice|1
@@ -12,7 +12,7 @@ CLASS:Slave		STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Jump|Listen|Spot|Swim|Us
 ###Block: Gladiator Champion
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Gladiator Champion	HD:10		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Gladiator Champion	HD:10		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name			Req. Att.	Required Feat			Required Skill
 CLASS:Gladiator Champion	PREATT:3	PREFEAT:1,Fame and Glory	PRESKILL:2,Handle Animal=6,Perform=4
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -37,7 +37,7 @@ CLASS:Gladiator Champion	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Handle An
 #Beast Handler
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Beast Handler	HD:10		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.37	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Beast Handler	HD:10		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.37	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Skill
 CLASS:Beast Handler	PREATT:2	PRESKILL:1,Handle Animal=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -55,7 +55,7 @@ CLASS:Beast Handler	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Handle Animal|
 #Charioteer
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Charioteer	HD:10		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Charioteer	HD:10		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.38	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Skill			Required Text	Var. Min. Value
 CLASS:Charioteer	PREATT:5	PRESKILL:1,Handle Animal=8	PRETEXT:Fame 12+	PREVARGTEQ:Fame,12
 # Class Name	Skill Pts/Lvl	Class Skill

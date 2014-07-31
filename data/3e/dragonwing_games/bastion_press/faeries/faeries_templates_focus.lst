@@ -48,9 +48,9 @@ Seersighted Creature	VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=10	PRETEMPLATE:1,C
 ###Block: Focus of the Shapeshifter ---------------------------------------------------
 # Template Name		Visible	Source Page		Required Lvl	Required Template				Save checks bonus					Combat bonus				Bonus to skill											Stat bonus					Modify VAR				Ability							Innate Spells
 Skinflow Creature		VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=4																				BONUS:SKILL|Bluff|3|TYPE=Competence	BONUS:SKILL|Disguise|2|TYPE=Competence																				SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Alter Self,12+CHA
-Boneknit Creature		VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=5	PRETEMPLATE:1,Skinflow Creature	BONUS:CHECKS|Fortitude|2|TYPE=Resistance																										BONUS:VAR|RegenerationRate|5	ABILITY:Special Ability|AUTOMATIC|Regeneration
+Boneknit Creature		VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=5	PRETEMPLATE:1,Skinflow Creature	BONUS:SAVE|Fortitude|2|TYPE=Resistance																										BONUS:VAR|RegenerationRate|5	ABILITY:Special Ability|AUTOMATIC|Regeneration
 Flexable Creature		VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=6	PRETEMPLATE:1,Boneknit Creature																											BONUS:STAT|STR|2				BONUS:VAR|ReachBonus|5		ABILITY:Special Ability|AUTOMATIC|Reach
-Sizeshifter Creature	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=7	PRETEMPLATE:1,Flexable Creature	BONUS:CHECKS|Reflex|2|TYPE=Enhancement																				BONUS:STAT|CON|2|TYPE=Inherent														SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Enlarge,11+CHA|Reduce,11+CHA
-Shapeshifter Creature	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=8	PRETEMPLATE:1,Sizeshifter Creature	BONUS:CHECKS|Fortitude|2			BONUS:COMBAT|AC|2|TYPE=NaturalArmor																																	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Polymorph Self,14+CHA
+Sizeshifter Creature	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=7	PRETEMPLATE:1,Flexable Creature	BONUS:SAVE|Reflex|2|TYPE=Enhancement																				BONUS:STAT|CON|2|TYPE=Inherent														SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Enlarge,11+CHA|Reduce,11+CHA
+Shapeshifter Creature	VISIBLE:YES	SOURCEPAGE:p.38	PRELEVEL:MIN=8	PRETEMPLATE:1,Sizeshifter Creature	BONUS:SAVE|Fortitude|2			BONUS:COMBAT|AC|2|TYPE=NaturalArmor																																	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Polymorph Self,14+CHA
 
 ###EOF

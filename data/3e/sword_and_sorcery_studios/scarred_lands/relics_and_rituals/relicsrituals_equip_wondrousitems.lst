@@ -26,7 +26,7 @@ Canopic Urn of the Dead			NAMEISPI:YES												TYPE:Magic.Wondrous							COST
 Cat's Claws					NAMEISPI:YES						PROFICIENCY:WEAPON|Cat's Claws	TYPE:Magic.Wondrous.Weapon.Specific.Exotic.Melee.Slashing	COST:14100	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6+1	SIZE:T	SOURCEPAGE:p.181														BONUS:SKILL|Hide,Climb,Balance,Jump,Listen,Move Silently,Search,Spot,Tumble|2	BONUS:STAT|DEX|2
 Helm (Champion's)				NAMEISPI:YES	OUTPUTNAME:[NAME] Helm								TYPE:Magic.Wondrous							COST:94000	WT:5															SOURCEPAGE:p.181
 Circlet of the Iron Mind		NAMEISPI:YES												TYPE:Magic.Wondrous							COST:375000	WT:0															SOURCEPAGE:p.181
-Circlet (Warning)				NAMEISPI:YES	OUTPUTNAME:Circlet of [NAME]							TYPE:Magic.Wondrous							COST:58000	WT:0															SOURCEPAGE:p.182		BONUS:CHECKS|Reflex|1
+Circlet (Warning)				NAMEISPI:YES	OUTPUTNAME:Circlet of [NAME]							TYPE:Magic.Wondrous							COST:58000	WT:0															SOURCEPAGE:p.182		BONUS:SAVE|Reflex|1
 Cloak (Evasion)				NAMEISPI:YES	OUTPUTNAME:Cloak of [NAME]							TYPE:Magic.Wondrous.Cape						COST:16000	WT:1															SOURCEPAGE:p.182
 Cloak (Fame)				NAMEISPI:YES	OUTPUTNAME:Cloak of [NAME]							TYPE:Magic.Wondrous.Cape						COST:240000	WT:5															SOURCEPAGE:p.182
 Cloak (Pestilence)			NAMEISPI:YES	OUTPUTNAME:Cloak of [NAME]							TYPE:Magic.Wondrous.Cape						COST:56700	WT:1															SOURCEPAGE:p.182-183

@@ -7,7 +7,7 @@ SOURCELONG:MPG - Quintessential Samurai	SOURCESHORT:mpgqs
 # The Samurai -------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Source Page		Save checks bonus											Combat bonus
-CLASS:The Samurai	HD:10		SOURCEPAGE:p.12	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:The Samurai	HD:10		SOURCEPAGE:p.12	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:The Samurai	PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -38,7 +38,7 @@ CLASS:The Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather
 # Bodyguard
 
 # Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Bodyguard	HD:10		MAXLEVEL:5	SOURCEPAGE:p.14	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Bodyguard	HD:10		MAXLEVEL:5	SOURCEPAGE:p.14	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Feat
 CLASS:Bodyguard	PREALIGN:LG,LN,LE	PREATT:10	PREFEAT:2,Great Fortitude,Improved Initiative
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -52,7 +52,7 @@ CLASS:Bodyguard	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|
 # Delegate
 
 # Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Delegate	HD:8		MAXLEVEL:5	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Delegate	HD:8		MAXLEVEL:5	SOURCEPAGE:p.15	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Feat			Required Skill
 CLASS:Delegate	PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:1,Socially Graceful	PRESKILL:1,Diplomacy=10
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -66,7 +66,7 @@ CLASS:Delegate	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Innuendo|
 # Information Broker
 
 # Class Name			Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Information Broker	HD:10		MAXLEVEL:5	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Information Broker	HD:10		MAXLEVEL:5	SOURCEPAGE:p.17	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name			Required AL		Required Feat		Required Skill
 CLASS:Information Broker	PREALIGN:LG,LN,LE	PREFEAT:1,Informants	PRESKILL:1,Gather Information=10
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -80,14 +80,14 @@ CLASS:Information Broker	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Forgery
 # Overseer
 
 # Class Name	Hit Dice	Max Level	Source Page		Save checks bonus
-CLASS:Overseer	HD:10		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2
+CLASS:Overseer	HD:10		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Req. Att.	Required Feat
 CLASS:Overseer	PREALIGN:LG,LN,LE	PREATT:10	PREFEAT:1,Leadership
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Overseer	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Innuendo|Intimidate|Jump|Ride|Sense Motive|Swim
 ###Block:
-2	BONUS:COMBAT|BAB|2|TYPE=Base.REPLACE
-4	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+2	BONUS:COMBAT|BASEAB|2|TYPE=Base.REPLACE
+4	BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
 ###Block:
 1	ABILITY:Class Ability|AUTOMATIC|Five Samurai ~ Overseer
 2	ABILITY:Class Ability|AUTOMATIC|Battlefield Instincts ~ Overseer
@@ -98,7 +98,7 @@ CLASS:Overseer	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather In
 # Paragon
 
 # Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Paragon	HD:10		MAXLEVEL:5	SOURCEPAGE:p.21	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Paragon	HD:10		MAXLEVEL:5	SOURCEPAGE:p.21	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Feat										Required Skill		Required Text
 CLASS:Paragon	PREALIGN:LG,LN,LE	PREATT:15	PREFEAT:3,Mounted Combat,Weapon Focus (Longbow),Weapon Focus (Katana)	PRESKILL:1,Riding=12	PRETEXT:Honour 15+
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -112,7 +112,7 @@ CLASS:Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather Inf
 # Protector
 
 # Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Protector	HD:10		MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Protector	HD:10		MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Skill
 CLASS:Protector	PREALIGN:LG,LN,LE	PREATT:5	PRESKILL:2,Handle Animal=5,Ride=5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -126,7 +126,7 @@ CLASS:Protector	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Gather Informa
 # Ronin
 
 # Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Ronin		HD:12		MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Ronin		HD:12		MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Text
 CLASS:Ronin		PREALIGN:LG,LN,LE	PREATT:5	PRETEXT:The samurai must either be released from service or have suffered the loss of his daimyo to some other misfortune.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -140,7 +140,7 @@ CLASS:Ronin		STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Gather Informatio
 # Slayer
 
 # Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Slayer	HD:12		MAXLEVEL:5	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Slayer	HD:12		MAXLEVEL:5	SOURCEPAGE:p.26	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Required AL		Req. Att.	Required Text
 CLASS:Slayer	PREALIGN:LG,LN,LE	PREATT:10	PRETEXT:Honour 10+
 # Class Name	Skill Pts/Lvl	Class Skill

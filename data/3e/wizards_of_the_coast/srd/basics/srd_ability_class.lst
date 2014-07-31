@@ -37,7 +37,7 @@ Leadership Score	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	CHOOSE:NUMBER
 
 ###Block:Hidden Feat for Negative Levels
 # Ability Name	Category of Ability		Type				Visible	Define			Description																					Save checks bonus						Combat bonus				Bonus to HP					Bonus to skill																		Aspects
-Negative Levels	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:NegLevels|0	DESC:%1 negative level(s) (-%1 effective level(s) and loses access to %1 spell(s) from the highest spell level castable)|NegLevels	BONUS:CHECKS|Fortitude,Reflex,Will|-1*NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:HP|CURRENTMAX|-5*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels	ASPECT:Ability Bonus|%1|NegLevels
+Negative Levels	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:NegLevels|0	DESC:%1 negative level(s) (-%1 effective level(s) and loses access to %1 spell(s) from the highest spell level castable)|NegLevels	BONUS:SAVE|Fortitude,Reflex,Will|-1*NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:HP|CURRENTMAX|-5*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels	ASPECT:Ability Bonus|%1|NegLevels
 
 
 ###Block: Class Proficiencies
@@ -154,7 +154,7 @@ Flurry of Blows								CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES
 ###Block: Paladin special abilities
 # Ability Name	Category of Ability		Type						Visible	Define			Description					Save checks bonus						Aspects
 Detect Evil		CATEGORY:Special Ability	TYPE:SpecialQuality.Sense		VISIBLE:YES
-Divine Grace	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES											BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
+Divine Grace	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES											BONUS:SAVE|Fortitude,Reflex,Will|max(CHA,0)
 Divine Health	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Lay on Hands	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:LayOnHands|0	DESC:%1 hp per day|LayOnHands										ASPECT:Ability Benefit|%1 hp/day|LayOnHands
 Aura of Courage	CATEGORY:Special Ability	TYPE:SpecialQuality.Aura		VISIBLE:YES

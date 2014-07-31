@@ -5,7 +5,7 @@ SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:ht
 # Arcane Airman -------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Arcane Airman	HD:6		TYPE:PC.Prestige	ABB:ArA		MAXLEVEL:10	SOURCEPAGE:p.47	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Arcane Airman	HD:6		TYPE:PC.Prestige	ABB:ArA		MAXLEVEL:10	SOURCEPAGE:p.47	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name		Required Feat	Required Skill						Req. Spell Type
 CLASS:Arcane Airman	PREFEAT:1,Pilot	PRESKILL:2,Knowledge (Steamcraft)=8,Drive=8	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -27,7 +27,7 @@ CLASS:Arcane Airman	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentration|T
 # Arcane Performer ----------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Arcane Performer	HD:6		TYPE:PC.Prestige	ABB:ArP		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Arcane Performer	HD:6		TYPE:PC.Prestige	ABB:ArP		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name		Required Feat		Multiple Requirements																								Req. Known Spell		Req. Spell Type		Required Text
 CLASS:Arcane Performer	PREFEAT:1,Child Prodigy	PREMULT:2,[PRESKILL:3,Bluff=8,Perform=8,Spellcraft=8],[PRESKILL:1,Craft (Carpentry)=5,Craft (Woodworking)=5,Craft (Metalworking)=5,Craft (Musical Instrument)=5]	PRESPELL:1,Enthrall	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must create a new intrument
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -59,7 +59,7 @@ CLASS:Arcane Performer	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Cli
 # Brawler -------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Brawler	HD:10		TYPE:PC.Prestige	ABB:Bra		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Brawler	HD:10		TYPE:PC.Prestige	ABB:Bra		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat							Required Skill
 CLASS:Brawler	PREATT:5	PREFEAT:2,Improved Unarmed Strike,Great Fortitude	PRESKILL:1,Intimidate=5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -81,7 +81,7 @@ CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Handle Animal|Intimi
 # Demolitionist -------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Demolitionist	HD:8		TYPE:PC.Prestige	ABB:Dmo		MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Demolitionist	HD:8		TYPE:PC.Prestige	ABB:Dmo		MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name		Required Feat				Required Skill
 CLASS:Demolitionist	PREFEAT:1,Skill Focus (Munitions)	PRESKILL:5,Alchemy=8,Craft (Explosives)=8,Munitions=8,Concentration=5,Disable Device=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -101,7 +101,7 @@ CLASS:Demolitionist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Disa
 # Detective -----------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Detective	HD:6		TYPE:PC.Prestige	ABB:Det		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Detective	HD:6		TYPE:PC.Prestige	ABB:Det		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat								Required Skill
 CLASS:Detective	PREFEAT:2,Skill Focus (Search),Skill Focus (Sense Motive)	PRESKILL:6,Diplomacy=5,Knowledge (Local)=5,Profession (Detective)=5,Gather Information=8,Search=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -123,7 +123,7 @@ CLASS:Detective	STARTSKILLPTS:8	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher S
 # Game Hunter ---------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Game Hunter	HD:8		TYPE:PC.Prestige	ABB:GmH		MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Game Hunter	HD:8		TYPE:PC.Prestige	ABB:GmH		MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat				Required Skill
 CLASS:Game Hunter	PREATT:5	PREFEAT:2,Track,Point Blank Shot	PRESKILL:4,Hide=8,Knowledge (Nature)=8,Move Silently=8,Wilderness Lore=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -143,7 +143,7 @@ CLASS:Game Hunter	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE=Craft|Handle 
 # Gun Glyph ----------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Gun Glyph	HD:6		TYPE:PC.Prestige	ABB:GGl		MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Gun Glyph	HD:6		TYPE:PC.Prestige	ABB:GGl		MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat																																																						Required Skill										Req. Spell Type		Required Text													Req. Weapond Prof.
 CLASS:Gun Glyph	PREFEAT:1,Weapon Focus (Flintlock Pistol),Weapon Focus (Matchlock Pistol),Weapon Focus (Percussion Cap Pistol),Weapon Focus (Flintlock Pistol),Weapon Focus (Percussion Cap Pistol),Weapon Focus (Dwarven Tunnel Gun),Weapon Focus (Flintlock Musket),Weapon Focus (Blunderbuss),Weapon Focus (Percussion Cap Musket),Weapon Focus (Ogre Gun)	PRESKILL:3,Alchemy=8,Craft (Gunsmithing)=8,Knowledge (Steamcraft)=5	PRESPELLTYPE:1,Arcane=3	PRETEXT:The Gun Glyph must construct his own firearm to walk the path of the Gun Glyph	PREWEAPONPROF:1,TYPE=Firearms
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -164,7 +164,7 @@ CLASS:Gun Glyph	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Intimida
 # Hypnotist -----------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Hypnotist	HD:4		TYPE:PC.Prestige	ABB:Hyp		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+CLASS:Hypnotist	HD:4		TYPE:PC.Prestige	ABB:Hyp		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
 # Class Name	Required Feat		Required Skill						Required Spell School
 CLASS:Hypnotist	PREFEAT:1,Hypnotist	PRESKILL:3,Bluff=5,Concentration=5,Spellcraft=8	PRESPELLSCHOOL:1,Enchantment=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -172,7 +172,7 @@ CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Di
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1																									ADD:SPELLCASTER|ANY	ADD:FEAT|Hypnotist DC Bonus,Spell Focus(Enchantment)
-2	SAB:Focused Mind +% (Ex)|FocusedMind				BONUS:CHECKS|Will|FocusedMind|TYPE=Insight	DEFINE:FocusedMind|CL/2
+2	SAB:Focused Mind +% (Ex)|FocusedMind				BONUS:SAVE|Will|FocusedMind|TYPE=Insight	DEFINE:FocusedMind|CL/2
 #2	AUTO:FEAT|Master Hypnotist	Not sure but I would think they left this out
 3																									ADD:SPELLCASTER|ANY	ADD:FEAT|Master of Enchantment I
 4																																						AUTO:FEAT|Ultimate Hypnotist
@@ -186,7 +186,7 @@ CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Di
 # Noble Bodyguard ----------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Noble Bodyguard	HD:12		TYPE:PC.Prestige	ABB:NoB		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Noble Bodyguard	HD:12		TYPE:PC.Prestige	ABB:NoB		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat			Required Skill
 CLASS:Noble Bodyguard	PREATT:5	PREFEAT:1,Improved Initiative	PRESKILL:2,Intimidate=5,Sense Motive=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -204,7 +204,7 @@ CLASS:Noble Bodyguard	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Disguise|Drive|Hand
 # Physician -----------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Physician	HD:6		TYPE:PC.Prestige	ABB:Phy		MAXLEVEL:10	SOURCEPAGE:p.75	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Physician	HD:6		TYPE:PC.Prestige	ABB:Phy		MAXLEVEL:10	SOURCEPAGE:p.75	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat		Multiple Requirements
 CLASS:Physician	PREFEAT:1,Physician	PREMULT:2,[PRESKILL:2,Alchemy=8,Heal=8],[PRESKILL:1,Profession (Surgeon)=8,Profession (Doctor)=8]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -215,7 +215,7 @@ CLASS:Physician	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Hide|Intuit Direction|Listen|M
 1	SAB:Survey the Damage
 2	SAB:Healing Hand	SAB:Medicinal Knowledge I (Ex)								BONUS:SKILL|Heal|4|TYPE=Competence
 3	SAB:Temporary Reprieve (1d6+%) (Ex)|TemporaryReprieve																				DEFINE:TemporaryReprieve|((CL-1)/2)*CL
-4	SAB:Model of Health (Ex)	SAB:Restore Health (Ex)			BONUS:CHECKS|Fortitude|2
+4	SAB:Model of Health (Ex)	SAB:Restore Health (Ex)			BONUS:SAVE|Fortitude|2
 6	SAB:Hand of Life (Ex)	SAB:Medicinal Knowledge II (Ex)
 8	SAB:Reaper's Bane (Ex)
 10	SAB:Medicinal Knowledge III (Ex)	SAB:Master Physician (Ex)												BONUS:VAR|TemporaryReprieve|CL
@@ -223,7 +223,7 @@ CLASS:Physician	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Hide|Intuit Direction|Listen|M
 # Pilot ----------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Pilot		HD:8		TYPE:PC.Prestige	ABB:Pil		MAXLEVEL:10	SOURCEPAGE:p.79	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Pilot		HD:8		TYPE:PC.Prestige	ABB:Pil		MAXLEVEL:10	SOURCEPAGE:p.79	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Skill
 CLASS:Pilot		PREFEAT:2,Skill Focus (Drive),Pilot	PRESKILL:1,Drive=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -242,7 +242,7 @@ CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Disable Device|Driv
 # Rocket Ace ----------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Rocket Ace	HD:8		TYPE:PC.Prestige	ABB:Ace		MAXLEVEL:10	SOURCEPAGE:p.82	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Rocket Ace	HD:8		TYPE:PC.Prestige	ABB:Ace		MAXLEVEL:10	SOURCEPAGE:p.82	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Required Feat				Required Skill								Required Text
 CLASS:Rocket Ace	PREFEAT:2,Pilot,Mechanical Aptitude	PRESKILL:1,Jump=5	PRESKILL:2,Drive=8,Craft (Steamcraft)=8	PRETEXT:To become a Rocket Ace a character must construct his own rocket pack
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -264,7 +264,7 @@ CLASS:Rocket Ace	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|TYPE=Craft|Disable
 # Steamcraft Mage -----------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Steamcraft Mage	HD:4		TYPE:PC.Prestige	ABB:StM		MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Steamcraft Mage	HD:4		TYPE:PC.Prestige	ABB:StM		MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name		Required Feat							Required Skill															Req. Spell Type
 CLASS:Steamcraft Mage	PREFEAT:2,Mechanical Aptitude,Industrial Upbringing	PRESKILL:3,Knowledge (Clockworks)=8,Knowledge (Steamcraft)=8,Spellcraft=8	PRESKILL:1,TYPE.Craft=5	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -285,7 +285,7 @@ CLASS:Steamcraft Mage	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TY
 # Street Runner ----------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Street Runner	HD:6		TYPE:PC.Prestige	ABB:SRn		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Street Runner	HD:6		TYPE:PC.Prestige	ABB:SRn		MAXLEVEL:10	SOURCEPAGE:p.89	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat	Required Skill
 CLASS:Street Runner	PREATT:4	PREFEAT:1,Run	PRESKILL:5,Balance=5,Hide=5,Intuit Direction=5,Move Silently=5,Pick Pocket=5	PRESKILL:3,Climb=8,Jump=8,Tumble=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -303,7 +303,7 @@ CLASS:Street Runner	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Cra
 # Watchman ----------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Watchman	HD:10		TYPE:PC.Prestige	ABB:Wat		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Watchman	HD:10		TYPE:PC.Prestige	ABB:Wat		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Skill																Required Text
 CLASS:Watchman	PREATT:5	PRESKILL:2,Intimidate=3,Sense Motive=3	PRESKILL:1,Knowledge (Law)=3,Knowledge (Crime and Criminals)=3	PRETEXT:Must be a member of the city guard
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -316,7 +316,7 @@ CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Handle 
 2	SAB:Crowd Control (Ex)
 4	SAB:Mounted Watchman (Ex)											BONUS:SKILL|Ride|4|TYPE=Competence
 5																						ADD:FEAT|TYPE=Watchman
-6	SAB:Renewed Vitality (Ex)		BONUS:CHECKS|Fortitude|1	BONUS:HP|CURRENTMAX|5
+6	SAB:Renewed Vitality (Ex)		BONUS:SAVE|Fortitude|1	BONUS:HP|CURRENTMAX|5
 8	SAB:Presence of Authority (Ex)																				AUTO:FEAT|Leadership
 10	SAB:Veteran Watchman (Ex)																	ADD:FEAT|TYPE=Watchman
 

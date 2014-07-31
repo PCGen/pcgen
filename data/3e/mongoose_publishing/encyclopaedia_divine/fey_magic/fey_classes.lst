@@ -2,7 +2,7 @@
 SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
-CLASS:Feydancer	HD:4		TYPE:PC.Prestige	ABB:Fyd		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
+CLASS:Feydancer	HD:4		TYPE:PC.Prestige	ABB:Fyd		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2
 # Class Name	Required Language	Required Skill
 CLASS:Feydancer	PRELANG:1,Sylvan	PRESKILL:2,Knowledge (Fey)=8,Knowledge (Reverie)=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -20,7 +20,7 @@ CLASS:Feydancer	STARTSKILLPTS:4	CSKILL:Animal Empathy|TYPE=Craft|Knowledge (Fey)
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Spellbinder	HD:4		TYPE:PC.Prestige	ABB:Spb		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
+CLASS:Spellbinder	HD:4		TYPE:PC.Prestige	ABB:Spb		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2
 # Class Name	Required Feat					Multiple Requirements											Req. Spell Type
 CLASS:Spellbinder	PREFEAT:2,Craft Token,TYPE.ItemCreation	PREMULT:2,[PRESKILL:2,TYPE.Craft=8,TYPE.Craft=8],[PRESKILL:1,Knowledge (Reverie)=6]	PRESPELLTYPE:1,Arcane=2,Divine=2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -38,7 +38,7 @@ CLASS:Spellbinder	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=K
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Wylding	HD:6		TYPE:PC.Prestige	ABB:Wyl		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL/2
+CLASS:Wylding	HD:6		TYPE:PC.Prestige	ABB:Wyl		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2
 # Class Name	Required Feat		Required Skill										Req. Known Spell
 CLASS:Wylding	PREFEAT:1,Forge Bond	PRESKILL:3,Wilderness Lore=8,Knowledge (Nature)=8,Knowledge (Reverie)=8	PRESPELL:1,Speak with Plants
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -56,7 +56,7 @@ CLASS:Wylding	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Heal|Intuit Direction|Know
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Chosen Protector	HD:10		TYPE:PC.Prestige	ABB:Chp		MAXLEVEL:10	SOURCEPAGE:p.32	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/5+1+((CL+3)/5)	BONUS:COMBAT|BAB|CL
+CLASS:Chosen Protector	HD:10		TYPE:PC.Prestige	ABB:Chp		MAXLEVEL:10	SOURCEPAGE:p.32	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
 # Class Name		Req. Att.	Required Feat	Required Skill
 CLASS:Chosen Protector	PREATT:5	PREFEAT:1,Track	PRESKILL:2,Wilderness Lore=8,Knowledge (Fey)=6
 # Class Name		Skill Pts/Lvl	Class Skill

@@ -72,7 +72,7 @@ Ape Ability - Jungle Warrior				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1
 
 Bear Ability - Sturdy Build				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Sturdy Build															DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|Toughness
 Bear Ability - Natural Swimmer			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Natural Swimmer														DESC:See Text																														BONUS:SKILL|Swim|4|TYPE=Competence
-Bear Ability - Inner Might				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Inner Might															DESC:See Text												BONUS:CHECKS|Fortitude|1
+Bear Ability - Inner Might				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Inner Might															DESC:See Text												BONUS:SAVE|Fortitude|1
 Bear Ability - Thick Skinned				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Thick Skinned															DESC:See Text																	BONUS:COMBAT|AC|1|TYPE=NaturalArmor
 Bear Ability - Great Strength				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Bear Totem																					SAB:Great Strength (+1d6 to unarmed damage)										DESC:See Text
 
@@ -97,7 +97,7 @@ Cheetah Ability - Center of Balance +6		TYPE:AnimalLordAbility	VISIBLE:NO						P
 Cheetah Ability - Center of Balance +8		TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Center of Balance +6																													DESC:See Text																																						BONUS:VAR|CenterofBalance|2
 Cheetah Ability - Center of Balance +10		TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem	PREFEAT:1,Cheetah Ability - Center of Balance +8																													DESC:See Text																																						BONUS:VAR|CenterofBalance|2
 Cheetah Ability - Moving Target			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																					SAB:Moving Target															DESC:See Text																	BONUS:COMBAT|AC|1|TYPE=Dodge
-Cheetah Ability - Quick Reflexes			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																					SAB:Quick Reflexes														DESC:See Text												BONUS:CHECKS|Reflex|1
+Cheetah Ability - Quick Reflexes			TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																					SAB:Quick Reflexes														DESC:See Text												BONUS:SAVE|Reflex|1
 Cheetah Ability - Trip					TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Cheetah Totem																					SAB:Trip (Ex)															DESC:See Text
 
 Lion Ability - Toughness				TYPE:AnimalLordAbility	VISIBLE:NO						PREFEAT:1,Lion Totem																					SAB:Toughness															DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|Toughness

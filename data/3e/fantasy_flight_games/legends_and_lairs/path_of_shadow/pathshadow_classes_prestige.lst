@@ -4,7 +4,7 @@ SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyfli
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus												Combat bonus
-CLASS:Acolyte of Chance	HD:6		TYPE:PC.Prestige	ABB:ACh		MAXLEVEL:10	SOURCEPAGE:Chap.1, Acolyte of Chance	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Acolyte of Chance	HD:6		TYPE:PC.Prestige	ABB:ACh		MAXLEVEL:10	SOURCEPAGE:Chap.1, Acolyte of Chance	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name		Required AL		Req. Att.	Multiple Requirements
 CLASS:Acolyte of Chance	PREALIGN:CG,CN,CE	PREATT:4	PREMULT:2,[PRESKILL:1,Knowledge (Religion)=3],[PRESKILL:2,Balance=8,Bluff=8,Climb=8,TYPE.Craft=8,Disable Device=8,Gather Information=8,Hide=8,Innuendo=8,Intimidate=8,Intuit Direction=8,Jump=8,Listen=8,Move Silently=8,Open Lock=8,Read Lips=8,Search=8,Sense Motive=8,Spot=8,Swim=8,Tumble=8,Use Rope=8]
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -26,7 +26,7 @@ CLASS:Acolyte of Chance	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Di
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
-CLASS:Aerialist	HD:6		TYPE:PC.Prestige	ABB:Aer		MAXLEVEL:10	SOURCEPAGE:Chap.1, Aerialist	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Aerialist	HD:6		TYPE:PC.Prestige	ABB:Aer		MAXLEVEL:10	SOURCEPAGE:Chap.1, Aerialist	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
 # Class Name	Required Feat						Required Skill
 CLASS:Aerialist	PREFEAT:2,Ambidexterity,Skill Focus (Tumble)	PRESKILL:4,Escape Artist=8,Jump=8,Perform=8,Tumble=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -49,7 +49,7 @@ CLASS:Aerialist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|TYPE=Craft|Diploma
 # Uncanny dodge........... stack with others...
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
-CLASS:Ebon Link	HD:6		TYPE:PC.Prestige	ABB:Ebo		MAXLEVEL:10	SOURCEPAGE:Chap.1, Ebon Link	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Ebon Link	HD:6		TYPE:PC.Prestige	ABB:Ebo		MAXLEVEL:10	SOURCEPAGE:Chap.1, Ebon Link	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name	Required Feat								Required Skill
 CLASS:Ebon Link	PREFEAT:3,Great Fortitude,Iron Will,Lightning Reflexes	PRESKILL:4,Climb=9,Hide=9,Move Silently=9,Open Lock=9
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -70,7 +70,7 @@ CLASS:Ebon Link	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Scr
 # Falconer, casts as wizard (spellbook etc)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
-CLASS:Falconer	HD:6		TYPE:PC.Prestige	ABB:Fal		MAXLEVEL:10	SOURCEPAGE:Chap.1, Falconer	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Falconer	HD:6		TYPE:PC.Prestige	ABB:Fal		MAXLEVEL:10	SOURCEPAGE:Chap.1, Falconer	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name	Required Feat		Required Skill
 CLASS:Falconer	PREFEAT:1,Alertness	PRESKILL:4,Bluff=5,Diplomacy=5,Innuendo=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -99,7 +99,7 @@ CLASS:Falconer	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Fa
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus
-CLASS:Halfling Clanwarden	HD:6		TYPE:PC.Prestige	ABB:Cla		MAXLEVEL:10	SOURCEPAGE:Chap.1, Halfling Clanwarden	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Halfling Clanwarden	HD:6		TYPE:PC.Prestige	ABB:Cla		MAXLEVEL:10	SOURCEPAGE:Chap.1, Halfling Clanwarden	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name			Required Race		Required Skill								Total Skill Points Req.
 CLASS:Halfling Clanwarden	PRERACE:1,Halfling%	PRESKILL:2,Climb=8,Hide=8,Jump=8,Listen=8,Move Silently=8	PRESKILLTOT:Climb,Hide,Jump,Listen,Move Silently=24
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -118,7 +118,7 @@ CLASS:Halfling Clanwarden	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TY
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
-CLASS:Myste		HD:6		TYPE:PC.Prestige	ABB:Mys		MAXLEVEL:10	SOURCEPAGE:Chap.1, Myste	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Myste		HD:6		TYPE:PC.Prestige	ABB:Mys		MAXLEVEL:10	SOURCEPAGE:Chap.1, Myste	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name	Required Feat					Required Skill
 CLASS:Myste		PREFEAT:1,Skill Focus (Use Magic Device)	PRESKILL:3,Knowledge (Arcana)=4,Spellcraft=4,Use Magic Device=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -139,7 +139,7 @@ CLASS:Myste		STARTSKILLPTS:6	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE=Cr
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Night Hunter	HD:6		TYPE:PC.Prestige	ABB:NiH		MAXLEVEL:10	SOURCEPAGE:Chap.1, Night Hunter	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Night Hunter	HD:6		TYPE:PC.Prestige	ABB:NiH		MAXLEVEL:10	SOURCEPAGE:Chap.1, Night Hunter	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name		Req. Att.	Required Feat	Req. Special Ability	Required Skill
 CLASS:Night Hunter	PREATT:6	PREFEAT:1,Track	PRESA:1,Sneak Attack	PRESKILL:4,Alchemy=3,Knowledge (Lycanthropes)=3,Hide=8,Move Silently=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -156,7 +156,7 @@ CLASS:Night Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
-CLASS:Noble Decoy	HD:6		TYPE:PC.Prestige	ABB:NoDe		MAXLEVEL:10	SOURCEPAGE:Chap.1, Noble Decoy	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Noble Decoy	HD:6		TYPE:PC.Prestige	ABB:NoDe		MAXLEVEL:10	SOURCEPAGE:Chap.1, Noble Decoy	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name	Required Feat				Required Skill
 CLASS:Noble Decoy	PREFEAT:1,Skill Focus (Disguise)	PRESKILL:4,Perform=3,Tumble=3,Disguise=8,Bluff=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -176,7 +176,7 @@ CLASS:Noble Decoy	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable 
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
-CLASS:Ossorus	HD:6		TYPE:PC.Prestige	ABB:Oss		MAXLEVEL:10	SOURCEPAGE:Chap.1, Ossorus	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Ossorus	HD:6		TYPE:PC.Prestige	ABB:Oss		MAXLEVEL:10	SOURCEPAGE:Chap.1, Ossorus	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name	Required AL		Required Skill
 CLASS:Ossorus	PREALIGN:LG,LN,NG	PRESKILL:4,Disguise=4,Knowledge (Religion)=4,Hide=8,Move Silently=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -208,7 +208,7 @@ CLASS:Ossorus	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3
 #  +1 level on existing bard or rogue class on levels 1,3,5 affects Sneak Attack and bards spellcasting
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
-CLASS:Packrat	HD:6		TYPE:PC.Prestige	ABB:Rat		MAXLEVEL:5	SOURCEPAGE:Chap.1, Packrat	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Packrat	HD:6		TYPE:PC.Prestige	ABB:Rat		MAXLEVEL:5	SOURCEPAGE:Chap.1, Packrat	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name	Required Feat			Required Skill
 CLASS:Packrat	PREFEAT:1,Lightning Reflexes	PRESKILL:3,Bluff=5,Escape Artist=8,Pick Pocket=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -227,7 +227,7 @@ CLASS:Packrat	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Dec
 # Would prefer to put the spells in another spellbook, but they won't show on OS unless there are Innates as well.
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus												Combat bonus
-CLASS:Psychic Interloper	HD:6		TYPE:PC.Prestige	ABB:PsIn		MAXLEVEL:10	SOURCEPAGE:Chap.1, Psychic Interloper	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Psychic Interloper	HD:6		TYPE:PC.Prestige	ABB:PsIn		MAXLEVEL:10	SOURCEPAGE:Chap.1, Psychic Interloper	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name			Required Check Base	Required Feat		Required Race				Required Skill
 CLASS:Psychic Interloper	PRECHECKBASE:1,Reflex=3	PREFEAT:1,Iron Will	PRERACE:1,Human,Half-Elf,Half-Orc	PRESKILL:2,Concentration=4,Knowledge (Psionics)=4
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -249,7 +249,7 @@ CLASS:Psychic Interloper	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Climb
 10								BONUS:VAR|BasePowerPoints|7																	SPELLS:Innate|TIMES=1|Aura Alteration
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Queen's Coronet	HD:6		TYPE:PC.Prestige	ABB:QCor		MAXLEVEL:10	SOURCEPAGE:Chap.1, Queen's Coronet	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Queen's Coronet	HD:6		TYPE:PC.Prestige	ABB:QCor		MAXLEVEL:10	SOURCEPAGE:Chap.1, Queen's Coronet	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name		Required Skill
 CLASS:Queen's Coronet	PRESKILL:4,Listen=6,Search=6,Innuendo=8,Sense Motive=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -269,7 +269,7 @@ CLASS:Queen's Coronet	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Decipher Script|Dipl
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
-CLASS:Questioner	HD:6		TYPE:PC.Prestige	ABB:Que		MAXLEVEL:10	SOURCEPAGE:Chap.1, Questioner	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Questioner	HD:6		TYPE:PC.Prestige	ABB:Que		MAXLEVEL:10	SOURCEPAGE:Chap.1, Questioner	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
 # Class Name	Required AL		Required Feat		Required Skill
 CLASS:Questioner	PREALIGN:LG,NG,CG	PREFEAT:1,Alertness	PRESKILL:3,Gather Information=8,Search=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -288,7 +288,7 @@ CLASS:Questioner	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
-CLASS:Royal Assassin	HD:6		TYPE:PC.Prestige	ABB:RAss		MAXLEVEL:10	SOURCEPAGE:Chap.1, Royal Assassin	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Royal Assassin	HD:6		TYPE:PC.Prestige	ABB:RAss		MAXLEVEL:10	SOURCEPAGE:Chap.1, Royal Assassin	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
 # Class Name		Restricted AL		Req. Att.	Multiple Requirements																																																																			Req. Special Ability
 CLASS:Royal Assassin	!PREALIGN:LE,NE,CE	PREATT:6	PREMULT:2,[PRESKILL:2,Hide=8,Move Silently=8],[PRESKILL:2,Appraise=3,Balance=3,Bluff=3,Climb=3,TYPE.Craft=3,Decipher Script=3,Diplomacy=3,Disable Device=3,Disguise=3,Escape Artist=3,Forgery=3,Gather Information=3,Innuendo=3,Intimidate=3,Intuit Direction=3,Jump=3,Listen=3,Open Lock=3,Perform=3,Pick Pocket=3,TYPE.Profession=3,Read Lips=3,Search=3,Sense Motive=3,Spot=3,Swim=3,Tumble=3,Use Magic Device=3,Use Rope=3]	PRESA:1,Sneak Attack
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -305,7 +305,7 @@ CLASS:Royal Assassin	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disab
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
-CLASS:Sailmaster	HD:8		TYPE:PC.Prestige	ABB:Sam		MAXLEVEL:10	SOURCEPAGE:Chap.1, Sailmaster	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Sailmaster	HD:8		TYPE:PC.Prestige	ABB:Sam		MAXLEVEL:10	SOURCEPAGE:Chap.1, Sailmaster	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name	Required Skill
 CLASS:Sailmaster	PRESKILL:4,Profession (Sailor)=8,Use Rope=8,Climb=6,Balance=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -334,7 +334,7 @@ CLASS:Sailmaster	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVE
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
-CLASS:Shadow Hunter	HD:6		TYPE:PC.Prestige	ABB:ShH		MAXLEVEL:10	SOURCEPAGE:Chap.1, Shadow Hunter	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Shadow Hunter	HD:6		TYPE:PC.Prestige	ABB:ShH		MAXLEVEL:10	SOURCEPAGE:Chap.1, Shadow Hunter	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name		Required AL		Required Feat				Multiple Requirements
 CLASS:Shadow Hunter	PREALIGN:LG,NG,CG	PREFEAT:2,Alertness,Blind-Fight	PREMULT:2,[PRESKILL:3,Hide=5,Move Silently=5,Spot=8],[PRESKILL:1,Knowledge (Religion)=5,Knowledge (The Planes)=5]
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -351,7 +351,7 @@ CLASS:Shadow Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|L
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
-1	CAST:0,0		SAB:Stalwart Defense (Ex)					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)
+1	CAST:0,0		SAB:Stalwart Defense (Ex)					BONUS:SAVE|Fortitude,Reflex,Will|max(CHA,0)
 2	CAST:0,1																			BONUS:VAR|SneakAttackDice|(CL+1)/3					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 3	CAST:0,1,0		SAB:Deft Defense (Ex)
 4	CAST:0,1,1																			BONUS:VAR|SmiteAnyTimes|1						ABILITY:Special Ability|AUTOMATIC|Smite
@@ -364,7 +364,7 @@ CLASS:Shadow Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|L
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Unblinking Eye	HD:6		TYPE:PC.Prestige	ABB:UEye		MAXLEVEL:10	SOURCEPAGE:Chap.1, Unblinking Eye	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Unblinking Eye	HD:6		TYPE:PC.Prestige	ABB:UEye		MAXLEVEL:10	SOURCEPAGE:Chap.1, Unblinking Eye	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name		Required Skill
 CLASS:Unblinking Eye	PRESKILL:4,Bluff=8,Disguise=8,Gather Information=8,Sense Motive=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -383,7 +383,7 @@ CLASS:Unblinking Eye	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Deciphe
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
-CLASS:White Rose	HD:8		TYPE:PC.Prestige	ABB:WRo		MAXLEVEL:10	SOURCEPAGE:Chap.1, White Rose	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:White Rose	HD:8		TYPE:PC.Prestige	ABB:WRo		MAXLEVEL:10	SOURCEPAGE:Chap.1, White Rose	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name	Req. Att.	Required Feat									Required Race		Required Skill
 CLASS:White Rose	PREATT:6	PREFEAT:2,Dodge,Expertise	PREFEAT:1,Weapon Focus (TYPE=Sword)	PRERACE:1,Elf%,Half-Elf	PRESKILL:4,Balance=8,Hide=8,Jump=8,Move Silently=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -401,7 +401,7 @@ CLASS:White Rose	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher 
 # zzz Windrider
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
-CLASS:Windrider	HD:6		TYPE:PC.Prestige	ABB:Wind		MAXLEVEL:10	SOURCEPAGE:Chap.1, Windrider	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Windrider	HD:6		TYPE:PC.Prestige	ABB:Wind		MAXLEVEL:10	SOURCEPAGE:Chap.1, Windrider	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 # Class Name	Req. Att.	Required Skill
 CLASS:Windrider	PREATT:4	PRESKILL:6,Intimidate=5,Ride=5,Wilderness Lore=5,Listen=8,Move Silently=8,Spot=8
 # Class Name	Skill Pts/Lvl	Class Skill

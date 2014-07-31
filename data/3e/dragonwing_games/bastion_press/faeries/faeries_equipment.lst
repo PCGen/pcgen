@@ -31,7 +31,7 @@ Charm (Owl +6)	TYPE:Charm	COST:36000													BONUS:STAT|WIS|6|TYPE=Enhanceme
 Charm (Scale +2)	TYPE:Charm	COST:8000						BONUS:COMBAT|AC|2|TYPE=Deflection
 Charm (Scale +4)	TYPE:Charm	COST:32000						BONUS:COMBAT|AC|4|TYPE=Deflection
 Charm (Scale +6)	TYPE:Charm	COST:72000						BONUS:COMBAT|AC|6|TYPE=Deflection
-Charm (Clover)	TYPE:Charm	COST:4375	BONUS:CHECKS|ALL|1|TYPE=Luck	BONUS:COMBAT|TOHIT|1|TYPE=Luck
+Charm (Clover)	TYPE:Charm	COST:4375	BONUS:SAVE|ALL|1|TYPE=Luck	BONUS:COMBAT|TOHIT|1|TYPE=Luck
 
 ###Block: Dusts
 # Equipment Name				Cost
@@ -87,7 +87,7 @@ Bracelet (Charm ~ 6)								TYPE:Bracer				COST:36000
 Bracelet (Charm ~ 7)								TYPE:Bracer				COST:49000
 Bracelet (Charm ~ 8)								TYPE:Bracer				COST:64000
 #
-Ciclet of Dreams									TYPE:Headgear.Circlet.Major	COST:200000						BONUS:CHECKS|ALL|2|TYPE=Luck		BONUS:COMBAT|AC|2|TYPE=Luck
+Ciclet of Dreams									TYPE:Headgear.Circlet.Major	COST:200000						BONUS:SAVE|ALL|2|TYPE=Luck		BONUS:COMBAT|AC|2|TYPE=Luck
 #
 Circlet of the Fey (+1)								TYPE:Headgear			COST:2000
 Circlet of the Fey (+2)								TYPE:Headgear			COST:8000
@@ -102,7 +102,7 @@ Ring (Fey Luck)				OUTPUTNAME:Ring of [NAME]	TYPE:Ring.MediumItem		COST:27000
 Blowgun.COPY=Self-Loading Blowgun
 Self-Loading Blowgun.MOD												COST:2000
 
-Staff of the Fey									TYPE:Staff.Magic			COST:200000						BONUS:CHECKS|ALL|1|TYPE=Sacred	BONUS:COMBAT|AC|1|TYPE=Sacred	SPROP:+10 sacred bonus to any Crossing Over checks
+Staff of the Fey									TYPE:Staff.Magic			COST:200000						BONUS:SAVE|ALL|1|TYPE=Sacred	BONUS:COMBAT|AC|1|TYPE=Sacred	SPROP:+10 sacred bonus to any Crossing Over checks
 
 Longsword.COPY=Foul Feyslayer
 Foul Feyslayer.MOD								TYPE:MajorItem.Artifact		COST:115145	EQMOD:FAERIES_BANE_FEY.PLUS2W
