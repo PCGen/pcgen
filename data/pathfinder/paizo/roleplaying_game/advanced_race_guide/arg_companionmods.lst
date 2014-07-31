@@ -24,7 +24,7 @@ FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	PRERACE:1,Familiar (Parrot)	KIT:1|Raven 
 FOLLOWER:PlantCompanionLVL=1	TYPE:Plant Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Companion ~ Bonus Tricks|Companion ~ Link|Companion ~ Share Spells						DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Plant
 FOLLOWER:PlantCompanionLVL=2	TYPE:Plant Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=3	TYPE:Plant Companion			ABILITY:Special Ability|AUTOMATIC|Evasion																																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:PlantCompanionLVL=4	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Plant Companion Advancement																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=4	TYPE:Plant Companion	HD:1																																														BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=5	TYPE:Plant Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=6	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:PlantCompanionLVL=7	TYPE:Plant Companion																																																									BONUS:VAR|MasterLevel|1
