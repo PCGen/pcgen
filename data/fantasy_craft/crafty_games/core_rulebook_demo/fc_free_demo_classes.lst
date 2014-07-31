@@ -11,7 +11,7 @@ SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 ###Block: Assassin ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Type			Max Level	Source Page		Save checks bonus									Combat bonus					Bonus to HP
-CLASS:Assassin	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*9
+CLASS:Assassin	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.30	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*9
 # Class Name	Required Non-Monster Lvl
 CLASS:Assassin	PREPCLEVEL:MAX=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -30,7 +30,7 @@ CLASS:Assassin	STARTSKILLPTS:6	CSKILL:Blend|Bluff|Crafting|Disguise|Intimidate|N
 ###Block: Burglar ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Type			Max Level	Source Page		Save checks bonus												Combat bonus					Bonus to HP
-CLASS:Burglar	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.32	BONUS:CHECKS|BASE.Reflex|CL+2/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*6
+CLASS:Burglar	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.32	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+2/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*6
 # Class Name	Required Non-Monster Lvl
 CLASS:Burglar	PREPCLEVEL:MAX=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -49,7 +49,7 @@ CLASS:Burglar	STARTSKILLPTS:8	CSKILL:Acrobatics|Athletics|Bluff|Crafting|Haggle|
 ###Block: Captain ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Type			Max Level	Source Page		Save checks bonus															Combat bonus					Bonus to HP
-CLASS:Captain	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*9
+CLASS:Captain	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.34	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*9
 # Class Name	Required Non-Monster Lvl
 CLASS:Captain	PREPCLEVEL:MAX=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -68,7 +68,7 @@ CLASS:Captain	STARTSKILLPTS:6	CSKILL:Athletics|Impress|Intimidate|Medicine|Notic
 ###Block: Courtier ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Type			Max Level	Source Page		Save checks bonus															Combat bonus					Bonus to HP
-CLASS:Courtier	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.36	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL+2/2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*9
+CLASS:Courtier	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.36	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+2/2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*9
 # Class Name	Required Non-Monster Lvl
 CLASS:Courtier	PREPCLEVEL:MAX=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -87,7 +87,7 @@ CLASS:Courtier	STARTSKILLPTS:6	CSKILL:Bluff|Haggle|Impress|Intimidate|Investigat
 ###Block: Explorer ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Type			Max Level	Source Page		Save checks bonus															Combat bonus					Bonus to HP
-CLASS:Explorer	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Fortitude|CL+2/2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*9
+CLASS:Explorer	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.38	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+2/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*9
 # Class Name	Required Non-Monster Lvl
 CLASS:Explorer	PREPCLEVEL:MAX=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -105,7 +105,7 @@ CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Bluff|Crafting|Haggle|Impress|Investigate|
 ###Block: Keeper ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Type			Max Level	Source Page		Save checks bonus											Combat bonus					Bonus to HP
-CLASS:Keeper	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.39	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL+2/2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*6
+CLASS:Keeper	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.39	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+2/2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*6
 # Class Name	Required Non-Monster Lvl
 CLASS:Keeper	PREPCLEVEL:MAX=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -125,7 +125,7 @@ CLASS:Keeper	STARTSKILLPTS:8	CSKILL:Bluff|Crafting|Haggle|Impress|Investigate|Me
 ###Block: Lancer ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Type			Max Level	Source Page		Save checks bonus												Combat bonus					Bonus to HP
-CLASS:Lancer	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.41	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*12
+CLASS:Lancer	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.41	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*12
 # Class Name	Required Non-Monster Lvl
 CLASS:Lancer	PREPCLEVEL:MAX=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -144,7 +144,7 @@ CLASS:Lancer	STARTSKILLPTS:4	CSKILL:Athletics|Impress|Intimidate|Notice|Resolve|
 ###Block: Mage ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Type			Max Level	Source Page		Define							Save checks bonus											Combat bonus		Bonus to HP				Modify VAR
-CLASS:Mage		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.43	DEFINE:ArcaneAdept|0	DEFINE:ArcaneKnown|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL+2/2	BONUS:COMBAT|BAB|CL*1/2	BONUS:HP|CURRENTMAX|CON+CL*6	BONUS:VAR|SpellPoints|CL*2	BONUS:VAR|TotalCasterLvl|1
+CLASS:Mage		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.43	DEFINE:ArcaneAdept|0	DEFINE:ArcaneKnown|0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+2/2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:HP|CURRENTMAX|CON+CL*6	BONUS:VAR|SpellPoints|classlevel("APPLIEDAS=NONEPIC")*2	BONUS:VAR|TotalCasterLvl|1
 # Class Name	Required Non-Monster Lvl
 CLASS:Mage		PREPCLEVEL:MAX=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -170,7 +170,7 @@ CLASS:Mage		SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Mage|To
 ###Block: Priest ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Type			Max Level	Source Page		Save checks bonus												Combat bonus					Bonus to HP				Modify VAR
-CLASS:Priest	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.44	BONUS:CHECKS|BASE.Fortitude,,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*9	BONUS:VAR|TotalCasterLvl|CL
+CLASS:Priest	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.44	BONUS:SAVE|BASE.Fortitude,,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*9	BONUS:VAR|TotalCasterLVL|CL
 # Class Name	Required Non-Monster Lvl
 CLASS:Priest	PREPCLEVEL:MAX=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -189,7 +189,7 @@ CLASS:Priest	STARTSKILLPTS:6	CSKILL:Impress|Intimidate|Medicine|Notice|Resolve|S
 ###Block: Sage ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Type			Max Level	Base class as subclass?	Source Page		Save checks bonus									Combat bonus					Bonus to HP
-CLASS:Sage		TYPE:PC.Base.Core	MAXLEVEL:4	ALLOWBASECLASS:NO		SOURCEPAGE:p.46	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*9
+CLASS:Sage		TYPE:PC.Base.Core	MAXLEVEL:4	ALLOWBASECLASS:NO		SOURCEPAGE:p.46	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*9
 # Class Name	Required Non-Monster Lvl
 CLASS:Sage		PREPCLEVEL:MAX=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -211,7 +211,7 @@ SUBCLASS:Sage 2nd	OUTPUTNAME:Sage	COST:0									PREPCLEVEL:MIN=2
 ###Block: Scout ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Type			Max Level	Source Page		Save checks bonus											Combat bonus					Bonus to HP
-CLASS:Scout		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL+2/2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*9
+CLASS:Scout		TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.48	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+2/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*9
 # Class Name	Required Non-Monster Lvl
 CLASS:Scout		PREPCLEVEL:MAX=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -230,7 +230,7 @@ CLASS:Scout		STARTSKILLPTS:6	CSKILL:Acrobatics|Athletics|Blend|Medicine|Notice|R
 ###Block: Soldier ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Type			Max Level	Source Page		Save checks bonus															Combat bonus					Bonus to HP
-CLASS:Soldier	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL+2/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*12
+CLASS:Soldier	TYPE:PC.Base.Core	MAXLEVEL:4	SOURCEPAGE:p.50	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+2/2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:HP|CURRENTMAX|CON+CL*12
 # Class Name	Required Non-Monster Lvl
 CLASS:Soldier	PREPCLEVEL:MAX=4
 # Class Name	Skill Pts/Lvl	Class Skill

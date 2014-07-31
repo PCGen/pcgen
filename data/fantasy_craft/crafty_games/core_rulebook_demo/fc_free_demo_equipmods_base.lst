@@ -50,7 +50,7 @@ Fire				KEY:RES_FIRE				VISIBLE:NO																																														
 Edged				KEY:RES_EDGED				VISIBLE:NO																																																					SPROP:Edged %CHOICE																			CHOOSE:STRING|1|2|3|4|5|TITLE=Resistance
 Blunt				KEY:RES_BLUNT				VISIBLE:NO																																																					SPROP:Blunt %CHOICE																			CHOOSE:STRING|1|2|3|4|5|TITLE=Resistance
 
-Def				KEY:DP					VISIBLE:NO					BONUS:CHECKS|Reflex|ArmorDPValue|TYPE=Armor	BONUS:COMBAT|AC|ArmorDPValue|TYPE=Armor																			BONUS:VAR|ArmorDPValue|%CHOICE																																CHOOSE:STRING|-1|-2|-3|-4|-5|TITLE=DP						DEFINE:ArmorDPValue|0
+Def				KEY:DP					VISIBLE:NO					BONUS:SAVE|Reflex|ArmorDPValue|TYPE=Armor	BONUS:COMBAT|AC|ArmorDPValue|TYPE=Armor																			BONUS:VAR|ArmorDPValue|%CHOICE																																CHOOSE:STRING|-1|-2|-3|-4|-5|TITLE=DP						DEFINE:ArmorDPValue|0
 Dis				KEY:DISGUISE				VISIBLE:NO																																BONUS:SKILL|Disguise|DiguisePenalty	BONUS:VAR|DisguisePenalty|%CHOICE										SPROP:Disguise %CHOICE																			CHOOSE:STRING|0|-1|-2|-3|-4|-5|-6|-7|-8|Obvious|TITLE=Disguise		DEFINE:DisguisePenalty|0
 
 #
