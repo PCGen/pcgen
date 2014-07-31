@@ -26,12 +26,12 @@ FOLLOWER:PsiCrystalLVL=20	TYPE:Psicrystal	SR:25
 MASTERBONUSRACE:Psicrystal (Artiste)		TYPE:Psicrystal											BONUS:SKILL|TYPE.Craft|3	VFEAT:Alertness
 MASTERBONUSRACE:Psicrystal (Bully)			TYPE:Psicrystal											BONUS:SKILL|Intimidate|3	VFEAT:Alertness
 MASTERBONUSRACE:Psicrystal (Friendly)		TYPE:Psicrystal											BONUS:SKILL|Diplomacy|3		VFEAT:Alertness
-MASTERBONUSRACE:Psicrystal (Hero)			TYPE:Psicrystal	BONUS:CHECKS|Fortitude|2											VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Hero)			TYPE:Psicrystal	BONUS:SAVE|Fortitude|2											VFEAT:Alertness
 MASTERBONUSRACE:Psicrystal (Liar)			TYPE:Psicrystal											BONUS:SKILL|Bluff|3		VFEAT:Alertness
 MASTERBONUSRACE:Psicrystal (Meticulous)		TYPE:Psicrystal											BONUS:SKILL|Perception|3	VFEAT:Alertness
 MASTERBONUSRACE:Psicrystal (Nimble)			TYPE:Psicrystal						BONUS:COMBAT|INITIATIVE|2						VFEAT:Alertness
 MASTERBONUSRACE:Psicrystal (Poised)			TYPE:Psicrystal											BONUS:SKILL|Acrobatics|3	VFEAT:Alertness
-MASTERBONUSRACE:Psicrystal (Resolved)		TYPE:Psicrystal	BONUS:CHECKS|Will|2												VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Resolved)		TYPE:Psicrystal	BONUS:SAVE|Will|2												VFEAT:Alertness
 MASTERBONUSRACE:Psicrystal (Sage)			TYPE:Psicrystal											BONUS:SKILL|TYPE.Knowledge|3	VFEAT:Alertness
 MASTERBONUSRACE:Psicrystal (Single Minded)	TYPE:Psicrystal											BONUS:SKILL|Autohypnosis|3	VFEAT:Alertness
 MASTERBONUSRACE:Psicrystal (Sneaky)			TYPE:Psicrystal											BONUS:SKILL|Stealth|3		VFEAT:Alertness

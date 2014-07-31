@@ -248,7 +248,7 @@ Shell Retreat	KEY:Turtle ~ Shell Retreat		CATEGORY:Special Ability	TYPE:SpecialQ
 
 # Ability Name			Category of Ability	Type				Define a Stat																Choose										Ability																							Combat bonus								Bonus to HP									Modify VAR																									Temporary Bonus
 Fused Eidolon HP			CATEGORY:Internal																								CHOOSE:NUMBER|MIN=1|MAX=500|TITLE=Max HP of Eidolon																																					BONUS:HP|CURRENTMAX|EidolonHP|PREVAREQ:FusedEidolonActive,1																											TEMPBONUS:PC|VAR|EidolonHP|%CHOICE
-Fused Eidolon BAB			CATEGORY:Internal																																																											BONUS:COMBAT|BAB|EidolonBAB|PREVAREQ:FusedEidolonActive,1											BONUS:VAR|DisableBAB|1|PREVAREQ:FusedEidolonActive,1	BONUS:VAR|EidolonBAB|var("FusedEidolonLVL")	BONUS:VAR|EidolonBAB|-1-(var("FusedEidolonLVL")/4)
+Fused Eidolon BAB			CATEGORY:Internal																																																											BONUS:COMBAT|BASEAB|EidolonBAB|PREVAREQ:FusedEidolonActive,1											BONUS:VAR|DisableBAB|1|PREVAREQ:FusedEidolonActive,1	BONUS:VAR|EidolonBAB|var("FusedEidolonLVL")	BONUS:VAR|EidolonBAB|-1-(var("FusedEidolonLVL")/4)
 Fused Eidolon Stats		CATEGORY:Internal																																			ABILITY:Internal|AUTOMATIC|Fused Eidolon Stats ~ Active|PREVAREQ:FusedEidolonActive,1	ABILITY:Internal|AUTOMATIC|TYPE=FusedEidolonStats
 
 Fused Eidolon Stats Str		CATEGORY:Internal		TYPE:FusedEidolonStats																			CHOOSE:NUMBER|MIN=1|MAX=40|TITLE=Strength Score of Eidolon																																																																								TEMPBONUS:PC|VAR|EidolonStatSTR|%CHOICE

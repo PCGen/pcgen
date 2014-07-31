@@ -25,6 +25,6 @@ Immunity to Spider Vine Poison	CATEGORY:Special Ability	TYPE:SpecialQuality.Extr
 
 ###Block: Shackles Save Bonus abilities
 # Ability Name		Category of Ability		Type						Visible		Save checks bonus				Source Page
-Fortitude save bonus	CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	BONUS:CHECKS|Fortitude|1|TYPE=Trait	SOURCEPAGE:p.10
-Reflex save bonus		CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	BONUS:CHECKS|Reflex|1|TYPE=Trait	SOURCEPAGE:p.10
-Will save bonus		CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	BONUS:CHECKS|Will|1|TYPE=Trait	SOURCEPAGE:p.10
+Fortitude save bonus	CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	BONUS:SAVE|Fortitude|1|TYPE=Trait	SOURCEPAGE:p.10
+Reflex save bonus		CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	BONUS:SAVE|Reflex|1|TYPE=Trait	SOURCEPAGE:p.10
+Will save bonus		CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	BONUS:SAVE|Will|1|TYPE=Trait	SOURCEPAGE:p.10

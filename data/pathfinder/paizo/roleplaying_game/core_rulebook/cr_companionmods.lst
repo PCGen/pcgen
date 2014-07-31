@@ -106,11 +106,11 @@ MASTERBONUSRACE:Familiar (Hawk)	TYPE:Familiar										BONUS:SKILL|Perception|3	
 MASTERBONUSRACE:Familiar (Lizard)	TYPE:Familiar										BONUS:SKILL|Climb|3		VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Monkey)	TYPE:Familiar										BONUS:SKILL|Acrobatics|3	VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Owl)	TYPE:Familiar										BONUS:SKILL|Perception|3	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Rat)	TYPE:Familiar	BONUS:CHECKS|Fortitude|2										VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Rat)	TYPE:Familiar	BONUS:SAVE|Fortitude|2										VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Raven)	TYPE:Familiar										BONUS:SKILL|Appraise|3		VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Viper)	TYPE:Familiar										BONUS:SKILL|Bluff|3		VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Toad)	TYPE:Familiar						BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Weasel)	TYPE:Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Weasel)	TYPE:Familiar	BONUS:SAVE|Reflex|2											VFEAT:Alertness
 #
 
 # Class of the Master		Type				Copy Masters BAB		Copy Masters Checks	HP formula based on Master

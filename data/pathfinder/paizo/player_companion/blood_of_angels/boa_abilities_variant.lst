@@ -232,7 +232,7 @@ CATEGORY=Special Ability|Aasimar ~ Poision saving throw Bonus.MOD
 CATEGORY=Special Ability|Aasimar ~ Ageless.MOD
 CATEGORY=Special Ability|Aasimar ~ Racial DEX bonus.MOD																																																																																																																																																														BONUS:STAT|DEX|2
 CATEGORY=Special Ability|Aasimar ~ Manipulate armor.MOD
-CATEGORY=Special Ability|Aasimar ~ Will save bonus.MOD																																																																																																																																															BONUS:CHECKS|Will|2|TYPE=Racial
+CATEGORY=Special Ability|Aasimar ~ Will save bonus.MOD																																																																																																																																															BONUS:SAVE|Will|2|TYPE=Racial
 CATEGORY=Special Ability|Aasimar ~ Create water 3/day.MOD																																																												SPELLS:Innate|TIMES=3|CASTERLEVEL=AasimarSpellLikeLVL|Create Water
 CATEGORY=Special Ability|Aasimar ~ Sonic resistance.MOD																																																																																																																													ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic																												BONUS:VAR|SonicResistanceBonus|5|TYPE=Resistance
 CATEGORY=Special Ability|Aasimar ~ Burst of speed.MOD
@@ -259,7 +259,7 @@ CATEGORY=Special Ability|Aasimar ~ Perception bonus.MOD
 CATEGORY=Special Ability|Aasimar ~ Frosty breath 1/day.MOD
 CATEGORY=Special Ability|Aasimar ~ Sick of evil.MOD
 CATEGORY=Special Ability|Aasimar ~ Weapon of awe 1/day.MOD																																																												SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Weapon of Awe
-CATEGORY=Special Ability|Aasimar ~ Racial reflex save bonus.MOD																																																																																																																																														BONUS:CHECKS|Reflex|2|TYPE=Racial
+CATEGORY=Special Ability|Aasimar ~ Racial reflex save bonus.MOD																																																																																																																																														BONUS:SAVE|Reflex|2|TYPE=Racial
 CATEGORY=Special Ability|Aasimar ~ Racial WIS bonus.MOD																																																																																																																																																														BONUS:STAT|WIS|2
 CATEGORY=Special Ability|Aasimar ~ Ripen fruit.MOD
 CATEGORY=Special Ability|Aasimar ~ Understand writing.MOD
@@ -302,7 +302,7 @@ CATEGORY=Special Ability|Aasimar ~ Holy weapon 1/day.MOD
 CATEGORY=Special Ability|Aasimar ~ Racial resist disease bonus.MOD
 CATEGORY=Special Ability|Aasimar ~ Racial CHA bonus.MOD																																																																																																																																																														BONUS:STAT|CHA|2
 CATEGORY=Special Ability|Aasimar ~ Reanimation immunity.MOD
-CATEGORY=Special Ability|Aasimar ~ Racial Fort bonus.MOD																																																																																																																																															BONUS:CHECKS|Fortitude|2|TYPE=Racial
+CATEGORY=Special Ability|Aasimar ~ Racial Fort bonus.MOD																																																																																																																																															BONUS:SAVE|Fortitude|2|TYPE=Racial
 CATEGORY=Special Ability|Aasimar ~ Summon lantern archon 1/day.MOD																																																										SPELLS:Innate|TIMES=1|CASTERLEVEL=AasimarSpellLikeLVL|Summon Monster III (Lantern Archon Only)
 CATEGORY=Special Ability|Aasimar ~ Speak to horses.MOD
 CATEGORY=Special Ability|Aasimar ~ Racial diplomacy bonus.MOD																																																																																																																																																					BONUS:SKILL|Diplomacy|2|TYPE=Racial

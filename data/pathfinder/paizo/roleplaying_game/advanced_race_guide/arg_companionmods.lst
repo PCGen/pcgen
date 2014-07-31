@@ -56,11 +56,11 @@ MASTERBONUSRACE:Familiar (Hawk)	TYPE:Demonic Familiar										BONUS:SKILL|Perce
 MASTERBONUSRACE:Familiar (Lizard)	TYPE:Demonic Familiar										BONUS:SKILL|Climb|3		VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Monkey)	TYPE:Demonic Familiar										BONUS:SKILL|Acrobatics|3	VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Owl)	TYPE:Demonic Familiar										BONUS:SKILL|Perception|3	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Rat)	TYPE:Demonic Familiar	BONUS:CHECKS|Fortitude|2										VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Rat)	TYPE:Demonic Familiar	BONUS:SAVE|Fortitude|2										VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Raven)	TYPE:Demonic Familiar										BONUS:SKILL|Appraise|3		VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Viper)	TYPE:Demonic Familiar										BONUS:SKILL|Bluff|3		VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Toad)	TYPE:Demonic Familiar						BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Weasel)	TYPE:Demonic Familiar	BONUS:CHECKS|Reflex|2											VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Weasel)	TYPE:Demonic Familiar	BONUS:SAVE|Reflex|2											VFEAT:Alertness
 #
 
 ###Block Base Eidolon modded for Shaitan Binder

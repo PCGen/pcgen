@@ -23,7 +23,7 @@ Tengu		STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5																				BONUS
 Tiefling	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Dwarven,Elven,Gnome,Goblin,Halfling,Infernal,Orc																								AUTO:LANG|Common					ABILITY:Internal|AUTOMATIC|Race Traits ~ Tiefling	LEGS:2																																											RACETYPE:Outsider	RACESUBTYPE:Native							SOURCEPAGE:p.264
 #SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Darkness	CHOOSE:LANGAUTO|Abyssal|Infernal
 Svirfneblin	STARTFEATS:1	SIZE:S	MOVE:Walk,20		FACE:5	REACH:5	LANGBONUS:Aklo,Common,Draconic,Dwarven,Elven,Giant,Goblin,Orc,Terran								BONUS:STAT|STR|-2	BONUS:STAT|DEX,WIS|2	BONUS:STAT|CHA|-4								AUTO:LANG|Gnome|Undercommon			ABILITY:Internal|AUTOMATIC|Race Traits ~ Svirfneblin	LEGS:2	HANDS:2																																									RACETYPE:Humanoid	RACESUBTYPE:Gnome		CRMOD:NPC|0.0	CRMOD:PC|0.0	SOURCEPAGE:p.261
-# BONUS:COMBAT|AC|2|TYPE=Dodge	SR:11+TL		BONUS:DC|SUBSCHOOL.Illusion|1	BONUS:SKILL|Craft (Alchemy),Perception,Stealth,Underground|2|TYPE=Racial	BONUS:VAR|DarkvisionRange|120|TYPE=Base	BONUS:CHECKS|ALL|2|TYPE=Racial	ABILITY:Special Ability|AUTOMATIC|Dwarf ~ Stonecunning|Svirfneblin Hatred	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Blindness/Deafness,12+CHA|Blur,12+CHA|Disguise Self,11+CHA
+# BONUS:COMBAT|AC|2|TYPE=Dodge	SR:11+TL		BONUS:DC|SUBSCHOOL.Illusion|1	BONUS:SKILL|Craft (Alchemy),Perception,Stealth,Underground|2|TYPE=Racial	BONUS:VAR|DarkvisionRange|120|TYPE=Base	BONUS:SAVE|ALL|2|TYPE=Racial	ABILITY:Special Ability|AUTOMATIC|Dwarf ~ Stonecunning|Svirfneblin Hatred	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Blindness/Deafness,12+CHA|Blur,12+CHA|Disguise Self,11+CHA
 
 
 

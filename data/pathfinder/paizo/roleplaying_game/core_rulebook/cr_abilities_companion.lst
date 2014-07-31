@@ -67,7 +67,7 @@ War Trained		CATEGORY:Special Ability	TYPE:SpecialQuality	ABILITY:Special Abilit
 # Ability Name						Unique Key								Category of Ability		Type					Visible		Required Race												Ability																	Combat bonus					Adjust PC Size		Stat bonus					Natural Attacks
 +2 to Dexterity and Constitution												CATEGORY:Special Ability	TYPE:CompChoice			VISIBLE:DISPLAY																																												BONUS:STAT|DEX,CON|2|TYPE=Racial
 # COMMENT: This is to replace the multiple choices and make the list properly two choices. - Have the Companion Advancement PRExxx off this main ability.
-Companion Advancement														CATEGORY:Special Ability	TYPE:CompChoice			VISIBLE:DISPLAY
+Companion Advancement					KEY:Companion Advancement									CATEGORY:Special Ability	TYPE:CompChoice			VISIBLE:DISPLAY
 #
 Companion Advancement (Ape)				KEY:Companion Advancement ~ Ape				CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Ape)																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Badger (Wolverine))	KEY:Companion Advancement ~ Wolverine			CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Badger (Wolverine))																																	BONUS:SIZEMOD|NUMBER|1

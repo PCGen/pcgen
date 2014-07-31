@@ -204,7 +204,7 @@ FOLLOWER:CavalierMountLVL=20	TYPE:Cavalier Mount	HD:1																											
 # Race of familiar						Type			Save checks bonus		Combat bonus			Bonus to skill		Modify VAR			Virtual Feat
 MASTERBONUSRACE:Familiar (Centipede (House))		TYPE:Familiar										BONUS:SKILL|Stealth|3					VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Crab (Giant King))		TYPE:Familiar														BONUS:VAR|CMB_Grapple|2	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Fox)				TYPE:Familiar	BONUS:CHECKS|Reflex|2														VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Fox)				TYPE:Familiar	BONUS:SAVE|Reflex|2														VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Octopus)				TYPE:Familiar										BONUS:SKILL|Swim|3					VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Scorpion (Greensting))	TYPE:Familiar					BONUS:COMBAT|INITIATIVE|2									VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Spider (Scarlet))		TYPE:Familiar										BONUS:SKILL|Climb|3					VFEAT:Alertness

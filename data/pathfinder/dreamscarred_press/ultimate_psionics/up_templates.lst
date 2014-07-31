@@ -77,7 +77,7 @@ Inner Peace neither	VISIBLE:NO										!PRECSKILL:1,Knowledge (Psionics),Knowle
 ###Block: Ascetic Trance bonus choice (psychic warrior)
 # Template Name		Visible		Multiple Requirements															Save checks bonus																									Combat bonus
 #Ascetic Trance AC		VISIBLE:DISPLAY	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Trance ~ Ascetic],[!PRETEMPLATE:1,Ascetic Trance Saves]																												BONUS:COMBAT|AC|((WarriorPathLVL+1)/4)*PsionicFocusActive*(var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")+(1-var("COUNT[EQTYPE.ARMOR.EQUIPPED]")))|TYPE=Insight
-#Ascetic Trance Saves	VISIBLE:DISPLAY	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Trance ~ Ascetic],[!PRETEMPLATE:1,Ascetic Trance AC]		BONUS:CHECKS|ALL|((WarriorPathLVL+1)/4)*PsionicFocusActive*(var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")+(1-var("COUNT[EQTYPE.ARMOR.EQUIPPED]")))|TYPE=Insight
+#Ascetic Trance Saves	VISIBLE:DISPLAY	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Trance ~ Ascetic],[!PRETEMPLATE:1,Ascetic Trance AC]		BONUS:SAVE|ALL|((WarriorPathLVL+1)/4)*PsionicFocusActive*(var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")+(1-var("COUNT[EQTYPE.ARMOR.EQUIPPED]")))|TYPE=Insight
 
 ###Block: Strengthened By Fear stat choices
 # Template Name				Visible	Template																																					Combat bonus										Stat bonus

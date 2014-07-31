@@ -62,7 +62,7 @@ Melee touch 10d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch
 ###BLOCK: Ascetic Trance bonus choice
 # Template Name		Visible		Multiple Requirements															Save checks bonus																									Combat bonus
 Ascetic Trance AC		VISIBLE:DISPLAY	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Trance ~ Ascetic],[!PRETEMPLATE:1,Ascetic Trance Saves]																												BONUS:COMBAT|AC|((WarriorPathLVL+1)/4)*PsionicFocusActive*(var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")+(1-var("COUNT[EQTYPE.ARMOR.EQUIPPED]")))|TYPE=Insight
-Ascetic Trance Saves	VISIBLE:DISPLAY	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Trance ~ Ascetic],[!PRETEMPLATE:1,Ascetic Trance AC]		BONUS:CHECKS|ALL|((WarriorPathLVL+1)/4)*PsionicFocusActive*(var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")+(1-var("COUNT[EQTYPE.ARMOR.EQUIPPED]")))|TYPE=Insight
+Ascetic Trance Saves	VISIBLE:DISPLAY	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Trance ~ Ascetic],[!PRETEMPLATE:1,Ascetic Trance AC]		BONUS:SAVE|ALL|((WarriorPathLVL+1)/4)*PsionicFocusActive*(var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")+(1-var("COUNT[EQTYPE.ARMOR.EQUIPPED]")))|TYPE=Insight
 
 ###BLOCK: Stat boosters (for animal affinity, etc.)
 # Template Name				Visible		Stat bonus					Description
