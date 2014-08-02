@@ -65,9 +65,7 @@ public class SkillCostDisplay
 			// calculate bonus and add to activeBonusMap
 			if (aPC.isApplied(bonus) && "SKILL".equals(bonus.getBonusName()))
 			{
-				boolean include =
-						bonus.getBonusInfoList()
-							.contains(keyName.toUpperCase());
+				boolean include = bonusForThisSkill(bonus, keyName);
 				if (!include)
 				{
 					for (BonusPair bp : aPC.getStringListFromBonus(bonus))
@@ -188,6 +186,18 @@ public class SkillCostDisplay
 		return bonusDetails.toString();
 	}
 
+	private static boolean bonusForThisSkill(BonusObj bonus, String keyName)
+	{
+		for (Object target : bonus.getBonusInfoList())
+		{
+			if (String.valueOf(target).equalsIgnoreCase(keyName))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public static String getSituationModifierExplanation(Skill sk,
 		String situation, PlayerCharacter aPC, boolean shortForm)
 	{
@@ -199,9 +209,7 @@ public class SkillCostDisplay
 			// calculate bonus and add to activeBonusMap
 			if (aPC.isApplied(bonus) && "SITUATION".equals(bonus.getBonusName()))
 			{
-				boolean include =
-						bonus.getBonusInfoList()
-							.contains(keyName.toUpperCase());
+				boolean include = bonusForThisSkill(bonus, keyName);
 				if (!include)
 				{
 					for (BonusPair bp : aPC.getStringListFromBonus(bonus))

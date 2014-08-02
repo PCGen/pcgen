@@ -631,5 +631,14 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	{
 		return getTypeOfBonus() + " " + getBonusInfo(); //$NON-NLS-1$
 	}
+
+	/**
+	 * Identify if this bonus cannot have its target changed to upper case. 
+	 * @return true if the original case is needed for the targets.
+	 */
+	protected boolean requiresRealCaseTarget()
+	{
+		return false;
+	}
 	
 }

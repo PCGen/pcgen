@@ -183,7 +183,7 @@ public class Bonus
 			}
 		}
 
-		final String bonusInfo = sep.next().toUpperCase();
+		String bonusInfo = sep.next();
 		String bValue = "0";
 
 		if (sep.hasNext())
@@ -281,6 +281,10 @@ public class Bonus
 			aBonus.setVariable(bonusName.substring(equalOffset + 1).intern());
 		}
 
+		if (!aBonus.requiresRealCaseTarget())
+		{
+			bonusInfo = bonusInfo.toUpperCase();
+		}
 		StringTokenizer aTok = new StringTokenizer(bonusInfo, ",");
 
 		if (!aTok.hasMoreTokens())

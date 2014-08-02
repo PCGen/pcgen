@@ -104,4 +104,13 @@ public final class Skill extends BonusObj
 	{
 		return "SKILL";
 	}
+
+	/**
+	 * @{inheritdoc}
+	 */
+	@Override
+	protected boolean requiresRealCaseTarget()
+	{
+		return true;
+	}
 }
