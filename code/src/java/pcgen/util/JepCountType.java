@@ -60,6 +60,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.display.SkillDisplay;
+import pcgen.system.PCGenSettings;
 import pcgen.util.AbstractCountCommand.JepAbilityCountEnum;
 import pcgen.util.AbstractCountCommand.JepEquipmentCountEnum;
 import pcgen.util.enumeration.View;
@@ -890,6 +891,10 @@ public abstract class JepCountType
 
 		private Number processCount(PlayerCharacter pc, SkillFilter sf, View v)
 		{
+			if (sf == null)
+			{
+				sf = getDefaultSkillFilter(pc);
+			}
 			int count = 0;
 			final List<Skill> skills =
 					SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay()
@@ -915,5 +920,15 @@ public abstract class JepCountType
 			return Double.valueOf(count);
 		}
 
+		private SkillFilter getDefaultSkillFilter(PlayerCharacter pc)
+		{
+			SkillFilter filter = SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
+					PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
+			if (filter == SkillFilter.SkillsTab)
+			{
+				filter = pc.getSkillFilter();
+			}
+			return filter;
+		}
 	}
 }
