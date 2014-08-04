@@ -48,7 +48,7 @@ CLASS:Hacker	HD:8		TYPE:Prestige.PC	ABB:Hac		MAXLEVEL:10	SOURCEPAGE:p.167	DEFINE
 # Class Name	Required Feat			Required Lvl	Required Skill
 CLASS:Hacker	PREFEAT:1,Mathematical Genius	PRELEVEL:MIN=5	PRESKILL:2,Computers=8,Cryptography=8
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Hacker	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Bureaucracy|Computers|Concentration|TYPE=Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|Forgery|Gather Information|TYPE=Hobby|Innuendo|TYPE=Knowledge|Languages|Listen|Mechanics|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Surveillance
+CLASS:Hacker	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Bureaucracy|Computers|Concentration|TYPE=Craft|Cryptography|Cultures|Diplomacy|Driver|Electronics|Forgery|Gather Information|TYPE=Hobby|Innuendo|TYPE=Knowledge|LANGUAGES|Listen|Mechanics|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Surveillance
 1	BONUS:SKILL|Concentration|4	BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ABILITY:Special Ability|AUTOMATIC|Hard-wired ~ Hacker			TEMPLATE:Prestige Class Core Ability
 2																		ABILITY:Special Ability|AUTOMATIC|Synchronize ~ Hacker
 3																																				AUTO:FEAT|Advanced Skill Mastery(Mathematical Genius)
@@ -86,7 +86,7 @@ CLASS:Shadespeaker	HD:10		TYPE:Prestige.PC	ABB:ShSpk		MAXLEVEL:10	SOURCEPAGE:p.2
 # Class Name		Required Feat		Required Lvl	Required Stat	Required Template
 CLASS:Shadespeaker	PREFEAT:1,Sixth Sense	PRELEVEL:MIN=5	PRESTAT:1,WIS=13	PRETEMPLATE:1,Chamber - Guardians of the Whispering Knife
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Shadespeaker	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|First Aid|Gather Information|Handle Animal|TYPE=Hobby|Jump|TYPE=Knowledge|Languages|Listen|Sense Motive|Spot|Survival|Tumble
+CLASS:Shadespeaker	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|First Aid|Gather Information|Handle Animal|TYPE=Hobby|Jump|TYPE=Knowledge|LANGUAGES|Listen|Sense Motive|Spot|Survival|Tumble
 1								BONUS:VAR|NumberPrestigeClasses|1	DEFINE:NumberPrestigeClasses|0	ABILITY:Special Ability|AUTOMATIC|The Call ~ Shadespeaker						TEMPLATE:Prestige Class Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)
 2																				ABILITY:Special Ability|AUTOMATIC|Deathwatch ~ Shadespeaker
 3	BONUS:ABILITYPOOL|Shadespeaker Feat|1
@@ -154,7 +154,7 @@ CLASS:Physical Adept	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Cra
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																						Combat bonus																													Modify VAR
 CLASS:Telepath	HD:10		TYPE:Base.PC	ABB:Tel		MAXLEVEL:20	SOURCEPAGE:p.196	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:SAVE|BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+2)/2)-(classlevel("APPLIEDAS=NONEPIC")==4)-(classlevel("APPLIEDAS=NONEPIC")==6)-(classlevel("APPLIEDAS=NONEPIC")>=8)-(classlevel("APPLIEDAS=NONEPIC")>=14)	BONUS:COMBAT|BASEAB|CL/2|TYPE=Base.REPLACE	BONUS:COMBAT|AC|(floor((CL*3)/5))-(floor(CL/5))|TYPE=ClassDefense.REPLACE	BONUS:COMBAT|INITIATIVE|CL-(CL>=4)-(CL>=8)-(CL>=13)-(CL>=18)	BONUS:VAR|BUDGETPOINTS|CL*3	BONUS:VAR|GADGETPOINTS|(CL*3)/4
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Telepath	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Driver|Electronics|Gather Information|Handle Animal|TYPE=Hobby|Intimidate|TYPE=Knowledge|Languages|TYPE=Profession|Sense Motive|TYPE=Sport
+CLASS:Telepath	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Driver|Electronics|Gather Information|Handle Animal|TYPE=Hobby|Intimidate|TYPE=Knowledge|LANGUAGES|TYPE=Profession|Sense Motive|TYPE=Sport
 1	BONUS:ABILITYPOOL|Telepath Feat|1		BONUS:VAR|PSIONLEVEL|CL														TEMPLATE:Psion Class Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Melee)
 2								BONUS:VAR|ForceOfWill|1+(CL>=11)+(CL>=19)	ABILITY:Special Ability|AUTOMATIC|Force of Will ~ Telepath
 3	BONUS:ABILITYPOOL|Telepath Psi Mastery|1

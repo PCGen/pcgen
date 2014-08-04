@@ -68,7 +68,7 @@ Make CSKILL ~ Ride							CATEGORY:Internal																																						
 Make CSKILL ~ Search							CATEGORY:Internal																																																																																																																																																																																																																																																			CSKILL:Search
 Make CSKILL ~ Sense Motive						CATEGORY:Internal																																																																																																																																																																																																																																																			CSKILL:Sense Motive
 Make CSKILL ~ Sleight of Hand						CATEGORY:Internal																																																																																																																																																																																																																																																			CSKILL:Sleight of Hand
-Make CSKILL ~ Speak Language						CATEGORY:Internal																																																																																																																																																																																																																																																			CSKILL:Speak Language
+Make CSKILL ~ Speak Language						CATEGORY:Internal																																																																																																																																																																																																																																																			CSKILL:SPEAK LANGUAGE
 Make CSKILL ~ Spot							CATEGORY:Internal																																																																																																																																																																																																																																																			CSKILL:Spot
 Make CSKILL ~ Survival							CATEGORY:Internal																																																																																																																																																																																																																																																			CSKILL:Survival
 Make CSKILL ~ Swim							CATEGORY:Internal																																																																																																																																																																																																																																																			CSKILL:Swim
@@ -161,5 +161,5 @@ Lock Int ~ 30											CATEGORY:Internal																														DEFINESTA
 
 CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Sure Step.MOD	BONUS:SKILL|Balance,Climb,Jump,Tumble|10|TYPE=Competence
 CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Scalywrath.MOD	BONUS:SKILL|Balance,Jump,Swim|4|TYPE=Racial
-CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Jump.MOD			BONUS:SKILL|Jump|2|TYPE=Competence		
-CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Light Foot.MOD		BONUS:SKILL|Jump|10|TYPE=Circumstance	
+CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Jump.MOD			BONUS:SKILL|Jump|2|TYPE=Competence
+CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Light Foot.MOD		BONUS:SKILL|Jump|10|TYPE=Circumstance

@@ -6,7 +6,7 @@ CLASS:Mercenary	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:SAVE|BA
 # Class Name	Req. Att.	Multiple Requirements												Required Skill
 CLASS:Mercenary	PREATT:3	PREMULT:2,[PREFEAT:1,Personal Firearms Proficiency],[PREFEAT:1,Brawl,Combat Martial Arts]	PRESKILL:1,Knowledge (Tactics)=3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Mercenary	STARTSKILLPTS:2	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Navigate|Pilot|Read/Write Language|Speak Language|Spot|Survival|Swim
+CLASS:Mercenary	STARTSKILLPTS:2	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Navigate|Pilot|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Spot|Survival|Swim
 ###Block: Rage variables
 1	BONUS:VAR|BarbRageTimesLVL|CL					DEFINE:BarbRageTimesLVL|0
 1	BONUS:VAR|BarbRagePowerLVL|CL					DEFINE:BarbRagePowerLVL|0
@@ -26,7 +26,7 @@ CLASS:Merchant	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:SAVE|BASE
 # Class Name	Required Feat		Required Skill
 CLASS:Merchant	PREFEAT:1,Trustworthy	PRESKILL:2,Bluff=6,Diplomacy=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Merchant	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Navigate|TYPE=Perform|Pilot|Profession|Read/Write Language|Sense Motive|Speak Language
+CLASS:Merchant	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Navigate|TYPE=Perform|Pilot|Profession|READ/WRITE LANGUAGE|Sense Motive|SPEAK LANGUAGE
 1	SAB:1st Market
 2	SAB:Ear to the Ground
 3								ADD:FEAT|TYPE=Merchant
@@ -43,7 +43,7 @@ CLASS:Pirate	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:SAVE|BASE.F
 # Class Name	Req. Att.	Required Feat						Required Skill
 CLASS:Pirate	PREATT:2	PREFEAT:2,Starship Operation,Zero G Training	PRESKILL:2,Pilot=6,Tumble=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Pirate	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Demolitions|Disable Device|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Navigate|Pilot|Read/Write Language|Speak Language|Tumble
+CLASS:Pirate	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Demolitions|Disable Device|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Navigate|Pilot|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Tumble
 ###Block:Sneak Attack
 1	BONUS:VAR|SneakAttackDice|CL/4+1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block:Normal Progression

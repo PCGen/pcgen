@@ -7,7 +7,7 @@ CLASS:Psionic Agent	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:A
 # Class Name		Req. Att.	Required Feat		Required Skill
 CLASS:Psionic Agent	PREATT:2	PREFEAT:1,Wild Talent	PRESKILL:2,Hide=6,Move Silently=6
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Psionic Agent	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|Drive|Escape Artist|Hide|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
+CLASS:Psionic Agent	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|Drive|Escape Artist|Hide|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|SPEAK LANGUAGE|Spot|Tumble
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psionic Agent	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psionic Agent|CL
 ###Block: powers

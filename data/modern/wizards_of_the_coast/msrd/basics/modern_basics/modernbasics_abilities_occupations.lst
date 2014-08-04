@@ -224,7 +224,7 @@ Sense Motive(+1 to skill)					CATEGORY:Starting Occupation	TYPE:Occupation_Skill
 Sleight of Hand(class skill)					CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Criminal_Skills																								VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills																	CSKILL:Sleight of Hand
 Sleight of Hand(+1 to skill)					CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Criminal_Skills																								VISIBLE:DISPLAY	PRETEMPLATE:1,FastSkills																BONUS:SKILL|Sleight of Hand|1|TYPE=Competance				CSKILL:Sleight of Hand
 
-Speak Language(1 additional language)			CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Academic_Skills.Dilettante_Skills																					VISIBLE:DISPLAY																ADD:SKILL|Speak Language												CSKILL:Speak Language
+Speak Language(1 additional language)			CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Academic_Skills.Dilettante_Skills																					VISIBLE:DISPLAY																ADD:SKILL|SPEAK LANGUAGE												CSKILL:SPEAK LANGUAGE
 
 Spot(class skill)							CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Adventurer_Skills.Creative_Skills																					VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,FastSkills,SmartSkills,CharismaticSkills																				CSKILL:Spot
 Spot(+1 to skill)							CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Adventurer_Skills.Creative_Skills																					VISIBLE:DISPLAY	PRETEMPLATE:1,ToughSkills,DedicatedSkills														BONUS:SKILL|Spot|1|TYPE=Competance						CSKILL:Spot

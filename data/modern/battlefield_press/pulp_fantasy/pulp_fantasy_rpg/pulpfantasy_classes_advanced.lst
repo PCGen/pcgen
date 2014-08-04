@@ -7,7 +7,7 @@ CLASS:Ambassador	HD:6		TYPE:Advanced.PC	ABB:Amb		MAXLEVEL:10	SOURCEPAGE:p.92	BON
 # Class Name	Required Feat		Required Skill																	Required Text
 CLASS:Ambassador	PREFEAT:2,Charm,Favor	PRESKILL:4,Diplomacy=6,Knowledge (Civics)=6,Knowledge (Current Events)=6,Knowledge (Theology and Philosophy)=6	PRETEXT:Must have an allegiance to a faction or nation
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ambassador	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Research|Sense Motive|Speak Language
+CLASS:Ambassador	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|READ/WRITE LANGUAGE|Research|Sense Motive|SPEAK LANGUAGE
 1						AUTO:FEAT|Diplomatic Immunity
 2						AUTO:FEAT|Open Arms
 3	ADD:FEAT|TYPE=Ambassador
@@ -63,7 +63,7 @@ CLASS:Detective	HD:6		TYPE:Advanced.PC	ABB:Det		MAXLEVEL:10	SOURCEPAGE:p.97	BONU
 # Class Name	Req. Att.	Required Feat				Required Skill
 CLASS:Detective	PREATT:2	PREFEAT:1,Skill Focus (Search)	PRESKILL:3,Investigate=6,Listen=6,Sense Motive=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Detective	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|TYPE=Knowledge|Listen|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language|Spot
+CLASS:Detective	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|TYPE=Knowledge|Listen|Profession|READ/WRITE LANGUAGE|Research|Search|Sense Motive|SPEAK LANGUAGE|Spot
 1	ADD:FEAT|Reference Material	AUTO:FEAT|Profile
 2						AUTO:FEAT|Contact - Detective|Eye for Clues
 3						AUTO:FEAT|Second Thought
@@ -80,7 +80,7 @@ CLASS:Driver	HD:8		TYPE:Advanced.PC	ABB:Drv		MAXLEVEL:10	SOURCEPAGE:p.99	BONUS:S
 # Class Name	Required Check Base	Required Feat			Required Skill
 CLASS:Driver	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Vehicle Expert	PRESKILL:1,Drive=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Driver	STARTSKILLPTS:5	CSKILL:Balance|Concentration|Craft (Electronic)|Craft (Mechanical)|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Navigate|Pilot|Read/Write Language|Repair|Speak Language|Tumble
+CLASS:Driver	STARTSKILLPTS:5	CSKILL:Balance|Concentration|Craft (Electronic)|Craft (Mechanical)|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Navigate|Pilot|READ/WRITE LANGUAGE|Repair|SPEAK LANGUAGE|Tumble
 1	ADD:ABILITY|Talent|NORMAL|Uncanny Dodge I,Uncanny Dodge II							QUALIFY:ABILITY=Talent|Uncanny Dodge I|Uncanny Dodge II
 2											AUTO:FEAT|Hit the weak Spot
 3	ADD:FEAT|TYPE=Driver							AUTO:FEAT|Vehicle Empathy
@@ -97,7 +97,7 @@ CLASS:Explorer	HD:8		TYPE:Advanced.PC	ABB:Expl		MAXLEVEL:10	SOURCEPAGE:p.101	BON
 # Class Name	Required Feat	Multiple Requirements
 CLASS:Explorer	PREFEAT:1,Aware	PREMULT:2,[PRESKILL:3,Search=4,Knowledge (Earth and Life Sciences)=6,Survival=6],[PRESKILL:1,Knowledge (History)=4,Knowledge (Physical Sciences)=4,Knowledge (Theology and Philosophy)=4]
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Explorer	STARTSKILLPTS:5	CSKILL:Balance|Bluff|Climb|Decipher Script|Disable Device|Drive|Gather Information|Handle Animal|Investigate|Jump|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Theology and Philosophy)|Listen|Navigate|Read/Write Language|Research|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Treat Injury
+CLASS:Explorer	STARTSKILLPTS:5	CSKILL:Balance|Bluff|Climb|Decipher Script|Disable Device|Drive|Gather Information|Handle Animal|Investigate|Jump|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Theology and Philosophy)|Listen|Navigate|READ/WRITE LANGUAGE|Research|Ride|Search|Sense Motive|SPEAK LANGUAGE|Spot|Survival|Swim|Treat Injury
 1												AUTO:FEAT|Explorer Lore|Guide|Track
 2												AUTO:FEAT|Resolve|Skilled Searcher
 3	ADD:FEAT|TYPE=Explorer
@@ -114,7 +114,7 @@ CLASS:G-Man		HD:6		TYPE:Advanced.PC	ABB:GMan		MAXLEVEL:10	SOURCEPAGE:p.102	BONUS
 # Class Name	Req. Att.	Required Skill					Required Stat		Required Text
 CLASS:G-Man		PREATT:2	PRESKILL:2,Speak Language=1,Research=1	PRESTAT:2,INT=13,CHA=11	PRETEXT:Must have an allegiance to the USA
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:G-Man		STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Drive|Forgery|Gather Information|Hide|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Listen|Move Silently|Profession|Read/Write Language|Repair|Research|Search|Sense Motive|Speak Language|Spot|Swim|Treat Injury
+CLASS:G-Man		STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Drive|Forgery|Gather Information|Hide|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Listen|Move Silently|Profession|READ/WRITE LANGUAGE|Repair|Research|Search|Sense Motive|SPEAK LANGUAGE|Spot|Swim|Treat Injury
 1					AUTO:FEAT|Jurisdiction|Only the Best
 2					AUTO:FEAT|Big Brother
 3	ADD:FEAT|TYPE=G_Man
@@ -128,7 +128,7 @@ CLASS:Gangster	HD:8		TYPE:Advanced.PC	ABB:Gang		MAXLEVEL:10	SOURCEPAGE:p.104	BON
 # Class Name	Req. Att.	Required Feat					Required Skill
 CLASS:Gangster	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Gangster	STARTSKILLPTS:7	CSKILL:Bluff|Craft (Chemical)|Craft (Mechanical)|Craft (Structural)|Diplomacy|Disguise|Drive|Escape Artist|Forgery|Gather Information|Hide|Gamble|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sense Motive|Sleight of Hand|Speak Language
+CLASS:Gangster	STARTSKILLPTS:7	CSKILL:Bluff|Craft (Chemical)|Craft (Mechanical)|Craft (Structural)|Diplomacy|Disguise|Drive|Escape Artist|Forgery|Gather Information|Hide|Gamble|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Profession|READ/WRITE LANGUAGE|Search|Sense Motive|Sleight of Hand|SPEAK LANGUAGE
 1												AUTO:FEAT|Infamy|Sneak Attack
 2												AUTO:FEAT|Underworld Contact
 3					ABILITY:Talent|AUTOMATIC|Opportunist
@@ -145,7 +145,7 @@ CLASS:Mystery Man	HD:8		TYPE:Advanced.PC	ABB:MstM		MAXLEVEL:10	SOURCEPAGE:p.105	
 # Class Name	Req. Att.	Required Feat			Multiple Requirements
 CLASS:Mystery Man	PREATT:3	PREFEAT:1,Secret Identity	PREMULT:2,[PRESKILL:3,Intimidate=6,Investigate=6,Sense Motive=6],[PRESKILL:1,Tumble=8,TYPE.Perform=8]
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Mystery Man	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Drive|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Investigate|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Pilot|Profession|Read/Write Language|Research|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Tumble
+CLASS:Mystery Man	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Drive|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Investigate|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Pilot|Profession|READ/WRITE LANGUAGE|Research|Search|Sense Motive|Sleight of Hand|SPEAK LANGUAGE|Spot|Tumble
 1	ADD:FEAT|Two Fisted Action	AUTO:FEAT|Charming
 2						AUTO:FEAT|Art of Evasion|Over Sight
 3						AUTO:FEAT|Frightful Presence|Improved Investigation
@@ -162,7 +162,7 @@ CLASS:Mystic	HD:8		TYPE:Advanced.PC	ABB:Mstc		MAXLEVEL:10	SOURCEPAGE:p.108	BONUS
 # Class Name	Req. Att.	Required Feat							Required Skill
 CLASS:Mystic	PREATT:3	PREFEAT:2,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Jump=3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Mystic	STARTSKILLPTS:3	CSKILL:Balance|Climb|Escape Artist|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Move Silently|Perform (Dance)|Profession|Read/Write Language|Speak Language|Spot|Tumble
+CLASS:Mystic	STARTSKILLPTS:3	CSKILL:Balance|Climb|Escape Artist|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Move Silently|Perform (Dance)|Profession|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Spot|Tumble
 ###Block: Unarmed Damage
 1	UDAM:1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6
 2	UDAM:1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6,1d6
@@ -191,7 +191,7 @@ CLASS:News Hound	HD:6		TYPE:Advanced.PC	ABB:NHnd		MAXLEVEL:10	SOURCEPAGE:p.109	B
 # Class Name	Required Skill							Required Stat
 CLASS:News Hound	PRESKILL:3,Bluff=8,Diplomacy=8,Gather Information=8	PRESTAT:2,INT=12,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:News Hound	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Craft (Visual Arts)|Craft (Writing)|Concentration|Diplomacy|Disguise|Gather Information|Hide|Intimidate|Jump|TYPE=Knowledge|Profession|Research|Read/Write Language|Speak Language|Spot|Survival|Swim
+CLASS:News Hound	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Craft (Visual Arts)|Craft (Writing)|Concentration|Diplomacy|Disguise|Gather Information|Hide|Intimidate|Jump|TYPE=Knowledge|Profession|Research|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Spot|Survival|Swim
 1												AUTO:FEAT|Journalistic Sense
 2												AUTO:FEAT|Alertness|Ally
 3												AUTO:FEAT|Danger Sense
@@ -206,7 +206,7 @@ CLASS:Operator	HD:8		TYPE:Advanced.PC	ABB:Oprt		MAXLEVEL:10	SOURCEPAGE:p.111	BON
 # Class Name	Req. Att.	Required Feat										Required Skill
 CLASS:Operator	PREATT:4	PREFEAT:3,Fade to Black,Information Network,Licensed and Authorized	PRESKILL:3,Investigate=4,Research=2,Sense Motive=2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Operator	STARTSKILLPTS:6	CSKILL:Concentration|Disguise|Drive|Forgery|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Search|Sense Motive|Speak Language|Spot
+CLASS:Operator	STARTSKILLPTS:6	CSKILL:Concentration|Disguise|Drive|Forgery|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|READ/WRITE LANGUAGE|Search|Sense Motive|SPEAK LANGUAGE|Spot
 1																					AUTO:FEAT|Improved Information Network
 2																					AUTO:FEAT|Breadth of Knowledge
 3	BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0	ADD:FEAT|TYPE=Operator
@@ -244,7 +244,7 @@ CLASS:Scientist	HD:8		TYPE:Advanced.PC	ABB:Scnt		MAXLEVEL:10	SOURCEPAGE:p.116	BO
 # Class Name	Multiple Requirements
 CLASS:Scientist	PREMULT:3,[PRESKILL:1,Craft (Chemical)=6,Craft (Electronic)=6],[PRESKILL:1,Knowledge (Earth and Life Sciences)=6,Knowledge (Physical Sciences)=6,Knowledge (Technology)=6],[PRESKILL:1,Research=6]
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Scientist	STARTSKILLPTS:7	CSKILL:Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Drive|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Research|Search|Speak Language
+CLASS:Scientist	STARTSKILLPTS:7	CSKILL:Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Drive|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|Pilot|Profession|READ/WRITE LANGUAGE|Research|Search|SPEAK LANGUAGE
 1							AUTO:FEAT|Smart Defense
 2							AUTO:FEAT|Scientific Improvisation
 3	ADD:FEAT|TYPE=Scientist
@@ -287,7 +287,7 @@ CLASS:Spy		HD:8		TYPE:Advanced.PC	ABB:Spy		MAXLEVEL:10	SOURCEPAGE:p.121	BONUS:SA
 # Class Name	Required Language	Required Skill					Required Stat
 CLASS:Spy		PRELANG:2,ANY	PRESKILL:2,Diplomacy=8,Sense Motive=8	PRESTAT:1,CHA=15
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Spy		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Disable Device|Decipher Script|Diplomacy|Disguise|Demolitions|Drive|Escape Artist|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Read/Write Language|Search|Sense Motive|Speak Language|Spot|Tumble|Swim
+CLASS:Spy		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Disable Device|Decipher Script|Diplomacy|Disguise|Demolitions|Drive|Escape Artist|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|READ/WRITE LANGUAGE|Search|Sense Motive|SPEAK LANGUAGE|Spot|Tumble|Swim
 1	BONUS:VAR|AssumeIdentityNum|(CL+2)/3						AUTO:FEAT|Assumed Identity
 2								ADD:FEAT|Language Training	AUTO:FEAT|Extend Cover
 3													AUTO:FEAT|License to Kill
@@ -303,7 +303,7 @@ CLASS:Weird Inventor	HD:6		TYPE:Advanced.PC	ABB:WInv		MAXLEVEL:10	SOURCEPAGE:p.1
 # Class Name		Multiple Requirements
 CLASS:Weird Inventor	PREMULT:3,[PRESKILL:1,TYPE.Knowledge=8],[PRESKILL:1,Repair=8],[PRESKILL:1,Craft (Mechanical)=8,Craft (Structural)=8]
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Weird Inventor	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Research|Speak Language|Knowledge (Weird Science)
+CLASS:Weird Inventor	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Chemical)|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Craft (Pharmaceutical)|Decipher Script|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|Pilot|Profession|READ/WRITE LANGUAGE|Repair|Research|SPEAK LANGUAGE|Knowledge (Weird Science)
 1						AUTO:FEAT|Jury Rig|Weird Scientist Gadget Creation
 2	ADD:FEAT|Academic Mastery
 3						AUTO:FEAT|Improve Craft - Weird Inventor|Jury Rig

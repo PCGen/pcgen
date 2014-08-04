@@ -6,7 +6,7 @@ CLASS:Believer	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:SAVE|BASE
 # Class Name	Required Feat								Required Skill							Required Text
 CLASS:Believer	PREFEAT:2,Conviction (Higher Power),Faith's Protection	PRESKILL:1,Knowledge (Theology and Philosophy)=6	PRETEXT:Higher Power Allegiance
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Believer	STARTSKILLPTS:6	CSKILL:Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|Read/Write Language|Research|Sense Motive|Treat Injury
+CLASS:Believer	STARTSKILLPTS:6	CSKILL:Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|READ/WRITE LANGUAGE|Research|Sense Motive|Treat Injury
 ###Block: Turning
 1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
 1	BONUS:VAR|TurnLevel|CL			DEFINE:ExtraTurningQual|1
@@ -27,7 +27,7 @@ CLASS:Cultist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:SAVE|BASE.
 # Class Name	Required Feat						Required Skill					Required Text
 CLASS:Cultist	PREFEAT:2,Conviction (Dark Power),Educated	PRESKILL:1,Knowledge (Arcane Lore)=6	PRETEXT:The character?s first allegiance must be to a Dark Power.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cultist	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Chemical)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|Read/Write Language|Speak Language|Research
+CLASS:Cultist	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Chemical)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Research
 ###Block: Turning
 1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
 1	BONUS:VAR|TurnLevel|CL			DEFINE:ExtraTurningQual|1

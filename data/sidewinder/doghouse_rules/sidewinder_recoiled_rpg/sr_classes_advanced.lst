@@ -7,7 +7,7 @@ CLASS:Bounty Hunter	HD:8		TYPE:PC.Prestige	ABB:Bhr		MAXLEVEL:10	SOURCEPAGE:p.165
 # Class Name		Req. Att.	Required Feat	Required Skill
 CLASS:Bounty Hunter	PREATT:2	PREFEAT:1,Track	PRESKILL:1,Gather Information=3	PRESKILL:1,Survival=6
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Bounty Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Gather Information|Hide|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Ride|Search|Sense Motive|Speak Language|Survival|Treat Injury
+CLASS:Bounty Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Gather Information|Hide|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Ride|Search|Sense Motive|SPEAK LANGUAGE|Survival|Treat Injury
 1	SAB:Nowhere to Run
 2	SAB:Hogtying
 3						ADD:FEAT|TYPE=BountyHunter
@@ -41,7 +41,7 @@ CLASS:Desperado	HD:10		TYPE:PC.Prestige	ABB:Dsp		MAXLEVEL:10	SOURCEPAGE:p.169	BO
 # Class Name	Req. Att.	Required Feat			Required Skill
 CLASS:Desperado	PREATT:2	PREFEAT:2,Confident,Toughness	PRESKILL:1,Intimidate=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Desperado	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Demolitions|Gamble|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Ride|Speak Language|Survival
+CLASS:Desperado	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Demolitions|Gamble|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Ride|SPEAK LANGUAGE|Survival
 1			SAB:Fearless
 2	DR:1/-	SAB:Ornery										BONUS:VAR|ToughDamageReduction|1
 3																				ADD:FEAT|TYPE=Desperado
@@ -58,7 +58,7 @@ CLASS:Grifter	HD:6		TYPE:PC.Prestige	ABB:Gft		MAXLEVEL:10	SOURCEPAGE:p.171	BONUS
 # Class Name	Required Feat		Required Skill
 CLASS:Grifter	PREFEAT:1,Deceptive	PRESKILL:2,Bluff=6,Diplomacy=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Grifter	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gamble|Gather Information|Hide|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Perform (Act)|Perform (Stand-Up)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language|Spot
+CLASS:Grifter	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gamble|Gather Information|Hide|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Perform (Act)|Perform (Stand-Up)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|SPEAK LANGUAGE|Spot
 1	SAB:Work the Crowd
 2	SAB:Silver Tongue		BONUS:SKILL|Bluff|CL/2	BONUS:SKILL|Diplomacy|CL/2
 3														ADD:FEAT|TYPE=Grifter
@@ -75,7 +75,7 @@ CLASS:Gunslinger	HD:10		TYPE:PC.Prestige	ABB:Gns		MAXLEVEL:10	SOURCEPAGE:p.173	B
 # Class Name	Req. Att.	Required Feat							Required Skill
 CLASS:Gunslinger	PREATT:2	PREFEAT:2,Personal Firearms Proficiency,Quick Draw	PRESKILL:1,Sleight of Hand=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Balance|Escape Artist|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot|Tumble
+CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Balance|Escape Artist|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Ride|Sleight of Hand|SPEAK LANGUAGE|Spot|Tumble
 1	SAB:Greased Lightning								BONUS:COMBAT|INITIATIVE|(CL-1)/2+1
 2																		ADD:FEAT|Weapon Focus
 3																		ADD:FEAT|TYPE=Gunslinger
@@ -92,7 +92,7 @@ CLASS:Maverick	HD:8		TYPE:PC.Prestige	ABB:Mvk		MAXLEVEL:10	SOURCEPAGE:p.175	BONU
 # Class Name	Required Feat		Required Skill
 CLASS:Maverick	PREFEAT:1,Card Sharp	PRESKILL:1,Gamble=6	PRESKILL:1,Sleight of Hand=3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Maverick	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disguise|Escape Artist|Forgery|Gamble|Gather Information|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Perform (Stand-Up)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language|Spot
+CLASS:Maverick	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disguise|Escape Artist|Forgery|Gamble|Gather Information|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Perform (Stand-Up)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|SPEAK LANGUAGE|Spot
 1	SAB:Poker Face
 2	SAB:Ace in the Hole
 3												ADD:FEAT|TYPE=Maverick
@@ -126,7 +126,7 @@ CLASS:Pony Soldier	HD:10		TYPE:PC.Prestige	ABB:Psl		MAXLEVEL:10	SOURCEPAGE:p.179
 # Class Name		Req. Att.	Required Feat								Required Skill
 CLASS:Pony Soldier	PREATT:2	PREFEAT:2,Defensive Riding,Personal Firearms Proficiency	PRESKILL:1,Ride=6
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Pony Soldier	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Demolitions|Handle Animal|Intimidate|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Navigate|Profession|Read/Write Language|Ride|Search|Speak Language|Spot
+CLASS:Pony Soldier	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Demolitions|Handle Animal|Intimidate|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Navigate|Profession|Read/Write Language|Ride|Search|SPEAK LANGUAGE|Spot
 1	SAB:Born in the Saddle +%|BornInTheSaddle						DEFINE:BornInTheSaddle|2
 2	SAB:Effortless Control
 3																		ADD:FEAT|TYPE=PonySoldier
@@ -143,7 +143,7 @@ CLASS:Preacher	HD:6		TYPE:PC.Prestige	ABB:Pre		MAXLEVEL:10	SOURCEPAGE:p.180	BONU
 # Class Name	Required Feat		Required Skill
 CLASS:Preacher	PREFEAT:1,Trustworthy	PRESKILL:2,Knowledge (Theology and Philosophy)=6,Sense Motive=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Preacher	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Visual Art)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Handle Animal|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Perform (Act)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Research|Sense Motive|Speak Language|Treat Injury
+CLASS:Preacher	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Visual Art)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Handle Animal|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Perform (Act)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|Research|Sense Motive|SPEAK LANGUAGE|Treat Injury
 1	SAB:Sermon
 2	SAB:Righteous Fury
 3									ADD:FEAT|TYPE=Preacher
@@ -160,7 +160,7 @@ CLASS:Professor	HD:6		TYPE:PC.Prestige	ABB:Pro		MAXLEVEL:10	SOURCEPAGE:p.182	BON
 # Class Name	Required Feat		Required Skill
 CLASS:Professor	PREFEAT:1,Educated	PRESKILL:1,Research=6	PRESKILL:1,Craft (Chemical)=6,Craft (Electric)=6,Craft (Mechanical)=6,Craft (Writing)=6	PRESKILL:1,Knowledge (Behavioral Sciences)=6,Knowledge (Earth and Life Sciences)=6,Knowledge (History)=6,Knowledge (Physical Sciences)=6,Knowledge (Technology)=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Professor	STARTSKILLPTS:8	CSKILL:Craft (Chemical)|Craft (Electric)|Craft (Mechanical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Navigate|Operate Vehicle (Aircraft)|Operate Vehicle (Ground Vehicles)|Operate Vehicle (Watercraft)|Profession|Read/Write Language|Repair|Research|Search|Speak Language
+CLASS:Professor	STARTSKILLPTS:8	CSKILL:Craft (Chemical)|Craft (Electric)|Craft (Mechanical)|Craft (Pharmaceutical)|Craft (Writing)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Navigate|Operate Vehicle (Aircraft)|Operate Vehicle (Ground Vehicles)|Operate Vehicle (Watercraft)|Profession|Read/Write Language|Repair|Research|Search|SPEAK LANGUAGE
 1										AUTO:FEAT|Smart Defense
 2										AUTO:FEAT|Quick Wits
 3	ADD:FEAT|TYPE=Professor
@@ -177,7 +177,7 @@ CLASS:Pugilist	HD:10		TYPE:PC.Prestige	ABB:Pug		MAXLEVEL:10	SOURCEPAGE:p.183	BON
 # Class Name	Req. Att.	Required Feat
 CLASS:Pugilist	PREATT:3	PREFEAT:2,Combat Martial Arts,Defensive Martial Arts
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Pugilist	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Escape Artist|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Perform (Dance)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|Speak Language|Tumble
+CLASS:Pugilist	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Escape Artist|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Perform (Dance)|Profession|Read/Write Language|Sense Motive|Sleight of Hand|SPEAK LANGUAGE|Tumble
 1	SAB:Bruiser 1d%|BruiserDie								DEFINE:BruiserDie|6
 2	SAB:Dukes Up
 3																	ADD:FEAT|TYPE=Pugilist
@@ -194,7 +194,7 @@ CLASS:Rifleman	HD:10		TYPE:PC.Prestige	ABB:Rif		MAXLEVEL:10	SOURCEPAGE:p.185	BON
 # Class Name	Req. Att.	Required Feat								Required Skill
 CLASS:Rifleman	PREATT:2	PREFEAT:3,Far Shot,Gunplay,Personal Firearms Proficiency	PRESKILL:1,Sleight of Hand=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Rifleman	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot
+CLASS:Rifleman	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Profession|Read/Write Language|Ride|Sleight of Hand|SPEAK LANGUAGE|Spot
 1	SAB:Powder Burns
 2					ADD:FEAT|Weapon Focus
 3					ADD:FEAT|TYPE=Rifleman
@@ -211,7 +211,7 @@ CLASS:Rustler	HD:8		TYPE:PC.Prestige	ABB:Rus		MAXLEVEL:10	SOURCEPAGE:p.187	BONUS
 # Class Name	Req. Att.	Required Feat	Required Skill
 CLASS:Rustler	PREATT:2	PREFEAT:1,Dodge	PRESKILL:2,Hide=6,Move Silently=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Rustler	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Disable Device|Escape Artist|Handle Animal|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot|Tumble
+CLASS:Rustler	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Disable Device|Escape Artist|Handle Animal|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Ride|Sleight of Hand|SPEAK LANGUAGE|Spot|Tumble
 1	SAB:Sweep
 2	SAB:High-Tail It
 3					ADD:FEAT|TYPE=Rustler
@@ -228,7 +228,7 @@ CLASS:Sawbones	HD:6		TYPE:PC.Prestige	ABB:Saw		MAXLEVEL:10	SOURCEPAGE:p.189	BONU
 # Class Name	Required Feat	Required Skill
 CLASS:Sawbones	PREFEAT:1,Surgery	PRESKILL:2,Craft (Pharmaceutical)=6,Treat Injury=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Sawbones	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Pharmaceutical)|Diplomacy|Handle Animal|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Read/Write Language|Research|Ride|Search|Speak Language|Treat Injury
+CLASS:Sawbones	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Pharmaceutical)|Diplomacy|Handle Animal|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Profession|Read/Write Language|Research|Ride|Search|SPEAK LANGUAGE|Treat Injury
 1	SAB:Patch 'em Up			BONUS:SKILL|Treat Injury|CL/2
 2	SAB:Expert Healer
 3											ADD:FEAT|TYPE=Sawbones
@@ -245,7 +245,7 @@ CLASS:Scout		HD:10		TYPE:PC.Prestige	ABB:Sco		MAXLEVEL:10	SOURCEPAGE:p.190	BONUS
 # Class Name	Req. Att.	Required Feat	Required Skill
 CLASS:Scout		PREATT:2	PREFEAT:1,Track	PRESKILL:2,Spot=6,Survival=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Scout		STARTSKILLPTS:4	CSKILL:Climb|Concentration|Diplomacy|Handle Animal|Hide|Jump|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Listen|Move Silently|Navigate|Profession|Read/Write Language|Ride|Speak Language|Spot|Survival|Swim
+CLASS:Scout		STARTSKILLPTS:4	CSKILL:Climb|Concentration|Diplomacy|Handle Animal|Hide|Jump|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Listen|Move Silently|Navigate|Profession|Read/Write Language|Ride|SPEAK LANGUAGE|Spot|Survival|Swim
 1					ADD:FEAT|Terrain Specialization
 2	SAB:Hard to Follow
 3					ADD:FEAT|TYPE=Scout
@@ -262,7 +262,7 @@ CLASS:Showman	HD:6		TYPE:PC.Prestige	ABB:Sho		MAXLEVEL:10	SOURCEPAGE:p.192	BONUS
 # Class Name	Required Feat	Required Skill
 CLASS:Showman	PREFEAT:1,Renown	PRESKILL:2,Diplomacy=6,TYPE.Perform=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Showman	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Disguise|Gather Information|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Perform (Act)|Perform (Dance)|Perform (Keyboards)|Perform (Percussion Instruments)|Perform (Sing)|Perform (Stand-Up)|Perform (Stringed Instruments)|Perform (Wind Instruments)|Profession|Read/Write Language|Speak Language
+CLASS:Showman	STARTSKILLPTS:6	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Disguise|Gather Information|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Perform (Act)|Perform (Dance)|Perform (Keyboards)|Perform (Percussion Instruments)|Perform (Sing)|Perform (Stand-Up)|Perform (Stringed Instruments)|Perform (Wind Instruments)|Profession|Read/Write Language|SPEAK LANGUAGE
 1	SAB:Notoriety
 2																									ADD:CLASSSKILLS|3|NONEXCLUSIVE
 3																									ADD:FEAT|TYPE=Showman
@@ -279,7 +279,7 @@ CLASS:Soldier	HD:10		TYPE:PC.Prestige	ABB:Sol		MAXLEVEL:10	SOURCEPAGE:p.194	BONU
 # Class Name	Req. Att.	Required Feat					Required Skill
 CLASS:Soldier	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Demolitions|Handle Animal|Intimidate|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Navigate|Profession|Read/Write Language|Ride|Speak Language|Spot|Survival|Swim
+CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Demolitions|Handle Animal|Intimidate|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Navigate|Profession|Read/Write Language|Ride|SPEAK LANGUAGE|Spot|Survival|Swim
 1																												ADD:FEAT|Weapon Focus
 2									BONUS:ABILITYPOOL|Weapon Specialization|1			BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0
 3																		BONUS:VAR|WeapSpecQualify|-1						ADD:FEAT|TYPE=Soldier
