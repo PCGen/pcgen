@@ -38,7 +38,7 @@ CLASS:Student of War	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:SoW		MAXLEVEL:10	S
 CLASS:Student of War	PREFEAT:2,Combat Expertise,Dodge PREFEAT:1,Skill Focus (Knowledge%)	PRESKILL:2,TYPE.Knowledge=4	PRETEXT:Must have made successful Knowledge checks against five distinct creatures prior to defeating them	PREWEAPONPROF:2,TYPE.Martial,TYPE.Martial
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Student of War	STARTSKILLPTS:6	CSKILL:Climb|TYPE=Craft|Disable Device|Handle Animal|TYPE=Knowledge|Linguistics|Perception|TYPE=Profession|Sense Motive|Spellcraft|Survival|Swim
-1								BONUS:VAR|SoWKnowEnemy|1	BONUS:VAR|SoWDuration|CL	ABILITY:Special Ability|AUTOMATIC|Student of War ~ Know Your Enemy|Stances ~ SoW
+1								BONUS:VAR|SoWKnowEnemy|1	BONUS:VAR|SoWDuration|CL	ABILITY:Special Ability|AUTOMATIC|Stances ~ SoW|Student of War ~ Know Your Enemy
 2	BONUS:ABILITYPOOL|Fighter Bonus Feat|1											ABILITY:Special Ability|AUTOMATIC|Student of War ~ Mind Over Metal
 3								BONUS:VAR|SoWAnticipateTimes|CL/3					ABILITY:Special Ability|AUTOMATIC|Student of War ~ Anticipate
 4								BONUS:VAR|SoWKnowEnemy|1

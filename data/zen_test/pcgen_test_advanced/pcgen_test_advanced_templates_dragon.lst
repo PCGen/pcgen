@@ -12,7 +12,7 @@ SIZE_MASTER
 #	ABILITY:Internal|AUTOMATIC|FACE_30|PRESIZEEQ:P	ABILITY:Internal|AUTOMATIC|REACH_30|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_20|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,1
 
 
-Black Dragon	HD:1:ABILITY:Special Ability|AUTOMATIC|Acid Pool ~ Black Dragon	HD:1:TEMPLATE:Dragon (Tiny)
+Black Dragon	HD:1-1:ABILITY:Special Ability|AUTOMATIC|Acid Pool ~ Black Dragon	HD:1-1:TEMPLATE:Dragon (Tiny)
 #HD:6-7:TEMPLATE:Dragon (Small)	HD:6-7:TEMPLATE:Dragon (Small)	HD:8-11:TEMPLATE:Dragon (Medium)	HD:12-17:TEMPLATE:Dragon (Large)	HD:18-23:TEMPLATE:Dragon (Huge)	HD:24+:TEMPLATE:Dragon (Gargantuan)
 
 SOURCELONG:PCGen Testing Set	SOURCESHORT:PTS	SOURCEWEB:http://pcgen.sourceforge.net

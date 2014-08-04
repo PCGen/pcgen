@@ -7,8 +7,8 @@
 
 
 # Ability Name	Category of Ability		Type						Required Ability										Multiple?	Choose							Ability
-Master Ability	CATEGORY:Special Ability	TYPE:Test777.SpecialQuality														MULT:YES	CHOOSE:ABILITY|Special Ability|TYPE=CaseExample	ABILITY:Special Ability|AUTOMATIC|Granted Choice|PREABILITY:1,CATEGORY=Special Ability,Master Ability(Second Choice)
+Master Ability	CATEGORY:Special Ability	TYPE:Test777.SpecialQuality														MULT:YES	CHOOSE:ABILITY|Special Ability|TYPE=CaseExample	ABILITY:Special Ability|AUTOMATIC|Granted Choice|PREABILITY:1,CATEGORY=Special Ability,Master Ability (Second Choice)
 
 Second Choice	CATEGORY:Special Ability	TYPE:CaseExample.SpecialQuality
 Granted Choice	CATEGORY:Special Ability	TYPE:SpecialQuality
-Master Ability 2	CATEGORY:Special Ability	TYPE:Test777.SpecialQuality		PREABILITY:1,CATEGORY=Special Ability,Master Ability(Second Choice)
+Master Ability 2	CATEGORY:Special Ability	TYPE:Test777.SpecialQuality		PREABILITY:1,CATEGORY=Special Ability,Master Ability (Second Choice)

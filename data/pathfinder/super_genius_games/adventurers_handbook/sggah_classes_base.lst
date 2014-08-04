@@ -61,8 +61,8 @@ CLASS:Death Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 ###Block:Basic Class Abilities
 1	ABILITY:Special Ability|AUTOMATIC|Armored Casting ~ Death Mage|Cantrips ~ Death Mage
 ###Block:Domain hack to get around DOMAIN being illegal in abilities lst
-1	DOMAIN:Death[PREABILITY:1,CATEGORY=Special Ability,Death Domain ~ Death Mage]
-1	DOMAIN:Repose[PREABILITY:1,CATEGORY=Special Ability,Repose Domain ~ Death Mage]
+1	DOMAIN:Death|PREABILITY:1,CATEGORY=Special Ability,Death Domain ~ Death Mage
+1	DOMAIN:Repose|PREABILITY:1,CATEGORY=Special Ability,Repose Domain ~ Death Mage
 ###Block:Level progression
 1						BONUS:ABILITYPOOL|Death Mage Pale Road|1	BONUS:VAR|DeathMagePaleRoadTimes|3+CHA	BONUS:VAR|DeathMagePaleRoadDC|10+CL/2+CHA	DEFINE:DeathMagePaleRoadTimes|0	DEFINE:DeathMagePaleRoadDC|0
 2																																						ABILITY:Special Ability|AUTOMATIC|Voice of the Dead ~ Death Mage

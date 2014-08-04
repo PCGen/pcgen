@@ -76,7 +76,7 @@ FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount	HD:1																													
 ###Block:Familiar - No apparent changes from RSRD
 # Class of the Master	Type			Spell Res.	Ability												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define a Stat			Combat bonus					Main Race Type
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Companion ~ Share Spells																		DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|Improved Evasion																		DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast
 FOLLOWER:FamiliarLVL=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Deliver Touch Spells																				DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:FamiliarLVL=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Master																				DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:FamiliarLVL=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Animals of Its Kind																		DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK

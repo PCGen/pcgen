@@ -51,7 +51,7 @@ CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Fly
 # Class Name	Hit Dice	Type						Max Level	Source Page		Ability																		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Cryptic	HD:8		TYPE:Base.Psionic.PC.Intuitive	MAXLEVEL:20	SOURCEPAGE:p.34	ABILITY:Internal|AUTOMATIC|Disable Device Class Skill|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticDisableDevice	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cryptic	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Autohypnosis|Climb|TYPE.Craft|Disguise|Escape Artist|TYPE.Knowledge|Linguistics|Perception|TYPE.Perform|TYPE.Profession|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Swim|Use Magic Device
+CLASS:Cryptic	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Autohypnosis|Climb|TYPE=Craft|Disguise|Escape Artist|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Cryptic	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Cryptic|CL
 
@@ -114,7 +114,7 @@ CLASS:Cryptic	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Cryp
 # Class Name	Hit Dice	Type						Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Dread		HD:8		TYPE:Base.Psionic.PC.Self-Taught	MAXLEVEL:20	SOURCEPAGE:p.43	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Dread		STARTSKILLPTS:6	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE.Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE.Profession|Sense Motive|Spellcraft|Stealth|Swim
+CLASS:Dread		STARTSKILLPTS:6	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Sense Motive|Spellcraft|Stealth|Swim
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Dread		SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Dread|CL
 
@@ -258,11 +258,11 @@ SUBCLASS:Constructor	COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Shaper	CSKILL:Autoh
 SUBCLASSLEVEL:1	BONUS:VAR|MetacreativityDisciplineLVL|CL		ABILITY:Psion Class Feature|AUTOMATIC|Constructor Advanced Discipline
 SUBCLASS:Erudite		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion			CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 SUBCLASSLEVEL:1	BONUS:VAR|GeneralistDisciplineLVL|CL		ABILITY:Psion Class Feature|AUTOMATIC|Erudite Advanced Discipline
-SUBCLASS:Insight		COST:0	PROHIBITCOST:0	SPELLLIST:2|Seer|Psion		CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Diplomacy|Perception
+SUBCLASS:Insight		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Seer		CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Diplomacy|Perception
 SUBCLASSLEVEL:1	BONUS:VAR|ClairsentienceDisciplineLVL|CL		ABILITY:Psion Class Feature|AUTOMATIC|Insight Advanced Discipline
-SUBCLASS:Jaunting		COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion		CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Climb|Fly|Survival|Swim
+SUBCLASS:Jaunting		COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion		CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Climb|Fly|Survival|Swim
 SUBCLASSLEVEL:1	BONUS:VAR|PsychoportationDisciplineLVL|CL		ABILITY:Psion Class Feature|AUTOMATIC|Jaunting Advanced Discipline
-SUBCLASS:Mindbender	COST:0	PROHIBITCOST:0	SPELLLIST:2|Telepath|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Bluff|Diplomacy|Sense Motive
+SUBCLASS:Mindbender	COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Telepath	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Bluff|Diplomacy|Sense Motive
 SUBCLASSLEVEL:1	BONUS:VAR|TelepathyDisciplineLVL|CL			ABILITY:Psion Class Feature|AUTOMATIC|Mindbender Advanced Discipline
 SUBCLASS:Transmogrifist	COST:0	PROHIBITCOST:0	SPELLLIST:2|Egoist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Acrobatics|Heal
 SUBCLASSLEVEL:1	BONUS:VAR|PsychometabolismDisciplineLVL|CL	ABILITY:Psion Class Feature|AUTOMATIC|Transmogrifist Advanced Discipline
@@ -424,7 +424,7 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|
 # Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
 CLASS:Tactician	HD:8		TYPE:Base.Psionic.PC.Trained	MAXLEVEL:20	SOURCEPAGE:p.64	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Tactician	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Climb|TYPE.Craft|Diplomacy|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Psionics)|Linguistics|Perception|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Spellcraft|Swim|Use Magic Device
+CLASS:Tactician	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Climb|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Psionics)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Tactician	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Tactician|CL
 
@@ -676,7 +676,7 @@ CLASS:Gifted Blade Marksman Power List	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:
 
 # Class Name
 CLASS:Wizard.MOD
-SUBCLASS:Psychic Mage	SPELLLIST:2|Wizard|Psion
+SUBCLASS:Psychic Mage	SPELLLIST:2|Psion|Wizard
 #	CHOICE:SCHOOL|Psychic Mage
 SUBCLASSLEVEL:1	BONUS:VAR|PsychicMageLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Archetype|AUTOMATIC|Wizard Archetype ~ Psychic Mage|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 
@@ -733,7 +733,7 @@ CLASS:Body Snatcher	HD:6		TYPE:PC.Prestige.Psionic	MAXLEVEL:6	SOURCEPAGE:p.351	B
 # Class Name		Required Feat							Required Skill							Req. Known Spell					Var. Min. Value
 CLASS:Body Snatcher	PREFEAT:1,Extend Power	PREFEAT:2,TYPE=Metapsionic	PRESKILL:3,Bluff=10,Perform (Act)=3,Sense Motive=3	PRESPELL:2,Brain Lock,Conceal Thoughts	PREVARGTEQ:MaxManifesterLVL,10
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Body Snatcher	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Diplomacy|TYPE.Perform|Sense Motive|Spellcraft
+CLASS:Body Snatcher	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Diplomacy|TYPE=Perform|Sense Motive|Spellcraft
 
 ###Block: Body Snatcher class definitions
 1	BONUS:VAR|BodySnatcherPrimeStat|INT	DEFINE:BodySnatcherPrimeStat|0
@@ -1201,7 +1201,7 @@ CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Acrobatics|Autohypnosis|Climb|Intimi
 # Class Name		Hit Dice	Type					Max Level	Base class as subclass?	Source Page		Save checks bonus													Combat bonus						Modify VAR
 CLASS:Sighted Seeker	HD:8		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.378	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Req. Att.	Multiple Requirements												Required Skill						Var. Must Be Grater
-CLASS:Sighted Seeker	PREATT:4	PREMULT:1,[PREFEAT:1,Skill Focus(Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:3,Diplomacy=2,Perception=5,Survival=2	PREVARGT:TotalPowerPoints,0
+CLASS:Sighted Seeker	PREATT:4	PREMULT:1,[PREFEAT:1,Skill Focus (Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:3,Diplomacy=2,Perception=5,Survival=2	PREVARGT:TotalPowerPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sighted Seeker	STARTSKILLPTS:6	CSKILL:Diplomacy|Knowledge (Local)|Knowledge (Nature)|Knowledge (Psionics)|Perception|Sense Motive|Spellcraft|Stealth|Survival
 # Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level

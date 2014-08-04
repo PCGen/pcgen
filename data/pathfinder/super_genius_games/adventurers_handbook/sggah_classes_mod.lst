@@ -4,4 +4,4 @@ SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCE
 
 # Class Name
 CLASS:Druid.MOD
-1	DOMAIN:Cold Iron[PREMULT:2,[PREVAREQ:DruidColdIronAllowed,1],[PREVARLT:DruidColdIronNotAllowed,1]]
+1	DOMAIN:Cold Iron|PREMULT:2,[PREVAREQ:DruidColdIronAllowed,1],[PREVARLT:DruidColdIronNotAllowed,1]

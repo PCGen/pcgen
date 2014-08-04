@@ -31,4 +31,3 @@ CLASS:Shaitan Binder Eidolon (Ref/Will)	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.C
 CLASS:Shaitan Binder Eidolon (Ref/Will)	PRERACETYPE:Shaitan Binder Eidolon
 # Class Name					Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Shaitan Binder Eidolon (Ref/Will)	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledge (Planes)|Perception|Sense Motive|Stealth
-

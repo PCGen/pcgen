@@ -4,7 +4,7 @@ SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny		SOURCESHORT:AP55
 # ORIGINAL ENTRY DATE: 2012-12
 
 # Equipment Name							Required Weapon Proficiency		Type																	Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier						Wield Category	Range		Size		Source Page		Special Property
-Boarding Pike of Repelling					PROFICIENCY:WEAPON|Boarding Pike	TYPE:Weapon.Resizable.Melee.TwoHanded.Simple.Reach.Standard.Piercing.Specific					COST:2308	WT:9		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:MAGIC_COST|2000.PLUS1W.BRACE.STEEL	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.58	SPROP:Extend as a swift action giving reach of 20 feet for 1 round.
+Boarding Pike of Repelling					PROFICIENCY:WEAPON|Boarding Pike	TYPE:Weapon.Resizable.Melee.TwoHanded.Simple.Reach.Standard.Piercing.Specific					COST:2308	WT:9		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:BRACE.MAGIC_COST|2000.PLUS1W.STEEL	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.58	SPROP:Extend as a swift action giving reach of 20 feet for 1 round.
 Tidewater Cutlass							PROFICIENCY:WEAPON|Cutlass		TYPE:Weapon.Resizable.Melee.OneHanded.Martial.Standard.Slashing.Sword.Pirate.BladeHeavy.Specific	COST:1395	WT:4		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6	EQMOD:MAGIC_COST|2000.PLUS1W.STEEL		WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.58	SPROP:Cast hydraulic push once per day.
 Vindictive Harpoon						PROFICIENCY:WEAPON|Harpoon		TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Ranged.Standard.Slashing.Sword.Specific			COST:2305	WT:16		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:MAGIC_COST|8000.PLUS1W.RETURN.STEEL	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.58	SPROP:Wielder takes no penalties on attack rolls underwater.
 

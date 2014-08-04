@@ -6,7 +6,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 ###Block: Wondrous Items
 
 # Equipment Name		Type								Cost		Weight	Define									Modifier			Requires Modification?	Source Page		Modify the item cost
-Amulet of Mighty Fists	TYPE:Magic.Wondrous.Amulet.AmuletOfMightyFists	COST:0	WT:0.02	DEFINE:MightyFistValue|5	DEFINE:AmuletMightyFistPool|0	EQMOD:MightyFist_AMF	MODS:REQUIRED		SOURCEPAGE:p.496	BONUS:ITEMCOST|TYPE.AmuletOfMightyFists|4000|PRETYPE:1,EQMODTYPE=AmuletOfMightyFists	BONUS:ITEMCOST|TYPE.AmuletOfMightyFists|12000|PRETYPE:2,EQMODTYPE=AmuletOfMightyFists	BONUS:ITEMCOST|TYPE.AmuletOfMightyFists|20000|PRETYPE:3,EQMODTYPE=AmuletOfMightyFists	BONUS:ITEMCOST|TYPE.AmuletOfMightyFists|28000|PRETYPE:4,EQMODTYPE=AmuletOfMightyFists	BONUS:ITEMCOST|TYPE.AmuletOfMightyFists|36000|PRETYPE:5,EQMODTYPE=AmuletOfMightyFists
+Amulet of Mighty Fists	TYPE:Magic.Wondrous.Amulet.AmuletOfMightyFists	COST:0	WT:0.02	DEFINE:MightyFistValue|5	DEFINE:AmuletMightyFistPool|0	EQMOD:MightyFist_AMF	MODS:REQUIRED		SOURCEPAGE:p.496	BONUS:ITEMCOST|TYPE.AmuletOfMightyFists|4000|PRETYPE:1,EQMODTYPE=AmuletOfMightyFists	BONUS:ITEMCOST|TYPE.AmuletOfMightyFists|12000|PRETYPE:1,EQMODTYPE=AmuletOfMightyFists	BONUS:ITEMCOST|TYPE.AmuletOfMightyFists|20000|PRETYPE:1,EQMODTYPE=AmuletOfMightyFists	BONUS:ITEMCOST|TYPE.AmuletOfMightyFists|28000|PRETYPE:1,EQMODTYPE=AmuletOfMightyFists	BONUS:ITEMCOST|TYPE.AmuletOfMightyFists|36000|PRETYPE:1,EQMODTYPE=AmuletOfMightyFists
 
 
 ###Block: Wondrous Items

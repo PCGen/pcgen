@@ -13,16 +13,16 @@ CLASS:Barbarian	STARTSKILLPTS:4
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
 ###Block: Level Progression
-1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage|PREVARGTEQ:BarbarianLVL,1|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRage
-1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|PREVARGTEQ:BarbarianLVL,1|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement
-2	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage Powers|PREVARGTEQ:BarbarianLVL,2|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePowers
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRage|PREVARGTEQ:BarbarianLVL,1
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement|PREVARGTEQ:BarbarianLVL,1
+2	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage Powers|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePowers|PREVARGTEQ:BarbarianLVL,2
 2	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Uncanny Dodge Tracker|PREVARGTEQ:BarbarianLVL,2
-3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|PREVARGTEQ:BarbarianLVL,3|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense
-7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|PREVARGTEQ:BarbarianLVL,7|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction
-11	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Greater Rage|PREVARGTEQ:BarbarianLVL,11|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianGreaterRage
-14	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Will|PREVARGTEQ:BarbarianLVL,14|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianIndomitableWill
-17	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Tireless Rage|PREVARGTEQ:BarbarianLVL,17|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTirelessRage
-20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Mighty Rage|PREVARGTEQ:BarbarianLVL,20|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianMightyRage
+3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense|PREVARGTEQ:BarbarianLVL,3
+7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction|PREVARGTEQ:BarbarianLVL,7
+11	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Greater Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianGreaterRage|PREVARGTEQ:BarbarianLVL,11
+14	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Will|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianIndomitableWill|PREVARGTEQ:BarbarianLVL,14
+17	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Tireless Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTirelessRage|PREVARGTEQ:BarbarianLVL,17
+20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Mighty Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianMightyRage|PREVARGTEQ:BarbarianLVL,20
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Ability																		Visible	Define							Save checks bonus											Combat bonus					Monster Role
 CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills	VISIBLE:NO	DEFINE:BarbarianLVL|CL	DEFINE:BarbarianLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	ROLE:Combat.Skill
@@ -72,15 +72,15 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4
 20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
 ###Block:
-1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|PREVARGTEQ:BardLVL,1|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicKnowledge
-1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Countersong|PREVARGTEQ:BardLVL,1|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCounterSong
-1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Performance|PREVARGTEQ:BardLVL,1|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicPerformance
-1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Armored Casting|PREVARGTEQ:BardLVL,1|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmoredCasting
-1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Cantrips|PREVARGTEQ:BardLVL,1|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCantrips
-2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Versatile Performance|PREVARGTEQ:BardLVL,2|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardVersatilePerformance
-2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Well-Versed|PREVARGTEQ:BardLVL,2|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWellVersed
-5	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Lore Master|PREVARGTEQ:BardLVL,5|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardLoreMaster
-10	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Jack of All Trades|PREVARGTEQ:BardLVL,10|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardJackOfAllTrades
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicKnowledge|PREVARGTEQ:BardLVL,1
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Countersong|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCounterSong|PREVARGTEQ:BardLVL,1
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Performance|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicPerformance|PREVARGTEQ:BardLVL,1
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Armored Casting|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmoredCasting|PREVARGTEQ:BardLVL,1
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Cantrips|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCantrips|PREVARGTEQ:BardLVL,1
+2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Versatile Performance|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardVersatilePerformance|PREVARGTEQ:BardLVL,2
+2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Well-Versed|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWellVersed|PREVARGTEQ:BardLVL,2
+5	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Lore Master|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardLoreMaster|PREVARGTEQ:BardLVL,5
+10	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Jack of All Trades|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardJackOfAllTrades|PREVARGTEQ:BardLVL,10
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Bonus Languages					Group of Prohibited Spells																																																																			Ability																	Define												Save checks bonus											Combat bonus					Add domain number					Modify VAR									Monster Role
@@ -155,13 +155,13 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Domains
 1	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomainSelection
 ###Block: Domain Selections
-0	DOMAIN:Air[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Air]
-0	DOMAIN:Animal[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Animal]
-0	DOMAIN:Earth[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Earth]
-0	DOMAIN:Fire[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Fire]
-0	DOMAIN:Plant[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Plant]
-0	DOMAIN:Water[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Water]
-0	DOMAIN:Weather[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Weather]
+0	DOMAIN:Air|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Air
+0	DOMAIN:Animal|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Animal
+0	DOMAIN:Earth|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Earth
+0	DOMAIN:Fire|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Fire
+0	DOMAIN:Plant|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Plant
+0	DOMAIN:Water|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Water
+0	DOMAIN:Weather|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Weather
 ###Block: Vars
 1	BONUS:VAR|AnimalCompanionMasterLVL|DruidLVL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidAnimalCompanion
 1	BONUS:VAR|DomainLVL|DruidLVL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomain
@@ -652,7 +652,7 @@ CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Diplomacy|Escape Artist|Fly|TYPE=Kn
 ###Block: Progression
 1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Weapon and Armor Proficiency
 1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Blood of Dragons|Dragon Disciple ~ Natural Armor Increase
-2	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Dragon Bite|Dragon Disciple ~ Ability Boost
+2	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Ability Boost|Dragon Disciple ~ Dragon Bite
 3	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Breath Weapon
 5	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Blindsense
 7	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Dragon Form

@@ -3,10 +3,10 @@
 
 # Conditional skills for bard's Versatile Performance ability
 # Verasatile Performance includes:
-#• Ability score: use Cha instead of the original score
-#• Ranks: use Perform ranks instead of rank in Diplomacy, Sense Motive, Acrobatics, etc.
-#• +3 because Perform is a class skill
-#• Bonuses: any random bonuses to Perform, like Skill Focus
+#ï¿½ Ability score: use Cha instead of the original score
+#ï¿½ Ranks: use Perform ranks instead of rank in Diplomacy, Sense Motive, Acrobatics, etc.
+#ï¿½ +3 because Perform is a class skill
+#ï¿½ Bonuses: any random bonuses to Perform, like Skill Focus
 
 # Skill Name							Key Stat	Untrained?		Classes	Type			Visible		Required Ability									Req. Rule (in options)		Source Page
 Bluff (Perform (Act))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
@@ -242,13 +242,3 @@ Perception.MOD			SITUATION:sight-based
 #	Diplomacy.MOD	SITUATION:Versatile Performance (String Instruments)
 #	Diplomacy.MOD	SITUATION:Versatile Performance (Wind Instruments)
 #	Handle Animal.MOD	SITUATION:Versatile Performance (Wind Instruments)
-
-
-
-
-
-
-
-
-
-
