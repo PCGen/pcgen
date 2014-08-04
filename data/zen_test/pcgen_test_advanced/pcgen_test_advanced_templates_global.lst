@@ -176,7 +176,7 @@ TemplateAddLang_Doosuldorf_Evilhaasness												ADD:LANGUAGE|Doosuldorf,Evilh
 #TemplateVirtualAbility_Alertness or fighter			ABILITY:Special Ability|VIRTUAL|Alertness|TYPE=Fighter
 
 TemplateAddEquipTorchOrLantern													ADD:EQUIP|Lantern,Torch
-TemplateAddSkillsFive															ADD:SKILL|5|Monkey Building,Test Coding Script,Test Crafting,TYPE=CRAFT
+TemplateAddSkillsFive															ADD:SKILL|5|Monkey Building,Test Coding Script,Test Crafting,TYPE=Craft
 
 
 TemplateAutoEquip																																														AUTO:EQUIP|Medium Armor

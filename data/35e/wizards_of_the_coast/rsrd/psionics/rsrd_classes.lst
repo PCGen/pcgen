@@ -70,7 +70,7 @@ SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	CSKILL:Concentration|
 # Class Name		Hit Dice	Type				Class Type		Max Level	Source Page				Combat bonus															Modify VAR																								Bonus
 CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	CLASSTYPE:PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Psychic Warrior	STARTSKILLPTS:2	CSKILL:AUTOHYPNOSIS|CLIMB|CONCENTRATION|TYPE=CRAFT|JUMP|KNOWLEDGE (PSIONICS)|TYPE=Profession|RIDE|SEARCH|SWIM
+CLASS:Psychic Warrior	STARTSKILLPTS:2	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Jump|Knowledge (Psionics)|TYPE=Profession|Ride|Search|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|CL
 ###Block:Proficiencies
@@ -109,7 +109,7 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 # Class Name	Hit Dice	Type				Class Type		Max Level	Source Page				Combat bonus															Modify VAR																								Bonus
 CLASS:Soulknife	HD:10		TYPE:Base.Psionic.PC	CLASSTYPE:PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:AUTOHYPNOSIS|CLIMB|CONCENTRATION|TYPE=CRAFT|HIDE|JUMP|KNOWLEDGE (PSIONICS)|LISTEN|MOVE SILENTLY|TYPE=Profession|SPOT|TUMBLE
+CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|TYPE=Profession|Spot|Tumble
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=ShieldProf|TYPE=WeaponProfSimple
 
@@ -135,7 +135,7 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:AUTOHYPNOSIS|CLIMB|CONCENTRATION|TYPE=CRA
 # Class Name	Hit Dice	Type				Class Type		Max Level	Source Page				Combat bonus															Modify VAR																								Bonus
 CLASS:Wilder	HD:6		TYPE:Base.Psionic.PC	CLASSTYPE:PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Wilder	STARTSKILLPTS:4	CSKILL:AUTOHYPNOSIS|BALANCE|BLUFF|CLIMB|CONCENTRATION|TYPE=CRAFT|ESCAPE ARTIST|INTIMIDATE|JUMP|KNOWLEDGE (PSIONICS)|LISTEN|TYPE=Profession|PSICRAFT|SENSE MOTIVE|SPOT|SWIM|TUMBLE
+CLASS:Wilder	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Climb|Concentration|TYPE=Craft|Escape Artist|Intimidate|Jump|Knowledge (Psionics)|Listen|TYPE=Profession|Psicraft|Sense Motive|Spot|Swim|Tumble
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilder|CL
 ###Block:Proficiencies
@@ -209,7 +209,7 @@ CLASS:Cerebremancer	HD:4		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:Cer		M
 # Class Name		Required Skill								Req. Spell Type
 CLASS:Cerebremancer	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Psionics)=6	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Psionic=2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:CONCENTRATION|TYPE=CRAFT|DECIPHER SCRIPT|Knowledge (Arcana)|KNOWLEDGE (PSIONICS)|TYPE=Profession|PSICRAFT|SPELLCRAFT
+CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Psionics)|TYPE=Profession|Psicraft|Spellcraft
 ###Block: Class Info
 1	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Psionic
 2	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Psionic
@@ -227,7 +227,7 @@ CLASS:Elocator	HD:6		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:Elo		MAXLEV
 # Class Name	Required Feat				Required Skill			Req. Spell Type			PRETOTALAB
 CLASS:Elocator	PREFEAT:2,Mobility,Spring Attack	PRESKILL:1,Concentration=8	PRESPELLTYPE:1,Psionic=1	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Elocator	STARTSKILLPTS:6	CSKILL:AUTOHYPNOSIS|BALANCE|CLIMB|CONCENTRATION|TYPE=CRAFT|DISABLE DEVICE|ESCAPE ARTIST|GATHER INFORMATION|HIDE|JUMP|Knowledge (Local)|KNOWLEDGE (PSIONICS)|LISTEN|MOVE SILENTLY|OPEN LOCK|TYPE=PERFORM|TYPE=Profession|PSICRAFT|SEARCH|SENSE MOTIVE|SLEIGHT OF HAND|SPOT|SWIM|TUMBLE|USE PSIONIC DEVICE|USE ROPE
+CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE=Craft|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (Local)|Knowledge (Psionics)|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Psionic Device|Use Rope
 ###Block: Psionic Variables
 ###Block: Class Info
 1														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Scorn Earth															AUTO:FEAT|Sidestep Charge
@@ -246,7 +246,7 @@ CLASS:Psionic Fist	HD:6		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:PFi		MA
 # Class Name		Required Ability							Required Feat		Required Skill			PRETOTALAB
 CLASS:Psionic Fist	PREABILITY:1,CATEGORY=Special Ability,Still Mind	PREFEAT:1,Wild Talent	PRESKILL:1,Concentration=9	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Psionic Fist	STARTSKILLPTS:4	CSKILL:AUTOHYPNOSIS|CONCENTRATION|TYPE=CRAFT|ESCAPE ARTIST|HIDE|JUMP|KNOWLEDGE (PSIONICS)|LISTEN|MOVE SILENTLY|PSICRAFT|SENSE MOTIVE|SPOT|TUMBLE
+CLASS:Psionic Fist	STARTSKILLPTS:4	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Escape Artist|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|Psicraft|Sense Motive|Spot|Tumble
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
 CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psionic Fist|CL	SPELLLIST:1|Psychic Warrior
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints

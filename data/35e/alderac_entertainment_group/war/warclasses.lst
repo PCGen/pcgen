@@ -234,7 +234,7 @@ CLASS:Shieldbearer	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1							DEFINE:ShieldAnother|0	BONUS:VAR|(CL+4)/5	ABILITY:Special Ability|AUTOMATIC|Shield Another ~ Shieldbearer
+1							DEFINE:ShieldAnother|0	BONUS:VAR|ShieldAnother|(CL+4)/5	ABILITY:Special Ability|AUTOMATIC|Shield Another ~ Shieldbearer
 2	BONUS:ABILITYPOOL|Fighter Feat|1
 3												ABILITY:Special Ability|AUTOMATIC|Hinder Enemy ~ Shieldbearer
 4												ABILITY:Special Ability|AUTOMATIC|Shield Push ~ Shieldbearer

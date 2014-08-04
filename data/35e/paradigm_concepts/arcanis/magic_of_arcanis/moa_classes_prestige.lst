@@ -698,7 +698,7 @@ CLASS:Berotar	HD:8		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.121	BONUS:SAVE|BASE
 # Class Name	Req. Att.	Required Feat		Required Skill					Required Text
 CLASS:Berotar	PREATT:5	PREFEAT:1,Leadership	PRESKILL:2,Profession (Sailor)=6,Swim=6	PRETEXT:Spellcasting: Be able to cast 3rd level spells and if a cleric have access to either the Air or Water domain. If an arcane caster or a divine caster with no domains, must have access to 2 different spells of 3rd level or higher appearing on the Air or Water domain spell lists. Special: Must be an Elorii from Entaris and be invited into the fellowship.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Berotar	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|TYPE=Arcana|TYPE=Nature|Profession (sailor)|Spellcraft|Swim
+CLASS:Berotar	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|TYPE=Arcana|TYPE=Nature|Profession (Sailor)|Spellcraft|Swim
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Master of the Vessel
 2	ABILITY:Special Ability|AUTOMATIC|Command the Winds

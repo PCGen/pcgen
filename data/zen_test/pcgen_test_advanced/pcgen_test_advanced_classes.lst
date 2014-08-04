@@ -64,7 +64,7 @@ CLASS:Animal	HD:8		TYPE:Monster	CLASSTYPE:Monster
 # Class Name			Type			Class Type
 CLASS:KeePer of Knowledge	TYPE:PC.Base	CLASSTYPE:PC
 # Class Name			Class Skill
-CLASS:KeePer of Knowledge	CSKILL:Test Crafting|Craft (Two)|TYPE=CRAFT
+CLASS:KeePer of Knowledge	CSKILL:Test Crafting|Craft (Two)|TYPE=Craft
 # Class Name			Spell Type		Caster level
 CLASS:KeePer of Knowledge	SPELLTYPE:Divine	BONUS:CASTERLEVEL|KeePer of Knowledge|classlevel("APPLIEDAS=NONEPIC")
 SUBSTITUTIONCLASS:KeePer of Knowledge (Stars)
@@ -207,7 +207,7 @@ CLASS:Bard		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:Clas
 # Class Name	Required AL
 CLASS:Bard		PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Bard		STARTSKILLPTS:6	CSKILL:TYPE=Knowledge|TYPE=PERFORM
+CLASS:Bard		STARTSKILLPTS:6	CSKILL:TYPE=Knowledge|TYPE=Perform
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|classlevel("APPLIEDAS=NONEPIC")
 ###Block: Level progression

@@ -106,7 +106,7 @@ Light Blindness	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	TEMPD
 ###Block: Homefront Guardian
 # Feat Name					Type			Visible	Stackable?	Multiple?	Choose													Bonus to skill
 # Ability Name				Category of Ability		Type						Stackable?	Multiple?	Choose															Bonus to skill
-Homefront Guardian Skill Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassFeature	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Craft (Alchemy)|Bluff|Climb|Forgery|Hide|Open Lock|Move Silently	BONUS:SKILL|LIST|2|TYPE=Class
+Homefront Guardian Skill Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassFeature	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Bluff|Climb|Craft (Alchemy)|Forgery|Hide|Move Silently|Open Lock	BONUS:SKILL|LIST|2|TYPE=Class
 
 ###Block: Knight of Pure Heart
 # Feat Name				Type				Visible	Required Feat					Special ABility								Define				Combat bonus									Stat bonus										Modify VAR					Temporary effect description

@@ -19,7 +19,7 @@ CLASS:Agent Retriever	STARTSKILLPTS:6	CSKILL:Appraise|Decipher Script|Diplomacy|
 4																															SPELLS:Class|TIMES=((var("CL=Agent Retriever")+1)/5)|CASTERLEVEL=14|Ethereal Jaunt,17+CHA
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
-CLASS:Cosmic Descryer	HD:4		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Cde		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	
+CLASS:Cosmic Descryer	HD:4		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Cde		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf
 # Class Name		Required Feat							Required Lvl	Required Skill					Req. Known Spell
 CLASS:Cosmic Descryer	PREFEAT:2,Spell Focus (Conjuration),Energy Resistance	PRELEVEL:MIN=20	PRESKILL:1,Knowledge (The Planes)=24	PRESPELL:1,Gate	PRESPELL:1,Planar Ally,Planar Ally (Lesser),Planar Ally (Greater),Planar Binding,Planar Binding (Lesser),Planar Binding (Greater)
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -32,7 +32,7 @@ CLASS:Cosmic Descryer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Knowl
 7										BONUS:VAR|CosmicConnection|floor((CL-2)/5)					ABILITY:Special Ability|AUTOMATIC|Cosmic Descryer ~ Cosmic Connection
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
-CLASS:Divine Emissary	HD:10		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Die		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	
+CLASS:Divine Emissary	HD:10		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Die		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf
 # Class Name		Required Feat					Required Lvl	Required Skill				PRETOTALAB
 CLASS:Divine Emissary	PREFEAT:2,Weapon Focus,Great Smiting	PRELEVEL:MIN=20	PRESKILL:1,Knowledge (Religion)=10	PRETOTALAB:23
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -45,7 +45,7 @@ CLASS:Divine Emissary	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Disguise|Ga
 9														BONUS:VAR|DEDivineHand|floor((CL+1)/10)																																														ABILITY:Special Ability|AUTOMATIC|Divine Emissary ~ Divine Hand
 
 # Class Name		Hit Dice	Type				Class Type			Abbreviation	Max Level		Source Page					Save checks bonus
-CLASS:Epic Infiltrator	HD:6		TYPE:Prestige.Epic.PC	CLASSTYPE:Prestige	ABB:Ein		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	
+CLASS:Epic Infiltrator	HD:6		TYPE:Prestige.Epic.PC	CLASSTYPE:Prestige	ABB:Ein		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf
 # Class Name		Required AL				Required Feat			Required Lvl	Required Skill
 CLASS:Epic Infiltrator	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:2,Alertness,Polyglot	PRELEVEL:MIN=20	PRESKILL:4,Diplomacy=10,Spot=10,Bluff=24,Disguise=24
 # Class Name		Skill Pts/Lvl	Class Skill

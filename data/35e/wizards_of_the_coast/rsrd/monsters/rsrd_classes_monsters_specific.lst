@@ -325,39 +325,39 @@ CLASS:Lycanthrope (Werebear)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	CLASSTYPE:
 # Class Name			Required Lvl	Required Template
 CLASS:Lycanthrope (Werebear)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Lycanthrope (Werebear)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:LISTEN|SPOT|SWIM
+CLASS:Lycanthrope (Werebear)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Listen|Spot|Swim
 
 # Class Name			Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
 CLASS:Lycanthrope (Wereboar)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	CLASSTYPE:Monster	MAXLEVEL:3	SOURCEPAGE:MonstersK-L.rtf
 # Class Name			Required Lvl	Required Template
 CLASS:Lycanthrope (Wereboar)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Lycanthrope (Wereboar)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:LISTEN|SPOT
+CLASS:Lycanthrope (Wereboar)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Listen|Spot
 
 # Class Name			Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
 CLASS:Lycanthrope (Wererat)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	CLASSTYPE:Monster	MAXLEVEL:1	SOURCEPAGE:MonstersK-L.rtf
 # Class Name			Required Lvl	Required Template
 CLASS:Lycanthrope (Wererat)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Lycanthrope (Wererat)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:BALANCE|CLIMB|HIDE|MOVE SILENTLY|SWIM
+CLASS:Lycanthrope (Wererat)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Balance|Climb|Hide|Move Silently|Swim
 
 # Class Name			Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
 CLASS:Lycanthrope (Weretiger)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	CLASSTYPE:Monster	MAXLEVEL:6	SOURCEPAGE:MonstersK-L.rtf
 # Class Name			Required Lvl	Required Template
 CLASS:Lycanthrope (Weretiger)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Lycanthrope (Weretiger)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:BALANCE|HIDE|LISTEN|MOVE SILENTLY|SPOT|SWIM
+CLASS:Lycanthrope (Weretiger)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Balance|Hide|Listen|Move Silently|Spot|Swim
 
 # Class Name			Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
 CLASS:Lycanthrope (Werewolf)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	CLASSTYPE:Monster	MAXLEVEL:2	SOURCEPAGE:MonstersK-L.rtf
 # Class Name			Required Lvl	Required Template
 CLASS:Lycanthrope (Werewolf)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Lycanthrope (Werewolf)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:HIDE|LISTEN|MOVE SILENTLY|SPOT|SURVIVAL
+CLASS:Lycanthrope (Werewolf)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Hide|Listen|Move Silently|Spot|Survival
 
 # Class Name				Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
 CLASS:Lycanthrope (Dire Wereboar)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	CLASSTYPE:Monster	MAXLEVEL:12	SOURCEPAGE:MonstersK-L.rtf
 # Class Name				Required Lvl	Required Template
 CLASS:Lycanthrope (Dire Wereboar)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
 # Class Name				Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Lycanthrope (Dire Wereboar)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:LISTEN|SPOT
+CLASS:Lycanthrope (Dire Wereboar)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Listen|Spot

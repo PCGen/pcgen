@@ -963,7 +963,7 @@ Race Traits ~ Treant					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Tr
 Race Traits ~ Triton					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Triton ~ Skills|Triton ~ Spell-Like Abilities
 Race Traits ~ Troglodyte				CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Troglodyte ~ Skills|Troglodyte ~ Stench
 Race Traits ~ Troll					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Scent|Troll ~ Regeneration|Troll ~ Rend
-Race Traits ~ Unicorn					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Immunity to Charm|Immunity to Compulsion|Immunity to Poison|Scent|Unicorn ~ Magic Circle against Evil|Unicorn ~ Skills|Unicorn ~ Spell-Like Abilities|Unicorn ~ Wild Empathy
+Race Traits ~ Unicorn					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Immunity to Charm|Immunity to Compulsion|Immunity To Poison|Scent|Unicorn ~ Magic Circle against Evil|Unicorn ~ Skills|Unicorn ~ Spell-Like Abilities|Unicorn ~ Wild Empathy
 Race Traits ~ Vampire Spawn				CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Resistance To Cold|Resistance To Electricity|Turn Resistance|Vampire Spawn ~ Blood Drain|Vampire Spawn ~ Domination|Vampire Spawn ~ Energy Drain|Vampire Spawn ~ Fast Healing|Vampire Spawn ~ Gaseous Form|Vampire Spawn ~ Skills|Vampire Spawn ~ Spider Climb|Vampire Spawn ~ Vampire Weaknesses
 Race Traits ~ Vargouille				CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Vargouille ~ Kiss|Vargouille ~ Natural Weapons|Vargouille ~ Poison|Vargouille ~ Shriek
 Race Traits ~ Wight					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Wight ~ Create Spawn|Wight ~ Energy Drain|Wight ~ Skills
@@ -972,7 +972,7 @@ Race Traits ~ Winter Wolf				CATEGORY:Internal		ABILITY:Special Ability|AUTOMATI
 Race Traits ~ Worg					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Scent|Worg ~ Skills|Worg ~ Trip
 Race Traits ~ Wraith					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Turn Resistance|Wraith ~ Constitution Drain|Wraith ~ Create Spawn|Wraith Shared ~ Daylight Powerlessness|Wraith Shared ~ Unnatural Aura
 Race Traits ~ Wraith (Dread)				CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Dread Wraith ~ Constitution Drain|Dread Wraith ~ Create Spawn|Dread Wraith ~ Lifesense|Flight Maneuverability|Wraith Shared ~ Daylight Powerlessness|Wraith Shared ~ Unnatural Aura
-Race Traits ~ Wyvern					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Immunity to Paralysis|Immunity to Sleep|Scent|Wyvern ~ Improved Grab|Wyvern ~ Poison|Wyvern ~ Skills
+Race Traits ~ Wyvern					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Immunity to Paralysis|Immunity To Sleep|Scent|Wyvern ~ Improved Grab|Wyvern ~ Poison|Wyvern ~ Skills
 Race Traits ~ Xill					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Xill ~ Implant|Xill ~ Improved Grab|Xill ~ Paralysis|Xill ~ Planewalk
 Race Traits ~ Xorn (Minor)				CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Immunity To Fire|Resistance To Electricity|Xorn ~ All-Around Vision|Xorn ~ Earth Glide
 Race Traits ~ Xorn (Average)				CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Immunity To Fire|Resistance To Electricity|Xorn ~ All-Around Vision|Xorn ~ Earth Glide
