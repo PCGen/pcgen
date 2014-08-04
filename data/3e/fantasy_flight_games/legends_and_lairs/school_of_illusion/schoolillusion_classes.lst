@@ -176,7 +176,7 @@ CLASS:Shadowmancer	HD:4		TYPE:PC.Prestige	ABB:Sha		MAXLEVEL:10	SOURCEPAGE:p.21	B
 # Class Name		Required Feat				Required Skill				Req. Known Spell			Req. Spell Type
 CLASS:Shadowmancer	PREFEAT:2,Silent Spell,Still Spell	PRESKILL:2,Hide=8,Move Silently=8	PRESPELL:1,Deeper Darkness	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Shadowmancer	STARTSKILLPTS:2	CSKILL:Concentration|Hide|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|TYPE=Profession|Spellcraft
+CLASS:Shadowmancer	STARTSKILLPTS:2	CSKILL:Concentration|Hide|Knowledge (Arcana)|KNOWLEDGE (THE PLANES)|Move Silently|TYPE=Profession|Spellcraft
 1	SAB:Dark Research										ADD:SPELLCASTER|ANY	AUTO:ARMORPROF|ARMORTYPE=Light
 2	SAB:Shadow Channel									ADD:SPELLCASTER|ANY
 3	SAB:Summmon Shadow (1st shadow)|PREVARLT:CL,5					ADD:SPELLCASTER|ANY

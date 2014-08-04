@@ -14,7 +14,7 @@ CLASS:The Samurai	PREALIGN:LG,LN,LE
 CLASS:The Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Innuendo|Intimidate|Jump|TYPE=Perform|Ride|Sense Motive|Swim
 1																																				AUTO:WEAPONPROF|Katana|Wakizashi|TYPE=Bow
 1								AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
-1																								AUTO:SHIELDPROF|Buckler|Shield (Light)|Shield (Heavy)|Tower Shield
+1																								AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)|Tower Shield
 1																AUTO:FEAT|Exotic Weapon Proficiency (Katana)
 2	BONUS:ABILITYPOOL|Samurai Feat|1
 6	BONUS:ABILITYPOOL|Samurai Feat|1

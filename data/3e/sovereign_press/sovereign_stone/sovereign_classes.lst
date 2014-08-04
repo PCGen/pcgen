@@ -77,7 +77,7 @@ CLASS:Noble		STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Ga
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
 CLASS:Sailor	HD:6		TYPE:Base.PC	ABB:sv4		MAXLEVEL:20	SOURCEPAGE:p.41	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledge (Nature)|Literacy|Profession (Sailor)|Speak Language|Spot|Swim|Tumble|Use Rope
+CLASS:Sailor	STARTSKILLPTS:4	CSKILL:Balance|Climb|Intuit Direction|Jump|Knowledge (Nature)|Literacy|PROFESSION (SAILOR)|Speak Language|Spot|Swim|Tumble|Use Rope
 ###Block:Proficiencies
 1	AUTO:FEAT|Sailor Weapon Proficiencies|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)

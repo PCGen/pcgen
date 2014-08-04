@@ -110,7 +110,7 @@ CLASS:Soulless	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44-46	BONUS:SAVE|
 # Class Name	Required AL				Required Check Base	Required Race	Required Skill								Required Text
 CLASS:Soulless	PREALIGN:LN,LE,TN,NE,CN,CE	PRECHECKBASE:1,Will=5	PRERACE:1,Curst	PRESKILL:2,Knowledge (Arcana)=9,Knowledge (The Planes)=4	PRETEXT:See text
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Soulless	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Disguise|Escape Artist|Hide|Innuendo|Intuit Direction|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spellcraft|Spot|Swim
+CLASS:Soulless	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Disguise|Escape Artist|Hide|Innuendo|Intuit Direction|Jump|Knowledge (Arcana)|KNOWLEDGE (THE PLANES)|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spellcraft|Spot|Swim
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression

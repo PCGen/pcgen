@@ -309,7 +309,7 @@ CLASS:Sailmaster	HD:8		TYPE:PC.Prestige	ABB:Sam		MAXLEVEL:10	SOURCEPAGE:Chap.1, 
 # Class Name	Required Skill
 CLASS:Sailmaster	PRESKILL:4,Profession (Sailor)=8,Use Rope=8,Climb=6,Balance=6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Sailmaster	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE=Knowledge|Move Silently|Profession (Sailor)|Spot|Swim|Tumble|Use Rope
+CLASS:Sailmaster	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE=Knowledge|Move Silently|PROFESSION (SAILOR)|Spot|Swim|Tumble|Use Rope
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
 CLASS:Sailmaster	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Sailmaster|CL
 ###Block: Spell list
