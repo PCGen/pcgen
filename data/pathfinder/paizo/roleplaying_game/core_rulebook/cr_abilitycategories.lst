@@ -237,3 +237,7 @@ ABILITYCATEGORY:Loremaster Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL
 ABILITYCATEGORY:Mystic Theurge Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Mystic TheurgeClassFeatures										PLURAL:Mystic Theurge Class Features		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Pathfinder Chronicler Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Pathfinder ChroniclerClassFeatures									PLURAL:Pathfinder Chronicler Class Features	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Shadowdancer Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ShadowdancerClassFeatures										PLURAL:Shadowdancer Class Features			DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Intelligence-Based Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:IntBaseSkill													DISPLAYLOCATION:Class Features
+
+
