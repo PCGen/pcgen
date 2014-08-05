@@ -25,18 +25,7 @@ package pcgen.gui2.facade;
 import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
 import gmgen.plugin.PcgCombatant;
-import gmgen.pluginmgr.GMBComponent;
-import gmgen.pluginmgr.GMBMessage;
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.messages.FetchOpenPCGRequestMessage;
-import gmgen.pluginmgr.messages.InitHolderListSendMessage;
-import gmgen.pluginmgr.messages.NewMessage;
-import gmgen.pluginmgr.messages.OpenPCGRequestMessage;
-import gmgen.pluginmgr.messages.PCLoadedMessage;
-import gmgen.pluginmgr.messages.SaveMessage;
-import gmgen.pluginmgr.messages.SavePCGRequestMessage;
-import gmgen.pluginmgr.messages.StateChangedMessage;
-import gmgen.pluginmgr.messages.TabAddMessage;
+import gmgen.pluginmgr.messages.FileMenuSaveMessage;
 
 import java.io.File;
 import java.util.Iterator;
@@ -46,11 +35,19 @@ import pcgen.core.PlayerCharacter;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.io.PCGFile;
+import pcgen.pluginmgr.PCGenMessage;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
+import pcgen.pluginmgr.messages.PlayerCharacterWasLoadedMessage;
+import pcgen.pluginmgr.messages.RequestFileOpenedMessageForCurrentlyOpenedPCsMessage;
+import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
+import pcgen.pluginmgr.messages.RequestToSavePlayerCharacterMessage;
+import pcgen.pluginmgr.messages.TransmitInitiativeValuesBetweenComponentsMessage;
 import pcgen.system.CharacterManager;
 
 /**
  * The Class <code>GMGenMessageHandler</code> processes any requests 
- * to the main PCGen program from the HMGen bus.
+ * to the main PCGen program from the GMGen bus.
  *
  * <br/>
  * Last Editor: $Author$
@@ -59,19 +56,20 @@ import pcgen.system.CharacterManager;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-
-public class GMGenMessageHandler implements GMBComponent
+public class GMGenMessageHandler implements PCGenMessageHandler
 {
 
 	private final PCGenFrame delegate;
-
+	private final PCGenMessageHandler messageHandler;
+	
 	/**
 	 * Create a new instance of GMGenMessageHandler
 	 * @param delegate The PCGenFrame instance containing the UI.
 	 */
-	public GMGenMessageHandler(PCGenFrame delegate)
+	public GMGenMessageHandler(PCGenFrame delegate, PCGenMessageHandler mh)
 	{
 		this.delegate = delegate;
+		this.messageHandler = mh;
 	}
 	
 	
@@ -79,50 +77,42 @@ public class GMGenMessageHandler implements GMBComponent
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void handleMessage(GMBMessage message)
+	public void handleMessage(PCGenMessage message)
 	{
-		if (message instanceof OpenPCGRequestMessage)
+		if (message instanceof RequestOpenPlayerCharacterMessage)
 		{
-			handleOpenPCGRequestMessage((OpenPCGRequestMessage) message);
+			handleOpenPCGRequestMessage((RequestOpenPlayerCharacterMessage) message);
 		}
-		else if (message instanceof SaveMessage)
+		else if (message instanceof FileMenuSaveMessage)
 		{
-			handleSaveMessage((SaveMessage) message);
+			handleSaveMessage((FileMenuSaveMessage) message);
 		}
-		else if (message instanceof NewMessage)
-		{
-			handleNewMessage();
-		}
-		else if (message instanceof FetchOpenPCGRequestMessage)
+		else if (message instanceof RequestFileOpenedMessageForCurrentlyOpenedPCsMessage)
 		{
 			handleFetchOpenPCGRequestMessage();
 		}
-		else if (message instanceof SavePCGRequestMessage)
+		else if (message instanceof RequestToSavePlayerCharacterMessage)
 		{
 			handleSavePcgMessage(message);
 		}
 
 		// This should only be used until GMGen can use PCGen to generate it's
 		// Random encounter beasties.
-		else if (message instanceof InitHolderListSendMessage)
+		else if (message instanceof TransmitInitiativeValuesBetweenComponentsMessage)
 		{
-			handleInitHolderListSendMessage((InitHolderListSendMessage) message);
+			handleInitHolderListSendMessage((TransmitInitiativeValuesBetweenComponentsMessage) message);
 		}
-		else if (message instanceof StateChangedMessage)
+		else if (message instanceof FocusOrStateChangeOccurredMessage)
 		{
 			handleStateChangedMessage();
-		}
-		else if (message instanceof TabAddMessage)
-		{
-			handleTabAddMessage((TabAddMessage) message);
 		}
 	}
 
 
-	private void handleSavePcgMessage(GMBMessage message)
+	private void handleSavePcgMessage(PCGenMessage message)
 	{
-		SavePCGRequestMessage smessage = (SavePCGRequestMessage) message;
-		PlayerCharacter pc = smessage.getPC();
+		RequestToSavePlayerCharacterMessage smessage = (RequestToSavePlayerCharacterMessage) message;
+		PlayerCharacter pc = smessage.getPc();
 		for (Iterator<CharacterFacade> iterator = CharacterManager.getCharacters().iterator(); iterator.hasNext();)
 		{
 			CharacterFacade facade = iterator.next();
@@ -134,7 +124,7 @@ public class GMGenMessageHandler implements GMBComponent
 		}
 	}
 
-	private void handleSaveMessage(SaveMessage message)
+	private void handleSaveMessage(FileMenuSaveMessage message)
 	{
 //		final int currTab = baseTabbedPane.getSelectedIndex();
 //		if (this.isFocused() && currTab >= FIRST_CHAR_TAB)
@@ -154,13 +144,8 @@ public class GMGenMessageHandler implements GMBComponent
 //		}
 	}
 
-	private void handleNewMessage()
-	{
-		CharacterManager.createNewCharacter(delegate, delegate.getLoadedDataSetRef().getReference());
-	}
-
 	private void handleInitHolderListSendMessage(
-		InitHolderListSendMessage message)
+		TransmitInitiativeValuesBetweenComponentsMessage message)
 	{
 		InitHolderList list = message.getInitHolderList();
 
@@ -170,6 +155,7 @@ public class GMGenMessageHandler implements GMBComponent
 
 			if (iH instanceof PcgCombatant)
 			{
+				//TODO: Resolve against the current PC list and add any new characters.
 				PcgCombatant pcg = (PcgCombatant) iH;
 				PlayerCharacter aPC = pcg.getPC();
 				Globals.getPCList().add(aPC);
@@ -179,17 +165,18 @@ public class GMGenMessageHandler implements GMBComponent
 		}
 	}
 
-	private void handleOpenPCGRequestMessage(OpenPCGRequestMessage message)
+	private void handleOpenPCGRequestMessage(RequestOpenPlayerCharacterMessage message)
 	{
 		File pcFile = message.getFile();
 
 		if (PCGFile.isPCGenCharacterFile(pcFile))
 		{
+			//TODO: Respect suppress message request 
 			CharacterManager.openCharacter(pcFile, delegate, delegate
 				.getLoadedDataSetRef().getReference());
 			// TODO: Pass character back to caller via message.
 //			message.setPlayerCharacter(loadPCFromFile(pcFile, message
-//				.blockLoadedMessage(), false));
+//				.isBlockLoadedMessage(), false));
 		}
 		else if (PCGFile.isPCGenPartyFile(pcFile))
 		{
@@ -206,7 +193,7 @@ public class GMGenMessageHandler implements GMBComponent
 			if (facade instanceof CharacterFacadeImpl)
 			{
 				CharacterFacadeImpl cfi = (CharacterFacadeImpl) facade;
-				GMBus.send(new PCLoadedMessage(this, cfi.getTheCharacter()));
+				messageHandler.handleMessage(new PlayerCharacterWasLoadedMessage(this, cfi.getTheCharacter()));
 			}
 		}
 	}
@@ -245,29 +232,6 @@ public class GMGenMessageHandler implements GMBComponent
 //			characterPane.setPaneForUpdate(characterPane.infoDesc());
 //			characterPane.refresh();
 //			forceUpdate_PlayerTabs();
-//		}
-	}
-
-	private void handleTabAddMessage(TabAddMessage message)
-	{
-//		if (message.getSystem().equals(Constants.s_SYSTEM_PCGEN))
-//		{
-//			if (message.getPane() instanceof CharacterInfoTab)
-//			{
-//				if (characterPane == null)
-//				{
-//					tempTabList.add(message.getPane());
-//				}
-//				else
-//				{
-//					characterPane.addTab((CharacterInfoTab) message.getPane());
-//				}
-//			}
-//			else
-//			{
-//				FIRST_CHAR_TAB++;
-//				baseTabbedPane.addTab(message.getName(), message.getPane());
-//			}
 //		}
 	}
 }

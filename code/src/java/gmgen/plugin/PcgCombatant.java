@@ -22,10 +22,6 @@
  */
 package gmgen.plugin;
 
-import gmgen.pluginmgr.GMBComponent;
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.messages.OpenPCGRequestMessage;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -55,6 +51,8 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.DescriptionFormatting;
 import pcgen.core.display.SkillDisplay;
 import pcgen.core.spell.Spell;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
@@ -69,14 +67,16 @@ public class PcgCombatant extends Combatant
 	private CharacterDisplay display;
 	protected PcRenderer renderer;
 	protected float crAdj = 0;
+	private final PCGenMessageHandler messageHandler;
 
 	/**
 	 *  Creates new PcgCombatant
 	 *
 	 *@param  pc  PCGen pc that this combatant represents
 	 */
-	public PcgCombatant(PlayerCharacter pc)
+	public PcgCombatant(PlayerCharacter pc, PCGenMessageHandler mh)
 	{
+		messageHandler = mh;
 		this.pc = pc;
 		display = pc.getDisplay();
 		this.init = new PcgSystemInitiative(pc);
@@ -95,22 +95,23 @@ public class PcgCombatant extends Combatant
 	 *@param  pc    PCGen pc that this combatant represents
 	 *@param  type  PC/Enemy/Ally/Non Combatant
 	 */
-	public PcgCombatant(PlayerCharacter pc, String type)
+	public PcgCombatant(PlayerCharacter pc, String type, PCGenMessageHandler mh)
 	{
-		this(pc);
+		this(pc, mh);
 		setCombatantType(type);
 	}
 
-	public PcgCombatant(Element combatant, GMBComponent comp)
+	public PcgCombatant(Element combatant, PCGenMessageHandler comp, PCGenMessageHandler mh)
 	{
+		messageHandler = mh;
 		try
 		{
 			File pcgFile =
 					new File(combatant.getChild("PCG").getAttribute("file")
 						.getValue());
-			OpenPCGRequestMessage msg =
-					new OpenPCGRequestMessage(comp, pcgFile, true);
-			GMBus.send(msg);
+			RequestOpenPlayerCharacterMessage msg =
+					new RequestOpenPlayerCharacterMessage(comp, pcgFile, true);
+			messageHandler.handleMessage(msg);
 			this.pc = msg.getPlayerCharacter();
 			this.init = new PcgSystemInitiative(pc);
 

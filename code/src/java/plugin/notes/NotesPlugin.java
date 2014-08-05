@@ -23,23 +23,36 @@ package plugin.notes;
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
 import gmgen.io.SimpleFileFilter;
-import gmgen.pluginmgr.GMBMessage;
-import gmgen.pluginmgr.GMBPlugin;
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.messages.*;
-import pcgen.cdom.base.Constants;
-import pcgen.core.SettingsHandler;
-import pcgen.gui2.tools.Utility;
-import pcgen.io.PCGFile;
-import pcgen.system.LanguageBundle;
-import plugin.notes.gui.NotesView;
-import plugin.notes.gui.PreferencesNotesPanel;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
-import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.filechooser.FileFilter;
+
+import org.apache.commons.lang.StringUtils;
+
+import pcgen.core.SettingsHandler;
+import pcgen.gui2.tools.Utility;
+import pcgen.io.PCGFile;
+import pcgen.pluginmgr.InteractivePlugin;
+import pcgen.pluginmgr.PCGenMessage;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
+import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
+import pcgen.system.LanguageBundle;
+import plugin.notes.gui.NotesView;
+import plugin.notes.gui.PreferencesNotesPanel;
 
 /**
  * The <code>NotesPlugin</code> controls the various classes that are involved
@@ -53,7 +66,7 @@ import java.io.File;
  * @since August 27, 2003
  * @version 2.10
  */
-public class NotesPlugin extends GMBPlugin
+public class NotesPlugin implements InteractivePlugin
 {
 
 	public static final String EXTENSION_NOTES = "gmn"; //$NON-NLS-1$
@@ -79,6 +92,8 @@ public class NotesPlugin extends GMBPlugin
 	/** The version number of the plugin. */
 	private String version = "01.00.99.01.00"; //$NON-NLS-1$
 
+	private PCGenMessageHandler messageHandler;
+
 	/** Constructor for the NotesPlugin object */
 	public NotesPlugin()
 	{
@@ -91,7 +106,6 @@ public class NotesPlugin extends GMBPlugin
 		return new SimpleFileFilter(fileExt, LanguageBundle.getString("in_plugin_notes_file")); //$NON-NLS-1$
 	}
 
-    @Override
 	public FileFilter[] getFileTypes()
 	{
 		FileFilter[] ff = {getFileType()};
@@ -103,25 +117,28 @@ public class NotesPlugin extends GMBPlugin
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
     @Override
-	public void start()
+	public void start(PCGenMessageHandler mh)
 	{
-		String name = getName();
-		GMBus.send(new PreferencesPanelAddMessage(this, name,
+    	messageHandler = mh;
+		String name = getPluginName();
+		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, name,
 			new PreferencesNotesPanel()));
-		theView = new NotesView(getDataDir(), this);
-		GMBus.send(new TabAddMessage(this, name, getView(), getPluginSystem()));
+		theView = new NotesView(getDataDirectory(), this);
+		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, name, getView()));
 		initMenus();
 	}
 
+	/**
+	 * @{inheritdoc}
+	 */
     @Override
-	public String getPluginSystem()
+	public void stop()
 	{
-		return SettingsHandler.getGMGenOption(OPTION_NAME_SYSTEM,
-			Constants.SYSTEM_GMGEN);
+		messageHandler = null;
 	}
 
     @Override
-	public int getPluginLoadOrder()
+	public int getPriority()
 	{
 		return SettingsHandler.getGMGenOption(OPTION_NAME_LOADORDER, 70);
 	}
@@ -132,7 +149,7 @@ public class NotesPlugin extends GMBPlugin
 	 * @return The name value
 	 */
     @Override
-	public String getName()
+	public String getPluginName()
 	{
 		return NAME;
 	}
@@ -148,17 +165,6 @@ public class NotesPlugin extends GMBPlugin
 	}
 
 	/**
-	 * Accessor for version
-	 *
-	 * @return The version value
-	 */
-    @Override
-	public String getVersion()
-	{
-		return version;
-	}
-
-	/**
 	 * Gets the <code>JPanel</code> view for the notes plugin
 	 *
 	 * @return the view.
@@ -171,62 +177,28 @@ public class NotesPlugin extends GMBPlugin
 	/**
 	 * listens to messages from the GMGen system, and handles them as needed
 	 *
-	 * @param message
-	 *          GMBus Message
-	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage(GMBMessage)
+	 * @param message Message
 	 */
     @Override
-	public void handleMessage(GMBMessage message)
+	public void handleMessage(PCGenMessage message)
 	{
-		if (message instanceof StateChangedMessage)
+		if (message instanceof FocusOrStateChangeOccurredMessage)
 		{
-			handleStateChangedMessage((StateChangedMessage) message);
+			handleStateChangedMessage((FocusOrStateChangeOccurredMessage) message);
 		}
-		else if (message instanceof WindowClosedMessage)
+		else if (message instanceof GMGenBeingClosedMessage)
 		{
 			handleWindowClosedMessage();
 		}
-		else if (message instanceof FileOpenMessage)
+		else if (message instanceof FileMenuOpenMessage)
 		{
 			handleFileOpenMessage();
-		}
-		else if (message instanceof OpenMessage)
-		{
-			handleOpenMessage((OpenMessage) message);
-		}
-		else if (message instanceof FileTypeMessage)
-		{
-			handleFileTypeMessage((FileTypeMessage) message);
-		}
-	}
-
-	/**
-	 * @param message
-	 */
-	private void handleFileTypeMessage(FileTypeMessage message)
-	{
-		message.addFileTypes(getFileTypes());
-	}
-
-	/**
-	 * @param message
-	 */
-	private void handleOpenMessage(OpenMessage message)
-	{
-		final File[] files = message.getFile();
-		final FileFilter filter = getFileType();
-		for (int i = 0; i < files.length; i++)
-		{
-			if (filter.accept(files[i]))
-			{
-				theView.openGMN(files[i]);
-			}
 		}
 	}
 
 	public void loadRecognizedFileType(File launch)
 	{
-		GMBus.send(new OpenPCGRequestMessage(this, launch, false));
+		messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(this, launch, false));
 	}
 
 	/**
@@ -263,12 +235,11 @@ public class NotesPlugin extends GMBPlugin
 	/**
 	 * Handles the StateChangedMessage
 	 *
-	 * @param message
-	 *          GMBus StateChangedMessage
+	 * @param message StateChangedMessage
 	 */
-	private void handleStateChangedMessage(StateChangedMessage message)
+	private void handleStateChangedMessage(FocusOrStateChangeOccurredMessage message)
 	{
-		StateChangedMessage smessage = message;
+		FocusOrStateChangeOccurredMessage smessage = message;
 		if (isActive())
 		{
 			notesToolsItem.setEnabled(false);
@@ -325,7 +296,7 @@ public class NotesPlugin extends GMBPlugin
 				toolMenuItem(evt);
 			}
 		});
-		GMBus.send(new ToolMenuItemAddMessage(this, notesToolsItem));
+		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, notesToolsItem));
 	}
 
 	/*
@@ -334,9 +305,21 @@ public class NotesPlugin extends GMBPlugin
 	 * @see gmgen.pluginmgr.Plugin#getDataDir()
 	 */
     @Override
-	public String getDataDir()
+	public File getDataDirectory()
 	{
-		return SettingsHandler.getGMGenOption(
-			OPTION_NAME_DATADIR, super.getDataDir());
+    	String notesDataDir = SettingsHandler.getGMGenOption(
+			OPTION_NAME_DATADIR, "");
+    	if (StringUtils.isEmpty(notesDataDir))
+    	{
+    		return defaultDataDir();
+    	}
+		return new File(notesDataDir);
+	}
+
+	public File defaultDataDir()
+	{
+		File dataDir =
+				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
+		return dataDir;
 	}
 }

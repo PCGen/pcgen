@@ -27,7 +27,7 @@ public class ExperienceAdjusterModel extends Observable
 	protected ExperienceList enemies = new ExperienceList();
 	protected ExperienceList party = new ExperienceList();
 	protected InitHolderList combat;
-	protected String dir;
+	protected File dir;
 	protected double multiplier = 1.0;
 
 	/** The value of experience gotten from a group. */
@@ -40,7 +40,7 @@ public class ExperienceAdjusterModel extends Observable
 	 * components on the <code>JPanel</code>.
 	 * @param parentDir the directory this is running out of
 	 */
-	public ExperienceAdjusterModel(String parentDir)
+	public ExperienceAdjusterModel(File parentDir)
 	{
 		dir = parentDir;
 	}
@@ -227,8 +227,10 @@ public class ExperienceAdjusterModel extends Observable
 		float enemyCR;
 		int tableCR;
 		int experience = 0;
+		File experienceFolder =
+				new File(dir, "experience_tables");
 		File experienceFile =
-				new File(dir + File.separator + "experience_tables/7_1.xml");
+				new File(experienceFolder, "7_1.xml");
 		// Lets not load the massive XML file more than we have to
 		if (experienceTable == null)
 		{
@@ -285,8 +287,10 @@ public class ExperienceAdjusterModel extends Observable
 		float enemyCR;
 		int tableCR;
 		int experience = 0;
+		File experienceFolder =
+				new File(dir, "experience_tables");
 		File experienceFile =
-				new File(dir + File.separator + "experience_tables/7_1.xml");
+				new File(experienceFolder, "7_1.xml");
 		// Lets not load the massive XML file more than we have to
 		if (experienceTable == null)
 		{

@@ -36,9 +36,7 @@ import gmgen.plugin.Spell;
 import gmgen.plugin.State;
 import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
-import gmgen.pluginmgr.GMBComponent;
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.messages.CombatantUpdatedMessage;
+import gmgen.pluginmgr.messages.CombatantHasBeenUpdatedMessage;
 import gmgen.util.LogUtilities;
 
 import java.awt.Component;
@@ -80,6 +78,8 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.PluginManager;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
@@ -158,6 +158,8 @@ public class Initiative extends javax.swing.JPanel
 	private int currentInit = -1;
 	private int round = 0;
 
+	private PCGenMessageHandler messageHandler;
+
 	/*
 	 *  History:
 	 *  March 20, 2003: Cleanup for Version 1.0
@@ -166,6 +168,7 @@ public class Initiative extends javax.swing.JPanel
 	/**  Creates new form Initiative */
 	public Initiative()
 	{
+		messageHandler = PluginManager.getInstance().getPostbox();
 		initComponents();
 		initDynamicComponents();
 		initPrefs();
@@ -393,7 +396,7 @@ public class Initiative extends javax.swing.JPanel
 			pc.setFileName("");
 		}
 
-		final PcgCombatant pcgcbt = new PcgCombatant(pc, type);
+		final PcgCombatant pcgcbt = new PcgCombatant(pc, type, messageHandler);
 		initList.add(pcgcbt);
 		addTab(pcgcbt);
 	}
@@ -1270,7 +1273,7 @@ public class Initiative extends javax.swing.JPanel
 	 *@param  character  XML document containing a character or a party
 	 * @param comp
 	 */
-	public void loadFromDocument(Document character, GMBComponent comp)
+	public void loadFromDocument(Document character, PCGenMessageHandler comp)
 	{
 		if (character.getRootElement().getName().equals("Party"))
 		{
@@ -1290,7 +1293,7 @@ public class Initiative extends javax.swing.JPanel
 			{
 				Element eCharacter = (Element) pcgList.get(i);
 				final PcgCombatant combatant =
-						new PcgCombatant(eCharacter, comp);
+						new PcgCombatant(eCharacter, comp, messageHandler);
 				initList.add(combatant);
 				addTab(combatant);
 			}
@@ -1328,7 +1331,7 @@ public class Initiative extends javax.swing.JPanel
 	 * @param initFile
 	 * @param comp
 	 */
-	public void loadINIT(File initFile, GMBComponent comp)
+	public void loadINIT(File initFile, PCGenMessageHandler comp)
 	{
 		try
 		{
@@ -3318,7 +3321,7 @@ public class Initiative extends javax.swing.JPanel
 	 * Update the initiative holder
 	 * @param iH
 	 */
-	public static void initHolderUpdated(InitHolder iH)
+	public void initHolderUpdated(InitHolder iH)
 	{
 		if (iH instanceof Combatant)
 		{
@@ -3330,9 +3333,9 @@ public class Initiative extends javax.swing.JPanel
 	 * Send a message stating that the combatant has been updated
 	 * @param cbt
 	 */
-	public static void combatantUpdated(Combatant cbt)
+	public void combatantUpdated(Combatant cbt)
 	{
-		GMBus.send(new CombatantUpdatedMessage(GMGenSystem.inst, cbt));
+		messageHandler.handleMessage(new CombatantHasBeenUpdatedMessage(GMGenSystem.inst, cbt));
 	}
 
 	//** End Other Variables **

@@ -23,6 +23,8 @@ package gmgen.plugin;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
+import pcgen.util.Logging;
+
 /**
  * This class is a helper for the Combat Tracker.  This class helps display
  * all the statistics of a character.
@@ -132,7 +134,15 @@ public class InfoCharacterDetails
 	public void setStatText(Combatant cbt, JTextPane aPane)
 	{
 		aPane.setEditorKit(aPane.getEditorKitForContentType("text/html"));
-		aPane.setText(cbt.toHtmlString());
+		String htmlString = cbt.toHtmlString();
+		try
+		{
+			aPane.setText(htmlString);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("InfoCharacterDetails.setStatText failed for text " + htmlString, e);
+		}
 	}
 
 	private class Renderer extends Thread

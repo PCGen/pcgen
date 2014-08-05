@@ -22,9 +22,6 @@
  */
 package pcgen.gui2.facade;
 
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.messages.PCClosedMessage;
-
 import java.awt.Rectangle;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -69,6 +66,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.facet.fact.XPFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.helper.ClassSource;
@@ -176,6 +174,9 @@ import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.PluginManager;
+import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
 import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -286,7 +287,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private PlayerCharacter lastExportChar = null;
 	private LanguageListener langListener;
 	private TemplateListener templateListener;
-	
+	private XPListener xpListener;
+
 	/**
 	 * Create a new character facade for an existing character.
 	 * 
@@ -294,7 +296,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @param delegate the UIDelegate for this CharacterFacade
 	 * @param dataSetFacade The data set in use for the character
 	 */
-	public CharacterFacadeImpl(PlayerCharacter pc, UIDelegate delegate, DataSetFacade dataSetFacade) 
+	public CharacterFacadeImpl(PlayerCharacter pc, UIDelegate delegate,
+		DataSetFacade dataSetFacade)
 	{
 		this.delegate = delegate;
 		theCharacter = pc;
@@ -315,10 +318,16 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			.removeDataFacetChangeListener(langListener);
 		FacetLibrary.getFacet(TemplateFacet.class)
 			.removeDataFacetChangeListener(templateListener);
+		FacetLibrary.getFacet(XPFacet.class).removeDataFacetChangeListener(
+			xpListener);
 		characterAbilities.closeCharacter();
 		charLevelsFacade.closeCharacter();
         companionSupportFacade.closeCharacter();
-		GMBus.send(new PCClosedMessage(null, theCharacter));
+		PluginManager
+			.getInstance()
+			.getPostbox()
+			.handleMessage(
+				new PlayerCharacterWasClosedMessage(this, theCharacter));
 		Globals.getPCList().remove(theCharacter);
 		lastExportChar = null;
 		/*
@@ -418,6 +427,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		ageCategory = new DefaultReferenceFacade<SimpleFacade>();
 		updateAgeCategoryForAge();
 		currentXP = new DefaultReferenceFacade<Integer>(charDisplay.getXP());
+		xpListener = new XPListener();
+		FacetLibrary.getFacet(XPFacet.class).addDataFacetChangeListener(xpListener);
 		xpForNextlevel = new DefaultReferenceFacade<Integer>(charDisplay.minXPForNextECL());
 		xpTableName = new DefaultReferenceFacade<String>(charDisplay.getXPTableName());
 		hpRef = new DefaultReferenceFacade<Integer>(theCharacter.hitPoints());
@@ -4632,6 +4643,35 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				return;
 			}
 			refreshTemplates();
+		}
+		
+	}
+	
+	/**
+	 * The Class <code>XPListener</code> tracks changes to the character's experience value.
+	 */
+	public class XPListener implements DataFacetChangeListener<CharID, Integer>
+	{
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void dataAdded(DataFacetChangeEvent<CharID, Integer> dfce)
+		{
+			if (dfce.getCharID() != theCharacter.getCharID())
+			{
+				return;
+			}
+			checkForNewLevel();
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void dataRemoved(DataFacetChangeEvent<CharID, Integer> dfce)
+		{
+			// Ignored - we will always get the added message.
 		}
 		
 	}

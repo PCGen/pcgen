@@ -4,20 +4,17 @@ import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
 import gmgen.plugin.Combatant;
 import gmgen.plugin.InitHolderList;
-import gmgen.pluginmgr.GMBMessage;
-import gmgen.pluginmgr.GMBPlugin;
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.messages.CombatRequestMessage;
-import gmgen.pluginmgr.messages.PreferencesPanelAddMessage;
-import gmgen.pluginmgr.messages.SaveMessage;
-import gmgen.pluginmgr.messages.StateChangedMessage;
-import gmgen.pluginmgr.messages.TabAddMessage;
-import gmgen.pluginmgr.messages.ToolMenuItemAddMessage;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
+import gmgen.pluginmgr.messages.FileMenuSaveMessage;
+import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
 
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -25,11 +22,13 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.filechooser.FileFilter;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
+import pcgen.pluginmgr.InteractivePlugin;
+import pcgen.pluginmgr.PCGenMessage;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.experience.gui.AddDefeatedCombatant;
@@ -45,7 +44,7 @@ import plugin.experience.gui.PreferencesExperiencePanel;
  * @author  Expires 2003
  * @version 2.10
  */
-public class ExperienceAdjusterPlugin extends GMBPlugin implements
+public class ExperienceAdjusterPlugin implements InteractivePlugin,
 		ActionListener, ChangeListener, KeyListener /*Observer*/
 {
 	/** Log name */
@@ -71,6 +70,8 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	/** The version number of the plugin. */
 	protected String version = "01.00.99.01.00";
 
+	private PCGenMessageHandler messageHandler;
+
 	/**
 	 * Creates a new instance of ExperienceAdjusterModel
 	 */
@@ -79,37 +80,34 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 		// Do Nothing
 	}
 
-	@Override
-	public FileFilter[] getFileTypes()
-	{
-		return null;
-	}
-
 	/**
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
 	@Override
-	public void start()
+	public void start(PCGenMessageHandler mh)
 	{
-		eaModel = new ExperienceAdjusterModel(getDataDir());
+    	messageHandler = mh;
+		eaModel = new ExperienceAdjusterModel(getDataDirectory());
 		eaView = new ExperienceAdjusterView(eaModel);
-		GMBus.send(new PreferencesPanelAddMessage(this, getLocalizedName(),
+		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, getLocalizedName(),
 			new PreferencesExperiencePanel()));
 		initListeners();
 		update();
-		GMBus.send(new TabAddMessage(this, getLocalizedName(), getView(), getPluginSystem()));
+		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), getView()));
 		initMenus();
 	}
 
-	@Override
-	public String getPluginSystem()
+	/**
+	 * @{inheritdoc}
+	 */
+    @Override
+	public void stop()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
-			Constants.SYSTEM_GMGEN);
+		messageHandler = null;
 	}
 
 	@Override
-	public int getPluginLoadOrder()
+	public int getPriority()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 50);
 	}
@@ -128,7 +126,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	 * @return name
 	 */
 	@Override
-	public String getName()
+	public String getPluginName()
 	{
 		return NAME;
 	}
@@ -136,16 +134,6 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	private String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
-	}
-
-	/**
-	 * Accessor for version
-	 * @return version
-	 */
-	@Override
-	public String getVersion()
-	{
-		return version;
 	}
 
 	/**
@@ -402,7 +390,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 				toolMenuItem(evt);
 			}
 		});
-		GMBus.send(new ToolMenuItemAddMessage(this, experienceToolsItem));
+		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, experienceToolsItem));
 	}
 
     @Override
@@ -464,16 +452,15 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	/**
 	 * listens to messages from the GMGen system, and handles them as needed
 	 * @param message the source of the event from the system
-	 * @see GMBPlugin#handleMessage(GMBMessage)
 	 */
 	@Override
-	public void handleMessage(GMBMessage message)
+	public void handleMessage(PCGenMessage message)
 	{
-		if (message instanceof CombatRequestMessage)
+		if (message instanceof CombatHasBeenInitiatedMessage)
 		{
 			if (message.getSource() == this)
 			{
-				CombatRequestMessage cmessage = (CombatRequestMessage) message;
+				CombatHasBeenInitiatedMessage cmessage = (CombatHasBeenInitiatedMessage) message;
 
 				if (initList == null)
 				{
@@ -485,7 +472,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 
 			update();
 		}
-		else if (message instanceof StateChangedMessage)
+		else if (message instanceof FocusOrStateChangeOccurredMessage)
 		{
 			if (isActive())
 			{
@@ -493,7 +480,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 
 				if (initList == null)
 				{
-					GMBus.send(new CombatRequestMessage(this));
+					messageHandler.handleMessage(new CombatHasBeenInitiatedMessage(this));
 				}
 
 				update();
@@ -503,7 +490,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 				experienceToolsItem.setEnabled(true);
 			}
 		}
-		else if (message instanceof SaveMessage)
+		else if (message instanceof FileMenuSaveMessage)
 		{
 			if (isActive())
 			{
@@ -521,5 +508,16 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 		JTabbedPane tp = Utility.getTabbedPaneFor(eaView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
 			&& tp.getSelectedComponent().equals(eaView);
+	}
+
+	/**
+	 * @{inheritdoc}
+	 */
+	@Override
+	public File getDataDirectory()
+	{
+		File dataDir =
+				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
+		return dataDir;
 	}
 }

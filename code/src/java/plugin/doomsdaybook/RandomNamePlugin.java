@@ -1,31 +1,31 @@
 package plugin.doomsdaybook;
 
 import gmgen.GMGenSystemView;
-import gmgen.pluginmgr.GMBMessage;
-import gmgen.pluginmgr.GMBPlugin;
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.messages.StateChangedMessage;
-import gmgen.pluginmgr.messages.TabAddMessage;
-import gmgen.pluginmgr.messages.ToolMenuItemAddMessage;
-import pcgen.cdom.base.Constants;
-import pcgen.core.SettingsHandler;
-import pcgen.gui2.doomsdaybook.NameGenPanel;
-import pcgen.gui2.tools.Utility;
-import pcgen.system.LanguageBundle;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JTabbedPane;
-import javax.swing.filechooser.FileFilter;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+
+import pcgen.core.SettingsHandler;
+import pcgen.gui2.doomsdaybook.NameGenPanel;
+import pcgen.gui2.tools.Utility;
+import pcgen.pluginmgr.InteractivePlugin;
+import pcgen.pluginmgr.PCGenMessage;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
+import pcgen.system.LanguageBundle;
+
 /**
  * 
  */
-public class RandomNamePlugin extends GMBPlugin
+public class RandomNamePlugin implements InteractivePlugin
 {
 	/** Log name */
 	public static final String LOG_NAME = "Random_Name_Generator";
@@ -46,6 +46,8 @@ public class RandomNamePlugin extends GMBPlugin
 	/** The version number of the plugin. */
 	private String version = "01.00.99.01.00";
 
+	private PCGenMessageHandler messageHandler;
+
 	/**
 	 * Constructor
 	 */
@@ -54,32 +56,29 @@ public class RandomNamePlugin extends GMBPlugin
 		// Do Nothing
 	}
 
-    @Override
-	public FileFilter[] getFileTypes()
-	{
-		return null;
-	}
-
 	/**
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
     @Override
-	public void start()
+	public void start(PCGenMessageHandler mh)
 	{
-		theView = new NameGenPanel(new File(getDataDir()));
-		GMBus.send(new TabAddMessage(this, getLocalizedName(), getView(), getPluginSystem()));
+    	messageHandler = mh;
+		theView = new NameGenPanel(getDataDirectory());
+		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), getView()));
 		initMenus();
 	}
 
+	/**
+	 * @{inheritdoc}
+	 */
     @Override
-	public String getPluginSystem()
+	public void stop()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
-			Constants.SYSTEM_GMGEN);
+		messageHandler = null;
 	}
 
     @Override
-	public int getPluginLoadOrder()
+	public int getPriority()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 80);
 	}
@@ -89,7 +88,7 @@ public class RandomNamePlugin extends GMBPlugin
 	 * @return name
 	 */
     @Override
-	public String getName()
+	public String getPluginName()
 	{
 		return NAME;
 	}
@@ -97,16 +96,6 @@ public class RandomNamePlugin extends GMBPlugin
 	private String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
-	}
-
-	/**
-	 * Accessor for version
-	 * @return version
-	 */
-    @Override
-	public String getVersion()
-	{
-		return version;
 	}
 
 	/**
@@ -121,12 +110,11 @@ public class RandomNamePlugin extends GMBPlugin
 	/**
 	 * listens to messages from the GMGen system, and handles them as needed
 	 * @param message the source of the event from the system
-	 * @see GMBPlugin#handleMessage(GMBMessage)
 	 */
     @Override
-	public void handleMessage(GMBMessage message)
+	public void handleMessage(PCGenMessage message)
 	{
-		if (message instanceof StateChangedMessage)
+		if (message instanceof FocusOrStateChangeOccurredMessage)
 		{
 			if (isActive())
 			{
@@ -165,7 +153,7 @@ public class RandomNamePlugin extends GMBPlugin
 				toolMenuItem(evt);
 			}
 		});
-		GMBus.send(new ToolMenuItemAddMessage(this, nameToolsItem));
+		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, nameToolsItem));
 	}
 
 	/**
@@ -183,5 +171,16 @@ public class RandomNamePlugin extends GMBPlugin
 				tp.setSelectedIndex(i);
 			}
 		}
+	}
+
+	/**
+	 * @{inheritdoc}
+	 */
+	@Override
+	public File getDataDirectory()
+	{
+		File dataDir =
+				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
+		return dataDir;
 	}
 }

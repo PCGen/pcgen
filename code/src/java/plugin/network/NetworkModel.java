@@ -290,7 +290,7 @@ public class NetworkModel
 			logsDoc.insertAfterEnd(logsDoc.getCharacterElement(logsDoc
 				.getLength()), "<br>\n<b>"
 				+ dateFmt.format(Calendar.getInstance().getTime())
-				+ " <font color='" + MiscUtilities.colorToHex(c) + "'>" + title
+				+ " <font color='#" + Integer.toHexString(c.getRGB()) + "'>" + title
 				+ "</b></font>: " + message);
 			setPaneIcon();
 		}
@@ -314,7 +314,7 @@ public class NetworkModel
 			logsDoc.insertAfterEnd(logsDoc.getCharacterElement(logsDoc
 				.getLength()), "<br>\n<b>"
 				+ dateFmt.format(Calendar.getInstance().getTime())
-				+ " <font color='" + MiscUtilities.colorToHex(c) + "'>" + title
+				+ " <font color='#" + Integer.toHexString(c.getRGB()) + "'>" + title
 				+ "</b></font> " + owner + ": " + message);
 			setPaneIcon();
 		}

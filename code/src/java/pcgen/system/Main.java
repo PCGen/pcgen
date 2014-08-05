@@ -25,7 +25,6 @@ import static pcgen.system.ConfigurationSettings.getPluginsDir;
 import static pcgen.system.ConfigurationSettings.getSystemProperty;
 import static pcgen.system.ConfigurationSettings.initSystemProperty;
 import static pcgen.system.ConfigurationSettings.setSystemProperty;
-import gmgen.pluginmgr.PluginManager;
 
 import java.io.File;
 import java.io.IOException;
@@ -61,6 +60,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.TokenStore;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.pluginmgr.PluginManager;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.util.Logging;
 import pcgen.util.PJEP;

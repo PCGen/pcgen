@@ -29,12 +29,14 @@ import gmgen.io.SimpleFileFilter;
 import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
 import gmgen.plugin.PcgCombatant;
-import gmgen.pluginmgr.GMBMessage;
-import gmgen.pluginmgr.GMBPlugin;
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.messages.*;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.FileMenuSaveMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import gmgen.util.LogUtilities;
-import gmgen.util.MiscUtilities;
 
 import java.awt.Component;
 import java.awt.Cursor;
@@ -48,11 +50,19 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.filechooser.FileFilter;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.io.PCGFile;
+import pcgen.pluginmgr.InteractivePlugin;
+import pcgen.pluginmgr.PCGenMessage;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
+import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
+import pcgen.pluginmgr.messages.PlayerCharacterWasLoadedMessage;
+import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
+import pcgen.pluginmgr.messages.RequestToSavePlayerCharacterMessage;
+import pcgen.pluginmgr.messages.TransmitInitiativeValuesBetweenComponentsMessage;
 import pcgen.system.PCGenSettings;
 import plugin.initiative.gui.Initiative;
 import plugin.initiative.gui.PreferencesDamagePanel;
@@ -71,7 +81,7 @@ import plugin.initiative.gui.PreferencesPerformancePanel;
  * @author Expires 2003
  * @version 2.10
  */
-public class InitiativePlugin extends GMBPlugin
+public class InitiativePlugin implements InteractivePlugin
 {
 
 	/** Name used for initiative logging. */
@@ -89,6 +99,8 @@ public class InitiativePlugin extends GMBPlugin
 	/** The version number of the plugin. */
 	private String version = "01.00.99.01.00";
 
+	private PCGenMessageHandler messageHandler;
+
 	/**
 	 * Creates a new instance of InitiativePlugin
 	 */
@@ -97,7 +109,6 @@ public class InitiativePlugin extends GMBPlugin
 		// Do Nothing
 	}
 
-    @Override
 	public FileFilter[] getFileTypes()
 	{
 		FileFilter[] ff = {getFileType()};
@@ -119,32 +130,35 @@ public class InitiativePlugin extends GMBPlugin
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
     @Override
-	public void start()
+	public void start(PCGenMessageHandler mh)
 	{
+    	messageHandler = mh;
 		theView = new Initiative();
-		GMBus.send(new PreferencesPanelAddMessage(this, name,
+		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, name,
 			new PreferencesDamagePanel()));
-		GMBus.send(new PreferencesPanelAddMessage(this, name,
+		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, name,
 			new PreferencesMassiveDamagePanel()));
-		GMBus.send(new PreferencesPanelAddMessage(this, name,
+		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, name,
 			new PreferencesInitiativePanel()));
-		GMBus.send(new PreferencesPanelAddMessage(this, name,
+		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, name,
 			new PreferencesPerformancePanel()));
 
 		theView.setLog(LogUtilities.inst());
-		GMBus.send(new TabAddMessage(this, name, getView(), getPluginSystem()));
+		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, name, getView()));
 		initMenus();
 	}
 
+	/**
+	 * @{inheritdoc}
+	 */
     @Override
-	public String getPluginSystem()
+	public void stop()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
-			Constants.SYSTEM_GMGEN);
+		messageHandler = null;
 	}
 
     @Override
-	public int getPluginLoadOrder()
+	public int getPriority()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 40);
 	}
@@ -155,20 +169,9 @@ public class InitiativePlugin extends GMBPlugin
 	 * @return name
 	 */
     @Override
-	public String getName()
+	public String getPluginName()
 	{
 		return name;
-	}
-
-	/**
-	 * Accessor for version
-	 *
-	 * @return version
-	 */
-    @Override
-	public String getVersion()
-	{
-		return version;
 	}
 
 	/**
@@ -205,8 +208,9 @@ public class InitiativePlugin extends GMBPlugin
 		chooser.removeChoosableFileFilter(chooser.getAcceptAllFileFilter());
 		chooser.setFileFilter(ff);
 		chooser.setMultiSelectionEnabled(true);
+		Cursor originalCursor = theView.getCursor();
+		theView.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
-		Cursor saveCursor = MiscUtilities.setBusyCursor(theView);
 		int option = chooser.showOpenDialog(theView);
 
 		if (option == JFileChooser.APPROVE_OPTION)
@@ -217,7 +221,7 @@ public class InitiativePlugin extends GMBPlugin
 			{
 				if (PCGFile.isPCGenCharacterOrPartyFile(pcFiles[i]))
 				{
-					GMBus.send(new OpenPCGRequestMessage(this, pcFiles[i],
+					messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(this, pcFiles[i],
 						false));
 
 					//loadPCG(pcFiles[i]);
@@ -237,7 +241,7 @@ public class InitiativePlugin extends GMBPlugin
 			/* this means the file is invalid */
 		}
 
-		MiscUtilities.setCursor(theView, saveCursor);
+		theView.setCursor(originalCursor);
 	}
 
 	/**
@@ -247,7 +251,7 @@ public class InitiativePlugin extends GMBPlugin
 	 *
 	 * @param message
 	 */
-	public void handleCombatRequestMessage(CombatRequestMessage message)
+	public void handleCombatRequestMessage(CombatHasBeenInitiatedMessage message)
 	{
 		message.setCombat(theView.initList);
 	}
@@ -259,7 +263,7 @@ public class InitiativePlugin extends GMBPlugin
 	 *
 	 * @param message
 	 */
-	public void handleFileOpenMessage(FileOpenMessage message)
+	public void handleFileOpenMessage(FileMenuOpenMessage message)
 	{
 		if (GMGenSystemView.getTabPane().getSelectedComponent() instanceof Initiative)
 		{
@@ -276,7 +280,7 @@ public class InitiativePlugin extends GMBPlugin
 	 * @param message
 	 */
 	public void handleInitHolderListSendMessage(
-		InitHolderListSendMessage message)
+		TransmitInitiativeValuesBetweenComponentsMessage message)
 	{
 		if (message.getSource() != this)
 		{
@@ -299,74 +303,41 @@ public class InitiativePlugin extends GMBPlugin
 	 *
 	 * @param message
 	 *          the source of the event from the system
-	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage(GMBMessage)
 	 */
     @Override
-	public void handleMessage(GMBMessage message)
+	public void handleMessage(PCGenMessage message)
 	{
-		if (message instanceof FileOpenMessage)
+		if (message instanceof FileMenuOpenMessage)
 		{
-			handleFileOpenMessage((FileOpenMessage) message);
+			handleFileOpenMessage((FileMenuOpenMessage) message);
 		}
-		else if (message instanceof SaveMessage)
+		else if (message instanceof FileMenuSaveMessage)
 		{
-			handleSaveMessage((SaveMessage) message);
+			handleSaveMessage((FileMenuSaveMessage) message);
 		}
-		else if (message instanceof InitHolderListSendMessage)
+		else if (message instanceof TransmitInitiativeValuesBetweenComponentsMessage)
 		{
-			handleInitHolderListSendMessage((InitHolderListSendMessage) message);
+			handleInitHolderListSendMessage((TransmitInitiativeValuesBetweenComponentsMessage) message);
 		}
-		else if (message instanceof PCLoadedMessage)
+		else if (message instanceof PlayerCharacterWasLoadedMessage)
 		{
-			handlePCLoadedMessage((PCLoadedMessage) message);
+			handlePCLoadedMessage((PlayerCharacterWasLoadedMessage) message);
 		}
-		else if (message instanceof PCClosedMessage)
+		else if (message instanceof PlayerCharacterWasClosedMessage)
 		{
-			handlePCClosedMessage((PCClosedMessage) message);
+			handlePCClosedMessage((PlayerCharacterWasClosedMessage) message);
 		}
-		else if (message instanceof WindowClosedMessage)
+		else if (message instanceof GMGenBeingClosedMessage)
 		{
-			handleWindowClosedMessage((WindowClosedMessage) message);
+			handleWindowClosedMessage((GMGenBeingClosedMessage) message);
 		}
-		else if (message instanceof StateChangedMessage)
+		else if (message instanceof FocusOrStateChangeOccurredMessage)
 		{
-			handleStateChangedMessage((StateChangedMessage) message);
+			handleStateChangedMessage((FocusOrStateChangeOccurredMessage) message);
 		}
-		else if (message instanceof CombatRequestMessage)
+		else if (message instanceof CombatHasBeenInitiatedMessage)
 		{
-			handleCombatRequestMessage((CombatRequestMessage) message);
-		}
-		else if (message instanceof OpenMessage)
-		{
-			handleOpenMessage((OpenMessage) message);
-		}
-		else if (message instanceof FileTypeMessage)
-		{
-			handleFileTypeMessage((FileTypeMessage) message);
-		}
-	}
-
-	/**
-	 * @param message
-	 */
-	private void handleFileTypeMessage(FileTypeMessage message)
-	{
-		message.addFileTypes(getFileTypes());
-	}
-
-	/**
-	 * @param message
-	 */
-	private void handleOpenMessage(OpenMessage message)
-	{
-		final File[] files = message.getFile();
-		final FileFilter filter = getFileType();
-		for (int i = 0; i < files.length; i++)
-		{
-			if (filter.accept(files[i]))
-			{
-				loadINIT(files[i]);
-			}
+			handleCombatRequestMessage((CombatHasBeenInitiatedMessage) message);
 		}
 	}
 
@@ -377,7 +348,7 @@ public class InitiativePlugin extends GMBPlugin
 	 *
 	 * @param message
 	 */
-	public void handlePCClosedMessage(PCClosedMessage message)
+	public void handlePCClosedMessage(PlayerCharacterWasClosedMessage message)
 	{
 		theView.removePcgCombatant(message.getPC());
 		theView.refreshTable();
@@ -390,11 +361,9 @@ public class InitiativePlugin extends GMBPlugin
 	 *
 	 * @param message
 	 */
-	public void handlePCLoadedMessage(PCLoadedMessage message)
+	public void handlePCLoadedMessage(PlayerCharacterWasLoadedMessage message)
 	{
-		if (!message.isIgnored(this))
-		{
-			PlayerCharacter pc = message.getPC();
+			PlayerCharacter pc = message.getPc();
 			String type = "PC";
 			String player = pc.getDisplay().getPlayersName();
 
@@ -416,7 +385,6 @@ public class InitiativePlugin extends GMBPlugin
 
 			theView.addPcgCombatant(pc, type);
 			theView.refreshTable();
-		}
 	}
 
 	/**
@@ -433,7 +401,7 @@ public class InitiativePlugin extends GMBPlugin
 			if (iH instanceof PcgCombatant)
 			{
 				PcgCombatant pcgcbt = (PcgCombatant) iH;
-				GMBus.send(new SavePCGRequestMessage(this, pcgcbt.getPC()));
+				messageHandler.handleMessage(new RequestToSavePlayerCharacterMessage(this, pcgcbt.getPC()));
 			}
 		}
 
@@ -447,12 +415,12 @@ public class InitiativePlugin extends GMBPlugin
 	 *
 	 * @param message
 	 */
-	public void handleSaveMessage(SaveMessage message)
+	public void handleSaveMessage(FileMenuSaveMessage message)
 	{
 		if (isActive())
 		{
 			fileSave();
-			message.veto();
+			message.consume();
 		}
 	}
 
@@ -464,7 +432,7 @@ public class InitiativePlugin extends GMBPlugin
 	 *
 	 * @param message
 	 */
-	public void handleStateChangedMessage(StateChangedMessage message)
+	public void handleStateChangedMessage(FocusOrStateChangeOccurredMessage message)
 	{
 		if (isActive())
 		{
@@ -494,7 +462,7 @@ public class InitiativePlugin extends GMBPlugin
 	 *
 	 * @param message
 	 */
-	public void handleWindowClosedMessage(WindowClosedMessage message)
+	public void handleWindowClosedMessage(GMGenBeingClosedMessage message)
 	{
 		theView.setExitPrefs();
 	}
@@ -548,7 +516,7 @@ public class InitiativePlugin extends GMBPlugin
 				initMenuItem(evt);
 			}
 		});
-		GMBus.send(new ToolMenuItemAddMessage(this, initToolsItem));
+		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, initToolsItem));
 	}
 
 	/**
@@ -561,5 +529,17 @@ public class InitiativePlugin extends GMBPlugin
 	public void loadINIT(File initFile)
 	{
 		theView.loadINIT(initFile, this);
+	}
+
+	/**
+	 *  Gets the name of the data directory for Plugin object
+	 *
+	 *@return    The data directory name
+	 */
+	public File getDataDirectory()
+	{
+		File dataDir =
+				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
+		return dataDir;
 	}
 }

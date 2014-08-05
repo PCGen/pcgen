@@ -4,33 +4,41 @@ import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
 import gmgen.gui.ImagePreview;
 import gmgen.io.SimpleFileFilter;
-import gmgen.pluginmgr.GMBMessage;
-import gmgen.pluginmgr.GMBPlugin;
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.messages.*;
-import gmgen.util.MiscUtilities;
-import pcgen.cdom.base.Constants;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import pcgen.gui2.tools.Utility;
-import pcgen.io.PCGIOHandler;
-import pcgen.io.PCGFile;
-import pcgen.system.LanguageBundle;
-import pcgen.system.PCGenSettings;
-import pcgen.util.Logging;
-import plugin.pcgtracker.gui.PCGTrackerView;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
-import javax.swing.JFileChooser;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JTabbedPane;
-import javax.swing.filechooser.FileFilter;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+
+import javax.swing.JFileChooser;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.gui2.tools.Utility;
+import pcgen.io.PCGFile;
+import pcgen.io.PCGIOHandler;
+import pcgen.pluginmgr.InteractivePlugin;
+import pcgen.pluginmgr.PCGenMessage;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
+import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
+import pcgen.pluginmgr.messages.PlayerCharacterWasLoadedMessage;
+import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
+import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
+import pcgen.util.Logging;
+import plugin.pcgtracker.gui.PCGTrackerView;
 
 /**
  * The <code>ExperienceAdjusterController</code> handles the functionality of
@@ -41,7 +49,7 @@ import java.io.File;
  * @author  Expires 2003
  * @version 2.10
  */
-public class PCGTrackerPlugin extends GMBPlugin implements
+public class PCGTrackerPlugin implements InteractivePlugin,
 		java.awt.event.ActionListener
 {
 	public static final String LOG_NAME = "PCG_Tracker"; //$NON-NLS-1$
@@ -65,6 +73,8 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 	/** The version number of the plugin. */
 	private static final String version = "01.00.99.01.00"; //$NON-NLS-1$
 
+	private PCGenMessageHandler messageHandler;
+
 	/**
 	 * Creates a new instance of PCGTrackerPlugin
 	 */
@@ -73,35 +83,31 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		// Do Nothing
 	}
 
-    @Override
-	public FileFilter[] getFileTypes()
-	{
-		return null;
-	}
-
 	/**
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
     @Override
-	public void start()
+	public void start(PCGenMessageHandler mh)
 	{
+    	messageHandler = mh;
 		theView = new PCGTrackerView();
 		theView.getLoadedList().setModel(model);
 		initListeners();
-		GMBus.send(new TabAddMessage(this, getLocalizedName(), getView(), getPluginSystem()));
+		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), getView()));
 		initMenus();
-		getPluginSystem();
 	}
 
+	/**
+	 * @{inheritdoc}
+	 */
     @Override
-	public String getPluginSystem()
+	public void stop()
 	{
-		return SettingsHandler.getGMGenOption(OPTION_NAME_SYSTEM,
-			Constants.SYSTEM_GMGEN);
+		messageHandler = null;
 	}
 
     @Override
-	public int getPluginLoadOrder()
+	public int getPriority()
 	{
 		return SettingsHandler.getGMGenOption(OPTION_NAME_LOADORDER, 1000);
 	}
@@ -111,7 +117,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 	 * @return name
 	 */
     @Override
-	public String getName()
+	public String getPluginName()
 	{
 		return NAME;
 	}
@@ -119,16 +125,6 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 	private String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
-	}
-
-	/**
-	 * Accessor for version
-	 * @return version
-	 */
-    @Override
-	public String getVersion()
-	{
-		return version;
 	}
 
 	/**
@@ -196,28 +192,23 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 	/**
 	 * listens to messages from the GMGen system, and handles them as needed
 	 * @param message the source of the event from the system
-	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage(GMBMessage)
 	 */
     @Override
-	public void handleMessage(GMBMessage message)
+	public void handleMessage(PCGenMessage message)
 	{
-		if (message instanceof FileOpenMessage)
+		if (message instanceof FileMenuOpenMessage)
 		{
 			if (isActive())
 			{
 				handleOpen();
 			}
 		}
-		else if (message instanceof PCLoadedMessage)
+		else if (message instanceof PlayerCharacterWasLoadedMessage)
 		{
-			PCLoadedMessage cmessage = (PCLoadedMessage) message;
-
-			if (!cmessage.isIgnored(this))
-			{
-				model.add(cmessage.getPC());
-			}
+			PlayerCharacterWasLoadedMessage cmessage = (PlayerCharacterWasLoadedMessage) message;
+			model.add(cmessage.getPc());
 		}
-		else if (message instanceof StateChangedMessage)
+		else if (message instanceof FocusOrStateChangeOccurredMessage)
 		{
 			if (isActive())
 			{
@@ -237,7 +228,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 				charToolsItem.setEnabled(true);
 			}
 		}
-		else if (message instanceof WindowClosedMessage)
+		else if (message instanceof GMGenBeingClosedMessage)
 		{
 			handleClose();
 		}
@@ -246,17 +237,10 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		 SavePCGRequestMessage smessage = (SavePCGRequestMessage) message;
 		 savePC(smessage.getPC(), false);
 		 }*/
-		else if (message instanceof PCClosedMessage)
+		else if (message instanceof PlayerCharacterWasClosedMessage)
 		{
-			PCClosedMessage cmessage = (PCClosedMessage) message;
-			for (Object obj : theView.getLoadedList().getSelectedValues())
-			{
-				PlayerCharacter pc = model.get(obj);
-				if (pc == cmessage.getPC())
-				{
-					model.removeElement(obj);
-				}
-			}
+			PlayerCharacterWasClosedMessage cmessage = (PlayerCharacterWasClosedMessage) message;
+			model.remove(cmessage.getPC());
 		}
 	}
 
@@ -273,8 +257,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 	public void handleOpen()
 	{
 		File defaultFile = new File(PCGenSettings.getPcgDir());
-		JFileChooser chooser =
-				ImagePreview.decorateWithImagePreview(new JFileChooser());
+		JFileChooser chooser = new JFileChooser();
 		chooser.setCurrentDirectory(defaultFile);
 
 		String[] pcgs = new String[]{FILENAME_PCG, FILENAME_PCP};
@@ -282,9 +265,10 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		chooser.addChoosableFileFilter(ff);
 		chooser.setFileFilter(ff);
 		chooser.setMultiSelectionEnabled(true);
+		Component component = GMGenSystem.inst;
+		Cursor originalCursor = component.getCursor();
+		component.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
-		java.awt.Cursor saveCursor =
-				MiscUtilities.setBusyCursor(GMGenSystem.inst);
 		int option = chooser.showOpenDialog(GMGenSystem.inst);
 
 		if (option == JFileChooser.APPROVE_OPTION)
@@ -293,7 +277,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 			{
 				if (PCGFile.isPCGenCharacterOrPartyFile(selectedFile))
 				{
-					GMBus.send(new OpenPCGRequestMessage(this, selectedFile,
+					messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(this, selectedFile,
 						false));
 				}
 			}
@@ -303,7 +287,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 			/* this means the file is invalid */
 		}
 
-		MiscUtilities.setCursor(GMGenSystem.inst, saveCursor);
+		GMGenSystem.inst.setCursor(originalCursor);
 	}
 
 	/**
@@ -323,7 +307,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		{
 			PlayerCharacter pc = model.get(obj);
 			model.removeElement(obj);
-			GMBus.send(new PCClosedMessage(this, pc));
+			messageHandler.handleMessage(new PlayerCharacterWasClosedMessage(this, pc));
 		}
 	}
 
@@ -469,7 +453,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 				toolMenuItem(evt);
 			}
 		});
-		GMBus.send(new ToolMenuItemAddMessage(this, charToolsItem));
+		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, charToolsItem));
 	}
 
 	/**
@@ -521,4 +505,17 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 			}
 		}
 	}
+
+	/**
+	 *  Gets the name of the data directory for Plugin object
+	 *
+	 *@return    The data directory name
+	 */
+	public File getDataDirectory()
+	{
+		File dataDir =
+				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
+		return dataDir;
+	}
+
 }

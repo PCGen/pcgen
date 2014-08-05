@@ -20,9 +20,6 @@
  */
 package pcgen.system;
 
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.messages.PCLoadedMessage;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -55,6 +52,9 @@ import pcgen.gui2.facade.PartyFacadeImpl;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.PCGFile;
 import pcgen.io.PCGIOHandler;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.PluginManager;
+import pcgen.pluginmgr.messages.PlayerCharacterWasLoadedMessage;
 import pcgen.util.Logging;
 
 /**
@@ -78,12 +78,14 @@ public class CharacterManager
 	private static final PartyFacadeImpl characters;
 	private static final RecentFileList recentCharacters;
 	private static final RecentFileList recentParties;
+	private static final PCGenMessageHandler messageHandler;
 
 	static
 	{
 		characters = new PartyFacadeImpl();
 		recentCharacters = new RecentFileList(PCGenSettings.RECENT_CHARACTERS);
 		recentParties = new RecentFileList(PCGenSettings.RECENT_PARTIES);
+		messageHandler = PluginManager.getInstance().getPostbox();
 	}
 
 	private CharacterManager()
@@ -110,7 +112,7 @@ public class CharacterManager
 			character.setName(name);
 			characters.addElement(character);
 			Logging.log(Logging.INFO, "Created new character " + name + "."); //$NON-NLS-1$ //$NON-NLS-2$
-			GMBus.send(new PCLoadedMessage(null, pc));
+			messageHandler.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, pc));
 			return character;
 		}
 		catch (Exception e)
@@ -177,7 +179,7 @@ public class CharacterManager
 			// if it's not broken, then only warnings should have been generated, and we won't count those
 			// Register the character so that future checks to see if file already loaded will work
 			Globals.getPCList().add(newPC);
-			GMBus.send(new PCLoadedMessage(null, newPC));
+			messageHandler.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, newPC));
 	
 			CharacterFacade character = new CharacterFacadeImpl(newPC, delegate, dataset);
 			characters.addElement(character);
@@ -435,6 +437,7 @@ public class CharacterManager
 	public static void removeCharacter(CharacterFacade character)
 	{
 		characters.removeElement(character);
+		// This advises the message handler also.
 		character.closeCharacter();
 		File charFile = character.getFileRef().getReference();
 		recentCharacters.addRecentFile(charFile);
@@ -453,6 +456,7 @@ public class CharacterManager
 		for (CharacterFacade characterFacade : characters)
 		{
 			recentCharacters.addRecentFile(characterFacade.getFileRef().getReference());
+			// This advises the message handler also.
 			characterFacade.closeCharacter();
 		}
 		characters.clearContents();

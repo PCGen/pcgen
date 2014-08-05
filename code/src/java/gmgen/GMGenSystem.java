@@ -23,22 +23,17 @@ package gmgen;
 import static pcgen.system.LanguageBundle.getFormattedString;
 import gmgen.gui.PreferencesDialog;
 import gmgen.gui.PreferencesRootTreeNode;
-import gmgen.pluginmgr.GMBComponent;
-import gmgen.pluginmgr.GMBMessage;
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.PluginManager;
-import gmgen.pluginmgr.messages.ClipboardMessage;
-import gmgen.pluginmgr.messages.FetchOpenPCGRequestMessage;
-import gmgen.pluginmgr.messages.FileOpenMessage;
-import gmgen.pluginmgr.messages.LoadMessage;
-import gmgen.pluginmgr.messages.PreferencesPanelAddMessage;
-import gmgen.pluginmgr.messages.SaveMessage;
-import gmgen.pluginmgr.messages.StateChangedMessage;
-import gmgen.pluginmgr.messages.TabAddMessage;
-import gmgen.pluginmgr.messages.ToolMenuItemAddMessage;
-import gmgen.pluginmgr.messages.WindowClosedMessage;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.EditMenuCopySelectionMessage;
+import gmgen.pluginmgr.messages.EditMenuCutSelectionMessage;
+import gmgen.pluginmgr.messages.EditMenuPasteSelectionMessage;
+import gmgen.pluginmgr.messages.FileMenuNewMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.FileMenuSaveMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import gmgen.util.LogUtilities;
-import gmgen.util.MiscUtilities;
 
 import java.awt.BorderLayout;
 import java.awt.Frame;
@@ -61,12 +56,17 @@ import javax.swing.event.MenuListener;
 
 import org.apache.commons.lang.SystemUtils;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.PCGenActionMap;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
+import pcgen.pluginmgr.PCGenMessage;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.PluginManager;
+import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
+import pcgen.pluginmgr.messages.RequestFileOpenedMessageForCurrentlyOpenedPCsMessage;
+import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
 import pcgen.util.SwingWorker;
 
@@ -77,7 +77,7 @@ import pcgen.util.SwingWorker;
  * It holds the controller for every tab as well as the menu bar.
  */
 public final class GMGenSystem extends JFrame implements ChangeListener,
-        MenuListener, ActionListener, GMBComponent {
+        MenuListener, ActionListener, PCGenMessageHandler {
 	
 	// Serial UID
     private static final long serialVersionUID = -7372446160499882872L;
@@ -153,6 +153,10 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     // Tree for the preferences dialog
     private PreferencesRootTreeNode rootNode = new PreferencesRootTreeNode();
 
+    private final PCGenMessageHandler messageHandler;
+
+	private PluginManager pluginManager;
+
     /**
      * Constructor
      * 
@@ -161,6 +165,8 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      */
     public GMGenSystem() {
         super(getFormattedString("in_gmgen_frameTitle", APPLICATION_NAME)); //$NON-NLS-1$
+        pluginManager = PluginManager.getInstance();
+        messageHandler = pluginManager.getPostbox();
         new Renderer().start();
     }
 
@@ -174,12 +180,12 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         initLogger();
         createMenuBar();
         theView = new GMGenSystemView();
-        GMBus.addToBus(this);
+        pluginManager.addMember(this);
         PluginManager.getInstance().startAllPlugins();
         initComponents();
         initSettings();
-        GMBus.send(new FetchOpenPCGRequestMessage(this));
-        GMBus.send(new StateChangedMessage(this, editMenu));
+        messageHandler.handleMessage(new RequestFileOpenedMessageForCurrentlyOpenedPCsMessage(this));
+        messageHandler.handleMessage(new FocusOrStateChangeOccurredMessage(this, editMenu));
         inst.setVisible(true);
     }
 
@@ -199,24 +205,13 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     }
 
     /**
-     * Gets the build number of GMGen.
-     * 
-     * @return The build number
-     * @since GMGen 3.3
-     */
-    // XXX is there a reason this never changes?
-    public static String getBuild() {
-        return "03.03.99.01.00";
-    }
-
-    /**
      * Returns the GMGen version as a human-readable string.
      * 
      * @return The version
      * @since GMGen 3.3
      */
     public static String getVersion() {
-        return MiscUtilities.buildToVersion(getBuild());
+        return PCGenPropBundle.getVersionNumber();
     }
 
     /**
@@ -230,19 +225,19 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     @Override
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == openFileItem) {
-            GMBus.send(new FileOpenMessage(this));
+            messageHandler.handleMessage(new FileMenuOpenMessage(this));
         } else if (event.getSource() == exitFileItem) {
-            GMBus.send(new WindowClosedMessage(this));
+            messageHandler.handleMessage(new GMGenBeingClosedMessage(this));
         } else if (event.getSource() == newFileItem) {
-            GMBus.send(new LoadMessage(this));
+            messageHandler.handleMessage(new FileMenuNewMessage(this));
         } else if (event.getSource() == saveFileItem) {
-            GMBus.send(new SaveMessage(this));
+            messageHandler.handleMessage(new FileMenuSaveMessage(this));
         } else if (event.getSource() == cutEditItem) {
-            GMBus.send(new ClipboardMessage(this, ClipboardMessage.CUT));
+            messageHandler.handleMessage(new EditMenuCutSelectionMessage(this));
         } else if (event.getSource() == copyEditItem) {
-            GMBus.send(new ClipboardMessage(this, ClipboardMessage.COPY));
+            messageHandler.handleMessage(new EditMenuCopySelectionMessage(this));
         } else if (event.getSource() == pasteEditItem) {
-            GMBus.send(new ClipboardMessage(this, ClipboardMessage.PASTE));
+            messageHandler.handleMessage(new EditMenuPasteSelectionMessage(this));
         }
     }
 
@@ -293,26 +288,24 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * @since GMGen 3.3
      */
     @Override
-    public void handleMessage(GMBMessage message) {
+    public void handleMessage(PCGenMessage message) {
         // A plugin is asking for the creation of a new tab
-        if (message instanceof TabAddMessage) {
-            TabAddMessage tmessage = (TabAddMessage) message;
-            if (tmessage.getSystem().equals(Constants.SYSTEM_GMGEN)) {
-                Logging.debugPrint("Creating Tab "
-                        + GMGenSystemView.getTabPane().getTabCount());
-                theView.insertPane(tmessage.getName(), tmessage.getPane(),
-                        GMGenSystemView.getTabPane().getTabCount());
-            }
-        } else if (message instanceof PreferencesPanelAddMessage) {
-            PreferencesPanelAddMessage pmessage = (PreferencesPanelAddMessage) message;
+        if (message instanceof RequestAddTabToGMGenMessage) {
+            RequestAddTabToGMGenMessage tmessage = (RequestAddTabToGMGenMessage) message;
+            Logging.debugPrint("Creating Tab "
+                    + GMGenSystemView.getTabPane().getTabCount());
+            theView.insertPane(tmessage.getName(), tmessage.getPane(),
+                    GMGenSystemView.getTabPane().getTabCount());
+        } else if (message instanceof RequestAddPreferencesPanelMessage) {
+        	RequestAddPreferencesPanelMessage pmessage = (RequestAddPreferencesPanelMessage) message;
             Logging.debugPrint("Creating Preferences Panel");
-            rootNode.addPanel(pmessage.getName(), pmessage.getPane());
+            rootNode.addPanel(pmessage.getName(), pmessage.getPrefsPanel());
         }
         // A plugin is asking for the creation of a new option in the tool menu
-        else if (message instanceof ToolMenuItemAddMessage) {
-            ToolMenuItemAddMessage mmessage = (ToolMenuItemAddMessage) message;
+        else if (message instanceof AddMenuItemToGMGenToolsMenuMessage) {
+            AddMenuItemToGMGenToolsMenuMessage mmessage = (AddMenuItemToGMGenToolsMenuMessage) message;
             toolsMenu.add(mmessage.getMenuItem());
-        } else if (message instanceof WindowClosedMessage) {
+        } else if (message instanceof GMGenBeingClosedMessage) {
             setCloseSettings();
             // Karianna 07/03/2008 - Added a call to exitForm passing in no
             // window event
@@ -454,7 +447,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         openFileItem.setEnabled(false);
         saveFileItem.setEnabled(false);
         clearEditMenu();
-        GMBus.send(new StateChangedMessage(this, editMenu));
+        messageHandler.handleMessage(new FocusOrStateChangeOccurredMessage(this, editMenu));
     }
 
 

@@ -1,23 +1,29 @@
 package plugin.network;
 
 import gmgen.GMGenSystemView;
-import gmgen.pluginmgr.GMBMessage;
-import gmgen.pluginmgr.GMBPlugin;
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.messages.*;
-import pcgen.cdom.base.Constants;
-import pcgen.core.SettingsHandler;
-import pcgen.gui2.tools.Utility;
-import pcgen.system.LanguageBundle;
-import plugin.network.gui.NetworkView;
-import plugin.network.gui.PreferencesNetworkingPanel;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
+import gmgen.pluginmgr.messages.CombatantHasBeenUpdatedMessage;
+import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
-import javax.swing.filechooser.FileFilter;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
+import pcgen.core.SettingsHandler;
+import pcgen.gui2.tools.Utility;
+import pcgen.pluginmgr.InteractivePlugin;
+import pcgen.pluginmgr.PCGenMessage;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
+import pcgen.system.LanguageBundle;
+import plugin.network.gui.NetworkView;
+import plugin.network.gui.PreferencesNetworkingPanel;
 
 /**
  * The <code>ExperienceAdjusterController</code> handles the functionality of
@@ -28,7 +34,7 @@ import java.awt.event.ActionListener;
  * @author  Expires 2003
  * @version 2.10
  */
-public class NetworkPlugin extends GMBPlugin
+public class NetworkPlugin implements InteractivePlugin
 {
 	public static final String LOG_NAME = "Network"; //$NON-NLS-1$
 
@@ -46,6 +52,8 @@ public class NetworkPlugin extends GMBPlugin
 
 	private JMenuItem netToolsItem = new JMenuItem();
 
+	private PCGenMessageHandler messageHandler;
+
 	/**
 	 * Creates a new instance of NetworkPlugin
 	 */
@@ -54,35 +62,31 @@ public class NetworkPlugin extends GMBPlugin
 		// Do Nothing
 	}
 
-    @Override
-	public FileFilter[] getFileTypes()
-	{
-		return null;
-	}
-
 	/**
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
     @Override
-	public void start()
+	public void start(PCGenMessageHandler mh)
 	{
+    	messageHandler = mh;
 		model = new NetworkModel();
-		GMBus.send(new TabAddMessage(this, getLocalizedName(), model.getView(),
-			getPluginSystem()));
+		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), model.getView()));
 		initMenus();
-		GMBus.send(new PreferencesPanelAddMessage(this, getLocalizedName(),
+		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, getLocalizedName(),
 			new PreferencesNetworkingPanel(model)));
 	}
 
+	/**
+	 * @{inheritdoc}
+	 */
     @Override
-	public String getPluginSystem()
+	public void stop()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
-			Constants.SYSTEM_GMGEN);
+		messageHandler = null;
 	}
 
     @Override
-	public int getPluginLoadOrder()
+	public int getPriority()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 60);
 	}
@@ -92,7 +96,7 @@ public class NetworkPlugin extends GMBPlugin
 	 * @return name
 	 */
     @Override
-	public String getName()
+	public String getPluginName()
 	{
 		return NAME;
 	}
@@ -103,45 +107,34 @@ public class NetworkPlugin extends GMBPlugin
 	}
 
 	/**
-	 * Accessor for version
-	 * @return version
-	 */
-    @Override
-	public String getVersion()
-	{
-		return version;
-	}
-
-	/**
 	 * listens to messages from the GMGen system, and handles them as needed
 	 * @param message the source of the event from the system
-	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage(GMBMessage)
 	 */
     @Override
-	public void handleMessage(GMBMessage message)
+	public void handleMessage(PCGenMessage message)
 	{
-		if (message instanceof CombatRequestMessage)
+		if (message instanceof CombatHasBeenInitiatedMessage)
 		{
-			handleCombatRequestMessage((CombatRequestMessage) message);
+			handleCombatRequestMessage((CombatHasBeenInitiatedMessage) message);
 		}
-		else if (message instanceof StateChangedMessage)
+		else if (message instanceof FocusOrStateChangeOccurredMessage)
 		{
-			handleStateChangedMessage((StateChangedMessage) message);
+			handleStateChangedMessage((FocusOrStateChangeOccurredMessage) message);
 		}
-		else if (message instanceof CombatantUpdatedMessage)
+		else if (message instanceof CombatantHasBeenUpdatedMessage)
 		{
-			handleCombatantUpdatedMessage((CombatantUpdatedMessage) message);
+			handleCombatantUpdatedMessage((CombatantHasBeenUpdatedMessage) message);
 		}
 	}
 
-	private void handleStateChangedMessage(StateChangedMessage message)
+	private void handleStateChangedMessage(FocusOrStateChangeOccurredMessage message)
 	{
 		if (isActive())
 		{
 			netToolsItem.setEnabled(false);
 			if (model.getCombat() == null)
 			{
-				GMBus.send(new CombatRequestMessage(this));
+				messageHandler.handleMessage(new CombatHasBeenInitiatedMessage(this));
 			}
 			try
 			{
@@ -161,7 +154,7 @@ public class NetworkPlugin extends GMBPlugin
 		}
 	}
 
-	private void handleCombatRequestMessage(CombatRequestMessage message)
+	private void handleCombatRequestMessage(CombatHasBeenInitiatedMessage message)
 	{
 		if (message.getSource() == this)
 		{
@@ -170,7 +163,7 @@ public class NetworkPlugin extends GMBPlugin
 		model.refresh();
 	}
 
-	private void handleCombatantUpdatedMessage(CombatantUpdatedMessage message)
+	private void handleCombatantUpdatedMessage(CombatantHasBeenUpdatedMessage message)
 	{
 		model.combatantUpdated(message.getCombatant());
 	}
@@ -207,6 +200,18 @@ public class NetworkPlugin extends GMBPlugin
 				toolMenuItem(evt);
 			}
 		});
-		GMBus.send(new ToolMenuItemAddMessage(this, netToolsItem));
+		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, netToolsItem));
+	}
+
+	/**
+	 *  Gets the name of the data directory for Plugin object
+	 *
+	 *@return    The data directory name
+	 */
+	public File getDataDirectory()
+	{
+		File dataDir =
+				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
+		return dataDir;
 	}
 }

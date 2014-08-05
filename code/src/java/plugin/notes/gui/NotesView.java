@@ -51,8 +51,10 @@ import javax.swing.tree.TreeSelectionModel;
 import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
+
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Point;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
@@ -115,7 +117,7 @@ public class NotesView extends JPanel
 	protected RedoAction redoAction = new RedoAction();
 
 	/**  Data Directory */
-	protected String dataDir;
+	protected File dataDir;
 
 	/**  Undo Action for JTextPane */
 	protected UndoAction undoAction = new UndoAction();
@@ -170,7 +172,7 @@ public class NotesView extends JPanel
 	 *@param  dataDir  Data directory where notes will be stored.
 	 * @param plugin
 	 */
-	public NotesView(String dataDir, NotesPlugin plugin)
+	public NotesView(File dataDir, NotesPlugin plugin)
 	{
 		this.plugin = plugin;
 		this.dataDir = dataDir;
@@ -223,9 +225,10 @@ public class NotesView extends JPanel
 			chooser.setFileFilter(filter);
 		}
 		chooser.setMultiSelectionEnabled(true);
+		Component component = GMGenSystem.inst;
+		Cursor originalCursor = component.getCursor();
+		component.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
-		java.awt.Cursor saveCursor =
-				MiscUtilities.setBusyCursor(GMGenSystem.inst);
 		int option = chooser.showOpenDialog(GMGenSystem.inst);
 
 		if (option == JFileChooser.APPROVE_OPTION)
@@ -241,7 +244,7 @@ public class NotesView extends JPanel
 			}
 		}
 
-		MiscUtilities.setCursor(GMGenSystem.inst, saveCursor);
+		GMGenSystem.inst.setCursor(originalCursor);
 		refreshTree();
 	}
 
@@ -1581,9 +1584,8 @@ public class NotesView extends JPanel
 	//Initialization methods
 	private void initTree()
 	{
-		File dir = new File(dataDir);
-		dir.listFiles();
-		root = new NotesTreeNode(dir.getName(), dir, notesTree);
+		dataDir.listFiles();
+		root = new NotesTreeNode(dataDir.getName(), dataDir, notesTree);
 
 		TreeModel model = new DefaultTreeModel(root);
 		notesTree.setModel(model);

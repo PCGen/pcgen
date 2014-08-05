@@ -30,21 +30,34 @@ package plugin.dicebag;
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
 import gmgen.io.SimpleFileFilter;
-import gmgen.pluginmgr.GMBMessage;
-import gmgen.pluginmgr.GMBPlugin;
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.messages.*;
-import pcgen.cdom.base.Constants;
-import pcgen.core.SettingsHandler;
-import pcgen.gui2.tools.Utility;
-import pcgen.system.LanguageBundle;
-import plugin.dicebag.gui.DiceBagPluginController;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.FileMenuNewMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.FileMenuSaveMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
-import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.net.URL;
+
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+import javax.swing.filechooser.FileFilter;
+
+import pcgen.core.SettingsHandler;
+import pcgen.gui2.tools.Utility;
+import pcgen.pluginmgr.InteractivePlugin;
+import pcgen.pluginmgr.PCGenMessage;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
+import pcgen.system.LanguageBundle;
+import plugin.dicebag.gui.DiceBagPluginController;
 
 /**
  * @author RossLodge
@@ -58,7 +71,7 @@ import java.net.URL;
  * </p>
  *
  */
-public class DiceBagPlugin extends GMBPlugin
+public class DiceBagPlugin implements InteractivePlugin
 {
 
 	/** Menu item command string for tools menu item */
@@ -83,6 +96,8 @@ public class DiceBagPlugin extends GMBPlugin
 	/** Version number. (NOTE: does this mean anything?) */
 	private String version = "00.00.00.01"; //$NON-NLS-1$
 
+	private PCGenMessageHandler messageHandler;
+
 	/**
 	 * <p>
 	 * Default (and only) constructor. Initializes the plugin.
@@ -93,7 +108,6 @@ public class DiceBagPlugin extends GMBPlugin
 		// Do Nothing
 	}
 
-    @Override
 	public FileFilter[] getFileTypes()
 	{
 		FileFilter[] ff = {getFileType()};
@@ -115,47 +129,35 @@ public class DiceBagPlugin extends GMBPlugin
 	 * <p>
 	 * Adds view panel via TabAddMessage and initializes the menu items.
 	 * </p>
-	 *
-	 * @see gmgen.pluginmgr.GMBPlugin#start()
 	 */
     @Override
-	public void start()
+	public void start(PCGenMessageHandler mh)
 	{
+    	messageHandler = mh;
 		theController = new DiceBagPluginController();
-		GMBus.send(new TabAddMessage(this, getLocalizedName(), theController.getComponent(),
-			getPluginSystem()));
+		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), theController.getComponent()));
 		initMenus();
 	}
 
+	/**
+	 * @{inheritdoc}
+	 */
     @Override
-	public String getPluginSystem()
+	public void stop()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
-			Constants.SYSTEM_GMGEN);
+		messageHandler = null;
 	}
 
     @Override
-	public int getPluginLoadOrder()
+	public int getPriority()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 20);
 	}
 
-	/*
-	 * @see gmgen.pluginmgr.GMBPlugin#getName()
-	 */
     @Override
-	public String getName()
+	public String getPluginName()
 	{
 		return NAME;
-	}
-
-	/*
-	 * @see gmgen.pluginmgr.GMBPlugin#getVersion()
-	 */
-    @Override
-	public String getVersion()
-	{
-		return version;
 	}
 
 	/**
@@ -174,78 +176,30 @@ public class DiceBagPlugin extends GMBPlugin
 	 * </p>
 	 * @param message
 	 *
-	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage
+	 * @see gmgen.pluginmgr.InteractivePlugin#handleMessage
 	 */
     @Override
-	public void handleMessage(GMBMessage message)
+	public void handleMessage(PCGenMessage message)
 	{
-		if (message instanceof StateChangedMessage)
+		if (message instanceof FocusOrStateChangeOccurredMessage)
 		{
-			handleStateChangedMessage((StateChangedMessage) message);
+			handleStateChangedMessage((FocusOrStateChangeOccurredMessage) message);
 		}
-		else if (message instanceof WindowClosedMessage)
+		else if (message instanceof GMGenBeingClosedMessage)
 		{
-			handleWindowClosedMessage((WindowClosedMessage) message);
+			handleWindowClosedMessage((GMGenBeingClosedMessage) message);
 		}
-		else if (message instanceof FileOpenMessage)
+		else if (message instanceof FileMenuOpenMessage)
 		{
-			handleFileOpenMessage((FileOpenMessage) message);
+			handleFileOpenMessage((FileMenuOpenMessage) message);
 		}
-		else if (message instanceof SaveMessage)
+		else if (message instanceof FileMenuSaveMessage)
 		{
-			handleSaveMessage((SaveMessage) message);
+			handleSaveMessage((FileMenuSaveMessage) message);
 		}
-		else if (message instanceof LoadMessage)
+		else if (message instanceof FileMenuNewMessage)
 		{
-			handleLoadMessage((LoadMessage) message);
-		}
-		else if (message instanceof OpenMessage)
-		{
-			handleOpenMessage((OpenMessage) message);
-		}
-		else if (message instanceof NewMessage)
-		{
-			handleNewMessage((NewMessage) message);
-		}
-		else if (message instanceof FileTypeMessage)
-		{
-			handleFileTypeMessage((FileTypeMessage) message);
-		}
-	}
-
-	/**
-	 * @param message
-	 */
-	private void handleFileTypeMessage(FileTypeMessage message)
-	{
-		message.addFileTypes(getFileTypes());
-	}
-
-	/**
-	 * @param message
-	 */
-	private void handleOpenMessage(OpenMessage message)
-	{
-		final File[] files = message.getFile();
-		final FileFilter filter = getFileType();
-		for (int i = 0; i < files.length; i++)
-		{
-			if (filter.accept(files[i]))
-			{
-				theController.openFile(files[i]);
-			}
-		}
-	}
-
-	/**
-	 * @param message
-	 */
-	private void handleNewMessage(NewMessage message)
-	{
-		if (isActive())
-		{
-			theController.fileNew();
-			message.veto();
+			handleLoadMessage((FileMenuNewMessage) message);
 		}
 	}
 
@@ -280,13 +234,13 @@ public class DiceBagPlugin extends GMBPlugin
 	 * @param message
 	 *          <code>FileOpenMessage</code>
 	 */
-	private void handleFileOpenMessage(FileOpenMessage message)
+	private void handleFileOpenMessage(FileMenuOpenMessage message)
 	{
 		if (GMGenSystemView.getTabPane().getSelectedComponent().equals(
 			theController.getComponent()))
 		{
 			theController.fileOpen();
-			message.veto();
+			message.consume();
 		}
 	}
 
@@ -299,13 +253,13 @@ public class DiceBagPlugin extends GMBPlugin
 	 *
 	 * @param message
 	 */
-	private void handleLoadMessage(LoadMessage message)
+	private void handleLoadMessage(FileMenuNewMessage message)
 	{
 		if (GMGenSystemView.getTabPane().getSelectedComponent().equals(
 			theController.getComponent()))
 		{
 			theController.fileNew();
-			message.veto();
+			message.consume();
 		}
 	}
 
@@ -317,12 +271,12 @@ public class DiceBagPlugin extends GMBPlugin
 	 *
 	 * @param message
 	 */
-	private void handleSaveMessage(SaveMessage message)
+	private void handleSaveMessage(FileMenuSaveMessage message)
 	{
 		if (isActive())
 		{
 			theController.fileSave();
-			message.veto();
+			message.consume();
 		}
 	}
 
@@ -335,7 +289,7 @@ public class DiceBagPlugin extends GMBPlugin
 	 * @param message
 	 *          The message
 	 */
-	private void handleStateChangedMessage(StateChangedMessage message)
+	private void handleStateChangedMessage(FocusOrStateChangeOccurredMessage message)
 	{
 		if (GMGenSystemView.getTabPane() != null)
 		{
@@ -360,7 +314,7 @@ public class DiceBagPlugin extends GMBPlugin
 	 *
 	 * @param message
 	 */
-	private void handleWindowClosedMessage(WindowClosedMessage message)
+	private void handleWindowClosedMessage(GMGenBeingClosedMessage message)
 	{
 		theController.windowClosed();
 	}
@@ -389,7 +343,7 @@ public class DiceBagPlugin extends GMBPlugin
 				makeMenuItem(getLocalizedName(), DICEBAG_TOOLS_COMMAND, null,
 					LanguageBundle.getString("in_plugin_dicebag_desc"), //$NON-NLS-1$
 					LanguageBundle.getMnemonic("in_mn_plugin_dicebag_name")); //$NON-NLS-1$
-		GMBus.send(new ToolMenuItemAddMessage(this, notesToolsItem));
+		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, notesToolsItem));
 	}
 
 	private String getLocalizedName()
@@ -496,5 +450,17 @@ public class DiceBagPlugin extends GMBPlugin
 				toolMenuItem(e);
 			}
 		}
+	}
+
+	/**
+	 *  Gets the name of the data directory for Plugin object
+	 *
+	 *@return    The data directory name
+	 */
+	public File getDataDirectory()
+	{
+		File dataDir =
+				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
+		return dataDir;
 	}
 }

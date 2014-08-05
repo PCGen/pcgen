@@ -42,14 +42,14 @@ public final class RoomBoardFactory
 
 	private static final String DIR_RNBPRICE = "rnbprice"; //$NON-NLS-1$
 
-	public static RoomBoard load(String DataPath)
+	public static RoomBoard load(File dataDir)
 	{
 		//Create a new list for the room and board
 		PairList<RBCost> inns = new PairList<RBCost>();
 		PairList<RBCost> foods = new PairList<RBCost>();
 		PairList<RBCost> animals = new PairList<RBCost>();
 
-		File path = new File(DataPath, DIR_RNBPRICE);
+		File path = new File(dataDir, DIR_RNBPRICE);
 
 		if (path.isDirectory())
 		{

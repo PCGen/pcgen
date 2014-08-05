@@ -7,13 +7,8 @@ import gmgen.io.VectorTable;
 import gmgen.plugin.Dice;
 import gmgen.plugin.InitHolderList;
 import gmgen.plugin.PcgCombatant;
-import gmgen.pluginmgr.GMBMessage;
-import gmgen.pluginmgr.GMBPlugin;
-import gmgen.pluginmgr.GMBus;
-import gmgen.pluginmgr.messages.InitHolderListSendMessage;
-import gmgen.pluginmgr.messages.StateChangedMessage;
-import gmgen.pluginmgr.messages.TabAddMessage;
-import gmgen.pluginmgr.messages.ToolMenuItemAddMessage;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,7 +30,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.ListModel;
-import javax.swing.filechooser.FileFilter;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
@@ -55,6 +49,11 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.gui2.tools.Utility;
+import pcgen.pluginmgr.InteractivePlugin;
+import pcgen.pluginmgr.PCGenMessage;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
+import pcgen.pluginmgr.messages.TransmitInitiativeValuesBetweenComponentsMessage;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.encounter.gui.EncounterView;
@@ -66,7 +65,7 @@ import plugin.encounter.gui.EncounterView;
  * <code>PluginLoader</code> and will create a model and a view for this plugin.
  * @version 2.10
  */
-public class EncounterPlugin extends GMBPlugin implements ActionListener,
+public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		ItemListener, MouseListener
 {
 	/** Directory where Data for this plug-in is expected to be. */
@@ -105,6 +104,8 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	/** The version number of the plugin. */
 	private String version = "01.00.99.01.00"; //$NON-NLS-1$
 
+	private PCGenMessageHandler messageHandler;
+
 	/**
 	 * Creates an instance of this class creating a new <code>InitHolderList
 	 * </code>.
@@ -114,37 +115,34 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		super();
 	}
 
-	@Override
-	public FileFilter[] getFileTypes()
-	{
-		return null;
-	}
-
 	/**
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
 	@Override
-	public void start()
+	public void start(PCGenMessageHandler mh)
 	{
-		theModel = new EncounterModel(getDataDir() + File.separator + DIR_ENCOUNTER);
+    	messageHandler = mh;
+		theModel = new EncounterModel(getDataDirectory() + File.separator + DIR_ENCOUNTER);
 		theView = new EncounterView();
 		theRaces = new RaceModel();
 		theList = new InitHolderList();
 		createView();
 
-		GMBus.send(new TabAddMessage(this, getLocalizedName(), getView(), getPluginSystem()));
+		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), getView()));
 		initMenus();
 	}
 
-	@Override
-	public String getPluginSystem()
+	/**
+	 * @{inheritdoc}
+	 */
+    @Override
+	public void stop()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
-			Constants.SYSTEM_GMGEN);
+		messageHandler = null;
 	}
 
 	@Override
-	public int getPluginLoadOrder()
+	public int getPriority()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 30);
 	}
@@ -172,7 +170,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	 * @return name
 	 */
 	@Override
-	public String getName()
+	public String getPluginName()
 	{
 		return NAME;
 	}
@@ -189,16 +187,6 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	public RaceModel getRaces()
 	{
 		return theRaces;
-	}
-
-	/**
-	 * Accessor for version
-	 * @return version
-	 */
-	@Override
-	public String getVersion()
-	{
-		return version;
 	}
 
 	/**
@@ -259,7 +247,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	public void handleGenerateEncounter(EncounterModel m)
 	{
 		File f =
-				new File(getDataDir() + File.separator + DIR_ENCOUNTER
+				new File(getDataDirectory() + File.separator + DIR_ENCOUNTER
 					+ File.separator + "environments.xml");
 		ReadXML xml;
 
@@ -314,12 +302,11 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	/**
 	 * listens to messages from the GMGen system, and handles them as needed
 	 * @param message the source of the event from the system
-	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage(GMBMessage)
 	 */
 	@Override
-	public void handleMessage(GMBMessage message)
+	public void handleMessage(PCGenMessage message)
 	{
-		if (message instanceof StateChangedMessage)
+		if (message instanceof FocusOrStateChangeOccurredMessage)
 		{
 			if (isActive())
 			{
@@ -399,7 +386,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 
 				handleEquipment(aPC);
 				aPC.setPlayersName("Enemy");
-				theList.add(new PcgCombatant(aPC, "Enemy"));
+				theList.add(new PcgCombatant(aPC, "Enemy", messageHandler));
 			}
 
 			JOptionPane
@@ -408,7 +395,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 					"You will now be returned to PCGen so that you can finalise your selected combatants.\nOnce they are finalised, return to the GMGen Initiative tab to begin the combat!",
 					"Combatant Setup Complete", JOptionPane.INFORMATION_MESSAGE);
 
-			GMBus.send(new InitHolderListSendMessage(this, theList));
+			messageHandler.handleMessage(new TransmitInitiativeValuesBetweenComponentsMessage(this, theList));
 			removeAll();
 		}
 		catch (Throwable e)
@@ -434,7 +421,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 				toolMenuItem(evt);
 			}
 		});
-		GMBus.send(new ToolMenuItemAddMessage(this, encounterToolsItem));
+		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, encounterToolsItem));
 	}
 
 	/**
@@ -527,7 +514,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 
 	private void createView()
 	{
-		theEnvironments = new EnvironmentModel(getDataDir() + File.separator + DIR_ENCOUNTER);
+		theEnvironments = new EnvironmentModel(getDataDirectory() + File.separator + DIR_ENCOUNTER);
 
 		theView.getLibraryCreatures().setModel(theRaces);
 		theView.getEncounterCreatures().setModel(theModel);
@@ -663,7 +650,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		if (table.startsWith("["))
 		{
 			tablePath =
-					getDataDir() + File.separator + DIR_ENCOUNTER
+					getDataDirectory() + File.separator + DIR_ENCOUNTER
 						+ File.separator
 						+ table.substring(1, table.length() - 1);
 			Logging.errorPrint("subfile " + tablePath);
@@ -864,7 +851,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	private void generateXofYEL(String size, String totalEL)
 	{
 		File f =
-				new File(getDataDir() + File.separator + DIR_ENCOUNTER
+				new File(getDataDirectory() + File.separator + DIR_ENCOUNTER
 					+ File.separator + "4_1.xml");
 		ReadXML xml;
 		VectorTable table41;
@@ -1354,5 +1341,17 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		}
 
 		aPC.setDirty(true);
+	}
+
+	/**
+	 *  Gets the name of the data directory for Plugin object
+	 *
+	 *@return    The data directory name
+	 */
+	public File getDataDirectory()
+	{
+		File dataDir =
+				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
+		return dataDir;
 	}
 }

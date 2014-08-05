@@ -26,8 +26,6 @@
  */
 package pcgen.gui2.dialog;
 
-import gmgen.pluginmgr.PluginManager;
-
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
@@ -85,6 +83,7 @@ import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui2.prefs.SourcesPanel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
+import pcgen.pluginmgr.PluginManager;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
@@ -462,7 +461,7 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 	public PreferencesPluginsPanel() {
 		for(PluginManager.PluginInfo info : PluginManager.getInstance().getPluginInfoList())
 		{
-			addPanel(info.logName, info.pluginName, info.pluginSystem);
+			addPanel(info.logName, info.pluginName, Constants.SYSTEM_GMGEN);
 		}
 		initComponents();
 		initPreferences();

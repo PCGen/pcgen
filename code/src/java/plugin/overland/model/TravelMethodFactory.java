@@ -80,12 +80,12 @@ public class TravelMethodFactory
 
 	// ### Factory methods ###
 
-	public static final Vector<TravelMethod> load(String DataPath)
+	public static final Vector<TravelMethod> load(File datadir)
 	{
 		//Create a new list for the travel methods
 		Vector<TravelMethod> tms = new Vector<TravelMethod>();
 
-		File path = new File(DataPath, DIR_TRAVELMETHODS);
+		File path = new File(datadir, DIR_TRAVELMETHODS);
 
 		if (path.isDirectory())
 		{

@@ -21,16 +21,17 @@
 package pcgen.gui2;
 
 import gmgen.GMGenSystem;
-import gmgen.pluginmgr.GMBus;
 
 import java.awt.Window;
 
 import javax.swing.SwingUtilities;
+
 import org.apache.commons.lang.SystemUtils;
 
 import pcgen.gui2.dialog.PreferencesDialog;
 import pcgen.gui2.facade.GMGenMessageHandler;
 import pcgen.gui2.plaf.MacGUIHandler;
+import pcgen.pluginmgr.PluginManager;
 import pcgen.system.Main;
 
 /**
@@ -70,8 +71,9 @@ public final class PCGenUIManager
 			MacGUIHandler.initialize();
 		}
 		pcgenFrame = new PCGenFrame();
-		GMGenMessageHandler handler = new GMGenMessageHandler(pcgenFrame);
-		GMBus.addToBus(handler);
+		PluginManager pluginMgr = PluginManager.getInstance();
+		GMGenMessageHandler handler = new GMGenMessageHandler(pcgenFrame, pluginMgr.getPostbox());
+		pluginMgr.addMember(handler);
 	}
 
 	public static void startGUI()

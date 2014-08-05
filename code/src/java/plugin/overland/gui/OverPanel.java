@@ -15,6 +15,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.File;
 import java.text.NumberFormat;
 import java.util.EventObject;
 import java.util.Vector;
@@ -132,7 +133,7 @@ public class OverPanel extends javax.swing.JPanel
 	/** Creates new form NameGenPanel
 	 * @param DataDir
 	 */
-	public OverPanel(String DataDir)
+	public OverPanel(File DataDir)
 	{
 		initComponents();
 		loadData(DataDir);
@@ -1051,7 +1052,7 @@ public class OverPanel extends javax.swing.JPanel
 		}
 	};
 
-	private void loadData(String aDataDir)
+	private void loadData(File aDataDir)
 	{
 		//Populate Travel Methods
 		tms = TravelMethodFactory.load(aDataDir);
