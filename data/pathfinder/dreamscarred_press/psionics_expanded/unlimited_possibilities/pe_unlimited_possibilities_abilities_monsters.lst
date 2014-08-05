@@ -5,7 +5,7 @@ SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWE
 
 ###Block: Ectoplasmic Swarm abilities
 # Ability Name		Unique Key							Category of Ability		Type						Define							Description																						Ability								Modify VAR													Source Page		Aspects
-Ectoplasmic Poison	KEY:Ectoplasmic Poison ~ Ectoplasmic Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:EctoplasmicSwarmPoisonDC|10+TL/2+CON	DESC:Swarm - injury; save Fort DC %1; frequency 1/round for 2 rounds; effect 1d3 Dexterity drain; cure 1 save.|EctoplasmicSwarmPoisonDC	ABILITY:Ability Focus|AUTOMATIC|Ectoplasmic Poison	BONUS:VAR|EctoplasmicSwarmPoisonDC|2|PREFEAT:1,Ability Focus (Ectoplasmic Poison)	SOURCEPAGE:p.11	ASPECT:Ability Benefit|(swarm)
+Ectoplasmic Poison	KEY:Ectoplasmic Poison ~ Ectoplasmic Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:EctoplasmicSwarmPoisonDC|0	BONUS:VAR|EctoplasmicSwarmPoisonDC|10+TL/2+CON	DESC:Swarm - injury; save Fort DC %1; frequency 1/round for 2 rounds; effect 1d3 Dexterity drain; cure 1 save.|EctoplasmicSwarmPoisonDC	ABILITY:Ability Focus|AUTOMATIC|Ectoplasmic Poison	BONUS:VAR|EctoplasmicSwarmPoisonDC|2|PREFEAT:1,Ability Focus (Ectoplasmic Poison)	SOURCEPAGE:p.11	ASPECT:Ability Benefit|(swarm)
 
 ###Block: Advanced Constructs Astral Construct abilities
 #Block: Menu A
@@ -15,7 +15,7 @@ Armor Spikes	KEY:Astral_Armor Spikes		CATEGORY:Special Ability	TYPE:SpecialAttac
 Dodge			KEY:Astral_Dodge			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																												AUTO:FEAT|Dodge
 Might			KEY:Astral_Might			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																	BONUS:COMBAT|DAMAGE.Melee|1|TYPE=Might
 Talons		KEY:Astral_Talons			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct						DESC:Slam attacks do either slashing or piercing damage.
-Utility		KEY:Astral_Utility		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct	DEFINE:AstralUtilityDC|8	DESC:The astral construct can perform various tasks up to DC %1.|AstralUtilityDC		STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|AstralUtilityDC|2
+Utility		KEY:Astral_Utility		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct	DEFINE:AstralUtilityDC|0	BONUS:VAR|AstralUtilityDC|8	DESC:The astral construct can perform various tasks up to DC %1.|AstralUtilityDC		STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|AstralUtilityDC|2
 #Block: Menu B
 Great Cleave	KEY:Astral_Great Cleave		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																												AUTO:FEAT|Great Cleave
 Improved Might	KEY:Astral_Improved Might	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																	BONUS:COMBAT|DAMAGE.Melee|3|TYPE=Might

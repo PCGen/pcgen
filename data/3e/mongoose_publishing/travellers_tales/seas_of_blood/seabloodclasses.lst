@@ -30,7 +30,7 @@ CLASS:Navigator Wizard	PREFEAT:1,Spell Mastery	PRESKILL:1,Profession (Navigator)
 CLASS:Navigator Wizard	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Gather Information|TYPE=Knowledge|Profession (Navigator)|Scry|Spellcraft
 1	BONUS:SKILL|Profession (Navigation)|2								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Infallible Direction ~ Navigator Wizard
 2															ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Fast Pursuit ~ Navigator Wizard
-3	BONUS:SKILL|Knowledge (Seamanship)|IntuitSea	DEFINE:IntuitSea|floor(CL/3)*2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Intuitive Seamanship ~ Navigator Wizard
+3	BONUS:SKILL|Knowledge (Seamanship)|IntuitSea	DEFINE:IntuitSea|0	BONUS:VAR|IntuitSea|floor(CL/3)*2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Intuitive Seamanship ~ Navigator Wizard
 4															ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Catch the Wind ~ Navigator Wizard
 5															ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|True Voyage ~ Navigator Wizard
 6															ADD:SPELLCASTER|ANY

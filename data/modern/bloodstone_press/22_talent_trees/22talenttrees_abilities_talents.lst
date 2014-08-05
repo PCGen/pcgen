@@ -20,7 +20,7 @@ Maximum Heavy Load	CATEGORY:Talent		TYPE:Talent.StrongTalent.HeavyLoad	VISIBLE:Y
 
 ###Block: Hurling Tree
 # Ability Name	Category of Ability	Type						Visible	Required Ability						Define		Description										Modify VAR		Source Page
-Hurl			CATEGORY:Talent		TYPE:Talent.StrongTalent.Hurling	VISIBLE:YES									DEFINE:Hurl|5	DESC:Maximum range for thrown weapons is %1 range increments|Hurl	BONUS:VAR|Hurl|2	SOURCEPAGE:p.4
+Hurl			CATEGORY:Talent		TYPE:Talent.StrongTalent.Hurling	VISIBLE:YES									DEFINE:Hurl|0	BONUS:VAR|Hurl|5	DESC:Maximum range for thrown weapons is %1 range increments|Hurl	BONUS:VAR|Hurl|2	SOURCEPAGE:p.4
 Greater Hurl	CATEGORY:Talent		TYPE:Talent.StrongTalent.Hurling	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Hurl																	BONUS:VAR|Hurl|3	SOURCEPAGE:p.4
 Mighty Hurl		CATEGORY:Talent		TYPE:Talent.StrongTalent.Hurling	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Hurl,Greater Hurl															BONUS:VAR|Hurl|2	SOURCEPAGE:p.4
 

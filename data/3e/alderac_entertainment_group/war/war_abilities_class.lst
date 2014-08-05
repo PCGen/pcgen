@@ -18,7 +18,7 @@ Brutal Assault				KEY:Brutal Assault ~ Brute					CATEGORY:Special Ability	TYPE:S
 # ~ Elf Treerunner
 Treewalking					KEY:Treewalking ~ Elf Treerunner				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Treewalking					KEY:Treewalking (Su) ~ Elf Treerunner			CATEGORY:Special Ability	TYPE:SpecialQuality
-Speak with Plants				KEY:Speak with Plants ~ Elf Treerunner			CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:SpeakPlants|WIS	DESC: %1/day|SpeakPlants
+Speak with Plants				KEY:Speak with Plants ~ Elf Treerunner			CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:SpeakPlants|0	DESC: %1/day|SpeakPlants
 Arboreal Ally				KEY:Arboreal Ally ~ Elf Treerunner				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Arboreal Ambush				KEY:Arboreal Ambush ~ Elf Treerunner			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Arboreal Gate				KEY:Arboreal Gate ~ Elf Treerunner				CATEGORY:Special Ability	TYPE:SpecialQuality							DESC: (1d6 rounds)|PREVARLT:ElfTreerunnerLvl,9	DESC: (1d4 rounds)|PREVARLT:ElfTreerunnerLvl,10	DESC: (1 round)|PREVARGTEQ:ElfTreerunnerLvl,10
@@ -83,7 +83,7 @@ Taunt						KEY:Taunt ~ Rake							CATEGORY:Special Ability	TYPE:SpecialQuality		
 Humiliating Strike			KEY:Humiliating Strike ~ Rake					CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Sharpshooter
-Eagle Eye Shot				KEY:Eagle Eye Shot ~ Sharpshooter				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:Eagle|2		DESC: %1 x DEX|Eagle
+Eagle Eye Shot				KEY:Eagle Eye Shot ~ Sharpshooter				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:Eagle|0		DESC: %1 x DEX|Eagle
 Low-light Vision				KEY:Low-light Vision ~ Sharpshooter				CATEGORY:Special Ability	TYPE:SpecialQuality
 Disarming Shot				KEY:Disarming Shot ~ Sharpshooter				CATEGORY:Special Ability	TYPE:SpecialQuality
 Stumbling Shot				KEY:Stumbling Shot ~ Sharpshooter				CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -112,7 +112,7 @@ Shattering Strike				KEY:Shattering Strike ~ Spellbreaker			CATEGORY:Special Abi
 
 # ~ Wandering Squire
 Staff Expert				KEY:Staff Expert ~ Wandering Squire				CATEGORY:Special Ability	TYPE:SpecialQuality
-Stunning Attack				KEY:Stunning Attack ~ Wandering Squire			CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:Stun|1		DESC: %1/day|Stun
+Stunning Attack				KEY:Stunning Attack ~ Wandering Squire			CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:Stun|0		DESC: %1/day|Stun
 Deflect Arrows				KEY:Deflect Arrows ~ Wandering Squire			CATEGORY:Special Ability	TYPE:SpecialQuality
 Defensive Stance				KEY:Defensive Stance ~ Wandering Squire			CATEGORY:Special Ability	TYPE:SpecialQuality
 Warding Attack				KEY:Warding Attack ~ Wandering Squire			CATEGORY:Special Ability	TYPE:SpecialQuality

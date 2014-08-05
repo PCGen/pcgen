@@ -349,7 +349,7 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 1																				BONUS:VAR|WarriorPathLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorWarriorPath
 1																																										ABILITY:Psychic Warrior Class Feature|AUTOMATIC|Psychic Warrior ~ Warrior's Path|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorWarriorPath
 1	BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat1
-1																				BONUS:VAR|PrereqBAB|(CL+3)/4|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPsionicProficiency	DEFINE:PrereqBAB|BAB		ABILITY:Psychic Warrior Class Feature|AUTOMATIC|Psychic Warrior ~ Psionic Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPsionicProficiency
+1																				BONUS:VAR|PrereqBAB|(CL+3)/4|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPsionicProficiency	DEFINE:PrereqBAB|0	BONUS:VAR|PrereqBAB|BAB		ABILITY:Psychic Warrior Class Feature|AUTOMATIC|Psychic Warrior ~ Psionic Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPsionicProficiency
 2	BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat2
 5	BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat5
 6																																										ABILITY:Psychic Warrior Class Feature|AUTOMATIC|Psychic Warrior ~ Martial Power|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMartialPower
@@ -358,7 +358,7 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 11	BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat11
 12																																										ABILITY:Psychic Warrior Class Feature|AUTOMATIC|Psychic Warrior ~ Twisting Path|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorTwistingPath
 14	BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat14
-15																				BONUS:VAR|PathweavingLVL|-CL|PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPathweaving		DEFINE:PathweavingLVL|CL	ABILITY:Psychic Warrior Class Feature|AUTOMATIC|Psychic Warrior ~ Pathweaving|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPathweaving
+15																				BONUS:VAR|PathweavingLVL|-CL|PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPathweaving		DEFINE:PathweavingLVL|0	BONUS:VAR|PathweavingLVL|CL	ABILITY:Psychic Warrior Class Feature|AUTOMATIC|Psychic Warrior ~ Pathweaving|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPathweaving
 17	BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat17
 20	BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat20
 20																																										ABILITY:Psychic Warrior Class Feature|AUTOMATIC|Psychic Warrior ~ Eternal Warrior|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorEternalWarrior
@@ -403,7 +403,7 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|
 # COMMENT: The soulknife doesn't seem to actually have a prime stat.
 #1	BONUS:VAR|SoulknifePrimeStat|WIS	DEFINE:SoulknifePrimeStat|0
 1																	BONUS:VAR|SoulknifeLVL|CL	DEFINE:SoulknifeLVL|0
-1																						DEFINE:SoulknifeFeatPrereqLVL|SoulknifeLVL
+1																						DEFINE:SoulknifeFeatPrereqLVL|0	BONUS:VAR|SoulknifeFeatPrereqLVL|SoulknifeLVL
 1																	BONUS:VAR|IsPsionic|1		DEFINE:IsPsionic|0					ABILITY:Special Ability|AUTOMATIC|Psionic
 1	BONUS:ABILITYPOOL|Soulknife Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeBonusFeat
 1																																					TEMPLATE:Wild Talent Determination

@@ -6,7 +6,7 @@
 ###Block: Gunslinger
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
-CLASS:Gunslinger	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Gun		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:GunslingerLVL|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Gunslinger	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Gun		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:GunslingerLVL|0	BONUS:VAR|GunslingerLVL|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (Local)|Perception|TYPE=Profession|Ride|Sleight of Hand|Survival|Swim
 ###Block:Proficiencies
@@ -25,7 +25,7 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle
 ###Block: Ninja
 
 # Class Name	Hit Dice	Type				Class Type		Abbreviation	Max Level	Source Page		Define											Save checks bonus												Combat bonus					Modify VAR			Serves As
-CLASS:Ninja		HD:8		TYPE:Base.PC.Rogue	CLASSTYPE:PC	ABB:Nin		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLVL|CL	DEFINE:RogueTalentLVL|0	DEFINE:KiPoolCha|1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|KiPool|1	SERVESAS:CLASS|Rogue
+CLASS:Ninja		HD:8		TYPE:Base.PC.Rogue	CLASSTYPE:PC	ABB:Nin		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLVL|0	BONUS:VAR|NinjaLVL|CL	DEFINE:RogueTalentLVL|0	DEFINE:KiPoolCha|0	BONUS:VAR|KiPoolCha|1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|KiPool|1	SERVESAS:CLASS|Rogue
 # Class Name	Multiple Requirements
 CLASS:Ninja		PREMULT:1,[PRECLASS:1,Ninja=1],[!PRECLASS:1,TYPE.Rogue=1]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -56,7 +56,7 @@ CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|D
 ###Block: Samurai
 
 # Class Name	Hit Dice	Type				Class Type		Abbreviation	Max Level	Source Page		Define									Save checks bonus											Combat bonus					Serves As
-CLASS:Samurai	HD:10		TYPE:Base.PC.Cavalier	CLASSTYPE:PC	ABB:Sam		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:FighterWeaponQualifyLVL|CL	DEFINE:SamuraiLVL|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	SERVESAS:CLASS|Cavalier
+CLASS:Samurai	HD:10		TYPE:Base.PC.Cavalier	CLASSTYPE:PC	ABB:Sam		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:FighterWeaponQualifyLVL|0	DEFINE:SamuraiLVL|0	BONUS:VAR|FighterWeaponQualifyLVL|CL	BONUS:VAR|SamuraiLVL|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	SERVESAS:CLASS|Cavalier
 # Class Name	Multiple Requirements
 CLASS:Samurai	PREMULT:1,[PRECLASS:1,Samurai=1],[!PRECLASS:1,TYPE.Cavalier=1]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -106,7 +106,7 @@ CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Ani
 # level 1
 
 # Class Name	Define
-CLASS:Monk.MOD	DEFINE:NonMonkLevels|TL-classlevel("Monk")	DEFINE:MonkLevelsAdjusted|classlevel("Monk")
+CLASS:Monk.MOD	DEFINE:NonMonkLevels|0	DEFINE:MonkLevelsAdjusted|0			BONUS:VAR|NonMonkLevels|TL-classlevel("Monk")	BONUS:VAR|MonkLevelsAdjusted|classlevel("Monk")
 #CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD01|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD01],[PREVAREQ:MonkLevelsAdjusted,1]
 #CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD02|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD02],[PREVAREQ:MonkLevelsAdjusted,2]
 #CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD03|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD03],[PREVAREQ:MonkLevelsAdjusted,3]

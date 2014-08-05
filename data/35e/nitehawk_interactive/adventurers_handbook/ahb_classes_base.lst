@@ -182,7 +182,7 @@ CLASS:Mentalist	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|
 1	BONUS:ABILITYPOOL|Mentalist Feat|(CL/3)+1
 2	BONUS:ABILITYPOOL|Mentalist Exotic Weapon|1
 10	BONUS:ABILITYPOOL|Mentalist Exotic Weapon|1
-7																																		DEFINE:WeapSpecQualify|1
+7																																		DEFINE:WeapSpecQualify|0	BONUS:VAR|WeapSpecQualify|1|TYPE=Base
 
 
 # Class Name			Source Page		Save checks bonus											Combat bonus										Modify VAR

@@ -32,7 +32,7 @@ CLASS:Pony Soldier (Indian)	HD:10		TYPE:PC.Prestige	ABB:PslI		MAXLEVEL:10	SOURCE
 CLASS:Pony Soldier (Indian)	PREATT:2	PREFEAT:2,Defensive Riding,Archaic Weapons Proficiency	PRESKILL:1,Ride=6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Pony Soldier (Indian)	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Demolitions|Handle Animal|Intimidate|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Navigate|Profession|Read/Write Language|Ride|Search|Speak Language|Spot
-1	SAB:Born in the Saddle +%|BornInTheSaddle						DEFINE:BornInTheSaddle|2
+1	SAB:Born in the Saddle +%|BornInTheSaddle						DEFINE:BornInTheSaddle|0	BONUS:VAR|BornInTheSaddle|2
 2	SAB:Effortless Control
 3																		ADD:FEAT|TYPE=PonySoldier
 4	SAB:Cavalry Charge

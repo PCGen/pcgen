@@ -29,7 +29,7 @@ FOLLOWER:PlantCompanionLVL=5	TYPE:Plant Companion	HD:1																										
 FOLLOWER:PlantCompanionLVL=6	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:PlantCompanionLVL=7	TYPE:Plant Companion																																																									BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=8	TYPE:Plant Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=9	TYPE:Plant Companion	HD:1																								AUTO:FEAT|Multiattack		DEFINE:Multiattack|1					BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=9	TYPE:Plant Companion	HD:1																								AUTO:FEAT|Multiattack		DEFINE:Multiattack|0	BONUS:VAR|Multiattack|1				BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:PlantCompanionLVL=10	TYPE:Plant Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=11	TYPE:Plant Companion																																																									BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=12	TYPE:Plant Companion	HD:1																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1

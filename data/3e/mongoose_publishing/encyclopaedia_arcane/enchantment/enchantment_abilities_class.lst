@@ -6,12 +6,12 @@ SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:
 Striking Appearance	KEY:Striking Appearance ~ Empath			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:StrikingAppearance|0		DESC: +%1|StrikingAppearance
 Detect Emotion		KEY:Detect Emotion ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality
 Calm/Enrage			KEY:Calm/Enrage ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality
-Aura of Empathy		KEY:Aura of Empathy ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:AuraEmpathyTargets|4+CHA	DESC: (%1 Targets)|AuraEmpathyTargets
+Aura of Empathy		KEY:Aura of Empathy ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:AuraEmpathyTargets|0	BONUS:VAR|AuraEmpathyTargets|4+CHA		DESC: (%1 Targets)|AuraEmpathyTargets
 Emotional Mastery		KEY:Emotional Mastery ~ Empath			CATEGORY:Special Ability	TYPE:SpecialQuality
 Bolster III			KEY:Bolster III ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality
-Shielding Bond		KEY:Shielding Bond ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:EmpathyDC|10+CHA			DESC: (DC %1)|EmpathyDC
+Shielding Bond		KEY:Shielding Bond ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:EmpathyDC|0		BONUS:VAR|EmpathyDC|10+CHA	DESC: (DC %1)|EmpathyDC
 Empathic Healing		KEY:Empathic Healing ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality
-Willcrafting		KEY:Willcrafting ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:WillCraftDC|20+CHA		DESC: (DC %1)|WillCraftDC
+Willcrafting		KEY:Willcrafting ~ Empath				CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:WillCraftDC|0	BONUS:VAR|WillCraftDC|20+CHA	DESC: (DC %1)|WillCraftDC
 
 # Puppeteer
 Compell			KEY:Compell ~ Puppeteer					CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -43,7 +43,7 @@ Tanar'ri Qualities	KEY:Tanar'ri Qualities ~ Dark Temptress		CATEGORY:Special Abi
 Sense Charm			KEY:Sense Charm ~ Mindmender				CATEGORY:Special Ability	TYPE:SpecialQuality
 Word of Comfort		KEY:Word of Comfort ~ Mindmender			CATEGORY:Special Ability	TYPE:SpecialQuality							DESC: (DC 15)
 Lifting the Weight	KEY:Lifting the Weight ~ Mindmender			CATEGORY:Special Ability	TYPE:SpecialQuality
-Denial			KEY:Denial ~ Mindmender					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:MindmenderDenial|10+WIS	DESC: (DC %1)|MindmenderDenial
+Denial			KEY:Denial ~ Mindmender					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:MindmenderDenial|0	BONUS:VAR|MindmenderDenial|10+WIS	DESC: (DC %1)|MindmenderDenial
 Dream Voyager		KEY:Dream Voyager ~ Mindmender			CATEGORY:Special Ability	TYPE:SpecialQuality							DESC:(DC 20)
 Surcease			KEY:Surcease ~ Mindmender				CATEGORY:Special Ability	TYPE:SpecialQuality
 Ease Resistance		KEY:Ease Resistance ~ Mindmender			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:EaseResistance|0			DESC: %1|EaseResistance

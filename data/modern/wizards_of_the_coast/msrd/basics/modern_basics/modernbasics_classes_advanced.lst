@@ -11,7 +11,7 @@ CLASS:Soldier	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowle
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Navigate|Profession|Read/Write Language|SPEAK LANGUAGE|Spot|Survival|Swim
 1	BONUS:ABILITYPOOL|Weapon Focus|1
-2	BONUS:ABILITYPOOL|Weapon Specialization|1										DEFINE:WeapSpecQualify|1
+2	BONUS:ABILITYPOOL|Weapon Specialization|1										BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0
 3	BONUS:ABILITYPOOL|Soldier Feat|1
 4																						ABILITY:Special Ability|AUTOMATIC|Tactical Aid
 5	BONUS:ABILITYPOOL|Improved Critical|1

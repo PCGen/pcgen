@@ -9,7 +9,7 @@ A Dragon (Black)
 	STARTFEATS:1
 	CR:3
 	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|1
+	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
 	LEGS:4
 	MOVE:Walk,5
 	TEMPLATE:Black Dragon
@@ -28,7 +28,7 @@ Black Dragon
 	BONUS:PCLEVEL|Sorcerer|(DragonAge-5)*2|PREVARGTEQ:DragonAge,6
 	CR:3
 	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|1
+	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
 	LEGS:4
 	MOVE:Walk,5
 #	MONCSKILL:Hide|Move Silently|Swim|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
@@ -51,7 +51,7 @@ Blue Dragon
 	DEFINE:DragonLawAllowed|1
 	CR:3
 	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|1
+	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
 	LEGS:4
 	MOVE:Walk,5
 #	MONCSKILL:Bluff|Hide|Spellcraft|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
@@ -71,7 +71,7 @@ Green Dragon
 	BONUS:PCLEVEL|Sorcerer|(DragonAge-4)*2|PREVARGTEQ:DragonAge,5
 	CR:3
 	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|1
+	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
 	LEGS:4
 	MOVE:Walk,5
 #	MONCSKILL:Bluff|Hide|Move Silently|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
@@ -94,7 +94,7 @@ Red Dragon
 	DEFINE:DragonFireAllowed|1
 	CR:4
 	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|1
+	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
 	LEGS:4
 	MOVE:Walk,5
 #	MONCSKILL:Appraise|Bluff|Jump|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
@@ -114,7 +114,7 @@ White Dragon
 	BONUS:PCLEVEL|Sorcerer|(DragonAge-6)*2|PREVARGTEQ:DragonAge,7
 	CR:2
 	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|1
+	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
 	LEGS:4
 	MOVE:Walk,5
 #	MONCSKILL:Hide|Move Silently|Swim|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
@@ -136,7 +136,7 @@ Brass Dragon
 	DEFINE:DragonKnowledgeAllowed|1
 	CR:3
 	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|1
+	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
 	LEGS:4
 	MOVE:Walk,5
 #	MONCSKILL:Bluff|Gather Information|Survival|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
@@ -159,7 +159,7 @@ Bronze Dragon
 	DEFINE:DragonWaterAllowed|1
 	CR:3
 	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|1
+	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
 	LEGS:4
 	MOVE:Walk,5
 #	MONCSKILL:Disguise|Swim|Survival|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
@@ -182,7 +182,7 @@ Copper Dragon
 	DEFINE:DragonTrickeryAllowed|1
 	CR:3
 	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|1
+	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
 	LEGS:4
 	MOVE:Walk,5
 #	MONCSKILL:Bluff|Hide|Jump|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
@@ -205,7 +205,7 @@ Gold Dragon
 	DEFINE:DragonGoodAllowed|1
 	CR:5
 	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|1
+	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
 	LEGS:4
 	MOVE:Walk,5
 #	MONCSKILL:Disguise|Heal|Swim|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
@@ -229,7 +229,7 @@ Silver Dragon
 	DEFINE:DragonSunAllowed|1
 	CR:4
 	DEFINE:LongRace|1
-	DEFINE:RaceSizeIsLong|1
+	DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
 	LEGS:4
 	MOVE:Walk,5
 #	MONCSKILL:Bluff|Disguise|Jump|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device

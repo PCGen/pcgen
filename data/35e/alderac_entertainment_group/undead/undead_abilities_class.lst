@@ -51,17 +51,17 @@ Indominable Will			KEY:Indominable Will ~ Faith Hunter					CATEGORY:Special Abil
 Cure Infection			KEY:Cure Infection ~ Faith Hunter					CATEGORY:Special Ability	TYPE:SpecialQuality
 Stake Attack			KEY:Stake Attack ~ Faith Hunter					CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:StakeAttack|0		DESC:+%1d6|StakeAttack
 Detect Undead			KEY:Detect Undead ~ Faith Hunter					CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Undead Foe				KEY:Undead Foe ~ Faith Hunter						CATEGORY:Special Ability	TYPE:SpecialQuality
+Undead Foe				KEY:Undead Foe ~ Faith Hunter						CATEGORY:Special Ability	TYPE:SpecialQuality			
 Unpalatable Blood			KEY:Unpalatable Blood ~ Faith Hunter				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Ranged Stake Attack		KEY:Ranged Stake Attack ~ Faith Hunter				CATEGORY:Special Ability	TYPE:SpecialQuality
 # ~	KEY:Undead Foe								CATEGORY:Special Ability	TYPE:SpecialQuality
-Repel Vampires			KEY:Repel Vampires ~ Faith Hunter					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:RepelVampires|1		DESC:%1/day|RepelVampires
-Compel Solid Form			KEY:Compel Solid Form ~ Faith Hunter				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:CompelSolidForm|CHA+10	DESC:(DC %1)|CompelSolidForm
+Repel Vampires			KEY:Repel Vampires ~ Faith Hunter					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:RepelVampires|0	BONUS:VAR|RepelVampires|1		DESC:%1/day|RepelVampires
+Compel Solid Form			KEY:Compel Solid Form ~ Faith Hunter				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:CompelSolidForm|0	DESC:(DC %1)|CompelSolidForm
 # ~	KEY:Undead Foe		CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Hunter of the Fallen
-Favored Enemy			KEY:Favored Enemy ~ Hunter of the Fallen				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:FavoredEnemy|1		DESC:Lvl. %1|FavoredEnemy
-Sense Undead			KEY:Sense Undead ~ Hunter of the Fallen				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DEFINE:SenseUndead|1		DESC:Lvl. %1|SenseUndead
+Favored Enemy			KEY:Favored Enemy ~ Hunter of the Fallen				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:FavoredEnemy|0	BONUS:VAR|FavoredEnemy|1		DESC:Lvl. %1|FavoredEnemy
+Sense Undead			KEY:Sense Undead ~ Hunter of the Fallen				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DEFINE:SenseUndead|0	BONUS:VAR|SenseUndead|1		DESC:Lvl. %1|SenseUndead
 Hardened Soul			KEY:Hardened Soul ~ Hunter of the Fallen				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:HardenedSoul|0		DESC:Lvl. %1|HardenedSoul
 Hand of the Hunter		KEY:Hand of the Hunter ~ Hunter of the Fallen			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Track the Dead			KEY:Track the Dead ~ Hunter of the Fallen				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -71,7 +71,7 @@ True Death				KEY:True Death ~ Hunter of the Fallen				CATEGORY:Special Ability	
 # ~ Knight of the Eternal Eye
 Lure of Darkness			KEY:Lure of Darkness ~ Knight of the Eternal Eye		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Undying Loyalty			KEY:Undying Loyalty ~ Knight of the Eternal Eye			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Turn Resistance			KEY:Turn Resistance ~ Knight of the Eternal Eye			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:TurnResistance|2		DESC:%1|TurnResistance
+Turn Resistance			KEY:Turn Resistance ~ Knight of the Eternal Eye			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:TurnResistance|0		DESC:%1|TurnResistance
 Bonds of Death			KEY:Bonds of Death ~ Knight of the Eternal Eye			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Aura of Doom			KEY:Aura of Doom ~ Knight of the Eternal Eye			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Energy Drain			KEY:Energy Drain ~ Knight of the Eternal Eye			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike							DESC:3/day
@@ -87,8 +87,8 @@ Protection from Evil		KEY:Protection from Evil ~ Paladin of the Pale			CATEGORY:
 Holy Terror				KEY:Holy Terror ~ Paladin of the Pale				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 # ~ Puppet
-Thy Master's Will			KEY:Thy Master's Will ~ Puppet					CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ThyMastersWill|1		DESC:- %1 Ability|ThyMastersWill|PREVARGTEQ:PuppetLvl,7
-Empathic Link			KEY:Empathic Link ~ Puppet						CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:EmpLink|10			DESC:- %1 Miles(Su)|EmpLink
+Thy Master's Will			KEY:Thy Master's Will ~ Puppet					CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ThyMastersWill|0	BONUS:VAR|ThyMastersWill|1		DESC:- %1 Ability|ThyMastersWill|PREVARGTEQ:PuppetLvl,7
+Empathic Link			KEY:Empathic Link ~ Puppet						CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:EmpLink|0			DESC:- %1 Miles(Su)|EmpLink
 Strengthened Resolve		KEY:Strengthened Resolve ~ Puppet					CATEGORY:Special Ability	TYPE:SpecialQuality
 Corruptive Influence		KEY:Corruptive Influence ~ Puppet					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 

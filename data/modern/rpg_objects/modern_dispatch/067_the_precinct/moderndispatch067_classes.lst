@@ -10,7 +10,7 @@ CLASS:Bad Cop	STARTSKILLPTS:4	CSKILL:Climb|Drive|Intimidate|Investigate|Jump|Kno
 1	SAB:Bad Cop (Unfriendly Persuasion) +%|Reputation
 2	SAB:Street Cred
 3																																													ADD:FEAT|TYPE=BadCop
-4	SAB:Bad Cop (Beat Down %/day +%d%)|BeatDownTimes|BeatDownDieNum|BeatDownDieSize								BONUS:VAR|BeatDownTimes|CL/4	BONUS:VAR|BeatDownDieNum|CL/4	DEFINE:BeatDownTimes|0	DEFINE:BeatDownDieNum|0	DEFINE:BeatDownDieSize|6
+4	SAB:Bad Cop (Beat Down %/day +%d%)|BeatDownTimes|BeatDownDieNum|BeatDownDieSize								BONUS:VAR|BeatDownTimes|CL/4	BONUS:VAR|BeatDownDieNum|CL/4	DEFINE:BeatDownTimes|0	DEFINE:BeatDownDieNum|0	DEFINE:BeatDownDieSize|0	BONUS:VAR|BeatDownDieSize|6
 5	SAB:Brute Smash	SAB:Stoolie %/day|StoolieTimes						BONUS:COMBAT|DAMAGE.Melee|BruteSmash	BONUS:VAR|BruteSmash|1	BONUS:VAR|StoolieTimes|CL/5		DEFINE:BruteSmash|0	DEFINE:StoolieTimes|0
 6																																													ADD:FEAT|TYPE=BadCop
 7																						BONUS:VAR|BruteSmash|1

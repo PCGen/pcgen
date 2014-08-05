@@ -18,6 +18,6 @@ Strafing					TYPE:Special		VISIBLE:NO								SAB:Strafing +%|Strafing											
 
 Hostage Rescue				TYPE:Special		VISIBLE:NO								SAB:Hostage Rescue|PREVARLT:HostageRescue,6	SAB:Hostage Rescue (no crossfire)|PREVARGTEQ:HostageRescue,6
 
-Hasty Construction			TYPE:Special		VISIBLE:NO								SAB:Hasty Construction % pct|HastyConstruction												DEFINE:HastyConstruction|100
+Hasty Construction			TYPE:Special		VISIBLE:NO								SAB:Hasty Construction % pct|HastyConstruction												DEFINE:HastyConstruction|0	BONUS:VAR|HastyConstruction|100
 
 Semper Fi					TYPE:Special		VISIBLE:NO								SAB:Semper Fi

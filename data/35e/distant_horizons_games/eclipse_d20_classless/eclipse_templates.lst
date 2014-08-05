@@ -52,7 +52,7 @@ Low Level Adventure Template
 #Accursed. These characters only advance in level slowly by direct character point awards - usually gaining 2-3 character points per session. Once they hit level six, this slows even more, to a mere 1-2 CP per session. At level ten, it's reduced to 1 CP per session. Non-adventurers usually acquire CP even more slowly.
 
 
-01 Adept Skills (Half Cost Bypass)																							DEFINE:SkillBuyBypass|1
+01 Adept Skills (Half Cost Bypass)																							DEFINE:SkillBuyBypass|0	BONUS:VAR|SkillBuyBypass|1
 
 01 Class Skills Eclipse Point Buy						VISIBLE:DISPLAY																																																																							CSKILL:TYPE=NormalSkill
 #01 Class Skills Eclipse Psychic			CSKILL:
@@ -68,7 +68,7 @@ Low Level Adventure Template
 
 # This needs to be taken so the TEMP BONUS may be used. Increases Size and all associated bonuses.
 02 Companion Bonus ~ Great Form																																																			ABILITY:Character Points|VIRTUAL|Companion ~ Great Form																			TEMPBONUS:PC|COMBAT|AC|4|TYPE=NaturalArmorEnhancement	TEMPBONUS:PC|COMBAT|AC|-1|TYPE=Size	TEMPBONUS:PC|COMBAT|TOHIT|-1|TYPE=Size	TEMPBONUS:PC|SIZEMOD|NUMBER|1	TEMPBONUS:PC|STAT|STR|8|TYPE=Size	TEMPBONUS:PC|STAT|CON|4|TYPE=Size
-02 Rider Bonus ~ Battle Dance																DEFINE:AllowMysticBonus|1
+02 Rider Bonus ~ Battle Dance																DEFINE:AllowMysticBonus|0	BONUS:VAR|AllowMysticBonus|1
 02 Rider Bonus ~ Might												TEMPLATE:The Faithful Steed
 02 Rider Bonus ~ Spirited x1																					BONUS:ABILITYPOOL|Spirited Selection|1
 02 Rider Bonus ~ Spirited x2																					BONUS:ABILITYPOOL|Spirited Selection|1

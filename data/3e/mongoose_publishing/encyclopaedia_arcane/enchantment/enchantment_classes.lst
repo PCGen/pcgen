@@ -11,12 +11,12 @@ CLASS:Empath	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Gat
 2	SAB:Calm/Enrage																						ADD:SPELLCASTER|Arcane
 3																									ADD:FEAT|Spell Mastery,TYPE=Enchantment,TYPE=Metamagic
 4													BONUS:VAR|StrikingAppearance|1							ADD:SPELLCASTER|Arcane
-5	SAB:Aura of Empathy (% Targets)|AuraEmpathyTargets										DEFINE:AuraEmpathyTargets|4+CHA	ADD:SPELLCASTER|Arcane
+5	SAB:Aura of Empathy (% Targets)|AuraEmpathyTargets										DEFINE:AuraEmpathyTargets|0	ADD:SPELLCASTER|Arcane
 6	SAB:Emotional Mastery	SAB:Bolster III
 7													BONUS:VAR|StrikingAppearance|1							ADD:SPELLCASTER|Arcane
-8	SAB:Shielding Bond (DC %)|EmpathyDC													DEFINE:EmpathyDC|10+CHA			ADD:SPELLCASTER|Arcane
+8	SAB:Shielding Bond (DC %)|EmpathyDC													DEFINE:EmpathyDC|0			ADD:SPELLCASTER|Arcane
 9	SAB:Empathic Healing
-10	SAB:Willcrafting (DC %)|WillCraftDC							BONUS:VAR|StrikingAppearance|1	DEFINE:WillCraftDC|20+CHA		ADD:SPELLCASTER|Arcane
+10	SAB:Willcrafting (DC %)|WillCraftDC							BONUS:VAR|StrikingAppearance|1	DEFINE:WillCraftDC|0		ADD:SPELLCASTER|Arcane
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Puppeteer	HD:4		TYPE:PC.Prestige	ABB:Pup		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2
@@ -59,7 +59,7 @@ CLASS:Mindmender	PREFEAT:3,Iron Will,Skill Focus (Diplomacy),Spell Focus (Enchan
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mindmender	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Profession|Sense Motive|Spellcraft
 1	SAB:Sense Charm	SAB:Word of Comfort (DC 15)														ADD:SPELLCASTER|Arcane
-2	SAB:Lifting the Weight	SAB:Denial (DC %)|MindmenderDenial	BONUS:VAR|MindmenderDenial|CL	DEFINE:MindmenderDenial|10+WIS	ADD:SPELLCASTER|Arcane
+2	SAB:Lifting the Weight	SAB:Denial (DC %)|MindmenderDenial	BONUS:VAR|MindmenderDenial|CL	DEFINE:MindmenderDenial|0	ADD:SPELLCASTER|Arcane
 3	SAB:Dream Voyager (DC 20)	SAB:Surcease														ADD:SPELLCASTER|Arcane
 4	SAB:Ease Resistance %|EaseResistance				BONUS:VAR|EaseResistance|10	DEFINE:EaseResistance|0			ADD:SPELLCASTER|Arcane
 5	SAB:Word of Kindness																		ADD:SPELLCASTER|Arcane

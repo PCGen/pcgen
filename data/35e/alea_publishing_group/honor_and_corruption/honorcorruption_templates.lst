@@ -35,7 +35,7 @@ Subclass (Knight Lvl 20)	SOURCEPAGE:p.22													PRELEVEL:MIN=20	PRETEMPLATE
 #BONUS Skill points 4 each level
 #Every 4 levels begining at 4 gain 1d6 additional hp
 
-Subclass (Scoundrel Lvl 01)	SOURCEPAGE:p.25	DEFINE:ScoundrelSneakAttackDie|4	DEFINE:ScoundrelSneakAttackDice|0																		BONUS:VAR|ScoundrelSneakAttackDice|1										ABILITY:Special Ability|AUTOMATIC|Bonus Sneak Attack ~ Scoundrel Subclass|No Honor Amoung Thieves ~ Scoundrel Subclass
+Subclass (Scoundrel Lvl 01)	SOURCEPAGE:p.25	DEFINE:ScoundrelSneakAttackDieSize|0	BONUS:VAR|ScoundrelSneakAttackDieSize|4	DEFINE:ScoundrelSneakAttackDice|0																		BONUS:VAR|ScoundrelSneakAttackDice|1										ABILITY:Special Ability|AUTOMATIC|Bonus Sneak Attack ~ Scoundrel Subclass|No Honor Amoung Thieves ~ Scoundrel Subclass
 Subclass (Scoundrel Lvl 02)	SOURCEPAGE:p.25													PRELEVEL:MIN=2	PRETEMPLATE:1,Subclass (Scoundrel Lvl 1)
 Subclass (Scoundrel Lvl 03)	SOURCEPAGE:p.25	DEFINE:ImpromptuSneakTimes|0								PRELEVEL:MIN=3	PRETEMPLATE:1,Subclass (Scoundrel Lvl 2)								BONUS:VAR|ImpromptuSneakTimes|1											ABILITY:Special Ability|AUTOMATIC|Impromptu Sneak Attack ~ Scoundrel Subclass
 Subclass (Scoundrel Lvl 04)	SOURCEPAGE:p.25	DEFINE:ScoundrelHitDieBonus|0								PRELEVEL:MIN=4	PRETEMPLATE:1,Subclass (Scoundrel Lvl 3)	BONUS:ABILITYPOOL|Scoundrel Bonus HP|1	BONUS:VAR|ScoundrelHitDieBonus|1											ABILITY:Special Ability|AUTOMATIC|Bonus HP ~ Scoundrel Subclass

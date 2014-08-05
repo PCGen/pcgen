@@ -96,9 +96,9 @@ CLASS:Diplomancer	PREFEAT:2,Skill Focus (Diplomacy),Spell Focus (Enchantment)	PR
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Hide|Intimidate|TYPE=Knowledge|Listen|Search|Sense Motive|Spellcraft|Spot
 1																																					ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Charm ~ Diplomancer						SPELLS:Class|TIMES=1|Charm
-2	BONUS:CASTERLEVEL|SCHOOL.Enchantment|EnchantAffinity	BONUS:DC|SCHOOL.Enchantment|EnchantAffinity|TYPE=Competence													DEFINE:EnchantAffinity|1					ABILITY:Special Ability|AUTOMATIC|Enchantment Affinity ~ Diplomancer
+2	BONUS:CASTERLEVEL|SCHOOL.Enchantment|EnchantAffinity	BONUS:DC|SCHOOL.Enchantment|EnchantAffinity|TYPE=Competence													DEFINE:EnchantAffinity|0	BONUS:VAR|EnchantAffinity|1					ABILITY:Special Ability|AUTOMATIC|Enchantment Affinity ~ Diplomancer
 3																																					ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Magical Seduction/Attractiveness ~ Diplomancer
-4																																DEFINE:ProtectionEvocations|1					ABILITY:Special Ability|AUTOMATIC|Protection from Evocations ~ Diplomancer
+4																																DEFINE:ProtectionEvocations|0	BONUS:VAR|ProtectionEvocations|1					ABILITY:Special Ability|AUTOMATIC|Protection from Evocations ~ Diplomancer
 5																																					ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Insight into Secrets ~ Diplomancer
 6																										BONUS:VAR|EnchantAffinity|1
 7																				BONUS:STAT|CHA|1|TYPE=Inherent												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Charisma Gift ~ Diplomancer
@@ -172,7 +172,7 @@ CLASS:Knight of the Chord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE=
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
-1									BONUS:MISC|SPELLFAILURE|-KotCSpellFailure|PREVARGTEQ:5,KotCArmorCheckPenalty	DEFINE:KotCArmorCheckPenalty|-ACCHECK	DEFINE:KotCSpellFailure|SPELLFAILURE	DEFINE:KnightoftheChordLvl|CL					ABILITY:Special Ability|AUTOMATIC|Armor Song ~ Knight of the Chord
+1									BONUS:MISC|SPELLFAILURE|-KotCSpellFailure|PREVARGTEQ:5,KotCArmorCheckPenalty	DEFINE:KotCArmorCheckPenalty|0	BONUS:VAR|KotCArmorCheckPenalty|-ACCHECK	DEFINE:KotCSpellFailure|0	BONUS:VAR|KotCSpellFailure|SPELLFAILURE	DEFINE:KnightoftheChordLvl|0	BONUS:VAR|KnightoftheChordLvl|CL					ABILITY:Special Ability|AUTOMATIC|Armor Song ~ Knight of the Chord
 2	BONUS:ABILITYPOOL|Imbue Vibration Choice|1																																	ADD:SPELLCASTER|ANY
 3																																													ABILITY:Special Ability|AUTOMATIC|Battle Dance ~ Knight of the Chord
 4	BONUS:ABILITYPOOL|Imbue Vibration Choice|1																																	ADD:SPELLCASTER|ANY
@@ -198,7 +198,7 @@ CLASS:Mirror Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (A
 8	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=6|Eyebite,Mirror Calling (Greater),Mirror Truth
 10	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=7|Mirror Portal,Simulacrum,Spell Turning
 ###Block: Normal Progression
-1												DEFINE:MirrorMasterLvl|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Mirror Thoughts ~ Mirror Master						SPELLS:Class|TIMES=1|Detect Thoughts
+1												DEFINE:MirrorMasterLvl|0	BONUS:VAR|MirrorMasterLvl|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Mirror Thoughts ~ Mirror Master						SPELLS:Class|TIMES=1|Detect Thoughts
 2																					ABILITY:Special Ability|AUTOMATIC|Bonus Spells ~ Mirror Master|Mirrored Eyes ~ Mirror Master
 3																	ADD:SPELLCASTER|ANY
 4	BONUS:SKILL|Spot,Search,Intimidate,Sense Motive|2|TYPE=Competence										ABILITY:Special Ability|AUTOMATIC|Piercing Gaze ~ Mirror Master

@@ -19,7 +19,7 @@ SOURCELONG:PCGen Testing Set	SOURCESHORT:PTS	SOURCEWEB:http://pcgen.sourceforge.
 
 ###Block: Dragon Size templates
 # Template Name	Face/Space	Reach		Visible	Define				Modify VAR									Weapon prof. bonus									Ability									Move			Natural Attacks
-Dragon (Tiny)	FACE:2.5	REACH:0	VISIBLE:YES	DEFINE:Maneuverability|3	BONUS:VAR|BreathWeaponCone|15	BONUS:VAR|BreathWeaponLine|30	BONUS:WEAPONPROF=Bite|REACH|5	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	MOVE:Fly,100	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+Dragon (Tiny)	FACE:2.5	REACH:0	VISIBLE:YES	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|3	BONUS:VAR|BreathWeaponCone|15	BONUS:VAR|BreathWeaponLine|30	BONUS:WEAPONPROF=Bite|REACH|5	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	MOVE:Fly,100	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
 
 
 
@@ -96,6 +96,6 @@ DRAGON_ATTACKS_C		VISIBLE:NO						BONUS:WEAPONPROF=Bite|REACH|10				NATURALATTAC
 #Bite (30' reach)
 
 
-DRAGON_FLY_SPEED_100			DEFINE:Maneuverability|3							MOVE:Fly,100
-DRAGON_FLY_SPEED_150			DEFINE:Maneuverability|2							MOVE:Fly,150
-DRAGON_FLY_SPEED_200			DEFINE:Maneuverability|1							MOVE:Fly,200
+DRAGON_FLY_SPEED_100			DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|3							MOVE:Fly,100
+DRAGON_FLY_SPEED_150			DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|2							MOVE:Fly,150
+DRAGON_FLY_SPEED_200			DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|1							MOVE:Fly,200

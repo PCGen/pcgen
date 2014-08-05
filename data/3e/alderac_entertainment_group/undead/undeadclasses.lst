@@ -29,7 +29,7 @@ CLASS:Chirurgeon	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.31
 CLASS:Chirurgeon	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Craft Wondrous Item,Spell Focus (Necromancy)	PRESKILL:4,Craft (Autopsy)=6,Heal=3,Alchemy=8,Knowledge (Arcana)=8	PRESPELL:1,Gentle Repose	PRESPELLSCHOOL:4,Necromancy=0	PRETEXT:Must have successfully studied, dissected, and reassembled the fresh corpse of at least one creature with a CR of 5 or higher.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Chirurgeon	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Heal|Intimidate|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
-1						DEFINE:ChirurgeonLvl|CL
+1						DEFINE:ChirurgeonLvl|0	BONUS:VAR|ChirurgeonLvl|CL
 1	BONUS:VAR|TouchofRepose|1	DEFINE:TouchofRepose|0	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Touch of Repose ~ Chirurgeon
 2	BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Flesh Repair ~ Chirurgeon
 3	BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Lesser Graft ~ Chirurgeon
@@ -47,7 +47,7 @@ CLASS:The Dying	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.34
 CLASS:The Dying	STARTSKILLPTS:2
 ###Block: Turn Undead stuff
 1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								ABILITY:Special Ability|AUTOMATIC|Basic Turning
-1										BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
+1										BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|0	BONUS:VAR|AllowExtraTurning|1
 1										BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 1										BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Level progression
@@ -70,7 +70,7 @@ CLASS:Exorcist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Extra Turning	PRESKILL:2,Kno
 CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Gather Information|Handle Animal|Knowledge (Arcana)|Knowledge (Religion)|Search|Sense Motive|Spellcraft
 ###Block: Turn Undead stuff
 1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								ABILITY:Special Ability|AUTOMATIC|Basic Turning|Turn Undead
-1	BONUS:VAR|TurnLevelBase|CL*3/2|TYPE=Level.REPLACE	DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnLevelBase|CL*3/2|TYPE=Level.REPLACE	DEFINE:AllowExtraTurning|0	BONUS:VAR|AllowExtraTurning|1
 1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Proficiencies
@@ -103,9 +103,9 @@ CLASS:Faith Hunter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Escape Artist
 4											ABILITY:Special Ability|AUTOMATIC|Undead Foe ~ Faith Hunter
 5											ABILITY:Special Ability|AUTOMATIC|Unpalatable Blood ~ Faith Hunter
 6											ABILITY:Special Ability|AUTOMATIC|Ranged Stake Attack ~ Faith Hunter
-7						DEFINE:RepelVampires|1		ABILITY:Special Ability|AUTOMATIC|Repel Vampires ~ Faith Hunter|Undead Foe ~ Faith Hunter
+7						DEFINE:RepelVampires|0		ABILITY:Special Ability|AUTOMATIC|Repel Vampires ~ Faith Hunter|Undead Foe ~ Faith Hunter
 8
-9	BONUS:VAR|CompelSolidForm|CL	DEFINE:CompelSolidForm|CHA+10	ABILITY:Special Ability|AUTOMATIC|Compel Solid Form ~ Faith Hunter
+9	BONUS:VAR|CompelSolidForm|CL+CHA+10	ABILITY:Special Ability|AUTOMATIC|Compel Solid Form ~ Faith Hunter
 10											ABILITY:Special Ability|AUTOMATIC|Undead Foe ~ Faith Hunter
 
 # Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
@@ -114,8 +114,8 @@ CLASS:Hunter of the Fallen	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOUR
 CLASS:Hunter of the Fallen	PREALIGN:NG,TN,CG,CN	PREFEAT:1,Martial Weapon Proficiency
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Hunter of the Fallen	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|Intuit Direction|TYPE=Knowledge|Listen|Search|Sense Motive|Spot
-1								DEFINE:FavoredEnemy|1	ABILITY:Special Ability|AUTOMATIC|Favored Enemy ~ Hunter of the Fallen
-2								DEFINE:SenseUndead|1	ABILITY:Special Ability|AUTOMATIC|Sense Undead ~ Hunter of the Fallen
+1								DEFINE:FavoredEnemy|0	ABILITY:Special Ability|AUTOMATIC|Favored Enemy ~ Hunter of the Fallen
+2								DEFINE:SenseUndead|0	ABILITY:Special Ability|AUTOMATIC|Sense Undead ~ Hunter of the Fallen
 3	BONUS:VAR|HardenedSoul|CL/3			DEFINE:HardenedSoul|0	ABILITY:Special Ability|AUTOMATIC|Hardened Soul ~ Hunter of the Fallen
 4												ABILITY:Special Ability|AUTOMATIC|Hand of the Hunter ~ Hunter of the Fallen
 5												ABILITY:Special Ability|AUTOMATIC|Track the Dead ~ Hunter of the Fallen
@@ -132,7 +132,7 @@ CLASS:Knight of the Eternal Eye	PREALIGN:LG,LN,LE	PRECHECKBASE:1,Will=5	PREFEAT:
 CLASS:Knight of the Eternal Eye	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Hide|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Move Silently|TYPE=Profession|Ride|Sense Motive
 1																								ABILITY:Special Ability|AUTOMATIC|Lure of Darkness ~ Knight of the Eternal Eye|Undying Loyalty ~ Knight of the Eternal Eye	TEMPLATE:Undeath
 2	VISION:Darkvision (60')
-3																				DEFINE:TurnResistance|2	ABILITY:Special Ability|AUTOMATIC|Turn Resistance ~ Knight of the Eternal Eye
+3																				DEFINE:TurnResistance|0	BONUS:VAR|TurnResistance|2	ABILITY:Special Ability|AUTOMATIC|Turn Resistance ~ Knight of the Eternal Eye
 4																								ABILITY:Special Ability|AUTOMATIC|Bonds of Death ~ Knight of the Eternal Eye
 5																								ABILITY:Special Ability|AUTOMATIC|Aura of Doom ~ Knight of the Eternal Eye
 6					BONUS:SKILL|Diplomacy|-2	BONUS:SKILL|Intimidate|2										ABILITY:Special Ability|AUTOMATIC|Energy Drain ~ Knight of the Eternal Eye
@@ -169,7 +169,7 @@ CLASS:Puppet	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.49-50
 CLASS:Puppet	PREALIGN:LN,LE,TN,NE,CN,CE	PRETEXT:Special (see text)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Puppet	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Decipher Script|Disguise|Gather Information|Intimidate|Listen|Read Lips|Search|Sense Motive|Spellcraft|Spot
-1						DEFINE:PuppetLvl|CL	DEFINE:EmpLink|10	ABILITY:Special Ability|AUTOMATIC|Empathic Link ~ Puppet|Thy Master's Will ~ Puppet
+1						DEFINE:PuppetLvl|0	BONUS:VAR|PuppetLvl|CL	DEFINE:EmpLink|0	BONUS:VAR|EmpLink|10	ABILITY:Special Ability|AUTOMATIC|Empathic Link ~ Puppet|Thy Master's Will ~ Puppet
 2													ABILITY:Special Ability|AUTOMATIC|Strengthened Resolve ~ Puppet
 3																											AUTO:FEAT|Toughness
 4													ABILITY:Special Ability|AUTOMATIC|Corruptive Influence ~ Puppet
@@ -185,7 +185,7 @@ CLASS:Raider	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	
 CLASS:Raider	PRESKILL:4,Hide=6,Move Silently=6,Intuit Direction=4,Knowledge (Arcana)=4	PRETEXT:Special (see text)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Raider	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Search|Spot|Tumble|Use Magic Device|Use Rope
-1												DEFINE:RaiderLvl|CL	ABILITY:Special Ability|AUTOMATIC|Practical Knowledge ~ Raider|Quiet Inquisition ~ Raider
+1												DEFINE:RaiderLvl|0	BONUS:VAR|RaiderLvl|CL	ABILITY:Special Ability|AUTOMATIC|Practical Knowledge ~ Raider|Quiet Inquisition ~ Raider
 2																ABILITY:Special Ability|AUTOMATIC|Sense Ward ~ Raider
 3																ABILITY:Special Ability|AUTOMATIC|Sense Life ~ Raider
 4																ABILITY:Special Ability|AUTOMATIC|Sense Scrying ~ Raider
@@ -241,7 +241,7 @@ CLASS:Unbeating Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 # Should this have a Rebuke Undead call here, or just modify the VAR?  Leaving as just modifying the VAR, since htat is how it was. - Tir Gwaith
-1					BONUS:ABILITYPOOL|Martial Weapon Proficiency|1	BONUS:VAR|TurnLevel|(CL+1)/2	DEFINE:UnbeatingHeartLvl|CL	ADD:SPELLCASTER|ANY
+1					BONUS:ABILITYPOOL|Martial Weapon Proficiency|1	BONUS:VAR|TurnLevel|(CL+1)/2	DEFINE:UnbeatingHeartLvl|0	BONUS:VAR|UnbeatingHeartLvl|CL	ADD:SPELLCASTER|ANY
 2																											ABILITY:Special Ability|AUTOMATIC|Bloody Devotion ~ Unbeating Heart
 3	VISION:Darkvision (60')																			ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Dark Eyes ~ Unbeating Heart
 4																											ABILITY:Special Ability|AUTOMATIC|Hidden Veil ~ Unbeating Heart
@@ -260,7 +260,7 @@ CLASS:Wasteland Druid	PREALIGN:NE	PREFEAT:2,Iron Will,Toughness	PRESKILL:4,Knowl
 CLASS:Wasteland Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Intuit Direction|Knowledge (Arcana)|Knowledge (Nature)|TYPE=Profession|Scry|Spellcraft|Swim|Wilderness Lore
 ###Block: Turn Undead stuff
 1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack						ABILITY:Special Ability|AUTOMATIC|Basic Turning|Rebuke Undead
-1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|0	BONUS:VAR|AllowExtraTurning|1
 1	BONUS:VAR|TurnDamagePlusBase|CL
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
 ###Block: Level progression

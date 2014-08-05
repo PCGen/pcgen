@@ -12,7 +12,7 @@ CLASS:Air Lord	STARTSKILLPTS:2	CSKILL:Balance|TYPE=Climb|TYPE=Craft|Handle Anima
 3												ABILITY:Special Ability|AUTOMATIC|Swoop attack ~ Air Lord
 4												ABILITY:Special Ability|AUTOMATIC|Feather fall ~ Air Lord
 5												ABILITY:Special Ability|AUTOMATIC|Improved Aerial Rider ~ Air Lord|Improved Mount ~ Air Lord
-6	BONUS:ABILITYPOOL|Air Lord Feat|1	DEFINE:WeapSpecQualify|1
+6	BONUS:ABILITYPOOL|Air Lord Feat|1	DEFINE:WeapSpecQualify|0	BONUS:VAR|WeapSpecQualify|1|TYPE=Base
 7												ABILITY:Special Ability|AUTOMATIC|Aerial Awarness ~ Air Lord
 8												ABILITY:Special Ability|AUTOMATIC|Summon Air Elemental ~ Air Lord
 9												ABILITY:Special Ability|AUTOMATIC|Improved Aerial Rider ~ Air Lord
@@ -36,12 +36,12 @@ CLASS:Dragon Slayer	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimi
 10							ABILITY:Special Ability|AUTOMATIC|Improved Penetrating Blow ~ Dragon Slayer
 
 # Class Name			Product Identity?	Hit Dice	Abbreviation	Max Level	Source Page			Save checks bonus								Combat bonus
-CLASS:Student of the Dragon	NAMEISPI:NO		HD:8		ABB:SotD		MAXLEVEL:10	SOURCEPAGE:p.37-40	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Student of the Dragon	NAMEISPI:NO		HD:8		ABB:SotD		MAXLEVEL:10	SOURCEPAGE:p.37-40	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	DEFINE:StudentoftheDragonLvl|0	BONUS:VAR|StudentoftheDragonLvl|CL
 # Class Name			Req. Att.	Required Feat				Required Language		Required Skill
 CLASS:Student of the Dragon	PREATT:7	PREFEAT:1,Improved Unarmed Strike	PRELANG:1,Draconic	PRESKILL:1,Knowledge (Arcana)=13
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Student of the Dragon	STARTSKILLPTS:4	CSKILL:Balance|TYPE=Climb|Concentration|TYPE=Craft|TYPE=Diplomacy|Escape Artist|Hide|TYPE=Jump|Knowledge (Arcana)|Listen|Move Silently|TYPE=Profession|Swim|Tumble
-1					DEFINE:StudentoftheDragonLvl|CL	ABILITY:Special Ability|AUTOMATIC|Wings of the Dragon ~ Student of the Dragon
+1						ABILITY:Special Ability|AUTOMATIC|Wings of the Dragon ~ Student of the Dragon
 2											ABILITY:Special Ability|AUTOMATIC|Strength of the Dragon ~ Student of the Dragon
 3	VISION:Darkvision (60')							ABILITY:Special Ability|AUTOMATIC|Eyes of the Dragon ~ Student of the Dragon
 4											ABILITY:Special Ability|AUTOMATIC|Fist of the Dragon ~ Student of the Dragon

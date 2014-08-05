@@ -570,7 +570,7 @@ Light Generation	KEY:LIGHT_WEAP	TYPE:Weapon	COST:0	VISIBLE:QUALIFY	PRETYPE:1,Wea
 #  4) Languages
 
 # Modifier Name	Unique Key		Naming Option			Type		Cost		Visible		Type granted	Prohibited Type		Special Property						Define
-Intelligent Item	KEY:INT_ITEM	NAMEOPT:TEXT=Intelligent	TYPE:Magic	COST:0	VISIBLE:QUALIFY	ITYPE:IntItem	!PRETYPE:1,IntItem	SPROP:Intelligent Item ~ Ego Score %|ItemEgo	DEFINE:ItemEgo|PLUSTOTAL+ALTPLUSTOTAL
+Intelligent Item	KEY:INT_ITEM	NAMEOPT:TEXT=Intelligent	TYPE:Magic	COST:0	VISIBLE:QUALIFY	ITYPE:IntItem	!PRETYPE:1,IntItem	SPROP:Intelligent Item ~ Ego Score %|ItemEgo	DEFINE:ItemEgo|0	BONUS:VAR|ItemEgo|PLUSTOTAL+ALTPLUSTOTAL
 
 ###Block: Itelligent Item Types
 # Modifier Name				Unique Key			Naming Option	Type			Cost		Visible		Type granted	Keys to replace																			Source Page					Required Type			Prohibited Type								Modify VAR			Special Property

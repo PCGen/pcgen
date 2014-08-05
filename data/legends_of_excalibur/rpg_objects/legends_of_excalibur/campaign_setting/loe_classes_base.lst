@@ -4,7 +4,7 @@ SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOU
 # Bard and Druid block.  Due to .MOD issues, redoing classes here
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Virtual Feat													Define																			Save checks bonus											Combat bonus
-CLASS:Bard ~ LoE	HD:6		TYPE:Base.PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	VFEAT:Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|CHA	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+CLASS:Bard ~ LoE	HD:6		TYPE:Base.PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	VFEAT:Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:VAR|BONUSPOWERPOINTS|CHA	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bard ~ LoE	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -35,7 +35,7 @@ CLASS:Bard ~ LoE	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CL
 20	CAST:0,0,2,3,4,5,6	KNOWN:9,5,5,4,4,3,3	BONUS:VAR|BASEPOWERPOINTS|19
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Bonus Languages	Virtual Feat													Define																			Automatically Gained Language	Save checks bonus											Combat bonus
-CLASS:Druid ~ LoE	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	VFEAT:Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|WIS	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	AUTO:LANG|Druidic			BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+CLASS:Druid ~ LoE	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	VFEAT:Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0		BONUS:VAR|BONUSPOWERPOINTS|WIS	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	AUTO:LANG|Druidic			BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Druid ~ LoE	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
@@ -84,7 +84,7 @@ CLASS:Fool		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Diplo
 19	SAB:Verbal Firestorm (Ex)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Virtual Feat													Define																			Save checks bonus											Combat bonus
-CLASS:Hedge Mage	HD:6		TYPE:Base.PC	ABB:HeM		MAXLEVEL:20	SOURCEPAGE:p.12	VFEAT:Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|CHA	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE:Base.REPLACE
+CLASS:Hedge Mage	HD:6		TYPE:Base.PC	ABB:HeM		MAXLEVEL:20	SOURCEPAGE:p.12	VFEAT:Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0		BONUS:VAR|BONUSPOWERPOINTS|CHA	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE:Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hedge Mage	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Arcana)|TYPE=Profession|Prophecy|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -111,7 +111,7 @@ CLASS:Hedge Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|CL
 20	CAST:0,0,2,3,4,5,6,7,8,9	KNOWN:9,5,5,4,4,4,3,3,3,3	SAB:Ultimate Prophecy	BONUS:VAR|BASEPOWERPOINTS|19
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Virtual Feat													Define																			Save checks bonus											Combat bonus
-CLASS:Hermit	HD:6		TYPE:Base.PC	ABB:Hrm		MAXLEVEL:20	SOURCEPAGE:p.14	VFEAT:Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|WIS	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE:Base.REPLACE
+CLASS:Hermit	HD:6		TYPE:Base.PC	ABB:Hrm		MAXLEVEL:20	SOURCEPAGE:p.14	VFEAT:Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:VAR|BONUSPOWERPOINTS|WIS	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE:Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hermit	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Decipher Script|Heal|Knowledge (Nature)|Knowledge (Religion)|Listen|Prophecy|Ride|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
@@ -161,7 +161,7 @@ CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Ju
 19	SAB:Terrifying Charge (Ex)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Virtual Feat													Define																			Save checks bonus											Combat bonus
-CLASS:Minstrel	HD:6		TYPE:Base.PC	ABB:Min		MAXLEVEL:20	SOURCEPAGE:p.19	VFEAT:Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE:BASE.Replace
+CLASS:Minstrel	HD:6		TYPE:Base.PC	ABB:Min		MAXLEVEL:20	SOURCEPAGE:p.19	VFEAT:Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE:BASE.Replace
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Minstrel	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Heal|Hide|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Sleight of Hand|Spellcraft|Spot|Survival|Swim|Tumble
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
@@ -209,7 +209,7 @@ CLASS:Noble		STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Int
 20	SAB:Land and the Lord are One (Su)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Virtual Feat													Define																				Save checks bonus											Combat bonus
-CLASS:Priest	HD:8		TYPE:Base.PC	ABB:Pri		MAXLEVEL:20	SOURCEPAGE:p.26	VFEAT:Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|WIS+NOB	DEFINE:TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE:Base.REPLACE
+CLASS:Priest	HD:8		TYPE:Base.PC	ABB:Pri		MAXLEVEL:20	SOURCEPAGE:p.26	VFEAT:Literacy|PREMULT:2,[!PRETEMPLATE:1,Saxon],[!PRERACE:1,Base/Criminal,Common/Serf]	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:VAR|BONUSPOWERPOINTS|WIS+NOB	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE:Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Priest	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Heal|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level

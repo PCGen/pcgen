@@ -17,12 +17,12 @@ CLASS:Empath	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Gat
 2																				ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Calm/Enrage ~ Empath
 3	BONUS:ABILITYPOOL|Empath Feat Choice|1
 4								BONUS:VAR|StrikingAppearance|1							ADD:SPELLCASTER|Arcane
-5														DEFINE:AuraEmpathyTargets|4+CHA	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Aura of Empathy ~ Empath
+5														DEFINE:AuraEmpathyTargets|0	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Aura of Empathy ~ Empath
 6																								ABILITY:Special Ability|AUTOMATIC|Bolster III ~ Empath|Emotional Mastery ~ Empath
 7								BONUS:VAR|StrikingAppearance|1							ADD:SPELLCASTER|Arcane
-8														DEFINE:EmpathyDC|10+CHA			ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Shielding Bond ~ Empath
+8														DEFINE:EmpathyDC|0			ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Shielding Bond ~ Empath
 9																								ABILITY:Special Ability|AUTOMATIC|Empathic Healing ~ Empath
-10								BONUS:VAR|StrikingAppearance|1	DEFINE:WillCraftDC|20+CHA		ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Willcrafting ~ Empath
+10								BONUS:VAR|StrikingAppearance|1	DEFINE:WillCraftDC|0		ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Willcrafting ~ Empath
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Puppeteer	HD:4		TYPE:PC.Prestige	ABB:Pup		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2
@@ -65,7 +65,7 @@ CLASS:Mindmender	PREFEAT:3,Iron Will,Skill Focus (Diplomacy),Spell Focus (Enchan
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mindmender	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Profession|Sense Motive|Spellcraft
 1												ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Sense Charm ~ Mindmender|Word of Comfort ~ Mindmender
-2	BONUS:VAR|MindmenderDenial|CL	DEFINE:MindmenderDenial|10+WIS	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Denial ~ Mindmender|Lifting the Weight ~ Mindmender
+2	BONUS:VAR|MindmenderDenial|CL	DEFINE:MindmenderDenial|0	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Denial ~ Mindmender|Lifting the Weight ~ Mindmender
 3												ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Dream Voyager ~ Mindmender|Surcease ~ Mindmender
 4	BONUS:VAR|EaseResistance|10	DEFINE:EaseResistance|0			ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Ease Resistance ~ Mindmender
 5												ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Word of Kindness ~ Mindmender

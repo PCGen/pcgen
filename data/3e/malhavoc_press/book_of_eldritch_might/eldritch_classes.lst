@@ -29,8 +29,8 @@ CLASS:Graven One	PREFEAT:4,Etch Object Rune,Item Image,Scribe Scroll,Toughness	P
 CLASS:Graven One	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Scry|Search|Spellcraft
 1	SAB:Flesh Rune																			ADD:SPELLCASTER|ANY
 2	SAB:Tattoo of Power (1 Tattoo)|PREVARLT:CL,3
-3	SAB:Tattoo of Power (% Tattoos)|TattooPower					DEFINE:TattooPower|2						ADD:SPELLCASTER|ANY
-4	SAB:Graven Image (% HD)|GravenHD							DEFINE:GravenHD|floor((var("CL=Graven One")-2)/2)*5
+3	SAB:Tattoo of Power (% Tattoos)|TattooPower					DEFINE:TattooPower|0						BONUS:VAR|TattooPower|2						ADD:SPELLCASTER|ANY
+4	SAB:Graven Image (% HD)|GravenHD							DEFINE:GravenHD|0	BONUS:VAR|GravenHD|floor((var("CL=Graven One")-2)/2)*5	
 5									BONUS:VAR|TattooPower|1										ADD:SPELLCASTER|ANY
 7									BONUS:VAR|TattooPower|1										ADD:SPELLCASTER|ANY
 9									BONUS:VAR|TattooPower|1										ADD:SPELLCASTER|ANY

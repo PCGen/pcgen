@@ -347,7 +347,7 @@ CLASS:Test56
 ### Eclipse Set Test Class
 
 # Class Name			Output Name		Hit Dice	Type				Class Type		Abbreviation	Max Level	Define			Combat bonus
-CLASS:Eclipse Point Buy (d08)	OUTPUTNAME:d8E	HD:8		TYPE:Base.PC.Eclipse	CLASSTYPE:PC	ABB:d8E		MAXLEVEL:20	DEFINE:EclipseClass|1	BONUS:COMBAT|BASEAB|var("Warcraft Bonus")|TYPE=Base
+CLASS:Eclipse Point Buy (d08)	OUTPUTNAME:d8E	HD:8		TYPE:Base.PC.Eclipse	CLASSTYPE:PC	ABB:d8E		MAXLEVEL:20	DEFINE:EclipseClass|0	BONUS:VAR|EclipseClass|1	BONUS:COMBAT|BASEAB|var("Warcraft Bonus")|TYPE=Base
 # Class Name			Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 ###Block:

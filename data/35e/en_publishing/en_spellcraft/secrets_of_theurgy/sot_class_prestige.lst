@@ -76,7 +76,7 @@ CLASS:Hierophant Theurge	HD:4		TYPE:Prestige.PC	ABB:HT		MAXLEVEL:5	SOURCEPAGE:10
 CLASS:Hierophant Theurge	PREFEAT:1,TYPE=Metamagic	PRESKILL:3,Knowledge (Arcana)=15,Knowledge (Religion)=15,Spellcraft=15	PRESPELLTYPE:1,Arcane=7	PRESPELLTYPE:1,Divine=7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Hierophant Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Knowledge|Spellcraft
-1	BONUS:ABILITYPOOL|Hierophant Theurge Ability|(CL+1)/2	DEFINE:HierophantTheurgeLevel|CL	ABILITY:Special Ability|AUTOMATIC|Spellcaster
+1	BONUS:ABILITYPOOL|Hierophant Theurge Ability|(CL+1)/2	DEFINE:HierophantTheurgeLevel|0	BONUS:VAR|HierophantTheurgeLevel|CL	ABILITY:Special Ability|AUTOMATIC|Spellcaster
 2	BONUS:ABILITYPOOL|Theurgic Feat|CL/2
 
 #

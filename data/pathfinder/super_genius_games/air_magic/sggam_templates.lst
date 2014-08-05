@@ -4,7 +4,7 @@ SOURCELONG:The Genius Guide to: Air Magic	SOURCESHORT:SGGAM	SOURCEDATE:2010-07
 
 ###Block: New templates
 # Template Name			Challenge Rating	Visible	Template																																						Source Page		Define									Required Size	Add to base move					Modify VAR							Class Skill	Ability									Move
-Airborne				CR:1					TEMPLATE:CHOOSE:Airborne Speed ~ Fine|Airborne Speed ~ Diminutive|Airborne Speed ~ Tiny|Airborne Speed ~ Small|Airborne Speed ~ Medium|Airborne Speed ~ Large|Airborne Speed ~ Huge|Airborne Speed ~ Gargantuan|Airborne Speed ~ Colossal	SOURCEPAGE:p.12	DEFINE:Maneuverability|3	DEFINE:AirborneFlySpeed|0				BONUS:MOVEADD|TYPE.Fly|AirborneFlySpeed	BONUS:VAR|AirborneFlySpeed|floor((HD+3)/4)	CSKILL:Fly	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	MOVE:Fly,20
+Airborne				CR:1					TEMPLATE:CHOOSE:Airborne Speed ~ Fine|Airborne Speed ~ Diminutive|Airborne Speed ~ Tiny|Airborne Speed ~ Small|Airborne Speed ~ Medium|Airborne Speed ~ Large|Airborne Speed ~ Huge|Airborne Speed ~ Gargantuan|Airborne Speed ~ Colossal	SOURCEPAGE:p.12	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|3	DEFINE:AirborneFlySpeed|0				BONUS:MOVEADD|TYPE.Fly|AirborneFlySpeed	BONUS:VAR|AirborneFlySpeed|floor((HD+3)/4)	CSKILL:Fly	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	MOVE:Fly,20
 
 Airborne Speed ~ Fine					VISIBLE:NO																																																					PRESIZEEQ:F									BONUS:VAR|AirborneFlySpeed|40
 Airborne Speed ~ Diminutive				VISIBLE:NO																																																					PRESIZEEQ:D									BONUS:VAR|AirborneFlySpeed|30

@@ -38,7 +38,7 @@ CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Bribe|Diplomacy|Forgery|Gathe
 ###Block: Proficiency
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Firearms Proficiency|Noble Weapon Proficiencies
 ###Block: Normal Level Progression
-1	SAB:Resources % (Ex)|BFResources	SAB:Social Standing % (Ex)|BFSocialStanding						DEFINE:BFSocialStanding|1	DEFINE:BFResources|1	AUTO:FEAT|Literacy
+1	SAB:Resources % (Ex)|BFResources	SAB:Social Standing % (Ex)|BFSocialStanding						DEFINE:BFSocialStanding|0	DEFINE:BFResources|0	BONUS:VAR|BFSocialStanding|1	BONUS:VAR|BFResources|1	AUTO:FEAT|Literacy
 3															BONUS:VAR|BFSocialStanding|1
 4															BONUS:VAR|BFResources|1
 5	SAB:Influence (Ex)
@@ -57,15 +57,15 @@ CLASS:Priest	NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Pri		MAXLEVEL:20	SOURCEPAGE:p.3
 CLASS:Priest	PREGENDER:M
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Priest	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Forgery|Gather Information|Handle Animal|Heal|Innuendo|Intimidate|TYPE=Knowledge|Listen|TYPE=Profession|Read Lips|Ride|Sense Motive|Speak Language|Spot|Swim|Wilderness Lore
-1	SAB:Bless %/day (Sp)|BFBless	SAB:Bless Water %/day (Sp)|BFBlessWater	SAB:Literacy x2(Native,Latin) (Ex)				BONUS:SKILLPOINTS|NUMBER|1|PREPCLEVEL:MAX=1|PRESTAT:1,INT=4	BONUS:SKILLPOINTS|NUMBER|1|PREPCLEVEL:MAX=1|PRESTAT:1,INT=2										DEFINE:BFBless|1	DEFINE:BFBlessWater|1	AUTO:FEAT|Literacy
-2	SAB:Bane %/day (Sp)|BFBane																																														DEFINE:BFBane|1
-3	SAB:Aura of Fear %/day (Sp)|BFAuraFear																																												DEFINE:BFAuraFear|1
-4	SAB:Divine Favor %/day (Sp)|BFDivineFavor																																			BONUS:VAR|BFBless|1						DEFINE:BFDivineFavor|1
+1	SAB:Bless %/day (Sp)|BFBless	SAB:Bless Water %/day (Sp)|BFBlessWater	SAB:Literacy x2(Native,Latin) (Ex)				BONUS:SKILLPOINTS|NUMBER|1|PREPCLEVEL:MAX=1|PRESTAT:1,INT=4	BONUS:SKILLPOINTS|NUMBER|1|PREPCLEVEL:MAX=1|PRESTAT:1,INT=2										DEFINE:BFBless|0	DEFINE:BFBlessWater|0		BONUS:VAR|BFBless|1	BONUS:VAR|BFBlessWater|1		AUTO:FEAT|Literacy
+2	SAB:Bane %/day (Sp)|BFBane																																														DEFINE:BFBane|0						BONUS:VAR|BFBane|1					
+3	SAB:Aura of Fear %/day (Sp)|BFAuraFear																																												DEFINE:BFAuraFear|0					BONUS:VAR|BFAuraFear|1				
+4	SAB:Divine Favor %/day (Sp)|BFDivineFavor																																			BONUS:VAR|BFBless|1						DEFINE:BFDivineFavor|0					BONUS:VAR|BFDivineFavor|1				
 5																			BONUS:FEAT|POOL|1
 6																																										BONUS:VAR|BFBane|1	BONUS:VAR|BFAuraFear|1
-7	SAB:Bishop (Ex)	SAB:Doom %/day (Sp)|BFDoom	SAB:Remove Fear %/day (Sp)|BFRemoveFear																																				DEFINE:BFDoom|1	DEFINE:BFRemoveFear|1
+7	SAB:Bishop (Ex)	SAB:Doom %/day (Sp)|BFDoom	SAB:Remove Fear %/day (Sp)|BFRemoveFear																																				DEFINE:BFDoom|0	DEFINE:BFRemoveFear|0		BONUS:VAR|BFDoom|1	BONUS:VAR|BFRemoveFear|1
 8																																										BONUS:VAR|BFBless|1	BONUS:VAR|BFDivineFavor|1
-9	SAB:Lay Hands %/day (Sp)|BFLayHands																																				BONUS:VAR|BFBane|1						DEFINE:BFLayHands|1
+9	SAB:Lay Hands %/day (Sp)|BFLayHands																																				BONUS:VAR|BFBane|1						DEFINE:BFLayHands|0					BONUS:VAR|BFLayHands|1
 10																			BONUS:FEAT|POOL|1
 11																																										BONUS:VAR|BFAuraFear|1
 12																																										BONUS:VAR|BFDivineFavor|1
@@ -108,7 +108,7 @@ CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ride|Sw
 ###Block: Normal Level Progression
 1						ADD:FEAT|TYPE=Fighter
 2						ADD:FEAT|TYPE=Fighter
-4	DEFINE:WeapSpecQualify|1	ADD:FEAT|TYPE=Fighter
+4	DEFINE:WeapSpecQualify|0	BONUS:VAR|WeapSpecQualify|1	ADD:FEAT|TYPE=Fighter
 6						ADD:FEAT|TYPE=Fighter
 8						ADD:FEAT|TYPE=Fighter
 10						ADD:FEAT|TYPE=Fighter
@@ -168,7 +168,7 @@ CLASS:Cardinal	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	ABB:Cnl		MAXLEVEL:10	SOURCEPA
 CLASS:Cardinal	PRECLASS:1,Priest=7	PREFEAT:1,Leadership	PRESKILL:1,Diplomacy=12	PRESTAT:1,CHA=13	PRETEXT:Must have been promoted to Bishop.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cardinal	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Decipher Script|Diplomacy|Forgery|Gather Information|Heal|Innuendo|Intimidate|TYPE=Knowledge|Listen|Read Lips|Ride|Sense Motive|Speak Language|Spot
-1	SAB:Entourage	SAB:Guard	SAB:Social Standing % (Ex)|BFSocialStanding	SAB:Theological Wisdom (Ex)												DEFINE:BFSocialStanding|4
+1	SAB:Entourage	SAB:Guard	SAB:Social Standing % (Ex)|BFSocialStanding	SAB:Theological Wisdom (Ex)												DEFINE:BFSocialStanding|0	BONUS:VAR|BFSocialStanding|4
 2																						BONUS:VAR|BFLayHands|1	BONUS:VAR|BFAuraFear|1
 3	SAB:Remove Curse (Sp)
 4	SAB:Remove Blindness/Deafness (Sp)
@@ -200,10 +200,10 @@ CLASS:Physician	NAMEISPI:NO		HD:6		TYPE:Prestige.PC	ABB:Phy		MAXLEVEL:10	SOURCEP
 CLASS:Physician	PRESKILL:3,Alchemy=6,Wilderness Lore=6,Heal=8	PRESTAT:1,INT=12
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Physician	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Concentration|Heal|Knowledge (Medicine)|Profession (Physician)|Wilderness Lore
-1	SAB:Cure Minor Wounds %/day (Ex)|PhysicianMinor						DEFINE:PhysicianMinor|CL
+1	SAB:Cure Minor Wounds %/day (Ex)|PhysicianMinor						DEFINE:PhysicianMinor|0	BONUS:VAR|PhysicianMinor|CL
 2																			AUTO:FEAT|Amputate
 3	SAB:Treat Sickness (Ex)
-5	SAB:Heal Wounds %/day (Ex)|BFHealWounds							DEFINE:BFHealWounds|1
+5	SAB:Heal Wounds %/day (Ex)|BFHealWounds							DEFINE:BFHealWounds|0	BONUS:VAR|BFHealWounds|1
 6	SAB:Remove Disease 1/day (Ex)
 7	SAB:Save Limb (Ex)
 9									BONUS:VAR|BFHealWounds|1

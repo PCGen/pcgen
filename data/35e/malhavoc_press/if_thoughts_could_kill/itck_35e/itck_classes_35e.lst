@@ -30,9 +30,9 @@ CLASS:Metamind ITCK	PREFEAT:1,Psicrystal Affinity	PRESKILL:2,Psicraft=4,Knowledg
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Metamind ITCK	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Knowledge (Psionics)|Psicraft
 ###Block: Psicrystal info
-1	BONUS:VAR|PowerPsicrystal|2*floor(((var("CL=Metamind ITCK")-1)/2))	DEFINE:PowerPsicrystal|5	ABILITY:Special Ability|AUTOMATIC|Cognizance Psicrystal ~ Metamind ITCK
+1	BONUS:VAR|PowerPsicrystal|2*floor(((var("CL=Metamind ITCK")-1)/2))	DEFINE:PowerPsicrystal|0	BONUS:VAR|PowerPsicrystal|5	ABILITY:Special Ability|AUTOMATIC|Cognizance Psicrystal ~ Metamind ITCK
 ###Block: sequestration
-1	BONUS:VAR|SequesVar|var("CL=Metamind ITCK")	DEFINE:SequesVar|1	ABILITY:Special Ability|AUTOMATIC|Sequestration ~ Metamind ITCK
+1	BONUS:VAR|SequesVar|var("CL=Metamind ITCK")	DEFINE:SequesVar|0	BONUS:VAR|SequesVar|1	ABILITY:Special Ability|AUTOMATIC|Sequestration ~ Metamind ITCK
 ###Block: Level progression
 1	BONUS:ABILITYPOOL|Power Sequestration|2	ADD:SPELLCASTER|Psionic
 2	BONUS:ABILITYPOOL|Power Sequestration|1	ADD:SPELLCASTER|Psionic

@@ -69,7 +69,7 @@ SUBCLASSLEVEL:1	ADD:FEAT|2|Clairsentience Subdiscipline,Metacreativity Subdiscip
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Level progression
-1																			DEFINE:PsionFreePowers|CL+var("BL=Psion ITCK")+3	ABILITY:Special Ability|AUTOMATIC|Psion 0 level powers ~ Psion ITCK	ABILITY:Special Ability|AUTOMATIC|Psicrystal
+1																			DEFINE:PsionFreePowers|0	BONUS:VAR|PsionFreePowers|CL+var("BL=Psion ITCK")+3	ABILITY:Special Ability|AUTOMATIC|Psion 0 level powers ~ Psion ITCK	ABILITY:Special Ability|AUTOMATIC|Psicrystal
 1	KNOWN:3,1				SPECIALTYKNOWN:1,1			BONUS:ABILITYPOOL|Psionic Combat Mode|5
 2	KNOWN:4,1				SPECIALTYKNOWN:1,1
 3	KNOWN:4,2				SPECIALTYKNOWN:1,1			BONUS:ABILITYPOOL|Psionic Combat Mode|1
@@ -101,7 +101,7 @@ CLASS:Metamind ITCK	PREFEAT:1,Inner Strength	PRESKILL:2,Psicraft=6,Knowledge (Ps
 CLASS:Metamind ITCK	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowledge (Psionics)|Psicraft|Remote View
 ###Block: Level progression
 1																												ABILITY:Special Ability|AUTOMATIC|Psicrystal
-1																			DEFINE:PowerPsicrystal|5
+1																			DEFINE:PowerPsicrystal|0	BONUS:VAR|PowerPsicrystal|5
 1	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal											ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Power Psicrystal ~ Metamind ITCK
 2	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal											ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Freely Manifest 1st ~ Metamind ITCK
 3	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|PowerPsicrystal|2						ADD:SPELLCASTER|Psionic
@@ -143,7 +143,7 @@ CLASS:Slayer ITCK	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal E
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
-1	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|EnemySense|30*CL	DEFINE:EnemySense|60	ADD:SPELLCASTER|Psionic										ABILITY:Special Ability|AUTOMATIC|Favored Enemy ~ Slayer ITCK	ABILITY:Special Ability|AUTOMATIC|Mortal Enemy Sense ~ Slayer ITCK
+1	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|EnemySense|30*CL	DEFINE:EnemySense|0	BONUS:VAR|EnemySense|60	ADD:SPELLCASTER|Psionic										ABILITY:Special Ability|AUTOMATIC|Favored Enemy ~ Slayer ITCK	ABILITY:Special Ability|AUTOMATIC|Mortal Enemy Sense ~ Slayer ITCK
 2																							ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
 3	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal										ADD:SPELLCASTER|Psionic	ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
 4																																				ABILITY:Special Ability|AUTOMATIC|Lucid Buffer ~ Slayer ITCK
@@ -161,7 +161,7 @@ CLASS:Soulknife ITCK	PREATT:3	PRESKILL:2,Move Silently=3,Knowledge (Psionics)=3	
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Soulknife ITCK	STARTSKILLPTS:4	CSKILL:Autohypnosis|Concentration|Hide|Knowledge (Psionics)|Move Silently|Psicraft|Sense Motive|Stabilize Self|Tumble
 ###Block: Mind Blade
-1	BONUS:VAR|MindBladeSneakAttack|(CL+1)/2	BONUS:VAR|MindBladeEnchantment|CL/2	DEFINE:MindBladeAllowed|1	DEFINE:MindBladeEnchantment|0	DEFINE:MindBladeSneakAttack|0	DEFINE:SneakAttackDie|6	ABILITY:Special Ability|AUTOMATIC|Mind-blade sneak attack ~ Soulknife ITCK											AUTO:EQUIP|Mind Blade
+1	BONUS:VAR|MindBladeSneakAttack|(CL+1)/2	BONUS:VAR|MindBladeEnchantment|CL/2	DEFINE:MindBladeAllowed|0		BONUS:VAR|MindBladeAllowed|1	DEFINE:MindBladeEnchantment|0	DEFINE:MindBladeSneakAttack|0	DEFINE:SneakAttackDie|0	BONUS:VAR|SneakAttackDie|6		ABILITY:Special Ability|AUTOMATIC|Mind-blade sneak attack ~ Soulknife ITCK											AUTO:EQUIP|Mind Blade
 2	BONUS:VAR|MindBladeRange|30									DEFINE:MindBladeRange|0																ABILITY:Special Ability|AUTOMATIC|Throw Mind-Blade ~ Soulknife ITCK	ABILITY:Special Ability|AUTOMATIC|Mind-Blade ~ Soulknife ITCK
 ###Block: Proficiencies
 1	AUTO:FEAT|Soulknife ITCK Weapon Proficiencies

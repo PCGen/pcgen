@@ -44,7 +44,7 @@ CLASS:Crusading Footpad	PREALIGN:LG,NG,CG	PREATT:4	PREFEAT:2,Dodge,Iron Will	PRE
 CLASS:Crusading Footpad	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Religion)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1																						ABILITY:Special Ability|AUTOMATIC|Divine Companion ~ Crusading Footpad	ABILITY:Special Ability|AUTOMATIC|Divine Luck ~ Crusading Footpad
 #	BONUS:SAVE|2	- Um... To what?  Tir Gwaith
-2									BONUS:VAR|SmiteUndead|CL/2	DEFINE:SmiteUndeadDie|6	DEFINE:SmiteUndead|0	ABILITY:Special Ability|AUTOMATIC|Smite Undead ~ Crusading Footpad
+2									BONUS:VAR|SmiteUndead|CL/2	DEFINE:SmiteUndeadDie|0	BONUS:VAR|SmiteUndeadDie|6	DEFINE:SmiteUndead|0	ABILITY:Special Ability|AUTOMATIC|Smite Undead ~ Crusading Footpad
 3																						ABILITY:Special Ability|AUTOMATIC|Detect Undead ~ Crusading Footpad	ABILITY:Special Ability|AUTOMATIC|Detect Evil ~ Crusading Footpad
 5																						ABILITY:Special Ability|AUTOMATIC|Mask Alignment ~ Crusading Footpad
 7																						ABILITY:Special Ability|AUTOMATIC|Divine Shield ~ Crusading Footpad
@@ -79,7 +79,7 @@ CLASS:Executioner	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Escape Artist|He
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	BONUS:VAR|SneakAttackDice|(CL+1)/2	BONUS:VAR|ExecutionersStrike|(CL+1)/2	DEFINE:ExecutionersStrikeDie|6	DEFINE:ExecutionersStrike|0	ABILITY:Special Ability|AUTOMATIC|Executioner's Strik ~ Executioner	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+1	BONUS:VAR|SneakAttackDice|(CL+1)/2	BONUS:VAR|ExecutionersStrike|(CL+1)/2	DEFINE:ExecutionersStrikeDie|0	BONUS:VAR|ExecutionersStrikeDie|6	DEFINE:ExecutionersStrike|0	ABILITY:Special Ability|AUTOMATIC|Executioner's Strik ~ Executioner	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2																									ABILITY:Special Ability|AUTOMATIC|Cold Blooded Killer ~ Executioner
 4																									ABILITY:Special Ability|AUTOMATIC|Executioner's Song ~ Executioner
 

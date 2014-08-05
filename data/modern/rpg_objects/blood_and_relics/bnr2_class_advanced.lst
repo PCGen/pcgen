@@ -8,8 +8,8 @@ CLASS:Believer	PREFEAT:2,Conviction (Higher Power),Faith's Protection	PRESKILL:1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Believer	STARTSKILLPTS:6	CSKILL:Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|READ/WRITE LANGUAGE|Research|Sense Motive|Treat Injury
 ###Block: Turning
-1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
-1	BONUS:VAR|TurnLevel|CL			DEFINE:ExtraTurningQual|1
+1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	BONUS:VAR|ImprovedTurningQual|1	DEFINE:ImprovedTurningQual|0	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
+1	BONUS:VAR|TurnLevel|CL			BONUS:VAR|ExtraTurningQual|1	DEFINE:ExtraTurningQual|0
 1	BONUS:VAR|TurnDamagePlus|CL
 1	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
 ###Block: Standard block
@@ -29,8 +29,8 @@ CLASS:Cultist	PREFEAT:2,Conviction (Dark Power),Educated	PRESKILL:1,Knowledge (A
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cultist	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Chemical)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Research
 ###Block: Turning
-1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
-1	BONUS:VAR|TurnLevel|CL			DEFINE:ExtraTurningQual|1
+1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	BONUS:VAR|ImprovedTurningQual|1	DEFINE:ImprovedTurningQual|0	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
+1	BONUS:VAR|TurnLevel|CL			BONUS:VAR|ExtraTurningQual|1	DEFINE:ExtraTurningQual|0
 1	BONUS:VAR|TurnDamagePlus|CL
 1	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
 ###Block: Standard block
@@ -55,7 +55,7 @@ CLASS:Dark Warrior	STARTSKILLPTS:2	CSKILL:Climb|Demolitions|Drive|Gamble|Intimid
 2																															ADD:FEAT|TYPE=DarkWarrior
 3	SAB:Willing Manifestation (Contortions)
 4																															ADD:FEAT|TYPE=DarkWarrior
-5	SAB:Blood Bond %/day for % minutes|BloodBondTime|BloodBondDuration				BONUS:VAR|BloodBondDuration|CL*10	DEFINE:BloodBondDuration|0	DEFINE:BloodBondTime|1
+5	SAB:Blood Bond %/day for % minutes|BloodBondTime|BloodBondDuration				BONUS:VAR|BloodBondDuration|CL*10	DEFINE:BloodBondDuration|0	DEFINE:BloodBondTime|0	BONUS:VAR|BloodBondTime|1
 7																															ADD:FEAT|TYPE=DarkWarrior
 8	SAB:Blood Oath										BONUS:STAT|STR|2	BONUS:VAR|BloodBondTime|1
 9	SAB:Willing Manifestation (Poltergeist)

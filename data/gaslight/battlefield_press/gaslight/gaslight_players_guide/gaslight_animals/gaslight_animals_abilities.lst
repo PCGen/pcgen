@@ -20,14 +20,14 @@ Improved Grab												CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordina
 Ink Cloud													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES
 Jet														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Keen Scent													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense		VISIBLE:YES
-Poison													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC																																													BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)
+Poison													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:PoisonDC|0	BONUS:VAR|PoisonDC|10+(HD/2)+CON		DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC																																													BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)
 Pounce													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES						DESC:When you make a charge, you can follow with a full attack.
 Rake														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES						DESC:You gain extra natural attacks when you grapple or pounce your foe.
 Spot in Darkness		OUTPUTNAME:+8 Spot in dusk/darkness					CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBLE:YES
 Spot in Daylight		OUTPUTNAME:+8 species bonus on Spot checks during daylight	CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBLE:YES
 Stampede													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Tracking by Scent		OUTPUTNAME:+4 Survival checks when Tracking by Scent		CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
-Trample													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES	DEFINE:TrampleDC|10		DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC																																								BONUS:VAR|TrampleDC|2|PREFEAT:1,Ability Focus (Trample)	BONUS:VAR|TrampleDC|STR+(HD/2)	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Trample													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES	DEFINE:TrampleDC|0	BONUS:VAR|TrampleDC|10	DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC																																								BONUS:VAR|TrampleDC|2|PREFEAT:1,Ability Focus (Trample)	BONUS:VAR|TrampleDC|STR+(HD/2)	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Trip														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
 
 ###Block: Companion Modifier Abilities -----------------------------------------

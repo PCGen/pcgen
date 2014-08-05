@@ -19,7 +19,7 @@ Sniper			KEY:Sniper ~ Commando					CATEGORY:Special Ability	TYPE:SpecialQuality
 # ~ Crusading Footpad
 Divine Companion		KEY:Divine Companion ~ Crusading Footpad		CATEGORY:Special Ability	TYPE:SpecialQuality
 Divine Luck			KEY:Divine Luck ~ Crusading Footpad			CATEGORY:Special Ability	TYPE:SpecialQuality
-Smite Undead		KEY:Smite Undead ~ Crusading Footpad		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SmiteUndeadDie|6	DEFINE:SmiteUndead|0				DESC: +%1d%2|SmiteUndead|SmiteUndeadDie
+Smite Undead		KEY:Smite Undead ~ Crusading Footpad		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SmiteUndeadDie|0	DEFINE:SmiteUndead|0				DESC: +%1d%2|SmiteUndead|SmiteUndeadDie
 Detect Undead		KEY:Detect Undead ~ Crusading Footpad		CATEGORY:Special Ability	TYPE:SpecialQuality
 Detect Evil			KEY:Detect Evil ~ Crusading Footpad			CATEGORY:Special Ability	TYPE:SpecialQuality
 Mask Alignment		KEY:Mask Alignment ~ Crusading Footpad		CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -35,7 +35,7 @@ Maze Sense			KEY:Maze Sense ~ Deep Tracker				CATEGORY:Special Ability	TYPE:Spec
 Dark Sense			KEY:Dark Sense ~ Deep Tracker				CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Executioner
-Executioner's Strike	KEY:Executioner's Strike ~ Executioner		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ExecutionersStrikeDie|6	DEFINE:ExecutionersStrike|0	DESC:+%1d%2|ExecutionersStrike|ExecutionersStrikeDie
+Executioner's Strike	KEY:Executioner's Strike ~ Executioner		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ExecutionersStrikeDie|0	DEFINE:ExecutionersStrike|0	DESC:+%1d%2|ExecutionersStrike|ExecutionersStrikeDie
 Cold Blooded Killer	KEY:Cold Blooded Killer ~ Executioner		CATEGORY:Special Ability	TYPE:SpecialQuality
 Executioner's Song	KEY:Executioner's Song ~ Executioner		CATEGORY:Special Ability	TYPE:SpecialQuality
 

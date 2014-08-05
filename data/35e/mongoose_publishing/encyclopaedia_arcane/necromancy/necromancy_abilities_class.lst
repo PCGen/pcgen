@@ -6,7 +6,7 @@ SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:N
 
 # Spectral Loremaster
 # Ability Name		Unique Key								Category of Ability		Type				Define						Description
-Speak with Dead		KEY:Speak with Dead ~ Spectral Loremaster			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SpeakDead|1				DESC: %1/Day|SpeakDead
+Speak with Dead		KEY:Speak with Dead ~ Spectral Loremaster			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SpeakDead|0	BONUS:VAR|SpeakDead|1				DESC: %1/Day|SpeakDead
 Spectral Investigation	KEY:Spectral Investigation ~ Spectral Loremaster	CATEGORY:Special Ability	TYPE:SpecialQuality
 Divination			KEY:Divination ~ Spectral Loremaster			CATEGORY:Special Ability	TYPE:SpecialQuality
 Lost Arcane Lore		KEY:Lost Arcane Lore ~ Spectral Loremaster		CATEGORY:Special Ability	TYPE:SpecialQuality

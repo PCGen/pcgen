@@ -3,7 +3,7 @@ SOURCELONG:Secrets of the Planes - Planar Magic	SOURCESHORT:PlanarMagic	SOURCEWE
 # Original Entry by: Tir Gwaith
 
 # Ability Name	Category of Ability		Type							Define																																									Description																									Source Page
-Planar Turning	CATEGORY:Special Ability	TYPE:SpecialAttack.Turning.TurnPlanar	DEFINE:TurnTimesPlanar|TurnTimesBase	DEFINE:TurnLevelPlanar|TurnLevelBase	DEFINE:TurnDicePlanar|TurnDiceBase	DEFINE:TurnDieSizePlanar|TurnDieSizeBase	DEFINE:TurnDamagePlusPlanar|TurnDamagePlusBase	DEFINE:TurnCheckPlanar|TurnCheckBase	DESC:Turn Planar (Su) %1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesPlanar|TurnLevelPlanar|TurnDicePlanar|TurnDieSizePlanar|TurnDamagePlusPlanar	SOURCEPAGE:p.7
+Planar Turning	CATEGORY:Special Ability	TYPE:SpecialAttack.Turning.TurnPlanar	DEFINE:TurnTimesPlanar|0	BONUS:VAR|TurnTimesPlanar|TurnTimesBase	DEFINE:TurnLevelPlanar|0	BONUS:VAR|TurnLevelPlanar|TurnLevelBase	DEFINE:TurnDicePlanar|0	BONUS:VAR|TurnDicePlanar|TurnDiceBase	DEFINE:TurnDieSizePlanar|0	BONUS:VAR|TurnDieSizePlanar|TurnDieSizeBase	DEFINE:TurnDamagePlusPlanar|0	BONUS:VAR|TurnDamagePlusPlanar|TurnDamagePlusBase	DEFINE:TurnCheckPlanar|0	BONUS:VAR|TurnCheckPlanar|TurnCheckBase	DESC:Turn Planar (Su) %1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesPlanar|TurnLevelPlanar|TurnDicePlanar|TurnDieSizePlanar|TurnDamagePlusPlanar	SOURCEPAGE:p.7
 
 ###Block: Aspects
 # Ability Name						Unique Key					Category of Ability		Type						Aspects

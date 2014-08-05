@@ -133,7 +133,7 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 #	Air, Fire, etc.
 ###Block: Turn Undead stuff
 1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								ABILITY:Special Ability|AUTOMATIC|Basic Turning
-1										BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
+1										BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|0	BONUS:VAR|AllowExtraTurning|1
 1										BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 1										BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Spell Alignment Restrictions
@@ -244,7 +244,7 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ride|Sw
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
 1	BONUS:ABILITYPOOL|Fighter Feat|CL/2+1
-4								DEFINE:WeapSpecQualify|1
+4								BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0
 
 # To have a PrC's levels stack with Monk for different abilities
 #	add to the following variables:
@@ -309,14 +309,14 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Turn Undead stuff
-3	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	ABILITY:Special Ability|AUTOMATIC|Basic Turning|Turn Undead
-3	BONUS:VAR|TurnLevelBase|CL-2|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
+3	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|0	BONUS:VAR|AllowImprovedTurning|1	ABILITY:Special Ability|AUTOMATIC|Basic Turning|Turn Undead
+3	BONUS:VAR|TurnLevelBase|CL-2|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|0	BONUS:VAR|AllowExtraTurning|1
 3	BONUS:VAR|TurnDamagePlusBase|CL-2|TYPE=Level.REPLACE
 3	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block:Special Mount  Remove these via .MOD if Mount is not desired
 5	BONUS:VAR|SMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Special Mount
 ###Block: Level progression
-1				BONUS:VAR|LayOnHands|max(CHA,0)*CL	DEFINE:AllowHolyAvenger|1	ABILITY:Special Ability|AUTOMATIC|Detect Evil|Divine Grace|Divine Health|Lay on Hands
+1				BONUS:VAR|LayOnHands|max(CHA,0)*CL	DEFINE:AllowHolyAvenger|0	BONUS:VAR|AllowHolyAvenger|1	ABILITY:Special Ability|AUTOMATIC|Detect Evil|Divine Grace|Divine Health|Lay on Hands
 2				BONUS:VAR|SmiteEvil|1								ABILITY:Special Ability|AUTOMATIC|Aura of Courage|Smite Evil
 3				BONUS:VAR|RemoveDisease|CL/3							ABILITY:Special Ability|AUTOMATIC|Remove Disease
 4	CAST:0,0

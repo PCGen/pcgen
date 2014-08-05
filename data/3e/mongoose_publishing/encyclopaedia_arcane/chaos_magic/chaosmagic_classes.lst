@@ -14,7 +14,7 @@ CLASS:Chaos Mage	SPELLSTAT:CHA	SPELLTYPE:Chaos	BONUS:CASTERLEVEL|Chaos Mage|clas
 ###Block: Normal Level Progression
 1	BONUS:VAR|ChaosCasting|CL	BONUS:VAR|ChaosCasting|CHA	DEFINE:ChaosCasting|0		ABILITY:Special Ability|AUTOMATIC|Chaos Magic Casting ~ Chaos Mage
 4																ABILITY:Special Ability|AUTOMATIC|Chaos Familiar ~ Chaos Mage
-5											DEFINE:MultipleEffects|CL/5	ABILITY:Special Ability|AUTOMATIC|Multiple Effects ~ Chaos Mage
+5											DEFINE:MultipleEffects|0	BONUS:VAR|MultipleEffects|CL/5	ABILITY:Special Ability|AUTOMATIC|Multiple Effects ~ Chaos Mage
 8																ABILITY:Special Ability|AUTOMATIC|Countermagic ~ Chaos Mage
 12																ABILITY:Special Ability|AUTOMATIC|Purge Chaos ~ Chaos Mage
 

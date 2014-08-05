@@ -97,7 +97,7 @@ CLASS:Herbalist	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|Gath
 CLASS:Lautar	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.31	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE=Craft|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Local History)|Knowledge (Religion)|Knowledge (Undead)|Perform|Spellcraft|Use Magic Device
-2	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowExtraTurning|1	ABILITY:Special Ability|AUTOMATIC|Basic Turning
+2	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowExtraTurning|0	BONUS:VAR|AllowExtraTurning|1	ABILITY:Special Ability|AUTOMATIC|Basic Turning
 2										BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE
 2										BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 2										BONUS:VAR|TurnCheckBase|CHA|TYPE=Base

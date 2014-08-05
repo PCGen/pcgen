@@ -3,7 +3,7 @@ SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOU
 #Originally done by Paul W. King
 
 # Class Name			Hit Dice	Type					Max Level	Source Page		Define				Save checks bonus											Combat bonus
-CLASS:Arcane Archer ~ Core	HD:8		TYPE:Base.PC.ArcaneArcher	MAXLEVEL:20	SOURCEPAGE:p.4	DEFINE:ArchaneArcherLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Arcane Archer ~ Core	HD:8		TYPE:Base.PC.ArcaneArcher	MAXLEVEL:20	SOURCEPAGE:p.4	DEFINE:ArchaneArcherLVL|0	BONUS:VAR|ArchaneArcherLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
 # Class Name			Multiple Requirements																Required Race
 CLASS:Arcane Archer ~ Core	PREMULT:1,[PREPCLEVEL:MAX=1],[PREMULT:1,[!PRECLASS:1,TYPE.ArcaneArcher=1],[PRECLASS:1,Arcane Archer ~ Core=1]]	PRERACE:1,Elf%,Half-Elf
 # Class Name			Skill Pts/Lvl	Class Skill

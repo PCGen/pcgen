@@ -61,7 +61,7 @@ CLASS:Groupie	HD:4		TYPE:PC.Prestige	ABB:Grp		MAXLEVEL:5	SOURCEPAGE:81	BONUS:SAV
 CLASS:Groupie	PRESKILL:1,Bluff=4	PRESTAT:1,CHA=15	PRETEXT:To qualify for this prestige class, a candidte must pass the groupie trifecta: they must get back stage, meet an XCrawler, and convince him to carry a token of theirs on their person when they fight.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Groupie	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Gather Information|Innuendo|Intimidate|Knowledge (Celebrities)|Sense Motive|Spot
-1	SAB:Muse +%|Muse	SAB:All Access +%|AllAccess	BONUS:VAR|Muse|(CL+1)/2	DEFINE:Muse|0	DEFINE:AllAccess|4
+1	SAB:Muse +%|Muse	SAB:All Access +%|AllAccess	BONUS:VAR|Muse|(CL+1)/2	DEFINE:Muse|0	DEFINE:AllAccess|0	BONUS:VAR|AllAccess|4
 2	SAB:Gimme Shelter
 3	SAB:I'm With The Team					BONUS:VAR|AllAccess|2
 4	SAB:Booster +%|Booster					BONUS:VAR|Booster|CL-3	DEFINE:Booster|0

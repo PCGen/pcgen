@@ -16,7 +16,7 @@ Shadow Enemy II	CATEGORY:Special Ability	TYPE:ShadowEnemy	VISIBLE:DISPLAY	PREABI
 
 ###Block:Occultist ----------------------------------------------------------------------------------------------------------------------
 # Ability Name			Category of Ability		Type					Visible	Special ABility																			Define					Modify VAR
-Spell Resistance ~ Occultist	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Spell Resistance (%)|OccultistRes															DEFINE:OccultistRes|5			BONUS:VAR|OccultistRes|CL
+Spell Resistance ~ Occultist	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Spell Resistance (%)|OccultistRes															DEFINE:OccultistRes|0	BONUS:VAR|OccultistRes|CL+5
 Arcane Research			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Arcane Research(Scrolls)	SAB:Arcane Research(Items)|PREVARGTEQ:ArcaneResearch,2							DEFINE:ArcaneResearch|0
 Shadow Contact			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Shadow Contact
 Bind Shadow Creature		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Bind Shadow Creature|PREVAREQ:BindShadowCreatureLvl,1	SAB:Bind Shadow Creature x2|PREVARGTEQ:BindShadowCreatureLvl,2	DEFINE:BindShadowCreatureLvl|0

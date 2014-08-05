@@ -10,7 +10,7 @@ CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE=Craft
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Animal Lord Skill....
 1	BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill1,1	DEFINE:AnimalLordSkill1|0	ADD:FEAT|TYPE=HomeEnvironment
-1										DEFINE:ALSkillBonus|CL
+1										DEFINE:ALSkillBonus|0	BONUS:VAR|ALSkillBonus|CL
 1										DEFINE:AnimalLordSkill5|0
 1										DEFINE:AnimalLordSkill9|0
 1										DEFINE:AnimalLordSkill13|0
@@ -48,7 +48,7 @@ CLASS:Artificer	STARTSKILLPTS:8	CSKILL:Alchemy|Concentration|TYPE=Craft|Diplomac
 ###Block: Normal Level Progression
 1	SAB:Sabotage (Ex)	SAB:Steamcraft Creations (Ex)													AUTO:FEAT|Feral Child
 2															ADD:FEAT|Artificer Skill Focus
-5	SAB:Master Craftsman +%|MasterCraftsman		DEFINE:MasterCraftsman|(CL-2)/3	ADD:FEAT|Artificer Steamcraft Focus
+5	SAB:Master Craftsman +%|MasterCraftsman		DEFINE:MasterCraftsman|0	BONUS:VAR|MasterCraftsman|(CL-2)/3	ADD:FEAT|Artificer Steamcraft Focus
 8															ADD:FEAT|Artificer Skill Focus
 12															ADD:FEAT|Artificer Steamcraft Focus
 14															ADD:FEAT|Artificer Skill Focus
@@ -65,7 +65,7 @@ CLASS:Musketeer	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Cr
 ###Block: Normal Level Progression
 1																					AUTO:FEAT|Combat Reload|Rapid Reload (Firearms)
 2																					AUTO:FEAT|Reload on the Run
-3	SAB:Avoid Fire +% (Ex)|AvoidFire							DEFINE:AvoidFire|1
+3	SAB:Avoid Fire +% (Ex)|AvoidFire							DEFINE:AvoidFire|0	BONUS:VAR|AvoidFire|1
 4	SAB: Move and I'll Shoot (Ex)
 5																	ADD:FEAT|TYPE=Musketeer
 6									BONUS:VAR|AvoidFire|1
@@ -73,7 +73,7 @@ CLASS:Musketeer	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Cr
 8																	ADD:FEAT|TYPE=Musketeer
 10	SAB:Crack Shot (Ex)					BONUS:VAR|AvoidFire|1
 11																	ADD:FEAT|TYPE=Musketeer
-13	SAB:Deadly Aim (%d6 Bonus Damage)(Ex)|DeadlyAim					DEFINE:DeadlyAim|1
+13	SAB:Deadly Aim (%d6 Bonus Damage)(Ex)|DeadlyAim					DEFINE:DeadlyAim|0	BONUS:VAR|DeadlyAim|1
 14																	ADD:FEAT|TYPE=Musketeer
 15									BONUS:VAR|AvoidFire|1
 16									BONUS:VAR|DeadlyAim|1

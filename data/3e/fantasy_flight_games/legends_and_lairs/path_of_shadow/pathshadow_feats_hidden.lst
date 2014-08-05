@@ -49,11 +49,11 @@ Vitality of Chance				TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:
 ###Block:
 #Evasion							VISIBLE:NO	SAB:Evasion (Ex)|PHBFeatEvasion	DEFINE:PHBFeatEvasion|COUNT[FEATNAME=Improved Evasion]-1	SOURCEPAGE:Chap.3, Rogue, Special Abilities
 # Feat Name			Type						Visible	Special ABility														Define																		Source Page
-Aerialist Evasion		TYPE:AerialistSpecialAbilities	VISIBLE:NO	SAB:Evasion (Ex)|AerialistFeatEvasion	SAB:Improved Evasion (Ex)|AerialistImprFeatEvasion	DEFINE:AerialistFeatEvasion|COUNT[FEATNAME=Evasion]-1	DEFINE:AerialistImprFeatEvasion|COUNT[FEATNAME=Evasion]	SOURCEPAGE:Chap.3, Rogue, Special Abilities
+Aerialist Evasion		TYPE:AerialistSpecialAbilities	VISIBLE:NO	SAB:Evasion (Ex)|AerialistFeatEvasion	SAB:Improved Evasion (Ex)|AerialistImprFeatEvasion	DEFINE:AerialistFeatEvasion|0	DEFINE:AerialistImprFeatEvasion|0		BONUS:VAR|AerialistFeatEvasion|COUNT[FEATNAME=Evasion]-1	BONUS:VAR|AerialistImprFeatEvasion|COUNT[FEATNAME=Evasion]	SOURCEPAGE:Chap.3, Rogue, Special Abilities
 
-Trace Enchantment I							VISIBLE:NO	SAB:Trace Enchantment (Su)|ShadowFeatTraceEnch1									DEFINE:ShadowFeatTraceEnch1|COUNT[FEATNAME=Trace Enchantment II]-1								SOURCEPAGE:p.14
-Trace Enchantment II							VISIBLE:NO	SAB:Trace Enchantment (more distant items) (Su)|ShadowFeatTraceEnch2					DEFINE:ShadowFeatTraceEnch2|COUNT[FEATNAME=Trace Enchantment III]-1								SOURCEPAGE:p.14
-Trace Enchantment III							VISIBLE:NO	SAB:Trace Enchantment (unlimited range) (Su)|ShadowFeatTraceEnch3						DEFINE:ShadowFeatTraceEnch3|COUNT[FEATNAME=Trace Enchantment IV]-1								SOURCEPAGE:p.14
+Trace Enchantment I							VISIBLE:NO	SAB:Trace Enchantment (Su)|ShadowFeatTraceEnch1									DEFINE:ShadowFeatTraceEnch1|0	BONUS:VAR|ShadowFeatTraceEnch1|COUNT[FEATNAME=Trace Enchantment II]-1							SOURCEPAGE:p.14
+Trace Enchantment II							VISIBLE:NO	SAB:Trace Enchantment (more distant items) (Su)|ShadowFeatTraceEnch2					DEFINE:ShadowFeatTraceEnch2|0	BONUS:VAR|ShadowFeatTraceEnch2|COUNT[FEATNAME=Trace Enchantment III]-1							SOURCEPAGE:p.14
+Trace Enchantment III							VISIBLE:NO	SAB:Trace Enchantment (unlimited range) (Su)|ShadowFeatTraceEnch3						DEFINE:ShadowFeatTraceEnch3|0	BONUS:VAR|ShadowFeatTraceEnch3|COUNT[FEATNAME=Trace Enchantment IV]-1							SOURCEPAGE:p.14
 Trace Enchantment IV							VISIBLE:NO	SAB:Trace Enchantment (cross planar) (Su)																													SOURCEPAGE:p.14
 
 

@@ -394,7 +394,7 @@ Punish the Wicked		CATEGORY:Special Ability	TYPE:MinotaurRacialTalent.SpecialQua
 
 ###Block: Minotaur Racial Transformations
 # Ability Name	Category of Ability		Type									Visible	Define									Description								Source Page
-Eye of the Maze	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.SpecialQuality	VISIBLE:YES	DEFINE:EyeMazeDuration|WIS	DEFINE:EyeMazeDC|10+TL/2+CHA	DESC:%1 rounds/day, DC%2|EyeMazeDuration|EyeMazeDC	SOURCEPAGE:p.62
+Eye of the Maze	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.SpecialQuality	VISIBLE:YES	DEFINE:EyeMazeDuration|WIS	DEFINE:EyeMazeDC|0	BONUS:VAR|EyeMazeDC|10+TL/2+CHA	DESC:%1 rounds/day, DC%2|EyeMazeDuration|EyeMazeDC	SOURCEPAGE:p.62
 Guardian Will	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.SpecialQuality	VISIBLE:YES																				SOURCEPAGE:p.62
 Mighty Spring	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.SpecialQuality	VISIBLE:YES																				SOURCEPAGE:p.62
 Word of Honor	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.SpecialQuality	VISIBLE:YES																				SOURCEPAGE:p.62

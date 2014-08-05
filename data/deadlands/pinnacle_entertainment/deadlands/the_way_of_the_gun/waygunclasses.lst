@@ -79,9 +79,9 @@ CLASS:Gunsmith	HD:6		TYPE:PC.Prestige	ABB:Gsm		MAXLEVEL:10	SOURCEPAGE:p.23	AUTO:
 CLASS:Gunsmith	PREATT:6	PRESKILL:2,Gunplay=4,Tinkerin'=9
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunsmith	STARTSKILLPTS:4	CSKILL:Alchemy|TYPE=Craft|Demolitions|Disable Device|TYPE=Drivin'|Gunplay|Holdout|TYPE=Knowledge|Mad Science|Open Lock|TYPE=Profession|Ride|TYPE=Language|Speed Load|Tinkerin'
-1	SAB:Weaponsmithin' +%|WeapSmithin	SAB:Mad Science					DEFINE:FieldMs|0	DEFINE:WeapSmithin|1	AUTO:FEAT|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency
-2	SAB:Field Modifications %/day|FieldMods							DEFINE:FieldMods|1
-3	SAB:Arsenal x%|Arsenal										DEFINE:Arsenal|1
+1	SAB:Weaponsmithin' +%|WeapSmithin	SAB:Mad Science					DEFINE:FieldMs|0	DEFINE:WeapSmithin|0	BONUS:VAR|WeapSmithin|1	AUTO:FEAT|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency
+2	SAB:Field Modifications %/day|FieldMods							DEFINE:FieldMods|0	BONUS:VAR|FieldMods|1
+3	SAB:Arsenal x%|Arsenal										DEFINE:Arsenal|0		BONUS:VAR|Arsenal|1
 4										BONUS:VAR|WeapSmithin|1
 5										BONUS:VAR|FieldMs|1
 6										BONUS:VAR|Arsenal|1
@@ -101,7 +101,7 @@ CLASS:Law Dog	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gamblin'|G
 ###Block: Normal Progression
 1	SAB:Law o'the West						ADD:FEAT|Ambidexterity,Automatic Weapon Proficiency,Dead Eye,Dodge,Exotic Weapon Proficiency,Fannin',Far Shot,Grim Servant o' Death,Improved Critical,Improved Initiative,Improved Two-Weapon Fighting,Law Man (County),Law Man (National),Level-Headed,Marksman,Mercy Shot,Point Blank Shot,Precise Shot,Quick Draw,Renown,Slip Shot,Special Draw,Steady Shot,The Stare,Two-Weapon Fighting,Weapon Focus	AUTO:FEAT|Law Man (Town/City)
 2	SAB:Outlaw Eye
-3	SAB:Call Posse %|CallPosse	DEFINE:CallPosse|classlevel("APPLIEDAS=NONEPIC")/3
+3	SAB:Call Posse %|CallPosse	DEFINE:CallPosse|0	BONUS:VAR|CallPosse|CL/3
 4										ADD:FEAT|Ambidexterity,Automatic Weapon Proficiency,Dead Eye,Dodge,Exotic Weapon Proficiency,Fannin',Far Shot,Grim Servant o' Death,Improved Critical,Improved Initiative,Improved Two-Weapon Fighting,Law Man (National),Level-Headed,Marksman,Mercy Shot,Point Blank Shot,Precise Shot,Quick Draw,Renown,Slip Shot,Special Draw,Steady Shot,The Stare,Two-Weapon Fighting,Weapon Focus
 7										ADD:FEAT|Ambidexterity,Automatic Weapon Proficiency,Dead Eye,Dodge,Exotic Weapon Proficiency,Fannin',Far Shot,Grim Servant o' Death,Improved Critical,Improved Initiative,Improved Two-Weapon Fighting,Law Man (National),Level-Headed,Marksman,Mercy Shot,Point Blank Shot,Precise Shot,Quick Draw,Renown,Slip Shot,Special Draw,Steady Shot,The Stare,Two-Weapon Fighting,Weapon Focus
 10										ADD:FEAT|Ambidexterity,Automatic Weapon Proficiency,Dead Eye,Dodge,Exotic Weapon Proficiency,Fannin',Far Shot,Grim Servant o' Death,Improved Critical,Improved Initiative,Improved Two-Weapon Fighting,Law Man (National),Level-Headed,Marksman,Mercy Shot,Point Blank Shot,Precise Shot,Quick Draw,Renown,Slip Shot,Special Draw,Steady Shot,The Stare,Two-Weapon Fighting,Weapon Focus
@@ -114,7 +114,7 @@ CLASS:Rifleman	PREATT:8	PREFEAT:1,Firearms Proficiency (Pistol),Firearms Profici
 CLASS:Rifleman	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Gunplay|Hide|Intimidate|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Ride|Ridicule|Spot|Wilderness Lore|Use Rope
 1																			ADD:FEAT|Dead Eye,Grim Servant o' Death,Improved Initiative,Level-Headed,Marksman,Weapon Focus	AUTO:FEAT|Simple Weapon Proficiency
 2	SAB:Increased Range
-3	SAB:Sneak Attack (% feet)|RifleSneak	BONUS:VAR|RifleSneak|floor(classlevel("APPLIEDAS=NONEPIC")/3)*100	DEFINE:RifleSneak|100
+3	SAB:Sneak Attack (% feet)|RifleSneak	BONUS:VAR|RifleSneak|100+(floor(CL/3)*100)	DEFINE:RifleSneak|0
 5	SAB:Coup de Grace
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatically Gained Weapon Prof.						Save checks bonus																	Combat bonus

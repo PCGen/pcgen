@@ -2,7 +2,7 @@
 SOURCELONG:Nuisances - Director's Cut	SOURCESHORT:Nuisances	SOURCEWEB:http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download	SOURCEDATE:2007-08
 
 # Ability Name		Category of Ability	Define									Bonus Number of Feats					Modify VAR
-Defect Bonus Feats	CATEGORY:Internal		DEFINE:DefectCount|0	DEFINE:TotalFeats|floor((TL+3)/3)	BONUS:FEAT|POOL|min(DefectCount,TotalFeats)	BONUS:VAR|TotalFeats|1|PRERACE:1,Human
+Defect Bonus Feats	CATEGORY:Internal		DEFINE:DefectCount|0	DEFINE:TotalFeats|0	BONUS:VAR|TotalFeats|floor((TL+3)/3)	BONUS:FEAT|POOL|min(DefectCount,TotalFeats)	BONUS:VAR|TotalFeats|1|PRERACE:1,Human
 
 ###Block: Defects
 # Ability Name			Output Name								Category of Ability		Type									Visible		Required Ability								Required Class			Required Feat		Multiple Requirements										Required Text										Special ABility			Description																																																Stackable?	Multiple?	Choose					Ability							Save checks bonus			Combat bonus			Misc bonus				Add to base move										Bonus to skill																		Modify VAR			Cost		Source Page

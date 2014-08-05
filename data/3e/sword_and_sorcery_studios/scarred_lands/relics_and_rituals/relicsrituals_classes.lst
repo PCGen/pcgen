@@ -32,7 +32,7 @@ CLASS:Crypt Lord	PREALIGN:LE,NE,CE	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:1
 CLASS:Crypt Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowledge (Arcana)|Knowledge (Undead)|TYPE=Profession|Scry|Spellcraft
 ###Block: Turn Undead stuff
 1	BONUS:VAR|TurnTimesBase|1+CHA|TYPE=NoStack						ABILITY:Special Ability|AUTOMATIC|Basic Turning|Rebuke Undead
-1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnLevelBase|CL				DEFINE:AllowExtraTurning|0	BONUS:VAR|AllowExtraTurning|1
 1	BONUS:VAR|TurnDamagePlusBase|CL
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=NoStack
 ###Block: Level progression

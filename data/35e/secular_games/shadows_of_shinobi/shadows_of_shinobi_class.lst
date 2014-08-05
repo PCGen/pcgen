@@ -65,7 +65,7 @@ CLASS:Lotus Warrior	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escape
 2															BONUS:VAR|DevilSkin|(CL+1)/3																	ABILITY:Special Ability|AUTOMATIC|Devil Skin
 3																																				ABILITY:Special Ability|AUTOMATIC|Tiger Roar
 4																																				ABILITY:Special Ability|AUTOMATIC|Beast Fang
-6																				DEFINE:WeapSpecQualify|1	DEFINE:GreatWeapFocusQualify|1	DEFINE:GreatWeapSpecQualify|1
+6																				DEFINE:WeapSpecQualify|0	DEFINE:GreatWeapFocusQualify|0	DEFINE:GreatWeapSpecQualify|0	BONUS:VAR|WeapSpecQualify,GreatWeapFocusQualify,GreatWeapSpecQualify|1|TYPE=Base
 6:REPEATLEVEL:3	BONUS:ABILITYPOOL|Lotus Warrior Feat|1
 7																																				ABILITY:Special Ability|AUTOMATIC|Fiery Tiger Roar
 10																																				ABILITY:Special Ability|AUTOMATIC|Shadow and Smoke

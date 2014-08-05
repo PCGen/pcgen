@@ -73,7 +73,7 @@ CLASS:Trapper	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handle Animal|Hid
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Net|Arrow (tranquilizer)
 ###Block: Normal Level Progression
 1	SAB:Subdual Specialist	SAB:Favored Prey
-2	SAB:Scent	SAB:Exotic Weapon %|EW					DEFINE:EW|1	ADD:FEAT|Exotic Weapon Proficiency
+2	SAB:Scent	SAB:Exotic Weapon %|EW					DEFINE:EW|0	BONUS:VAR|EW|1	ADD:FEAT|Exotic Weapon Proficiency
 3	SAB:Scentless
 4								BONUS:VAR|EW|1			ADD:FEAT|Exotic Weapon Proficiency
 5	SAB:Favored Prey

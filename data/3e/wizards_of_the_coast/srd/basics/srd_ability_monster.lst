@@ -51,7 +51,7 @@ Cast Web																																														CATEGORY:Special Ability	T
 Charge																																														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
 Charm																																															CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Charm Person																																													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
-Charm Reptiles																																													CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					VISIBLE:YES	DEFINE:CharmReptilesTimes|3										DESC:%1/day|CharmReptilesTimes
+Charm Reptiles																																													CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					VISIBLE:YES	DEFINE:CharmReptilesTimes|0		BONUS:VAR|CharmReptilesTimes|3									DESC:%1/day|CharmReptilesTimes
 Charming Gaze																																													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Chill Aura																																														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura			VISIBLE:YES
 Cloudwalking																																													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
@@ -64,21 +64,21 @@ Constrict																																														CATEGORY:Special Ability	
 Corporeal Instability																																												CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Corrosion																																														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
 Corrosive Slim																																													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
-Corrupt Water																																													CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:YES	DEFINE:CorruptWaterDC|10+(HD/2)+CHA									DESC:DC %1|CorruptWaterDC
+Corrupt Water																																													CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:YES	DEFINE:CorruptWaterDC|0				BONUS:VAR|CorruptWaterDC|10+(HD/2)+CHA					DESC:DC %1|CorruptWaterDC
 Create Spawn																																													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
-Create/Destroy Water																																												CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:YES	DEFINE:CreateDestroyWaterTimes|3									DESC:%1/day|CreateDestroyWaterTimes
+Create/Destroy Water																																												CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:YES	DEFINE:CreateDestroyWaterTimes|0		BONUS:VAR|CreateDestroyWaterTimes|3									DESC:%1/day|CreateDestroyWaterTimes
 Crush Item																																														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Curse of Lycanthropy																																												CATEGORY:Special Ability	TYPE:SpecialQuality						VISIBLE:YES
 Dance of Ruin																																													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Dancing Chains																																													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
-Darkness																																														CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Aura				VISIBLE:YES	DEFINE:DarknessRange|DragonAge*10	DEFINE:DarknessTimes|3					DESC:%1' %2/day|DarknessRange|DarknessTimes
+Darkness																																														CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Aura				VISIBLE:YES	DEFINE:DarknessRange|0	DEFINE:DarknessTimes|0		BONUS:VAR|DarknessRange|DragonAge*10	BONUS:VAR|DarknessTimes|3				DESC:%1' %2/day|DarknessRange|DarknessTimes
 Darkness ~Su																																							OUTPUTNAME:Darkness			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura			VISIBLE:YES
 Daylight Powerlessness																																												CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness		VISIBLE:YES
 Death Gaze																																														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Death Throes																																													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
 Despair																																														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Destructive Harmonics																																												CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
-Detect Gems																																														CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense				VISIBLE:YES	DEFINE:DetectGemsTimes|3										DESC:%1/day|DetectGemsTimes
+Detect Gems																																														CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense				VISIBLE:YES	DEFINE:DetectGemsTimes|0	BONUS:VAR|DetectGemsTimes|3									DESC:%1/day|DetectGemsTimes
 Detect Magic																																													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense			VISIBLE:YES
 Detect Thoughts																																													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense			VISIBLE:YES
 Dimension Door																																													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
@@ -95,7 +95,7 @@ Eat Thoughts																																													CATEGORY:Special Abilit
 Electricity Ray																																													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Electricity Sense																																													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense			VISIBLE:YES
 Elemental Endurance																																												CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
-Endure Elements																																													CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:YES	DEFINE:EndureElementsRange|DragonAge*10	DEFINE:EndureElementsTimes|3			DESC:%1' radius %2/day|EndureElementsRange|EndureElementsTimes
+Endure Elements																																													CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:YES	DEFINE:EndureElementsRange|0	DEFINE:EndureElementsTimes|0		BONUS:VAR|EndureElementsRange|DragonAge*10	BONUS:VAR|EndureElementsTimes|3		DESC:%1' radius %2/day|EndureElementsRange|EndureElementsTimes
 Energy Drain																																													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Engulf																																														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
 Enslave																																														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
@@ -115,17 +115,17 @@ Fiddle																																														CATEGORY:Special Ability	TYP
 Fiery Aura																																														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura			VISIBLE:YES
 Find Master																																														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
 Find Target																																														CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:YES
-Fire Damage																																														CATEGORY:Special Ability	TYPE:SpecialAttack						VISIBLE:YES	DEFINE:FireDamageDice|1	DEFINE:FireDamageDieSize|4						DESC:+%1d%2|FireDamageDice|FireDamageDieSize
+Fire Damage																																														CATEGORY:Special Ability	TYPE:SpecialAttack						VISIBLE:YES	DEFINE:FireDamageDice|0	DEFINE:FireDamageDieSize|0			BONUS:VAR|FireDamageDice|1	BONUS:VAR|FireDamageDieSize|4			DESC:+%1d%2|FireDamageDice|FireDamageDieSize
 Fire Jets																																														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES															DESC:once every 1d4 rounds per head - 3d6 fire per jet
 Flaming Hooves																																													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Flashbacks																																														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
 Flight																																														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
-Fog Cloud																																														CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					VISIBLE:YES	DEFINE:FogCloudTimes|3											DESC:%1/day|FogCloudTimes
+Fog Cloud																																														CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					VISIBLE:YES	DEFINE:FogCloudTimes|0			BONUS:VAR|FogCloudTimes|3										DESC:%1/day|FogCloudTimes
 Freedom of Movement																																												CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
 Freeze																																														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
-Freezing Fog																																													CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					VISIBLE:YES	DEFINE:FreezingFogTimes|3										DESC:%1/day|FreezingFogTimes
+Freezing Fog																																													CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					VISIBLE:YES	DEFINE:FreezingFogTimes|0		BONUS:VAR|FreezingFogTimes|3								DESC:%1/day|FreezingFogTimes
 Freshwater Sensitivity																																												CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness		VISIBLE:YES
-Frightful Presence																																												CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES	DEFINE:FrightfulPresRange|DragonAge*30	DEFINE:FrightfulPresDC|10+(HD/2)+CHA	DESC:%1 ft DC %2|FrightfulPresRange|FrightfulPresDC
+Frightful Presence																																												CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES	DEFINE:FrightfulPresRange|0	DEFINE:FrightfulPresDC|0	BONUS:VAR|FrightfulPresRange|DragonAge*30	BONUS:VAR|FrightfulPresDC|10+(HD/2)+CHA	DESC:%1 ft DC %2|FrightfulPresRange|FrightfulPresDC
 Frightful Presence ~Su																																						OUTPUTNAME:Frightful Presence		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
 Frost Jets																																														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES															DESC:once every 1d4 rounds per head - 3d6 cold per jet
 Gaseous Form																																													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
@@ -199,7 +199,7 @@ Planewalk																																														CATEGORY:Special Ability	
 Poison																																														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
 Poisoned Arrows																																													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:YES
 Polymorph																																														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
-Polymorph Self																																													CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:YES	DEFINE:PolymorphSelfTimes|3										DESC:%1/day|PolymorphSelfTimes
+Polymorph Self																																													CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:YES	DEFINE:PolymorphSelfTimes|0			BONUS:VAR|PolymorphSelfTimes|3									DESC:%1/day|PolymorphSelfTimes
 Positive Energy																																													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
 Positive Energy Lash																																												CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Pounce																																														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:YES
@@ -305,18 +305,18 @@ Web																																															CATEGORY:Special Ability	TYPE:
 
 ###Block: Breath Weapons
 # Ability Name					Output Name				Category of Ability		Type						Visible	Define																					Description																						Modify VAR
-Breath Weapon ~ Cone of Acid			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|30	DEFINE:BreathWeaponRange|50	DEFINE:BreathWeaponDice|14	DEFINE:BreathWeaponDamageDie|10		DESC:%1 ft Cone of Acid %2d%3 Acid DC %4|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC
-Breath Weapon ~ Cone of Cold			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|DragonAge	DEFINE:BreathWeaponDamageDie|6		DESC:%1 ft Cone of Cold %2d%3 Cold DC %4|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC					BONUS:VAR|BreathWeaponRange|max((SIZE-1)*10,15)|PRERACE:1,Dragon%
-Breath Weapon ~ Cone of Corrosive Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	DESC:%1 ft Cone of Corrosive Gas %2d%3 Acid DC %4|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC			BONUS:VAR|BreathWeaponRange|(SIZE-1)*10|PRERACE:1,Dragon%
-Breath Weapon ~ Cone of Fire			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|10	DESC:%1 ft Cone of Fire %2d%3 Fire DC %4|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC					BONUS:VAR|BreathWeaponRange|(SIZE-1)*10|PRERACE:1,Dragon%
-Breath Weapon ~ Cone of Paralyzing Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDuration|DragonAge							DESC:%1 ft Cone of Paralyzing Gas (Fort save or Paralyzed 1d6 + %2 rounds) DC %3|BreathWeaponRange|BreathWeaponDuration|BreathWeaponDC	BONUS:VAR|BreathWeaponRange|(SIZE-1)*10|PRERACE:1,Dragon%
-Breath Weapon ~ Cone of Repulsion Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0														DESC:%1 ft Cone of Repulsion Gas DC %2|BreathWeaponRange|BreathWeaponDC												BONUS:VAR|BreathWeaponRange|(SIZE-1)*10|PRERACE:1,Dragon%
-Breath Weapon ~ Cone of Sleep			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0														DESC:%1 ft Cone of Sleep DC %2|BreathWeaponRange|BreathWeaponDC													BONUS:VAR|BreathWeaponRange|max((SIZE-1)*10,15)|PRERACE:1,Dragon%
-Breath Weapon ~ Cone of Slow			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0														DESC:%1 ft Cone of Slow DC %2|BreathWeaponRange|BreathWeaponDC													BONUS:VAR|BreathWeaponRange|max((SIZE-1)*10,15)|PRERACE:1,Dragon%
-Breath Weapon ~ Cone of Weakening Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDamage|DragonAge								DESC:%1 ft Cone of Weakening Gas (Fort save or -%2 temporary STR) DC %3|BreathWeaponRange|BreathWeaponDamage|BreathWeaponDC			BONUS:VAR|BreathWeaponRange|(SIZE-1)*10|PRERACE:1,Dragon%
-Breath Weapon ~ Line of Acid			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|2*DragonAge	DEFINE:BreathWeaponDamageDie|4		DESC:%1 ft Line of Acid %2d%3 Acid DC %4|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC					BONUS:VAR|BreathWeaponRange|max((SIZE-1)*10,15)|PRERACE:1,Dragon%
-Breath Weapon ~ Line of Fire			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|DragonAge	DEFINE:BreathWeaponDamageDie|6		DESC:%1 ft Line of Fire %2d%3 Fire DC %4|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC					BONUS:VAR|BreathWeaponRange|max((SIZE-1)*10,15)|PRERACE:1,Dragon%
-Breath Weapon ~ Line of Lightning		OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|2*DragonAge	DEFINE:BreathWeaponDamageDie|6		DESC:%1 ft Line of Lightning %2d%3 Electricity DC %4|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC			BONUS:VAR|BreathWeaponRange|(SIZE-1)*20|PRERACE:1,Dragon%
+Breath Weapon ~ Cone of Acid			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0			BONUS:VAR|BreathWeaponDC|30	BONUS:VAR|BreathWeaponRange|50	BONUS:VAR|BreathWeaponDice|14	BONUS:VAR|BreathWeaponDamageDie|10	DESC:%1 ft Cone of Acid %2d%3 Acid DC %4|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC
+Breath Weapon ~ Cone of Cold			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0		BONUS:VAR|BreathWeaponDice|DragonAge	BONUS:VAR|BreathWeaponDamageDie|6		DESC:%1 ft Cone of Cold %2d%3 Cold DC %4|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC					BONUS:VAR|BreathWeaponRange|max((SIZE-1)*10,15)|PRERACE:1,Dragon%
+Breath Weapon ~ Cone of Corrosive Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	BONUS:VAR|BreathWeaponDamageDie|6	DESC:%1 ft Cone of Corrosive Gas %2d%3 Acid DC %4|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC			BONUS:VAR|BreathWeaponRange|(SIZE-1)*10|PRERACE:1,Dragon%
+Breath Weapon ~ Cone of Fire			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|010	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	BONUS:VAR|BreathWeaponDamageDie|10	DESC:%1 ft Cone of Fire %2d%3 Fire DC %4|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC					BONUS:VAR|BreathWeaponRange|(SIZE-1)*10|PRERACE:1,Dragon%
+Breath Weapon ~ Cone of Paralyzing Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDuration|0							BONUS:VAR|BreathWeaponDuration|DragonAge							DESC:%1 ft Cone of Paralyzing Gas (Fort save or Paralyzed 1d6 + %2 rounds) DC %3|BreathWeaponRange|BreathWeaponDuration|BreathWeaponDC	BONUS:VAR|BreathWeaponRange|(SIZE-1)*10|PRERACE:1,Dragon%
+Breath Weapon ~ Cone of Repulsion Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0																											DESC:%1 ft Cone of Repulsion Gas DC %2|BreathWeaponRange|BreathWeaponDC												BONUS:VAR|BreathWeaponRange|(SIZE-1)*10|PRERACE:1,Dragon%
+Breath Weapon ~ Cone of Sleep			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0																											DESC:%1 ft Cone of Sleep DC %2|BreathWeaponRange|BreathWeaponDC													BONUS:VAR|BreathWeaponRange|max((SIZE-1)*10,15)|PRERACE:1,Dragon%
+Breath Weapon ~ Cone of Slow			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0																											DESC:%1 ft Cone of Slow DC %2|BreathWeaponRange|BreathWeaponDC													BONUS:VAR|BreathWeaponRange|max((SIZE-1)*10,15)|PRERACE:1,Dragon%
+Breath Weapon ~ Cone of Weakening Gas	OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDamage|0								BONUS:VAR|BreathWeaponDamage|DragonAge								DESC:%1 ft Cone of Weakening Gas (Fort save or -%2 temporary STR) DC %3|BreathWeaponRange|BreathWeaponDamage|BreathWeaponDC			BONUS:VAR|BreathWeaponRange|(SIZE-1)*10|PRERACE:1,Dragon%
+Breath Weapon ~ Line of Acid			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0		BONUS:VAR|BreathWeaponDice|2*DragonAge	BONUS:VAR|BreathWeaponDamageDie|4		DESC:%1 ft Line of Acid %2d%3 Acid DC %4|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC					BONUS:VAR|BreathWeaponRange|max((SIZE-1)*10,15)|PRERACE:1,Dragon%
+Breath Weapon ~ Line of Fire			OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0		BONUS:VAR|BreathWeaponDice|DragonAge	BONUS:VAR|BreathWeaponDamageDie|6		DESC:%1 ft Line of Fire %2d%3 Fire DC %4|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC					BONUS:VAR|BreathWeaponRange|max((SIZE-1)*10,15)|PRERACE:1,Dragon%
+Breath Weapon ~ Line of Lightning		OUTPUTNAME:Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DEFINE:BreathWeaponRange|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0		BONUS:VAR|BreathWeaponDice|2*DragonAge	BONUS:VAR|BreathWeaponDamageDie|6		DESC:%1 ft Line of Lightning %2d%3 Electricity DC %4|BreathWeaponRange|BreathWeaponDice|BreathWeaponDamageDie|BreathWeaponDC			BONUS:VAR|BreathWeaponRange|(SIZE-1)*20|PRERACE:1,Dragon%
 
 # For unspecified Breath Weapon
 Breath Weapon										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES
@@ -330,33 +330,33 @@ Blindsight Negated			OUTPUTNAME:-4 to Listen and Spot if Blindsight negated			CA
 Cannot End Rage				OUTPUTNAME:Cannot end its rage voluntarily					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Hide in Dark Areas			OUTPUTNAME:+8 to Hide in dark areas							CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Hide in Darkened Areas			OUTPUTNAME:+2 to hide in darkened areas underground				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Hide in Forest				OUTPUTNAME:Bonus to Hide in forested or overgrown areas			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:HideInForest|4			DESC:+%1|HideInForest		ASPECT:Ability Bonus|+%1|HideInForest
+Hide in Forest				OUTPUTNAME:Bonus to Hide in forested or overgrown areas			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:HideInForest|0		BONUS:VAR|HideInForest|4	DESC:+%1|HideInForest		ASPECT:Ability Bonus|+%1|HideInForest
 Hide in Lair				OUTPUTNAME:+8 to Hide in its lair							CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Hide in Mountains or Underground	OUTPUTNAME:+10 Hide in mountains or underground					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Hide in Natural Surroundings		OUTPUTNAME:Bonus to hide in natural surroundings				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:HideInNaturalSurroundings|4						ASPECT:Ability Bonus|+%1|HideInNaturalSurroundings
+Hide in Natural Surroundings		OUTPUTNAME:Bonus to hide in natural surroundings				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:HideInNaturalSurroundings|0		BONUS:VAR|HideInNaturalSurroundings|4				ASPECT:Ability Bonus|+%1|HideInNaturalSurroundings
 Hide in Rocky Terrain			OUTPUTNAME:+8 to Hide in Rocky Terrain						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Hide in Snow				OUTPUTNAME:+12 to hide in snowy areas						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Hide in Snow and Ice			OUTPUTNAME:+7 Hide in snow and ice							CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Hide in Stone Background		OUTPUTNAME:+8 to Hide in Stone background						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Hide in Stone or Icy			OUTPUTNAME:+8 to Hide in Stony or Icy areas					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Hide in Tall Grass			OUTPUTNAME:+4 to Hide in tall grass							CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Hide in Undergrowth			OUTPUTNAME:Bonus to hide in tall grass or heavy undergrowth			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:HideInUndergrowth|4		DESC:+%1|HideInUndergrowth	ASPECT:Ability Bonus|+%1|HideInUndergrowth
+Hide in Undergrowth			OUTPUTNAME:Bonus to hide in tall grass or heavy undergrowth			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:HideInUndergrowth|0		BONUS:VAR|HideInUndergrowth|4	DESC:+%1|HideInUndergrowth	ASPECT:Ability Bonus|+%1|HideInUndergrowth
 Hide Move Silently in Web		OUTPUTNAME:+8 Competence bonus to Hide and Move Silently when using web	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Hide when Submerged			OUTPUTNAME:Bonus to Hide when Submerged						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:HideWhenSubmerged|12		DESC:+%1|HideWhenSubmerged	ASPECT:Ability Bonus|+%1|HideWhenSubmerged
+Hide when Submerged			OUTPUTNAME:Bonus to Hide when Submerged						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:HideWhenSubmerged|0		BONUS:VAR|HideWhenSubmerged|12	DESC:+%1|HideWhenSubmerged	ASPECT:Ability Bonus|+%1|HideWhenSubmerged
 Move Silently in Flight			OUTPUTNAME:+8 Move Silently when in flight					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Move Silently in Forest			OUTPUTNAME:+5 Move Silently in Forest						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Ride Check					OUTPUTNAME:Ride check to control in battle					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Saves vs Charm				OUTPUTNAME:Bonus to saves vs. charm effects					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:SavesVsCharmBonus|2							ASPECT:Ability Bonus|+%1|SavesVsCharmBonus
+Saves vs Charm				OUTPUTNAME:Bonus to saves vs. charm effects					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:SavesVsCharmBonus|0		BONUS:VAR|SavesVsCharmBonus|2						ASPECT:Ability Bonus|+%1|SavesVsCharmBonus
 Saves vs Illusions			OUTPUTNAME:+2 saves versus Illusions						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Saves vs Poison				OUTPUTNAME:Bonus to Saves vs. Poison						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:SaveVsPoison|0								ASPECT:Ability Bonus|+%1|SaveVsPoison
 Saves vs Sonics				OUTPUTNAME:+4 saves versus Sonics							CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Saves vs spells				OUTPUTNAME:+2 Saves versus spells							CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Saves vs spells and SLA			OUTPUTNAME:+3 Saves versus spells and spell-like abilities			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Slipping Balance				OUTPUTNAME:Bonus to Balance against slipping and falling			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:SlippingBalance|2		DESC:+%1|SlippingBalance	ASPECT:Ability Bonus|+%1|SlippingBalance
-Spot During Daylight			OUTPUTNAME:Bonus to Spot during daylight						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:SpotInDaylight|4			DESC:+%1|SpotInDaylight		ASPECT:Ability Bonus|+%1|SpotInDaylight
-Spot in Darkness				OUTPUTNAME:Bonus Spot in dusk/darkness						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:SpotInDarkness|8			DESC:+%1|SpotInDarkness		ASPECT:Ability Bonus|+%1|SpotInDarkness
+Slipping Balance				OUTPUTNAME:Bonus to Balance against slipping and falling			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:SlippingBalance|0	BONUS:VAR|SlippingBalance|2		DESC:+%1|SlippingBalance	ASPECT:Ability Bonus|+%1|SlippingBalance
+Spot During Daylight			OUTPUTNAME:Bonus to Spot during daylight						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:SpotInDaylight|0		BONUS:VAR|SpotInDaylight|4			DESC:+%1|SpotInDaylight		ASPECT:Ability Bonus|+%1|SpotInDaylight
+Spot in Darkness				OUTPUTNAME:Bonus Spot in dusk/darkness						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:SpotInDarkness|0		BONUS:VAR|SpotInDarkness|8			DESC:+%1|SpotInDarkness		ASPECT:Ability Bonus|+%1|SpotInDarkness
 Underwater Skills				OUTPUTNAME:+4 to Hide/Listen/Spot underwater					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Wilderness Scent				OUTPUTNAME:Bonus Wilderness Lore when using Scent				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:WildernessLoreBonus|4		DESC:+%1|WildernessLoreBonus	ASPECT:Ability Bonus|+%1|WildernessLoreBonus
+Wilderness Scent				OUTPUTNAME:Bonus Wilderness Lore when using Scent				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:WildernessLoreBonus|0	BONUS:VAR|WildernessLoreBonus|4		DESC:+%1|WildernessLoreBonus	ASPECT:Ability Bonus|+%1|WildernessLoreBonus
 Wilderness Spot Scent			OUTPUTNAME:+8 to Spot and Wilderness Lore when using Scent			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 
 ###Block: Standard Immunities
@@ -468,7 +468,7 @@ Unicorn Wilderness Lore Checks	OUTPUTNAME:+3 competence bonus on Wilderness Lore
 Wyvern Spot					OUTPUTNAME:+3 Spot when flying durring daylight													CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
 ###Block:
 # Ability Name	Unique Key				Category of Ability		Type				Visible	Define				Description															Aspects
-Racial Save Bonus	KEY:Racial Save Bonus ~ Drow	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:DrowRacialSaveBonus|2	DESC:+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus	ASPECT:SaveBonus|+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus
+Racial Save Bonus	KEY:Racial Save Bonus ~ Drow	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:DrowRacialSaveBonus|0	BONUS:VAR|DrowRacialSaveBonus|2	DESC:+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus	ASPECT:SaveBonus|+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus
 
 ###Block: Creature Type Traits
 # Ability Name		Category of Ability		Type				Visible	Description

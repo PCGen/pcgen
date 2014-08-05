@@ -23,7 +23,7 @@ CLASS:Drider Cleric	PRERACE:1,Drider (Cleric)	PRERACETYPE:Aberration
 CLASS:Drider Cleric	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE		MONNONSKILLHD:1|PRESIZELTEQ:M	MONNONSKILLHD:2|PRESIZEEQ:L	MONNONSKILLHD:4|PRESIZEEQ:H	MONNONSKILLHD:16|PRESIZEEQ:G	MONNONSKILLHD:32|PRESIZEEQ:C
 ###Block: Turn Undead
 1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								ABILITY:Special Ability|AUTOMATIC|Basic Turning
-1										BONUS:VAR|TurnLevelBase|classlevel()|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
+1										BONUS:VAR|TurnLevelBase|classlevel()|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|0	BONUS:VAR|AllowExtraTurning|1
 1										BONUS:VAR|TurnDamagePlusBase|classlevel()|TYPE=Level.REPLACE
 1										BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Spontaneous casting

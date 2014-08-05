@@ -5,7 +5,7 @@ SOURCELONG:Second Darkness, Chapter 3 - The Armageddon Echo	SOURCESHORT:AP15	SOU
 ###Block: Blast Shadow Abilities
 # Ability Name		Output Name									Category of Ability		Type							Define					Description																							Source Page
 Cloud of Smoke and Fire											CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Aura							DESC:A blast shadow can, as a free action, surround itself with a cloud of smoke that burns living flesh.							SOURCEPAGE:p. 82
-Death Burst													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DEFINE:DeathBurstDC|10+(HD/2)+CHA	DESC:When a blast shadow is reduced to 0 or fewer hit points, it explodes in a blast of flame. DC 18 Reflex save for half damage.|DeathBurstDC	SOURCEPAGE:p. 82
+Death Burst													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DEFINE:DeathBurstDC|0	BONUS:VAR|DeathBurstDC|10+(HD/2)+CHA	DESC:When a blast shadow is reduced to 0 or fewer hit points, it explodes in a blast of flame. DC 18 Reflex save for half damage.|DeathBurstDC	SOURCEPAGE:p. 82
 Blast Shadow Claws	OUTPUTNAME:Claw attacks do an additional 1d6 fire damage	CATEGORY:Special Ability	TYPE:SpecialQuality																																		SOURCEPAGE:p. 82
 
 ###Block: Cutlass Spider Abilities
@@ -19,7 +19,7 @@ Cutlass Spider Hide			OUTPUTNAME:+8 racial bonus on Hide checks (+12 amid trash 
 ###Block: Forest Drake Abilities
 # Ability Name			Output Name											Category of Ability		Type									Define						Description																							Source Page
 Forest Drake Immunities		OUTPUTNAME:Immune to acid, sleep and paralysis					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity																																	SOURCEPAGE:p. 86
-Acidic Cloud Breath														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				DEFINE:AcidicCloudBreathDC|10+(HD/2)+CON	DESC:60 feet range ball of acid deals 4d4 points of acid damage within the 10-foot-radius cloud, DC %1 Reflex save for half|AcidicCloudBreathDC	SOURCEPAGE:p. 86
+Acidic Cloud Breath														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				DEFINE:AcidicCloudBreathDC|0	BONUS:VAR|AcidicCloudBreathDC|10+(HD/2)+CON	DESC:60 feet range ball of acid deals 4d4 points of acid damage within the 10-foot-radius cloud, DC %1 Reflex save for half|AcidicCloudBreathDC	SOURCEPAGE:p. 86
 Speed Surge																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement								DESC:Three times per day, a forest drake may take an additional move action												SOURCEPAGE:p. 86
 Forest Drake Bite			OUTPUTNAME:Bite attack does an additional 1d6 acid damage			CATEGORY:Special Ability	TYPE:SpecialQuality																																					SOURCEPAGE:p. 86
 Forest Drake Hide			OUTPUTNAME:+8 racial bonus on Hide checks made in a forest environment	CATEGORY:Special Ability	TYPE:SpecialQuality																																					SOURCEPAGE:p. 86

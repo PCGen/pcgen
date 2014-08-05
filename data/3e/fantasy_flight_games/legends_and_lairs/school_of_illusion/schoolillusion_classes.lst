@@ -108,7 +108,7 @@ CLASS:Lord of Illusion	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Dip
 1	SAB:Trademark Illusion (%)|TrademarkIllusion		BONUS:VAR|TrademarkIllusion|(CL+1)/2	DEFINE:TrademarkIllusion|0	ADD:SPELLCASTER|ANY
 2	SAB:Detect Illusion 3/day																	ADD:SPELLCASTER|ANY
 3																						ADD:SPELLCASTER|ANY
-4	SAB:Robust Illusions (+% to DCs)|RobustIllusions								DEFINE:RobustIllusions|2	ADD:SPELLCASTER|ANY
+4	SAB:Robust Illusions (+% to DCs)|RobustIllusions								DEFINE:RobustIllusions|0	BONUS:VAR|RobustIllusions|2	ADD:SPELLCASTER|ANY
 5																						ADD:SPELLCASTER|ANY
 6	SAB:Mutable Illusions																		ADD:SPELLCASTER|ANY
 7																						ADD:SPELLCASTER|ANY
@@ -125,7 +125,7 @@ CLASS:Master of the Ruse	PREALIGN:CG,CN,CE	PREFEAT:3,Enlarge Spell,Extend Spell,
 CLASS:Master of the Ruse	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Disguise|Diplomacy|Escape Artist|Forgery|Gather Information|Hide|Intimidate|TYPE=Knowledge|Listen|Move Silently|Perform|TYPE=Profession|Scry|Sense Motive|Spellcraft|Spot|Tumble
 1															ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=MasterRuseSpecialAbilities
 2															ADD:SPELLCASTER|ANY
-3	SAB:Fool Me (one failure for -%)|FoolMe					DEFINE:FoolMe|-2	ADD:SPELLCASTER|ANY
+3	SAB:Fool Me (one failure for -%)|FoolMe					DEFINE:FoolMe|0	BONUS:VAR|FoolMe|-2	ADD:SPELLCASTER|ANY
 4															ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=MasterRuseSpecialAbilities
 5															ADD:SPELLCASTER|ANY
 6								BONUS:VAR|FoolMe|-2				ADD:SPELLCASTER|ANY
@@ -161,7 +161,7 @@ CLASS:Mystic Infiltrator	PREFEAT:2,Alertness,Toughness	PRESKILL:3,Disguise=8,Hid
 CLASS:Mystic Infiltrator	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|TYPE=Knowledge|TYPE=Profession|Scry|Speak Language|Spellcraft
 1	SAB:Master of Disguise															ADD:SPELLCASTER|ANY
 2	SAB:Wormtongue (%)|Wormtongue					BONUS:VAR|Wormtongue|(CL+1)/3	DEFINE:Wormtongue|0	ADD:SPELLCASTER|ANY
-3	SAB:Mystic Form (%/day)|MysticForm|PREVARLT:CL,10						DEFINE:MysticForm|1+CHA	ADD:SPELLCASTER|ANY
+3	SAB:Mystic Form (%/day)|MysticForm|PREVARLT:CL,10						DEFINE:MysticForm|0	BONUS:VAR|MysticForm|1+CHA	ADD:SPELLCASTER|ANY
 4																			ADD:SPELLCASTER|ANY
 5																			ADD:SPELLCASTER|ANY
 6																			ADD:SPELLCASTER|ANY

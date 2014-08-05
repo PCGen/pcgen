@@ -618,7 +618,7 @@ Expunge Unlife			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Swim the Stream of Souls	CATEGORY:Special Ability	TYPE:SpecialQuality
 Bonus Domain (Healing)		CATEGORY:Special Ability	TYPE:SpecialQuality
 Hands of our Mother		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Potent Turning			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:PotentTurning|0	DEFINE:PotentTurningDie|6	DESC:%1d%2|PotentTurning|PotentTurningDie
+Potent Turning			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:PotentTurning|0	DEFINE:PotentTurningDie|0	BONUS:VAR|PotentTurningDie|6	DESC:%1d%2|PotentTurning|PotentTurningDie
 Extra Channeling			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:LifewardenExtraChanneling|0											ABILITY:Special Ability|AUTOMATIC|Extra Channeling (CHA)|PREVARGTEQ:LifewardenExtraChanneling,1	ABILITY:Special Ability|AUTOMATIC|Extra Channeling (WIS)|PREVARGTEQ:LifewardenExtraChanneling,2
 Know the Soul			CATEGORY:Special Ability	TYPE:SpecialQuality
 Read the Signs			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike

@@ -25,7 +25,7 @@ CLASS:Archaic Weaponsmaster	HD:10		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOU
 CLASS:Archaic Weaponsmaster	PREATT:3	PREFEAT:2,Archaic Weapons Proficiency,Weapon Focus
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Archaic Weaponsmaster	STARTSKILLPTS:2	CSKILL:Climb|Craft (Mechanical)|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Handle Animal|Jump|Knowledge (Art)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Research|Ride|Swim
-1	BONUS:ABILITYPOOL|Weapon Specialization|1										DEFINE:WeapSpecQualify|1
+1	BONUS:ABILITYPOOL|Weapon Specialization|1										BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0
 2											BONUS:VAR|ImbueWeapon|(CL+4)/6	DEFINE:ImbueWeapon|0		ABILITY:Special Ability|AUTOMATIC|Imbue Weapon
 3	BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
 4																						ABILITY:Special Ability|AUTOMATIC|Quick Weapon Draw
@@ -61,8 +61,8 @@ CLASS:Mystic	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (Pharma
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Mystic	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Mystic|CL
 ###Block: Turning
-2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	DEFINE:ImprovedTurningQual|1	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
-2	BONUS:VAR|TurnLevel|CL			DEFINE:ExtraTurningQual|1
+2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	BONUS:VAR|ImprovedTurningQual|1	DEFINE:ImprovedTurningQual|0	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
+2	BONUS:VAR|TurnLevel|CL			BONUS:VAR|ExtraTurningQual|1	DEFINE:ExtraTurningQual|0
 2	BONUS:VAR|TurnDamagePlus|CL
 2	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
 ###Block: Spells
@@ -148,7 +148,7 @@ CLASS:Street Warrior	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Drive
 4													ABILITY:Special Ability|AUTOMATIC|Street Cred
 5													ABILITY:Special Ability|AUTOMATIC|Improved Streetfighting
 6	BONUS:ABILITYPOOL|Street Warrior Feat|1
-7	BONUS:ABILITYPOOL|Weapon Specialization|1	DEFINE:WeapSpecQualify|1
+7	BONUS:ABILITYPOOL|Weapon Specialization|1	BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0
 8													ABILITY:Special Ability|AUTOMATIC|Improvised Weapon Damage
 9	BONUS:ABILITYPOOL|Street Warrior Feat|1
 10													ABILITY:Special Ability|AUTOMATIC|Advanced Streetfighting
@@ -162,7 +162,7 @@ CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Hide|Jump|
 1	BONUS:ABILITYPOOL|Weapon Focus|1
 2															ABILITY:Special Ability|AUTOMATIC|Quick Weapon Draw
 3	BONUS:ABILITYPOOL|Swashbuckler Feat|1
-4	BONUS:ABILITYPOOL|Weapon Specialization|1			DEFINE:WeapSpecQualify|1
+4	BONUS:ABILITYPOOL|Weapon Specialization|1			BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0
 5	BONUS:ABILITYPOOL|Find the Mark|1
 6	BONUS:ABILITYPOOL|Swashbuckler Feat|1
 7	BONUS:ABILITYPOOL|Greater Weapon Specialization|1
@@ -214,8 +214,8 @@ CLASS:Wildlord	PREATT:2	PRESKILL:2,Handle Animal=6,Survival=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wildlord	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Drive|Diplomacy|Handle Animal|Hide|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Move Silently|Navigate|Pilot|Profession|Ride|Spot|Survival|Swim|Treat Injury
 ###Block: Turning
-8	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat			DEFINE:ImprovedTurningQual|1	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Animals
-8	BONUS:VAR|TurnLevel|var("CL=Wildlord")		DEFINE:ExtraTurningQual|1
+8	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat			BONUS:VAR|ImprovedTurningQual|1	DEFINE:ImprovedTurningQual|0	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Animals
+8	BONUS:VAR|TurnLevel|var("CL=Wildlord")		BONUS:VAR|ExtraTurningQual|1	DEFINE:ExtraTurningQual|0
 8	BONUS:VAR|TurnDamagePlus|var("CL=Wildlord")
 8	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
 10														ABILITY:Special Ability|AUTOMATIC|Turn/Rebuke Magical Beasts

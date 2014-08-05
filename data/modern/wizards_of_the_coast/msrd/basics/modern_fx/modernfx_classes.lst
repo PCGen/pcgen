@@ -143,8 +143,8 @@ CLASS:Acolyte	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Structural)|Craft (Vis
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Acolyte|CL
 ###Block: Turning
-2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat			DEFINE:ImprovedTurningQual|1	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
-2	BONUS:VAR|TurnLevel|var("CL=Acolyte")		DEFINE:ExtraTurningQual|1
+2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat			BONUS:VAR|ImprovedTurningQual|1	DEFINE:ImprovedTurningQual|0	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
+2	BONUS:VAR|TurnLevel|var("CL=Acolyte")		BONUS:VAR|ExtraTurningQual|1	DEFINE:ExtraTurningQual|0
 2	BONUS:VAR|TurnDamagePlus|var("CL=Acolyte")
 2	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
 ###Block: Standard block

@@ -42,7 +42,7 @@ CLASS:Assassin (CW)	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disg
 1	BONUS:VAR|SneakAttackDice|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Normal progression
 1	SAB:Assassination
-2	SAB:Weapon Mastery (+%/die Sneak Attack Bonus Damage)|AssassinWeaponSneakAttack																		DEFINE:AssassinWeaponSneakAttack|1	ADD:FEAT|TYPE=AssassinSpecialAbilities
+2	SAB:Weapon Mastery (+%/die Sneak Attack Bonus Damage)|AssassinWeaponSneakAttack																		DEFINE:AssassinWeaponSneakAttack|0	BONUS:VAR|AssassinWeaponSneakAttack|1	ADD:FEAT|TYPE=AssassinSpecialAbilities
 6	SAB:Weapon Mastery (Blinding Strike)
 8	SAB:Poison Mastery
 10	SAB:Death Blow	SAB:Weapon Mastery (Supreme Master)						BONUS:VAR|AssassinToHit|2	BONUS:VAR|AssassinDamage|2

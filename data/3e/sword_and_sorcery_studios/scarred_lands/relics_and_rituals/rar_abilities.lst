@@ -3,4 +3,4 @@
 
 
 # Ability Name		Category of Ability		Type									Visible	Define															Description						Multiple?	Choose
-Vigilant Favored Enemy	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.VigilantFavoredEnemy	VISIBLE:YES	DEFINE:FavoredEnemy1|FavoredEnemies	DEFINE:FavoredEnemies|0	DEFINE:VigilantFavored|(CL+2)/4	DESC:+%1 vs. %2|VigilantFavored|%CHOICE	MULT:YES	CHOOSE:NUMCHOICES=1|RACE|ALL
+Vigilant Favored Enemy	CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption.VigilantFavoredEnemy	VISIBLE:YES	DEFINE:FavoredEnemy1|0	DEFINE:FavoredEnemies|0	DEFINE:VigilantFavored|0		BONUS:VAR|FavoredEnemy1|FavoredEnemies	BONUS:VAR|FavoredEnemies|0	BONUS:VAR|VigilantFavored|(CL+2)/4	DESC:+%1 vs. %2|VigilantFavored|%CHOICE	MULT:YES	CHOOSE:NUMCHOICES=1|RACE|ALL

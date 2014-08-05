@@ -15,7 +15,7 @@ Grants All Hidden Abilities					CATEGORY:Internal																											ABIL
 #CATEGORY=Internal|Grants All Hidden Abilities.MOD	ABILITY:Internal|AUTOMATIC|Master Traits
 CATEGORY=Internal|Grants All Hidden Abilities.MOD																														ABILITY:Special Ability|AUTOMATIC|Low Light Vision|PREVISION:1,Low-Light=1,Low Light=1
 
-Defines Required							CATEGORY:Internal		DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:LowLightRange|2
+Defines Required							CATEGORY:Internal		DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:LowLightRange|0	BONUS:VAR|LowLightRange|2
 #Low-light Vision							KEY:Low light Vision				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision											DEFINE:LowLightRange|2														DESC:You can see %1x as far as humans in low illumination.|LowLightRange
 
 ###Block: Creature Type Traits
@@ -169,12 +169,12 @@ Extraplanar Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility
 Fire Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity To Fire|Vulnerability To Cold
 Goblinoid Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Good Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility
-Incorporeal Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility					DEFINE:CanNotGrapple|1																																	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX
+Incorporeal Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility					DEFINE:CanNotGrapple|0	BONUS:VAR|CanNotGrapple|1																																BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX
 Lawful Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Native Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Reptilian Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Shapechanger Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility
-Swarm Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility					DEFINE:CanNotGrapple|1
+Swarm Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility					DEFINE:CanNotGrapple|0	BONUS:VAR|CanNotGrapple|1
 #	ABILITY:Special Ability|AUTOMATIC|Distraction
 Water Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 #

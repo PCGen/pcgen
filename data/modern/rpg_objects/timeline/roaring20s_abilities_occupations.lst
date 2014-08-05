@@ -5,7 +5,7 @@ SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobj
 # Ability Name		Output Name			Category of Ability		Type			Visible		Define											Bonus to Ability Pool											Modify VAR							Source Page
 Explorer							CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY													BONUS:ABILITYPOOL|Explorer Occupation Skills|2							BONUS:VAR|Reputation|1	BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.2
 Primitive							CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY													BONUS:ABILITYPOOL|Primitive Occupation Skills|3	BONUS:ABILITYPOOL|Primitive Feat|1									SOURCEPAGE:p.2
-Psychic/Roaring 20s	OUTPUTNAME:Psychic	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DEFINE:PsychicRoaring20sSkills|2	DEFINE:PsychicRoaring20sFeats|1															BONUS:VAR|Reputation|1					SOURCEPAGE:p.2
+Psychic/Roaring 20s	OUTPUTNAME:Psychic	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	DEFINE:PsychicRoaring20sSkills|0	DEFINE:PsychicRoaring20sFeats|0	BONUS:VAR|PsychicRoaring20sSkills|2	BONUS:VAR|PsychicRoaring20sFeats|1														BONUS:VAR|Reputation|1					SOURCEPAGE:p.2
 
 
 ###Block: Skill feat mods

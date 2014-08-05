@@ -417,7 +417,7 @@ Star Doppelganger Immunities		OUTPUTNAME:Immunities																	CATEGORY:Spe
 Thunderbird Breath Weapon		OUTPUTNAME:Breath Weapon																CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) - Every 1d4 rounds, 60' cone of sonic energy that deals %d10 points of damage, Ref save (DC %) for half|TL/2|10+TL/2+CON
 Thunderbird Fear Aura			OUTPUTNAME:Fear Aura																	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Fear Aura (Su) - Will save (DC %) or be shaken for 1d4 rounds|10+TL/2+CHA
 Urban Wendigo Rage			OUTPUTNAME:Enters rage when wounded, and can not end it voluntarily									CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:Enters rage when wounded, and can not end it voluntarily
-Wyrm Breath Weapon			OUTPUTNAME:Breath Weapon																CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) -Line of Fire every 1d4 rounds %d10 fire (Reflex DC %)|WyrmBreathDice|WyrmBreathDC												DEFINE:WyrmBreathDice|3	DEFINE:WyrmBreathDC|0
+Wyrm Breath Weapon			OUTPUTNAME:Breath Weapon																CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Breath Weapon (Su) -Line of Fire every 1d4 rounds %d10 fire (Reflex DC %)|WyrmBreathDice|WyrmBreathDC												DEFINE:WyrmBreathDice|0	DEFINE:WyrmBreathDC|0	BONUS:VAR|WyrmBreathDice|3
 Roach Thrall Disguise Checks		OUTPUTNAME:+10 species bonus on Disguise checks in human host										CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:NO	SAB:+10 species bonus on Disguise checks in human host
 
 ###Block: Toxyderm Breath Weapons

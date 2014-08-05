@@ -11,9 +11,9 @@ Weave Chords				KEY:Weave Chords ~ Bard (Monte Cook's)			CATEGORY:Special Abilit
 
 # ~ Diplomancer
 Charm						KEY:Charm ~ Diplomancer						CATEGORY:Special Ability	TYPE:SpecialQuality
-Enchantment Affinity			KEY:Enchantment Affinity ~ Diplomancer			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				DEFINE:EnchantAffinity|1	DESC: +%1|EnchantAffinity
+Enchantment Affinity			KEY:Enchantment Affinity ~ Diplomancer			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				DEFINE:EnchantAffinity|0	BONUS:VAR|EnchantAffinity|1	DESC: +%1|EnchantAffinity
 Magical Seduction/Attractiveness	KEY:Magical Seduction/Attractiveness ~ Diplomancer	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	TYPE:Supernatural
-Protection from Evocations		KEY:Protection from Evocations ~ Diplomancer		CATEGORY:Special Ability										DEFINE:ProtectionEvocations|1	DESC: +%1|ProtectionEvocations
+Protection from Evocations		KEY:Protection from Evocations ~ Diplomancer		CATEGORY:Special Ability										DEFINE:ProtectionEvocations|0	BONUS:VAR|ProtectionEvocations|1	DESC: +%1|ProtectionEvocations
 Insight into Secrets			KEY:Insight into Secrets ~ Diplomancer			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Charisma Gift				KEY:Charisma Gift ~ Diplomancer				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Word Cunning				KEY:Word Cunning ~ Diplomancer				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural

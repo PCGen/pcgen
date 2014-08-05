@@ -11,7 +11,7 @@ CLASS:Aaleear Enchanter	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|TY
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Recognize Enchantments	SAB:Resist Magic +%|AaleearResistMagic	SAB:Enchant Normal Item %|EnchantNormal	BONUS:SKILL|Spellcraft|2|TYPE=Competence	BONUS:VAR|AaleearResistMagic|1						DEFINE:EnchantNormal|1	DEFINE:AaleearResistMagic|0	ADD:FEAT|Combat Casting,Spell Focus,Spell Mastery,Spell Penetration,TYPE=ItemCreation,TYPE=Metamagic
+1	SAB:Recognize Enchantments	SAB:Resist Magic +%|AaleearResistMagic	SAB:Enchant Normal Item %|EnchantNormal	BONUS:SKILL|Spellcraft|2|TYPE=Competence	BONUS:VAR|AaleearResistMagic|1						DEFINE:EnchantNormal|0	BONUS:VAR|EnchantNormal|1	DEFINE:AaleearResistMagic|0	ADD:FEAT|Combat Casting,Spell Focus,Spell Mastery,Spell Penetration,TYPE=ItemCreation,TYPE=Metamagic
 3																											BONUS:VAR|AaleearResistMagic|1	BONUS:VAR|EnchantNormal|1
 4																																															ADD:FEAT|Combat Casting,Spell Focus,Spell Mastery,Spell Penetration,TYPE=ItemCreation,TYPE=Metamagic
 5																											BONUS:VAR|AaleearResistMagic|1	BONUS:VAR|EnchantNormal|1
@@ -24,7 +24,7 @@ CLASS:Anaeman Crafter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.15-16	BONU
 CLASS:Anaeman Crafter	PREFEAT:1,Craft Anaema Tool (MR)	PREMULT:2,[PRESKILL:2,TYPE.Craft=8],[PRESKILL:3,Concentration=5,Knowledge (Arcana)=5,Spellcraft=5]	PRERACE:1,Anaema
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Anaeman Crafter	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
-1	SAB:Craft Focus %|CraftFocus					DEFINE:CraftFocus|1	ADD:SPELLCASTER|ANY
+1	SAB:Craft Focus %|CraftFocus					DEFINE:CraftFocus|0	BONUS:VAR|CraftFocus|1	ADD:SPELLCASTER|ANY
 2														ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=ItemCreation
 3	SAB:Shroud Object											ADD:SPELLCASTER|ANY
 4														ADD:SPELLCASTER|ANY
@@ -46,7 +46,7 @@ CLASS:Animan Atavist	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE=Cr
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1			SAB:Aspect Tongue
-2			SAB:Aspect Form %/day|AspectForm	SAB:Summon Aspect %|SummonAspect										DEFINE:AspectForm|1	DEFINE:SummonAspect|1
+2			SAB:Aspect Form %/day|AspectForm	SAB:Summon Aspect %|SummonAspect										DEFINE:AspectForm|0	DEFINE:SummonAspect|0	BONUS:VAR|AspectForm|1	BONUS:VAR|SummonAspect|1
 3			SAB:Aspect Mount
 4			SAB:Elemental Resistance +5
 5			SAB:Bestial Fury										BONUS:VAR|AspectForm|1	BONUS:VAR|SummonAspect|1
@@ -135,7 +135,7 @@ CLASS:Eletum Aemidun	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|D
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Turn Undead stuff
 1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base										ABILITY:Special Ability|AUTOMATIC|Basic Turning|Rebuke Undead
-1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE				DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE				DEFINE:AllowExtraTurning|0	BONUS:VAR|AllowExtraTurning|1
 1	BONUS:VAR|TurnDamagePlusBase|var("CL=Cleric")|TYPE=Level.REPLACE
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Normal Level Progression
@@ -155,9 +155,9 @@ CLASS:Fairy Dreamer	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.58-61	BONUS:
 CLASS:Fairy Dreamer	PRERACE:1,Fairy	PRESKILL:1,Spellcraft=5	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Fairy Dreamer	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Concentration|Diplomacy|Hide|Intuit Direction|Jump|Move Silently|Scry|Sense Motive|Spellcraft
-1	SAB:Dream Augury	SAB:Dream Walk %/day|DreamWalk	SAB:Dreaming Familiar									DEFINE:DreamWalk|1
+1	SAB:Dream Augury	SAB:Dream Walk %/day|DreamWalk	SAB:Dreaming Familiar									DEFINE:DreamWalk|0	BONUS:VAR|DreamWalk|1
 2	SAB:Dream Summoning I
-3	SAB:Dream Step (% ft.)|DreamStep	SAB:True Mind													DEFINE:DreamStep|20
+3	SAB:Dream Step (% ft.)|DreamStep	SAB:True Mind													DEFINE:DreamStep|0	BONUS:VAR|DreamStep|20
 4	SAB:Dream Summoning II
 5														BONUS:VAR|DreamStep|20	BONUS:VAR|DreamWalk|1
 6	SAB:Dream Summoning III
@@ -204,7 +204,7 @@ CLASS:Claw of the Hunt	STARTSKILLPTS:4	CSKILL:Balance|Climb|Control Shape|Hide|I
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1																											BONUS:VAR|SneakAttackDice|1					ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2	SAB:Hunter's Claws +%|HunterClaw	BONUS:COMBAT|DAMAGE.Natural|HunterClaw|TYPE=Enhancement	BONUS:COMBAT|TOHIT.Natural|HunterClaw|TYPE=Enhancement						DEFINE:HunterClaw|CL/2
+2	SAB:Hunter's Claws +%|HunterClaw	BONUS:COMBAT|DAMAGE.Natural|HunterClaw|TYPE=Enhancement	BONUS:COMBAT|TOHIT.Natural|HunterClaw|TYPE=Enhancement						DEFINE:HunterClaw|0	BONUS:VAR|HunterClaw|CL/2
 3	SAB:Defensive Shift
 4																																				ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir
 5																											BONUS:VAR|SneakAttackDice|1
@@ -218,7 +218,7 @@ CLASS:Niomus Windweaver	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.83	BONUS
 CLASS:Niomus Windweaver	PREALIGN:NG,CG	PREFEAT:2,TYPE=ItemCreation	PRERACE:1,Niomus	PRESKILL:2,Knowledge (Arcana)=10,Spellcraft=10	PRESPELLTYPE:1,Arcane=4	PRETEXT:Accepted Student of Master Windweaver
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Niomus Windweaver	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft|Wilderness Lore
-1	SAB:Air Mastery +%|AirMastery										DEFINE:AirMastery|1	ADD:SPELLCASTER|Arcane
+1	SAB:Air Mastery +%|AirMastery										DEFINE:AirMastery|0	BONUS:VAR|AirMastery|1	ADD:SPELLCASTER|Arcane
 2	SAB:Perfect Air																ADD:SPELLCASTER|Arcane
 3	SAB:Good Flying			BONUS:MOVEADD|TYPE=Fly|10									ADD:SPELLCASTER|Arcane
 4											BONUS:VAR|AirMastery|1					ADD:SPELLCASTER|Arcane
@@ -281,7 +281,7 @@ CLASS:Rezurbek Buerin	STARTSKILLPTS:2	CSKILL:Animal Empathy|Control Shape|TYPE=C
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Control Shape +%|BuerinControl	BONUS:SKILLRANK|Control Shape|BuerinControl1	DEFINE:BuerinControl|(CL+1)/2	ADD:FEAT|Improved Control Shape (MR)	TEMPLATE:Buerin
+1	SAB:Control Shape +%|BuerinControl	BONUS:SKILLRANK|Control Shape|BuerinControl1	DEFINE:BuerinControl|0	BONUS:VAR|BuerinControl|(CL+1)/2	ADD:FEAT|Improved Control Shape (MR)	TEMPLATE:Buerin
 2																				ADD:SPELLCASTER|Divine
 4																				ADD:SPELLCASTER|Divine
 6																				ADD:SPELLCASTER|Divine
@@ -294,9 +294,9 @@ CLASS:Rhonian Emissary	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.112	BONUS
 CLASS:Rhonian Emissary	PREFEAT:1,Skill Focus (Diplomacy)	PRERACE:1,Rhonian	PRESKILL:3,Diplomacy=8,Knowledge (Nobility and Royalty)=4,Sense Motive=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rhonian Emissary	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Disguise|Gather Information|Innuendo|Intimidate|Listen|Perform|Search|Sense Motive|Speak Language|Spot
-1	SAB:Herald's Intuition +%|HeraldIntuit	BONUS:SKILLRANK|Herald's Intuition|2										DEFINE:HeraldIntuit|2
+1	SAB:Herald's Intuition +%|HeraldIntuit	BONUS:SKILLRANK|Herald's Intuition|2										DEFINE:HeraldIntuit|0	BONUS:VAR|HeraldIntuit|2
 2	SAB:Preemptive Strike +%|PreempStrike								BONUS:VAR|PreempStrike|CL/2					DEFINE:PreempStrike|0
-3	SAB:Stirring Oration %/day|Oration																		DEFINE:Oration|1
+3	SAB:Stirring Oration %/day|Oration																		DEFINE:Oration|0	BONUS:VAR|Oration|1
 4								BONUS:SKILLRANK|Herald's Intuition|2	BONUS:VAR|HeraldIntuit|2
 5															BONUS:VAR|Oration|1
 7								BONUS:SKILLRANK|Herald's Intuition|2	BONUS:VAR|Oration|1	BONUS:VAR|HeraldIntuit|2
@@ -309,8 +309,8 @@ CLASS:Rhoode Recorder	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.119	BONUS:
 CLASS:Rhoode Recorder	PREALIGN:NG,TN,NE	PREFEAT:1,Ambidexterity	PRERACE:1,Rhoode	PRESKILL:2,Gather Information=8,Listen=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rhoode Recorder	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|Listen|Move Silently|Sense Motive|Spot
-1	SAB:Innocuous +%|Innocuous	SAB:Master's Authority									DEFINE:Innocuous|1
-2	SAB:Nose to the Wind %/day|NoseWind												DEFINE:NoseWind|1
+1	SAB:Innocuous +%|Innocuous	SAB:Master's Authority									DEFINE:Innocuous|0	BONUS:VAR|Innocuous|1
+2	SAB:Nose to the Wind %/day|NoseWind												DEFINE:NoseWind|0	BONUS:VAR|NoseWind|1
 3										BONUS:VAR|Innocuous|1
 4	SAB:Preemptive Strike +%|PreempStrike			BONUS:VAR|PreempStrike|2				DEFINE:Preempstrike|0
 5										BONUS:VAR|Innocuous|1
@@ -348,7 +348,7 @@ CLASS:Risen Redeemer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|H
 1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Channel Demonic Essence %|ChannelEssence										DEFINE:ChannelEssence|1
+1	SAB:Channel Demonic Essence %|ChannelEssence										DEFINE:ChannelEssence|0	BONUS:VAR|ChannelEssence|1
 2	SAB:Calming Aspect					BONUS:SKILL|Diplomacy|2
 3													BONUS:VAR|ChannelEssence|1
 4	SAB:Detect Outsiders
@@ -411,7 +411,7 @@ CLASS:Sktak Windrider	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Sktak Win
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	CAST:0		DOMAIN:Sktak Windrider Mount	SAB:Desert Lore	SAB:Improved Mounted Combat	SAB:Kuldaan	SAB:Stealth	BONUS:DOMAIN|NUMBER|1
-2	CAST:0,1							SAB:Improved Mounted Archery +%|ImpMountArch									DEFINE:ImpMountArch|min(CL/2,4)
+2	CAST:0,1							SAB:Improved Mounted Archery +%|ImpMountArch									DEFINE:ImpMountArch|0	BONUS:VAR|ImpMountArch|min(CL/2,4)
 3	CAST:0,1,0							SAB:Improved Ride-By Attack
 4	CAST:0,1,1
 5	CAST:0,1,1,0
@@ -447,7 +447,7 @@ CLASS:Forest Shepherd	PRERACE:1,Tremen	PRESKILL:2,Knowledge (Nature)=8,Wildernes
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Forest Shepherd	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE=Profession|Scry|Spellcraft|Swim|Wilderness Lore
 1	SAB:Douse Flames												ADD:SPELLCASTER|Divine
-2	SAB:Plant Form %/day|PlantForm					DEFINE:PlantForm|1	ADD:SPELLCASTER|Divine
+2	SAB:Plant Form %/day|PlantForm					DEFINE:PlantForm|0	BONUS:VAR|PlantForm|1	ADD:SPELLCASTER|Divine
 3	SAB:Speak with Trees											ADD:SPELLCASTER|Divine
 4							BONUS:VAR|PlantForm|1					ADD:SPELLCASTER|Divine
 5	SAB:Mending Touch												ADD:SPELLCASTER|Divine
@@ -467,11 +467,11 @@ CLASS:Uthuk Qi'nok	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowl
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Dispel Magic %/day|DispelMagic		DEFINE:DispelMagic|CL/3+1	ADD:SPELLCASTER|Arcane
-2	SAB:Sympathetic Sacrifice								ADD:SPELLCASTER|Arcane
-3	SAB:Contagion %/day|Contagion			DEFINE:Contagion|CL/3		ADD:SPELLCASTER|Arcane
-4													ADD:SPELLCASTER|Arcane
-5	SAB:Dominate Monster %/day|DominateMon	DEFINE:DominateMon|(CL-2)/3	ADD:SPELLCASTER|Arcane
+1	SAB:Dispel Magic %/day|DispelMagic		DEFINE:DispelMagic|0	ADD:SPELLCASTER|Arcane	BONUS:VAR|DispelMagic|CL/3+1	
+2	SAB:Sympathetic Sacrifice								ADD:SPELLCASTER|Arcane						
+3	SAB:Contagion %/day|Contagion			DEFINE:Contagion|0		ADD:SPELLCASTER|Arcane	BONUS:VAR|Contagion|CL/3		
+4													ADD:SPELLCASTER|Arcane						
+5	SAB:Dominate Monster %/day|DominateMon	DEFINE:DominateMon|0	ADD:SPELLCASTER|Arcane	BONUS:VAR|DominateMon|(CL-2)/3	
 6													ADD:SPELLCASTER|Arcane
 7	SAB:Scorch											ADD:SPELLCASTER|Arcane
 8													ADD:SPELLCASTER|Arcane

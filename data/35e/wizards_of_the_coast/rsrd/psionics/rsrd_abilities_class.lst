@@ -14,12 +14,12 @@ Psion Telepath Class	CATEGORY:Internal		SPELLLEVEL:CLASS|Psion=1|Charm (Psionic)
 
 ###Block:
 # Ability Name				Category of Ability		Type						Visible	Define														Description																				Ability											Modify VAR
-Psion ~ Seer				CATEGORY:Internal											DEFINE:PsionicSeer|1
-Psion ~ Kineticist			CATEGORY:Internal											DEFINE:PsionicKineticist|1
-Psion ~ Nomad				CATEGORY:Internal											DEFINE:PsionicNomad|1
-Psion ~ Seer				CATEGORY:Internal											DEFINE:PsionicSeer|1
-Psion ~ Shaper				CATEGORY:Internal											DEFINE:PsionicShaper|1
-Psion ~ Telepath				CATEGORY:Internal											DEFINE:PsionicTelepath|1
+Psion ~ Seer				CATEGORY:Internal											DEFINE:PsionicSeer|0		BONUS:VAR|PsionicSeer|1		
+Psion ~ Kineticist			CATEGORY:Internal											DEFINE:PsionicKineticist|0	BONUS:VAR|PsionicKineticist|1	
+Psion ~ Nomad				CATEGORY:Internal											DEFINE:PsionicNomad|0		BONUS:VAR|PsionicNomad|1		
+Psion ~ Seer				CATEGORY:Internal											DEFINE:PsionicSeer|0		BONUS:VAR|PsionicSeer|1		
+Psion ~ Shaper				CATEGORY:Internal											DEFINE:PsionicShaper|0		BONUS:VAR|PsionicShaper|1		
+Psion ~ Telepath				CATEGORY:Internal											DEFINE:PsionicTelepath|0	BONUS:VAR|PsionicTelepath|1		
 
 
 # Ability Name				Category of Ability		Type						Visible	Define														Description																				Ability											Modify VAR

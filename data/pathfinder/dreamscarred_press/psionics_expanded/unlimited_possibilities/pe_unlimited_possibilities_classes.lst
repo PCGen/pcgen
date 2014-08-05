@@ -137,7 +137,7 @@ CLASS:Psicrystal Imprinter	HD:6		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE
 CLASS:Psicrystal Imprinter	PREFEAT:2,Craft Cognizance Crystal,Scribe Scroll	PRESKILL:2,Knowledge (Psionics)=1,Spellcraft=5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Psicrystal Imprinter	STARTSKILLPTS:2	CSKILL:Knowledge (Psionics)|Spellcraft
-1	BONUS:VAR|MndBladeLVL|(CL-1)	BONUS:VAR|AegisCL|(CL-1)	BONUS:VAR|AegisDRLVL|(CL-1)	DEFINE:PsicrystalImprinterLVL|CL
+1	BONUS:VAR|MndBladeLVL|(CL-1)	BONUS:VAR|AegisCL|(CL-1)	BONUS:VAR|AegisDRLVL|(CL-1)	DEFINE:PsicrystalImprinterLVL|0	BONUS:VAR|PsicrystalImprinterLVL|CL
 1																										ABILITY:Special Ability|AUTOMATIC|Psicrystal Bond ~ Psicrystal Imprinter|Psicrystal Receptacle ~ Psicrystal Imprinter
 2	BONUS:VAR|SkilledCrafter|CL/2																	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Skilled Crafter ~ Psicrystal Imprinter
 3	BONUS:VAR|PsicrystalResonanceLVL|CL																ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Psicrystal Resonance ~ Psicrystal Imprinter

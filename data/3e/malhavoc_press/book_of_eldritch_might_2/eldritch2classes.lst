@@ -78,9 +78,9 @@ CLASS:Diplomancer	PREFEAT:2,Skill Focus (Diplomacy),Spell Focus (Enchantment)	PR
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Hide|Innuendo|Intimidate|TYPE=Knowledge|Listen|Scry|Search|Sense Motive|Spellcraft|Spot
 1	SAB:Charm															ADD:SPELLCASTER|ANY
-2	SAB:Enchantment Affinity +%|EnchantAff						DEFINE:EnchantAff|1
+2	SAB:Enchantment Affinity +%|EnchantAff						DEFINE:EnchantAff|0	BONUS:VAR|EnchantAff|1
 3	SAB:Magical Seduction/Attractiveness										ADD:SPELLCASTER|ANY
-4	SAB:Protection from Evocations +%|ProtEvoc					DEFINE:ProtEvoc|1
+4	SAB:Protection from Evocations +%|ProtEvoc					DEFINE:ProtEvoc|0		BONUS:VAR|ProtEvoc|1
 5	SAB:Insight into Secrets												ADD:SPELLCASTER|ANY
 6									BONUS:VAR|EnchantAff|1
 7	SAB:Charisma Gift														ADD:SPELLCASTER|ANY

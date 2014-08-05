@@ -73,8 +73,8 @@ CLASS:Cryptic	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Cryp
 1	BONUS:VAR|BonusPowerPoints|(CrypticPrimeStat*CrypticPL)/2|TYPE=CrypticBonusPP
 
 1	BONUS:VAR|CrypticCL|CrypticLVL	BONUS:VAR|CrypticCL|var("BL=Cryptic")															DEFINE:CrypticCL|0
-1	BONUS:VAR|CrypticPowersKnown|CrypticPowersKnownLVL																			DEFINE:CrypticPowersKnownLVL|CL	DEFINE:CrypticPowersKnown|0
-1	BONUS:VAR|CrypticMaximumPowerLevelKnown|min(6,floor((CrypticMaximumPowerLevelKnownLVL+2)/3))												DEFINE:CrypticMaximumPowerLevelKnownLVL|CL	DEFINE:CrypticMaximumPowerLevelKnown|0
+1	BONUS:VAR|CrypticPowersKnown|CrypticPowersKnownLVL																			DEFINE:CrypticPowersKnownLVL|CL			DEFINE:CrypticPowersKnown|0				BONUS:VAR|CrypticPowersKnownLVL|CL			
+1	BONUS:VAR|CrypticMaximumPowerLevelKnown|min(6,floor((CrypticMaximumPowerLevelKnownLVL+2)/3))												DEFINE:CrypticMaximumPowerLevelKnownLVL|CL	DEFINE:CrypticMaximumPowerLevelKnown|0		BONUS:VAR|CrypticMaximumPowerLevelKnownLVL|CL	
 
 ###Block: Cryptic Powers Known
 1	KNOWN:2,1
@@ -361,7 +361,7 @@ CLASS:Vitalist	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:PSIONIC	MEMORIZE:NO	B
 1																		BONUS:SPELLKNOWN|CLASS=Vitalist;LEVEL=0|2|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistKnacks
 1																																																ABILITY:Special Ability|AUTOMATIC|Collective Healing|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistCollectiveHealing
 1																																																ABILITY:Special Ability|AUTOMATIC|Medic Powers|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistMedicPowers
-1																																		BONUS:VAR|TransferWoundsDice|(TransferWoundsLVL+2)/3	DEFINE:TransferWoundsLVL|CL	ABILITY:Special Ability|AUTOMATIC|Transfer Wounds|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistTransferWounds
+1																																		BONUS:VAR|TransferWoundsDice|(TransferWoundsLVL+2)/3	DEFINE:TransferWoundsLVL|0	BONUS:VAR|TransferWoundsLVL|CL	ABILITY:Special Ability|AUTOMATIC|Transfer Wounds|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistTransferWounds
 2																																		BONUS:VAR|HealthSenseLVL|CL										ABILITY:Special Ability|AUTOMATIC|Health Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistHealthSense
 2																																																ABILITY:Special Ability|AUTOMATIC|Spirit of Many|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistSpiritOfMany
 3																																		BONUS:VAR|StealHealthLVL|CL										ABILITY:Special Ability|AUTOMATIC|Steal Health|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistStealHealth

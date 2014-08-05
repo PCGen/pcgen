@@ -80,7 +80,7 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 
 ###Block: Class Info
 1					BONUS:ABILITYPOOL|Primary Warrior Path|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorWarriorPath		BONUS:VAR|WarriorPathLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorWarriorPath
-1	KNOWN:0,1			BONUS:ABILITYPOOL|Psychic Warrior Feat|1													BONUS:VAR|PrereqBAB|(CL+3)/4|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPsionicProficiency	DEFINE:PrereqBAB|BAB		ABILITY:Special Ability|AUTOMATIC|Psionic Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPsionicProficiency
+1	KNOWN:0,1			BONUS:ABILITYPOOL|Psychic Warrior Feat|1													BONUS:VAR|PrereqBAB|(CL+3)/4|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPsionicProficiency	DEFINE:PrereqBAB|0	BONUS:VAR|PrereqBAB|BAB		ABILITY:Special Ability|AUTOMATIC|Psionic Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPsionicProficiency
 1																																														ABILITY:Special Ability|AUTOMATIC|Warrior's Path|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorWarriorPath
 2	KNOWN:0,2			BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat2
 3	KNOWN:0,3
@@ -95,7 +95,7 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 12	KNOWN:0,3,3,3,3																																											ABILITY:Special Ability|AUTOMATIC|Twisting Path|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorTwistingPath
 13	KNOWN:0,3,3,3,3,1
 14	KNOWN:0,3,3,3,3,2		BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat14
-15	KNOWN:0,3,3,3,3,3																					BONUS:VAR|PathweavingLVL|-CL|PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPathweaving		DEFINE:PathweavingLVL|CL	ABILITY:Special Ability|AUTOMATIC|Pathweaving|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPathweaving
+15	KNOWN:0,3,3,3,3,3																					BONUS:VAR|PathweavingLVL|-CL|PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPathweaving		DEFINE:PathweavingLVL|0	BONUS:VAR|PathweavingLVL|CL	ABILITY:Special Ability|AUTOMATIC|Pathweaving|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPathweaving
 16	KNOWN:0,3,3,3,3,3,1
 17	KNOWN:0,3,3,3,3,3,2	BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat17
 18	KNOWN:0,3,3,3,3,3,3

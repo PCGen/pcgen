@@ -77,7 +77,7 @@ CLASS:Metaforge	PREABILITY:2,CATEGORY=Special Ability,Enhanced Mind Blade,Invigo
 CLASS:Metaforge	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Fly|Intimidate|Knowledge (Psionics)
 
 ###Block: Metaforge class abilities
-1	BONUS:VAR|AegisCL|CL	BONUS:VAR|AegisDRLVL|CL	BONUS:VAR|AstralSuitLVL|CL	BONUS:VAR|MndBladeLVL|CL	DEFINE:MetaforgedLVL|CL
+1	BONUS:VAR|AegisCL|CL	BONUS:VAR|AegisDRLVL|CL	BONUS:VAR|AstralSuitLVL|CL	BONUS:VAR|MndBladeLVL|CL	DEFINE:MetaforgedLVL|0	BONUS:VAR|MetaforgedLVL|CL
 1	BONUS:VAR|CrystallizedMindBlade|(CL+3)/4																ABILITY:Special Ability|AUTOMATIC|Crystallized Mind Blade ~ Metaforge
 2	BONUS:VAR|TransferEnhancement|CL/2																	ABILITY:Special Ability|AUTOMATIC|Transfer Enhancement ~ Metaforge
 3																							ABILITY:Special Ability|AUTOMATIC|Dual Summon ~ Metaforge
@@ -146,7 +146,7 @@ CLASS:Psicrystal Imprinter	PREFEAT:2,Craft Cognizance Crystal,Scribe Scroll	PRES
 CLASS:Psicrystal Imprinter	STARTSKILLPTS:2	CSKILL:Knowledge (Psionics)|Spellcraft
 
 ###Block: Psicrystal imprinter Class abilities
-1							DEFINE:PsicrystalImprinterLVL|CL
+1							DEFINE:PsicrystalImprinterLVL|0	BONUS:VAR|PsicrystalImprinterLVL|CL
 1													ABILITY:Special Ability|AUTOMATIC|Psicrystal Bond ~ Psicrystal Imprinter|Psicrystal Receptacle ~ Psicrystal Imprinter
 2	BONUS:VAR|SkilledCrafter|CL/2								ABILITY:Special Ability|AUTOMATIC|Skilled Crafter ~ Psicrystal Imprinter
 3	BONUS:VAR|PsicrystalResonanceLVL|CL							ABILITY:Special Ability|AUTOMATIC|Psicrystal Resonance ~ Psicrystal Imprinter

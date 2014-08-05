@@ -36,7 +36,7 @@ CLASS:Arcane Performer	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Cli
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Musical Prodigy
-1	SAB:Musical Prodigy (+% DC of Bardic music and supernatural musical abilities)|MusicalProdigyDC	DEFINE:MusicalProdigyDC|1	AUTO:FEAT|Musical Prodigy
+1	SAB:Musical Prodigy (+% DC of Bardic music and supernatural musical abilities)|MusicalProdigyDC	DEFINE:MusicalProdigyDC|0	BONUS:VAR|MusicalProdigyDC|1	AUTO:FEAT|Musical Prodigy
 ###Block: Normal Level Progression
 1																ADD:SPELLCASTER|ANY	ADD:FEAT|Song Power I
 2	SAB:Masterful Performance (Ex)										ADD:SPELLCASTER|ANY
@@ -111,7 +111,7 @@ CLASS:Detective	STARTSKILLPTS:8	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher S
 ###Block: Normal Level Progression
 1																										ADD:FEAT|Reference Material
 2	SAB:Eye for Clues (Ex)					BONUS:SKILL|Spot|4|TYPE=Competence
-3	SAB:Second Thought %/day (Ex)|SecondThought														DEFINE:SecondThought|1
+3	SAB:Second Thought %/day (Ex)|SecondThought														DEFINE:SecondThought|0	BONUS:VAR|SecondThought|1
 4																										ADD:FEAT|Reference Material
 5	SAB:Experienced Detective (Ex)			BONUS:SKILL|Sense Motive,Spot|2|TYPE=Competence
 6																	BONUS:VAR|SecondThought|1
@@ -133,7 +133,7 @@ CLASS:Game Hunter	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE=Craft|Handle 
 ###Block: Normal Level Progression
 1																														ADD:FEAT|TYPE=GameHunterFavored
 2	SAB:Scentless
-3	SAB:Steady Aim +% (Ex)|SteadyAim	SAB:Ranged Sneak Attack (%d6)(Ex)|SteadyAim												DEFINE:SteadyAim|CL/3
+3	SAB:Steady Aim +% (Ex)|SteadyAim	SAB:Ranged Sneak Attack (%d6)(Ex)|SteadyAim												DEFINE:SteadyAim|0	BONUS:VAR|SteadyAim|CL/3
 4	SAB:Survivor (Ex)												BONUS:SKILL|Intuit Direction,Wilderness Lore|2|TYPE=Competence
 5																														ADD:FEAT|TYPE=GameHunterFavored
 7	SAB:Silent Hunter (Ex)											BONUS:SKILL|Hide,Move Silently|2|TYPE=Competence
@@ -153,7 +153,7 @@ CLASS:Gun Glyph	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Intimida
 ###Block: Normal Level Progression
 1	SAB:Armor Adaptation (Ex)			BONUS:MISC|SPELLFAILURE|ArmorAdaptation	BONUS:VAR|ArmorAdaptation|-2						DEFINE:ArmorAdaptation|0	ADD:SPELLCASTER|Arcane
 2	SAB:Arcane Bond I (Sp)|PREVARLT:CL,5
-3	SAB:Marksman +% (Ex)|GunGlyphMarksman																		DEFINE:GunGlyphMarksman|CL/3	ADD:SPELLCASTER|Arcane
+3	SAB:Marksman +% (Ex)|GunGlyphMarksman																		DEFINE:GunGlyphMarksman|0	BONUS:VAR|GunGlyphMarksman|CL/3	ADD:SPELLCASTER|Arcane
 4															BONUS:VAR|ArmorAdaptation|-2
 5	SAB:Arcane Bond II (Sp)|PREVARLT:CL,8																							ADD:SPELLCASTER|Arcane
 7															BONUS:VAR|ArmorAdaptation|-4											ADD:SPELLCASTER|Arcane
@@ -172,7 +172,7 @@ CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Di
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1																									ADD:SPELLCASTER|ANY	ADD:FEAT|Hypnotist DC Bonus,Spell Focus(Enchantment)
-2	SAB:Focused Mind +% (Ex)|FocusedMind				BONUS:SAVE|Will|FocusedMind|TYPE=Insight	DEFINE:FocusedMind|CL/2
+2	SAB:Focused Mind +% (Ex)|FocusedMind				BONUS:SAVE|Will|FocusedMind|TYPE=Insight	DEFINE:FocusedMind|0	BONUS:VAR|FocusedMind|CL/2
 #2	AUTO:FEAT|Master Hypnotist	Not sure but I would think they left this out
 3																									ADD:SPELLCASTER|ANY	ADD:FEAT|Master of Enchantment I
 4																																						AUTO:FEAT|Ultimate Hypnotist
@@ -181,7 +181,7 @@ CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Di
 7																									ADD:SPELLCASTER|ANY	ADD:FEAT|Master of Enchantment III
 8
 9																									ADD:SPELLCASTER|ANY	ADD:FEAT|Master of Enchantment IV
-10	SAB:Master of Domination %/day (Sp)|MasterofDomination									DEFINE:MasterofDomination|INT/2
+10	SAB:Master of Domination %/day (Sp)|MasterofDomination									DEFINE:MasterofDomination|0	BONUS:VAR|MasterofDomination|INT/2
 
 # Noble Bodyguard ----------------------------------------------------------------------------
 
@@ -196,7 +196,7 @@ CLASS:Noble Bodyguard	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Disguise|Drive|Hand
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1			SAB:Human Shield (Ex)
-3			SAB:Improved Defense +% (Ex)|ImprovedDefense	BONUS:COMBAT|AC|ImprovedDefense|TYPE=Dodge	DEFINE:ImprovedDefense|(CL-1)/2
+3			SAB:Improved Defense +% (Ex)|ImprovedDefense	BONUS:COMBAT|AC|ImprovedDefense|TYPE=Dodge	DEFINE:ImprovedDefense|0	BONUS:VAR|ImprovedDefense|(CL-1)/2
 6																									ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 9			SAB:Defensive Reflexes (Ex)				BONUS:COMBAT|INITIATIVE|4|TYPE=Insight
 10	DR:2/-	SAB:Bastion of Protection (Ex)
@@ -214,7 +214,7 @@ CLASS:Physician	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Hide|Intuit Direction|Listen|M
 ###Block: Normal Level Progression
 1	SAB:Survey the Damage
 2	SAB:Healing Hand	SAB:Medicinal Knowledge I (Ex)								BONUS:SKILL|Heal|4|TYPE=Competence
-3	SAB:Temporary Reprieve (1d6+%) (Ex)|TemporaryReprieve																				DEFINE:TemporaryReprieve|((CL-1)/2)*CL
+3	SAB:Temporary Reprieve (1d6+%) (Ex)|TemporaryReprieve																				DEFINE:TemporaryReprieve|0	BONUS:VAR|TemporaryReprieve|((CL-1)/2)*CL
 4	SAB:Model of Health (Ex)	SAB:Restore Health (Ex)			BONUS:SAVE|Fortitude|2
 6	SAB:Hand of Life (Ex)	SAB:Medicinal Knowledge II (Ex)
 8	SAB:Reaper's Bane (Ex)
@@ -231,10 +231,10 @@ CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Disable Device|Driv
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	SAB:Skilled Pilot +% (Ex)|SkilledPilot	SAB:Combat Ace +% (Ex)|CombatAce	BONUS:SKILL|Drive,SkilledPilot|TYPE=Competence						DEFINE:SkilledPilot|(((CL/5)*2)+2)	DEFINE:CombatAce|(CL+3)/4
+1	SAB:Skilled Pilot +% (Ex)|SkilledPilot	SAB:Combat Ace +% (Ex)|CombatAce	BONUS:SKILL|Drive,SkilledPilot|TYPE=Competence						DEFINE:SkilledPilot|0	DEFINE:CombatAce|0	BONUS:VAR|SkilledPilot|(((CL/5)*2)+2)	BONUS:VAR|CombatAce|(CL+3)/4
 2	SAB:Vehicle Evasion (Ex)
 4	SAB:Combat Maneuvers (Ex)
-6	SAB:Master Gunner (%d6) (Ex)|MasterGunner																				DEFINE:MasterGunner|1
+6	SAB:Master Gunner (%d6) (Ex)|MasterGunner																				DEFINE:MasterGunner|0	BONUS:VAR|MasterGunner|1
 7	SAB:Defensive Piloting (Ex)
 8	SAB:Greater Evasion (Ex)
 10	SAB:Master Pilot (Ex)																		BONUS:VAR|MasterGunner|1
@@ -255,7 +255,7 @@ CLASS:Rocket Ace	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|TYPE=Craft|Disable
 3	SAB:Dive (Ex)
 4	SAB:Booster (% ft. for % rounds) (Ex)|CL+10|CL
 5	SAB:Fly-By (Ex)
-6	SAB:Rocket Defense +% (Ex)|RocketDefense		DEFINE:RocketDefense|DEX
+6	SAB:Rocket Defense +% (Ex)|RocketDefense		DEFINE:RocketDefense|0	BONUS:VAR|RocketDefense|DEX
 7	SAB:Cannonball (Ex)
 8	SAB:Attack of Momentum (Ex)
 9	SAB:Afterburner (Ex)

@@ -19,8 +19,8 @@ CLASS:Guardian	STARTSKILLPTS:2	CSKILL:Gather Information|Handle Animal|Intimidat
 ###Block: Normal Level Progression
 1	SAB:Defender																							ADD:FEAT|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter	ADD:FEAT|Primitive Craft Class Skill,Skill Focus Advanced
 2																										ADD:FEAT|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
-4																		DEFINE:WeapSpecQualify|1				ADD:FEAT|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
-5	SAB:Called Shot +%d%|CalledShot|CalledShotDie	BONUS:VAR|CalledShot|(var("CL=Guardian")-5)/4 +1	DEFINE:CalledShotDie|6	DEFINE:CalledShot|0
+4																		BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0				ADD:FEAT|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
+5	SAB:Called Shot +%d%|CalledShot|CalledShotDie	BONUS:VAR|CalledShot|(var("CL=Guardian")-5)/4 +1	DEFINE:CalledShotDie|0	DEFINE:CalledShot|0	BONUS:VAR|CalledShotDie|6
 6																										ADD:FEAT|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
 8																										ADD:FEAT|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
 10																										ADD:FEAT|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
@@ -39,7 +39,7 @@ CLASS:Raider	STARTSKILLPTS:2	CSKILL:Craft (Mechanics)|Gather Information|Handle 
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	SAB:Chains and Chaps +%|ChainsChaps	DEFINE:ChainsChaps|CL/10+1	ADD:FEAT|Primitive Raider Craft Class Skill,Primitive Raider Mechanics Bonus,Skill Focus Advanced
+1	SAB:Chains and Chaps +%|ChainsChaps	DEFINE:ChainsChaps|0	BONUS:VAR|ChainsChaps|CL/10+1	ADD:FEAT|Primitive Raider Craft Class Skill,Primitive Raider Mechanics Bonus,Skill Focus Advanced
 2												ADD:FEAT|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
 3	SAB:Boarding Party
 5												ADD:FEAT|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
@@ -64,8 +64,8 @@ CLASS:Scav		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Decipher Script|For
 ###Block: Normal Level Progression
 1																			BONUS:VAR|SneakAttackDice|CL/5+1																		ADD:FEAT|Primitive Craft Skill Bonus,Skill Focus Advanced	ABILITY:Special Ability|AUTOMATIC|Nature Sense	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 4	SAB:Radiation Sense
-8	SAB:Canny Defense (%)|WIS				BONUS:COMBAT|AC|WIS|PREVAREQ:LowArmor,0|TYPE=Enhancement							DEFINE:LowArmor|var("COUNT[EQTYPE.ARMOR.EQUIPPED]")-var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")
-12	SAB:Feign Death (% rounds)|FeignDeathRounds																	DEFINE:FeignDeathRounds|CL*10
+8	SAB:Canny Defense (%)|WIS				BONUS:COMBAT|AC|WIS|PREVAREQ:LowArmor,0|TYPE=Enhancement							DEFINE:LowArmor|0			BONUS:VAR|LowArmor|var("COUNT[EQTYPE.ARMOR.EQUIPPED]")-var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")
+12	SAB:Feign Death (% rounds)|FeignDeathRounds																	DEFINE:FeignDeathRounds|0	BONUS:VAR|FeignDeathRounds|CL*10
 16	SAB:Shadow in the Open
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page			Save checks bonus												Combat bonus
@@ -75,7 +75,7 @@ CLASS:Thinker	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE=Craft|Decipher Script|D
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1																			ADD:FEAT|Skill Focus	ADD:FEAT|Primitive Craft Skill Bonus,Skill Focus Advanced
-2	SAB:Thinker Knowledge (+%)|ThinkerKnowledge	BONUS:VAR|ThinkerKnowledge|CL	DEFINE:ThinkerKnowledge|INT
+2	SAB:Thinker Knowledge (+%)|ThinkerKnowledge	BONUS:VAR|ThinkerKnowledge|CL+INT	DEFINE:ThinkerKnowledge|0
 5	SAB:Dirty Fighter																ADD:FEAT|Skill Focus
 6																			ADD:FEAT|Exotic Weapon Proficiency
 8	SAB:Inspire Skill
@@ -98,7 +98,7 @@ CLASS:Trader	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Gather Info
 2	SAB:Spit Polish					BONUS:SKILL|Bluff,Diplomacy,Forgery|2|TYPE=Morale
 3	SAB:Ear to the Ground				BONUS:SKILL|Appraise|2|TYPE=Competence	BONUS:SKILL|Gather Information|4|TYPE=Competence
 4	SAB:Money Talks
-5	SAB:Going Once x%.%|GoingOnce1|GoingOnce2																									DEFINE:GoingOnce1|1	DEFINE:GoingOnce2|5
+5	SAB:Going Once x%.%|GoingOnce1|GoingOnce2																									DEFINE:GoingOnce1|0	DEFINE:GoingOnce2|0	BONUS:VAR|GoingOnce1|1	BONUS:VAR|GoingOnce2|5
 10	SAB:Sucker Every Minute																				BONUS:VAR|GoingOnce1|1	BONUS:VAR|GoingOnce2|-5
 12	SAB:Read the Signs
 15																																																														AUTO:FEAT|Leadership

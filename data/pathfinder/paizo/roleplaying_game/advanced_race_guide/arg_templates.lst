@@ -5,7 +5,7 @@
 Truespeaker						VISIBLE:NO	SOURCEPAGE:p.85									LANGBONUS:ALL
 
 # Template Name					Visible	Source Page		Define							Bonus Languages
-Bypass Advanced Race Spell Restrictions						DEFINE:BypassAdvancedRaceSpellRestriction|1
+Bypass Advanced Race Spell Restrictions						DEFINE:BypassAdvancedRaceSpellRestriction|0	BONUS:VAR|BypassAdvancedRaceSpellRestriction|1
 
 ###Block:
 # Template Name			Template																																																																																																									Define																																			Modify VAR																																Removable?

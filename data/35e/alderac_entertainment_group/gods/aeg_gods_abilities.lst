@@ -3,7 +3,10 @@ SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:200
 
 ###Block: Hidden Abilities
 # Ability Name			Unique Key			Category of Ability		Type						Visible	Special ABility																						Define																																						Description						Stackable?	Multiple?	Choose
-Rebuke Giants							CATEGORY:Special Ability	TYPE:Turning.TurnGiant			VISIBLE:NO	SAB:Rebuke Giant (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesGiant|TurnLevelGiant|TurnDiceGiant|TurnDieSizeGiant|TurnDamagePlusGiant	DEFINE:TurnTimesGiant|TurnTimesBase	DEFINE:TurnLevelGiant|TurnLevelBase	DEFINE:TurnDiceGiant|TurnDiceBase	DEFINE:TurnDieSizeGiant|TurnDieSizeBase	DEFINE:TurnDamagePlusGiant|TurnDamagePlusBase	DEFINE:TurnCheckGiant|TurnCheckBase
+Rebuke Giants							CATEGORY:Special Ability	TYPE:Turning.TurnGiant			VISIBLE:NO	SAB:Rebuke Giant (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesGiant|TurnLevelGiant|TurnDiceGiant|TurnDieSizeGiant|TurnDamagePlusGiant	DEFINE:TurnTimesGiant|0	BONUS:VAR|TurnTimesGiant|TurnTimesBase	DEFINE:TurnLevelGiant|0	BONUS:VAR|TurnLevelGiant|TurnLevelBase	DEFINE:TurnDiceGiant|0	BONUS:VAR|TurnDiceGiant|TurnDiceBase	DEFINE:TurnDieSizeGiant|0	BONUS:VAR|TurnDieSizeGiant|TurnDieSizeBase	DEFINE:TurnDamagePlusGiant|0	BONUS:VAR|TurnDamagePlusGiant|TurnDamagePlusBase	DEFINE:TurnCheckGiant|0	BONUS:VAR|TurnCheckGiant|TurnCheckBase
+
+
+
 #Issue: Rebuke Giants table isn't showing up on the OS.
 Hunter Favored Humanoid Enemy	KEY:HHFavored Enemy	CATEGORY:Special Ability	TYPE:ClassFeatures.SpecialQuality	VISIBLE:YES																																																																DESC:Favored Humanoid Enemy (%1)|%CHOICE	STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Humanoid
 

@@ -107,7 +107,7 @@ CLASS:Drider Cleric	STARTSKILLPTS:2	MODTOSKILLS:YES
 1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting ~ Cure spells|PREABILITY:1,CATEGORY=Special Ability,Turn Undead
 1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting ~ Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
 ###Block: progression
-1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility					BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|classlevel()|TYPE=Level.REPLACE	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	DEFINE:AllowExtraTurning|1	ADD:SPELLCASTER|Cleric	ABILITY:Special Ability|AUTOMATIC|Basic Turning
+1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility					BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|classlevel()|TYPE=Level.REPLACE	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	DEFINE:AllowExtraTurning|0	BONUS:VAR|AllowExtraTurning|1	ADD:SPELLCASTER|Cleric	ABILITY:Special Ability|AUTOMATIC|Basic Turning
 2										BONUS:PCLEVEL|Cleric|1
 3										BONUS:PCLEVEL|Cleric|1
 4										BONUS:PCLEVEL|Cleric|1

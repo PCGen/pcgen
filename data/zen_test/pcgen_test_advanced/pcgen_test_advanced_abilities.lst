@@ -592,7 +592,7 @@ Add Flight Movement ~ 50			CATEGORY:FEAT				TYPE:Test																											
 # Flight Stuff for testing Output
 ###Block: Flight Maneuverability
 # Ability Name		Category of Ability		Visible	Define				Choose											Ability																																																																								Temporary effect description												Temporary Bonus
-Flight Maneuverability	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Maneuverability|0	CHOOSE:NUMBER|MIN=-4|MAX=4|TITLE=Flight Maneuverability Adjustment	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Clumsy)|PREVARLTEQ:Maneuverability,1	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Poor)|PREVAREQ:Maneuverability,2	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)|PREVAREQ:Maneuverability,3	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Good)|PREVAREQ:Maneuverability,4	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Perfect)|PREVARGTEQ:Maneuverability,5	TEMPDESC:Adjust Flight Maneuverability up or down by assigning a possitive or negative number	TEMPBONUS:PC|VAR|Maneuverability|%CHOICE
+Flight Maneuverability	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|0	CHOOSE:NUMBER|MIN=-4|MAX=4|TITLE=Flight Maneuverability Adjustment	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Clumsy)|PREVARLTEQ:Maneuverability,1	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Poor)|PREVAREQ:Maneuverability,2	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)|PREVAREQ:Maneuverability,3	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Good)|PREVAREQ:Maneuverability,4	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Perfect)|PREVARGTEQ:Maneuverability,5	TEMPDESC:Adjust Flight Maneuverability up or down by assigning a possitive or negative number	TEMPBONUS:PC|VAR|Maneuverability|%CHOICE
 
 ###Block: Maneuverability
 # Ability Name			Category of Ability		Type				Visible	Aspects
@@ -1385,7 +1385,7 @@ Smoke Claws				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIB
 Smoke Form				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Sonic Blast				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Sonic Lance				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
-Sound Imitation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DEFINE:SoundImitationDC|10+(HD/2)+CHA	DESC:DC %1|SoundImitationDC																																																																																																																							BONUS:VAR|SoundImitationDC|2|PREFEAT:1,Ability Focus (Sound Imitation)
+Sound Imitation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DEFINE:SoundImitationDC|0	BONUS:VAR|SoundImitationDC|10+(HD/2)+CHA	DESC:DC %1|SoundImitationDC																																																																																																																							BONUS:VAR|SoundImitationDC|2|PREFEAT:1,Ability Focus (Sound Imitation)
 Speak with Animals		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES
 Speak With Sharks			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Communicate	VISIBLE:YES
 Special Arrows			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
@@ -1404,7 +1404,7 @@ Squeeze				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:Y
 Stampede				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Stasis Touch			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Steal Essence			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
-Stench				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura		VISIBLE:YES	DEFINE:StenchDC|10+(HD/2)+CON			DESC:DC %1|StenchDC																																																																																																																								BONUS:VAR|StenchDC|2|PREFEAT:1,Ability Focus (Stench)
+Stench				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura		VISIBLE:YES	DEFINE:StenchDC|0		BONUS:VAR|StenchDC|10+(HD/2)+CON			DESC:DC %1|StenchDC																																																																																																																								BONUS:VAR|StenchDC|2|PREFEAT:1,Ability Focus (Stench)
 Sticky				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Stomp					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Stone Shape				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
@@ -1439,7 +1439,7 @@ Swallow Whole			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Attack
 
 ###Block: RSRD Abilities T-W
 # Ability Name			Category of Ability		Type								Visible	Define																			Description																																	Modify VAR															Source Page						Aspects
-Tail Sweep				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:TailSweepDice|0	DEFINE:TailSweepDamageDie|0	DEFINE:TailSweepBonusDamage|0	DEFINE:TailSweepDC|10+(HD/2)+CON	DESC:%1d%2+%3 (DC %4)|TailSweepDice|TailSweepDamageDie|TailSweepBonusDamage|TailSweepDC|PREVARGT:TailSweepDice,0																BONUS:VAR|TailSweepDC|2|PREFEAT:1,Ability Focus (Tail Sweep)
+Tail Sweep				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:TailSweepDice|0	DEFINE:TailSweepDamageDie|0	DEFINE:TailSweepBonusDamage|0	DEFINE:TailSweepDC|0	BONUS:VAR|TailSweepDC|10+(HD/2)+CON	DESC:%1d%2+%3 (DC %4)|TailSweepDice|TailSweepDamageDie|TailSweepBonusDamage|TailSweepDC|PREVARGT:TailSweepDice,0																BONUS:VAR|TailSweepDC|2|PREFEAT:1,Ability Focus (Tail Sweep)
 Telepathy				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES	DEFINE:TelepathyRange|0																	DESC:%1 ft. range|TelepathyRange|PREVARGT:TelepathyRange,0
 Teleport				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyMovement	VISIBLE:YES
 Time Filch				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
@@ -1447,7 +1447,7 @@ Time Leach				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBL
 Time Regression			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Tiger Empathy			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Tongues				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES
-Trample				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES	DEFINE:TrampleDC|10																	DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC					BONUS:VAR|TrampleDC|2|PREFEAT:1,Ability Focus (Trample)	BONUS:VAR|TrampleDC|STR+(HD/2)	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Trample				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES	DEFINE:TrampleDC|0	BONUS:VAR|TrampleDC|10																DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC					BONUS:VAR|TrampleDC|2|PREFEAT:1,Ability Focus (Trample)	BONUS:VAR|TrampleDC|STR+(HD/2)	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Transparent				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.ModifyAC		VISIBLE:YES
 Trap Essence			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Trap the Soul			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES	DEFINE:TrapTheSoulDC|0																	DESC:DC %1|TrapTheSoulDC|PREVARGT:TrapTheSoulDC,0
@@ -1457,7 +1457,7 @@ Trip					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	
 Triple Damage Against Objects	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
 True Seeing				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		VISIBLE:YES
 Trumpet				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
-Turn Resistance			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DEFINE:TurnResistBonus|0	DEFINE:TurnResistEHD|TL+TurnResistBonus									DESC:+%1|TurnResistBonus|PREVARGT:TurnResistBonus,0	DESC:When resolving a turn, rebuke, command, or bolster attempt, add +%1 number to your Hit Dice total (total %2).|TurnResistBonus|TurnResistEHD																	SOURCEPAGE:TypesSubtypesAbilities.rtf	ASPECT:Ability Bonus|+%1|TurnResistBonus
+Turn Resistance			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DEFINE:TurnResistBonus|0	DEFINE:TurnResistEHD|0	BONUS:VAR|TurnResistEHD|TL+TurnResistBonus								DESC:+%1|TurnResistBonus|PREVARGT:TurnResistBonus,0	DESC:When resolving a turn, rebuke, command, or bolster attempt, add +%1 number to your Hit Dice total (total %2).|TurnResistBonus|TurnResistEHD																	SOURCEPAGE:TypesSubtypesAbilities.rtf	ASPECT:Ability Bonus|+%1|TurnResistBonus
 Unearthly Grace			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Unnatural Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES
 Unnerving Gaze			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES

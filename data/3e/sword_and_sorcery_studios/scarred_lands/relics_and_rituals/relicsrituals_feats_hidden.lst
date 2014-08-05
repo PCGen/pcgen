@@ -55,7 +55,7 @@ Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	MULT:YE
 
 ###Block: Vigilant Class Feats
 # Feat Name			Type			Visible	Special ABility						Define					Multiple?	Choose																											Source Page
-Vigilant Favored Enemy	TYPE:ClassAbility	VISIBLE:NO	SAB:Favored Enemy (%CHOICE) +%|VigilantFavored	DEFINE:VigilantFavored|(CL+2)/4	MULT:YES	CHOOSE:STRING|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Humanoid|Magical Beast|Monstrous Humanoid|Ooze|Outsider|Plant|Shapechanger|Undead|Vermin	SOURCEPAGE:p.22
+Vigilant Favored Enemy	TYPE:ClassAbility	VISIBLE:NO	SAB:Favored Enemy (%CHOICE) +%|VigilantFavored	DEFINE:VigilantFavored|0	BONUS:VAR|VigilantFavored|(CL+2)/4		MULT:YES	CHOOSE:STRING|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Humanoid|Magical Beast|Monstrous Humanoid|Ooze|Outsider|Plant|Shapechanger|Undead|Vermin	SOURCEPAGE:p.22
 Sprint			TYPE:ClassAbility	VISIBLE:NO	SAB:Sprint																																											SOURCEPAGE:p.22
 Tireless			TYPE:ClassAbility	VISIBLE:NO	SAB:Tireless																																										SOURCEPAGE:p.22
 Ferocity			TYPE:ClassAbility	VISIBLE:NO	SAB:Ferocity																																										SOURCEPAGE:p.22
