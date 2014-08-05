@@ -132,10 +132,10 @@ ABILITYCATEGORY:Specialized Ability Score Selection		VISIBLE:QUALIFY	EDITABLE:YE
 ABILITYCATEGORY:Race Builder Bonus Race Languages		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal		TYPE:RaceBuilderBonusLang						DISPLAYLOCATION:Race Builder Design
 
 # Race Builder Traits
-ABILITYCATEGORY:Race Trait Defense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits	TYPE:BuilderDefenseTrait.BuilderAdvancedDefenseTrait		DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Feat and Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits	TYPE:BuilderFeatSkillTrait.BuilderAdvancedFeatSkillTrait	DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Magical					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits	TYPE:BuilderMagicalTrait.BuilderAdvancedMagicalTrait		DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Movement					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits	TYPE:BuilderMovementTrait						DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Offense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits	TYPE:BuilderOffenseTrait						DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Weakness					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits	TYPE:BuilderWeaknessTrait						DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Other					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits	TYPE:BuilderOtherTrait							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Defense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderDefenseTrait.BuilderAdvancedDefenseTrait		DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Feat and Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderFeatSkillTrait.BuilderAdvancedFeatSkillTrait	DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Magical					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderMagicalTrait.BuilderAdvancedMagicalTrait		DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Movement					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderMovementTrait						DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Offense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderOffenseTrait						DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Weakness					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderWeaknessTrait						DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Other					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderOtherTrait							DISPLAYLOCATION:Race Builder Design
