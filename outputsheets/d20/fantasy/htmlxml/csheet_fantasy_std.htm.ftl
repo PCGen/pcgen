@@ -124,12 +124,18 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
   <td colspan="1" class="topline">DEITY</td>
   <td class="topline">POINTS</td>
  </tr>
- <tr>
-  <td colspan="1" class="h">${pcstring('CLASSLIST')}
-<#if (pcvar('count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
-  (${pcstring('ABILITYLIST.Archetype.TYPE=Archetype')})
-</#if>
-  </td>
+ <tr>			
+	<@loop from=0 to=pcvar('COUNT[CLASSES]-1') ; class , class_has_next>
+	<#if (pcvar(pcstring('CLASS.${class}.LEVEL')) > 0) >
+	<td colspan="1" class="h">${pcstring('CLASS.${class}')}
+	</#if>
+	</@loop>
+ <!-- <td colspan="1" class="h">${pcstring('CLASSLIST')}	-->
+	<#if (pcvar('count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+	(${pcstring('ABILITYLIST.Archetype.TYPE=Archetype')})
+	</#if>
+	</td>
+
   <td colspan="1" class="h">${pcstring('EXP.CURRENT')}</td>
   <td colspan="1" class="h">${pcstring('RACE')}</td>
   <td class="h">${pcstring('SIZELONG')} / ${pcstring('FACE')}</td>
@@ -438,7 +444,7 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
      <td align="center" width="13%" colspan="2" class="border6">RANKS</td>
      <td align="center" width="13%" colspan="2" class="border6">MISC<br />MODIFIER</td>
     </tr>
-<@loop from=0 to=pcvar('count("SKILLSIT")')-1; skill , skill_has_next >
+<@loop from=0 to=pcvar('count("SKILLSIT", "VIEW=EXPORT")')-1; skill , skill_has_next >
 <#if (skill % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
      <td align="center" ><font style="font-size: x-small"><#if pcboolean("SKILL.${skill}.UNTRAINED")>&#9670;</#if></font></td>
      <td align="left" class="font8">&nbsp;&nbsp;${pcstring('SKILL.${skill}')}</td>

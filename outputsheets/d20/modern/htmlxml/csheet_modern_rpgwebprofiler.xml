@@ -138,7 +138,7 @@
 |ENDIF|
     <node name="MaxRank">|MAXSKILLLEVEL|</node>
     <node name="MaxRankCC">|MAXCCSKILLLEVEL|</node>
-|FOR,%skill,0,${count("SKILLSIT")-1},1,0|
+|FOR,%skill,0,${count("SKILLSIT", "VIEW=EXPORT")-1},1,0|
 |IIF(%skill<9)|
     <node name="Skill0|%skill+1.INTVAL|">|SKILL.%skill|</node>
     <node name="Skill0|%skill+1.INTVAL|Ability">|SKILL.%skill.ABILITY|</node>

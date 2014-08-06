@@ -251,7 +251,7 @@ To Hit:
 <b>Skills</b>
 
 <blockquote>
-|FOR,%skill,0,${count("SKILLSIT")-1},1,0|
+|FOR,%skill,0,${count("SKILLSIT", "VIEW=EXPORT")-1},1,0|
 |IIF(VAR.IF(var("SKILL.%skill.RANK")==0;1;0):1)|
 |IIF(VAR.IF(var("SKILL.%skill.TOTAL")==0;1;0):1)|
 |ELSE|

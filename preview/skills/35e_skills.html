@@ -28,7 +28,7 @@
 		 <td align="center" width="5%" colspan="1" class="border7"></td>
 		 <td align="center" width="5%" colspan="1" class="border7">MISC<br>MOD</td>
     </tr>
-|FOR,%skill,0,${count("SKILLSIT")-1},1,0|
+|FOR,%skill,0,${count("SKILLSIT", "VIEW=EXPORT")-1},1,0|
 |OIF(EVEN:%skill,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
 		 <td align="center" class="skill" width="5%" height="15">|OIF(SKILLSIT.%skill.UNTRAINED,&#9670;,)|</td>
 		 <td align="left" class="skill">|SKILLSIT.%skill|</td>
