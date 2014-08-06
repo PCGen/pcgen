@@ -24,15 +24,15 @@ Shriek				KEY:Shriek ~ Mandragora		CATEGORY:Special Ability	TYPE:SpecialAttack.S
 
 ###Block: Menotherian Abilities
 # Ability Name	Unique Key					Category of Ability		Type							Visible	Description																											Source Page
-Alluring Scent							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Aura			DESC:The Menotherian constantly exudes intoxicating pheromones that cause creatures in her vicinity to grow relaxed and react favorably toward her, DC %1|10+(HD/2)+CON	SOURCEPAGE:p. 86
-Implant Swarm							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				DESC:Once per day as a standard action, the Menotherian can use her stinger to implant a cluster of eggs in a target, DC %1|10+(HD/2)+CON						SOURCEPAGE:p. 86
+Alluring Scent							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Aura			DESC:The Menotherian constantly exudes intoxicating pheromones that cause creatures in her vicinity to grow relaxed and react favorably toward her, DC %1|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p. 86
+Implant Swarm							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				DESC:Once per day as a standard action, the Menotherian can use her stinger to implant a cluster of eggs in a target, DC %1|10+(HD/2)+CON|TYPE=Base						SOURCEPAGE:p. 86
 Mind Control							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				DESC:The Menotherian can inject a concentrated form of its alluring scent directly into the brain of a helpless or willing humanoid creature.					SOURCEPAGE:p. 86
 Alternate Form	KEY:Alternate Form ~ Menotherian	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:YES	DESC:The Menotherian can change into her elf-like form or back again at will as a move-equivalent action.											SOURCEPAGE:p.87
 
 ###Block: Treerazer Abilities
 # Ability Name		Unique Key					Category of Ability		Type								Visible	Description																								Source Page
-Aura of Corruption							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura				DESC:Treerazer exudes an aura of corruption to a radius of 120 feet, DC %1|10+(HD/2)+CON											SOURCEPAGE:p. 88
-Defoliation									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					DESC:As a standard action once every 1d4 rounds, Treerazer can exude a pulse of defoliating energy in a 30-footradius spread, DC %1|10+(HD/2)+CON	SOURCEPAGE:p. 88
+Aura of Corruption							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura				DESC:Treerazer exudes an aura of corruption to a radius of 120 feet, DC %1|10+(HD/2)+CON|TYPE=Base											SOURCEPAGE:p. 88
+Defoliation									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					DESC:As a standard action once every 1d4 rounds, Treerazer can exude a pulse of defoliating energy in a 30-footradius spread, DC %1|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p. 88
 Unholy Aura									CATEGORY:Special Ability	TYPE:SpecialQuality.Aura						DESC:DC 25																								SOURCEPAGE:p. 88
 Freedom of Movement	KEY:Freedom of Movement ~ Treerazer	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyMovement	VISIBLE:YES	DESC:Treerazer constantly uses this ability, as the spell (CL 20th).														SOURCEPAGE:p.89
 Summon Demon		KEY:Summon Demon ~ Treerazer		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES	DESC:Once per day, Treerazer can automatically summon 1 shemhazian or 1d6 hezrous.												SOURCEPAGE:p.89

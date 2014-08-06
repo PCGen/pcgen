@@ -10,7 +10,7 @@ Soul Shriek							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DEF
 
 ###Block: Dhabba abilities
 # Ability Name	Unique Key			Category of Ability		Type						Define					Description																					Ability						Modify VAR									Source Page		Aspects
-Poison		KEY:Dhabba ~ Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	BONUS:VAR|DhabbaPoisonDC|10+(HD/2)+CON	DEFINE:DhabbaPoisonDC|0	DESC:Bite--injury; save Fort DC %1; initial damage nauseated for 1 round; secondary damage 1d4 Dex; cure 1 save.|DhabbaPoisonDC	ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|DhabbaPoisonDC|2|PREFEAT:1,Ability Focus (Poison)	SOURCEPAGE:p.60	ASPECT:Ability Benefit|(DC %1)|DhabbaPoisonDC
+Poison		KEY:Dhabba ~ Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	BONUS:VAR|DhabbaPoisonDC|10+(HD/2)+CON|TYPE=Base	DEFINE:DhabbaPoisonDC|0	DESC:Bite--injury; save Fort DC %1; initial damage nauseated for 1 round; secondary damage 1d4 Dex; cure 1 save.|DhabbaPoisonDC	ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|DhabbaPoisonDC|2|PREFEAT:1,Ability Focus (Poison)	SOURCEPAGE:p.60	ASPECT:Ability Benefit|(DC %1)|DhabbaPoisonDC
 
 ###Block: Sand Eel abilities
 # Ability Name	Category of Ability		Type						Description																										Source Page		Description of the Benefits
