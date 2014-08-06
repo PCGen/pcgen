@@ -13,8 +13,7 @@ CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|TYPE=Craft|Disable Device|Fly|He
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
 CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alchemist|CL
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=ArmorProfLight
 ###Block: Alchemist Book
 1	ABILITY:Internal|AUTOMATIC|Free Formula Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Alchemist=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Alchemist=1]]
 ###Block: Vars
@@ -65,13 +64,11 @@ CLASS:Cavalier	HD:10		TYPE:Base.PC.Cavalier	CLASSTYPE:PC	ABB:Cav		MAXLEVEL:20	AL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierWeaponProficiencies
-1																								AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierWeaponProficiencies
-1																								AUTO:FEAT|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierHeavyArmorProficiency
-1																								AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierLightArmorProficiency
-1																								AUTO:FEAT|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierMediumArmorProficiency
-1																								AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierShieldProficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierWeaponProficiencies
+1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierHeavyArmorProficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierLightArmorProficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierMediumArmorProficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=ShieldProf|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierShieldProficiency
 ###Block: Vars
 1	BONUS:VAR|CavalierChallengeLVL|CL	BONUS:VAR|CavalierChallengeTimes|(CL+2)/3	BONUS:VAR|CavalierMountLVL|CL
 1	BONUS:VAR|OrderAbilityLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierOrder
@@ -102,9 +99,9 @@ CLASS:Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguis
 CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Inquisitor|CL
 #COMMENT: Unable to enact properly for the Domain, Inquisitor does not get a domain slot, or bonus spells from it
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1												AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
-1																										AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple
+1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf
+1												AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
 ###Block: Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]]	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]]
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]]	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]]
@@ -114,24 +111,23 @@ CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 1	BONUS:ABILITYPOOL|Inquisitor Judgment Effect|1
 3	BONUS:ABILITYPOOL|Teamwork Feat|InquisitorLVL/3|PREMULT:1,[!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTeamworkFeat],[!PREABILITY:1,CATEGORY=Special Ability,Determination ~ Preacher]
 ###Block: Class Abilities
-1									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Domains|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
-1									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Monster Lore|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorMonsterLore
-1									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Stern Gaze|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSternGaze
-2									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Cunning Initiative|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorCunningInitiative
-2									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Detect Alignment|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDetectAlignment
-2									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Track|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrack
-3									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Solo Tactics|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSoloTactics
-5									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Bane|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorBane
-5									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Discern Lies|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDiscernLies
-8									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Second Judgment|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSecondJudgment
-11									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Stalwart|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorStalwart
-12									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Greater Bane|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorGreaterBane
-14									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Exploit Weakness|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorExploitWeakness
-16									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Third Judgment|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorThirdJudgment
-17									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Slayer|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSlayer
-20									ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ True Judgment|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrueJudgment
-#
-#Block: Casting
+1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Domains|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
+1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Monster Lore|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorMonsterLore
+1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Stern Gaze|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSternGaze
+2	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Cunning Initiative|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorCunningInitiative
+2	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Detect Alignment|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDetectAlignment
+2	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Track|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrack
+3	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Solo Tactics|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSoloTactics
+5	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Bane|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorBane
+5	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Discern Lies|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDiscernLies
+8	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Second Judgment|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSecondJudgment
+11	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Stalwart|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorStalwart
+12	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Greater Bane|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorGreaterBane
+14	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Exploit Weakness|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorExploitWeakness
+16	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Third Judgment|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorThirdJudgment
+17	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Slayer|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSlayer
+20	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ True Judgment|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrueJudgment
+###Block: Casting
 1	CAST:0,1			KNOWN:4,2
 2	CAST:0,2			KNOWN:5,3
 3	CAST:0,3			KNOWN:6,4
@@ -158,9 +154,8 @@ CLASS:Ex-Inquisitor	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Inq		MAXLEVEL:20	VISIBLE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex-Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Nature)|Knowledge (Planes)|Knowledge (Religion)|Perception|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth|Survival|Swim
 #Block:
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies														AUTO:FEAT|Simple Weapon Proficiency
-1																									AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
-1																																											AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
+1		ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=ArmorProfHeavy|TYPE=ShieldProf
+1																	AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
 #Block:
 1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Monster Lore|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorMonsterLore
 1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Stern Gaze|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSternGaze
@@ -182,9 +177,7 @@ CLASS:Oracle	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Diplomacy|Heal|Knowledge (History
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
 CLASS:Oracle	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Oracle|CL	SPELLLIST:2|Cleric|Oracle
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1												AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1												AUTO:FEAT|Shield Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=ArmorProfMedium|TYPE=ShieldProf
 ###Block: Oracle Spell Choice
 1	BONUS:ABILITYPOOL|Oracle Spell Choice|1
 ###Block: Oracle's Class Abilities
@@ -220,11 +213,9 @@ CLASS:Summoner	HD:8		TYPE:Base.PC.SpontaneousArcane.Spontaneous	CLASSTYPE:PC	ABB
 CLASS:Summoner	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summoner|CL
-###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 ###Block:
-1	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLightArmor,TYPE.SummonerArmorProficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSimpleWeapons
+1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLightArmor,TYPE.SummonerArmorProficiencies
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSimpleWeapons
 ###Block: Class Abilities
 1	ABILITY:Internal|AUTOMATIC|Summoner ~ Summon Monster Spell List|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonsterSpells
 1	ABILITY:Summoner Class Feature|AUTOMATIC|Summoner ~ Cantrips
@@ -272,7 +263,7 @@ CLASS:Witch		STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Heal|Intimidate|Knowledge (Ar
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
 CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Witch|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Witch Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Witch Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfAuto
 ###Block: Level progression
 1	BONUS:VAR|FamiliarMasterLVL|CL	DEFINE:SpellMasteryQualify|0	BONUS:VAR|SpellMasteryQualify|1
 ###Block: Witch Class Abilities
@@ -361,9 +352,7 @@ CLASS:Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Disguise|Handle Animal
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Antipaladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Antipaladin|CL|PRECLASS:1,Antipaladin=4
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProf
 ###Block: Var Trackers
 1	BONUS:VAR|DetectGoodLVL|CL
 1	BONUS:VAR|SmiteGoodLVL|CL
@@ -413,9 +402,7 @@ CLASS:Ex-Antipaladin	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:X-Apl		MAXLEVEL:20	SOU
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex-Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Disguise|Handle Animal|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProf
 
 
 
@@ -568,9 +555,7 @@ CLASS:Holy Vindicator	PREABILITY:1,CATEGORY=Special Ability,TYPE.Channel Energy	
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Holy Vindicator	STARTSKILLPTS:2	CSKILL:Climb|Heal|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Ride|Sense Motive|Spellcraft|Swim
 ###Block:  Weapon/Armor Proficiencies
-1													ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies							AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																															AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																															AUTO:FEAT|Shield Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProf
 ##Block: Normal Level Progression
 1	BONUS:VAR|PrestigeClassChannelEnergyLVL|CL					ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Vindicator's Shield|Prestige Class ~ Channel Energy
 2	BONUS:VAR|StigmataLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Stigmata
