@@ -377,7 +377,7 @@ ATKArr[0] = new ATK("Melee","|ATTACK.MELEE.TOTAL|","|ATTACK.MELEE|",STRindex,|AT
 ATKArr[1] = new ATK("Ranged","|ATTACK.RANGED.TOTAL|","|ATTACK.RANGED|",DEXindex,|ATTACK.RANGED.SIZE|,|ATTACK.RANGED.EPIC|,|ATTACK.RANGED.MISC|);
 ATKArr[2] = new ATK("Grapple","|ATTACK.GRAPPLE.TOTAL|","|ATTACK.GRAPPLE|",STRindex,|ATTACK.GRAPPLE.SIZE|,|ATTACK.GRAPPLE.EPIC|,|ATTACK.GRAPPLE.MISC|);
 // Now, set up the list of skills
-|FOR,%skill,0,${count("SKILLSIT", "VIEW=EXPORT")-1},1,0|
+|FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
 SkillArr[%skill] = new Skill("|SKILL.%skill|","|SKILL.%skill.ABILITY|",|SKILL.%skill.TOTAL|,|SKILL.%skill.ABMOD|,|TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK| ,|SKILL.%skill.MISC|,"|SKILL.%skill.UNTRAINED|");
 |ENDFOR|
 // A variable of type Ability supports the following

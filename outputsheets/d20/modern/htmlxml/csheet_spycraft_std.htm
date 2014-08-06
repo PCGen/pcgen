@@ -841,7 +841,7 @@ Wisdom
      <td align="center" width="13%" colspan="2" class="border4">RANKS</td>
      <td align="center" width="13%" colspan="2" class="border4">MISC<br />MODIFIER</td>
     </tr>
-|FOR,%skill,0,${count("SKILLSIT", "VIEW=EXPORT")-1},1,0|
+|FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
 |OIF(EVEN:%skill,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
      <td align="center"><font face="Wingdings" style="font-size: 7pt">|OIF(SKILL%skill.UNTRAINED,u,)|</font></td>
      <td align="left" class="font8">&nbsp;&nbsp;|SKILL.%skill|</td>

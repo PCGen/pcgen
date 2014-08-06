@@ -821,7 +821,7 @@ at will)
 <b>Feats </b> |FEATALLLIST|<br>
 
 <b>Skills </b>
-|FOR,%skill,0,${count("SKILLSIT", "VIEW=EXPORT")-1},1,0|
+|FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
 |IIF(VAR.IF(var("SKILL.%skill.TOTAL")==0;1;0):1)|
 |ELSE|
 |SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN|,

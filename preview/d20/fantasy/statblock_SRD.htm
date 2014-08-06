@@ -339,7 +339,7 @@ Str |STAT.0|, Dex |STAT.1|, Con |STAT.2|, Int |STAT.3|, Wis |STAT.4|, Cha |STAT.
 <!--   Trouble-shooting stuff   
 |FOR.0,COUNT[SKILLSIT],100,\SKILL.%.NAME\ \SKILL.%.TOTAL.INTVAL.SIGN\;       , , ,0| 
 -->
-|FOR,%skill,0,${count("SKILLSIT", "VIEW=EXPORT")-1},1,0|
+|FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
 |IIF(SKILL.%skill.TYPE:SkillUse)|
 |ELSE|
 |IIF(VAR.IF(var("SKILL.%skill.RANK")==0;1;0):1)|
@@ -598,7 +598,7 @@ at will)
 
 <p>Skill Breakdown</p>
 <p>
-|FOR,%skill,0,${count("SKILLSIT", "VIEW=EXPORT")-1},1,0|
+|FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
 |IIF(VAR.IF(var("SKILL.%skill.RANK")==0;1;0):1)|
 |IIF(VAR.IF(var("SKILL.%skill.TOTAL")==0;1;0):1)|
 |ELSE|

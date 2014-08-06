@@ -21,7 +21,7 @@ Stat    Score   Mod
 
 -------------------------- Skills --------------------------
 Skill                   Total   Rnk     Stat    Msc
-|FOR,%skill,0,${count("SKILLSIT", "VIEW=EXPORT")-1},1,0|
+|FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
 |SKILL.%skill||FOR.1,((24-STRLEN[SKILL.%skill])).INTVAL,24, ,NONE,NONE,1||SKILL.%skill.TOTAL||FOR.1,((8-STRLEN[SKILL.%skill.TOTAL])).INTVAL,8, ,NONE,NONE,1||SKILL.%skill.RANK||FOR.1,((8-STRLEN[SKILL.%skill.RANK])).INTVAL,8, ,NONE,NONE,1||SKILL.%skill.ABMOD||FOR.1,((8-STRLEN[SKILL.%skill.ABMOD])).INTVAL,8, ,NONE,NONE,1||SKILL.%skill.MISC|
 |ENDFOR|
 
