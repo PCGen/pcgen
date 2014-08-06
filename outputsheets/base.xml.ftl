@@ -793,10 +793,10 @@
 		<type>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackType')}</type>
 		<threat>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackThreatRange')}${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackCritMult')}</threat>
 		<reach>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackReach.INTVAL')}</reach>
-		<range>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.${NaturalAttackRange}.TYPE=NaturalAttack.ASPECT.NaturalAttackRange')}</range>
 		<rangeincrement>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackRangeIncrement')}</rangeincrement>
 
 		<@loop from=0 to=4 ; NaturalAttackRange , NaturalAttackRange_has_next>
+		<range>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.${NaturalAttackRange}.TYPE=NaturalAttack.ASPECT.NaturalAttackRange')}</range>
 		<range>
 			<distance>${pcstring('ABILITYALL.Natural Attack.${NaturalAttackRange}.TYPE=NaturalAttack.ASPECT.NaturalAttackRange')}</distance>
 			<rangeincrement>${pcstring('ABILITYALL.Natural Attack.${NaturalAttackRange}.TYPE=NaturalAttack.ASPECT.NaturalAttackRangeIncrement')}</rangeincrement>
