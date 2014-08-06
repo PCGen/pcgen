@@ -858,67 +858,67 @@ CLASS:Thaumaturgist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Kn
 #3/4
 
 # Class Name	Combat bonus													Modify VAR
-CLASS:Bard.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Bard.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name	Combat bonus													Modify VAR
-CLASS:Cleric.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Cleric.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name	Combat bonus													Modify VAR
-CLASS:Druid.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Druid.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name	Combat bonus													Modify VAR
-CLASS:Monk.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Monk.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name	Combat bonus													Modify VAR
-CLASS:Rogue.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Rogue.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 #1/2
 
 # Class Name	Combat bonus												Modify VAR
-CLASS:Wizard.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Wizard.MOD	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name		Combat bonus												Modify VAR
-CLASS:Sorcerer.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Sorcerer.MOD	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 
 ###Block: Fractional BAB Support
 #3/4
 
 # Class Name	Combat bonus													Modify VAR
-CLASS:Expert.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Expert.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name		Combat bonus													Modify VAR
-CLASS:Assassin.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Assassin.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name			Combat bonus													Modify VAR
-CLASS:Dragon Disciple.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Dragon Disciple.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name		Combat bonus													Modify VAR
-CLASS:Shadowdancer.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Shadowdancer.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 #1/2
 
 # Class Name	Combat bonus												Modify VAR
-CLASS:Adept.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Adept.MOD	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name		Combat bonus												Modify VAR
-CLASS:Commoner.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Commoner.MOD	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name			Combat bonus												Modify VAR
-CLASS:Arcane Trickster.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Arcane Trickster.MOD	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name		Combat bonus												Modify VAR
-CLASS:Archmage.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Archmage.MOD	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name		Combat bonus												Modify VAR
-CLASS:Hierophant.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Hierophant.MOD	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name		Combat bonus												Modify VAR
-CLASS:Loremaster.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Loremaster.MOD	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name			Combat bonus												Modify VAR
-CLASS:Mystic Theurge.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Mystic Theurge.MOD	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 # Class Name		Combat bonus												Modify VAR
-CLASS:Thaumaturgist.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Thaumaturgist.MOD	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
 
 ###Block: HD Classes
