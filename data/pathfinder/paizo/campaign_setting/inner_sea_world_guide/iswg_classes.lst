@@ -42,10 +42,7 @@ CLASS:Low Templar	PREFEAT:2,Mounted Combat,Weapon Focus (TYPE=Martial)	PRESKILL:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Low Templar	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Handle Animal|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Knowledge (Planes)|Linguistics|Ride|Sense Motive|Stealth|Survival
 ###Block: Weapon & Armor Proficiencies
-1	ABILITY:Class Feature|AUTOMATIC|All Martial Weapon Proficiencies
-1												AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1												AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1												AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProfTower
 ###Block: Level Progression
 1									BONUS:VAR|LowCrusader|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Crusader ~ Low|Flag of Convenience ~ Low
 2															ABILITY:Special Ability|AUTOMATIC|Dirty Fighting ~ Low
@@ -65,8 +62,7 @@ CLASS:Red Mantis Assassin	STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|Bluff|Climb
 CLASS:Red Mantis Assassin	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Evocation,Necromancy	BONUS:CASTERLEVEL|Red Mantis Assassin|CL	SPELLLIST:2|Sorcerer|Wizard
 ###Block: Weapon & Armor Proficiencies
 1	ABILITY:Class Feature|AUTOMATIC|RMA Weapon Proficiencies
-1											AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1											AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfLight
 ###Block: Level Progression
 1	BONUS:VAR|SneakAttackDice|1	BONUS:VAR|SabreFightingLvl|CL	ABILITY:Special Ability|AUTOMATIC|Armored Casting ~ RMA|Sabre Fighting|Sneak Attack
 2											ABILITY:Special Ability|AUTOMATIC|Prayer Attack|RMA Bonus Spells
