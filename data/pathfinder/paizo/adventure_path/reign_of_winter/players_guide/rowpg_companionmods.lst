@@ -4,12 +4,12 @@ SOURCELONG:Reign of Winter Player's Guide	SOURCESHORT:ROWPG	SOURCEWEB:http://pai
 
 
 
-# Race of familiar		Combat bonus			Bonus to skill		Bonus				Bonus to Situation
-MASTERBONUSRACE:Arctic Fox										BONUS:SAVE|Reflex|2
-MASTERBONUSRACE:Arctic Hare	BONUS:COMBAT|INITIATIVE|4
-MASTERBONUSRACE:Arctic Tern						BONUS:SKILL|Fly|3
-MASTERBONUSRACE:Ermine											BONUS:SAVE|Reflex|2
-MASTERBONUSRACE:Lemming											BONUS:SAVE|Fortitude|2
-MASTERBONUSRACE:Ptarmigan						BONUS:SKILL|Stealth|3
-MASTERBONUSRACE:Puffin							BONUS:SKILL|Swim|3
-MASTERBONUSRACE:Snowy Owl														BONUS:SITUATION|Perception=sight-based|3
+# Race of familiar					Combat bonus			Bonus to skill		Bonus				Bonus to Situation
+MASTERBONUSRACE:Arctic Fox	TYPE:Familiar										BONUS:SAVE|Reflex|2
+MASTERBONUSRACE:Arctic Hare	TYPE:Familiar	BONUS:COMBAT|INITIATIVE|4
+MASTERBONUSRACE:Arctic Tern	TYPE:Familiar						BONUS:SKILL|Fly|3
+MASTERBONUSRACE:Ermine		TYPE:Familiar										BONUS:SAVE|Reflex|2
+MASTERBONUSRACE:Lemming		TYPE:Familiar										BONUS:SAVE|Fortitude|2
+MASTERBONUSRACE:Ptarmigan	TYPE:Familiar						BONUS:SKILL|Stealth|3
+MASTERBONUSRACE:Puffin		TYPE:Familiar						BONUS:SKILL|Swim|3
+MASTERBONUSRACE:Snowy Owl	TYPE:Familiar														BONUS:SITUATION|Perception=sight-based|3
