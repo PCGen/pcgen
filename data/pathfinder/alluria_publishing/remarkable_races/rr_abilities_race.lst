@@ -329,7 +329,7 @@ Race Traits ~ Woggart	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=W
 Marsh Move		KEY:Woggart ~ Marsh Move			CATEGORY:Special Ability	TYPE:Woggart RacialTrait.Race Traits.SpecialQuality.Extroardinary	SOURCEPAGE:p.142	DESC:A woggart suffers no movement penalties for moving through marshes or mud.
 
 Race Traits ~ Riding Woggart	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Woggart ~ Marsh Move|Woggart ~ Timid
-Timid				KEY:Woggart ~ Timid			CATEGORY:Special Ability	TYPE:Extraordinary.Woggart Race Ability.Race Ability.SpecialQuality	SOURCEPAGE:p.144	DESC:Unless cornered, a riding woggart’s bit is treated as a secondary attack.
+Timid				KEY:Woggart ~ Timid			CATEGORY:Special Ability	TYPE:Extraordinary.Woggart Race Ability.Race Ability.SpecialQuality	SOURCEPAGE:p.144	DESC:Unless cornered, a riding woggart's bit is treated as a secondary attack.
 
 # Coin Drake	
 Race Traits ~ Coin Drake	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=Coin Drake RacialTrait	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=(max(TL,1))|Arcane Lock|Glitterdust|Invisibility|Locate Object		ABILITY:Special Ability|AUTOMATIC|Dragon ~ Frightful Presence	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fire|Immunity to Fire		BONUS:VAR|BreathWeaponCone|40	BONUS:VAR|BreathWeaponDice|12	BONUS:VAR|BreathWeaponDamageDie|4	BONUS:VAR|FrightfulPresenceRadius|30*6	ABILITY:Special Ability|AUTOMATIC|Dragon ~ Bite|Dragon ~ Breath Weapon|Dragon ~ Claw|Dragon ~ Dragon Senses|Dragon ~ Tail Slap|Dragon ~ Wing
