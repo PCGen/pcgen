@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com	SOURCEDATE:2001-01
 
 ###Block: Blood Witch class features
@@ -54,13 +54,13 @@ Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	MULT:YE
 # BONUS:SPELLCAST|%LIST|1	BONUS:SPELLKNOWN|%LIST|1
 
 ###Block: Vigilant Class Feats
-# Feat Name			Type			Visible	Special ABility						Define					Multiple?	Choose																											Source Page
-Vigilant Favored Enemy	TYPE:ClassAbility	VISIBLE:NO	SAB:Favored Enemy (%CHOICE) +%|VigilantFavored	DEFINE:VigilantFavored|0	BONUS:VAR|VigilantFavored|(CL+2)/4		MULT:YES	CHOOSE:STRING|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Humanoid|Magical Beast|Monstrous Humanoid|Ooze|Outsider|Plant|Shapechanger|Undead|Vermin	SOURCEPAGE:p.22
-Sprint			TYPE:ClassAbility	VISIBLE:NO	SAB:Sprint																																											SOURCEPAGE:p.22
-Tireless			TYPE:ClassAbility	VISIBLE:NO	SAB:Tireless																																										SOURCEPAGE:p.22
-Ferocity			TYPE:ClassAbility	VISIBLE:NO	SAB:Ferocity																																										SOURCEPAGE:p.22
-Resist Massive Damage	TYPE:ClassAbility	VISIBLE:NO	SAB:Resist Massive Damage																																								SOURCEPAGE:p.22
-Natural Healing		TYPE:ClassAbility	VISIBLE:NO	SAB:Natural Healing																																									SOURCEPAGE:p.22
+# Feat Name			Type			Visible	Special ABility						Define				Multiple?	Choose																											Modify VAR					Source Page
+Vigilant Favored Enemy	TYPE:ClassAbility	VISIBLE:NO	SAB:Favored Enemy (%CHOICE) +%|VigilantFavored	DEFINE:VigilantFavored|0	MULT:YES	CHOOSE:STRING|Aberration|Animal|Beast|Construct|Dragon|Elemental|Fey|Giant|Humanoid|Magical Beast|Monstrous Humanoid|Ooze|Outsider|Plant|Shapechanger|Undead|Vermin	BONUS:VAR|VigilantFavored|(CL+2)/4	SOURCEPAGE:p.22
+Sprint			TYPE:ClassAbility	VISIBLE:NO	SAB:Sprint																																																SOURCEPAGE:p.22
+Tireless			TYPE:ClassAbility	VISIBLE:NO	SAB:Tireless																																															SOURCEPAGE:p.22
+Ferocity			TYPE:ClassAbility	VISIBLE:NO	SAB:Ferocity																																															SOURCEPAGE:p.22
+Resist Massive Damage	TYPE:ClassAbility	VISIBLE:NO	SAB:Resist Massive Damage																																													SOURCEPAGE:p.22
+Natural Healing		TYPE:ClassAbility	VISIBLE:NO	SAB:Natural Healing																																														SOURCEPAGE:p.22
 
 ###Block: Proficiencies
 # Feat Name					Type			Visible	Automatically Gained Weapon Prof.

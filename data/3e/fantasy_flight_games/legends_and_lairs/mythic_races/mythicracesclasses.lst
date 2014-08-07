@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Aaleear Enchanter	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.8-10	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Aaleear Enchanter	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.8-10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/2
 # Class Name		Multiple Requirements												Required Race	Req. Spell Type
 CLASS:Aaleear Enchanter	PREMULT:2,[PRESKILL:1,TYPE.Craft=4],[PRESKILL:2,Knowledge (Arcana)=9,Perform (Chant)=9]	PRERACE:1,Aaleear	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -11,20 +11,20 @@ CLASS:Aaleear Enchanter	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|TY
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Recognize Enchantments	SAB:Resist Magic +%|AaleearResistMagic	SAB:Enchant Normal Item %|EnchantNormal	BONUS:SKILL|Spellcraft|2|TYPE=Competence	BONUS:VAR|AaleearResistMagic|1						DEFINE:EnchantNormal|0	BONUS:VAR|EnchantNormal|1	DEFINE:AaleearResistMagic|0	ADD:FEAT|Combat Casting,Spell Focus,Spell Mastery,Spell Penetration,TYPE=ItemCreation,TYPE=Metamagic
+1	SAB:Recognize Enchantments	SAB:Resist Magic +%|AaleearResistMagic	SAB:Enchant Normal Item %|EnchantNormal	BONUS:SKILL|Spellcraft|2|TYPE=Competence	BONUS:VAR|AaleearResistMagic|1	BONUS:VAR|EnchantNormal|1	DEFINE:EnchantNormal|0	DEFINE:AaleearResistMagic|0	ADD:FEAT|Combat Casting,Spell Focus,Spell Mastery,Spell Penetration,TYPE=ItemCreation,TYPE=Metamagic
 3																											BONUS:VAR|AaleearResistMagic|1	BONUS:VAR|EnchantNormal|1
 4																																															ADD:FEAT|Combat Casting,Spell Focus,Spell Mastery,Spell Penetration,TYPE=ItemCreation,TYPE=Metamagic
 5																											BONUS:VAR|AaleearResistMagic|1	BONUS:VAR|EnchantNormal|1
 7																											BONUS:VAR|AaleearResistMagic|1	BONUS:VAR|EnchantNormal|1										ADD:FEAT|Combat Casting,Spell Focus,Spell Mastery,Spell Penetration,TYPE=ItemCreation,TYPE=Metamagic
 10																											BONUS:VAR|AaleearResistMagic|1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
-CLASS:Anaeman Crafter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.15-16	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page			Combat bonus											Bonus
+CLASS:Anaeman Crafter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.15-16	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+1
 # Class Name		Required Feat				Multiple Requirements														Required Race
 CLASS:Anaeman Crafter	PREFEAT:1,Craft Anaema Tool (MR)	PREMULT:2,[PRESKILL:2,TYPE.Craft=8],[PRESKILL:3,Concentration=5,Knowledge (Arcana)=5,Spellcraft=5]	PRERACE:1,Anaema
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Anaeman Crafter	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
-1	SAB:Craft Focus %|CraftFocus					DEFINE:CraftFocus|0	BONUS:VAR|CraftFocus|1	ADD:SPELLCASTER|ANY
+1	SAB:Craft Focus %|CraftFocus	BONUS:VAR|CraftFocus|1	DEFINE:CraftFocus|0	ADD:SPELLCASTER|ANY
 2														ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=ItemCreation
 3	SAB:Shroud Object											ADD:SPELLCASTER|ANY
 4														ADD:SPELLCASTER|ANY
@@ -35,8 +35,8 @@ CLASS:Anaeman Crafter	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TY
 9														ADD:SPELLCASTER|ANY
 10														ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=ItemCreation
 
-# Class Name		Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Animan Atavist	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20-22	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
+CLASS:Animan Atavist	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20-22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+1
 # Class Name		Required AL		Req. Att.	Required Feat					Required Language		Required Race	Required Skill
 CLASS:Animan Atavist	PREALIGN:LG,NG,CG	PREATT:5	PREFEAT:1,Skill Focus (Animal Empathy)	PRELANG:1,Celestial	PRERACE:1,Animan%	PRESKILL:4,Animal Empathy=8,Knowledge (Nature)=5,Wilderness Lore=6,Handle Animal=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -46,7 +46,7 @@ CLASS:Animan Atavist	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE=Cr
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1			SAB:Aspect Tongue
-2			SAB:Aspect Form %/day|AspectForm	SAB:Summon Aspect %|SummonAspect										DEFINE:AspectForm|0	DEFINE:SummonAspect|0	BONUS:VAR|AspectForm|1	BONUS:VAR|SummonAspect|1
+2			SAB:Aspect Form %/day|AspectForm	SAB:Summon Aspect %|SummonAspect	BONUS:VAR|AspectForm|1	BONUS:VAR|SummonAspect|1	DEFINE:AspectForm|0	DEFINE:SummonAspect|0
 3			SAB:Aspect Mount
 4			SAB:Elemental Resistance +5
 5			SAB:Bestial Fury										BONUS:VAR|AspectForm|1	BONUS:VAR|SummonAspect|1
@@ -54,8 +54,8 @@ CLASS:Animan Atavist	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE=Cr
 9	DR:5/+1
 10															BONUS:VAR|SummonAspect|1
 
-# Class Name			Hit Dice	Type			Max Level	Source Page			Attack Cycle	Save checks bonus											Combat bonus
-CLASS:Chosen of Ba en Aset	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27-29	ATTACKCYCLE:UAB|3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Max Level	Source Page			Attack Cycle	Combat bonus										Bonus
+CLASS:Chosen of Ba en Aset	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27-29	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL			Req. Att.	Required Feat			Required Race
 CLASS:Chosen of Ba en Aset	PREALIGN:LG,NG,CG,CN	PREATT:6	PREFEAT:2,Power Attack,Cleave	PRERACE:1,Artathi
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -75,8 +75,8 @@ CLASS:Chosen of Ba en Aset	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TY
 9	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force/Dismissal)|PREVARLT:CL,10	ABILITY:Special Ability|AUTOMATIC|Diamond Body
 10	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12	SAB:Mystic Discipline (Light/Fleetness of Foot/Daylight/Fireball/Telekinesis/Improved Invisibility/Lesser Geas/Wall of Force/Dismissal/Antimagic Field)	ABILITY:Special Ability|AUTOMATIC|Diamond Soul
 
-# Class Name			Hit Dice	Type			Max Level	Source Page			Save checks bonus													Combat bonus
-CLASS:Blickish Infiltrator	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.33-35	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+2)/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+5)/3	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+3)/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Max Level	Source Page			Combat bonus											Bonus
+CLASS:Blickish Infiltrator	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.33-35	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+3)/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+2)/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+5)/3
 # Class Name			Required AL		Req. Att.	Required Feat					Required Race		Required Skill
 CLASS:Blickish Infiltrator	PREALIGN:LG,LN,LE	PREATT:6	PREFEAT:3,Dodge,Improved Disarm,Iron Will	PRERACE:1,Blickish	PRESKILL:2,Intuit Direction=4,Move Silently=2
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -88,8 +88,8 @@ CLASS:Blickish Infiltrator	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE=Craft
 7								BONUS:VAR|Blink|1
 10								BONUS:VAR|Blink|1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
-CLASS:Green Mystic	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.39-41	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page			Combat bonus											Bonus
+CLASS:Green Mystic	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.39-41	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+1
 # Class Name		Required Race	Required Skill								Req. Spell Type
 CLASS:Green Mystic	PRERACE:1,Coivald	PRESKILL:3,Heal=6,Knowledge (Nature)=4,Wilderness Lore=4	PRESPELLTYPE:1,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -105,8 +105,8 @@ CLASS:Green Mystic	STARTSKILLPTS:6	CSKILL:Animal Empathy|Concentration|TYPE=Craf
 9					ADD:SPELLCASTER|Divine
 10					ADD:SPELLCASTER|Divine	ADD:FEAT|TYPE=ItemCreation,TYPE=Metamagic
 
-# Class Name	Hit Dice	Type			Max Level	Source Page			Save checks bonus																Combat bonus
-CLASS:Soulless	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44-46	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)/2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
+CLASS:Soulless	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44-46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)/2
 # Class Name	Required AL				Required Check Base	Required Race	Required Skill								Required Text
 CLASS:Soulless	PREALIGN:LN,LE,TN,NE,CN,CE	PRECHECKBASE:1,Will=5	PRERACE:1,Curst	PRESKILL:2,Knowledge (Arcana)=9,Knowledge (The Planes)=4	PRETEXT:See text
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -125,8 +125,8 @@ CLASS:Soulless	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Dis
 9																															ADD:SPELLCASTER|ANY	ADD:FEAT|Soulless Resistance
 10																							BONUS:VAR|AlterSelf|1					ADD:FEAT|Soulless Immunity
 
-# Class Name		Hit Dice	Type			Max Level	Source Page			Save checks bonus								Combat bonus
-CLASS:Eletum Aemidun	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page			Combat bonus											Bonus
+CLASS:Eletum Aemidun	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat								Required Race	Required Skill
 CLASS:Eletum Aemidun	PREFEAT:1,Iron Will	PREFEAT:1,Turn Resistance (MR)	PRERACE:1,Eleti%	PRESKILL:3,Concentration=10,Knowledge (Arcana)=10,Spellcraft=10
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -134,8 +134,8 @@ CLASS:Eletum Aemidun	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|D
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Turn Undead stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base										ABILITY:Special Ability|AUTOMATIC|Basic Turning|Rebuke Undead
-1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE				DEFINE:AllowExtraTurning|0	BONUS:VAR|AllowExtraTurning|1
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base												ABILITY:Special Ability|AUTOMATIC|Basic Turning|Rebuke Undead
+1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE	BONUS:VAR|AllowExtraTurning|1	DEFINE:AllowExtraTurning|0
 1	BONUS:VAR|TurnDamagePlusBase|var("CL=Cleric")|TYPE=Level.REPLACE
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block: Normal Level Progression
@@ -149,15 +149,15 @@ CLASS:Eletum Aemidun	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|D
 9	SAB:Create Greater Undead
 10									BONUS:VAR|VampiricTouch|1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page			Save checks bonus											Combat bonus
-CLASS:Fairy Dreamer	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.58-61	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
+CLASS:Fairy Dreamer	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.58-61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Race	Required Skill		Req. Spell Type
 CLASS:Fairy Dreamer	PRERACE:1,Fairy	PRESKILL:1,Spellcraft=5	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Fairy Dreamer	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Concentration|Diplomacy|Hide|Intuit Direction|Jump|Move Silently|Scry|Sense Motive|Spellcraft
-1	SAB:Dream Augury	SAB:Dream Walk %/day|DreamWalk	SAB:Dreaming Familiar									DEFINE:DreamWalk|0	BONUS:VAR|DreamWalk|1
+1	SAB:Dream Augury	SAB:Dream Walk %/day|DreamWalk	SAB:Dreaming Familiar	BONUS:VAR|DreamWalk|1					DEFINE:DreamWalk|0
 2	SAB:Dream Summoning I
-3	SAB:Dream Step (% ft.)|DreamStep	SAB:True Mind													DEFINE:DreamStep|0	BONUS:VAR|DreamStep|20
+3	SAB:Dream Step (% ft.)|DreamStep	SAB:True Mind					BONUS:VAR|DreamStep|20					DEFINE:DreamStep|0
 4	SAB:Dream Summoning II
 5														BONUS:VAR|DreamStep|20	BONUS:VAR|DreamWalk|1
 6	SAB:Dream Summoning III
@@ -166,8 +166,8 @@ CLASS:Fairy Dreamer	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Concentration|Diplomacy
 9	SAB:Dream Window											BONUS:VAR|DreamStep|20
 10	SAB:Dream Summoning V	SAB:Dream Trap							BONUS:VAR|DreamWalk|1
 
-# Class Name			Hit Dice	Type			Max Level	Source Page			Save checks bonus												Combat bonus
-CLASS:Illonis Doomsinger	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.65-66	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)/2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
+CLASS:Illonis Doomsinger	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.65-66	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)/2
 # Class Name			Required AL				Req. Att.	Required Race	Required Skill							Req. Spell Type
 CLASS:Illonis Doomsinger	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:5	PRERACE:1,Illonis	PRESKILL:3,Perform=10,Move Silently=4,Sense Motive=4	PRESPELLTYPE:1,Arcane=1
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -178,8 +178,8 @@ CLASS:Illonis Doomsinger	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Concentration|TYPE
 4	SAB:Scream of Fury					ADD:SPELLCASTER|Arcane
 5	SAB:Wail of Destruction					ADD:SPELLCASTER|Arcane
 
-# Class Name			Hit Dice	Type			Max Level	Source Page			Save checks bonus													Combat bonus
-CLASS:Luminous Lightbringer	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.71-72	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+5)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")-1)/2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
+CLASS:Luminous Lightbringer	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.71-72	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+5)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")-1)/2
 # Class Name			Required AL	Req. Att.	Required Feat										Required Race		Req. Special Ability	Required Skill
 CLASS:Luminous Lightbringer	PREALIGN:LG	PREATT:7	PREFEAT:2,Extra Turning,Unyielding Aura (MR)	PREFEAT:1,Weapon Focus	PRERACE:1,Luminous	PRESA:1,Turn Undead	PRESKILL:2,Concentration=5,Knowledge (Religion)=5
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -193,8 +193,8 @@ CLASS:Luminous Lightbringer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Dipl
 4					ADD:SPELLCASTER|Divine
 5	SAB:Brilliant Radiance	ADD:SPELLCASTER|Divine	TEMPLATE:Celestial
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Claw of the Hunt	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Claw of the Hunt	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat						Required Race		Required Skill
 CLASS:Claw of the Hunt	PREATT:5	PREFEAT:2,Improved Control Shape (MR),Track	PRERACE:1,Mhuinntir	PRESKILL:1,Control Shape=8	PRESKILL:2,Move Silently=6,Wilderness Lore=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -204,7 +204,7 @@ CLASS:Claw of the Hunt	STARTSKILLPTS:4	CSKILL:Balance|Climb|Control Shape|Hide|I
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1																											BONUS:VAR|SneakAttackDice|1					ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2	SAB:Hunter's Claws +%|HunterClaw	BONUS:COMBAT|DAMAGE.Natural|HunterClaw|TYPE=Enhancement	BONUS:COMBAT|TOHIT.Natural|HunterClaw|TYPE=Enhancement						DEFINE:HunterClaw|0	BONUS:VAR|HunterClaw|CL/2
+2	SAB:Hunter's Claws +%|HunterClaw	BONUS:COMBAT|DAMAGE.Natural|HunterClaw|TYPE=Enhancement	BONUS:COMBAT|TOHIT.Natural|HunterClaw|TYPE=Enhancement	BONUS:VAR|HunterClaw|CL/2	DEFINE:HunterClaw|0
 3	SAB:Defensive Shift
 4																																				ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir
 5																											BONUS:VAR|SneakAttackDice|1
@@ -212,13 +212,13 @@ CLASS:Claw of the Hunt	STARTSKILLPTS:4	CSKILL:Balance|Climb|Control Shape|Hide|I
 9																											BONUS:VAR|SneakAttackDice|1
 10																																				ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Niomus Windweaver	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Niomus Windweaver	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Feat			Required Race	Required Skill						Req. Spell Type		Required Text
 CLASS:Niomus Windweaver	PREALIGN:NG,CG	PREFEAT:2,TYPE=ItemCreation	PRERACE:1,Niomus	PRESKILL:2,Knowledge (Arcana)=10,Spellcraft=10	PRESPELLTYPE:1,Arcane=4	PRETEXT:Accepted Student of Master Windweaver
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Niomus Windweaver	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft|Wilderness Lore
-1	SAB:Air Mastery +%|AirMastery										DEFINE:AirMastery|0	BONUS:VAR|AirMastery|1	ADD:SPELLCASTER|Arcane
+1	SAB:Air Mastery +%|AirMastery						BONUS:VAR|AirMastery|1	DEFINE:AirMastery|0	ADD:SPELLCASTER|Arcane
 2	SAB:Perfect Air																ADD:SPELLCASTER|Arcane
 3	SAB:Good Flying			BONUS:MOVEADD|TYPE=Fly|10									ADD:SPELLCASTER|Arcane
 4											BONUS:VAR|AirMastery|1					ADD:SPELLCASTER|Arcane
@@ -229,8 +229,8 @@ CLASS:Niomus Windweaver	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|
 9	SAB:Weather Command															ADD:SPELLCASTER|Arcane
 10	SAB:Cloud Weave								BONUS:VAR|AirMastery|1					ADD:SPELLCASTER|Arcane
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
-CLASS:Ooloi Journeyman	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.89	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/6	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Ooloi Journeyman	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.89	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/6	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Deitys Domain	Required Feat				Required Race	Required Skill									Req. Spell Type		Required Text
 CLASS:Ooloi Journeyman	PREALIGN:LG,NG,CG	PREDEITYDOMAIN:1,Travel	PREFEAT:1,Skill Focus (Diplomacy)	PRERACE:1,Ooloi	PRESKILL:3,Concentration=5,Diplomacy=5,Knowledge (Religion)=5	PRESPELLTYPE:1,Divine=3	PRETEXT:Nation's Trust
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -241,8 +241,8 @@ CLASS:Ooloi Journeyman	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Dip
 4	SAB:Great Ambassador	BONUS:SKILL|Bluff,Concentration,Diplomacy,Gather Information,Knowledge (History),Sense Motive|4	ADD:SPELLCASTER|Divine
 5	SAB:Life of Travel																	ADD:SPELLCASTER|Divine
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus
-CLASS:Pevishan Spell Siphon	HD:4		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.95	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")-1)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Pevishan Spell Siphon	HD:4		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.95	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")-1)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL					Required Feat			Required Race		Required Skill									Req. Spell Type		Required Text
 CLASS:Pevishan Spell Siphon	PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN	PREFEAT:2,TYPE=Metamagic	PRERACE:1,Pevishan	PRESKILL:3,Concentration=6,Knowledge (Arcana)=6,Spellcraft=6	PRESPELLTYPE:1,Arcane=5	PRETEXT:Must perform Ritual of Absence
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -253,8 +253,8 @@ CLASS:Pevishan Spell Siphon	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Cr
 4	SAB:Masterful Connection	ADD:SPELLCASTER|Arcane
 5	SAB:Spell Absorption		ADD:SPELLCASTER|Arcane
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Quissian Blademaster	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.100	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")*2/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Quissian Blademaster	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.100	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")*2/3
 # Class Name			Req. Att.	Required Feat											Required Race		Required Skill
 CLASS:Quissian Blademaster	PREATT:10	PREFEAT:6,Cleave,Combat Reflexes,Great Cleave,Power Attack,Sunder,Toughness	PRERACE:1,Quissian	PRESKILL:1,Intimidate=5
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -270,8 +270,8 @@ CLASS:Quissian Blademaster	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TY
 4								BONUS:VAR|PreciseStrike|1
 5	SAB:Self Healing
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Rezurbek Buerin	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.105	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Rezurbek Buerin	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.105	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL	Req. Att.	Required Deity	Required Feat					Required Race		Required Skill							Req. Spell Type		Required Text
 CLASS:Rezurbek Buerin	PREALIGN:TN	PREATT:3	PREDEITY:1,Buer	PREFEAT:2,Blind-Fight,Improved Initiative	PRERACE:1,Rezurbek	PRESKILL:2,Knowledge (Nature)=4,Wilderness Lore=8	PRESPELLTYPE:1,Divine=1	PRETEXT:See text
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -281,36 +281,36 @@ CLASS:Rezurbek Buerin	STARTSKILLPTS:2	CSKILL:Animal Empathy|Control Shape|TYPE=C
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Control Shape +%|BuerinControl	BONUS:SKILLRANK|Control Shape|BuerinControl1	DEFINE:BuerinControl|0	BONUS:VAR|BuerinControl|(CL+1)/2	ADD:FEAT|Improved Control Shape (MR)	TEMPLATE:Buerin
-2																				ADD:SPELLCASTER|Divine
-4																				ADD:SPELLCASTER|Divine
-6																				ADD:SPELLCASTER|Divine
-8																				ADD:SPELLCASTER|Divine
-10																				ADD:SPELLCASTER|Divine
+1	SAB:Control Shape +%|BuerinControl	BONUS:SKILLRANK|Control Shape|BuerinControl1	BONUS:VAR|BuerinControl|(CL+1)/2	DEFINE:BuerinControl|0	ADD:FEAT|Improved Control Shape (MR)	TEMPLATE:Buerin
+2																									ADD:SPELLCASTER|Divine
+4																									ADD:SPELLCASTER|Divine
+6																									ADD:SPELLCASTER|Divine
+8																									ADD:SPELLCASTER|Divine
+10																									ADD:SPELLCASTER|Divine
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus
-CLASS:Rhonian Emissary	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.112	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+5)/3	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+2)/3|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Bonus
+CLASS:Rhonian Emissary	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.112	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+2)/3|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+5)/3
 # Class Name		Required Feat				Required Race	Required Skill
 CLASS:Rhonian Emissary	PREFEAT:1,Skill Focus (Diplomacy)	PRERACE:1,Rhonian	PRESKILL:3,Diplomacy=8,Knowledge (Nobility and Royalty)=4,Sense Motive=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rhonian Emissary	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Disguise|Gather Information|Innuendo|Intimidate|Listen|Perform|Search|Sense Motive|Speak Language|Spot
-1	SAB:Herald's Intuition +%|HeraldIntuit	BONUS:SKILLRANK|Herald's Intuition|2										DEFINE:HeraldIntuit|0	BONUS:VAR|HeraldIntuit|2
+1	SAB:Herald's Intuition +%|HeraldIntuit	BONUS:SKILLRANK|Herald's Intuition|2	BONUS:VAR|HeraldIntuit|2					DEFINE:HeraldIntuit|0
 2	SAB:Preemptive Strike +%|PreempStrike								BONUS:VAR|PreempStrike|CL/2					DEFINE:PreempStrike|0
-3	SAB:Stirring Oration %/day|Oration																		DEFINE:Oration|0	BONUS:VAR|Oration|1
+3	SAB:Stirring Oration %/day|Oration									BONUS:VAR|Oration|1						DEFINE:Oration|0
 4								BONUS:SKILLRANK|Herald's Intuition|2	BONUS:VAR|HeraldIntuit|2
 5															BONUS:VAR|Oration|1
 7								BONUS:SKILLRANK|Herald's Intuition|2	BONUS:VAR|Oration|1	BONUS:VAR|HeraldIntuit|2
 9															BONUS:VAR|Oration|1
 10								BONUS:SKILLRANK|Herald's Intuition|2	BONUS:VAR|HeraldIntuit|2
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																			Combat bonus
-CLASS:Rhoode Recorder	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.119	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|floor((classlevel("APPLIEDAS=NONEPIC")+4)/4)*2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/3	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Bonus
+CLASS:Rhoode Recorder	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.119	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|floor((classlevel("APPLIEDAS=NONEPIC")+4)/4)*2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/3
 # Class Name		Required AL		Required Feat		Required Race	Required Skill
 CLASS:Rhoode Recorder	PREALIGN:NG,TN,NE	PREFEAT:1,Ambidexterity	PRERACE:1,Rhoode	PRESKILL:2,Gather Information=8,Listen=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rhoode Recorder	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|Listen|Move Silently|Sense Motive|Spot
-1	SAB:Innocuous +%|Innocuous	SAB:Master's Authority									DEFINE:Innocuous|0	BONUS:VAR|Innocuous|1
-2	SAB:Nose to the Wind %/day|NoseWind												DEFINE:NoseWind|0	BONUS:VAR|NoseWind|1
+1	SAB:Innocuous +%|Innocuous	SAB:Master's Authority	BONUS:VAR|Innocuous|1					DEFINE:Innocuous|0
+2	SAB:Nose to the Wind %/day|NoseWind				BONUS:VAR|NoseWind|1					DEFINE:NoseWind|0
 3										BONUS:VAR|Innocuous|1
 4	SAB:Preemptive Strike +%|PreempStrike			BONUS:VAR|PreempStrike|2				DEFINE:Preempstrike|0
 5										BONUS:VAR|Innocuous|1
@@ -320,8 +320,8 @@ CLASS:Rhoode Recorder	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy
 9										BONUS:VAR|Innocuous|1
 10										BONUS:VAR|Innocuous|3	BONUS:VAR|NoseWind|1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Risen Avenger	HD:12		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.124	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Risen Avenger	HD:12		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.124	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat		Required Race
 CLASS:Risen Avenger	PREATT:5	PREFEAT:1,Iron Will	PRERACE:1,Risen Demon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -337,8 +337,8 @@ CLASS:Risen Avenger	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimi
 4	SAB:Detect Outsiders
 5														BONUS:VAR|DemonicEssense|1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Risen Redeemer	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.126	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Risen Redeemer	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.126	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Race		Required Skill	Req. Spell Type
 CLASS:Risen Redeemer	PRERACE:1,Risen Demon	PRESKILL:1,Heal=8	PRESPELLTYPE:1,Arcane=3,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -348,7 +348,7 @@ CLASS:Risen Redeemer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|H
 1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Channel Demonic Essence %|ChannelEssence										DEFINE:ChannelEssence|0	BONUS:VAR|ChannelEssence|1
+1	SAB:Channel Demonic Essence %|ChannelEssence					BONUS:VAR|ChannelEssence|1	DEFINE:ChannelEssence|0
 2	SAB:Calming Aspect					BONUS:SKILL|Diplomacy|2
 3													BONUS:VAR|ChannelEssence|1
 4	SAB:Detect Outsiders
@@ -376,8 +376,8 @@ CLASS:Sendasti Windmaster	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE=Craft
 9	SAB:Fasting Trance	BONUS:SAVE|BASE.Fortitude|1
 10					BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|1
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Siarran Bladedancer	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.138	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Siarran Bladedancer	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.138	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Req. Att.	Required Feat																									Required Race	Required Skill
 CLASS:Siarran Bladedancer	PREATT:5	PREFEAT:1,Exotic Weapon Proficiency (Reedstaff),Exotic Weapon Proficiency (Sword (Two-Bladed))	PREFEAT:3,Dodge,Multidexterity (MR),Multiweapon Fighting (MR)	PRERACE:1,Siarran	PRESKILL:3,Perform=8,Balance=6,Tumble=6
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -397,8 +397,8 @@ CLASS:Siarran Bladedancer	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Climb|Concentrati
 9					BONUS:PCLEVEL|Bard|1
 10	SAB:Free the Tempest	BONUS:PCLEVEL|Bard|1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus					List of Class Spells by Level
-CLASS:Sktak Windrider	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.143	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	SPELLLEVEL:CLASS|Sktak Windrider=1|Divine Favor,Magic Fang,Mount,Shield of Faith,Speak with Animals|Sktak Windrider=2|Aid,Cure Light Wounds,Endure Elements,Summon Nature's Ally I|Sktak Windrider=3|Create Food and Water,Fly,Magic Vestment,Resist Elements|Sktak Windrider=4|Cure Moderate Wounds,Freedom of Movement,Protection from Elements,Summon Nature's Ally II
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										List of Class Spells by Level																																																									Bonus
+CLASS:Sktak Windrider	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.143	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	SPELLLEVEL:CLASS|Sktak Windrider=1|Divine Favor,Magic Fang,Mount,Shield of Faith,Speak with Animals|Sktak Windrider=2|Aid,Cure Light Wounds,Endure Elements,Summon Nature's Ally I|Sktak Windrider=3|Create Food and Water,Fly,Magic Vestment,Resist Elements|Sktak Windrider=4|Cure Moderate Wounds,Freedom of Movement,Protection from Elements,Summon Nature's Ally II	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL		Req. Att.	Required Feat					Required Race	Required Skill
 CLASS:Sktak Windrider	PREALIGN:LG,LN	PREATT:5	PREFEAT:2,Mounted Combat,Mounted Archery	PRERACE:1,Sktak	PRESKILL:3,Knowledge (Religion)=4,Ride=8,Wilderness Lore=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -411,7 +411,7 @@ CLASS:Sktak Windrider	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Sktak Win
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	CAST:0		DOMAIN:Sktak Windrider Mount	SAB:Desert Lore	SAB:Improved Mounted Combat	SAB:Kuldaan	SAB:Stealth	BONUS:DOMAIN|NUMBER|1
-2	CAST:0,1							SAB:Improved Mounted Archery +%|ImpMountArch									DEFINE:ImpMountArch|0	BONUS:VAR|ImpMountArch|min(CL/2,4)
+2	CAST:0,1							SAB:Improved Mounted Archery +%|ImpMountArch									BONUS:VAR|ImpMountArch|min(CL/2,4)	DEFINE:ImpMountArch|0
 3	CAST:0,1,0							SAB:Improved Ride-By Attack
 4	CAST:0,1,1
 5	CAST:0,1,1,0
@@ -421,8 +421,8 @@ CLASS:Sktak Windrider	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Sktak Win
 9	CAST:0,2,2,1,1
 10	CAST:0,2,2,2,1
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus
-CLASS:Siege Grunt	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.150	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Siege Grunt	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.150	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2
 # Class Name	Required AL			Req. Att.	Required Feat							Required Race		Required Skill
 CLASS:Siege Grunt	PREALIGN:LG,LN,LE,NG,CG	PREATT:7	PREFEAT:3,Great Cleave,Endurance,Improved Bull Rush	PRERACE:1,Stonegrunt	PRESKILL:1,Profession (Siege Engineer)=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -440,14 +440,14 @@ CLASS:Siege Grunt	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Spot
 8	DR:20/+4
 10									BONUS:VAR|FireRes|5
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Forest Shepherd	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.155	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Bonus
+CLASS:Forest Shepherd	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.155	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Race	Required Skill							Req. Spell Type		Required Text
 CLASS:Forest Shepherd	PRERACE:1,Tremen	PRESKILL:2,Knowledge (Nature)=8,Wilderness Lore=8	PRESPELLTYPE:1,Divine=3	PRETEXT:See Text
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Forest Shepherd	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE=Profession|Scry|Spellcraft|Swim|Wilderness Lore
 1	SAB:Douse Flames												ADD:SPELLCASTER|Divine
-2	SAB:Plant Form %/day|PlantForm					DEFINE:PlantForm|0	BONUS:VAR|PlantForm|1	ADD:SPELLCASTER|Divine
+2	SAB:Plant Form %/day|PlantForm	BONUS:VAR|PlantForm|1	DEFINE:PlantForm|0	ADD:SPELLCASTER|Divine
 3	SAB:Speak with Trees											ADD:SPELLCASTER|Divine
 4							BONUS:VAR|PlantForm|1					ADD:SPELLCASTER|Divine
 5	SAB:Mending Touch												ADD:SPELLCASTER|Divine
@@ -457,8 +457,8 @@ CLASS:Forest Shepherd	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=C
 9							BONUS:VAR|PlantForm|1					ADD:SPELLCASTER|Divine
 10	SAB:Treant Form												ADD:SPELLCASTER|Divine
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Uthuk Qi'nok	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.161	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Uthuk Qi'nok	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.161	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL		Required Deity	Required Race		Req. Spell Type
 CLASS:Uthuk Qi'nok	PREALIGN:CG,CN,CE	PREDEITY:1,Y'llan	PRERACE:1,Uthuk Y'llan	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -467,19 +467,19 @@ CLASS:Uthuk Qi'nok	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowl
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Dispel Magic %/day|DispelMagic		DEFINE:DispelMagic|0	ADD:SPELLCASTER|Arcane	BONUS:VAR|DispelMagic|CL/3+1	
-2	SAB:Sympathetic Sacrifice								ADD:SPELLCASTER|Arcane						
-3	SAB:Contagion %/day|Contagion			DEFINE:Contagion|0		ADD:SPELLCASTER|Arcane	BONUS:VAR|Contagion|CL/3		
-4													ADD:SPELLCASTER|Arcane						
-5	SAB:Dominate Monster %/day|DominateMon	DEFINE:DominateMon|0	ADD:SPELLCASTER|Arcane	BONUS:VAR|DominateMon|(CL-2)/3	
-6													ADD:SPELLCASTER|Arcane
-7	SAB:Scorch											ADD:SPELLCASTER|Arcane
-8													ADD:SPELLCASTER|Arcane
-9													ADD:SPELLCASTER|Arcane
-10	SAB:Earthspears										ADD:SPELLCASTER|Arcane
+1	SAB:Dispel Magic %/day|DispelMagic		BONUS:VAR|DispelMagic|CL/3+1		DEFINE:DispelMagic|0	ADD:SPELLCASTER|Arcane
+2	SAB:Sympathetic Sacrifice													ADD:SPELLCASTER|Arcane
+3	SAB:Contagion %/day|Contagion			BONUS:VAR|Contagion|CL/3		DEFINE:Contagion|0	ADD:SPELLCASTER|Arcane
+4																		ADD:SPELLCASTER|Arcane
+5	SAB:Dominate Monster %/day|DominateMon	BONUS:VAR|DominateMon|(CL-2)/3	DEFINE:DominateMon|0	ADD:SPELLCASTER|Arcane
+6																		ADD:SPELLCASTER|Arcane
+7	SAB:Scorch																ADD:SPELLCASTER|Arcane
+8																		ADD:SPELLCASTER|Arcane
+9																		ADD:SPELLCASTER|Arcane
+10	SAB:Earthspears															ADD:SPELLCASTER|Arcane
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Verman Corrupter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.168	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Bonus
+CLASS:Verman Corrupter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.168	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Req. Att.	Required Race	Required Skill											Required Text
 CLASS:Verman Corrupter	PREALIGN:NE,CE	PREATT:4	PRERACE:1,Vermen	PRESKILL:5,Bluff=4,Sense Motive=5,Gather Information=6,Intimidate=6,Forgery=6	PRETEXT:See Text
 # Class Name		Skill Pts/Lvl	Class Skill

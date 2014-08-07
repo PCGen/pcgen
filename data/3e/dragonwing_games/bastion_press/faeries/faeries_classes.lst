@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm	SOURCEDATE:2003-01
 #Original Entry: darkon_turas; clean up by Andrew Maitland
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Faemancer	HD:4		TYPE:PC.Prestige	ABB:Fmc		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Faemancer	HD:4		TYPE:PC.Prestige	ABB:Fmc		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Deities allowed		Required AL		Required Feat		Required Skill					Required Text
 CLASS:Faemancer	DEITY:None (Faemancer)	PREALIGN:CG,CN	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy=8,Knowledge (Fey)=8	PRETEXT:The character must have been chosen by the fey to become a faemancer.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -26,8 +26,8 @@ CLASS:Faemancer	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Faerie Hunter	HD:10		TYPE:PC.Prestige	ABB:FHt		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Faerie Hunter	HD:10		TYPE:PC.Prestige	ABB:FHt		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL				Req. Att.	Required Feat							Required Skill
 CLASS:Faerie Hunter	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:5	PREFEAT:3,Mite Fighter,Point Blank Shot,Precise Shot	PRESKILL:1,Knowledge (Fey)=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -47,8 +47,8 @@ CLASS:Faerie Hunter	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Faerier	HD:4		TYPE:PC.Prestige	ABB:Frr		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Faerier	HD:4		TYPE:PC.Prestige	ABB:Frr		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat		Required Language	Multiple Requirements																										Maximum Size	Required Skill
 CLASS:Faerier	PREFEAT:1,Alertness	PRELANG:1,Fae	PREMULT:1,[PRESKILL:1,Knowledge (Fey)=8,Knowledge (Nature)=8],[PREVARGTEQ:BardicKnowledge,6]	PREMULT:1,[PRESKILL:1,Use Magic Device=1],[PRESPELLTYPE:1,Arcane=1,Divine=1]	PRESIZELTEQ:M	PRESKILL:3,Diplomacy=8,TYPE.Perform=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -66,8 +66,8 @@ CLASS:Faerier	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Inf
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Fae-Walker	HD:8		TYPE:PC.Prestige	ABB:FWk		MAXLEVEL:10	SOURCEPAGE:p.24	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
+CLASS:Fae-Walker	HD:8		TYPE:PC.Prestige	ABB:FWk		MAXLEVEL:10	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Req. Att.	Required Feat					Required Skill
 CLASS:Fae-Walker	PREALIGN:CG,CN,CE	PREATT:4	PREFEAT:3,Dodge,Mobility,Combat Reflexes	PRESKILL:3,Move Silently=8,Hide=8,Knowledge (Fey)=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -85,8 +85,8 @@ CLASS:Fae-Walker	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disguise|E
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Fey Guardian	HD:4		TYPE:PC.Prestige	ABB:FGd		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Fey Guardian	HD:4		TYPE:PC.Prestige	ABB:FGd		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat							Required Skill											Req. Spell Type
 CLASS:Fey Guardian	PREFEAT:3,Fey Magic,TYPE.Metamagic,TYPE.Metamagic	PRESKILL:3,Knowledge (Religion)=5,Knowledge (Arcana)=12,Knowledge (Fey)=12	PRESPELLTYPE:1,Divine=1
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -104,8 +104,8 @@ CLASS:Fey Guardian	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowl
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Fey Prankster	HD:8		TYPE:PC.Prestige	ABB:FPk		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*2/3|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
+CLASS:Fey Prankster	HD:8		TYPE:PC.Prestige	ABB:FPk		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*2/3|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL				Req. Att.	Required Feat					Required Skill									Req. Spell Type
 CLASS:Fey Prankster	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:3,Alertness,Combat Casting,Dodge	PRESKILL:3,Concentration=5,Knowledge (Arcana)=4,Knowledge (Fey)=4	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -129,8 +129,8 @@ CLASS:Fey Prankster	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Fey-Touched	HD:6		TYPE:PC.Prestige	ABB:FTc		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Fey-Touched	HD:6		TYPE:PC.Prestige	ABB:FTc		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Req. Att.	Required Feat			Prohibited Race		Required Skill
 CLASS:Fey-Touched	PREATT:4	PREFEAT:2,Alertness,Dodge	!PRERACE:1,RACETYPE=Fey	PRESKILL:1,Knowledge (Fey)=5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -148,8 +148,8 @@ CLASS:Fey-Touched	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Knight of the Fey	HD:10		TYPE:PC.Prestige	ABB:FTc		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Knight of the Fey	HD:10		TYPE:PC.Prestige	ABB:FTc		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL			Req. Att.	Required Feat												Required Race		Required Skill
 CLASS:Knight of the Fey	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:5,Armor Proficiency (Heavy),Power Attack,Cleave,Great Cleave,Mounted Combat	PRERACE:1,RACETYPE=Fey	PRESKILL:4,Diplomacy=4,Ride=4,Knowledge (Fey)=5,Knowledge (Nobility and Royalty)=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -172,8 +172,8 @@ CLASS:Knight of the Fey	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (F
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Mage of the Circle	HD:4		TYPE:PC.Prestige	ABB:MoC		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Mage of the Circle	HD:4		TYPE:PC.Prestige	ABB:MoC		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Feat							Required Skill							Req. Spell Type
 CLASS:Mage of the Circle	PREFEAT:3,Fey Magic,Craft Wondrous Item,Scribe Scroll	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Fey)=8	PRESPELLTYPE:1,Arcane=3
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -191,8 +191,8 @@ CLASS:Mage of the Circle	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Mortal Slayer	HD:10		TYPE:PC.Prestige	ABB:MSl		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Mortal Slayer	HD:10		TYPE:PC.Prestige	ABB:MSl		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Req. Att.	Required Feat								Required Race		Required Skill
 CLASS:Mortal Slayer	PREATT:6	PREFEAT:3,Improved Initiative,Mounted Combat,Quick Draw	PRERACE:1,RACETYPE=Fey	PRESKILL:2,Knowledge (Fey)=8,Knowledge (Folk Tales)=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -218,8 +218,8 @@ CLASS:Mortal Slayer	SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 
 ###Block: --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Type			Max Level	Base class as subclass?	Save checks bonus																Combat bonus
-CLASS:Faerie Dragon	TYPE:Monster	MAXLEVEL:12	ALLOWBASECLASS:NO		BONUS:SAVE|BASE.Fortitude|4	BONUS:SAVE|BASE.Reflex|((classlevel("APPLIEDAS=NONEPIC")+1)/2)+2	BONUS:SAVE|BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+1)/2)+3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name		Type			Max Level	Base class as subclass?	Combat bonus										Bonus
+CLASS:Faerie Dragon	TYPE:Monster	MAXLEVEL:12	ALLOWBASECLASS:NO		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|4	BONUS:SAVE|BASE.Reflex|((classlevel("APPLIEDAS=NONEPIC")+1)/2)+2	BONUS:SAVE|BASE.Will|((classlevel("APPLIEDAS=NONEPIC")+1)/2)+3
 # Class Name		Required Race
 CLASS:Faerie Dragon	PRERACE:3,RACETYPE=Fey,RACESUBTYPE=Dragon,Faerie Dragon
 # Class Name		Skill Pts/Lvl
@@ -251,17 +251,17 @@ SUBCLASSLEVEL:9	BONUS:PCLEVEL|Cleric|1
 SUBCLASSLEVEL:10	BONUS:PCLEVEL|Cleric|1
 SUBCLASSLEVEL:11	BONUS:PCLEVEL|Cleric|1
 SUBCLASSLEVEL:12	BONUS:PCLEVEL|Cleric|1
-1	HITDIE:6						BONUS:COMBAT|BASEAB|-1|TYPE=Base.REPLACE																BONUS:VAR|FaerieDragonBreathDC|11+CL+CON	BONUS:VAR|FaerieDragonSR|12+CL	TEMPLATE:HalfHD				KIT:1|Base Faerie Dragon ~ Stats
-2																																											TEMPLATE:HalfHD.REMOVE
-3	HITDIE:6	BONUS:SAVE|BASE.Fortitude|1															BONUS:STAT|DEX,INT,WIS,CHA|1
-4															BONUS:HP|CURRENTMAX|2				BONUS:STAT|STR|1
-5	HITDIE:6	BONUS:SAVE|BASE.Fortitude|1								BONUS:HP|CURRENTMAX|-1				BONUS:STAT|DEX,INT,WIS,CHA|1
-6															BONUS:HP|CURRENTMAX|1
-7	HITDIE:6	BONUS:SAVE|BASE.Fortitude|1															BONUS:STAT|STR|1	BONUS:STAT|DEX,INT,WIS,CHA|1
-8	HITDIE:6													BONUS:HP|CURRENTMAX|-1
-9	HITDIE:6													BONUS:HP|CURRENTMAX|-1	BONUS:MISC|SR|1	BONUS:STAT|DEX,INT,WIS,CHA|1
-10			BONUS:SAVE|BASE.Fortitude|1								BONUS:HP|CURRENTMAX|2	BONUS:MISC|SR|1	BONUS:STAT|STR|1																			TEMPLATE:FaerieDragonSizeSmall
-11	HITDIE:6													BONUS:HP|CURRENTMAX|-1	BONUS:MISC|SR|1	BONUS:STAT|DEX,INT,WIS,CHA|1
-12	HITDIE:6													BONUS:HP|CURRENTMAX|-1	BONUS:MISC|SR|1
+1	HITDIE:6	BONUS:COMBAT|BASEAB|-1|TYPE=Base.REPLACE																BONUS:VAR|FaerieDragonBreathDC|11+CL+CON	BONUS:VAR|FaerieDragonSR|12+CL	TEMPLATE:HalfHD				KIT:1|Base Faerie Dragon ~ Stats
+2																																						TEMPLATE:HalfHD.REMOVE
+3	HITDIE:6															BONUS:STAT|DEX,INT,WIS,CHA|1																													BONUS:SAVE|BASE.Fortitude|1
+4										BONUS:HP|CURRENTMAX|2				BONUS:STAT|STR|1
+5	HITDIE:6								BONUS:HP|CURRENTMAX|-1				BONUS:STAT|DEX,INT,WIS,CHA|1																													BONUS:SAVE|BASE.Fortitude|1
+6										BONUS:HP|CURRENTMAX|1
+7	HITDIE:6															BONUS:STAT|STR|1	BONUS:STAT|DEX,INT,WIS,CHA|1																										BONUS:SAVE|BASE.Fortitude|1
+8	HITDIE:6								BONUS:HP|CURRENTMAX|-1
+9	HITDIE:6								BONUS:HP|CURRENTMAX|-1	BONUS:MISC|SR|1	BONUS:STAT|DEX,INT,WIS,CHA|1
+10										BONUS:HP|CURRENTMAX|2	BONUS:MISC|SR|1	BONUS:STAT|STR|1																			TEMPLATE:FaerieDragonSizeSmall							BONUS:SAVE|BASE.Fortitude|1
+11	HITDIE:6								BONUS:HP|CURRENTMAX|-1	BONUS:MISC|SR|1	BONUS:STAT|DEX,INT,WIS,CHA|1
+12	HITDIE:6								BONUS:HP|CURRENTMAX|-1	BONUS:MISC|SR|1
 
 #EOF

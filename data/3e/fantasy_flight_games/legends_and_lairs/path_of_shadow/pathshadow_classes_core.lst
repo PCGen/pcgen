@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
 # Original entry by: Blithwyn
 
@@ -8,8 +8,8 @@ SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyfli
 #   On the other hand .MODding the spells is even worse since this would restrict the Chameleon to SRD spells.
 #
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
-CLASS:Chameleon	HD:6		TYPE:Base.PC	ABB:Chm		MAXLEVEL:20	SOURCEPAGE:Chap.3, Chameleon	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Bonus
+CLASS:Chameleon	HD:6		TYPE:Base.PC	ABB:Chm		MAXLEVEL:20	SOURCEPAGE:Chap.3, Chameleon	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Chameleon	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Speak Language|Spellcraft|Swim
 # Class Name	Spell Stat		Spell Type		Spell Scoll Prohibited							Caster level				Use Spell List
@@ -48,8 +48,8 @@ CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,
 #   These could be added but I haven't found a way to make that prereq work so that they only show up (OS) if prereqs are met.
 #
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
-CLASS:Con Artist	HD:6		TYPE:Base.PC	ABB:Con		MAXLEVEL:20	SOURCEPAGE:Chap.3, Con Artist	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Bonus
+CLASS:Con Artist	HD:6		TYPE:Base.PC	ABB:Con		MAXLEVEL:20	SOURCEPAGE:Chap.3, Con Artist	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Con Artist	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Use Magic Device
 ###Block: Weapon and Armor proficiencies
@@ -67,8 +67,8 @@ CLASS:Con Artist	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|Decipher Script|Dip
 
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
-CLASS:Delver	HD:6		TYPE:Base.PC	ABB:Delv		MAXLEVEL:20	SOURCEPAGE:Chap.3, Delver	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Bonus
+CLASS:Delver	HD:6		TYPE:Base.PC	ABB:Delv		MAXLEVEL:20	SOURCEPAGE:Chap.3, Delver	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Escape Artist|Gather Information|Hide|Innuendo|Intuit Direction|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Weapon and Armor proficiencies
@@ -92,8 +92,8 @@ CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE=Cr
 
 # Psychic Thief
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
-CLASS:Psychic Thief	HD:6		TYPE:Base.PC	ABB:PsyThf		MAXLEVEL:20	SOURCEPAGE:Chap.3, Psychic Thief	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Combat bonus								Bonus
+CLASS:Psychic Thief	HD:6		TYPE:Base.PC	ABB:PsyThf		MAXLEVEL:20	SOURCEPAGE:Chap.3, Psychic Thief	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Thief	STARTSKILLPTS:6	CSKILL:Autohypnosis|Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Psionic Device|Use Rope
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
@@ -111,12 +111,12 @@ CLASS:Psychic Thief	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 ###Block: sneak attack
 1	BONUS:VAR|SneakAttackDice|(CL+3)/4	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Manifester stuff
-1	BONUS:VAR|Manifester|CL	DEFINE:Manifester|0	DEFINE:PSIONLEVEL|0	BONUS:VAR|PSIONLEVEL|CL
-1					DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0
-1					DEFINE:POWERPOINTS|0		BONUS:VAR|POWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS		
-1					DEFINE:TOTALPOWERPOINTS|0	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS		
+1	BONUS:VAR|Manifester|CL	BONUS:VAR|PSIONLEVEL|CL			DEFINE:Manifester|0	DEFINE:PSIONLEVEL|0
+1											DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0
+1	BONUS:VAR|POWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	DEFINE:POWERPOINTS|0
+1	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	DEFINE:TOTALPOWERPOINTS|0
 ###Block: Psychic Thief Powers
-1	SAB:Psychic Thief 0 level powers (% free / day)|PsyThfFreePowers	DEFINE:PsyThfFreePowers|0	BONUS:VAR|PsyThfFreePowers|CL+2
+1	SAB:Psychic Thief 0 level powers (% free / day)|PsyThfFreePowers	BONUS:VAR|PsyThfFreePowers|CL+2	DEFINE:PsyThfFreePowers|0
 ###Block: normal progression
 1	KNOWN:2					BONUS:ABILITYPOOL|Psionic Combat Mode|2										BONUS:VAR|BASEPOWERPOINTS|2
 2	KNOWN:3																					BONUS:VAR|BASEPOWERPOINTS|1						ABILITY:Special Ability|AUTOMATIC|Evasion

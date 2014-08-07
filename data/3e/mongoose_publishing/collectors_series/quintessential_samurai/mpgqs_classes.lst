@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:MPG - Quintessential Samurai	SOURCESHORT:mpgqs
 #SOURCEWEB:www.mongoose.com
 # Original Entry by: Andrew Maitland
@@ -6,8 +6,8 @@ SOURCELONG:MPG - Quintessential Samurai	SOURCESHORT:mpgqs
 
 # The Samurai -------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Source Page		Save checks bonus											Combat bonus
-CLASS:The Samurai	HD:10		SOURCEPAGE:p.12	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Source Page		Combat bonus										Bonus
+CLASS:The Samurai	HD:10		SOURCEPAGE:p.12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL
 CLASS:The Samurai	PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -37,8 +37,8 @@ CLASS:The Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather
 
 # Bodyguard
 
-# Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Bodyguard	HD:10		MAXLEVEL:5	SOURCEPAGE:p.14	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Bodyguard	HD:10		MAXLEVEL:5	SOURCEPAGE:p.14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Req. Att.	Required Feat
 CLASS:Bodyguard	PREALIGN:LG,LN,LE	PREATT:10	PREFEAT:2,Great Fortitude,Improved Initiative
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -51,8 +51,8 @@ CLASS:Bodyguard	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|
 
 # Delegate
 
-# Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Delegate	HD:8		MAXLEVEL:5	SOURCEPAGE:p.15	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Delegate	HD:8		MAXLEVEL:5	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Req. Att.	Required Feat			Required Skill
 CLASS:Delegate	PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:1,Socially Graceful	PRESKILL:1,Diplomacy=10
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -65,8 +65,8 @@ CLASS:Delegate	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Innuendo|
 
 # Information Broker
 
-# Class Name			Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Information Broker	HD:10		MAXLEVEL:5	SOURCEPAGE:p.17	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Information Broker	HD:10		MAXLEVEL:5	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL		Required Feat		Required Skill
 CLASS:Information Broker	PREALIGN:LG,LN,LE	PREFEAT:1,Informants	PRESKILL:1,Gather Information=10
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -79,7 +79,7 @@ CLASS:Information Broker	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Forgery
 
 # Overseer
 
-# Class Name	Hit Dice	Max Level	Source Page		Save checks bonus
+# Class Name	Hit Dice	Max Level	Source Page		Bonus
 CLASS:Overseer	HD:10		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Req. Att.	Required Feat
 CLASS:Overseer	PREALIGN:LG,LN,LE	PREATT:10	PREFEAT:1,Leadership
@@ -97,8 +97,8 @@ CLASS:Overseer	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather In
 
 # Paragon
 
-# Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Paragon	HD:10		MAXLEVEL:5	SOURCEPAGE:p.21	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Paragon	HD:10		MAXLEVEL:5	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Req. Att.	Required Feat										Required Skill		Required Text
 CLASS:Paragon	PREALIGN:LG,LN,LE	PREATT:15	PREFEAT:3,Mounted Combat,Weapon Focus (Longbow),Weapon Focus (Katana)	PRESKILL:1,Riding=12	PRETEXT:Honour 15+
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -111,8 +111,8 @@ CLASS:Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather Inf
 
 # Protector
 
-# Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Protector	HD:10		MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Protector	HD:10		MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Req. Att.	Required Skill
 CLASS:Protector	PREALIGN:LG,LN,LE	PREATT:5	PRESKILL:2,Handle Animal=5,Ride=5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -125,8 +125,8 @@ CLASS:Protector	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Gather Informa
 
 # Ronin
 
-# Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Ronin		HD:12		MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Ronin		HD:12		MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Req. Att.	Required Text
 CLASS:Ronin		PREALIGN:LG,LN,LE	PREATT:5	PRETEXT:The samurai must either be released from service or have suffered the loss of his daimyo to some other misfortune.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -139,8 +139,8 @@ CLASS:Ronin		STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Gather Informatio
 
 # Slayer
 
-# Class Name	Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Slayer	HD:12		MAXLEVEL:5	SOURCEPAGE:p.26	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Slayer	HD:12		MAXLEVEL:5	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Req. Att.	Required Text
 CLASS:Slayer	PREALIGN:LG,LN,LE	PREATT:10	PRETEXT:Honour 10+
 # Class Name	Skill Pts/Lvl	Class Skill

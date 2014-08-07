@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 #Official Errata from Mongoose on Necrophage - The Table is incorrect about Spellcasting levels - The Class Features:Spells per Day section is correct
 
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-09
 
 
 # Spectral Loremaster
-# Ability Name		Unique Key								Category of Ability		Type				Define						Description
-Speak with Dead		KEY:Speak with Dead ~ Spectral Loremaster			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SpeakDead|0	BONUS:VAR|SpeakDead|1			DESC: %1/Day|SpeakDead
+# Ability Name		Unique Key								Category of Ability		Type				Define						Description																								Modify VAR
+Speak with Dead		KEY:Speak with Dead ~ Spectral Loremaster			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SpeakDead|0				DESC: %1/Day|SpeakDead																						BONUS:VAR|SpeakDead|1
 Spectral Investigation	KEY:Spectral Investigation ~ Spectral Loremaster	CATEGORY:Special Ability	TYPE:SpecialQuality
 Divination			KEY:Divination ~ Spectral Loremaster			CATEGORY:Special Ability	TYPE:SpecialQuality
 Lost Arcane Lore		KEY:Lost Arcane Lore ~ Spectral Loremaster		CATEGORY:Special Ability	TYPE:SpecialQuality

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 ###Block: Psionic Combat Modes
@@ -16,7 +16,7 @@ Tower of Iron Will	CATEGORY:Special Ability	TYPE:SpecialQuality.PsionicDefenseMo
 
 ###Block: Manifester (for Output sheets), BasePowerPoints, BonusPowerPoints, HasSpellStat (for subclasses).
 # Ability Name	Output Name			Category of Ability		Type				Visible	Define																						Description																				Modify VAR
-PsionicClass	OUTPUTNAME:Psionic	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|0	BONUS:VAR|Manifester|1	DESC:%3 Total Power Points (%1 Base Power Points + %2 Bonus Power Points)|BasePowerPoints|BonusPowerPoints|TotalPowerPoints	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
+PsionicClass	OUTPUTNAME:Psionic	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|0	DESC:%3 Total Power Points (%1 Base Power Points + %2 Bonus Power Points)|BasePowerPoints|BonusPowerPoints|TotalPowerPoints	BONUS:VAR|Manifester|1	BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
 
 ###Block: Psionic Feat Support
 # Ability Name			Category of Ability		Type						Visible	Restricted Ability									Required Class			Define									Modify VAR																															Source Page					Temporary Bonus
@@ -68,7 +68,7 @@ Breach Power Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YE
 Blast Feedback			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 
 ###Block: Soulknife
-# Ability Name		Unique Key				Category of Ability		Type				Visible	Define									Description							Stackable?	Multiple?	Choose				Bonus to skill		Aspects
+# Ability Name		Unique Key				Category of Ability		Type				Visible	Define									Description							Stackable?	Multiple?	Choose				Bonus to skill		Modify VAR				Aspects
 Imbed Power								CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Imbed Psionic Attack						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Free Draw								CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
@@ -76,9 +76,9 @@ Sever Life								CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES
 Upgrade								CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 Knife to the Soul							CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES
 #
-Mind-Blade Sneak Attack						CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES	DEFINE:SneakAttackDie|0	BONUS:VAR|SneakAttackDie|6		DEFINE:MindBladeSneakAttack|0		DESC:+%1d%2|MindBladeSneakAttack|SneakAttackDie														ASPECT:Ability Benefit|+%1d%2|MindBladeSneakAttack|SneakAttackDie
-Mind-Blade								CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:MindBladeAllowed|0	BONUS:VAR|MindBladeAllowed|1	DEFINE:MindBladeEnchantment|0	DESC:+%1|MindBladeEnchantment																	ASPECT:Ability Bonus|+%1|MindBladeEnchantment
-Throw Mind-Blade							CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES	DEFINE:MindBladeRange|0							DESC:%1 ft.|MindBladeRange																	ASPECT:Ability Benefit|%1 ft.|MindBladeRange
+Mind-Blade Sneak Attack						CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES	DEFINE:SneakAttackDie|0	DEFINE:MindBladeSneakAttack|0		DESC:+%1d%2|MindBladeSneakAttack|SneakAttackDie														BONUS:VAR|SneakAttackDie|6	ASPECT:Ability Benefit|+%1d%2|MindBladeSneakAttack|SneakAttackDie
+Mind-Blade								CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:MindBladeAllowed|0	DEFINE:MindBladeEnchantment|0	DESC:+%1|MindBladeEnchantment																	BONUS:VAR|MindBladeAllowed|1	ASPECT:Ability Bonus|+%1|MindBladeEnchantment
+Throw Mind-Blade							CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES	DEFINE:MindBladeRange|0							DESC:%1 ft.|MindBladeRange																						ASPECT:Ability Benefit|%1 ft.|MindBladeRange
 
 #
 # End

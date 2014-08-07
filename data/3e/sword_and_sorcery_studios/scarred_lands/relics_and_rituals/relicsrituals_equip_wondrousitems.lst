@@ -1,18 +1,18 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com	SOURCEDATE:2001-01
 
-# Equipment Name				Product Identity?	Output Name				Required Weapon Proficiency		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Size		Source Page			Save checks bonus		Combat bonus						Bonus to skill											Stat bonus
+# Equipment Name				Product Identity?	Output Name				Required Weapon Proficiency		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Size		Source Page			Combat bonus						Bonus to skill											Stat bonus		Bonus
 Alluna's Lenses of Discovery 50%	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:24500	WT:1															SOURCEPAGE:p.174
 Alluna's Lenses of Discovery 85%	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:34500	WT:1															SOURCEPAGE:p.174
 Alluna's Lenses of Discovery 90%	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:50000	WT:1															SOURCEPAGE:p.174
 Helm (Amalthean)				NAMEISPI:YES	OUTPUTNAME:[NAME] Helm								TYPE:Magic.Wondrous							COST:50000	WT:5															SOURCEPAGE:p.174-175
-Amulet (Ghost Armor)			NAMEISPI:YES	OUTPUTNAME:Amulet of [NAME]							TYPE:Magic.Wondrous							COST:80000	WT:1															SOURCEPAGE:p.175						BONUS:COMBAT|AC|7|TYPE=Armor
+Amulet (Ghost Armor)			NAMEISPI:YES	OUTPUTNAME:Amulet of [NAME]							TYPE:Magic.Wondrous							COST:80000	WT:1															SOURCEPAGE:p.175		BONUS:COMBAT|AC|7|TYPE=Armor
 Amulet (Love)				NAMEISPI:YES	OUTPUTNAME:Amulets of [NAME]							TYPE:Magic.Wondrous							COST:100000	WT:1															SOURCEPAGE:p.175
 Amulet (Peaceful Repose)		NAMEISPI:YES	OUTPUTNAME:Amulet of [NAME]							TYPE:Magic.Wondrous							COST:2000	WT:0															SOURCEPAGE:p.175-176
 Artemesia's Garrote			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:12500	WT:0															SOURCEPAGE:p.176
 Bag of the Pyre				NAMEISPI:YES												TYPE:Magic.Wondrous							COST:6500	WT:1															SOURCEPAGE:p.176
-Banje's Turban of Discernment		NAMEISPI:YES												TYPE:Magic.Wondrous							COST:20000	WT:2															SOURCEPAGE:p.176-177													BONUS:SKILL|Intuit Direction|4
-Beads of the Altered Voice		NAMEISPI:YES												TYPE:Magic.Wondrous							COST:980	WT:0															SOURCEPAGE:p.177														BONUS:SKILL|Disguise|5
+Banje's Turban of Discernment		NAMEISPI:YES												TYPE:Magic.Wondrous							COST:20000	WT:2															SOURCEPAGE:p.176-177									BONUS:SKILL|Intuit Direction|4
+Beads of the Altered Voice		NAMEISPI:YES												TYPE:Magic.Wondrous							COST:980	WT:0															SOURCEPAGE:p.177										BONUS:SKILL|Disguise|5
 Belsamaug Amulet				NAMEISPI:YES												TYPE:Magic.Wondrous							COST:34000	WT:0															SOURCEPAGE:p.177
 Bestiary of Binding			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:99200	WT:3															SOURCEPAGE:p.177-178
 Blood Bands of Awakening		NAMEISPI:YES												TYPE:Magic.Wondrous							COST:24600	WT:0															SOURCEPAGE:p.178
@@ -23,14 +23,14 @@ Boots (Landing)				NAMEISPI:YES	OUTPUTNAME:Boot of [NAME]							TYPE:Magic.Wondr
 Breath of Life				NAMEISPI:YES												TYPE:Magic.Wondrous							COST:78000	WT:2															SOURCEPAGE:p.180
 Burdensome Coin				NAMEISPI:YES												TYPE:Magic.Wondrous							COST:8000	WT:0															SOURCEPAGE:p.180
 Canopic Urn of the Dead			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:48000	WT:6															SOURCEPAGE:p.180-181
-Cat's Claws					NAMEISPI:YES						PROFICIENCY:WEAPON|Cat's Claws	TYPE:Magic.Wondrous.Weapon.Specific.Exotic.Melee.Slashing	COST:14100	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6+1	SIZE:T	SOURCEPAGE:p.181														BONUS:SKILL|Hide,Climb,Balance,Jump,Listen,Move Silently,Search,Spot,Tumble|2	BONUS:STAT|DEX|2
+Cat's Claws					NAMEISPI:YES						PROFICIENCY:WEAPON|Cat's Claws	TYPE:Magic.Wondrous.Weapon.Specific.Exotic.Melee.Slashing	COST:14100	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6+1	SIZE:T	SOURCEPAGE:p.181										BONUS:SKILL|Hide,Climb,Balance,Jump,Listen,Move Silently,Search,Spot,Tumble|2	BONUS:STAT|DEX|2
 Helm (Champion's)				NAMEISPI:YES	OUTPUTNAME:[NAME] Helm								TYPE:Magic.Wondrous							COST:94000	WT:5															SOURCEPAGE:p.181
 Circlet of the Iron Mind		NAMEISPI:YES												TYPE:Magic.Wondrous							COST:375000	WT:0															SOURCEPAGE:p.181
-Circlet (Warning)				NAMEISPI:YES	OUTPUTNAME:Circlet of [NAME]							TYPE:Magic.Wondrous							COST:58000	WT:0															SOURCEPAGE:p.182		BONUS:SAVE|Reflex|1
+Circlet (Warning)				NAMEISPI:YES	OUTPUTNAME:Circlet of [NAME]							TYPE:Magic.Wondrous							COST:58000	WT:0															SOURCEPAGE:p.182																										BONUS:SAVE|Reflex|1
 Cloak (Evasion)				NAMEISPI:YES	OUTPUTNAME:Cloak of [NAME]							TYPE:Magic.Wondrous.Cape						COST:16000	WT:1															SOURCEPAGE:p.182
 Cloak (Fame)				NAMEISPI:YES	OUTPUTNAME:Cloak of [NAME]							TYPE:Magic.Wondrous.Cape						COST:240000	WT:5															SOURCEPAGE:p.182
 Cloak (Pestilence)			NAMEISPI:YES	OUTPUTNAME:Cloak of [NAME]							TYPE:Magic.Wondrous.Cape						COST:56700	WT:1															SOURCEPAGE:p.182-183
-Cloak (Whispers)				NAMEISPI:YES	OUTPUTNAME:Cloak of [NAME]							TYPE:Magic.Wondrous.Cape						COST:34400	WT:1															SOURCEPAGE:p.183														BONUS:SKILL|Listen,Gather Information|10
+Cloak (Whispers)				NAMEISPI:YES	OUTPUTNAME:Cloak of [NAME]							TYPE:Magic.Wondrous.Cape						COST:34400	WT:1															SOURCEPAGE:p.183										BONUS:SKILL|Listen,Gather Information|10
 Confessor's Quill				NAMEISPI:YES												TYPE:Magic.Wondrous							COST:30000	WT:0															SOURCEPAGE:p.183
 Despot's Circlet				NAMEISPI:YES												TYPE:Magic.Wondrous							COST:118000	WT:0.5														SOURCEPAGE:p.183-184
 Dragonstein					NAMEISPI:YES												TYPE:Magic.Wondrous							COST:4400	WT:1															SOURCEPAGE:p.184
@@ -39,7 +39,7 @@ Enkili's Cloak				NAMEISPI:YES												TYPE:Magic.Wondrous.Cape						COST:280
 Everseeing Eyepatch			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:56000	WT:0															SOURCEPAGE:p.185
 Flagon of Imbibing			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:2000	WT:1															SOURCEPAGE:p.185
 Gemgate					NAMEISPI:YES												TYPE:Magic.Wondrous							COST:81900	WT:0.25														SOURCEPAGE:p.185-186
-Gloves of the Gladiator			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:9000	WT:2															SOURCEPAGE:p.186						BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|1
+Gloves of the Gladiator			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:9000	WT:2															SOURCEPAGE:p.186		BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|1
 Helm of the Reaver			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:55200	WT:3															SOURCEPAGE:p.186-187
 Hornsaw Flute				NAMEISPI:YES												TYPE:Magic.Wondrous							COST:101000	WT:1															SOURCEPAGE:p.187
 Horseshoes of the Vanishing Steed	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:66800	WT:4															SOURCEPAGE:p.187
@@ -52,7 +52,7 @@ Kadum's Pearl (Slaying)			NAMEISPI:YES												TYPE:Magic.Wondrous							COST
 Kadum's Pearl (Strife)			NAMEISPI:YES												TYPE:Magic.Wondrous							COST:92000	WT:0															SOURCEPAGE:p.188-189
 Kadum's Pearl (Wounding)		NAMEISPI:YES												TYPE:Magic.Wondrous							COST:62000	WT:0															SOURCEPAGE:p.188-189
 Kelder Feedbag				NAMEISPI:YES												TYPE:Magic.Wondrous							COST:6000	WT:1															SOURCEPAGE:p.189
-Luthia's Tools of Precision		NAMEISPI:YES												TYPE:Magic.Wondrous							COST:2160	WT:2															SOURCEPAGE:p.189														BONUS:SKILL|Disable Device,Open Lock|6
+Luthia's Tools of Precision		NAMEISPI:YES												TYPE:Magic.Wondrous							COST:2160	WT:2															SOURCEPAGE:p.189										BONUS:SKILL|Disable Device,Open Lock|6
 
 ###Block
 # Equipment Name				Product Identity?	Output Name								Type					Cost		Weight	Source Page			Virtual Feat	Innate Spells																				Combat bonus				Bonus to skill							Weapon prof. bonus

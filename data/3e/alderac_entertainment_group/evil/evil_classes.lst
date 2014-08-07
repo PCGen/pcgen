@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
-CLASS:Demon Summoner	HD:4		TYPE:PC.Prestige	ABB:DmS		MAXLEVEL:10	SOURCEPAGE:p.29-31	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Bonus
+CLASS:Demon Summoner	HD:4		TYPE:PC.Prestige	ABB:DmS		MAXLEVEL:10	SOURCEPAGE:p.29-31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Class					Required Language			Required Skill
 CLASS:Demon Summoner	PREALIGN:LE,NE,CE	PRECLASS:1,Cleric=7,Wizard=5,Sorcerer=6	PRELANG:1,Abyssal,Infernal	PRESKILL:2,Knowledge (Demonology)=6,Spellcraft=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -18,8 +18,8 @@ CLASS:Demon Summoner	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|Concentration|TYPE=Cr
 9	BONUS:VAR|SpecialMeta|1
 10	BONUS:VAR|SpecialMeta|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus																	Combat bonus
-CLASS:Bargainer	HD:6		TYPE:PC.Prestige	ABB:Bar		MAXLEVEL:10	SOURCEPAGE:p.70-71	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/9	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/4	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2+(classlevel("APPLIEDAS=NONEPIC")/9)+2	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Bonus
+CLASS:Bargainer	HD:6		TYPE:PC.Prestige	ABB:Bar		MAXLEVEL:10	SOURCEPAGE:p.70-71	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/9	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/4	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2+(classlevel("APPLIEDAS=NONEPIC")/9)+2
 # Class Name	Required AL		Req. Att.	Required Feat				Required Language			Required Skill																		Required Text
 CLASS:Bargainer	PREALIGN:LE,NE,CE	PREATT:4	PREFEAT:2,Infernal Pact,Iron Will	PRELANG:1,Abyssal,Infernal	PRESKILL:1,Knowledge (Arcana)=6	PRESKILL:1,Knowledge (Religion)=4	PRESKILL:2,Diplomacy=8,Knowledge (Demonology)=8	PRETEXT:Must know the true name of a Demon
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -35,17 +35,17 @@ CLASS:Bargainer	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|TYPE=Craft|Decipher Script|
 9										ABILITY:Special Ability|AUTOMATIC|Wild Shape ~ Bargainer
 10	BONUS:ABILITYPOOL|Infernal Choice|1
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Blood Archer	HD:10		TYPE:PC.Prestige	ABB:BlA		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Blood Archer	HD:10		TYPE:PC.Prestige	ABB:BlA		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL	Req. Att.	Required Feat											Required Skill
 CLASS:Blood Archer	PREALIGN:LE	PREATT:6	PREFEAT:4,Endurance,Point Blank Shot,Track,Weapon Specialization (Longbow)	PRESKILL:1,Craft (Bowyer/Fletcher)=6	PRESKILL:1,Hide=4	PRESKILL:1,Wilderness Lore=7
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blood Archer	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Climb|Craft (Bowyer/Fletcher)|Handle Animal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Ride|Search|Swim|Tumble|Wilderness Lore
-1														ABILITY:Special Ability|AUTOMATIC|Poison Blood ~ Blood Archer|Title ~ Blood Archer	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Simple Weapon Proficiency
-2														ABILITY:Special Ability|AUTOMATIC|Acid Blood ~ Blood Archer
-3						BONUS:VAR|BloodBow|CL/3					ABILITY:Special Ability|AUTOMATIC|Blood Bow ~ Blood Archer
-4														ABILITY:Special Ability|AUTOMATIC|Regeneration ~ Blood Archer
-5	BONUS:VAR|BowSneakAttack|1		ABILITY:Special Ability|AUTOMATIC|Sneak Attack ~ Blood Archer
+1						ABILITY:Special Ability|AUTOMATIC|Poison Blood ~ Blood Archer|Title ~ Blood Archer	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Simple Weapon Proficiency
+2						ABILITY:Special Ability|AUTOMATIC|Acid Blood ~ Blood Archer
+3	BONUS:VAR|BloodBow|CL/3		ABILITY:Special Ability|AUTOMATIC|Blood Bow ~ Blood Archer
+4						ABILITY:Special Ability|AUTOMATIC|Regeneration ~ Blood Archer
+5	BONUS:VAR|BowSneakAttack|1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack ~ Blood Archer
 6
 7
 8	BONUS:VAR|BowSneakAttack|1

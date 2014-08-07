@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 
 ###Block: Expert Class Skills
@@ -39,7 +39,7 @@ Spell-Like Ability Selection					CATEGORY:Special Ability																							
 
 
 ###Block: Blackguard Abilities
-# Ability Name		Category of Ability		Type							Visible	Define				Innate Spells											Save checks bonus
+# Ability Name		Category of Ability		Type							Visible	Define				Innate Spells											Bonus
 Fiendish Servant		CATEGORY:Special Ability	TYPE:SpecialQuality				VISIBLE:YES	DEFINE:FiendishServantLVL|0
 Undead Companion		CATEGORY:Special Ability	TYPE:SpecialQuality				VISIBLE:YES	DEFINE:UndeadCompanionLVL|0
 Fiendish Summoning	CATEGORY:Special Ability	TYPE:SpecialQuality				VISIBLE:YES
@@ -49,28 +49,28 @@ Aura of Despair		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	
 
 
 ###Block: Dwarven Defender Abilities
-# Ability Name		Category of Ability		Type					Visible	Define																			Description																										Source Page					Aspects								Temporary Bonus
-Defensive Stance		CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC	VISIBLE:YES	DEFINE:DefensiveStanceTimes|0																DESC:%1 times per day|DefensiveStanceTimes																				SOURCEPAGE:PrestigeClasses.rtf	ASPECT:Ability Benefit|%1/day|DefensiveStanceTimes	TEMPBONUS:PC|CHECKS|ALL|2|TYPE=Resistance	TEMPBONUS:PC|COMBAT|AC|4|TYPE=Dodge	TEMPBONUS:PC|STAT|STR|2	TEMPBONUS:PC|STAT|CON|4
-Defensive Awareness	CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC	VISIBLE:YES	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|0	DEFINE:UncannyTraps|0	BONUS:VAR|ImprovedUncannyDodge|max(UncannyDodge-1,0)	BONUS:VAR|UncannyTraps|max(UncannyDodge-2,0)	DESC:Dex bonus to AC|PREVARGT:UncannyDodge,0	DESC:Can't be flanked|PREVARGT:ImprovedUncannyDodge,0	DESC:+%1 against traps|UncannyTraps|PREVARGT:UncannyTraps,0
+# Ability Name		Category of Ability		Type					Visible	Define												Description																										Modify VAR																Source Page					Aspects								Temporary Bonus
+Defensive Stance		CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC	VISIBLE:YES	DEFINE:DefensiveStanceTimes|0									DESC:%1 times per day|DefensiveStanceTimes																																					SOURCEPAGE:PrestigeClasses.rtf	ASPECT:Ability Benefit|%1/day|DefensiveStanceTimes	TEMPBONUS:PC|CHECKS|ALL|2|TYPE=Resistance	TEMPBONUS:PC|COMBAT|AC|4|TYPE=Dodge	TEMPBONUS:PC|STAT|STR|2	TEMPBONUS:PC|STAT|CON|4
+Defensive Awareness	CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC	VISIBLE:YES	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|0	DEFINE:UncannyTraps|0	DESC:Dex bonus to AC|PREVARGT:UncannyDodge,0	DESC:Can't be flanked|PREVARGT:ImprovedUncannyDodge,0	DESC:+%1 against traps|UncannyTraps|PREVARGT:UncannyTraps,0	BONUS:VAR|ImprovedUncannyDodge|max(UncannyDodge-1,0)	BONUS:VAR|UncannyTraps|max(UncannyDodge-2,0)
 
 
 ###Block: Loremaster Abilities
-# Ability Name			Category of Ability		Type							Visible	Var. Min. Value			Define			Description			Stackable?	Multiple?	Choose					Bonus to Ability Pool		Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill rank	Bonus to spell cast/day				Source Page						Aspects
-Secret Lore				CATEGORY:Special Ability	TYPE:SpecialQuality				VISIBLE:YES						DEFINE:SecretLore|0	DESC:+%1|SecretLore																																																ASPECT:Ability Benefit|+%1|SecretLore
+# Ability Name			Category of Ability		Type							Visible	Var. Min. Value			Define			Description			Stackable?	Multiple?	Choose					Bonus to Ability Pool		Combat bonus			Bonus to HP			Bonus to skill rank	Bonus to spell cast/day				Source Page						Aspects						Bonus
+Secret Lore				CATEGORY:Special Ability	TYPE:SpecialQuality				VISIBLE:YES						DEFINE:SecretLore|0	DESC:+%1|SecretLore																																											ASPECT:Ability Benefit|+%1|SecretLore
 Lore					CATEGORY:Special Ability	TYPE:SpecialQuality				VISIBLE:YES
 Greater Lore			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		VISIBLE:YES
 True Lore				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		VISIBLE:YES
 # Loremaster Secrets
-Instant Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,1										STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|NORANK																				BONUS:SKILLRANK|LIST|4								SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Secret Health			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,2																																			BONUS:HP|CURRENTMAX|3												SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Secrets of Inner Strength	CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,3																									BONUS:SAVE|BASE.Will|2																					SOURCEPAGE:srdbasiccharacterclassesi.rtf
-The Lore of True Stamina	CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,4																									BONUS:SAVE|BASE.Fortitude|2																					SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Secret Knowledge of Avoidance	CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,5																									BONUS:SAVE|BASE.Reflex|2																					SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Weapon Trick			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,6																														BONUS:COMBAT|BASEAB|1																	SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Dodge Trick				CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,7																														BONUS:COMBAT|AC|1|TYPE=Dodge																SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Applicable Knowledge		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,8																				BONUS:ABILITYPOOL|FEAT|1																										SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Newfound Arcana			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,9										STACK:NO	MULT:YES	CHOOSE:CLASS|PC[SPELLCASTER]																									BONUS:SPELLCAST|CLASS=%LIST;LEVEL=1|1	SOURCEPAGE:srdbasiccharacterclassesii.rtf
-More Newfound Arcana		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,10									STACK:NO	MULT:YES	CHOOSE:CLASS|PC[SPELLCASTER]																									BONUS:SPELLCAST|CLASS=%LIST;LEVEL=2|1	SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Instant Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,1										STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|NORANK															BONUS:SKILLRANK|LIST|4								SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Secret Health			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,2																														BONUS:HP|CURRENTMAX|3												SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Secrets of Inner Strength	CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,3																																													SOURCEPAGE:srdbasiccharacterclassesi.rtf								BONUS:SAVE|BASE.Will|2
+The Lore of True Stamina	CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,4																																													SOURCEPAGE:srdbasiccharacterclassesi.rtf								BONUS:SAVE|BASE.Fortitude|2
+Secret Knowledge of Avoidance	CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,5																																													SOURCEPAGE:srdbasiccharacterclassesi.rtf								BONUS:SAVE|BASE.Reflex|2
+Weapon Trick			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,6																									BONUS:COMBAT|BASEAB|1																	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Dodge Trick				CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,7																									BONUS:COMBAT|AC|1|TYPE=Dodge																SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Applicable Knowledge		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,8																				BONUS:ABILITYPOOL|FEAT|1																					SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Newfound Arcana			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,9										STACK:NO	MULT:YES	CHOOSE:CLASS|PC[SPELLCASTER]																				BONUS:SPELLCAST|CLASS=%LIST;LEVEL=1|1	SOURCEPAGE:srdbasiccharacterclassesii.rtf
+More Newfound Arcana		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,10									STACK:NO	MULT:YES	CHOOSE:CLASS|PC[SPELLCASTER]																				BONUS:SPELLCAST|CLASS=%LIST;LEVEL=2|1	SOURCEPAGE:srdbasiccharacterclassesii.rtf
 
 ###Block: Shadowdancer Abilities
 # Ability Name		Category of Ability		Type						Visible	Define				Description			Aspects

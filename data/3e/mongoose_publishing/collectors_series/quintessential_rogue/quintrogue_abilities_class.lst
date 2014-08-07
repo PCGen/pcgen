@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
 
 # ~ Agent of the Crown
-# Ability Name		Unique Key							Category of Ability		Type				Define										Description
+# Ability Name		Unique Key							Category of Ability		Type				Define										Description								Modify VAR
 Agent of the Crown	KEY:Agent of the Crown ~ Agent of the Crown	CATEGORY:Special Ability	TYPE:SpecialQuality
 Smooth Talker		KEY:Smooth Talker ~ Agent of the Crown		CATEGORY:Special Ability	TYPE:SpecialQuality
 Friends in Low Places	KEY:Friends in Low Places ~ Agent of the Crown	CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -19,7 +19,7 @@ Sniper			KEY:Sniper ~ Commando					CATEGORY:Special Ability	TYPE:SpecialQuality
 # ~ Crusading Footpad
 Divine Companion		KEY:Divine Companion ~ Crusading Footpad		CATEGORY:Special Ability	TYPE:SpecialQuality
 Divine Luck			KEY:Divine Luck ~ Crusading Footpad			CATEGORY:Special Ability	TYPE:SpecialQuality
-Smite Undead		KEY:Smite Undead ~ Crusading Footpad		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SmiteUndeadDie|0	DEFINE:SmiteUndead|0	BONUS:VAR|SmiteUndeadDie|6			DESC: +%1d%2|SmiteUndead|SmiteUndeadDie
+Smite Undead		KEY:Smite Undead ~ Crusading Footpad		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SmiteUndeadDie|0	DEFINE:SmiteUndead|0				DESC: +%1d%2|SmiteUndead|SmiteUndeadDie			BONUS:VAR|SmiteUndeadDie|6
 Detect Undead		KEY:Detect Undead ~ Crusading Footpad		CATEGORY:Special Ability	TYPE:SpecialQuality
 Detect Evil			KEY:Detect Evil ~ Crusading Footpad			CATEGORY:Special Ability	TYPE:SpecialQuality
 Mask Alignment		KEY:Mask Alignment ~ Crusading Footpad		CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -35,7 +35,7 @@ Maze Sense			KEY:Maze Sense ~ Deep Tracker				CATEGORY:Special Ability	TYPE:Spec
 Dark Sense			KEY:Dark Sense ~ Deep Tracker				CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Executioner
-Executioner's Strike	KEY:Executioner's Strike ~ Executioner		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ExecutionersStrikeDie|0	BONUS:VAR|ExecutionersStrikeDie|6	DEFINE:ExecutionersStrike|0	DESC:+%1d%2|ExecutionersStrike|ExecutionersStrikeDie
+Executioner's Strike	KEY:Executioner's Strike ~ Executioner		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ExecutionersStrikeDie|0	DEFINE:ExecutionersStrike|0	DESC:+%1d%2|ExecutionersStrike|ExecutionersStrikeDie	BONUS:VAR|ExecutionersStrikeDie|6
 Cold Blooded Killer	KEY:Cold Blooded Killer ~ Executioner		CATEGORY:Special Ability	TYPE:SpecialQuality
 Executioner's Song	KEY:Executioner's Song ~ Executioner		CATEGORY:Special Ability	TYPE:SpecialQuality
 
