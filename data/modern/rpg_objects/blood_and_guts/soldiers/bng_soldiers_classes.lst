@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Blood and Guts - Soldiers	SOURCESHORT:BnG-S	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49	SOURCEDATE:2004-01
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
-CLASS:Airman	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.1	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
+CLASS:Airman	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Multiple Requirements															Required Skill		Required Text
 CLASS:Airman	PREATT:2	PREMULT:2,[PREFEAT:1,Aircraft Operation],[PREFEAT:1,Fixed Wing Vehicle Weapons,Helicopter Vehicle Weapons]	PRESKILL:1,Pilot=6	PRETEXT:Active or Reserve Duty (any one branch of service)
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -16,8 +16,8 @@ CLASS:Airman	STARTSKILLPTS:4	CSKILL:Air Traffic Control|Communication Operations
 9															ADD:FEAT|TYPE=Airman
 10	SAB:Ace
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
-CLASS:Grunt		HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
+CLASS:Grunt		HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Req. Att.	Multiple Requirements																						Required Skill					Required Text
 CLASS:Grunt		PREATT:3	PREMULT:2,[PREFEAT:1,Personal Firearms Proficiency],[PREFEAT:1,MOS Armor 1,MOS Combat Engineering 1,MOS Field Artillery 1,MOS Infantry/Rifleman 1]	PRESKILL:2,Craft (Structural)=3,Repair=3	PRETEXT:Active or Reserve Duty (Us Army)
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -30,8 +30,8 @@ CLASS:Grunt		STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|G
 8	SAB:Hurry Up and Wait																						VFEAT:Forced March
 9																					ADD:FEAT|TYPE=Grunt,TYPE=MOS
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
-CLASS:Leatherneck	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Modify VAR														Bonus
+CLASS:Leatherneck	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat									Required Skill				Required Text
 CLASS:Leatherneck	PREATT:2	PREFEAT:2,Personal Firearms Proficiency,MOS Infantry/Rifleman 1	PRESKILL:2,Intimidate=3,Survival=3	PRETEXT:Active or Reserve Duty (US Marine Corps)
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -47,8 +47,8 @@ CLASS:Leatherneck	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Dr
 9																							ADD:FEAT|TYPE=Leatherneck
 10																													AUTO:FEAT|Semper Fi
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
-CLASS:Specialist	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Modify VAR														Bonus
+CLASS:Specialist	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Specialist	STARTSKILLPTS:8	CSKILL:Climb|Computer Use|Concentration|Craft (Mechanical)|Craft (Structural)|Disable Device|Drive|Knowledge (Technology)|Navigate|Repair|Research|Swim
 1									ADD:FEAT|Speed of the Essence

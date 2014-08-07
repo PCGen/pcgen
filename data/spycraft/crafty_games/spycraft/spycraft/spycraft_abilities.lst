@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 # Ability Name	Category of Ability
 Default		CATEGORY:Internal
@@ -35,19 +35,19 @@ Custom Ride		CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility	DEFINE:Cus
 ###Block:  Fixer Abilities
 
 # Feat Name			Type					Visible	Special ABility																																				Define											Stackable?	Multiple?	Choose			Add 					Add to base move													Modify VAR
-# Ability Name		Category of Ability		Type							Define											Description																																					Stackable?	Multiple?	Choose		Bonus to Ability Pool				Add to base move													Modify VAR
-Sneak Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.Special			DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDieSize|0	BONUS:VAR|SneakAttackDieSize|6|TYPE=Base			DESC: +%1d%2|SneakAttackDice|SneakAttackDieSize
-Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Special			DEFINE:UncannyDodge|0	DEFINE:UncannyTraps|0	BONUS:VAR|UncannyTraps|max((UncannyDodge-2),0)	DESC:Uncanny Dodge (Dex bonus to Defense)|PREVAREQ:UncannyDodge,1	DESC:Uncanny Dodge (can't be flanked)|PREVAREQ:UncannyDodge,2	DESC:Uncanny Dodge (can't be flanked, +%1 against traps)|UncannyTraps|PREVARGTEQ:UncannyDodge,3
-Evasion			CATEGORY:Special Ability	TYPE:SpecialQuality.Special			DEFINE:EvasionFactor|0									DESC:Evasion (no damage on save)|PREVAREQ:EvasionFactor,1	DESC:Evasion (fail saves for half)|PREVAREQ:EvasionFactor,2	DESC:Evasion (fail saves for quarter)|PREVARGTEQ:EvasionFactor,3
+# Ability Name		Category of Ability		Type							Define									Description																																					Stackable?	Multiple?	Choose		Bonus to Ability Pool				Add to base move													Modify VAR
+Sneak Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.Special			DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDieSize|0	DESC: +%1d%2|SneakAttackDice|SneakAttackDieSize																																																												BONUS:VAR|SneakAttackDieSize|6|TYPE=Base
+Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Special			DEFINE:UncannyDodge|0	DEFINE:UncannyTraps|0			DESC:Uncanny Dodge (Dex bonus to Defense)|PREVAREQ:UncannyDodge,1	DESC:Uncanny Dodge (can't be flanked)|PREVAREQ:UncannyDodge,2	DESC:Uncanny Dodge (can't be flanked, +%1 against traps)|UncannyTraps|PREVARGTEQ:UncannyDodge,3																														BONUS:VAR|UncannyTraps|max((UncannyDodge-2),0)
+Evasion			CATEGORY:Special Ability	TYPE:SpecialQuality.Special			DEFINE:EvasionFactor|0							DESC:Evasion (no damage on save)|PREVAREQ:EvasionFactor,1	DESC:Evasion (fail saves for half)|PREVAREQ:EvasionFactor,2	DESC:Evasion (fail saves for quarter)|PREVARGTEQ:EvasionFactor,3
 
-Fast Movement		CATEGORY:Special Ability	TYPE:SpecialQuality.FixerSpecialAbility																																																																	BONUS:MOVEADD|TYPE.Walk|10|PREMULT:2,[PREVARLT:ENCUMBERANCE,2],[!PREEQUIP:1,TYPE=Heavy]
-Improvisation		CATEGORY:Special Ability	TYPE:SpecialQuality.FixerSpecialAbility																																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							BONUS:VAR|FixerImprovisation|1
-Master Thief		CATEGORY:Special Ability	TYPE:SpecialQuality.FixerSpecialAbility																																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							BONUS:VAR|FixerMasterThief|1
-Fixer Skill Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.FixerSpecialAbility																																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Skill Mastery|3
-Skill Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.SpecialAbility														DESC:Skill Mastery Selections %1|(%CHOICE)																															STACK:NO	MULT:YES	CHOOSE:SKILL|ALL
+Fast Movement		CATEGORY:Special Ability	TYPE:SpecialQuality.FixerSpecialAbility																																																															BONUS:MOVEADD|TYPE.Walk|10|PREMULT:2,[PREVARLT:ENCUMBERANCE,2],[!PREEQUIP:1,TYPE=Heavy]
+Improvisation		CATEGORY:Special Ability	TYPE:SpecialQuality.FixerSpecialAbility																																																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							BONUS:VAR|FixerImprovisation|1
+Master Thief		CATEGORY:Special Ability	TYPE:SpecialQuality.FixerSpecialAbility																																																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																							BONUS:VAR|FixerMasterThief|1
+Fixer Skill Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.FixerSpecialAbility																																																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Skill Mastery|3
+Skill Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.SpecialAbility												DESC:Skill Mastery Selections %1|(%CHOICE)																															STACK:NO	MULT:YES	CHOOSE:SKILL|ALL
 Stash It			CATEGORY:Special Ability	TYPE:SpecialQuality.FixerSpecialAbility
 
-Fixer Feat Choice		CATEGORY:Special Ability	TYPE:FixerSpecialAbility																																																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Fixer Feat Choice|1
+Fixer Feat Choice		CATEGORY:Special Ability	TYPE:FixerSpecialAbility																																																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Fixer Feat Choice|1
 
 ###Block:  Pointman Abilities
 
@@ -57,20 +57,20 @@ Versatility						CATEGORY:Special Ability	TYPE:SpecialQuality.PointmanSpecialAbi
 
 Faceman Linguist					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE		ADD:LANGUAGE|TYPE=Spoken
 Faceman Cold Read					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility																		DESC:Cold Read (1/session)
-Faceman Quick Change				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility													DEFINE:PointmanQuickChange|0	BONUS:VAR|PointmanQuickChange|1	DESC:Quick Change (%1/session)|PointmanQuickChange
+Faceman Quick Change				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility													DEFINE:PointmanQuickChange|0	DESC:Quick Change (%1/session)|PointmanQuickChange																																				BONUS:VAR|PointmanQuickChange|1
 Faceman Quick Change (additional session)	CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility		PREABILITY:1,CATEGORY=Special Ability,Faceman Quick Change																																																			BONUS:VAR|PointmanQuickChange|1
 Faceman Backup					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility																		DESC:Backup (1/session)
 
 Fixer Procure					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility
 Fixer Evasion					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility																		DESC:Evasion (no damage on save)
 Fixer Uncanny Dodge				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility																		DESC:Uncanny Dodge (Dex bonus to Defense)
-Fixer Sneak Attack				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility													DEFINE:PMSneakAttack|0	BONUS:VAR|PMSneakAttack|1		DESC:Sneak Attack %1d6|PMSneakAttack
+Fixer Sneak Attack				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility													DEFINE:PMSneakAttack|0		DESC:Sneak Attack %1d6|PMSneakAttack																																						BONUS:VAR|PMSneakAttack|1
 Fixer Sneak Attack (Additional Attack)	CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility		PREABILITY:1,CATEGORY=Special Ability,Fixer Sneak Attack																																																			BONUS:VAR|PMSneakAttack|1
 
 Snoop Flawless search				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility
 Snoop Intuition					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility																		DESC:Intuition (1/session)
 Snoop Back Door					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility																		DESC:Back Door (1 system)
-Snoop Jury-rig					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility													DEFINE:PointmanJuryrig|0	BONUS:VAR|PointmanJuryrig|2	DESC:Jury-rig +%1|PointmanJuryrig
+Snoop Jury-rig					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility													DEFINE:PointmanJuryrig|0	DESC:Jury-rig +%1|PointmanJuryrig																																							BONUS:VAR|PointmanJuryrig|2
 Snoop Jury-rig +1					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility		PREABILITY:1,CATEGORY=Special Ability,Snoop Jury-rig																																																				BONUS:VAR|PointmanJuryrig|1
 
 Soldier Bonus Feat x1				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility																																								BONUS:ABILITYPOOL|Solder Class Ability|1
@@ -80,17 +80,17 @@ Soldier Armor Use					CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbi
 
 Wheelman Daredevil				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility
 Wheelman Kick Start				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility																		DESC:Kick Start (1/session)
-Wheelman Familiarity +1				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility													DEFINE:PointmanFamiliarity|0		BONUS:VAR|PointmanFamiliarity|1	DESC:Familiarity +%1|PointmanFamiliarity
+Wheelman Familiarity +1				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility													DEFINE:PointmanFamiliarity|0	DESC:Familiarity +%1|PointmanFamiliarity																																						BONUS:VAR|PointmanFamiliarity|1
 Wheelman Familiarity +2				CATEGORY:Special Ability	TYPE:SpecialQuality.CrossClassAbility		PREABILITY:1,CATEGORY=Special Ability,Wheelman Familiarity +1																																																		BONUS:VAR|PointmanFamiliarity|1
 
 ###Block:  Snoop Abilities
 
 # Feat Name							Type			Visible	Required Feat				Special ABility									Define					Stackable?	Multiple?	Choose		Add 					Modify VAR
 # Ability Name						Category of Ability		Type						Required Ability									Define					Description										Stackable?	Multiple?	Choose		Bonus to Ability Pool				Modify VAR
-Comb the Streets						CATEGORY:Special Ability	TYPE:SpecialQuality.SnoopAbility												DEFINE:CombtheStreets|0	BONUS:VAR|CombtheStreets|1				DESC:Comb the Streets (%1/session)|CombtheStreets
+Comb the Streets						CATEGORY:Special Ability	TYPE:SpecialQuality.SnoopAbility												DEFINE:CombtheStreets|0			DESC:Comb the Streets (%1/session)|CombtheStreets																	BONUS:VAR|CombtheStreets|1
 Comb the Streets (additional sessions)		CATEGORY:Special Ability	TYPE:SpecialQuality.SnoopAbility	PREABILITY:1,CATEGORY=Special Ability,Comb the Streets																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|CombtheStreets|1
 
-Intercept Communication					CATEGORY:Special Ability	TYPE:SpecialQuality.SnoopAbility												DEFINE:InterceptCommunication|0	BONUS:VAR|InterceptCommunication|1	DESC:Intercept Communication (%1/session)|InterceptCommunication
+Intercept Communication					CATEGORY:Special Ability	TYPE:SpecialQuality.SnoopAbility												DEFINE:InterceptCommunication|0	DESC:Intercept Communication (%1/session)|InterceptCommunication															BONUS:VAR|InterceptCommunication|1
 Intercept Communication (additional sessions)	CATEGORY:Special Ability	TYPE:SpecialQuality.SnoopAbility	PREABILITY:1,CATEGORY=Special Ability,Intercept Communication																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|InterceptCommunication|1
 
 Intelligence Analysis					CATEGORY:Special Ability	TYPE:SpecialQuality.SnoopAbility																		DESC:Intelligence Analysis

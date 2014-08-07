@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
 #Original entry by: Frank Kliewe
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus			Modify VAR
-CLASS:Ambassador	HD:6		TYPE:Advanced.PC	ABB:Amb		MAXLEVEL:10	SOURCEPAGE:p.92	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
+CLASS:Ambassador	HD:6		TYPE:Advanced.PC	ABB:Amb		MAXLEVEL:10	SOURCEPAGE:p.92	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat		Required Skill																	Required Text
 CLASS:Ambassador	PREFEAT:2,Charm,Favor	PRESKILL:4,Diplomacy=6,Knowledge (Civics)=6,Knowledge (Current Events)=6,Knowledge (Theology and Philosophy)=6	PRETEXT:Must have an allegiance to a faction or nation
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -19,8 +19,8 @@ CLASS:Ambassador	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intim
 9	ADD:FEAT|TYPE=Ambassador
 10						AUTO:FEAT|Select Consuls
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
-CLASS:Brawler	HD:10		TYPE:Advanced.PC	ABB:Brwl		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Modify VAR														Bonus
+CLASS:Brawler	HD:10		TYPE:Advanced.PC	ABB:Brwl		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat				Required Skill				Required Text
 CLASS:Brawler	PREATT:3	PREFEAT:2,Streetfighting,Brawl	PRESKILL:1,Knowledge (Streetwise)=6	PRETEXT:must have an allegiance to some urban area or group
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -36,8 +36,8 @@ CLASS:Brawler	STARTSKILLPTS:5	CSKILL:Bluff|Diplomacy|Disable Device|Drive|Gamble
 9																		ADD:FEAT|TYPE=Brawler
 10																						AUTO:FEAT|Advanced Streetfighting
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Combat Ace	HD:8		TYPE:Advanced.PC	ABB:Ace		MAXLEVEL:10	SOURCEPAGE:p.95	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+1)/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
+CLASS:Combat Ace	HD:8		TYPE:Advanced.PC	ABB:Ace		MAXLEVEL:10	SOURCEPAGE:p.95	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+1)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Req. Att.	Required Feat			Required Skill
 CLASS:Combat Ace	PREATT:2	PREFEAT:1,Aircraft Operation	PRESKILL:1,Pilot=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -58,8 +58,8 @@ CLASS:Combat Ace	STARTSKILLPTS:5	CSKILL:Bluff|Craft (Electronic)|Craft (Mechanic
 # Class Name		Source Page
 CLASS:Daredevil.MOD	SOURCEPAGE:p.96
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Detective	HD:6		TYPE:Advanced.PC	ABB:Det		MAXLEVEL:10	SOURCEPAGE:p.97	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
+CLASS:Detective	HD:6		TYPE:Advanced.PC	ABB:Det		MAXLEVEL:10	SOURCEPAGE:p.97	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
 # Class Name	Req. Att.	Required Feat				Required Skill
 CLASS:Detective	PREATT:2	PREFEAT:1,Skill Focus (Search)	PRESKILL:3,Investigate=6,Listen=6,Sense Motive=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -75,8 +75,8 @@ CLASS:Detective	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|Decipher Script|Diplo
 9	ADD:FEAT|TYPE=Detective
 10	ADD:FEAT|Reference Material	AUTO:FEAT|Sixth Sense
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Driver	HD:8		TYPE:Advanced.PC	ABB:Drv		MAXLEVEL:10	SOURCEPAGE:p.99	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+2)/2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
+CLASS:Driver	HD:8		TYPE:Advanced.PC	ABB:Drv		MAXLEVEL:10	SOURCEPAGE:p.99	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+2)/2
 # Class Name	Required Check Base	Required Feat			Required Skill
 CLASS:Driver	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Vehicle Expert	PRESKILL:1,Drive=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -92,8 +92,8 @@ CLASS:Driver	STARTSKILLPTS:5	CSKILL:Balance|Concentration|Craft (Electronic)|Cra
 9	ADD:FEAT|TYPE=Driver							AUTO:FEAT|Restore Vehicle
 10											AUTO:FEAT|One with the Vehicle
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus		Modify VAR
-CLASS:Explorer	HD:8		TYPE:Advanced.PC	ABB:Expl		MAXLEVEL:10	SOURCEPAGE:p.101	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
+CLASS:Explorer	HD:8		TYPE:Advanced.PC	ABB:Expl		MAXLEVEL:10	SOURCEPAGE:p.101	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
 # Class Name	Required Feat	Multiple Requirements
 CLASS:Explorer	PREFEAT:1,Aware	PREMULT:2,[PRESKILL:3,Search=4,Knowledge (Earth and Life Sciences)=6,Survival=6],[PRESKILL:1,Knowledge (History)=4,Knowledge (Physical Sciences)=4,Knowledge (Theology and Philosophy)=4]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -109,8 +109,8 @@ CLASS:Explorer	STARTSKILLPTS:5	CSKILL:Balance|Bluff|Climb|Decipher Script|Disabl
 9	ADD:FEAT|TYPE=Explorer
 10												AUTO:FEAT|Extra Step|Trap Sense
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus				Modify VAR
-CLASS:G-Man		HD:6		TYPE:Advanced.PC	ABB:GMan		MAXLEVEL:10	SOURCEPAGE:p.102	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+2)*7/10-1	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/2	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus									Modify VAR														Bonus
+CLASS:G-Man		HD:6		TYPE:Advanced.PC	ABB:GMan		MAXLEVEL:10	SOURCEPAGE:p.102	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+2)*7/10-1	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/2	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Req. Att.	Required Skill					Required Stat		Required Text
 CLASS:G-Man		PREATT:2	PRESKILL:2,Speak Language=1,Research=1	PRESTAT:2,INT=13,CHA=11	PRETEXT:Must have an allegiance to the USA
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -123,8 +123,8 @@ CLASS:G-Man		STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Demoliti
 8	ADD:FEAT|TYPE=G_Man
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
-CLASS:Gangster	HD:8		TYPE:Advanced.PC	ABB:Gang		MAXLEVEL:10	SOURCEPAGE:p.104	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
+CLASS:Gangster	HD:8		TYPE:Advanced.PC	ABB:Gang		MAXLEVEL:10	SOURCEPAGE:p.104	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat					Required Skill
 CLASS:Gangster	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -140,8 +140,8 @@ CLASS:Gangster	STARTSKILLPTS:7	CSKILL:Bluff|Craft (Chemical)|Craft (Mechanical)|
 9												AUTO:FEAT|Crippling Strike
 10												AUTO:FEAT|Sneak Attack|Underworld Contact
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
-CLASS:Mystery Man	HD:8		TYPE:Advanced.PC	ABB:MstM		MAXLEVEL:10	SOURCEPAGE:p.105	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|CL/2+2	BONUS:VAR|Reputation|(CL+1)/2	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Modify VAR													Bonus
+CLASS:Mystery Man	HD:8		TYPE:Advanced.PC	ABB:MstM		MAXLEVEL:10	SOURCEPAGE:p.105	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|CL/2+2	BONUS:VAR|Reputation|(CL+1)/2	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat			Multiple Requirements
 CLASS:Mystery Man	PREATT:3	PREFEAT:1,Secret Identity	PREMULT:2,[PRESKILL:3,Intimidate=6,Investigate=6,Sense Motive=6],[PRESKILL:1,Tumble=8,TYPE.Perform=8]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -157,8 +157,8 @@ CLASS:Mystery Man	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Drive|Diplomacy|Dis
 9						AUTO:FEAT|Contact - Mystery Man
 10						AUTO:FEAT|Debonair
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Mystic	HD:8		TYPE:Advanced.PC	ABB:Mstc		MAXLEVEL:10	SOURCEPAGE:p.108	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Modify VAR														Bonus
+CLASS:Mystic	HD:8		TYPE:Advanced.PC	ABB:Mstc		MAXLEVEL:10	SOURCEPAGE:p.108	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Req. Att.	Required Feat							Required Skill
 CLASS:Mystic	PREATT:3	PREFEAT:2,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Jump=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -186,8 +186,8 @@ CLASS:Mystic	STARTSKILLPTS:3	CSKILL:Balance|Climb|Escape Artist|Hide|Intimidate|
 9	ADD:FEAT|TYPE=Mystic_PF
 10					AUTO:FEAT|Iron Fist
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus		Modify VAR
-CLASS:News Hound	HD:6		TYPE:Advanced.PC	ABB:NHnd		MAXLEVEL:10	SOURCEPAGE:p.109	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Modify VAR														Bonus
+CLASS:News Hound	HD:6		TYPE:Advanced.PC	ABB:NHnd		MAXLEVEL:10	SOURCEPAGE:p.109	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)/3
 # Class Name	Required Skill							Required Stat
 CLASS:News Hound	PRESKILL:3,Bluff=8,Diplomacy=8,Gather Information=8	PRESTAT:2,INT=12,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -201,8 +201,8 @@ CLASS:News Hound	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Craft (Visual Arts)|
 8												AUTO:FEAT|Memory For Facts
 9	ADD:FEAT|Language Training
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Operator	HD:8		TYPE:Advanced.PC	ABB:Oprt		MAXLEVEL:10	SOURCEPAGE:p.111	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
+CLASS:Operator	HD:8		TYPE:Advanced.PC	ABB:Oprt		MAXLEVEL:10	SOURCEPAGE:p.111	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
 # Class Name	Req. Att.	Required Feat										Required Skill
 CLASS:Operator	PREATT:4	PREFEAT:3,Fade to Black,Information Network,Licensed and Authorized	PRESKILL:3,Investigate=4,Research=2,Sense Motive=2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -222,8 +222,8 @@ CLASS:Operator	STARTSKILLPTS:6	CSKILL:Concentration|Disguise|Drive|Forgery|Gathe
 # Class Name		Source Page
 CLASS:Personality.MOD	SOURCEPAGE:p.113
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
-CLASS:Relic Hunter	HD:8		TYPE:Advanced.PC	ABB:Reli		MAXLEVEL:10	SOURCEPAGE:p.115	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
+CLASS:Relic Hunter	HD:8		TYPE:Advanced.PC	ABB:Reli		MAXLEVEL:10	SOURCEPAGE:p.115	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
 # Class Name		Required Feat		Required Skill
 CLASS:Relic Hunter	PREFEAT:1,Studious	PRESKILL:3,Knowledge (Art)=6,Knowledge (Hidden Lore)=6,Knowledge (History)=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -239,8 +239,8 @@ CLASS:Relic Hunter	STARTSKILLPTS:7	CSKILL:Balance|Climb|Decipher Script|Disable 
 9	ADD:ABILITY|Talent|NORMAL|Relic Hunter Bonus Feat,Uncanny Dodge IV									ABILITY:Talent|AUTOMATIC|Miraculous Escape
 10																													AUTO:FEAT|Improved Evasion
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Scientist	HD:8		TYPE:Advanced.PC	ABB:Scnt		MAXLEVEL:10	SOURCEPAGE:p.116	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Modify VAR														Bonus
+CLASS:Scientist	HD:8		TYPE:Advanced.PC	ABB:Scnt		MAXLEVEL:10	SOURCEPAGE:p.116	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Multiple Requirements
 CLASS:Scientist	PREMULT:3,[PRESKILL:1,Craft (Chemical)=6,Craft (Electronic)=6],[PRESKILL:1,Knowledge (Earth and Life Sciences)=6,Knowledge (Physical Sciences)=6,Knowledge (Technology)=6],[PRESKILL:1,Research=6]
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -256,8 +256,8 @@ CLASS:Scientist	STARTSKILLPTS:7	CSKILL:Craft (Chemical)|Craft (Electronic)|Craft
 9	ADD:FEAT|TYPE=Scientist
 10							AUTO:FEAT|Major Breakthrough
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Shadowy Avenger	HD:8		TYPE:Advanced.PC	ABB:ShAv		MAXLEVEL:10	SOURCEPAGE:p.118	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
+CLASS:Shadowy Avenger	HD:8		TYPE:Advanced.PC	ABB:ShAv		MAXLEVEL:10	SOURCEPAGE:p.118	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat					Required Skill
 CLASS:Shadowy Avenger	PREATT:2	PREFEAT:2,Low Profile,Secret Identity	PRESKILL:2,Intimidate=6,Knowledge (Streetwise)=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -282,8 +282,8 @@ CLASS:Soldier.MOD	PRE:.CLEAR		PREATT:3	PREFEAT:1,Personal Firearms Proficiency	P
 # Class Name	Class Skill
 CLASS:Soldier.MOD	CSKILL:Knowledge (Military Science)
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Spy		HD:8		TYPE:Advanced.PC	ABB:Spy		MAXLEVEL:10	SOURCEPAGE:p.121	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
+CLASS:Spy		HD:8		TYPE:Advanced.PC	ABB:Spy		MAXLEVEL:10	SOURCEPAGE:p.121	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/2
 # Class Name	Required Language	Required Skill					Required Stat
 CLASS:Spy		PRELANG:2,ANY	PRESKILL:2,Diplomacy=8,Sense Motive=8	PRESTAT:1,CHA=15
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -298,8 +298,8 @@ CLASS:Spy		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Disable Device|Decipher
 8								ADD:FEAT|Language Training
 10													AUTO:FEAT|Assumed Identity
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Weird Inventor	HD:6		TYPE:Advanced.PC	ABB:WInv		MAXLEVEL:10	SOURCEPAGE:p.122	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Modify VAR														Bonus
+CLASS:Weird Inventor	HD:6		TYPE:Advanced.PC	ABB:WInv		MAXLEVEL:10	SOURCEPAGE:p.122	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+2)/2
 # Class Name		Multiple Requirements
 CLASS:Weird Inventor	PREMULT:3,[PRESKILL:1,TYPE.Knowledge=8],[PRESKILL:1,Repair=8],[PRESKILL:1,Craft (Mechanical)=8,Craft (Structural)=8]
 # Class Name		Skill Pts/Lvl	Class Skill

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23	SOURCEDATE:2003-01
 # Original Entry by Paul W. King
 
@@ -18,6 +18,6 @@ Strafing					TYPE:Special		VISIBLE:NO								SAB:Strafing +%|Strafing											
 
 Hostage Rescue				TYPE:Special		VISIBLE:NO								SAB:Hostage Rescue|PREVARLT:HostageRescue,6	SAB:Hostage Rescue (no crossfire)|PREVARGTEQ:HostageRescue,6
 
-Hasty Construction			TYPE:Special		VISIBLE:NO								SAB:Hasty Construction % pct|HastyConstruction												DEFINE:HastyConstruction|0	BONUS:VAR|HastyConstruction|100
+Hasty Construction			TYPE:Special		VISIBLE:NO								SAB:Hasty Construction % pct|HastyConstruction												DEFINE:HastyConstruction|0												BONUS:VAR|HastyConstruction|100
 
 Semper Fi					TYPE:Special		VISIBLE:NO								SAB:Semper Fi

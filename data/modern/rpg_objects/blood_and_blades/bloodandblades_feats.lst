@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141	SOURCEDATE:2005-01
 #Original entry by: Frank Kliewe
 
 
-# Feat Name				Type			Required Feat				Required Text						Description																		Save checks bonus				Source Page
-Improvised Implements		TYPE:General															DESC:In your hands, screwdrivers become daggers, wrenches become clubs, and electrical cords become garrotes.							SOURCEPAGE:p.17
-Improvised Weapon Damage	TYPE:General	PREFEAT:1,Improvised Implements									DESC:Your kitchen is a veritable arsenal.																			SOURCEPAGE:p.17
-Virgin				TYPE:General							PRETEXT:If you don't know, ask your parents.	DESC:So long as you're pure, you have a real chance at surviving.									BONUS:SAVE|ALL|2|TYPE=Morale	SOURCEPAGE:p.17
+# Feat Name				Type			Required Feat				Required Text						Description																		Source Page		Bonus
+Improvised Implements		TYPE:General															DESC:In your hands, screwdrivers become daggers, wrenches become clubs, and electrical cords become garrotes.	SOURCEPAGE:p.17
+Improvised Weapon Damage	TYPE:General	PREFEAT:1,Improvised Implements									DESC:Your kitchen is a veritable arsenal.													SOURCEPAGE:p.17
+Virgin				TYPE:General							PRETEXT:If you don't know, ask your parents.	DESC:So long as you're pure, you have a real chance at surviving.									SOURCEPAGE:p.17	BONUS:SAVE|ALL|2|TYPE=Morale
 
 ###Block:Slasher Feats
 # Feat Name			Unique Key				Type			Req. Att.	Required Feat												Minimum Size	Required Skill		Required Stat		Var. Max. Value			Special ABility					Clear Description	Description																				Stackable?	Multiple?	Choose								Add 				Damage reduction	Bonus to skill		Weapon prof. bonus				Source Page

@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53	SOURCEDATE:2004-01
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus					Modify VAR
-CLASS:Believer	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Modify VAR														Bonus
+CLASS:Believer	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat								Required Skill							Required Text
 CLASS:Believer	PREFEAT:2,Conviction (Higher Power),Faith's Protection	PRESKILL:1,Knowledge (Theology and Philosophy)=6	PRETEXT:Higher Power Allegiance
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Believer	STARTSKILLPTS:6	CSKILL:Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|READ/WRITE LANGUAGE|Research|Sense Motive|Treat Injury
 ###Block: Turning
 1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	BONUS:VAR|ImprovedTurningQual|1	DEFINE:ImprovedTurningQual|0	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
-1	BONUS:VAR|TurnLevel|CL			BONUS:VAR|ExtraTurningQual|1	DEFINE:ExtraTurningQual|0
+1	BONUS:VAR|TurnLevel|CL	BONUS:VAR|ExtraTurningQual|1				DEFINE:ExtraTurningQual|0
 1	BONUS:VAR|TurnDamagePlus|CL
 1	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
 ###Block: Standard block
@@ -22,15 +22,15 @@ CLASS:Believer	STARTSKILLPTS:6	CSKILL:Craft (Pharmaceutical)|Decipher Script|Dip
 8	SAB:Turn Fiends
 9	SAB:Spiritual Fortitude (All)														ADD:FEAT|TYPE=SacredRitual
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Cultist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Modify VAR														Bonus
+CLASS:Cultist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat						Required Skill					Required Text
 CLASS:Cultist	PREFEAT:2,Conviction (Dark Power),Educated	PRESKILL:1,Knowledge (Arcane Lore)=6	PRETEXT:The character?s first allegiance must be to a Dark Power.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cultist	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Chemical)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Research
 ###Block: Turning
 1	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	BONUS:VAR|ImprovedTurningQual|1	DEFINE:ImprovedTurningQual|0	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
-1	BONUS:VAR|TurnLevel|CL			BONUS:VAR|ExtraTurningQual|1	DEFINE:ExtraTurningQual|0
+1	BONUS:VAR|TurnLevel|CL	BONUS:VAR|ExtraTurningQual|1				DEFINE:ExtraTurningQual|0
 1	BONUS:VAR|TurnDamagePlus|CL
 1	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
 ###Block: Standard block
@@ -45,24 +45,24 @@ CLASS:Cultist	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Chemical)|Craft (Writi
 9					SAB:Dark Longevity
 10					SAB:Perdition's Legion
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
-CLASS:Dark Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Modify VAR														Bonus
+CLASS:Dark Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat						Required Skill		Required Text
 CLASS:Dark Warrior	PREATT:2	PREFEAT:2,Conviction (Dark Power),Toughness	PRESKILL:1,Intimidate=3	PRETEXT:Avarice and Dark Power Allegiances
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dark Warrior	STARTSKILLPTS:2	CSKILL:Climb|Demolitions|Drive|Gamble|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Streetwise)|Knowledge (Tactics)|Survival|Swim|Treat Injury
-1	SAB:Hatred %/day|Hatred												BONUS:VAR|Hatred|CL/6+1			DEFINE:Hatred|0
-2																															ADD:FEAT|TYPE=DarkWarrior
+1	SAB:Hatred %/day|Hatred												BONUS:VAR|Hatred|CL/6+1								DEFINE:Hatred|0
+2																																				ADD:FEAT|TYPE=DarkWarrior
 3	SAB:Willing Manifestation (Contortions)
-4																															ADD:FEAT|TYPE=DarkWarrior
-5	SAB:Blood Bond %/day for % minutes|BloodBondTime|BloodBondDuration				BONUS:VAR|BloodBondDuration|CL*10	DEFINE:BloodBondDuration|0	DEFINE:BloodBondTime|0	BONUS:VAR|BloodBondTime|1
-7																															ADD:FEAT|TYPE=DarkWarrior
+4																																				ADD:FEAT|TYPE=DarkWarrior
+5	SAB:Blood Bond %/day for % minutes|BloodBondTime|BloodBondDuration				BONUS:VAR|BloodBondDuration|CL*10	BONUS:VAR|BloodBondTime|1	DEFINE:BloodBondDuration|0	DEFINE:BloodBondTime|0
+7																																				ADD:FEAT|TYPE=DarkWarrior
 8	SAB:Blood Oath										BONUS:STAT|STR|2	BONUS:VAR|BloodBondTime|1
 9	SAB:Willing Manifestation (Poltergeist)
 10	SAB:Legion											BONUS:STAT|CON|2
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus					Modify VAR
-CLASS:Grave Robber	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Modify VAR														Bonus
+CLASS:Grave Robber	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat				Required Skill			Required Text
 CLASS:Grave Robber	PREATT:1	PREFEAT:1,Conviction (Avarice)	PRESKILL:2,Bluff=6,Forgery=6	PRETEXT:Avarice Allegiance
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -74,8 +74,8 @@ CLASS:Grave Robber	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Decipher Script|Diplomacy|
 6	SAB:Contact (Mid-level)
 8	SAB:Contact (High-level)
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
-CLASS:Monitor	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Modify VAR														Bonus
+CLASS:Monitor	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat									Required Skill							Required Text
 CLASS:Monitor	PREATT:2	PREFEAT:2,Archaic Weapons Proficiency,Conviction (Higher Power)	PRESKILL:1,Knowledge (Theology and Philosophy)=3	PRETEXT:Allegiance to one group devoted to protecting the past (such as the Knights Templar), Higher Power.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -88,8 +88,8 @@ CLASS:Monitor	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Jump|Knowledge (Arcane
 8	SAB:Immortal
 9																		ADD:FEAT|TYPE=Monitor
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus					Modify VAR
-CLASS:Relic Seeker	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Modify VAR														Bonus
+CLASS:Relic Seeker	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
 # Class Name		Required Feat		Required Skill
 CLASS:Relic Seeker	PREFEAT:1,Studious	PRESKILL:3,Knowledge (Arcane Lore)=6,Knowledge (Art)=6,Knowledge (History)=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -105,8 +105,8 @@ CLASS:Relic Seeker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Decipher Script|Disable 
 9	SAB:Uncanny Dodge (+2 vs traps)	SAB:Miraculous Escape
 10	SAB:Improved Evasion
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus					Modify VAR
-CLASS:Witch		HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/2	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Modify VAR														Bonus
+CLASS:Witch		HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/2	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat		Required Skill
 CLASS:Witch		PREFEAT:1,Iron Will	PRESKILL:2,Craft (Chemical)=6,Knowledge (Arcane Lore)=6
 # Class Name	Skill Pts/Lvl	Class Skill

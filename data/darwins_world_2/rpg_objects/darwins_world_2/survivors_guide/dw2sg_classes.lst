@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 ###Block:DW2 Base Class
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Save checks bonus																Combat bonus			Modify VAR
-CLASS:Post Apocalyptic Hero	HD:8		TYPE:Base.PC	ABB:PApoc		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3/4)	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/4
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Combat bonus								Modify VAR											Bonus
+CLASS:Post Apocalyptic Hero	HD:8		TYPE:Base.PC	ABB:PApoc		MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3/4)	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Post Apocalyptic Hero	STARTSKILLPTS:5	CSKILL:Climb|Hide|Jump|Knowledge (Mutant Lore)|Knowledge (Ancient Lore)|Knowledge (Twisted Earth)|Listen|Move Silently|Navigate|Repair|Search|Spot|Survival
 #

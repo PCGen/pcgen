@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Modern System - Gangland	SOURCESHORT:Gangland	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74	SOURCEDATE:2005-01
 # Original Entry by: Paul W. King
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Hitman	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
+CLASS:Hitman	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat					Required Skill
 CLASS:Hitman	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -15,8 +15,8 @@ CLASS:Hitman	STARTSKILLPTS:2	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|D
 7	SAB:Calling Card
 9											ADD:FEAT|TYPE=Hitman
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Vigilante	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
+CLASS:Vigilante	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat					Required Skill
 CLASS:Vigilante	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Streetwise)=3
 # Class Name	Skill Pts/Lvl	Class Skill

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:XCrawl: Adventures in the Xtreme Dungeon Crawl League	SOURCESHORT:XCrawl	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php	SOURCEDATE:2002-01
 
 # Class Name	Remove Class Skill	Class Skill
@@ -33,8 +33,8 @@ CLASS:Wizard.MOD	PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=1],[PREMULT:1,[PRESTAT:1,I
 # Class Name	Remove Class Skill	Class Skill
 CLASS:Wizard.MOD	CSKILL:.CLEAR.Scry	CSKILL:Drive|Perform
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus										Combat bonus
-CLASS:Athlete	HD:10		TYPE:Base.PC	ABB:Ath		SOURCEPAGE:p.135	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|floor((classlevel("APPLIEDAS=NONEPIC")+2)*2/5)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
+CLASS:Athlete	HD:10		TYPE:Base.PC	ABB:Ath		SOURCEPAGE:p.135	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|floor((classlevel("APPLIEDAS=NONEPIC")+2)*2/5)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Athlete	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Intimidate|Jump|Knowledge (Dungeon Crawl)|Knowledge (Sports)|Perform|TYPE=Profession|Ride|Sense Motive|Spot|Swim|Tumble
 ###Block: Proficiencies
@@ -48,8 +48,8 @@ CLASS:Athlete	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Int
 16																				ADD:FEAT|TYPE=Athlete
 19																				ADD:FEAT|TYPE=Athlete
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
-CLASS:Master Celebrity	HD:4		TYPE:PC.Prestige	ABB:MCe		MAXLEVEL:5	SOURCEPAGE:138	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+4)/3|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
+CLASS:Master Celebrity	HD:4		TYPE:PC.Prestige	ABB:MCe		MAXLEVEL:5	SOURCEPAGE:138	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+4)/3|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Skill
 CLASS:Master Celebrity	PRESKILL:3,Perform=10,Sense Motive=10,Bluff=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -63,8 +63,8 @@ CLASS:Master Celebrity	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE=
 4	SAB:Crossover
 5	SAB:Reinvention
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Trapper	HD:10		TYPE:PC.Prestige	ABB:Tpr		MAXLEVEL:10	SOURCEPAGE:141	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Trapper	HD:10		TYPE:PC.Prestige	ABB:Tpr		MAXLEVEL:10	SOURCEPAGE:141	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat	Required Skill
 CLASS:Trapper	PREATT:6	PREFEAT:1,Track	PRESKILL:4,Handle Animal=6,Knowledge (Monster Lore)=4,Move Silently=8,Wilderness Lore=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -73,7 +73,7 @@ CLASS:Trapper	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handle Animal|Hid
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Net|Arrow (tranquilizer)
 ###Block: Normal Level Progression
 1	SAB:Subdual Specialist	SAB:Favored Prey
-2	SAB:Scent	SAB:Exotic Weapon %|EW					DEFINE:EW|0	BONUS:VAR|EW|1	ADD:FEAT|Exotic Weapon Proficiency
+2	SAB:Scent	SAB:Exotic Weapon %|EW		BONUS:VAR|EW|1	DEFINE:EW|0	ADD:FEAT|Exotic Weapon Proficiency
 3	SAB:Scentless
 4								BONUS:VAR|EW|1			ADD:FEAT|Exotic Weapon Proficiency
 5	SAB:Favored Prey
@@ -83,8 +83,8 @@ CLASS:Trapper	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handle Animal|Hid
 9	SAB:Think Like a Monster
 10	SAB:Favored Prey
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Guild DJ	HD:4		TYPE:PC.Prestige	ABB:GDJ		MAXLEVEL:10	SOURCEPAGE:143	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Guild DJ	HD:4		TYPE:PC.Prestige	ABB:GDJ		MAXLEVEL:10	SOURCEPAGE:143	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat		Required Skill
 CLASS:Guild DJ	PREATT:3	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy=10,Knowledge (Dungeon Crawl)=8
 # Class Name	Skill Pts/Lvl	Class Skill

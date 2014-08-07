@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author: $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Roles and Classes - Covert Hero	SOURCESHORT:CovertHero	SOURCEWEB:http://swordsedgepublishing.ca/Products.html	SOURCEDATE:2005-01
 
-# Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
-CLASS:Covert Hero	HD:6		TYPE:PC.Specialized	MAXLEVEL:10	SOURCEPAGE:p.	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name	Hit Dice	Type				Max Level	Source Page		Combat bonus											Modify VAR										Bonus
+CLASS:Covert Hero	HD:6		TYPE:PC.Specialized	MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat						Required Skill
 CLASS:Covert Hero	PREFEAT:1,Alertness,Deceptive,Nimble,Stealthy	PRESKILL:1,Hide=4,Move Silently=4
 # Class Name	Skill Pts/Lvl	Class Skill

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 30 12:22:19 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
 ###Block: Agency Operative class features
@@ -78,11 +78,11 @@ Jury Rig		TYPE:ClassAbility	VISIBLE:NO	SAB:Jury Rig %|JuryRig	DEFINE:JuryRig|0	S
 Jinx			TYPE:ClassAbility	VISIBLE:NO	SAB:Jinx						SOURCEPAGE:p.32
 
 ###Block: Maverick class features
-# Feat Name			Type			Visible	Special ABility		Virtual Feat		Save checks bonus						Modify VAR				Source Page
-Extraordinary Luck	TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Luck					BONUS:SAVE|Fortitude,Reflex,Will|max(CHA,0)						SOURCEPAGE:p.34
-Gambler's Luck		TYPE:ClassAbility	VISIBLE:NO	SAB:Gambler's Luck																		SOURCEPAGE:p.34
-Maverick Sneak Attack	TYPE:ClassAbility	VISIBLE:NO					VFEAT:Sneak Attack									BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.34
-Slippery Mind		TYPE:ClassAbility	VISIBLE:NO	SAB:Slippery Mind																			SOURCEPAGE:p.34
+# Feat Name			Type			Visible	Special ABility		Virtual Feat		Modify VAR				Source Page		Bonus
+Extraordinary Luck	TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Luck										SOURCEPAGE:p.34	BONUS:SAVE|Fortitude,Reflex,Will|max(CHA,0)
+Gambler's Luck		TYPE:ClassAbility	VISIBLE:NO	SAB:Gambler's Luck										SOURCEPAGE:p.34
+Maverick Sneak Attack	TYPE:ClassAbility	VISIBLE:NO					VFEAT:Sneak Attack	BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.34
+Slippery Mind		TYPE:ClassAbility	VISIBLE:NO	SAB:Slippery Mind											SOURCEPAGE:p.34
 # Not sure on the Maverick Sneak Attack, but had to remove the ADD:SPECIAL. - Tir Gwaith
 
 ###Block: Rowdy class abilities
@@ -121,20 +121,20 @@ One Riot - One Ranger		TYPE:ClassAbility	VISIBLE:NO	SAB:One Riot - One Ranger %|
 Chapter 13				TYPE:ClassAbility	VISIBLE:NO	SAB:Chapter 13									BONUS:SKILL|Knowledge (Occult)|4|TYPE=Competence		SOURCEPAGE:p.92
 
 ###Block: Special abilities (used by multiple classes)
-# Feat Name		Type					Visible		Special ABility																										Define																			Description						Stackable?	Multiple?	Choose										Selections		Source Page						Temporary effect description																			Temporary Bonus
-Defensive Roll	TYPE:RogueSpecialAbilities	VISIBLE:NO		SAB:Defensive Roll																																																																						SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Evasion							VISIBLE:NO		SAB:Evasion (Ex)|PHBFeatEvasion																							DEFINE:PHBFeatEvasion|0		BONUS:VAR|PHBFeatEvasion|var("COUNT[FEATNAME=Improved Evasion]")-1																																	SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Improved Evasion	TYPE:RogueSpecialAbilities	VISIBLE:NO		SAB:Improved Evasion (Ex)																																																																					SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Leadership Score	TYPE:Special			VISIBLE:NO																																																													CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment											TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.	TEMPBONUS:PC|VAR|LeadershipScore|%CHOICE
-Sneak Attack	TYPE:Special			VISIBLE:NO		SAB:Sneak Attack %1d%2|SneakAttackDice|SneakAttackDie																				DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDie|0		BONUS:VAR|SneakAttackDie|6																																				SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Skill Mastery	TYPE:RogueSpecialAbilities	VISIBLE:EXPORT																																																	DESC:Take 10 on listed skills, %1|%LIST	STACK:NO	MULT:YES	CHOOSE:SKILL|ALL									SELECT:3+INT	SOURCEPAGE:srdbasiccharacterclassesii.rtf
-Uncanny Dodge						VISIBLE:NO		SAB:Uncanny Dodge (Dex bonus to AC)|UncannyDodge	SAB:Uncanny Dodge (can't be flanked)|ImprovedUncannyDodge	SAB:Uncanny Dodge (+% against traps)|UncannyTraps	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|0	DEFINE:UncannyTraps|0	BONUS:VAR|ImprovedUncannyDodge|max(UncannyDodge-1,0)	BONUS:VAR|UncannyTraps|max(UncannyDodge-2,0)
+# Feat Name		Type					Visible		Special ABility																										Define												Description						Stackable?	Multiple?	Choose										Selections		Modify VAR																Source Page						Temporary effect description																			Temporary Bonus
+Defensive Roll	TYPE:RogueSpecialAbilities	VISIBLE:NO		SAB:Defensive Roll																																																																																SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Evasion							VISIBLE:NO		SAB:Evasion (Ex)|PHBFeatEvasion																							DEFINE:PHBFeatEvasion|0																																			BONUS:VAR|PHBFeatEvasion|var("COUNT[FEATNAME=Improved Evasion]")-1						SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Improved Evasion	TYPE:RogueSpecialAbilities	VISIBLE:NO		SAB:Improved Evasion (Ex)																																																																															SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Leadership Score	TYPE:Special			VISIBLE:NO																																																						CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment																												TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.	TEMPBONUS:PC|VAR|LeadershipScore|%CHOICE
+Sneak Attack	TYPE:Special			VISIBLE:NO		SAB:Sneak Attack %1d%2|SneakAttackDice|SneakAttackDie																				DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDie|0																														BONUS:VAR|SneakAttackDie|6													SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Skill Mastery	TYPE:RogueSpecialAbilities	VISIBLE:EXPORT																																										DESC:Take 10 on listed skills, %1|%LIST	STACK:NO	MULT:YES	CHOOSE:SKILL|ALL									SELECT:3+INT																		SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Uncanny Dodge						VISIBLE:NO		SAB:Uncanny Dodge (Dex bonus to AC)|UncannyDodge	SAB:Uncanny Dodge (can't be flanked)|ImprovedUncannyDodge	SAB:Uncanny Dodge (+% against traps)|UncannyTraps	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|0	DEFINE:UncannyTraps|0																										BONUS:VAR|ImprovedUncannyDodge|max(UncannyDodge-1,0)	BONUS:VAR|UncannyTraps|max(UncannyDodge-2,0)
 
 ###Block: Turning
-# Feat Name		Type						Visible	Required AL				Prohibited Var. Value			Special ABility																							Define																																									Source Page
-Basic Turning	TYPE:Special.Turning			VISIBLE:NO																																					DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|0	DEFINE:TurnDieSizeBase|0	DEFINE:TurnDamagePlusBase|0	DEFINE:TurnCheckBase|0			BONUS:VAR|TurnDiceBase|2	BONUS:VAR|TurnDieSizeBase|6	BONUS:VAR|TurnDamagePlusBase|CHA															SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Turn Undead		TYPE:Special.Turning.TurnUndead	VISIBLE:NO	PREALIGN:LG,LN,NG,TN,CG,CN	PREVARNEQ:TurnProhibitedByDeity,1	SAB:Turn Undead (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|0	DEFINE:TurnLevelUndead|0	DEFINE:TurnDiceUndead|0	DEFINE:TurnDieSizeUndead|0	DEFINE:TurnDamagePlusUndead|0	DEFINE:TurnCheckUndead|0	SOURCEPAGE:srdbasiccharacterclassesi.rtf	BONUS:VAR|TurnTimesUndead|TurnTimesBase	BONUS:VAR|TurnLevelUndead|TurnLevelBase	BONUS:VAR|TurnDiceUndead|TurnDiceBase	BONUS:VAR|TurnDieSizeUndead|TurnDieSizeBase	BONUS:VAR|TurnDamagePlusUndead|TurnDamagePlusBase	BONUS:VAR|TurnCheckUndead|TurnCheckBase	
-Rebuke Undead	TYPE:Special.Turning.TurnUndead	VISIBLE:NO	PREALIGN:LN,LE,TN,NE,CN,CE	PREVARNEQ:RebukeProhibitedByDeity,1	SAB:Rebuke Undead (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|0	DEFINE:TurnLevelUndead|0	DEFINE:TurnDiceUndead|0	DEFINE:TurnDieSizeUndead|0	DEFINE:TurnDamagePlusUndead|0	DEFINE:TurnCheckUndead|0	SOURCEPAGE:srdbasiccharacterclassesi.rtf	BONUS:VAR|TurnTimesUndead|TurnTimesBase	BONUS:VAR|TurnLevelUndead|TurnLevelBase	BONUS:VAR|TurnDiceUndead|TurnDiceBase	BONUS:VAR|TurnDieSizeUndead|TurnDieSizeBase	BONUS:VAR|TurnDamagePlusUndead|TurnDamagePlusBase	BONUS:VAR|TurnCheckUndead|TurnCheckBase	
+# Feat Name		Type						Visible	Required AL				Prohibited Var. Value			Special ABility																							Define																												Modify VAR																																												Source Page
+Basic Turning	TYPE:Special.Turning			VISIBLE:NO																																					DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|0	DEFINE:TurnDieSizeBase|0	DEFINE:TurnDamagePlusBase|0	DEFINE:TurnCheckBase|0				BONUS:VAR|TurnDiceBase|2	BONUS:VAR|TurnDieSizeBase|6	BONUS:VAR|TurnDamagePlusBase|CHA																														SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Turn Undead		TYPE:Special.Turning.TurnUndead	VISIBLE:NO	PREALIGN:LG,LN,NG,TN,CG,CN	PREVARNEQ:TurnProhibitedByDeity,1	SAB:Turn Undead (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|0	DEFINE:TurnLevelUndead|0	DEFINE:TurnDiceUndead|0	DEFINE:TurnDieSizeUndead|0	DEFINE:TurnDamagePlusUndead|0	DEFINE:TurnCheckUndead|0	BONUS:VAR|TurnTimesUndead|TurnTimesBase	BONUS:VAR|TurnLevelUndead|TurnLevelBase	BONUS:VAR|TurnDiceUndead|TurnDiceBase	BONUS:VAR|TurnDieSizeUndead|TurnDieSizeBase	BONUS:VAR|TurnDamagePlusUndead|TurnDamagePlusBase	BONUS:VAR|TurnCheckUndead|TurnCheckBase	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Rebuke Undead	TYPE:Special.Turning.TurnUndead	VISIBLE:NO	PREALIGN:LN,LE,TN,NE,CN,CE	PREVARNEQ:RebukeProhibitedByDeity,1	SAB:Rebuke Undead (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|0	DEFINE:TurnLevelUndead|0	DEFINE:TurnDiceUndead|0	DEFINE:TurnDieSizeUndead|0	DEFINE:TurnDamagePlusUndead|0	DEFINE:TurnCheckUndead|0	BONUS:VAR|TurnTimesUndead|TurnTimesBase	BONUS:VAR|TurnLevelUndead|TurnLevelBase	BONUS:VAR|TurnDiceUndead|TurnDiceBase	BONUS:VAR|TurnDieSizeUndead|TurnDieSizeBase	BONUS:VAR|TurnDamagePlusUndead|TurnDamagePlusBase	BONUS:VAR|TurnCheckUndead|TurnCheckBase	SOURCEPAGE:srdbasiccharacterclassesi.rtf
 
 #
 # End

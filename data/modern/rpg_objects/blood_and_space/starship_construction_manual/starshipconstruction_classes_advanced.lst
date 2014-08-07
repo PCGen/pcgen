@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Blood and Space - Starship Construction Manual	SOURCESHORT:BnS-SCM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=58	SOURCEDATE:2005-01
 #Original Entry By: Sean Silva-Miramon
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
-CLASS:Starship Designer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+6)*2/5-1	BONUS:VAR|Reputation|CL/3
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR										Bonus
+CLASS:Starship Designer	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+6)*2/5-1	BONUS:VAR|Reputation|CL/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat			Required Skill
 CLASS:Starship Designer	PREFEAT:1,Starship Operation	PRESKILL:4,Craft (Mechanical)=3,Craft (Structural)=6,Knowledge (Physical Sciences)=6,Pilot=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -16,8 +16,8 @@ CLASS:Starship Designer	STARTSKILLPTS:4	CSKILL:Computer Use|Craft (Electronic)|C
 9																				ADD:FEAT|TYPE=StarshipDesigner
 
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
-CLASS:Starship Test Pilot	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR										Bonus
+CLASS:Starship Test Pilot	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Req. Att.	Required Feat			Required Skill
 CLASS:Starship Test Pilot	PREATT:2	PREFEAT:1,Starship Operation	PRESKILL:2,Pilot=6,Repair=3
 # Class Name			Skill Pts/Lvl	Class Skill

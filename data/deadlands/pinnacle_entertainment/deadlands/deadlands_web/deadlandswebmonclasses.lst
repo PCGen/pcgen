@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Deadlands Web Enhancements	SOURCESHORT:DeadlndWeb	SOURCEWEB:http://www.peginc.com	SOURCEDATE:2003-01
 
-# Class Name		Hit Dice	Type			Source URI											Levels per Feat	Save checks bonus															Combat bonus
-CLASS:Elemental (All)	HD:8		TYPE:Monster	SOURCEWEB:http://www.peginc.com/WeirdWest/Support/Adventures/HotWW	LEVELSPERFEAT:4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel()/2+2	BONUS:SAVE|BASE.Will|1+floor(classlevel()/5)+floor((classlevel()+3)/5)	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Source URI											Levels per Feat	Combat bonus							Bonus
+CLASS:Elemental (All)	HD:8		TYPE:Monster	SOURCEWEB:http://www.peginc.com/WeirdWest/Support/Adventures/HotWW	LEVELSPERFEAT:4	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel()/2+2	BONUS:SAVE|BASE.Will|1+floor(classlevel()/5)+floor((classlevel()+3)/5)
 # Class Name		Reg. Race Type
 CLASS:Elemental (All)	PRERACETYPE:Elemental(All)
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?

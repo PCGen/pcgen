@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
@@ -21,10 +21,10 @@ Combat Casting	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:The Acolyte bec
 Medical Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:When making a Treat Injury skill check, an Acolyte may take 10 even if stress and distractions would normally prevent him from doing so.			SOURCEPAGE:p.79
 
 ###Block: Acolyte Turn Undead
-# Ability Name	Category of Ability		Type									Visible	Restricted Ability						Define																																									Description																						Source Page
-Basic Turning	CATEGORY:Special Ability	TYPE:Turning							VISIBLE:NO										DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|0	DEFINE:TurnDieSizeBase|0	DEFINE:TurnDamagePlusBase|0	DEFINE:TurnCheckBase|0				BONUS:VAR|TurnDiceBase|2	BONUS:VAR|TurnDieSizeBase|6	BONUS:VAR|TurnDamagePlusBase|CHA																																						SOURCEPAGE:p.77
-Turn Undead		CATEGORY:Special Ability	TYPE:Turning.TurnUndead.SpecialAttack.Supernatural			!PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	DEFINE:TurnTimesUndead|0	DEFINE:TurnLevelUndead|0	DEFINE:TurnDiceUndead|0	DEFINE:TurnDieSizeUndead|0	DEFINE:TurnDamagePlusUndead|0	DEFINE:TurnCheckUndead|0		BONUS:VAR|TurnTimesUndead|TurnTimesBase	BONUS:VAR|TurnLevelUndead|TurnLevelBase	BONUS:VAR|TurnDiceUndead|TurnDiceBase	BONUS:VAR|TurnDieSizeUndead|TurnDieSizeBase	BONUS:VAR|TurnDamagePlusUndead|TurnDamagePlusBase	BONUS:VAR|TurnCheckUndead|TurnCheckBase			DESC:%1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	SOURCEPAGE:p.77
-Rebuke Undead	CATEGORY:Special Ability	TYPE:Turning.TurnUndead.SpecialAttack.Supernatural			!PREABILITY:1,CATEGORY=Special Ability,Turn Undead	DEFINE:TurnTimesUndead|0	DEFINE:TurnLevelUndead|0	DEFINE:TurnDiceUndead|0	DEFINE:TurnDieSizeUndead|0	DEFINE:TurnDamagePlusUndead|0	DEFINE:TurnCheckUndead|0		BONUS:VAR|TurnTimesUndead|TurnTimesBase	BONUS:VAR|TurnLevelUndead|TurnLevelBase	BONUS:VAR|TurnDiceUndead|TurnDiceBase	BONUS:VAR|TurnDieSizeUndead|TurnDieSizeBase	BONUS:VAR|TurnDamagePlusUndead|TurnDamagePlusBase	BONUS:VAR|TurnCheckUndead|TurnCheckBase			DESC:%1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	SOURCEPAGE:p.77
+# Ability Name	Category of Ability		Type									Visible	Restricted Ability						Define																												Description																						Modify VAR																																												Source Page
+Basic Turning	CATEGORY:Special Ability	TYPE:Turning							VISIBLE:NO										DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|0	DEFINE:TurnDieSizeBase|0	DEFINE:TurnDamagePlusBase|0	DEFINE:TurnCheckBase|0																											BONUS:VAR|TurnDiceBase|2	BONUS:VAR|TurnDieSizeBase|6	BONUS:VAR|TurnDamagePlusBase|CHA																														SOURCEPAGE:p.77
+Turn Undead		CATEGORY:Special Ability	TYPE:Turning.TurnUndead.SpecialAttack.Supernatural			!PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	DEFINE:TurnTimesUndead|0	DEFINE:TurnLevelUndead|0	DEFINE:TurnDiceUndead|0	DEFINE:TurnDieSizeUndead|0	DEFINE:TurnDamagePlusUndead|0	DEFINE:TurnCheckUndead|0	DESC:%1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	BONUS:VAR|TurnTimesUndead|TurnTimesBase	BONUS:VAR|TurnLevelUndead|TurnLevelBase	BONUS:VAR|TurnDiceUndead|TurnDiceBase	BONUS:VAR|TurnDieSizeUndead|TurnDieSizeBase	BONUS:VAR|TurnDamagePlusUndead|TurnDamagePlusBase	BONUS:VAR|TurnCheckUndead|TurnCheckBase	SOURCEPAGE:p.77
+Rebuke Undead	CATEGORY:Special Ability	TYPE:Turning.TurnUndead.SpecialAttack.Supernatural			!PREABILITY:1,CATEGORY=Special Ability,Turn Undead	DEFINE:TurnTimesUndead|0	DEFINE:TurnLevelUndead|0	DEFINE:TurnDiceUndead|0	DEFINE:TurnDieSizeUndead|0	DEFINE:TurnDamagePlusUndead|0	DEFINE:TurnCheckUndead|0	DESC:%1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	BONUS:VAR|TurnTimesUndead|TurnTimesBase	BONUS:VAR|TurnLevelUndead|TurnLevelBase	BONUS:VAR|TurnDiceUndead|TurnDiceBase	BONUS:VAR|TurnDieSizeUndead|TurnDieSizeBase	BONUS:VAR|TurnDamagePlusUndead|TurnDamagePlusBase	BONUS:VAR|TurnCheckUndead|TurnCheckBase	SOURCEPAGE:p.77
 
 ###Block: Acolyte Domain Abilities
 # Ability Name	Category of Ability		Type				Visible	Define		Description
@@ -305,26 +305,26 @@ Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality									SOUR
 
 ###Block: Rogue Talents
 # 1,000 Faces Talent Tree
-# Ability Name			Category of Ability	Type				Visible		Required Ability								Req. Att.	Required Class		Define								Description								Modify VAR				Source Page
-Quick Change			CATEGORY:Talent		TYPE:Talent.RogueTalent																																											SOURCEPAGE:p.
-A Thousand Faces			CATEGORY:Talent		TYPE:Talent.RogueTalent																																											SOURCEPAGE:p.
-Convincing				CATEGORY:Talent		TYPE:Talent.RogueTalent																																											SOURCEPAGE:p.
-Fake It				CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Quick Change																																	SOURCEPAGE:p.
-Face in the Crowd			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:2,CATEGORY=Talent,Quick Change,A Thousand Faces																														SOURCEPAGE:p.
-Perfect Mimicry			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:2,CATEGORY=Talent,Quick Change,Fake It																															SOURCEPAGE:p.
+# Ability Name			Category of Ability	Type				Visible		Required Ability								Req. Att.	Required Class		Define								Description								Modify VAR									Source Page
+Quick Change			CATEGORY:Talent		TYPE:Talent.RogueTalent																																																SOURCEPAGE:p.
+A Thousand Faces			CATEGORY:Talent		TYPE:Talent.RogueTalent																																																SOURCEPAGE:p.
+Convincing				CATEGORY:Talent		TYPE:Talent.RogueTalent																																																SOURCEPAGE:p.
+Fake It				CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Quick Change																																						SOURCEPAGE:p.
+Face in the Crowd			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:2,CATEGORY=Talent,Quick Change,A Thousand Faces																																			SOURCEPAGE:p.
+Perfect Mimicry			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:2,CATEGORY=Talent,Quick Change,Fake It																																				SOURCEPAGE:p.
 
 # Thug Talent Tree
-Sneak Attack			CATEGORY:Talent		TYPE:Talent.RogueTalent																				DEFINE:StealthAttackDie|0	DEFINE:StealthAttack|0	BONUS:VAR|StealthAttackDie|6	BONUS:VAR|StealthAttack|1	DESC:+%1d%2 Damage|StealthAttack|StealthAttackDie						SOURCEPAGE:p.
-Sneak Attack 2			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack						PRECLASS:1,Rogue=3																			BONUS:VAR|StealthAttack|1	SOURCEPAGE:p.
-Sneak Attack 3			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack 2					PRECLASS:1,Rogue=5																			BONUS:VAR|StealthAttack|1	SOURCEPAGE:p.
-Sneak Attack 4			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack 3					PRECLASS:1,Rogue=7																			BONUS:VAR|StealthAttack|1	SOURCEPAGE:p.
-Sneak Attack 5			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack 4					PRECLASS:1,Rogue=9																			BONUS:VAR|StealthAttack|1	SOURCEPAGE:p.
-Crippling Strike			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Sneak Attack				PREATT:5																												SOURCEPAGE:p.
-Death Attack			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Sneak Attack				PREATT:7																												SOURCEPAGE:p.
+Sneak Attack			CATEGORY:Talent		TYPE:Talent.RogueTalent																				DEFINE:StealthAttackDie|0	DEFINE:StealthAttack|0	DESC:+%1d%2 Damage|StealthAttack|StealthAttackDie	BONUS:VAR|StealthAttackDie|6	BONUS:VAR|StealthAttack|1	SOURCEPAGE:p.
+Sneak Attack 2			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack						PRECLASS:1,Rogue=3																			BONUS:VAR|StealthAttack|1						SOURCEPAGE:p.
+Sneak Attack 3			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack 2					PRECLASS:1,Rogue=5																			BONUS:VAR|StealthAttack|1						SOURCEPAGE:p.
+Sneak Attack 4			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack 3					PRECLASS:1,Rogue=7																			BONUS:VAR|StealthAttack|1						SOURCEPAGE:p.
+Sneak Attack 5			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack 4					PRECLASS:1,Rogue=9																			BONUS:VAR|StealthAttack|1						SOURCEPAGE:p.
+Crippling Strike			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Sneak Attack				PREATT:5																																	SOURCEPAGE:p.
+Death Attack			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Sneak Attack				PREATT:7																																	SOURCEPAGE:p.
 
 # Fast-Talk Talent Tree
-Fast-Talk				CATEGORY:Talent		TYPE:Talent.RogueTalent																																											SOURCEPAGE:p.
-Dazzle				CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Fast-Talk																																	SOURCEPAGE:p.
+Fast-Talk				CATEGORY:Talent		TYPE:Talent.RogueTalent																																																SOURCEPAGE:p.
+Dazzle				CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Fast-Talk																																						SOURCEPAGE:p.
 CATEGORY=Talent|Taunt.MOD					TYPE:Talent.RogueTalent
 
 

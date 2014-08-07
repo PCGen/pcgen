@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 # Template Name	Hit Dice
 SIZE_MASTER
 #	ABILITY:Internal|AUTOMATIC|FACE_0|PRESIZEEQ:F	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:F
@@ -18,7 +18,7 @@ Black Dragon	HD:1-1:ABILITY:Special Ability|AUTOMATIC|Acid Pool ~ Black Dragon	H
 SOURCELONG:PCGen Testing Set	SOURCESHORT:PTS	SOURCEWEB:http://pcgen.sourceforge.net
 
 ###Block: Dragon Size templates
-# Template Name	Face/Space	Reach		Visible	Define				Modify VAR									Weapon prof. bonus									Ability									Move			Natural Attacks
+# Template Name	Face/Space	Reach		Visible	Define				Modify VAR														Weapon prof. bonus									Ability									Move			Natural Attacks
 Dragon (Tiny)	FACE:2.5	REACH:0	VISIBLE:YES	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|3	BONUS:VAR|BreathWeaponCone|15	BONUS:VAR|BreathWeaponLine|30	BONUS:WEAPONPROF=Bite|REACH|5	BONUS:WEAPONPROF=Bite|DAMAGE|max(0,STR/2)	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	MOVE:Fly,100	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
 
 
@@ -79,20 +79,20 @@ Ancient		SUBRACE:Ancient
 Wyrm			SUBRACE:Wyrm
 Great Wyrm		SUBRACE:Great Wyrm
 ###Block: Dragon Attacks
-# Template Name		Visible	Define				Weapon prof. bonus			Move			Natural Attacks
-DRAGON_ATTACKS_T		VISIBLE:NO						BONUS:WEAPONPROF=Bite|REACH|5					NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+# Template Name		Visible	Define				Modify VAR				Weapon prof. bonus			Move			Natural Attacks
+DRAGON_ATTACKS_T		VISIBLE:NO											BONUS:WEAPONPROF=Bite|REACH|5					NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
 #Bite (5' reach)
-DRAGON_ATTACKS_S		VISIBLE:NO															NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+DRAGON_ATTACKS_S		VISIBLE:NO																				NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
 #Bite (5' reach)
-DRAGON_ATTACKS_M		VISIBLE:NO															NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+DRAGON_ATTACKS_M		VISIBLE:NO																				NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
 #Bite (5' reach)
-DRAGON_ATTACKS_L		VISIBLE:NO						BONUS:WEAPONPROF=Bite|REACH|5					NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+DRAGON_ATTACKS_L		VISIBLE:NO											BONUS:WEAPONPROF=Bite|REACH|5					NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
 #Bite (10' reach)
-DRAGON_ATTACKS_H		VISIBLE:NO						BONUS:WEAPONPROF=Bite|REACH|5					NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+DRAGON_ATTACKS_H		VISIBLE:NO											BONUS:WEAPONPROF=Bite|REACH|5					NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
 #Bite (15' reach)
-DRAGON_ATTACKS_G		VISIBLE:NO						BONUS:WEAPONPROF=Bite|REACH|5					NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+DRAGON_ATTACKS_G		VISIBLE:NO											BONUS:WEAPONPROF=Bite|REACH|5					NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
 #Bite (20' reach)
-DRAGON_ATTACKS_C		VISIBLE:NO						BONUS:WEAPONPROF=Bite|REACH|10				NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d8|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+DRAGON_ATTACKS_C		VISIBLE:NO											BONUS:WEAPONPROF=Bite|REACH|10				NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d8|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
 #Bite (30' reach)
 
 

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sat Mar 30 17:36:17 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 
-# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Save checks bonus									Combat bonus					Modify VAR
-CLASS:Shadow Slayer	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Shad		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL/2)+(1/2)	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus										Modify VAR														Bonus
+CLASS:Shadow Slayer	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Shad		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL/2)+(1/2)	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
 # Class Name		Req. Att.	Required Feat
 CLASS:Shadow Slayer	PREATT:3	PREFEAT:1,Archaic Weapons Proficiency
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -19,8 +19,8 @@ CLASS:Shadow Slayer	STARTSKILLPTS:2	CSKILL:Balance|Concentration|Gather Informat
 9	BONUS:ABILITYPOOL|Shadow Slayer Feat|1
 10																ABILITY:Special Ability|AUTOMATIC|Word of Slaying
 
-# Class Name	Hit Dice	Type			Class Type		Max Level	Save checks bonus												Combat bonus					Modify VAR
-CLASS:Occultist	HD:6		TYPE:Advanced.PC	CLASSTYPE:PC	MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL/3)	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Class Type		Max Level	Combat bonus										Modify VAR														Bonus
+CLASS:Occultist	HD:6		TYPE:Advanced.PC	CLASSTYPE:PC	MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL/3)	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
 # Class Name	Required Feat			Required Skill
 CLASS:Occultist	PREFEAT:2,Educated,Studious	PRESKILL:3,Decipher Script=6,Knowledge (Arcane Lore)=6,Research=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -38,8 +38,8 @@ CLASS:Occultist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:N
 9	BONUS:ABILITYPOOL|Occultist Feat|1
 10													ABILITY:Special Ability|AUTOMATIC|Banish
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Save checks bonus												Combat bonus					Modify VAR
-CLASS:Telepath	HD:6		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Tele		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus										Modify VAR															Bonus
+CLASS:Telepath	HD:6		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Tele		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name	Required Feat		Required Skill
 CLASS:Telepath	PREFEAT:1,Wild Talent	PRESKILL:3,Bluff=6,Diplomacy=6,Gather Information=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -72,8 +72,8 @@ CLASS:Telepath	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Tel
 9	KNOWN:5,4,3,3,2	BONUS:ABILITYPOOL|Telepath Feat|1
 10	KNOWN:6,4,3,3,2,1													ABILITY:Special Ability|AUTOMATIC|Maximize Power
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Save checks bonus												Combat bonus						Modify VAR
-CLASS:Battle Mind	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Batt		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus											Modify VAR														Bonus
+CLASS:Battle Mind	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Batt		MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat		Required Skill
 CLASS:Battle Mind	PREATT:3	PREFEAT:1,Wild Talent	PRESKILL:1,Jump=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -109,8 +109,8 @@ CLASS:Battle Mind	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVE
 10	KNOWN:3,3,3,2,1
 
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Save checks bonus												Combat bonus					Modify VAR
-CLASS:Mage		HD:6		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Mage		MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|FamiliarLVL|CL	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus										Modify VAR																					Bonus
+CLASS:Mage		HD:6		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Mage		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|FamiliarLVL|CL	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name	Required Skill
 CLASS:Mage		PRESKILL:4,Craft (Chemical)=6,Decipher Script=6,Knowledge (Arcane Lore)=6,Research=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -134,8 +134,8 @@ CLASS:Dragon (True).MOD
 13	ADD:SPELLCASTER|Mage
 
 
-# Class Name	Hit Dice	Type			Class Type		Max Level	Save checks bonus											Combat bonus						Modify VAR
-CLASS:Acolyte	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	MAXLEVEL:10	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/3+2	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Class Type		Max Level	Combat bonus											Modify VAR																Bonus
+CLASS:Acolyte	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/3+2	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Skill
 CLASS:Acolyte	PREATT:2	PRESKILL:3,Knowledge (Theology and Philosophy)=6,Listen=6,Sense Motive=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -143,8 +143,8 @@ CLASS:Acolyte	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Structural)|Craft (Vis
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Acolyte|CL
 ###Block: Turning
-2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat			BONUS:VAR|ImprovedTurningQual|1	DEFINE:ImprovedTurningQual|0	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
-2	BONUS:VAR|TurnLevel|var("CL=Acolyte")		BONUS:VAR|ExtraTurningQual|1	DEFINE:ExtraTurningQual|0
+2	BONUS:VAR|TurnTimes|3+CHA|TYPE=Stat	BONUS:VAR|ImprovedTurningQual|1	DEFINE:ImprovedTurningQual|0	ABILITY:Special Ability|AUTOMATIC|Base Turn|Turn/Rebuke Undead
+2	BONUS:VAR|TurnLevel|var("CL=Acolyte")	BONUS:VAR|ExtraTurningQual|1	DEFINE:ExtraTurningQual|0
 2	BONUS:VAR|TurnDamagePlus|var("CL=Acolyte")
 2	BONUS:VAR|TurnCheck|CHA|TYPE=Stat
 ###Block: Standard block

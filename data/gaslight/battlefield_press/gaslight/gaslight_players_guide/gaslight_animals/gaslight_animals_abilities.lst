@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Gaslight - Animals	SOURCESHORT:GLA	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
@@ -8,26 +8,26 @@ ABILITY:CATEGORY=Special Ability|Summon Familiar.MOD										FOLLOWERS:Familiar
 ABILITY:CATEGORY=Talent|Animal Companion.MOD		BONUS:VAR|AnimalCompanionLVL|classlevel("Explorer")	FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Ape,Badger,Bear,Camel,Cat,Crocodile,Dog,Eagle,Elephant,Hawk,Herd Animal,Horse,Lizard,Monkey,Octopus,Owl,Pony,Porpoise,Rat,Raven,Shark,Snake (Viper/Medium),Snake (Viper/Small),Squid,Tiger,Wolf
 
 ###Block: Animal Abilities
-# Ability Name		Output Name									Category of Ability		Type								Visible	Define				Description																																																																				Modify VAR															Source Page
+# Ability Name		Output Name									Category of Ability		Type								Visible	Define			Description																																																																				Modify VAR																			Source Page
 Aquatic													CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
 Attach													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
-Constrict													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES						DESC:You can crush an opponent, dealing bludgeoning damage, after making a successful grapple check.
+Constrict													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES					DESC:You can crush an opponent, dealing bludgeoning damage, after making a successful grapple check.
 Hide in Undergrowth	OUTPUTNAME:+4 to hide in tall grass or heavy undergrowth	CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
 Hide when Submerged	OUTPUTNAME:+12 to Hide when Submerged				CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
 Hold Breath													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Improved Evasion												CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
-Improved Grab												CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES						DESC:If you hit with a melee weapon, you deal normal damage and can attempt to start a grapple as a free action without provoking an attack of opportunity. No initial touch attack is required. You have the option to conduct the grapple normally, or simply use the part of your body it used in the improved grab to hold the opponent at a -20 penalty on grapple checks, but are not considered grappled yourself.
+Improved Grab												CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES					DESC:If you hit with a melee weapon, you deal normal damage and can attempt to start a grapple as a free action without provoking an attack of opportunity. No initial touch attack is required. You have the option to conduct the grapple normally, or simply use the part of your body it used in the improved grab to hold the opponent at a -20 penalty on grapple checks, but are not considered grappled yourself.
 Ink Cloud													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES
 Jet														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Keen Scent													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense		VISIBLE:YES
-Poison													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:PoisonDC|0	BONUS:VAR|PoisonDC|10+(HD/2)+CON		DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC																																													BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)
-Pounce													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES						DESC:When you make a charge, you can follow with a full attack.
-Rake														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES						DESC:You gain extra natural attacks when you grapple or pounce your foe.
+Poison													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:PoisonDC|0		DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC																																													BONUS:VAR|PoisonDC|10+(HD/2)+CON	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)
+Pounce													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES					DESC:When you make a charge, you can follow with a full attack.
+Rake														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES					DESC:You gain extra natural attacks when you grapple or pounce your foe.
 Spot in Darkness		OUTPUTNAME:+8 Spot in dusk/darkness					CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBLE:YES
 Spot in Daylight		OUTPUTNAME:+8 species bonus on Spot checks during daylight	CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBLE:YES
 Stampede													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Tracking by Scent		OUTPUTNAME:+4 Survival checks when Tracking by Scent		CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
-Trample													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES	DEFINE:TrampleDC|0	BONUS:VAR|TrampleDC|10	DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC																																								BONUS:VAR|TrampleDC|2|PREFEAT:1,Ability Focus (Trample)	BONUS:VAR|TrampleDC|STR+(HD/2)	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Trample													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES	DEFINE:TrampleDC|0	DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC																																								BONUS:VAR|TrampleDC|10	BONUS:VAR|TrampleDC|2|PREFEAT:1,Ability Focus (Trample)	BONUS:VAR|TrampleDC|STR+(HD/2)	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Trip														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
 
 ###Block: Companion Modifier Abilities -----------------------------------------
