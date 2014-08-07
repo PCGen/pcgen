@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1	SOURCESHORT:BOTD1	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
 # Original Entry by: Stefan Radermacher
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Diabolist	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Dia		MAXLEVEL:10	SOURCEPAGE:p.44	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Diabolist	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Dia		MAXLEVEL:10	SOURCEPAGE:p.44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name	Required AL		Required Language		Required Skill										Required Text
 CLASS:Diabolist	PREALIGN:LN,LE,NE	PRELANG:1,Infernal	PRESKILL:3,Knowledge (Planes)=5,Knowledge (Religion)=3,Spellcraft=5	PRETEXT:Must have conjured a devil using Lesser Planar Ally or Lesser Planar Binding (or a similar spell) and successfully coaxed the fiend into performing a task lasting longer than 1 day.
 # Class Name	Skill Pts/Lvl	Class Skill

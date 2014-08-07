@@ -1,8 +1,8 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOURCESHORT:AP8	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
 
-# Class Name			Hit Dice	Type			Class Type		Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Daughter of Urgathoa	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:11	SOURCEPAGE:p. 82	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Class Type		Max Level	Source Page		Combat bonus										Bonus
+CLASS:Daughter of Urgathoa	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:11	SOURCEPAGE:p. 82	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required Race				Reg. Race Type
 CLASS:Daughter of Urgathoa	PRERACE:1,Daughter of Urgathoa	PRERACETYPE:Undead
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?

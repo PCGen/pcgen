@@ -1,12 +1,12 @@
-# CVS $Revision: 17406 $ $Author: amaitland $ -- Thu Jun 30 07:34:01 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision: 17406 $ $Author: amaitland $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
 #Original Entry: Douglas Limmer
 #SRD Original Entry: Arknight
 #SRD updated: TaluronIscandar
 
 
-# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Cerebremancer	HD:6		TYPE:PC.Prestige.Psionic	ABB:Cer		MAXLEVEL:10	SOURCEPAGE:p.155	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus
+CLASS:Cerebremancer	HD:6		TYPE:PC.Prestige.Psionic	ABB:Cer		MAXLEVEL:10	SOURCEPAGE:p.155	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Required Skill								Req. Spell Type
 CLASS:Cerebremancer	PRESKILL:2,Knowledge (Arcana)=3,Knowledge (Psionics)=3	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Psionic=2
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -23,8 +23,8 @@ CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:Knowledge (Arcana)|Knowledge (Psionic
 9	BONUS:VAR|MagicalManifesting|1						ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Psionic
 10												ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Weave the Sources
 
-# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Elocater	HD:8		TYPE:PC.Prestige.Psionic	ABB:Elo		MAXLEVEL:10	SOURCEPAGE:p.157	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus											Modify VAR									Bonus
+CLASS:Elocater	HD:8		TYPE:PC.Prestige.Psionic	ABB:Elo		MAXLEVEL:10	SOURCEPAGE:p.157	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name	Req. Att.	Required Feat			Multiple Requirements															Required Skill		Req. Spell Type
 CLASS:Elocater	PREATT:3	PREFEAT:2,Dodge,Mobility	PREMULT:1,[PREFEAT:1,Spring Attack],[PREABILITY:1,CATEGORY=Special Ability,Nomad's Step ~ Psychoportation]	PRESKILL:1,Acrobatics=5	PRESPELLTYPE:1,Psionic=1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -43,8 +43,8 @@ CLASS:Elocater	STARTSKILLPTS:6	CSKILL:Acrobatics|Climb|Escape Artist|Fly|Knowled
 9								BONUS:VAR|DimensionStep|1																	ABILITY:Special Ability|AUTOMATIC|Dimension Spring Attack|PREFEAT:1,Spring Attack
 10																									ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Accelerated Action
 
-# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Metamind	HD:6		TYPE:PC.Prestige.Psionic	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:p.159	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus
+CLASS:Metamind	HD:6		TYPE:PC.Prestige.Psionic	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:p.159	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name	Required Class				Required Feat			Required Skill
 CLASS:Metamind	PRECLASS:1,SPELLCASTER.Psionic=4	PREFEAT:1,Psicrystal Affinity	PRESKILL:2,Knowledge (Psionics)=5,Spellcraft=2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -60,8 +60,8 @@ CLASS:Metamind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Knowledge (Psionics)|Spellcra
 9	BONUS:ABILITYPOOL|Metamind Bonus PP Level|1
 10																							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Font of Power
 
-# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Phrenic Slayer	HD:10		TYPE:PC.Prestige.Psionic	ABB:PhS		MAXLEVEL:10	SOURCEPAGE:p.161	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus
+CLASS:Phrenic Slayer	HD:10		TYPE:PC.Prestige.Psionic	ABB:PhS		MAXLEVEL:10	SOURCEPAGE:p.161	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Req. Att.	Multiple Requirements													Required Skill				Required Text																				Var. Must Be Grater
 CLASS:Phrenic Slayer	PREATT:4	PREMULT:1,[PREFEAT:1,Skill Focus (Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:1,Knowledge (Psionics)=1	PRETEXT:Must have had hostile encouter with the psionic creature to be selected as a favored enemy, alone or with a small group.	PREVARGT:TotalPowerPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -81,34 +81,34 @@ CLASS:Phrenic Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Knowledge (Psionics)|Perceptio
 9																	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Cerebral Immunity
 10	BONUS:VAR|SlayerFavoredEnemy|2	BONUS:VAR|BrainNausea|1							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Rebound Attack
 
-# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Psion Uncarnate	HD:6		TYPE:PC.Prestige.Psionic	ABB:PUn		MAXLEVEL:10	SOURCEPAGE:p.163	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus
+CLASS:Psion Uncarnate	HD:6		TYPE:PC.Prestige.Psionic	ABB:PUn		MAXLEVEL:10	SOURCEPAGE:p.163	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Required Feat		Required Skill						Req. Spell Type			Required Text
 CLASS:Psion Uncarnate	PREFEAT:1,Psionic Body	PRESKILL:2,Knowledge (Psionics)=5,Spellcraft=5	PRESPELLTYPE:1,Psionic=3	PRETEXT:Must have had some instruction by another psion uncarnate or one of the Unbodied.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Disguise|Knowledge (Planes)|Sense Motive|Spellcraft
 ###Block: Class Info
-1	BONUS:VAR|UncarnateIncorporealTouch|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:VAR|ShedBody|9+classlevel("APPLIEDAS=NONEPIC")										ABILITY:Special Ability|AUTOMATIC|Matter-Bound|Shed Body
-2	BONUS:VAR|UncarnateIncorporealTouchDice|1	BONUS:VAR|MndBladeLVL|(classlevel("APPLIEDAS=NONEPIC")*2/3)					ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Incorporeal Touch|Uncarnate Armor
+1	BONUS:VAR|UncarnateIncorporealTouch|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:VAR|ShedBody|9+classlevel("APPLIEDAS=NONEPIC")					ABILITY:Special Ability|AUTOMATIC|Matter-Bound|Shed Body
+2	BONUS:VAR|UncarnateIncorporealTouchDice|1	BONUS:VAR|MndBladeLVL|(classlevel("APPLIEDAS=NONEPIC")*2/3)						ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Incorporeal Touch|Uncarnate Armor
 3	BONUS:VAR|AssumeEquipment|classlevel("APPLIEDAS=NONEPIC")													ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Assume Equipment
-4																						ABILITY:Special Ability|AUTOMATIC|Assume Likeness
-5	BONUS:VAR|UncarnateIncorporealTouchDice|1											ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Parting the Veil
-6																		ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Hide Mind
+4																											ABILITY:Special Ability|AUTOMATIC|Assume Likeness
+5	BONUS:VAR|UncarnateIncorporealTouchDice|1																ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Parting the Veil
+6																							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Hide Mind
 7	BONUS:VAR|TelekineticForceDC|10+classlevel("APPLIEDAS=NONEPIC")+max(INT,WIS,CHA)													ABILITY:Special Ability|AUTOMATIC|Telekinetic Force				SPELLS:Innate|TIMES=3|Telekinetic Force,TelekineticForceDC					AUTO:FEAT|Psionic Talent
-8																		ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Rend the Veil
-9	BONUS:VAR|UncarnateIncorporealTouchDice|1	BONUS:VAR|UncarnateBridgeDC|10+(classlevel("APPLIEDAS=NONEPIC")/2)+max(INT,WIS,CHA)	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Uncarnate Bridge
-10																						ABILITY:Special Ability|AUTOMATIC|Uncarnate															TEMPLATE:Incorporeal
+8																							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Rend the Veil
+9	BONUS:VAR|UncarnateIncorporealTouchDice|1	BONUS:VAR|UncarnateBridgeDC|10+(classlevel("APPLIEDAS=NONEPIC")/2)+max(INT,WIS,CHA)		ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Uncarnate Bridge
+10																											ABILITY:Special Ability|AUTOMATIC|Uncarnate															TEMPLATE:Incorporeal
 
-# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Psychic Fist	HD:8		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:p.166	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus											Modify VAR									Bonus
+CLASS:Psychic Fist	HD:8		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:p.166	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Req. Att.	Required Feat					Required Skill		Var. Must Be Grater
 CLASS:Psychic Fist	PREATT:4	PREFEAT:1,Psionic Fist,Psionic Weapon	PRESKILL:1,Acrobatics=6	PREVARGT:TotalPowerPoints,0	PREVARGT:KiPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Fist	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Escape Artist|Knowledge (Psionics)|Spellcraft|Stealth
-# Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level									Use Spell List
 CLASS:Psychic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Fist|classlevel("APPLIEDAS=NONEPIC")	SPELLLIST:1|Psychic Warrior
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-1	BONUS:VAR|PsychicFistML|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|PsychicFistML|var("BL=Psychic Fist")	BONUS:VAR|IsPsionic|1																								DEFINE:PsychicFistML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
+1	BONUS:VAR|PsychicFistML|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|PsychicFistML|var("BL=Psychic Fist")	BONUS:VAR|IsPsionic|1																			DEFINE:PsychicFistML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
 1	BONUS:VAR|PsychicFistPL|PsychicFistML																																		DEFINE:PsychicFistPL|0
 1	BONUS:VAR|BasePowerPoints|1	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:PsychicFistPL,2	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:PsychicFistPL,3	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsychicFistPL,4
 1	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsychicFistPL,5	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsychicFistPL,6	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsychicFistPL,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsychicFistPL,8
@@ -116,93 +116,93 @@ CLASS:Psychic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 1	BONUS:VAR|BonusPowerPoints|(WIS*PsychicFistPL)/2|TYPE=PsychicFistBonusPP
 
 ###Block:Monk Abilities
-1						BONUS:VAR|MonkACLVL|CL			ABILITY:Special Ability|AUTOMATIC|Monk Abilities
-1						BONUS:VAR|MonkFastMovementLVL|CL
-1						BONUS:VAR|FlurryLVL|CL
+1										BONUS:VAR|MonkACLVL|CL			ABILITY:Special Ability|AUTOMATIC|Monk Abilities
+1										BONUS:VAR|MonkFastMovementLVL|CL
+1										BONUS:VAR|FlurryLVL|CL
 1	BONUS:UDAM|CLASS.Monk|classlevel("APPLIEDAS=NONEPIC")
-1						BONUS:VAR|KiPoolLVL|KiPower
+1										BONUS:VAR|KiPoolLVL|KiPower
 
 ###Block: Class Info
 1	KNOWN:0,1
 2	KNOWN:0,2									BONUS:VAR|KiPower|classlevel("APPLIEDAS=NONEPIC")/2										ABILITY:Special Ability|AUTOMATIC|Ki Power
-3	KNOWN:0,2,1									BONUS:VAR|InfusedBody|1										ABILITY:Special Ability|AUTOMATIC|Infused Body
+3	KNOWN:0,2,1									BONUS:VAR|InfusedBody|1															ABILITY:Special Ability|AUTOMATIC|Infused Body
 4	KNOWN:0,2,2									BONUS:VAR|MesmerizingGlowTargets|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|MesmerizingGlowDC|14+WIS	ABILITY:Special Ability|AUTOMATIC|Mesmerizing Glow
 5	KNOWN:0,2,2,1	BONUS:ABILITYPOOL|Psychic Fist Feat|1
-6	KNOWN:0,2,2,2								BONUS:VAR|InfusedBody|1										ABILITY:Special Ability|AUTOMATIC|Concentrated Will
-7	KNOWN:0,2,2,2,1																					ABILITY:Special Ability|AUTOMATIC|Psionic Acrobatics
+6	KNOWN:0,2,2,2								BONUS:VAR|InfusedBody|1															ABILITY:Special Ability|AUTOMATIC|Concentrated Will
+7	KNOWN:0,2,2,2,1																										ABILITY:Special Ability|AUTOMATIC|Psionic Acrobatics
 8	KNOWN:0,2,2,2,2
 9	KNOWN:0,2,2,2,2,1								BONUS:VAR|InfusedBody|1
-10	KNOWN:0,2,2,2,2,2	BONUS:ABILITYPOOL|Psychic Fist Feat|1														ABILITY:Special Ability|AUTOMATIC|Psychic Fusion
+10	KNOWN:0,2,2,2,2,2	BONUS:ABILITYPOOL|Psychic Fist Feat|1																			ABILITY:Special Ability|AUTOMATIC|Psychic Fusion
 
-# Class Name					Output Name			Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR									Serves As
-CLASS:Psychic Fist (Add to Manifesting)	OUTPUTNAME:Psychic Fist	HD:8		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:p.166	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	SERVESAS:CLASS|Psychic Fist
+# Class Name					Output Name			Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus											Modify VAR									Bonus																							Serves As
+CLASS:Psychic Fist (Add to Manifesting)	OUTPUTNAME:Psychic Fist	HD:8		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:p.166	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	SERVESAS:CLASS|Psychic Fist
 # Class Name					Req. Att.	Required Class				Required Feat					Required Skill		Var. Must Be Grater
 CLASS:Psychic Fist (Add to Manifesting)	PREATT:4	PRECLASS:1,SPELLCASTER.Psionic=1	PREFEAT:1,Psionic Fist,Psionic Weapon	PRESKILL:1,Acrobatics=6	PREVARGT:TotalPowerPoints,0	PREVARGT:KiPoints,0
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Psychic Fist (Add to Manifesting)	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Escape Artist|Knowledge (Psionics)|Spellcraft|Stealth
 ###Block:Monk Abilities
-1						BONUS:VAR|MonkACLVL|CL			ABILITY:Special Ability|AUTOMATIC|Monk Abilities
-1						BONUS:VAR|MonkFastMovementLVL|CL
-1						BONUS:VAR|FlurryLVL|CL
+1										BONUS:VAR|MonkACLVL|CL			ABILITY:Special Ability|AUTOMATIC|Monk Abilities
+1										BONUS:VAR|MonkFastMovementLVL|CL
+1										BONUS:VAR|FlurryLVL|CL
 1	BONUS:UDAM|CLASS.Monk|classlevel("APPLIEDAS=NONEPIC")
 ###Block: Class Info
 1
 2								BONUS:VAR|KiPower|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|MndBladeLVL|CL*4/5					ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Ki Power
-3								BONUS:VAR|InfusedBody|1										ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Infused Body
+3								BONUS:VAR|InfusedBody|1															ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Infused Body
 4								BONUS:VAR|MesmerizingGlowTargets|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|MesmerizingGlowDC|14+WIS	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Mesmerizing Glow
-5	BONUS:ABILITYPOOL|Psychic Fist Feat|1														ADD:SPELLCASTER|Psionic
-6								BONUS:VAR|InfusedBody|1														ABILITY:Special Ability|AUTOMATIC|Concentrated Will
-7																					ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Psionic Acrobatics
-8																					ADD:SPELLCASTER|Psionic
-9								BONUS:VAR|InfusedBody|1										ADD:SPELLCASTER|Psionic
-10	BONUS:ABILITYPOOL|Psychic Fist Feat|1														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Psychic Fusion
+5	BONUS:ABILITYPOOL|Psychic Fist Feat|1																			ADD:SPELLCASTER|Psionic
+6								BONUS:VAR|InfusedBody|1																			ABILITY:Special Ability|AUTOMATIC|Concentrated Will
+7																										ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Psionic Acrobatics
+8																										ADD:SPELLCASTER|Psionic
+9								BONUS:VAR|InfusedBody|1															ADD:SPELLCASTER|Psionic
+10	BONUS:ABILITYPOOL|Psychic Fist Feat|1																			ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Psychic Fusion
 
-# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	ABB:Pyr		MAXLEVEL:10	SOURCEPAGE:p.168	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus											Modify VAR									Bonus
+CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	ABB:Pyr		MAXLEVEL:10	SOURCEPAGE:p.168	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Required AL		Required Skill										Required Text											Var. Must Be Grater
 CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:3,Autohypnosis=5,Craft (Alchemy)=1,Knowledge (Psionics)=2	PRETEXT:Must have set fire to a structure of any size just to watch it burn.	PREVARGT:TotalPowerPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Acrobatics|Autohypnosis|Climb|Intimidate|Spellcraft
 ###Block: Class Info
-1	BONUS:VAR|ManipulateBlazeRange|(25+5*floor(classlevel("APPLIEDAS=NONEPIC")/2))							ABILITY:Special Ability|AUTOMATIC|Fire Lash|Manipulate Blaze
+1	BONUS:VAR|ManipulateBlazeRange|(25+5*floor(classlevel("APPLIEDAS=NONEPIC")/2))		ABILITY:Special Ability|AUTOMATIC|Fire Lash|Manipulate Blaze
 2	BONUS:VAR|FireAdaptation|4	BONUS:VAR|FireResistanceBonus|10	BONUS:VAR|HandAfire|2	ABILITY:Special Ability|AUTOMATIC|Fire Adaptation|Hand Afire
-3	BONUS:VAR|BoltFire|classlevel("APPLIEDAS=NONEPIC")												ABILITY:Special Ability|AUTOMATIC|Bolt of Fire
+3	BONUS:VAR|BoltFire|classlevel("APPLIEDAS=NONEPIC")							ABILITY:Special Ability|AUTOMATIC|Bolt of Fire
 4	BONUS:VAR|WeaponAfire|2												ABILITY:Special Ability|AUTOMATIC|Weapon Afire
-5	BONUS:VAR|NimbusDuration|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|Nimbus|2							ABILITY:Special Ability|AUTOMATIC|Nimbus
-6	BONUS:VAR|LeechHeat|2	BONUS:VAR|PenetratingFire|classlevel("APPLIEDAS=NONEPIC")							ABILITY:Special Ability|AUTOMATIC|Firewalk|Leech Heat|Penetrating Fire
+5	BONUS:VAR|NimbusDuration|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|Nimbus|2		ABILITY:Special Ability|AUTOMATIC|Nimbus
+6	BONUS:VAR|LeechHeat|2	BONUS:VAR|PenetratingFire|classlevel("APPLIEDAS=NONEPIC")		ABILITY:Special Ability|AUTOMATIC|Firewalk|Leech Heat|Penetrating Fire
 7	BONUS:VAR|FireAdaptation|4	BONUS:VAR|FireResistanceBonus|10
 8	BONUS:VAR|HandAfire,Nimbus,WeaponAfire|2
 9	BONUS:VAR|LeechHeat|2	BONUS:VAR|HeatDeathDC|14+CHA							ABILITY:Special Ability|AUTOMATIC|Heat Death
 10	BONUS:VAR|ConflagrationDC|15+CHA										ABILITY:Special Ability|AUTOMATIC|Conflagration|Fire Soul
 
-# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Thrallherd	HD:6		TYPE:PC.Prestige.Psionic	ABB:Thr		MAXLEVEL:10	SOURCEPAGE:p.170	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus
+CLASS:Thrallherd	HD:6		TYPE:PC.Prestige.Psionic	ABB:Thr		MAXLEVEL:10	SOURCEPAGE:p.170	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name	Required Class				Required Feat						Multiple Requirements																Required Skill
 CLASS:Thrallherd	PRECLASS:1,SPELLCASTER.Psionic=5	PREFEAT:1,Inquisitor,Skill Focus (Diplomacy)	PREMULT:1,[PRESPELL:1,Mindlink,Mind Control],[PREABILITY:1,CATEGORY=Special Ability,TYPE.ThrallherdLinkMinds]	PRESKILL:2,Knowledge (Psionics)=5,Diplomacy=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Diplomacy|Knowledge (Psionics)|Sense Motive|Spellcraft
 ###Block: Class Info
-1											BONUS:VAR|ThrallherdScore|(TL+CHA+classlevel("APPLIEDAS=NONEPIC"))					ABILITY:Special Ability|AUTOMATIC|Thrallherd
-2	BONUS:ABILITYPOOL|Alluring Voice Bonus|classlevel("APPLIEDAS=NONEPIC")/2			BONUS:VAR|MndBladeLVL|1				ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Alluring Voice
-3	BONUS:ABILITYPOOL|Thrallherd Empathic Connection Choice|1	BONUS:VAR|MndBladeLVL|1				ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Empathic Connection
-4											BONUS:VAR|MndBladeLVL|1				ADD:SPELLCASTER|Psionic
-5	BONUS:ABILITYPOOL|Thrallherd Mind Control Choice|1		BONUS:VAR|MndBladeLVL|1				ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Mind Control
-6											BONUS:VAR|MndBladeLVL|1				ADD:SPELLCASTER|Psionic
-7											BONUS:VAR|MndBladeLVL|1				ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Greater Mind Control
-8											BONUS:VAR|MndBladeLVL|1				ADD:SPELLCASTER|Psionic
-9											BONUS:VAR|MndBladeLVL|1				ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Superior Mind Control
-10																						ABILITY:Special Ability|AUTOMATIC|Expanded Call|Twofold Master
+1														BONUS:VAR|ThrallherdScore|(TL+CHA+classlevel("APPLIEDAS=NONEPIC"))					ABILITY:Special Ability|AUTOMATIC|Thrallherd
+2	BONUS:ABILITYPOOL|Alluring Voice Bonus|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|MndBladeLVL|1									ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Alluring Voice
+3	BONUS:ABILITYPOOL|Thrallherd Empathic Connection Choice|1				BONUS:VAR|MndBladeLVL|1									ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Empathic Connection
+4														BONUS:VAR|MndBladeLVL|1									ADD:SPELLCASTER|Psionic
+5	BONUS:ABILITYPOOL|Thrallherd Mind Control Choice|1					BONUS:VAR|MndBladeLVL|1									ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Mind Control
+6														BONUS:VAR|MndBladeLVL|1									ADD:SPELLCASTER|Psionic
+7														BONUS:VAR|MndBladeLVL|1									ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Greater Mind Control
+8														BONUS:VAR|MndBladeLVL|1									ADD:SPELLCASTER|Psionic
+9														BONUS:VAR|MndBladeLVL|1									ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Superior Mind Control
+10																														ABILITY:Special Ability|AUTOMATIC|Expanded Call|Twofold Master
 
-# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus
+CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name	Restricted AL		Req. Att.	Required Skill								Required Text								Var. Must Be Grater
 CLASS:War Mind	!PREALIGN:CG,CN,CE	PREATT:3	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=5	PRETEXT:Instruction from another war mind or Codex of War.	PREVARGT:TotalPowerPoints,0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:War Mind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Intimidate|Knowledge (History)|Knowledge (Psionics)|Spellcraft
-# Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level								Use Spell List
 CLASS:War Mind	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|War Mind|classlevel("APPLIEDAS=NONEPIC")	SPELLLIST:1|Psychic Warrior
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-1	BONUS:VAR|WarMndML|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|WarMndML|var("BL=War Mind")	BONUS:VAR|IsPsionic|1																						DEFINE:WarMndML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
+1	BONUS:VAR|WarMndML|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|WarMndML|var("BL=War Mind")	BONUS:VAR|IsPsionic|1																	DEFINE:WarMndML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
 1	BONUS:VAR|WarMndPL|WarMndML																																DEFINE:WarMndPL|0
 1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:WarMndPL,2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:WarMndPL,3	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:WarMndPL,4
 1	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:WarMndPL,5	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:WarMndPL,6	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:WarMndPL,7	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:WarMndPL,8
@@ -221,8 +221,8 @@ CLASS:War Mind	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|War
 9	KNOWN:0,2,1,1,1				BONUS:VAR|EnduringBody|1
 10	KNOWN:0,2,1,1,1,1									ABILITY:Special Ability|AUTOMATIC|Chain of Overwhelming Force
 
-# Class Name				Output Name			Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR									Serves As
-CLASS:War Mind (Warrior's Path)	OUTPUTNAME:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	SERVESAS:CLASS|War Mind
+# Class Name				Output Name			Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus																							Serves As
+CLASS:War Mind (Warrior's Path)	OUTPUTNAME:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	SERVESAS:CLASS|War Mind
 # Class Name				Restricted AL		Req. Att.	Required Class			Required Skill								Required Text								Var. Must Be Grater
 CLASS:War Mind (Warrior's Path)	!PREALIGN:CG,CN,CE	PREATT:3	PRECLASS:1,Psychic Warrior=1	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=5	PRETEXT:Instruction from another war mind or Codex of War.	PREVARGT:TotalPowerPoints,0
 # Class Name				Skill Pts/Lvl	Class Skill

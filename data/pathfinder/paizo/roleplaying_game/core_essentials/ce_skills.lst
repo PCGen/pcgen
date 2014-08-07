@@ -1,4 +1,4 @@
-# CVS $Revision: 20121 $ $Author: zaister $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 20121 $ $Author: zaister $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 # Original Entry by: Eric Smith (Maredudd), Stefan Radermacher
 
 # Conditional skills for bard's Versatile Performance ability
@@ -8,7 +8,7 @@
 #� +3 because Perform is a class skill
 #� Bonuses: any random bonuses to Perform, like Skill Focus
 
-# Skill Name							Key Stat	Untrained?		Classes	Type			Visible		Required Ability									Req. Rule (in options)		Source Page
+# Skill Name							Key Stat	Untrained?		Classes	Type			Visible		Required Ability													Req. Rule (in options)		Source Page
 Bluff (Perform (Act))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
 Disguise (Perform (Act))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.95
 #
@@ -41,9 +41,9 @@ Samurai Mount							KEYSTAT:DEX						TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,C
 ###Block:
 
 ###Block:
-# Skill Name	Define														Bonus to Situation
-Acrobatics.MOD																BONUS:SITUATION|Acrobatics=Jump|floor((var("MOVE[Walk]")-30)/10)*4|TYPE=Move
-Ride.MOD		DEFINE:RideACP|0	BONUS:VAR|RideACP|var("ARMOR.0.ACCHECK")	DEFINE:SamuraiMountACP|0	BONUS:VAR|SamuraiMountACP|RideACP-(RideACP*2)	BONUS:SITUATION|Samurai Mount|SamuraiMountACP
+# Skill Name	Define							Bonus to Situation										Modify VAR
+Acrobatics.MOD									BONUS:SITUATION|Acrobatics=Jump|floor((var("MOVE[Walk]")-30)/10)*4|TYPE=Move
+Ride.MOD		DEFINE:RideACP|0	DEFINE:SamuraiMountACP|0	BONUS:SITUATION|Samurai Mount|SamuraiMountACP						BONUS:VAR|RideACP|var("ARMOR.0.ACCHECK")	BONUS:VAR|SamuraiMountACP|RideACP-(RideACP*2)
 #BONUS:SKILLRANK|Samurai Mount|skillinfo("TOTALRANK", "Ride")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai	BONUS:SKILL|Samurai Mount|var("SKILL.Ride.MISC")
 ###Block: New Skill
 # Skill Name			Key Stat	Untrained?		Type				Source, Long Desc.		Source, Short Desc.	Source URI																		Source Page		Bonus to skill																						Source Pub. Date
@@ -224,15 +224,15 @@ Perception.MOD			SITUATION:sight-based
 
 ###Block: Versatile Performance
 # Skill Name	Situational Skill Use
-#	Bluff.MOD		SITUATION:Versatile Performance (Act)					BONUS:SITUATION|Bluff=Versatile Performance (Act)|var("SKILL.Perform (Act).MISC")	BONUS:SITUATION|Disguise=Versatile Performance (Act)|var("SKILL.Perform (Act).MISC")															
-#	Disguise.MOD	SITUATION:Versatile Performance (Act)					BONUS:SITUATION|Bluff=Versatile Performance (Comedy)|var("SKILL.Perform (Comedy).MISC")	BONUS:SITUATION|Intimidate=Versatile Performance (Comedy)|var("SKILL.Perform (Comedy).MISC")													
-#	Bluff.MOD		SITUATION:Versatile Performance (Comedy)					BONUS:SITUATION|Acrobatics=Versatile Performance (Dance)|var("SKILL.Perform (Dance).MISC")	BONUS:SITUATION|Fly=Versatile Performance (Dance)|var("SKILL.Perform (Dance).MISC")														
-#	Intimidate.MOD	SITUATION:Versatile Performance (Comedy)					BONUS:SITUATION|Diplomacy=Versatile Performance (Keyboard Instruments)|var("SKILL.Perform (Keyboard Instruments).MISC")	BONUS:SITUATION|Sense Motive=Versatile Performance (Keyboard Instruments)|var("SKILL.Perform (Keyboard Instruments).MISC")			
-#	Acrobatics.MOD	SITUATION:Versatile Performance (Dance)					BONUS:SITUATION|Diplomacy=Versatile Performance (Oratory)|var("SKILL.Perform (Oratory).MISC")	BONUS:SITUATION|Sense Motive=Versatile Performance (Oratory)|var("SKILL.Perform (Oratory).MISC")											
-#	Fly.MOD		SITUATION:Versatile Performance (Dance)					BONUS:SITUATION|Handle Animal=Versatile Performance (Percussion Instruments)|var("SKILL.Perform (Percussion Instruments).MISC")	BONUS:SITUATION|Intimidate=Versatile Performance (Percussion Instruments)|var("SKILL.Perform (Percussion Instruments).MISC")	
-#	Diplomacy.MOD	SITUATION:Versatile Performance (Keyboard Instruments)		BONUS:SITUATION|Bluff=Versatile Performance (Sing)|var("SKILL.Perform (Sing).MISC")	BONUS:SITUATION|Sense Motive=Versatile Performance (Sing)|var("SKILL.Perform (Sing).MISC")														
-#	Sense Motive.MOD	SITUATION:Versatile Performance (Keyboard Instruments)		BONUS:SITUATION|Bluff=Versatile Performance (String Instruments)|var("SKILL.Perform (String Instruments).MISC")	BONUS:SITUATION|Diplomacy=Versatile Performance (String Instruments)|var("SKILL.Perform (String Instruments).MISC")					
-#	Diplomacy.MOD	SITUATION:Versatile Performance (Oratory)					BONUS:SITUATION|Diplomacy=Versatile Performance (Wind Instruments)|var("SKILL.Perform (Wind Instruments).MISC")	BONUS:SITUATION|Handle Animal=Versatile Performance (Wind Instruments)|var("SKILL.Perform (Wind Instruments).MISC")					
+#	Bluff.MOD		SITUATION:Versatile Performance (Act)					BONUS:SITUATION|Bluff=Versatile Performance (Act)|var("SKILL.Perform (Act).MISC")	BONUS:SITUATION|Disguise=Versatile Performance (Act)|var("SKILL.Perform (Act).MISC")
+#	Disguise.MOD	SITUATION:Versatile Performance (Act)					BONUS:SITUATION|Bluff=Versatile Performance (Comedy)|var("SKILL.Perform (Comedy).MISC")	BONUS:SITUATION|Intimidate=Versatile Performance (Comedy)|var("SKILL.Perform (Comedy).MISC")
+#	Bluff.MOD		SITUATION:Versatile Performance (Comedy)					BONUS:SITUATION|Acrobatics=Versatile Performance (Dance)|var("SKILL.Perform (Dance).MISC")	BONUS:SITUATION|Fly=Versatile Performance (Dance)|var("SKILL.Perform (Dance).MISC")
+#	Intimidate.MOD	SITUATION:Versatile Performance (Comedy)					BONUS:SITUATION|Diplomacy=Versatile Performance (Keyboard Instruments)|var("SKILL.Perform (Keyboard Instruments).MISC")	BONUS:SITUATION|Sense Motive=Versatile Performance (Keyboard Instruments)|var("SKILL.Perform (Keyboard Instruments).MISC")
+#	Acrobatics.MOD	SITUATION:Versatile Performance (Dance)					BONUS:SITUATION|Diplomacy=Versatile Performance (Oratory)|var("SKILL.Perform (Oratory).MISC")	BONUS:SITUATION|Sense Motive=Versatile Performance (Oratory)|var("SKILL.Perform (Oratory).MISC")
+#	Fly.MOD		SITUATION:Versatile Performance (Dance)					BONUS:SITUATION|Handle Animal=Versatile Performance (Percussion Instruments)|var("SKILL.Perform (Percussion Instruments).MISC")	BONUS:SITUATION|Intimidate=Versatile Performance (Percussion Instruments)|var("SKILL.Perform (Percussion Instruments).MISC")
+#	Diplomacy.MOD	SITUATION:Versatile Performance (Keyboard Instruments)		BONUS:SITUATION|Bluff=Versatile Performance (Sing)|var("SKILL.Perform (Sing).MISC")	BONUS:SITUATION|Sense Motive=Versatile Performance (Sing)|var("SKILL.Perform (Sing).MISC")
+#	Sense Motive.MOD	SITUATION:Versatile Performance (Keyboard Instruments)		BONUS:SITUATION|Bluff=Versatile Performance (String Instruments)|var("SKILL.Perform (String Instruments).MISC")	BONUS:SITUATION|Diplomacy=Versatile Performance (String Instruments)|var("SKILL.Perform (String Instruments).MISC")
+#	Diplomacy.MOD	SITUATION:Versatile Performance (Oratory)					BONUS:SITUATION|Diplomacy=Versatile Performance (Wind Instruments)|var("SKILL.Perform (Wind Instruments).MISC")	BONUS:SITUATION|Handle Animal=Versatile Performance (Wind Instruments)|var("SKILL.Perform (Wind Instruments).MISC")
 #	Sense Motive.MOD	SITUATION:Versatile Performance (Oratory)
 #	Handle Animal.MOD	SITUATION:Versatile Performance (Percussion Instruments)
 #	Intimidate.MOD	SITUATION:Versatile Performance (Percussion Instruments)

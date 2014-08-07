@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Curse of the Crimson Throne, Chapter 5 - Skeletons of Scarwall	SOURCESHORT:AP11	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy83yw	SOURCEDATE:2008-08
 
 ###Block: Chained Spirit
@@ -30,13 +30,13 @@ Tunnel Mobility					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		
 Gug Immunities					CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity		VISIBLE:NO	SAB:Immune To Disease	SAB:Immune to Poison
 
 ###Block: The Prince in Chains
-# Ability Name			Unique Key							Output Name								Category of Ability		Type								Visible		Special ABility											Define				Description																																Modify VAR						Source Page
+# Ability Name			Unique Key							Output Name								Category of Ability		Type								Visible		Special ABility											Define				Description																																Modify VAR							Source Page
 Chainstorm																					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:EXPORT	SAB:Chainstorm (Ex) ~ DC % Reflex|ChainstormDC						DEFINE:ChainstormDC|0		DESC:The area within 15 feet of the Prince in Chains is constantly assaulted with lashing chains and tendrils spontaneously grown from its tormented form.								BONUS:VAR|ChainstormDC|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p. 84
-Exaction																					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:EXPORT	SAB:Exaction (Su)																DESC:The Prince in Chains is treated as having fast healing 10 any round it deals damage, regardless of how much damage it deals in that round after.																SOURCEPAGE:p. 84
-Howl of Despair																				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:EXPORT	SAB:Howl of Despair (Su) ~ DC 5 Will (Sonic, Mind-affecting)|HowlofDispairDC	DEFINE:HowlofDispairDC|0	DESC:The Prince in Chains can loose a howl of immortal agony once every 1d4 rounds.																				BONUS:VAR|HowlofDispairDC|10+(HD/2)+CHA	SOURCEPAGE:p. 85
-No Breath																					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:EXPORT	SAB:No Breath (Ex)															DESC:The Prince in Chains does not breathe and is immune to inhaled toxins and diseases.																										SOURCEPAGE:p. 85
-Prince in Chains Trip										OUTPUTNAME:Trip							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:EXPORT	SAB:Trip (Ex)																DESC:If the Prince in Chains hits with its bite attack it can attempt to trip the opponent (+5 check modifier) as a free action without making a touch attack or provoking an attack of opportunity.								SOURCEPAGE:p. 85
-Vicious																					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:EXPORT	SAB:Vicious (Ex)																DESC:Any time the Prince in Chains confirms a critical hit, in addition to increased damage it also deals 2 points of Constitution damage.																	SOURCEPAGE:p. 85
+Exaction																					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:EXPORT	SAB:Exaction (Su)																DESC:The Prince in Chains is treated as having fast healing 10 any round it deals damage, regardless of how much damage it deals in that round after.																	SOURCEPAGE:p. 84
+Howl of Despair																				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:EXPORT	SAB:Howl of Despair (Su) ~ DC 5 Will (Sonic, Mind-affecting)|HowlofDispairDC	DEFINE:HowlofDispairDC|0	DESC:The Prince in Chains can loose a howl of immortal agony once every 1d4 rounds.																				BONUS:VAR|HowlofDispairDC|10+(HD/2)+CHA		SOURCEPAGE:p. 85
+No Breath																					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:EXPORT	SAB:No Breath (Ex)															DESC:The Prince in Chains does not breathe and is immune to inhaled toxins and diseases.																											SOURCEPAGE:p. 85
+Prince in Chains Trip										OUTPUTNAME:Trip							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:EXPORT	SAB:Trip (Ex)																DESC:If the Prince in Chains hits with its bite attack it can attempt to trip the opponent (+5 check modifier) as a free action without making a touch attack or provoking an attack of opportunity.									SOURCEPAGE:p. 85
+Vicious																					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:EXPORT	SAB:Vicious (Ex)																DESC:Any time the Prince in Chains confirms a critical hit, in addition to increased damage it also deals 2 points of Constitution damage.																		SOURCEPAGE:p. 85
 Prince In Chains Immunities									OUTPUTNAME:Immune to critical hits and sneak attacks	CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity
 Pass without Trace		KEY:Pass without Trace ~ The Prince in Chains										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 

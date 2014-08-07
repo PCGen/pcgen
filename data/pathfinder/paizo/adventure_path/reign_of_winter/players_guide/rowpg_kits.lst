@@ -1,5 +1,5 @@
-# CVS $Revision: 16260 $ $Author: zaister $ -- Wed Feb 27 12:11:32 2013 -- reformated by prettylst.pl v1.50 (build 19091)
-SOURCELONG:Reign of Winter Player's Guide	SOURCESHORT:RoWPG	SOURCEWEB:http://paizo.com/products/btpy8x1t?Pathfinder-Adventure-Path-Reign-of-Winter-Players-Guide	SOURCEDATE:2013-02
+# CVS $Revision: 16260 $ $Author: zaister $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Reign of Winter Player's Guide	SOURCESHORT:ROWPG	SOURCEWEB:http://paizo.com/products/btpy8x1t?Pathfinder-Adventure-Path-Reign-of-Winter-Players-Guide	SOURCEDATE:2013-02
 
 STARTPACK:Vigilante Witch Hunter	TYPE:StartingKit	VISIBLE:NO	EQUIPBUY:0
 GEAR:Hex Nail	QTY:4	LOCATION:Equipped
@@ -23,7 +23,7 @@ FEAT:Run
 STARTPACK:Familiar ~ Artic Tern	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:10
 ALIGN:TN
 STAT:DEX=11|STR=11|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Fly	RANK:6
+SKILL:Fly		RANK:6
 SKILL:Perception	RANK:6
 FEAT:Weapon Finesse
 
@@ -47,7 +47,7 @@ FEAT:Weapon Finesse
 STARTPACK:Familiar ~ Puffin	TYPE:Familiar	VISIBLE:NO
 STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
 SKILL:Perception	RANK:6
-SKILL:Fly	RANK:8
+SKILL:Fly		RANK:8
 FEAT:Weapon Finesse
 
 STARTPACK:Familiar ~ Snowy Owl	TYPE:Familiar	VISIBLE:NO

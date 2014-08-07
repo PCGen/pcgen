@@ -1,10 +1,10 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:The Genius Guide to: Air Magic	SOURCESHORT:SGGAM	SOURCEDATE:2010-07
 # Original Entry by: Paul Shipley (elro the onk)
 
 ###Block: New templates
-# Template Name			Challenge Rating	Visible	Template																																						Source Page		Define									Required Size	Add to base move					Modify VAR							Class Skill	Ability									Move
-Airborne				CR:1					TEMPLATE:CHOOSE:Airborne Speed ~ Fine|Airborne Speed ~ Diminutive|Airborne Speed ~ Tiny|Airborne Speed ~ Small|Airborne Speed ~ Medium|Airborne Speed ~ Large|Airborne Speed ~ Huge|Airborne Speed ~ Gargantuan|Airborne Speed ~ Colossal	SOURCEPAGE:p.12	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|3	DEFINE:AirborneFlySpeed|0				BONUS:MOVEADD|TYPE.Fly|AirborneFlySpeed	BONUS:VAR|AirborneFlySpeed|floor((HD+3)/4)	CSKILL:Fly	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	MOVE:Fly,20
+# Template Name			Challenge Rating	Visible	Template																																						Source Page		Define									Required Size	Add to base move					Modify VAR												Class Skill	Ability									Move
+Airborne				CR:1					TEMPLATE:CHOOSE:Airborne Speed ~ Fine|Airborne Speed ~ Diminutive|Airborne Speed ~ Tiny|Airborne Speed ~ Small|Airborne Speed ~ Medium|Airborne Speed ~ Large|Airborne Speed ~ Huge|Airborne Speed ~ Gargantuan|Airborne Speed ~ Colossal	SOURCEPAGE:p.12	DEFINE:Maneuverability|0	DEFINE:AirborneFlySpeed|0				BONUS:MOVEADD|TYPE.Fly|AirborneFlySpeed	BONUS:VAR|Maneuverability|3	BONUS:VAR|AirborneFlySpeed|floor((HD+3)/4)	CSKILL:Fly	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	MOVE:Fly,20
 
 Airborne Speed ~ Fine					VISIBLE:NO																																																					PRESIZEEQ:F									BONUS:VAR|AirborneFlySpeed|40
 Airborne Speed ~ Diminutive				VISIBLE:NO																																																					PRESIZEEQ:D									BONUS:VAR|AirborneFlySpeed|30

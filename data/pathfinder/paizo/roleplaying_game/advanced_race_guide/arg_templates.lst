@@ -1,10 +1,10 @@
-# CVS $Revision: 21574 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21574 $ $Author: amaitland $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 # Template name
-# Template Name					Visible	Source Page		Define							Bonus Languages
-Truespeaker						VISIBLE:NO	SOURCEPAGE:p.85									LANGBONUS:ALL
+# Template Name					Visible	Source Page		Define							Modify VAR							Bonus Languages
+Truespeaker						VISIBLE:NO	SOURCEPAGE:p.85																	LANGBONUS:ALL
 
-# Template Name					Visible	Source Page		Define							Bonus Languages
+# Template Name					Visible	Source Page		Define							Modify VAR							Bonus Languages
 Bypass Advanced Race Spell Restrictions						DEFINE:BypassAdvancedRaceSpellRestriction|0	BONUS:VAR|BypassAdvancedRaceSpellRestriction|1
 
 ###Block:

@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
-SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny		SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny	SOURCEDATE:2012-04
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny	SOURCEDATE:2012-04
 # ORIGINAL ENTRY: James Dempsey
 # ORIGINAL ENTRY DATE: 2014-06
 
 ###Block: NPCs --------------------------------------
 
-STARTPACK:AP55-Ambrose 'Fishguts' Kroop	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.52		NAMEISPI:YES
+STARTPACK:AP55-Ambrose 'Fishguts' Kroop	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.52	NAMEISPI:YES
 RACE:Human	!PRERACE:1,%
 NAME:Ambrose 'Fishguts' Kroop
 AGE:49
@@ -42,7 +42,7 @@ GEAR:Padded				LOCATION:Equipped
 GEAR:Steadfast Grapple		LOCATION:Carried
 GEAR:Frying pan			LOCATION:Carried
 
-STARTPACK:AP55-Mister Plugg	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.54		NAMEISPI:YES
+STARTPACK:AP55-Mister Plugg	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.54	NAMEISPI:YES
 RACE:Human	!PRERACE:1,%
 NAME:Mister Plugg
 AGE:21
@@ -83,7 +83,7 @@ GEAR:Shackles of Compliance				LOCATION:Carried
 GEAR:Coin (Gold Piece)			QTY:200	LOCATION:Not Carried
 GEAR:Coin (Silver Piece)		QTY:100	LOCATION:Not Carried
 
-STARTPACK:AP55-Sandara Quinn	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.56		NAMEISPI:YES
+STARTPACK:AP55-Sandara Quinn	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.56	NAMEISPI:YES
 RACE:Human	!PRERACE:1,%
 NAME:Sandara Quinn
 GENDER:Female
@@ -129,7 +129,7 @@ SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Purify Food and Drink
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
 
-STARTPACK:AP55-Master Scourge	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.21		NAMEISPI:YES
+STARTPACK:AP55-Master Scourge	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.21	NAMEISPI:YES
 RACE:Human	!PRERACE:1,%
 NAME:Master Scourge
 GENDER:Male

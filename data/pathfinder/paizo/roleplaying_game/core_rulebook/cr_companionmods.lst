@@ -1,10 +1,10 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Andrew Maitland
 
 ###Block:Companion for Druid and Ranger - Paladin uses same table but has separate entry
-# Class of the Master			Type				Hit Dice	Ability																					Automatically Gained Feat	Define							Bonus to Ability Pool					Combat bonus					Stat bonus			Modify VAR							Main Race Type
-FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Companion ~ Bonus Tricks|Companion ~ Link|Companion ~ Share Spells						DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+# Class of the Master			Type				Hit Dice	Ability																					Automatically Gained Feat	Define							Bonus to Ability Pool					Combat bonus					Stat bonus			Modify VAR											Main Race Type
+FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Companion ~ Bonus Tricks|Companion ~ Link|Companion ~ Share Spells						DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1					RACETYPE:Animal
 FOLLOWER:AnimalCompanionLVL=2		TYPE:Animal Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Evasion																																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=4		TYPE:Animal Companion	HD:1																																					BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -12,7 +12,7 @@ FOLLOWER:AnimalCompanionLVL=5		TYPE:Animal Companion	HD:1																							
 FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=7		TYPE:Animal Companion																																																									BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=8		TYPE:Animal Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:1																								AUTO:FEAT|Multiattack		DEFINE:Multiattack|0	BONUS:VAR|Multiattack|1				BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:1																								AUTO:FEAT|Multiattack		DEFINE:Multiattack|0					BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|Multiattack|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=10	TYPE:Animal Companion	HD:1																																																								BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=11	TYPE:Animal Companion																																																									BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Companion	HD:1																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
@@ -99,18 +99,18 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Raven)	KIT:1|Raven Fami
 #
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar			Type			Save checks bonus			Bonus to HP			Bonus to skill			Virtual Feat
-MASTERBONUSRACE:Familiar (Bat)	TYPE:Familiar										BONUS:SKILL|Fly|3			VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Cat)	TYPE:Familiar										BONUS:SKILL|Stealth|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Hawk)	TYPE:Familiar										BONUS:SKILL|Perception|3	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Lizard)	TYPE:Familiar										BONUS:SKILL|Climb|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Monkey)	TYPE:Familiar										BONUS:SKILL|Acrobatics|3	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Owl)	TYPE:Familiar										BONUS:SKILL|Perception|3	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Rat)	TYPE:Familiar	BONUS:SAVE|Fortitude|2										VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Raven)	TYPE:Familiar										BONUS:SKILL|Appraise|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Viper)	TYPE:Familiar										BONUS:SKILL|Bluff|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Toad)	TYPE:Familiar						BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Weasel)	TYPE:Familiar	BONUS:SAVE|Reflex|2											VFEAT:Alertness
+# Race of familiar			Type			Bonus to HP			Bonus to skill			Virtual Feat	Bonus
+MASTERBONUSRACE:Familiar (Bat)	TYPE:Familiar					BONUS:SKILL|Fly|3			VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Cat)	TYPE:Familiar					BONUS:SKILL|Stealth|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Hawk)	TYPE:Familiar					BONUS:SKILL|Perception|3	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Lizard)	TYPE:Familiar					BONUS:SKILL|Climb|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Monkey)	TYPE:Familiar					BONUS:SKILL|Acrobatics|3	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Owl)	TYPE:Familiar					BONUS:SKILL|Perception|3	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Rat)	TYPE:Familiar										VFEAT:Alertness	BONUS:SAVE|Fortitude|2
+MASTERBONUSRACE:Familiar (Raven)	TYPE:Familiar					BONUS:SKILL|Appraise|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Viper)	TYPE:Familiar					BONUS:SKILL|Bluff|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Toad)	TYPE:Familiar	BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Weasel)	TYPE:Familiar										VFEAT:Alertness	BONUS:SAVE|Reflex|2
 #
 
 # Class of the Master		Type				Copy Masters BAB		Copy Masters Checks	HP formula based on Master

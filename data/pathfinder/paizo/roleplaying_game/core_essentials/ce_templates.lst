@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Builder templates
@@ -158,36 +158,36 @@ Sorcerer Cleric Spells.MOD			SPELLLEVEL:CLASS|Sorcerer=0|Bleed,Create Water,Dete
 # The SPELLLEVEL tag does not override spells which are both Cleric and Sorcerer but at different levels,
 # the spell will not be available at the new Cleric level but at the standard Sorcerer level.
 ###Block: Size Mods for Automatic Changes
-# Template Name		Size				Face/Space	Reach		Visible
-REACH_0									REACH:0	VISIBLE:NO
-REACH_5									REACH:5	VISIBLE:NO
-REACH_10									REACH:10	VISIBLE:NO
-REACH_15									REACH:15	VISIBLE:NO
-REACH_20									REACH:20	VISIBLE:NO
-REACH_30									REACH:30	VISIBLE:NO
+# Template Name		Size				Face/Space		Reach		Visible
+REACH_0										REACH:0	VISIBLE:NO
+REACH_5										REACH:5	VISIBLE:NO
+REACH_10										REACH:10	VISIBLE:NO
+REACH_15										REACH:15	VISIBLE:NO
+REACH_20										REACH:20	VISIBLE:NO
+REACH_30										REACH:30	VISIBLE:NO
 # - Face not working???
-FACE_0							FACE:0			VISIBLE:NO
-FACE_1							FACE:1,1			VISIBLE:NO
-FACE_2							FACE:2.5,2.5		VISIBLE:NO
-FACE_5							FACE:5,5			VISIBLE:NO
-FACE_10							FACE:10,10			VISIBLE:NO
-FACE_15							FACE:15,15			VISIBLE:NO
-FACE_20							FACE:20,20			VISIBLE:NO
-FACE_30							FACE:30,30			VISIBLE:NO
+FACE_0							FACE:0				VISIBLE:NO
+FACE_1							FACE:1,1				VISIBLE:NO
+FACE_2							FACE:2.5,2.5			VISIBLE:NO
+FACE_5							FACE:5,5				VISIBLE:NO
+FACE_10							FACE:10,10				VISIBLE:NO
+FACE_15							FACE:15,15				VISIBLE:NO
+FACE_20							FACE:20,20				VISIBLE:NO
+FACE_30							FACE:30,30				VISIBLE:NO
 # This is having Issues in PF.
-Dragon Size Tracker	SIZE:DragonSizeTracker					VISIBLE:NO
+Dragon Size Tracker	SIZE:DragonSizeTracker						VISIBLE:NO
 #ABILITY:Internal|AUTOMATIC|Dragon (Tiny)|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Dragon (Small)|PRESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Dragon (Medium)|PRESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Dragon (Large)|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Dragon (Huge)|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Dragon (Gargantuan)|PRESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Dragon (Colossal)|PRESIZEEQ:C
 #
-SIZE_F			SIZE:F							VISIBLE:NO
-SIZE_D			SIZE:D							VISIBLE:NO
-SIZE_T			SIZE:T							VISIBLE:NO
-SIZE_S			SIZE:S							VISIBLE:NO
-SIZE_M			SIZE:M							VISIBLE:NO
-SIZE_L			SIZE:L							VISIBLE:NO
-SIZE_H			SIZE:H							VISIBLE:NO
-SIZE_G			SIZE:G							VISIBLE:NO
-SIZE_C			SIZE:C							VISIBLE:NO
-SIZE_C+			SIZE:P							VISIBLE:NO
+SIZE_F			SIZE:F								VISIBLE:NO
+SIZE_D			SIZE:D								VISIBLE:NO
+SIZE_T			SIZE:T								VISIBLE:NO
+SIZE_S			SIZE:S								VISIBLE:NO
+SIZE_M			SIZE:M								VISIBLE:NO
+SIZE_L			SIZE:L								VISIBLE:NO
+SIZE_H			SIZE:H								VISIBLE:NO
+SIZE_G			SIZE:G								VISIBLE:NO
+SIZE_C			SIZE:C								VISIBLE:NO
+SIZE_C+			SIZE:P								VISIBLE:NO
 
 ###Block: Dragon Age
 # Template Name		Visible	Template				Removable?		Subrace			Hit Dice
@@ -267,19 +267,19 @@ SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pa
 
 
 ###Block: Dragon Age Category templates
-# Template Name				Challenge Rating	Visible	Template																					Define				Combat bonus						Stat bonus												Modify VAR								Add Levels			Vision
-Dragon Age Category (Wyrmling)				VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:VAR|DragonAgeCatagory|1																																			VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Very Young)	CR:2			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:VAR|DragonAgeCatagory|2	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK		BONUS:STAT|STR|4	BONUS:STAT|DEX|-2	BONUS:STAT|CON|2	BONUS:STAT|WIS,CHA|2	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|2		VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Young)		CR:4			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:VAR|DragonAgeCatagory|3	BONUS:COMBAT|AC|6|TYPE=NaturalArmor.STACK		BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4	BONUS:STAT|WIS,CHA|2	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|4		VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Juvenile)	CR:5			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:VAR|DragonAgeCatagory|4	BONUS:COMBAT|AC|9|TYPE=NaturalArmor.STACK		BONUS:STAT|STR|10	BONUS:STAT|DEX|-2	BONUS:STAT|CON|6	BONUS:STAT|WIS,CHA|4	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|6		VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Young Adult)	CR:7			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:VAR|DragonAgeCatagory|5	BONUS:COMBAT|AC|12|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|12	BONUS:STAT|DEX|-4	BONUS:STAT|CON|6	BONUS:STAT|WIS,CHA|4	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|8		VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Adult)		CR:8			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:VAR|DragonAgeCatagory|6	BONUS:COMBAT|AC|15|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|14	BONUS:STAT|DEX|-4	BONUS:STAT|CON|8	BONUS:STAT|WIS,CHA|6	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|10	VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Mature Adult)	CR:9			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:VAR|DragonAgeCatagory|7	BONUS:COMBAT|AC|18|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|16	BONUS:STAT|DEX|-4	BONUS:STAT|CON|8	BONUS:STAT|WIS,CHA|6	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|12	VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Old)		CR:11			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:VAR|DragonAgeCatagory|8	BONUS:COMBAT|AC|21|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|18	BONUS:STAT|DEX|-6	BONUS:STAT|CON|10	BONUS:STAT|WIS,CHA|8	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|14	VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Very Old)	CR:12			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:VAR|DragonAgeCatagory|9	BONUS:COMBAT|AC|24|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|20	BONUS:STAT|DEX|-6	BONUS:STAT|CON|10	BONUS:STAT|WIS,CHA|8	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|16	VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Ancient)		CR:13			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:VAR|DragonAgeCatagory|10	BONUS:COMBAT|AC|27|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|22	BONUS:STAT|DEX|-6	BONUS:STAT|CON|12	BONUS:STAT|WIS,CHA|10	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|18	VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Wyrm)		CR:14			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:VAR|DragonAgeCatagory|11	BONUS:COMBAT|AC|30|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|24	BONUS:STAT|DEX|-8	BONUS:STAT|CON|12	BONUS:STAT|WIS,CHA|10	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|20	VISION:Blindsense (60')|Darkvision (120')
-Dragon Age Category (Great Wyrm)	CR:16			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:VAR|DragonAgeCatagory|12	BONUS:COMBAT|AC|33|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|26	BONUS:STAT|DEX|-8	BONUS:STAT|CON|14	BONUS:STAT|WIS,CHA|12	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|22	VISION:Blindsense (60')|Darkvision (120')
+# Template Name				Challenge Rating	Visible	Template																					Define				Combat bonus						Stat bonus												Modify VAR														Add Levels			Vision
+Dragon Age Category (Wyrmling)				VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0																						BONUS:VAR|DragonAgeCatagory|1															VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Very Young)	CR:2			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK		BONUS:STAT|STR|4	BONUS:STAT|DEX|-2	BONUS:STAT|CON|2	BONUS:STAT|WIS,CHA|2	BONUS:VAR|DragonAgeCatagory|2	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|2		VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Young)		CR:4			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:COMBAT|AC|6|TYPE=NaturalArmor.STACK		BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4	BONUS:STAT|WIS,CHA|2	BONUS:VAR|DragonAgeCatagory|3	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|4		VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Juvenile)	CR:5			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:COMBAT|AC|9|TYPE=NaturalArmor.STACK		BONUS:STAT|STR|10	BONUS:STAT|DEX|-2	BONUS:STAT|CON|6	BONUS:STAT|WIS,CHA|4	BONUS:VAR|DragonAgeCatagory|4	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|6		VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Young Adult)	CR:7			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:COMBAT|AC|12|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|12	BONUS:STAT|DEX|-4	BONUS:STAT|CON|6	BONUS:STAT|WIS,CHA|4	BONUS:VAR|DragonAgeCatagory|5	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|8		VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Adult)		CR:8			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:COMBAT|AC|15|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|14	BONUS:STAT|DEX|-4	BONUS:STAT|CON|8	BONUS:STAT|WIS,CHA|6	BONUS:VAR|DragonAgeCatagory|6	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|10	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Mature Adult)	CR:9			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:COMBAT|AC|18|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|16	BONUS:STAT|DEX|-4	BONUS:STAT|CON|8	BONUS:STAT|WIS,CHA|6	BONUS:VAR|DragonAgeCatagory|7	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|12	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Old)		CR:11			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:COMBAT|AC|21|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|18	BONUS:STAT|DEX|-6	BONUS:STAT|CON|10	BONUS:STAT|WIS,CHA|8	BONUS:VAR|DragonAgeCatagory|8	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|14	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Very Old)	CR:12			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:COMBAT|AC|24|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|20	BONUS:STAT|DEX|-6	BONUS:STAT|CON|10	BONUS:STAT|WIS,CHA|8	BONUS:VAR|DragonAgeCatagory|9	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30		ADDLEVEL:Dragon|16	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Ancient)		CR:13			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:COMBAT|AC|27|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|22	BONUS:STAT|DEX|-6	BONUS:STAT|CON|12	BONUS:STAT|WIS,CHA|10	BONUS:VAR|DragonAgeCatagory|10	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|18	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Wyrm)		CR:14			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:COMBAT|AC|30|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|24	BONUS:STAT|DEX|-8	BONUS:STAT|CON|12	BONUS:STAT|WIS,CHA|10	BONUS:VAR|DragonAgeCatagory|11	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|20	VISION:Blindsense (60')|Darkvision (120')
+Dragon Age Category (Great Wyrm)	CR:16			VISIBLE:NO	TEMPLATE:CHOOSE:Dragon (Tiny)|Dragon (Small)|Dragon (Medium)|Dragon (Large)|Dragon (Huge)|Dragon (Gargantuan)|Dragon (Colossal)	DEFINE:DragonAgeCatagory|0	BONUS:COMBAT|AC|33|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|26	BONUS:STAT|DEX|-8	BONUS:STAT|CON|14	BONUS:STAT|WIS,CHA|12	BONUS:VAR|DragonAgeCatagory|12	BONUS:VAR|FrightfulPresenceRange|DragonAgeCatagory*30	ADDLEVEL:Dragon|22	VISION:Blindsense (60')|Darkvision (120')
 
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
@@ -301,11 +301,11 @@ Size Change (Decrease by 1)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|-1
 Size Change (Decrease by 2)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|-2
 
 ###Block: Template for ability bonuses for creatures with class levels, applied automatically.
-# Template Name				Challenge Rating	Visible	Required Race				Bonus to Ability Pool																																																									Combat bonus					Stat bonus					Weapon prof. bonus																Natural Attacks															Applied Name
+# Template Name				Challenge Rating	Visible	Required Race				Bonus to Ability Pool																																										Combat bonus					Stat bonus					Weapon prof. bonus																Natural Attacks															Applied Name
 Creature with Class Levels					VISIBLE:NO							BONUS:ABILITYPOOL|Class Level +4 Ability Adjustment|2|PRECLASS:2,TYPE.Monster=1,TYPE.PC=1	BONUS:ABILITYPOOL|Class Level +2 Ability Adjustment|2|PRECLASS:2,TYPE.Monster=1,TYPE.PC=1	BONUS:ABILITYPOOL|Class Level -2 Ability Adjustment|1|PRECLASS:2,TYPE.Monster=1,TYPE.PC=1
 
 # Companion Shared Templates:
-Advanced Creature (Heavy Horse)	CR:1					PRERACE:1,Companion (Horse),Horse																																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX,CON,WIS,CHA|4	BONUS:WEAPONPROF=Hoof|DAMAGESIZE|1	BONUS:WEAPONPROF=Bite|TOHIT|-5	BONUS:WEAPONPROF=Bite|DAMAGE|-ceil(STR/2)	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Slashing.Bludgeoning.Piercing,*1,1d4	APPLIEDNAME:Advanced
+Advanced Creature (Heavy Horse)	CR:1					PRERACE:1,Companion (Horse),Horse																																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX,CON,WIS,CHA|4	BONUS:WEAPONPROF=Hoof|DAMAGESIZE|1	BONUS:WEAPONPROF=Bite|TOHIT|-5	BONUS:WEAPONPROF=Bite|DAMAGE|-ceil(STR/2)	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Slashing.Bludgeoning.Piercing,*1,1d4	APPLIEDNAME:Advanced
 
 
 SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8ddb	SOURCEDATE:2010-12

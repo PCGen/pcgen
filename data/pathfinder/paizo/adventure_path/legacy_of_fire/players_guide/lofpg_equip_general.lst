@@ -1,13 +1,13 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LOFPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb	SOURCEDATE:2009-02
 
 # Exotic Weapons
 # One-Handed Melee Weapons
-# Equipment Name		Required Weapon Proficiency			Type								Cost		Weight	Slot Needed	Critical Hit Multiplier	Damage	Range		Reach Multiplier	Source Page
+# Equipment Name		Required Weapon Proficiency			Type										Cost		Weight	Slot Needed	Critical Hit Multiplier	Damage	Range		Reach Multiplier	Source Page
 Battle Poi			PROFICIENCY:WEAPON|Battle Poi			TYPE:Weapon.Resizable.Exotic.Melee.Standard.Fire		COST:5	WT:2				CRITMULT:x2			DAMAGE:1d4						SOURCEPAGE:p.23
-Madu (Shield Bash)	PROFICIENCY:WEAPON|Madu (Shield Bash)	TYPE:Weapon.Resizable.Exotic.Melee.Standard.Piercing	COST:0	WT:0				CRITMULT:x2			DAMAGE:1d4						SOURCEPAGE:p.23
+Madu (Shield Bash)	PROFICIENCY:WEAPON|Madu (Shield Bash)	TYPE:Weapon.Resizable.Exotic.Melee.Standard.Piercing		COST:0	WT:0				CRITMULT:x2			DAMAGE:1d4						SOURCEPAGE:p.23
 Rope Gauntlets		PROFICIENCY:WEAPON|Rope Gauntlets		TYPE:Weapon.Resizable.Exotic.Melee.Standard.Bludgeoning	COST:0.02	WT:2				CRITMULT:x2			DAMAGE:1d4						SOURCEPAGE:p.23
-Scorpion Whip		PROFICIENCY:WEAPON|Scorpion Whip		TYPE:Weapon.Resizable.Exotic.Melee.Standard.Slashing	COST:5	WT:3				CRITMULT:x2			DAMAGE:1d4			REACHMULT:2		SOURCEPAGE:p.23
+Scorpion Whip		PROFICIENCY:WEAPON|Scorpion Whip		TYPE:Weapon.Resizable.Exotic.Melee.Standard.Slashing		COST:5	WT:3				CRITMULT:x2			DAMAGE:1d4			REACHMULT:2		SOURCEPAGE:p.23
 
 # Two-Handed Melee Weapons
 Meteor Hammer		PROFICIENCY:WEAPON|Meteor Hammer		TYPE:Weapon.Resizable.Exotic.Melee.Standard.Bludgeoning	COST:100	WT:10		SLOTS:2	CRITMULT:x2			DAMAGE:1d8			REACHMULT:2		SOURCEPAGE:p.23

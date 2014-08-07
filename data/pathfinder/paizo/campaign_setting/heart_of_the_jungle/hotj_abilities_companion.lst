@@ -1,7 +1,7 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Heart of the Jungle	SOURCESHORT:HOTJ	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy8evh	SOURCEDATE:2010-07
 # Original Entry by: Stefan Radermacher
 
 ###Block: Companion Advancement abilities
-# Ability Name						Category of Ability		Type			Visible		Required Race					Ability						Combat bonus						Adjust PC Size		Modify VAR					Natural Attacks
+# Ability Name						Unique Key							Category of Ability		Type					Visible		Required Race					Ability						Combat bonus						Adjust PC Size		Modify VAR					Natural Attacks
 Companion Advancement (Pygmy Hippopotamus)	KEY:Companion Advancement ~ Pygmy Hippopotamus	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Pygmy Hippopotamus)	ABILITY:Special Ability|AUTOMATIC|Trample	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1	BONUS:VAR|TrampleDamageDieSize|8	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,2d6

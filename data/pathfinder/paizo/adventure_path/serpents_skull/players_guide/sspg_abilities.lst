@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Serpent's Skull Player's Guide	SOURCESHORT:SSPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/theSerpentsSkull/v5748btpy8g6d	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher
 
@@ -24,7 +24,7 @@ Immunity to Small Centipede Poison	CATEGORY:Special Ability	TYPE:SpecialQuality.
 Immunity to Spider Vine Poison	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity.MediogaltiPoisonImmunity	DESC:You never take damage from spider vine poison.		SOURCEPAGE:p.9	ASPECT:Immunity|Spider Vine Poison
 
 ###Block: Shackles Save Bonus abilities
-# Ability Name		Category of Ability		Type						Visible		Save checks bonus				Source Page
-Fortitude save bonus	CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	BONUS:SAVE|Fortitude|1|TYPE=Trait	SOURCEPAGE:p.10
-Reflex save bonus		CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	BONUS:SAVE|Reflex|1|TYPE=Trait	SOURCEPAGE:p.10
-Will save bonus		CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	BONUS:SAVE|Will|1|TYPE=Trait	SOURCEPAGE:p.10
+# Ability Name		Category of Ability		Type						Visible		Source Page		Bonus
+Fortitude save bonus	CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	SOURCEPAGE:p.10	BONUS:SAVE|Fortitude|1|TYPE=Trait
+Reflex save bonus		CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	SOURCEPAGE:p.10	BONUS:SAVE|Reflex|1|TYPE=Trait
+Will save bonus		CATEGORY:Special Ability	TYPE:Internal.ShacklesSaveBonus	VISIBLE:DISPLAY	SOURCEPAGE:p.10	BONUS:SAVE|Will|1|TYPE=Trait

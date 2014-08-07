@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 #SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
@@ -238,6 +238,4 @@ ABILITYCATEGORY:Mystic Theurge Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITP
 ABILITYCATEGORY:Pathfinder Chronicler Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Pathfinder ChroniclerClassFeatures									PLURAL:Pathfinder Chronicler Class Features	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Shadowdancer Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ShadowdancerClassFeatures										PLURAL:Shadowdancer Class Features			DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Intelligence-Based Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:IntBaseSkill													DISPLAYLOCATION:Class Features
-
-
+ABILITYCATEGORY:Intelligence-Based Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:IntBaseSkill																					DISPLAYLOCATION:Class Features

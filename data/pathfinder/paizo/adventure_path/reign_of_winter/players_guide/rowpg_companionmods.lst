@@ -1,13 +1,15 @@
-SOURCELONG:Reign of Winter Player's Guide	SOURCESHORT:RoWPG	SOURCEWEB:http://paizo.com/products/btpy8x1t?Pathfinder-Adventure-Path-Reign-of-Winter-Players-Guide	SOURCEDATE:2013-02
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Reign of Winter Player's Guide	SOURCESHORT:ROWPG	SOURCEWEB:http://paizo.com/products/btpy8x1t?Pathfinder-Adventure-Path-Reign-of-Winter-Players-Guide	SOURCEDATE:2013-02
 # Original Entry by: Stefan Radermacher
 
 
 
-MASTERBONUSRACE:Arctic Fox	BONUS:SAVE|Reflex|2
+# Race of familiar		Combat bonus			Bonus to skill		Bonus				Bonus to Situation
+MASTERBONUSRACE:Arctic Fox										BONUS:SAVE|Reflex|2
 MASTERBONUSRACE:Arctic Hare	BONUS:COMBAT|INITIATIVE|4
-MASTERBONUSRACE:Arctic Tern	BONUS:SKILL|Fly|3
-MASTERBONUSRACE:Ermine		BONUS:SAVE|Reflex|2
-MASTERBONUSRACE:Lemming		BONUS:SAVE|Fortitude|2
-MASTERBONUSRACE:Ptarmigan	BONUS:SKILL|Stealth|3
-MASTERBONUSRACE:Puffin		BONUS:SKILL|Swim|3
-MASTERBONUSRACE:Snowy Owl	BONUS:SITUATION|Perception=sight-based|3
+MASTERBONUSRACE:Arctic Tern						BONUS:SKILL|Fly|3
+MASTERBONUSRACE:Ermine											BONUS:SAVE|Reflex|2
+MASTERBONUSRACE:Lemming											BONUS:SAVE|Fortitude|2
+MASTERBONUSRACE:Ptarmigan						BONUS:SKILL|Stealth|3
+MASTERBONUSRACE:Puffin							BONUS:SKILL|Swim|3
+MASTERBONUSRACE:Snowy Owl														BONUS:SITUATION|Perception=sight-based|3

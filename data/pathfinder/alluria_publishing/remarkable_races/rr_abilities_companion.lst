@@ -1,9 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
-Race Traits ~ Companion Toad	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=Companion Toad RacialTrait
+# Ability Name			Unique Key						Category of Ability		Type													Define					Description																								Ability										Adjust PC Size		Modify VAR															Source Page
+Race Traits ~ Companion Toad								CATEGORY:Internal																																															ABILITY:Special Ability|AUTOMATIC|TYPE=Companion Toad RacialTrait
 
-Grasping Tongue	KEY:Companion Toad ~ Grasping Tongue				CATEGORY:Special Ability	TYPE:Companion Toad RacialTrait.Race Traits.SpecialQuality				SOURCEPAGE:p.	DESC:(may make a grapple maneuver with its tongue on targets up to 10 feet away without provoking an attack of opportunity).|CompanionToadTongueReach	DEFINE:CompanionToadTongueReach|0	BONUS:VAR|CompanionToadTongueReach|10	BONUS:VAR|CompanionToadTongueReach|10|PRESIZEGTEQ:M
-Marsh Move		KEY:Companion Toad ~ Marsh Move					CATEGORY:Special Ability	TYPE:Companion Toad RacialTrait.Race Traits.SpecialQuality.Extraordinary	SOURCEPAGE:p.	DESC:A toad suffers no movement penalties for moving through marshes or mud.
+Grasping Tongue			KEY:Companion Toad ~ Grasping Tongue	CATEGORY:Special Ability	TYPE:Companion Toad RacialTrait.Race Traits.SpecialQuality				DEFINE:CompanionToadTongueReach|0	DESC:(may make a grapple maneuver with its tongue on targets up to 10 feet away without provoking an attack of opportunity).|CompanionToadTongueReach																BONUS:VAR|CompanionToadTongueReach|10	BONUS:VAR|CompanionToadTongueReach|10|PRESIZEGTEQ:M	SOURCEPAGE:p.
+Marsh Move				KEY:Companion Toad ~ Marsh Move		CATEGORY:Special Ability	TYPE:Companion Toad RacialTrait.Race Traits.SpecialQuality.Extraordinary							DESC:A toad suffers no movement penalties for moving through marshes or mud.																																												SOURCEPAGE:p.
 
 
 #
-Companion Advancement ~ Toad	CATEGORY:Special Ability	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement ~ Toad								CATEGORY:Special Ability																																																								BONUS:SIZEMOD|NUMBER|1

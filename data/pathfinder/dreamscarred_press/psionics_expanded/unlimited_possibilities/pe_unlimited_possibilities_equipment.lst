@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov 18 18:07:01 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-09
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2011/10/27
@@ -21,11 +21,11 @@ Astral Suit Ram 3			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYP
 Astral Suit Ram 4			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0					CRITMULT:x2			CRITRANGE:1			DAMAGE:5d6									SOURCEPAGE:p.8
 
 ###Block: Crystal Shard from Metacreative Talent trait
-# Equipment Name	Required Weapon Proficiency		Type								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page
+# Equipment Name	Required Weapon Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page
 Crystal Shard	PROFICIENCY:WEAPON|Crystal Shard	TYPE:Weapon.Resizable.Ranged.Standard.Slashing.Thrown	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	RANGE:10	SOURCEPAGE:p.35
 
 ###Block: Mundane items
-# Equipment Name	Required Weapon Proficiency		Type																Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Source Page
+# Equipment Name	Required Weapon Proficiency		Type																		Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Source Page
 Xephyr Knife	PROFICIENCY:WEAPON|Xephyr Knife	TYPE:Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Exotic.Standard.Piercing.Slashing.BladeLight	COST:15	WT:1		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6	SOURCEPAGE:p.33
 
 

@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Jul 23 18:41:10 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Rise of the Runelords Adventure Path	SOURCESHORT:RotR	SOURCEWEB:http://paizo.com/products/btpy8tc0?Pathfinder-Adventure-Path-Rise-of-the-Runelords-Anniversary-Edition	SOURCEDATE:2012-07
 # Original Entry by: Andrew Maitland
 
@@ -51,8 +51,8 @@ Race Traits ~ Scarlet Walker											CATEGORY:Internal																								
 #
 Blood-Draining Gaze			KEY:Scarlet Walker ~ Blood-Draining Gaze			CATEGORY:Special Ability	TYPE:Scarlet Walker.SpecialAttack.Supernatural	DESC:All creatures within 20 feet of a scarlet walker are subject to the monster's eerie blood-draining gaze. Affected creatures must succeed at a DC 23 Fortitude save or thin streams of blood pour from their eyes, flowing through the air and into the eye socket-like pits in the scarlet walker's face. ' This does not impact the victim's vision, but does deal 1 point of Constitution damage and sickens the victim for 1 round from the hideous pain. A creature already suffering from a bleed effect takes a -4 penalty on the saving throw. This is a bleed effect. The save DC is Constitution-based.
 Bloodsense					KEY:Scarlet Walker ~ Bloodsense				CATEGORY:Special Ability	TYPE:Scarlet Walker.SpecialQuality.Supernatural	DESC:A scarlet walker can sense living creatures with blood in their veins, or undead creatures that feed on blood (such as vampires). This ability functions like blindsight to a range of 60 feet.
-#SAB:SQ compression, no breath	
-#SAB:bleed (1d6)	
+#SAB:SQ compression, no breath
+#SAB:bleed (1d6)
 #SAB:paralysis (1d4 rounds, DC 23)
 
 # Skull Ripper
