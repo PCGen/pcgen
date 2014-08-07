@@ -534,7 +534,7 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'weapon.title'"/>
 						</xsl:call-template>
-			<xsl:choose>
+				<xsl:choose>
 					<xsl:when test="(range) &gt; 0">
 						<fo:block font-size="6pt">RANGE</fo:block>
 					</xsl:when>
@@ -544,7 +544,6 @@
 				</xsl:choose>
 					</fo:table-cell>
 				</fo:table-row>
-			<xsl:for-each select="naturalattack">
 				<fo:table-row>
 											<xsl:message>Test</xsl:message>
 					<fo:table-cell number-rows-spanned="2">
@@ -626,7 +625,6 @@
 				</xsl:when>
 				<xsl:otherwise/>
 			</xsl:choose>
-			</xsl:for-each>
 			<fo:table-row>
 											<xsl:message>Test</xsl:message>
 				<fo:table-cell/>
