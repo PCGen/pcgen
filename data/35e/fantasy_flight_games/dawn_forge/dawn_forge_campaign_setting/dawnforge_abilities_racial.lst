@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn, conversion to Abilities by Eddy Anthony
 
@@ -264,12 +264,12 @@ Lowlander Talent Skills	CATEGORY:Special Ability	TYPE:LowlanderRacialTalent			VI
 Lowlander Talent Feats	CATEGORY:Special Ability	TYPE:LowlanderRacialTalent			VISIBLE:DISPLAY	PRETEXT:This racial trait may not be selected twice in a row									STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lowlander Talent Feat|1							SOURCEPAGE:p.37
 
 ###Block: Racial Transformations
-# Ability Name				Output Name				Category of Ability		Type									Visible		Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool						Save checks bonus		Add to base move			Source Page
-Lowlander Fast Movement			OUTPUTNAME:Fast Movement	CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES		PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:MOVEADD|TYPE.Walk|10	SOURCEPAGE:p.40
-Great Swimmer									CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES																																						SOURCEPAGE:p.40
-Strength of Body Mind and Spirit						CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES													STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:SAVE|ALL|1						SOURCEPAGE:p.40
-Lowlander Transformation Skills						CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation				VISIBLE:DISPLAY												STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lowlander Transformation Skill|5										SOURCEPAGE:p.40
-Lowlander Transformation Feats						CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation				VISIBLE:DISPLAY	PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lowlander Transformation Feat|1										SOURCEPAGE:p.40
+# Ability Name				Output Name				Category of Ability		Type									Visible		Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool						Add to base move			Source Page		Bonus
+Lowlander Fast Movement			OUTPUTNAME:Fast Movement	CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES		PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:MOVEADD|TYPE.Walk|10	SOURCEPAGE:p.40
+Great Swimmer									CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES																																		SOURCEPAGE:p.40
+Strength of Body Mind and Spirit						CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation.SpecialQuality	VISIBLE:YES													STACK:YES	MULT:YES	CHOOSE:NOCHOICE															SOURCEPAGE:p.40	BONUS:SAVE|ALL|1
+Lowlander Transformation Skills						CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation				VISIBLE:DISPLAY												STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lowlander Transformation Skill|5						SOURCEPAGE:p.40
+Lowlander Transformation Feats						CATEGORY:Special Ability	TYPE:LowlanderRacialTransformation				VISIBLE:DISPLAY	PRETEXT:This racial trait may not be selected twice in a row	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Lowlander Transformation Feat|1						SOURCEPAGE:p.40
 
 ########################
 ### Human, Saltblood ###

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat May 17 00:44:56 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
 #AUTHOR:E. C. Smith (Maredudd), 2007
 
@@ -17,21 +17,21 @@ Saddle of Speed										TYPE:Goods.Magic.Mount.Saddle.Wonderous			COST:3000	WT:
 Travel Saddle										TYPE:Goods.Magic.Mount.Saddle.Wonderous			COST:2000	WT:33				SOURCEPAGE:p.152	SPROP:see text
 
 ###Block: Harnesses and Tack
-# Equipment Name				Output Name						Type						Cost		Weight	Source Page		Save checks bonus					Combat bonus				Modify VAR			Special Property
-Bridle of Horsemanship										TYPE:Magic.Wondrous.Bridle.Tack	COST:2500	WT:0.02	SOURCEPAGE:p.153																		SPROP:+5 competance bonus to Ride checks.
-Bridle of Horsemanship (Greater)	OUTPUTNAME:[NAME] Bridle of Horsemanship	TYPE:Magic.Wondrous.Bridle.Tack	COST:22500	WT:0.02	SOURCEPAGE:p.153																		SPROP:+15 competance bonus to Ride checks.
-Bridle of Horsemanship (Improved)	OUTPUTNAME:[NAME] Bridle of Horsemanship	TYPE:Magic.Wondrous.Bridle.Tack	COST:10000	WT:0.02	SOURCEPAGE:p.153																		SPROP:+10 competance bonus to Ride checks.
-Collar (Protection +1)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:2000	WT:0.02	SOURCEPAGE:p.153								BONUS:COMBAT|AC|1|TYPE=Deflection
-Collar (Protection +2)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:8000	WT:0.02	SOURCEPAGE:p.153								BONUS:COMBAT|AC|2|TYPE=Deflection
-Collar (Protection +3)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:18000	WT:0.02	SOURCEPAGE:p.153								BONUS:COMBAT|AC|3|TYPE=Deflection
-Collar (Protection +4)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:32000	WT:0.02	SOURCEPAGE:p.153								BONUS:COMBAT|AC|4|TYPE=Deflection
-Collar (Protection +5)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:50000	WT:0.02	SOURCEPAGE:p.153								BONUS:COMBAT|AC|5|TYPE=Deflection
-Collar (Resistance +1)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:1000	WT:0.02	SOURCEPAGE:p.153	BONUS:SAVE|Fortitude,Reflex,Will|1
-Collar (Resistance +2)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:4000	WT:0.02	SOURCEPAGE:p.153	BONUS:SAVE|Fortitude,Reflex,Will|2
-Collar (Resistance +3)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:9000	WT:0.02	SOURCEPAGE:p.153	BONUS:SAVE|Fortitude,Reflex,Will|3
-Collar (Resistance +4)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:16000	WT:0.02	SOURCEPAGE:p.153	BONUS:SAVE|Fortitude,Reflex,Will|4
-Collar (Resistance +5)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:25000	WT:0.02	SOURCEPAGE:p.153	BONUS:SAVE|Fortitude,Reflex,Will|5
-Harness of Hauling										TYPE:Magic.Wondrous.Belt.Tack		COST:16000	WT:0.02	SOURCEPAGE:p.154														BONUS:VAR|LOADSCORE|4
+# Equipment Name				Output Name						Type						Cost		Weight	Source Page		Combat bonus				Modify VAR			Special Property						Bonus
+Bridle of Horsemanship										TYPE:Magic.Wondrous.Bridle.Tack	COST:2500	WT:0.02	SOURCEPAGE:p.153											SPROP:+5 competance bonus to Ride checks.
+Bridle of Horsemanship (Greater)	OUTPUTNAME:[NAME] Bridle of Horsemanship	TYPE:Magic.Wondrous.Bridle.Tack	COST:22500	WT:0.02	SOURCEPAGE:p.153											SPROP:+15 competance bonus to Ride checks.
+Bridle of Horsemanship (Improved)	OUTPUTNAME:[NAME] Bridle of Horsemanship	TYPE:Magic.Wondrous.Bridle.Tack	COST:10000	WT:0.02	SOURCEPAGE:p.153											SPROP:+10 competance bonus to Ride checks.
+Collar (Protection +1)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:2000	WT:0.02	SOURCEPAGE:p.153	BONUS:COMBAT|AC|1|TYPE=Deflection
+Collar (Protection +2)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:8000	WT:0.02	SOURCEPAGE:p.153	BONUS:COMBAT|AC|2|TYPE=Deflection
+Collar (Protection +3)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:18000	WT:0.02	SOURCEPAGE:p.153	BONUS:COMBAT|AC|3|TYPE=Deflection
+Collar (Protection +4)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:32000	WT:0.02	SOURCEPAGE:p.153	BONUS:COMBAT|AC|4|TYPE=Deflection
+Collar (Protection +5)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:50000	WT:0.02	SOURCEPAGE:p.153	BONUS:COMBAT|AC|5|TYPE=Deflection
+Collar (Resistance +1)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:1000	WT:0.02	SOURCEPAGE:p.153																			BONUS:SAVE|Fortitude,Reflex,Will|1
+Collar (Resistance +2)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:4000	WT:0.02	SOURCEPAGE:p.153																			BONUS:SAVE|Fortitude,Reflex,Will|2
+Collar (Resistance +3)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:9000	WT:0.02	SOURCEPAGE:p.153																			BONUS:SAVE|Fortitude,Reflex,Will|3
+Collar (Resistance +4)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:16000	WT:0.02	SOURCEPAGE:p.153																			BONUS:SAVE|Fortitude,Reflex,Will|4
+Collar (Resistance +5)			OUTPUTNAME:Collar of [NAME]			TYPE:Magic.Wondrous.Collar.Tack	COST:25000	WT:0.02	SOURCEPAGE:p.153																			BONUS:SAVE|Fortitude,Reflex,Will|5
+Harness of Hauling										TYPE:Magic.Wondrous.Belt.Tack		COST:16000	WT:0.02	SOURCEPAGE:p.154							BONUS:VAR|LOADSCORE|4
 
 ###Block: Other Items for Animals
 # Equipment Name					Type					Cost		Weight	Source Page		Special Property

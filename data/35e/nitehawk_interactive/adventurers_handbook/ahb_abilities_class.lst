@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir Gwaith & Andrew Maitland
 
@@ -9,7 +9,7 @@ Bounty Hunter Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	AU
 
 ###Block: Bounty Hunter abilities
 # Ability Name			Unique Key					Category of Ability		Type						Define																												Description																				Automatically Gained Armor Prof.	Automatically Gained Weapon Prof.				Modify VAR																																																																																																																																																																																																																																															Source Page		Temporary effect description							Temporary Bonus
-Base of Operations								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:BaseOperationsRadius|0	BONUS:VAR|BaseOperationsRadius|CHA*10+40																							DESC:+4 to Diplomacy, Gather Information, Knowledge (Local), and Survival within area (%1 radius)|BaseOperationsRadius																																																																																																																																																																																																																																																																	SOURCEPAGE:p.35	TEMPDESC:Bonuses while operating withing the Base of Operations	TEMPBONUS:PC|SKILL|Diplomacy,Gather Information,Knowledge (Local),Survival|4|TYPE=Circumstance
+Base of Operations								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:BaseOperationsRadius|0																									DESC:+4 to Diplomacy, Gather Information, Knowledge (Local), and Survival within area (%1 radius)|BaseOperationsRadius																	BONUS:VAR|BaseOperationsRadius|CHA*10+40																																																																																																																																																																																																																																										SOURCEPAGE:p.35	TEMPDESC:Bonuses while operating withing the Base of Operations	TEMPBONUS:PC|SKILL|Diplomacy,Gather Information,Knowledge (Local),Survival|4|TYPE=Circumstance
 
 # Shaman (Alternate)
 #Animal Companion
@@ -43,11 +43,11 @@ Improved Brewing									CATEGORY:Special Ability	TYPE:SpecialQuality
 
 
 ###Block: Common abilities
-# Ability Name	Category of Ability		Type						Define			Description					Source Page
-Reputation		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:Reputation|0	DESC:Reputation +%1|Reputation	SOURCEPAGE:p.36,140
+# Ability Name		Category of Ability		Type						Define			Description					Multiple?	Choose									Automatically Gained Weapon Prof.	Source Page
+Reputation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:Reputation|0	DESC:Reputation +%1|Reputation																			SOURCEPAGE:p.36,140
 # Used by Bounty Hunter and Ruffian
 
-Slave Weapon Selection	CATEGORY:Special Ability	TYPE:SlaveWeaponProfSelection	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[WIELD=Light],TYPE=Simple	AUTO:WEAPONPROF|%LIST
+Slave Weapon Selection	CATEGORY:Special Ability	TYPE:SlaveWeaponProfSelection												MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[WIELD=Light],TYPE=Simple	AUTO:WEAPONPROF|%LIST
 
 
 #

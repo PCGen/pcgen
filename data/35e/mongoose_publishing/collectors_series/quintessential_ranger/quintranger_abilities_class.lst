@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
 #Original Entry by: Andrew Maitland
 
@@ -52,7 +52,7 @@ Boar's Charge	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Boar's C
 Boar's Cunning	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Boar's Cunning (Sp)		SPELLS:Class|TIMES=2|True Strike
 
 ###Block:Animal Champion ~ (Camel)	PREFEAT:1,Endurance
-# Ability Name			Category of Ability		Type			Visible	Special ABility				Save checks bonus
+# Ability Name			Category of Ability		Type			Visible	Special ABility				Bonus
 Camel's Wilful Fortitude	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Camel's Wilful Fortitude (Ex)	BONUS:SAVE|Fortitude|min(WIS,0)
 Camel's Fortified Will		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Camel's Fortified Will (Ex)	BONUS:SAVE|Will|min(CON,0)
 Camel's Hardiness			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Camel's Hardiness (Ex)
@@ -77,9 +77,9 @@ Dinosaur Strength	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Dino
 Terrible Lizard	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Terrible Lizard (Ex)
 
 ###Block:Animal Champion ~ (Dog/Riding Dog)	PREFEAT:1,Track
-# Ability Name	Category of Ability		Type			Visible	Special ABility		Save checks bonus					Bonus to skill
-Dog's Nose		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Dog's Nose (Ex)								BONUS:SKILL|Search|2|TYPE=Innate
-Doggedness		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Doggedness (Ex)	BONUS:SAVE|Fortitude|2|TYPE=Innate
+# Ability Name	Category of Ability		Type			Visible	Special ABility		Bonus to skill				Bonus
+Dog's Nose		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Dog's Nose (Ex)	BONUS:SKILL|Search|2|TYPE=Innate
+Doggedness		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Doggedness (Ex)							BONUS:SAVE|Fortitude|2|TYPE=Innate
 Dog Guardian	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Dog Guardian (Ex)
 
 ###Block:Animal Champion ~ (Eagle)			PREFEAT:1,Alertness
@@ -269,7 +269,7 @@ Unarmed Combat		CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	
 #Improved Grab (exists in the RSRD)
 #Rake (exists in the RSRD)
 
-# Ability Name		Category of Ability		Type								Visible	Special ABility			Define				Description																								Vision			Source Page
+# Ability Name		Category of Ability		Type								Visible	Special ABility			Define		Description																								Modify VAR						Vision			Source Page
 Stunning Swat		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Stunning Swat (Ex)
 
 Poison Tolerance		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:NO	SAB:Poison Tolerance (Ex)
@@ -278,9 +278,9 @@ Many-Headed Monster	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.At
 
 Puncture			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Puncture (Ex)
 Tooth Breaking		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Tooth Breaking (Ex)
-Low-light Vision		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Senses		VISIBLE:NO																																				VISION:Low-Light Vision
+Low-light Vision		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Senses		VISIBLE:NO																																									VISION:Low-Light Vision
 
-Spitting Cobra Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Poison (Ex) DC %|PoisonDC	DEFINE:PoisonDC|0	BONUS:VAR|PoisonDC|10+HD+CON|TYPE=Base	DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC					SOURCEPAGE:TypesSubtypesAbilities.rtf
+Spitting Cobra Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Poison (Ex) DC %|PoisonDC	DEFINE:PoisonDC|0	DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC	BONUS:VAR|PoisonDC|10+HD+CON|TYPE=Base					SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 Frenzy			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Frenzy (Ex)
 

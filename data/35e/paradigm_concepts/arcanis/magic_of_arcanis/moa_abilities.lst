@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
 #Original Entry: Andrew Maitland (LegacyKing), 2008
 
@@ -54,42 +54,42 @@ Wyrd Mastery			CATEGORY:Special Ability	TYPE:HedgeMageLoreGreater.SpecialQuality
 
 
 ###Block: Shaman -----------------------------------------------------------------------------------------------------
-# Ability Name					Output Name		Category of Ability		Type										Required Ability																			Var. Min. Value			Define									Description						Clone Movement		Automatically Gained Feat	Ability							Save checks bonus		Combat bonus					Add to base move															Bonus to skill										Modify VAR							Weapon prof. bonus
+# Ability Name					Output Name		Category of Ability		Type										Required Ability																			Var. Min. Value			Define									Description						Clone Movement		Automatically Gained Feat	Ability							Combat bonus					Add to base move															Bonus to skill										Modify VAR							Weapon prof. bonus																											Bonus
 Spirit Calling								CATEGORY:Special Ability
 #Channeling									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Between Worlds								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																															DEFINE:BetweenWorlds|0																																			BONUS:COMBAT|INITIATIVE|-1																				BONUS:SKILL|Listen,Spot|var("BetweenWorlds")
+Between Worlds								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																															DEFINE:BetweenWorlds|0																															BONUS:COMBAT|INITIATIVE|-1																				BONUS:SKILL|Listen,Spot|var("BetweenWorlds")
 Spirit Guide								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Edge of Perception							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																															DEFINE:EdgeOfPerception|0																																																																						BONUS:VAR|BetweenWorlds|var("EdgeOfPerception")
+Edge of Perception							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																															DEFINE:EdgeOfPerception|0																																																																		BONUS:VAR|BetweenWorlds|var("EdgeOfPerception")
 Query										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Spirit Journey								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Admonish Spirit								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Spiritual Presence							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																									DESC:Aura of Fear|PRECLASS:1,Shaman=14
-Spirit Gift									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.SpellLike.Supernatural																											DEFINE:SpiritGiftLVL|0	DEFINE:ShamanSpiritGiftPenalty|0																																																					BONUS:SKILL|Bluff,Diplomacy,Sense Motive|var("ShamanSpiritGiftPenalty")
+Spirit Gift									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.SpellLike.Supernatural																											DEFINE:SpiritGiftLVL|0	DEFINE:ShamanSpiritGiftPenalty|0																																																	BONUS:SKILL|Bluff,Diplomacy,Sense Motive|var("ShamanSpiritGiftPenalty")
 
 #Spirit Gifts
 Lesser Spirit Gift - Ant			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
-Lesser Spirit Gift - Bear			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural																													DEFINE:BearGiftBonus|0							DESC:%1|BearGiftBonus|PRESTAT:1,CHA=12																																																										BONUS:VAR|BearGiftBonus|var("CL=Shaman")*CHA
+Lesser Spirit Gift - Bear			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural																													DEFINE:BearGiftBonus|0							DESC:%1|BearGiftBonus|PRESTAT:1,CHA=12																																																						BONUS:VAR|BearGiftBonus|var("CL=Shaman")*CHA
 Lesser Spirit Gift - Butterfly		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural
 Lesser Spirit Gift - Cat			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 Lesser Spirit Gift - Dog			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																							ABILITY:Special Ability|AUTOMATIC|Scent
 Lesser Spirit Gift - Dolphin			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																														MOVECLONE:Walk,Swim,*1
-Lesser Spirit Gift - Dragonfly		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																															BONUS:SAVE|Reflex|1								BONUS:MOVEADD|TYPE.Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Lesser Spirit Gift - Dragonfly		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																						BONUS:MOVEADD|TYPE.Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1																																																			BONUS:SAVE|Reflex|1
 Lesser Spirit Gift - Eagle			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
 Lesser Spirit Gift - Fire			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.SpellLike.Extraordinary
 Lesser Spirit Gift - Horse			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
 Lesser Spirit Gift - Lightning		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.SpellLike.Extraordinary
 Lesser Spirit Gift - Lion			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural
-Lesser Spirit Gift - Lizard			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
+Lesser Spirit Gift - Lizard			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																															BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
 Lesser Spirit Gift - Rabbit			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																							ABILITY:Special Ability|AUTOMATIC|Evasion
-Lesser Spirit Gift - Owl			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																											BONUS:SKILL|TYPE.Knowledge|2
+Lesser Spirit Gift - Owl			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																							BONUS:SKILL|TYPE.Knowledge|2
 Lesser Spirit Gift - Shaman Ancestor	OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
 Lesser Spirit Gift - Spider			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural
 Lesser Spirit Gift - Stone			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																		AUTO:FEAT|Toughness
 Lesser Spirit Gift - Thunder			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.SpellLike.Extraordinary
-Lesser Spirit Gift - Warrior Ancestor	OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																																															BONUS:WEAPONPROF=TYPE.Martial|DAMAGE|2|TYPE=WarriorAncestor	BONUS:WEAPONPROF=TYPE.Simple|DAMAGE|2|TYPE=WarriorAncestor	BONUS:WEAPONPROF=TYPE.Exotic|DAMAGE|2|TYPE=WarriorAncestor
+Lesser Spirit Gift - Warrior Ancestor	OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																																											BONUS:WEAPONPROF=TYPE.Martial|DAMAGE|2|TYPE=WarriorAncestor	BONUS:WEAPONPROF=TYPE.Simple|DAMAGE|2|TYPE=WarriorAncestor	BONUS:WEAPONPROF=TYPE.Exotic|DAMAGE|2|TYPE=WarriorAncestor
 Lesser Spirit Gift - Water			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
 Lesser Spirit Gift - Winter			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
-Lesser Spirit Gift - Wolf			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																																															BONUS:WEAPONPROF=TYPE.Melee|TOHIT|1|TYPE=Insight
+Lesser Spirit Gift - Wolf			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																																											BONUS:WEAPONPROF=TYPE.Melee|TOHIT|1|TYPE=Insight
 
 #Greater Spirit Gifts -
 Greater Spirit Gifts - East Wind		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																								PREVARGTEQ:SpiritGiftLVL,15
@@ -282,7 +282,7 @@ Sapienti Ability IV - Split Mind			CATEGORY:Special Ability	TYPE:SpecialQuality.
 
 
 ###Block: Tears of Almeric -------------------------------------------------------------------------------------------------------------------------
-# Ability Name			Unique Key						Category of Ability		Type						Save checks bonus
+# Ability Name			Unique Key						Category of Ability		Type						Bonus
 Arcane Reserve			KEY:Arcane Reserve ~ Tears of Almeric	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Quickened Spell Resistance								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Quicken Escape										CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
@@ -618,7 +618,7 @@ Expunge Unlife			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Swim the Stream of Souls	CATEGORY:Special Ability	TYPE:SpecialQuality
 Bonus Domain (Healing)		CATEGORY:Special Ability	TYPE:SpecialQuality
 Hands of our Mother		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Potent Turning			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:PotentTurning|0	DEFINE:PotentTurningDie|0	BONUS:VAR|PotentTurningDie|6	DESC:%1d%2|PotentTurning|PotentTurningDie
+Potent Turning			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:PotentTurning|0	DEFINE:PotentTurningDie|0	DESC:%1d%2|PotentTurning|PotentTurningDie																																	BONUS:VAR|PotentTurningDie|6
 Extra Channeling			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:LifewardenExtraChanneling|0											ABILITY:Special Ability|AUTOMATIC|Extra Channeling (CHA)|PREVARGTEQ:LifewardenExtraChanneling,1	ABILITY:Special Ability|AUTOMATIC|Extra Channeling (WIS)|PREVARGTEQ:LifewardenExtraChanneling,2
 Know the Soul			CATEGORY:Special Ability	TYPE:SpecialQuality
 Read the Signs			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
@@ -710,19 +710,19 @@ School Access - Transmutation				CATEGORY:Special Ability	TYPE:SpecialQuality.Wi
 Wine Drinker Martial Weapon Proficiency Choice	CATEGORY:Special Ability	TYPE:WineDrinkerFeat																												ADD:FEAT|Martial Weapon Proficiency
 
 ###Block: Bio-Construct -----------------------------------------------------------------------------------------------------------------------------------
-# Ability Name			Output Name			Category of Ability		Type						Ability													Save checks bonus				Bonus to HP			Vision
-BioConstruct							CATEGORY:Special Ability																															VISION:Darkvision (60')
+# Ability Name			Output Name			Category of Ability		Type						Ability													Bonus to HP			Vision			Bonus
+BioConstruct							CATEGORY:Special Ability																									VISION:Darkvision (60')
 #
 Flesh Weapons							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
 Magic Disruption							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 Ymandragoran Thrall Paralysis	OUTPUTNAME:Paralysis	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
-Bio-construct traits						CATEGORY:Special Ability	TYPE:SpecialQuality			ABILITY:Special Ability|AUTOMATIC|Immunity To Mind-Affecting|Immunity To Sleep	BONUS:SAVE|Will|4|TYPE=Racial
+Bio-construct traits						CATEGORY:Special Ability	TYPE:SpecialQuality			ABILITY:Special Ability|AUTOMATIC|Immunity To Mind-Affecting|Immunity To Sleep									BONUS:SAVE|Will|4|TYPE=Racial
 Arcane Sight							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Flesh Shield							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Vulnerability to Chaos						CATEGORY:Special Ability	TYPE:SpecialQuality
 ###EOF
 
-ClockworkConstruct						CATEGORY:Special Ability																											BONUS:HP|CURRENTMAX|1
+ClockworkConstruct						CATEGORY:Special Ability																					BONUS:HP|CURRENTMAX|1
 #Bonus HP based upon Size; look at constructs for existing example
 
 #Death Attack|Sneak Attack|Camouflage|Evasion|

@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.com	SOURCEDATE:2005-01
 #Original Entry: Andrew Maitland
 
-# Ability Name			Unique Key								Category of Ability		Type						Define												Description														Stackable?	Multiple?	Choose					Bonus to HP
+# Ability Name			Unique Key								Category of Ability		Type						Define												Description														Stackable?	Multiple?	Choose					Bonus to HP				Modify VAR
 Preordained													CATEGORY:Special Ability	TYPE:SpecialQuality
 Dishonorable												CATEGORY:Special Ability	TYPE:SpecialQuality
 
 ### HIDDEN SUBCLASS HP
 #SubClassBonusHPd10		TYPE:Subclass.Hidden.KnightHP		MULT:YES	STACK:YES	BONUS:HP|CURRENTMAX|%CHOICE|TYPE=Enhancement|PREAPPLY:ANYPC										CHOOSE:NUMBER|MIN=4|MAX=18|TITLE=Choose number of bonus Hp.
 # Feat Name				Type						Visible	Special ABility			Stackable?	Multiple?	Choose											Bonus to HP
-# Ability Name			Unique Key								Category of Ability		Type						Define												Description														Stackable?	Multiple?	Choose					Bonus to HP
+# Ability Name			Unique Key								Category of Ability		Type						Define												Description														Stackable?	Multiple?	Choose					Bonus to HP				Modify VAR
 KnightSubClassBonusHP											CATEGORY:Special Ability	TYPE:Subclass.Hidden.KnightHP																														STACK:YES	MULT:YES	CHOOSE:STRING|1|10|2|3|4|5|6|7|8|9	BONUS:HP|CURRENTMAX|%CHOICE
 
 #KnightSubClassBonusHPlv4	TYPE:Subclass.Hidden.KnightHP			STACK:YES	MULT:YES	CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Choose number of bonus Subclass Hp.	BONUS:HP|CURRENTMAX|%CHOICE|PREAPPLY:ANYPC
@@ -42,6 +42,6 @@ Sanctuary				KEY:Sanctuary ~ Knight Subclass				CATEGORY:Special Ability	TYPE:Sp
 
 # ~ Scoundrel Subclass
 No Honor Amoung Thieves		KEY:No Honor Amoung Thieves ~ Scoundrel Subclass	CATEGORY:Special Ability	TYPE:SpecialQuality
-Bonus Sneak Attack		KEY:Bonus Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ScoundrelSneakAttackDieSize|0	BONUS:VAR|ScoundrelSneakAttackDieSize|4	DEFINE:ScoundrelSneakAttackDice|0	DESC:+%1d%2|ScoundrelSneakAttackDice|ScoundrelSneakAttackDieSize
+Bonus Sneak Attack		KEY:Bonus Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ScoundrelSneakAttackDieSize|0	DEFINE:ScoundrelSneakAttackDice|0	DESC:+%1d%2|ScoundrelSneakAttackDice|ScoundrelSneakAttackDieSize																				BONUS:VAR|ScoundrelSneakAttackDieSize|4
 Impromptu Sneak Attack		KEY:Impromptu Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ImpromptuSneakTimes|0									DESC:%1/day|ImpromptuSneakTimes
 Bonus HP				KEY:Bonus HP ~ Scoundrel Subclass				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ScoundrelHitDieBonus|0									DESC:%1d6 HP|ScoundrelHitDieBonus

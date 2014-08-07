@@ -1,20 +1,20 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 
 ###Block: Special Abilities: Shalraeku & Zarakku
-# Ability Name			Unique Key							Category of Ability		Type											Visible		Innate Spells											Description									Ability									Save checks bonus		Combat bonus				Modify VAR						Vision			Spell Res.
+# Ability Name			Unique Key							Category of Ability		Type											Visible		Innate Spells											Description									Ability									Combat bonus				Modify VAR						Vision			Spell Res.	Bonus
 Immunity to natural poisons	KEY:ShalraekuZarakku_Imunity				CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku.Extraordinary.Immunity	VISIBLE:YES															DESC:You never take poison damage from natural poisons
-Darkvision 60 ft			KEY:ShalraekuZarakku_Darkvision			CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																																																			VISION:Darkvision (60')
-Resistance to Fire 5		KEY:ShalraekuZarakku_Resistance_Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Fire												BONUS:VAR|AcidResistanceBonus|5
-Resistance to Electrical 5	KEY:ShalraekuZarakku_Resistance_Electrical	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity											BONUS:VAR|ElectricityResistanceBonus|5
-Resistance to Cold 5		KEY:ShalraekuZarakku_Resistance_Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Cold												BONUS:VAR|ColdResistanceBonus|5
+Darkvision 60 ft			KEY:ShalraekuZarakku_Darkvision			CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																																															VISION:Darkvision (60')
+Resistance to Fire 5		KEY:ShalraekuZarakku_Resistance_Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Fire								BONUS:VAR|AcidResistanceBonus|5
+Resistance to Electrical 5	KEY:ShalraekuZarakku_Resistance_Electrical	CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity							BONUS:VAR|ElectricityResistanceBonus|5
+Resistance to Cold 5		KEY:ShalraekuZarakku_Resistance_Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																								ABILITY:Special Ability|AUTOMATIC|Resistance To Cold								BONUS:VAR|ColdResistanceBonus|5
 Levitate				KEY:ShalraekuZarakku_Levitate				CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Levitate
-Saving Throw +1			KEY:ShalraekuZarakku_SavingThrow			CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																																		BONUS:SAVE|ALL|1
+Saving Throw +1			KEY:ShalraekuZarakku_SavingThrow			CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY																																																					BONUS:SAVE|ALL|1
 Dimension Door			KEY:ShalraekuZarakku_Dimention_Door			CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku.Zarakku					VISIBLE:DISPLAY	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Dimension Door
-AC Bonus				KEY:Shalraeku_AC						CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku							VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=Deflection
-AC Bonus				KEY:Zarakku_AC						CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku							VISIBLE:DISPLAY																																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor
-Spell Resistance			KEY:Shalraeku_SR						CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku							VISIBLE:DISPLAY																																																							SR:TL+WIS
-Spell Resistance			KEY:Zarakku_SR						CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku							VISIBLE:DISPLAY																																																							SR:TL+CON
+AC Bonus				KEY:Shalraeku_AC						CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku							VISIBLE:DISPLAY																																		BONUS:COMBAT|AC|2|TYPE=Deflection
+AC Bonus				KEY:Zarakku_AC						CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku							VISIBLE:DISPLAY																																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor
+Spell Resistance			KEY:Shalraeku_SR						CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku							VISIBLE:DISPLAY																																																			SR:TL+WIS
+Spell Resistance			KEY:Zarakku_SR						CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku							VISIBLE:DISPLAY																																																			SR:TL+CON
 Cure Light Wounds			KEY:Shalraeku_CLW						CATEGORY:Special Ability	TYPE:SpecialQuality.Shalraeku							VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Cure Light Wounds,11+WIS
 Inflict Light Wounds		KEY:Zarakku_ILW						CATEGORY:Special Ability	TYPE:SpecialQuality.Zarakku							VISIBLE:DISPLAY	SPELLS:Innate|TIMES=WIS|CASTERLEVEL=(max(TL,1))|Inflict Light Wounds,11+WIS
 
@@ -62,7 +62,7 @@ Share the Pain									CATEGORY:Special Ability	TYPE:SpecialQuality.SpecialQuali
 
 ###Block: Monster Template - Feats
 # Feat Name			Type				Visible	Special ABility
-# Ability Name			Unique Key							Category of Ability		Type									Define								Description							Combat bonus
+# Ability Name			Unique Key							Category of Ability		Type									Define								Description							Multiple?	Choose					Combat bonus
 Alignment Shift											CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
 Healing Touch											CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
 Glare of Reckoning										CATEGORY:Special Ability	TYPE:SpecialQuality.BenevolentSpirit.Supernatural
@@ -140,7 +140,7 @@ Shadow Form				KEY:Shadow Form ~ Shadowblade				CATEGORY:Special Ability	TYPE:Sp
 Death Resistance			KEY:Death Resistance ~ Shadowblade			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 #  ~ Soulreaper
-AC Bonus				KEY:AC Bonus ~ Soulreaper				CATEGORY:Special Ability	TYPE:SpecialQuality						DEFINE:SoulreaperAC|0						DESC: +%1|SoulreaperAC					BONUS:COMBAT|AC|SoulreaperAC
+AC Bonus				KEY:AC Bonus ~ Soulreaper				CATEGORY:Special Ability	TYPE:SpecialQuality						DEFINE:SoulreaperAC|0						DESC: +%1|SoulreaperAC													BONUS:COMBAT|AC|SoulreaperAC
 DR					KEY:DR ~ Soulreaper					CATEGORY:Special Ability	TYPE:SpecialQuality						DEFINE:SoulreaperDRPlus|0	DEFINE:SoulreaperDR|0	DESC: %1/+%2|SoulreaperDR|SoulreaperDRPlus
 Reap Soul				KEY:Reap Soul ~ Soulreaper				CATEGORY:Special Ability	TYPE:SpecialQuality
 
@@ -150,7 +150,7 @@ Divine Talent			KEY:Divine Talent						CATEGORY:Special Ability	TYPE:SpecialQual
 Divine Beauty			KEY:Divine Beauty						CATEGORY:Special Ability	TYPE:SpecialQuality
 Swanmorph				KEY:Swanmorph						CATEGORY:Special Ability	TYPE:SpecialQuality
 
-Swan Bard ~ Domain Selection	MULT:YES	CATEGORY:Special Ability	TYPE:SwanBardDomain	CHOOSE:DOMAIN|Air|Animal|Chaos
+Swan Bard ~ Domain Selection									CATEGORY:Special Ability	TYPE:SwanBardDomain																							MULT:YES	CHOOSE:DOMAIN|Air|Animal|Chaos
 
 
 # ~ Wild Walker

@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Legends of the Ancients - Carthage	SOURCESHORT:Carthage	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99	SOURCEDATE:2005-01
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Mercenary	HD:12		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Bonus
+CLASS:Mercenary	HD:12		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mercenary	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Intimidate|Jump|Ride|Sense Motive|Survival|Swim
 1																			ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial

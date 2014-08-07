@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: TaluronIscandar
 
@@ -14,12 +14,12 @@ Psion Telepath Class	CATEGORY:Internal		SPELLLEVEL:CLASS|Psion=1|Charm (Psionic)
 
 ###Block:
 # Ability Name				Category of Ability		Type						Visible	Define														Description																				Ability											Modify VAR
-Psion ~ Seer				CATEGORY:Internal											DEFINE:PsionicSeer|0		BONUS:VAR|PsionicSeer|1		
-Psion ~ Kineticist			CATEGORY:Internal											DEFINE:PsionicKineticist|0	BONUS:VAR|PsionicKineticist|1	
-Psion ~ Nomad				CATEGORY:Internal											DEFINE:PsionicNomad|0		BONUS:VAR|PsionicNomad|1		
-Psion ~ Seer				CATEGORY:Internal											DEFINE:PsionicSeer|0		BONUS:VAR|PsionicSeer|1		
-Psion ~ Shaper				CATEGORY:Internal											DEFINE:PsionicShaper|0		BONUS:VAR|PsionicShaper|1		
-Psion ~ Telepath				CATEGORY:Internal											DEFINE:PsionicTelepath|0	BONUS:VAR|PsionicTelepath|1		
+Psion ~ Seer				CATEGORY:Internal											DEFINE:PsionicSeer|0																																													BONUS:VAR|PsionicSeer|1
+Psion ~ Kineticist			CATEGORY:Internal											DEFINE:PsionicKineticist|0																																												BONUS:VAR|PsionicKineticist|1
+Psion ~ Nomad				CATEGORY:Internal											DEFINE:PsionicNomad|0																																													BONUS:VAR|PsionicNomad|1
+Psion ~ Seer				CATEGORY:Internal											DEFINE:PsionicSeer|0																																													BONUS:VAR|PsionicSeer|1
+Psion ~ Shaper				CATEGORY:Internal											DEFINE:PsionicShaper|0																																													BONUS:VAR|PsionicShaper|1
+Psion ~ Telepath				CATEGORY:Internal											DEFINE:PsionicTelepath|0																																												BONUS:VAR|PsionicTelepath|1
 
 
 # Ability Name				Category of Ability		Type						Visible	Define														Description																				Ability											Modify VAR
@@ -225,25 +225,25 @@ Whirlwind Attack			KEY:Astral_Whirlwind Attack			CATEGORY:Special Ability	TYPE:C
 
 
 ###Block: Psicrystal personalities
-# Ability Name			Unique Key				Category of Ability		Type							Stackable?	Multiple?	Choose				Save checks bonus			Combat bonus			Bonus to skill				Source Page
-Psicrystal (Artiste)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																				BONUS:SKILL|TYPE.Craft|3		SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Bully)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																				BONUS:SKILL|Intimidate|3		SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Coward)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																				BONUS:SKILL|Hide|3			SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Friendly)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																				BONUS:SKILL|Diplomacy|3			SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Hero)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality										BONUS:SAVE|Fortitude|2												SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Liar)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																				BONUS:SKILL|Bluff|3			SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Meticulous)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																				BONUS:SKILL|Search|3			SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Nimble)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:COMBAT|INITIATIVE|2							SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Observant)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																				BONUS:SKILL|Spot|3			SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Poised)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																				BONUS:SKILL|Balance|3			SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Resolved)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality										BONUS:SAVE|Will|2													SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Sage)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																										SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Single Minded)						CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																				BONUS:SKILL|Concentration|3		SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Sneaky)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																				BONUS:SKILL|Move Silently|3		SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Sympathetic)						CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																				BONUS:SKILL|Sense Motive|3		SOURCEPAGE:PsionicClasses.rtf
+# Ability Name			Unique Key				Category of Ability		Type							Stackable?	Multiple?	Choose				Combat bonus			Bonus to skill				Source Page				Bonus
+Psicrystal (Artiste)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|TYPE.Craft|3		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Bully)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Intimidate|3		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Coward)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Hide|3			SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Friendly)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Diplomacy|3			SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Hero)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																					SOURCEPAGE:PsionicClasses.rtf	BONUS:SAVE|Fortitude|2
+Psicrystal (Liar)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Bluff|3			SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Meticulous)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Search|3			SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Nimble)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality										BONUS:COMBAT|INITIATIVE|2							SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Observant)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Spot|3			SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Poised)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Balance|3			SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Resolved)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																					SOURCEPAGE:PsionicClasses.rtf	BONUS:SAVE|Will|2
+Psicrystal (Sage)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																					SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Single Minded)						CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Concentration|3		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Sneaky)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Move Silently|3		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Sympathetic)						CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Sense Motive|3		SOURCEPAGE:PsionicClasses.rtf
 
 #
 # End
 #
 
-Crystal Mask			KEY:Equipment ~ Crystal Mask	CATEGORY:Internal										STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge											BONUS:SKILL|LIST|5|TYPE=Competence
+Crystal Mask			KEY:Equipment ~ Crystal Mask	CATEGORY:Internal										STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge						BONUS:SKILL|LIST|5|TYPE=Competence

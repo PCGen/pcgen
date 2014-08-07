@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 #Original Entry: TaluronIscandar
 #     These are epic psionic feats derived from epic magic feats as allowed in the epic feat section
@@ -49,7 +49,7 @@ Imprint Epic Stone			TYPE:Epic.ItemCreation	PREFEAT:1,Imprint Stone				PRELEVEL:
 ###BLOCK: Hidden feats
 # Feat Name					Type				Visible	Define									Misc bonus				Modify VAR																								Source Page
 Add 2 Power Resistance			TYPE:EpicPsiCountFeat	VISIBLE:NO	DEFINE:IPRCount|0								BONUS:MISC|SR|(2*IPRCount)	BONUS:VAR|IPRCount|COUNT[FEATNAME=Improved Power Resistance]															SOURCEPAGE:EpicFeats.rtf
-Add Psionic Focus				TYPE:EpicPsiCountFeat	VISIBLE:NO	DEFINE:PsiFocusCount|0	BONUS:VAR|PsiFocusCount|2																																	SOURCEPAGE:EpicFeats.rtf
+Add Psionic Focus				TYPE:EpicPsiCountFeat	VISIBLE:NO	DEFINE:PsiFocusCount|0												BONUS:VAR|PsiFocusCount|2																					SOURCEPAGE:EpicFeats.rtf
 Improved Manifestation Power Points	TYPE:ImpManifestPP	VISIBLE:NO	DEFINE:ImpManifestCount|0	DEFINE:ImpManifestBonus|0						BONUS:VAR|ImpManifestCount|1	BONUS:VAR|ImpManifestBonus|((18+ImpManifestCount)*ImpManifestCount)	BONUS:VAR|BasePowerPoints|ImpManifestBonus	SOURCEPAGE:EpicFeats.rtf
 ImpMetapsionics				TYPE:ImpMetapsionics	VISIBLE:NO	DEFINE:ImpMetapsiCount|0	DEFINE:ImpMetapsiBonus|0						BONUS:VAR|ImpMetapsiCount|1	BONUS:VAR|ImpMetapsiBonus|2																SOURCEPAGE:EpicFeats.rtf
 

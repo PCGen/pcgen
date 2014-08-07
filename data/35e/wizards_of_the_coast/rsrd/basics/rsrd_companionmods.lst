@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jun 22 17:23:35 2014 -- reformated by prettylst.pl v1.51 (build 24190)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # RSRD Entry by: jaymecox
 # COMMENT: Updates Jan 20, 2013 - HD Growth For Companions reimplemented; Mounts do not gain automatic Barding Proficiency. In fact, there is no 'Barding' proficiency.
@@ -90,17 +90,17 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Companion ~ Shocker Lizard	KIT:1|
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Companion ~ Stirge			KIT:1|Stirge Familiar
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar					Type			Save checks bonus			Bonus to HP			Bonus to skill			Virtual Feat
-MASTERBONUSRACE:Companion ~ Bat			TYPE:Familiar										BONUS:SKILL|Listen|3		VFEAT:Alertness
-MASTERBONUSRACE:Companion ~ Cat			TYPE:Familiar										BONUS:SKILL|Move Silently|3	VFEAT:Alertness
-MASTERBONUSRACE:Companion ~ Hawk			TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
-MASTERBONUSRACE:Companion ~ Lizard			TYPE:Familiar										BONUS:SKILL|Climb|3		VFEAT:Alertness
-MASTERBONUSRACE:Companion ~ Owl			TYPE:Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
-MASTERBONUSRACE:Companion ~ Rat			TYPE:Familiar	BONUS:SAVE|Fortitude|2										VFEAT:Alertness
-MASTERBONUSRACE:Companion ~ Raven			TYPE:Familiar										BONUS:SKILL|Appraise|3		VFEAT:Alertness
-MASTERBONUSRACE:Companion ~ Snake (Viper/Tiny)	TYPE:Familiar										BONUS:SKILL|Bluff|3		VFEAT:Alertness
-MASTERBONUSRACE:Companion ~ Toad			TYPE:Familiar						BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
-MASTERBONUSRACE:Companion ~ Weasel			TYPE:Familiar	BONUS:SAVE|Reflex|2											VFEAT:Alertness
+# Race of familiar					Type			Bonus to HP			Bonus to skill			Virtual Feat	Bonus
+MASTERBONUSRACE:Companion ~ Bat			TYPE:Familiar					BONUS:SKILL|Listen|3		VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Cat			TYPE:Familiar					BONUS:SKILL|Move Silently|3	VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Hawk			TYPE:Familiar					BONUS:SKILL|Spot|3		VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Lizard			TYPE:Familiar					BONUS:SKILL|Climb|3		VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Owl			TYPE:Familiar					BONUS:SKILL|Spot|3		VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Rat			TYPE:Familiar										VFEAT:Alertness	BONUS:SAVE|Fortitude|2
+MASTERBONUSRACE:Companion ~ Raven			TYPE:Familiar					BONUS:SKILL|Appraise|3		VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Snake (Viper/Tiny)	TYPE:Familiar					BONUS:SKILL|Bluff|3		VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Toad			TYPE:Familiar	BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
+MASTERBONUSRACE:Companion ~ Weasel			TYPE:Familiar										VFEAT:Alertness	BONUS:SAVE|Reflex|2
 #
 
 ###Block:Animal Companion

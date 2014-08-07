@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin	SOURCESHORT:Assassin	SOURCEWEB:http//www.mongoosepublishing.com	SOURCEDATE:2002-01
 # Original Entry by: Mynex
 
-# Class Name		Output Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus										Modify VAR
-CLASS:Assassin (Mong)	OUTPUTNAME:Assassin	HD:6		TYPE:Base.PC	ABB:MAsn		MAXLEVEL:20	SOURCEPAGE:p.4-8	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Output Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Assassin (Mong)	OUTPUTNAME:Assassin	HD:6		TYPE:Base.PC	ABB:MAsn		MAXLEVEL:20	SOURCEPAGE:p.4-8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL
 CLASS:Assassin (Mong)	PREALIGN:LN,LE,TN,NE,CN,CE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Assassin (Mong)	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Gather Information|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Assassination/Sneak Attack
-1	SAB:Assassination +%d%|Assassination|AssassinationDie	BONUS:VAR|SneakAttackDice|(CL+1)/2	BONUS:VAR|Assassination|floor((CL+1)/2)*2	DEFINE:Assassination|0	DEFINE:AssassinationDie|0	BONUS:VAR|AssassinationDie|6	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+1	SAB:Assassination +%d%|Assassination|AssassinationDie	BONUS:VAR|SneakAttackDice|(CL+1)/2	BONUS:VAR|Assassination|floor((CL+1)/2)*2	BONUS:VAR|AssassinationDie|6	DEFINE:Assassination|0	DEFINE:AssassinationDie|0	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Assassin (Mong) Weapon Proficiencies|Simple Weapon Proficiency
 1												AUTO:FEAT|Armor Proficiency (Light)

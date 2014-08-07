@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Secrets of the Planes - Planar Magic	SOURCESHORT:PlanarMagic	SOURCEWEB:http://www.lionsdenpress.com/	SOURCEDATE:2005-01
 # Original Entry by: Tir Gwaith
 
-# Ability Name	Category of Ability		Type							Define																																									Description																									Source Page
-Planar Turning	CATEGORY:Special Ability	TYPE:SpecialAttack.Turning.TurnPlanar	DEFINE:TurnTimesPlanar|0	BONUS:VAR|TurnTimesPlanar|TurnTimesBase	DEFINE:TurnLevelPlanar|0	BONUS:VAR|TurnLevelPlanar|TurnLevelBase	DEFINE:TurnDicePlanar|0	BONUS:VAR|TurnDicePlanar|TurnDiceBase	DEFINE:TurnDieSizePlanar|0	BONUS:VAR|TurnDieSizePlanar|TurnDieSizeBase	DEFINE:TurnDamagePlusPlanar|0	BONUS:VAR|TurnDamagePlusPlanar|TurnDamagePlusBase	DEFINE:TurnCheckPlanar|0	BONUS:VAR|TurnCheckPlanar|TurnCheckBase	DESC:Turn Planar (Su) %1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesPlanar|TurnLevelPlanar|TurnDicePlanar|TurnDieSizePlanar|TurnDamagePlusPlanar	SOURCEPAGE:p.7
+# Ability Name	Category of Ability		Type							Define																												Description																									Modify VAR																																												Source Page
+Planar Turning	CATEGORY:Special Ability	TYPE:SpecialAttack.Turning.TurnPlanar	DEFINE:TurnTimesPlanar|0	DEFINE:TurnLevelPlanar|0	DEFINE:TurnDicePlanar|0	DEFINE:TurnDieSizePlanar|0	DEFINE:TurnDamagePlusPlanar|0	DEFINE:TurnCheckPlanar|0	DESC:Turn Planar (Su) %1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesPlanar|TurnLevelPlanar|TurnDicePlanar|TurnDieSizePlanar|TurnDamagePlusPlanar	BONUS:VAR|TurnTimesPlanar|TurnTimesBase	BONUS:VAR|TurnLevelPlanar|TurnLevelBase	BONUS:VAR|TurnDicePlanar|TurnDiceBase	BONUS:VAR|TurnDieSizePlanar|TurnDieSizeBase	BONUS:VAR|TurnDamagePlusPlanar|TurnDamagePlusBase	BONUS:VAR|TurnCheckPlanar|TurnCheckBase	SOURCEPAGE:p.7
 
 ###Block: Aspects
 # Ability Name						Unique Key					Category of Ability		Type						Aspects

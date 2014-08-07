@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 
 
@@ -15,7 +15,7 @@ ABILITYCATEGORY:Monk Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALP
 
 ###Block: Special Ability and subgroups
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number			Category of Object		Type of Object			Specific choices list					Plural description for UI			Display Location
-ABILITYCATEGORY:Rogue Special Ability			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:Rogue Special Ability										PLURAL:Rogue Special Abilities		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Rogue Special Ability			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:Rogue Special Ability									PLURAL:Rogue Special Abilities		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Ranger Combat Style				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:RangerCombatStyle										PLURAL:Ranger Combat Styles			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Favored Enemy					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEnemyCount		CATEGORY:Special Ability	TYPE:FavoredEnemy											PLURAL:Favored Enemies				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Favored Enemy Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:FavoredEnemyBonusCount	CATEGORY:Special Ability	TYPE:FavoredEnemyBonus										PLURAL:Favored Enemy Bonuses			DISPLAYLOCATION:Class Features
@@ -24,9 +24,9 @@ ABILITYCATEGORY:Expert Class Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES
 ABILITYCATEGORY:Simple Weapon Proficiency Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability						ABILITYLIST:Single Simple Weapon Proficiency	PLURAL:Simple Weapon Proficiency Choice	DISPLAYLOCATION:Class Features
 
 # Selection Pools for Optional Choices
-ABILITYCATEGORY:Animal Companion Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal	TYPE:AnimalCompanionSelection										PLURAL:Familiar Choice				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Special Mount Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal	TYPE:SpecialMountSelection																DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Familiar Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal	TYPE:FamiliarSelection										PLURAL:Familiar Choice				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Animal Companion Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:AnimalCompanionSelection									PLURAL:Familiar Choice				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Special Mount Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:SpecialMountSelection																DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Familiar Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:FamiliarSelection										PLURAL:Familiar Choice				DISPLAYLOCATION:Class Features
 
 #
 ABILITYCATEGORY:Raven Language Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Internal								ABILITYLIST:Raven Language Choice										DISPLAYLOCATION:Race Traits
@@ -175,7 +175,7 @@ ABILITYCATEGORY:Animated Object Move		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	
 #
 # End
 #
-ABILITYCATEGORY:Deity Weapon Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:DeityWeaponSelection								DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Deity Weapon Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DeityWeaponSelection							DISPLAYLOCATION:Class Abilities
 
 
 

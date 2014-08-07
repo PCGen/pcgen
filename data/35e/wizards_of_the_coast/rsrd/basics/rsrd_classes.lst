@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sun Jun 22 17:23:35 2014 -- reformated by prettylst.pl v1.51 (build 24190)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Revised Updated Entry by: Collaborative Effort by Andrew Maitland and BD
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class			Source Page			Define			Combat bonus										Monster Role	Bonus
-CLASS:Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex Barbarian	SOURCEPAGE:ClassesI.rtf	DEFINE:BarbarianLVL|0	BONUS:VAR|BarbarianLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	ROLE:Combat		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class			Source Page			Define			Combat bonus										Modify VAR				Monster Role	Bonus
+CLASS:Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex Barbarian	SOURCEPAGE:ClassesI.rtf	DEFINE:BarbarianLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|BarbarianLVL|CL	ROLE:Combat		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL
 CLASS:Barbarian	PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -34,8 +34,8 @@ CLASS:Ex Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimid
 5	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Improved Uncanny Dodge|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianUncannyDodge
 7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianDR
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Define		Combat bonus															Monster Role	Bonus
-CLASS:Bard		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Bard		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Define		Combat bonus															Modify VAR			Monster Role	Bonus
+CLASS:Bard		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	DEFINE:BardLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|BardLVL|CL	ROLE:Bard		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL
 CLASS:Bard		PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -69,8 +69,8 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 19	CAST:4,4,4,4,4,4,3	KNOWN:6,5,5,5,5,4,4
 20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Bonus Languages					Group of Prohibited Spells																																																																			Define			Combat bonus															Add domain number		Template				Monster Role	Bonus
-CLASS:Cleric	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Abyssal,Celestial,Infernal	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE	DEFINE:ClericLVL|0	BONUS:VAR|ClericLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:DOMAIN|NUMBER|2	TEMPLATE:RighteousMightDR	ROLE:Cleric		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Bonus Languages					Group of Prohibited Spells																																																																			Define			Combat bonus															Add domain number		Modify VAR			Template				Monster Role	Bonus
+CLASS:Cleric	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Abyssal,Celestial,Infernal	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE	DEFINE:ClericLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|ClericLVL|CL	TEMPLATE:RighteousMightDR	ROLE:Cleric		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
@@ -105,8 +105,8 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class		Source Page			Bonus Languages	Group of Prohibited Spells																																																																			Define			Automatically Gained Language	Combat bonus											Monster Role	Bonus
-CLASS:Druid		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE	DEFINE:DruidLVL|0	BONUS:VAR|DruidLVL|CL	AUTO:LANG|Druidic			BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Druid		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class		Source Page			Bonus Languages	Group of Prohibited Spells																																																																			Define		Automatically Gained Language	Combat bonus															Modify VAR			Monster Role	Bonus
+CLASS:Druid		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE	DEFINE:DruidLVL|0	AUTO:LANG|Druidic			BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|DruidLVL|CL	ROLE:Druid		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL
 CLASS:Druid		PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -157,16 +157,16 @@ CLASS:Ex Druid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle 
 ###Block:Proficiencies
 1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidProficiencies
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Define			Combat bonus										Monster Role	Bonus
-CLASS:Fighter	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	DEFINE:FighterLVL|0	BONUS:VAR|FighterLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	ROLE:Combat		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Define			Combat bonus										Modify VAR			Monster Role	Bonus
+CLASS:Fighter	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	DEFINE:FighterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|FighterLVL|CL	ROLE:Combat		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Ride|Swim
 ###Block:
 1	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterProficiencies
 1	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Bonus Feats|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterBonusFeat,TYPE.FighterBonusFeats
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Define						Combat bonus															Apply Kit				Bonus
-CLASS:Monk		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	DEFINE:FlurryOfBlows|0	BONUS:VAR|FlurryOfBlows|1	DEFINE:MonkLVL|0	BONUS:VAR|MonkLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	KIT:1|Monk Flurry of Blows	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Define						Combat bonus															Modify VAR								Apply Kit				Bonus
+CLASS:Monk		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	DEFINE:FlurryOfBlows|0	DEFINE:MonkLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|FlurryOfBlows|1	BONUS:VAR|MonkLVL|CL	KIT:1|Monk Flurry of Blows	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL
 CLASS:Monk		PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -215,8 +215,8 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplom
 19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
 20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page				Define												Combat bonus										Monster Role	Bonus
-CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		MAXLEVEL:20	EXCLASS:Ex Paladin	SOURCEPAGE:ClassesII.rtf	BONUS:VAR|PaladinLVL|CL	DEFINE:PaladinLVL|0	DEFINE:AllowHolyAvenger|0	BONUS:VAR|AllowHolyAvenger|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	ROLE:Combat		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page				Define								Combat bonus										Modify VAR								Monster Role	Bonus
+CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		MAXLEVEL:20	EXCLASS:Ex Paladin	SOURCEPAGE:ClassesII.rtf	DEFINE:PaladinLVL|0	DEFINE:AllowHolyAvenger|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PaladinLVL|CL	BONUS:VAR|AllowHolyAvenger|1	ROLE:Combat		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL
 CLASS:Paladin	PREALIGN:LG
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -264,8 +264,8 @@ CLASS:Ex Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handl
 ###Block:Proficiencies
 1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinProficiencies
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Define			Combat bonus										Monster Role	Bonus
-CLASS:Ranger	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	DEFINE:RangerLVL|0	BONUS:VAR|RangerLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	ROLE:Combat.Skill	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Define			Combat bonus										Modify VAR			Monster Role	Bonus
+CLASS:Ranger	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	DEFINE:RangerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|RangerLVL|CL	ROLE:Combat.Skill	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ranger	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level
@@ -305,8 +305,8 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:0,3,3,3,2
 20	CAST:0,3,3,3,3
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Define			Combat bonus															Monster Role	Bonus
-CLASS:Rogue		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Skill		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Define		Combat bonus															Modify VAR			Monster Role	Bonus
+CLASS:Rogue		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	DEFINE:RogueLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|RogueLVL|CL	ROLE:Skill		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Level progression
@@ -319,8 +319,8 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Deci
 8	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Improved Uncanny Dodge
 10	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Special Abilities
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Define			Combat bonus															Monster Role	Bonus
-CLASS:Sorcerer	HD:4		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	DEFINE:SorcererLVL|0	BONUS:VAR|SorcererLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Sorcerer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Define			Combat bonus															Modify VAR				Monster Role	Bonus
+CLASS:Sorcerer	HD:4		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	DEFINE:SorcererLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|SorcererLVL|CL	ROLE:Sorcerer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sorcerer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -351,8 +351,8 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Bonus Languages		Group of Prohibited Spells																																																																																				Define			Combat bonus															Monster Role	Bonus
-CLASS:Wizard	HD:4		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	LANGBONUS:Draconic	PROHIBITSPELL:SCHOOL.Abjuration|PREVARGTEQ:ProhibitAbjuration,1	PROHIBITSPELL:SCHOOL.Conjuration|PREVARGTEQ:ProhibitConjuration,1	PROHIBITSPELL:SCHOOL.Divination|PREVARGTEQ:ProhibitDivination,1	PROHIBITSPELL:SCHOOL.Enchantment|PREVARGTEQ:ProhibitEnchantment,1	PROHIBITSPELL:SCHOOL.Evocation|PREVARGTEQ:ProhibitEvocation,1	PROHIBITSPELL:SCHOOL.Illusion|PREVARGTEQ:ProhibitIllusion,1	PROHIBITSPELL:SCHOOL.Necromancy|PREVARGTEQ:ProhibitNecromancy,1	PROHIBITSPELL:SCHOOL.Transmutation|PREVARGTEQ:ProhibitTransmutation,1	DEFINE:WizardLVL|0	BONUS:VAR|WizardLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Wizard		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Bonus Languages		Group of Prohibited Spells																																																																																				Define			Combat bonus															Modify VAR			Monster Role	Bonus
+CLASS:Wizard	HD:4		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	LANGBONUS:Draconic	PROHIBITSPELL:SCHOOL.Abjuration|PREVARGTEQ:ProhibitAbjuration,1	PROHIBITSPELL:SCHOOL.Conjuration|PREVARGTEQ:ProhibitConjuration,1	PROHIBITSPELL:SCHOOL.Divination|PREVARGTEQ:ProhibitDivination,1	PROHIBITSPELL:SCHOOL.Enchantment|PREVARGTEQ:ProhibitEnchantment,1	PROHIBITSPELL:SCHOOL.Evocation|PREVARGTEQ:ProhibitEvocation,1	PROHIBITSPELL:SCHOOL.Illusion|PREVARGTEQ:ProhibitIllusion,1	PROHIBITSPELL:SCHOOL.Necromancy|PREVARGTEQ:ProhibitNecromancy,1	PROHIBITSPELL:SCHOOL.Transmutation|PREVARGTEQ:ProhibitTransmutation,1	DEFINE:WizardLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|WizardLVL|CL	ROLE:Wizard		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
@@ -405,8 +405,8 @@ SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Transmuter Learning Bonus
 
 ###Block: NPC Classes
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Define			Combat bonus												Bonus
-CLASS:Adept		HD:6		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Adp		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	DEFINE:AdeptLVL|0	BONUS:VAR|AdeptLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Define		Combat bonus												Modify VAR			Bonus
+CLASS:Adept		HD:6		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Adp		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	DEFINE:AdeptLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|AdeptLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Adept		STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft|Survival
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
@@ -444,7 +444,7 @@ CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:3,3,3,3,3,2
 20	CAST:3,3,3,3,3,2
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Combat bonus												Modify VAR									Bonus
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Combat bonus												Modify VAR														Bonus
 CLASS:Aristocrat	HD:8		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Ari		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aristocrat	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|Ride|Sense Motive|Speak Language|Spot|Swim|Survival
@@ -458,7 +458,7 @@ CLASS:Commoner	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Listen
 ###Block: Proficiencies
 1	ABILITY:Commoner Class Feature|AUTOMATIC|Commoner ~ Weapon and Armor Proficiency
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Combat bonus												Modify VAR									Bonus
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Combat bonus												Modify VAR														Bonus
 CLASS:Expert	HD:6		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Exp		MAXLEVEL:20	SOURCEPAGE:NPCClasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl
 CLASS:Expert	STARTSKILLPTS:6
@@ -478,8 +478,8 @@ CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|Sw
 
 ###Block: Prestige Classes
 
-# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define				Combat bonus										Bonus
-CLASS:Arcane Archer	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:ArchaneArcherLVL|0	BONUS:VAR|ArchaneArcherLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define				Combat bonus										Modify VAR				Bonus
+CLASS:Arcane Archer	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:ArchaneArcherLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|ArchaneArcherLVL|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat															Required Race		Req. Spell Type		PRETOTALAB
 CLASS:Arcane Archer	PREFEAT:2,Point Blank Shot,Precise Shot	PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)	PRERACE:1,Elf%,Half-Elf	PRESPELLTYPE:1,Arcane=1	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -497,8 +497,8 @@ CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silently|
 ###Block:
 14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Arcane Archer Feat|1
 
-# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define				Combat bonus															Bonus
-CLASS:Arcane Trickster	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Art		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:ArcaneTricksterLVL|0	BONUS:VAR|ArcaneTricksterLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define				Combat bonus															Modify VAR					Bonus
+CLASS:Arcane Trickster	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Art		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:ArcaneTricksterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ArcaneTricksterLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL				Required Skill												Req. Known Spell		Req. Spell Type		Var. Min. Value
 CLASS:Arcane Trickster	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:4,Decipher Script=7,Disable Device=7,Escape Artist=7,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=3	PREVARGTEQ:SneakAttackDice,2
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -526,8 +526,8 @@ CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Conce
 11:REPEATLEVEL:1									ADD:SPELLCASTER|Arcane
 14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Arcane Trickster Feat|1
 
-# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define			Combat bonus															Bonus
-CLASS:Archmage	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Arm		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:ArchmageLVL|0	BONUS:VAR|ArchmageLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define			Combat bonus															Modify VAR				Bonus
+CLASS:Archmage	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Arm		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:ArchmageLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ArchmageLVL|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
 CLASS:Archmage	PREMULT:2,[PREFEAT:1,Skill Focus (Spellcraft)],[PREFEAT:2,CHECKMULT,Spell Focus]	PRESKILL:2,Knowledge (Arcana)=15,Spellcraft=15	PRESPELLSCHOOL:5,Abjuration=5,Conjuration=5,Divination=5,Enchantment=5,Evocation=5,Illusion=5,Necromancy=5,Transmutation=5	PRESPELLTYPE:1,Arcane=7
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -545,8 +545,8 @@ CLASS:Archmage	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|TYPE=Knowled
 ###Block:
 11	PREPCLEVEL:MIN=20
 
-# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define			Combat bonus															Bonus
-CLASS:Assassin	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:AssassinLVL|0	BONUS:VAR|AssassinLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define			Combat bonus															Modify VAR				Bonus
+CLASS:Assassin	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:AssassinLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|AssassinLVL|CL	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL		Required Skill
 CLASS:Assassin	PREALIGN:LE,NE,CE	PRESKILL:3,Disguise=4,Hide=8,Move Silently=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -577,8 +577,8 @@ CLASS:Assassin	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assa
 ###Block:
 11	PREPCLEVEL:MIN=20
 
-# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define			Combat bonus										Bonus																							EXCHANGELEVEL
-CLASS:Blackguard	HD:10		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Bgd		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:BlackguardLVL|0	BONUS:VAR|BlackguardLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	EXCHANGELEVEL:Ex Paladin|11|10|1
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define			Combat bonus										Modify VAR				Bonus																							EXCHANGELEVEL
+CLASS:Blackguard	HD:10		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Bgd		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:BlackguardLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|BlackguardLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	EXCHANGELEVEL:Ex Paladin|11|10|1
 # Class Name	Required AL		Required Feat						Required Skill					PRETOTALAB
 CLASS:Blackguard	PREALIGN:LE,NE,CE	PREFEAT:3,Cleave,Improved Sunder,Power Attack	PRESKILL:2,Hide=5,Knowledge (Religion)=2	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -615,8 +615,8 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 ###Block:
 11	PREPCLEVEL:MIN=20
 
-# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Base class as subclass?	Source Page					Define				Combat bonus															Bonus
-CLASS:Dragon Disciple	HD:12		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:DrD		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:PrestigeClasses.rtf	DEFINE:DragonDiscipleLVL|0	BONUS:VAR|DragonDiscipleLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Base class as subclass?	Source Page					Define				Combat bonus															Modify VAR					Bonus
+CLASS:Dragon Disciple	HD:12		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:DrD		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:PrestigeClasses.rtf	DEFINE:DragonDiscipleLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|DragonDiscipleLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Language		Prohibited Race		Required Skill				Required Casting Type						Prohibited Template
 CLASS:Dragon Disciple	PRELANG:1,Draconic	!PRERACE:1,TYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:MEMORIZE=N	PRESPELLCAST:TYPE=Arcane	!PRETEMPLATE:1,Half Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -675,8 +675,8 @@ SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
 ###Block:
 11	PREPCLEVEL:MIN=20
 
-# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define			Combat bonus										Bonus
-CLASS:Duelist	HD:10		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:DuelistLVL|0	BONUS:VAR|DuelistLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define			Combat bonus										Modify VAR			Bonus
+CLASS:Duelist	HD:10		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:DuelistLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|DuelistLVL|CL	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Feat					Required Skill				PRETOTALAB
 CLASS:Duelist	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PRESKILL:2,TYPE.Perform=3,Tumble=5	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -694,8 +694,8 @@ CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYP
 ###Block:
 11	PREPCLEVEL:MIN=20
 
-# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define				Combat bonus										Bonus
-CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Ddf		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:DwarvenDefenderLVL|0	BONUS:VAR|DwarvenDefenderLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define				Combat bonus										Modify VAR					Bonus
+CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Ddf		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:DwarvenDefenderLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|DwarvenDefenderLVL|CL	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Feat				Required Race	PRETOTALAB
 CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PREFEAT:3,Dodge,Endurance,Toughness	PRERACE:1,Dwarf%	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -735,8 +735,8 @@ CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher S
 ###Block:
 11	PREPCLEVEL:MIN=20
 
-# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define			Combat bonus															Bonus
-CLASS:Hierophant	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Hie		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:HierophantLVL|0	BONUS:VAR|HierophantLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define			Combat bonus															Modify VAR				Bonus
+CLASS:Hierophant	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Hie		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:HierophantLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|HierophantLVL|CL	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat			Required Skill				Req. Spell Type
 CLASS:Hierophant	PREFEAT:1,TYPE=Metamagic	PRESKILL:1,Knowledge (Religion)=15	PRESPELLTYPE:1,Divine=7
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -747,8 +747,8 @@ CLASS:Hierophant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|
 1	ABILITY:Hierophant Class Feature|AUTOMATIC|Hierophant ~ Special Ability
 
 
-# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define				Combat bonus															Bonus
-CLASS:Horizon Walker	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:How		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:HorizonWalkerLVL|0	BONUS:VAR|HorizonWalkerLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define				Combat bonus															Modify VAR				Bonus
+CLASS:Horizon Walker	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:How		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:HorizonWalkerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|HorizonWalkerLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat		Required Skill
 CLASS:Horizon Walker	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Geography)=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -760,8 +760,8 @@ CLASS:Horizon Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Handle Anima
 ###Block:
 11	PREPCLEVEL:MIN=20
 
-# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define			Combat bonus															Bonus
-CLASS:Loremaster	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:LoremasterLVL|0	BONUS:VAR|LoremasterLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define			Combat bonus															Modify VAR				Bonus
+CLASS:Loremaster	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:LoremasterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|LoremasterLVL|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Feat												Required Skill						Required Spell School
 CLASS:Loremaster	PREFEAT:1,Skill Focus (Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge=10,TYPE.Knowledge=10	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -811,8 +811,8 @@ CLASS:Mystic Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Sc
 ###Block:
 11	PREPCLEVEL:MIN=20
 
-# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define				Combat bonus															Bonus
-CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:ShadowdancerLVL|0	BONUS:VAR|ShadowdancerLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Define				Combat bonus															Modify VAR				Bonus
+CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	DEFINE:ShadowdancerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ShadowdancerLVL|CL	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat					Required Skill
 CLASS:Shadowdancer	PREFEAT:3,Combat Reflexes,Dodge,Mobility	PRESKILL:3,Hide=10,Move Silently=8,Perform (Dance)=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -857,19 +857,19 @@ CLASS:Thaumaturgist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Kn
 ###Block: Fractional BAB Support
 #3/4
 
-# Class Name	Combat bonus													Modify VAR
+# Class Name	Combat bonus														Modify VAR
 CLASS:Bard.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
-# Class Name	Combat bonus													Modify VAR
+# Class Name	Combat bonus														Modify VAR
 CLASS:Cleric.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
-# Class Name	Combat bonus													Modify VAR
+# Class Name	Combat bonus														Modify VAR
 CLASS:Druid.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
-# Class Name	Combat bonus													Modify VAR
+# Class Name	Combat bonus														Modify VAR
 CLASS:Monk.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
-# Class Name	Combat bonus													Modify VAR
+# Class Name	Combat bonus														Modify VAR
 CLASS:Rogue.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 #1/2
 
@@ -883,16 +883,16 @@ CLASS:Sorcerer.MOD	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAR
 ###Block: Fractional BAB Support
 #3/4
 
-# Class Name	Combat bonus													Modify VAR
+# Class Name	Combat bonus														Modify VAR
 CLASS:Expert.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
-# Class Name		Combat bonus													Modify VAR
+# Class Name		Combat bonus														Modify VAR
 CLASS:Assassin.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
-# Class Name			Combat bonus													Modify VAR
+# Class Name			Combat bonus														Modify VAR
 CLASS:Dragon Disciple.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 
-# Class Name		Combat bonus													Modify VAR
+# Class Name		Combat bonus														Modify VAR
 CLASS:Shadowdancer.MOD	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 #1/2
 

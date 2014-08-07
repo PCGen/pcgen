@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
@@ -100,27 +100,27 @@ FOLLOWER:MysticCompanionLvl=19	TYPE:Mystic Companion																												
 FOLLOWER:MysticCompanionLvl=20	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
 
 ###Block: Animal Progression
-# Class of the Master		Type				Hit Dice	Ability																	Define			Save checks bonus																Combat bonus													Stat bonus							Modify VAR								Main Race Type
-FOLLOWER:CompanionLvl=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Character Points For Companions	DEFINE:CompanionCPLvl|0																																										BONUS:VAR|CompanionCPLvl|3					RACETYPE:Magical Beast
-FOLLOWER:CompanionLvl=2		TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=3		TYPE:Animal Companion	HD:2																				DEFINE:BonusTricks|0	BONUS:SAVE|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:SAVE|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BASEAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
-FOLLOWER:CompanionLvl=4		TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=5		TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=6		TYPE:Animal Companion	HD:2																								BONUS:SAVE|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:SAVE|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BASEAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
-FOLLOWER:CompanionLvl=7		TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=8		TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=9		TYPE:Animal Companion	HD:2																								BONUS:SAVE|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:SAVE|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BASEAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
-FOLLOWER:CompanionLvl=10	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=11	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=12	TYPE:Animal Companion	HD:2																								BONUS:SAVE|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:SAVE|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BASEAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
-FOLLOWER:CompanionLvl=13	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=14	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=15	TYPE:Animal Companion	HD:2																								BONUS:SAVE|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:SAVE|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BASEAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
-FOLLOWER:CompanionLvl=16	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=17	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=18	TYPE:Animal Companion	HD:2																								BONUS:SAVE|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:SAVE|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BASEAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
-FOLLOWER:CompanionLvl=19	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=20	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
+# Class of the Master		Type				Hit Dice	Ability																	Define			Combat bonus													Stat bonus							Modify VAR								Main Race Type		Bonus
+FOLLOWER:CompanionLvl=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Character Points For Companions	DEFINE:CompanionCPLvl|0																								BONUS:VAR|CompanionCPLvl|3					RACETYPE:Magical Beast
+FOLLOWER:CompanionLvl=2		TYPE:Animal Companion																																																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=3		TYPE:Animal Companion	HD:2																				DEFINE:BonusTricks|0	BONUS:COMBAT|BASEAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1					BONUS:SAVE|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:SAVE|Will|1|TYPE=CompanionBonus.STACK
+FOLLOWER:CompanionLvl=4		TYPE:Animal Companion																																																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=5		TYPE:Animal Companion																																																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=6		TYPE:Animal Companion	HD:2																								BONUS:COMBAT|BASEAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1					BONUS:SAVE|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:SAVE|Will|1|TYPE=CompanionBonus.STACK
+FOLLOWER:CompanionLvl=7		TYPE:Animal Companion																																																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=8		TYPE:Animal Companion																																																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=9		TYPE:Animal Companion	HD:2																								BONUS:COMBAT|BASEAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1					BONUS:SAVE|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:SAVE|Will|1|TYPE=CompanionBonus.STACK
+FOLLOWER:CompanionLvl=10	TYPE:Animal Companion																																																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=11	TYPE:Animal Companion																																																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=12	TYPE:Animal Companion	HD:2																								BONUS:COMBAT|BASEAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1					BONUS:SAVE|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:SAVE|Will|1|TYPE=CompanionBonus.STACK
+FOLLOWER:CompanionLvl=13	TYPE:Animal Companion																																																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=14	TYPE:Animal Companion																																																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=15	TYPE:Animal Companion	HD:2																								BONUS:COMBAT|BASEAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1					BONUS:SAVE|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:SAVE|Will|1|TYPE=CompanionBonus.STACK
+FOLLOWER:CompanionLvl=16	TYPE:Animal Companion																																																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=17	TYPE:Animal Companion																																																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=18	TYPE:Animal Companion	HD:2																								BONUS:COMBAT|BASEAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1					BONUS:SAVE|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:SAVE|Will|1|TYPE=CompanionBonus.STACK
+FOLLOWER:CompanionLvl=19	TYPE:Animal Companion																																																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=20	TYPE:Animal Companion																																																BONUS:VAR|CompanionCPLvl|3
 
 
 ###Block: For Homebrews or different creatures - Currently testing Master > Follower Issues.

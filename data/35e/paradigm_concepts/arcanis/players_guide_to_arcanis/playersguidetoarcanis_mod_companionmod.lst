@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -54,23 +54,23 @@ FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Pseudodragon		KIT:1|Pseudodra
 FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Demon (Quasit)	KIT:1|Demon (Quasit) Familiar
 #
 ###Block:Familiar Bonuses to Master
-# Race of familiar			Type				Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill			Virtual Feat	Special ABility			Add
-MASTERBONUSRACE:Bat			TYPE:Arcanis Familiar															BONUS:SKILL|Listen|3		VFEAT:Alertness
-MASTERBONUSRACE:Cat			TYPE:Arcanis Familiar															BONUS:SKILL|Move Silently|3	VFEAT:Alertness
-MASTERBONUSRACE:Hawk			TYPE:Arcanis Familiar															BONUS:SKILL|Spot|3		VFEAT:Alertness
-MASTERBONUSRACE:Lizard			TYPE:Arcanis Familiar															BONUS:SKILL|Climb|3		VFEAT:Alertness
-MASTERBONUSRACE:Mongoose		TYPE:Arcanis Familiar	BONUS:SAVE|Reflex|1																			SAB:+2 against poison
-MASTERBONUSRACE:Owl			TYPE:Arcanis Familiar															BONUS:SKILL|Spot|3		VFEAT:Alertness
+# Race of familiar			Type				Combat bonus			Bonus to HP			Bonus to skill			Virtual Feat	Special ABility			Add 									Bonus
+MASTERBONUSRACE:Bat			TYPE:Arcanis Familiar										BONUS:SKILL|Listen|3		VFEAT:Alertness
+MASTERBONUSRACE:Cat			TYPE:Arcanis Familiar										BONUS:SKILL|Move Silently|3	VFEAT:Alertness
+MASTERBONUSRACE:Hawk			TYPE:Arcanis Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
+MASTERBONUSRACE:Lizard			TYPE:Arcanis Familiar										BONUS:SKILL|Climb|3		VFEAT:Alertness
+MASTERBONUSRACE:Mongoose		TYPE:Arcanis Familiar																		SAB:+2 against poison											BONUS:SAVE|Reflex|1
+MASTERBONUSRACE:Owl			TYPE:Arcanis Familiar										BONUS:SKILL|Spot|3		VFEAT:Alertness
 #errata applied to parrot 2006-06-03
-MASTERBONUSRACE:Parrot			TYPE:Arcanis Familiar																												ADD:LANGUAGE|3|TYPE=Read,TYPE=Spoken,TYPE=Written
-MASTERBONUSRACE:Rat			TYPE:Arcanis Familiar	BONUS:SAVE|Fortitude|2															VFEAT:Alertness
-MASTERBONUSRACE:Raven			TYPE:Arcanis Familiar															BONUS:SKILL|Appraise|3		VFEAT:Alertness
-MASTERBONUSRACE:Snake (Viper/Tiny)	TYPE:Arcanis Familiar															BONUS:SKILL|Bluff|3		VFEAT:Alertness
-MASTERBONUSRACE:Scorpion		TYPE:Arcanis Familiar																							SAB:+4 saves against poison
-MASTERBONUSRACE:Spider			TYPE:Arcanis Familiar						BONUS:COMBAT|Initiative|2
-MASTERBONUSRACE:Spider Monkey		TYPE:Arcanis Familiar															BONUS:SKILL|Balance|3
-MASTERBONUSRACE:Toad			TYPE:Arcanis Familiar											BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
-MASTERBONUSRACE:Weasel			TYPE:Arcanis Familiar	BONUS:SAVE|Reflex|2																VFEAT:Alertness
+MASTERBONUSRACE:Parrot			TYPE:Arcanis Familiar																							ADD:LANGUAGE|3|TYPE=Read,TYPE=Spoken,TYPE=Written
+MASTERBONUSRACE:Rat			TYPE:Arcanis Familiar															VFEAT:Alertness															BONUS:SAVE|Fortitude|2
+MASTERBONUSRACE:Raven			TYPE:Arcanis Familiar										BONUS:SKILL|Appraise|3		VFEAT:Alertness
+MASTERBONUSRACE:Snake (Viper/Tiny)	TYPE:Arcanis Familiar										BONUS:SKILL|Bluff|3		VFEAT:Alertness
+MASTERBONUSRACE:Scorpion		TYPE:Arcanis Familiar																		SAB:+4 saves against poison
+MASTERBONUSRACE:Spider			TYPE:Arcanis Familiar	BONUS:COMBAT|Initiative|2
+MASTERBONUSRACE:Spider Monkey		TYPE:Arcanis Familiar										BONUS:SKILL|Balance|3
+MASTERBONUSRACE:Toad			TYPE:Arcanis Familiar						BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
+MASTERBONUSRACE:Weasel			TYPE:Arcanis Familiar															VFEAT:Alertness															BONUS:SAVE|Reflex|2
 #
 ###Block:Arcanis Animal Companion
 # Class of the Master			Type					Hit Dice	Ability								Virtual Feat				Special ABility					Define			Combat bonus						Stat bonus

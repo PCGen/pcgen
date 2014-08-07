@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja	SOURCEDATE:2005-01
 
 #CREATED BY: Paul W. King, Jan 2007
 #EDITED BY: Paul W. King, Jan 2007
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus										Modify VAR
-CLASS:Igasaki Disciple	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Igasaki Disciple	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL			Req. Att.	Required Feat					Required Race	Required Skill
 CLASS:Igasaki Disciple	PREALIGN:LN,LE,TN,NE	PREATT:5	PREFEAT:2,Alertness,Improved Initiative	PRERACE:1,Human	PRESKILL:5,Craft (Alchemy)=10,Disguise=10,Hide=8,Move Silently=8,TYPE.Perform=8
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -21,8 +21,8 @@ CLASS:Igasaki Disciple	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Decipher Sc
 7								ABILITY:Special Ability|AUTOMATIC|Igasaki Poison
 10								ABILITY:Special Ability|AUTOMATIC|Face in the Shadows
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus										Modify VAR
-CLASS:Inpo Agent	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Inpo Agent	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL				Required Feat					Required Skill
 CLASS:Inpo Agent	PREALIGN:LN,TN,CN,LE,NE,CE	PREFEAT:3,Combat Expertise,Dodge,Mobility	PRESKILL:4,Gather Information=5,Tumble=5,Hide=10,Move Silently=10
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -52,8 +52,8 @@ CLASS:Inpo Agent	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 8																											ABILITY:Special Ability|AUTOMATIC|Improved Coup de Grace
 10																											ABILITY:Special Ability|AUTOMATIC|Whispering Wind
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Lotus Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Lotus Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL			Req. Att.	Required Feat							Required Skill
 CLASS:Lotus Warrior	PREALIGN:LN,TN,LE,NE	PREATT:6	PREFEAT:3,Improved Initiative,Iron Will,Weapon Focus	PRESKILL:4,Hide=9,Move Silently=9,Intimidate=5,Knowledge (Arcana)=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -62,16 +62,16 @@ CLASS:Lotus Warrior	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escape
 1	BONUS:ABILITYPOOL|Lotus Warrior Proficiencies|3	AUTO:FEAT|Simple Weapon Proficiency
 ###Block:general
 1										BONUS:UDAM|CLASS.Monk|CL	BONUS:VAR|MonkLVL|CL
-2															BONUS:VAR|DevilSkin|(CL+1)/3																	ABILITY:Special Ability|AUTOMATIC|Devil Skin
-3																																				ABILITY:Special Ability|AUTOMATIC|Tiger Roar
-4																																				ABILITY:Special Ability|AUTOMATIC|Beast Fang
-6																				DEFINE:WeapSpecQualify|0	DEFINE:GreatWeapFocusQualify|0	DEFINE:GreatWeapSpecQualify|0	BONUS:VAR|WeapSpecQualify,GreatWeapFocusQualify,GreatWeapSpecQualify|1|TYPE=Base
+2															BONUS:VAR|DevilSkin|(CL+1)/3																										ABILITY:Special Ability|AUTOMATIC|Devil Skin
+3																																													ABILITY:Special Ability|AUTOMATIC|Tiger Roar
+4																																													ABILITY:Special Ability|AUTOMATIC|Beast Fang
+6															BONUS:VAR|WeapSpecQualify,GreatWeapFocusQualify,GreatWeapSpecQualify|1|TYPE=Base	DEFINE:WeapSpecQualify|0	DEFINE:GreatWeapFocusQualify|0	DEFINE:GreatWeapSpecQualify|0
 6:REPEATLEVEL:3	BONUS:ABILITYPOOL|Lotus Warrior Feat|1
-7																																				ABILITY:Special Ability|AUTOMATIC|Fiery Tiger Roar
-10																																				ABILITY:Special Ability|AUTOMATIC|Shadow and Smoke
+7																																													ABILITY:Special Ability|AUTOMATIC|Fiery Tiger Roar
+10																																													ABILITY:Special Ability|AUTOMATIC|Shadow and Smoke
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Shadow Saint	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.24	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Shadow Saint	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL		Req. Att.	Required Feat										Required Skill
 CLASS:Shadow Saint	PREALIGN:LG,LN	PREATT:7	PREFEAT:4,Blind-Fight,Improved Unarmed Strike,Stealthy,Stunning Fist	PRESKILL:3,Knowledge (Religion)=5,Sense Motive=5,Spot=5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -85,8 +85,8 @@ CLASS:Shadow Saint	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft
 3	BONUS:VAR|ResistRiddle|CL/3					ABILITY:Special Ability|AUTOMATIC|Resist the Riddle of Illusion
 4										ABILITY:Special Ability|AUTOMATIC|Warrior of the Night
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus										Modify VAR
-CLASS:Worm Doctor	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Worm Doctor	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL			Required Feat		Required Skill							Req. Spell Type
 CLASS:Worm Doctor	PREALIGN:LN,NG,TN,CN,NE	PREFEAT:1,Toughness	PRESKILL:3,Heal=9,Knowledge (Religion)=9,Spellcraft=5	PRESPELLTYPE:1,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill

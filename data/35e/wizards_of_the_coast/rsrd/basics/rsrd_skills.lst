@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Jun 22 17:23:35 2014 -- reformated by prettylst.pl v1.51 (build 24190)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: Chipoulou/Thomas - Mad OS Test Monkey - tjannes@vub.ac.be
 # Revised Updated Entry by: Collaborative Effort by Andrew Maitland and BD
@@ -80,7 +80,7 @@ Use Magic Device					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Standard.Base
 Use Rope						KEYSTAT:DEX								TYPE:Dexterity.Standard.Base.Use Rope											SOURCEPAGE:SkillsII.rtf
 
 ###Block: From Epic - Prevent situational Conflicts
-# Skill Name		Key Stat	Untrained?		Type				Visible		Source Page					Temporary effect description													Temporary Bonus
+# Skill Name		Key Stat	Untrained?		Type											Visible		Source Page					Temporary effect description													Temporary Bonus
 Craft (Dreamweaving)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Standard.Base.Craft (Dreamweaving)		VISIBLE:DISPLAY	SOURCEPAGE:EpicMonsters(A-E).rtf	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Dreamweaving)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools
 Craft (Gemcutting)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Standard.Base.Craft (Gemcutting)		VISIBLE:DISPLAY	SOURCEPAGE:EpicMagicItems2.rtf	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Gemcutting)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools
 Craft (Metalworking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Standard.Base.Craft (Metalworking)		VISIBLE:DISPLAY	SOURCEPAGE:EpicMonsters(A-E).rtf	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Metalworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools

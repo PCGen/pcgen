@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Second Darkness - Chapter 3: The Armageddon Echo	SOURCESHORT:PF15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
 # Original Entry by Eddy Anthony (MoSaT)
 
 # Blast Shadow Abilities
-# Ability Name		Output Name									Category of Ability		Type							Define					Description																							Source Page
-Cloud of Smoke and Fire											CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Aura							DESC:A blast shadow can, as a free action, surround itself with a cloud of smoke that burns living flesh.							SOURCEPAGE:p. 82
-Death Burst													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DEFINE:DeathBurstDC|0	BONUS:VAR|DeathBurstDC|10+(HD/2)+CHA	DESC:When a blast shadow is reduced to 0 or fewer hit points, it explodes in a blast of flame. DC 18 Reflex save for half damage.|DeathBurstDC	SOURCEPAGE:p. 82
-Blast Shadow Claws	OUTPUTNAME:Claw attacks do an additional 1d6 fire damage	CATEGORY:Special Ability	TYPE:SpecialQuality																																		SOURCEPAGE:p. 82
+# Ability Name		Output Name									Category of Ability		Type							Define			Description																							Modify VAR						Source Page
+Cloud of Smoke and Fire											CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Aura					DESC:A blast shadow can, as a free action, surround itself with a cloud of smoke that burns living flesh.														SOURCEPAGE:p. 82
+Death Burst													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DEFINE:DeathBurstDC|0	DESC:When a blast shadow is reduced to 0 or fewer hit points, it explodes in a blast of flame. DC 18 Reflex save for half damage.|DeathBurstDC	BONUS:VAR|DeathBurstDC|10+(HD/2)+CHA	SOURCEPAGE:p. 82
+Blast Shadow Claws	OUTPUTNAME:Claw attacks do an additional 1d6 fire damage	CATEGORY:Special Ability	TYPE:SpecialQuality																																							SOURCEPAGE:p. 82
 
 ###Block: Cutlass Spider Abilities
 # Ability Name				Output Name																Category of Ability		Type							Description																												Source Page
@@ -17,13 +17,13 @@ Weapon Thief																					CATEGORY:Special Ability	TYPE:SpecialAttack.Ext
 Cutlass Spider Hide			OUTPUTNAME:+8 racial bonus on Hide checks (+12 amid trash and debris) when using its collapse ability	CATEGORY:Special Ability	TYPE:SpecialQuality																																	SOURCEPAGE:p. 84
 
 ###Block: Forest Drake Abilities
-# Ability Name			Output Name											Category of Ability		Type									Define						Description																							Source Page
-Forest Drake Immunities		OUTPUTNAME:Immune to acid, sleep and paralysis					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity																																	SOURCEPAGE:p. 86
-Acidic Cloud Breath														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				DEFINE:AcidicCloudBreathDC|0	BONUS:VAR|AcidicCloudBreathDC|10+(HD/2)+CON	DESC:60 feet range ball of acid deals 4d4 points of acid damage within the 10-foot-radius cloud, DC %1 Reflex save for half|AcidicCloudBreathDC	SOURCEPAGE:p. 86
-Speed Surge																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement								DESC:Three times per day, a forest drake may take an additional move action												SOURCEPAGE:p. 86
-Forest Drake Bite			OUTPUTNAME:Bite attack does an additional 1d6 acid damge			CATEGORY:Special Ability	TYPE:SpecialQuality																																					SOURCEPAGE:p. 86
-Forest Drake Hide			OUTPUTNAME:+8 racial bonus on Hide checks made in a forest environment	CATEGORY:Special Ability	TYPE:SpecialQuality																																					SOURCEPAGE:p. 86
-Forest Drake Water Breathing	OUTPUTNAME:Water Breathing								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary											DESC:A forest drake can breathe underwater indefinitely and can freely use its breath weapon and other abilities while underwater.			SOURCEPAGE:p. 86
+# Ability Name			Output Name											Category of Ability		Type									Define				Description																							Modify VAR							Source Page
+Forest Drake Immunities		OUTPUTNAME:Immune to acid, sleep and paralysis					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity																																							SOURCEPAGE:p. 86
+Acidic Cloud Breath														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				DEFINE:AcidicCloudBreathDC|0	DESC:60 feet range ball of acid deals 4d4 points of acid damage within the 10-foot-radius cloud, DC %1 Reflex save for half|AcidicCloudBreathDC	BONUS:VAR|AcidicCloudBreathDC|10+(HD/2)+CON	SOURCEPAGE:p. 86
+Speed Surge																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement						DESC:Three times per day, a forest drake may take an additional move action																				SOURCEPAGE:p. 86
+Forest Drake Bite			OUTPUTNAME:Bite attack does an additional 1d6 acid damge			CATEGORY:Special Ability	TYPE:SpecialQuality																																											SOURCEPAGE:p. 86
+Forest Drake Hide			OUTPUTNAME:+8 racial bonus on Hide checks made in a forest environment	CATEGORY:Special Ability	TYPE:SpecialQuality																																											SOURCEPAGE:p. 86
+Forest Drake Water Breathing	OUTPUTNAME:Water Breathing								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary									DESC:A forest drake can breathe underwater indefinitely and can freely use its breath weapon and other abilities while underwater.											SOURCEPAGE:p. 86
 
 ###Block: Maftet Abilities
 # Ability Name	Category of Ability		Type								Description																					Source Page
@@ -33,18 +33,18 @@ Raptor Dive		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOpt
 Runic Tattoos	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:The eldritch tattoos scribed on a maftet's body power its spell-like abilities and glow faintly when those abilities are used.	SOURCEPAGE:p. 88
 
 ###Block: Pain Taster Abilities
-# Ability Name		Category of Ability		Type								Define								Description																			Bonus to Ability Pool					Stat bonus					Source Page
-Masochism			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary												DESC:You have a perverse tolerance for pain																											SOURCEPAGE:p. 61
-Disciple of Pain		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural												DESC:A pain taster gains insight into the mysteries of self-torture and torment.							BONUS:ABILITYPOOL|Disciple of Pain Routine|1							SOURCEPAGE:p. 61
-Disciple of Acuity	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|INT|2|TYPE=Enhancement	SOURCEPAGE:p. 61
-Disciple of Flexibility	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|DEX|2|TYPE=Enhancement	SOURCEPAGE:p. 61
-Disciple of Insight	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|WIS|2|TYPE=Enhancement	SOURCEPAGE:p. 61
-Disciple of Spirit	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|CHA|2|TYPE=Enhancement	SOURCEPAGE:p. 61
-Disciple of Torment	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|CON|2|TYPE=Enhancement	SOURCEPAGE:p. 61
-Disciple of Vigor		CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|STR|2|TYPE=Enhancement	SOURCEPAGE:p. 61
-Cruelty			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DEFINE:SneakAttackDie|0	BONUS:VAR|SneakAttackDie|6|TYPE=Base	DEFINE:SneakAttackDice|0	DESC:You gain the sneak attack ability (+%1d%2), but only when using slashing weapons.|SneakAttackDice|SneakAttackDie															SOURCEPAGE:p. 61
-Blood Control		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	DEFINE:BloodControlBonus|0					DESC:You gain precise control over the movement of blood within your body (%1 points/round)|BloodControlBonus																SOURCEPAGE:p. 62
-Pain Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC										DESC:Your tolerance and enjoyment of pain increases your resistance to nonlethal damage.																				SOURCEPAGE:p. 62
+# Ability Name		Category of Ability		Type								Define								Description																			Bonus to Ability Pool					Stat bonus					Modify VAR						Source Page
+Masochism			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary												DESC:You have a perverse tolerance for pain																																		SOURCEPAGE:p. 61
+Disciple of Pain		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural												DESC:A pain taster gains insight into the mysteries of self-torture and torment.							BONUS:ABILITYPOOL|Disciple of Pain Routine|1														SOURCEPAGE:p. 61
+Disciple of Acuity	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|INT|2|TYPE=Enhancement								SOURCEPAGE:p. 61
+Disciple of Flexibility	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|DEX|2|TYPE=Enhancement								SOURCEPAGE:p. 61
+Disciple of Insight	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|WIS|2|TYPE=Enhancement								SOURCEPAGE:p. 61
+Disciple of Spirit	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|CHA|2|TYPE=Enhancement								SOURCEPAGE:p. 61
+Disciple of Torment	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|CON|2|TYPE=Enhancement								SOURCEPAGE:p. 61
+Disciple of Vigor		CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|STR|2|TYPE=Enhancement								SOURCEPAGE:p. 61
+Cruelty			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0	DESC:You gain the sneak attack ability (+%1d%2), but only when using slashing weapons.|SneakAttackDice|SneakAttackDie															BONUS:VAR|SneakAttackDie|6|TYPE=Base	SOURCEPAGE:p. 61
+Blood Control		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	DEFINE:BloodControlBonus|0					DESC:You gain precise control over the movement of blood within your body (%1 points/round)|BloodControlBonus																							SOURCEPAGE:p. 62
+Pain Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC										DESC:Your tolerance and enjoyment of pain increases your resistance to nonlethal damage.																											SOURCEPAGE:p. 62
 
 ###Block: Demonic Initiate Abilities
 # Ability Name		Output Name					Category of Ability		Type						Description																		Source Page

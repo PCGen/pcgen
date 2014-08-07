@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 # ~ Champion of the Dead
-# Ability Name			Unique Key									Category of Ability		Type						Define				Description
+# Ability Name			Unique Key									Category of Ability		Type						Define				Description																				Modify VAR
 Leader of the Dead		KEY:Leader of the Dead ~ Champion of the Dead			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Sanctuary of the Dead		KEY:Sanctuary of the Dead ~ Champion of the Dead		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Rally Undead			KEY:Rally Undead ~ Champion of the Dead				CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -51,17 +51,17 @@ Indominable Will			KEY:Indominable Will ~ Faith Hunter					CATEGORY:Special Abil
 Cure Infection			KEY:Cure Infection ~ Faith Hunter					CATEGORY:Special Ability	TYPE:SpecialQuality
 Stake Attack			KEY:Stake Attack ~ Faith Hunter					CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:StakeAttack|0		DESC:+%1d6|StakeAttack
 Detect Undead			KEY:Detect Undead ~ Faith Hunter					CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Undead Foe				KEY:Undead Foe ~ Faith Hunter						CATEGORY:Special Ability	TYPE:SpecialQuality			
+Undead Foe				KEY:Undead Foe ~ Faith Hunter						CATEGORY:Special Ability	TYPE:SpecialQuality
 Unpalatable Blood			KEY:Unpalatable Blood ~ Faith Hunter				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Ranged Stake Attack		KEY:Ranged Stake Attack ~ Faith Hunter				CATEGORY:Special Ability	TYPE:SpecialQuality
 # ~	KEY:Undead Foe								CATEGORY:Special Ability	TYPE:SpecialQuality
-Repel Vampires			KEY:Repel Vampires ~ Faith Hunter					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:RepelVampires|0	BONUS:VAR|RepelVampires|1		DESC:%1/day|RepelVampires
+Repel Vampires			KEY:Repel Vampires ~ Faith Hunter					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:RepelVampires|0		DESC:%1/day|RepelVampires																	BONUS:VAR|RepelVampires|1
 Compel Solid Form			KEY:Compel Solid Form ~ Faith Hunter				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:CompelSolidForm|0	DESC:(DC %1)|CompelSolidForm
 # ~	KEY:Undead Foe		CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Hunter of the Fallen
-Favored Enemy			KEY:Favored Enemy ~ Hunter of the Fallen				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:FavoredEnemy|0	BONUS:VAR|FavoredEnemy|1		DESC:Lvl. %1|FavoredEnemy
-Sense Undead			KEY:Sense Undead ~ Hunter of the Fallen				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DEFINE:SenseUndead|0	BONUS:VAR|SenseUndead|1		DESC:Lvl. %1|SenseUndead
+Favored Enemy			KEY:Favored Enemy ~ Hunter of the Fallen				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:FavoredEnemy|0		DESC:Lvl. %1|FavoredEnemy																	BONUS:VAR|FavoredEnemy|1
+Sense Undead			KEY:Sense Undead ~ Hunter of the Fallen				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DEFINE:SenseUndead|0		DESC:Lvl. %1|SenseUndead																	BONUS:VAR|SenseUndead|1
 Hardened Soul			KEY:Hardened Soul ~ Hunter of the Fallen				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:HardenedSoul|0		DESC:Lvl. %1|HardenedSoul
 Hand of the Hunter		KEY:Hand of the Hunter ~ Hunter of the Fallen			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Track the Dead			KEY:Track the Dead ~ Hunter of the Fallen				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -87,7 +87,7 @@ Protection from Evil		KEY:Protection from Evil ~ Paladin of the Pale			CATEGORY:
 Holy Terror				KEY:Holy Terror ~ Paladin of the Pale				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 # ~ Puppet
-Thy Master's Will			KEY:Thy Master's Will ~ Puppet					CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ThyMastersWill|0	BONUS:VAR|ThyMastersWill|1		DESC:- %1 Ability|ThyMastersWill|PREVARGTEQ:PuppetLvl,7
+Thy Master's Will			KEY:Thy Master's Will ~ Puppet					CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ThyMastersWill|0		DESC:- %1 Ability|ThyMastersWill|PREVARGTEQ:PuppetLvl,7												BONUS:VAR|ThyMastersWill|1
 Empathic Link			KEY:Empathic Link ~ Puppet						CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:EmpLink|0			DESC:- %1 Miles(Su)|EmpLink
 Strengthened Resolve		KEY:Strengthened Resolve ~ Puppet					CATEGORY:Special Ability	TYPE:SpecialQuality
 Corruptive Influence		KEY:Corruptive Influence ~ Puppet					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural

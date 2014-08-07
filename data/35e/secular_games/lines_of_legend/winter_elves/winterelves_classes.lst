@@ -1,17 +1,17 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we	SOURCEDATE:2006-01
 # Original Entry by: Paul W. King, Jan 2007
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus										Modify VAR
-CLASS:Heir of Balyk	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Heir of Balyk	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL	Required Feat		Required Race		Required Skill									Req. Spell Type
 CLASS:Heir of Balyk	PREALIGN:LE	PREFEAT:1,Endurance	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Religion)=11,Knowledge (The Planes)=11	PRESPELLTYPE:1,Divine=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Heir of Balyk	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Intimidate|TYPE=Knowledge|TYPE=Profession|Ride|Sense Motive|Spellcraft
 ###Block: Domain stuff
 3	DOMAIN:Devil|PREFEAT:1,Heir of Balyk Devil Domain	DOMAIN:Hate|PREFEAT:1,Heir of Balyk Hate Domain	DOMAIN:Treachery|PREFEAT:1,Heir of Balyk Treachery Domain	BONUS:ABILITYPOOL|Heir of Balyk Domain|1	BONUS:DOMAIN|NUMBER|1
-6																										BONUS:ABILITYPOOL|Heir of Balyk Domain|1	BONUS:DOMAIN|NUMBER|1
-9																										BONUS:ABILITYPOOL|Heir of Balyk Domain|1	BONUS:DOMAIN|NUMBER|1
+6																												BONUS:ABILITYPOOL|Heir of Balyk Domain|1	BONUS:DOMAIN|NUMBER|1
+9																												BONUS:ABILITYPOOL|Heir of Balyk Domain|1	BONUS:DOMAIN|NUMBER|1
 ###Block: Normal Level Progression
 1									ADD:SPELLCASTER|Divine
 1					BONUS:VAR|HeirBalyk|CL					ABILITY:Special Ability|AUTOMATIC|Power of Deception
@@ -24,8 +24,8 @@ CLASS:Heir of Balyk	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Scr
 9	BONUS:DOMAIN|NUMBER|1					ADD:SPELLCASTER|Divine
 10													ABILITY:Special Ability|AUTOMATIC|Extra Domain Spell
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus										Modify VAR
-CLASS:Keeper of the Ice	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR													Bonus
+CLASS:Keeper of the Ice	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Class				Multiple Requirements											Required Race		Required Skill						Req. Known Spell
 CLASS:Keeper of the Ice	PRECLASS:1,SPELLCASTER.Arcane=1	PREMULT:2,[PREFEAT:2,Spell Focus (Evocation),Endurance],[PREFEAT:2,TYPE.Metamagic]	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Arcana)=10,Survival=4	PRESPELL:1,Ice Storm
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -40,8 +40,8 @@ CLASS:Keeper of the Ice	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher
 8	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Cold Spell Empowerment
 10	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Supreme Cold Mastery
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Knight of the Frostfang	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.22	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Knight of the Frostfang	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required Ability							Req. Att.	Required Feat					Required Race		Required Skill
 CLASS:Knight of the Frostfang	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PREATT:9	PREFEAT:2,Mounted Combat,Ride-By Attack	PRERACE:1,Elf (Winter)	PRESKILL:2,Ride=9,Survival=9
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -55,8 +55,8 @@ CLASS:Knight of the Frostfang	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Ani
 2	BONUS:VAR|SolidAsIce|CL/2	ABILITY:Special Ability|AUTOMATIC|Solid as Ice
 5						ABILITY:Special Ability|AUTOMATIC|Wolf Brotherhood
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus										Modify VAR
-CLASS:Thrall of Gaulgardos	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR													Bonus
+CLASS:Thrall of Gaulgardos	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL		Required Race		Required Skill								Req. Known Spell			Required Spell School
 CLASS:Thrall of Gaulgardos	PREALIGN:LE,NE,CE	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (Arcana)=10,Knowledge (The Planes)=10	PRESPELL:1,Summon Monster IV	PRESPELLSCHOOL:2,Conjuration=3	PRESPELLSCHOOL:3,Conjuration=2
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -69,8 +69,8 @@ CLASS:Thrall of Gaulgardos	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft
 8								ADD:SPELLCASTER|Divine
 10								ADD:SPELLCASTER|Divine
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Wayjik Demon Hunter	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+CLASS:Wayjik Demon Hunter	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Req. Att.	Required Feat							Required Race		Required Skill
 CLASS:Wayjik Demon Hunter	PREATT:7	PREFEAT:3,Strength of Margalthas,Weapon Focus,Track	PRERACE:1,Elf (Winter)	PRESKILL:2,Knowledge (The Planes)=4,Survival=6
 # Class Name			Skill Pts/Lvl	Class Skill

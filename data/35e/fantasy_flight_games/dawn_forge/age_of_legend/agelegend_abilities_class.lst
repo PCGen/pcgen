@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
@@ -86,7 +86,7 @@ Survival Instincts		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DIS
 Survival Instincts II		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Survival Instincts																																		ABILITY:Special Ability|VIRTUAL|Improved Evasion										SOURCEPAGE:p.117
 
 ###Block: Trueborn Staunch bonuses
-# Ability Name					Category of Ability		Type				Visible		Save checks bonus
+# Ability Name					Category of Ability		Type				Visible		Bonus
 Trueborn Staunch Will Save Increase		CATEGORY:Special Ability	TYPE:HTrueStaunchBonus	VISIBLE:DISPLAY	BONUS:SAVE|BASE.Will|1|TYPE=Transformation
 Trueborn Staunch Reflex Save Increase	CATEGORY:Special Ability	TYPE:HTrueStaunchBonus	VISIBLE:DISPLAY	BONUS:SAVE|BASE.Reflex|1|TYPE=Transformation
 Trueborn Staunch Fortitude Save Increase	CATEGORY:Special Ability	TYPE:HTrueStaunchBonus	VISIBLE:DISPLAY	BONUS:SAVE|BASE.Fortitude|1|TYPE=Transformation

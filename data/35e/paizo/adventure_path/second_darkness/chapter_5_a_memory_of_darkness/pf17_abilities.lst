@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Fri Jan  2 18:16:08 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Second Darkness - Chapter 5: A Memory of Darkness	SOURCESHORT:PF17	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy81tr	SOURCEDATE:2008-12
 # Original Entry by Eddy Anthony (MoSaT)
 
 ###Block: Banshee Abilities
-# Ability Name	Category of Ability		Type							Description														Save checks bonus			Bonus to HP				Source Page
-Hear Heartbeat	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense	DESC:A banshee can sense the beating hearts of living creatures with horrific ease.												SOURCEPAGE:p. 80
-Unholy Fortitude	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																	BONUS:SAVE|Fortitude|CHA	BONUS:HP|CURRENTMAX|CHA*TL	SOURCEPAGE:p. 80
-Wail			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		DESC:A banshee's wail is its most notorious and devastating attack, DC %1|10+(HD/2)+CHA											SOURCEPAGE:p. 80
+# Ability Name	Category of Ability		Type							Description														Bonus to HP				Source Page		Bonus
+Hear Heartbeat	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense	DESC:A banshee can sense the beating hearts of living creatures with horrific ease.							SOURCEPAGE:p. 80
+Unholy Fortitude	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																	BONUS:HP|CURRENTMAX|CHA*TL	SOURCEPAGE:p. 80	BONUS:SAVE|Fortitude|CHA
+Wail			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		DESC:A banshee's wail is its most notorious and devastating attack, DC %1|10+(HD/2)+CHA						SOURCEPAGE:p. 80
 
 ###Block: Leucrotta Abilities
 # Ability Name	Category of Ability		Type						Description																								Source Page

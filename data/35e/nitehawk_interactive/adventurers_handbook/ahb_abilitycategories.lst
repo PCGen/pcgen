@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 #SOURCELONG:The Adventurer's Handbook	SOURCESHORT:AdHb	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 # Original Entry by: Tir Gwaith, Eddy Anthony, Andrew Maitland
 #
@@ -19,6 +19,6 @@ ABILITYCATEGORY:Psionist Feat Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		F
 ABILITYCATEGORY:Mentalist Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psionic.Fighter																	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Mentalist Exotic Weapon	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Exotic Weapon Proficiency									DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Slave Weapon Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT								TYPE:SlaveWeaponProfSelection					DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Slave Weapon Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SlaveWeaponProfSelection																DISPLAYLOCATION:Class Abilities
 
-	
+
