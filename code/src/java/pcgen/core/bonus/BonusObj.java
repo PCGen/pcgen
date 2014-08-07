@@ -424,26 +424,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 
 	private void buildDependMap(String aString)
 	{
-		if (aString.indexOf("SKILLINFO(") >= 0)
-		{
-			dependMap.put("JEPFORMULA", "1");
-		}
-		if (aString.indexOf("HP") >= 0)
-		{
-			dependMap.put("CURRENTMAX", "1");
-		}
-		if (aString.indexOf("SKILL.") >= 0 || aString.indexOf("SKILLINFO") >= 0)
-		{
-			dependMap.put("NAME|STAT", "1");
-		}
-		if (aString.indexOf("MODEQUIPMAXDEX") >= 0)
-		{
-			dependMap.put("MAXDEX", "1");
-		}
-		if (aString.equals("BAB"))
-		{
-			dependMap.put("BASEAB", "1");
-		}
+		addImpliedDependenciesFor(aString);
 		
 		
 		// First whack out all the () pairs to find variable names
@@ -538,6 +519,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 											.toString();
 							}
 							dependMap.put(testString.intern(), "1");
+							addImpliedDependenciesFor(testString);
 						}
 					}
 				}
@@ -545,6 +527,34 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		}
 	}
 	
+	/**
+	 * Add any dependencies implied by the provided dependency.
+	 * @param aString The direct dependency being added.
+	 */
+	private void addImpliedDependenciesFor(String aString)
+	{
+		if (aString.indexOf("SKILLINFO(") >= 0)
+		{
+			dependMap.put("JEPFORMULA", "1");
+		}
+		if (aString.indexOf("HP") >= 0)
+		{
+			dependMap.put("CURRENTMAX", "1");
+		}
+		if (aString.indexOf("SKILL.") >= 0 || aString.indexOf("SKILLINFO") >= 0)
+		{
+			dependMap.put("NAME|STAT", "1");
+		}
+		if (aString.indexOf("MODEQUIPMAXDEX") >= 0)
+		{
+			dependMap.put("MAXDEX", "1");
+		}
+		if (aString.equals("BAB"))
+		{
+			dependMap.put("BASEAB", "1");
+		}
+	}
+
 	/**
 	 * @see java.lang.Object#clone()
 	 */
