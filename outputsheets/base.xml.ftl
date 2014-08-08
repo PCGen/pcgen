@@ -794,15 +794,7 @@
 		<threat>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackThreatRange')}${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackCritMult')}</threat>
 		<reach>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackReach.INTVAL')}</reach>
 		<rangeincrement>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackRangeIncrement')}</rangeincrement>
-
-		<@loop from=0 to=4 ; NaturalAttackRange , NaturalAttackRange_has_next>
-		<range>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.${NaturalAttackRange}.TYPE=NaturalAttack.ASPECT.NaturalAttackRange')}</range>
-		<range>
-			<distance>${pcstring('ABILITYALL.Natural Attack.${NaturalAttackRange}.TYPE=NaturalAttack.ASPECT.NaturalAttackRange')}</distance>
-			<rangeincrement>${pcstring('ABILITYALL.Natural Attack.${NaturalAttackRange}.TYPE=NaturalAttack.ASPECT.NaturalAttackRangeIncrement')}</rangeincrement>
-			<distance_unit>${pcstring('UNITSET.DISTANCEUNIT')}</distance_unit>
-		</range>
-		</@loop>
+		<range>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackRange')}</range>
 		<notes>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackNotes')}${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.DESC')}</notes>
 		<!--> Used to Validate Word Toggle between Crit / Mult vs. Crit <-->
 		<critmult>${pcstring('ABILITYALL.Natural Attack.${NaturalAttack}.TYPE=NaturalAttack.ASPECT.NaturalAttackCritMult')}</critmult>
