@@ -41,6 +41,7 @@ $pub{'12_to_midnight'} = '12 to Midnight';
 $pub{'alderac_entertainment_group'} = 'Alderac Entertainment Group';
 $pub{'alderac_ent_group'} = 'Alderac Entertainment Group';
 $pub{'alea_publishing_group'} = 'Alea Publishing Group';
+$pub{'alluria_publishing'} = 'Alluria Publishing';
 $pub{'atlas_games'} = 'Atlas Games';
 $pub{'auran_d20'} = 'Auran d20';
 $pub{'avalanche_press'} = 'Avalanche Press';
