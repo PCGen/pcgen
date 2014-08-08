@@ -33,12 +33,17 @@ all the features we want to put out in our next production release.
 From here the focus changes to fixing any 
 issues you report and generally getting PCGen polished up ready for 
 production. So please grab a copy, load up your favourite characters and let us 
-know how it works for you. Some notable changes in this 
+know how it works for you. In particular please check your characters output 
+correctly in preview, html and PDF. We've tested lots of combinations but there 
+may still be a few cases where thee are output problems.   
+</p><p>
+Some notable changes in this 
 release are listed below. 
 <h3>Notable Changes</h3>
 <ul>
-<li>Update Guide to PSOP to recently released 5.0 version </li>
 <li>Lots of fixes to output</li>
+<li>Many data fixes</li>
+<li>Update Guide to PSOP to recently released 5.0 version </li>
 <li>Improved error handling when exporting characters</li>
 <li>Converter run on all sets</li>
 </ul>
@@ -282,6 +287,10 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/CODE-2675'>CODE-2675</a>] -         BONUS:COMBAT|BASEAB does not export &quot;ATTACK.MELEE.BASE&quot; or reflect on Weapons Block
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2680'>CODE-2680</a>] -         Paladin BAB displaying +0 in unit test
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/CODE-2681'>CODE-2681</a>] -         BAB completely canceled out by feat - Combat Expertise
+</li>
 </ul>
 
 <h3>       Data  Bug Fixes
@@ -347,11 +356,29 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1917'>DATA-1917</a>] -         Versatile Performance (Keyboard Instruments) has Sense Motive instead of Intimidate
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1920'>DATA-1920</a>] -         APG classes still using old style proficiency code
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1921'>DATA-1921</a>] -         ISWG prestige classes still using old style proficiency code
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1922'>DATA-1922</a>] -         Pathfinder Psionic Dreamscarred Press Power Points and Blade Skills
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1923'>DATA-1923</a>] -         [UC] Amulet of Bullet Protection has incorrect price and naming
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/DATA-1924'>DATA-1924</a>] -         [Advanced Race Guide] Missing EQMOD &quot;STEEL&quot; for steel weapons
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1925'>DATA-1925</a>] -         [6.4] DEFINEs with values other than 0 must be updated to proper standards
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1926'>DATA-1926</a>] -         [Ultimate Equipment] Range Increment on Double Barreled Musket Incorrect
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1928'>DATA-1928</a>] -         Lore Warden Scholastic Class Feature doesn&#39;t grant Intelligence-Based Class Skills, or allow spending additional ranks.
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1929'>DATA-1929</a>] -         Advanced Race Guide Race Builder System has no race traits
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1930'>DATA-1930</a>] -         Psionic Knack Dreamscarred Press is not adjusting Manifester Level
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1932'>DATA-1932</a>] -         Breath Weapon bonus applies once for each breath weapon
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/DATA-1933'>DATA-1933</a>] -         PFSFG Lore Warden&#39;s Expertise and Maneuver Mastery features uncoded
 </li>
 </ul>
 
@@ -416,7 +443,13 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 </li>
 <li>[<a href='http://jira.pcgen.org/browse/OS-343'>OS-343</a>] -         Re-add missing Other Companions block
 </li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-346'>OS-346</a>] -         Change all count(&quot;SKILLSIT&quot;) instances to use &quot;VIEW=EXPORT&quot;
+</li>
 <li>[<a href='http://jira.pcgen.org/browse/OS-347'>OS-347</a>] -         Long weapon description not line breaking correctly in PDF output
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-348'>OS-348</a>] -         Unable to export a level 1 alchemist to PDF
+</li>
+<li>[<a href='http://jira.pcgen.org/browse/OS-349'>OS-349</a>] -         Bomb stats missing
 </li>
 </ul>
  
