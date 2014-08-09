@@ -6,14 +6,14 @@ SOURCELONG:Psionics Expanded - Master the Battle	SOURCESHORT:PEMB	SOURCEWEB:http
 ###Block: Soulknife pseudo-weapons and -armor
 
 # Equipment Name			Required Weapon Proficiency		Required Armor Proficiency			Required Shield Proficiency		Type															Cost		Weight	Slot Needed	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Maximum DEX Bonus	Requires Modification?	Size		Source Page		% of Spell Failure	Combat bonus			Weapon prop. bonus									Special Property
-Mind Armor (Light)								PROFICIENCY:ARMOR|Mind Armor									TYPE:Armor.Light.Suit.Standard										COST:0	WT:25		SLOTS:1	ACCHECK:-1															MAXDEX:4								SOURCEPAGE:p.7	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
-Mind Armor (Medium)								PROFICIENCY:ARMOR|Mind Armor									TYPE:Armor.Medium.Suit.Standard										COST:0	WT:40		SLOTS:1	ACCHECK:-4															MAXDEX:2								SOURCEPAGE:p.7	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
-Mind Armor (Heavy)								PROFICIENCY:ARMOR|Mind Armor									TYPE:Armor.Heavy.Suit.Standard										COST:0	WT:45		SLOTS:1	ACCHECK:-6															MAXDEX:0								SOURCEPAGE:p.7	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor
+Mind Armor (Light)								PROFICIENCY:ARMOR|Mind Armor									TYPE:Armor.Light.ArmorProfLight.Suit.Standard										COST:0	WT:25		SLOTS:1	ACCHECK:-1															MAXDEX:4								SOURCEPAGE:p.7	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
+Mind Armor (Medium)								PROFICIENCY:ARMOR|Mind Armor									TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard										COST:0	WT:40		SLOTS:1	ACCHECK:-4															MAXDEX:2								SOURCEPAGE:p.7	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
+Mind Armor (Heavy)								PROFICIENCY:ARMOR|Mind Armor									TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard										COST:0	WT:45		SLOTS:1	ACCHECK:-6															MAXDEX:0								SOURCEPAGE:p.7	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor
 
 # NEEDS DATA WORK: How does one use the Armor magic item slot, without being counted as armor?
 Improved Mind Armor (Light)							PROFICIENCY:ARMOR|Improved Mind Armor							TYPE:Armor.None.Standard											COST:0	WT:0		SLOTS:1	ACCHECK:0																								SOURCEPAGE:p.11					BONUS:COMBAT|AC|4|TYPE=Armor
-Improved Mind Armor (Medium)							PROFICIENCY:ARMOR|Improved Mind Armor							TYPE:Armor.Medium.Suit.Standard.Masterwork								COST:0	WT:30		SLOTS:1	ACCHECK:-3															MAXDEX:3								SOURCEPAGE:p.11	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor
-Improved Mind Armor (Heavy)							PROFICIENCY:ARMOR|Improved Mind Armor							TYPE:Armor.Heavy.Suit.Standard.Masterwork									COST:0	WT:50		SLOTS:1	ACCHECK:-5															MAXDEX:1								SOURCEPAGE:p.11	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor
+Improved Mind Armor (Medium)							PROFICIENCY:ARMOR|Improved Mind Armor							TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard.Masterwork								COST:0	WT:30		SLOTS:1	ACCHECK:-3															MAXDEX:3								SOURCEPAGE:p.11	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor
+Improved Mind Armor (Heavy)							PROFICIENCY:ARMOR|Improved Mind Armor							TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard.Masterwork									COST:0	WT:50		SLOTS:1	ACCHECK:-5															MAXDEX:1								SOURCEPAGE:p.11	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor
 
 Deadly Fist				PROFICIENCY:WEAPON|Deadly Fist														TYPE:Weapon.Melee.Special.Unarmed.Monk.Bludgeoning.Piercing.Slashing.Finesseable.Close	COST:0	WT:0							CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	WIELD:Light									SIZE:M	SOURCEPAGE:p.8
 
