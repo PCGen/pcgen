@@ -53,7 +53,7 @@ NAME:InHandEquipped			PARM:EQUIPATTACK			DEFAULT:No					DESC:Treat Weapons In Ha
 NAME:WeaponSizebyCategory		PARM:SIZECAT			DEFAULT:Yes	EXCLUDE:SIZEOBJ		DESC:Use 3.5 Weapon Categories
 NAME:WeaponSizebyObject			PARM:SIZEOBJ			DEFAULT:No	EXCLUDE:SIZECAT		DESC:Use 3.0 Weapon Size
 
-NAME:SpellAlignmentRestriction	PARM:PROHIBITSPELLS		DEFAULT:Yes					DESC:Restict Cleric/Druid spells based on alignment
+NAME:SpellAlignmentRestriction	PARM:PROHIBITSPELLS		DEFAULT:Yes					DESC:Restrict Cleric/Druid spells based on alignment
 
 NAME:AmmoStacksWithWeapon		PARM:AMMOSTACKSWITHWEAPON	DEFAULT:No				DESC:Do ammunition enhancement bonus stack with those of the weapon
 
