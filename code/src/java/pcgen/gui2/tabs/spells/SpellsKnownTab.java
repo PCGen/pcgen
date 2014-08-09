@@ -332,12 +332,12 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			autoKnownBox.setAction(this);
 			character.getSpellSupport().setAutoSpells(autoKnownBox.isSelected());
 		}
 
 		public void install()
 		{
+			autoKnownBox.setAction(this);
 			autoKnownBox.setSelected(character.getSpellSupport().isAutoSpells());
 		}
 
