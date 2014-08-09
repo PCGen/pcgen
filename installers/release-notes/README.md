@@ -27,7 +27,7 @@ combinations but there may still be a few cases where there are output problems.
 
 
 For full details of the new changes in this release, see the 
-[Release Notes](https://sourceforge.net/projects/pcgen/files/PCGen%20Unstable/6.03.04/pcgen-release-notes-60304.html/download) in the list above.
+[Release Notes](http://sourceforge.net/projects/pcgen/files/PCGen%20Unstable/6.03.04%20Beta/pcgen-release-notes-60304.html/download) in the list above.
 
 *James Dempsey* for the PCGEN Team -- 9 August, 2014.
 
