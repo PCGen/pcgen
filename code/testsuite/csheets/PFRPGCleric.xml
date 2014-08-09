@@ -1091,7 +1091,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>ARMOR.MEDIUM.SUIT.STANDARD.METAL</type>
+			<type>ARMOR.MEDIUM.ARMORPROFMEDIUM.SUIT.STANDARD.METAL</type>
 			<weight>30</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1630,7 +1630,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>ARMOR.MEDIUM.SUIT.STANDARD.METAL</type>
+				<type>ARMOR.MEDIUM.ARMORPROFMEDIUM.SUIT.STANDARD.METAL</type>
 				<weight>30</weight>
 				<bonuslist></bonuslist>
 			</item>

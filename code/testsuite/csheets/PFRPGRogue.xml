@@ -1740,7 +1740,7 @@ BIO
 				<short>S</short>
 			</size>
 			<special_properties>30 hp/inch, hardness 15</special_properties>
-			<type>MAGIC.ARMOR.LIGHT.SUIT.STANDARD.CUSTOM.METAL.MITHRAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.ARMOR.LIGHT.ARMORPROFLIGHT.SUIT.STANDARD.CUSTOM.METAL.MITHRAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>6.25</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2826,7 +2826,7 @@ BIO
 					<short>S</short>
 				</size>
 				<special_properties>30 hp/inch, hardness 15</special_properties>
-				<type>MAGIC.ARMOR.LIGHT.SUIT.STANDARD.CUSTOM.METAL.MITHRAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.ARMOR.LIGHT.ARMORPROFLIGHT.SUIT.STANDARD.CUSTOM.METAL.MITHRAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>6.25</weight>
 				<bonuslist></bonuslist>
 			</item>

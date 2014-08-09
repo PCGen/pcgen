@@ -1577,7 +1577,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>MAGIC.ARMOR.HEAVY.SUIT.STANDARD.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.ARMOR.HEAVY.ARMORPROFHEAVY.SUIT.STANDARD.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>50</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2319,7 +2319,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>MAGIC.ARMOR.HEAVY.SUIT.STANDARD.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.ARMOR.HEAVY.ARMORPROFHEAVY.SUIT.STANDARD.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>50</weight>
 				<bonuslist></bonuslist>
 			</item>
