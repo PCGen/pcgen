@@ -78,3 +78,7 @@ ABILITYCATEGORY:Guided Hand Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:Y
 ABILITYCATEGORY:Gunslinger Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:GunslingerClassFeatures																										PLURAL:Gunslinger Class Features		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Ninja Class Feature					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:NinjaClassFeatures																											PLURAL:Ninja Class Features			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Samurai Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SamuraiClassFeatures																										PLURAL:Samurai Class Features			DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Terrain Mastery					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Terrain Mastery																											PLURAL:Terrain Mastery			DISPLAYLOCATION:Class Features
+
+
