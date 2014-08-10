@@ -61,8 +61,8 @@
 
 <hr>
 
-	<p class="lstupnew"><strong><a name="ABILITY">*** Updated 5.17.4</a></p>
-	<p class="indent0">Tag Name:</strong> CHOOSE:ABILITY|w|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
+	<p class="lstupnew"><strong><a name="ABILITY">*** Updated 5.17.4</a></strong></p>
+	<p class="indent0">Tag Name: CHOOSE:ABILITY|w|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
 	<p class="indent1"><strong>Variables Used (w):</strong> Text (Ability category)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
@@ -140,7 +140,7 @@
 
 <hr>
 
-	<P class="lstnew"><a name="ALIGNMENT">*** New 5.17.4</a></a>
+	<P class="lstnew"><a name="ALIGNMENT">*** New 5.17.4</a></p>
 	<p class="tagname"><strong>Tag Name:</strong> CHOOSE:ALIGNMENT|x|x</p>
 	<p class="varused"><strong>Variables Used (x):</strong> Text (Alignment by key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
@@ -661,15 +661,15 @@
 	<p class="indent2"><code>CHOOSE:RACE|RACETYPE=Humanoid,RACESUBTYPE=Aquatic</code></p>
 	<p class="indent3">This will produce a list of all Humanoid races that have the Aquatic subtype.</p>
 	<p class="indent2"><code>CHOOSE:RACE|BASESIZE=M</code></p>
-	<p class="indent3">This will produce a list of all races that have a size of &quot;M&quot;.</strong>.</p>
+	<p class="indent3">This will produce a list of all races that have a size of &quot;M&quot;.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Ability, Domain, Feat, Race, and Template files.</p>
 	<p></p>
 
 <hr>
 
-	<P class="lstupnew"></a>*** Updated 5.17.4</a></p>
-	<p class="indent0"><strong><a name="SCHOOLS">Tag Name:</strong> CHOOSE:SCHOOLS|x|x</p>
+	<P class="lstupnew"><a name="SCHOOLS">*** Updated 5.17.4</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SCHOOLS|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (School name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
@@ -761,7 +761,7 @@
 
 <hr>
 
-	<p class="lstupdate"><a name="SKILL">*** New 6.03.02</a></p>
+	<p class="lstupnew"><a name="SKILL">*** Updated 6.03.04</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SKILL|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text% (Search pattern by skill name or key)</p>
@@ -786,7 +786,11 @@
 		<li>Using the <code>CROSSCLASS</code> sub-tag will provide a list of all crossclass skills for the PC.</li>
 		<li>Using the <code>EXCLUSIVE</code> sub-tag will provide a list of all exclusive skills for the PC.</li>
 		<li>Using the <code>NORANK</code> sub-tag will provide a list of all skills in which the PC has no rank.</li>
-		<li>Using the <code>RANKS=n</code> sub-tag will provide a list of all skills in which the PC has n or more ranks.</li>
+		<li>Using the <code>RANKS=n</code> sub-tag will provide a list of all skills in which the PC has n or more ranks.
+			<ul>
+				<li>The special value <code>MAXRANK</code> can be used with the <code>RANKS</code> qualifier to identify skills that are currently at the maximum ranks allowed.</li>
+			</ul>
+		</li>
 		<li>Global qualifiers work for feats. Use of the qualifiers has the following effect:
 			<ul>
 				<li><strong>ANY</strong> - Will return a list of all skills.</li>
@@ -807,6 +811,8 @@
 	<p class="indent3">This will produce a list of all the character's class skills.</p>
 	<p class="indent2"><code>CHOOSE:SKILL|RANKS=1</code></p>
 	<p class="indent3">This will produce a list of all skills the character's has one or more ranks in.</p>
+	<p class="indent2"><code>CHOOSE:SKILL|!RANKS=MAXRANK</code></p>
+	<p class="indent3">This will produce a list of all skills the character's has that are not at the maximum ranks allowed.</p>
 	<p class="indent2"><code>CHOOSE:SKILL|Knowledge%</code></p>
 	<p class="indent3">This will produce a list of all knowledge skills.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
