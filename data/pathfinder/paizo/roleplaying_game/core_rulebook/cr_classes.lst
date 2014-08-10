@@ -285,7 +285,7 @@ CLASS:Monk		STARTSKILLPTS:4
 ###Block:
 17	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable
 ###Block:
-1	ABILITY:Internal|AUTOMATIC|Monk ~ Unarmed Damage|Monk ~ Unarmed Tracker
+1	ABILITY:Internal|AUTOMATIC|Monk ~ Unarmed Damage
 ###Block: Level progression
 #           F   D   T   S   M   L   H   G   C
 1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2
