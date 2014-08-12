@@ -9,9 +9,9 @@
 #ABILITYCATEGORY:Prestige Awards		VISIBLE:YES	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:99		CATEGORY:Special Ability		TYPE:FactionPrestigeAward.GeneralPrestigeAward.VanityPrestigeAward	PLURAL:Prestige Awards	DISPLAYLOCATION:Background
 
 # Ability Category						Editable?		Change Pool?	Fractional values?	Category of Object		Specific choices list								Display Location
-ABILITYCATEGORY:Cleric Scroll Scholar Skill		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Choose Knowledge Skill ~ Cleric Scroll Scholar		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Diviner Scroll Scholar Skill		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Choose Knowledge Skill ~ Diviner Scroll Scholar		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Universalist Scroll Scholar Skill	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Choose Knowledge Skill ~ Universalist Scroll Scholar	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Cleric Scroll Scholar Skill		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Choose Knowledge Skill ~ Cleric Scroll Scholar		DISPLAYLOCATION:Class Abilities	VISIBLE:QUALIFY
+ABILITYCATEGORY:Diviner Scroll Scholar Skill		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Choose Knowledge Skill ~ Diviner Scroll Scholar		DISPLAYLOCATION:Class Abilities	VISIBLE:QUALIFY
+ABILITYCATEGORY:Universalist Scroll Scholar Skill	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Choose Knowledge Skill ~ Universalist Scroll Scholar	DISPLAYLOCATION:Class Abilities	VISIBLE:QUALIFY
 
 
 
