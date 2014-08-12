@@ -35,11 +35,11 @@ Half-Undead			KEY:Racial Type ~ Half-Undead			CATEGORY:Racial Traits	TYPE:Racial
 ###Block: Size Qualities
 #COMMENT: Medium Size assumed
 # Ability Name	Unique Key				Category of Ability	Type								Multiple Requirements																		Modify VAR					Cost
-Large			KEY:Racial Size ~ Large		CATEGORY:Racial Traits	TYPE:RacialQuality.RaceSizeQuality.AltRaceSize	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Size ~ Large],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceSize]	BONUS:VAR|ARG_RaceBuilderPoints|-7	COST:0
+Large			KEY:Racial Size ~ Large		CATEGORY:Racial Traits	TYPE:RacialQuality.RaceSizeQuality.AltRaceSize	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Size ~ Large],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceSize]	BONUS:VAR|ARG_RaceBuilderPoints|-7	COST:0	TEMPLATE:SIZE_L
 #	TEMPLATE:Giant|PRERACETYPE:1,Humanoid
-Medium		KEY:Racial Size ~ Medium	CATEGORY:Racial Traits	TYPE:RacialQuality.RaceSizeQuality			PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Size ~ Medium],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.SizeQuality]	BONUS:VAR|ARG_RaceBuilderPoints|0	COST:0
-Small			KEY:Racial Size ~ Small		CATEGORY:Racial Traits	TYPE:RacialQuality.RaceSizeQuality.AltRaceSize	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Size ~ Small],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceSize]	BONUS:VAR|ARG_RaceBuilderPoints|0	COST:0
-Tiny			KEY:Racial Size ~ Tiny		CATEGORY:Racial Traits	TYPE:RacialQuality.RaceSizeQuality.AltRaceSize	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Size ~ Tiny],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceSize]	BONUS:VAR|ARG_RaceBuilderPoints|-4	COST:0
+Medium		KEY:Racial Size ~ Medium	CATEGORY:Racial Traits	TYPE:RacialQuality.RaceSizeQuality			PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Size ~ Medium],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.SizeQuality]	BONUS:VAR|ARG_RaceBuilderPoints|0	COST:0	TEMPLATE:SIZE_M
+Small			KEY:Racial Size ~ Small		CATEGORY:Racial Traits	TYPE:RacialQuality.RaceSizeQuality.AltRaceSize	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Size ~ Small],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceSize]	BONUS:VAR|ARG_RaceBuilderPoints|0	COST:0	TEMPLATE:SIZE_S
+Tiny			KEY:Racial Size ~ Tiny		CATEGORY:Racial Traits	TYPE:RacialQuality.RaceSizeQuality.AltRaceSize	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Size ~ Tiny],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceSize]	BONUS:VAR|ARG_RaceBuilderPoints|-4	COST:0	TEMPLATE:SIZE_T
 #PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Aberration,Racial Type ~ Construct,Racial Type ~ Dragon,Racial Type ~ Fey,Racial Type ~ Outsider (Native),Racial Type ~ Plant
 
 

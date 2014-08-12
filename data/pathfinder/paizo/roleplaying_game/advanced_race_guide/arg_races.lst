@@ -75,4 +75,4 @@ Tiefling.MOD	SORTKEY:a_base_pc
 # Race Name		SORTKEY
 
 # Race Name	Starting Feats
-Race		STARTFEATS:1
+Race		STARTFEATS:1	MOVE:Walk,30
