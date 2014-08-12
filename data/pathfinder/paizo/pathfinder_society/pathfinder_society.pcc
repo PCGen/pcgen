@@ -307,10 +307,10 @@ KIT:@/pathfinder/paizo/adventure_path/kingmaker/players_guide/kmpg_kits_companio
 
 # Pathfinder Campaign Setting: Dark Markets, A Guide to Katapesh
 # Feats: Jackal Blood, Lucky Halfling; Prestige Class: Balanced Scale of Abadar
-FEAT:@/pathfinder/paizo/campaign_setting/dark_markets/dm_feats.lst|(INCLUDE:CATEGORY=Special Ability,Jackal Blood)
+# Note: Lucky Halfling is in APG
+FEAT:@/pathfinder/paizo/campaign_setting/dark_markets/dm_feats.lst|(INCLUDE:CATEGORY=FEAT,Jackal Blood)
 CLASS:@/pathfinder/paizo/campaign_setting/dark_markets/dm_classes.lst
 ABILITY:@/pathfinder/paizo/campaign_setting/dark_markets/dm_abilities_class.lst
-# Note: Lucky Halfling is in APG
 
 # Pathfinder Campaign Setting: Demons Revisited
 # Spells: contact nalfeshnee
@@ -428,7 +428,7 @@ WEAPONPROF:pfs_iswg_profs_weapon.lst
 
 # Pathfinder Campaign Setting: Pathfinder Society Field Guide
 # All rules in this book are legal for play in Pathfinder Society Organized Play, and this book is considered part of the Core Assumption.
-#PCC:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pathfinder_society_field_guide.pcc
+PCC:@/pathfinder/paizo/pathfinder_society/pathfinder_society_field_guide/pathfinder_society_field_guide.pcc
 
 # Pathfinder Campaign Setting: Paths of Prestige
 # Presige Classes: Aldori Swordlord, Bellflower Tiller, Brother of the Seal, Champion of Irori, Dawnflower Dissident, Golden Legionnaire, Green Faith Acolyte, Hellknight Signifier, Knight of Ozem, Lantern Bearer, Magaambyan Arcanist, Mammoth Rider, Prophet of Kalistrade, Riftwarden, Shieldmarshal, Skyseeker, Sleepless Detective, Storm Kindler, Tattooed Mystic, Veiled Illusionist, and Winter Witch are legal for play.
@@ -476,6 +476,7 @@ PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.pc
 
 # Pathfinder Player Companion: Blood of Angels
 # Bloodlines: martyred bloodline is legal for Pathfinder Society but the bonus feat Leadership remains unavailable; Heritages: all heritages, and associated traits, on pages 21-23 are legal; Feats: all feats on pages 24-25 are legal except Supernal Feast; Magic: bard masterpieces are legal; Other: variant assimar abilities are not legal for Pathfinder Society; Oracle Curses on page 26 are legal; Inquisitons on pages 26-27 are legal; Subdomains: all subdomains on page 27 are legal; Traits: all traits on pages 30-31 are legal except ethical leader. Clergy member is useable once per scenario instead of once per week. Faith healer may be used for Day Job checks.
+PCC:@/pathfinder/paizo/player_companion/blood_of_angels/blood_of_angels.pcc
 
 # Pathfinder Player Companion: Blood of Fiends
 # *Note: Tieflings may only be half-human. Other races, including but not limited to dwarf, elf, gnome, halfling, half-orc, tengu, and any other race, are not legal in PFS.
