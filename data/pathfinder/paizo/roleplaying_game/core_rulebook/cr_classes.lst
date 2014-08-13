@@ -90,7 +90,7 @@ CLASS:Cleric	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericArmorProficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericWeaponProficiency
+1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Aura
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Channel Energy|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericChannelEnergy
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Orisons|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericOrisons
