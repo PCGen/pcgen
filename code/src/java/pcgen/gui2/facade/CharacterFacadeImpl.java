@@ -63,6 +63,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.AutoEquipmentFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -288,6 +289,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private LanguageListener langListener;
 	private TemplateListener templateListener;
 	private XPListener xpListener;
+	private AutoEquipListener autoEquipListener;
 
 	/**
 	 * Create a new character facade for an existing character.
@@ -320,6 +322,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			.removeDataFacetChangeListener(templateListener);
 		FacetLibrary.getFacet(XPFacet.class).removeDataFacetChangeListener(
 			xpListener);
+		FacetLibrary.getFacet(AutoEquipmentFacet.class).removeDataFacetChangeListener(autoEquipListener);
+
 		characterAbilities.closeCharacter();
 		charLevelsFacade.closeCharacter();
         companionSupportFacade.closeCharacter();
@@ -441,6 +445,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		refreshHeightWeight();
 
 		purchasedEquip = new EquipmentListFacadeImpl(theCharacter.getEquipmentMasterList());
+		autoEquipListener = new AutoEquipListener();
+		FacetLibrary.getFacet(AutoEquipmentFacet.class).addDataFacetChangeListener(autoEquipListener);
 		carriedWeightRef = new DefaultReferenceFacade<String>();
 		loadRef = new DefaultReferenceFacade<String>();
 		weightLimitRef = new DefaultReferenceFacade<String>();
@@ -4672,6 +4678,39 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		public void dataRemoved(DataFacetChangeEvent<CharID, Integer> dfce)
 		{
 			// Ignored - we will always get the added message.
+		}
+		
+	}
+	
+	/**
+	 * The Class <code>AutoEquipListener</code> tracks changes to the character's automatically granted equipment.
+	 */
+	public class AutoEquipListener implements DataFacetChangeListener<CharID, QualifiedObject<CDOMReference<Equipment>>>
+	{
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void dataAdded(DataFacetChangeEvent<CharID, QualifiedObject<CDOMReference<Equipment>>> dfce)
+		{
+			if (dfce.getCharID() != theCharacter.getCharID())
+			{
+				return;
+			}
+			refreshEquipment();
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void dataRemoved(DataFacetChangeEvent<CharID, QualifiedObject<CDOMReference<Equipment>>> dfce)
+		{
+			if (dfce.getCharID() != theCharacter.getCharID())
+			{
+				return;
+			}
+			refreshEquipment();
 		}
 		
 	}
