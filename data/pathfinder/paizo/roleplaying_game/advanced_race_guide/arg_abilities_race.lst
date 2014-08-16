@@ -3,6 +3,9 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 # ORIGINAL ENTRY: none
 # ORIGINAL ENTRY DATE: none
 
+### COMMENT: Placeholder till the ability referenced is actually added.
+Oracle Curse Bonus Tracker	CATEGORY:Internal	DESC:I'm a placeholder till the missing ability is added/restored. gjorbond notified by commit email.
+
 ##
 ##Block: Core Racial Abilities
 ##
@@ -810,6 +813,7 @@ Cold								KEY:Paladin Resistance ~ Cold							CATEGORY:Internal			TYPE:Paladin
 Electricity							KEY:Paladin Resistance ~ Electricity					CATEGORY:Internal			TYPE:PaladinFavoredEnergyResistance								VISIBLE:DISPLAY																																																																																																																																																																ABILITY:Special Ability|AUTOMATIC|Resistance to Electricity											BONUS:VAR|PaladinElectricityResistanceBonus|1|TYPE=Resistance
 Fire								KEY:Paladin Resistance ~ Fire							CATEGORY:Internal			TYPE:PaladinFavoredEnergyResistance								VISIBLE:DISPLAY																																																																																																																																																																ABILITY:Special Ability|AUTOMATIC|Resistance to Fire												BONUS:VAR|PaladinFireResistanceBonus|1|TYPE=Resistance
 Sonic								KEY:Paladin Resistance ~ Sonic						CATEGORY:Internal			TYPE:PaladinFavoredEnergyResistance								VISIBLE:DISPLAY																																																																																																																																																																ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic												BONUS:VAR|PaladinSonicResistanceBonus|1|TYPE=Resistance
+
 
 
 
