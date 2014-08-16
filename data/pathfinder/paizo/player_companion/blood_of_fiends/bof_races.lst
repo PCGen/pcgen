@@ -17,9 +17,6 @@ SOURCELONG:Blood of Fiends	SOURCESHORT:BOF	SOURCEWEB:http://paizo.com/products/b
 #Tiefling (Rakshasa-Spawn)	KEY:Tiefling (Rakshasa-Spawn)	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Dwarven,Elven,Gnome,Goblin,Halfling,Infernal,Orc	BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Tiefling Rakshasa-Spawn Racial Trait Default	LEGS:2	RACETYPE:Outsider	RACESUBTYPE:Native	CR:1/2		SOURCEPAGE:p.264
 
 
-# Race Name		Bonus to Ability Pool
-Tiefling.MOD	BONUS:ABILITYPOOL|Tiefling Subrace|1
-
 #
 # End
 #
