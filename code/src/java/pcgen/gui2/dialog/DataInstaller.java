@@ -73,6 +73,7 @@ import pcgen.persistence.lst.InstallLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
@@ -627,11 +628,11 @@ public class DataInstaller extends JFrame
 		switch (dest)
 		{
 			case VENDORDATA:
-				destDir = new File(ConfigurationSettings.getVendorDataDir());
+				destDir = new File(PCGenSettings.getVendorDataDir());
 				break;
 
 			case HOMEBREWDATA:
-				destDir = new File(ConfigurationSettings.getHomebrewDataDir());
+				destDir = new File(PCGenSettings.getHomebrewDataDir());
 				break;
 
 			case DATA:

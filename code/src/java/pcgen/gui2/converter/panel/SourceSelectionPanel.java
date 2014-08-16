@@ -59,8 +59,8 @@ public class SourceSelectionPanel extends ConvertSubPanel
 	
 	private enum SourceFolder {
 		DATA ("Data directory", ConfigurationSettings.getPccFilesDir()),
-		VENDORDATA ("Vendor data directory", ConfigurationSettings.getVendorDataDir()),
-		HOMEBREWDATA ("Homebrew data directory", ConfigurationSettings.getHomebrewDataDir()),
+		VENDORDATA ("Vendor data directory", PCGenSettings.getVendorDataDir()),
+		HOMEBREWDATA ("Homebrew data directory", PCGenSettings.getHomebrewDataDir()),
 		OTHER ("Other directory", ".");
 		
 		private final String title;

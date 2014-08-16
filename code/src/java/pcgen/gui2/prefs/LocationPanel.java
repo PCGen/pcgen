@@ -232,7 +232,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		this.add(label);
 		Utility.buildConstraints(c, 1, 5, 1, 1, 0, 0);
 		pcgenCustomDir =
-				new JTextField(String.valueOf(ConfigurationSettings
+				new JTextField(String.valueOf(PCGenSettings
 					.getCustomDir()));
 
 		// sage_sam 9 April 2003
@@ -256,7 +256,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		this.add(label);
 		Utility.buildConstraints(c, 1, 6, 1, 1, 0, 0);
 		pcgenVendorDataDir =
-				new JTextField(String.valueOf(ConfigurationSettings
+				new JTextField(String.valueOf(PCGenSettings
 					.getVendorDataDir()));
 
 		// sage_sam 9 April 2003
@@ -279,7 +279,7 @@ public class LocationPanel extends PCGenPrefsPanel
 		this.add(label);
 		Utility.buildConstraints(c, 1, 7, 1, 1, 0, 0);
 		pcgenHomebrewDataDir =
-				new JTextField(String.valueOf(ConfigurationSettings
+				new JTextField(String.valueOf(PCGenSettings
 					.getHomebrewDataDir()));
 
 
@@ -531,12 +531,12 @@ public class LocationPanel extends PCGenPrefsPanel
 		PCGenSettings.getInstance().setProperty(
 			PCGenSettings.CHAR_PORTRAITS_PATH, pcgenPortraitsDir
 				.getText());
-		ConfigurationSettings.setSystemProperty(ConfigurationSettings.CUSTOM_DATA_DIR, pcgenCustomDir
-			.getText());
-		ConfigurationSettings.setSystemProperty(ConfigurationSettings.VENDOR_DATA_DIR, pcgenVendorDataDir
-				.getText());
-		ConfigurationSettings.setSystemProperty(ConfigurationSettings.HOMEBREW_DATA_DIR, pcgenHomebrewDataDir
-				.getText());
+		PCGenSettings.getInstance().setProperty(PCGenSettings.CUSTOM_DATA_DIR,
+			pcgenCustomDir.getText());
+		PCGenSettings.getInstance().setProperty(PCGenSettings.VENDOR_DATA_DIR,
+			pcgenVendorDataDir.getText());
+		PCGenSettings.getInstance().setProperty(
+			PCGenSettings.HOMEBREW_DATA_DIR, pcgenHomebrewDataDir.getText());
 		ConfigurationSettings.setSystemProperty(ConfigurationSettings.PCC_FILES_DIR, pcgenDataDir
 			.getText());
 		ConfigurationSettings.setSystemProperty(ConfigurationSettings.DOCS_DIR,
@@ -661,7 +661,7 @@ public class LocationPanel extends PCGenPrefsPanel
 				final String dialogTitle =
 						LanguageBundle
 							.getString("in_Prefs_pcgenCustomDirTitle");
-				final String currentPath = ConfigurationSettings.getCustomDir();
+				final String currentPath = PCGenSettings.getCustomDir();
 				askForPath(currentPath, dialogTitle, pcgenCustomDir);
 			}
 			else if (source == pcgenVendorDataDirButton)
@@ -669,7 +669,7 @@ public class LocationPanel extends PCGenPrefsPanel
 				final String dialogTitle =
 						LanguageBundle
 							.getString("in_Prefs_pcgenVendorDataDirTitle");
-				final String currentPath = ConfigurationSettings.getVendorDataDir();
+				final String currentPath = PCGenSettings.getVendorDataDir();
 				askForPath(currentPath, dialogTitle, pcgenVendorDataDir);
 			}
 			else if (source == pcgenHomebrewDataDirButton)
@@ -677,7 +677,7 @@ public class LocationPanel extends PCGenPrefsPanel
 				final String dialogTitle =
 						LanguageBundle
 							.getString("in_Prefs_pcgenHomebrewDataDirTitle");
-				final String currentPath = ConfigurationSettings.getHomebrewDataDir();
+				final String currentPath = PCGenSettings.getHomebrewDataDir();
 				askForPath(currentPath, dialogTitle, pcgenHomebrewDataDir);
 			}
 			else if (source == pcgenDataDirButton)

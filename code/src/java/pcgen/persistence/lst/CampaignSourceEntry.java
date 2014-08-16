@@ -46,6 +46,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.system.ConfigurationSettings;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
@@ -306,7 +307,7 @@ public class CampaignSourceEntry implements SourceEntry
 			String pathNoLeader =
 					trimLeadingFileSeparator(basePath.substring(1));
 			String path = CoreUtility.fixFilenamePath(pathNoLeader);
-			return new File(ConfigurationSettings.getVendorDataDir(), path)
+			return new File(PCGenSettings.getVendorDataDir(), path)
 				.toURI();
 		}
 		else if (basePath.charAt(0) == '$')
@@ -314,7 +315,7 @@ public class CampaignSourceEntry implements SourceEntry
 			String pathNoLeader =
 					trimLeadingFileSeparator(basePath.substring(1));
 			String path = CoreUtility.fixFilenamePath(pathNoLeader);
-			return new File(ConfigurationSettings.getHomebrewDataDir(), path)
+			return new File(PCGenSettings.getHomebrewDataDir(), path)
 				.toURI();
 		}
 		else if (basePath.charAt(0) == '*')
@@ -323,13 +324,13 @@ public class CampaignSourceEntry implements SourceEntry
 					trimLeadingFileSeparator(basePath.substring(1));
 			String path = CoreUtility.fixFilenamePath(pathNoLeader);
 			File pccFile =
-					new File(ConfigurationSettings.getHomebrewDataDir(), path);
+					new File(PCGenSettings.getHomebrewDataDir(), path);
 			if (pccFile.exists())
 			{
 				return pccFile.toURI();
 			}
 			pccFile =
-					new File(ConfigurationSettings.getVendorDataDir(), path);
+					new File(PCGenSettings.getVendorDataDir(), path);
 			if (pccFile.exists())
 			{
 				return pccFile.toURI();

@@ -25,17 +25,26 @@
  */
 package pcgen.core;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.StringWriter;
+import java.util.Iterator;
+import java.util.SortedMap;
+
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.lst.CampaignOutput;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
-import pcgen.system.ConfigurationSettings;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
-
-import java.io.*;
-import java.util.*;
 
 /**
  * <code>CustomData</code>
@@ -227,7 +236,7 @@ public final class CustomData
 	private static void ensureCustomDirExists()
 	{
 		File customDir =
-				new File(ConfigurationSettings.getCustomDir() + File.separator
+				new File(PCGenSettings.getCustomDir() + File.separator
 					+ SettingsHandler.getGame().getName());
 		if (!customDir.exists())
 		{
@@ -409,7 +418,7 @@ public final class CustomData
 
 		if (usePath)
 		{
-			aString = ConfigurationSettings.getCustomDir();
+			aString = PCGenSettings.getCustomDir();
 			aString += File.separator + gmName;
 		}
 		return aString + File.separator + "custom" + type + Constants.EXTENSION_LIST_FILE;

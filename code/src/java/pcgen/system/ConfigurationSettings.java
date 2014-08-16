@@ -21,6 +21,7 @@
 package pcgen.system;
 
 import java.io.File;
+
 import org.apache.commons.lang.SystemUtils;
 
 /**
@@ -59,10 +60,7 @@ public final class ConfigurationSettings extends PropertyContext
 		setProperty(PLUGINS_DIR, "@plugins");
 		setProperty(PREVIEW_DIR, "@preview");
 		setProperty(DOCS_DIR, "@docs");
-		setProperty(VENDOR_DATA_DIR, "@vendordata");
-		setProperty(HOMEBREW_DATA_DIR, "@homebrewdata");
 		setProperty(PCC_FILES_DIR, "@data");
-		setProperty(CUSTOM_DATA_DIR, "@data/customsources".replace('/', File.separatorChar));
 	}
 
 	@Override
@@ -74,10 +72,7 @@ public final class ConfigurationSettings extends PropertyContext
 		relativize(PLUGINS_DIR);
 		relativize(PREVIEW_DIR);
 		relativize(DOCS_DIR);
-		relativize(VENDOR_DATA_DIR);
-		relativize(HOMEBREW_DATA_DIR);
 		relativize(PCC_FILES_DIR);
-		relativize(CUSTOM_DATA_DIR);
 	}
 
 	public static String getLanguage()
@@ -154,16 +149,6 @@ public final class ConfigurationSettings extends PropertyContext
 		return getDirectory(DOCS_DIR);
 	}
 
-	public static String getVendorDataDir()
-	{
-		return getDirectory(VENDOR_DATA_DIR);
-	}
-
-	public static String getHomebrewDataDir()
-	{
-		return getDirectory(HOMEBREW_DATA_DIR);
-	}
-
 	public static String getPccFilesDir()
 	{
 		return getDirectory(PCC_FILES_DIR);
@@ -172,11 +157,6 @@ public final class ConfigurationSettings extends PropertyContext
 	public static String getSettingsDir()
 	{
 		return getDirectory(SETTINGS_FILES_PATH);
-	}
-
-	public static String getCustomDir()
-	{
-		return getDirectory(CUSTOM_DATA_DIR);
 	}
 
 	public static String initSystemProperty(String key, String defaultValue)

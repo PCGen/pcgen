@@ -22,6 +22,8 @@ package pcgen.system;
 
 import java.io.File;
 
+import org.apache.commons.lang.SystemUtils;
+
 /**
  * This stores some of the properties that pcgen uses.
  * This class is mainly intended to be used to store non-ui related
@@ -71,6 +73,10 @@ public class PCGenSettings extends PropertyContext
 	public static final String LAST_LOADED_GAME = "lastLoadedGame";
 	public static final String PAPERSIZE = "papersize";
 
+	public static final String VENDOR_DATA_DIR = "pcgen.files.vendordataPath";
+	public static final String HOMEBREW_DATA_DIR = "pcgen.files.homebrewdataPath";
+	public static final String CUSTOM_DATA_DIR = "pcgen.files.customPath";
+	
 	/* Data converter saved choices. */
 	public static final String CONVERT_OUTPUT_SAVE_PATH = "pcgen.convert.outputPath";
 	public static final String CONVERT_INPUT_PATH = "pcgen.convert.inputPath";
@@ -95,6 +101,17 @@ public class PCGenSettings extends PropertyContext
 		setProperty(BACKUP_PCG_PATH,
 					(ConfigurationSettings.getUserDir() + "/characters").replace('/',
 																				 File.separatorChar));
+		setProperty(VENDOR_DATA_DIR, "@vendordata");
+		setProperty(HOMEBREW_DATA_DIR, "@homebrewdata");
+		setProperty(CUSTOM_DATA_DIR, "@data/customsources".replace('/', File.separatorChar));
+	}
+
+	@Override
+	protected void beforePropertiesSaved()
+	{
+		relativize(VENDOR_DATA_DIR);
+		relativize(HOMEBREW_DATA_DIR);
+		relativize(CUSTOM_DATA_DIR);
 	}
 
 	public static PCGenSettings getInstance()
@@ -131,6 +148,59 @@ public class PCGenSettings extends PropertyContext
 	{
 		return OPTIONS_CONTEXT.initBoolean(
 				PCGenSettings.OPTION_CREATE_PCG_BACKUP, true);
+	}
+
+	public static String getVendorDataDir()
+	{
+		return getDirectory(VENDOR_DATA_DIR);
+	}
+
+	public static String getHomebrewDataDir()
+	{
+		return getDirectory(HOMEBREW_DATA_DIR);
+	}
+
+	public static String getCustomDir()
+	{
+		return getDirectory(CUSTOM_DATA_DIR);
+	}
+
+	public static String getSystemProperty(String key)
+	{
+		return getInstance().getProperty(key);
+	}
+
+	public static Object setSystemProperty(String key, String value)
+	{
+		return getInstance().setProperty(key, value);
+	}
+
+	private static String getDirectory(String key)
+	{
+		return expandRelativePath(getSystemProperty(key));
+	}
+
+	private static String expandRelativePath(String path)
+	{
+		if (path.startsWith("@"))
+		{
+			path = SystemUtils.USER_DIR + File.separator + path.substring(1);
+		}
+		return path;
+	}
+
+	private static String unexpandRelativePath(String path)
+	{
+		if (path.startsWith(SystemUtils.USER_DIR + File.separator))
+		{
+			path = "@" + path.substring(SystemUtils.USER_DIR.length() + 1);
+		}
+		return path;
+	}
+
+	private static void relativize(String property)
+	{
+		setSystemProperty(property, unexpandRelativePath(getSystemProperty(property)));
 	}
 
 }

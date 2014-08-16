@@ -26,12 +26,15 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
+
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.persistence.lst.CampaignLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
 import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
 
@@ -92,12 +95,12 @@ public class CampaignFileLoader extends PCGenTask
 		else
 		{
 			findPCCFiles(new File(ConfigurationSettings.getPccFilesDir()));
-			final String vendorDataDir = ConfigurationSettings.getVendorDataDir();
+			final String vendorDataDir = PCGenSettings.getVendorDataDir();
 			if (vendorDataDir != null)
 			{
 				findPCCFiles(new File(vendorDataDir));
 			}
-			final String homebrewDataDir = ConfigurationSettings.getHomebrewDataDir();
+			final String homebrewDataDir = PCGenSettings.getHomebrewDataDir();
 			if (homebrewDataDir != null)
 			{
 				findPCCFiles(new File(homebrewDataDir));
