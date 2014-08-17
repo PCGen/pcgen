@@ -171,12 +171,12 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 
 		if (PCGFile.isPCGenCharacterFile(pcFile))
 		{
-			//TODO: Respect suppress message request 
-			CharacterManager.openCharacter(pcFile, delegate, delegate
-				.getLoadedDataSetRef().getReference());
-			// TODO: Pass character back to caller via message.
-//			message.setPlayerCharacter(loadPCFromFile(pcFile, message
-//				.isBlockLoadedMessage(), false));
+			PlayerCharacter playerCharacter =
+					CharacterManager.openPlayerCharacter(pcFile, delegate,
+						delegate.getLoadedDataSetRef().getReference(),
+						message.isBlockLoadedMessage());
+			message.setPlayerCharacter(playerCharacter);
+			message.consume();
 		}
 		else if (PCGFile.isPCGenPartyFile(pcFile))
 		{

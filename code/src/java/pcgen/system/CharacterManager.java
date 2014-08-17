@@ -147,8 +147,46 @@ public class CharacterManager
 	 * @param dataset the dataset that this will be loaded with
 	 * @return The character that was opened.
 	 */
-	@SuppressWarnings("unchecked")
 	public static CharacterFacade openCharacter(File file, UIDelegate delegate, DataSetFacade dataset)
+	{
+		final PlayerCharacter newPC = openPcInternal(file, delegate, dataset, false);
+
+		if (newPC == null)
+		{
+			return null;
+		}
+		
+		return createChracterFacade(delegate, dataset, newPC);
+	}
+
+	
+	/**
+	 * This opens an existing character from a file and adds it to the
+	 * list of open characters. If there is a character already open
+	 * that uses this file, then this method does nothing.
+	 * @param file the file to load this character from
+	 * @param delegate the UIDelegate that this character will use
+	 * @param dataset the dataset that this will be loaded with
+	 * @param blockLoadedMessage Should we stop the character loaded message being sent out to listeners.
+	 * @return The character that was opened.
+	 */
+	public static PlayerCharacter openPlayerCharacter(File file,
+		UIDelegate delegate, DataSetFacade dataset, boolean blockLoadedMessage)
+	{
+		final PlayerCharacter newPC = openPcInternal(file, delegate, dataset, blockLoadedMessage);
+
+		if (newPC == null)
+		{
+			return null;
+		}
+		
+		createChracterFacade(delegate, dataset, newPC);
+		return newPC;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private static PlayerCharacter openPcInternal(File file,
+		UIDelegate delegate, DataSetFacade dataset, boolean blockLoadedMessage)
 	{
 		@SuppressWarnings("rawtypes")
 		List campaigns = ListFacades.wrap(dataset.getCampaigns());
@@ -179,11 +217,12 @@ public class CharacterManager
 			// if it's not broken, then only warnings should have been generated, and we won't count those
 			// Register the character so that future checks to see if file already loaded will work
 			Globals.getPCList().add(newPC);
-			messageHandler.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, newPC));
+			if (!blockLoadedMessage)
+			{
+				messageHandler.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, newPC));
+			}
+			return newPC;
 	
-			CharacterFacade character = new CharacterFacadeImpl(newPC, delegate, dataset);
-			characters.addElement(character);
-			return character;
 		}
 		catch (Exception e)
 		{
@@ -194,6 +233,14 @@ public class CharacterManager
 					file, e.getMessage()));
 			return null;
 		}
+	}
+
+	private static CharacterFacade createChracterFacade(UIDelegate delegate,
+		DataSetFacade dataset, final PlayerCharacter newPC)
+	{
+		CharacterFacade character = new CharacterFacadeImpl(newPC, delegate, dataset);
+		characters.addElement(character);
+		return character;
 	}
 
 	/**

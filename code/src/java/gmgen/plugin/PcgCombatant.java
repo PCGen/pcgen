@@ -113,6 +113,7 @@ public class PcgCombatant extends Combatant
 					new RequestOpenPlayerCharacterMessage(comp, pcgFile, true);
 			messageHandler.handleMessage(msg);
 			this.pc = msg.getPlayerCharacter();
+			this.display = pc.getDisplay();
 			this.init = new PcgSystemInitiative(pc);
 
 			PCStat stat = Globals.getContext().getReferenceContext()
