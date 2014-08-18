@@ -295,7 +295,7 @@ Augmented Vermin			CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeVerm
 ###Block: RACE TRAITS
 # Ability Name			Unique Key						Category of Ability		Type						Define											Define a Stat			Description																																																																																																																																																					Template			Ability																			Bonus to HP													Bonus to skill				Modify VAR													Vision		Source Page
 Aberration Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																																																																							BONUS:VAR|DarkvisionRange|60|TYPE=Base											SOURCEPAGE:TypesSubtypesAbilities.rtf
-Animal Traits										CATEGORY:Special Ability	TYPE:TraitAbility																DEFINESTAT:MINVALUE|INT|1																																																																																																																																																																																																			BONUS:VAR|HasLowLightVision|1|TYPE=Base											SOURCEPAGE:TypesSubtypesAbilities.rtf
+Animal Traits										CATEGORY:Special Ability	TYPE:TraitAbility																DEFINESTAT:MINVALUE|INT|1																																																																																																																																																																																																			BONUS:VAR|HasLowLightVision|1|TYPE=Base											SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|PREVARGTEQ:AnimalWarTrained,1	DEFINE:AnimalWarTrained|0
 Construct Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																											TEMPLATE:Construct																					BONUS:HP|CURRENTMAX|max(SIZE-2,0)*10	BONUS:HP|CURRENTMAX|max(SIZE-6,0)*10							BONUS:VAR|HasLowLightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base				SOURCEPAGE:TypesSubtypesAbilities.rtf
 Dragon Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																																																																							BONUS:VAR|HasLowLightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base				SOURCEPAGE:TypesSubtypesAbilities.rtf
 Elemental Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																																																																							BONUS:VAR|DarkvisionRange|60|TYPE=Base											SOURCEPAGE:TypesSubtypesAbilities.rtf
@@ -626,8 +626,8 @@ Race Traits ~ Elephant					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|
 Race Traits ~ Hawk					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Hawk ~ Skills
 Race Traits ~ Horse (Heavy)				CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Heavy Horse ~ Combat|Horse Shared ~ Combat|Scent
 Race Traits ~ Horse (Light)				CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Horse Shared ~ Combat|Light Horse ~ Combat|Scent
-Race Traits ~ Horse (Warhorse Heavy)		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Heavy Warhorse ~ Combat|Scent
-Race Traits ~ Horse (Warhorse Light)		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Light Warhorse ~ Combat|Scent
+Race Traits ~ Horse (Warhorse Heavy)		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Heavy Warhorse ~ Combat|Scent	TEMPLATE:War Trained
+Race Traits ~ Horse (Warhorse Light)		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Light Warhorse ~ Combat|Scent	TEMPLATE:War Trained
 Race Traits ~ Hyena					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Hyena ~ Skills|Hyena ~ Trip|Scent
 Race Traits ~ Leopard					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Leopard ~ Improved Grab|Leopard ~ Pounce|Leopard ~ Rake|Leopard ~ Skills|Scent
 Race Traits ~ Lion					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Lion ~ Improved Grab|Lion ~ Pounce|Lion ~ Rake|Lion ~ Skills|Scent
@@ -640,7 +640,7 @@ Race Traits ~ Octopus					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|O
 Race Traits ~ Octopus (Giant)				CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Giant Octopus ~ Constrict|Giant Octopus ~ Improved Grab|Giant Octopus ~ Ink Cloud|Giant Octopus ~ Jet|Giant Octopus ~ Skills|Giant Octopus ~ Tentacles
 Race Traits ~ Owl						CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Owl ~ Skills
 Race Traits ~ Pony					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Pony ~ Combat|Scent
-Race Traits ~ Pony (War)				CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Scent|Warpony ~ Combat
+Race Traits ~ Pony (War)				CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Scent|Warpony ~ Combat	TEMPLATE:War Trained
 Race Traits ~ Porpoise					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Porpoise ~ Blindsight|Porpoise ~ Hold Breath|Porpoise ~ Skills
 Race Traits ~ Rat						CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Rat ~ Skills|Scent
 Race Traits ~ Raven					CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability
