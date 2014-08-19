@@ -25,7 +25,7 @@ Ape's Muteness		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Ape's 
 # Ability Name	Category of Ability		Type			Visible	Special ABility			Temporary Bonus
 Badger's Fury	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Fury (Ex)		TEMPBONUS:PC|COMBAT|AC|-2	TEMPBONUS:PC|STAT|STR,CON|4
 Badger's Luck	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Luck (Sp)
-Badger's Tenacity	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Tenacity (Ex)	TEMPBONUS:PC|CHECKS|ALL|2|TYPE=Morale	TEMPBONUS:PC|COMBAT|TOHIT|2|TYPE=Morale
+Badger's Tenacity	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Badger's Tenacity (Ex)	TEMPBONUS:PC|SAVE|ALL|2|TYPE=Morale	TEMPBONUS:PC|COMBAT|TOHIT|2|TYPE=Morale
 
 ###Block:Animal Champion ~ (Dire Bat)
 # Ability Name		Category of Ability		Type			Visible	Special ABility			Define				Innate Spells							Bonus to skill					Add to vision					Vision

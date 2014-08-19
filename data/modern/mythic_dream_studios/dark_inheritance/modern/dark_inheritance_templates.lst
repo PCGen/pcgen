@@ -66,7 +66,7 @@ Strain Tracker			VISIBLE:NO	SOURCEPAGE:p.136														CHOOSE:NUMBER|MIN=-10|
 
 ###Block: failed Strain check conditions
 # Template Name			Visible	Source Page		Special ABility									Temporary effect description			Temporary Bonus
-Strain Result (Shaken)		VISIBLE:NO	SOURCEPAGE:p.137												TEMPDESC:You are shaken due to Strain	TEMPBONUS:ANYPC|CHECKS|ALL|-2|PRERACE:1,Titan	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2|PRERACE:1,Titan	TEMPBONUS:ANYPC|SKILL|ALL|-2|PRERACE:1,Titan
+Strain Result (Shaken)		VISIBLE:NO	SOURCEPAGE:p.137												TEMPDESC:You are shaken due to Strain	TEMPBONUS:ANYPC|SAVE|ALL|-2|PRERACE:1,Titan	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2|PRERACE:1,Titan	TEMPBONUS:ANYPC|SKILL|ALL|-2|PRERACE:1,Titan
 Strain Result (Fatigued)	VISIBLE:NO	SOURCEPAGE:p.137	SAB:You can't run or charge							TEMPDESC:You are fatigued due to Strain	TEMPBONUS:ANYPC|STAT|STR,DEX|-2|PRERACE:1,Titan
 Strain Result (Exhausted)	VISIBLE:NO	SOURCEPAGE:p.137	SAB:You can't run or charge	SAB:You cannot manifest Birthrights	TEMPDESC:You are exhausted due to Strain	TEMPBONUS:ANYPC|MOVEMULT|TYPE.Walk,TYPE.Fly,TYPE.Swim,TYPE.Burrow,TYPE.Climb|0.5|PRERACE:1,Titan	TEMPBONUS:ANYPC|STAT|STR,DEX|-6|PRERACE:1,Titan
 

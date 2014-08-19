@@ -48,7 +48,7 @@ CLASS:Imperial Legionnaire	STARTSKILLPTS:3	CSKILL:Climb|TYPE=Craft|Handle Animal
 3																										ABILITY:Special Ability|AUTOMATIC|Awareness ~ Imperial Legionnaire
 4																										ABILITY:Special Ability|AUTOMATIC|Protect Comrade ~ Imperial Legionnaire
 6																										ABILITY:Special Ability|AUTOMATIC|Sight Through the Soul ~ Imperial Legionnaire|Soul Enforcement ~ Imperial Legionnaire	BONUS:SAVE|BASE.Will|2
-9																										ABILITY:Special Ability|AUTOMATIC|True Awareness ~ Imperial Legionnaire													TEMPBONUS:PC|CHECKS|BASE.Reflex|2|TYPE=TrueAwareness
+9																										ABILITY:Special Ability|AUTOMATIC|True Awareness ~ Imperial Legionnaire													TEMPBONUS:PC|SAVE|BASE.Reflex|2|TYPE=TrueAwareness
 10																										ABILITY:Special Ability|AUTOMATIC|Primarch ~ Imperial Legionnaire
 
 

@@ -18,7 +18,7 @@ Knife Thrower								TYPE:Elven												PRERACE:1,Elf (Snow),Elf (Jungle)				
 
 ### TODO: This should do something.
 Lucky										TYPE:General																																											DESC:All numerical luck bonuses provided by charms are increased by one for you.																								SOURCEPAGE:p. 75
-Magic Hardened			OUTPUTNAME:Magic-Hardened	TYPE:General																																											DESC:You get a +2 bonus to all saving throws against magical effects.																										SOURCEPAGE:p. 76	TEMPBONUS:PC|CHECKS|ALL|2
+Magic Hardened			OUTPUTNAME:Magic-Hardened	TYPE:General																																											DESC:You get a +2 bonus to all saving throws against magical effects.																										SOURCEPAGE:p. 76	TEMPBONUS:PC|SAVE|ALL|2
 
 ### TODO: This feat is not type'd in the source, assuming General
 Natural Healer								TYPE:General																																											DESC:You were born with the healer's touch, the ability to quickly assess wounds and illness and treat them with an expert's skill.																SOURCEPAGE:p. 76

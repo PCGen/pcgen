@@ -99,7 +99,7 @@ Damnation ~ Mystic Forces		CATEGORY:Special Ability	TYPE:SpecialQuality.Damnatio
 
 # Feat Name			Type						Visible	Special ABility			Save checks bonus							Combat bonus				Bonus to skill																		Temporary effect description
 # Ability Name	Category of Ability		Type						Temporary effect description																	Temporary Bonus
-Light Blindness	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	TEMPDESC:Dark Elves suffer a -1 circumstance penalty to attack rolls, skill checks, and saving throws while in bright light.	TEMPBONUS:PC|CHECKS|Fortitude,Reflex,Will|-1	TEMPBONUS:PC|COMBAT|TOHIT|-1	TEMPBONUS:PC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1
+Light Blindness	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	TEMPDESC:Dark Elves suffer a -1 circumstance penalty to attack rolls, skill checks, and saving throws while in bright light.	TEMPBONUS:PC|SAVE|Fortitude,Reflex,Will|-1	TEMPBONUS:PC|COMBAT|TOHIT|-1	TEMPBONUS:PC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1
 
 ###Block: Class Abilities --------------------------------------------------------------------------------
 
@@ -149,7 +149,7 @@ Fortune Telling				KEY:Fortune Telling ~ Stargazer	CATEGORY:Special Ability	TYPE
 # Feat Name				Type			Visible	Define				Choose										Save checks bonus					Combat bonus					Bonus to HP										Stat bonus													Temporary effect description
 # Ability Name			Category of Ability		Type					Define				Choose										Temporary effect description																Temporary Bonus
 Oath (Active)			CATEGORY:Special Ability	TYPE:SpecialQuality.Special	DEFINE:SteadfastHitPoints|0												TEMPDESC:While an Oath is active the Steadfast Knight gains temporary hit points							TEMPBONUS:PC|HP|CURRENTMAX|SteadfastHitPoints|TYPE=Oath
-Oath (Direct Action)		CATEGORY:Special Ability	TYPE:SpecialQuality.Special																	TEMPDESC:Apply this bonus when undertaking any action that directly leads toward the resolution of the knight's task.	TEMPBONUS:PC|CHECKS|ALL|2|TYPE=Oath	TEMPBONUS:PC|COMBAT|AC|1|TYPE=Dodge	TEMPBONUS:PC|STAT|STR|1|TYPE=Oath
+Oath (Direct Action)		CATEGORY:Special Ability	TYPE:SpecialQuality.Special																	TEMPDESC:Apply this bonus when undertaking any action that directly leads toward the resolution of the knight's task.	TEMPBONUS:PC|SAVE|ALL|2|TYPE=Oath	TEMPBONUS:PC|COMBAT|AC|1|TYPE=Dodge	TEMPBONUS:PC|STAT|STR|1|TYPE=Oath
 Blood Oath (Active)		CATEGORY:Special Ability	TYPE:SpecialQuality.Special						CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Temporarily Lost Hit Points	TEMPDESC:The Steadfast Knight loses one hit point per week until the Oath is fulfilled						TEMPBONUS:PC|HP|CURRENTMAX|-1*(%CHOICE)
 Blood Oath (Direct Action)	CATEGORY:Special Ability	TYPE:SpecialQuality.Special																	TEMPDESC:Apply this bonus when undertaking any action that directly leads toward the resolution of the knight's task.	TEMPBONUS:PC|COMBAT|AC|2|TYPE=Oath	TEMPBONUS:PC|STAT|STR|4|TYPE=Oath	TEMPBONUS:PC|STAT|DEX|2|TYPE=Oath
 

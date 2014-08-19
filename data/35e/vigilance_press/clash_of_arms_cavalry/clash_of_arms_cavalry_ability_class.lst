@@ -22,7 +22,7 @@ Spur									CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	SAB:
 Shot on the Run ~ Mounted					CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Shot on the Run (mounted only)
 Manyshot ~ Mounted						CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Manyshot (mounted only)
 Lightning Attack							CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Lightning Attack +%|LightningAttack			DEFINE:LightningAttack|0														BONUS:VAR|LightningAttack|2
-Lightning Rider							CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC		VISIBLE:DISPLAY	SAB:Lightning Rider +%|LightningRider			DEFINE:LightningRider|0															BONUS:VAR|LightningRider|2		TEMPDESC:The cavalryman gains the listed bonus to armor class, initiative and Reflex saving throws while mounted.							TEMPBONUS:PC|CHECKS|Reflex|LightningRider|TYPE=LightningRider	TEMPBONUS:PC|COMBAT|AC|LightningRider|TYPE=LightningRider	TEMPBONUS:PC|COMBAT|INITIATIVE|LightningRider|TYPE=LightningRider
+Lightning Rider							CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC		VISIBLE:DISPLAY	SAB:Lightning Rider +%|LightningRider			DEFINE:LightningRider|0															BONUS:VAR|LightningRider|2		TEMPDESC:The cavalryman gains the listed bonus to armor class, initiative and Reflex saving throws while mounted.							TEMPBONUS:PC|SAVE|Reflex|LightningRider|TYPE=LightningRider	TEMPBONUS:PC|COMBAT|AC|LightningRider|TYPE=LightningRider	TEMPBONUS:PC|COMBAT|INITIATIVE|LightningRider|TYPE=LightningRider
 Fog of War								CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:DISPLAY	SAB:Fog of War ~ Will DC %|FogOfWar				DEFINE:FogOfWar|0																BONUS:VAR|FogOfWar|15+CHA
 
 ###BLOCK: heavy cavalry

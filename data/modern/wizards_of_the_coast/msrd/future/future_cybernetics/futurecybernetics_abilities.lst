@@ -4,7 +4,7 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 # Ability Name		Category of Ability		Visible	Special ABility									Define													Modify VAR															Source Page					Temporary Bonus
 CyborgRestrictions	CATEGORY:Special Ability	VISIBLE:NO	SAB:Electricity Vulnerability|PREVAREQ:ElectricalVulnerability,0	DEFINE:ElectricalVulnerability|0	DEFINE:ImplantLimit|0	DEFINE:ImplantTotal|0	BONUS:VAR|ImplantLimit|max(1+CON,0)	BONUS:VAR|NegLevels|max(0,(ImplantTotal-ImplantLimit))	SOURCEPAGE:FutureCybernetics.rtf
 
-Activated Rage Implant	CATEGORY:Special Ability	VISIBLE:NO																																																TEMPBONUS:PC|CHECKS|Will|2|TYPE=CyberRage	TEMPBONUS:PC|COMBAT|AC|-2|TYPE=CyberRage	TEMPBONUS:PC|STAT|CON,STR|4|TYPE=CyberRage
+Activated Rage Implant	CATEGORY:Special Ability	VISIBLE:NO																																																TEMPBONUS:PC|SAVE|Will|2|TYPE=CyberRage	TEMPBONUS:PC|COMBAT|AC|-2|TYPE=CyberRage	TEMPBONUS:PC|STAT|CON,STR|4|TYPE=CyberRage
 Skill Implants		CATEGORY:Special Ability	VISIBLE:NO												DEFINE:SkillImplantTotal|0	DEFINE:SkillPlexusTotal|0					BONUS:VAR|ImplantTotal|max(SkillPlexusTotal,SkillImplantTotal)
 Feat Implants		CATEGORY:Special Ability	VISIBLE:NO												DEFINE:FeatImplantTotal|0	DEFINE:FeatPlexusTotal|0					BONUS:VAR|ImplantTotal|max(FeatPlexusTotal,FeatImplantTotal)
 

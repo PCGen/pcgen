@@ -45,7 +45,7 @@ Incredible Might	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PRE
 # Ability Name		Category of Ability	Type						Visible	Required Ability							Combat bonus			Bonus to skill							Source Page
 Slippery			CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES															BONUS:SKILL|Escape Artist|3					SOURCEPAGE:p.5
 Fancy Footwork		CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES										BONUS:COMBAT|AC|1|TYPE=Dodge										SOURCEPAGE:p.5
-Creeping Reflexes		CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Slippery								BONUS:SKILL|Hide,Move Silently|CHECKS.Reflex.BASE	SOURCEPAGE:p.5
+Creeping Reflexes		CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Slippery								BONUS:SKILL|Hide,Move Silently|SAVE.Reflex.BASE	SOURCEPAGE:p.5
 Improved Fancy Footwork	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Fancy Footwork		BONUS:COMBAT|AC|1|TYPE=Dodge										SOURCEPAGE:p.5
 Celeritous Skulking	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Slippery,Fancy Footwork															SOURCEPAGE:p.5
 
@@ -57,7 +57,7 @@ Rapid Precision		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES	PRE
 
 ###Block: Need for Speed Tree
 # Ability Name	Category of Ability	Type						Visible	Required Ability						Required Feat				Required Skill		Bonus to skill					Source Page
-Driven to Drive	CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES									PREFEAT:1,Surface Vehicle Operation	PRESKILL:1,Drive=4	BONUS:SKILL|Drive|CHECKS.Reflex.BASE	SOURCEPAGE:p.6
+Driven to Drive	CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES									PREFEAT:1,Surface Vehicle Operation	PRESKILL:1,Drive=4	BONUS:SKILL|Drive|SAVE.Reflex.BASE	SOURCEPAGE:p.6
 Speed Racer		CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES									PREFEAT:1,Surface Vehicle Operation	PRESKILL:1,Drive=4								SOURCEPAGE:p.6
 Offensive Driving	CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Driven to Drive																		SOURCEPAGE:p.6
 Speed Demon		CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Driven to Drive																		SOURCEPAGE:p.6
@@ -102,7 +102,7 @@ Cross Training	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:YES	
 Keen Reflex					CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:YES																																																																									SOURCEPAGE:p.7	BONUS:SAVE|Reflex|INT
 Keenly Skilled				CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:YES												MULT:YES	CHOOSE:STRING|Bluff|Climb|Diplomacy|Disguise|Drive|Handle Animal|Jump|Perform (Act)|Perform (Dance)|Perform (Keyboards)|Perform (Percussion Instruments)|Perform (Sing)|Perform (Stand-Up)|Perform (Stringed Instruments)|Perform (Wind Instruments)|Pilot|Profession|Ride|Sense Motive|Survival|Swim							BONUS:SKILL|LIST|INT	SOURCEPAGE:p.7
 Perspicacious Response			CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:YES																																																															BONUS:COMBAT|INITIATIVE|INT						SOURCEPAGE:p.8
-Greater Perspicacious Response	CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Perspicacious Response,Keen Reflex																																																				BONUS:COMBAT|INITIATIVE|CHECKS.Will					SOURCEPAGE:p.8
+Greater Perspicacious Response	CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Perspicacious Response,Keen Reflex																																																				BONUS:COMBAT|INITIATIVE|SAVE.Will					SOURCEPAGE:p.8
 
 ###Block: Tactical Tree
 # Ability Name		Category of Ability	Type						Visible	Required Ability							Source Page
