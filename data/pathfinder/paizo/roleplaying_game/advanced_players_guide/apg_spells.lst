@@ -298,7 +298,7 @@ Call Lightning Storm.COPY=Call Lightning Storm (Starsoul)																							
 Ant Haul.MOD		TEMPBONUS:ANYPC|LOADMULT|TYPE=SIZE|2|PRESIZEGTEQ:M	TEMPBONUS:ANYPC|LOADMULT|TYPE=SIZE|1.5|PRESIZELTEQ:S
 Strong Jaw.MOD		TEMPBONUS:EQ|Natural;Unarmed|WEAPON|DAMAGESIZE|2|TYPE=Temporary
 Weapon of Awe.MOD		TEMPBONUS:EQ|Weapon|WEAPON|DAMAGE|2|TYPE=Sacred
-Wrathful Mantle.MOD	TEMPBONUS:ANYPC|CHECKS|ALL|1|TYPE=Resistance
+Wrathful Mantle.MOD	TEMPBONUS:ANYPC|SAVE|ALL|1|TYPE=Resistance
 Gravity Bow.MOD		TEMPBONUS:EQ|Weapon,Ranged|WEAPON|DAMAGESIZE|1|TYPE=Temporary
 
 ###BLOCK: .Mod Spells
