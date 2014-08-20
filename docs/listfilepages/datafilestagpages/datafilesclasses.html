@@ -337,8 +337,8 @@
 
 <hr>
 
-		<p class="status"><a name="ADDDOMAINS">*** Updated 5.14.1RC2</a></p>
-	<p class="indent0"><strong>Tag Name:</strong> ADDDOMAINS:x.x</p>
+	<p class="lstupnew"><a name="ADDDOMAINS">*** Updated 6.03.x</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> ADDDOMAINS:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
@@ -350,17 +350,20 @@
 		<li>It can contain PRExxx tags, in brackets ([PRExxx]), immediately after the domain name.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
-	<p class="indent2"><code>CLASS:Foo &lt;tab&gt ADDDOMAINS:Travel.Sun &lt;tab&gt SPELLSTAT:CHA &lt;tab&gt SPELLTYPE:Arcane</code></p>
+	<p class="indent2"><code>CLASS:Foo &lt;tab&gt ADDDOMAINS:Travel|Sun &lt;tab&gt SPELLSTAT:CHA &lt;tab&gt SPELLTYPE:Arcane</code></p>
 	<p class="indent3">The class gets the Travel and Sun domains as a choice regardless of the deity selected.</p>
 	<p class="indent2"><code>ADDDOMAINS:Sun</code></p>
 	<p class="indent3">The class gets the Sun domain as a choice regardless of the deity selected.</p>
-	<p class="indent2"><code>ADDDOMAINS:Sun.Law</code></p>
+	<p class="indent2"><code>ADDDOMAINS:Sun|Law</code></p>
 	<p class="indent3">The class gets the Sun &amp; Law domains as a choice regardless of the deity selected.</p>
-	<p class="indent2"><code>ADDDOMAINS:Sun[PREDIETY:Ra].Law</code></p>
+	<p class="indent2"><code>ADDDOMAINS:Sun[PREDIETY:Ra]|Law</code></p>
 	<p class="indent3">The class gets to choose between the Sun domain, if the character follows the diety Ra
 		&amp; the Law domain regardless	of the deity selected.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Class Level and Class Level Line.</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="lstdep">Remove for 6.6</span></p>
+	<p class="indent2"><code>ADDDOMAINS:Travel.Sun</code></p>
+	<p class="indent3">Becomes: <code>ADDDOMAINS:Travel|Sun</code></p>
 	<p></p>
 
 <hr>
