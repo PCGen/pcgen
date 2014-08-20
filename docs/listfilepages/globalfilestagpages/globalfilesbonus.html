@@ -288,7 +288,8 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="CHECKS">Tag Name:</a></strong> BONUS:CHECKS|x,x|y</p>
+	<p class="lstdep"><a name="CHECKS">*** deprecated 6.03.00 - Remove for 6.6</a> - Use <a href="#SAVE">BONUS:SAVE</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> BONUS:CHECKS|x,x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Check name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> BASE.Text (Check name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
@@ -914,6 +915,40 @@
 	<p class="indent3">Would increase the range of thrown weapons by 100% (x2).</p>
 	<p class="indent2"><code>BONUS:RANGEMULT|TYPE=Starship|50</code></p>
 	<p class="indent3">Would increase the range of starship weapons by 50% (x1.5).</p>
+	<p></p>
+
+<hr>
+
+	<p class="lstnew"><a name="SAVE">*** New 6.03.00</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> BONUS:SAVE|x,x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Save name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> BASE.Text (Save name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Save Bonus)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Adds to the indicated save.</li>
+		<li>Using the <code>BASE.x</code> syntax adds to indicated base save (normally only used in class progressions).</li>
+		<li>Valid saves, e.g. Fortitude,Reflex,Will, are defined in the GameMode.</li>
+		<li>Substitution is allowed through the use of <code>%LIST</code>.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>BONUS:SAVE|Fortitude,Reflex|1</code></p>
+	<p class="indent3">Adds one to &quot;Fortitude&quot; and &quot;Reflex&quot; saves.</p>
+	<p class="indent2"><code>CHOOSE:NUMCHOICES=1|CHECKS|Fortitude|Reflex|Will &lt;tab&gt; BONUS:SAVE|%LIST|1</code></p>
+	<p class="indent3">The selection, &quot;Fortitude&quot;, &quot;Reflex&quot; or &quot;Will&quot;, is put 
+		into the <code>BONUS:SAVE</code> tag in place of the <code>%LIST</code></p>
+	<p class="indent2"><code>BONUS:SAVE|Willpower||max(CHA,WIS)-WIS</code></p>
+	<p class="indent3">How does one code up something like 'you can add your Charisma modifier instead of
+		Wisdom for Willpower saves'?</p>
+	<p class="indent2"><code>BONUS:SAVE|Fortitude|2|TYPE=Resistance</code></p>
+	<p class="indent3">Adds two to Fortitude saves due to Resistance.</p>
+	<p class="indent2"><code>BONUS:SAVE|BASE.Fortitude,BASE.Reflex|1</code></p>
+	<p class="indent3">Adds one to the base &quot;Fortitude&quot; and &quot;Reflex&quot; saves.</p>
+	<p class="indent2"><code>BONUS:SAVE|ALL|1</code></p>
+	<p class="indent3">Adds one to the all saves.</p>
+	<p class="indent2"><code>TEMPBONUS:ANYPC|SAVE|ALL|3|TYPE=Morale</code></p>
+	<p class="indent3">Adds three to all saves, due to morale, to all PC Characters.</p>
 	<p></p>
 
 <hr>
