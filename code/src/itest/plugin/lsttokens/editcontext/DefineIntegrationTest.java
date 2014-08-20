@@ -76,8 +76,8 @@ public class DefineIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Follower|4+1");
-		commit(modCampaign, tc, "Follower|Formula1");
+		commit(testCampaign, tc, "Follower|0");
+		commit(modCampaign, tc, "Follower|0");
 		completeRoundRobin(tc);
 	}
 
@@ -86,8 +86,8 @@ public class DefineIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Follower|4+1");
-		commit(modCampaign, tc, "Pet|PetForm");
+		commit(testCampaign, tc, "Follower|0");
+		commit(modCampaign, tc, "Pet|0");
 		completeRoundRobin(tc);
 	}
 
@@ -97,7 +97,7 @@ public class DefineIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, "Follower|4+1");
+		commit(modCampaign, tc, "Follower|0");
 		completeRoundRobin(tc);
 	}
 
@@ -106,7 +106,7 @@ public class DefineIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Follower|4+1");
+		commit(testCampaign, tc, "Follower|0");
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
 	}

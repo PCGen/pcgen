@@ -42,7 +42,7 @@ public class GlobalDefineVariableTest extends AbstractContentTokenTest
 	@Override
 	public void processToken(CDOMObject source)
 	{
-		ParseResult result = token.parseToken(context, source, "This|That");
+		ParseResult result = token.parseToken(context, source, "This|0");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();

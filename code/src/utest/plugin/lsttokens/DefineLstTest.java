@@ -155,13 +155,13 @@ public class DefineLstTest extends AbstractGlobalTokenTestCase
 	@Override
 	protected String getLegalValue()
 	{
-		return "FooVar|10";
+		return "FooVar|0";
 	}
 
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		return "VariableName|CL(\"Fighter\")";
+		return "VariableName|0";
 	}
 
 	@Override

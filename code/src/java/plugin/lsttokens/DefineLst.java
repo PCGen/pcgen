@@ -95,6 +95,14 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 				return new ParseResult.Fail("Formula in " + getTokenName()
 						+ " was not valid: " + f.toString(), context);
 			}
+			if (!f.isStatic() || f.resolveStatic().intValue() != 0)
+			{
+				Logging
+					.deprecationPrint(
+						"DEFINE with a non zero value has been deprecated, "
+							+ "please use a DEFINE of 0 and an appropriate bonus. Tag was DEFINE:"
+							+ value + " in " + obj, context);
+			}
 			if (sep.hasNext())
 			{
 				return new ParseResult.Fail(getTokenName() + " " + firstItem
