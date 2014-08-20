@@ -128,8 +128,10 @@ ABILITYCATEGORY:Mixed Weakness Ability Score Selection	VISIBLE:QUALIFY	EDITABLE:
 ABILITYCATEGORY:Paragon Ability Score Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:ParagonAbilityScoreSelection					DISPLAYLOCATION:Race Builder Design
 ABILITYCATEGORY:Specialized Ability Score Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:SpecializedAbilityScoreSelection				DISPLAYLOCATION:Race Builder Design
 
-#Bonus Languages
+# Bonus Languages
 ABILITYCATEGORY:Race Builder Bonus Race Languages		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:RaceBuilderBonusLang						DISPLAYLOCATION:Race Builder Design
+# Additional Languages
+ABILITYCATEGORY:Language						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:RaceBuilderLang						DISPLAYLOCATION:Race Builder Design
 
 # Race Builder Traits
 ABILITYCATEGORY:Race Trait Defense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderDefenseTrait.BuilderAdvancedDefenseTrait		DISPLAYLOCATION:Race Builder Design
@@ -143,7 +145,6 @@ ABILITYCATEGORY:Race Trait Other					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		P
 ABILITYCATEGORY:Race Language Qualities				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:LanguageQuality							DISPLAYLOCATION:Race Builder Design
 
 ABILITYCATEGORY:Weapon Familiarity					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability	TYPE:Weapon Familiarity							DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Language						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:RaceBuilderLang						DISPLAYLOCATION:Race Builder Design
 ABILITYCATEGORY:Hatred							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:Hatred						DISPLAYLOCATION:Race Builder Design
 ABILITYCATEGORY:Race Builder Skill Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:Race Builder Skill Bonus						DISPLAYLOCATION:Race Builder Design
 
