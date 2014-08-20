@@ -780,8 +780,8 @@
 
 
 		<p></p><hr>
-		<p class="lstnew">*** Updated 6.1.9</p>
-		<p class="indent0"><strong><a name="SKILL">Token Name:</a></strong> SKILL.x.y</p>
+		<p class="lstupnew"><a name="SKILL">*** Updated 6.1.9</a></p>
+		<p class="indent0"><strong>Token Name:</strong> SKILL.x.y</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Skill Name).</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (Skill Position)</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Skill Property. See below).</p>
@@ -793,7 +793,7 @@
 				included, about the designated skill or for the xth skill in the character's skill list.</li>
 			<li>The properties allowed are:
 				<ul>
-					<li><code>ABILITY</code> - Displays the key ability for the skill in position x in the character's skill list.</li>
+					<li><code>ABILITY</code> - Displays the key ability (stat) for the skill in position x in the character's skill list.</li>
 					<li><code>ABMOD</code> - Displays the modifier from the key ability, for the skill in position x in the character's skill list.</li>
 					<li><code>ACP</code>s,t,u,v - Displays the Armor Check Penalty for the skill in position x.
 						<ul>
@@ -846,18 +846,20 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>SKILLLEVEL.1.TOTAL </code></p>
 		<p class="indent3">Displays skill points gained at level 1.</p>
+		<p></p>
 
+<hr>
 
-		<p></p><hr>
 		<p class="indent0"><strong><a name="SKILLLISTMODS">Token Name:</a></strong> SKILLLISTMODS</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Displays a list of all skills with a non-zero adjustment.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>SKILLLISTMODS</code></p>
 		<p class="indent3">Displays a list of all skills with a non-zero adjustment.</p>
+		<p></p>
 
+<hr>
 
-		<p></p><hr>
 		<p class="indent0"><strong><a name="SKILLPOINTS">Token Name:</a></strong> SKILLPOINTS.x.y</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Property).</p>
 		<ul class="indent2">
@@ -873,9 +875,59 @@
 		<p class="indent3">Displays the total skill points the character has.</p>
 		<p class="indent2"><code>SKILLPOINTS.TOTAL.0</code></p>
 		<p class="indent3">Displays the total skill points the character received for its first class.</p>
+		<p></p>
 
+<hr>
 
-		<p></p><hr>
+		<p class="lstnew"><a name="SKILLSIT">*** New 6.03.00</a></p>
+		<p class="indent0"><strong>Token Name:</strong> SKILLSIT.x.y</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Skill Name).</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Skill Position).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Skill Property).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This token is similar to the <a href="#SKILL">SKILL</a> OS token with the only difference being that it will include any situational skills, inserted after the primary skill, in the output list of skills.</li>
+			<li>Displays the name of the skill designated or the &quot;x&quot;th such skill in the character's skill list.</li>
+			<li>Skill position is a zero-based index.</li>
+			<li>If a &quot;Property&quot; is included, this tag will display select information, determied by the property 
+				included, about the designated skill or for the &quot;x&quot;th skill in the character's skill list. The properties allowed are:
+				<ul>
+					<li><code>ABILITY</code> - Displays the key ability (stat) for the skill in position &quot;x&quot; in the character's skill list.</li>
+					<li><code>ABMOD</code> - Displays the modifier from the key ability, for the skill in position &quot;x&quot; in the character's skill list.</li>
+					<li><code>ACP</code>s,t,u,v - Displays the Armor Check Penalty for the skill in position &quot;x&quot;.
+						<ul>
+							<li>s is printed if the skill is not affected by ACP.</li>
+							<li>t is printed if the skill is affected by ACP.</li>
+							<li>u is printed if the skill is only affected by ACP if the user is untrained</li>
+							<li>v is printed if the skill has the special weight penalty like Swim</li>
+						</ul>
+					</li>
+					<li><code>CLASS</code> - Displays a list of the character's classes that have this skill as a class skill.</li>
+					<li><code>EXCLUSIVE</code> - Displays &quot;Y&quot; if the skill is an exlusive class skill and &quot;N&quot; if it is not.</li>
+					<li><code>EXCLUSIVE_TOTAL</code> - Displays &quot;0&quot; if the skill is exclusive, not usable untrained and has 0 ranks.</li>
+					<li><code>EXPLAIN</code> - Displays the make-up of the misc modifier in an abbreviated format.</li>
+					<li><code>EXPLAIN_LONG</code> - Displays the make-up of the misc modifier in a verbose format.</li>
+					<li><code>MISC</code> - equals TOTAL - RANK - ABMOD.</li>
+					<li><code>MOD</code> - Displays the total modifiers from abilities, equipment, etc.? of the skill in position x in the character's
+						skill list.</li>
+					<li><code>RANK</code> - Displays the number of skill ranks of the skill in position x in the character's skill list.</li>
+					<li><code>SIZE</code> - Displays the character's size modifier as applied to the skill.</li>
+					<li><code>TOTAL</code> - Displays the total bonus for the skill in position x in the character's skill list.</li>
+					<li><code>TRAINED_TOTAL</code> - Displays &quot;0&quot; if the skill is not usable untrained and has 0 ranks.</li>
+					<li><code>TYPE</code> - Displays the type of the skill  in position x in the character's skill  list.</li>
+					<li><code>UNTRAINED</code> - Displays &quot;Y&quot; if the skill can be used untrained and &quot;N&quot; if it cannot.</li>
+				</ul>
+			</li>
+		</ul>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>SKILLSIT.0.ABILITY</code></p>
+		<p class="indent3">Displays the key ability name for the 1<sup>st</sup> skill, including any situational skills based upon that skill.</p>
+		<p class="indent2"><code>SKILLSIT.2.TOTAL</code></p>
+		<p class="indent3">Displays the  total bonus for the 3<sup>rd</sup> skill, including any situational skills based upon that skill.</p>
+		<p></p>
+
+<hr>
+
 		<p class="indent0"><strong><a name="SKILLSUBSET">Token Name:</a></strong> SKILLSUBSET.x.y.z</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The skills position in the character's complete skill list
 		                                                                 - 0-based index).</p>
