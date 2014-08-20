@@ -465,7 +465,7 @@ Dissolution's Child	KEY:Wayang ~ Dissolutions Child	CATEGORY:Special Ability	TYP
 
 ###Block: Changeling Mother's Gift Options
 # Ability Name		Unique Key						Category of Ability		Type									Description											Combat bonus					Weapon prof. bonus			Spell Res.	Source Page		Description of the Benefits
-Hag Claws			KEY:Mother's Gift ~ Hag Claws			CATEGORY:Special Ability	TYPE:Extraordinary.MothersGiftOption.SpecialQuality	DESC:You gain a +1 bonus on attack and damage rolls with your claws.								BONUS:WEAPONPROF=Claws|DAMAGE|1			SOURCEPAGE:p.185	BENEFIT:You gain a +1 bonus on attack and damage rolls with your claws.
+Hag Claws			KEY:Mother's Gift ~ Hag Claws			CATEGORY:Special Ability	TYPE:Extraordinary.MothersGiftOption.SpecialQuality	DESC:You gain a +1 bonus on attack and damage rolls with your claws.	BONUS:WEAPONPROF=Claw|TOHIT|1			BONUS:WEAPONPROF=Claw|DAMAGE|1			SOURCEPAGE:p.185	BENEFIT:You gain a +1 bonus on attack and damage rolls with your claws.
 Surprisingly Tough	KEY:Mother's Gift ~ Surprisingly Tough	CATEGORY:Special Ability	TYPE:Extraordinary.MothersGiftOption.SpecialQuality	DESC:Your natural armor bonus increases by +1.					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK									SOURCEPAGE:p.185	BENEFIT:Your natural armor bonus increases by +1.
 Uncanny Resistance	KEY:Mother's Gift ~ Uncanny Resistance	CATEGORY:Special Ability	TYPE:Supernatural.MothersGiftOption.SpecialQuality	DESC:You gain spell resistance equal to 6 + your character level.															SR:TL+6	SOURCEPAGE:p.185	BENEFIT:You gain spell resistance equal to %1.|TL+6
 
