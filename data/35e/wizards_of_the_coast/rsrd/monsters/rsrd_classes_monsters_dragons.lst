@@ -2,8 +2,11 @@
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: Tir Gwaith
 
+# MARKED FOR DELETION POST 6.4
+
+
 # Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Combat bonus							Bonus
-CLASS:Black Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
+CLASS:Black Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	DEFINE:DragonAge|0	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
 # Class Name		Required Race			Reg. Race Type
 CLASS:Black Dragon	PRERACE:1,Dragon (Black%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -19,18 +22,18 @@ CLASS:Black Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1				DEFINE:CR|3	DEFINE:DragonAge|1		ABILITY:Special Ability|AUTOMATIC|Water Breathing
-7				DEFINE:CR|4	DEFINE:DragonAge|2
-10				DEFINE:CR|5	DEFINE:DragonAge|3
-13				DEFINE:CR|7	DEFINE:DragonAge|4											SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (40 ft. radius),12+CHA|PREVAREQ:DragonAge,4	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (50 ft. radius),12+CHA|PREVAREQ:DragonAge,5	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (60 ft. radius),12+CHA|PREVAREQ:DragonAge,6	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (70 ft. radius),12+CHA|PREVAREQ:DragonAge,7	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (80 ft. radius),12+CHA|PREVAREQ:DragonAge,8	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (90 ft. radius),12+CHA|PREVAREQ:DragonAge,9	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (100 ft. radius),12+CHA|PREVAREQ:DragonAge,10	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (110 ft. radius),12+CHA|PREVAREQ:DragonAge,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (120 ft. radius),12+CHA|PREVAREQ:DragonAge,12	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (Epic Radius),12+CHA|PREVARGTEQ:DragonAge,13
-16	SR:17	DR:5/Magic	DEFINE:CR|9	DEFINE:DragonAge|5
-19	SR:18			DEFINE:CR|11	DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Corrupt Water
-22	SR:21	DR:10/Magic	DEFINE:CR|14	DEFINE:DragonAge|7	ABILITY:Special Ability|AUTOMATIC|Crush
-25	SR:22			DEFINE:CR|16	DEFINE:DragonAge|8										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Plant Growth,13+CHA
-28	SR:23	DR:15/Magic	DEFINE:CR|18	DEFINE:DragonAge|9
-31	SR:25			DEFINE:CR|19	DEFINE:DragonAge|10										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Insect Plague,15+CHA
-34	SR:26	DR:20/Magic	DEFINE:CR|20	DEFINE:DragonAge|11	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
-37	SR:28			DEFINE:CR|22	DEFINE:DragonAge|12	ABILITY:Special Ability|AUTOMATIC|Charm Reptiles
+1				BONUS:VAR|CR|3|TYPE=Base			ABILITY:Special Ability|AUTOMATIC|Water Breathing
+7				BONUS:VAR|CR|4|TYPE=Base	BONUS:VAR|DragonAge|CL-1/3|TYPE=Base
+10				BONUS:VAR|CR|5|TYPE=Base	
+13				BONUS:VAR|CR|7|TYPE=Base										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (40 ft. radius),12+CHA|PREVAREQ:DragonAge,4	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (50 ft. radius),12+CHA|PREVAREQ:DragonAge,5	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (60 ft. radius),12+CHA|PREVAREQ:DragonAge,6	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (70 ft. radius),12+CHA|PREVAREQ:DragonAge,7	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (80 ft. radius),12+CHA|PREVAREQ:DragonAge,8	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (90 ft. radius),12+CHA|PREVAREQ:DragonAge,9	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (100 ft. radius),12+CHA|PREVAREQ:DragonAge,10	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (110 ft. radius),12+CHA|PREVAREQ:DragonAge,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (120 ft. radius),12+CHA|PREVAREQ:DragonAge,12	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (Epic Radius),12+CHA|PREVARGTEQ:DragonAge,13
+16	SR:17	DR:5/Magic	BONUS:VAR|CR|9|TYPE=Base	
+19	SR:18			BONUS:VAR|CR|11|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Corrupt Water
+22	SR:21	DR:10/Magic	BONUS:VAR|CR|14|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Crush
+25	SR:22			BONUS:VAR|CR|16|TYPE=Base									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Plant Growth,13+CHA
+28	SR:23	DR:15/Magic	BONUS:VAR|CR|18|TYPE=Base
+31	SR:25			BONUS:VAR|CR|19|TYPE=Base										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Insect Plague,15+CHA
+34	SR:26	DR:20/Magic	BONUS:VAR|CR|20|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
+37	SR:28			BONUS:VAR|CR|22|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Charm Reptiles
 
 ###Block: Casting Block ~ Black Dragon
 16								ADD:SPELLCASTER|Sorcerer
@@ -40,7 +43,7 @@ CLASS:Black Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page				Combat bonus							Bonus
-CLASS:Blue Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
+CLASS:Blue Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	DEFINE:DragonAge|0	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
 # Class Name	Required Race		Reg. Race Type
 CLASS:Blue Dragon	PRERACE:1,Dragon (Blue%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -58,18 +61,18 @@ CLASS:Blue Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1				DEFINE:CR|3	DEFINE:DragonAge|1		ABILITY:Special Ability|AUTOMATIC|Create/Destroy Water
-9				DEFINE:CR|4	DEFINE:DragonAge|2
-12				DEFINE:CR|6	DEFINE:DragonAge|3
-15				DEFINE:CR|8	DEFINE:DragonAge|4		ABILITY:Special Ability|AUTOMATIC|Sound Imitation
-18	SR:19	DR:5/Magic	DEFINE:CR|11	DEFINE:DragonAge|5
-21	SR:21			DEFINE:CR|14	DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Crush				SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Ventriloquism,11+CHA
-24	SR:22	DR:10/Magic	DEFINE:CR|16	DEFINE:DragonAge|7
-27	SR:24			DEFINE:CR|18	DEFINE:DragonAge|8											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Hallucinatory Terrain,14+CHA
-30	SR:25	DR:15/Magic	DEFINE:CR|19	DEFINE:DragonAge|9
-33				DEFINE:CR|21	DEFINE:DragonAge|10	ABILITY:Special Ability|AUTOMATIC|Tail Sweep			SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Veil,16+CHA
-36	SR:29	DR:20/Magic	DEFINE:CR|23	DEFINE:DragonAge|11
-39	SR:31			DEFINE:CR|25	DEFINE:DragonAge|12											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Mirage Arcana,15+CHA
+1				BONUS:VAR|CR|3|TYPE=Base	BONUS:VAR|DragonAge|1|TYPE=Base		ABILITY:Special Ability|AUTOMATIC|Create/Destroy Water
+9				BONUS:VAR|CR|4|TYPE=Base	BONUS:VAR|DragonAge|2|TYPE=Base
+12				BONUS:VAR|CR|6|TYPE=Base	BONUS:VAR|DragonAge|3|TYPE=Base
+15				BONUS:VAR|CR|8|TYPE=Base	BONUS:VAR|DragonAge|4|TYPE=Base		ABILITY:Special Ability|AUTOMATIC|Sound Imitation
+18	SR:19	DR:5/Magic	BONUS:VAR|CR|11|TYPE=Base	BONUS:VAR|DragonAge|5|TYPE=Base
+21	SR:21			BONUS:VAR|CR|14|TYPE=Base	BONUS:VAR|DragonAge|6|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Crush				SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Ventriloquism,11+CHA
+24	SR:22	DR:10/Magic	BONUS:VAR|CR|16|TYPE=Base	BONUS:VAR|DragonAge|7|TYPE=Base
+27	SR:24			BONUS:VAR|CR|18|TYPE=Base	BONUS:VAR|DragonAge|8|TYPE=Base											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Hallucinatory Terrain,14+CHA
+30	SR:25	DR:15/Magic	BONUS:VAR|CR|19|TYPE=Base	BONUS:VAR|DragonAge|9|TYPE=Base
+33				BONUS:VAR|CR|21|TYPE=Base	BONUS:VAR|DragonAge|10|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Tail Sweep			SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Veil,16+CHA
+36	SR:29	DR:20/Magic	BONUS:VAR|CR|23|TYPE=Base	BONUS:VAR|DragonAge|11|TYPE=Base
+39	SR:31			BONUS:VAR|CR|25|TYPE=Base	BONUS:VAR|DragonAge|12|TYPE=Base											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Mirage Arcana,15+CHA
 
 ###Block: Casting Block ~ Blue Dragon
 15											BONUS:CASTERLEVEL|Blue Dragon|((DragonAge-3)*2)-1
@@ -107,7 +110,7 @@ CLASS:Blue Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|
 
 
 # Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Combat bonus							Bonus
-CLASS:Green Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
+CLASS:Green Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	DEFINE:DragonAge|0		MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
 # Class Name		Required Race			Reg. Race Type
 CLASS:Green Dragon	PRERACE:1,Dragon (Green%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -123,18 +126,18 @@ CLASS:Green Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1				DEFINE:CR|3	DEFINE:DragonAge|1		ABILITY:Special Ability|AUTOMATIC|Water Breathing
-8				DEFINE:CR|4	DEFINE:DragonAge|2
-11				DEFINE:CR|5	DEFINE:DragonAge|3
-14				DEFINE:CR|8	DEFINE:DragonAge|4
-17	SR:19	DR:5/Magic	DEFINE:CR|11	DEFINE:DragonAge|5
-20	SR:21			DEFINE:CR|13	DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Crush			SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Suggestion,13+CHA
-23	SR:22	DR:10/Magic	DEFINE:CR|16	DEFINE:DragonAge|7
-26	SR:24			DEFINE:CR|18	DEFINE:DragonAge|8										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Plant Growth,13+CHA
-29	SR:25	DR:15/Magic	DEFINE:CR|19	DEFINE:DragonAge|9
-32	SR:27			DEFINE:CR|21	DEFINE:DragonAge|10	ABILITY:Special Ability|AUTOMATIC|Tail Sweep		SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Dominate Person,15+CHA
-35	SR:28	DR:20/Magic	DEFINE:CR|22	DEFINE:DragonAge|11
-38	SR:30			DEFINE:CR|24	DEFINE:DragonAge|12										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Command Plants,14+CHA
+1				BONUS:VAR|CR|3|TYPE=Base	BONUS:VAR|DragonAge|1|TYPE=Base		ABILITY:Special Ability|AUTOMATIC|Water Breathing
+8				BONUS:VAR|CR|4|TYPE=Base	BONUS:VAR|DragonAge|2|TYPE=Base
+11				BONUS:VAR|CR|5|TYPE=Base	BONUS:VAR|DragonAge|3|TYPE=Base
+14				BONUS:VAR|CR|8|TYPE=Base	BONUS:VAR|DragonAge|4|TYPE=Base
+17	SR:19	DR:5/Magic	BONUS:VAR|CR|11|TYPE=Base	BONUS:VAR|DragonAge|5|TYPE=Base
+20	SR:21			BONUS:VAR|CR|13|TYPE=Base	BONUS:VAR|DragonAge|6|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Crush			SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Suggestion,13+CHA
+23	SR:22	DR:10/Magic	BONUS:VAR|CR|16|TYPE=Base	BONUS:VAR|DragonAge|7|TYPE=Base
+26	SR:24			BONUS:VAR|CR|18|TYPE=Base	BONUS:VAR|DragonAge|8|TYPE=Base										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Plant Growth,13+CHA
+29	SR:25	DR:15/Magic	BONUS:VAR|CR|19|TYPE=Base	BONUS:VAR|DragonAge|9|TYPE=Base
+32	SR:27			BONUS:VAR|CR|21|TYPE=Base	BONUS:VAR|DragonAge|10|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Tail Sweep		SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Dominate Person,15+CHA
+35	SR:28	DR:20/Magic	BONUS:VAR|CR|22|TYPE=Base	BONUS:VAR|DragonAge|11|TYPE=Base
+38	SR:30			BONUS:VAR|CR|24|TYPE=Base	BONUS:VAR|DragonAge|12|TYPE=Base										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Command Plants,14+CHA
 
 ###Block: Casting Block ~ Green Dragon
 14								ADD:SPELLCASTER|Sorcerer
@@ -144,7 +147,7 @@ CLASS:Green Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page				Combat bonus							Bonus
-CLASS:Red Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
+CLASS:Red Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	DEFINE:DragonAge|0	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
 # Class Name	Required Race		Reg. Race Type
 CLASS:Red Dragon	PRERACE:1,Dragon (Red%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -163,18 +166,18 @@ CLASS:Red Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|S
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1				DEFINE:CR|4	DEFINE:DragonAge|1
-10				DEFINE:CR|5	DEFINE:DragonAge|2
-13				DEFINE:CR|7	DEFINE:DragonAge|3
-16				DEFINE:CR|10	DEFINE:DragonAge|4									SPELLS:Innate|TIMES=DragonAge|CASTERLEVEL=DragonCL|Locate Object,12+CHA
-19	SR:19	DR:5/Magic	DEFINE:CR|13	DEFINE:DragonAge|5	ABILITY:Special Ability|AUTOMATIC|Crush
-22	SR:21			DEFINE:CR|15	DEFINE:DragonAge|6
-25	SR:23	DR:10/Magic	DEFINE:CR|18	DEFINE:DragonAge|7
-28	SR:24			DEFINE:CR|20	DEFINE:DragonAge|8	ABILITY:Special Ability|AUTOMATIC|Tail Sweep	SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Suggestion,13+CHA
-31	SR:26	DR:15/Magic	DEFINE:CR|21	DEFINE:DragonAge|9
-34	SR:28			DEFINE:CR|23	DEFINE:DragonAge|10									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Find the Path,16+CHA
-37	SR:30	DR:20/Magic	DEFINE:CR|24	DEFINE:DragonAge|11
-40	SR:32			DEFINE:CR|26	DEFINE:DragonAge|12									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Discern Location,18+CHA
+1				BONUS:VAR|CR|4|TYPE=Base	BONUS:VAR|DragonAge|1|TYPE=Base
+10				BONUS:VAR|CR|5|TYPE=Base	BONUS:VAR|DragonAge|2|TYPE=Base
+13				BONUS:VAR|CR|7|TYPE=Base	BONUS:VAR|DragonAge|3|TYPE=Base
+16				BONUS:VAR|CR|10|TYPE=Base	BONUS:VAR|DragonAge|4|TYPE=Base									SPELLS:Innate|TIMES=DragonAge|CASTERLEVEL=DragonCL|Locate Object,12+CHA
+19	SR:19	DR:5/Magic	BONUS:VAR|CR|13|TYPE=Base	BONUS:VAR|DragonAge|5|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Crush
+22	SR:21			BONUS:VAR|CR|15|TYPE=Base	BONUS:VAR|DragonAge|6|TYPE=Base
+25	SR:23	DR:10/Magic	BONUS:VAR|CR|18|TYPE=Base	BONUS:VAR|DragonAge|7|TYPE=Base
+28	SR:24			BONUS:VAR|CR|20|TYPE=Base	BONUS:VAR|DragonAge|8|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Tail Sweep	SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Suggestion,13+CHA
+31	SR:26	DR:15/Magic	BONUS:VAR|CR|21|TYPE=Base	BONUS:VAR|DragonAge|9|TYPE=Base
+34	SR:28			BONUS:VAR|CR|23|TYPE=Base	BONUS:VAR|DragonAge|10|TYPE=Base									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Find the Path,16+CHA
+37	SR:30	DR:20/Magic	BONUS:VAR|CR|24|TYPE=Base	BONUS:VAR|DragonAge|11|TYPE=Base
+40	SR:32			BONUS:VAR|CR|26|TYPE=Base	BONUS:VAR|DragonAge|12|TYPE=Base									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Discern Location,18+CHA
 
 ###Block: Casting Block ~ Red Dragon
 13											BONUS:CASTERLEVEL|Red Dragon|((DragonAge-2)*2)-1
@@ -211,7 +214,7 @@ CLASS:Red Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|S
 
 
 # Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Combat bonus							Bonus
-CLASS:White Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
+CLASS:White Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	DEFINE:DragonAge|0	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
 # Class Name		Required Race			Reg. Race Type
 CLASS:White Dragon	PRERACE:1,Dragon (White%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -228,18 +231,18 @@ CLASS:White Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1				DEFINE:CR|2	DEFINE:DragonAge|1		ABILITY:Special Ability|AUTOMATIC|Icewalking
-6				DEFINE:CR|3	DEFINE:DragonAge|2
-9				DEFINE:CR|4	DEFINE:DragonAge|3
-12				DEFINE:CR|6	DEFINE:DragonAge|4										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Fog Cloud,12+CHA
-15	SR:16	DR:5/Magic	DEFINE:CR|8	DEFINE:DragonAge|5
-18	SR:18			DEFINE:CR|10	DEFINE:DragonAge|6									SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Gust of Wind,12+CHA
-21	SR:20	DR:10/Magic	DEFINE:CR|12	DEFINE:DragonAge|7	ABILITY:Special Ability|AUTOMATIC|Crush
-24	SR:21			DEFINE:CR|15	DEFINE:DragonAge|8	ABILITY:Special Ability|AUTOMATIC|Freezing Fog
-27	SR:23	DR:15/Magic	DEFINE:CR|17	DEFINE:DragonAge|9
-30	SR:24			DEFINE:CR|18	DEFINE:DragonAge|10									SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Wall of Ice,14+CHA
-33	SR:25	DR:20/Magic	DEFINE:CR|19	DEFINE:DragonAge|11	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
-36	SR:27			DEFINE:CR|21	DEFINE:DragonAge|12									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
+1				BONUS:VAR|CR|2|TYPE=Base	BONUS:VAR|DragonAge|1|TYPE=Base		ABILITY:Special Ability|AUTOMATIC|Icewalking
+6				BONUS:VAR|CR|3|TYPE=Base	BONUS:VAR|DragonAge|2|TYPE=Base
+9				BONUS:VAR|CR|4|TYPE=Base	BONUS:VAR|DragonAge|3|TYPE=Base
+12				BONUS:VAR|CR|6|TYPE=Base	BONUS:VAR|DragonAge|4|TYPE=Base										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Fog Cloud,12+CHA
+15	SR:16	DR:5/Magic	BONUS:VAR|CR|8|TYPE=Base	BONUS:VAR|DragonAge|5|TYPE=Base
+18	SR:18			BONUS:VAR|CR|10|TYPE=Base	BONUS:VAR|DragonAge|6|TYPE=Base									SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Gust of Wind,12+CHA
+21	SR:20	DR:10/Magic	BONUS:VAR|CR|12|TYPE=Base	BONUS:VAR|DragonAge|7|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Crush
+24	SR:21			BONUS:VAR|CR|15|TYPE=Base	BONUS:VAR|DragonAge|8|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Freezing Fog
+27	SR:23	DR:15/Magic	BONUS:VAR|CR|17|TYPE=Base	BONUS:VAR|DragonAge|9|TYPE=Base
+30	SR:24			BONUS:VAR|CR|18|TYPE=Base	BONUS:VAR|DragonAge|10|TYPE=Base									SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Wall of Ice,14+CHA
+33	SR:25	DR:20/Magic	BONUS:VAR|CR|19|TYPE=Base	BONUS:VAR|DragonAge|11|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
+36	SR:27			BONUS:VAR|CR|21|TYPE=Base	BONUS:VAR|DragonAge|12|TYPE=Base									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
 
 ###Block: Casting Block ~ White Dragon
 18								ADD:SPELLCASTER|Sorcerer
@@ -249,7 +252,7 @@ CLASS:White Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 
 
 # Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Combat bonus							Bonus
-CLASS:Brass Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
+CLASS:Brass Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	DEFINE:DragonAge|0	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
 # Class Name		Required Race			Reg. Race Type
 CLASS:Brass Dragon	PRERACE:1,Dragon (Brass%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -269,18 +272,18 @@ CLASS:Brass Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:4|Cleric
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1										DEFINE:CR|3	DEFINE:DragonAge|1										SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
-7										DEFINE:CR|4	DEFINE:DragonAge|2
-10										DEFINE:CR|6	DEFINE:DragonAge|3
-13										DEFINE:CR|8	DEFINE:DragonAge|4										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (40 ft. radius),11+CHA|PREVAREQ:DragonAge,4	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (50 ft. radius),11+CHA|PREVAREQ:DragonAge,5	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (60 ft. radius),11+CHA|PREVAREQ:DragonAge,6	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (70 ft. radius),11+CHA|PREVAREQ:DragonAge,7	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (80 ft. radius),11+CHA|PREVAREQ:DragonAge,8	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (90 ft. radius),11+CHA|PREVAREQ:DragonAge,9	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (100 ft. radius),11+CHA|PREVAREQ:DragonAge,10	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (110 ft. radius),11+CHA|PREVAREQ:DragonAge,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (120 ft. radius),11+CHA|PREVAREQ:DragonAge,12	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (Epic Radius),11+CHA|PREVARGTEQ:DragonAge,13
-16	SR:18	DR:5/Magic							DEFINE:CR|10	DEFINE:DragonAge|5
-19	SR:20									DEFINE:CR|12	DEFINE:DragonAge|6									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Suggestion,13+CHA
-22	SR:22	DR:10/Magic							DEFINE:CR|15	DEFINE:DragonAge|7	ABILITY:Special Ability|AUTOMATIC|Crush
-25	SR:24									DEFINE:CR|17	DEFINE:DragonAge|8									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Winds,15+CHA
-28	SR:25	DR:15/Magic							DEFINE:CR|19	DEFINE:DragonAge|9
-31	SR:27									DEFINE:CR|20	DEFINE:DragonAge|10									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
-34	SR:28	DR:20/Magic							DEFINE:CR|21	DEFINE:DragonAge|11	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
-37	SR:30			BONUS:VAR|SummonDjinniDC|17+CHA	DEFINE:CR|23	DEFINE:DragonAge|12	ABILITY:Special Ability|AUTOMATIC|Summon Djinni
+1										BONUS:VAR|CR|3|TYPE=Base	BONUS:VAR|DragonAge|1|TYPE=Base										SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
+7										BONUS:VAR|CR|4|TYPE=Base	BONUS:VAR|DragonAge|2|TYPE=Base
+10										BONUS:VAR|CR|6|TYPE=Base	BONUS:VAR|DragonAge|3|TYPE=Base
+13										BONUS:VAR|CR|8|TYPE=Base	BONUS:VAR|DragonAge|4|TYPE=Base										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (40 ft. radius),11+CHA|PREVAREQ:DragonAge,4	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (50 ft. radius),11+CHA|PREVAREQ:DragonAge,5	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (60 ft. radius),11+CHA|PREVAREQ:DragonAge,6	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (70 ft. radius),11+CHA|PREVAREQ:DragonAge,7	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (80 ft. radius),11+CHA|PREVAREQ:DragonAge,8	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (90 ft. radius),11+CHA|PREVAREQ:DragonAge,9	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (100 ft. radius),11+CHA|PREVAREQ:DragonAge,10	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (110 ft. radius),11+CHA|PREVAREQ:DragonAge,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (120 ft. radius),11+CHA|PREVAREQ:DragonAge,12	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (Epic Radius),11+CHA|PREVARGTEQ:DragonAge,13
+16	SR:18	DR:5/Magic							BONUS:VAR|CR|10|TYPE=Base	BONUS:VAR|DragonAge|5|TYPE=Base
+19	SR:20									BONUS:VAR|CR|12|TYPE=Base	BONUS:VAR|DragonAge|6|TYPE=Base									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Suggestion,13+CHA
+22	SR:22	DR:10/Magic							BONUS:VAR|CR|15|TYPE=Base	BONUS:VAR|DragonAge|7|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Crush
+25	SR:24									BONUS:VAR|CR|17|TYPE=Base	BONUS:VAR|DragonAge|8|TYPE=Base									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Winds,15+CHA
+28	SR:25	DR:15/Magic							BONUS:VAR|CR|19|TYPE=Base	BONUS:VAR|DragonAge|9|TYPE=Base
+31	SR:27									BONUS:VAR|CR|20|TYPE=Base	BONUS:VAR|DragonAge|10|TYPE=Base									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
+34	SR:28	DR:20/Magic							BONUS:VAR|CR|21|TYPE=Base	BONUS:VAR|DragonAge|11|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
+37	SR:30			BONUS:VAR|SummonDjinniDC|17+CHA	BONUS:VAR|CR|23|TYPE=Base	BONUS:VAR|DragonAge|12|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Summon Djinni
 
 ###Block: Casting Block ~ Brass Dragon
 10											BONUS:CASTERLEVEL|Brass Dragon|((DragonAge-2)*2)-1
@@ -318,7 +321,7 @@ CLASS:Brass Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:4|Cleric
 
 
 # Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Combat bonus							Bonus
-CLASS:Bronze Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
+CLASS:Bronze Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	DEFINE:DragonAge|0	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
 # Class Name		Required Race			Reg. Race Type
 CLASS:Bronze Dragon	PRERACE:1,Dragon (Bronze%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -337,18 +340,17 @@ CLASS:Bronze Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleri
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1										DEFINE:CR|3	DEFINE:DragonAge|1		ABILITY:Special Ability|AUTOMATIC|Water Breathing	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
-9										DEFINE:CR|5	DEFINE:DragonAge|2
-12				BONUS:VAR|AlternateFormTimes|3	DEFINE:CR|7	DEFINE:DragonAge|3		ABILITY:Special Ability|AUTOMATIC|Alternate Form
-15										DEFINE:CR|9	DEFINE:DragonAge|4
-18	SR:20	DR:5/Magic							DEFINE:CR|12	DEFINE:DragonAge|5
-21	SR:22									DEFINE:CR|15	DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Crush			SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Create Food and Water,13+CHA|Fog Cloud,12+CHA
-24	SR:23	DR:10/Magic							DEFINE:CR|17	DEFINE:DragonAge|7
-27	SR:25									DEFINE:CR|19	DEFINE:DragonAge|8										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Detect Thoughts,12+CHA
-30	SR:26	DR:15/Magic							DEFINE:CR|20	DEFINE:DragonAge|9
-33	SR:28									DEFINE:CR|22	DEFINE:DragonAge|10	ABILITY:Special Ability|AUTOMATIC|Tail Sweep		SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Water,16+CHA
-36	SR:29	DR:20/Magic							DEFINE:CR|23	DEFINE:DragonAge|11
-39	SR:31									DEFINE:CR|25	DEFINE:DragonAge|12										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
+1										BONUS:VAR|CR|3|TYPE=Base	BONUS:VAR|DragonAge|1|TYPE=Base		ABILITY:Special Ability|AUTOMATIC|Water Breathing	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
+12				BONUS:VAR|AlternateFormTimes|3	BONUS:VAR|CR|7|TYPE=Base	BONUS:VAR|DragonAge|3|TYPE=Base		ABILITY:Special Ability|AUTOMATIC|Alternate Form
+15										BONUS:VAR|CR|9|TYPE=Base	BONUS:VAR|DragonAge|4|TYPE=Base
+18	SR:20	DR:5/Magic							BONUS:VAR|CR|12|TYPE=Base	BONUS:VAR|DragonAge|5|TYPE=Base
+21	SR:22									BONUS:VAR|CR|15|TYPE=Base	BONUS:VAR|DragonAge|6|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Crush			SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Create Food and Water,13+CHA|Fog Cloud,12+CHA
+24	SR:23	DR:10/Magic							BONUS:VAR|CR|17|TYPE=Base	BONUS:VAR|DragonAge|7|TYPE=Base
+27	SR:25									BONUS:VAR|CR|19|TYPE=Base	BONUS:VAR|DragonAge|8|TYPE=Base										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Detect Thoughts,12+CHA
+30	SR:26	DR:15/Magic							BONUS:VAR|CR|20|TYPE=Base	BONUS:VAR|DragonAge|9|TYPE=Base
+33	SR:28									BONUS:VAR|CR|22|TYPE=Base	BONUS:VAR|DragonAge|10|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Tail Sweep		SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Water,16+CHA
+36	SR:29	DR:20/Magic							BONUS:VAR|CR|23|TYPE=Base	BONUS:VAR|DragonAge|11|TYPE=Base
+39	SR:31									BONUS:VAR|CR|25|TYPE=Base	BONUS:VAR|DragonAge|12|TYPE=Base										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
 
 ###Block: Casting Block ~ Bronze Dragon
 12											BONUS:CASTERLEVEL|Bronze Dragon|((DragonAge-2)*2)-1
@@ -386,7 +388,7 @@ CLASS:Bronze Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleri
 
 
 # Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Combat bonus							Bonus
-CLASS:Copper Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
+CLASS:Copper Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	DEFINE:DragonAge|0	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
 # Class Name		Required Race			Reg. Race Type
 CLASS:Copper Dragon	PRERACE:1,Dragon (Copper%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -405,18 +407,18 @@ CLASS:Copper Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleri
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1				DEFINE:CR|3	DEFINE:DragonAge|1		ABILITY:Special Ability|AUTOMATIC|Spider Climb
-8				DEFINE:CR|5	DEFINE:DragonAge|2
-11				DEFINE:CR|7	DEFINE:DragonAge|3
-14				DEFINE:CR|9	DEFINE:DragonAge|4
-17	SR:19	DR:5/Magic	DEFINE:CR|11	DEFINE:DragonAge|5
-20	SR:21			DEFINE:CR|14	DEFINE:DragonAge|6									SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Stone Shape,14+CHA
-23	SR:23	DR:10/Magic	DEFINE:CR|16	DEFINE:DragonAge|7	ABILITY:Special Ability|AUTOMATIC|Crush
-26	SR:25			DEFINE:CR|19	DEFINE:DragonAge|8									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Transmute Mud to Rock or Rock to Mud,15+CHA
-29	SR:26	DR:15/Magic	DEFINE:CR|20	DEFINE:DragonAge|9
-32	SR:28			DEFINE:CR|22	DEFINE:DragonAge|10									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Wall of Stone,15+CHA
-35	SR:29	DR:20/Magic	DEFINE:CR|23	DEFINE:DragonAge|11	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
-38	SR:31			DEFINE:CR|25	DEFINE:DragonAge|12									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Move Earth,16+CHA
+1				BONUS:VAR|CR|3|TYPE=Base	BONUS:VAR|DragonAge|1|TYPE=Base		ABILITY:Special Ability|AUTOMATIC|Spider Climb
+8				BONUS:VAR|CR|5|TYPE=Base	BONUS:VAR|DragonAge|2|TYPE=Base
+11				BONUS:VAR|CR|7|TYPE=Base	BONUS:VAR|DragonAge|3|TYPE=Base
+14				BONUS:VAR|CR|9|TYPE=Base	BONUS:VAR|DragonAge|4|TYPE=Base
+17	SR:19	DR:5/Magic	BONUS:VAR|CR|11|TYPE=Base	BONUS:VAR|DragonAge|5|TYPE=Base
+20	SR:21			BONUS:VAR|CR|14|TYPE=Base	BONUS:VAR|DragonAge|6|TYPE=Base									SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Stone Shape,14+CHA
+23	SR:23	DR:10/Magic	BONUS:VAR|CR|16|TYPE=Base	BONUS:VAR|DragonAge|7|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Crush
+26	SR:25			BONUS:VAR|CR|19|TYPE=Base	BONUS:VAR|DragonAge|8|TYPE=Base									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Transmute Mud to Rock or Rock to Mud,15+CHA
+29	SR:26	DR:15/Magic	BONUS:VAR|CR|20|TYPE=Base	BONUS:VAR|DragonAge|9|TYPE=Base
+32	SR:28			BONUS:VAR|CR|22|TYPE=Base	BONUS:VAR|DragonAge|10|TYPE=Base									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Wall of Stone,15+CHA
+35	SR:29	DR:20/Magic	BONUS:VAR|CR|23|TYPE=Base	BONUS:VAR|DragonAge|11|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
+38	SR:31			BONUS:VAR|CR|25|TYPE=Base	BONUS:VAR|DragonAge|12|TYPE=Base									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Move Earth,16+CHA
 
 ###Block: Casting Block ~ Copper Dragon
 11											BONUS:CASTERLEVEL|Copper Dragon|((DragonAge-2)*2)-1
@@ -454,7 +456,7 @@ CLASS:Copper Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleri
 
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page				Combat bonus							Bonus
-CLASS:Gold Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
+CLASS:Gold Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	DEFINE:DragonAge|0	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2
 # Class Name	Required Race		Reg. Race Type
 CLASS:Gold Dragon	PRERACE:1,Dragon (Gold%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -464,7 +466,7 @@ CLASS:Gold Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|
 1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
 1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
 ###Block: Breath Weapon and other SA's
-1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)						DEFINE:BreathWeaponStatDamage|DragonAge	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Weakening Gas
+1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)						DEFINE:BreathWeaponStatDamage|0	BONUS:VAR|BreathWeaponStatDamage|DragonAge	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Weakening Gas
 1	BONUS:VAR|BreathWeaponDamageDie|10	BONUS:VAR|BreathWeaponDice|(2*DragonAge)								ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fire
 1																					ABILITY:Special Ability|AUTOMATIC|Vulnerability To Cold
 1																					ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
@@ -475,18 +477,18 @@ CLASS:Gold Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Cleric|
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1				BONUS:VAR|AlternateFormTimes|3	DEFINE:CR|5	DEFINE:DragonAge|1		ABILITY:Special Ability|AUTOMATIC|Alternate Form
-11										DEFINE:CR|7	DEFINE:DragonAge|2
-14										DEFINE:CR|9	DEFINE:DragonAge|3
-17										DEFINE:CR|11	DEFINE:DragonAge|4										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Bless,11+CHA
-20	SR:21	DR:5/Magic							DEFINE:CR|14	DEFINE:DragonAge|5	ABILITY:Special Ability|AUTOMATIC|Crush
-23	SR:23									DEFINE:CR|16	DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Luck Bonus
-26	SR:25	DR:10/Magic							DEFINE:CR|19	DEFINE:DragonAge|7	ABILITY:Special Ability|AUTOMATIC|Detect Gems
-29	SR:27									DEFINE:CR|21	DEFINE:DragonAge|8	ABILITY:Special Ability|AUTOMATIC|Tail Sweep		SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Geas/Quest,16+CHA
-32	SR:28	DR:15/Magic							DEFINE:CR|22	DEFINE:DragonAge|9
-35	SR:30									DEFINE:CR|24	DEFINE:DragonAge|10										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Sunburst,18+CHA
-38	SR:31	DR:20/Magic							DEFINE:CR|25	DEFINE:DragonAge|11
-41	SR:33									DEFINE:CR|27	DEFINE:DragonAge|12										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Foresight,19+CHA
+1				BONUS:VAR|AlternateFormTimes|3	BONUS:VAR|CR|5|TYPE=Base	BONUS:VAR|DragonAge|1|TYPE=Base		ABILITY:Special Ability|AUTOMATIC|Alternate Form
+11										BONUS:VAR|CR|7|TYPE=Base	BONUS:VAR|DragonAge|2|TYPE=Base
+14										BONUS:VAR|CR|9|TYPE=Base	BONUS:VAR|DragonAge|3|TYPE=Base
+17										BONUS:VAR|CR|11|TYPE=Base	BONUS:VAR|DragonAge|4|TYPE=Base										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Bless,11+CHA
+20	SR:21	DR:5/Magic							BONUS:VAR|CR|14|TYPE=Base	BONUS:VAR|DragonAge|5|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Crush
+23	SR:23									BONUS:VAR|CR|16|TYPE=Base	BONUS:VAR|DragonAge|6|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Luck Bonus
+26	SR:25	DR:10/Magic							BONUS:VAR|CR|19|TYPE=Base	BONUS:VAR|DragonAge|7|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Detect Gems
+29	SR:27									BONUS:VAR|CR|21|TYPE=Base	BONUS:VAR|DragonAge|8|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Tail Sweep		SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Geas/Quest,16+CHA
+32	SR:28	DR:15/Magic							BONUS:VAR|CR|22|TYPE=Base	BONUS:VAR|DragonAge|9|TYPE=Base
+35	SR:30									BONUS:VAR|CR|24|TYPE=Base	BONUS:VAR|DragonAge|10|TYPE=Base										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Sunburst,18+CHA
+38	SR:31	DR:20/Magic							BONUS:VAR|CR|25|TYPE=Base	BONUS:VAR|DragonAge|11|TYPE=Base
+41	SR:33									BONUS:VAR|CR|27|TYPE=Base	BONUS:VAR|DragonAge|12|TYPE=Base										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Foresight,19+CHA
 
 ###Block: Casting Block ~ Gold Dragon
 14											BONUS:CASTERLEVEL|Gold Dragon|((DragonAge-2)*2)-1
@@ -546,18 +548,18 @@ CLASS:Silver Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:6|Cleri
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
 ###Block: Normal Progression
-1				BONUS:VAR|AlternateFormTimes|3	DEFINE:CR|4	DEFINE:DragonAge|1		ABILITY:Special Ability|AUTOMATIC|Alternate Form
-10										DEFINE:CR|5	DEFINE:DragonAge|2
-13										DEFINE:CR|7	DEFINE:DragonAge|3
-16										DEFINE:CR|10	DEFINE:DragonAge|4										SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall,11+CHA
-19	SR:20	DR:5/Magic							DEFINE:CR|13	DEFINE:DragonAge|5
-22	SR:22									DEFINE:CR|15	DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Crush			SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Fog Cloud,12+CHA
-25	SR:24	DR:10/Magic							DEFINE:CR|18	DEFINE:DragonAge|7
-28	SR:26									DEFINE:CR|20	DEFINE:DragonAge|8										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Winds,15+CHA
-31	SR:27	DR:15/Magic							DEFINE:CR|21	DEFINE:DragonAge|9
-34	SR:29									DEFINE:CR|23	DEFINE:DragonAge|10										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
-37	SR:30	DR:20/Magic							DEFINE:CR|24	DEFINE:DragonAge|11	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
-40	SR:32									DEFINE:CR|26	DEFINE:DragonAge|12										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Reverse Gravity,17+CHA
+1				BONUS:VAR|AlternateFormTimes|3	BONUS:VAR|CR|4|TYPE=Base	BONUS:VAR|DragonAge|1|TYPE=Base		ABILITY:Special Ability|AUTOMATIC|Alternate Form
+10										BONUS:VAR|CR|5|TYPE=Base	BONUS:VAR|DragonAge|2|TYPE=Base
+13										BONUS:VAR|CR|7|TYPE=Base	BONUS:VAR|DragonAge|3|TYPE=Base
+16										BONUS:VAR|CR|10|TYPE=Base	BONUS:VAR|DragonAge|4|TYPE=Base										SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall,11+CHA
+19	SR:20	DR:5/Magic							BONUS:VAR|CR|13|TYPE=Base	BONUS:VAR|DragonAge|5|TYPE=Base
+22	SR:22									BONUS:VAR|CR|15|TYPE=Base	BONUS:VAR|DragonAge|6|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Crush			SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Fog Cloud,12+CHA
+25	SR:24	DR:10/Magic							BONUS:VAR|CR|18|TYPE=Base	BONUS:VAR|DragonAge|7|TYPE=Base
+28	SR:26									BONUS:VAR|CR|20|TYPE=Base	BONUS:VAR|DragonAge|8|TYPE=Base										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Winds,15+CHA
+31	SR:27	DR:15/Magic							BONUS:VAR|CR|21|TYPE=Base	BONUS:VAR|DragonAge|9|TYPE=Base
+34	SR:29									BONUS:VAR|CR|23|TYPE=Base	BONUS:VAR|DragonAge|10|TYPE=Base										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
+37	SR:30	DR:20/Magic							BONUS:VAR|CR|24|TYPE=Base	BONUS:VAR|DragonAge|11|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
+40	SR:32									BONUS:VAR|CR|26|TYPE=Base	BONUS:VAR|DragonAge|12|TYPE=Base										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Reverse Gravity,17+CHA
 
 ###Block: Casting Block ~ Silver Dragon
 13											BONUS:CASTERLEVEL|Silver Dragon|((DragonAge-2)*2)-1
