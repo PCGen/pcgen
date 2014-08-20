@@ -64,11 +64,10 @@
 
 <hr>
 
-	<p class="lststatus"><a name="PREABILITY">*** New 5.11.7</a></p>
+	<p class="lstupnew"><a name="PREABILITY">*** Updated 6.03.00</a></p>
 	<p class="indent0"><strong>Tag Name:</strong>PREABILITY:x,CATEGORY=y,z,z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong>Number (Number of abilities needed).</p>
 	<p class="indent1"><strong>Variables Used (y):</strong>Text (Category name).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong>ALL</p>
 	<p class="indent1"><strong>Variables Used (z):</strong>Text (Ability name).</p>
 	<p class="indent1"><strong>Variables Used (z):</strong>TYPE.Text (Ability TYPE).</p>
 	<p class="indent1"><strong>Variables Used (z):</strong>ALL</p>
@@ -76,8 +75,6 @@
 	<ul class="indent2">
 		<li>Checks for the required number of Abilities.</li>
 		<li>The <code>CATEGORY</code> tag will take only &quot;parent&quot; categories.</li>
-		<li>If <code>CATEGORY=ALL</code> is not used the tag checks all categories (including feats) for an 
-			ability of the specified name or type.</li>
 		<li>The list of abilities, by name and/or type, is a comma-delimited (,) list.</li>
 		<li>Enclosing and ability specified, by name or type, in square brackets ([z]) is used to identify 
 			abilities that the character must not have.</li>
@@ -85,10 +82,6 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>PREABILITY:1,CATEGORY=Special Quality,Night Vision,Acid Blast</code></p>
 	<p class="indent3">Requires the Night Vision or Acid Blast Special Quality</p>
-	<p class="indent2"><code>PREABILITY:1,CATEGORY=ANY,Sneak Attack</code></p>
-	<p class="indent3">Requires the Sneak Attack Ability from any category.</p>
-	<p class="indent2"><code>!PREABILITY:1,CATEGORY=ANY,Sneak Attack</code></p>
-	<p class="indent3">Requires that the Sneak Attack Ability from any category not be present.</p>
 	<p class="indent2"><code>PREABILITY:3,CATEGORY=Mutation,ANY</code></p>
 	<p class="indent3">Requires any 3 Mutation category Abilities.</p>
 	<p class="indent2"><code>PREABILITY:2,CATEGORY=Mutation,TYPE.MajorMutation</code></p>
