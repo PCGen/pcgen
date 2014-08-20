@@ -75,7 +75,7 @@ Quick Draw.MOD				TYPE:Gangster.Operator
 Renown.MOD					TYPE:Bureaucrat.Fortuneteller.Politician.World_Traveller.Ambassador.Driver.Explorer.Gangster.Relic_Hunter.Scientist
 Shot on the Run.MOD			TYPE:Operator																						PRE:.CLEAR				PREFEAT:2,Point Blank Shot,Mobility	PREFEAT:1,Dodge,Fancy Footwork				PRESTAT:1,DEX=13
 Smart Plus.MOD																																																																					DESC:Your drive to excel enables you to progress faster toward becoming a truly intelligent hero																										SOURCEPAGE:p.58
-Spring Attack.MOD				TYPE:Daredevil.Shadowy_Avenger.Operator																		PRE:.CLEAR		PREATT:4	PREFEAT:1,Mobility	PREFEAT:1,Dodge,Fancy Footwork						PRESTAT:1,DEX=13
+Spring Attack.MOD				TYPE:Daredevil.Shadowy_Avenger.Operator																		PRE:.CLEAR		PRETOTALAB:4	PREFEAT:1,Mobility	PREFEAT:1,Dodge,Fancy Footwork						PRESTAT:1,DEX=13
 Stealthy.MOD				TYPE:Hunter.Gangster.Relic_Hunter
 Streetfighting.MOD			TYPE:Daredevil.Driver.Explorer.Gangster																																										SAB:Streetfighting damage bonus +1d4+%|StreetfightingDamageBonus	DEFINE:StreetfightingDamageBonus|0
 Strong Plus.MOD																																																																					DESC:Your drive to excel enable you to progress faster toward becoming a truly strong hero.																											SOURCEPAGE:p.58
@@ -90,5 +90,5 @@ Vehicle Dodge.MOD				TYPE:Daredevil.Driver.G_Man
 Vehicle Expert.MOD			TYPE:Daredevil.G_Man
 Weapon Finesse.MOD			TYPE:Operator
 Weapon Focus.MOD				TYPE:Brawler.G_Man.Operator
-Whirlwind Attack.MOD			TYPE:Operator																						PRE:.CLEAR		PREATT:4	PREFEAT:3,Mobility,Spring Attack,Combat Expertise	PREFEAT:1,Dodge,Fancy Footwork	PRESTAT:2,DEX=13,INT=13
+Whirlwind Attack.MOD			TYPE:Operator																						PRE:.CLEAR		PRETOTALAB:4	PREFEAT:3,Mobility,Spring Attack,Combat Expertise	PREFEAT:1,Dodge,Fancy Footwork	PRESTAT:2,DEX=13,INT=13
 Windfall.MOD				TYPE:Politician.Gangster.Relic_Hunter

@@ -551,7 +551,7 @@ CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE=Craft|Cryptog
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Bonus
 CLASS:Battle Mind	NAMEISPI:YES	HD:8		TYPE:Prestige.PC	ABB:BtM		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat					Required Skill
-CLASS:Battle Mind	PREATT:3	PREFEAT:1,Wild Talent,Psionic Talent	PRESKILL:1,Jump=6
+CLASS:Battle Mind	PRETOTALAB:3	PREFEAT:1,Wild Talent,Psionic Talent	PRESKILL:1,Jump=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Battle Mind	STARTSKILLPTS:3	CSKILL:Autohypnosis|Balance|Climb|Concentration|Drive|Jump|Knowledge (Current Events)|Knowledge (Streetwise)|TYPE=Profession|Read/Write Language|Speak Language|Spot|Swim
 ###Block:Level progression
@@ -569,7 +569,7 @@ CLASS:Battle Mind	STARTSKILLPTS:3	CSKILL:Autohypnosis|Balance|Climb|Concentratio
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Bonus
 CLASS:Bodyguard	NAMEISPI:YES	HD:12		TYPE:Prestige.PC	ABB:BdG		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
 # Class Name	Req. Att.	Required Feat						Required Skill
-CLASS:Bodyguard	PREATT:2	PREFEAT:1,Personal Firearms Weapon Proficiency	PRESKILL:2,Concentration=6,Intimidate=6
+CLASS:Bodyguard	PRETOTALAB:2	PREFEAT:1,Personal Firearms Weapon Proficiency	PRESKILL:2,Concentration=6,Intimidate=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bodyguard	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Drive|Forgery|Gather Information|Intimidate|Medical (Psychology)|Knowledge (Current Events)|Knowledge (Political Science)|Knowledge (Streetwise)|Listen|TYPE=Profession|Read/Write Language|Search|Sense Motive|Speak Language|Spot
 1	SAB:Harm's Way
@@ -586,7 +586,7 @@ CLASS:Bodyguard	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Drive|Forgery|Gath
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Bounty Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:BHtr		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")
 # Class Name		Req. Att.	Required Feat	Required Skill											Required Text
-CLASS:Bounty Hunter	PREATT:6	PREFEAT:1,Track	PRESKILL:4,Criminology=5,Gather Information=5,Intimidate=5,Move Silently=5	PRETEXT:Must be 18 years of age
+CLASS:Bounty Hunter	PRETOTALAB:6	PREFEAT:1,Track	PRESKILL:4,Criminology=5,Gather Information=5,Intimidate=5,Move Silently=5	PRETEXT:Must be 18 years of age
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bounty Hunter	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Computer Use|TYPE=Craft|Criminology|Demolitions|Disguise|Forgery|Gather Information|Hide|Intimidate|Jump|TYPE=Knowledge|Medical (First Aid)|Open Lock|TYPE=Profession|Search|Sense Motive|Spot|Wilderness Lore
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Archaic Weapons Proficiency|Futuristic Weapon Proficiency|Heavy Firearms Weapon Proficiency|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency
@@ -600,7 +600,7 @@ CLASS:Bounty Hunter	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Computer Use|TYPE=Craft|C
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:CPC Enforcement Officer	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:CPCEO		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Req. Att.	Required Skill			Required Stat		Required Text
-CLASS:CPC Enforcement Officer	PREATT:6	PRESKILL:1,Criminology=5	PRESTAT:2,INT=12,CON=10	PRETEXT:Must be 18 years of age
+CLASS:CPC Enforcement Officer	PRETOTALAB:6	PRESKILL:1,Criminology=5	PRESTAT:2,INT=12,CON=10	PRETEXT:Must be 18 years of age
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:CPC Enforcement Officer	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE=Craft|Criminology|Demolitions|Drive|Forward Observer|Gather Information|Gunslinging|Handle Animal|Investigation|Jump|Listen|Medical (First Aid)|TYPE=Profession|Read/Write Language|Ride|Scent/Taste|Search|Speak Language|Spot|Swim
 1	SAB:Officer of the Law
@@ -617,7 +617,7 @@ CLASS:CPC Enforcement Officer	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE=Cra
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Security Specialist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:SecS		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Req. Att.	Required Skill				Required Text
-CLASS:Security Specialist	PREATT:6	PRESKILL:1,Gather Information=5	PRETEXT:Must have achieved 21 years of age
+CLASS:Security Specialist	PRETOTALAB:6	PRESKILL:1,Gather Information=5	PRETEXT:Must have achieved 21 years of age
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Security Specialist	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|TYPE=Craft|Criminology|Demolitions|Drive|Gather Information|Investigation|Jump|Listen|Medical (First Aid)|TYPE=Profession|Read/Write Language|Ride|Scent/Taste|Search|Speak Language|Spot|Swim
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Personal Firearms Weapon Proficiency|Simple Weapon Proficiency

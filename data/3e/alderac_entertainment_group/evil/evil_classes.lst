@@ -21,7 +21,7 @@ CLASS:Demon Summoner	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|Concentration|TYPE=Cr
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Bonus
 CLASS:Bargainer	HD:6		TYPE:PC.Prestige	ABB:Bar		MAXLEVEL:10	SOURCEPAGE:p.70-71	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/9	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/4	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2+(classlevel("APPLIEDAS=NONEPIC")/9)+2
 # Class Name	Required AL		Req. Att.	Required Feat				Required Language			Required Skill																		Required Text
-CLASS:Bargainer	PREALIGN:LE,NE,CE	PREATT:4	PREFEAT:2,Infernal Pact,Iron Will	PRELANG:1,Abyssal,Infernal	PRESKILL:1,Knowledge (Arcana)=6	PRESKILL:1,Knowledge (Religion)=4	PRESKILL:2,Diplomacy=8,Knowledge (Demonology)=8	PRETEXT:Must know the true name of a Demon
+CLASS:Bargainer	PREALIGN:LE,NE,CE	PRETOTALAB:4	PREFEAT:2,Infernal Pact,Iron Will	PRELANG:1,Abyssal,Infernal	PRESKILL:1,Knowledge (Arcana)=6	PRESKILL:1,Knowledge (Religion)=4	PRESKILL:2,Diplomacy=8,Knowledge (Demonology)=8	PRETEXT:Must know the true name of a Demon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bargainer	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 1							BONUS:STAT|CHA|1	ABILITY:Special Ability|AUTOMATIC|Agent of Evil ~ Bargainer
@@ -38,7 +38,7 @@ CLASS:Bargainer	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|TYPE=Craft|Decipher Script|
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Blood Archer	HD:10		TYPE:PC.Prestige	ABB:BlA		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL	Req. Att.	Required Feat											Required Skill
-CLASS:Blood Archer	PREALIGN:LE	PREATT:6	PREFEAT:4,Endurance,Point Blank Shot,Track,Weapon Specialization (Longbow)	PRESKILL:1,Craft (Bowyer/Fletcher)=6	PRESKILL:1,Hide=4	PRESKILL:1,Wilderness Lore=7
+CLASS:Blood Archer	PREALIGN:LE	PRETOTALAB:6	PREFEAT:4,Endurance,Point Blank Shot,Track,Weapon Specialization (Longbow)	PRESKILL:1,Craft (Bowyer/Fletcher)=6	PRESKILL:1,Hide=4	PRESKILL:1,Wilderness Lore=7
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blood Archer	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Climb|Craft (Bowyer/Fletcher)|Handle Animal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Ride|Search|Swim|Tumble|Wilderness Lore
 1						ABILITY:Special Ability|AUTOMATIC|Poison Blood ~ Blood Archer|Title ~ Blood Archer	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Simple Weapon Proficiency

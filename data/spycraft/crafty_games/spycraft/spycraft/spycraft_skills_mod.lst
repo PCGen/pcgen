@@ -51,7 +51,7 @@ Use Rope.MOD		TYPE:UnlockedPotential	PREVARLTEQ:skillinfo("TOTALRANK","Use Rope"
 
 # Intimidate for STR and CHA
 # Skill Name	Type				Var. Max. Value									Define
-Intimidate.MOD	TYPE:UnlockedPotential	PREVARLTEQ:skillinfo("TOTALRANK","Intimidate"),MaxRankIntimidate	DEFINE:MaxRankIntimidate|var("MaxRank")-30
+Intimidate.MOD	TYPE:UnlockedPotential	PREVARLTEQ:skillinfo("TOTALRANK","Intimidate"),MaxRankIntimidate	DEFINE:MaxRankIntimidate|0	BONUS:VAR|MaxRankIntimidate|var("MaxRank")-30
 
 #Intimidate (Charisma).MOD	TYPE:UnlockedPotential		PREVARLTEQ:skillinfo("TOTALRANK","Intimidate (Charisma)"),MaxRankIntimidate_Charisma	DEFINE:MaxRankIntimidate_Charisma|var("MaxRank")-30
 #Intimidate (Strength).MOD	TYPE:UnlockedPotential		PREVARLTEQ:skillinfo("TOTALRANK","Intimidate (Strength)"),MaxRankIntimidate_Strength	DEFINE:MaxRankIntimidate_Strength|var("MaxRank")-30

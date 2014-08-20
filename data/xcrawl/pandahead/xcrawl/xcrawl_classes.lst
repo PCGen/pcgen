@@ -66,7 +66,7 @@ CLASS:Master Celebrity	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE=
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Trapper	HD:10		TYPE:PC.Prestige	ABB:Tpr		MAXLEVEL:10	SOURCEPAGE:141	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat	Required Skill
-CLASS:Trapper	PREATT:6	PREFEAT:1,Track	PRESKILL:4,Handle Animal=6,Knowledge (Monster Lore)=4,Move Silently=8,Wilderness Lore=8
+CLASS:Trapper	PRETOTALAB:6	PREFEAT:1,Track	PRESKILL:4,Handle Animal=6,Knowledge (Monster Lore)=4,Move Silently=8,Wilderness Lore=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trapper	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handle Animal|Hide|Intuit Direction|Knowledge (Monster Lore)|Listen|Move Silently|Search|Sense Motive|Spot|Use Rope|Wilderness Lore
 ###Block: Proficiencies
@@ -86,7 +86,7 @@ CLASS:Trapper	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handle Animal|Hid
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Guild DJ	HD:4		TYPE:PC.Prestige	ABB:GDJ		MAXLEVEL:10	SOURCEPAGE:143	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat		Required Skill
-CLASS:Guild DJ	PREATT:3	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy=10,Knowledge (Dungeon Crawl)=8
+CLASS:Guild DJ	PRETOTALAB:3	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy=10,Knowledge (Dungeon Crawl)=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guild DJ	STARTSKILLPTS:8	CSKILL:Bluff|Diplomacy|Gather Information|Handle Animal|Innuendo|Intimidate|Knowledge (Dungeon Crawl)|Perform|Sense Motive
 ###Block: Proficiencies

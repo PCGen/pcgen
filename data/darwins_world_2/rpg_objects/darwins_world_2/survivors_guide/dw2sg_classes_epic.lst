@@ -4,7 +4,7 @@ SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Combat bonus							Modify VAR																				Bonus
 CLASS:Champion	HD:12		TYPE:Base.Epic	ABB:Chm		MAXLEVEL:10	SOURCEPAGE:p. 44	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+((CL+1)/2)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat			Req. Special Ability	Required Skill
-CLASS:Champion	PREATT:10	PREFEAT:2,Iron Will,Toughness	PRESA:1,Defender%		PRESKILL:2,Knowledge (Tactics)=8,Intimidate=10
+CLASS:Champion	PRETOTALAB:10	PREFEAT:2,Iron Will,Toughness	PRESA:1,Defender%		PRESKILL:2,Knowledge (Tactics)=8,Intimidate=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Champion	STARTSKILLPTS:3	CSKILL:Balance|Climb|Handle Animal|Hide|Intimidate|Jump|Listen|Move Silently|Navigate|Search|Spot|Survival
 
@@ -89,7 +89,7 @@ CLASS:Scientist	STARTSKILLPTS:7	CSKILL:Computer Use|TYPE=Craft|Decipher Script|D
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Combat bonus								Modify VAR																			Bonus
 CLASS:Tech Looter	HD:8		TYPE:Base.Epic	ABB:TLtr		MAXLEVEL:10	SOURCEPAGE:p. 54	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3/4)	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name	Req. Att.	Required Feat			Required Skill
-CLASS:Tech Looter	PREATT:6	PREFEAT:1,Advanced Technology	PRESKILL:6,Knowledge (Technology)=13,Disable Device=8,Knowledge (Ancient Lore)=8,Gather Information=10,Computer Use=6,Repair=6
+CLASS:Tech Looter	PRETOTALAB:6	PREFEAT:1,Advanced Technology	PRESKILL:6,Knowledge (Technology)=13,Disable Device=8,Knowledge (Ancient Lore)=8,Gather Information=10,Computer Use=6,Repair=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tech Looter	STARTSKILLPTS:5	CSKILL:Computer Use|Decipher Script|Disable Device|Drive|Gather Information|Hide|Knowledge (Ancient Lore)|Knowledge (Technology)|Listen|Move Silently|Navigate|Repair|Search|Sleight of Hand|Spot|Survival
 
@@ -123,7 +123,7 @@ CLASS:Trade Master	STARTSKILLPTS:7	CSKILL:Bluff|Diplomacy|Drive|Forgery|Gather I
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Combat bonus							Modify VAR																								Bonus
 CLASS:Warrior Monk	HD:10		TYPE:Base.Epic	ABB:MHntr		MAXLEVEL:10	SOURCEPAGE:p. 57	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)	BONUS:VAR|WeapSpecQualify|1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat								Required Skill
-CLASS:Warrior Monk	PREATT:10	PREFEAT:3,Combat Expertise,Combat Reflexes,Weapon Focus	PRESKILL:1,Knowledge (Tactics)=8
+CLASS:Warrior Monk	PRETOTALAB:10	PREFEAT:3,Combat Expertise,Combat Reflexes,Weapon Focus	PRESKILL:1,Knowledge (Tactics)=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Warrior Monk	STARTSKILLPTS:3	CSKILL:Drive|Intimidate|Jump|Knowledge (Tactics)|Listen|Ride|Sense Motive|Spot|Survival
 

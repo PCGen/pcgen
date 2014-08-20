@@ -6,7 +6,7 @@ SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyfli
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page						Combat bonus								Bonus
 CLASS:Acolyte of Chance	HD:6		TYPE:PC.Prestige	ABB:ACh		MAXLEVEL:10	SOURCEPAGE:Chap.1, Acolyte of Chance	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL		Req. Att.	Multiple Requirements
-CLASS:Acolyte of Chance	PREALIGN:CG,CN,CE	PREATT:4	PREMULT:2,[PRESKILL:1,Knowledge (Religion)=3],[PRESKILL:2,Balance=8,Bluff=8,Climb=8,TYPE.Craft=8,Disable Device=8,Gather Information=8,Hide=8,Innuendo=8,Intimidate=8,Intuit Direction=8,Jump=8,Listen=8,Move Silently=8,Open Lock=8,Read Lips=8,Search=8,Sense Motive=8,Spot=8,Swim=8,Tumble=8,Use Rope=8]
+CLASS:Acolyte of Chance	PREALIGN:CG,CN,CE	PRETOTALAB:4	PREMULT:2,[PRESKILL:1,Knowledge (Religion)=3],[PRESKILL:2,Balance=8,Bluff=8,Climb=8,TYPE.Craft=8,Disable Device=8,Gather Information=8,Hide=8,Innuendo=8,Intimidate=8,Intuit Direction=8,Jump=8,Listen=8,Move Silently=8,Open Lock=8,Read Lips=8,Search=8,Sense Motive=8,Spot=8,Swim=8,Tumble=8,Use Rope=8]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Acolyte of Chance	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Proficiencies
@@ -141,7 +141,7 @@ CLASS:Myste		STARTSKILLPTS:6	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE=Cr
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Combat bonus								Bonus
 CLASS:Night Hunter	HD:6		TYPE:PC.Prestige	ABB:NiH		MAXLEVEL:10	SOURCEPAGE:Chap.1, Night Hunter	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat	Req. Special Ability	Required Skill
-CLASS:Night Hunter	PREATT:6	PREFEAT:1,Track	PRESA:1,Sneak Attack	PRESKILL:4,Alchemy=3,Knowledge (Lycanthropes)=3,Hide=8,Move Silently=8
+CLASS:Night Hunter	PRETOTALAB:6	PREFEAT:1,Track	PRESA:1,Sneak Attack	PRESKILL:4,Alchemy=3,Knowledge (Lycanthropes)=3,Hide=8,Move Silently=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Night Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Lycanthropes)|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope|Wilderness Lore
 1	AUTO:FEAT|Night Hunter Weapon Proficiencies
@@ -290,7 +290,7 @@ CLASS:Questioner	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Combat bonus							Bonus
 CLASS:Royal Assassin	HD:6		TYPE:PC.Prestige	ABB:RAss		MAXLEVEL:10	SOURCEPAGE:Chap.1, Royal Assassin	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Restricted AL		Req. Att.	Multiple Requirements																																																																			Req. Special Ability
-CLASS:Royal Assassin	!PREALIGN:LE,NE,CE	PREATT:6	PREMULT:2,[PRESKILL:2,Hide=8,Move Silently=8],[PRESKILL:2,Appraise=3,Balance=3,Bluff=3,Climb=3,TYPE.Craft=3,Decipher Script=3,Diplomacy=3,Disable Device=3,Disguise=3,Escape Artist=3,Forgery=3,Gather Information=3,Innuendo=3,Intimidate=3,Intuit Direction=3,Jump=3,Listen=3,Open Lock=3,Perform=3,Pick Pocket=3,TYPE.Profession=3,Read Lips=3,Search=3,Sense Motive=3,Spot=3,Swim=3,Tumble=3,Use Magic Device=3,Use Rope=3]	PRESA:1,Sneak Attack
+CLASS:Royal Assassin	!PREALIGN:LE,NE,CE	PRETOTALAB:6	PREMULT:2,[PRESKILL:2,Hide=8,Move Silently=8],[PRESKILL:2,Appraise=3,Balance=3,Bluff=3,Climb=3,TYPE.Craft=3,Decipher Script=3,Diplomacy=3,Disable Device=3,Disguise=3,Escape Artist=3,Forgery=3,Gather Information=3,Innuendo=3,Intimidate=3,Intuit Direction=3,Jump=3,Listen=3,Open Lock=3,Perform=3,Pick Pocket=3,TYPE.Profession=3,Read Lips=3,Search=3,Sense Motive=3,Spot=3,Swim=3,Tumble=3,Use Magic Device=3,Use Rope=3]	PRESA:1,Sneak Attack
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Royal Assassin	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 1	AUTO:FEAT|Royal Assassin Weapon Proficiencies
@@ -385,7 +385,7 @@ CLASS:Unblinking Eye	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Deciphe
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Bonus
 CLASS:White Rose	HD:8		TYPE:PC.Prestige	ABB:WRo		MAXLEVEL:10	SOURCEPAGE:Chap.1, White Rose	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat									Required Race		Required Skill
-CLASS:White Rose	PREATT:6	PREFEAT:2,Dodge,Expertise	PREFEAT:1,Weapon Focus (TYPE=Sword)	PRERACE:1,Elf%,Half-Elf	PRESKILL:4,Balance=8,Hide=8,Jump=8,Move Silently=8
+CLASS:White Rose	PRETOTALAB:6	PREFEAT:2,Dodge,Expertise	PREFEAT:1,Weapon Focus (TYPE=Sword)	PRERACE:1,Elf%,Half-Elf	PRESKILL:4,Balance=8,Hide=8,Jump=8,Move Silently=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:White Rose	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Swim|Tumble
 1	AUTO:FEAT|White Rose Weapon Proficiencies
@@ -403,7 +403,7 @@ CLASS:White Rose	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Bonus
 CLASS:Windrider	HD:6		TYPE:PC.Prestige	ABB:Wind		MAXLEVEL:10	SOURCEPAGE:Chap.1, Windrider	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Skill
-CLASS:Windrider	PREATT:4	PRESKILL:6,Intimidate=5,Ride=5,Wilderness Lore=5,Listen=8,Move Silently=8,Spot=8
+CLASS:Windrider	PRETOTALAB:4	PRESKILL:6,Intimidate=5,Ride=5,Wilderness Lore=5,Listen=8,Move Silently=8,Spot=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Windrider	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Perform|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Spot|Tumble|Use Magic Device|Use Rope|Wilderness Lore
 1													AUTO:FEAT|Simple Weapon Proficiency

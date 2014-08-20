@@ -29,7 +29,7 @@ CLASS:Faemancer	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Faerie Hunter	HD:10		TYPE:PC.Prestige	ABB:FHt		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL				Req. Att.	Required Feat							Required Skill
-CLASS:Faerie Hunter	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:5	PREFEAT:3,Mite Fighter,Point Blank Shot,Precise Shot	PRESKILL:1,Knowledge (Fey)=5
+CLASS:Faerie Hunter	PREALIGN:LN,LE,TN,NE,CN,CE	PRETOTALAB:5	PREFEAT:3,Mite Fighter,Point Blank Shot,Precise Shot	PRESKILL:1,Knowledge (Fey)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Faerie Hunter	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Hide|Intuit Direction|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Sense Motive|Speak Language|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
@@ -69,7 +69,7 @@ CLASS:Faerier	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Inf
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
 CLASS:Fae-Walker	HD:8		TYPE:PC.Prestige	ABB:FWk		MAXLEVEL:10	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Req. Att.	Required Feat					Required Skill
-CLASS:Fae-Walker	PREALIGN:CG,CN,CE	PREATT:4	PREFEAT:3,Dodge,Mobility,Combat Reflexes	PRESKILL:3,Move Silently=8,Hide=8,Knowledge (Fey)=8
+CLASS:Fae-Walker	PREALIGN:CG,CN,CE	PRETOTALAB:4	PREFEAT:3,Dodge,Mobility,Combat Reflexes	PRESKILL:3,Move Silently=8,Hide=8,Knowledge (Fey)=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fae-Walker	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE=Perform|Pick Pocket|TYPE=Profession|Search|Spot|Tumble|Use Rope
 1					BONUS:VAR|StepSideways|1						ABILITY:Special Ability|AUTOMATIC|Evasion|Step Sideways
@@ -107,7 +107,7 @@ CLASS:Fey Guardian	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowl
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
 CLASS:Fey Prankster	HD:8		TYPE:PC.Prestige	ABB:FPk		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*2/3|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL				Req. Att.	Required Feat					Required Skill									Req. Spell Type
-CLASS:Fey Prankster	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:3,Alertness,Combat Casting,Dodge	PRESKILL:3,Concentration=5,Knowledge (Arcana)=4,Knowledge (Fey)=4	PRESPELLTYPE:1,Arcane=1
+CLASS:Fey Prankster	PREALIGN:NG,TN,NE,CG,CN,CE	PRETOTALAB:4	PREFEAT:3,Alertness,Combat Casting,Dodge	PRESKILL:3,Concentration=5,Knowledge (Arcana)=4,Knowledge (Fey)=4	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Fey Prankster	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE=Perform|Pick Pocket|TYPE=Profession|Search|Spot|Tumble|Use Rope
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
@@ -132,7 +132,7 @@ CLASS:Fey Prankster	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Fey-Touched	HD:6		TYPE:PC.Prestige	ABB:FTc		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Req. Att.	Required Feat			Prohibited Race		Required Skill
-CLASS:Fey-Touched	PREATT:4	PREFEAT:2,Alertness,Dodge	!PRERACE:1,RACETYPE=Fey	PRESKILL:1,Knowledge (Fey)=5
+CLASS:Fey-Touched	PRETOTALAB:4	PREFEAT:2,Alertness,Dodge	!PRERACE:1,RACETYPE=Fey	PRESKILL:1,Knowledge (Fey)=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fey-Touched	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Information|Hide|Innuendo|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Sense Motive|Spellcraft|Spot
 1	VISION:Low-Light Vision	ABILITY:Special Ability|AUTOMATIC|Fey Sense														AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
@@ -151,7 +151,7 @@ CLASS:Fey-Touched	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Knight of the Fey	HD:10		TYPE:PC.Prestige	ABB:FTc		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL			Req. Att.	Required Feat												Required Race		Required Skill
-CLASS:Knight of the Fey	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:5,Armor Proficiency (Heavy),Power Attack,Cleave,Great Cleave,Mounted Combat	PRERACE:1,RACETYPE=Fey	PRESKILL:4,Diplomacy=4,Ride=4,Knowledge (Fey)=5,Knowledge (Nobility and Royalty)=5
+CLASS:Knight of the Fey	PREALIGN:LG,LN,NG,TN	PRETOTALAB:4	PREFEAT:5,Armor Proficiency (Heavy),Power Attack,Cleave,Great Cleave,Mounted Combat	PRERACE:1,RACETYPE=Fey	PRESKILL:4,Diplomacy=4,Ride=4,Knowledge (Fey)=5,Knowledge (Nobility and Royalty)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Fey	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (Fey)|Knowledge (Nobility and Royalty)|Ride|Spot
 ###Block: Proficiencies
@@ -194,7 +194,7 @@ CLASS:Mage of the Circle	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Mortal Slayer	HD:10		TYPE:PC.Prestige	ABB:MSl		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Req. Att.	Required Feat								Required Race		Required Skill
-CLASS:Mortal Slayer	PREATT:6	PREFEAT:3,Improved Initiative,Mounted Combat,Quick Draw	PRERACE:1,RACETYPE=Fey	PRESKILL:2,Knowledge (Fey)=8,Knowledge (Folk Tales)=8
+CLASS:Mortal Slayer	PRETOTALAB:6	PREFEAT:3,Improved Initiative,Mounted Combat,Quick Draw	PRERACE:1,RACETYPE=Fey	PRESKILL:2,Knowledge (Fey)=8,Knowledge (Folk Tales)=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mortal Slayer	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Heal|Intuit Direction|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Sense Motive|Speak Language|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level

@@ -9,5 +9,5 @@ Leap of The Monkey		TYPE:General.Fighter																PRESKILL:2,Jump=5,Climb=
 Sticking				TYPE:General.Fighter			PREFEAT:2,Improved Grapple (JS),Improved Trip															DESC:Martial artists can stick to oponent receiving +2 to Disarm, Grapple and Trip					SOURCEPAGE:p.21
 Superior Two-Weapon Fighting	TYPE:General.Fighter			PREFEAT:2,Two-Weapon Fighting,Improved Two-Weapon Fighting										PRESTAT:1,STR=15	DESC:Suffers only -2 penalty when fighting with two non-light weapons							SOURCEPAGE:p.21
 Typhoon Attack			TYPE:General.Fighter																PRESKILL:1,Jump=5							DESC:Allows a second attack on a new opponent after a successful charge							SOURCEPAGE:p.22
-Whirlwind Kick			TYPE:General.Fighter	PREATT:3	PREFEAT:1,Improved Unarmed Strike														PRESTAT:1,DEX=15	DESC:Kick can strike multiple Oponents												SOURCEPAGE:p.22
+Whirlwind Kick			TYPE:General.Fighter	PRETOTALAB:3	PREFEAT:1,Improved Unarmed Strike														PRESTAT:1,DEX=15	DESC:Kick can strike multiple Oponents												SOURCEPAGE:p.22
 Willow Step				TYPE:General.Fighter																PRESKILL:1,Tumble=5			PRESTAT:1,DEX=15	DESC:Successful Tumble Check (DC20) allows continued movement in a straight line after a charge			SOURCEPAGE:p.22

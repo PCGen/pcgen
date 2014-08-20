@@ -19,7 +19,7 @@ CLASS:Starship Designer	STARTSKILLPTS:4	CSKILL:Computer Use|Craft (Electronic)|C
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR										Bonus
 CLASS:Starship Test Pilot	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Req. Att.	Required Feat			Required Skill
-CLASS:Starship Test Pilot	PREATT:2	PREFEAT:1,Starship Operation	PRESKILL:2,Pilot=6,Repair=3
+CLASS:Starship Test Pilot	PRETOTALAB:2	PREFEAT:1,Starship Operation	PRESKILL:2,Pilot=6,Repair=3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Starship Test Pilot	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Craft (Electronic)|Craft (Mechanical)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Navigate|Pilot|Profession|Repair
 1	SAB:Right Stuff+%|RightStuff	BONUS:VAR|RightStuff|CL/5+1	DEFINE:RightStuff|0

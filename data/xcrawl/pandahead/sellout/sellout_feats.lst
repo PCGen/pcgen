@@ -14,7 +14,7 @@ Hard Headed				TYPE:General																																																					
 Hawaiin Scuffle Truck		TYPE:General				PREFEAT:2,Improved Unarmed Strike,Improved Grapple																						PRETYPE:1,Humanoid																SOURCEPAGE:91
 Hottie				TYPE:General																																																					SOURCEPAGE:91
 If They Go I Go			TYPE:General																																																					SOURCEPAGE:91
-Interior Player			TYPE:General.Athlete	PREATT:4																					PRETEXT:Six weeks training with a coach																							SOURCEPAGE:91
+Interior Player			TYPE:General.Athlete	PRETOTALAB:4																					PRETEXT:Six weeks training with a coach																							SOURCEPAGE:91
 Korean Leg Pinch			TYPE:General				PREFEAT:1,Improved Unarmed Strike																																												SOURCEPAGE:91
 Let's Give Em a Hand		TYPE:General				PREFEAT:1,Crowd Favorite																																													SOURCEPAGE:92
 Man To Man				TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach																							SOURCEPAGE:92
@@ -25,8 +25,8 @@ Speed Skater			TYPE:General				PREFEAT:1,Natural Skater																									
 Stay Focused			TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach																							SOURCEPAGE:92	BONUS:SAVE|Will|2
 Strong Forward			TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach																							SOURCEPAGE:92
 Strong D				TYPE:General.Athlete																							PRETEXT:Six weeks training with a coach																							SOURCEPAGE:92
-Stunning Shot			TYPE:General		PREATT:5	PREFEAT:2,Point Blank Shot,Precise Shot											PRESTAT:1,DEX=15																														SOURCEPAGE:92
-Sharking				TYPE:General		PREATT:4														PRESKILL:1,Bluff=8				PRETEXT:A campaign that uses the optional statistic rules																				SOURCEPAGE:93
+Stunning Shot			TYPE:General		PRETOTALAB:5	PREFEAT:2,Point Blank Shot,Precise Shot											PRESTAT:1,DEX=15																														SOURCEPAGE:92
+Sharking				TYPE:General		PRETOTALAB:4														PRESKILL:1,Bluff=8				PRETEXT:A campaign that uses the optional statistic rules																				SOURCEPAGE:93
 Stoic					TYPE:General																																										BONUS:SKILL|Concentration,Bluff|2						SOURCEPAGE:93
 Work The Numbers			TYPE:General																								PRETEXT:A campaign that uses the optional statistic rules																				SOURCEPAGE:93
 Table Top Player			TYPE:General																																										BONUS:SKILL|Knowledge (XCrawl)|4						SOURCEPAGE:93

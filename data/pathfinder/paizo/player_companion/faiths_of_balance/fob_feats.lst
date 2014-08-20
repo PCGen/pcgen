@@ -5,8 +5,8 @@ SOURCELONG:Faiths of Purity	SOURCESHORT:FOB	SOURCEWEB:http://paizo.com/store/gam
 ###Block: New Feats
 # Feat Name		Type			Req. Att.	Required Deity		Required Feat					Req. Weapond Prof.		Description																Source Page
 Arcane Insight	TYPE:General			PREDEITY:1,Nethys		PREFEAT:1,Arcane Shield									DESC:Magical insight helps you evade attacks.										SOURCEPAGE:p.24
-Bloody Vengeance	TYPE:Combat		PREATT:1	PREDEITY:1,Calistria													DESC:Your retaliatory strikes have long-lasting effects.								SOURCEPAGE:p.24
-Measured Response	TYPE:Combat		PREATT:1	PREDEITY:1,Abadar														DESC:You believe that a conservative but consistent response guarantees success.				SOURCEPAGE:p.24
+Bloody Vengeance	TYPE:Combat		PRETOTALAB:1	PREDEITY:1,Calistria													DESC:Your retaliatory strikes have long-lasting effects.								SOURCEPAGE:p.24
+Measured Response	TYPE:Combat		PRETOTALAB:1	PREDEITY:1,Abadar														DESC:You believe that a conservative but consistent response guarantees success.				SOURCEPAGE:p.24
 Riptide Attack	TYPE:Combat				PREDEITY:1,Gozreh		PREFEAT:2,Improved Drag,Improved Trip						DESC:You can follow up a successful trip attempt with a drag maneuver.						SOURCEPAGE:p.24
 Spiked Destroyer	TYPE:Combat				PREDEITY:1,Gorum									PREWEAPONPROF:1,Spiked Armor	DESC:You can attack with your armor spikes while using bull rush or overrun.					SOURCEPAGE:p.24
 Steady Engagement	TYPE:Combat				PREDEITY:1,Irori		PREFEAT:2,Combat Reflexes,Stand Still						DESC:You can draw on your excellent balance to trip or disarm opponents when they try to disengage.	SOURCEPAGE:p.24

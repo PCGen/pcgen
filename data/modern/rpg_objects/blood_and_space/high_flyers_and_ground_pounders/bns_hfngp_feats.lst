@@ -2,7 +2,7 @@
 SOURCELONG:Blood and Space - High Flyers and Ground Pounders	SOURCESHORT:BnS-HFnGP	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=56	SOURCEDATE:2004-01
 
 # Feat Name			Type							Req. Att.	Required Feat				Required Lvl	Required Skill				Required Stat		Required Text											Description																																																						Bonus to skill			Class Skill		Source Page
-Antithesis			TYPE:General					PREATT:9	PREFEAT:1,Enemy																	PRETEXT:The allegiance for this feat must be the same as your Enemy feat	DESC:You have a deep hatred of those loyal to one Allegiance																																																					SOURCEPAGE:p.10
+Antithesis			TYPE:General					PRETOTALAB:9	PREFEAT:1,Enemy																	PRETEXT:The allegiance for this feat must be the same as your Enemy feat	DESC:You have a deep hatred of those loyal to one Allegiance																																																					SOURCEPAGE:p.10
 Barrel Roll			TYPE:General.Fast.Dogfighter					PREFEAT:1,Evasive Maneuvers																												DESC:You have learned that by rolling and flipping your ship in combat you can make it even harder to hit																																														SOURCEPAGE:p.11
 Cover Fire			TYPE:General.Dedicated						PREFEAT:1,Teamwork																													DESC:You are highly skilled at providing cover fire.																																																							SOURCEPAGE:p.11
 Desk Jockey			TYPE:General.Smart																																						DESC:You might not have seen a lot of combat (yet) but you file one mean SFU-69/KY in triplicate blind CC'd to 3rd parties on a strictly "need to know" basis.																																					SOURCEPAGE:p.11

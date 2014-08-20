@@ -4,7 +4,7 @@ SOURCELONG:Modern Dispatch #67 - The Precinct	SOURCESHORT:MD67-Precinct	SOURCEWE
 # Class Name	Hit Dice	Max Level	Source Page		Combat bonus								Modify VAR										Bonus
 CLASS:Bad Cop	HD:10		MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat					Required Skill
-CLASS:Bad Cop	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Intimidate=6,Knowledge (Streetwise)=3
+CLASS:Bad Cop	PRETOTALAB:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Intimidate=6,Knowledge (Streetwise)=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bad Cop	STARTSKILLPTS:4	CSKILL:Climb|Drive|Intimidate|Investigate|Jump|Knowledge (Civics)|Knowledge (Streetwise)|Knowledge (Tactics)|Repair|Sense Motive|Swim
 1	SAB:Bad Cop (Unfriendly Persuasion) +%|Reputation

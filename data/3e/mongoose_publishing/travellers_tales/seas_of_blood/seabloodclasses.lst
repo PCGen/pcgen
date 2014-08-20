@@ -4,7 +4,7 @@ SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:S
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Buccaneer	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Skill					Required Stat
-CLASS:Buccaneer	PREATT:3	PRESKILL:3,Balance=6,Swim=6,Tumble=6	PRESTAT:1,CHA=13
+CLASS:Buccaneer	PRETOTALAB:3	PRESKILL:3,Balance=6,Swim=6,Tumble=6	PRESTAT:1,CHA=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Buccaneer	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Innuendo|Intimidate|Jump|Knowledge (Seamanship)|Move Silently|Sense Motive|Swim|Tumble|Use Rope
 ###Block: Proficiencies
@@ -42,7 +42,7 @@ CLASS:Navigator Wizard	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Gath
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Reaver	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat						Required Skill
-CLASS:Reaver	PREATT:4	PREFEAT:2,Power Attack,Two-Weapon Fighting	PRESKILL:1,Swim=6
+CLASS:Reaver	PRETOTALAB:4	PREFEAT:2,Power Attack,Two-Weapon Fighting	PRESKILL:1,Swim=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Reaver	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Hide|Intimidate|Jump|Knowledge (Seamanship)|Swim|Use Rope
 ###Block: Proficiencies

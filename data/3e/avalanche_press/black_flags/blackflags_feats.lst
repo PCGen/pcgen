@@ -3,14 +3,14 @@ SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean	SOURCESHORT:B
 
 # Feat Name				Product Identity?	Type				Req. Att.	Required Feat						Required Skill	Required Stat	Desc is PI?	Description								Bonus to skill				Source Page
 Amputate				NAMEISPI:NO		TYPE:General												PRESKILL:1,Heal=8				DESCISPI:NO	DESC:Better skilled at removing a limb.									SOURCEPAGE:p.48
-Deadeye				NAMEISPI:NO		TYPE:Panache		PREATT:5	PREFEAT:2,Firearms Proficiency,Sharpshooter							DESCISPI:NO	DESC:Deadly shot with a firearm.										SOURCEPAGE:p.49
+Deadeye				NAMEISPI:NO		TYPE:Panache		PRETOTALAB:5	PREFEAT:2,Firearms Proficiency,Sharpshooter							DESCISPI:NO	DESC:Deadly shot with a firearm.										SOURCEPAGE:p.49
 Firearms Proficiency		NAMEISPI:NO		TYPE:General.Panache																	DESCISPI:NO	DESC:Proficiency with a firearm.										SOURCEPAGE:p.49
 Grace					NAMEISPI:NO		TYPE:General																		DESCISPI:NO	DESC:Has an air of grace.					BONUS:SKILL|STAT=CHA|2|TYPE=Racial	SOURCEPAGE:p.49
 Gunnery				NAMEISPI:NO		TYPE:General.Panache			PREFEAT:1,Firearms Proficiency									DESCISPI:NO	DESC:Trained in use of cannons and heavy weaponry.							SOURCEPAGE:p.49
 Improvised Weapon Proficiency	NAMEISPI:NO		TYPE:General.Panache																	DESCISPI:NO	DESC:Make anything into a makeshift weapon.								SOURCEPAGE:p.49
 Literacy				NAMEISPI:NO		TYPE:General																		DESCISPI:NO	DESC:Can read/write a language.										SOURCEPAGE:p.50
 Sharpshooter			NAMEISPI:NO		TYPE:Panache				PREFEAT:1,Firearms Proficiency						PRESTAT:1,DEX=15	DESCISPI:NO	DESC:Natural aptitude for firearms.										SOURCEPAGE:p.50
-Trick Shot				NAMEISPI:NO		TYPE:Panache		PREATT:7	PREFEAT:2,Firearms Proficiency,Sharpshooter							DESCISPI:NO	DESC:Skilled at using firearms in unusual ways.								SOURCEPAGE:p.50
+Trick Shot				NAMEISPI:NO		TYPE:Panache		PRETOTALAB:7	PREFEAT:2,Firearms Proficiency,Sharpshooter							DESCISPI:NO	DESC:Skilled at using firearms in unusual ways.								SOURCEPAGE:p.50
 
 ###Block: Pananche modifed TYPE feats.
 # Feat Name			Type

@@ -7,7 +7,7 @@ SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOU
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Berserker	HD:10		TYPE:PC.Prestige	ABB:Brz		MAXLEVEL:5	SOURCEPAGE:p.14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL				Req. Att.	Required Feat
-CLASS:Berserker	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:6,Cleave,Endurance,Iron Will,Power Attack,Weapon Focus,Weapon Specialization
+CLASS:Berserker	PREALIGN:NG,TN,NE,CG,CN,CE	PRETOTALAB:4	PREFEAT:6,Cleave,Endurance,Iron Will,Power Attack,Weapon Focus,Weapon Specialization
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Berserker	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Swim
 ###Block: Proficiencies
@@ -24,7 +24,7 @@ CLASS:Berserker	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Brawler	HD:10		TYPE:PC.Prestige	ABB:Brl		MAXLEVEL:5	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat						Required Stat
-CLASS:Brawler	PREATT:5	PREFEAT:2,Alertness,Improved Unarmed Strike	PRESTAT:1,STR=15
+CLASS:Brawler	PRETOTALAB:5	PREFEAT:2,Alertness,Improved Unarmed Strike	PRESTAT:1,STR=15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim
 1	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10		BONUS:VAR|SneakAttackDice|1									ABILITY:Special Ability|AUTOMATIC|Sneak Attack
@@ -36,7 +36,7 @@ CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Knight of the Griffin	HD:10		TYPE:PC.Prestige	ABB:KotG		MAXLEVEL:5	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL	Req. Att.	Required Feat
-CLASS:Knight of the Griffin	PREALIGN:LG	PREATT:7	PREFEAT:3,Great Cleave,Weapon Focus,Weapon Specialization
+CLASS:Knight of the Griffin	PREALIGN:LG	PRETOTALAB:7	PREFEAT:3,Great Cleave,Weapon Focus,Weapon Specialization
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Griffin	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Ride|Sense Motive
 ###Block: Proficiencies
@@ -53,7 +53,7 @@ CLASS:Knight of the Griffin	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Legend	HD:12		TYPE:PC.Prestige	ABB:Lgd		MAXLEVEL:5	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL		Req. Att.	Required Feat
-CLASS:Legend	PREALIGN:LG,LN,LE	PREATT:15	PREFEAT:8,Endurance,Great Cleave,Great Fortitude,Improved Critical,Leadership,Run,Toughness,Weapon Specialization
+CLASS:Legend	PREALIGN:LG,LN,LE	PRETOTALAB:15	PREFEAT:8,Endurance,Great Cleave,Great Fortitude,Improved Critical,Leadership,Run,Toughness,Weapon Specialization
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Legend	STARTSKILLPTS:4	CSKILL:TYPE=Strength|TYPE=Intelligence|TYPE=Wisdom|TYPE=Constitution|TYPE=Dexterity|TYPE=Charisma
 ###Block: Proficiencies
@@ -70,7 +70,7 @@ CLASS:Legend	STARTSKILLPTS:4	CSKILL:TYPE=Strength|TYPE=Intelligence|TYPE=Wisdom|
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Living Blade	HD:10		TYPE:PC.Prestige	ABB:LiB		MAXLEVEL:5	SOURCEPAGE:p.19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat
-CLASS:Living Blade	PREATT:7	PREFEAT:3,Weapon Focus,Weapon Specialization,Whirlwind Attack
+CLASS:Living Blade	PRETOTALAB:7	PREFEAT:3,Weapon Focus,Weapon Specialization,Whirlwind Attack
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Living Blade	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Heal|Jump|Swim|Tumble
 ###Block: Proficiencies
@@ -87,7 +87,7 @@ CLASS:Living Blade	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Heal|Jump|
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Master Bowman	HD:8		TYPE:PC.Prestige	ABB:MBm		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat																			Required Skill
-CLASS:Master Bowman	PREATT:12	PREFEAT:7,Far Shot,Point Blank Shot,Precise Shot,Rapid Shot,Shot on the Run,Weapon Focus (%bow),Weapon Specialization (%bow)	PRESKILL:2,Concentration=4,Craft (Bowmaking)=8
+CLASS:Master Bowman	PRETOTALAB:12	PREFEAT:7,Far Shot,Point Blank Shot,Precise Shot,Rapid Shot,Shot on the Run,Weapon Focus (%bow),Weapon Specialization (%bow)	PRESKILL:2,Concentration=4,Craft (Bowmaking)=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Bowman	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Craft (Bowmaking)|Hide|Listen|Move Silently|Spot|Swim
 ###Block: Proficiencies
@@ -103,7 +103,7 @@ CLASS:Master Bowman	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Craft (Bowmaking)
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Noble Defender	HD:10		TYPE:PC.Prestige	ABB:NoD		MAXLEVEL:5	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL			Req. Att.	Required Feat		Required Skill
-CLASS:Noble Defender	PREALIGN:LG,LN,NG,TN	PREATT:9	PREFEAT:1,Leadership	PRESKILL:1,Diplomacy=6
+CLASS:Noble Defender	PREALIGN:LG,LN,NG,TN	PRETOTALAB:9	PREFEAT:1,Leadership	PRESKILL:1,Diplomacy=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Noble Defender	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Knowledge (Nobility and Royalty)|Sense Motive
 ###Block: Proficiencies
@@ -120,7 +120,7 @@ CLASS:Noble Defender	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Gather Information|I
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Officer of War	HD:10		TYPE:PC.Prestige	ABB:OoW		MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL				Req. Att.	Required Feat				Required Skill
-CLASS:Officer of War	PREALIGN:LG,LN,LE,NG,TN,NE	PREATT:7	PREFEAT:2,Endurance,Leadership	PRESKILL:1,Knowledge (Military)=8
+CLASS:Officer of War	PREALIGN:LG,LN,LE,NG,TN,NE	PRETOTALAB:7	PREFEAT:2,Endurance,Leadership	PRESKILL:1,Knowledge (Military)=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Officer of War	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Handle Animal|Heal|Intimidate|Jump|Knowledge (Military)|Swim|Wilderness Lore
 ###Block: Proficiencies
@@ -137,7 +137,7 @@ CLASS:Officer of War	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Handle Animal|Heal|I
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Peasant Hero	HD:8		TYPE:PC.Prestige	ABB:PeH		MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL			Req. Att.
-CLASS:Peasant Hero	PREALIGN:LG,LN,NG,TN	PREATT:2
+CLASS:Peasant Hero	PREALIGN:LG,LN,NG,TN	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Peasant Hero	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Gather Information|Handle Animal|TYPE=Profession|Ride|Sense Motive|Swim|Wilderness Lore
 ###Block: Proficiencies
@@ -152,7 +152,7 @@ CLASS:Peasant Hero	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Gather Information|Ha
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Swashbuckler	HD:10		TYPE:PC.Prestige	ABB:Swa		MAXLEVEL:5	SOURCEPAGE:p.25	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat							Required Skill
-CLASS:Swashbuckler	PREATT:5	PREFEAT:4,Dodge,Expertise,Improved Disarm,Mobility	PRESKILL:3,Jump=8,Climb=6,Tumble=6
+CLASS:Swashbuckler	PRETOTALAB:5	PREFEAT:4,Dodge,Expertise,Improved Disarm,Mobility	PRESKILL:3,Jump=8,Climb=6,Tumble=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Diplomacy|Gather Information|Jump|Knowledge (Nobility and Royalty)|Ride|Swim|Tumble|Use Rope
 ###Block: Proficiencies

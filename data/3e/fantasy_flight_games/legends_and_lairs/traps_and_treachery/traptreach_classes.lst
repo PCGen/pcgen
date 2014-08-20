@@ -17,7 +17,7 @@ CLASS:Discreet Companion	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Bonus
 CLASS:Guildmaster	HD:6		TYPE:PC.Prestige	ABB:fg2		MAXLEVEL:10	SOURCEPAGE:p.23-26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL				Req. Att.	Required Feat						Required Skill											Var. Min. Value
-CLASS:Guildmaster	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:3	PREFEAT:2,Leadership,Skill Focus (Intimidate)	PRESKILL:5,Bluff=5,Disguise=4,Gather Information=10,Diplomacy=8,Intimidate=8	PREVARGTEQ:SneakAttackDice,1
+CLASS:Guildmaster	PREALIGN:LN,LE,TN,NE,CN,CE	PRETOTALAB:3	PREFEAT:2,Leadership,Skill Focus (Intimidate)	PRESKILL:5,Bluff=5,Disguise=4,Gather Information=10,Diplomacy=8,Intimidate=8	PREVARGTEQ:SneakAttackDice,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guildmaster	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Urban Lore|Use Rope
 ###Block: Proficiencies

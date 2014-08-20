@@ -50,7 +50,7 @@ CLASS:Harrower	STARTSKILLPTS:2
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Low Templar	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:LoTem		MAXLEVEL:10	SOURCEPAGE:p.226	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Req. Att.	Required Feat			Required Armor Proficiencies	Req. Weapond Prof.
-CLASS:Low Templar	PREATT:5	PREFEAT:1,Mounted Combat	PREPROFWITHARMOR:1,TYPE.Heavy	PREWEAPONPROF:1,Lance
+CLASS:Low Templar	PRETOTALAB:5	PREFEAT:1,Mounted Combat	PREPROFWITHARMOR:1,TYPE.Heavy	PREWEAPONPROF:1,Lance
 # Class Name	Skill Pts/Lvl
 CLASS:Low Templar	STARTSKILLPTS:2
 ###Block: Ability Progression
@@ -102,7 +102,7 @@ CLASS:Red Mantis Assassin	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTE
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus											Bonus
 CLASS:Shackles Pirate	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:ShPrt		MAXLEVEL:10	SOURCEPAGE:p.232	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL				Req. Att.	Var. Min. Value
-CLASS:Shackles Pirate	PREALIGN:NG,CG,TN,CN,NE,CE	PREATT:3	PREVARGTEQ:SneakAttackDice,2
+CLASS:Shackles Pirate	PREALIGN:NG,CG,TN,CN,NE,CE	PRETOTALAB:3	PREVARGTEQ:SneakAttackDice,2
 # Class Name		Skill Pts/Lvl
 CLASS:Shackles Pirate	STARTSKILLPTS:8
 ###Block: Ability Progression

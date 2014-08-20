@@ -48,7 +48,7 @@ CLASS:Cultist	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Chemical)|Craft (Writi
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Modify VAR														Bonus
 CLASS:Dark Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat						Required Skill		Required Text
-CLASS:Dark Warrior	PREATT:2	PREFEAT:2,Conviction (Dark Power),Toughness	PRESKILL:1,Intimidate=3	PRETEXT:Avarice and Dark Power Allegiances
+CLASS:Dark Warrior	PRETOTALAB:2	PREFEAT:2,Conviction (Dark Power),Toughness	PRESKILL:1,Intimidate=3	PRETEXT:Avarice and Dark Power Allegiances
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dark Warrior	STARTSKILLPTS:2	CSKILL:Climb|Demolitions|Drive|Gamble|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Streetwise)|Knowledge (Tactics)|Survival|Swim|Treat Injury
 1	SAB:Hatred %/day|Hatred												BONUS:VAR|Hatred|CL/6+1								DEFINE:Hatred|0
@@ -64,7 +64,7 @@ CLASS:Dark Warrior	STARTSKILLPTS:2	CSKILL:Climb|Demolitions|Drive|Gamble|Intimid
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Modify VAR														Bonus
 CLASS:Grave Robber	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat				Required Skill			Required Text
-CLASS:Grave Robber	PREATT:1	PREFEAT:1,Conviction (Avarice)	PRESKILL:2,Bluff=6,Forgery=6	PRETEXT:Avarice Allegiance
+CLASS:Grave Robber	PRETOTALAB:1	PREFEAT:1,Conviction (Avarice)	PRESKILL:2,Bluff=6,Forgery=6	PRETEXT:Avarice Allegiance
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Grave Robber	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Forgery|Gather Information|Hide|Intimidate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Business)|Knowledge (History)|Knowledge (Streetwise)|Move Silently|Navigate|Search
 1	SAB:Ends Justify the Means %/day|EndsJustify	BONUS:VAR|EndsJustify|(CL+3)/4	DEFINE:EndsJustify|0
@@ -77,7 +77,7 @@ CLASS:Grave Robber	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Decipher Script|Diplomacy|
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Modify VAR														Bonus
 CLASS:Monitor	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat									Required Skill							Required Text
-CLASS:Monitor	PREATT:2	PREFEAT:2,Archaic Weapons Proficiency,Conviction (Higher Power)	PRESKILL:1,Knowledge (Theology and Philosophy)=3	PRETEXT:Allegiance to one group devoted to protecting the past (such as the Knights Templar), Higher Power.
+CLASS:Monitor	PRETOTALAB:2	PREFEAT:2,Archaic Weapons Proficiency,Conviction (Higher Power)	PRESKILL:1,Knowledge (Theology and Philosophy)=3	PRETEXT:Allegiance to one group devoted to protecting the past (such as the Knights Templar), Higher Power.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Monitor	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Listen|Ride|Sense Motive|Spot
 1	SAB:Monitor's Wrath +%|MonitorsWrath	BONUS:VAR|MonitorsWrath|(CL+2)/3	DEFINE:MonitorsWrath|0

@@ -26,7 +26,7 @@ CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:Knowledge (Arcana)|Knowledge (Psionic
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus											Modify VAR									Bonus
 CLASS:Elocater	HD:8		TYPE:PC.Prestige.Psionic	ABB:Elo		MAXLEVEL:10	SOURCEPAGE:p.157	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name	Req. Att.	Required Feat			Multiple Requirements															Required Skill		Req. Spell Type
-CLASS:Elocater	PREATT:3	PREFEAT:2,Dodge,Mobility	PREMULT:1,[PREFEAT:1,Spring Attack],[PREABILITY:1,CATEGORY=Special Ability,Nomad's Step ~ Psychoportation]	PRESKILL:1,Acrobatics=5	PRESPELLTYPE:1,Psionic=1
+CLASS:Elocater	PRETOTALAB:3	PREFEAT:2,Dodge,Mobility	PREMULT:1,[PREFEAT:1,Spring Attack],[PREABILITY:1,CATEGORY=Special Ability,Nomad's Step ~ Psychoportation]	PRESKILL:1,Acrobatics=5	PRESPELLTYPE:1,Psionic=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Elocater	STARTSKILLPTS:6	CSKILL:Acrobatics|Climb|Escape Artist|Fly|Knowledge (Psionics)|Perception|Sleight of Hand|Spellcraft|Stealth|Use Magic Device
 ###Block:Proficiencies
@@ -63,7 +63,7 @@ CLASS:Metamind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Knowledge (Psionics)|Spellcra
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus
 CLASS:Phrenic Slayer	HD:10		TYPE:PC.Prestige.Psionic	ABB:PhS		MAXLEVEL:10	SOURCEPAGE:p.161	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Req. Att.	Multiple Requirements													Required Skill				Required Text																				Var. Must Be Grater
-CLASS:Phrenic Slayer	PREATT:4	PREMULT:1,[PREFEAT:1,Skill Focus (Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:1,Knowledge (Psionics)=1	PRETEXT:Must have had hostile encouter with the psionic creature to be selected as a favored enemy, alone or with a small group.	PREVARGT:TotalPowerPoints,0
+CLASS:Phrenic Slayer	PRETOTALAB:4	PREMULT:1,[PREFEAT:1,Skill Focus (Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:1,Knowledge (Psionics)=1	PRETEXT:Must have had hostile encouter with the psionic creature to be selected as a favored enemy, alone or with a small group.	PREVARGT:TotalPowerPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Phrenic Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Knowledge (Psionics)|Perception|Sense Motive|Spellcraft|Survival
 ###Block:Proficiencies
@@ -102,7 +102,7 @@ CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Disguise|Knowled
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus											Modify VAR									Bonus
 CLASS:Psychic Fist	HD:8		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:p.166	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Req. Att.	Required Feat					Required Skill		Var. Must Be Grater
-CLASS:Psychic Fist	PREATT:4	PREFEAT:1,Psionic Fist,Psionic Weapon	PRESKILL:1,Acrobatics=6	PREVARGT:TotalPowerPoints,0	PREVARGT:KiPoints,0
+CLASS:Psychic Fist	PRETOTALAB:4	PREFEAT:1,Psionic Fist,Psionic Weapon	PRESKILL:1,Acrobatics=6	PREVARGT:TotalPowerPoints,0	PREVARGT:KiPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Fist	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Escape Artist|Knowledge (Psionics)|Spellcraft|Stealth
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level									Use Spell List
@@ -137,7 +137,7 @@ CLASS:Psychic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 # Class Name					Output Name			Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus											Modify VAR									Bonus																							Serves As
 CLASS:Psychic Fist (Add to Manifesting)	OUTPUTNAME:Psychic Fist	HD:8		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:p.166	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	SERVESAS:CLASS|Psychic Fist
 # Class Name					Req. Att.	Required Class				Required Feat					Required Skill		Var. Must Be Grater
-CLASS:Psychic Fist (Add to Manifesting)	PREATT:4	PRECLASS:1,SPELLCASTER.Psionic=1	PREFEAT:1,Psionic Fist,Psionic Weapon	PRESKILL:1,Acrobatics=6	PREVARGT:TotalPowerPoints,0	PREVARGT:KiPoints,0
+CLASS:Psychic Fist (Add to Manifesting)	PRETOTALAB:4	PRECLASS:1,SPELLCASTER.Psionic=1	PREFEAT:1,Psionic Fist,Psionic Weapon	PRESKILL:1,Acrobatics=6	PREVARGT:TotalPowerPoints,0	PREVARGT:KiPoints,0
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Psychic Fist (Add to Manifesting)	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Escape Artist|Knowledge (Psionics)|Spellcraft|Stealth
 ###Block:Monk Abilities
@@ -196,7 +196,7 @@ CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Diplomacy|Knowledge (
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus
 CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name	Restricted AL		Req. Att.	Required Skill								Required Text								Var. Must Be Grater
-CLASS:War Mind	!PREALIGN:CG,CN,CE	PREATT:3	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=5	PRETEXT:Instruction from another war mind or Codex of War.	PREVARGT:TotalPowerPoints,0
+CLASS:War Mind	!PREALIGN:CG,CN,CE	PRETOTALAB:3	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=5	PRETEXT:Instruction from another war mind or Codex of War.	PREVARGT:TotalPowerPoints,0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:War Mind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Intimidate|Knowledge (History)|Knowledge (Psionics)|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level								Use Spell List
@@ -224,7 +224,7 @@ CLASS:War Mind	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|War
 # Class Name				Output Name			Hit Dice	Type					Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus																							Serves As
 CLASS:War Mind (Warrior's Path)	OUTPUTNAME:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	SERVESAS:CLASS|War Mind
 # Class Name				Restricted AL		Req. Att.	Required Class			Required Skill								Required Text								Var. Must Be Grater
-CLASS:War Mind (Warrior's Path)	!PREALIGN:CG,CN,CE	PREATT:3	PRECLASS:1,Psychic Warrior=1	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=5	PRETEXT:Instruction from another war mind or Codex of War.	PREVARGT:TotalPowerPoints,0
+CLASS:War Mind (Warrior's Path)	!PREALIGN:CG,CN,CE	PRETOTALAB:3	PRECLASS:1,Psychic Warrior=1	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=5	PRETEXT:Instruction from another war mind or Codex of War.	PREVARGT:TotalPowerPoints,0
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:War Mind (Warrior's Path)	STARTSKILLPTS:2	CSKILL:Autohypnosis|Intimidate|Knowledge (History)|Knowledge (Psionics)|Spellcraft
 

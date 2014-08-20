@@ -2,7 +2,7 @@
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 # Class Name		Clear Prereq.	Required AL		Req. Att.	Required Feat					Required Race	Required Skill							Req. Spell Type		Required Stat
-CLASS:Medicine Man.MOD	PRE:.CLEAR		PREALIGN:LG,NG,CG	PREATT:4	PREFEAT:3,Great Fortitude,Toughness,Track	PRERACE:1,Human	PRESKILL:3,Heal=6,Knowledge (Nature)=6,Survival=6	PRESPELLTYPE:1,Divine=3	PRESTAT:1,WIS=17
+CLASS:Medicine Man.MOD	PRE:.CLEAR		PREALIGN:LG,NG,CG	PRETOTALAB:4	PREFEAT:3,Great Fortitude,Toughness,Track	PRERACE:1,Human	PRESKILL:3,Heal=6,Knowledge (Nature)=6,Survival=6	PRESPELLTYPE:1,Divine=3	PRESTAT:1,WIS=17
 # Class Name		Remove Class Skill	Class Skill
 CLASS:Medicine Man.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Jump|Knowledge (Religion)|Listen|Move Silently|TYPE=Perform|Ride|Search|Sense Motive|Spellcraft|Spot|Survival|Swim|Tumble|Use Rope
 
@@ -20,7 +20,7 @@ CLASS:Poison Master.MOD	PRE:.CLEAR		PREALIGN:LE,NE,CE	PREFEAT:1,Brew Potion	PRES
 CLASS:Poison Master.MOD	CSKILL:.CLEAR		CSKILL:Craft (Alchemy)|Concentration|Heal|Knowledge (Nature)|Spellcraft|Use Magic Device
 
 # Class Name			Clear Prereq.	Req. Att.	Required Race		Required Skill
-CLASS:Spider Warrior.MOD	PRE:.CLEAR		PREATT:6	PRERACE:1,Elf (Drow)	PRESKILL:1,Ride=6
+CLASS:Spider Warrior.MOD	PRE:.CLEAR		PRETOTALAB:6	PRERACE:1,Elf (Drow)	PRESKILL:1,Ride=6
 # Class Name			Remove Class Skill	Class Skill
 CLASS:Spider Warrior.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Handle Animal|Hide|Jump|Move Silently|Ride
 
@@ -34,7 +34,7 @@ CLASS:Exemplar.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE=Craft|Heal|Intimidat
 CLASS:Servants of the One.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Sense Motive|Spellcraft
 
 # Class Name			Clear Prereq.	Req. Att.	Required Race							Required Skill						Required Text
-CLASS:Humanoid Hunter.MOD	PRE:.CLEAR		PREATT:3	PRERACE:1,RACETYPE=Aberration,RACETYPE=Magical Beast	PRESKILL:2,Knowledge (Humanoids)=4,Survival=2	PRETEXT:Must have tracked down a humanoid that has slain a family member.
+CLASS:Humanoid Hunter.MOD	PRE:.CLEAR		PRETOTALAB:3	PRERACE:1,RACETYPE=Aberration,RACETYPE=Magical Beast	PRESKILL:2,Knowledge (Humanoids)=4,Survival=2	PRETEXT:Must have tracked down a humanoid that has slain a family member.
 # Class Name			Remove Class Skill	Class Skill
 CLASS:Humanoid Hunter.MOD	CSKILL:.CLEAR		CSKILL:TYPE=Craft|Hide|Jump|Knowledge (Humanoids)|Listen|Move Silently|Spot|Survival
 
@@ -42,7 +42,7 @@ CLASS:Humanoid Hunter.MOD	CSKILL:.CLEAR		CSKILL:TYPE=Craft|Hide|Jump|Knowledge (
 CLASS:The Broken.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Concentration|Craft (Alchemy)|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Spellcraft
 
 # Class Name			Clear Prereq.	Required AL		Req. Att.	Required Feat										Required Race				Required Skill						Required Text
-CLASS:Master of the Swamp.MOD	PRE:.CLEAR		PREALIGN:LN,TN	PREATT:6	PREFEAT:2,Iron Will,Track	PREFEAT:1,Point Blank Shot,Power Attack	PRERACE:1,Lizardfolk,Human,Elf%	PRESKILL:2,Knowledge (Nature)=6,Survival=8	PRETEXT:Must take a vow never to harm Lizardfolk. See text.
+CLASS:Master of the Swamp.MOD	PRE:.CLEAR		PREALIGN:LN,TN	PRETOTALAB:6	PREFEAT:2,Iron Will,Track	PREFEAT:1,Point Blank Shot,Power Attack	PRERACE:1,Lizardfolk,Human,Elf%	PRESKILL:2,Knowledge (Nature)=6,Survival=8	PRETEXT:Must take a vow never to harm Lizardfolk. See text.
 # Class Name			Remove Class Skill	Class Skill
 CLASS:Master of the Swamp.MOD	CSKILL:.CLEAR		CSKILL:Climb|TYPE=Craft|Heal|Hide|Jump|Listen|Move Silently|Search|Spot|Survival|Swim|Use Magic Device
 

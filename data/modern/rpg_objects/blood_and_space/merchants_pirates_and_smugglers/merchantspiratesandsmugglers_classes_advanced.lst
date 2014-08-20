@@ -4,7 +4,7 @@ SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers	SOURCESHORT:BnS-MP
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Modify VAR														Bonus
 CLASS:Mercenary	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Multiple Requirements												Required Skill
-CLASS:Mercenary	PREATT:3	PREMULT:2,[PREFEAT:1,Personal Firearms Proficiency],[PREFEAT:1,Brawl,Combat Martial Arts]	PRESKILL:1,Knowledge (Tactics)=3
+CLASS:Mercenary	PRETOTALAB:3	PREMULT:2,[PREFEAT:1,Personal Firearms Proficiency],[PREFEAT:1,Brawl,Combat Martial Arts]	PRESKILL:1,Knowledge (Tactics)=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mercenary	STARTSKILLPTS:2	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Navigate|Pilot|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Spot|Survival|Swim
 ###Block: Rage variables
@@ -41,7 +41,7 @@ CLASS:Merchant	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Diplomacy|Gather Inform
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:Pirate	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat						Required Skill
-CLASS:Pirate	PREATT:2	PREFEAT:2,Starship Operation,Zero G Training	PRESKILL:2,Pilot=6,Tumble=6
+CLASS:Pirate	PRETOTALAB:2	PREFEAT:2,Starship Operation,Zero G Training	PRESKILL:2,Pilot=6,Tumble=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pirate	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Demolitions|Disable Device|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Navigate|Pilot|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Tumble
 ###Block:Sneak Attack

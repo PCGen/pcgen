@@ -17,7 +17,7 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Bonus
 CLASS:Gundancer	HD:8		TYPE:PC.Prestige	ABB:Gnd		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Ability						Req. Att.	Required Feat										Required Skill
-CLASS:Gundancer	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREATT:5	PREFEAT:2,Improved Unarmed Strike,Technical Proficiency,Weapon Focus	PRESKILL:2,Jump=5,Tumble=5
+CLASS:Gundancer	PREABILITY:1,CATEGORY=Special Ability,Evasion	PRETOTALAB:5	PREFEAT:2,Improved Unarmed Strike,Technical Proficiency,Weapon Focus	PRESKILL:2,Jump=5,Tumble=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gundancer	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Concentration|Freefall|Jump|Listen|Spot|Tumble
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency

@@ -6,7 +6,7 @@ SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fa
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Ancestral Bladebearer	HD:10		TYPE:PC.Prestige	ABB:AnBld		MAXLEVEL:10	SOURCEPAGE:p. 40	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Req. Att.	Required Feat								Required Text
-CLASS:Ancestral Bladebearer	PREATT:6	PREFEAT:1,Weapon Focus	PREFEAT:1,Weapon Specialization	PRETEXT:Weapon Focus and Weapon Specialization must be with ancestral blade.  Must have used ancestral blade exclusively for at least one level.
+CLASS:Ancestral Bladebearer	PRETOTALAB:6	PREFEAT:1,Weapon Focus	PREFEAT:1,Weapon Specialization	PRETEXT:Weapon Focus and Weapon Specialization must be with ancestral blade.  Must have used ancestral blade exclusively for at least one level.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ancestral Bladebearer	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|TYPE=Profession|Ride|Swim
 1																							AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
@@ -86,7 +86,7 @@ CLASS:Bane of Legates	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Bluff|Concen
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Elven Raider	HD:8		TYPE:PC.Prestige	ABB:ERd		MAXLEVEL:10	SOURCEPAGE:p. 50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat											Required Race	Required Skill
-CLASS:Elven Raider	PREATT:5	PREFEAT:1,Weapon Focus (Longbow)	PREFEAT:2,Point Blank Shot,Rapid Shot	PRERACE:1,Elf	PRESKILL:3,Hide=8,Move Silently=8,Wilderness Lore=8
+CLASS:Elven Raider	PRETOTALAB:5	PREFEAT:1,Weapon Focus (Longbow)	PREFEAT:2,Point Blank Shot,Rapid Shot	PRERACE:1,Elf	PRESKILL:3,Hide=8,Move Silently=8,Wilderness Lore=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Elven Raider	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Heal|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
 1										ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
@@ -136,7 +136,7 @@ CLASS:Herbalist	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Heal|Intuit Direction|Ju
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Sarcosan Knight	HD:10		TYPE:PC.Prestige	ABB:SarKn		MAXLEVEL:10	SOURCEPAGE:p. 56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat								Required Race						Required Skill
-CLASS:Sarcosan Knight	PREATT:6	PREFEAT:3,Mounted Combat,Ride-By Attack,Spirited Charge	PRERACE:1,Human (Sarcosan),Human (Erenlander)	PRESKILL:3,Ride=8,Handle Animal=4,Intimidate=4
+CLASS:Sarcosan Knight	PRETOTALAB:6	PREFEAT:3,Mounted Combat,Ride-By Attack,Spirited Charge	PRERACE:1,Human (Sarcosan),Human (Erenlander)	PRESKILL:3,Ride=8,Handle Animal=4,Intimidate=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sarcosan Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Jump|TYPE=Profession|Ride|Spot|Swim
 1																																																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
@@ -166,7 +166,7 @@ CLASS:Smuggler	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|De
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Warrior Arcanist	HD:8		TYPE:PC.Prestige	ABB:warc		MAXLEVEL:10	SOURCEPAGE:p. 61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat									Required Skill		Req. Spell Type		Req. Weapond Prof.
-CLASS:Warrior Arcanist	PREATT:4	PREFEAT:3,TYPE.Magecraft,Armor Proficiency (Medium),Weapon Focus	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:3,Arcane=2	PREWEAPONPROF:1,TYPE.Martial
+CLASS:Warrior Arcanist	PRETOTALAB:4	PREFEAT:3,TYPE.Magecraft,Armor Proficiency (Medium),Weapon Focus	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:3,Arcane=2	PREWEAPONPROF:1,TYPE.Martial
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Warrior Arcanist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Intimidate|Jump|TYPE=Knowledge|TYPE=Profession|Ride|Spellcraft|Swim
 1:REPEATLEVEL:2																	ADD:FEAT|Improved Spellcasting

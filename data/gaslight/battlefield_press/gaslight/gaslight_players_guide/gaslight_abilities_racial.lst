@@ -73,8 +73,8 @@ Large Hybrid			CATEGORY:Talent		TYPE:Talent.WerewolfTalent.GreaterLycanthropeTal
 # Inner Beast Talent Tree
 Intimidating Gaze			CATEGORY:Talent		TYPE:WerewolfTalent.Talent.InnerBeastTalent																	SOURCEPAGE:p.57
 Unnatural Metabolism		CATEGORY:Talent		TYPE:WerewolfTalent.Talent.InnerBeastTalent																	SOURCEPAGE:p.57
-Rend					CATEGORY:Talent		TYPE:WerewolfTalent.Talent.InnerBeastTalent															PREATT:4	SOURCEPAGE:p.57
-Savage Bite				CATEGORY:Talent		TYPE:WerewolfTalent.Talent.InnerBeastTalent															PREATT:6	SOURCEPAGE:p.58
+Rend					CATEGORY:Talent		TYPE:WerewolfTalent.Talent.InnerBeastTalent															PRETOTALAB:4	SOURCEPAGE:p.57
+Savage Bite				CATEGORY:Talent		TYPE:WerewolfTalent.Talent.InnerBeastTalent															PRETOTALAB:6	SOURCEPAGE:p.58
 
 ###Block: Hybrid Damage Reduction Talent Tree
 # Ability Name			Category of Ability	Type							Required Ability																		Source Page

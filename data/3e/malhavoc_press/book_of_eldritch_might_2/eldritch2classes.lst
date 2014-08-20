@@ -91,7 +91,7 @@ CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Dip
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Eldritch Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat					Required Skill
-CLASS:Eldritch Warrior	PREATT:5	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:3,Alchemy=3,Knowledge (Arcana)=3,Spellcraft=1
+CLASS:Eldritch Warrior	PRETOTALAB:5	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:3,Alchemy=3,Knowledge (Arcana)=3,Spellcraft=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Alchemy|Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|Ride|Scry|Spellcraft
 # Class Name		Spell Type		Caster level

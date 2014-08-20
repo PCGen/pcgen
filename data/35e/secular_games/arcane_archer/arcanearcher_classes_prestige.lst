@@ -6,13 +6,13 @@ SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOU
 # Class Name		Type
 CLASS:Arcane Archer.MOD	TYPE:ArcaneArcher
 # Class Name		Clear Prereq.	Multiple Requirements																																										Required Race
-CLASS:Arcane Archer.MOD	PRE:.CLEAR		PREMULT:1,[PRECLASS:1,Arcane Archer=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:5,[PREATT:6],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Precise Shot],[PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)],[PRESPELLTYPE:1,Arcane=1],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf%,Half-Elf
+CLASS:Arcane Archer.MOD	PRE:.CLEAR		PREMULT:1,[PRECLASS:1,Arcane Archer=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:5,[PRETOTALAB:6],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Precise Shot],[PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)],[PRESPELLTYPE:1,Arcane=1],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf%,Half-Elf
 
 
 # Class Name			Hit Dice	Type					Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Arcane Crossbowman	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Multiple Requirements																																														Required Race
-CLASS:Arcane Crossbowman	PREMULT:1,[PRECLASS:1,Arcane Crossbowman=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PREATT:5],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Rapid Reload],[PREFEAT:1,Weapon Focus (Crossbow (Hand))],[PRESKILL:1,Craft (Poison Making)=10],[PRESPELLTYPE:1,Arcane=1],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf (Drow),Half-Elf
+CLASS:Arcane Crossbowman	PREMULT:1,[PRECLASS:1,Arcane Crossbowman=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PRETOTALAB:5],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Rapid Reload],[PREFEAT:1,Weapon Focus (Crossbow (Hand))],[PRESKILL:1,Craft (Poison Making)=10],[PRESPELLTYPE:1,Arcane=1],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf (Drow),Half-Elf
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Arcane Crossbowman	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Hide|Listen|Move Silently|Spot|Survival|Use Rope
 ###Block: proficiencies
@@ -29,7 +29,7 @@ CLASS:Arcane Crossbowman	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Hide|Listen|Mov
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus										Bonus
 CLASS:Blizzard Archer	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Multiple Requirements																																														Required Race
-CLASS:Blizzard Archer	PREMULT:1,[PRECLASS:1,Blizzard Archer=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PREATT:6],[PREFEAT:1,Endurance],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)],[PRESKILL:1,Survival=8],[PRESPELLTYPE:1,Arcane=1],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf (Winter),Half-Elf
+CLASS:Blizzard Archer	PREMULT:1,[PRECLASS:1,Blizzard Archer=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PRETOTALAB:6],[PREFEAT:1,Endurance],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)],[PRESKILL:1,Survival=8],[PRESPELLTYPE:1,Arcane=1],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf (Winter),Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blizzard Archer	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silently|Ride|Search|Spot|Survival
 ###Block: proficiencies
@@ -49,7 +49,7 @@ CLASS:Blizzard Archer	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silentl
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus										Bonus
 CLASS:Deepwood Guardian	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Multiple Requirements																																												Required Race
-CLASS:Deepwood Guardian	PREMULT:1,[PRECLASS:1,Deepwood Guardian=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:7,[PREATT:6],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Precise Shot],[PREFEAT:1,Track],[PRESKILL:1,Hide=8],[PRESKILL:1,Move Silently=8],[PREFEAT:1,TYPE.ArcherySchool],[PRESPELLTYPE:1,Arcane=1]	PRERACE:1,Elf (Wood),Half-Elf
+CLASS:Deepwood Guardian	PREMULT:1,[PRECLASS:1,Deepwood Guardian=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:7,[PRETOTALAB:6],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Precise Shot],[PREFEAT:1,Track],[PRESKILL:1,Hide=8],[PRESKILL:1,Move Silently=8],[PREFEAT:1,TYPE.ArcherySchool],[PRESPELLTYPE:1,Arcane=1]	PRERACE:1,Elf (Wood),Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Deepwood Guardian	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silently|Search|Spot|Survival|Use Rope
 ###Block: proficiencies
@@ -67,7 +67,7 @@ CLASS:Deepwood Guardian	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silen
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus										Bonus
 CLASS:Divine Archer	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Multiple Requirements																																																									Required Race
-CLASS:Divine Archer	PREMULT:1,[PRECLASS:1,Divine Archer=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:8,[PREALIGN:LG,NG,CG],[PREATT:5],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Precise Shot],[PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)],[PRESKILL:1,Concentration=5],[PRESKILL:1,Knowledge (Religion)=10],[PRESPELLTYPE:1,Divine=1],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf%,Half-Elf
+CLASS:Divine Archer	PREMULT:1,[PRECLASS:1,Divine Archer=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:8,[PREALIGN:LG,NG,CG],[PRETOTALAB:5],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Precise Shot],[PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)],[PRESKILL:1,Concentration=5],[PRESKILL:1,Knowledge (Religion)=10],[PRESPELLTYPE:1,Divine=1],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf%,Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Divine Archer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spot
 ###Block: proficiencies
@@ -87,7 +87,7 @@ CLASS:Divine Archer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Ha
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Eldritch Bow	HD:6		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Multiple Requirements																																															Required Race
-CLASS:Eldritch Bow	PREMULT:1,[PRECLASS:1,Eldritch Bow=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PREATT:4],[PREFEAT:1,Cunning Archery],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)],[PRESKILL:1,Knowledge (Arcana)=8],[PRESPELLTYPE:1,Arcane=3],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf (Grey),Half-Elf
+CLASS:Eldritch Bow	PREMULT:1,[PRECLASS:1,Eldritch Bow=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PRETOTALAB:4],[PREFEAT:1,Cunning Archery],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)],[PRESKILL:1,Knowledge (Arcana)=8],[PRESPELLTYPE:1,Arcane=3],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf (Grey),Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Bow	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Knowledge (Arcana)|Listen|Move Silently|Spellcraft|Spot|Survival
 ###Block: proficiencies
@@ -105,7 +105,7 @@ CLASS:Eldritch Bow	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Knowledge (Arcana)|Lis
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus										Bonus
 CLASS:Psychic Archer	HD:8		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Multiple Requirements																																																	Required Race
-CLASS:Psychic Archer	PREMULT:1,[PRECLASS:1,Psychic Archer=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PREATT:5],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Precise Shot],[PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)],[PRESKILL:1,Knowledge (Psionics)=10],[PRESPELLTYPE:1,Psionic=3],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf%,Half-Elf
+CLASS:Psychic Archer	PREMULT:1,[PRECLASS:1,Psychic Archer=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PRETOTALAB:5],[PREFEAT:1,Point Blank Shot],[PREFEAT:1,Precise Shot],[PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)],[PRESKILL:1,Knowledge (Psionics)=10],[PRESPELLTYPE:1,Psionic=3],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf%,Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Archer	STARTSKILLPTS:4	CSKILL:Autohypnosis|TYPE=Craft|Hide|Knowledge (Psionics)|Listen|Move Silently|Psicraft|Spot|Survival
 ###Block: proficiencies
@@ -122,7 +122,7 @@ CLASS:Psychic Archer	STARTSKILLPTS:4	CSKILL:Autohypnosis|TYPE=Craft|Hide|Knowled
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus										Bonus
 CLASS:Untamed Hunter	HD:10		TYPE:PC.Prestige.ArcaneArcher	MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Multiple Requirements																																																		Required Race
-CLASS:Untamed Hunter	PREMULT:1,[PRECLASS:1,Untamed Hunter=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PREATT:6],[PREFEAT:1,Point Blank Shot],[PREABILITY:1,CATEGORY=Special Ability,Rage],[PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)],[PRESPELLTYPE:1,Arcane=1],[PRESPELLCAST:MEMORIZE=N],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf (Wild),Half-Elf
+CLASS:Untamed Hunter	PREMULT:1,[PRECLASS:1,Untamed Hunter=1],[!PRECLASS:1,TYPE.ArcaneArcher=1]	PREMULT:6,[PRETOTALAB:6],[PREFEAT:1,Point Blank Shot],[PREABILITY:1,CATEGORY=Special Ability,Rage],[PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)],[PRESPELLTYPE:1,Arcane=1],[PRESPELLCAST:MEMORIZE=N],[PREFEAT:1,TYPE.ArcherySchool]	PRERACE:1,Elf (Wild),Half-Elf
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Untamed Hunter	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Intimidate|Listen|Move Silently|Ride|Spot|Survival
 ###Block: proficiencies

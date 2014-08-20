@@ -5,10 +5,10 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 
 
 
-###Block: BAB, Base Attack Bonus = Warcraft
+###Block: BASEAB, Base Attack Bonus = Warcraft
 #Using 'Warcraft' as the Base Ability, and using the other two to increase it incrementally
 # Ability Name				Unique Key									Output Name			Category of Ability		Type								Visible		Var. Max. Value					Define			Description				Stackable?	Multiple?	Choose				Ability								Combat bonus								Modify VAR																	Weapon prof. bonus			Cost		Source Page
-Warcraft					KEY:Warcraft Output											CATEGORY:Special Ability	TYPE:SpecialAttack															DEFINE:WarcraftBonus|0	DESC:+%1 BAB|WarcraftBonus																			BONUS:COMBAT|BASEAB|var("WarcraftBonus")|TYPE=Base.REPLACE	BONUS:VAR|WarcraftBonus|count("ABILITIES","CATEGORY=Special Ability","KEY=Warcraft ~ Normal Progression")									SOURCEPAGE:p.10
+Warcraft					KEY:Warcraft Output											CATEGORY:Special Ability	TYPE:SpecialAttack															DEFINE:WarcraftBonus|0	DESC:+%1 BASE Attack Bonus|WarcraftBonus																			BONUS:COMBAT|BASEAB|var("WarcraftBonus")|TYPE=Base.REPLACE	BONUS:VAR|WarcraftBonus|count("ABILITIES","CATEGORY=Special Ability","KEY=Warcraft ~ Normal Progression")									SOURCEPAGE:p.10
 #
 Warcraft / +1 to All			KEY:Warcraft ~ Normal Progression					OUTPUTNAME:Warcraft	CATEGORY:Special Ability	TYPE:Combat.Base Attack Bonus.SpecialAttack	VISIBLE:DISPLAY	PREVARLTEQ:WarcraftBonus,WarcraftMax	DEFINE:WarcraftMax|0						STACK:YES	MULT:YES	CHOOSE:NOCHOICE			ABILITY:Special Ability|AUTOMATIC|Warcraft Output											BONUS:VAR|WarcraftMax|var("EclipseClassLvl")+2																	COST:6	SOURCEPAGE:p.10
 Warcraft / +1 to Weapon, no bab	KEY:Warcraft ~ Specialized half corrupted ~ Choose Weapon					CATEGORY:Special Ability	TYPE:Combat.Base Attack Bonus.SpecialAttack																				STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																																						BONUS:WEAPONPROF=%LIST|TOHIT|1	COST:2	SOURCEPAGE:p.10

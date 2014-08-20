@@ -22,7 +22,7 @@ Automatic Weapon Proficiency	TYPE:General
 # AUTO:WEAPONPROF|TYPE=LightAuto was removed from Automatic Weapon Proficiency because there is no TYPE=LightAuto weapon profs
 Crowd Favorite			TYPE:General																		PRESKILL:1,Perform=4	PRESTAT:1,CHA=16	DESC:You gaina +4 to all rolls to motivate the crowd or grandstanding
 Curveball				TYPE:General.Athlete			PRECLASS:1,Athlete=1																																				BONUS:WEAPONPROF=Baseball|TOHIT|2	BONUS:WEAPONPROF=Baseball|TOHIT-SHORTRANGE|-2
-Doubleshot				TYPE:General		PREATT:6					PREFEAT:2,Point Blank Shot,Rapid Shot
+Doubleshot				TYPE:General		PRETOTALAB:6					PREFEAT:2,Point Blank Shot,Rapid Shot
 Extra Signature Move		TYPE:General
 Pistol Proficiency		TYPE:General																																					AUTO:WEAPONPROF|TYPE=Pistol
 The Profile				TYPE:General																		PRESKILL:1,Perform=4	PRESTAT:1,CHA=16

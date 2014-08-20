@@ -83,7 +83,7 @@ CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Decipher Script|Disabl
 # Class Name		Hit Dice	Type			Class Type		Max Level	Source Page						Combat bonus							Modify VAR														Bonus
 CLASS:Field Officer	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Req. Att.	Required Feat					Required Skill
-CLASS:Field Officer	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Diplomacy=6,Knowledge (Tactics)=6
+CLASS:Field Officer	PRETOTALAB:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Diplomacy=6,Knowledge (Tactics)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Field Officer	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Read/Write Language|Sense Motive|SPEAK LANGUAGE
 1								ABILITY:Special Ability|AUTOMATIC|Leadership
@@ -100,7 +100,7 @@ CLASS:Field Officer	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Gather I
 # Class Name		Hit Dice	Type			Class Type		Max Level	Source Page						Combat bonus							Modify VAR														Bonus
 CLASS:Helix Warrior	HD:10		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat		Required Skill
-CLASS:Helix Warrior	PREATT:3	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Tactics)=3
+CLASS:Helix Warrior	PRETOTALAB:3	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Tactics)=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Helix Warrior	STARTSKILLPTS:2	CSKILL:Balance|Climb|Computer Use|Demolitions|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|Navigate|Spot|Survival|Swim|Tumble
 1																	ABILITY:Special Ability|AUTOMATIC|Haul|Light Sleeper|Survivor
@@ -165,7 +165,7 @@ CLASS:Technosavant	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft 
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page						Combat bonus							Modify VAR									Bonus
 CLASS:Tracer	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+3)*2/5	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Req. Att.	Required Feat	Multiple Requirements
-CLASS:Tracer	PREATT:2	PREFEAT:1,Track	PREMULT:2,[PRESKILL:2,Investigate=6,Survival=6],[PRESKILL:1,Knowledge (Behavioral Sciences)=6,Knowledge (Streetwise)=6]
+CLASS:Tracer	PRETOTALAB:2	PREFEAT:1,Track	PREMULT:2,[PRESKILL:2,Investigate=6,Survival=6],[PRESKILL:1,Knowledge (Behavioral Sciences)=6,Knowledge (Streetwise)=6]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tracer	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|Disable Device|Disguise|Drive|Gather Information|Hide|Investigate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Pilot|Research|Search|Sense Motive|Spot|Survival|Swim
 1																				ABILITY:Special Ability|AUTOMATIC|Target Species	AUTO:FEAT|Urban Tracking

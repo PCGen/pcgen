@@ -3,7 +3,7 @@ SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www
 # Original Entry by: Eddy Anthony
 
 # Feat Name			Type				Req. Att.	Required Class				Required Feat					Required Skill		Required Stat	Description																Add Spell Lvl	Source Page
-Crafty Improvisation	TYPE:General.Fighter	PREATT:1																					DESC:You are master at using random items as weapons												SOURCEPAGE:p.32
+Crafty Improvisation	TYPE:General.Fighter	PRETOTALAB:1																					DESC:You are master at using random items as weapons												SOURCEPAGE:p.32
 Face in the Crowd		TYPE:General																	PRESKILL:1,Disguise=1	PRESTAT:1,CHA=13	DESC:You are expert at blending in to an urban environment											SOURCEPAGE:p.33
 Innocent Posture		TYPE:General																								DESC:You have a plain, non-threatening presence													SOURCEPAGE:p.33
 Innocent Smile		TYPE:General																					PRESTAT:1,CHA=13	DESC:You have an innocent, friendly aura about you												SOURCEPAGE:p.33

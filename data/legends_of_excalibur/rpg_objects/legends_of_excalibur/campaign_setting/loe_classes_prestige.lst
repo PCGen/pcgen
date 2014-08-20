@@ -50,7 +50,7 @@ CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Berserker	HD:12		TYPE:PC.Prestige	ABB:Ber		MAXLEVEL:10	SOURCEPAGE:36	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability						Req. Att.	Required Feat						Required Text
-CLASS:Berserker	PREABILITY:1,CATEGORY=Special Ability,Rage	PREATT:10	PREFEAT:3,Power Attack,Cleave,Great Cleave	PRETEXT:If nationalities are used, only Saxons can be this class
+CLASS:Berserker	PREABILITY:1,CATEGORY=Special Ability,Rage	PRETOTALAB:10	PREFEAT:3,Power Attack,Cleave,Great Cleave	PRETEXT:If nationalities are used, only Saxons can be this class
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Berserker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 1																								AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
@@ -67,7 +67,7 @@ CLASS:Berserker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Changeling	HD:10		TYPE:PC.Prestige	ABB:Chg		MAXLEVEL:10	SOURCEPAGE:37	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat					Req. Special Ability	Required Skill
-CLASS:Changeling	PREATT:7	PREFEAT:2,Animal Affinity,Self Sufficient	PRESA:1,Wild shape	PRESKILL:1,Concentration=5,Knowledge (Nature)=8,Survival=8
+CLASS:Changeling	PRETOTALAB:7	PREFEAT:2,Animal Affinity,Self Sufficient	PRESA:1,Wild shape	PRESKILL:1,Concentration=5,Knowledge (Nature)=8,Survival=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Changeling	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Natural
@@ -101,7 +101,7 @@ CLASS:Court Mage	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define														Combat bonus										Modify VAR									Bonus
 CLASS:Crusader	HD:10		TYPE:PC.Prestige	ABB:Cru		MAXLEVEL:10	SOURCEPAGE:39	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat		Req. Special Ability		Required Skill											Required Stat
-CLASS:Crusader	PREATT:5	PREFEAT:2,Faith,Zealot	PRESA:1,Code of Chivalry	PRESKILL:3,Knowledge (Nobility and Royalty)=5,Knowledge (Religion)=5,Ride=8	PRESTAT:1,NOB=41
+CLASS:Crusader	PRETOTALAB:5	PREFEAT:2,Faith,Zealot	PRESA:1,Code of Chivalry	PRESKILL:3,Knowledge (Nobility and Royalty)=5,Knowledge (Religion)=5,Ride=8	PRESTAT:1,NOB=41
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Crusader	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
@@ -158,7 +158,7 @@ CLASS:Lady of the Lake	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Handle Ani
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Quest Knight	HD:12		TYPE:PC.Prestige	ABB:QKn		MAXLEVEL:10	SOURCEPAGE:43	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat					Req. Special Ability		Required Skill								Required Stat
-CLASS:Quest Knight	PREATT:10	PREFEAT:3,Faith,Piety,Mounted Combat	PRESA:1,Code of Chivalry	PRESKILL:2,Knowledge (Nobility and Royalty)=10,Ride=10	PRESTAT:1,NOB=71
+CLASS:Quest Knight	PRETOTALAB:10	PREFEAT:3,Faith,Piety,Mounted Combat	PRESA:1,Code of Chivalry	PRESKILL:2,Knowledge (Nobility and Royalty)=10,Ride=10	PRESTAT:1,NOB=71
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Quest Knight	STARTSKILLPTS:2	CSKILL:Diplomacy|Heal|Intimidate|Knowledge (Nobility and Royalty)|Ride|Survival
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
@@ -197,7 +197,7 @@ CLASS:Saint		STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Decipher Script|Dip
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Black Knight	HD:12		TYPE:PC.Prestige	ABB:BkKn		MAXLEVEL:10	SOURCEPAGE:46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Skill
-CLASS:Black Knight	PREATT:7	PRESKILL:3,Ride=10,Intimidate=10,Knowledge (Nobility and Royalty)=5
+CLASS:Black Knight	PRETOTALAB:7	PRESKILL:3,Ride=10,Intimidate=10,Knowledge (Nobility and Royalty)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Black Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|TYPE=Profession|Ride|Swim
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
@@ -213,7 +213,7 @@ CLASS:Black Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimid
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define														Combat bonus										Modify VAR									Bonus
 CLASS:Blue Knight	HD:10		TYPE:PC.Prestige	ABB:BlKn		MAXLEVEL:10	SOURCEPAGE:47	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat		Req. Special Ability		Required Skill						Required Stat
-CLASS:Blue Knight	PREATT:7	PREFEAT:2,Faith,Piety	PRESA:1,Code of Chivalry	PRESKILL:3,Ride=5,Knowledge (Nature)=5,Swim=5	PRESTAT:1,NOB=50
+CLASS:Blue Knight	PRETOTALAB:7	PREFEAT:2,Faith,Piety	PRESA:1,Code of Chivalry	PRESKILL:3,Ride=5,Knowledge (Nature)=5,Swim=5	PRESTAT:1,NOB=50
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blue Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
@@ -236,7 +236,7 @@ CLASS:Blue Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Green Knight	HD:10		TYPE:PC.Prestige	ABB:GrKn		MAXLEVEL:10	SOURCEPAGE:48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat
-CLASS:Green Knight	PREATT:7	PREFEAT:3,Alertness,Animal Affinity,Track
+CLASS:Green Knight	PRETOTALAB:7	PREFEAT:3,Alertness,Animal Affinity,Track
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Green Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Spot|Survival|Swim
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
@@ -255,7 +255,7 @@ CLASS:Green Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Escape Artist|Handle 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Purple Knight	HD:10		TYPE:PC.Prestige	ABB:PKn		MAXLEVEL:10	SOURCEPAGE:49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Skill						Required Stat
-CLASS:Purple Knight	PREATT:5	PRESKILL:3,Diplomacy=5,Ride=10,Handle Animal=10	PRESTAT:1,NOB=50
+CLASS:Purple Knight	PRETOTALAB:5	PRESKILL:3,Diplomacy=5,Ride=10,Handle Animal=10	PRESTAT:1,NOB=50
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Purple Knight	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Listen|TYPE=Profession|Ride|Sense Motive
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
@@ -269,7 +269,7 @@ CLASS:Purple Knight	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Ani
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define														Combat bonus										Modify VAR									Bonus
 CLASS:Red Knight	HD:8		TYPE:PC.Prestige	ABB:RKn		MAXLEVEL:10	SOURCEPAGE:51	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Skill				Var. Min. Value
-CLASS:Red Knight	PREATT:5	PRESKILL:3,Hide=5,Bluff=5,Ride=5	PREVARGTEQ:SneakAttackDice,2
+CLASS:Red Knight	PRETOTALAB:5	PRESKILL:3,Hide=5,Bluff=5,Ride=5	PREVARGTEQ:SneakAttackDice,2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Red Knight	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Disguise|Forgery|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nobility and Royalty)|Listen|Move Silently|TYPE=Profession|Ride|Sleight of Hand
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -292,7 +292,7 @@ CLASS:Red Knight	SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Re
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define														Combat bonus										Modify VAR									Bonus
 CLASS:White Knight	HD:10		TYPE:PC.Prestige	ABB:WKn		MAXLEVEL:10	SOURCEPAGE:52	DEFINE:BASEPOWERPOINTS|0	DEFINE:BONUSPOWERPOINTS|0	DEFINE:TOTALPOWERPOINTS|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.Replace	BONUS:VAR|TOTALPOWERPOINTS|BASEPOWERPOINTS+BONUSPOWERPOINTS	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat		Req. Special Ability		Required Skill											Required Stat
-CLASS:White Knight	PREATT:7	PREFEAT:2,Faith,Piety	PRESA:1,Code of Chivalry	PRESKILL:3,Ride=5,Knowledge (Nobility and Royalty)=5,Knowledge (Religion)=5	PRESTAT:1,NOB=65
+CLASS:White Knight	PRETOTALAB:7	PREFEAT:2,Faith,Piety	PRESA:1,Code of Chivalry	PRESKILL:3,Ride=5,Knowledge (Nobility and Royalty)=5,Knowledge (Religion)=5	PRESTAT:1,NOB=65
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:White Knight	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Prophecy|Ride|Sense Motive
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level

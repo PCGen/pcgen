@@ -51,7 +51,7 @@ CLASS:Colonial Leader	STARTSKILLPTS:6	CSKILL:Barter|Bluff|Computer Use|TYPE=Craf
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Modify VAR														Bonus
 CLASS:Gunhand	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat					Required Skill
-CLASS:Gunhand	PREATT:3	PREFEAT:1,Weapon Focus (TYPE=Firearm)	PRESKILL:1,Intimidate=4
+CLASS:Gunhand	PRETOTALAB:3	PREFEAT:1,Weapon Focus (TYPE=Firearm)	PRESKILL:1,Intimidate=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunhand	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Mechanical)|Drive|Gamble|Gather Information|Intimidate|Knowledge (Local)|Knowledge (Streetwise)|Listen|Ride|Sense Motive|Spot|Survival|Treat Injury
 1			SAB:Tough as Nails																												AUTO:FEAT|Quick Draw
@@ -65,7 +65,7 @@ CLASS:Gunhand	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Mechanical)|Drive|Gamble|Gathe
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR													Bonus
 CLASS:Lawman	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|CL/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
 # Class Name	Req. Att.	Required Feat					Multiple Requirements
-CLASS:Lawman	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PREMULT:2,[PRESKILL:1,Intimidate=4],[PRESKILL:1,Knowledge (Civics)=4,Knowledge (Streetwise)=4]
+CLASS:Lawman	PRETOTALAB:3	PREFEAT:1,Personal Firearms Proficiency	PREMULT:2,[PRESKILL:1,Intimidate=4],[PRESKILL:1,Knowledge (Civics)=4,Knowledge (Streetwise)=4]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lawman	STARTSKILLPTS:4	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Streetwise)|Listen|Pilot|Research|Ride|Search|Sense Motive|Spot|Survival|Treat Injury
 1					BONUS:ABILITYPOOL|Force of Law Choice|1	ADD:FEAT|Weapon Focus
@@ -80,7 +80,7 @@ CLASS:Lawman	STARTSKILLPTS:4	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|D
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR													Bonus
 CLASS:Rancher	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
 # Class Name	Req. Att.	Required Feat								Required Skill
-CLASS:Rancher	PREATT:3	PREFEAT:2,Mounted Combat,Personal Firearms Proficiency	PRESKILL:2,Ride=6,Survival=4
+CLASS:Rancher	PRETOTALAB:3	PREFEAT:2,Mounted Combat,Personal Firearms Proficiency	PRESKILL:2,Ride=6,Survival=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rancher	STARTSKILLPTS:4	CSKILL:Barter|Climb|Drive|Gamble|Handle Animal|Hide|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Listen|Move Silently|Pilot|Ride|Search|Spot|Survival|Swim|Treat Injury
 1			SAB:Special Mount	SAB:Riding Mastery							BONUS:VAR|RancherLevel|CL	DEFINE:RancherLevel|0
@@ -110,7 +110,7 @@ CLASS:Rebuilder	STARTSKILLPTS:6	CSKILL:Climb|Computer Use|Concentration|TYPE=Cra
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Modify VAR															Bonus
 CLASS:Velin Guardian	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Multiple Requirements							Required Skill						Required Text
-CLASS:Velin Guardian	PREATT:3	PREMULT:1,[PRERACE:1,Velin],[PREFEAT:1,Velin Tribal Guest]	PRESKILL:3,Hide=4,Move Silently=4,Survival=6	PRETEXT:Velin Tribe or Velin Tribal Council allegiance
+CLASS:Velin Guardian	PRETOTALAB:3	PREMULT:1,[PRERACE:1,Velin],[PREFEAT:1,Velin Tribal Guest]	PRESKILL:3,Hide=4,Move Silently=4,Survival=6	PRETEXT:Velin Tribe or Velin Tribal Council allegiance
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Velin Guardian	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Craft (Tribal)|Handle Animal|Hide|Intimidate|Jump|Knowledge (Local)|Knowledge (Local)|Listen|Move Silently|Navigate|Ride|Spot|Survival|Swim|Treat Injury
 1			SAB:Guardian Reputation																															AUTO:FEAT|Oathbound

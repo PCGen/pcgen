@@ -32,7 +32,7 @@ CLASS:Demagogue	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|City Lore|Concentration|TY
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Hone		HD:10		TYPE:PC.Prestige	ABB:Hn		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL		Req. Att.	Required Feat										Required Lvl
-CLASS:Hone		PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:3,Improved Unarmed Strike,Weapon Focus,Weapon Specialization	PRELEVEL:MIN=5
+CLASS:Hone		PREALIGN:LG,LN,LE	PRETOTALAB:5	PREFEAT:3,Improved Unarmed Strike,Weapon Focus,Weapon Specialization	PRELEVEL:MIN=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hone		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Spot|Swim|Tumble
 ###Block: Class Defines
@@ -118,7 +118,7 @@ CLASS:Stalker	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
 CLASS:Vigilante	HD:8		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat					Required Lvl
-CLASS:Vigilante	PREATT:5	PREFEAT:3,Alertness,Combat Reflexes,Dodge	PRELEVEL:MIN=5
+CLASS:Vigilante	PRETOTALAB:5	PREFEAT:3,Alertness,Combat Reflexes,Dodge	PRELEVEL:MIN=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vigilante	STARTSKILLPTS:4	CSKILL:Balance|Bluff|City Lore|Climb|Concentration|TYPE=Craft|Disable Device|Disguise|Escape Artist|Gather Information|Heal|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|TYPE=Profession|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Proficiencies

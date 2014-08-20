@@ -532,7 +532,7 @@ SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|WaterSchoolLVL
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Battle Herald	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:BH		MAXLEVEL:10	SOURCEPAGE:p.260	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Required Ability											Req. Att.	Required Skill
-CLASS:Battle Herald	PREABILITY:2,CATEGORY=Special Ability,Cavalier ~ Challenge,Inspire Courage	PREATT:4	PRESKILL:4,Diplomacy=5,Intimidate=5,Perform (Oratory)=5,Profession(soldier)=2
+CLASS:Battle Herald	PREABILITY:2,CATEGORY=Special Ability,Cavalier ~ Challenge,Inspire Courage	PRETOTALAB:4	PRESKILL:4,Diplomacy=5,Intimidate=5,Perform (Oratory)=5,Profession(soldier)=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Battle Herald	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility)|Perception|TYPE=Profession|Ride|Sense Motive
 ##Block: Normal Level Progression
@@ -551,7 +551,7 @@ CLASS:Battle Herald	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Ani
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Holy Vindicator	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:HV		MAXLEVEL:10	SOURCEPAGE:p.263	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2
 # Class Name		Required Ability								Req. Att.	Required Feat						Required Skill				Req. Spell Type
-CLASS:Holy Vindicator	PREABILITY:1,CATEGORY=Special Ability,TYPE.Channel Energy	PREATT:5	PREFEAT:1,Alignment Channel,Elemental Channel	PRESKILL:1,Knowledge (Religion)=5	PRESPELLTYPE:1,Divine=1
+CLASS:Holy Vindicator	PREABILITY:1,CATEGORY=Special Ability,TYPE.Channel Energy	PRETOTALAB:5	PREFEAT:1,Alignment Channel,Elemental Channel	PRESKILL:1,Knowledge (Religion)=5	PRESPELLTYPE:1,Divine=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Holy Vindicator	STARTSKILLPTS:2	CSKILL:Climb|Heal|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Ride|Sense Motive|Spellcraft|Swim
 ###Block:  Weapon/Armor Proficiencies
@@ -628,7 +628,7 @@ CLASS:Master Spy	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus											Bonus
 CLASS:Nature Warden	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:NW		MAXLEVEL:10	SOURCEPAGE:p.272	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Required Ability																	Req. Att.	Required Skill												Req. Spell Type		Var. Must Be Grater
-CLASS:Nature Warden	PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredTerrain	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PREATT:4	PRESKILL:4,Handle Animal=5,Knowledge (Geography)=5,Knowledge (Nature)=5,Survival=5	PRESPELLTYPE:1,Divine=2	PREVARGT:AnimalCompanionLVL,0
+CLASS:Nature Warden	PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredTerrain	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PRETOTALAB:4	PRESKILL:4,Handle Animal=5,Knowledge (Geography)=5,Knowledge (Nature)=5,Survival=5	PRESPELLTYPE:1,Divine=2	PREVARGT:AnimalCompanionLVL,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Nature Warden	STARTSKILLPTS:4	CSKILL:Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|Perception|Ride|Sense Motive|Survival|Swim
 ##Block: Normal Level Progression
@@ -652,7 +652,7 @@ CLASS:Nature Warden	STARTSKILLPTS:4	CSKILL:Handle Animal|Heal|Knowledge (Geograp
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus											Bonus
 CLASS:Rage Prophet	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:RP		MAXLEVEL:10	SOURCEPAGE:p.275	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Required Ability												Req. Att.	Required Skill
-CLASS:Rage Prophet	PREABILITY:2,CATEGORY=Special Ability,Oracle's Curse,Rage Power ~ Moment of Clarity	PREATT:5	PRESKILL:1,Knowledge (Religion)=5
+CLASS:Rage Prophet	PREABILITY:2,CATEGORY=Special Ability,Oracle's Curse,Rage Power ~ Moment of Clarity	PRETOTALAB:5	PRESKILL:1,Knowledge (Religion)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rage Prophet	STARTSKILLPTS:4	CSKILL:Climb|Heal|Intimidate|Knowledge (History)|Knowledge (Religion)|Sense Motive|Spellcraft|Swim
 ##Block: Normal Level Progression
@@ -672,7 +672,7 @@ CLASS:Rage Prophet	STARTSKILLPTS:4	CSKILL:Climb|Heal|Intimidate|Knowledge (Histo
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Stalwart Defender	HD:12		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:SD		MAXLEVEL:10	SOURCEPAGE:p.277	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Req. Att.	Required Feat
-CLASS:Stalwart Defender	PREATT:7	PREFEAT:5,Dodge,Endurance,Toughness,Armor Proficiency (Light),Armor Proficiency (Medium)
+CLASS:Stalwart Defender	PRETOTALAB:7	PREFEAT:5,Dodge,Endurance,Toughness,Armor Proficiency (Light),Armor Proficiency (Medium)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Stalwart Defender	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Perception|Sense Motive
 ##Block: Normal Level Progression

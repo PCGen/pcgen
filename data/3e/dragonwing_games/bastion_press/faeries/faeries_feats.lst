@@ -10,7 +10,7 @@ Second Sight			TYPE:Fey																																																	DESC:You
 Sixth Sense				TYPE:Fey																																																	DESC:Sixth Sense allows mortals to sense a fey doorway within range (half mile radius)																														COST:1	SOURCEPAGE:p.19
 Blood of the Fey			TYPE:General																	!PREFEAT:1,Insight of the Fey												PREPCLEVEL:MAX=1													DESC:+3 bonus to enchantment spells and spell like effects																														BONUS:DC|SCHOOL.Enchantment|2	COST:1	SOURCEPAGE:p.17
 Evolve				TYPE:General																																																DESC:You are able to perform enchantments of the flesh anywhere																																		COST:1	SOURCEPAGE:p.18
-Improved Mite Fighter		TYPE:General	PREATT:8										PREFEAT:1,Mite Fighter																																	DESC:Your ability to fight creatures smaller than yourself has been honed to a deadly art form																													COST:1	SOURCEPAGE:p.19
+Improved Mite Fighter		TYPE:General	PRETOTALAB:8										PREFEAT:1,Mite Fighter																																	DESC:Your ability to fight creatures smaller than yourself has been honed to a deadly art form																													COST:1	SOURCEPAGE:p.19
 Insight of the Fey		TYPE:General			PRECHECKBASE:1,Will=2											!PREFEAT:1,Blood of the Fey												PREPCLEVEL:MAX=1			!PRERACE:1,RACETYPE=Fey							DESC:You are a distant relative of the fey, and have tapped into the mental insight that allows fey creatures to resist illusion and make their own illusions more believable											BONUS:DC|SCHOOL.Illusion|2	COST:1	SOURCEPAGE:p.19
 Nature's Embrace			TYPE:General			PRECHECKBASE:1,Will=3																																				PRESKILL:1,Knowledge (Nature)=1	DESC:Being in natural surroundings aids your natural healing																																		COST:1	SOURCEPAGE:p.19
 Craft Charms and Bracelets	TYPE:ItemCreation							PRECLASS:1,SPELLCASTER=7	PREFEAT:1,Craft Wondrous Item																																DESC:You can create magical charms and the bracelets that hold them																																	COST:1	SOURCEPAGE:p.18
@@ -22,4 +22,4 @@ Hypnotizing Magic			TYPE:Metamagic												PREFEAT:1,Fey Magic															
 Fey Spell Mastery			TYPE:Special																						PREMULT:1,[PREFEAT:1,Blood of the Fey],[PRECLASS:1,Fey-Touched=1]																DESC:You can use this ability to forgo using spell components of less than 5gp in value																														COST:1	SOURCEPAGE:p.18
 
 ###Referenced from Spells and Magic
-Mite Fighter			TYPE:General	PREATT:4	PRECHECKBASE:1,Reflex=3																																										DESC:You are especially adept at battling creatures smaller than yourself.
+Mite Fighter			TYPE:General	PRETOTALAB:4	PRECHECKBASE:1,Reflex=3																																										DESC:You are especially adept at battling creatures smaller than yourself.

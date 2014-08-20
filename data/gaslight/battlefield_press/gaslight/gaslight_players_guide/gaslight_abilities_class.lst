@@ -262,8 +262,8 @@ Celeritous Skulking	CATEGORY:Talent		TYPE:Talent.MartialArtistTalent	PREABILITY:
 # Unarmed Prodigy Talent Tree
 Exotic Arms			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																				PREFEAT:1,Combat Martial Arts,Defensive Martial Arts													SOURCEPAGE:p.
 Jump Kick			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																				PREFEAT:1,Combat Martial Arts					PRESKILL:1,Athletics=2									SOURCEPAGE:p.
-Roundhouse Kick		CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																		PREATT:1	PREFEAT:1,Combat Martial Arts																	SOURCEPAGE:p.
-Flying Kick			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																		PREATT:5																						SOURCEPAGE:p.
+Roundhouse Kick		CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																		PRETOTALAB:1	PREFEAT:1,Combat Martial Arts																	SOURCEPAGE:p.
+Flying Kick			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																		PRETOTALAB:5																						SOURCEPAGE:p.
 Flurry of Blows		CATEGORY:Talent		TYPE:Talent.MartialArtistTalent	PREABILITY:2,CATEGORY=Talent,Slippery,Fancy Footwork,Catlike Reflexes,Improved Fancy Footwork,Celeritous Skulking,Exotic Arms,Jump Kick,Roundhouse Kick,Flying Kick								PREFEAT:1,Combat Martial Arts,Brawl																SOURCEPAGE:p.
 
 
@@ -286,7 +286,7 @@ Heavy Fire			CATEGORY:Talent		TYPE:Talent.OfficerTalent	PREABILITY:2,CATEGORY=Ta
 Unit Integrity		CATEGORY:Talent		TYPE:Talent.OfficerTalent																PRESKILL:1,Knowledge (Military Science)=5	SOURCEPAGE:p.
 Tactical Aid		CATEGORY:Talent		TYPE:Talent.OfficerTalent																PRESKILL:1,Knowledge (Military Science)=7	SOURCEPAGE:p.
 Tactical Expertise	CATEGORY:Talent		TYPE:Talent.OfficerTalent																PRESKILL:1,Knowledge (Military Science)=9	SOURCEPAGE:p.
-Tactical Deception	CATEGORY:Talent		TYPE:Talent.OfficerTalent	PREABILITY:1,CATEGORY=Talent,Unit Integrity,Tactical Aid,Tactical Expertise	PREATT:6								SOURCEPAGE:p.
+Tactical Deception	CATEGORY:Talent		TYPE:Talent.OfficerTalent	PREABILITY:1,CATEGORY=Talent,Unit Integrity,Tactical Aid,Tactical Expertise	PRETOTALAB:6								SOURCEPAGE:p.
 
 # Leadership Talent Tree
 Coordinate			CATEGORY:Talent		TYPE:Talent.OfficerTalent																							SOURCEPAGE:p.
@@ -319,8 +319,8 @@ Sneak Attack 2			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABI
 Sneak Attack 3			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack 2					PRECLASS:1,Rogue=5																			BONUS:VAR|StealthAttack|1						SOURCEPAGE:p.
 Sneak Attack 4			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack 3					PRECLASS:1,Rogue=7																			BONUS:VAR|StealthAttack|1						SOURCEPAGE:p.
 Sneak Attack 5			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack 4					PRECLASS:1,Rogue=9																			BONUS:VAR|StealthAttack|1						SOURCEPAGE:p.
-Crippling Strike			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Sneak Attack				PREATT:5																																	SOURCEPAGE:p.
-Death Attack			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Sneak Attack				PREATT:7																																	SOURCEPAGE:p.
+Crippling Strike			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Sneak Attack				PRETOTALAB:5																																	SOURCEPAGE:p.
+Death Attack			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Sneak Attack				PRETOTALAB:7																																	SOURCEPAGE:p.
 
 # Fast-Talk Talent Tree
 Fast-Talk				CATEGORY:Talent		TYPE:Talent.RogueTalent																																																SOURCEPAGE:p.

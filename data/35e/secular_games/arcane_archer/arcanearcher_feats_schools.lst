@@ -4,7 +4,7 @@ SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOU
 
 ###Block: archery schools
 # Feat Name					Product Identity?	Type						Required AL		Req. Att.	Required Feat	Required Non-Monster Lvl	Required Race				Required Skill						Required Stat		Source Page
-School of the Ascending Moon		NAMEISPI:YES	TYPE:General.ArcherySchool.Fighter				PREATT:1				PREPCLEVEL:MAX=1			PRERACE:1,Elf%,Half-Elf											PRESTAT:1,STR=17		SOURCEPAGE:p.10
+School of the Ascending Moon		NAMEISPI:YES	TYPE:General.ArcherySchool.Fighter				PRETOTALAB:1				PREPCLEVEL:MAX=1			PRERACE:1,Elf%,Half-Elf											PRESTAT:1,STR=17		SOURCEPAGE:p.10
 School of the Bitter Shadow		NAMEISPI:YES	TYPE:General.ArcherySchool										PREPCLEVEL:MAX=1			PRERACE:1,Elf (Winter),Half-Elf	PRESKILL:1,Survival=4					PRESTAT:1,WIS=15		SOURCEPAGE:p.10
 School of the Dragonbite Arrow	NAMEISPI:YES	TYPE:General.ArcherySchool.Fighter						PREFEAT:1,Dodge	PREPCLEVEL:MAX=1			PRERACE:1,Elf%,Half-Elf															SOURCEPAGE:p.10
 School of the Eternal Night		NAMEISPI:YES	TYPE:General.ArcherySchool										PREPCLEVEL:MAX=1			PRERACE:1,Elf (Drow),Half-Elf														SOURCEPAGE:p.10

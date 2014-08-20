@@ -32,7 +32,7 @@ CATEGORY=Special Ability|Crossbloodline ~ Orc.MOD													TYPE:SpellBurning 
 ###Block: New crossbloodline bonus feats
 # Ability Name		Unique Key				Category of Ability			Type				Required Ability										Req. Att.	Required Feat		Required Stat	Automatically Gained Feat
 Intimidating Prowess	KEY:Intimidating Prowess	CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat	PREABILITY:1,CATEGORY=Special Ability,TYPE.FeatIntimidatingProwess										AUTO:FEAT|Intimidating Prowess
-Improved Overrun		KEY:Improved Overrun		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat	PREABILITY:1,CATEGORY=Special Ability,TYPE.FeatImprovedOverrun		PREATT:1	PREFEAT:1,Power Attack	PRESTAT:1,STR=13	AUTO:FEAT|Improved Overrun
+Improved Overrun		KEY:Improved Overrun		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat	PREABILITY:1,CATEGORY=Special Ability,TYPE.FeatImprovedOverrun		PRETOTALAB:1	PREFEAT:1,Power Attack	PRESTAT:1,STR=13	AUTO:FEAT|Improved Overrun
 Widen Spell			KEY:Widen Spell			CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat	PREABILITY:1,CATEGORY=Special Ability,TYPE.FeatWidenSpell												AUTO:FEAT|Widen Spell
 
 ###Block: New crossbloodline bonus spells

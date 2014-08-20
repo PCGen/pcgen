@@ -158,7 +158,7 @@ CLASS:Summoner	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Dip
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Vigilant	HD:12		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL				Req. Att.	Required Feat			Required Skill
-CLASS:Vigilant	PREALIGN:LG,LN,NG,TN,CG,CN	PREATT:5	PREFEAT:2,Endurance,Track	PRESKILL:4,Wilderness Lore=7,Diplomacy=5,Gather Information=5,Handle Animal=5
+CLASS:Vigilant	PREALIGN:LG,LN,NG,TN,CG,CN	PRETOTALAB:5	PREFEAT:2,Endurance,Track	PRESKILL:4,Wilderness Lore=7,Diplomacy=5,Gather Information=5,Handle Animal=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vigilant	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Intuit Direction|Jump|Listen|Move Silently|TYPE=Profession|Ride|Search|Sense Motive|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level

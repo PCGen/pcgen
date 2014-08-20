@@ -17,7 +17,7 @@ SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcept
 # Class Name		Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Bound Guardian	TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.75	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Req. Att.	Required Check Base					Multiple Requirements																		Required Skill					Required Text
-CLASS:Bound Guardian	PREATT:5	PRECHECKBASE:3,Fortitude=3,Reflex=3,Will=3	PREMULT:2,[PREFEAT:3,Combat Expertise,Combat Reflexes,Weapon Focus],[PREFEAT:1,Great Fortitude,Iron Will,Lighting Reflexes]	PRESKILL:3,Intimidate=5,Listen=4,Spot=4	PRETEXT:Must undergo a special ritual of binding, including the casting of the guardian ties spell, the result of which is to bind the prospective Guardian to a single Mage of the Sanctorum.
+CLASS:Bound Guardian	PRETOTALAB:5	PRECHECKBASE:3,Fortitude=3,Reflex=3,Will=3	PREMULT:2,[PREFEAT:3,Combat Expertise,Combat Reflexes,Weapon Focus],[PREFEAT:1,Great Fortitude,Iron Will,Lighting Reflexes]	PRESKILL:3,Intimidate=5,Listen=4,Spot=4	PRETEXT:Must undergo a special ritual of binding, including the casting of the guardian ties spell, the result of which is to bind the prospective Guardian to a single Mage of the Sanctorum.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bound Guardian	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Handle Animal|Hide|Intimidate|Listen|Move Silently|TYPE=Profession|Spot|Survival|Tumble
 #they do gain proficiency in light and medium armors as well as all light and one-handed martial weapons.
@@ -40,7 +40,7 @@ CLASS:Bound Guardian	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Handle Animal|Hide|Intimi
 # Class Name	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Magister	TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.77	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Req. Att.	Multiple Requirements																		Required Skill						Required Text
-CLASS:Magister	PREATT:5	PREMULT:2,[PREFEAT:2,Craft Wondrous Item,Skill Focus (Spellcraft)],[PREFEAT:3,Spell Focus,Spell Focus,Greater Spell Focus]	PRESKILL:2,Knowledge (Arcane)=15,Spellcraft=15	PRETEXT:Spells-  Ability to cast 7th-level arcane spells, and knowledge of 5th-level or higher spells from at least four schools.
+CLASS:Magister	PRETOTALAB:5	PREMULT:2,[PREFEAT:2,Craft Wondrous Item,Skill Focus (Spellcraft)],[PREFEAT:3,Spell Focus,Spell Focus,Greater Spell Focus]	PRESKILL:2,Knowledge (Arcane)=15,Spellcraft=15	PRETEXT:Spells-  Ability to cast 7th-level arcane spells, and knowledge of 5th-level or higher spells from at least four schools.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Magister	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Research|Search|Spellcraft
 #Block:
@@ -153,7 +153,7 @@ CLASS:Tears of Almeric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Hide
 # Class Name		Hit Dice	Type			Source Page		Combat bonus										Bonus
 CLASS:Via Proeliatoris	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.84	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat														Required Skill							Required Text
-CLASS:Via Proeliatoris	PREATT:5	PREFEAT:4,Craft Magic Arms and Armor,Armor Proficiency (Light),Shield Proficiency,Weapon Focus	PRESKILL:3,TYPE=Arcana=10,Research=10,Spellcraft=10	PRETEXT:Spells: Must be able to cast 3rd level arcane spells - Special: Must be a member in good standing with the Sanctorum of the Arcane.
+CLASS:Via Proeliatoris	PRETOTALAB:5	PREFEAT:4,Craft Magic Arms and Armor,Armor Proficiency (Light),Shield Proficiency,Weapon Focus	PRESKILL:3,TYPE=Arcana=10,Research=10,Spellcraft=10	PRETEXT:Spells: Must be able to cast 3rd level arcane spells - Special: Must be a member in good standing with the Sanctorum of the Arcane.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Via Proeliatoris	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Hide|Intimidate|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Research|Spellcraft|Spot
 ###Block: Spell Caster Progression
@@ -231,7 +231,7 @@ CLASS:Arcane Infiltrator	STARTSKILLPTS:6	CSKILL:Black Market|Bluff|Climb|Concent
 # Class Name	Hit Dice	Type			Source Page		Combat bonus										Bonus
 CLASS:Battlestaff	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.90	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Req. Att.	Required Feat																			Required Skill					Required Text
-CLASS:Battlestaff	PREATT:4	PREFEAT:5,Combat Expertise,Craft Magic Arms and Armor,Two-Weapon Fighting,Two-Weapon Defense,Weapon Focus (Quarterstaff)	PRESKILL:1,Craft (Weaponsmithing)=10	PRETEXT:Spells: Ability to prepare and cast 3rd level Arcane spells. Special: Must craft a Masterwork or Greater Masterwork quarterstaff and use it to defeat a foe in melee combat.
+CLASS:Battlestaff	PRETOTALAB:4	PREFEAT:5,Combat Expertise,Craft Magic Arms and Armor,Two-Weapon Fighting,Two-Weapon Defense,Weapon Focus (Quarterstaff)	PRESKILL:1,Craft (Weaponsmithing)=10	PRETEXT:Spells: Ability to prepare and cast 3rd level Arcane spells. Special: Must craft a Masterwork or Greater Masterwork quarterstaff and use it to defeat a foe in melee combat.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Battlestaff	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|TYPE=Profession|Research|Spellcraft
 ###Block: Spell Caster Progression
@@ -381,7 +381,7 @@ CLASS:Discipulus Geometricus	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Dec
 # Class Name					Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Knight of the Order of St. Armon	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.103	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name					Req. Att.	Required Feat						Required Skill			Required Text
-CLASS:Knight of the Order of St. Armon	PREATT:4	PREFEAT:3,Armored Caster,Gentry,Weapon Focus	PRESKILL:1,Concentration=6	PRETEXT:Spellcasting: Must be able to cast 2nd level arcane spells. Nationality: Milandir
+CLASS:Knight of the Order of St. Armon	PRETOTALAB:4	PREFEAT:3,Armored Caster,Gentry,Weapon Focus	PRESKILL:1,Concentration=6	PRETEXT:Spellcasting: Must be able to cast 2nd level arcane spells. Nationality: Milandir
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Order of St. Armon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Jump|TYPE=Knowledge|TYPE=Profession|Ride|Spellcraft
 #Weapon and Armor Proficiency: A Knight of the Order of St. Armon gains proficiencies with the traditional Milandisian weapons of the longsword, the halberd, and the heavy crossbow. The Knight of the Order of St. Armon is also proficient with light armor, and medium armor.
@@ -696,7 +696,7 @@ CLASS:Afatkuq	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Afatkuq|CL
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Berotar	HD:8		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.121	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Req. Att.	Required Feat		Required Skill					Required Text
-CLASS:Berotar	PREATT:5	PREFEAT:1,Leadership	PRESKILL:2,Profession (Sailor)=6,Swim=6	PRETEXT:Spellcasting: Be able to cast 3rd level spells and if a cleric have access to either the Air or Water domain. If an arcane caster or a divine caster with no domains, must have access to 2 different spells of 3rd level or higher appearing on the Air or Water domain spell lists. Special: Must be an Elorii from Entaris and be invited into the fellowship.
+CLASS:Berotar	PRETOTALAB:5	PREFEAT:1,Leadership	PRESKILL:2,Profession (Sailor)=6,Swim=6	PRETEXT:Spellcasting: Be able to cast 3rd level spells and if a cleric have access to either the Air or Water domain. If an arcane caster or a divine caster with no domains, must have access to 2 different spells of 3rd level or higher appearing on the Air or Water domain spell lists. Special: Must be an Elorii from Entaris and be invited into the fellowship.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Berotar	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|TYPE=Arcana|TYPE=Nature|Profession (Sailor)|Spellcraft|Swim
 ###Block:
@@ -858,7 +858,7 @@ CLASS:Psionic Inquisitor	STARTSKILLPTS:2	CSKILL:Autohypnosis|TYPE=Craft|Concentr
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR													Bonus
 CLASS:Tree Shaper of Saluwe	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.133	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Req. Att.	Required Deity	Required Skill								Required Text
-CLASS:Tree Shaper of Saluwe	PREATT:4	PREDEITY:1,Saluwe	PRESKILL:3,Craft (Woodworking)=8,TYPE=Nature=8,Survival=5	PRETEXT:Spells- Able to cast divine spells. Special- Must either have the Plant domain, or be able to cast tree shape.
+CLASS:Tree Shaper of Saluwe	PRETOTALAB:4	PREDEITY:1,Saluwe	PRESKILL:3,Craft (Woodworking)=8,TYPE=Nature=8,Survival=5	PRETEXT:Spells- Able to cast divine spells. Special- Must either have the Plant domain, or be able to cast tree shape.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Tree Shaper of Saluwe	STARTSKILLPTS:2	CSKILL:Balance|TYPE=Craft|Concentration|Diplomacy|Escape Artist|Gather Information|Intimidate|Jump|TYPE=Knowledge|Listen|TYPE=Profession|Search|Sense Motive|Spellcraft|Spot|Tumble
 #Weapon and Armor Proficiency: Tree Shapers gain proficiency in druid weapons and armor. They now suffer the same restrictions on available weapons and armor that a druid has.
@@ -891,7 +891,7 @@ CLASS:Tree Shaper of Saluwe	STARTSKILLPTS:2	CSKILL:Balance|TYPE=Craft|Concentrat
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Ordainer	HD:6		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.208	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL		Req. Att.	Required Class				Required Feat						Required Skill									Required Text
-CLASS:Ordainer	PREALIGN:LN,LE	PREATT:4	PRECLASS:1,SPELLCASTER.Arcane=5	PREFEAT:1,Track	PREFEAT:1,TYPE.Metamagic	PRESKILL:4,Concentration=5,TYPE=Arcana=5,Spellcraft=5,Survival=5	PRETEXT:Special - Born and raised upon the Isle of Tears. Must swear loyalty to the Sorcerer King of Ymandragore.
+CLASS:Ordainer	PREALIGN:LN,LE	PRETOTALAB:4	PRECLASS:1,SPELLCASTER.Arcane=5	PREFEAT:1,Track	PREFEAT:1,TYPE.Metamagic	PRESKILL:4,Concentration=5,TYPE=Arcana=5,Spellcraft=5,Survival=5	PRETEXT:Special - Born and raised upon the Isle of Tears. Must swear loyalty to the Sorcerer King of Ymandragore.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ordainer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Heal|Hide|TYPE=Knowledge|Listen|Move Silently|Research|Spellcraft|Spot|Survival
 ###Block: Proficiencies

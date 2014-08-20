@@ -8,7 +8,7 @@ SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Ex Class				Source Page		Define				Combat bonus										Bonus
 CLASS:Animal Champion	HD:8		TYPE:PC.Prestige	ABB:AC		MAXLEVEL:10	ALLOWBASECLASS:NO		EXCLASS:Ex Animal Champion	SOURCEPAGE:p.23	DEFINE:AnimalCompanionLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL		Req. Att.	Required Feat
-CLASS:Animal Champion	PREALIGN:TN,NG	PREATT:10	PREFEAT:1,Animal Affinity
+CLASS:Animal Champion	PREALIGN:TN,NG	PRETOTALAB:10	PREFEAT:1,Animal Affinity
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Animal Champion	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Heal|Hide|Knowledge (Nature)|Jump|Listen|Move Silently|Ride|Search|Spot|Survival|Swim
 
@@ -169,7 +169,7 @@ CLASS:Ex Animal Champion	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Heal
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Briar Archer	HD:8		TYPE:PC.Prestige	ABB:BA		MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL	Req. Att.	Required Feat									Required Race							Required Skill							Required Text
-CLASS:Briar Archer	PREALIGN:TN	PREATT:7	PREFEAT:4,Point Blank Shot,Precise Shot,Rapid Shot,Weapon Focus	PRERACE:1,Human,Elf%,Half-Elf,RACETYPE=Fey,Centaur	PRESKILL:2,Craft (Fletcher)=10,Knowledge (Nature)=10	PRETEXT:Must be able to cast speak with plants; Weapon Focus (any bow)
+CLASS:Briar Archer	PREALIGN:TN	PRETOTALAB:7	PREFEAT:4,Point Blank Shot,Precise Shot,Rapid Shot,Weapon Focus	PRERACE:1,Human,Elf%,Half-Elf,RACETYPE=Fey,Centaur	PRESKILL:2,Craft (Fletcher)=10,Knowledge (Nature)=10	PRETEXT:Must be able to cast speak with plants; Weapon Focus (any bow)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Briar Archer	STARTSKILLPTS:4	CSKILL:Craft (Bowyer)|Craft (Fletcher)|Hide|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Spot|Survival
 
@@ -187,7 +187,7 @@ CLASS:Briar Archer	STARTSKILLPTS:4	CSKILL:Craft (Bowyer)|Craft (Fletcher)|Hide|K
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Green Knight	HD:10		TYPE:PC.Prestige	ABB:GK		MAXLEVEL:10	SOURCEPAGE:p.39	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Restricted AL		Req. Att.	Required Feat				Required Skill								Required Text
-CLASS:Green Knight	!PREALIGN:LE,NE,CE	PREATT:8	PREFEAT:1,Weapon Focus (Greataxe)	PRESKILL:2,Craft (Weaponsmithing)=8,Craft (Armorsmithing)=8	PRETEXT:Must possess the woodland empathy class feature; must have the honour of green knighthood
+CLASS:Green Knight	!PREALIGN:LE,NE,CE	PRETOTALAB:8	PREFEAT:1,Weapon Focus (Greataxe)	PRESKILL:2,Craft (Weaponsmithing)=8,Craft (Armorsmithing)=8	PRETEXT:Must possess the woodland empathy class feature; must have the honour of green knighthood
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Green Knight	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Hide|Jump|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|TYPE=Profession|Spot|Survival|Swim
 
@@ -237,7 +237,7 @@ CLASS:Ex Greenwood Judge	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hid
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Master of the Staff	HD:8		TYPE:PC.Prestige	ABB:MotS		MAXLEVEL:10	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Req. Att.	Required Feat
-CLASS:Master of the Staff	PREATT:5	PREFEAT:3,Stunning Staff,Combat Expertise,Improved Trip	PREFEAT:1,Weapon Focus (Shortstaff),Weapon Focus (Tipstaff)
+CLASS:Master of the Staff	PRETOTALAB:5	PREFEAT:3,Stunning Staff,Combat Expertise,Improved Trip	PREFEAT:1,Weapon Focus (Shortstaff),Weapon Focus (Tipstaff)
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Master of the Staff	STARTSKILLPTS:2	CSKILL:Climb|Jump|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|Spot|Survival
 
@@ -261,7 +261,7 @@ CLASS:Master of the Staff	STARTSKILLPTS:2	CSKILL:Climb|Jump|Knowledge (Geography
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Outlaw	HD:8		TYPE:PC.Prestige	ABB:Olw		MAXLEVEL:10	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat
-CLASS:Outlaw	PREATT:5	PREFEAT:3,Point Blank Shot,Track,Weapon Focus (Longbow)
+CLASS:Outlaw	PRETOTALAB:5	PREFEAT:3,Point Blank Shot,Track,Weapon Focus (Longbow)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Outlaw	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Climb|Disguise|Gather Information|Hide|Intimidate|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|TYPE=Perform|Ride|Search|Spot|Survival
 
@@ -284,7 +284,7 @@ CLASS:Outlaw	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Climb|Disguise|Gather Information
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Wild Hunter	HD:8		TYPE:PC.Prestige	ABB:WH		MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat															Required Skill								Required Text
-CLASS:Wild Hunter	PREATT:8	PREFEAT:6,Endurance,Track,Power Attack,Dodge,Simple Weapon Proficiency,Martial Weapon Proficiency	PRESKILL:3,Handle Animal=8,Knowledge (Nature)=8,Survival=8	PRETEXT:Must have Favoured Enemy (Animal), Must have an animal companion which is a riding dog.
+CLASS:Wild Hunter	PRETOTALAB:8	PREFEAT:6,Endurance,Track,Power Attack,Dodge,Simple Weapon Proficiency,Martial Weapon Proficiency	PRESKILL:3,Handle Animal=8,Knowledge (Nature)=8,Survival=8	PRETEXT:Must have Favoured Enemy (Animal), Must have an animal companion which is a riding dog.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wild Hunter	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Heal|Hide|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Use Rope
 

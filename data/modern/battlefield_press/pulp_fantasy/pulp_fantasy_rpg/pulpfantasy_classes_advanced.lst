@@ -22,7 +22,7 @@ CLASS:Ambassador	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intim
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Modify VAR														Bonus
 CLASS:Brawler	HD:10		TYPE:Advanced.PC	ABB:Brwl		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat				Required Skill				Required Text
-CLASS:Brawler	PREATT:3	PREFEAT:2,Streetfighting,Brawl	PRESKILL:1,Knowledge (Streetwise)=6	PRETEXT:must have an allegiance to some urban area or group
+CLASS:Brawler	PRETOTALAB:3	PREFEAT:2,Streetfighting,Brawl	PRESKILL:1,Knowledge (Streetwise)=6	PRETEXT:must have an allegiance to some urban area or group
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Brawler	STARTSKILLPTS:5	CSKILL:Bluff|Diplomacy|Disable Device|Drive|Gamble|Gather Information|Hide|Intimidate|Investigate|Jump|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Military Science)|Move Silently|Profession|Sense Motive|Spot|Survival
 1																						AUTO:FEAT|Urban Survival
@@ -39,7 +39,7 @@ CLASS:Brawler	STARTSKILLPTS:5	CSKILL:Bluff|Diplomacy|Disable Device|Drive|Gamble
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:Combat Ace	HD:8		TYPE:Advanced.PC	ABB:Ace		MAXLEVEL:10	SOURCEPAGE:p.95	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+1)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Req. Att.	Required Feat			Required Skill
-CLASS:Combat Ace	PREATT:2	PREFEAT:1,Aircraft Operation	PRESKILL:1,Pilot=6
+CLASS:Combat Ace	PRETOTALAB:2	PREFEAT:1,Aircraft Operation	PRESKILL:1,Pilot=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Combat Ace	STARTSKILLPTS:5	CSKILL:Bluff|Craft (Electronic)|Craft (Mechanical)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Navigate|Pilot|Profession|Repair
 1	ADD:FEAT|TYPE=CombatAce
@@ -61,7 +61,7 @@ CLASS:Daredevil.MOD	SOURCEPAGE:p.96
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:Detective	HD:6		TYPE:Advanced.PC	ABB:Det		MAXLEVEL:10	SOURCEPAGE:p.97	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
 # Class Name	Req. Att.	Required Feat				Required Skill
-CLASS:Detective	PREATT:2	PREFEAT:1,Skill Focus (Search)	PRESKILL:3,Investigate=6,Listen=6,Sense Motive=6
+CLASS:Detective	PRETOTALAB:2	PREFEAT:1,Skill Focus (Search)	PRESKILL:3,Investigate=6,Listen=6,Sense Motive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Detective	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|TYPE=Knowledge|Listen|Profession|READ/WRITE LANGUAGE|Research|Search|Sense Motive|SPEAK LANGUAGE|Spot
 1	ADD:FEAT|Reference Material	AUTO:FEAT|Profile
@@ -112,7 +112,7 @@ CLASS:Explorer	STARTSKILLPTS:5	CSKILL:Balance|Bluff|Climb|Decipher Script|Disabl
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus									Modify VAR														Bonus
 CLASS:G-Man		HD:6		TYPE:Advanced.PC	ABB:GMan		MAXLEVEL:10	SOURCEPAGE:p.102	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+2)*7/10-1	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/2	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Req. Att.	Required Skill					Required Stat		Required Text
-CLASS:G-Man		PREATT:2	PRESKILL:2,Speak Language=1,Research=1	PRESTAT:2,INT=13,CHA=11	PRETEXT:Must have an allegiance to the USA
+CLASS:G-Man		PRETOTALAB:2	PRESKILL:2,Speak Language=1,Research=1	PRESTAT:2,INT=13,CHA=11	PRETEXT:Must have an allegiance to the USA
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:G-Man		STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Drive|Forgery|Gather Information|Hide|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Listen|Move Silently|Profession|READ/WRITE LANGUAGE|Repair|Research|Search|Sense Motive|SPEAK LANGUAGE|Spot|Swim|Treat Injury
 1					AUTO:FEAT|Jurisdiction|Only the Best
@@ -126,7 +126,7 @@ CLASS:G-Man		STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Demoliti
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:Gangster	HD:8		TYPE:Advanced.PC	ABB:Gang		MAXLEVEL:10	SOURCEPAGE:p.104	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat					Required Skill
-CLASS:Gangster	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=6
+CLASS:Gangster	PRETOTALAB:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gangster	STARTSKILLPTS:7	CSKILL:Bluff|Craft (Chemical)|Craft (Mechanical)|Craft (Structural)|Diplomacy|Disguise|Drive|Escape Artist|Forgery|Gather Information|Hide|Gamble|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Profession|READ/WRITE LANGUAGE|Search|Sense Motive|Sleight of Hand|SPEAK LANGUAGE
 1												AUTO:FEAT|Infamy|Sneak Attack
@@ -143,7 +143,7 @@ CLASS:Gangster	STARTSKILLPTS:7	CSKILL:Bluff|Craft (Chemical)|Craft (Mechanical)|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Modify VAR													Bonus
 CLASS:Mystery Man	HD:8		TYPE:Advanced.PC	ABB:MstM		MAXLEVEL:10	SOURCEPAGE:p.105	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|CL/2+2	BONUS:VAR|Reputation|(CL+1)/2	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat			Multiple Requirements
-CLASS:Mystery Man	PREATT:3	PREFEAT:1,Secret Identity	PREMULT:2,[PRESKILL:3,Intimidate=6,Investigate=6,Sense Motive=6],[PRESKILL:1,Tumble=8,TYPE.Perform=8]
+CLASS:Mystery Man	PRETOTALAB:3	PREFEAT:1,Secret Identity	PREMULT:2,[PRESKILL:3,Intimidate=6,Investigate=6,Sense Motive=6],[PRESKILL:1,Tumble=8,TYPE.Perform=8]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mystery Man	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Drive|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Investigate|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Pilot|Profession|READ/WRITE LANGUAGE|Research|Search|Sense Motive|Sleight of Hand|SPEAK LANGUAGE|Spot|Tumble
 1	ADD:FEAT|Two Fisted Action	AUTO:FEAT|Charming
@@ -160,7 +160,7 @@ CLASS:Mystery Man	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Drive|Diplomacy|Dis
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Modify VAR														Bonus
 CLASS:Mystic	HD:8		TYPE:Advanced.PC	ABB:Mstc		MAXLEVEL:10	SOURCEPAGE:p.108	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Req. Att.	Required Feat							Required Skill
-CLASS:Mystic	PREATT:3	PREFEAT:2,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Jump=3
+CLASS:Mystic	PRETOTALAB:3	PREFEAT:2,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Jump=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mystic	STARTSKILLPTS:3	CSKILL:Balance|Climb|Escape Artist|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Move Silently|Perform (Dance)|Profession|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Spot|Tumble
 ###Block: Unarmed Damage
@@ -204,7 +204,7 @@ CLASS:News Hound	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Craft (Visual Arts)|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:Operator	HD:8		TYPE:Advanced.PC	ABB:Oprt		MAXLEVEL:10	SOURCEPAGE:p.111	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
 # Class Name	Req. Att.	Required Feat										Required Skill
-CLASS:Operator	PREATT:4	PREFEAT:3,Fade to Black,Information Network,Licensed and Authorized	PRESKILL:3,Investigate=4,Research=2,Sense Motive=2
+CLASS:Operator	PRETOTALAB:4	PREFEAT:3,Fade to Black,Information Network,Licensed and Authorized	PRESKILL:3,Investigate=4,Research=2,Sense Motive=2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Operator	STARTSKILLPTS:6	CSKILL:Concentration|Disguise|Drive|Forgery|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|READ/WRITE LANGUAGE|Search|Sense Motive|SPEAK LANGUAGE|Spot
 1																					AUTO:FEAT|Improved Information Network
@@ -259,7 +259,7 @@ CLASS:Scientist	STARTSKILLPTS:7	CSKILL:Craft (Chemical)|Craft (Electronic)|Craft
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:Shadowy Avenger	HD:8		TYPE:Advanced.PC	ABB:ShAv		MAXLEVEL:10	SOURCEPAGE:p.118	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat					Required Skill
-CLASS:Shadowy Avenger	PREATT:2	PREFEAT:2,Low Profile,Secret Identity	PRESKILL:2,Intimidate=6,Knowledge (Streetwise)=6
+CLASS:Shadowy Avenger	PRETOTALAB:2	PREFEAT:2,Low Profile,Secret Identity	PRESKILL:2,Intimidate=6,Knowledge (Streetwise)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowy Avenger	STARTSKILLPTS:7	CSKILL:Balance|Bluff|Climb|Disable Device|Disguise|Gather Information|Hide|Intimidate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Sense Motive|Spot|Tumble
 1						AUTO:FEAT|Persona
@@ -278,7 +278,7 @@ CLASS:Shadowy Avenger	STARTSKILLPTS:7	CSKILL:Balance|Bluff|Climb|Disable Device|
 # Class Name	Source Page
 CLASS:Soldier.MOD	SOURCEPAGE:p.119
 # Class Name	Clear Prereq.	Req. Att.	Required Feat					Required Skill
-CLASS:Soldier.MOD	PRE:.CLEAR		PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Military Science)=3
+CLASS:Soldier.MOD	PRE:.CLEAR		PRETOTALAB:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Military Science)=3
 # Class Name	Class Skill
 CLASS:Soldier.MOD	CSKILL:Knowledge (Military Science)
 

@@ -3,7 +3,7 @@ SOURCELONG:Modern Dispatch #108 - Teamwork Mechanics	SOURCESHORT:MD108-TM	SOURCE
 
 # Feat Name			Type					Req. Att.	Required Feat		Required Skill				Required Stat		Required Text		Description		Stackable?	Multiple?	Choose		Source Page		Temporary Bonus
 Animal Lover		TYPE:General.Charismatic							PRESKILL:1,Handle Animal=4		PRESTAT:1,CHA=13						DESC:See Text								SOURCEPAGE:p.4
-Coordinated Attack	TYPE:General.Dedicated		PREATT:5	PREFEAT:1,Teamwork															DESC:See Text								SOURCEPAGE:p.4
+Coordinated Attack	TYPE:General.Dedicated		PRETOTALAB:5	PREFEAT:1,Teamwork															DESC:See Text								SOURCEPAGE:p.4
 Cover Fire			TYPE:General.Dedicated				PREFEAT:1,Teamwork															DESC:See Text								SOURCEPAGE:p.4
 Enemy				TYPE:General.Dedicated																						DESC:See Text	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.4	TEMPBONUS:PC|COMBAT|TOHIT|2	TEMPBONUS:PC|SKILL|ALL|1
 Networking			TYPE:General.Charismatic							PRESKILL:1,Diplomacy=4			PRESTAT:1,CHA=13						DESC:See Text								SOURCEPAGE:p.4

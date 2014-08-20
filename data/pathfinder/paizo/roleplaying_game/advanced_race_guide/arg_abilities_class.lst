@@ -321,7 +321,7 @@ Ride-By Attack		KEY:Order of the Paw Bonus Feat ~ Ride-By Attack	CATEGORY:Specia
 Skill Focus (Ride)	KEY:Order of the Paw Bonus Feat ~ Skill Focus (Ride)	CATEGORY:Special Ability	TYPE:OOTPBonusFeat	VISIBLE:DISPLAY													!PREFEAT:1,Skill Focus (Ride)				VFEAT:Skill Focus (Ride)
 Spirited Charge		KEY:Order of the Paw Bonus Feat ~ Spirited Charge	CATEGORY:Special Ability	TYPE:OOTPBonusFeat	VISIBLE:DISPLAY			PREFEAT:2,Mounted Combat,Ride-By Attack				!PREFEAT:1,Spirited Charge	PRESKILL:1,Ride=1	VFEAT:Spirited Charge
 Trample			KEY:Order of the Paw Bonus Feat ~ Trample			CATEGORY:Special Ability	TYPE:OOTPBonusFeat	VISIBLE:DISPLAY			PREFEAT:1,Mounted Combat						!PREFEAT:1,Trample		PRESKILL:1,Ride=1	VFEAT:Trample
-Unseat			KEY:Order of the Paw Bonus Feat ~ Unseat			CATEGORY:Special Ability	TYPE:OOTPBonusFeat	VISIBLE:DISPLAY	PREATT:1	PREFEAT:3,Mounted Combat,Power Attack,Improved Bull Rush	!PREFEAT:1,Unseat			PRESKILL:1,Ride=1	VFEAT:Unseat
+Unseat			KEY:Order of the Paw Bonus Feat ~ Unseat			CATEGORY:Special Ability	TYPE:OOTPBonusFeat	VISIBLE:DISPLAY	PRETOTALAB:1	PREFEAT:3,Mounted Combat,Power Attack,Improved Bull Rush	!PREFEAT:1,Unseat			PRESKILL:1,Ride=1	VFEAT:Unseat
 
 ###Block: Underfoot Adept Abilities
 # Ability Name			Unique Key							Category of Ability		Type									Description																																																																			Automatically Gained Feat	Source Page

@@ -168,7 +168,7 @@ Multiattack.MOD		TYPE:MutantFeat
 MultiWeapon Fighting	TYPE:MutantFeat	VISIBLE:YES																													PREHANDSGTEQ:3																	DESC:See Text.	BONUS:COMBAT|TOHIT-PRIMARY|2	BONUS:COMBAT|TOHIT-SECONDARY|6										SOURCEPAGE:p. 93
 Natural Armor Expertise	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant EndoSkeletal Casing,Dermal Spike Growth,Protective Dermal Development																				PRESTAT:1,INT=13							DESC:See Text.																					SOURCEPAGE:p. 93
 Plague Carrier		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Accumulated Resistance																																							DESC:See Text.																					SOURCEPAGE:p. 93
-Power Dive			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development										PREATT:5																											DESC:See Text.																					SOURCEPAGE:p. 93
+Power Dive			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development										PRETOTALAB:5																											DESC:See Text.																					SOURCEPAGE:p. 93
 Pounce			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Adrenaline Control,Increased Movement,Simian Deformity																								PRESTAT:1,DEX=13							DESC:See Text.																					SOURCEPAGE:p. 93
 Rend				TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Claws																																PRESTAT:1,STR=16							DESC:See Text.																					SOURCEPAGE:p. 93
 Spineless			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Abnormal Joint Flexibility,Elongation																																				DESC:See Text.												BONUS:SKILL|Escape Artist|4					SOURCEPAGE:p. 93

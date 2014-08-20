@@ -5,7 +5,7 @@ SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://w
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Altherian Sharp Shooter	HD:8		TYPE:PC.Prestige	ABB:Shp		MAXLEVEL:5	SOURCEPAGE:p.165	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name			Req. Att.	Required Feat																		Required Skill			Required Template
-CLASS:Altherian Sharp Shooter	PREATT:5	PREFEAT:5,Precise Shot,Quick Reload,Combat Firing,Exotic Weapon Proficiency (Flintlock %),Weapon Focus (Flintlock %)	PRESKILL:1,Concentration=2	PRETEMPLATE:1,Altheria
+CLASS:Altherian Sharp Shooter	PRETOTALAB:5	PREFEAT:5,Precise Shot,Quick Reload,Combat Firing,Exotic Weapon Proficiency (Flintlock %),Weapon Focus (Flintlock %)	PRESKILL:1,Concentration=2	PRETEMPLATE:1,Altheria
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Altherian Sharp Shooter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Hide|Jump|Move Silently|TYPE=Profession|Ride|Swim|Tumble
 1	SAB:Range Sneak Attack +%d6|RangeSneakAttack	BONUS:VAR|RangeSneakAttack|1	DEFINE:RangeSneakAttack|0
@@ -18,7 +18,7 @@ CLASS:Altherian Sharp Shooter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concent
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
 CLASS:Bretheren of the Missionary	HD:8		TYPE:PC.Prestige	ABB:BoO		MAXLEVEL:5	SOURCEPAGE:p.166	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3/4)+1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name				Required AL			Req. Att.	Required Feat		Required Skill
-CLASS:Bretheren of the Missionary	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:1,Iron Will	PRESKILL:1,Knowledge (Religion)=4
+CLASS:Bretheren of the Missionary	PREALIGN:LG,LN,NG,TN	PRETOTALAB:4	PREFEAT:1,Iron Will	PRESKILL:1,Knowledge (Religion)=4
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Bretheren of the Missionary	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Jump|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim
 1	SAB:Unshakable Dogma															ADD:SPELLCASTER|ANY	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
@@ -31,7 +31,7 @@ CLASS:Bretheren of the Missionary	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentra
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Dancer of the Elements	HD:8		TYPE:PC.Prestige	ABB:DoE		MAXLEVEL:5	SOURCEPAGE:p.167	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name			Required Ability						Required AL		Req. Att.	Required Feat													Required Race	Required Skill
-CLASS:Dancer of the Elements	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:6,Dodge,Expertise,Mobility,Spring Attack,Whirlwind Attack,Weapon Focus (Sword %)	PRERACE:1,Elorii	PRESKILL:3,Perform=4,Jump=4,Tumble=4
+CLASS:Dancer of the Elements	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREALIGN:LG,LN,LE	PRETOTALAB:8	PREFEAT:6,Dodge,Expertise,Mobility,Spring Attack,Whirlwind Attack,Weapon Focus (Sword %)	PRERACE:1,Elorii	PRESKILL:3,Perform=4,Jump=4,Tumble=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Dancer of the Elements	STARTSKILLPTS:2	CSKILL:Balance|Hide|Jump|Move Silently|Perform|Tumble
 1																																	AUTO:WEAPONPROF|TYPE=Martial
@@ -130,7 +130,7 @@ CLASS:Wine Drinker	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Wine Drinker
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Warriors of the Eternal Flame	HD:10		TYPE:PC.Prestige	ABB:WEF		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name				Req. Att.	Required Deity	Required Feat		Required Skill
-CLASS:Warriors of the Eternal Flame	PREATT:5	PREDEITY:1,Nier	PREFEAT:1,Toughness	PRESKILL:1,Knowledge (Religion)=5
+CLASS:Warriors of the Eternal Flame	PRETOTALAB:5	PREDEITY:1,Nier	PREFEAT:1,Toughness	PRESKILL:1,Knowledge (Religion)=5
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Warriors of the Eternal Flame	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Jump|Knowledge (Religion)|Knowledge (Arcana)|Knowledge (History)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Swim
 # Class Name				Spell Stat		Spell Type		Memorize		Caster level

@@ -4,7 +4,7 @@ SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paiz
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Liberator	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Liber		MAXLEVEL:10	SOURCEPAGE:p. 22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL				Req. Att.	Required Feat						Required Skill
-CLASS:Liberator	PREALIGN:NG,CG,TN,CN,NE,CE	PREATT:5	PREFEAT:3,Improved Sunder,Power Attack,Stealthy	PRESKILL:2,Escape Artist=3,Disable Device=3
+CLASS:Liberator	PREALIGN:NG,CG,TN,CN,NE,CE	PRETOTALAB:5	PREFEAT:3,Improved Sunder,Power Attack,Stealthy	PRESKILL:2,Escape Artist=3,Disable Device=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Liberator	STARTSKILLPTS:2	CSKILL:Diplomacy|Disable Device|Perception|Stealth
 

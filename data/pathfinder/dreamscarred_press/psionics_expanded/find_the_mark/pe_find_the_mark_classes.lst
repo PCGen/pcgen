@@ -60,7 +60,7 @@ SUBCLASSLEVEL:1	BONUS:VAR|PsychokinesisDisciplineLVL|CL	ABILITY:Special Ability|
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus										Modify VAR									Bonus
 CLASS:Mystic Archer	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:7	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2
 # Class Name		Req. Att.	Required Feat								Required Skill		Var. Must Be Grater
-CLASS:Mystic Archer	PREATT:6	PREFEAT:3,Intuitive Shot,Point-Blank Shot,Psionic Shot	PRESKILL:1,Perception=6	PREVARGT:IsPsionic,0
+CLASS:Mystic Archer	PRETOTALAB:6	PREFEAT:3,Intuitive Shot,Point-Blank Shot,Psionic Shot	PRESKILL:1,Perception=6	PREVARGT:IsPsionic,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mystic Archer	STARTSKILLPTS:2	CSKILL:Autohypnosis|Knowledge (Psionics)|Perception|Survival
 1	BONUS:VAR|InevitableStrikeTimes|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Inevitable Strike ~ Mystic Archer

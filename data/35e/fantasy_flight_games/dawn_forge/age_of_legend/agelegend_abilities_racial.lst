@@ -376,7 +376,7 @@ Strength of Conquest						CATEGORY:Special Ability	TYPE:TruebornRacialTransforma
 Holy Light								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.SpellLike		VISIBLE:YES						SPELLS:Innate|TIMES=ATWILL|Light																			SOURCEPAGE:p.107
 Divine Health		KEY:Trueborn Divine Health	CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality			VISIBLE:YES												ABILITY:Special Ability|AUTOMATIC|Paladin ~ Divine Health									SOURCEPAGE:p.107
 Divine Heritage							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																														SOURCEPAGE:p.107
-Followthrough							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES	PREATT:6																												SOURCEPAGE:p.107
+Followthrough							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES	PRETOTALAB:6																												SOURCEPAGE:p.107
 Staunch								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																						BONUS:ABILITYPOOL|Trueborn Staunch Bonus|2	SOURCEPAGE:p.107
 
 #################

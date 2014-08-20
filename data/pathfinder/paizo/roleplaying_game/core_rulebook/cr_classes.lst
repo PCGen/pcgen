@@ -564,7 +564,7 @@ SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmutation School	!PRE
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define				Combat bonus										Modify VAR				Bonus
 CLASS:Arcane Archer	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:p.374	DEFINE:ArcaneArcherLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|ArcaneArcherLVL|CL	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2
 # Class Name		Req. Att.	Required Feat															Req. Spell Type
-CLASS:Arcane Archer	PREATT:6	PREFEAT:2,Point-Blank Shot,Precise Shot	PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)	PRESPELLTYPE:1,Arcane=1
+CLASS:Arcane Archer	PRETOTALAB:6	PREFEAT:2,Point-Blank Shot,Precise Shot	PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:Perception|Ride|Stealth|Survival
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
@@ -664,7 +664,7 @@ CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Diplomacy|Escape Artist|Fly|TYPE=Kn
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Combat bonus										Modify VAR			Bonus
 CLASS:Duelist	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:p.382	DEFINE:DuelistLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|DuelistLVL|CL	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name	Req. Att.	Required Feat					Required Skill
-CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PRESKILL:2,Acrobatics=2,TYPE.Perform=2
+CLASS:Duelist	PRETOTALAB:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PRESKILL:2,Acrobatics=2,TYPE.Perform=2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Escape Artist|Perception|TYPE=Perform|Sense Motive
 ###Block: Normal Level Progression

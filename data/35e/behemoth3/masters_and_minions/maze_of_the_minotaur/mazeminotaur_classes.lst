@@ -51,11 +51,9 @@ CLASS:Bull Lord	HD:8		TYPE:PC.Prestige	MAXLEVEL:9	SOURCEPAGE:p. 17	AUTO:LANG|Com
 CLASS:Bull Lord	PRECLASS:1,Minotaur=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bull Lord	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Listen|Search|Spot|Survival|Swim
-
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-
 ###Block: Progression
 1	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|INT|2	BONUS:STAT|CHA|2									TEMPLATE:Bull Lord
 2																										AUTO:FEAT|Great Fortitude
@@ -65,23 +63,19 @@ CLASS:Bull Lord	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Listen|Search|Spot|
 7																										AUTO:FEAT|Improved Bull Rush
 8						BONUS:STAT|STR|2
 9												ABILITY:Special Ability|AUTOMATIC|Freedom		TEMPLATE:Minotaur Favored Class
-
 ###Block: Natural Armor
 2	BONUS:COMBAT|AC|CL/2|TYPE=NaturalArmor.STACK
 9	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-
-###Block: Checks
+###Block: Saves
 3	BONUS:SAVE|BASE.Reflex,BASE.Will|1
 5	BONUS:SAVE|BASE.Fortitude|1
 6	BONUS:SAVE|BASE.Reflex,BASE.Will|1
-
-###Block: BAB
+###Block: BASEAB
 2	BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
 3	BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
 5	BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
 6	BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
 8	BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE
-
 ###Block: Non Hit Dice Level Work arounds
 #1	HITDIE:1	BONUS:HP|CURRENTMAX|-1*(CON+1)	BONUS:SKILLPOOL|NUMBER|-(max(1,2+INT)*4)
 #4	HITDIE:1	BONUS:HP|CURRENTMAX|-1*(CON+1)	BONUS:SKILLPOOL|NUMBER|-max(1,2+INT)

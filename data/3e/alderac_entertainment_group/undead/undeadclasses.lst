@@ -5,7 +5,7 @@ SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:htt
 # Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
 CLASS:Champion of the Dead	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.29-31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL		Req. Att.	Required Skill
-CLASS:Champion of the Dead	PREALIGN:LE,NE,CE	PREATT:5	PRESKILL:1,Knowledge (Arcana)=4
+CLASS:Champion of the Dead	PREALIGN:LE,NE,CE	PRETOTALAB:5	PRESKILL:1,Knowledge (Arcana)=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Champion of the Dead	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Ride|Swim
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
@@ -233,7 +233,7 @@ CLASS:Sacred Theurgist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|T
 # Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus											Bonus
 CLASS:Unbeating Heart	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.57-59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Req. Att.
-CLASS:Unbeating Heart	PREALIGN:LE,NE,CE	PREATT:4
+CLASS:Unbeating Heart	PREALIGN:LE,NE,CE	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Unbeating Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Religion)|Spellcraft
 1	AUTO:FEAT|Simple Weapon Proficiency

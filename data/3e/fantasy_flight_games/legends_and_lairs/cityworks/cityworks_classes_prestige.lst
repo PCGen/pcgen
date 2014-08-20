@@ -6,7 +6,7 @@ SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Kingpin	HD:6		TYPE:PC.Prestige	ABB:Kpn		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name	Req. Att.	Required Feat		Required Skill					Required Text
-CLASS:Kingpin	PREATT:7	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy=13,Intimidate=13	PRETEXT:Special
+CLASS:Kingpin	PRETOTALAB:7	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy=13,Intimidate=13	PRETEXT:Special
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Kingpin	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Tumble|Use Rope
 1	SAB:Friends in Low Places	SAB:Gang Boss
@@ -44,7 +44,7 @@ CLASS:Speaker of the City	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentrat
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Street Stalker	HD:10		TYPE:PC.Prestige	ABB:StS		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat				Multiple Requirements
-CLASS:Street Stalker	PREATT:5	PREFEAT:2,Blind-Fight,Power Attack	PREMULT:2,[PRESKILL:1,Hide=4,Sense Motive=4],[PRESKILL:1,Intimidate=8]
+CLASS:Street Stalker	PRETOTALAB:5	PREFEAT:2,Blind-Fight,Power Attack	PREMULT:2,[PRESKILL:1,Hide=4,Sense Motive=4],[PRESKILL:1,Intimidate=8]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Street Stalker	STARTSKILLPTS:8	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Tumble|Use Rope
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial

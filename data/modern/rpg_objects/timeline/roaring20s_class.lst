@@ -4,7 +4,7 @@ SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobj
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:G Man		HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
 # Class Name	Req. Att.	Required Feat					Required Skill
-CLASS:G Man		PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Investigate=3
+CLASS:G Man		PRETOTALAB:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Investigate=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:G Man		STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Drive|Gather Information|Intimidate|Investigate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Search|Sense Motive|Spot
 1															AUTO:FEAT|Weapon Focus(Tommy Gun)
@@ -19,7 +19,7 @@ CLASS:G Man		STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Drive|Gather Information|Int
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:Hitman	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat					Required Skill
-CLASS:Hitman	PREATT:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Streetwise)=6
+CLASS:Hitman	PRETOTALAB:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Streetwise)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hitman	STARTSKILLPTS:2	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|Drive|Gamble|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Spot
 1						BONUS:VAR|BloodMoney|((CL+4)/4)*2					AUTO:FEAT|Blood Money
@@ -57,7 +57,7 @@ CLASS:Mob Boss	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Drive|Forgery|Gamble|Gathe
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:Mystery Man	HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Req. Att.	Required Feat			Required Skill
-CLASS:Mystery Man	PREATT:2	PREFEAT:1,Secret Identity	PRESKILL:2,Intimidate=6,Knowledge (Streetwise)=6
+CLASS:Mystery Man	PRETOTALAB:2	PREFEAT:1,Secret Identity	PRESKILL:2,Intimidate=6,Knowledge (Streetwise)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mystery Man	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Disable Device|Disguise|Gather Information|Hide|Intimidate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Sense Motive|Spot|Tumble
 1							BONUS:VAR|Persona|CL						AUTO:FEAT|Persona
