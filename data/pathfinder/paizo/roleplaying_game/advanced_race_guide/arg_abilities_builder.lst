@@ -403,8 +403,8 @@ Wyrmscourged				KEY:Builder Racial Trait ~ Wyrmscourged		CATEGORY:Special Abilit
 # Weapon Familiarity
 # Choose up to 2 weapons, or 1 weapon and a racial weapon group; race is proficient with these weapons. All bows count as 1 weapon
 #Racial Weapon Group			KEY:Weapon Familiarity ~ Racial Weapon Group	CATEGORY:Special Ability	TYPE:Weapon Familiarity				CHOOSE:ABILITYSELECTION|INTERNAL|TYPE=RacialWeaponGroup
-All Bows	KEY:Weapon Familiarity ~ All Bows	CATEGORY:Special Ability		AUTO:WEAPONPROF|TYPE=Bow
-Weapon	KEY:Weapon Familiarity ~ Weapon	CATEGORY:Special Ability		MULT:YES	CHOOSE:WEAPONPROFICIENCY|ANY	AUTO:WEAPONPROF|%LIST
+All Bows	KEY:Weapon Familiarity ~ All Bows	CATEGORY:Special Ability	TYPE:Weapon Familiarity	AUTO:WEAPONPROF|TYPE=Bow
+Weapon	KEY:Weapon Familiarity ~ Weapon	CATEGORY:Special Ability	TYPE:Weapon Familiarity	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ANY	AUTO:WEAPONPROF|%LIST
 # Racial Weapons
 Dwarven	KEY:Racial Weapon Group ~ Dwarven	CATEGORY:Special Ability	TYPE:RacialWeaponGroup.Weapon Familiarity	AUTO:WEAPONPROF|TYPE=Dwarven	!PREABILITY:1,CATEGORY=Internal,TYPE.RacialWeaponGroup
 Elven		KEY:Racial Weapon Group ~ Elven	CATEGORY:Special Ability	TYPE:RacialWeaponGroup.Weapon Familiarity	AUTO:WEAPONPROF|TYPE=Elven	!PREABILITY:1,CATEGORY=Internal,TYPE.RacialWeaponGroup
