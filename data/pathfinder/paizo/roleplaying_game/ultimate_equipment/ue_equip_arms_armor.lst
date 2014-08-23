@@ -4,17 +4,17 @@ SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products
 # Equipment Name		Required Armor Proficiency			Type						Cost		Weight	AC Penalty Check	Modifier			Maximum DEX Bonus	% of Spell Failure	Combat bonus
 Do-maru			PROFICIENCY:ARMOR|Do-maru			TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard	COST:200	WT:30		ACCHECK:-4		EQMOD:LEATHER.STEEL	MAXDEX:4		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
 Four-mirror Armor		PROFICIENCY:ARMOR|Four-mirror Armor		TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard	COST:45	WT:45		ACCHECK:-5		EQMOD:STEEL			MAXDEX:2		SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
-Haramaki			PROFICIENCY:ARMOR|Haramaki			TYPE:Armor.Light.Suit.Standard	COST:3	WT:1					EQMOD:STEEL						SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
+Haramaki			PROFICIENCY:ARMOR|Haramaki			TYPE:Armor.Light.ArmorProfLight.Suit.Standard	COST:3	WT:1					EQMOD:STEEL						SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
 Kusari Gusoku		PROFICIENCY:ARMOR|Kusari Gusoku		TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard	COST:350	WT:45		ACCHECK:-7		EQMOD:STEEL			MAXDEX:1		SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
 Kikko Armor			PROFICIENCY:ARMOR|Kikko Armor			TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard	COST:30	WT:25		ACCHECK:-3		EQMOD:STEEL			MAXDEX:4		SPELLFAILURE:20		BONUS:COMBAT|AC|5|TYPE=Armor
 Lamellar (Horn)		PROFICIENCY:ARMOR|Lamellar			TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard	COST:100	WT:30		ACCHECK:-4		EQMOD:BONE			MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
 Lamellar (Iron)		PROFICIENCY:ARMOR|Lamellar			TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard	COST:200	WT:50		ACCHECK:-7		EQMOD:STEEL			MAXDEX:0		SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor
-Lamellar (Leather)	PROFICIENCY:ARMOR|Lamellar			TYPE:Armor.Light.Suit.Standard	COST:60	WT:25		ACCHECK:-2		EQMOD:LEATHER		MAXDEX:3		SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
+Lamellar (Leather)	PROFICIENCY:ARMOR|Lamellar			TYPE:Armor.Light.ArmorProfLight.Suit.Standard	COST:60	WT:25		ACCHECK:-2		EQMOD:LEATHER		MAXDEX:3		SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
 Lamellar (Steel)		PROFICIENCY:ARMOR|Lamellar			TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard	COST:150	WT:35		ACCHECK:-5		EQMOD:STEEL			MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor
-Lamellar Cuirass		PROFICIENCY:ARMOR|Lamellar Cuirass		TYPE:Armor.Light.Suit.Standard	COST:15	WT:8					EQMOD:LEATHER		MAXDEX:4		SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor
+Lamellar Cuirass		PROFICIENCY:ARMOR|Lamellar Cuirass		TYPE:Armor.Light.ArmorProfLight.Suit.Standard	COST:15	WT:8					EQMOD:LEATHER		MAXDEX:4		SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor
 Mountain Pattern Armor	PROFICIENCY:ARMOR|Mountain Pattern Armor	TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard	COST:250	WT:40		ACCHECK:-4		EQMOD:STEEL			MAXDEX:3		SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
 O-yoroi			PROFICIENCY:ARMOR|O-yoroi			TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard	COST:1700	WT:45		ACCHECK:-6		EQMOD:STEEL			MAXDEX:2		SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor
-Silken Ceremonial Armor	PROFICIENCY:ARMOR|Silken Ceremonial Armor	TYPE:Armor.Light.Suit.Standard	COST:30	WT:4					EQMOD:CLOTH						SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
+Silken Ceremonial Armor	PROFICIENCY:ARMOR|Silken Ceremonial Armor	TYPE:Armor.Light.ArmorProfLight.Suit.Standard	COST:30	WT:4					EQMOD:CLOTH						SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
 Tatami-do			PROFICIENCY:ARMOR|Tatami-do			TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard	COST:1000	WT:45		ACCHECK:-6		EQMOD:STEEL			MAXDEX:3		SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
 
 
@@ -26,7 +26,7 @@ Quilted Cloth.MOD																								COST:100	WT:15																							SO
 Silken Ceremonial Armor.MOD																						COST:30	WT:4														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.14
 Lamellar Cuirass.MOD																							COST:15	WT:8														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.12
 Leather.MOD																									COST:10	WT:15																							SOURCEPAGE:p.10
-Parade								PROFICIENCY:ARMOR|Parade			TYPE:Armor.Suit.Standard.Light					COST:25	WT:20		ACCHECK:-1		EQMOD:LEATHER				MAXDEX:5											SOURCEPAGE:p.13	SPELLFAILURE:15																															BONUS:COMBAT|AC|3|TYPE=Armor
+Parade								PROFICIENCY:ARMOR|Parade			TYPE:Armor.Light.ArmorProfLight.Suit.Standard			COST:25	WT:20		ACCHECK:-1		EQMOD:LEATHER				MAXDEX:5											SOURCEPAGE:p.13	SPELLFAILURE:15																															BONUS:COMBAT|AC|3|TYPE=Armor
 Studded Leather.MOD																							COST:25	WT:20																							SOURCEPAGE:p.14
 Wooden.MOD																									COST:20	WT:25																							SOURCEPAGE:p.14
 Chain Shirt.MOD																								COST:100	WT:25																							SOURCEPAGE:p.10
@@ -42,7 +42,7 @@ Breastplate.MOD																								COST:200	WT:30																							SOUR
 Chainmail.MOD																								COST:150	WT:40																							SOURCEPAGE:p.10
 Four-mirror Armor.MOD																							COST:45	WT:45														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.11
 Lamellar (Steel).MOD																							COST:150	WT:35														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.12
-Mountain Pattern Armor						PROFICIENCY:ARMOR|Mountain Pattern Armor	TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard					COST:250	WT:40		ACCHECK:-4		EQMOD:STEEL					MAXDEX:3		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.13	SPELLFAILURE:30																															BONUS:COMBAT|AC|6|TYPE=Armor
+Mountain Pattern Armor						PROFICIENCY:ARMOR|Mountain Pattern Armor	TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard			COST:250	WT:40		ACCHECK:-4		EQMOD:STEEL					MAXDEX:3		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.13	SPELLFAILURE:30																															BONUS:COMBAT|AC|6|TYPE=Armor
 Banded Mail.MOD																								COST:250	WT:35																							SOURCEPAGE:p.10
 Kusari Gusoku.MOD																								COST:350	WT:45														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.12
 Lamellar (Iron).MOD																							COST:200	WT:50														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.12
@@ -50,23 +50,23 @@ Splint Mail.MOD																								COST:200	WT:45														SOURCELONG:Ul
 Tatami-do.MOD																								COST:1000	WT:45														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.14
 Agile Half-Plate.MOD																							COST:850	WT:55																							SOURCEPAGE:p.10
 Half-Plate.MOD																								COST:600	WT:50																							SOURCEPAGE:p.11
-Lamellar (Stone)							PROFICIENCY:ARMOR|Lamellar			TYPE:Armor.Suit.Standard.Heavy					COST:500	WT:45		ACCHECK:-7								MAXDEX:0											SOURCEPAGE:p.12	SPELLFAILURE:40																															BONUS:COMBAT|AC|8|TYPE=Armor
+Lamellar (Stone)							PROFICIENCY:ARMOR|Lamellar			TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard			COST:500	WT:45		ACCHECK:-7								MAXDEX:0											SOURCEPAGE:p.12	SPELLFAILURE:40																															BONUS:COMBAT|AC|8|TYPE=Armor
 O-yoroi.MOD																									COST:1700	WT:45														SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.13
 Full Plate.MOD																								COST:1500	WT:50																							SOURCEPAGE:p.11
-Stoneplate								PROFICIENCY:ARMOR|Stoneplate			TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard					COST:1800	WT:75		ACCHECK:-6		EQMOD:STONE					MAXDEX:1											SOURCEPAGE:p.14	SPELLFAILURE:35																															BONUS:COMBAT|AC|9|TYPE=Armor
-Breastplate of Vanishing					PROFICIENCY:ARMOR|Breastplate			TYPE:Armor.Magic.Medium.Suit.Specific.GreaterMedium		COST:10200	WT:15		ACCHECK:-4		EQMOD:MITHRAL_ARMR_MED.PLUS1A		MAXDEX:3											SOURCEPAGE:p.124	SPELLFAILURE:25																															BONUS:COMBAT|AC|6|TYPE=Armor
-Catskin Leather							PROFICIENCY:ARMOR|Leather			TYPE:Armor.Magic.Light.Suit.Specific.NonMetal.LesserMajor	COST:14010	WT:15		ACCHECK:0		EQMOD:LEATHER.PLUS1A.SHDW		MAXDEX:6											SOURCEPAGE:p.125	SPELLFAILURE:10																															BONUS:COMBAT|AC|2|TYPE=Armor
-Enchanted Eelskin							PROFICIENCY:ARMOR|Leather			TYPE:Armor.Magic.Light.Suit.Specific.NonMetal.GreaterMedium	COST:6260	WT:15		ACCHECK:0		EQMOD:LEATHER.PLUS1A.SLK		MAXDEX:6											SOURCEPAGE:p.126	SPELLFAILURE:10																															BONUS:COMBAT|AC|2|TYPE=Armor
-Equestrian Plate							PROFICIENCY:ARMOR|Full Plate			TYPE:Armor.Magic.Heavy.Suit.Specific.GreaterMedium		COST:6500	WT:50		ACCHECK:-6		EQMOD:PLUS2A.STEEL			MAXDEX:1											SOURCEPAGE:p.126	SPELLFAILURE:35																															BONUS:COMBAT|AC|9|TYPE=Armor
-Hamatula Hide							PROFICIENCY:ARMOR|Hide				TYPE:Armor.Magic.Medium.Suit.Specific.NonMetal.GreaterMajor	COST:40015	WT:12		ACCHECK:-3		EQMOD:PLUS2A.SPIKE_A			MAXDEX:4											SOURCEPAGE:p.127	SPELLFAILURE:20																															BONUS:COMBAT|AC|4|TYPE=Armor
-Invincible Armor							PROFICIENCY:ARMOR|Full Plate			TYPE:Armor.Magic.Heavy.Suit.Specific.GreaterMajor		COST:101500	WT:50		ACCHECK:-6		EQMOD:FRT_MOD.IMPRVS.PLUS2A.STEEL	MAXDEX:1											SOURCEPAGE:p.127	SPELLFAILURE:35																															BONUS:COMBAT|AC|9|TYPE=Armor
-Mail of Malevolence						PROFICIENCY:ARMOR|Chainmail			TYPE:Armor.Magic.Light.Suit.Specific.GreaterMajor		COST:30150	WT:40		ACCHECK:-5		EQMOD:PLUS2A.STEEL.UNRGHTS		MAXDEX:2											SOURCEPAGE:p.127	SPELLFAILURE:30																															BONUS:COMBAT|AC|6|TYPE=Armor
-Morlock Hide							PROFICIENCY:ARMOR|Leather			TYPE:Armor.Magic.Light.Suit.Specific.NonMetal.LesserMedium	COST:4010	WT:15		ACCHECK:0		EQMOD:LEATHER.PLUS1A.SHDW		MAXDEX:6											SOURCEPAGE:p.128	SPELLFAILURE:10																															BONUS:COMBAT|AC|2|TYPE=Armor
-Otyugh Hide					NAMEISPI:YES	PROFICIENCY:ARMOR|Hide				TYPE:Armor.Magic.Medium.Suit.Specific.NonMetal.GreaterMinor	COST:1415	WT:25		ACCHECK:-3		EQMOD:PLUS1A				MAXDEX:4											SOURCEPAGE:p.128	SPELLFAILURE:20																															BONUS:COMBAT|AC|4|TYPE=Armor
-Prismatic Plate							PROFICIENCY:ARMOR|Full Plate			TYPE:Armor.Magic.Heavy.Suit.Specific.GreaterMajor		COST:151500	WT:50		ACCHECK:-6		EQMOD:PLUS3A.STEEL			MAXDEX:1											SOURCEPAGE:p.128	SPELLFAILURE:35																															BONUS:COMBAT|AC|9|TYPE=Armor
-Scarab Breastplate						PROFICIENCY:ARMOR|Breastplate			TYPE:Armor.Magic.Medium.Suit.Specific.GreaterMajor		COST:23200	WT:30		ACCHECK:-4		EQMOD:PLUS3A.STEEL			MAXDEX:3											SOURCEPAGE:p.129	SPELLFAILURE:25																															BONUS:COMBAT|AC|6|TYPE=Armor
-Soothsayer's Raiment						PROFICIENCY:ARMOR|Chainmail			TYPE:Armor.Magic.Medium.Suit.Specific.GreaterMedium		COST:9150	WT:40		ACCHECK:-5		EQMOD:PLUS1A.STEEL			MAXDEX:2											SOURCEPAGE:p.129	SPELLFAILURE:30																															BONUS:COMBAT|AC|6|TYPE=Armor
-Warden of The Woods						PROFICIENCY:ARMOR|Splint Mail			TYPE:Armor.Magic.Heavy.Suit.Specific.GreaterMajor		COST:19100	WT:25		ACCHECK:-7		EQMOD:GRNWD.PLUS3A			MAXDEX:0											SOURCEPAGE:p.129	SPELLFAILURE:40																															BONUS:COMBAT|AC|7|TYPE=Armor
+Stoneplate								PROFICIENCY:ARMOR|Stoneplate			TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard			COST:1800	WT:75		ACCHECK:-6		EQMOD:STONE					MAXDEX:1											SOURCEPAGE:p.14	SPELLFAILURE:35																															BONUS:COMBAT|AC|9|TYPE=Armor
+Breastplate of Vanishing					PROFICIENCY:ARMOR|Breastplate			TYPE:Armor.Magic.ArmorProfMedium.Medium.Suit.Specific.GreaterMedium		COST:10200	WT:15		ACCHECK:-4		EQMOD:MITHRAL_ARMR_MED.PLUS1A		MAXDEX:3											SOURCEPAGE:p.124	SPELLFAILURE:25																															BONUS:COMBAT|AC|6|TYPE=Armor
+Catskin Leather							PROFICIENCY:ARMOR|Leather			TYPE:Armor.Magic.ArmorProfLight.Light.Suit.Specific.NonMetal.LesserMajor	COST:14010	WT:15		ACCHECK:0		EQMOD:LEATHER.PLUS1A.SHDW		MAXDEX:6											SOURCEPAGE:p.125	SPELLFAILURE:10																															BONUS:COMBAT|AC|2|TYPE=Armor
+Enchanted Eelskin							PROFICIENCY:ARMOR|Leather			TYPE:Armor.Magic.ArmorProfLight.Light.Suit.Specific.NonMetal.GreaterMedium	COST:6260	WT:15		ACCHECK:0		EQMOD:LEATHER.PLUS1A.SLK		MAXDEX:6											SOURCEPAGE:p.126	SPELLFAILURE:10																															BONUS:COMBAT|AC|2|TYPE=Armor
+Equestrian Plate							PROFICIENCY:ARMOR|Full Plate			TYPE:Armor.Magic.ArmorProfHeavy.Heavy.Suit.Specific.GreaterMedium		COST:6500	WT:50		ACCHECK:-6		EQMOD:PLUS2A.STEEL			MAXDEX:1											SOURCEPAGE:p.126	SPELLFAILURE:35																															BONUS:COMBAT|AC|9|TYPE=Armor
+Hamatula Hide							PROFICIENCY:ARMOR|Hide				TYPE:Armor.Magic.ArmorProfMedium.Medium.Suit.Specific.NonMetal.GreaterMajor	COST:40015	WT:12		ACCHECK:-3		EQMOD:PLUS2A.SPIKE_A			MAXDEX:4											SOURCEPAGE:p.127	SPELLFAILURE:20																															BONUS:COMBAT|AC|4|TYPE=Armor
+Invincible Armor							PROFICIENCY:ARMOR|Full Plate			TYPE:Armor.Magic.ArmorProfHeavy.Heavy.Suit.Specific.GreaterMajor		COST:101500	WT:50		ACCHECK:-6		EQMOD:FRT_MOD.IMPRVS.PLUS2A.STEEL	MAXDEX:1											SOURCEPAGE:p.127	SPELLFAILURE:35																															BONUS:COMBAT|AC|9|TYPE=Armor
+Mail of Malevolence						PROFICIENCY:ARMOR|Chainmail			TYPE:Armor.Magic.ArmorProfLight.Light.Suit.Specific.GreaterMajor		COST:30150	WT:40		ACCHECK:-5		EQMOD:PLUS2A.STEEL.UNRGHTS		MAXDEX:2											SOURCEPAGE:p.127	SPELLFAILURE:30																															BONUS:COMBAT|AC|6|TYPE=Armor
+Morlock Hide							PROFICIENCY:ARMOR|Leather			TYPE:Armor.Magic.ArmorProfLight.Light.Suit.Specific.NonMetal.LesserMedium	COST:4010	WT:15		ACCHECK:0		EQMOD:LEATHER.PLUS1A.SHDW		MAXDEX:6											SOURCEPAGE:p.128	SPELLFAILURE:10																															BONUS:COMBAT|AC|2|TYPE=Armor
+Otyugh Hide					NAMEISPI:YES	PROFICIENCY:ARMOR|Hide				TYPE:Armor.Magic.ArmorProfMedium.Medium.Suit.Specific.NonMetal.GreaterMinor	COST:1415	WT:25		ACCHECK:-3		EQMOD:PLUS1A				MAXDEX:4											SOURCEPAGE:p.128	SPELLFAILURE:20																															BONUS:COMBAT|AC|4|TYPE=Armor
+Prismatic Plate							PROFICIENCY:ARMOR|Full Plate			TYPE:Armor.Magic.ArmorProfHeavy.Heavy.Suit.Specific.GreaterMajor		COST:151500	WT:50		ACCHECK:-6		EQMOD:PLUS3A.STEEL			MAXDEX:1											SOURCEPAGE:p.128	SPELLFAILURE:35																															BONUS:COMBAT|AC|9|TYPE=Armor
+Scarab Breastplate						PROFICIENCY:ARMOR|Breastplate			TYPE:Armor.Magic.ArmorProfMedium.Medium.Suit.Specific.GreaterMajor		COST:23200	WT:30		ACCHECK:-4		EQMOD:PLUS3A.STEEL			MAXDEX:3											SOURCEPAGE:p.129	SPELLFAILURE:25																															BONUS:COMBAT|AC|6|TYPE=Armor
+Soothsayer's Raiment						PROFICIENCY:ARMOR|Chainmail			TYPE:Armor.Magic.ArmorProfMedium.Medium.Suit.Specific.GreaterMedium		COST:9150	WT:40		ACCHECK:-5		EQMOD:PLUS1A.STEEL			MAXDEX:2											SOURCEPAGE:p.129	SPELLFAILURE:30																															BONUS:COMBAT|AC|6|TYPE=Armor
+Warden of The Woods						PROFICIENCY:ARMOR|Splint Mail			TYPE:Armor.Magic.ArmorProfHeavy.Heavy.Suit.Specific.GreaterMajor		COST:19100	WT:25		ACCHECK:-7		EQMOD:GRNWD.PLUS3A			MAXDEX:0											SOURCEPAGE:p.129	SPELLFAILURE:40																															BONUS:COMBAT|AC|7|TYPE=Armor
 Adamantine Breastplate.MOD												TYPE:GreaterMedium									WT:30																							SOURCEPAGE:p.124
 Banded Mail of Luck.MOD													TYPE:LesserMajor										WT:35																							SOURCEPAGE:p.124
 Breastplate of Command.MOD												TYPE:GreaterMajor										WT:30																							SOURCEPAGE:p.124
