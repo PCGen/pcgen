@@ -53,7 +53,9 @@ public enum SkillFilter
 	
 	/**
 	 * Global preference to use the skill display mode defined on the
-	 * character's skill tab */
+	 * character's skill tab.
+	 * 
+	 *  @deprecated - the user's skill setting is now always used if present. This is retained for compatibility with saved characters. */
 	SkillsTab(4, "", LanguageBundle.getString("in_Prefs_skillFilterSkillTab")),
 
 	Selected(5, "SELECTED", null);

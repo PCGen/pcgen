@@ -302,7 +302,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		Utility.buildConstraints(c, 1, 11, GridBagConstraints.REMAINDER, 1, 0, 0);
 		skillFilter.setModel(new DefaultComboBoxModel(new SkillFilter[]{
 			SkillFilter.Ranks, SkillFilter.NonDefault, SkillFilter.Usable, 
-			SkillFilter.All, SkillFilter.SkillsTab}));
+			SkillFilter.All}));
 		skillFilter.setSelectedItem(SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
 				PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue())));
 		gridbag.setConstraints(skillFilter, c);

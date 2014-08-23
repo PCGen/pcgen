@@ -55,12 +55,7 @@ public class PCCountSkillsTermEvaluator
 		SkillFilter filter = SkillFilter.getByToken(filterToken);
 		if (filter == null || filter == SkillFilter.Selected)
 		{
-			filter = SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
-					PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
-			if (filter == SkillFilter.SkillsTab)
-			{
-				filter = pc.getSkillFilter();
-			}
+			filter = pc.getSkillFilter();
 		}
 		
 		for(Skill sk : skills)

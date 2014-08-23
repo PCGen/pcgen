@@ -922,13 +922,15 @@ public abstract class JepCountType
 
 		private SkillFilter getDefaultSkillFilter(PlayerCharacter pc)
 		{
-			SkillFilter filter = SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
-					PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
-			if (filter == SkillFilter.SkillsTab)
+			if (pc == null)
 			{
-				filter = pc.getSkillFilter();
+				return SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
+					PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
 			}
-			return filter;
+			else
+			{
+				return pc.getSkillFilter();
+			}
 		}
 	}
 }

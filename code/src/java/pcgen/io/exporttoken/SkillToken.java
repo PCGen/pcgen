@@ -138,12 +138,7 @@ public class SkillToken extends Token
 			SkillFilter filter = details.getSkillFilter();
 			if (filter == null || filter == SkillFilter.Selected)
 			{
-				filter = SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(
-						PCGenSettings.OPTION_SKILL_FILTER, SkillFilter.Usable.getValue()));
-				if (filter == SkillFilter.SkillsTab)
-				{
-					filter = pc.getSkillFilter();
-				}
+				filter = pc.getSkillFilter();
 			}
 			
 			Iterator<Skill> iter = pcSkills.iterator();
