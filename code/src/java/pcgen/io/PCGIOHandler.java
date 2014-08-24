@@ -29,6 +29,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -316,6 +317,8 @@ public final class PCGIOHandler extends IOHandler
 	 * Writes the contents of the given PlayerCharacter to a stream
 	 * <p/>
 	 * <br>author: Thomas Behr 11-03-02
+	 * 
+	 * @deprecated The write to a file method should be used in preference as it has safe backup handling.
 	 *
 	 * @param pcToBeWritten the PlayerCharacter to write
 	 * @param out           the stream to be written to
@@ -345,6 +348,59 @@ public final class PCGIOHandler extends IOHandler
 			try
 			{
 				if (bw != null) {
+					bw.close();
+				}
+			}
+			catch (IOException e)
+			{
+				Logging.errorPrint("Couldn't close file in PCGIOHandler.write",
+								   e);
+			}
+		}
+	}
+
+	/**
+	 * Writes the contents of the given PlayerCharacter to a file. This method also includes
+	 * safely backing up the original character file, but only once we know we have 
+	 * successfully exported the character to a string ready for writing. This means that if 
+	 * the save fails, the file system is untouched.
+	 * 
+	 * @param pcToBeWritten the PlayerCharacter to write
+	 * @param out           the stream to be written to
+	 * @param mode          The character's game mode.
+	 * @param campaigns     The character's sources.
+	 * @param outFile       The file to write the character to.
+	 */
+	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, File outFile)
+	{
+		final String pcgString;
+		pcgString = (new PCGVer2Creator(pcToBeWritten, mode, campaigns)).createPCGString();
+
+		// Do backup now that we have the character ready to save
+		createBackupForFile(outFile);
+		
+		// Now save the character
+		BufferedWriter bw = null;
+
+		try
+		{
+			FileOutputStream out = new FileOutputStream(outFile);
+			bw = new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
+			bw.write(pcgString);
+			bw.flush();
+
+			pcToBeWritten.setDirty(false);
+		}
+		catch (IOException ioe)
+		{
+			Logging.errorPrint("Exception in PCGIOHandler::write", ioe);
+		}
+		finally
+		{
+			try
+			{
+				if (bw != null)
+				{
 					bw.close();
 				}
 			}

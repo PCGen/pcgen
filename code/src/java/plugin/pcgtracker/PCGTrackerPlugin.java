@@ -431,7 +431,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 		try
 		{
-			(new PCGIOHandler()).write(aPC, file.getAbsolutePath());
+			(new PCGIOHandler()).write(aPC, null, null, file);
 		}
 		catch (Exception ex)
 		{

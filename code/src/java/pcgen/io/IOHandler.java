@@ -141,36 +141,12 @@ public abstract class IOHandler
 		throws IOException, NullPointerException
 	{
 		OutputStream out = null;
-		File bakFile = null;
 		
-		final String BAK_PREFIX = ".bak"; //$NON-NLS-1$
 
 		try
 		{
-			// Make a backup of the old file, if it exists and isn't empty
 			File outFile = new File(filename);
-			if (PCGenSettings.getCreatePcgBackup() && outFile.exists()
-				&& outFile.length() > 0)
-			{
-				String file = outFile.getName();
-				String backupPcgPath = PCGenSettings.getBackupPcgDir(); 
-				if (backupPcgPath != null && !backupPcgPath.isEmpty())
-				{
-					bakFile =
-							new File(backupPcgPath, file
-								+ BAK_PREFIX);
-				}
-				else
-				{
-					bakFile = new File(filename + BAK_PREFIX);
-				}
-				if (bakFile.exists() && outFile.exists() && outFile.length() > 0)
-				{
-					bakFile.delete();
-				}
-				outFile.renameTo(bakFile);
-			}
-			outFile = null;
+			createBackupForFile(outFile);
 
 			out = new FileOutputStream(filename);
 			write(aPC, mode, campaigns, out);
@@ -204,6 +180,35 @@ public abstract class IOHandler
 					throw e;
 				}
 			}
+		}
+	}
+
+	/**
+	 * Create a backup of the specified file, but only if backups are enabled, 
+	 * the file exists and the file is not empty.
+	 *  
+	 * @param outFile The file to be backed up.
+	 */
+	public void createBackupForFile(File outFile)
+	{
+		final String BAK_PREFIX = ".bak"; //$NON-NLS-1$
+		// Make a backup of the old file, if it exists and isn't empty
+		if (PCGenSettings.getCreatePcgBackup() && outFile.exists()
+			&& outFile.length() > 0)
+		{
+			String file = outFile.getName();
+			String backupPcgPath = PCGenSettings.getBackupPcgDir(); 
+			if (backupPcgPath == null || backupPcgPath.isEmpty())
+			{
+				backupPcgPath = outFile.getParent();
+			}
+			File bakFile = new File(backupPcgPath, file + BAK_PREFIX);
+
+			if (bakFile.exists() && outFile.exists() && outFile.length() > 0)
+			{
+				bakFile.delete();
+			}
+			outFile.renameTo(bakFile);
 		}
 	}
 

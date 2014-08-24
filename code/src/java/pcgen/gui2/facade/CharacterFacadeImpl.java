@@ -2858,7 +2858,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		GameMode mode = (GameMode) dataSet.getGameMode();
 		List<CampaignFacade> campaigns = ListFacades.wrap(dataSet.getCampaigns());
-		(new PCGIOHandler()).write(theCharacter, mode, campaigns, file.getReference().getAbsolutePath());
+		(new PCGIOHandler()).write(theCharacter, mode, campaigns, file.getReference());
 		theCharacter.setDirty(false);
 	}
 
