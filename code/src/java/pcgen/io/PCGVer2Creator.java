@@ -1516,10 +1516,13 @@ public final class PCGVer2Creator implements IOConstants
 				buffer.append(EntityEncoder.encode(follower.getType()
 					.getKeyName()));
 				buffer.append('|');
-				buffer.append(TAG_RACE).append(':');
-				buffer.append(EntityEncoder.encode(follower.getRace()
+				if (follower.getRace() != null)
+				{
+					buffer.append(TAG_RACE).append(':');
+					buffer.append(EntityEncoder.encode(follower.getRace()
 						.getKeyName().toUpperCase()));
-				buffer.append('|');
+					buffer.append('|');
+				}
 				buffer.append(TAG_HITDICE).append(':');
 				buffer.append(follower.getUsedHD());
 				buffer.append('|');
