@@ -12,9 +12,11 @@ ABILITY:Special Ability|Weapon Focus Display ~ Kensai		MAXVER:6.4.00	NEWKEY:Kens
 ABILITY:Special Ability|None ~ Region				MAXVER:6.4.00	NEWKEY:Region ~ None
 
 # Examples
-# SOURCE:JDTEST	MAXVER:6.4.00	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXVER:6.0.0	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.1.1
-# EQUIPMENT:JDTEST	MAXVER:6.4.00	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXVER:6.4.00	NEWKEY:MAXDEVVER:6.1.2
-	
+# SOURCE:JDTEST	MAXVER:6.4.00	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXDEVVER:6.1.1
+# EQUIPMENT:JDTEST	MAXVER:6.4.00	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXVER:6.4.00	MAXDEVVER:6.1.2
+
+
+
 ABILITY:Special Ability|Weapon and Armor Proficiency ~ Barbarian	MAXVER:6.4.00	NEWKEY:Barbarian ~ Weapon and Armor Proficiency
 ABILITY:Special Ability|Fast Movement ~ Barbarian			MAXVER:6.4.00	NEWKEY:Barbarian ~ Fast Movement			
 ABILITY:Special Ability|Rage							MAXVER:6.4.00	NEWKEY:Barbarian ~ Rage							
@@ -2364,3 +2366,6 @@ ABILITY:Special Ability|Companion Advancement (Pygmy Hippopotamus)	MAXVER:6.4.0	
 ABILITY:Special Ability|Companion Advancement (Thylacine)	MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Thylacine
 ABILITY:Special Ability|Companion Advancement (Elk)		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Elk		
 ABILITY:Special Ability|Companion Advancement (Hippogriff)		MAXVER:6.4.0	NEWKEY:Companion Advancement ~ Hippogriff
+
+EQUIPMENT:Underwater Heavy Crossbow		MAXVER:6.4.00	NEWKEY:Underwater Crossbow (Heavy)
+EQUIPMENT:Underwater Light Crossbow		MAXVER:6.4.00	NEWKEY:Underwater Crossbow (Light)
