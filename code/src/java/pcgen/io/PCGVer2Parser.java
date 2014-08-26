@@ -2643,7 +2643,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				// lines, save the feat now.
 				if (!featsPresent || category != AbilityCategory.FEAT)
 				{
-					cna = CNAbilityFactory.getCNAbility(category, nature, ability);
+					try
+					{
+						cna = CNAbilityFactory.getCNAbility(category, nature, ability);
+					}
+					catch (IllegalArgumentException e)
+					{
+						Logging.log(Logging.INFO, "Unabe to parse ability line: " + e.getMessage());
+					}
 				}
 				else
 				{
@@ -2673,17 +2680,27 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						{
 							CNAbilitySelection cnas =
 									new CNAbilitySelection(cna, string);
-							if (nature == Nature.VIRTUAL)
+							try
 							{
-								thePC.addSavedAbility(cnas,
-									UserSelection.getInstance(),
-									UserSelection.getInstance());
+								if (nature == Nature.VIRTUAL)
+								{
+									thePC.addSavedAbility(cnas,
+										UserSelection.getInstance(),
+										UserSelection.getInstance());
+								}
+								else
+								{
+									thePC.addAbility(cnas,
+										UserSelection.getInstance(),
+										UserSelection.getInstance());
+								}
 							}
-							else
+							catch (IllegalArgumentException e)
 							{
-								thePC.addAbility(cnas,
-									UserSelection.getInstance(),
-									UserSelection.getInstance());
+								Logging.errorPrint("PCGVer2Parser.parseAbilityLine failed", e);
+								
+								warnings.add(cna + " with selection: " + string
+									+ " is no longer valid.");
 							}
 						}
 					}
