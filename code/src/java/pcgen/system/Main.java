@@ -419,13 +419,13 @@ public final class Main
 				}
 				System.exit(1);
 			}
-			if (majorVar > 1 || (majorVar == 1 && minorVar > 7))
+			if (majorVar > 1 || (majorVar == 1 && minorVar > 8))
 			{
 				String message =
 						"Java version "
 							+ javaVerString
 							+ " is newer than PCGen supports. The program may not\n"
-							+ "work correctly. Java versions up to 1.7 are supported.";
+							+ "work correctly. Java versions up to 1.8 are supported.";
 				Logging.errorPrint(message);
 				if (useGui)
 				{
