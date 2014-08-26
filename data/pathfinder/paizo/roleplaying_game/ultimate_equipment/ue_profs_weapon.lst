@@ -86,7 +86,7 @@ Wakizashi					TYPE:Exotic.Melee.Light.Piercing.Slashing
 #-----one handed -------
 Great Terbutje				TYPE:Martial.TwoHanded.Exotic.Melee.OneHanded.Slashing
 Hooked Axe					TYPE:Exotic.Melee.OneHanded.Slashing
-Katana					TYPE:Exotic.Melee.OneHanded.Slashing
+Katana					TYPE:Melee.Martial.OneHanded.Exotic.Slashing.Deadly.Tengu.Sword.Eastern
 Nine-Section Whip				TYPE:Exotic.Melee.OneHanded.Bludgeoning
 Rhoka Sword					TYPE:Exotic.Melee.OneHanded.Slashing
 Sawtooth Sabre				TYPE:Exotic.Melee.OneHanded.Slashing

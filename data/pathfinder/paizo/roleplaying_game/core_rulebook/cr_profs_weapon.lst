@@ -256,5 +256,6 @@ Scimitar.MOD				TYPE:SwordLike.Tengu
 Sword (Short).MOD				TYPE:SwordLike.Tengu
 Sword (Two-Bladed).MOD			TYPE:SwordLike.Tengu
 
-Bastard Sword (Exotic)			TYPE:ExoticExtra.SwordLike.Tengu
-Dwarven Waraxe (Exotic)			TYPE:ExoticExtra
+# Simplify the system to avoid user confusion.
+#Bastard Sword (Exotic)			TYPE:ExoticExtra.SwordLike.Tengu
+#Dwarven Waraxe (Exotic)			TYPE:ExoticExtra

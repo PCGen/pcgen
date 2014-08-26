@@ -4,6 +4,9 @@ SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products
 # ORIGINAL ENTRY: James Dempsey, Scott Meyer
 # ORIGINAL ENTRY DATE: 13 May 2013
 
+CATEGORY=Internal|Default.MOD					DEFINE:KatanaExoticUse|0	BONUS:VAR|KatanaExoticUse|1|PREFEAT:1,Exotic Weapon Proficiency (Katana)
+
+###Block:
 # Ability Name			Category of Ability	Define					Move				Ability														Combat bonus
 CATEGORY=Internal|Default.MOD					DEFINE:MerformBeltMerfolkForm|0					ABILITY:Internal|AUTOMATIC|Merform Belt Merfolk Form|PREVARGTEQ:MerformBeltMerfolkForm,1
 

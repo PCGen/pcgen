@@ -273,5 +273,5 @@ Poisoned Sand Tube.MOD			TYPE:Thrown.Weapon Group Thrown
 Throwing Shield.MOD			TYPE:Thrown.Weapon Group Thrown
 
 #Siege Engines: All Siege Engines
-
-Katana (Exotic)				TYPE:ExoticExtra.Tengu
+# Tengu now gets a BONUS VAR to include Exotic, matching the Bastard Sword.
+#Katana (Exotic)				TYPE:ExoticExtra.Tengu
