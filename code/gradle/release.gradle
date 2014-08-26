@@ -131,9 +131,6 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
 		into "/docs/acknowledgments/"
 		include "PCGenLicense.txt"
 	}
-	from ("${projectDir}/code/gradle") {
-		include 'config.ini'
-	}
 	from ("${projectDir}") {
 		include '*.jar'
 		include 'pcgen.exe'

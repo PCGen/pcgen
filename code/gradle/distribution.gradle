@@ -55,9 +55,6 @@ ext {
         	include 'pcgen.exe'
         	include 'LICENSE'
         }
-        from('code/gradle') {
-        	include 'config.ini'
-        }
     }
 
     libsDistsImage = copySpec {
