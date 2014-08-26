@@ -240,8 +240,10 @@ ABILITY:Special Ability|Companion ~ Hunter's Bond	MAXVER:6.4.00	NEWKEY:Hunter's 
 ABILITY:Special Ability|Combat Style			MAXVER:6.4.00	NEWKEY:Ranger ~ Combat Style	
 ABILITY:Special Ability|Ranger Favored Enemy		MAXVER:6.4.00	NEWKEY:Ranger ~ Favored Enemy	
 ABILITY:Special Ability|Ranger Favored Terrain		MAXVER:6.4.00	NEWKEY:Ranger ~ Favored Terrain	
-ABILITY:Special Ability|Archery				MAXVER:6.4.00	NEWKEY:Combat Style ~ Archery		
-ABILITY:Special Ability|Two-Weapon Combat			MAXVER:6.4.00	NEWKEY:Combat Style ~ Two-Weapon Combat
+ABILITY:Special Ability|Archery				MAXVER:6.4.00	NEWKEY:Ranger Combat Style ~ Archery		
+ABILITY:Special Ability|Two-Weapon Combat			MAXVER:6.4.00	NEWKEY:Ranger Combat Style ~ Two-Weapon Combat
+ABILITY:Special Ability|Combat Style ~ Archery				MAXVER:6.4.00	NEWKEY:Ranger Combat Style ~ Archery		
+ABILITY:Special Ability|Combat Style ~ Two-Weapon Combat			MAXVER:6.4.00	NEWKEY:Ranger Combat Style ~ Two-Weapon Combat
 ABILITY:Special Ability|Far Shot				MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Far Shot				
 ABILITY:Special Ability|Point-Blank Shot			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Point-Blank Shot			
 ABILITY:Special Ability|Precise Shot			MAXVER:6.4.00	NEWKEY:Ranger Bonus Feat ~ Precise Shot			
@@ -2369,3 +2371,5 @@ ABILITY:Special Ability|Companion Advancement (Hippogriff)		MAXVER:6.4.0	NEWKEY:
 
 EQUIPMENT:Underwater Heavy Crossbow		MAXVER:6.4.00	NEWKEY:Underwater Crossbow (Heavy)
 EQUIPMENT:Underwater Light Crossbow		MAXVER:6.4.00	NEWKEY:Underwater Crossbow (Light)
+
+ABILITY:Special Ability|Water's Fury ~ Marid	MAXVER:6.4.00	NEWKEY:Marid ~ Water's Fury
