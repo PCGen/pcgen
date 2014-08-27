@@ -113,9 +113,8 @@ ${pcstring('TEXT.LOWERCASE.CLASS.${class}')}
 of ${pcstring('DEITY')}
 </#if>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; archetype , archetype_has_next>
-|IIF(ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype.TYPE:CLASS.%class)|
-<#if (pcstring("ABILITYALL.Archetype.VISIBLE.${archetype}.TYPE=Archetype.TYPE")?contains(pcstring("CLASS.${class}"))) >
-(${pcstring("TEXT.LOWERCASE.ABILITYALL.Archetype.VISIBLE.${archetype}.TYPE=Archetype")}")
+<#if (pcstring("ABILITYALL.Archetype.VISIBLE.${archetype}.TYPE=Archetype.TYPE")?lower_case?contains(pcstring("CLASS.${class}")?lower_case)) >
+(${pcstring("TEXT.LOWERCASE.ABILITYALL.Archetype.VISIBLE.${archetype}.TYPE=Archetype")})
 </#if>
 </@loop>
 
