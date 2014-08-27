@@ -225,7 +225,7 @@ Will
 |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
 |IIF(SPELLBOOK.%spellbook.TYPE:Spell Book)|
 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>|SPELLBOOKNAME.%spellbook|:</i>
-|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-2,1,1|
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES],1,1|
 |IIF(SPELLLISTMEMORIZE.%class:false)|
 |ELSE|
 |FOR,%level,0,9,1,1|

@@ -1114,10 +1114,10 @@ ${' '}(${pcstring('EQ.NOT.Magic.NOT.Armor.NOT.Weapon.NOT.Consumable.${equip}.QTY
 <@loop from=2 to=pcvar('COUNT[SPELLBOOKS]-1') ; spellbook , spellbook_has_next>
 <#if (pcstring("SPELLBOOK.${spellbook}.TYPE") = "Spell Book")>
 <br><b>${pcstring('SPELLBOOKNAME.${spellbook}')}</b>
-<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]+COUNT[CLASSES]-2') ; class , class_has_next> <#-- TODO: Loop was of early exit type 1 -->
+<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]+COUNT[CLASSES]') ; class , class_has_next> <#-- TODO: Loop was of early exit type 1 -->
 <#if (pcstring("SPELLLISTMEMORIZE.${class}") = "false")>
 <#else>
-<@loop from=0 to=pcvar('9') ; level , level_has_next> <#-- TODO: Loop was of early exit type 1 -->
+<@loop from=0 to=9 ; level , level_has_next>
 <@loop from=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') ; spelllevelcount , spelllevelcount_has_next>
 <#if (spelllevelcount = 0)>
 <!-- no memorized spells for SPELLSINBOOK.${class} ${spellbook} ${level} -->

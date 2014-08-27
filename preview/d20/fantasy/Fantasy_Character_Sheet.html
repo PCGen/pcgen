@@ -57,11 +57,7 @@ img {
 }
 .attackTables {
 	font-family: Arial, sans-serif;
-|IIF(WEAPON.NAME>10)|
-	font-size: 8px;
-|ELSE|
 	font-size: 14px;
-|ENDIF|
 	font-weight: bold;
 }
 .attackIterations {
@@ -2573,7 +2569,7 @@ at will
           <td colspan="10" class="spellHeader">|SPELLBOOKNAME.%spellbook| 
 		  <span class="spellStat">(|SPELLBOOK.%spellbook.NUMSPELLS| spells on |SPELLBOOK.%spellbook.NUMPAGESUSED| pages out of |SPELLBOOK.%spellbook.NUMPAGES|)</span></td>
   </tr>
-|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-2,1,1|
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES],1,1|
 |IIF(SPELLLISTMEMORIZE.%class:false)|
 |ELSE|
 |FOR,%level,0,9,1,1|
