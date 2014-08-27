@@ -2373,3 +2373,8 @@ EQUIPMENT:Underwater Heavy Crossbow		MAXVER:6.4.00	NEWKEY:Underwater Crossbow (H
 EQUIPMENT:Underwater Light Crossbow		MAXVER:6.4.00	NEWKEY:Underwater Crossbow (Light)
 
 ABILITY:Special Ability|Water's Fury ~ Marid	MAXVER:6.4.00	NEWKEY:Marid ~ Water's Fury
+
+ABILITY:Archetype|Cleric Archetype ~ CRUSADER ~ Cleric Archetype				MAXVER:6.4.00	NEWKEY:Cleric Archetype ~ Crusader		
+ABILITY:Archetype|Cleric Archetype ~ Divine Strategist ~ Cleric Archetype		MAXVER:6.4.00	NEWKEY:Cleric Archetype ~ Divine Strategist	
+ABILITY:Archetype|Cleric Archetype ~ Evangelist ~ Cleric Archetype			MAXVER:6.4.00	NEWKEY:Cleric Archetype ~ Evangelist		
+ABILITY:Archetype|Cleric Archetype ~ MERCIFUL HEALER ~ Cleric Archetype			MAXVER:6.4.00	NEWKEY:Cleric Archetype ~ Merciful Healer	
