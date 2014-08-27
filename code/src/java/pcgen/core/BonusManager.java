@@ -315,6 +315,8 @@ public class BonusManager
 		Set<BonusObj> processedBonuses = new WrappedMapSet<BonusObj>(
 				IdentityHashMap.class);
 
+		//Logging.log(Logging.INFO, "=== Start bonus processing.");
+		
 		//
 		// We do a first pass of just the "static" bonuses
 		// as they require less computation and no recursion

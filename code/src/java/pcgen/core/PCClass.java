@@ -1519,6 +1519,20 @@ public class PCClass extends PObject implements ClassFacade
 		}
 	}
 
+	/**
+	 * @{inheritdoc}
+	 */
+	@Override
+	public boolean qualifies(PlayerCharacter aPC, Object owner)
+	{
+		if (Globals.checkRule(RuleConstants.CLASSPRE))
+		{
+			return true;
+		}
+
+		return super.qualifies(aPC, owner);
+	}
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.ClassFacade#getBaseStat()
 	 */

@@ -76,11 +76,6 @@ public final class PrereqHandler
 			return true;
 		}
 
-		if ((caller instanceof PCClass)
-			&& Globals.checkRule(RuleConstants.CLASSPRE))
-		{
-			return true;
-		}
 		if ((caller instanceof Ability) && (AbilityUtilities.isFeat(caller))
 			&& Globals.checkRule(RuleConstants.FEATPRE))
 		{
