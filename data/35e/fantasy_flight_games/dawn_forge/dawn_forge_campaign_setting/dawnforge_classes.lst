@@ -112,7 +112,7 @@ CLASS:Shaper (DF)	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|S
 CLASS:Spirit Adept	HD:10		TYPE:Base.PC	ABB:SpA		MAXLEVEL:20	SOURCEPAGE:p.70	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spirit Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 1													AUTO:FEAT|Shield Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Level progression

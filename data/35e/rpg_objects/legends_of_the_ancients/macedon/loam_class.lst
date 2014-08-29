@@ -6,7 +6,7 @@ CLASS:Cavalry	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:COMBAT|BASEAB
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Tactics)|Ride|Spot|Survival
 ###Block: proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Martial
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Martial
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial								AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard

@@ -8,7 +8,7 @@ CLASS:Battle-Rager	HD:12		TYPE:PC.Prestige	ABB:Bat-Rag		MAXLEVEL:10	SOURCEPAGE:p
 CLASS:Battle-Rager	PREABILITY:1,CATEGORY=Special Ability,Rage	PREALIGN:NG,TN,NE,CG,CN,CE	PRETOTALAB:5	PREFEAT:4,Cleave,Iron Will,Power Attack,Toughness	PRETEXT:Must be able to rage, frenzy or similar class ability.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Battle-Rager	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Swim|Tumble
-1																		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1																		ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1																		ABILITY:Special Ability|AUTOMATIC|Against the Odds
 2			BONUS:ABILITYPOOL|Fighter Feat|1										ABILITY:Special Ability|AUTOMATIC|Fearsome Visage
 3																		ABILITY:Special Ability|AUTOMATIC|Frenzied Charge
@@ -28,7 +28,7 @@ CLASS:Dwarven Skald	PRETOTALAB:5	PRESKILL:3,Decipher Script=4,Gather Information
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dwarven Skald	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Hide|Intimidate|Survival|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Sense Motive|Speak Language|Spellcraft|Swim|Use Magic Device
 ###Block: Weapon & Armor Profs
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Bardic abilities level definitions.
@@ -50,11 +50,11 @@ CLASS:Rune-Priest	HD:8		TYPE:PC.Prestige	ABB:RPrst		MAXLEVEL:10	SOURCEPAGE:p.30	
 # Class Name	Req. Att.	Required Domain	Multiple Requirements
 CLASS:Rune-Priest	PRETOTALAB:4	PREDOMAIN:2,ANY	PREMULT:5,[PRESKILL:2,Craft (Armorsmithing)=4,Craft (Weaponsmithing)=4,Craft (Blacksmithing)=4,Craft (Stoneworking)=4],[PRESKILL:1,Knowledge (Dwarves)=6],[PREWEAPONPROF:1,TYPE.Martial],[PREFEAT:1,Weapon Focus],[PREFEAT:1,Rune of Beauty,Rune of Cleaving,Rune of Courage,Rune of Fortification,Rune of Power,Rune of Protection,Rune of Sharpness,Rune of Sundering,Rune of Vengeance,Rune of Energy]
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Rune-Priest	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Heal|Jump|Knowledge (Arcana)|Knowledge (Religion)|Scry|Spellcraft
+CLASS:Rune-Priest	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Heal|Jump|Knowledge (Arcana)|Knowledge (Religion)|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Spellbook		Caster level
 CLASS:Rune-Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	SPELLBOOK:NO	BONUS:CASTERLEVEL|Rune-Priest|CL
 ###Block: Dwarven Runes:(Rune of Energy,Rune of Beauty,Rune of Cleaving,Rune of Courage,Rune of Fortification,Rune of Power,Rune of Protection,Rune of Sharpness,Rune of Sundering,Rune of Vengeance)1
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Level progression:
@@ -79,9 +79,9 @@ CLASS:Rune-Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR																			Bonus
 CLASS:Rock-Warden	HD:8		TYPE:PC.Prestige	ABB:RWarden		MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1BONUS:VAR|AnimalCompanionLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Feat		Required Language	Required Skill							Req. Spell Type
-CLASS:Rock-Warden	PREFEAT:1,Blind-Fight	PRELANG:1,Terran	PRESKILL:3,Animal Empathy=8,Scry=8,Wilderness Lore=8	PRESPELLTYPE:1,Divine=2
+CLASS:Rock-Warden	PREFEAT:1,Blind-Fight	PRELANG:1,Terran	PRESKILL:3,Diplomacy=8,Survival=8	PRESPELLTYPE:1,Divine=2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Rock-Warden	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Survival|Knowledge (Nature)|Scry|Spellcraft|Swim|Wilderness Lore
+CLASS:Rock-Warden	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Survival|Knowledge (Nature)|Spellcraft|Swim|Survival|Diplomacy
 1											ADD:SPELLCASTER|Druid	ABILITY:Special Ability|AUTOMATIC|Druid ~ Animal Companion
 2											ADD:SPELLCASTER|Druid
 2					BONUS:VAR|RockWardenWildShape|CL/2					ABILITY:Special Ability|AUTOMATIC|Rock-Warden Wild Shape
@@ -145,9 +145,9 @@ CLASS:Paragon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Kno
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Slayer ~ HoHFD	HD:10		TYPE:PC.Prestige	ABB:Slyr		MAXLEVEL:10	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Req. Att.	Required Feat							Required Skill								Required Text
-CLASS:Slayer ~ HoHFD	PRETOTALAB:5	PREFEAT:3,Track,Weapon Focus,Weapon Specialization	PRESKILL:3,Knowledge (Dwarves)=8,Spot=8,Wilderness Lore=8	PRETEXT:Must have a favored enemy
+CLASS:Slayer ~ HoHFD	PRETOTALAB:5	PREFEAT:3,Track,Weapon Focus,Weapon Specialization	PRESKILL:3,Knowledge (Dwarves)=8,Spot=8,Survival=8	PRETEXT:Must have a favored enemy
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Slayer ~ HoHFD	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Hide|Survival|Jump|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope|Wilderness Lore
+CLASS:Slayer ~ HoHFD	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Hide|Survival|Jump|Listen|Move Silently|Search|Spot|Swim|Tumble|Use Rope
 ### ADD:VFEAT(Slayer Favored ~ Cleave,Slayer Favored ~ Dodge,Slayer Favored ~ Expertise,Slayer Favored ~ Great Fortitude,Slayer Favored ~ Lightning Reflexes,Slayer Favored ~ Iron Will,Slayer Favored ~ Improved Charge,Slayer Favored ~ Point Blank Shot,Slayer Favored ~ Power Attack,Slayer Favored ~ Precise Shot,Slayer Favored ~ Improved Critical,Slayer Favored ~ Mobility,Slayer Favored ~ Great Cleave)1
 1	BONUS:ABILITYPOOL|Slayer Feat|1								BONUS:VAR|RangerFavoredEnemyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Favored Enemies
 2	BONUS:ABILITYPOOL|Slayer Feat|1	BONUS:ABILITYPOOL|Slayer Skill Mastery|1
@@ -166,7 +166,7 @@ CLASS:Tunnel-Fighter	HD:6		TYPE:PC.Prestige	ABB:TunFgt		MAXLEVEL:10	SOURCEPAGE:p
 # Class Name		Req. Att.	Required Feat								Required Race				Required Skill
 CLASS:Tunnel-Fighter	PRETOTALAB:5	PREFEAT:3,Alertness,Improved Initiative,Point Blank Shot	PRERACE:1,Dwarf,Gnome,Kobold,Goblin	PRESKILL:6,Craft (Trapmaking)=6,Hide=6,Survival=6,Move Silently=6,Spot=6,Tumble=6
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Tunnel-Fighter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Hide|Intimidate|Innuendo|Survival|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
+CLASS:Tunnel-Fighter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Hide|Intimidate|Survival|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 1						ABILITY:Special Ability|AUTOMATIC|Ambush Expert|Quick and Quiet
 2	BONUS:VAR|SneakAttackDice|1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Uncanny Dodge
 3	BONUS:VAR|TunnelFightWall|3	ABILITY:Special Ability|AUTOMATIC|Tunnel Fighting

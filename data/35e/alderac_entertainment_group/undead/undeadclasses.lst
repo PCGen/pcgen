@@ -8,7 +8,7 @@ CLASS:Champion of the Dead	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOUR
 CLASS:Champion of the Dead	PREALIGN:LE,NE,CE	PRETOTALAB:5	PRESKILL:1,Knowledge (Arcana)=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Champion of the Dead	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Ride|Swim
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -56,7 +56,7 @@ CLASS:The Dying	STARTSKILLPTS:2
 3																							BONUS:STAT|CHA|-1	ABILITY:Special Ability|AUTOMATIC|Fervor ~ The Dying
 4							BONUS:ABILITYPOOL|The Undying Feat|1										BONUS:STAT|DEX|-1	ABILITY:Special Ability|AUTOMATIC|Tireless ~ The Dying
 5														BONUS:HP|CURRENTMAX|-10									ABILITY:Special Ability|AUTOMATIC|Improved Turn Undead ~ The Dying
-6							BONUS:ABILITYPOOL|The Undying Feat|1													ABILITY:Special Ability|AUTOMATIC|Doom ~ The Dying ~ The Dying|Incurable ~ The Dying|Protection from Evil ~ The Dying|Regeneration ~ The Dying
+6							BONUS:ABILITYPOOL|The Undying Feat|1													ABILITY:Special Ability|AUTOMATIC|Doom ~ The Dying|Incurable ~ The Dying|Protection from Evil ~ The Dying|Regeneration ~ The Dying
 7																										ABILITY:Special Ability|AUTOMATIC|Radiate Evil ~ The Dying|Unearthly Courage ~ The Dying
 8							BONUS:ABILITYPOOL|The Undying Feat|1					BONUS:MOVEADD|TYPE=Walk|-10
 9	VISION:Darkvision (60')	DR:15/+2																				ABILITY:Special Ability|AUTOMATIC|Blindness ~ The Dying
@@ -147,7 +147,7 @@ CLASS:Paladin of the Pale	PRECLASS:1,Paladin=5	PRESKILL:2,Knowledge (Religion)=8
 CLASS:Paladin of the Pale	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Ride
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Paladin of the Pale	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Paladin of the Pale|CL
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -167,7 +167,7 @@ CLASS:Puppet	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.49-50
 # Class Name	Required AL				Required Text
 CLASS:Puppet	PREALIGN:LN,LE,TN,NE,CN,CE	PRETEXT:Special (see text)
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Puppet	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Decipher Script|Disguise|Gather Information|Intimidate|Listen|Read Lips|Search|Sense Motive|Spellcraft|Spot
+CLASS:Puppet	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Decipher Script|Disguise|Gather Information|Intimidate|Listen|Search|Sense Motive|Spellcraft|Spot
 1	BONUS:VAR|PuppetLVL|CL	BONUS:VAR|EmpLink|10	DEFINE:PuppetLVL|0	DEFINE:EmpLink|0	ABILITY:Special Ability|AUTOMATIC|Empathic Link ~ Puppet|Thy Master's Will ~ Puppet
 2																ABILITY:Special Ability|AUTOMATIC|Strengthened Resolve ~ Puppet
 3																														AUTO:FEAT|Toughness
@@ -183,7 +183,7 @@ CLASS:Raider	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	
 # Class Name	Required Skill											Required Text
 CLASS:Raider	PRESKILL:4,Hide=6,Move Silently=6,Intuit Direction=4,Knowledge (Arcana)=4	PRETEXT:Special (see text)
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Raider	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Search|Spot|Tumble|Use Magic Device|Use Rope
+CLASS:Raider	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|Search|Spot|Tumble|Use Magic Device|Use Rope
 1												BONUS:VAR|RaiderLVL|CL	DEFINE:RaiderLVL|0	ABILITY:Special Ability|AUTOMATIC|Practical Knowledge ~ Raider|Quiet Inquisition ~ Raider
 2																				ABILITY:Special Ability|AUTOMATIC|Sense Ward ~ Raider
 3																				ABILITY:Special Ability|AUTOMATIC|Sense Life ~ Raider
@@ -254,9 +254,9 @@ CLASS:Unbeating Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|
 # Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus															Modify VAR														Bonus
 CLASS:Wasteland Druid	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.59-60	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL	Required Feat			Required Skill													Required Spell School		Req. Spell Type		Required Text
-CLASS:Wasteland Druid	PREALIGN:NE	PREFEAT:2,Iron Will,Toughness	PRESKILL:4,Knowledge (Arcana)=4,Wilderness Lore=8,Knowledge (Nature)=8,Animal Empathy=8	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLTYPE:1,Divine=3	PRETEXT:Special (see text)
+CLASS:Wasteland Druid	PREALIGN:NE	PREFEAT:2,Iron Will,Toughness	PRESKILL:4,Knowledge (Arcana)=4,Wilderness Lore=8,Knowledge (Nature)=8,Diplomacy=8	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLTYPE:1,Divine=3	PRETEXT:Special (see text)
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Wasteland Druid	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Intuit Direction|Knowledge (Arcana)|Knowledge (Nature)|TYPE=Profession|Scry|Spellcraft|Swim|Wilderness Lore
+CLASS:Wasteland Druid	STARTSKILLPTS:4	CSKILL:Diplomacy|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Intuit Direction|Knowledge (Arcana)|Knowledge (Nature)|TYPE=Profession|Scry|Spellcraft|Swim|Wilderness Lore
 ###Block: Turn Undead stuff
 1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=NoStack								ABILITY:Special Ability|AUTOMATIC|Basic Turning|Rebuke Undead
 1	BONUS:VAR|TurnLevelBase|CL	BONUS:VAR|AllowExtraTurning|1	DEFINE:AllowExtraTurning|0

@@ -15,10 +15,10 @@ CLASS:Rune-Priest.MOD	CSKILL:.CLEAR.Scry
 # Class Name				Required Feat		Required Language	Required Skill		Req. Spell Type
 CLASS:Rock-Warden.MOD PRE:.CLEAR	PREFEAT:1,Blind-Fight	PRELANG:1,Terran	PRESKILL:1,Survival=8	PRESPELLTYPE:1,Divine=2
 # Class Name		Remove Class Skill																	Class Skill
-CLASS:Rock-Warden.MOD	CSKILL:.CLEAR.Animal Empathy	CSKILL:.CLEAR.Intuit Direction	CSKILL:.CLEAR.Scry	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
+CLASS:Rock-Warden.MOD		CSKILL:Survival
 
 # Class Name			Remove Class Skill			Class Skill
-CLASS:Stoneheart Ascetic.MOD	CSKILL:.CLEAR.Intuit Direction	CSKILL:Survival
+CLASS:Stoneheart Ascetic.MOD		CSKILL:Survival
 1	BONUS:VAR|StunningFistMonkLVL|CL	ABILITY:Special Ability|VIRTUAL|.CLEAR.Stunning Attack
 
 # Class Name			Required Ability							Req. Att.	Required Feat						Required Skill								Required Text
@@ -27,12 +27,12 @@ CLASS:Paragon.MOD PRE:.CLEAR	PREABILITY:1,CATEGORY=Special Ability,Lay on Hands	
 # Class Name				Req. Att.	Required Feat							Required Skill							Required Text
 CLASS:Slayer ~ HoHFD.MOD PRE:.CLEAR	PRETOTALAB:5	PREFEAT:3,Track,Weapon Focus,Weapon Specialization	PRESKILL:3,Knowledge (Dwarves)=8,Spot=8,Survival=8	PRETEXT:Must have a favored enemy
 # Class Name			Remove Class Skill								Class Skill
-CLASS:Slayer ~ HoHFD.MOD	CSKILL:.CLEAR.Intuit Direction	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
+CLASS:Slayer ~ HoHFD.MOD		CSKILL:Survival
 
 # Class Name				Req. Att.	Required Feat								Required Race				Required Skill
 CLASS:Tunnel-Fighter.MOD PRE:.CLEAR	PRETOTALAB:5	PREFEAT:3,Alertness,Improved Initiative,Point Blank Shot	PRERACE:1,Dwarf,Gnome,Kobold,Goblin	PRESKILL:6,Craft (Trapmaking)=6,Hide=6,Survival=6,Move Silently=6,Spot=6,Tumble=6
 # Class Name			Remove Class Skill											Class Skill
-CLASS:Tunnel-Fighter.MOD	CSKILL:.CLEAR.Innuendo	CSKILL:.CLEAR.Intuit Direction	CSKILL:.CLEAR.Read Lips	CSKILL:Survival
+CLASS:Tunnel-Fighter.MOD	CSKILL:Survival
 2	BONUS:VAR|UncannyDodgeLevel|1	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Uncanny Dodge	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
 5	BONUS:VAR|UncannyDodgeLevel|1
 

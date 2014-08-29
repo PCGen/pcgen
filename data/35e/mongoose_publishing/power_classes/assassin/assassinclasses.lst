@@ -14,7 +14,7 @@ CLASS:Assassin (Mong)	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Clim
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Assassin (Mong) Weapon Proficiencies|Simple Weapon Proficiency
 1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-2																													ABILITY:Special Ability|AUTOMATIC|Poison Use
+2																													ABILITY:Special Ability|AUTOMATIC|Assassin ~ Poison Use
 4	SAB:Meticulous Planning (+%)|MeticulousPlanning									BONUS:VAR|MeticulousPlanning|(CL+2)/6	DEFINE:MeticulousPlanning|0
 5																	BONUS:VAR|PoisonUse|(CL+1)/3			DEFINE:PoisonUse|0
 6									BONUS:ABILITYPOOL|Exotic Weapon Proficiency|1

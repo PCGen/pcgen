@@ -52,7 +52,7 @@ Breach Power Resistance	KEY:Breach Power Resistance ~ Slayer ITCK		CATEGORY:Spec
 Blast Feedback		KEY:Blast Feedback ~ Slayer ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Soulknife ITCK
-Mind-blade Sneak Attack	KEY:Mind-blade sneak attack ~ Soulknife ITCK	CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:MindBladeAllowed|0	DEFINE:MindBladeEnchantment|0	DEFINE:MindBladeSneakAttack|0	DEFINE:SneakAttackDie|0	DESC: +%1d%2|MindBladeSneakAttack|SneakAttackDie		AUTO:EQUIP|Mind Blade							BONUS:VAR|MindBladeAllowed|1	BONUS:VAR|SneakAttackDie|6|TYPE=Base
+Mind-blade Sneak Attack	KEY:Mind-blade sneak attack ~ Soulknife ITCK	CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:MindBladeAllowed|0	DEFINE:MindBladeEnchantment|0	DEFINE:MindBladeSneakAttack|0	DEFINE:SneakAttackDie|0	DESC: +%1d%2|MindBladeSneakAttack|SneakAttackDie		AUTO:EQUIP|Mind Blade (Short)							BONUS:VAR|MindBladeAllowed|1	BONUS:VAR|SneakAttackDie|6|TYPE=Base
 Throw Mind-Blade		KEY:Throw Mind-Blade ~ Soulknife ITCK		CATEGORY:Special Ability	TYPE:SpecialQuality
 Mind-Blade			KEY:Mind-Blade ~ Soulknife ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:MindBladeRange|0																DESC: +%1|MindBladeEnchantment
 Imbed Power			KEY:Imbed Power ~ Soulknife ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality

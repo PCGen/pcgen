@@ -26,8 +26,7 @@ Resist Taint			KEY:Resist Taint ~ The Dying						CATEGORY:Special Ability	TYPE:S
 Fervor				KEY:Fervor ~ The Dying							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Tireless				KEY:Tireless ~ The Dying						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Improved Turn Undead		KEY:Improved Turn Undead ~ The Dying				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Doom					KEY:Doom ~ The Dying
-# ~	KEY:Incurable				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
+Doom					KEY:Doom ~ The Dying							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Protection from Evil		KEY:Protection from Evil ~ The Dying				CATEGORY:Special Ability	TYPE:SpecialQuality
 Regeneration			KEY:Regeneration ~ The Dying						CATEGORY:Special Ability	TYPE:SpecialQuality
 Radiate Evil			KEY:Radiate Evil ~ The Dying						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural

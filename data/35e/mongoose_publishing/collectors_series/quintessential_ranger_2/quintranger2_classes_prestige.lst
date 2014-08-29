@@ -57,7 +57,7 @@ CLASS:King of the Wilderness	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Cra
 
 1														ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|King of the Wilderness Tireless Voyager|Natural Explorer
 2	BONUS:ABILITYPOOL|Terrain Immersion|CL/2							ADD:SPELLCASTER|Ranger
-3														ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Self-Contained|Trackless Step
+3														ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Self-Contained|Druid ~ Trackless Step
 4														ADD:SPELLCASTER|Ranger
 5								BONUS:VAR|FastMovementBonus|10	ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Fast Movement|King of the Road
 6														ADD:SPELLCASTER|Ranger
@@ -77,7 +77,7 @@ CLASS:The Mighty Hunter	PRETOTALAB:9	PREFEAT:3,Alertness,Self-Sufficient,Track	P
 CLASS:The Mighty Hunter	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Handle Animal|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Swim|Use Rope
 1														BONUS:VAR|TheMightyHunterLVL|CL
 1	BONUS:ABILITYPOOL|Favored Enemy|1	BONUS:ABILITYPOOL|Favored Enemy Bonus|1									ABILITY:Special Ability|AUTOMATIC|Hunter's Instincts
-2																						ABILITY:Special Ability|AUTOMATIC|Woodland Stride
+2																						ABILITY:Special Ability|AUTOMATIC|Druid ~ Woodland Stride
 3														BONUS:VAR|FeatofExtraordinaryProwessTimes|CL/3	ABILITY:Special Ability|AUTOMATIC|Feat of Extraordinary Prowess|Legendary Hunter
 4																						ABILITY:Special Ability|AUTOMATIC|Tireless Hunter
 5	BONUS:ABILITYPOOL|Favored Enemy|1	BONUS:ABILITYPOOL|Favored Enemy Bonus|1

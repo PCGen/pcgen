@@ -18,7 +18,7 @@ CLASS:Gladiator Champion	PRETOTALAB:3	PREFEAT:1,Fame and Glory	PRESKILL:2,Handle
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Gladiator Champion	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Perform|Perform%|Ride|Tumble
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Class Progression
 1	BONUS:ABILITYPOOL|Exotic Weapon Proficiency|CL
@@ -43,7 +43,7 @@ CLASS:Beast Handler	PRETOTALAB:2	PRESKILL:1,Handle Animal=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Beast Handler	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Perform|Perform%|Ride|Tumble
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Class Progression
 1	ABILITY:Special Ability|AUTOMATIC|Favoured Beast ~ Beast Handler|Loyalty ~ Beast Handler
@@ -61,7 +61,7 @@ CLASS:Charioteer	PRETOTALAB:5	PRESKILL:1,Handle Animal=8	PRETEXT:Fame 12+	PREVAR
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Charioteer	STARTSKILLPTS:4	CSKILL:Bluff|Handle Animal|Intimidate|Jump|Perform|Perform%|Ride
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Class Progression
 1	BONUS:VAR|SuperbControlBonus|2	ABILITY:Special Ability|AUTOMATIC|Superb Control ~ Charioteer

@@ -41,3 +41,4 @@ EQUIPMENT:../dungeonsequipwondrousitems.lst
 FEAT:../dungeonsfeats.lst
 SKILL:../dungeonsskills.lst
 SPELL:../dungeonsspells.lst
+WEAPONPROF:../d_profs_weapon.lst

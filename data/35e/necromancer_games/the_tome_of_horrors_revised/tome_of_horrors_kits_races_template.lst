@@ -115,10 +115,10 @@ SKILL:Ride		RANK:9
 SKILL:Swim		RANK:1
 FEAT:Alertness
 FEAT:Lightning Reflexes
-ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Sword (Bastard/Martial))
+ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Sword (Bastard))
 ABILITY:CATEGORY=Fighter Feat|Power Attack
 FEAT:Run
-ABILITY:CATEGORY=Fighter Feat|Weapon Specialization (Sword (Bastard/Martial))
+ABILITY:CATEGORY=Fighter Feat|Weapon Specialization (Sword (Bastard))
 FEAT:Track
 ABILITY:CATEGORY=Fighter Feat|Cleave
 ABILITY:CATEGORY=Fighter Feat|Great Cleave

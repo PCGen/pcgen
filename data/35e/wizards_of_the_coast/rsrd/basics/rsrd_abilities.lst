@@ -5,7 +5,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 # COMMENT: Default is an Automatically Applied Ability, upon it all other functions of automation are possible.
 # Ability Name	Category of Ability
-Default		CATEGORY:Internal
+Default		CATEGORY:Internal	DEFINE:RaceSizeIsLong|0
 
 ###Block: Misc
 ###Block: Animal Tricks & Training Section ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

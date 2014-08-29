@@ -286,7 +286,7 @@ Frenzy			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	
 
 ###Block: MOD Animal Companion
 # Ability Name						Allowed Companions
-CATEGORY=Special Ability|Animal Companion.MOD	COMPANIONLIST:Animal Companion|Caracal,Fox,Snake (Spitting Cobra),Wildcat	COMPANIONLIST:Animal Companion|Dire Animal (Dire Mongoose),Lynx|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Saber-Tooth|FOLLOWERADJUSTMENT:-6
+CATEGORY=Special Ability|Ranger ~ Animal Companion.MOD	COMPANIONLIST:Animal Companion|Caracal,Fox,Snake (Spitting Cobra),Wildcat	COMPANIONLIST:Animal Companion|Dire Animal (Dire Mongoose),Lynx|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Saber-Tooth|FOLLOWERADJUSTMENT:-6
 
 #
 ##EOF

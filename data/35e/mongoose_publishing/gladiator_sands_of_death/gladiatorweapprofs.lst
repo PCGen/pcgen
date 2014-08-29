@@ -3,7 +3,7 @@ SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death	SOURCESHORT:Gladiato
 
 # Weapon Name	Type		Nb Hands
 Aclis			TYPE:Exotic
-Bola			TYPE:Exotic
+Bolas (3 ball)	TYPE:Exotic
 Chakram		TYPE:Exotic
 Crossbow (Quad)	TYPE:Exotic	HANDS:2
 Harpoon (Light)	TYPE:Exotic

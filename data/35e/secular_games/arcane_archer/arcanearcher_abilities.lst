@@ -15,15 +15,15 @@ Phase Bolt																		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLik
 Seeker Bolt																		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike.ArcaneCrossbowman	VISIBLE:YES	DEFINE:SeekerBoltTimes|0	DESC:%1/day|SeekerBoltTimes
 
 # Blizzard Archer
-Frost Arrow																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
-Winter Wolf Bite																	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
-Freezing Arrow																	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
-Icy Burst Arrow																	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+Frost Arrow			KEY:Blizzard Archer ~ Frost Arrow										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
+Winter Wolf Bite		KEY:Blizzard Archer ~ Winter Wolf Bite									CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
+Freezing Arrow		KEY:Blizzard Archer ~ Freezing Arrow									CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
+Icy Burst Arrow		KEY:Blizzard Archer ~ Icy Burst Arrow									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 
 # Deepwood Guardian
-True Strike																		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
-Arrow of Sleep																	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
-Arrow of Slow																	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
+True Strike			KEY:Deepwood Guardian ~ True Strike										CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
+Arrow of Sleep		KEY:Deepwood Guardian ~ Arrow of Sleep									CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
+Arrow of Slow		KEY:Deepwood Guardian ~ Arrow of Slow									CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
 
 # Divine Archer
 Blessed Strike																	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
@@ -41,5 +41,7 @@ Mind Burn																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatu
 Arrow of Coma																	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
 
 # Untamed Hunter
-Dragon Arrow																	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
-Arrow Fury																		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
+Dragon Arrow		KEY:Untamed Hunter ~ Dragon Arrow															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary
+Arrow Fury			KEY:Untamed Hunter ~ Arrow Fury															CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
+
+

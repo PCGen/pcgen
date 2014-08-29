@@ -3,39 +3,23 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 #Light
 # Armor Name
-Padded
-Leather
-Studded Leather
-Chain Shirt
+Padded		TYPE:Light.ArmorProfLight
+Leather		TYPE:Light.ArmorProfLight
+Studded Leather	TYPE:Light.ArmorProfLight
+Chain Shirt		TYPE:Light.ArmorProfLight
 
 #Medium
-Hide
-Scale Mail
-Chainmail
-Breastplate
+Hide			TYPE:Medium.ArmorProfMedium
+Scale Mail		TYPE:Medium.ArmorProfMedium
+Chainmail		TYPE:Medium.ArmorProfMedium
+Breastplate		TYPE:Medium.ArmorProfMedium
 
 #Heavy
-Splint Mail
-Banded Mail
-Half-Plate
-Full Plate
+Splint Mail		TYPE:Heavy.ArmorProfHeavy
+Banded Mail		TYPE:Heavy.ArmorProfHeavy
+Half-Plate		TYPE:Heavy.ArmorProfHeavy
+Full Plate		TYPE:Heavy.ArmorProfHeavy
 
-# Barding
-#Light
-Barding (Padded)
-Barding (Leather)
-Barding (Studded Leather)
-Barding (Chain Shirt)
-#Medium
-Barding (Hide)
-Barding (Scale Mail)
-Barding (Chainmail)
-Barding (Breastplate)
-#Heavy
-Barding (Splint Mail)
-Barding (Banded Mail)
-Barding (Half-Plate)
-Barding (Full Plate)
 #
 # End
 #

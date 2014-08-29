@@ -27,7 +27,7 @@ CLASS:Commando	PRETOTALAB:4	PREFEAT:2,Point Blank Shot,Far Shot	PRESKILL:2,Hide=
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Commando	STARTSKILLPTS:2	CSKILL:Balance|Climb|Hide|Intuit Direction|Listen|Move Silently|Spot|Wilderness Lore
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -75,11 +75,11 @@ CLASS:Executioner	PREALIGN:LN,LE,TN,NE,CN,CE	PRETOTALAB:7	PREFEAT:3,Cleave,Power
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Executioner	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Escape Artist|Heal
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	BONUS:VAR|SneakAttackDice|(CL+1)/2	BONUS:VAR|ExecutionersStrike|(CL+1)/2	BONUS:VAR|ExecutionersStrikeDie|6	DEFINE:ExecutionersStrikeDie|0	DEFINE:ExecutionersStrike|0	ABILITY:Special Ability|AUTOMATIC|Executioner's Strik ~ Executioner	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+1	BONUS:VAR|SneakAttackDice|(CL+1)/2	BONUS:VAR|ExecutionersStrike|(CL+1)/2	BONUS:VAR|ExecutionersStrikeDie|6	DEFINE:ExecutionersStrikeDie|0	DEFINE:ExecutionersStrike|0	ABILITY:Special Ability|AUTOMATIC|Executioner's Strike ~ Executioner	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2																															ABILITY:Special Ability|AUTOMATIC|Cold Blooded Killer ~ Executioner
 4																															ABILITY:Special Ability|AUTOMATIC|Executioner's Song ~ Executioner
 
@@ -91,7 +91,7 @@ CLASS:Shadowy Avenger	PREALIGN:NG,TN,NE,CG,CN,CE	PRETOTALAB:4	PREFEAT:3,Alertnes
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowy Avenger	STARTSKILLPTS:4	CSKILL:Alchemy|Climb|TYPE=Craft|Disable Device|Disguise|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	BONUS:SKILL|Sense Motive|2|TYPE=Competence							ABILITY:Special Ability|AUTOMATIC|Eye for Detail ~ Shadowy Avenger	ABILITY:Special Ability|AUTOMATIC|Urban Ranger ~ Shadowy Avenger

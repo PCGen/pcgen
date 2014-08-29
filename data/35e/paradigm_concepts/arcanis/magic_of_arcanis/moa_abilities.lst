@@ -39,7 +39,7 @@ Hand of Power			CATEGORY:Special Ability	TYPE:HedgeMageLore.SpecialQuality.Super
 Hexencraft				CATEGORY:Special Ability	TYPE:HedgeMageLore.SpecialQuality.Extraordinary
 Presence				CATEGORY:Special Ability	TYPE:HedgeMageLore.SpecialQuality.Supernatural
 Second Sight			CATEGORY:Special Ability	TYPE:HedgeMageLore.SpecialQuality.Supernatural
-Spell Knowledge			CATEGORY:Special Ability	TYPE:HedgeMageLore.SpecialQuality.Extraordinary												MULT:YES	CHOOSE:NOCHOICE
+Spell Knowledge			CATEGORY:Special Ability	TYPE:HedgeMageLore.SpecialQuality.Extraordinary										STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 Wyrd Working			CATEGORY:Special Ability	TYPE:HedgeMageLore.SpecialQuality.Supernatural
 
 #Hedge Mage's Lore, Greater
@@ -128,7 +128,7 @@ Battlemagic			CATEGORY:Special Ability	TYPE:SpecialAttack	DEFINE:BattlemagicTime
 Supreme Battlemagic	CATEGORY:Special Ability	TYPE:SpecialAttack
 
 ###Block: Suromar ----------------------------------------------------------------------------
-#Slippery Mind		CATEGORY:Special Ability	TYPE:SpecialQuality	TYPE:Ex
+#Rogue Special Ability ~ Slippery Mind		CATEGORY:Special Ability	TYPE:SpecialQuality	TYPE:Ex
 # Ability Name		Category of Ability		Type						Automatically Gained Feat
 Iron Will			CATEGORY:Special Ability	TYPE:SpecialQuality			AUTO:FEAT|Iron Will
 Lack of Focus		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
@@ -434,7 +434,7 @@ Arcane Strength																		CATEGORY:Special Ability	TYPE:SpecialQuality.Su
 ###Block: The Master-Smith ------------------------------------------------------------------------------------------------
 # Ability Name				Output Name				Category of Ability		Type				Define				Virtual Feat				Add 																			Bonus to skill
 Apprenticeship									CATEGORY:Special Ability	TYPE:SpecialQuality
-Skill Mastery (Master-Smith)		OUTPUTNAME:Skill Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SkillMasteryBonus|0																										BONUS:SKILL|Craft (Armorsmithing),Craft (Weaponsmithing),Knowledge (Science/Metallurgy),Profession (Blacksmith)|SkillMasteryBonus|TYPE=Competence
+Skill Mastery (Master-Smith)		OUTPUTNAME:Skill Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SkillMasteryBonus|0																										BONUS:SKILL|Craft (Armorsmithing),Craft (Weaponsmithing),Knowledge (Science/Metallurgy),Craft (Blacksmithing)|SkillMasteryBonus|TYPE=Competence
 Silvered Weapon									CATEGORY:Special Ability	TYPE:SpecialQuality
 Master Craftsman (Armorsmith)							CATEGORY:Special Ability	TYPE:SpecialQuality												ADD:ABILITY|Special Ability|NORMAL|Master Craftsman (Armorsmithing) Feat,Master Craftsman (Weaponsmithing) Bonus
 Master Craftsman (Weaponsmith)						CATEGORY:Special Ability	TYPE:SpecialQuality												ADD:ABILITY|Special Ability|NORMAL|Master Craftsman (Weaponsmithing) Bonus,Master Craftsman (Weaponsmithing) Feat
@@ -602,7 +602,7 @@ Sworn Servant of Althares				CATEGORY:Special Ability	TYPE:SpecialQuality
 #Evasion							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 The Word of Altheres					CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 #Improved Uncanny Dodge					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Altheres' Grace						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural														ABILITY:Special Ability|VIRTUAL|Monk AC|!PRECLASS:1,Monk=1	ABILITY:Special Ability|VIRTUAL|Monk AC Bonus|PRECLASS:1,Monk=1
+Altheres' Grace						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural														ABILITY:Special Ability|VIRTUAL|Monk ~ AC Bonus|!PRECLASS:1,Monk=1	ABILITY:Special Ability|VIRTUAL|Monk AC Bonus|PRECLASS:1,Monk=1
 #COMMENT: using preclass monk to avoid a loop. They either gain the monk ability if it's not already possessed OR a +2 insight bonus to AC if they possess the Monk AC ability.
 Altheres' Guidance					CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 #Improved Evasion						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary

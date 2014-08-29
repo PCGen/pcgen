@@ -8,7 +8,7 @@ CLASS:Exile		HD:8		TYPE:Base.NPC	ABB:Exile		MAXLEVEL:20	SOURCEPAGE:p.138	BONUS:C
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Exile		STARTSKILLPTS:2	CSKILL:Bluff|Hide|Intimidate|TYPE=Knowledge|Jump|Listen|Move Silently|TYPE=Perform|Sense Motive|Speak Language|Spot|Swim
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression

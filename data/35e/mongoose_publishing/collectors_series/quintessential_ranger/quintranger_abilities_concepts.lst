@@ -6,7 +6,7 @@ SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:
 Borderer			CATEGORY:Special Ability	TYPE:Concept	VISIBLE:DISPLAY					SAB:Borderer ~ Favoured Region; Lose Favored Enemy. Lose Wild Empathy
 Cattle Rustler		CATEGORY:Special Ability	TYPE:Concept	VISIBLE:DISPLAY					SAB:Cattle Rustler
 Desert Nomad		CATEGORY:Special Ability	TYPE:Concept	VISIBLE:DISPLAY					SAB:Desert Nomad
-Forester			CATEGORY:Special Ability	TYPE:Concept	VISIBLE:DISPLAY					SAB:Forester																										ABILITY:Special Ability|AUTOMATIC|Woodland Stride	ABILITY:FEAT|VIRTUAL|Woodland Guide|PREPCLEVEL:MIN=7
+Forester			CATEGORY:Special Ability	TYPE:Concept	VISIBLE:DISPLAY					SAB:Forester																										ABILITY:Special Ability|AUTOMATIC|Druid ~ Woodland Stride	ABILITY:FEAT|VIRTUAL|Woodland Guide|PREPCLEVEL:MIN=7
 #loses prof with shield
 Gamekeeper			CATEGORY:Special Ability	TYPE:Concept	VISIBLE:DISPLAY					SAB:Gamekeeper																																																																		BONUS:SKILL|Knowledge (Nature)|2
 Heir				CATEGORY:Special Ability	TYPE:Concept	VISIBLE:DISPLAY					SAB:Heir

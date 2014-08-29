@@ -16,8 +16,9 @@ Blood Frenzy		KEY:Blood Frenzy ~ Beast Handler					CATEGORY:Special Ability	TYPE
 Teamwork			KEY:Teamwork ~ Beast Handler						CATEGORY:Special Ability	TYPE:SpecialQuality
 Improved Training		KEY:Improved Training ~ Beast Handler				CATEGORY:Special Ability	TYPE:SpecialQuality
 Undying Loyalty		KEY:Undying Loyalty ~ Beast Handler					CATEGORY:Special Ability	TYPE:SpecialQuality
-Loyalty			KEY:Loyalty ~ Beast Handler
+Loyalty			KEY:Loyalty ~ Beast Handler						CATEGORY:Special Ability	TYPE:SpecialQuality
 
 Superb Control		KEY:Superb Control ~ Charioteer					CATEGORY:Special Ability	TYPE:SpecialQuality
-Love of the Crowd		KEY:Love of the Crowd ~ Charioteer|Survivor ~ Charioteer	CATEGORY:Special Ability	TYPE:SpecialQuality
+Love of the Crowd		KEY:Love of the Crowd ~ Charioteer					CATEGORY:Special Ability	TYPE:SpecialQuality
+Survivor			KEY:Survivor ~ Charioteer						CATEGORY:Special Ability	TYPE:SpecialQuality
 Lethal Sideswipe		KEY:Lethal Sideswipe ~ Charioteer					CATEGORY:Special Ability	TYPE:SpecialQuality

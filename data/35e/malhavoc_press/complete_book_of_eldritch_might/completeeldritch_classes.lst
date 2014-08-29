@@ -22,7 +22,7 @@ CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEM
 1	BONUS:VAR|BonusSpellSongChords|max(CHA-2,0)
 1	BONUS:VAR|BonusSpellSongMelodies|max(CHA-4,0)
 1	BONUS:VAR|Spellsong|1					DEFINE:Spellsong|0
-1	BONUS:VAR|BardicKnowledge|CL								ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge
+1	BONUS:VAR|BardicKnowledge|CL								ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Knowledge
 ###Block: Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency
 ###Block: Normal progression
@@ -55,7 +55,7 @@ CLASS:Sorcerer (Monte Cook's)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Di
 CLASS:Sorcerer (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer (Monte Cook's)|CL
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Familiar
-1	BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+1	BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Familiar
 ###Block: Spell List
 1	SPELLLEVEL:CLASS|Sorcerer (Monte Cook's)=0|Dancing Lights,Daze,Detect Magic,Disrupt Undead,Flare,Ghost Sound,Light,Mage Hand,Mending,Open/Close,Prestidigitation,Ray of Frost,Read Magic,Resistance
 1	SPELLLEVEL:CLASS|Sorcerer (Monte Cook's)=1|Animate Rope,Burning Hands,Cause Fear,Charm Person,Chill Touch,Color Spray,Comprehend Languages,Disguise Self,Endure Elements,Expeditious Retreat,Floating Disk,Grease,Hypnotism,Jump,Mage Armor,Magic Missile,Message,Obscuring Mist,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Ray of Enfeeblement,Shocking Grasp,Silent Image,Sleep,Spider Climb,Summon Monster I,True Strike,Unseen Servant,Ventriloquism
@@ -112,7 +112,7 @@ CLASS:Eldritch Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:
 CLASS:Eldritch Warrior	PRETOTALAB:5	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:3,Craft (Alchemy)=3,Knowledge (Arcana)=3,Spellcraft=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (Arcana)|Knowledge (the planes)|Move Silently|Ride|Spellcraft
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
@@ -168,7 +168,7 @@ CLASS:Knight of the Chord	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.33	BO
 CLASS:Knight of the Chord	PREALIGN:CG,CN,CE	PREFEAT:2,Toughness,Weapon Focus	PREMULT:1,[PREVARGTEQ:Spellsong,2],[PRESPELL:1,Sculpt Sound]	PRESKILL:2,Knowledge (Arcana)=3,Perform (Sing)=9
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Chord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|Ride|Sense Motive|Speak Language|Spellcraft|Use Magic Device
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression

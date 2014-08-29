@@ -12,7 +12,7 @@ CLASS:Bounty Hunter	PREALIGN:LN,LE,TN,NE,CN,CE	PRESTAT:2,CHA=13,CON=13
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bounty Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Gather Information|Hide|Intimidate|Jump|Knowledge (Trapmaking)|Listen|Move Silently|Ride|Use Rope|Spot|Search|Sense Motive|Swim|Survival
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies|Bounty Hunter Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:Special Ability|AUTOMATIC|Bounty Hunter Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1																						AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block:Level Progression
 1																									AUTO:FEAT|Track
@@ -33,7 +33,7 @@ CLASS:Outcast	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craf
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Outcast	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Outcast|CL
 ###Block:Proficiencies
-1	BONUS:ABILITYPOOL|Outcast Exotic Weapon|1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1	BONUS:ABILITYPOOL|Outcast Exotic Weapon|1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1																								AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level Progression
 5	CAST:1		KNOWN:0		BONUS:SPELLKNOWN|CLASS=Outcast;LEVEL=0|INT
@@ -174,7 +174,7 @@ CLASS:Mentalist	!PREALIGN:CG,CN,CE
 CLASS:Mentalist	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE=Craft|Jump|Spot|Swim|Tumble|Use Psionic Device
 #Stabilize Self|
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression

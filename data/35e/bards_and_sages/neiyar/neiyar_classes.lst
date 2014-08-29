@@ -37,7 +37,7 @@ CLASS:Tiger Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 17	BONUS:SAVE|BASE.Will|1
 19	BONUS:SAVE|BASE.Will|1
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies|Wizard Weapon Proficiencies
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
 1																						AUTO:FEAT|Simple Weapon Proficiency
 1																						AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Special Abilities:
@@ -76,7 +76,7 @@ CLASS:Trapper	PREALIGN:NG,TN,NE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trapper	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Trapmaking)|Decipher Script|Disable Device|Gather Information|Hide|Listen|Move Silently|Profession (Trapmaker)|Use Rope|Search|Spot|Tumble
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Class Progression
 1	ABILITY:Special Ability|AUTOMATIC|DetectDisarmTraps|Trapmaking

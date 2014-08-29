@@ -65,20 +65,20 @@ CLASS:Servant of Vengeance	PREALIGN:LE,LN,LG	PREFEAT:3,Endurance,Diehard,Iron Wi
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Servant of Vengeance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Gather Information|Intimidate|TYPE=Knowledge|TYPE=Profession|Sense Motive|Spellcraft
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Level Progression
-1	BONUS:VAR|EyeForAnEyeProgression|(CL+1)/2	ADD:SPELLCASTER|ANY	AUTO:FEAT|Eye for an Eye
-2	BONUS:VAR|BrandOfJusticeProgression|CL/2	ADD:SPELLCASTER|ANY	AUTO:FEAT|Brand of Justice
+1	BONUS:VAR|EyeForAnEyeProgression|(CL+1)/2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Eye for an Eye
+2	BONUS:VAR|BrandOfJusticeProgression|CL/2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Brand of Justice
 3								ADD:SPELLCASTER|ANY
-4	BONUS:VAR|SmiteInjusticeProgression|1	ADD:SPELLCASTER|ANY	AUTO:FEAT|Smite Injustice
+4	BONUS:VAR|SmiteInjusticeProgression|1	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Smite Injustice
 5								ADD:SPELLCASTER|ANY
 6								ADD:SPELLCASTER|ANY
 7	BONUS:VAR|SmiteInjusticeProgression|1	ADD:SPELLCASTER|ANY
 8								ADD:SPELLCASTER|ANY
 9								ADD:SPELLCASTER|ANY
-10								ADD:SPELLCASTER|ANY	AUTO:FEAT|Dictum
+10								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Dictum
 
 #
 # End

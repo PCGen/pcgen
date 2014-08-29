@@ -27,8 +27,8 @@ Improved Familiar.MOD
 Improved Familiar.COPY=Improved Familiar HD
 Improved Familiar HD.MOD									TYPE:General																										PRESUBCLASS:1,Harbingers
 
-Skill Focus.COPY=Skill Focus (Patrician)
-Skill Focus (Patrician).MOD																				PREFEAT:1,Skill Focus																																																																																						BONUS:SKILL|LIST|6																	SOURCEPAGE:Feats.rtf
+Skill Focus.COPY=Skill Focus ~ Patrician
+Skill Focus ~ Patrician.MOD																				PREFEAT:1,Skill Focus																																																																																						BONUS:SKILL|LIST|6																	SOURCEPAGE:Feats.rtf
 
 # Psionic Feats redone
 # Feat Name									Product Identity?	Type				Visible	Prohibited Class			Required Feat									Prohibited Race	Required Stat	Required Subclass			Required Template		Var. Min. Value			Clear Description	Description										Stackable?	Multiple?	Choose								Combat bonus																Add to base move											Bonus to skill												Weapon prof. bonus			Source Page

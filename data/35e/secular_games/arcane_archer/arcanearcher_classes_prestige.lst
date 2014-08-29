@@ -16,7 +16,7 @@ CLASS:Arcane Crossbowman	PREMULT:1,[PRECLASS:1,Arcane Crossbowman=1],[!PRECLASS:
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Arcane Crossbowman	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Hide|Listen|Move Silently|Spot|Survival|Use Rope
 ###Block: proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard
@@ -33,16 +33,16 @@ CLASS:Blizzard Archer	PREMULT:1,[PRECLASS:1,Blizzard Archer=1],[!PRECLASS:1,TYPE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blizzard Archer	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silently|Ride|Search|Spot|Survival
 ###Block: proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard
 1	BONUS:VAR|ArrowEnhancementBonus|(CL+3)/4					ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Enhance Arrow
 2												ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Imbue Arrow
-3												ABILITY:Special Ability|AUTOMATIC|Frost Arrow ~ Blizzard Archer
-4												ABILITY:Special Ability|AUTOMATIC|Winter Wolf Bite ~ Blizzard Archer
-6												ABILITY:Special Ability|AUTOMATIC|Freezing Arrow ~ Blizzard Archer
-7												ABILITY:Special Ability|AUTOMATIC|Icy Burst Arrow ~ Blizzard Archer
+3												ABILITY:Special Ability|AUTOMATIC|Blizzard Archer ~ Frost Arrow
+4												ABILITY:Special Ability|AUTOMATIC|Blizzard Archer ~ Winter Wolf Bite
+6												ABILITY:Special Ability|AUTOMATIC|Blizzard Archer ~ Freezing Arrow
+7												ABILITY:Special Ability|AUTOMATIC|Blizzard Archer ~ Icy Burst Arrow
 8	BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Hail of Arrows
 10												ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Arrow of Death
 
@@ -53,15 +53,15 @@ CLASS:Deepwood Guardian	PREMULT:1,[PRECLASS:1,Deepwood Guardian=1],[!PRECLASS:1,
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Deepwood Guardian	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silently|Search|Spot|Survival|Use Rope
 ###Block: proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard
 1	BONUS:VAR|ArrowEnhancementBonus|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Enhance Arrow
 2								ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Imbue Arrow
-4								ABILITY:Special Ability|AUTOMATIC|True Strike ~ Deepwood Guardian		SPELLS:Class|TIMES=1|True Strike
-6								ABILITY:Special Ability|AUTOMATIC|Arrow of Sleep ~ Deepwood Guardian
-8								ABILITY:Special Ability|AUTOMATIC|Arrow of Slow ~ Deepwood Guardian
+4								ABILITY:Special Ability|AUTOMATIC|Deepwood Guardian ~ True Strike		SPELLS:Class|TIMES=1|True Strike
+6								ABILITY:Special Ability|AUTOMATIC|Deepwood Guardian ~ Arrow of Sleep
+8								ABILITY:Special Ability|AUTOMATIC|Deepwood Guardian ~ Arrow of Slow
 10								ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Arrow of Death
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus										Bonus
@@ -71,7 +71,7 @@ CLASS:Divine Archer	PREMULT:1,[PRECLASS:1,Divine Archer=1],[!PRECLASS:1,TYPE.Arc
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Divine Archer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spot
 ###Block: proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard
@@ -91,7 +91,7 @@ CLASS:Eldritch Bow	PREMULT:1,[PRECLASS:1,Eldritch Bow=1],[!PRECLASS:1,TYPE.Arcan
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Bow	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Knowledge (Arcana)|Listen|Move Silently|Spellcraft|Spot|Survival
 ###Block: proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard
@@ -109,7 +109,7 @@ CLASS:Psychic Archer	PREMULT:1,[PRECLASS:1,Psychic Archer=1],[!PRECLASS:1,TYPE.A
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Archer	STARTSKILLPTS:4	CSKILL:Autohypnosis|TYPE=Craft|Hide|Knowledge (Psionics)|Listen|Move Silently|Psicraft|Spot|Survival
 ###Block: proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard
@@ -126,13 +126,13 @@ CLASS:Untamed Hunter	PREMULT:1,[PRECLASS:1,Untamed Hunter=1],[!PRECLASS:1,TYPE.A
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Untamed Hunter	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Intimidate|Listen|Move Silently|Ride|Spot|Survival
 ###Block: proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard
 1	BONUS:VAR|ArrowEnhancementBonus|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Enhance Arrow
 2								ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Imbue Arrow
-4								ABILITY:Special Ability|AUTOMATIC|Dragon Arrow
+4								ABILITY:Special Ability|AUTOMATIC|Untamed Hunter ~ Dragon Arrow
 6	BONUS:VAR|SeekerArrowTimes|1			ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Seeker Arrow
-8								ABILITY:Special Ability|AUTOMATIC|Arrow Fury
+8								ABILITY:Special Ability|AUTOMATIC|Untamed Hunter ~ Arrow Fury
 10								ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Arrow of Death

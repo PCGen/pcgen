@@ -5,13 +5,16 @@ SOURCELONG:Alderac Entertainment Group (AEG) - Feats	SOURCESHORT:Feats	SOURCEWEB
 
 # Skill Name				Key Stat	Untrained?		Type					Source Page
 Craft (Poison)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:none
+Craft (Trap Making)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:none
 Knowledge (Anatomy)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:none
 Knowledge (Demons)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:none
 Knowledge (Necromancy)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:none
 Knowledge (Tactics)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:none
 Knowledge (Seamanship)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:none
 Profession (Military Commander)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:none
-
+Profession (Sailor)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:none
+Profession (Apothecary)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:none
+Perform (Juggling)			KEYSTAT:DEX	USEUNTRAINED:NO	TYPE:Dexterity.Perform		SOURCEPAGE:none
 #
 ##EOF
 #
