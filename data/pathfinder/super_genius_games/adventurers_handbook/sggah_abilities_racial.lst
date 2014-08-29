@@ -16,8 +16,8 @@ Fire Vulnerability								KEY:Fire Vulnerability ~ Arctic			CATEGORY:Special Abi
 Snowy Adaptation									KEY:Snowy Adaptation ~ Arctic				CATEGORY:Special Ability	TYPE:SpecialQuality											DESC:Arctic creatures are generally white, and thus receive a +5 bonus to Stealth checks in snowy conditions, and a -5 penalty to Stealth checks made in areas that are not snowy.																																																																																																												SOURCEPAGE:p.95
 
 # Cold-Iron Elemental
-CATEGORY=Special Ability|Earth Glide ~ Earth Elemental.MOD																			PREVARLT:NoEarthGlide,1
-CATEGORY=Special Ability|Earth Mastery ~ Earth Elemental.MOD																		PREVARLT:NoEarthMastery,1
+CATEGORY=Special Ability|Earth Elemental ~ Earth Glide.MOD																			PREVARLT:NoEarthGlide,1
+CATEGORY=Special Ability|Earth Elemental ~ Earth Mastery.MOD																		PREVARLT:NoEarthMastery,1
 Cold Iron Attacks									KEY:Cold Iron Attacks ~ Cold Iron Elemental	CATEGORY:Special Ability	TYPE:SpecialAttack											DESC:A cold-iron elemental's natural attacks function as cold iron for purposes of bypassing DR.																																																																																																																									SOURCEPAGE:p.95
 
 # Ice Elemental
