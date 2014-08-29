@@ -196,7 +196,7 @@ Favored Terrain (Water)		KEY:Equipment ~ Favored Terrain (Water)		CATEGORY:Speci
 # Ability Name			Unique Key							Category of Ability	Stackable?	Multiple?	Choose						Template		Bonus to Ability Pool				Bonus to skill
 Racial Heritage Choice										CATEGORY:Internal		STACK:NO	MULT:YES	CHOOSE:TEMPLATE|TYPE=Racial Heritage	TEMPLATE:%LIST
 
-Feat ~ Cosmopolitan										CATEGORY:Internal																BONUS:ABILITYPOOL|Add Spoken Language|2
+Feat ~ Cosmopolitan										CATEGORY:Internal																BONUS:ABILITYPOOL|Cosmopolitan Spoken Language|2
 #
 # EOF
 #
