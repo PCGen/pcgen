@@ -67,8 +67,10 @@ TAB:SKILLS		NAME:in_skills					CONTEXT:tabpages\tabskills.html
 TAB:SPELLS		NAME:in_spells					CONTEXT:tabpages\tabspells.html
 TAB:SUMMARY		NAME:in_summary					CONTEXT:tabpages\tabsummary.html
 # Inventory subpanels
+TAB:PURCHASE	NAME:in_purchase					CONTEXT:tabpages\tabinventory.html
 TAB:EQUIPPING	NAME:in_InfoEquipping				CONTEXT:tabpages\tabinventory.html
 TAB:TEMPMOD		NAME:in_InfoTempMod				CONTEXT:tabpages\tabtemporarybonuses.html
+TAB:COMPANIONS	NAME:in_companions				CONTEXT:tabpages\tabcompanions.html
 #
 
 #

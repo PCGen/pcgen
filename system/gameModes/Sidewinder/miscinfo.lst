@@ -53,16 +53,25 @@ DISPLAYVARIABLE3NAME:Wealth
 
 #
 # Tabs defined
-TAB:CLASS			NAME:in_class			CONTEXT:tabpages\tabclasses.html
-TAB:DESCRIPTION		NAME:in_descrip			CONTEXT:tabpages\tabdescription.html
-TAB:DOMAINS			NAME:in_domains			CONTEXT:tabpages\tabdomains.html			VISIBLE:NO
-TAB:FEATS			NAME:in_feats			CONTEXT:tabpages\tabfeatsandabilities.html
-#TAB:INVENTORY		NAME:in_inventory			CONTEXT:tabpages\tabinventory.html
-TAB:INVENTORY		NAME:in_inventory			CONTEXT:tabpages\tabinventory.html
-TAB:RACE			NAME:in_race			CONTEXT:tabpages\tabraces.html
-TAB:SKILLS			NAME:in_skills			CONTEXT:tabpages\tabskills.html
-TAB:SPELLS			NAME:in_spells			CONTEXT:tabpages\tabspells.html			VISIBLE:NO
-TAB:SUMMARY			NAME:in_summary			CONTEXT:tabpages\tabsummary.html
+TAB:CLASS		NAME:in_class		CONTEXT:tabpages\tabclasses.html
+TAB:DESCRIPTION	NAME:in_descrip		CONTEXT:tabpages\tabdescription.html
+TAB:DOMAINS		NAME:in_domains		CONTEXT:tabpages\tabdomains.html					VISIBLE:NO
+TAB:FEATS		NAME:in_feats		CONTEXT:tabpages\tabfeatsandabilities.html
+TAB:INVENTORY	NAME:in_inventory		CONTEXT:tabpages\tabinventory.html
+TAB:RACE		NAME:in_race		CONTEXT:tabpages\tabraces.html
+TAB:SKILLS		NAME:in_skills		CONTEXT:tabpages\tabskills.html
+TAB:SPELLS		NAME:in_spells		CONTEXT:tabpages\tabspells.html					VISIBLE:NO
+TAB:SUMMARY		NAME:in_summary		CONTEXT:tabpages\tabsummary.html
+# Inventory subpanels
+TAB:PURCHASE	NAME:in_purchase		CONTEXT:tabpages\tabinventory.html
+TAB:EQUIPPING	NAME:in_InfoEquipping	CONTEXT:tabpages\tabinventory.html
+TAB:COMPANIONS	NAME:in_companions	CONTEXT:tabpages\tabcompanions.html
+TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
+
+
+
+
+
 #
 # Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
 # use & for mnemonic, && for & (MENUENTRY only)
