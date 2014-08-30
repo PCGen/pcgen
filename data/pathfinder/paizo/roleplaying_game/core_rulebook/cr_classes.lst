@@ -504,7 +504,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Bonus Languages		Ability																Visible	Define																					Combat bonus										Modify VAR									Monster Role	Bonus
-CLASS:Wizard	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:p.77	LANGBONUS:Draconic	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,WizardClassSkills	VISIBLE:YES	DEFINE:UniversalSchoolLVL|0	DEFINE:DisallowWizardArcaneSchoolArchetype|0	DEFINE:WizardLVL|0	DEFINE:WizardSchoolLVL|0	DEFINE:SpellMasteryQualify|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|WizardLVL|CL	BONUS:VAR|WizardSchoolLVL|WizardLVL	BONUS:VAR|SpellMasteryQualify|1	ROLE:Wizard		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Wizard	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:p.77	LANGBONUS:Draconic	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,WizardClassSkills	VISIBLE:YES	DEFINE:DisallowWizardArcaneSchoolArchetype|0	DEFINE:WizardLVL|0	DEFINE:WizardSchoolLVL|0	DEFINE:SpellMasteryQualify|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:VAR|WizardLVL|CL	BONUS:VAR|WizardSchoolLVL|WizardLVL	BONUS:VAR|SpellMasteryQualify|1	ROLE:Wizard		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl
 CLASS:Wizard	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
@@ -533,7 +533,7 @@ SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmutation School	!PRE
 ###Block:
 1	AUTO:FEAT|Scribe Scroll|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardScribeScroll
 ###Block:
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVARGT:UniversalSchoolLVL,0
+1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneBond
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Cantrips|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardCantrips
 5	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Bonus Feats|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeats
