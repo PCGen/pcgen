@@ -2378,3 +2378,145 @@ ABILITY:Archetype|Cleric Archetype ~ CRUSADER ~ Cleric Archetype				MAXVER:6.4.0
 ABILITY:Archetype|Cleric Archetype ~ Divine Strategist ~ Cleric Archetype		MAXVER:6.4.00	NEWKEY:Cleric Archetype ~ Divine Strategist	
 ABILITY:Archetype|Cleric Archetype ~ Evangelist ~ Cleric Archetype			MAXVER:6.4.00	NEWKEY:Cleric Archetype ~ Evangelist		
 ABILITY:Archetype|Cleric Archetype ~ MERCIFUL HEALER ~ Cleric Archetype			MAXVER:6.4.00	NEWKEY:Cleric Archetype ~ Merciful Healer	
+
+
+ABILITY:Special Ability|Acid Breath ~ Undine				MAXVER:6.4.00	NEWKEY:Undine ~ Acid Breath		
+ABILITY:Special Ability|Amphibious ~ Undine				MAXVER:6.4.00	NEWKEY:Undine ~ Amphibious			
+ABILITY:Special Ability|Deepsight ~ Undine				MAXVER:6.4.00	NEWKEY:Undine ~ Deepsight			
+ABILITY:Special Ability|Flesh Chameleon ~ Undine			MAXVER:6.4.00	NEWKEY:Undine ~ Flesh Chameleon		
+ABILITY:Special Ability|Hydrated Vitality ~ Undine			MAXVER:6.4.00	NEWKEY:Undine ~ Hydrated Vitality	
+ABILITY:Special Ability|Nereid Fascination ~ Undine			MAXVER:6.4.00	NEWKEY:Undine ~ Nereid Fascination	
+ABILITY:Special Ability|Ooze Breath ~ Undine				MAXVER:6.4.00	NEWKEY:Undine ~ Ooze Breath		
+ABILITY:Special Ability|Terrain Chameleon ~ Undine			MAXVER:6.4.00	NEWKEY:Undine ~ Terrain Chameleon	
+ABILITY:Special Ability|Water Sense ~ Undine				MAXVER:6.4.00	NEWKEY:Undine ~ Water Sense		
+
+ABILITY:Special Ability|Beguiling Liar ~ Tiefling							MAXVER:6.4.00	NEWKEY:Tiefling ~ Beguiling Liar			
+ABILITY:Special Ability|Fiendish Sprinter ~ Tiefling							MAXVER:6.4.00	NEWKEY:Tiefling ~ Fiendish Sprinter		
+ABILITY:Special Ability|Maw ~ Tiefling									MAXVER:6.4.00	NEWKEY:Tiefling ~ Maw				
+ABILITY:Special Ability|Claw ~ Tiefling									MAXVER:6.4.00	NEWKEY:Tiefling ~ Claw				
+ABILITY:Special Ability|Prehensile Tail ~ Tiefling							MAXVER:6.4.00	NEWKEY:Tiefling ~ Prehensile Tail		
+ABILITY:Special Ability|Scaled Skin (Cold) ~ Tiefling							MAXVER:6.4.00	NEWKEY:Tiefling ~ Scaled Skin (Cold)		
+ABILITY:Special Ability|Scaled Skin (Electricity) ~ Tiefling					MAXVER:6.4.00	NEWKEY:Tiefling ~ Scaled Skin (Electricity)	
+ABILITY:Special Ability|Scaled Skin (Fire) ~ Tiefling							MAXVER:6.4.00	NEWKEY:Tiefling ~ Scaled Skin (Fire)		
+ABILITY:Special Ability|Soul Seer ~ Tiefling								MAXVER:6.4.00	NEWKEY:Tiefling ~ Soul Seer			
+ABILITY:Special Ability|Vestigial Wings ~ Tiefling							MAXVER:6.4.00	NEWKEY:Tiefling ~ Vestigial Wings		
+ABILITY:Special Ability|Carrion Sense ~ Tengu		MAXVER:6.4.00	NEWKEY:Tengu ~ Carrion Sense		
+ABILITY:Special Ability|Claw Attack ~ Tengu			MAXVER:6.4.00	NEWKEY:Tengu ~ Claw Attack			
+ABILITY:Special Ability|Exotic Weapon Training ~ Tengu		MAXVER:6.4.00	NEWKEY:Tengu ~ Exotic Weapon Training	
+ABILITY:Special Ability|Glide ~ Tengu					MAXVER:6.4.00	NEWKEY:Tengu ~ Glide				
+ABILITY:Special Ability|Air Insight ~ Sylph			MAXVER:6.4.00	NEWKEY:Sylph ~ Air Insight			
+ABILITY:Special Ability|Breeze-Kissed ~ Sylph		MAXVER:6.4.00	NEWKEY:Sylph ~ Breeze-Kissed		
+ABILITY:Special Ability|Like the Wind ~ Sylph		MAXVER:6.4.00	NEWKEY:Sylph ~ Like the Wind		
+ABILITY:Special Ability|Sky Speaker ~ Sylph				MAXVER:6.4.00	NEWKEY:Sylph ~ Sky Speaker			
+ABILITY:Special Ability|Storm in the Blood ~ Sylph		MAXVER:6.4.00	NEWKEY:Sylph ~ Storm in the Blood	
+ABILITY:Special Ability|Thunderous Resilience ~ Sylph		MAXVER:6.4.00	NEWKEY:Sylph ~ Thunderous Resilience	
+ABILITY:Special Ability|Weather Savvy ~ Sylph			MAXVER:6.4.00	NEWKEY:Sylph ~ Weather Savvy		
+ABILITY:Special Ability|Whispering Wind ~ Sylph			MAXVER:6.4.00	NEWKEY:Sylph ~ Whispering Wind		
+ABILITY:Special Ability|Cornered Fury ~ Ratfolk		MAXVER:6.4.00	NEWKEY:Ratfolk ~ Cornered Fury	
+ABILITY:Special Ability|Scent ~ Ratfolk			MAXVER:6.4.00	NEWKEY:Ratfolk ~ Scent		
+ABILITY:Special Ability|Skulk ~ Ratfolk			MAXVER:6.4.00	NEWKEY:Ratfolk ~ Skulk		
+ABILITY:Special Ability|Unnatural ~ Ratfolk			MAXVER:6.4.00	NEWKEY:Ratfolk ~ Unnatural		
+ABILITY:Special Ability|Crystalline Form ~ Oread		MAXVER:6.4.00	NEWKEY:Oread ~ Crystalline Form		
+ABILITY:Special Ability|Earth Insight ~ Oread		MAXVER:6.4.00	NEWKEY:Oread ~ Earth Insight		
+ABILITY:Special Ability|Ferrous Growth ~ Oread		MAXVER:6.4.00	NEWKEY:Oread ~ Ferrous Growth		
+ABILITY:Special Ability|Fertile Soil ~ Oread	MAXVER:6.4.00	NEWKEY:Oread ~ Fertile Soil		
+ABILITY:Special Ability|Granite Skin ~ Oread			MAXVER:6.4.00	NEWKEY:Oread ~ Granite Skin		
+ABILITY:Special Ability|Mountain-Born ~ Oread			MAXVER:6.4.00	NEWKEY:Oread ~ Mountain-Born		
+ABILITY:Special Ability|Stone in the Blood ~ Oread		MAXVER:6.4.00	NEWKEY:Oread ~ Stone in the Blood	
+ABILITY:Special Ability|Treacherous Earth ~ Oread			MAXVER:6.4.00	NEWKEY:Oread ~ Treacherous Earth		
+ABILITY:Special Ability|Dayrunner ~ Orc		MAXVER:6.4.00	NEWKEY:Orc ~ Dayrunner	
+ABILITY:Special Ability|Feral ~ Orc			MAXVER:6.4.00	NEWKEY:Orc ~ Feral		
+ABILITY:Special Ability|Smeller ~ Orc			MAXVER:6.4.00	NEWKEY:Orc ~ Smeller		
+ABILITY:Special Ability|Squalid ~ Orc			MAXVER:6.4.00	NEWKEY:Orc ~ Squalid		
+ABILITY:Special Ability|Beast Bond ~ Kobold			MAXVER:6.4.00	NEWKEY:Kobold ~ Beast Bond		
+ABILITY:Special Ability|Dragon-Scaled ~ Kobold		MAXVER:6.4.00	NEWKEY:Kobold ~ Dragon-Scaled	
+ABILITY:Special Ability|Gliding Wings ~ Kobold		MAXVER:6.4.00	NEWKEY:Kobold ~ Gliding Wings	
+ABILITY:Special Ability|Jester ~ Kobold			MAXVER:6.4.00	NEWKEY:Kobold ~ Jester		
+ABILITY:Special Ability|Desert Mirage ~ Ifrit		MAXVER:6.4.00	NEWKEY:Ifrit ~ Desert Mirage	
+ABILITY:Special Ability|Efreeti Magic ~ Ifrit		MAXVER:6.4.00	NEWKEY:Ifrit ~ Efreeti Magic	
+ABILITY:Special Ability|Fire in the Blood ~ Ifrit		MAXVER:6.4.00	NEWKEY:Ifrit ~ Fire in the Blood	
+ABILITY:Special Ability|Fire Insight ~ Ifrit		MAXVER:6.4.00	NEWKEY:Ifrit ~ Fire Insight	
+ABILITY:Special Ability|Fire-Starter ~ Ifrit		MAXVER:6.4.00	NEWKEY:Ifrit ~ Fire-Starter	
+ABILITY:Special Ability|Forge-Hardened ~ Ifrit		MAXVER:6.4.00	NEWKEY:Ifrit ~ Forge-Hardened	
+ABILITY:Special Ability|Hypnotic ~ Ifrit			MAXVER:6.4.00	NEWKEY:Ifrit ~ Hypnotic		
+ABILITY:Special Ability|Wildfire Heart ~ Ifrit		MAXVER:6.4.00	NEWKEY:Ifrit ~ Wildfire Heart	
+ABILITY:Special Ability|Bandy-Legged ~ Hobgoblin			MAXVER:6.4.00	NEWKEY:Hobgoblin ~ Bandy-Legged		
+ABILITY:Special Ability|Battle-Hardened ~ Hobgoblin		MAXVER:6.4.00	NEWKEY:Hobgoblin ~ Battle-Hardened	
+ABILITY:Special Ability|Engineer ~ Hobgoblin			MAXVER:6.4.00	NEWKEY:Hobgoblin ~ Engineer		
+ABILITY:Special Ability|Fearsome ~ Hobgoblin			MAXVER:6.4.00	NEWKEY:Hobgoblin ~ Fearsome		
+ABILITY:Special Ability|Magehunter ~ Hobgoblin			MAXVER:6.4.00	NEWKEY:Hobgoblin ~ Magehunter		
+ABILITY:Special Ability|Pit Boss ~ Hobgoblin			MAXVER:6.4.00	NEWKEY:Hobgoblin ~ Pit Boss		
+ABILITY:Special Ability|Scarred ~ Hobgoblin				MAXVER:6.4.00	NEWKEY:Hobgoblin ~ Scarred			
+ABILITY:Special Ability|Slave Hunter ~ Hobgoblin			MAXVER:6.4.00	NEWKEY:Hobgoblin ~ Slave Hunter		
+ABILITY:Special Ability|Unfit ~ Hobgoblin				MAXVER:6.4.00	NEWKEY:Hobgoblin ~ Unfit			
+ABILITY:Special Ability|Cave Crawler ~ Goblin		MAXVER:6.4.00	NEWKEY:Goblin ~ Cave Crawler		
+ABILITY:Special Ability|City Scavenger ~ Goblin		MAXVER:6.4.00	NEWKEY:Goblin ~ City Scavenger		
+ABILITY:Special Ability|Eat Anything ~ Goblin			MAXVER:6.4.00	NEWKEY:Goblin ~ Eat Anything		
+ABILITY:Special Ability|Hard Head Big Teeth ~ Goblin		MAXVER:6.4.00	NEWKEY:Goblin ~ Hard Head Big Teeth	
+ABILITY:Special Ability|Over-Sized Ears ~ Goblin			MAXVER:6.4.00	NEWKEY:Goblin ~ Over-Sized Ears		
+ABILITY:Special Ability|Tree Runner ~ Goblin			MAXVER:6.4.00	NEWKEY:Goblin ~ Tree Runner		
+ABILITY:Special Ability|Weapon Familiarity ~ Goblin	MAXVER:6.4.00	NEWKEY:Goblin ~ Weapon Familiarity	
+ABILITY:Special Ability|Emissary ~ Fetchling			MAXVER:6.4.00	NEWKEY:Fetchling ~ Emissary		
+ABILITY:Special Ability|Gloom Shimmer ~ Fetchling			MAXVER:6.4.00	NEWKEY:Fetchling ~ Gloom Shimmer		
+ABILITY:Special Ability|Shadow Magic ~ Fetchling			MAXVER:6.4.00	NEWKEY:Fetchling ~ Shadow Magic		
+ABILITY:Special Ability|Subtle Manipulator ~ Fetchling		MAXVER:6.4.00	NEWKEY:Fetchling ~ Subtle Manipulator	
+ABILITY:Special Ability|World Walker ~ Fetchling			MAXVER:6.4.00	NEWKEY:Fetchling ~ World Walker		
+ABILITY:Special Ability|Ambitious Schemer ~ Drow			MAXVER:6.4.00	NEWKEY:Drow ~ Ambitious Schemer		
+ABILITY:Special Ability|Ancestral Grudge ~ Drow			MAXVER:6.4.00	NEWKEY:Drow ~ Ancestral Grudge		
+ABILITY:Special Ability|Blasphemous Covenant ~ Drow		MAXVER:6.4.00	NEWKEY:Drow ~ Blasphemous Covenant	
+ABILITY:Special Ability|Darklands Stalker ~ Drow			MAXVER:6.4.00	NEWKEY:Drow ~ Darklands Stalker		
+ABILITY:Special Ability|Seducer ~ Drow				MAXVER:6.4.00	NEWKEY:Drow ~ Seducer			
+ABILITY:Special Ability|Surface Infiltrator ~ Drow		MAXVER:6.4.00	NEWKEY:Drow ~ Surface Infiltrator	
+ABILITY:Special Ability|Dayborn ~ Dhampir				MAXVER:6.4.00	NEWKEY:Dhampir ~ Dayborn			
+ABILITY:Special Ability|Fangs ~ Dhampir				MAXVER:6.4.00	NEWKEY:Dhampir ~ Fangs			
+ABILITY:Special Ability|Vampiric Empathy ~ Dhampir		MAXVER:6.4.00	NEWKEY:Dhampir ~ Vampiric Empathy	
+ABILITY:Special Ability|Cat's Claws ~ Catfolk		MAXVER:6.4.00	NEWKEY:Catfolk ~ Cat's Claws	
+ABILITY:Special Ability|Clever Cat ~ Catfolk		MAXVER:6.4.00	NEWKEY:Catfolk ~ Clever Cat	
+ABILITY:Special Ability|Climber ~ Catfolk			MAXVER:6.4.00	NEWKEY:Catfolk ~ Climber		
+ABILITY:Special Ability|Curiosity ~ Catfolk			MAXVER:6.4.00	NEWKEY:Catfolk ~ Curiosity		
+ABILITY:Special Ability|Nimble Faller ~ Catfolk		MAXVER:6.4.00	NEWKEY:Catfolk ~ Nimble Faller	
+ABILITY:Special Ability|Scent ~ Catfolk			MAXVER:6.4.00	NEWKEY:Catfolk ~ Scent		
+ABILITY:Special Ability|Celestial Crusader ~ Aasimar		MAXVER:6.4.00	NEWKEY:Aasimar ~ Celestial Crusader	
+ABILITY:Special Ability|Deathless Spirit ~ Aasimar		MAXVER:6.4.00	NEWKEY:Aasimar ~ Deathless Spirit	
+ABILITY:Special Ability|Exalted Resistance ~ Aasimar		MAXVER:6.4.00	NEWKEY:Aasimar ~ Exalted Resistance	
+ABILITY:Special Ability|Halo ~ Aasimar				MAXVER:6.4.00	NEWKEY:Aasimar ~ Halo			
+ABILITY:Special Ability|Heavenborn ~ Aasimar			MAXVER:6.4.00	NEWKEY:Aasimar ~ Heavenborn		
+ABILITY:Special Ability|Immortal Spark ~ Aasimar			MAXVER:6.4.00	NEWKEY:Aasimar ~ Immortal Spark		
+ABILITY:Special Ability|Incorruptible ~ Aasimar			MAXVER:6.4.00	NEWKEY:Aasimar ~ Incorruptible		
+ABILITY:Special Ability|Scion of Humanity ~ Aasimar		MAXVER:6.4.00	NEWKEY:Aasimar ~ Scion of Humanity	
+ABILITY:Special Ability|Truespeaker ~ Aasimar			MAXVER:6.4.00	NEWKEY:Aasimar ~ Truespeaker		
+ABILITY:Special Ability|Magical Tail ~ Kitsune	MAXVER:6.4.00	NEWKEY:Kitsune ~ Magical Tail	
+ABILITY:Special Ability|Dissolutions Child ~ Wayang	MAXVER:6.4.00	NEWKEY:Wayang ~ Dissolutions Child	
+ABILITY:Special Ability|Sensual ~ Vishkanya		MAXVER:6.4.00	NEWKEY:Vishkanya ~ Sensual			
+ABILITY:Special Ability|Subtle Appearance ~ Vishkanya	MAXVER:6.4.00	NEWKEY:Vishkanya ~ Subtle Appearance	
+ABILITY:Special Ability|Tree Stranger ~ Vanara		MAXVER:6.4.00	NEWKEY:Vanara ~ Tree Stranger	
+ABILITY:Special Ability|Whitecape ~ Vanara			MAXVER:6.4.00	NEWKEY:Vanara ~ Whitecape		
+ABILITY:Special Ability|Healthy ~ Svirfneblin		MAXVER:6.4.00	NEWKEY:Svirfneblin ~ Healthy	
+ABILITY:Special Ability|Stoneseer ~ Svirfneblin		MAXVER:6.4.00	NEWKEY:Svirfneblin ~ Stoneseer	
+ABILITY:Special Ability|Earthfoot ~ Suli	MAXVER:6.4.00	NEWKEY:Suli ~ Earthfoot	
+ABILITY:Special Ability|Firehand ~ Suli		MAXVER:6.4.00	NEWKEY:Suli ~ Firehand	
+ABILITY:Special Ability|Icewalk ~ Suli		MAXVER:6.4.00	NEWKEY:Suli ~ Icewalk	
+ABILITY:Special Ability|Shockshield ~ Suli		MAXVER:6.4.00	NEWKEY:Suli ~ Shockshield	
+ABILITY:Special Ability|Dayguard ~ Strix			MAXVER:6.4.00	NEWKEY:Strix ~ Dayguard		
+ABILITY:Special Ability|Frightening ~ Strix			MAXVER:6.4.00	NEWKEY:Strix ~ Frightening		
+ABILITY:Special Ability|Nimble ~ Strix			MAXVER:6.4.00	NEWKEY:Strix ~ Nimble		
+ABILITY:Special Ability|Tough ~ Strix				MAXVER:6.4.00	NEWKEY:Strix ~ Tough			
+ABILITY:Special Ability|Wing-Clipped ~ Strix		MAXVER:6.4.00	NEWKEY:Strix ~ Wing-Clipped	
+ABILITY:Special Ability|Mystic Past Life ~ Samsaran	MAXVER:6.4.00	NEWKEY:Samsaran ~ Mystic Past Life	
+ABILITY:Special Ability|Hypnotic Gaze ~ Nagaji	MAXVER:6.4.00	NEWKEY:Nagaji ~ Hypnotic Gaze	
+ABILITY:Special Ability|Fast Shifter ~ Kitsune		MAXVER:6.4.00	NEWKEY:Kitsune ~ Fast Shifter	
+ABILITY:Special Ability|Gregarious ~ Kitsune		MAXVER:6.4.00	NEWKEY:Kitsune ~ Gregarious	
+ABILITY:Special Ability|Darkvision ~ Merfolk		MAXVER:6.4.00	NEWKEY:Merfolk ~ Darkvision	
+ABILITY:Special Ability|Seasinger ~ Merfolk			MAXVER:6.4.00	NEWKEY:Merfolk ~ Seasinger		
+ABILITY:Special Ability|Strongtail ~ Merfolk		MAXVER:6.4.00	NEWKEY:Merfolk ~ Strongtail	
+ABILITY:Special Ability|Glider ~ Grippli			MAXVER:6.4.00	NEWKEY:Grippli ~ Glider		
+ABILITY:Special Ability|Jumper ~ Grippli			MAXVER:6.4.00	NEWKEY:Grippli ~ Jumper		
+ABILITY:Special Ability|Princely ~ Grippli			MAXVER:6.4.00	NEWKEY:Grippli ~ Princely		
+ABILITY:Special Ability|Toxic Skin ~ Grippli		MAXVER:6.4.00	NEWKEY:Grippli ~ Toxic Skin	
+ABILITY:Special Ability|Riverfolk ~ Gillman			MAXVER:6.4.00	NEWKEY:Gillman ~ Riverfolk		
+ABILITY:Special Ability|Slime Hunter ~ Gillman		MAXVER:6.4.00	NEWKEY:Gillman ~ Slime Hunter	
+ABILITY:Special Ability|Throwback ~ Gillman			MAXVER:6.4.00	NEWKEY:Gillman ~ Throwback		
+ABILITY:Special Ability|Blood Enmity ~ Duergar		MAXVER:6.4.00	NEWKEY:Duergar ~ Blood Enmity	
+ABILITY:Special Ability|Daysighted ~ Duergar		MAXVER:6.4.00	NEWKEY:Duergar ~ Daysighted	
+ABILITY:Special Ability|Deep Magic ~ Duergar		MAXVER:6.4.00	NEWKEY:Duergar ~ Deep Magic	
+
