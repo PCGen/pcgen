@@ -95,7 +95,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 				return new ParseResult.Fail("Formula in " + getTokenName()
 						+ " was not valid: " + f.toString(), context);
 			}
-			if (!f.isStatic() || f.resolveStatic().intValue() != 0)
+			if ((!f.isStatic() || f.resolveStatic().intValue() != 0) && !(var.startsWith("MAXLEVELSTAT=")))
 			{
 				Logging
 					.deprecationPrint(
