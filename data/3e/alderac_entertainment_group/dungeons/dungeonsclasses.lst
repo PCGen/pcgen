@@ -42,7 +42,9 @@ CLASS:Demolitionist	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Demolitioni
 3								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Craft Flash Bombs ~ Demolitionist
 4								ADD:SPELLCASTER|Arcane
 5								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Craft Musket ~ Demolitionist
-6								ADD:SPELLCASTER|Arcane													AUTO:FEAT|Exotic Weapon Proficiency(Musket)|Exotic Weapon Proficiency(Pistol)
+6								ADD:SPELLCASTER|Arcane													
+# No Such Weapon or Proficiency listed!
+#6	AUTO:FEAT|Exotic Weapon Proficiency(Musket)|Exotic Weapon Proficiency(Pistol)
 7								ADD:SPELLCASTER|Arcane
 8								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Master of Destruction ~ Demolitionist
 9	BONUS:VAR|UncannyDodge|1			ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge

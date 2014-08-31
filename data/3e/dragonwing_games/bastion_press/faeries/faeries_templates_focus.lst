@@ -15,12 +15,12 @@ Tailed Creature	VISIBLE:YES	SOURCEPAGE:p.34	PRELEVEL:MIN=7	PRETEMPLATE:1,Snouted
 # Template Name		Visible	Source Page		Required Lvl	Required Template				Bonus to skill														Stat bonus		Innate Spells
 Bland Creature		VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=2							BONUS:SKILL|Bluff|2|TYPE=Competence	BONUS:SKILL|Disguise|5|TYPE=Competence
 Chameleon Creature	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=3	PRETEMPLATE:1,Bland Creature		BONUS:SKILL|Bluff|4|TYPE=Competence														SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Change Self,11+CHA
-Changeling Creature	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=6	PRETEMPLATE:1,Chameleon Creature	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Intimidate,Perform,Perform%|2|TYPE=Competence	BONUS:STAT|CHA|2
+Changeling Creature	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=6	PRETEMPLATE:1,Chameleon Creature	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Intimidate,Perform|2|TYPE=Competence	BONUS:STAT|CHA|2
 
 ###Block: Focus of the Fey ---------------------------------------------------
 # Template Name		Visible	Source Page		Required Lvl	Required Template				Bonus to skill									Stat bonus		Ability														Main Race Type	Vision
 Centered Creature		VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=6							BONUS:SKILL|Concentration|4|TYPE=Insight
-Fair Creature (Fey)	VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=7	PRETEMPLATE:1,Centered Creature	BONUS:SKILL|Bluff,Diplomacy,Perform,Perform%|4|TYPE=Competence	BONUS:STAT|CHA|2
+Fair Creature (Fey)	VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=7	PRETEMPLATE:1,Centered Creature	BONUS:SKILL|Bluff,Diplomacy,Perform|4|TYPE=Competence	BONUS:STAT|CHA|2
 Discerning Creature	VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=7	PRETEMPLATE:1,Fair Creature (Fey)	BONUS:SKILL|Innuendo,Sense Motive|4|TYPE=Insight			BONUS:STAT|WIS|2	ABILITY:Special Ability|AUTOMATIC|Discerning Creature Illusions and Enhancement Bonus
 Fey Creature		VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=10	PRETEMPLATE:1,Discerning Creature															ABILITY:Special Ability|AUTOMATIC|Immune to Enchantment spells					RACETYPE:Fey	VISION:Darkvision
 

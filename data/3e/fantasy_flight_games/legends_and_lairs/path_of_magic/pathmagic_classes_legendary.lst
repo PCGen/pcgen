@@ -16,11 +16,11 @@ CLASS:Death Lord	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Leadership,Spell Focus (Ne
 CLASS:Death Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	ADD:FEAT|Enhanced Charisma I,Enhanced Constitution I,TYPE=DeathLordLAPL1
-2	ADD:FEAT|Enhanced Charisma II,Enhanced Constitution II,TYPE=DeathLordLAPL2
-3	ADD:FEAT|Enhanced Charisma III,Enhanced Constitution III,TYPE=DeathLordLAPL3
-4	ADD:FEAT|Enhanced Charisma IV,Enhanced Constitution IV,TYPE=DeathLordLAPL4
-5	ADD:FEAT|Enhanced Charisma V,Enhanced Constitution V,TYPE=DeathLordLAPL5
+1	BONUS:ABILITYPOOL|Death Lord Selection 1|1
+2	BONUS:ABILITYPOOL|Death Lord Selection 2|1
+3	BONUS:ABILITYPOOL|Death Lord Selection 3|1
+4	BONUS:ABILITYPOOL|Death Lord Selection 4|1
+5	BONUS:ABILITYPOOL|Death Lord Selection 5|1
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
@@ -31,11 +31,11 @@ CLASS:Elemental Lord	PREFEAT:2,Great Fortitude,Spell Focus (Evocation)	PRESKILL:
 CLASS:Elemental Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	ADD:FEAT|Enhanced Constitution I,Enhanced Intelligence I,TYPE=ElementalLordLAPL1
-2	ADD:FEAT|Enhanced Constitution II,Enhanced Intelligence II,TYPE=ElementalLordLAPL2
-3	ADD:FEAT|Enhanced Constitution III,Enhanced Intelligence III,TYPE=ElementalLordLAPL3
-4	ADD:FEAT|Enhanced Constitution IV,Enhanced Intelligence IV,TYPE=ElementalLordLAPL4
-5	ADD:FEAT|Enhanced Constitution V,Enhanced Intelligence V,TYPE=ElementalLordLAPL5
+1	BONUS:ABILITYPOOL|Elemental Lord Selection 1|1
+2	BONUS:ABILITYPOOL|Elemental Lord Selection 2|1
+3	BONUS:ABILITYPOOL|Elemental Lord Selection 3|1
+4	BONUS:ABILITYPOOL|Elemental Lord Selection 4|1
+5	BONUS:ABILITYPOOL|Elemental Lord Selection 5|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
@@ -48,11 +48,11 @@ CLASS:Infiltrator	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Co
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	ADD:FEAT|Enhanced Charisma I,Enhanced Intelligence I,TYPE=InfiltratorLAPL1
-2	ADD:FEAT|Enhanced Charisma II,Enhanced Intelligence II,TYPE=InfiltratorLAPL2
-3	ADD:FEAT|Enhanced Charisma III,Enhanced Intelligence III,TYPE=InfiltratorLAPL3
-4	ADD:FEAT|Enhanced Charisma IV,Enhanced Intelligence IV,TYPE=InfiltratorLAPL4
-5	ADD:FEAT|Enhanced Charisma V,Enhanced Intelligence V,TYPE=InfiltratorLAPL5
+1	BONUS:ABILITYPOOL|Infiltrator Selection 1|1
+2	BONUS:ABILITYPOOL|Infiltrator Selection 2|1
+3	BONUS:ABILITYPOOL|Infiltrator Selection 3|1
+4	BONUS:ABILITYPOOL|Infiltrator Selection 4|1
+5	BONUS:ABILITYPOOL|Infiltrator Selection 5|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
@@ -63,11 +63,13 @@ CLASS:Landwalker	PREALIGN:CG,CN,CE	PREFEAT:2,Alertness,Toughness	PRESKILL:2,Know
 CLASS:Landwalker	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	DEFINE:TurnPlantsAnimals|0	ADD:FEAT|Enhanced Charisma I,Enhanced Wisdom I,TYPE=LandwalkerLAPL1
-2						ADD:FEAT|Enhanced Charisma II,Enhanced Wisdom II,TYPE=LandwalkerLAPL2
-3						ADD:FEAT|Enhanced Charisma III,Enhanced Wisdom III,TYPE=LandwalkerLAPL3
-4						ADD:FEAT|Enhanced Charisma IV,Enhanced Wisdom IV,TYPE=LandwalkerLAPL4
-5						ADD:FEAT|Enhanced Charisma V,Enhanced Wisdom V,TYPE=LandwalkerLAPL5
+1	DEFINE:TurnPlantsAnimals|0	
+###Block:
+1	BONUS:ABILITYPOOL|Maestro Selection 1|1
+2	BONUS:ABILITYPOOL|Maestro Selection 2|1
+3	BONUS:ABILITYPOOL|Maestro Selection 3|1
+4	BONUS:ABILITYPOOL|Maestro Selection 4|1
+5	BONUS:ABILITYPOOL|Maestro Selection 5|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
@@ -80,11 +82,11 @@ CLASS:Maestro	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concen
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	ADD:FEAT|Enhanced Charisma I,Enhanced Dexterity I,TYPE=MaestroLAPL1
-2	ADD:FEAT|Enhanced Charisma II,Enhanced Dexterity II,TYPE=MaestroLAPL2
-3	ADD:FEAT|Enhanced Charisma III,Enhanced Dexterity III,TYPE=MaestroLAPL3
-4	ADD:FEAT|Enhanced Charisma IV,Enhanced Dexterity IV,TYPE=MaestroLAPL4
-5	ADD:FEAT|Enhanced Charisma V,Enhanced Dexterity V,TYPE=MaestroLAPL5
+1	BONUS:ABILITYPOOL|Maestro Selection 1|1
+2	BONUS:ABILITYPOOL|Maestro Selection 2|1
+3	BONUS:ABILITYPOOL|Maestro Selection 3|1
+4	BONUS:ABILITYPOOL|Maestro Selection 4|1
+5	BONUS:ABILITYPOOL|Maestro Selection 5|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
@@ -95,12 +97,13 @@ CLASS:Oracle	PREFEAT:1,Skill Focus (Scry)	PREMULT:5,[PRESPELLSCHOOL:5,Divination
 CLASS:Oracle	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	ADD:FEAT|Enhanced Intelligence I,Enhanced Wisdom I,TYPE=OracleLAPL1
-2	ADD:FEAT|Enhanced Intelligence II,Enhanced Wisdom II,TYPE=OracleLAPL2
-3	ADD:FEAT|Enhanced Intelligence III,Enhanced Wisdom III,TYPE=OracleLAPL3
-4	ADD:FEAT|Enhanced Intelligence IV,Enhanced Wisdom IV,TYPE=OracleLAPL4
-5	ADD:FEAT|Enhanced Intelligence V,Enhanced Wisdom V,TYPE=OracleLAPL5
 # Spellcasting:The character must know at least one divination spell from five different spell levels.....
+###Block:
+1	BONUS:ABILITYPOOL|Oracle Selection 1|1
+2	BONUS:ABILITYPOOL|Oracle Selection 2|1
+3	BONUS:ABILITYPOOL|Oracle Selection 3|1
+4	BONUS:ABILITYPOOL|Oracle Selection 4|1
+5	BONUS:ABILITYPOOL|Oracle Selection 5|1
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
@@ -111,11 +114,11 @@ CLASS:Puppetmaster	PREFEAT:2,Craft Wondrous Item,Iron Will	PRESKILL:3,Spellcraft
 CLASS:Puppetmaster	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	ADD:FEAT|Enhanced Charisma I,Enhanced Intelligence I,TYPE=PuppetmasterLAPL1
-2	ADD:FEAT|Enhanced Charisma II,Enhanced Intelligence II,TYPE=PuppetmasterLAPL2
-3	ADD:FEAT|Enhanced Charisma III,Enhanced Intelligence III,TYPE=PuppetmasterLAPL3
-4	ADD:FEAT|Enhanced Charisma IV,Enhanced Intelligence IV,TYPE=PuppetmasterLAPL4
-5	ADD:FEAT|Enhanced Charisma V,Enhanced Intelligence V,TYPE=PuppetmasterLAPL5
+1	BONUS:ABILITYPOOL|Puppetmaster Selection 1|1
+2	BONUS:ABILITYPOOL|Puppetmaster Selection 2|1
+3	BONUS:ABILITYPOOL|Puppetmaster Selection 3|1
+4	BONUS:ABILITYPOOL|Puppetmaster Selection 4|1
+5	BONUS:ABILITYPOOL|Puppetmaster Selection 5|1
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
@@ -128,11 +131,11 @@ CLASS:Puzzlemaster	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|C
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	ADD:FEAT|Enhanced Charisma I,Enhanced Intelligence I,TYPE=PuzzlemasterLAPL1
-2	ADD:FEAT|Enhanced Charisma II,Enhanced Intelligence II,TYPE=PuzzlemasterLAPL2
-3	ADD:FEAT|Enhanced Charisma III,Enhanced Intelligence III,TYPE=PuzzlemasterLAPL3
-4	ADD:FEAT|Enhanced Charisma IV,Enhanced Intelligence IV,TYPE=PuzzlemasterLAPL4
-5	ADD:FEAT|Enhanced Charisma V,Enhanced Intelligence V,TYPE=PuzzlemasterLAPL5
+1	BONUS:ABILITYPOOL|Puzzlemaster Selection 1|1
+2	BONUS:ABILITYPOOL|Puzzlemaster Selection 2|1
+3	BONUS:ABILITYPOOL|Puzzlemaster Selection 3|1
+4	BONUS:ABILITYPOOL|Puzzlemaster Selection 4|1
+5	BONUS:ABILITYPOOL|Puzzlemaster Selection 5|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
@@ -144,11 +147,15 @@ CLASS:Traveler	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Know
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER|Arcane	ADD:FEAT|Enhanced Charisma I,Enhanced Intelligence I,TYPE=TravelerLAPL1
-2	ADD:FEAT|Enhanced Charisma II,Enhanced Intelligence II,TYPE=TravelerLAPL2
-3	ADD:SPELLCASTER|Arcane	ADD:FEAT|Enhanced Charisma III,Enhanced Intelligence III,TYPE=TravelerLAPL3
-4	ADD:FEAT|Enhanced Charisma IV,Enhanced Intelligence IV,TYPE=TravelerLAPL4
-5	ADD:SPELLCASTER|Arcane	ADD:FEAT|Enhanced Charisma V,Enhanced Intelligence V,TYPE=TravelerLAPL5
+1	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+###Block:
+1	BONUS:ABILITYPOOL|Traveler Selection 1|1
+2	BONUS:ABILITYPOOL|Traveler Selection 2|1
+3	BONUS:ABILITYPOOL|Traveler Selection 3|1
+4	BONUS:ABILITYPOOL|Traveler Selection 4|1
+5	BONUS:ABILITYPOOL|Traveler Selection 5|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
@@ -160,11 +167,16 @@ CLASS:Wizard King	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=K
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	ADD:SPELLCASTER|Arcane	ADD:FEAT|Enhanced Intelligence I,TYPE=WizardKingLAPL1
-2	ADD:FEAT|Enhanced Intelligence II,TYPE=WizardKingLAPL2
-3	ADD:SPELLCASTER|Arcane	ADD:FEAT|Enhanced Intelligence III,TYPE=WizardKingLAPL3
-4	ADD:FEAT|Enhanced Intelligence IV,TYPE=WizardKingLAPL4
-5	ADD:SPELLCASTER|Arcane	ADD:FEAT|Enhanced Intelligence V,TYPE=WizardKingLAPL5
+1	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+###Block: Pools
+1	BONUS:ABILITYPOOL|Wizard King Selection 1|1
+2	BONUS:ABILITYPOOL|Wizard King Selection 2|1
+3	BONUS:ABILITYPOOL|Wizard King Selection 3|1
+4	BONUS:ABILITYPOOL|Wizard King Selection 4|1
+5	BONUS:ABILITYPOOL|Wizard King Selection 5|1
+
 
 
 #

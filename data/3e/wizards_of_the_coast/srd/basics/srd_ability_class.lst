@@ -54,6 +54,24 @@ Assassin Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal	VIS
 Martial Weapon Proficiency		KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT			TYPE:Internal	VISIBLE:EXPORT								DESC:You understand how to use all types of martial weapons in combat.
 
 
+# Ability Name		Category of Ability	Type										Serves As						Automatically Gained Weapon Prof.
+Weapon Prof ~ Auto	CATEGORY:Internal		TYPE:WeaponProfAuto.WeaponProfSimple.WeaponProfMartial								AUTO:WEAPONPROF|Unarmed Strike|Gauntlet|Grapple
+Weapon Prof ~ Simple	CATEGORY:Internal		TYPE:WeaponProfSimple.WeaponProfMartial				SERVESAS:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple
+Weapon Prof ~ Martial	CATEGORY:Internal		TYPE:WeaponProfMartial							SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+###Block: Armor Types
+# Ability Name		Category of Ability	Type									Serves As						Automatically Gained Armor Prof.
+Armor Prof ~ Light	CATEGORY:Internal		TYPE:ArmorProfLight.ArmorProfMedium.ArmorProfHeavy	SERVESAS:FEAT|Armor Proficiency (Light)	AUTO:ARMORPROF|ARMORTYPE=Light
+Armor Prof ~ Medium	CATEGORY:Internal		TYPE:ArmorProfMedium.ArmorProfHeavy				SERVESAS:FEAT|Armor Proficiency (Medium)	AUTO:ARMORPROF|ARMORTYPE=Medium
+Armor Prof ~ Heavy	CATEGORY:Internal		TYPE:ArmorProfHeavy						SERVESAS:FEAT|Armor Proficiency (Heavy)	AUTO:ARMORPROF|ARMORTYPE=Heavy
+###Block: Shield Types
+# Ability Name		Category of Ability	Type						Serves As						Automatically Gained Shield Prof.
+#Shield Prof ~ Tower	CATEGORY:Internal		TYPE:ShieldProfTower			SERVESAS:FEAT|Tower Shield Proficiency	AUTO:SHIELDPROF|SHIELDTYPE=Tower
+Shield Prof			CATEGORY:Internal		TYPE:ShieldProfTower.ShieldProf	SERVESAS:FEAT|Shield Proficiency		AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
+
+
+
+
+
 #######################################
 ###						###
 ###	  Specific Class Abilities	###
@@ -134,7 +152,7 @@ Wildshape Blindsight	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO							
 ###Block:Monk abilities
 # Ability Name			Output Name				Category of Ability		Type						Visible	Define											Description																			Combat bonus											Add to base move																																																Add to magical move																																																										Modify VAR																								Source Page						Aspects
 Stunning Attack								CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DEFINE:StunningAttack|0	DEFINE:StunDC|0	DEFINE:MonkStunningLVL|0	DESC:%1 times per day (DC %2)|StunningAttack|StunDC																																																																																																																																								BONUS:VAR|StunDC|10+WIS	BONUS:VAR|StunningAttack|MonkStunningLVL|TYPE=NoStack.REPLACE	BONUS:VAR|StunDC|MonkStunningLVL/2|TYPE=NoStack.REPLACE	SOURCEPAGE:srdbasiccharacterclassesi.rtf	ASPECT:Ability Benefit|%1/day|StunningAttack
-Monk AC									CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:MonkACCheck|0S	DEFINE:MonkACLVL|0	DEFINE:MonkAC|0																						BONUS:COMBAT|AC|MonkAC|PREVARGTEQ:MonkACCheck,0	BONUS:COMBAT|AC|max(WIS,0)																																																																																																																BONUS:VAR|MonkACCheck|MonkAC+WIS	BONUS:VAR|MonkAC|MonkACLVL/5															SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Monk AC									CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:MonkACCheck|0	DEFINE:MonkACLVL|0	DEFINE:MonkAC|0																						BONUS:COMBAT|AC|MonkAC|PREVARGTEQ:MonkACCheck,0	BONUS:COMBAT|AC|max(WIS,0)																																																																																																																BONUS:VAR|MonkACCheck|MonkAC+WIS	BONUS:VAR|MonkAC|MonkACLVL/5															SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Monk Fast Movement		OUTPUTNAME:Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:MonkSpeedLVL|0																																										BONUS:MOVEADD|TYPE.Walk|5|TYPE=Normal.REPLACE|PREVARGTEQ:MonkSpeedLVL,3|PREVAREQ:MOVEBASE,20,ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0	BONUS:MOVEADD|TYPE.Walk|min(floor(MonkSpeedLVL/3)*10,20)|TYPE=Normal.REPLACE|PREVAREQ:MOVEBASE,30,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0	BONUS:POSTMOVEADD|TYPE=Walk|min(floor(max(MonkSpeedLVL-6,0)/3)*5,20)+floor(max(MonkSpeedLVL/15,0))*5|TYPE=Magic.REPLACE|PREVAREQ:MOVEBASE,20,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0	BONUS:POSTMOVEADD|TYPE=Walk|min(floor(max(MonkSpeedLVL-6,0)/3)*10,40)|TYPE=Magic.REPLACE|PREVAREQ:MOVEBASE,30,ENCUMBERANCE,0,var("COUNT[EQTYPE.ARMOR.EQUIPPED]"),0																										SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Still Mind									CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Slow Fall									CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:SlowFallMonkProgression|0	DEFINE:SlowFall|0				DESC:%1 feet|SlowFall|PREVARGTEQ:SlowFallMonkProgression,1	DESC:Any distance|PREVARGTEQ:SlowFallMonkProgression,2

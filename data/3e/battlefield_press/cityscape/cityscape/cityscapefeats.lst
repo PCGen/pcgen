@@ -144,7 +144,8 @@ Super Strength II								TYPE:Metahuman.Physical	PREFEAT:2,Metahuman Talent,Supe
 Super Strength III							TYPE:Metahuman.Physical	PREFEAT:3,Metahuman Talent,Super Strength I,Super Strength II																DESC:This feat allows you to add to your strength score																																																											BONUS:STAT|STR|4|TYPE=MetahumanFeat										SOURCEPAGE:p.
 Super Strength IV								TYPE:Metahuman.Physical	PREFEAT:4,Metahuman Talent,Super Strength I,Super Strength II,Super Strength III													DESC:This feat allows you to add to your strength score																																																											BONUS:STAT|STR|4|TYPE=MetahumanFeat										SOURCEPAGE:p.
 Super Taste									TYPE:Metahuman.Physical	PREFEAT:1,Metahuman Talent																						DESC:You taste things well beyond the range of a normal member of your race																																																																							SOURCEPAGE:p.
-Super Touch									TYPE:Metahuman.Physical	PREFEAT:1,Metahuman Talent																						DESC:You feel things well beyond the range of a normal member of your race																																												BONUS:SKILL|Touch|8|TYPE=Metahuman																						SOURCEPAGE:p.
+Super Touch									TYPE:Metahuman.Physical	PREFEAT:1,Metahuman Talent																						DESC:You feel things well beyond the range of a normal member of your race																																																																		SOURCEPAGE:p.
+# BONUS:SKILL|Touch|8|TYPE=Metahuman
 Telscopic Vision								TYPE:Metahuman.Physical	PREFEAT:1,Metahuman Talent																						DESC:See Text																																																																										VISION:Normal (1mi)				SOURCEPAGE:p.
 X-Ray Vision								TYPE:Metahuman.Physical	PREFEAT:1,Metahuman Talent																						DESC:See Text																																																																										VISION:X-Ray (60')				SOURCEPAGE:p.
 # Mental

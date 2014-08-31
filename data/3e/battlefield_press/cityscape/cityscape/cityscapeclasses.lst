@@ -208,7 +208,8 @@ CLASS:Gadgeteer	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|TYPE=Craft|Dem
 CLASS:Gunslinger	NAMEISPI:YES	HD:10		TYPE:Base.PC	ABB:Gun		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")-1)/2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:5	CSKILL:Bluff|Demolitions|Drive|Escape Artist|Gamble|Gunslinging|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|TYPE=Profession|Read/Write Language|Ride|Sleight of Hand|Speak Language|Spot|Survival
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Archaic Weapons Proficiency|Futuristic Weapon Proficiency|Heavy Firearms Weapon Proficiency|Personal Firearms Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Archaic Weapons Proficiency|Heavy Firearms Weapon Proficiency|Personal Firearms Weapon Proficiency
+1	AUTO:WEAPONPROF|TYPE=Futuristic
 ###Block: Normal Level Progression
 1						ADD:FEAT|Advanced Firearms Weapon Proficiency,Advanced Two-Weapon Fighting,Burst Fire,Dead Aim,Double-Tap,Far Shot,Improved Two-Weapon Fighting,Precise Shot,Quick Draw,Quick Reload,Shot on the Run,Skip Shot,Strafe,Two-Weapon Fighting
 2	SAB:Close Combat Shot
@@ -644,12 +645,12 @@ CLASS:Spy		STARTSKILLPTS:6	CSKILL:Climb|Bluff|Disable Device|Diplomacy|Disguise|
 1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Obligation								BONUS:VAR|SneakAttack|(CL-1)/3+1	BONUS:VAR|SneakAttackDie|6|TYPE=Base	DEFINE:SneakAttackDie|0	DEFINE:SneakAttack|0								ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2					BONUS:SKILLRANK|Speak Languages|4																																					AUTO:FEAT|Spy Proficiencies
+2					BONUS:SKILLRANK|Speak Language|4																																					AUTO:FEAT|Spy Proficiencies
 # Languages - 4 ranks over Speak and Read/Write
 3	SAB:License to Kill
-#5	BONUS:SKILLRANK|Speak Languages|4
+#5	BONUS:SKILLRANK|Speak Language|4
 6											BONUS:VAR|WeapSpecQualify|1									DEFINE:WeapSpecQualify|0				ADD:FEAT|Weapon Specialization(Garrote)
-8					BONUS:SKILLRANK|Speak Languages|4
+8					BONUS:SKILLRANK|Speak Language|4
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Techie	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:Tech		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2

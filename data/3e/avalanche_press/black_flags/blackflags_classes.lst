@@ -134,7 +134,7 @@ CLASS:Carpenter	!PRECLASS:1,Priest=1,Noble=1	PRELEVEL:MIN=1
 CLASS:Cook		NAMEISPI:NO		HD:6		TYPE:Base.PC	ABB:Cok		MAXLEVEL:1	SOURCEPAGE:p.41	BONUS:SAVE|BASE.Reflex|2
 # Class Name	Prohibited Class		Required Lvl
 CLASS:Cook		!PRECLASS:1,Priest=1	PRELEVEL:MIN=1
-1	SAB:Forage (Ex)	BONUS:SKILL|Craft (Cook),Haggle|4|TYPE=Class	AUTO:FEAT|Alertness
+1	SAB:Forage (Ex)	BONUS:SKILL|Profession (Cook),Haggle|4|TYPE=Class	AUTO:FEAT|Alertness
 
 # Class Name	Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus
 CLASS:Officer	NAMEISPI:NO		HD:10		TYPE:Base.PC	ABB:Off		MAXLEVEL:1	SOURCEPAGE:p.42	BONUS:SAVE|BASE.Will|2

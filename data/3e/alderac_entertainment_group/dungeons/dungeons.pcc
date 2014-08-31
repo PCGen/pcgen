@@ -39,3 +39,6 @@ FEAT:dungeonsfeats.lst
 FEAT:dungeonsclassfeats.lst
 SKILL:dungeonsskills.lst
 SPELL:dungeonsspells.lst
+# Missing Prof Musket and Pistol, no equipment either...
+WEAPONPROF:d_profs_weapon.lst
+

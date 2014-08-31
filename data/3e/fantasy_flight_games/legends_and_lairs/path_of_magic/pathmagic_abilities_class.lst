@@ -16,35 +16,35 @@ Arsenalist Weapon Proficieincies	CATEGORY:Special Ability	AUTO:WEAPONPROF|Crossb
 ###Block:Generic legendary abilities
 # Feat Name				Type					Visible	Prohibited Feat					Special ABility			Stat bonus					Source Page
 # Ability Name			Category of Ability		Type					Visible	Prohibited Feat					Special ABility			Stat bonus					Source Page
-Enhanced Dexterity I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|1|TYPE=Legendary	SOURCEPAGE:p52
-Enhanced Dexterity II		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|2|TYPE=Legendary	SOURCEPAGE:p52
-Enhanced Dexterity III		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|3|TYPE=Legendary	SOURCEPAGE:p52
-Enhanced Dexterity IV		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|4|TYPE=Legendary	SOURCEPAGE:p52
-Enhanced Dexterity V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|5|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Dexterity I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL1	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|1|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Dexterity II		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL2	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|2|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Dexterity III		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL3	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|3|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Dexterity IV		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL4	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|4|TYPE=Legendary	SOURCEPAGE:p52
+Enhanced Dexterity V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL5	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|5|TYPE=Legendary	SOURCEPAGE:p52
 
-Enhanced Constitution I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|1|TYPE=Legendary	SOURCEPAGE:p46
-Enhanced Constitution II	CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|2|TYPE=Legendary	SOURCEPAGE:p46
-Enhanced Constitution III	CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|3|TYPE=Legendary	SOURCEPAGE:p46
-Enhanced Constitution IV	CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|4|TYPE=Legendary	SOURCEPAGE:p46
-Enhanced Constitution V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|5|TYPE=Legendary	SOURCEPAGE:p46
+Enhanced Constitution I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL1.ElementalLordLAPL1	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|1|TYPE=Legendary	SOURCEPAGE:p46
+Enhanced Constitution II	CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL2.ElementalLordLAPL2	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|2|TYPE=Legendary	SOURCEPAGE:p46
+Enhanced Constitution III	CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL3.ElementalLordLAPL3	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|3|TYPE=Legendary	SOURCEPAGE:p46
+Enhanced Constitution IV	CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL4.ElementalLordLAPL4	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|4|TYPE=Legendary	SOURCEPAGE:p46
+Enhanced Constitution V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL5.ElementalLordLAPL5	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|5|TYPE=Legendary	SOURCEPAGE:p46
 
-Enhanced Intelligence I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|1|TYPE=Legendary	SOURCEPAGE:p61
-Enhanced Intelligence II	CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|2|TYPE=Legendary	SOURCEPAGE:p61
-Enhanced Intelligence III	CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|3|TYPE=Legendary	SOURCEPAGE:p61
-Enhanced Intelligence IV	CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|4|TYPE=Legendary	SOURCEPAGE:p61
-Enhanced Intelligence V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|5|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Intelligence I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL1.InfiltratorLAPL1.OracleLAPL1.PuppetmasterLAPL1.PuzzlemasterLAPL1.TravelerLAPL1	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|1|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Intelligence II	CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL2.InfiltratorLAPL2.OracleLAPL2.PuppetmasterLAPL2.PuzzlemasterLAPL2.TravelerLAPL2	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|2|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Intelligence III	CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL3.InfiltratorLAPL3.OracleLAPL3.PuppetmasterLAPL3.PuzzlemasterLAPL3.TravelerLAPL3	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|3|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Intelligence IV	CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL4.InfiltratorLAPL4.OracleLAPL4.PuppetmasterLAPL4.PuzzlemasterLAPL4.TravelerLAPL4	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|4|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Intelligence V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL5.InfiltratorLAPL5.OracleLAPL5.PuppetmasterLAPL5.PuzzlemasterLAPL5.TravelerLAPL5	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|5|TYPE=Legendary	SOURCEPAGE:p61
 
-Enhanced Wisdom I			CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|1|TYPE=Legendary	SOURCEPAGE:p54
-Enhanced Wisdom II		CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|2|TYPE=Legendary	SOURCEPAGE:p54
-Enhanced Wisdom III		CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|3|TYPE=Legendary	SOURCEPAGE:p54
-Enhanced Wisdom IV		CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|4|TYPE=Legendary	SOURCEPAGE:p54
-Enhanced Wisdom V			CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|5|TYPE=Legendary	SOURCEPAGE:p54
+Enhanced Wisdom I			CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL1.OracleLAPL1	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|1|TYPE=Legendary	SOURCEPAGE:p54
+Enhanced Wisdom II		CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL2.OracleLAPL2	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|2|TYPE=Legendary	SOURCEPAGE:p54
+Enhanced Wisdom III		CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL3.OracleLAPL3	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|3|TYPE=Legendary	SOURCEPAGE:p54
+Enhanced Wisdom IV		CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL4.OracleLAPL4	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|4|TYPE=Legendary	SOURCEPAGE:p54
+Enhanced Wisdom V			CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL5.OracleLAPL5	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|5|TYPE=Legendary	SOURCEPAGE:p54
 
-Enhanced Charisma I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SAB:Enhanced Charisma		BONUS:STAT|CHA|1|TYPE=Legendary	SOURCEPAGE:p61
-Enhanced Charisma II		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SAB:Enhanced Charisma		BONUS:STAT|CHA|2|TYPE=Legendary	SOURCEPAGE:p61
-Enhanced Charisma III		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SAB:Enhanced Charisma		BONUS:STAT|CHA|3|TYPE=Legendary	SOURCEPAGE:p61
-Enhanced Charisma IV		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SAB:Enhanced Charisma		BONUS:STAT|CHA|4|TYPE=Legendary	SOURCEPAGE:p61
-Enhanced Charisma V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SAB:Enhanced Charisma		BONUS:STAT|CHA|5|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Charisma I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA.DeathLordLAPL1.InfiltratorLAPL1.LandwalkerLAPL1.MaestroLAPL1.PuppetmasterLAPL1.PuzzlemasterLAPL1.TravelerLAPL1	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SAB:Enhanced Charisma		BONUS:STAT|CHA|1|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Charisma II		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA.DeathLordLAPL2.InfiltratorLAPL2.LandwalkerLAPL2.MaestroLAPL2.PuppetmasterLAPL2.PuzzlemasterLAPL2.TravelerLAPL2	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SAB:Enhanced Charisma		BONUS:STAT|CHA|2|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Charisma III		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA.DeathLordLAPL3.InfiltratorLAPL3.LandwalkerLAPL3.MaestroLAPL3.PuppetmasterLAPL3.PuzzlemasterLAPL3.TravelerLAPL3	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SAB:Enhanced Charisma		BONUS:STAT|CHA|3|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Charisma IV		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA.DeathLordLAPL4.InfiltratorLAPL4.LandwalkerLAPL4.MaestroLAPL4.PuppetmasterLAPL4.PuzzlemasterLAPL4.TravelerLAPL4	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SAB:Enhanced Charisma		BONUS:STAT|CHA|4|TYPE=Legendary	SOURCEPAGE:p61
+Enhanced Charisma V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA.DeathLordLAPL5.InfiltratorLAPL5.LandwalkerLAPL5.MaestroLAPL5.PuppetmasterLAPL5.PuzzlemasterLAPL5.TravelerLAPL5	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SAB:Enhanced Charisma		BONUS:STAT|CHA|5|TYPE=Legendary	SOURCEPAGE:p61
 
 
 ###Block:Death Lord legendary abilities

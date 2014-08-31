@@ -33,7 +33,7 @@ Soulcleanser ~ Bastard Sword		PROFICIENCY:WEAPON|Sword (Bastard)	TYPE:Magic.Weap
 Trickle Sword				PROFICIENCY:WEAPON|Longsword		TYPE:Magic.Weapon.Martial.Melee.Slashing.Specific		COST:16315	WT:4		BASEITEM:Longsword		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:PLUS2W.WOUND						SIZE:M	SOURCEPAGE:p.43																																																																																																																					SPROP:Anyone wounded by this weapon is marked and leaves behind a magical trail of blood that glows to the wielder allowing easy tracking
 
 #Block: Rogue----------------------------
-Picker Picker				PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific	COST:14002	WT:1		BASEITEM:Dagger			CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:PLUS2W					RANGE:10	SIZE:T	SOURCEPAGE:p.43																																								BONUS:SKILL|Open Locks|10|TYPE=Competence
+Picker Picker				PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific	COST:14002	WT:1		BASEITEM:Dagger			CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:PLUS2W					RANGE:10	SIZE:T	SOURCEPAGE:p.43																																								BONUS:SKILL|Open Lock|10|TYPE=Competence
 Silent Dagger				PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific	COST:16000	WT:1		BASEITEM:Dagger			CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:PLUS2W					RANGE:10	SIZE:T	SOURCEPAGE:p.43																																																																																																																					SPROP:creates a one-way sound barrier around it with a radius of five feet.
 
 ###Block: General Weapons

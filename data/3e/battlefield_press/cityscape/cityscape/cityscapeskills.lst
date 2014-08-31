@@ -39,7 +39,7 @@ Knowledge (Astrology)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Kno
 Knowledge (Astronomy)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge								SOURCEPAGE:p.
 Knowledge (Biology)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge								SOURCEPAGE:p.
 Knowledge (Botany)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge								SOURCEPAGE:p.						BONUS:SKILL|Knowledge (Botany)|SynergyBonus|PRESKILL:1,Craft (Poisonmaking)=5|TYPE=Synergy.STACK
-Knowldege (Business)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge								SOURCEPAGE:p.
+Knowledge (Business)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge								SOURCEPAGE:p.
 Knowledge (Chemistry)			KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge								SOURCEPAGE:p.
 Knowledge (Current Events)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge								SOURCEPAGE:p.
 Knowledge (Earth Sciences)		KEYSTAT:INT	USEUNTRAINED:NO								TYPE:Intelligence.Knowledge								SOURCEPAGE:p.
@@ -78,6 +78,8 @@ Seduction					KEYSTAT:CHA											TYPE:Charisma										SOURCEPAGE:p.
 Scent/Taste					KEYSTAT:CON	USEUNTRAINED:NO								TYPE:Constitution										SOURCEPAGE:p.
 Weird Science!				KEYSTAT:INT	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Intelligence										SOURCEPAGE:Errata
 
+###Comment: Part of a Feat???
+#Touch								
 
 ###Block - RSRD
 # Skill Name	Key Stat	Untrained?		Skill Penalty Apply	Type								Source Page			Bonus to skill
