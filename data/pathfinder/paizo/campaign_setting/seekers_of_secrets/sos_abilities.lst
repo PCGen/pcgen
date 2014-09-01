@@ -5,8 +5,8 @@ SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SO
 # Ability Name			Unique Key						Category of Ability		Type					Var. Must Be Grater		Stackable?	Multiple?	Choose							Automatically Gained Weapon Prof.	Bonus to skill				Modify VAR																Aspects
 Flawed Gamboge Nodule Ability								CATEGORY:Special Ability	TYPE:Internal																																																	ASPECT:SaveBonus|-4 penalty against curses and diseases
 
-Animal Companion			KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal			TYPE:BoonCompanionSelection	PREVARGT:AnimalCompanionLVL,0																									BONUS:VAR|AnimalCompanionLVL|MIN((TL-AnimalCompanionMasterLVL),4)|PREVARGTEQ:AnimalCompanionLVL,1
-Familiar				KEY:Boon Companion ~ Familiar			CATEGORY:Internal			TYPE:BoonCompanionSelection	PREVARGT:FamiliarLVL,0																										BONUS:VAR|FamiliarLVL|min(TL-FamiliarMasterLVL,4)|PREVARGT:FamiliarLVL,0
+Animal Companion			KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal			TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:AnimalCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion]																							BONUS:VAR|AnimalCompanionLVL|MIN((TL-AnimalCompanionMasterLVL),4)|PREVARGTEQ:AnimalCompanionLVL,1	BONUS:VAR|AnimalCompanionLVLA|MIN((TL-RangerLVL),4)|PREVARGTEQ:AnimalCompanionLVLA,1
+Familiar				KEY:Boon Companion ~ Familiar			CATEGORY:Internal			TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:FamiliarLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Familiar]																										BONUS:VAR|FamiliarLVL|min(TL-FamiliarMasterLVL,4)|PREVARGT:FamiliarLVL,0
 
 
 Weapon Proficiency Selection	KEY:Weapon Proficiency Selection		CATEGORY:Internal													STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC				AUTO:WEAPONPROF|%LIST
