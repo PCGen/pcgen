@@ -28,6 +28,7 @@ import pcgen.cdom.facet.base.AbstractSubScopeFacet;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.spell.Spell;
+import pcgen.util.Logging;
 
 /**
  * AvailableSpellFacet is a Facet that tracks the Available Spells (and target
@@ -100,6 +101,20 @@ public class AvailableSpellFacet extends
 				if (spellMap.containsKey(sp))
 				{
 					levelInfo.addToListFor(list, level);
+				}
+				else
+				{
+					for (Spell spell : spellMap.keySet())
+					{
+						if (spell.getKeyName().equals(sp.getKeyName()))
+						{
+							Logging.log(Logging.INFO,
+								"Found alternate spell of same key: " + spell
+									+ " from " + spell.getSource()
+									+ " rather than " + sp.getSource());
+							levelInfo.addToListFor(list, level);
+						}
+					}
 				}
 			}
 		}
