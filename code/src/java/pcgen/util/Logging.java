@@ -428,6 +428,33 @@ public class Logging
 			}
 		}
 	}
+	
+	/**
+	 * Beep and print error message if PCGen is debugging.
+	 *
+	 * @param s String error message
+	 * @param sourceURI the source containing the resource in error
+	 */
+	public static void errorPrint(final String s, final URI sourceURI)
+	{
+		if (isDebugMode())
+		{
+			s_TOOLKIT.beep();
+		}
+
+		Logger l = getLogger();
+		if (l.isLoggable(ERROR))
+		{
+			if (sourceURI != null)
+			{
+				l.log(ERROR, s + " (Source: " + sourceURI + " )");
+			}
+			else
+			{
+				l.log(ERROR, s);
+			}
+		}
+	}
 
 	/**
 	 * Print error message with a stack trace if PCGen is

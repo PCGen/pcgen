@@ -241,7 +241,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		{
 			Logging
 				.errorPrint("CHOOSE:NOCHOICE requires both MULT:YES and STACK:YES, was STACK:NO on "
-					+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
+					+ obj.getClass().getSimpleName() + " " + obj.getKeyName(), obj.getSourceURI());
 			return false;
 		}
 		return true;
