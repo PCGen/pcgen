@@ -2,9 +2,9 @@
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com	SOURCEDATE:2001-01
 
 # Equipment Name				Product Identity?	Output Name				Required Weapon Proficiency		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage		Size		Source Page			Combat bonus						Bonus to skill											Stat bonus		Bonus
-Alluna's Lenses of Discovery 50%	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:24500	WT:1															SOURCEPAGE:p.174
-Alluna's Lenses of Discovery 85%	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:34500	WT:1															SOURCEPAGE:p.174
-Alluna's Lenses of Discovery 90%	NAMEISPI:YES												TYPE:Magic.Wondrous							COST:50000	WT:1															SOURCEPAGE:p.174
+Alluna's Lenses of Discovery 50%	NAMEISPI:YES	KEY:Alluna's Lenses of Discovery 50											TYPE:Magic.Wondrous							COST:24500	WT:1															SOURCEPAGE:p.174
+Alluna's Lenses of Discovery 85%	NAMEISPI:YES	KEY:Alluna's Lenses of Discovery 85											TYPE:Magic.Wondrous							COST:34500	WT:1															SOURCEPAGE:p.174
+Alluna's Lenses of Discovery 90%	NAMEISPI:YES	KEY:Alluna's Lenses of Discovery 90											TYPE:Magic.Wondrous							COST:50000	WT:1															SOURCEPAGE:p.174
 Helm (Amalthean)				NAMEISPI:YES	OUTPUTNAME:[NAME] Helm								TYPE:Magic.Wondrous							COST:50000	WT:5															SOURCEPAGE:p.174-175
 Amulet (Ghost Armor)			NAMEISPI:YES	OUTPUTNAME:Amulet of [NAME]							TYPE:Magic.Wondrous							COST:80000	WT:1															SOURCEPAGE:p.175		BONUS:COMBAT|AC|7|TYPE=Armor
 Amulet (Love)				NAMEISPI:YES	OUTPUTNAME:Amulets of [NAME]							TYPE:Magic.Wondrous							COST:100000	WT:1															SOURCEPAGE:p.175

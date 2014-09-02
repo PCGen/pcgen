@@ -26,6 +26,7 @@ COPYRIGHT:PCGen dataset conversion for Darwin's World: Artifacts of the Ancients
 #EXTRAFILE:OGL.txt
 
 # Original Entry by wizofice2001
+ABILITYCATEGORY:a_abilitycategories.lst
 
 EQUIPMENT:artifactsoaequip.lst
 EQUIPMENT:artifactsoaequiparmorshields.lst

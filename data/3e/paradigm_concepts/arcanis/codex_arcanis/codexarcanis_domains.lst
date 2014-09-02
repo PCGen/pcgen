@@ -4,7 +4,7 @@ SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://w
 
 # Domain Name	Class Skill					Automatically Gained Feat			Special ABility						Define			Bonus to skill															Modify VAR				Source Page				Clear Description	Description
 Afterlife		CSKILL:Knowledge (Thanatology)																																					BONUS:VAR|TurnLevelBase|3	SOURCEPAGE:p.178						DESC:Necrology is a Class Skill, turn or rebuke as 3 levels higher
-Artifact																											BONUS:SKILL|Craft (Armorsmithing),Craft (Blacksmithing), Craft (Weaponsmithing)|2|TYPE=Compentence						SOURCEPAGE:p.179						DESC:+2 Compentence Bonus to Craft (Armorsmithing, Blacksmithing, Weaponsmithing)
+Artifact																											BONUS:SKILL|Craft (Armorsmithing),Craft (Blacksmithing),Craft (Weaponsmithing)|2|TYPE=Compentence						SOURCEPAGE:p.179						DESC:+2 Compentence Bonus to Craft (Armorsmithing, Blacksmithing, Weaponsmithing)
 Murder		CSKILL:Climb|Hide|Move Silently																																										SOURCEPAGE:p.179						DESC:Climb, Hide, Move Silently are Class Skills
 Charm																																																		SOURCEPAGE:p.179						DESC:Fascinate 1/day with CHA check at +2.  Lasts for 1 round/level
 Daemonology															SAB:Rebuke Demons and Devils %/day|RebukeDemon	DEFINE:RebukeDemon|0																		BONUS:VAR|RebukeDemon|3+CHA	SOURCEPAGE:p.179						DESC:Control or Rebuke demons and devils.  Domain spells only summon Fiendish creatures

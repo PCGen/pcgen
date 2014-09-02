@@ -22,7 +22,7 @@ COPYRIGHT:Darwins World Copyright 2001, RPGObjects; Authors Dominic Covey and Ch
 
 INFOTEXT:All the Dwarwin's World Combined Rules.
 
-PCC:@/homebrew/conversion_support/conversion_support.pcc
+#PCC:@/homebrew/conversion_support/conversion_support.pcc
 
 PCC:world_rules/worldrules.pcc
 PCC:denizens/denizenste.pcc

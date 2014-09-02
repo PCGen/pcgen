@@ -2,4 +2,4 @@
 
 
 # Ability Category			Visible		Editable?		Change Pool?	Category of Object		Display Location
-ABILITYCATEGORY:Unhorsed Dwarf	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Unhorsed Dwarf	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	DISPLAYLOCATION:Racial Abilities	ABILITYLIST:Unhorsed Dwarf

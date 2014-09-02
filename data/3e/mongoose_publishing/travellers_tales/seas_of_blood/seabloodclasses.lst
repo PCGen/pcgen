@@ -28,7 +28,7 @@ CLASS:Navigator Wizard	OUTPUTNAME:Navigator-Wizard	HD:4		TYPE:PC.Prestige	ABB:Nv
 CLASS:Navigator Wizard	PREFEAT:1,Spell Mastery	PRESKILL:1,Profession (Navigator)=6	PRESPELLSCHOOL:1,Divination=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Navigator Wizard	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Gather Information|TYPE=Knowledge|Profession (Navigator)|Scry|Spellcraft
-1	BONUS:SKILL|Profession (Navigation)|2												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Infallible Direction ~ Navigator Wizard
+1	BONUS:SKILL|Profession (Navigator)|2												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Infallible Direction ~ Navigator Wizard
 2																			ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Fast Pursuit ~ Navigator Wizard
 3	BONUS:SKILL|Knowledge (Seamanship)|IntuitSea	BONUS:VAR|IntuitSea|floor(CL/3)*2	DEFINE:IntuitSea|0	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Intuitive Seamanship ~ Navigator Wizard
 4																			ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Catch the Wind ~ Navigator Wizard

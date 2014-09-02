@@ -169,7 +169,7 @@ CLASS:Vigilant	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 1	SPELLLEVEL:CLASS|Vigilant=3|Endurance,Neutralize Poison,Remove Disease,Spike Growth,Water Walk
 1	SPELLLEVEL:CLASS|Vigilant=4|Freedom of Movement,Repel Vermin,Spike Stones,Wind Wall
 ###Block: Weapon and Armor Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression

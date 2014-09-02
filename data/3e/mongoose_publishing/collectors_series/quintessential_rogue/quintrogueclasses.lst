@@ -79,7 +79,7 @@ CLASS:Executioner	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Escape Artist|He
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	BONUS:VAR|SneakAttackDice|(CL+1)/2	BONUS:VAR|ExecutionersStrike|(CL+1)/2	BONUS:VAR|ExecutionersStrikeDie|6	DEFINE:ExecutionersStrikeDie|0	DEFINE:ExecutionersStrike|0	ABILITY:Special Ability|AUTOMATIC|Executioner's Strik ~ Executioner	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+1	BONUS:VAR|SneakAttackDice|(CL+1)/2	BONUS:VAR|ExecutionersStrike|(CL+1)/2	BONUS:VAR|ExecutionersStrikeDie|6	DEFINE:ExecutionersStrikeDie|0	DEFINE:ExecutionersStrike|0	ABILITY:Special Ability|AUTOMATIC|Executioner's Strike ~ Executioner	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2																															ABILITY:Special Ability|AUTOMATIC|Cold Blooded Killer ~ Executioner
 4																															ABILITY:Special Ability|AUTOMATIC|Executioner's Song ~ Executioner
 

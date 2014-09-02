@@ -65,4 +65,4 @@ Natural Healing		TYPE:ClassAbility	VISIBLE:NO	SAB:Natural Healing															
 ###Block: Proficiencies
 # Feat Name					Type			Visible	Automatically Gained Weapon Prof.
 Penumbral Lord Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Dagger|Club|Quarterstaff|Crossbow (Light)|Dart|Sling|Crossbow (Heavy)|Javelin
-Incarnate Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dart|Longspear|Quarterstaff|Shortspear|Sickle (Stone)|Sling
+Incarnate Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dart|Longspear|Quarterstaff|Shortspear|Sickle|Sling
