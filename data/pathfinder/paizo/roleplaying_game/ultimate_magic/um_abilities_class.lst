@@ -663,9 +663,9 @@ Constitution Bonus	KEY:Flexible Enhancement Constitution Bonus	CATEGORY:Special 
 ###Block: Add new familiars
 #Block: Arcane Bond familiar
 # Ability Name							Allowed Companions
-CATEGORY=Special Ability|Arcane Bond ~ Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Blue-Ringed Octopus),Familiar (Donkey Rat),Familiar (Fox (UM)),Familiar (Goat),Familiar (Greensting Scorpion),Familiar (Hedgehog),Familiar (House Centipede),Familiar (King Crab),Familiar (Pig),Familiar (Scarlet Spider),Familiar (Thrush),Familiar (Turtle)
+CATEGORY=Special Ability|Arcane Bond ~ Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Blue-Ringed Octopus),Familiar (Donkey Rat),Familiar (Fox (UM)),Familiar (Goat),Familiar (Scorpion (Greensting)),Familiar (Hedgehog),Familiar (Centipede (House)),Familiar (Crab (Giant King)),Familiar (Pig),Familiar (Spider (Scarlet)),Familiar (Thrush),Familiar (Turtle)
 #Block: Witch familiar
-CATEGORY=Special Ability|Witch ~ Familiar.MOD		COMPANIONLIST:Familiar|Familiar (Blue-Ringed Octopus),Familiar (Donkey Rat),Familiar (Fox (UM)),Familiar (Goat),Familiar (Greensting Scorpion),Familiar (Hedgehog),Familiar (House Centipede),Familiar (King Crab),Familiar (Pig),Familiar (Scarlet Spider),Familiar (Thrush),Familiar (Turtle)
+CATEGORY=Special Ability|Witch ~ Familiar.MOD		COMPANIONLIST:Familiar|Familiar (Blue-Ringed Octopus),Familiar (Donkey Rat),Familiar (Fox (UM)),Familiar (Goat),Familiar (Scorpion (Greensting)),Familiar (Hedgehog),Familiar (Centipede (House)),Familiar (Crab (Giant King)),Familiar (Pig),Familiar (Spider (Scarlet)),Familiar (Thrush),Familiar (Turtle)
 
 ###Block: Versatile Channeler Abilities
 # Ability Name			Unique Key						Category of Ability		Type												Required Ability																Serves As									Define																												Description																																	Ability																																																											Modify VAR																																						Description of the Benefits

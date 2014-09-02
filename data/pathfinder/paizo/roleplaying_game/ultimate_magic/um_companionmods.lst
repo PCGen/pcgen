@@ -478,19 +478,20 @@ FOLLOWER:BeastBondedFeatTransfer=10	TYPE:Familiar	BONUS:FEAT|POOL|1
 
 ###Block: New Familiars
 ###Block:Familiar Bonuses to Master
-# Race of familiar					Type			Combat bonus					Bonus to skill		Modify VAR			Virtual Feat	Bonus
-MASTERBONUSRACE:Familiar (Blue-Ringed Octopus)	TYPE:Familiar								BONUS:SKILL|Swim|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Donkey Rat)		TYPE:Familiar																VFEAT:Alertness	BONUS:SAVE|Fortitude|2
-MASTERBONUSRACE:Familiar (Fox (UM))			TYPE:Familiar																VFEAT:Alertness	BONUS:SAVE|Reflex|2
-MASTERBONUSRACE:Familiar (Goat)			TYPE:Familiar								BONUS:SKILL|Survival|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Greensting Scorpion)	TYPE:Familiar	BONUS:COMBAT|INITIATIVE|4											VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Hedgehog)			TYPE:Familiar																VFEAT:Alertness	BONUS:SAVE|Will|2
-MASTERBONUSRACE:Familiar (House Centipede)	TYPE:Familiar								BONUS:SKILL|Stealth|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (King Crab)		TYPE:Familiar												BONUS:VAR|CMB_Grapple|2	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Pig)			TYPE:Familiar								BONUS:SKILL|Diplomacy|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Scarlet Spider)		TYPE:Familiar								BONUS:SKILL|Climb|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Thrush)			TYPE:Familiar								BONUS:SKILL|Diplomacy|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Turtle)			TYPE:Familiar	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK									VFEAT:Alertness
+# Race of familiar						Type			Combat bonus					Bonus to skill		Modify VAR			Virtual Feat	Bonus
+MASTERBONUSRACE:Familiar (Blue-Ringed Octopus)		TYPE:Familiar								BONUS:SKILL|Swim|3					VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Donkey Rat)			TYPE:Familiar																VFEAT:Alertness	BONUS:SAVE|Fortitude|2
+MASTERBONUSRACE:Familiar (Fox (UM))				TYPE:Familiar																VFEAT:Alertness	BONUS:SAVE|Reflex|2
+MASTERBONUSRACE:Familiar (Goat)				TYPE:Familiar								BONUS:SKILL|Survival|3					VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Scorpion (Greensting))	TYPE:Familiar	BONUS:COMBAT|INITIATIVE|4											VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Hedgehog)				TYPE:Familiar																VFEAT:Alertness	BONUS:SAVE|Will|2
+MASTERBONUSRACE:Familiar (Centipede (House))		TYPE:Familiar								BONUS:SKILL|Stealth|3					VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Crab (Giant King))			TYPE:Familiar												BONUS:VAR|CMB_Grapple|2	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Pig)				TYPE:Familiar								BONUS:SKILL|Diplomacy|3					VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Spider (Scarlet))		TYPE:Familiar								BONUS:SKILL|Climb|3					VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Thrush)				TYPE:Familiar								BONUS:SKILL|Diplomacy|3					VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Turtle)				TYPE:Familiar	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK									VFEAT:Alertness
+
 
 ###Block: Abilities for specific types of familiars
 # Class of the Master	Type			Required Race			Apply Kit
