@@ -68,7 +68,7 @@ Perform (Stand-Up)			KEYSTAT:CHA								TYPE:Charisma.Perform			SOURCEPAGE:msrds
 Perform (Stringed Instruments)	KEYSTAT:CHA								TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii.rtf
 Perform (Wind Instruments)		KEYSTAT:CHA								TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii.rtf
 Pilot						KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity				SOURCEPAGE:msrdskillsii.rtf
-Profession					KEYSTAT:WIS								TYPE:Wisdom					SOURCEPAGE:msrdskillsii.rtf															BONUS:VAR|WealthBonus|ceil(min(var("SKILLRANK=Profession"),23)/5)
+Profession					KEYSTAT:WIS								TYPE:Wisdom.Profession			SOURCEPAGE:msrdskillsii.rtf															BONUS:VAR|WealthBonus|ceil(min(var("SKILLRANK=Profession"),23)/5)
 Read/Write Language					USEUNTRAINED:NO					TYPE:None.Language			SOURCEPAGE:msrdskillsii.rtf	CHOOSE:LANG|TYPE=Written																					AUTO:LANG|%LIST
 Repair					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence				SOURCEPAGE:msrdskillsii.rtf
 Research					KEYSTAT:INT								TYPE:Intelligence				SOURCEPAGE:msrdskillsii.rtf

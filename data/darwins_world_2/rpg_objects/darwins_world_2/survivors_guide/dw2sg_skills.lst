@@ -5,3 +5,4 @@ SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_
 Knowledge (Ancient Lore)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p. 13
 Knowledge (Mutant Lore)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p. 13
 Knowledge (Twisted Earth)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p. 13
+Profession.MOD	PREVAREQ:AllowedProfessionSkill,100

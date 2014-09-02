@@ -67,7 +67,8 @@ FEAT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_feats.
 FEAT:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Action Boost,Armor Proficiency (Powered),Charismatic Plus,Dedicated Plus,Fast Plus,Nerve Pinch,Smart Plus,Strong Plus,Tough Plus)
 #FEAT:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_feats_hidden_mod.lst
 
-SKILL:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_skills.lst|(EXCLUDE:Profession)
+SKILL:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_skills.lst
+#|(EXCLUDE:Profession)
 
 LANGUAGE:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_languages.lst
 

@@ -140,7 +140,7 @@ Vehicle Combat				TYPE:General.RdWarrior								VISIBLE:YES								PREFEAT:2,Veh
 Vulture					TYPE:General.Scholar.Trader							VISIBLE:YES																																											PRESTAT:1,WIS=13				DESC:See Text.								BONUS:SKILL|Search|4						SOURCEPAGE:p. 69
 
 Primitive Technology			TYPE:Technology									VISIBLE:YES																																																	DESC:See Text.																	SOURCEPAGE:p. 69
-Post-Apocalyptic Technology		TYPE:Technology									VISIBLE:YES																																																	DESC:See Text.																	SOURCEPAGE:p. 69
+Post-Apocalyptic Technology		TYPE:Technology.Raider								VISIBLE:YES																																																	DESC:See Text.																	SOURCEPAGE:p. 69
 Advanced Technology			TYPE:Technology									VISIBLE:YES																																																	DESC:See Text.																	SOURCEPAGE:p. 69
 
 Modern Aircraft Discipline		TYPE:TechCraft.Mech.Scientist							VISIBLE:YES																							PRESKILL:3,Craft (Mechanical)=10,Knowledge (Physical Sciences)=6,Knowledge (Technology)=6												DESC:See Text.																	SOURCEPAGE:p. 70
@@ -180,44 +180,44 @@ Withstand			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Increased
 
 ###Block: Neural Feats
 # Feat Name			Type					Visible	Required Ability									Required Feat									Description		Source Page
-Anxiety Trigger		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 94
-Attraction Trigger	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 94
-Battle Plan			TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:2,Foresight,Precognitive Combat					DESC:See Text.	SOURCEPAGE:p. 94
-Charm Person		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Attraction Trigger							DESC:See Text.	SOURCEPAGE:p. 95
-Clairaudience		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition												DESC:See Text.	SOURCEPAGE:p. 95
-Clairvoyance		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition												DESC:See Text.	SOURCEPAGE:p. 95
-Danger Sense		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 95
-Domination			TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Attraction Trigger,Charm Person					DESC:See Text.	SOURCEPAGE:p. 95
-Fight Trigger		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Anxiety Trigger							DESC:See Text.	SOURCEPAGE:p. 95
-Flight Trigger		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
-Foresight			TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition												DESC:See Text.	SOURCEPAGE:p. 96
-Levitation			TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:2,Telekinetic Hand,Telekinetic Mastery				DESC:See Text.	SOURCEPAGE:p. 96
-Lie Detector		TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mental Communication						DESC:See Text.	SOURCEPAGE:p. 96
-Mental Communication	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
-Mind Stun			TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
-Mind Blast			TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mind Stun								DESC:See Text.	SOURCEPAGE:p. 96
-Mind Strike			TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mind Stun								DESC:See Text.	SOURCEPAGE:p. 97
-Mind Crush			TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Mind Stun,Mind Strike						DESC:See Text.	SOURCEPAGE:p. 97
-Precognitive Combat	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
-Precognitive Dodge	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
-Precognitive Reflexes	TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
-Perceive Danger		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:2,Foresight,Danger Sense						DESC:See Text.	SOURCEPAGE:p. 97
-Perceive Outcome		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
-Psychic Interrogation	TYPE:NeuralFeat.Telepathy	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Mental Communication,Lie Detector				DESC:See Text.	SOURCEPAGE:p. 97
-Rain of Objects		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
-Second Chance		TYPE:NeuralFeat.Precognition	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:2,Foresight,Perceive Outcome					DESC:See Text.	SOURCEPAGE:p. 98
-Telekinetic Mastery	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
-Telekinetic Throw		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:3,Telekinetic Hand,Telekinetic Mastery,Rain of Objects	DESC:See Text.	SOURCEPAGE:p. 98
-Telekinetic Disarm	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
-Telekinetic Guide		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 98
-Telekinetic Hand		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 98
-Telekinetic Hand II	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 99
-Telekinetic Punch		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 99
-Telekinetic Shield	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 99
-Telekinetic Shield II	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 99
-Telekinetic Slam		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:2,Telekinetic Hand,Telekinetic Punch				DESC:See Text.	SOURCEPAGE:p. 99
-Telekinetic Sword		TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 100
-Telekinetic Sword II	TYPE:NeuralFeat.Telekinesis	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 100
+Anxiety Trigger		TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 94
+Attraction Trigger	TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 94
+Battle Plan			TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:2,Foresight,Precognitive Combat					DESC:See Text.	SOURCEPAGE:p. 94
+Charm Person		TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Attraction Trigger							DESC:See Text.	SOURCEPAGE:p. 95
+Clairaudience		TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition												DESC:See Text.	SOURCEPAGE:p. 95
+Clairvoyance		TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition												DESC:See Text.	SOURCEPAGE:p. 95
+Danger Sense		TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 95
+Domination			TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Attraction Trigger,Charm Person					DESC:See Text.	SOURCEPAGE:p. 95
+Fight Trigger		TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Anxiety Trigger							DESC:See Text.	SOURCEPAGE:p. 95
+Flight Trigger		TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
+Foresight			TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition												DESC:See Text.	SOURCEPAGE:p. 96
+Levitation			TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:2,Telekinetic Hand,Telekinetic Mastery				DESC:See Text.	SOURCEPAGE:p. 96
+Lie Detector		TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mental Communication						DESC:See Text.	SOURCEPAGE:p. 96
+Mental Communication	TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
+Mind Stun			TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
+Mind Blast			TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mind Stun								DESC:See Text.	SOURCEPAGE:p. 96
+Mind Strike			TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mind Stun								DESC:See Text.	SOURCEPAGE:p. 97
+Mind Crush			TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Mind Stun,Mind Strike						DESC:See Text.	SOURCEPAGE:p. 97
+Precognitive Combat	TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
+Precognitive Dodge	TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
+Precognitive Reflexes	TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
+Perceive Danger		TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:2,Foresight,Danger Sense						DESC:See Text.	SOURCEPAGE:p. 97
+Perceive Outcome		TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
+Psychic Interrogation	TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Mental Communication,Lie Detector				DESC:See Text.	SOURCEPAGE:p. 97
+Rain of Objects		TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
+Second Chance		TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:2,Foresight,Perceive Outcome					DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Mastery	TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Throw		TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:3,Telekinetic Hand,Telekinetic Mastery,Rain of Objects	DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Disarm	TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Guide		TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Hand		TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Hand II	TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Punch		TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Shield	TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Shield II	TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Slam		TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:2,Telekinetic Hand,Telekinetic Punch				DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Sword		TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 100
+Telekinetic Sword II	TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 100
 
 ###Block: Monster Feats
 # Feat Name	Type			Required Template				Description		Source Page
@@ -226,3 +226,4 @@ Snatch	TYPE:General	PRETEMPLATE:1,Dragon,Half-Dragon	DESC:See Text	SOURCEPAGE:sr
 #
 # EoF
 #
+
