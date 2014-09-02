@@ -46,13 +46,13 @@ World Traveller	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				
 ###Block:Occupation Workarounds
 # Feat Name						Type				Visible	Add					Modify VAR
 # Ability Name				Category of Ability	Type			Visible		Required Ability										Bonus to Ability Pool			Modify VAR
-Exchange Reputation for Wealth	CATEGORY:Heir's Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY													BONUS:ABILITYPOOL|Heir's Wealth|1	BONUS:VAR|Reputation|-1
-Wealth Increase +1			CATEGORY:Heir's Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Heir's Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|1
-Wealth Increase +2			CATEGORY:Heir's Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Heir's Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|2
-Wealth Increase +3			CATEGORY:Heir's Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Heir's Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|3
-Wealth Increase +4			CATEGORY:Heir's Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Heir's Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|4
-Wealth Increase +5			CATEGORY:Heir's Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Heir's Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|5
-Wealth Increase +6			CATEGORY:Heir's Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Heir's Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|6
+Exchange Reputation for Wealth	CATEGORY:Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY													BONUS:ABILITYPOOL|Heir's Wealth|1	BONUS:VAR|Reputation|-1
+Wealth Increase +1			CATEGORY:Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|1
+Wealth Increase +2			CATEGORY:Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|2
+Wealth Increase +3			CATEGORY:Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|3
+Wealth Increase +4			CATEGORY:Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|4
+Wealth Increase +5			CATEGORY:Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|5
+Wealth Increase +6			CATEGORY:Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|6
 
 ###Block:Skill Choices
 # Ability Name						Category of Ability		Type																											Visible		Class Skill

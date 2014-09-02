@@ -77,7 +77,7 @@ CLASS:SWAT		STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Drive|Hide|Intimidate|Investi
 4																																	ADD:FEAT|TYPE=SWAT
 5	SAB:Reconnaissance										BONUS:SKILL|Spot|CL
 6																								BONUS:VAR|QuickResponse|1
-7	SAB:Plan												BONUS:SKILL|Knoweldge (Tactics)|2
+7	SAB:Plan												BONUS:SKILL|Knowledge (Tactics)|2
 8																																	ADD:FEAT|TYPE=SWAT
 9	SAB:Ambush												BONUS:SKILL|Hide|var("SKILLRANK=Knowledge (Tactics)")/2
 10																								BONUS:VAR|QuickResponse|1

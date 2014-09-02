@@ -5,7 +5,7 @@ SOURCELONG:Blood and Guts 2: On the Ground	SOURCESHORT:BnG2-OtG	SOURCEWEB:http:/
 #EDITED BY: Paul W. King, Jan 2007
 
 # Equipment Name			Unique Key					Type				Cost		Weight	AC Penalty Check	Source Page		Vision				Special Property
-Hazmat suit										TYPE:Personal.Suit	COST:20	WT:50		ACCHECK:-2		SOURCEPAGE:p.9						SPROP:Res (+1)
+Hazmat Suit										TYPE:Personal.Suit	COST:20	WT:50		ACCHECK:-2		SOURCEPAGE:p.9						SPROP:Res (+1)
 JSL Suit										TYPE:Personal.Suit	COST:15	WT:9.6				SOURCEPAGE:p.9						SPROP:Res (+1)
 M40 Protective Mask								TYPE:Personal		COST:15	WT:4.4				SOURCEPAGE:p.9
 Modular Load Carrying System							TYPE:Personal		COST:15	WT:16.8				SOURCEPAGE:p.9

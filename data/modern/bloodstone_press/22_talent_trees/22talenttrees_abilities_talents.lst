@@ -171,6 +171,6 @@ Game Face			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Intimidating	VISIBLE:
 
 ###Block: Pulchritudinous Tree
 # Ability Name			Category of Ability	Type								Visible	Required Ability							Bonus to skill								Source Page
-Good Impression			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Pulchritudinous	VISIBLE:YES										BONUS:SKILL|Diplomacy,Bluff,TYPE.Perfor|3|TYPE=Circumstance	SOURCEPAGE:p.14
+Good Impression			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Pulchritudinous	VISIBLE:YES										BONUS:SKILL|Diplomacy,Bluff,TYPE.Perform|3|TYPE=Circumstance	SOURCEPAGE:p.14
 CATEGORY=Talent|Charm.MOD					TYPE:Pulchritudinous
 Stunning Beauty			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Pulchritudinous	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Good Impression,Charm											SOURCEPAGE:p.14

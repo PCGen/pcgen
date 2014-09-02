@@ -7,7 +7,7 @@ CLASS:G Man		HD:8		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:COMBAT|BASE
 CLASS:G Man		PRETOTALAB:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Investigate=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:G Man		STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Drive|Gather Information|Intimidate|Investigate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Search|Sense Motive|Spot
-1															AUTO:FEAT|Weapon Focus(Tommy Gun)
+1															AUTO:FEAT|Weapon Focus(Thompson Submachine Gun)
 2			SAB:Witness Protect
 3:REPEATLEVEL:3									ADD:FEAT|TYPE=GMan
 4							BONUS:VAR|StillBuster|1					AUTO:FEAT|Still Buster

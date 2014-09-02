@@ -70,7 +70,7 @@ CLASS:Confidence Artist	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|Diplomacy|Dis
 2	SAB:Hidden Motives
 3																	ADD:FEAT|TYPE=ConArtist
 4	SAB:Sympathetic Ear				BONUS:SKILL|Gather Information|CL|TYPE=Circumstance
-5	SAB:Sticky Fingers				BONUS:SKILL|Sleight of Hands|CL|TYPE=Circumstance
+5	SAB:Sticky Fingers				BONUS:SKILL|Sleight of Hand|CL|TYPE=Circumstance
 6																	ADD:FEAT|TYPE=ConArtist
 7	SAB:Honest Eyes					BONUS:SKILL|Diplomacy|CL|TYPE=Circumstance
 8	SAB:Shift the Blame
@@ -346,6 +346,6 @@ CLASS:Silent Intruder	PRECHECK:1,Reflex=8	PRESKILL:3,Hide=14,Move Silently=14,Sl
 CLASS:Silent Intruder	STARTSKILLPTS:7	CSKILL:Balance|Climb|Disguise|Disable Device|Escape Artist|Hide|Investigate|Jump|Knowledge (Art)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Move Silently|Profession|READ/WRITE LANGUAGE|Search|Sleight of Hand|SPEAK LANGUAGE|Tumble
 1	SAB:Unnoticable						BONUS:SKILL|Hide|CL|TYPE=Competence
 2	SAB:Padded Feet						BONUS:SKILL|Move Silently|CL|TYPE=Competence
-3	SAB:Sticky Fingers	SAB:Without A Trace	BONUS:SKILL|Sleight of Hands|CL|TYPE=Circumstance
+3	SAB:Sticky Fingers	SAB:Without A Trace	BONUS:SKILL|Sleight of Hand|CL|TYPE=Circumstance
 4	SAB:Skeleton Key
 5	SAB:Hide in Plain Sight

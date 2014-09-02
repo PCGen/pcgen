@@ -112,6 +112,7 @@ SKILL:pulpfantasy_skills.lst
 TEMPLATE:pulpfantasy_templates.lst
 WEAPONPROF:pulpfantasy_weaponprofs.lst
 ARMORPROF:pulpfantasy_profs_armor.lst
+SHIELDPROF:pf_profs_shield.lst
 
 HIDETYPE:SKILL|Science
 
