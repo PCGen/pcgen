@@ -53,7 +53,7 @@ CLASS:Champion	PRETOTALAB:10	PREFEAT:1,Toughness	PRESKILL:1,Intimidate=5	!PRETEM
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Champion	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate|Listen|Ride|Sense Motive|Spot|Tumble
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|All Exotic Weapon Proficiencies|Exotic Weapon Proficiency|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfExotic
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -68,7 +68,7 @@ CLASS:Demolitions Expert	PREFEAT:1,Skill Focus (Craft (Tinker))	PRESKILL:2,Craft
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Demolitions Expert	STARTSKILLPTS:4	CSKILL:Climb|Craft (Tinker)|Disable Device|Hide|Listen|Move Silently|Search|Tumble
 ###Block: Proficiencies
-1	AUTO:FEAT|All Exotic Weapon Proficiencies|Exotic Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfExotic
 ###Block: Normal Level Progression
 1	SAB:Eye for Safety	SAB:Keen Eye	SAB:Trap Making (DC %)|DETrapMakingDC	BONUS:VAR|DETrapMakingDC|floor((CL-1)/3)*3+16	DEFINE:DETrapMakingDC|0
 2	SAB:Grenadier +%|Grenadier										BONUS:VAR|Grenadier|(CL+1)/3				DEFINE:Grenadier|0
@@ -95,7 +95,7 @@ CLASS:Foundationist Paladin	HD:10		TYPE:PC.Prestige	ABB:FPa		MAXLEVEL:10	SOURCEP
 CLASS:Foundationist Paladin	PREALIGN:LG,LN,LE	PRETOTALAB:5	PRESKILL:1,Knowledge (Ancient Lore)=8	PRESTAT:1,INT=15	PRETEMPLATE:1,Advanced,Guardian,Resurrector,Ritual Preservationist,Visionary Reinventor
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Foundationist Paladin	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate|Knowledge (Ancient Lore)|Knowledge (Vehicle Operations)|Ride
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|All Exotic Weapon Proficiencies|Exotic Weapon Proficiency|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfExotic
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	SAB:Ancient Lore									ADD:FEAT|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus

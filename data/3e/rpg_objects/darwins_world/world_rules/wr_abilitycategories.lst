@@ -1,0 +1,47 @@
+# CVS $Revision: 24815 $ $Author: amaitland $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+#SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
+# Original Entry by: Tir Gwaith, Eddy Anthony
+#
+# Ability Categories
+#
+
+###Block: Master Category
+# Ability Category			Visible	Editable?	Change Pool?	Fractional values?	Category of Object
+ABILITYCATEGORY:Special Ability	VISIBLE:NO	EDITABLE:NO	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability
+
+###Block: Animal Tricks and Training
+# Ability Category		Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Animal Trick	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimalTrick	PLURAL:Animal Tricks		DISPLAYLOCATION:Class Abilities
+
+###Block: Bonus FEATs and subgroups
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object				Plural description for UI	Display Location
+ABILITYCATEGORY:Fighter Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Fighter				PLURAL:Fighter Feats		DISPLAYLOCATION:Feats
+
+
+###Block: Special Ability and subgroups
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
+ABILITYCATEGORY:Rogue Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RogueAbilities	PLURAL:Rogue Special Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Favored Enemy			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredEnemy		PLURAL:Favored Enemies			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Turn Undead			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TurnUndead		PLURAL:Turn Undead			DISPLAYLOCATION:Class Abilities
+#ABILITYCATEGORY:Expert Class Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExpertClassSkills	PLURAL:Expert Class Skills		DISPLAYLOCATION:Class Abilities
+
+###Block: Misc
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Perform Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PerformSkillChoice	PLURAL:Perform Skill Choices	DISPLAYLOCATION:Class Abilities
+
+###Block: New Racial Trait Blocks
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list				Plural description for UI	Display Location
+ABILITYCATEGORY:Human Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HumanRacialTrait																	DISPLAYLOCATION:Racial Abilities
+
+# COMMENT: This can be used to allow Users to see Monster Traits - Requires all 'ABILITY:Special Ability|AUTOMATIC' to 'ABILITY:Racial Trait|AUTOMATIC'
+ABILITYCATEGORY:Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.SpecialAttack													DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Class Ability				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.SpecialAttack								PLURAL:Class Abilities		DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection																DISPLAYLOCATION:Class Abilities
+
+
+ABILITYCATEGORY:Deity Weapon Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DeityWeaponSelection																DISPLAYLOCATION:Class Abilities
+
+#
+# End
+#

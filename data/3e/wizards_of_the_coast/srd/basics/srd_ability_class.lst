@@ -54,15 +54,18 @@ Assassin Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal	VIS
 Martial Weapon Proficiency		KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT			TYPE:Internal	VISIBLE:EXPORT								DESC:You understand how to use all types of martial weapons in combat.
 
 
-# Ability Name		Category of Ability	Type										Serves As						Automatically Gained Weapon Prof.
-Weapon Prof ~ Auto	CATEGORY:Internal		TYPE:WeaponProfAuto.WeaponProfSimple.WeaponProfMartial								AUTO:WEAPONPROF|Unarmed Strike|Gauntlet|Grapple
-Weapon Prof ~ Simple	CATEGORY:Internal		TYPE:WeaponProfSimple.WeaponProfMartial				SERVESAS:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple
-Weapon Prof ~ Martial	CATEGORY:Internal		TYPE:WeaponProfMartial							SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+# Ability Name		Category of Ability	Type												Serves As						Automatically Gained Weapon Prof.
+Weapon Prof ~ Auto	CATEGORY:Internal		TYPE:WeaponProfAuto.WeaponProfSimple.WeaponProfMartial.WeaponProfExotic								AUTO:WEAPONPROF|Unarmed Strike|Gauntlet|Grapple
+Weapon Prof ~ Simple	CATEGORY:Internal		TYPE:WeaponProfSimple.WeaponProfMartial.WeaponProfExotic			SERVESAS:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple
+Weapon Prof ~ Martial	CATEGORY:Internal		TYPE:WeaponProfMartial.WeaponProfExotic						SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+Weapon Prof ~ Exotic	CATEGORY:Internal		TYPE:WeaponProfExotic									SERVESAS:FEAT|Exotic Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Exotic
+
 ###Block: Armor Types
 # Ability Name		Category of Ability	Type									Serves As						Automatically Gained Armor Prof.
 Armor Prof ~ Light	CATEGORY:Internal		TYPE:ArmorProfLight.ArmorProfMedium.ArmorProfHeavy	SERVESAS:FEAT|Armor Proficiency (Light)	AUTO:ARMORPROF|ARMORTYPE=Light
 Armor Prof ~ Medium	CATEGORY:Internal		TYPE:ArmorProfMedium.ArmorProfHeavy				SERVESAS:FEAT|Armor Proficiency (Medium)	AUTO:ARMORPROF|ARMORTYPE=Medium
 Armor Prof ~ Heavy	CATEGORY:Internal		TYPE:ArmorProfHeavy						SERVESAS:FEAT|Armor Proficiency (Heavy)	AUTO:ARMORPROF|ARMORTYPE=Heavy
+
 ###Block: Shield Types
 # Ability Name		Category of Ability	Type						Serves As						Automatically Gained Shield Prof.
 #Shield Prof ~ Tower	CATEGORY:Internal		TYPE:ShieldProfTower			SERVESAS:FEAT|Tower Shield Proficiency	AUTO:SHIELDPROF|SHIELDTYPE=Tower

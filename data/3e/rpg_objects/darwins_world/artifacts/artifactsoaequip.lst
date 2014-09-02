@@ -35,12 +35,12 @@ CBI (Education Knowledge Computers)			TYPE:Goods.Arcanum.CBI.Enhancement								
 CBI (Education Knowledge Genetics)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Knowledge (Genetics)|8|TYPE=Enhancement
 CBI (Education Knowledge Medicine)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Knowledge (Medicine)|8|TYPE=Enhancement
 CBI (Education Knowledge Pathology)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Knowledge (Pathology)|8|TYPE=Enhancement
-CBI (Education Knowledge Pharmology)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Knowledge (Pharmology)|8|TYPE=Enhancement
+CBI (Education Knowledge Pharmology)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Knowledge (Pharmacy)|8|TYPE=Enhancement
 CBI (Education Knowledge Technology)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Knowledge (Technology)|8|TYPE=Enhancement
 CBI (Education Knowledge Vehicle Operations)	TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Knowledge (Vehicle Operations)|8|TYPE=Enhancement
 CBI (Education Open Lock)				TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Open Lock|8|TYPE=Enhancement
 CBI (Education Perform)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Perform|8|TYPE=Enhancement
-CBI (Education Profession/Any)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Profession|8|TYPE=Enhancement
+CBI (Education Profession/Any)			TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|TYPE.Profession|8|TYPE=Enhancement
 CBI (Education Speak Language/Computer)		TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62	BONUS:ABILITYPOOL|CBI (Education/Speak Language/Computer)|1
 CBI (Education Swim)					TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Swim|8|TYPE=Enhancement
 CBI (Education Use Rope)				TYPE:Goods.Arcanum.CBI.Enhancement																		COST:12500	WT:0		SIZE:S	SOURCEPAGE:p.61,62																				BONUS:SKILL|Use Rope|8|TYPE=Enhancement
@@ -64,7 +64,7 @@ Manual (Knowledge Computers)				TYPE:Goods.Arcanum.Manual																			COST
 Manual (Knowledge Genetics)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Genetics)
 Manual (Knowledge Medicine)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Medicine)
 Manual (Knowledge Pathology)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Pathology)
-Manual (Knowledge Pharmology)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Pharmacology)
+Manual (Knowledge Pharmacy)				TYPE:Goods.Arcanum.Manual																			COST:10000	WT:10		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Pharmacy)
 Manual (Knowledge Technology)				TYPE:Goods.Arcanum.Manual																			COST:7500	WT:7.5	SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Technology)
 Manual (Knowledge Vehicle Operations)		TYPE:Goods.Arcanum.Manual																			COST:5000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Knowledge Vehicle Operations)
 Manual (Open Lock)					TYPE:Goods.Arcanum.Manual																			COST:5000	WT:5		SIZE:S	SOURCEPAGE:p.61-63	VFEAT:Manual (Open Lock)
