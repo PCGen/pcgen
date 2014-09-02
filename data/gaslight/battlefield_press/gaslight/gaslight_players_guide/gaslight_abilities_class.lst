@@ -2,6 +2,7 @@
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
+Default	CATEGORY:Internal
 
 ###Block: Automatic Proficiencies for all classes
 # Ability Name			Category of Ability		Visible	Template				Automatically Gained Weapon Prof.
@@ -204,13 +205,13 @@ Logical (Behavioral Sciences)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent
 Logical (Business)					CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Business)=4																	BONUS:SKILL|Forgery|floor(classlevel("Investigator")/2)|TYPE=Synergy						SOURCEPAGE:p.
 Logical (Civics)						CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Civics)=4																	BONUS:SKILL|Persuasion|floor(classlevel("Investigator")/2)|TYPE=Synergy						SOURCEPAGE:p.
 Logical (Current Events)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Current Events)=4																BONUS:SKILL|Gather Information|floor(classlevel("Investigator")/2)|TYPE=Synergy				SOURCEPAGE:p.
-Logical (Earth and Life Sciences)			CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Earth and Life Sciences)=4														BONUS:SKILL|Heal|floor(classlevel("Investigator")/2)|TYPE=Synergy							SOURCEPAGE:p.
+Logical (Earth and Life Sciences)			CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Earth and Life Sciences)=4														BONUS:SKILL|Treat Injury|floor(classlevel("Investigator")/2)|TYPE=Synergy							SOURCEPAGE:p.
 Logical (History)						CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (History)=4																	BONUS:SKILL|Research|floor(classlevel("Investigator")/2)|TYPE=Synergy						SOURCEPAGE:p.
 Logical (Physical Sciences)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Physical Sciences)=4															BONUS:SKILL|Craft (Chemical)|floor(classlevel("Investigator")/2)|TYPE=Synergy					SOURCEPAGE:p.
 Logical (Popular Culture)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Popular Culture)=4																BONUS:SKILL|Knowledge (Streetwise)|floor(classlevel("Investigator")/2)|TYPE=Synergy				SOURCEPAGE:p.
-Logical (Streetwise)					CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Streetwise)=4																	BONUS:SKILL|Pursuasion|floor(classlevel("Investigator")/2)|TYPE=Synergy						SOURCEPAGE:p.
+Logical (Streetwise)					CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Streetwise)=4																	BONUS:SKILL|Persuasion|floor(classlevel("Investigator")/2)|TYPE=Synergy						SOURCEPAGE:p.
 Logical (Military Science)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Military Science)=4																BONUS:SKILL|Investigate|floor(classlevel("Investigator")/2)|TYPE=Synergy					SOURCEPAGE:p.
-Logical (Technology)					CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Technology)=4																	BONUS:SKILL|Craft (Electronic)|floor(classlevel("Investigator")/2)|TYPE=Synergy				SOURCEPAGE:p.
+Logical (Technology)					CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Technology)=4																	BONUS:SKILL|Craft (Mechanical)|floor(classlevel("Investigator")/2)|TYPE=Synergy				SOURCEPAGE:p.
 Logical (Theology and Philosophy)			CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Theology and Philosophy)=4														BONUS:SKILL|Knowledge (Occult Science)|floor(classlevel("Investigator")/2)|TYPE=Synergy			SOURCEPAGE:p.
 Talk a Good Game (Occult Science)			CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Occult Science)																																										SOURCEPAGE:p.
 Talk a Good Game (Behavioral Sciences)		CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Behavioral Sciences)																																									SOURCEPAGE:p.

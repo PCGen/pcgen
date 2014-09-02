@@ -22,7 +22,7 @@ FOLLOWER:FamiliarLVL=20	TYPE:Familiar	SR:25
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar			Type			Bonus to HP			Bonus to skill		Ability									Bonus
-MASTERBONUSRACE:Bat			TYPE:Familiar					BONUS:SKILL|Listen|3
+MASTERBONUSRACE:Bat			TYPE:Familiar					BONUS:SITUATION|Perception=Listen|3
 MASTERBONUSRACE:Cat			TYPE:Familiar					BONUS:SKILL|Stealth|3
 MASTERBONUSRACE:Ferret			TYPE:Familiar																			BONUS:SAVE|Reflex|2
 MASTERBONUSRACE:Hawk			TYPE:Familiar									ABILITY:Special Ability|AUTOMATIC|Hawk Familiar Bonuses

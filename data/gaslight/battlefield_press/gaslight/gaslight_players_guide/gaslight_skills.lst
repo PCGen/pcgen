@@ -117,3 +117,9 @@ Persuasion (Diplomacy)				USEUNTRAINED:NO				CLASSES:ALL													VISIBLE:EXP
 #
 # End
 #
+
+Athletics.MOD	SITUATION:Climb
+Deception.MOD	SITUATION:Disguise
+Perception.MOD	SITUATION:Listen
+
+

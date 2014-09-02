@@ -79,21 +79,21 @@ Vest					TYPE:Goods.Clothing	COST:6			SOURCEPAGE:p.218
 ###Block: Professional Equipment
 # Equipment Name			Output Name						Type					Cost		Weight	Source Page		Bonus to skill
 Caltrops (25)										TYPE:Goods.General.Consumable	COST:5	WT:2		SOURCEPAGE:p.219
-Chemical Kit										TYPE:Goods.Tools			COST:16	WT:6		SOURCEPAGE:p.219	BONUS:SKILL|Craft (chemical)|CircumstanceAdjustment|TYPE=Circumstance
+Chemical Kit										TYPE:Goods.Tools			COST:16	WT:6		SOURCEPAGE:p.219	BONUS:SKILL|Craft (Chemical)|CircumstanceAdjustment|TYPE=Circumstance
 Demolitions Kit										TYPE:Goods.Tools			COST:13	WT:5		SOURCEPAGE:p.219
-Disguise Kit										TYPE:Goods.Tools			COST:12	WT:5		SOURCEPAGE:p.219	BONUS:SKILL|Disguise|CircumstanceAdjustment|TYPE=Circumstance
+Disguise Kit										TYPE:Goods.Tools			COST:12	WT:5		SOURCEPAGE:p.219	BONUS:SITUATION|Deception=Disguise|CircumstanceAdjustment|TYPE=Circumstance
 Doctor's bag with instruments								TYPE:Goods.Tools			COST:16	WT:15		SOURCEPAGE:p.219
 Fake ID											TYPE:Goods.General				WT:0		SOURCEPAGE:p.219
 First Aid Kit										TYPE:Goods.Tools			COST:5	WT:3		SOURCEPAGE:p.220
 Forgery Kit											TYPE:Goods.Tools			COST:12	WT:3		SOURCEPAGE:p.220	BONUS:SKILL|Forgery|CircumstanceAdjustment|TYPE=Circumstance
 Handcuffs (Steel)			OUTPUTNAME:Handcuffs, [NAME]			TYPE:Goods.General		COST:7	WT:1		SOURCEPAGE:p.220
-Instrument (Keyboard)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:12	WT:12		SOURCEPAGE:p.220	BONUS:SKILL|Perform (keyboards)|CircumstanceAdjustment|TYPE=Circumstance
-Instrument (Percussion)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:14	WT:50		SOURCEPAGE:p.220	BONUS:SKILL|Perform (percussion)|CircumstanceAdjustment|TYPE=Circumstance
-Instrument (Stringed)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:13	WT:7		SOURCEPAGE:p.220	BONUS:SKILL|Perform (stringed)|CircumstanceAdjustment|TYPE=Circumstance
-Instrument (Wind)			OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:8	WT:1		SOURCEPAGE:p.220	BONUS:SKILL|Perform (wind)|CircumstanceAdjustment|TYPE=Circumstance
+Instrument (Keyboard)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:12	WT:12		SOURCEPAGE:p.220	BONUS:SKILL|Perform (Keyboards)|CircumstanceAdjustment|TYPE=Circumstance
+Instrument (Percussion)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:14	WT:50		SOURCEPAGE:p.220	BONUS:SKILL|Perform (Percussion Instruments)|CircumstanceAdjustment|TYPE=Circumstance
+Instrument (Stringed)		OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:13	WT:7		SOURCEPAGE:p.220	BONUS:SKILL|Perform (Stringed Instruments)|CircumstanceAdjustment|TYPE=Circumstance
+Instrument (Wind)			OUTPUTNAME:Instrument, [NAME]			TYPE:Goods.Tools.Instrument	COST:8	WT:1		SOURCEPAGE:p.220	BONUS:SKILL|Perform (Wind Instruments)|CircumstanceAdjustment|TYPE=Circumstance
 Lockpick Set										TYPE:Goods.Tools			COST:9	WT:1		SOURCEPAGE:p.220
-Mechanical Tool Kit (Basic)	OUTPUTNAME:Mechanical Tool Kit, [NAME]	TYPE:Goods.Tools			COST:13	WT:22		SOURCEPAGE:p.220	BONUS:SKILL|Craft (mechanical)|CircumstanceAdjustment|TYPE=Circumstance
-Mechanical Tool Kit (Deluxe)	OUTPUTNAME:Mechanical Tool Kit, [NAME]	TYPE:Goods.Tools			COST:20	WT:45		SOURCEPAGE:p.220	BONUS:SKILL|Craft (mechanical)|2+CircumstanceAdjustment|TYPE=Circumstance
+Mechanical Tool Kit (Basic)	OUTPUTNAME:Mechanical Tool Kit, [NAME]	TYPE:Goods.Tools			COST:13	WT:22		SOURCEPAGE:p.220	BONUS:SKILL|Craft (Mechanical)|CircumstanceAdjustment|TYPE=Circumstance
+Mechanical Tool Kit (Deluxe)	OUTPUTNAME:Mechanical Tool Kit, [NAME]	TYPE:Goods.Tools			COST:20	WT:45		SOURCEPAGE:p.220	BONUS:SKILL|Craft (Mechanical)|2+CircumstanceAdjustment|TYPE=Circumstance
 Pharmacist Kit										TYPE:Goods.Tools			COST:17	WT:6		SOURCEPAGE:p.220
 Surgery Kit											TYPE:Goods.Tools			COST:16	WT:5		SOURCEPAGE:p.220
 
@@ -102,7 +102,7 @@ Surgery Kit											TYPE:Goods.Tools			COST:16	WT:5		SOURCEPAGE:p.220
 Backpack										TYPE:Goods.General.Container	CONTAINS:60|Any=60	COST:10	WT:3		SOURCEPAGE:p.220											BONUS:VAR|LOADSCORE|1|TYPE=Equipment
 Binoculars (Standard)			OUTPUTNAME:Binoculars, [NAME]	TYPE:Goods.General						COST:7	WT:2		SOURCEPAGE:p.221
 Candle (10)										TYPE:Goods.General						COST:2	WT:1		SOURCEPAGE:p.221
-Climbing Gear									TYPE:Goods.General.Tools					COST:11	WT:10		SOURCEPAGE:p.221	BONUS:SKILL|Climb|CircumstanceAdjustment|TYPE=Circumstance
+Climbing Gear									TYPE:Goods.General.Tools					COST:11	WT:10		SOURCEPAGE:p.221	BONUS:SITUATION|Athletics=Climb|CircumstanceAdjustment|TYPE=Circumstance
 Compass										TYPE:Goods.General						COST:5	WT:0.5	SOURCEPAGE:p.221	BONUS:SKILL|Navigate|2|TYPE=Equipment
 Lantern (Bullseye)								TYPE:Goods.General						COST:13	WT:3
 Lantern (Hooded)									TYPE:Goods.General						COST:11	WT:2
