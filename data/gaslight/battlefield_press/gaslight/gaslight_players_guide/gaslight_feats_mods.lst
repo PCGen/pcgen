@@ -325,8 +325,8 @@ Stage Magician ~ Skill Focus (Sleight of Hand)					TYPE:Stage_Magician		VISIBLE:
 
 # World Traveler
 Renown.MOD											TYPE:World_Traveler
-Skill Focus (any two Knowledge skills)						TYPE:World_Traveler					STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2																				BONUS:SKILL|%LIST|2|TYPE=SkillFocus
-Skill Focus (Investigate and Sense Motive)					TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Investigate)|Skill Focus +2 to Two Skills(Sense Motive)
-Skill Focus (Gamble and Intimidate)							TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Gamble)|Skill Focus +2 to Two Skills(Persuasion (Intimidate))
-Skill Focus (Survival).MOD								TYPE:World_Traveler		VISIBLE:DISPLAY
-Skill Focus +2 to Two Skills(Diplomacy and Gather Information)		TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills (Gather Information)|Skill Focus +2 to Two Skills(Persuasion (Diplomacy))
+Skill Focus ~ any two Knowledge skills						TYPE:World_Traveler					STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2																				BONUS:SKILL|%LIST|2|TYPE=SkillFocus
+Skill Focus ~ Investigate and Sense Motive					TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Investigate)|Skill Focus +2 to Two Skills(Sense Motive)
+Skill Focus ~ Gamble and Intimidate							TYPE:World_Traveler		VISIBLE:DISPLAY											AUTO:FEAT|Skill Focus +2 to Two Skills(Gamble)|Skill Focus +2 to Two Skills(Persuasion (Intimidate))
+Skill Focus ~ Survival									TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Survival)
+Skill Focus ~ +2 to Two Skills Diplomacy and Gather Information		TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills (Gather Information)|Skill Focus +2 to Two Skills(Persuasion (Diplomacy))

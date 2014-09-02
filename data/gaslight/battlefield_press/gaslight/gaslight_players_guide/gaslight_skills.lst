@@ -70,7 +70,7 @@ Survival					KEYSTAT:WIS											TYPE:Wisdom.LevelMod					SOURCEPAGE:p.152
 Treat Injury				KEYSTAT:WIS											TYPE:Wisdom.LevelMod					SOURCEPAGE:p.153
 Use Device					KEYSTAT:CHA	USEUNTRAINED:NO					EXCLUSIVE:YES	TYPE:Charisma.LevelMod					SOURCEPAGE:p.154
 
-Notice.MOD																																	BONUS:SKILL|Notice (Locate Traps)|skillinfo("MODIFIER","Notice")	BONUS:SKILLRANK|Notice (Locate Traps)|skillinfo("RANK","Notice")|PRECLASS:1,Rogue=1
+Notice.MOD		SITUATION:Locate Traps
 
 ###Block: Psychic Skills:
 # Skill Name			Key Stat	Untrained?		Exclusive?		Classes	Type												Visible		Multiple Requirements																											Source Page
@@ -120,6 +120,6 @@ Persuasion (Diplomacy)				USEUNTRAINED:NO				CLASSES:ALL													VISIBLE:EXP
 
 Athletics.MOD	SITUATION:Climb
 Deception.MOD	SITUATION:Disguise
-Perception.MOD	SITUATION:Listen
-
+Notice.MOD		SITUATION:Listen
+Stealth.MOD		SITUATION:Hide
 
