@@ -919,7 +919,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			if (duplicates.containsListFor(second))
 			{
 				Logging.errorPrint("More than one " + factory.getReferenceDescription()
-						+ " with key/name " + second + " was built");
+						+ " with key/name " + good.getKeyName() + " was built");
 				List<T> dupes = duplicates.getListFor(second);
 				StringBuilder sb = new StringBuilder(1000);
 				sb.append("Sources: ");
@@ -927,6 +927,10 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 				for (T dupe : dupes)
 				{
 					sb.append(", ").append(dupe.isInternal() ? "<internal>" : dupe.getSourceURI());
+					if (!dupe.getKeyName().equals(good.getKeyName()))
+					{
+						Logging.errorPrint("Key case differed for " + dupe.getKeyName());
+					}
 				}
 				Logging.errorPrint(sb.toString());
 				returnGood = false;
