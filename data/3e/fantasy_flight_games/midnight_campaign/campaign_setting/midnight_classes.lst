@@ -57,7 +57,7 @@ CLASS:Defender	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escape Arti
 20																																																						ADD:FEAT|TYPE=DefenderAbility
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define				Combat bonus											Add domain number		Modify VAR					Template				Bonus
-CLASS:Legate	HD:8		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.42	DEFINE:UnlimitedSpells|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|MaximumSpellLevelBonus|1	TEMPLATE:Maximum Spell Level	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Legate	HD:8		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.42	DEFINE:UnlimitedSpells|0	BONUS:VAR|UnlimitedSpells|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|MaximumSpellLevelBonus|1	TEMPLATE:Maximum Spell Level	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL
 CLASS:Legate	PREALIGN:LE,TN,NE,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -141,7 +141,7 @@ CLASS:Druid (Midnight)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE=
 # Druids and Channeler stack for the bonus spells thing.
 # Master of two worlds - Druid levels stack w/Channeler Spiritual
 1	SAB:Druidcraft																														ABILITY:Special Ability|AUTOMATIC|Nature Sense		AUTO:WEAPONPROF|Club|Dagger|Longbow|Shortbow|Quarterstaff
-2	SAB:Wispering World (Ex) (+% % feet)|WisperingCheck|WhisperingArea	BONUS:VAR|WisperingCheck|CL	BONUS:VAR|WhisperingArea|CL*500	DEFINE:WisperingCheck|WIS	DEFINE:WhisperingArea|0
+2	SAB:Wispering World (Ex) (+% % feet)|WisperingCheck|WhisperingArea	BONUS:VAR|WisperingCheck|CL+WIS	BONUS:VAR|WhisperingArea|CL*500	DEFINE:WisperingCheck|0	DEFINE:WhisperingArea|0
 3																																	ABILITY:Special Ability|AUTOMATIC|Woodland Stride
 4																																	ABILITY:Special Ability|AUTOMATIC|Trackless Step
 6																																	ABILITY:Special Ability|AUTOMATIC|Immune to Poisons

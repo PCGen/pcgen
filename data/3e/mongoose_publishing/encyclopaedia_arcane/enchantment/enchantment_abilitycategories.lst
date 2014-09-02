@@ -2,4 +2,4 @@
 
 
 # Ability Category			Visible		Editable?		Change Pool?	Type of Object			Specific choices list		Display Location
-ABILITYCATEGORY:Empath Feat Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	TYPE:Metamagic.Enchantment	ABILITYLIST:Spell Mastery	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Empath Feat Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	TYPE:Metamagic.Enchantment	ABILITYLIST:Spell Mastery	DISPLAYLOCATION:Class Abilities	CATEGORY:FEAT

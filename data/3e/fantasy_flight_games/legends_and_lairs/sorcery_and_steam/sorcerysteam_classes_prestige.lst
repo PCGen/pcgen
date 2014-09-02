@@ -15,7 +15,7 @@ CLASS:Arcane Airman	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|Concentration|T
 ###Block: Normal Level Progression
 1	SAB:Operations Expert (Ex)																				ADD:SPELLCASTER|Arcane
 2	SAB:Makeshift Repairs (Ex)																				ADD:SPELLCASTER|Arcane
-3	SAB:Expert Aviator +% (Ex)|ExpertAviator	BONUS:SKILL|Drive,ExpertAviator|TYPE=Competence	BONUS:VAR|ExpertAviator|2	DEFINE:ExpertAviator|0	ADD:SPELLCASTER|Arcane
+3	SAB:Expert Aviator +% (Ex)|ExpertAviator	BONUS:SKILL|Drive|ExpertAviator|TYPE=Competence	BONUS:VAR|ExpertAviator|2	DEFINE:ExpertAviator|0	ADD:SPELLCASTER|Arcane
 4	SAB:Freefall (Sp)																						ADD:SPELLCASTER|Arcane
 5	SAB:Pinpoint Accuracy (Ex)																				ADD:SPELLCASTER|Arcane
 6																BONUS:VAR|ExpertAviator|2					ADD:SPELLCASTER|Arcane
@@ -231,7 +231,7 @@ CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Disable Device|Driv
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1	SAB:Skilled Pilot +% (Ex)|SkilledPilot	SAB:Combat Ace +% (Ex)|CombatAce	BONUS:SKILL|Drive,SkilledPilot|TYPE=Competence	BONUS:VAR|SkilledPilot|(((CL/5)*2)+2)	BONUS:VAR|CombatAce|(CL+3)/4	DEFINE:SkilledPilot|0	DEFINE:CombatAce|0
+1	SAB:Skilled Pilot +% (Ex)|SkilledPilot	SAB:Combat Ace +% (Ex)|CombatAce	BONUS:SKILL|Drive|SkilledPilot|TYPE=Competence	BONUS:VAR|SkilledPilot|(((CL/5)*2)+2)	BONUS:VAR|CombatAce|(CL+3)/4	DEFINE:SkilledPilot|0	DEFINE:CombatAce|0
 2	SAB:Vehicle Evasion (Ex)
 4	SAB:Combat Maneuvers (Ex)
 6	SAB:Master Gunner (%d6) (Ex)|MasterGunner															BONUS:VAR|MasterGunner|1								DEFINE:MasterGunner|0

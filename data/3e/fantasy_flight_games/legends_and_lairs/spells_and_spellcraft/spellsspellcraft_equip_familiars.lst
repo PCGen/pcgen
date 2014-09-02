@@ -2,7 +2,7 @@
 #Original entry by: Knightcrawler
 SOURCELONG:Fantasy Flight Games - Spells and Spellcraft	SOURCESHORT:Spellcraft	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-03
 # Equipment Name			Type			Cost		Source Page		Virtual Feat				Bonus to skill		Stat bonus		Special Property							Bonus
-Familiar (Bookworm)		TYPE:Familiar	COST:100	SOURCEPAGE:p.143	VFEAT:Alertness|Spell Mastery
+Familiar (Bookworm)		TYPE:Familiar	COST:100	SOURCEPAGE:p.143	VFEAT:Alertness	BONUS:ABILITYPOOL|Spell Mastery|1
 Familiar (Celestial Piper)	TYPE:Familiar	COST:100	SOURCEPAGE:p.143	VFEAT:Alertness				BONUS:SKILL|Perform|2
 Familiar (Clockbug)		TYPE:Familiar	COST:100	SOURCEPAGE:p.143	VFEAT:Alertness																				BONUS:SAVE|Reflex|2
 Familiar (Dermole)		TYPE:Familiar	COST:100	SOURCEPAGE:p.144	VFEAT:Alertness|Improved Initiative

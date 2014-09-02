@@ -44,7 +44,7 @@ CLASS:Arsenalist	HD:4		TYPE:Base.PC	ABB:AEn		MAXLEVEL:20	SOURCEPAGE:p.62	BONUS:C
 CLASS:Arsenalist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|Listen|TYPE=Profession|Search|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Arsenalist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Arsenalist|CL
-1	AUTO:FEAT|Arsenalist Weapon Proficieincies|Simple Weapon Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|Arsenalist Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	CAST:3,1				SAB:Secret of Gunpowder
