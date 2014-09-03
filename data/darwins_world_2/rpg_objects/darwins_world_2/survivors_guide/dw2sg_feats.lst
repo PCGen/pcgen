@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 ###Block:Mod of msrd Feat types
@@ -97,7 +97,7 @@ Whirlwind Attack.MOD			TYPE:WarriorMonk
 Snatch.MOD																									PRE:.CLEAR
 
 ###Block: DW2 Feats
-# Feat Name					Type											Visible	Required Ability					Required Feat										Required Lvl	Required Skill																		Required Stat	Prohibited Stat	Description		Automatically Gained Weapon Prof.		Bonus to skill				Class Skill		Source Page
+# Feat Name					Type											Visible	Required Ability					Required Feat										Required Lvl	Required Skill																		Required Stat	Prohibited Stat	Description		Auto Weapon Prof					Bonus to skill				Class Skill		Source Page
 Armed To The Teeth			TYPE:General.WarriorMonk							VISIBLE:YES								PREFEAT:1,Two-Weapon Fighting																																					DESC:See Text.																	SOURCEPAGE:p. 57
 Bull's Eye					TYPE:General.Survivalist							VISIBLE:YES								PREFEAT:2,Point Blank Shot,Precise Shot																																			DESC:See Text.																	SOURCEPAGE:p. 58
 Combat Driving				TYPE:General									VISIBLE:YES																							PRESKILL:1,Drive=4																							DESC:See Text.																	SOURCEPAGE:p. 58
@@ -152,72 +152,72 @@ Advanced Pharmaceutical Discipline	TYPE:TechCraft.JujuDoc.Scientist						VISIBLE
 Advanced Weapons Discipline		TYPE:TechCraft.Mech.Scientist							VISIBLE:YES								PREFEAT:1,Advanced Electronics Discipline									PRESKILL:4,Craft (Electronic)=13,Craft (Mechanical)=13,Knowledge (Physical Sciences)=6,Knowledge (Technology)=10								DESC:See Text.																	SOURCEPAGE:p. 71
 
 ###Block: Mutant Feats
-# Feat Name			Type			Visible	Required Ability																	Req. Att.	Required Feat					Min. nb of Hands	Required Movement Rate	Minimum Size	Required Stat	Required Text				Description		Combat bonus									Bonus to skill							Source Page
-Aerial Maneuverability	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																													PRESTAT:1,DEX=13							DESC:See Text.																					SOURCEPAGE:p. 91
-Awesome Blow		TYPE:MutantFeat	VISIBLE:YES																						PREFEAT:2,Power Attack,Improved Bull Rush								PRESIZEGTEQ:L	PRESTAT:1,STR=25							DESC:See Text.																					SOURCEPAGE:p. 91
-Constrict			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Gigantism																																PRESTAT:1,STR=18							DESC:See Text.																					SOURCEPAGE:p. 91
-Duck				TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Dwarfism															PREFEAT:1,Dodge															PRESTAT:1,DEX=13							DESC:See Text.																					SOURCEPAGE:p. 92
-Fly-By Attack		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																																						DESC:See Text.																					SOURCEPAGE:p. 92
-Hover				TYPE:MutantFeat	VISIBLE:YES																																PREMOVE:1,Fly=1														DESC:See Text.																					SOURCEPAGE:p. 92
-Horn Charge			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant Horn Development																																						DESC:See Text.																					SOURCEPAGE:p. 92
-Improved Grab		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant Horn Development,Claws,Serrated Dental Development																							PRESTAT:1,STR=17							DESC:See Text.																					SOURCEPAGE:p. 92
-Improved Multiattack	TYPE:MutantFeat	VISIBLE:YES																						PREFEAT:1,Multiattack																	PRETEXT:3 or more natural weapons	DESC:See Text.																					SOURCEPAGE:p. 92
-Irradiated			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Radiation Immunity																																							DESC:See Text.																					SOURCEPAGE:p. 92
-Leaper			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Adrenaline Control,Increased Movement,Simian Deformity																								PRESTAT:1,DEX=13							DESC:See Text.																					SOURCEPAGE:p. 92
+# Feat Name			Type			Visible	Required Ability																	Required Feat					Min. nb of Hands	Required Movement Rate	Minimum Size	Required Stat	Required Text				PRETOTALAB		Description		Combat bonus									Bonus to skill							Source Page
+Aerial Maneuverability	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																											PRESTAT:1,DEX=13										DESC:See Text.																					SOURCEPAGE:p. 91
+Awesome Blow		TYPE:MutantFeat	VISIBLE:YES																				PREFEAT:2,Power Attack,Improved Bull Rush								PRESIZEGTEQ:L	PRESTAT:1,STR=25										DESC:See Text.																					SOURCEPAGE:p. 91
+Constrict			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Gigantism																														PRESTAT:1,STR=18										DESC:See Text.																					SOURCEPAGE:p. 91
+Duck				TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Dwarfism													PREFEAT:1,Dodge															PRESTAT:1,DEX=13										DESC:See Text.																					SOURCEPAGE:p. 92
+Fly-By Attack		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																																							DESC:See Text.																					SOURCEPAGE:p. 92
+Hover				TYPE:MutantFeat	VISIBLE:YES																														PREMOVE:1,Fly=1																	DESC:See Text.																					SOURCEPAGE:p. 92
+Horn Charge			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant Horn Development																																							DESC:See Text.																					SOURCEPAGE:p. 92
+Improved Grab		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant Horn Development,Claws,Serrated Dental Development																					PRESTAT:1,STR=17										DESC:See Text.																					SOURCEPAGE:p. 92
+Improved Multiattack	TYPE:MutantFeat	VISIBLE:YES																				PREFEAT:1,Multiattack																	PRETEXT:3 or more natural weapons				DESC:See Text.																					SOURCEPAGE:p. 92
+Irradiated			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Radiation Immunity																																								DESC:See Text.																					SOURCEPAGE:p. 92
+Leaper			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Adrenaline Control,Increased Movement,Simian Deformity																						PRESTAT:1,DEX=13										DESC:See Text.																					SOURCEPAGE:p. 92
 Multiattack.MOD		TYPE:MutantFeat
-MultiWeapon Fighting	TYPE:MutantFeat	VISIBLE:YES																													PREHANDSGTEQ:3																	DESC:See Text.	BONUS:COMBAT|TOHIT-PRIMARY|2	BONUS:COMBAT|TOHIT-SECONDARY|6										SOURCEPAGE:p. 93
-Natural Armor Expertise	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant EndoSkeletal Casing,Dermal Spike Growth,Protective Dermal Development																				PRESTAT:1,INT=13							DESC:See Text.																					SOURCEPAGE:p. 93
-Plague Carrier		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Accumulated Resistance																																							DESC:See Text.																					SOURCEPAGE:p. 93
-Power Dive			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development										PRETOTALAB:5																											DESC:See Text.																					SOURCEPAGE:p. 93
-Pounce			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Adrenaline Control,Increased Movement,Simian Deformity																								PRESTAT:1,DEX=13							DESC:See Text.																					SOURCEPAGE:p. 93
-Rend				TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Claws																																PRESTAT:1,STR=16							DESC:See Text.																					SOURCEPAGE:p. 93
-Spineless			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Abnormal Joint Flexibility,Elongation																																				DESC:See Text.												BONUS:SKILL|Escape Artist|4					SOURCEPAGE:p. 93
-Strong Flyer		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																													PRESTAT:1,STR=15							DESC:See Text.																					SOURCEPAGE:p. 93
-Surefooted			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Dwarfism																																									DESC:See Text.												BONUS:SKILL|Climb,Jump,Move Silently|2|TYPE=Racial	SOURCEPAGE:p. 94
-Tearing Bite		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Serrated Dental Development																																						DESC:See Text.																					SOURCEPAGE:p. 94
-Wingover			TYPE:MutantFeat	VISIBLE:YES																																PREMOVE:1,Fly=1														DESC:See Text.																					SOURCEPAGE:p. 94
-Withstand			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Increased Body Density,Skeletal Fortification																																			DESC:See Text.																					SOURCEPAGE:p. 94
+MultiWeapon Fighting	TYPE:MutantFeat	VISIBLE:YES																											PREHANDSGTEQ:3																				DESC:See Text.	BONUS:COMBAT|TOHIT-PRIMARY|2	BONUS:COMBAT|TOHIT-SECONDARY|6										SOURCEPAGE:p. 93
+Natural Armor Expertise	TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Aberrant EndoSkeletal Casing,Dermal Spike Growth,Protective Dermal Development																		PRESTAT:1,INT=13										DESC:See Text.																					SOURCEPAGE:p. 93
+Plague Carrier		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Accumulated Resistance																																								DESC:See Text.																					SOURCEPAGE:p. 93
+Power Dive			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																																				PRETOTALAB:5	DESC:See Text.																					SOURCEPAGE:p. 93
+Pounce			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Adrenaline Control,Increased Movement,Simian Deformity																						PRESTAT:1,DEX=13										DESC:See Text.																					SOURCEPAGE:p. 93
+Rend				TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Claws																														PRESTAT:1,STR=16										DESC:See Text.																					SOURCEPAGE:p. 93
+Spineless			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Abnormal Joint Flexibility,Elongation																																					DESC:See Text.												BONUS:SKILL|Escape Artist|4					SOURCEPAGE:p. 93
+Strong Flyer		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Complete Wing Development																											PRESTAT:1,STR=15										DESC:See Text.																					SOURCEPAGE:p. 93
+Surefooted			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Dwarfism																																										DESC:See Text.												BONUS:SKILL|Climb,Jump,Move Silently|2|TYPE=Racial	SOURCEPAGE:p. 94
+Tearing Bite		TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Serrated Dental Development																																							DESC:See Text.																					SOURCEPAGE:p. 94
+Wingover			TYPE:MutantFeat	VISIBLE:YES																														PREMOVE:1,Fly=1																	DESC:See Text.																					SOURCEPAGE:p. 94
+Withstand			TYPE:MutantFeat	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Increased Body Density,Skeletal Fortification																																				DESC:See Text.																					SOURCEPAGE:p. 94
 
 ###Block: Neural Feats
-# Feat Name			Type					Visible	Required Ability									Required Feat									Description		Source Page
-Anxiety Trigger		TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 94
-Attraction Trigger	TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 94
+# Feat Name			Type							Visible	Required Ability									Required Feat									Description		Source Page
+Anxiety Trigger		TYPE:NeuralFeat.Telepathy.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 94
+Attraction Trigger	TYPE:NeuralFeat.Telepathy.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 94
 Battle Plan			TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:2,Foresight,Precognitive Combat					DESC:See Text.	SOURCEPAGE:p. 94
-Charm Person		TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Attraction Trigger							DESC:See Text.	SOURCEPAGE:p. 95
+Charm Person		TYPE:NeuralFeat.Telepathy.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Attraction Trigger							DESC:See Text.	SOURCEPAGE:p. 95
 Clairaudience		TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition												DESC:See Text.	SOURCEPAGE:p. 95
 Clairvoyance		TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition												DESC:See Text.	SOURCEPAGE:p. 95
 Danger Sense		TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 95
-Domination			TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Attraction Trigger,Charm Person					DESC:See Text.	SOURCEPAGE:p. 95
-Fight Trigger		TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Anxiety Trigger							DESC:See Text.	SOURCEPAGE:p. 95
-Flight Trigger		TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
+Domination			TYPE:NeuralFeat.Telepathy.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Attraction Trigger,Charm Person					DESC:See Text.	SOURCEPAGE:p. 95
+Fight Trigger		TYPE:NeuralFeat.Telepathy.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Anxiety Trigger							DESC:See Text.	SOURCEPAGE:p. 95
+Flight Trigger		TYPE:NeuralFeat.Telepathy.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
 Foresight			TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition												DESC:See Text.	SOURCEPAGE:p. 96
-Levitation			TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:2,Telekinetic Hand,Telekinetic Mastery				DESC:See Text.	SOURCEPAGE:p. 96
-Lie Detector		TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mental Communication						DESC:See Text.	SOURCEPAGE:p. 96
-Mental Communication	TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
-Mind Stun			TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
-Mind Blast			TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mind Stun								DESC:See Text.	SOURCEPAGE:p. 96
-Mind Strike			TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mind Stun								DESC:See Text.	SOURCEPAGE:p. 97
-Mind Crush			TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Mind Stun,Mind Strike						DESC:See Text.	SOURCEPAGE:p. 97
+Levitation			TYPE:NeuralFeat.Telekinesis.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:2,Telekinetic Hand,Telekinetic Mastery				DESC:See Text.	SOURCEPAGE:p. 96
+Lie Detector		TYPE:NeuralFeat.Telepathy.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mental Communication						DESC:See Text.	SOURCEPAGE:p. 96
+Mental Communication	TYPE:NeuralFeat.Telepathy.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
+Mind Stun			TYPE:NeuralFeat.Telepathy.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy													DESC:See Text.	SOURCEPAGE:p. 96
+Mind Blast			TYPE:NeuralFeat.Telepathy.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mind Stun								DESC:See Text.	SOURCEPAGE:p. 96
+Mind Strike			TYPE:NeuralFeat.Telepathy.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:1,Mind Stun								DESC:See Text.	SOURCEPAGE:p. 97
+Mind Crush			TYPE:NeuralFeat.Telepathy.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Mind Stun,Mind Strike						DESC:See Text.	SOURCEPAGE:p. 97
 Precognitive Combat	TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
 Precognitive Dodge	TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
 Precognitive Reflexes	TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
 Perceive Danger		TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:2,Foresight,Danger Sense						DESC:See Text.	SOURCEPAGE:p. 97
 Perceive Outcome		TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:1,Foresight								DESC:See Text.	SOURCEPAGE:p. 97
-Psychic Interrogation	TYPE:NeuralFeat.Telepathy.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Mental Communication,Lie Detector				DESC:See Text.	SOURCEPAGE:p. 97
-Rain of Objects		TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
+Psychic Interrogation	TYPE:NeuralFeat.Telepathy.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telepathy		PREFEAT:2,Mental Communication,Lie Detector				DESC:See Text.	SOURCEPAGE:p. 97
+Rain of Objects		TYPE:NeuralFeat.Telekinesis.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
 Second Chance		TYPE:NeuralFeat.Precognition.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Precognition	PREFEAT:2,Foresight,Perceive Outcome					DESC:See Text.	SOURCEPAGE:p. 98
-Telekinetic Mastery	TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
-Telekinetic Throw		TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:3,Telekinetic Hand,Telekinetic Mastery,Rain of Objects	DESC:See Text.	SOURCEPAGE:p. 98
-Telekinetic Disarm	TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
-Telekinetic Guide		TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 98
-Telekinetic Hand		TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 98
-Telekinetic Hand II	TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 99
-Telekinetic Punch		TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 99
-Telekinetic Shield	TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 99
-Telekinetic Shield II	TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 99
-Telekinetic Slam		TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:2,Telekinetic Hand,Telekinetic Punch				DESC:See Text.	SOURCEPAGE:p. 99
-Telekinetic Sword		TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 100
-Telekinetic Sword II	TYPE:NeuralFeat.Telekinesis.Psionic	VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 100
+Telekinetic Mastery	TYPE:NeuralFeat.Telekinesis.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Throw		TYPE:NeuralFeat.Telekinesis.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:3,Telekinetic Hand,Telekinetic Mastery,Rain of Objects	DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Disarm	TYPE:NeuralFeat.Telekinesis.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Guide		TYPE:NeuralFeat.Telekinesis.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Hand		TYPE:NeuralFeat.Telekinesis.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 98
+Telekinetic Hand II	TYPE:NeuralFeat.Telekinesis.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Punch		TYPE:NeuralFeat.Telekinesis.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Shield	TYPE:NeuralFeat.Telekinesis.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Shield II	TYPE:NeuralFeat.Telekinesis.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis												DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Slam		TYPE:NeuralFeat.Telekinesis.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:2,Telekinetic Hand,Telekinetic Punch				DESC:See Text.	SOURCEPAGE:p. 99
+Telekinetic Sword		TYPE:NeuralFeat.Telekinesis.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 100
+Telekinetic Sword II	TYPE:NeuralFeat.Telekinesis.Psionic		VISIBLE:YES	PREABILITY:1,CATEGORY=Mutation,Neural Mutation - Telekinesis	PREFEAT:1,Telekinetic Hand							DESC:See Text.	SOURCEPAGE:p. 100
 
 ###Block: Monster Feats
 # Feat Name	Type			Required Template				Description		Source Page
@@ -226,4 +226,3 @@ Snatch	TYPE:General	PRETEMPLATE:1,Dragon,Half-Dragon	DESC:See Text	SOURCEPAGE:sr
 #
 # EoF
 #
-

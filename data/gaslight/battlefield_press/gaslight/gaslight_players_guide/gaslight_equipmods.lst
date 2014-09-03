@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
 ###Block: Borrowed from MSRD, since it required heavy editing.
-# Modifier Name		Unique Key				Naming Option			Type				Cost			Visible		Type granted	Keys to replace																			Source Page							Required Type			Combat bonus			Bonus Equipment Modifiers			Bonus Armor Modifiers				Modify the item cost		Weapon prop. bonus					Special Property								Choose								Apply to both heads
+# Modifier Name		Unique Key				Naming Option			Type				Cost			Visible		Type granted	Keys to replace																			Source Page							Required Type			Combat bonus			Bonus Equip Mods					Bonus Armor Mods					Modify the item cost		Weapon prop. bonus					Special Property								Choose								Apply to both heads
 Mastercraft +1 To Hit	KEY:MASTERCRAFT_WEAP_HIT_1	NAMEOPT:TEXT=Mastercraft +1	TYPE:Ammunition.Weapon	COST:3		VISIBLE:QUALIFY	ITYPE:Mastercraft	REPLACES:MASTERCRAFT_WEAP_HIT_2,MASTERCRAFT_WEAP_HIT_3,MASTERCRAFT_WEAP_DAM_1,MASTERCRAFT_WEAP_DAM_2,MASTERCRAFT_WEAP_DAM_3	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf																														BONUS:WEAPON|TOHIT|1|TYPE=Enhancement		SPROP:Mastercraft (+1)																ASSIGNTOALL:YES
 Mastercraft +2 To Hit	KEY:MASTERCRAFT_WEAP_HIT_2	NAMEOPT:TEXT=Mastercraft +2	TYPE:Ammunition.Weapon	COST:6		VISIBLE:QUALIFY	ITYPE:Mastercraft	REPLACES:MASTERCRAFT_WEAP_HIT_1,MASTERCRAFT_WEAP_HIT_3,MASTERCRAFT_WEAP_DAM_1,MASTERCRAFT_WEAP_DAM_2,MASTERCRAFT_WEAP_DAM_3	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf																														BONUS:WEAPON|TOHIT|2|TYPE=Enhancement		SPROP:Mastercraft (+2)																ASSIGNTOALL:YES
 Mastercraft +3 To Hit	KEY:MASTERCRAFT_WEAP_HIT_3	NAMEOPT:TEXT=Mastercraft +3	TYPE:Ammunition.Weapon	COST:9		VISIBLE:QUALIFY	ITYPE:Mastercraft	REPLACES:MASTERCRAFT_WEAP_HIT_1,MASTERCRAFT_WEAP_HIT_2,MASTERCRAFT_WEAP_DAM_1,MASTERCRAFT_WEAP_DAM_2,MASTERCRAFT_WEAP_DAM_3	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf																														BONUS:WEAPON|TOHIT|3|TYPE=Enhancement		SPROP:Mastercraft (+3)																ASSIGNTOALL:YES
@@ -30,7 +30,7 @@ Masterwork			KEY:MWORKA				NAMEOPT:NORMAL							COST:3*%CHOICE	VISIBLE:QUALIFY	I
 Masterwork			KEY:MWORKT				NAMEOPT:NORMAL							COST:3*%CHOICE	VISIBLE:QUALIFY	ITYPE:Masterwork																						SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	PRETYPE:1,Tool								BONUS:EQM|WEIGHTADD|1|PRETYPE:1,Thief								BONUS:ITEMCOST|TYPE=Thief|20									SPROP:Masterwork applies EXTRA +%CHOICE Bonus beyond normal	CHOOSE:NUMBER|MIN=1|MAX=3|TITLE=Weapon Bonus		ASSIGNTOALL:YES
 
 ###Block: Base Materials
-# Modifier Name	Unique Key		Naming Option			Type														Cost		Visible		Type granted	Source Page					Multiple Requirements								Prohibited Type		Bonus Equipment Modifiers	Special Property				Apply to both heads
+# Modifier Name	Unique Key		Naming Option			Type														Cost		Visible		Type granted	Source Page					Multiple Requirements								Prohibited Type		Bonus Equip Mods		Special Property				Apply to both heads
 Aluminium		KEY:ALUMINIUM	NAMEOPT:NORMAL			TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:msrdcombat.rtf		PREMULT:1,[PRETYPE:1,ALUMINIUM],[!PRETYPE:1,EQMODTYPE=Mundane]	!PRETYPE:1,Wooden
 Ceramic		KEY:CERAMIC		NAMEOPT:NORMAL			TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:msrdcombat.rtf		PREMULT:1,[PRETYPE:1,CERAMIC],[!PRETYPE:1,EQMODTYPE=Mundane]	!PRETYPE:1,Metal,Wooden
 Cloth			KEY:CLOTH		NAMEOPT:NORMAL			TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:msrdcombat.rtf		PREMULT:1,[PRETYPE:1,CLOTH],[!PRETYPE:1,EQMODTYPE=Mundane]		!PRETYPE:1,Metal,Wooden
@@ -42,14 +42,14 @@ Paper			KEY:PAPER		NAMEOPT:NORMAL			TYPE:BaseMaterial.Mundane.Ammunition.Armor.S
 Rope			KEY:ROPE		NAMEOPT:NORMAL			TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:msrdcombat.rtf		PREMULT:1,[PRETYPE:1,ROPE],[!PRETYPE:1,EQMODTYPE=Mundane]		!PRETYPE:1,Metal,Wooden
 Soft Plastic	KEY:PLASTIC_SOFT	NAMEOPT:NORMAL			TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY				SOURCEPAGE:msrdcombat.rtf		PREMULT:1,[PRETYPE:1,PLASTIC_SOFT],[!PRETYPE:1,EQMODTYPE=Mundane]	!PRETYPE:1,Metal,Wooden
 Steel			KEY:STEEL		NAMEOPT:NORMAL			TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		SOURCEPAGE:msrdcombat.rtf		PREMULT:1,[PRETYPE:1,STEEL],[!PRETYPE:1,EQMODTYPE=Mundane]		!PRETYPE:1,Wooden
-Wood			KEY:WOOD		NAMEOPT:NORMAL			TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	SOURCEPAGE:msrdcombat.rtf		PREMULT:1,[PRETYPE:1,WOOD],[!PRETYPE:1,EQMODTYPE=Mundane]		!PRETYPE:1,Metal													ASSIGNTOALL:YES
+Wood			KEY:WOOD		NAMEOPT:NORMAL			TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	SOURCEPAGE:msrdcombat.rtf		PREMULT:1,[PRETYPE:1,WOOD],[!PRETYPE:1,EQMODTYPE=Mundane]		!PRETYPE:1,Metal												ASSIGNTOALL:YES
 
 
 
 #Add Type							KEY:ADD_TYPE	TYPE:ALL			COST:0											NAMEOPT:NONAME		SOURCEPAGE:																																																									CHOOSE:Select desired TYPE(s)|TYPE=ALL
 
 
-Scope (Standard)	KEY:SCP_STD		NAMEOPT:TEXT=Standard Scope	TYPE:Firearm												COST:0	VISIBLE:QUALIFY				SOURCEPAGE:msrdequipmentgeneral.rtf																BONUS:EQM|WEIGHTADD|.5		SPROP:Standard Scope Purchase DC 11
+Scope (Standard)	KEY:SCP_STD		NAMEOPT:TEXT=Standard Scope	TYPE:Firearm												COST:0	VISIBLE:QUALIFY				SOURCEPAGE:msrdequipmentgeneral.rtf																BONUS:EQM|WEIGHTADD|.5	SPROP:Standard Scope Purchase DC 11
 #Scope (Standard)		NAMEOPT:TEXT=[NAME] Scope	KEY:SCP_STD				TYPE:Firearm		COST:11		VISIBLE:QUALIFY																														SOURCEPAGE:msrdequipmentgeneral.rtf													BONUS:EQM|WEIGHTADD|.5
 
 

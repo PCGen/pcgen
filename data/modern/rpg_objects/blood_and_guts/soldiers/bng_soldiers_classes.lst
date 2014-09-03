@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Blood and Guts - Soldiers	SOURCESHORT:BnG-S	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49	SOURCEDATE:2004-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:Airman	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Req. Att.	Multiple Requirements															Required Skill		Required Text
-CLASS:Airman	PRETOTALAB:2	PREMULT:2,[PREFEAT:1,Aircraft Operation],[PREFEAT:1,Fixed Wing Vehicle Weapons,Helicopter Vehicle Weapons]	PRESKILL:1,Pilot=6	PRETEXT:Active or Reserve Duty (any one branch of service)
+# Class Name	Multiple Requirements															Required Skill		Required Text								PRETOTALAB
+CLASS:Airman	PREMULT:2,[PREFEAT:1,Aircraft Operation],[PREFEAT:1,Fixed Wing Vehicle Weapons,Helicopter Vehicle Weapons]	PRESKILL:1,Pilot=6	PRETEXT:Active or Reserve Duty (any one branch of service)	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Airman	STARTSKILLPTS:4	CSKILL:Air Traffic Control|Communication Operations|Concentration|Knowledge (Current Events)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Tactics)|Knowledge (Technology)|Navigate|Paradrop|Pilot|Repair|Spot
 1						BONUS:VAR|AirSuperiority|1									AUTO:FEAT|Air Superiority
@@ -18,8 +18,8 @@ CLASS:Airman	STARTSKILLPTS:4	CSKILL:Air Traffic Control|Communication Operations
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:Grunt		HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Req. Att.	Multiple Requirements																						Required Skill					Required Text
-CLASS:Grunt		PRETOTALAB:3	PREMULT:2,[PREFEAT:1,Personal Firearms Proficiency],[PREFEAT:1,MOS Armor 1,MOS Combat Engineering 1,MOS Field Artillery 1,MOS Infantry/Rifleman 1]	PRESKILL:2,Craft (Structural)=3,Repair=3	PRETEXT:Active or Reserve Duty (Us Army)
+# Class Name	Multiple Requirements																						Required Skill					Required Text					PRETOTALAB
+CLASS:Grunt		PREMULT:2,[PREFEAT:1,Personal Firearms Proficiency],[PREFEAT:1,MOS Armor 1,MOS Combat Engineering 1,MOS Field Artillery 1,MOS Infantry/Rifleman 1]	PRESKILL:2,Craft (Structural)=3,Repair=3	PRETEXT:Active or Reserve Duty (Us Army)	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Grunt		STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|Gamble|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Navigate|Repair|Spot|Survival
 1	SAB:Defensive Position +%|DefensivePosition	BONUS:VAR|DefensivePosition|(CL/5)+1	DEFINE:DefensivePosition|0
@@ -32,8 +32,8 @@ CLASS:Grunt		STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|G
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Modify VAR														Bonus
 CLASS:Leatherneck	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Req. Att.	Required Feat									Required Skill				Required Text
-CLASS:Leatherneck	PRETOTALAB:2	PREFEAT:2,Personal Firearms Proficiency,MOS Infantry/Rifleman 1	PRESKILL:2,Intimidate=3,Survival=3	PRETEXT:Active or Reserve Duty (US Marine Corps)
+# Class Name	Required Feat									Required Skill				Required Text							PRETOTALAB
+CLASS:Leatherneck	PREFEAT:2,Personal Firearms Proficiency,MOS Infantry/Rifleman 1	PRESKILL:2,Intimidate=3,Survival=3	PRETEXT:Active or Reserve Duty (US Marine Corps)	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Leatherneck	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|Gamble|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Navigate|Repair|Spot|Swim|Survival
 1																							ADD:FEAT|TYPE=LeatherneckTerrain

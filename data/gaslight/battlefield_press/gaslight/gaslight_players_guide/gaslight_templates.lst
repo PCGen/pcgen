@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
 
 ###Block: Occupation
-# Template Name	Visible	Bonus to Ability Pool
+# Template Name	Visible	Bonus Ability Pool
 Occupation		VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1
 
 ###Block: Starting Class

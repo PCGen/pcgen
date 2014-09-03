@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #
 # Spycraft PCGen dataset by Eddy Anthony
 #
@@ -21,7 +21,7 @@ Wheelman														PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Wheelman=1]	ABILI
 
 ###Block: Hidden Universal Template--------------------------------------------------
 
-# Template Name	Visible	Bonus to Ability Pool				Removable?
+# Template Name	Visible	Bonus Ability Pool				Removable?
 Agent			VISIBLE:NO	BONUS:ABILITYPOOL|Starting Nationality|1	REMOVABLE:NO
 
 ###Block: Mission Budget Temporary Bonuses--------------------------------------------------
@@ -34,7 +34,7 @@ Mission Threat Code - Black	VISIBLE:NO	REMOVABLE:YES	TEMPBONUS:ANYPC|VAR|MISSION
 
 ###Block: Department templates--------------------------------------------------
 
-# Template Name				Visible	Bonus to Ability Pool																																																						Removable?
+# Template Name				Visible	Bonus Ability Pool																																																						Removable?
 D-0 Home Office Template		VISIBLE:NO	BONUS:ABILITYPOOL|D-0 Class Skills|2|PREPCLEVEL:MIN=1	BONUS:ABILITYPOOL|D-0 Class Skills|1|PREPCLEVEL:MIN=4	BONUS:ABILITYPOOL|D-0 Class Skills|1|PREPCLEVEL:MIN=8	BONUS:ABILITYPOOL|D-0 Class Skills|1|PREPCLEVEL:MIN=12	BONUS:ABILITYPOOL|D-0 Class Skills|1|PREPCLEVEL:MIN=16	BONUS:ABILITYPOOL|D-0 Class Skills|1|PREPCLEVEL:MIN=20	REMOVABLE:NO
 D-2 Military Operations Template	VISIBLE:NO	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=1	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=4	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=8	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=12	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=16	BONUS:ABILITYPOOL|D-2 Skill Bonus|1|PREPCLEVEL:MIN=20				REMOVABLE:NO
 

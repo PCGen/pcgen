@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 ###Block: Talents
 ### TODO: SAs become DESC in abilities once the OS is updated. -AM
 
 # Strong Talents
-# Ability Name			Category of Ability	Type							Visible	Required Ability																						Total Skill Points Req.						Define				Description					Stackable?	Multiple?	Choose																								Combat bonus			Damage reduction				Bonus to HP				Add to base move							Bonus to skill			Modify VAR					Damage Reduction	Source Page
+# Ability Name			Category of Ability	Type							Visible	Required Ability																						Total Skill Points Req.						Define				Description					Stackable?	Multiple?	Choose																								Combat bonus			Bonus DR					Bonus to HP				Add to base move							Bonus to skill			Modify VAR					Damage Reduction	Source Page
 Extreme Effort			CATEGORY:Talent		TYPE:Talent.StrongTalent.ExtremeEffort	VISIBLE:YES																																							DESC:See text																																																																								SOURCEPAGE:msrdbasicclasses.rtf
 Improved Extreme Effort		CATEGORY:Talent		TYPE:Talent.StrongTalent.ExtremeEffort	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Extreme Effort																															DESC:See text																																																																								SOURCEPAGE:msrdbasicclasses.rtf
 Advanced Extreme Effort		CATEGORY:Talent		TYPE:Talent.StrongTalent.ExtremeEffort	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Extreme Effort,Improved Extreme Effort																											DESC:See text																																																																								SOURCEPAGE:msrdbasicclasses.rtf

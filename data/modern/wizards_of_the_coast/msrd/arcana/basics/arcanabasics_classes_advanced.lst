@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 #Original Entry by: Paul King
 
@@ -21,8 +21,8 @@ CLASS:Arcane Arranger	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Decipher Script|
 
 # Class Name			Hit Dice	Type			Class Type		Max Level	Source Page						Combat bonus								Modify VAR														Bonus
 CLASS:Archaic Weaponsmaster	HD:10		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name			Req. Att.	Required Feat
-CLASS:Archaic Weaponsmaster	PRETOTALAB:3	PREFEAT:2,Archaic Weapons Proficiency,Weapon Focus
+# Class Name			Required Feat							PRETOTALAB
+CLASS:Archaic Weaponsmaster	PREFEAT:2,Archaic Weapons Proficiency,Weapon Focus	PRETOTALAB:3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Archaic Weaponsmaster	STARTSKILLPTS:2	CSKILL:Climb|Craft (Mechanical)|Craft (Structural)|Craft (Visual Art)|Craft (Writing)|Handle Animal|Jump|Knowledge (Art)|Knowledge (History)|Knowledge (Theology and Philosophy)|Profession|Research|Ride|Swim
 1	BONUS:ABILITYPOOL|Weapon Specialization|1				BONUS:VAR|WeapSpecQualify|1		DEFINE:WeapSpecQualify|0
@@ -88,8 +88,8 @@ CLASS:Mystic	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Mystic
 
 # Class Name		Hit Dice	Type			Class Type		Max Level	Source Page						Combat bonus								Modify VAR														Bonus
 CLASS:Shadow Hunter	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
-# Class Name		Req. Att.	Required Feat													Required Skill
-CLASS:Shadow Hunter	PRETOTALAB:2	PREFEAT:1,Track	PREFEAT:1,Personal Firearms Proficiency,Archaic Weapons Proficiency	PRESKILL:3,Investigate=6,Sense Motive=6,Knowledge (Arcane Lore)=3
+# Class Name		Required Feat													Required Skill									PRETOTALAB
+CLASS:Shadow Hunter	PREFEAT:1,Track	PREFEAT:1,Personal Firearms Proficiency,Archaic Weapons Proficiency	PRESKILL:3,Investigate=6,Sense Motive=6,Knowledge (Arcane Lore)=3	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Research|Search|Sense Motive|SPEAK LANGUAGE|Spot|Survival
 1								BONUS:VAR|TargetBonus|(CL+2)/3	DEFINE:TargetBonus|0	ABILITY:Special Ability|AUTOMATIC|Target Bonus
@@ -138,8 +138,8 @@ CLASS:Speed Demon	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Craft (Electronic
 
 # Class Name		Hit Dice	Type			Class Type		Max Level	Source Page						Combat bonus							Modify VAR														Bonus
 CLASS:Street Warrior	HD:10		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Feat				Required Skill
-CLASS:Street Warrior	PRETOTALAB:3	PREFEAT:2,Brawl,Streetfighting	PRESKILL:1,Knowledge (Streetwise)=6
+# Class Name		Required Feat				Required Skill				PRETOTALAB
+CLASS:Street Warrior	PREFEAT:2,Brawl,Streetfighting	PRESKILL:1,Knowledge (Streetwise)=6	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Street Warrior	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Drive|Gamble|Gather Information|Hide|Intimidate|Investigate|Jump|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Move Silently|Profession|Sense Motive|Spot|Survival
 1																		ABILITY:Special Ability|AUTOMATIC|Urban Survival
@@ -155,8 +155,8 @@ CLASS:Street Warrior	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Drive
 
 # Class Name		Hit Dice	Type			Class Type		Max Level	Source Page						Combat bonus								Modify VAR														Bonus
 CLASS:Swashbuckler	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Feat			Required Skill
-CLASS:Swashbuckler	PRETOTALAB:2	PREFEAT:1,Weapon Finesse	PRESKILL:2,Balance=6,Tumble=6
+# Class Name		Required Feat			Required Skill			PRETOTALAB
+CLASS:Swashbuckler	PREFEAT:1,Weapon Finesse	PRESKILL:2,Balance=6,Tumble=6	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Hide|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Listen|Move Silently|Navigate|Pilot|Profession|Sleight of Hand|Swim|Tumble
 1	BONUS:ABILITYPOOL|Weapon Focus|1
@@ -194,8 +194,8 @@ CLASS:Techno Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK
 
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page						Combat bonus								Modify VAR														Bonus
 CLASS:Thrasher	HD:12		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Req. Att.	Required Feat			Required Skill
-CLASS:Thrasher	PRETOTALAB:2	PREFEAT:1,Athletic,Endurance	PRESKILL:2,Concentration=6,Survival=6
+# Class Name	Required Feat			Required Skill					PRETOTALAB
+CLASS:Thrasher	PREFEAT:1,Athletic,Endurance	PRESKILL:2,Concentration=6,Survival=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thrasher	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Drive|Profession|Read/Write Language|Ride|SPEAK LANGUAGE|Spot|Swim|Survival|Tumble
 1																		ABILITY:Special Ability|AUTOMATIC|Tough Defense
@@ -209,8 +209,8 @@ CLASS:Thrasher	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Drive|Professi
 
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page						Combat bonus								Modify VAR														Bonus
 CLASS:Wildlord	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Req. Att.	Required Skill
-CLASS:Wildlord	PRETOTALAB:2	PRESKILL:2,Handle Animal=6,Survival=6
+# Class Name	Required Skill					PRETOTALAB
+CLASS:Wildlord	PRESKILL:2,Handle Animal=6,Survival=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wildlord	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Drive|Diplomacy|Handle Animal|Hide|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Move Silently|Navigate|Pilot|Profession|Ride|Spot|Survival|Swim|Treat Injury
 ###Block: Turning

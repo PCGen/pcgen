@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Sellout! Sourcebook	SOURCESHORT:Sellout	SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php	SOURCEDATE:2003-01
 
 ###Block:Armor
-# Modifier Name		Unique Key	Type					Cost			Type granted		Source Page		Required Type							Prohibited Type			Bonus to skill					Bonus Equipment Modifiers				Bonus Armor Modifiers								Special Property
+# Modifier Name		Unique Key	Type					Cost			Type granted		Source Page		Required Type							Prohibited Type			Bonus to skill					Bonus Equip Mods						Bonus Armor Mods									Special Property
 Billboard			KEY:BLBD	TYPE:Armor				COST:BASECOST*.1					SOURCEPAGE:95																						BONUS:EQM|WEIGHTDIV|20	BONUS:EQM|WEIGHTMULT|21
 Chemical Treating		KEY:CHTR	TYPE:Armor				COST:2000		ITYPE:ChemicalTreated	SOURCEPAGE:95	PRETYPE:1,Metal							!PRETYPE:1,HeatResistant																											SPROP:+4 saving throw against acid or other corrosive attacks
 Dwarven Masterwork	KEY:DWMW	TYPE:MasterworkQuality.Armor	COST:BASECOST*3	ITYPE:Masterwork		SOURCEPAGE:95																														BONUS:EQMARMOR|ACCHECK|-2							SPROP:If the armor itself is ever attacked, it gains +2 to saves and has an additional two points of hardness
@@ -17,7 +17,7 @@ Heat Resistant		KEY:HTRES	TYPE:Armor				COST:1000		ITYPE:HeatResistant	SOURCEPAG
 Popknife			KEY:PKNIFE	TYPE:Armor				COST:75						SOURCEPAGE:95
 
 ###Block:Weapon
-# Modifier Name		Unique Key	Type		Cost		Type granted	Source Page		Minimum Size	Required Type		Prohibited Type	Combat bonus			Bonus Equipment Modifiers	Bonus Weapon Modifiers		Special Property
+# Modifier Name		Unique Key	Type		Cost		Type granted	Source Page		Minimum Size	Required Type		Prohibited Type	Combat bonus			Bonus Equip Mods		Bonus Weapon Mods			Special Property
 Secret Compartment	KEY:SECCOMP	TYPE:Weapon	COST:50				SOURCEPAGE:94
-Shock Core			KEY:SHCOR	TYPE:Weapon	COST:100				SOURCEPAGE:94	PRESIZEGTEQ:M	PRETYPE:1,Bludgeoning									BONUS:EQM|WEIGHTADD|2							SPROP:Adds 1d2 damage
-Weapon Balancing		KEY:WPNBAL	TYPE:Weapon	COST:100	ITYPE:Ranged	SOURCEPAGE:94								!PRETYPE:1,Ranged	BONUS:COMBAT|TOHIT.THROWN|-2						BONUS:EQMWEAPON|RANGEADD|15
+Shock Core			KEY:SHCOR	TYPE:Weapon	COST:100				SOURCEPAGE:94	PRESIZEGTEQ:M	PRETYPE:1,Bludgeoning									BONUS:EQM|WEIGHTADD|2						SPROP:Adds 1d2 damage
+Weapon Balancing		KEY:WPNBAL	TYPE:Weapon	COST:100	ITYPE:Ranged	SOURCEPAGE:94								!PRETYPE:1,Ranged	BONUS:COMBAT|TOHIT.THROWN|-2					BONUS:EQMWEAPON|RANGEADD|15

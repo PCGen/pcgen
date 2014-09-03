@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141	SOURCEDATE:2005-01
 #Original entry by: Frank Kliewe
 
-# Ability Name					Output Name		Category of Ability		Type			Visible		Bonus to Ability Pool															Source Page
+# Ability Name					Output Name		Category of Ability		Type			Visible		Bonus Ability Pool															Source Page
 Slasher Occupation (Disorganized Killer)	OUTPUTNAME:[NAME]	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Disorganized Killer Occupation Skills|3	BONUS:ABILITYPOOL|Disorganized Killer Feat|1	SOURCEPAGE:p.44
 Slasher Occupation (Mental Patient)		OUTPUTNAME:[NAME]	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Mental Patient Occupation Skills|2	BONUS:ABILITYPOOL|Mental Patient Feat|1			SOURCEPAGE:p.44
 Slasher Occupation (Organized Killer)	OUTPUTNAME:[NAME]	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Organized Killer Occupation Skills|3	BONUS:ABILITYPOOL|Organized Killer Feat|1		SOURCEPAGE:p.45

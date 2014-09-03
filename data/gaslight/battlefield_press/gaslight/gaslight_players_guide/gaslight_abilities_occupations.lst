@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
 ###Block: Wealth
-# Ability Name	Category of Ability	Type				Visible	Define			Bonus to Ability Pool			Modify VAR				Source Page
+# Ability Name	Category of Ability	Type				Visible	Define			Bonus Ability Pool			Modify VAR				Source Page
 Starting Wealth	CATEGORY:Wealth		TYPE:StartingWealth	VISIBLE:NO	DEFINE:WealthBonus|0	BONUS:ABILITYPOOL|Wealth Roll|1	BONUS:VAR|Wealth|WealthBonus	SOURCEPAGE:p.193
 
 ###Block: Wealth Roll
@@ -17,7 +17,7 @@ Wealth Roll ~ 7	CATEGORY:Wealth		TYPE:Wealth.WealthRoll	VISIBLE:DISPLAY	BONUS:VA
 Wealth Roll ~ 8	CATEGORY:Wealth		TYPE:Wealth.WealthRoll	VISIBLE:DISPLAY	BONUS:VAR|WealthBonus|8	SOURCEPAGE:p.193
 
 ###Block: Gaslight Occupations
-# Ability Name		Category of Ability		Type			Visible		Required Stat		Required Text	Description																																																										Template				Bonus to Ability Pool																Combat bonus			Bonus to skill			Modify VAR							Source Page
+# Ability Name		Category of Ability		Type			Visible		Required Stat		Required Text	Description																																																										Template				Bonus Ability Pool																Combat bonus			Bonus to skill			Modify VAR							Source Page
 Academic			CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY					PRETEXT:Age 23+	DESC:Academics include librarians, archaeologists, scholars, professors, teachers, and other education professionals.																																													BONUS:ABILITYPOOL|Academic Occupation Skills|3																						BONUS:VAR|WealthBonus|3					SOURCEPAGE:p.71
 Adventurer			CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY					PRETEXT:Age 15+	DESC:Adventurers include professional daredevils, big-game hunters, relic hunters, explorers, extreme sports enthusiasts, field scientists, thrill-seekers, and others called to face danger for a variety of reasons.																													BONUS:ABILITYPOOL|Adventurer Occupation Skills|2	BONUS:ABILITYPOOL|Adventurer Feat|1															BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.71
 Athlete			CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	PRESTAT:1,STR=13,DEX=13				DESC:Athletes include amateur athletes of Olympic quality and professional athletes of all types, including gymnasts, weight trainers, wrestlers, boxers, martial artists, swimmers, skaters, and those who engage in any type of competitive sport.																								BONUS:ABILITYPOOL|Athlete Occupation Skills|3	BONUS:ABILITYPOOL|Athlete Feat|1																BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.71

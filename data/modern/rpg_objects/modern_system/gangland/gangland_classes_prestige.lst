@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Modern System - Gangland	SOURCESHORT:Gangland	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74	SOURCEDATE:2005-01
 # Original Entry by: Paul W. King
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:Hitman	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Req. Att.	Required Feat					Required Skill
-CLASS:Hitman	PRETOTALAB:2	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=3
+# Class Name	Required Feat					Required Skill		PRETOTALAB
+CLASS:Hitman	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Intimidate=3	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hitman	STARTSKILLPTS:2	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|Drive|Gamble|Gather Information|Hide|Intimidate|Knowledge (Current Events)|Knowledge (Streetwise)|Spot
 1				BONUS:VAR|BloodMoney|floor((CL+4)/4)*2					AUTO:FEAT|Blood Money
@@ -17,8 +17,8 @@ CLASS:Hitman	STARTSKILLPTS:2	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|D
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:Vigilante	HD:10		TYPE:Advanced.PC	MAXLEVEL:10	SOURCEPAGE:p.3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Req. Att.	Required Feat					Required Skill
-CLASS:Vigilante	PRETOTALAB:3	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Streetwise)=3
+# Class Name	Required Feat					Required Skill				PRETOTALAB
+CLASS:Vigilante	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Streetwise)=3	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vigilante	STARTSKILLPTS:4	CSKILL:Climb|Craft (Chemical)|Craft (Structural)|Demolitions|Disguise|Drive|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Navigate|Sense Motive
 1										ADD:FEAT|Weapon Focus

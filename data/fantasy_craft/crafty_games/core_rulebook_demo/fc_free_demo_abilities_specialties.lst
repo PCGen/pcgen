@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Apr 29 14:39:24 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 #Original Entry By: Crafty Games.Inc - courtesy of Dragon Dark Lord
 
-# Ability Name	Category of Ability		Type					Required Text						Description																						Virtual Feat						Ability																						Bonus to Ability Pool				Source Page
+# Ability Name	Category of Ability		Type					Required Text						Description																						Virtual Feat						Ability																						Bonus Ability Pool				Source Page
 Acrobat		CATEGORY:Special Ability	TYPE:Specialty.SpecialQuality									DESC:Your grace and flexibility amaze.																	VFEAT:Basic Skill Mastery (Robber)			ABILITY:Special Ability|AUTOMATIC|Agile Defense|Attribute Training (Str/Dex)|Fast|Practiced Athletics														SOURCEPAGE:p.21
 Adept			CATEGORY:Special Ability	TYPE:Specialty.SpecialQuality									DESC:You collect lost knowledge from all over the world.																						ABILITY:Special Ability|AUTOMATIC|Free Hint|Heroism|Practiced Search|Turning											BONUS:ABILITYPOOL|Spellcasting Feat|1	SOURCEPAGE:p.21
 Adventurer		CATEGORY:Special Ability	TYPE:Specialty.SpecialQuality									DESC:You chart your own course, exploring tombs one day and rescuing damsels the next.									VFEAT:Adventurer's Luck					ABILITY:Special Ability|AUTOMATIC|Glory-Bound|More than Luck|Origin Skill																		SOURCEPAGE:p.21

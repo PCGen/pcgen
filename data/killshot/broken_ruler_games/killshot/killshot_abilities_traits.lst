@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 ###Block: Achievement Purchases - Defaulting the COST to 1 till I wrap my head around Achievements
 # Ability Name						Unique Key								Category of Ability	Type		Multiple?	Choose		Ability								Cost
@@ -24,7 +24,7 @@ Achievement Purchase ~ Ultimate Survivor		KEY:Achievement ~ Ultimate Survivor			
 Achievement Purchase ~ Survival (Weakness)	KEY:Achievement ~ Survival Achievement (Weakness)	CATEGORY:Training Pool	TYPE:Trait	MULT:YES	CHOOSE:PCSTAT|ALL	ABILITY:Special Ability|AUTOMATIC|Weakness (%LIST)	COST:1
 
 ###Block: Trait Purchases
-# Ability Name			Unique Key						Category of Ability		Type								Var. Min. Value			Stackable?	Multiple?	Choose		Ability								Modify VAR				Cost		Source Page		Aspects						Description of the Benefits
+# Ability Name			Unique Key						Category of Ability		Type								Var. Min. Value			Stackable?	Multiple?	Choose		Ability								Modify VAR				Cost		Source Page		Aspects						Benefits
 Bloodthirsty			KEY:Bought ~ Bloodthirsty			CATEGORY:Training Pool		TYPE:Trait							PREVARGTEQ:TrainingPool,4								ABILITY:Special Ability|AUTOMATIC|Bloodthirsty		BONUS:VAR|TrainingPool|-4	COST:0
 Deadly				KEY:Bought ~ Deadly				CATEGORY:Training Pool		TYPE:Trait							PREVARGTEQ:TrainingPool,3								ABILITY:Special Ability|AUTOMATIC|Deadly			BONUS:VAR|TrainingPool|-3	COST:0
 Deadly Additional			KEY:Bought ~ Deadly Additional		CATEGORY:Training Pool		TYPE:Trait							PREVARGTEQ:TrainingPool,3																	BONUS:VAR|TrainingPool|-3	COST:0

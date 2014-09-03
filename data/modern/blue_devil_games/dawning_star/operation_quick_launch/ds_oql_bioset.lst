@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
 #CREATED BY:Sean Masters,March,2006
 
@@ -12,7 +12,7 @@ RACENAME:Velin	BASEAGE:80	MAXAGE:119	AGEDIEROLL:0d1
 AGESET:2|Old
 RACENAME:Velin	BASEAGE:120	MAXAGE:149	AGEDIEROLL:0d1
 
-AGESET:3|Venerable	
+AGESET:3|Venerable
 RACENAME:Velin	BASEAGE:150	AGEDIEROLL:0d1
 
 AGESET:4|Child

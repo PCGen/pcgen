@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 #.MOD	PREVARLTEQ:skillinfo("TOTALRANK","XXX"),MaxRankXXX	DEFINE:MaxRankXXX|var("MaxRank")-30
 
@@ -50,7 +50,7 @@ Use Rope.MOD		TYPE:UnlockedPotential	PREVARLTEQ:skillinfo("TOTALRANK","Use Rope"
 #Intimidate.MOD	TYPE:UnlockedPotential		PREVARLTEQ:skillinfo("TOTALRANK","XXX"),MaxRankXXX	DEFINE:MaxRankXXX|var("MaxRank")-30
 
 # Intimidate for STR and CHA
-# Skill Name	Type				Var. Max. Value									Define
+# Skill Name	Type				Var. Max. Value									Define				Modify VAR
 Intimidate.MOD	TYPE:UnlockedPotential	PREVARLTEQ:skillinfo("TOTALRANK","Intimidate"),MaxRankIntimidate	DEFINE:MaxRankIntimidate|0	BONUS:VAR|MaxRankIntimidate|var("MaxRank")-30
 
 #Intimidate (Charisma).MOD	TYPE:UnlockedPotential		PREVARLTEQ:skillinfo("TOTALRANK","Intimidate (Charisma)"),MaxRankIntimidate_Charisma	DEFINE:MaxRankIntimidate_Charisma|var("MaxRank")-30

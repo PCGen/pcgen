@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53	SOURCEDATE:2004-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:Inquisitor	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*7	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Req. Att.	Required Feat														Required Skill
-CLASS:Inquisitor	PRETOTALAB:2	PREFEAT:3,Conviction (Higher Power),Faith's Protection,Secret Society (Frater Torquemada/6)	PRESKILL:2,Knowledge (Theology and Philosophy)=10,Sense Motive=10
+# Class Name	Required Feat														Required Skill									PRETOTALAB
+CLASS:Inquisitor	PREFEAT:3,Conviction (Higher Power),Faith's Protection,Secret Society (Frater Torquemada/6)	PRESKILL:2,Knowledge (Theology and Philosophy)=10,Sense Motive=10	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Investigate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (History)|Knowledge (Theology and Philosophy)|Research|Search|Sense Motive
 1	SAB:Detect Allegiances
@@ -33,8 +33,8 @@ CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Diplomacy|Ga
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
 CLASS:Omega Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*7	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Feat							Required Skill
-CLASS:Omega Knight	PRETOTALAB:5	PREFEAT:2,Track,Secret Society (Isayeret Omega/6)	PRESKILL:2,Knowledge (Arcane Lore)=5,Knowledge (Tactics)=10
+# Class Name		Required Feat							Required Skill								PRETOTALAB
+CLASS:Omega Knight	PREFEAT:2,Track,Secret Society (Isayeret Omega/6)	PRESKILL:2,Knowledge (Arcane Lore)=5,Knowledge (Tactics)=10	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Omega Knight	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|Hide|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Tactics)|Move Silently|Spot|Survival|Swim
 1								BONUS:ABILITYPOOL|Weapon Focus|1
@@ -48,8 +48,8 @@ CLASS:Omega Knight	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|D
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus							Modify VAR														Bonus
 CLASS:Knight of the Old Table	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*7	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Req. Att.	Required Feat															Required Skill
-CLASS:Knight of the Old Table	PRETOTALAB:8	PREFEAT:3,Archaic Weapons Proficiency,Weapon Focus (Longsword),Secret Society (Knights Templar/6)	PRESKILL:2,Knowledge (Theology and Philosophy)=8,Knowledge (Tactics)=10
+# Class Name			Required Feat															Required Skill										PRETOTALAB
+CLASS:Knight of the Old Table	PREFEAT:3,Archaic Weapons Proficiency,Weapon Focus (Longsword),Secret Society (Knights Templar/6)	PRESKILL:2,Knowledge (Theology and Philosophy)=8,Knowledge (Tactics)=10	PRETOTALAB:8
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Old Table	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Diplomacy|Drive|Intimidate|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Sense Motive
 1	SAB:Master Fencer

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #
 # Spycraft - Shadowforce Archer PCGen dataset by Eddy Anthony
 #
@@ -41,7 +41,7 @@ Chamber - Russian Confederacy				NAMEISPI:YES	VISIBLE:YES	SOURCEPAGE:p.30	DEFINE
 
 ###Block:Chem Treatments
 
-# Template Name				Visible	Source Page		Special ABility																																						Required Stat	Required Template					Damage reduction	Adjust PC Size		Bonus to skill				Stat bonus		Choose										Temporary effect description																									Temporary Bonus
+# Template Name				Visible	Source Page		Special ABility																																						Required Stat	Required Template					Bonus DR		Adjust PC Size		Bonus to skill				Stat bonus		Choose										Temporary effect description																									Temporary Bonus
 Chem Treatment (Endure)			VISIBLE:YES	SOURCEPAGE:p.173	SAB:Chem Booster required weekly, immune to critical hits, regains 2 vitality points at the end of every round, wound points heal at the rate of 1 per hour, agent does not have to make a saving throw in order to survive massive damage	PRESTAT:1,CON=15								BONUS:DR|-|2														CHOOSE:NUMBER|MIN=-18|MAX=-2|TITLE=Penalty for missed treatments	TEMPDESC:Every treatment the agent misses causes 2 points of permanent Constitution damage and the agent permanently loses the ability to spend action dice for any purpose	TEMPBONUS:PC|STAT|CON|%CHOICE
 Chem Treatment (Gill)			VISIBLE:YES	SOURCEPAGE:p.173	SAB:Chem Booster required quarterly, ability to breathe water as well as air																												PRESTAT:1,CON=11
 Chem Treatment (Kickstart)		VISIBLE:YES	SOURCEPAGE:p.173	SAB:agent has been restored to life with Kickstart Chem Treatment																																																					BONUS:STAT|CON|-2
@@ -53,7 +53,7 @@ Chem Treatment (Talon)			VISIBLE:YES	SOURCEPAGE:p.174	SAB:Chem Booster required 
 
 ###Block:Psionic Skill  Attacks
 
-# Template Name				Visible	Source Page		Required Skill			Weapon prof. bonus					Automatically Added to Inventory			Automatically Gained Weapon Prof.
+# Template Name				Visible	Source Page		Required Skill			Weapon prof. bonus					Auto Equip							Auto Weapon Prof
 Psionic Skill Static Charge Attacks	VISIBLE:YES	SOURCEPAGE:p.184	PRESKILL:1,Static Charge=1	BONUS:WEAPONPROF=Static Charge|TOHIT|INT-DEX	AUTO:EQUIP|Lightning Attack|Scramble Attack	AUTO:WEAPONPROF|Static Charge
 Psionic Skill Cryokinesis Attacks	VISIBLE:YES	SOURCEPAGE:p.185	PRESKILL:1,Cryokinesis=1
 Psionic Skill Photokinesis Attacks	VISIBLE:YES	SOURCEPAGE:p.186	PRESKILL:1,Photokinesis=1

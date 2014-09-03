@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 ###Block: Apprentice Spell Mastery
 # Feat Name		Type			Required Class		Description																																	Multiple?	Choose							Selections
 Spell Mastery	TYPE:Apprentice	PRECLASS:1,Apprentice=1	DESC:Each time you take this feat, choose a number of spells equal to your Intelligence modifier that you already know. From that point on, you can prepare these spells without referring to a spellbook.	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Apprentice[KNOWN=YES]	SELECT:INT
 
 ###Block: Swap a Feat for a Talent
-# Feat Name					Type			Visible		Required Race		Stackable?	Multiple?	Choose		Bonus to Ability Pool
+# Feat Name					Type			Visible		Required Race		Stackable?	Multiple?	Choose		Bonus Ability Pool
 Swap a Feat for a Human Talent	TYPE:General	VISIBLE:DISPLAY	PRERACE:1,Human		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Human Talent|1
 Swap a Feat for a Beast Man Talent	TYPE:General	VISIBLE:DISPLAY	PRERACE:1,Beast Man	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Beast Man Talent|1
 Swap a Feat for a Vampire Talent	TYPE:General	VISIBLE:DISPLAY	PRERACE:1,Vampire		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vampire Talent|1

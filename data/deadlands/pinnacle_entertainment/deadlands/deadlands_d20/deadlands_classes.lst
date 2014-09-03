@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Agency Operative	HD:8		TYPE:PC.Prestige	ABB:AOp		MAXLEVEL:10	SOURCEPAGE:p.90	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|1+floor(classlevel("APPLIEDAS=NONEPIC")/5)+floor((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Req. Att.	Required Skill
-CLASS:Agency Operative	PRETOTALAB:5	PRESKILL:3,Knowledge (Law)=4,Knowledge (Occult)=3,Spot=8
+# Class Name		Required Skill								PRETOTALAB
+CLASS:Agency Operative	PRESKILL:3,Knowledge (Law)=4,Knowledge (Occult)=3,Spot=8	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Agency Operative	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Holdout|Innuendo|Knowledge (Law)|Knowledge (Occult)|Listen|Move Silently|Open Lock|Ridicule|Search|Sense Motive|TYPE=Language|Spot
 1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun|TYPE=Automatic
@@ -22,7 +22,7 @@ CLASS:Black Magician	HD:6		TYPE:NPC	ABB:Blm		MAXLEVEL:20	SOURCEPAGE:p.124	BONUS:
 CLASS:Black Magician	PREALIGN:LE,NE,CE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Black Magician	STARTSKILLPTS:2	CSKILL:Alchemy|Black Magic|Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|TYPE=Profession|Ridicule|Scry|Spellcraft
-# Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Caster level
+# Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Caster level
 CLASS:Black Magician	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Black Magician|CL
 1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Normal Progression
@@ -53,7 +53,7 @@ CLASS:Blessed	HD:6		TYPE:PC	ABB:Bls		MAXLEVEL:20	SOURCEPAGE:p.24	BONUS:COMBAT|BA
 CLASS:Blessed	PREALIGN:LG,LN,NG,TN,CG,CN
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blessed	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Faith|Heal|Intimidate|Knowledge (Local)|Knowledge (Occult)|Knowledge (Religion)|Perform|TYPE=Profession|Sense Motive|TYPE=Language|Tale Tellin'
-# Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Caster level
+# Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Caster level
 CLASS:Blessed	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blessed|CL
 1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Turn Undead stuff
@@ -125,7 +125,7 @@ CLASS:Gunslinger	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Demolitions|Gambl
 CLASS:Huckster	HD:6		TYPE:PC	ABB:Hck		MAXLEVEL:20	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Huckster	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Gamblin'|Gather Information|Hexslingin'|Knowledge (Local)|Knowledge (Occult)|Perform|TYPE=Profession|Ridicule|Sense Motive|Sleight o' Hand|TYPE=Language|Spellcraft
-# Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level
+# Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
 CLASS:Huckster	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Huckster|CL
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
@@ -232,7 +232,7 @@ CLASS:Scout		STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Gather Information|Handle A
 CLASS:Shaman (DL)	HD:6		TYPE:PC	ABB:Shm		MAXLEVEL:20	SOURCEPAGE:p.40	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shaman (DL)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Indian Lore)|Knowledge (Nature)|Ritual|Sense Motive|TYPE=Language|Swim|Wilderness Lore
-# Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Caster level
+# Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Caster level
 CLASS:Shaman (DL)	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shaman (DL)|CL
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple	WEAPONBONUS:Shortbow
@@ -261,8 +261,8 @@ CLASS:Shaman (DL)	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	BONUS:CASTE
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Texas Ranger	HD:10		TYPE:PC.Prestige	ABB:TxR		MAXLEVEL:10	SOURCEPAGE:p.92	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|floor((classlevel("APPLIEDAS=NONEPIC")+3)*2/5)
-# Class Name		Req. Att.	Required Feat	Required Skill
-CLASS:Texas Ranger	PRETOTALAB:6	PREFEAT:1,Track	PRESKILL:2,Gather Information=4,Wilderness Lore=5
+# Class Name		Required Feat	Required Skill							PRETOTALAB
+CLASS:Texas Ranger	PREFEAT:1,Track	PRESKILL:2,Gather Information=4,Wilderness Lore=5	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Texas Ranger	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Demolitions|Gunplay|Handle Animal|Hide|Gather Information|Intimidate|Intuit Direction|Holdout|Knowledge (Local)|Knowledge (Occult)|Listen|Move Silently|TYPE=Profession|Ride|Search|Sense Motive|TYPE=Language|Speed Load|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies

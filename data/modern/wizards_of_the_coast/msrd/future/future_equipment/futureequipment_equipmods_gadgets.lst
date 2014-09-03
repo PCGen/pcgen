@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 #Original entry by Frank Kliewe
 
@@ -57,7 +57,7 @@ Voice Recognition System Gadget				KEY:VC_RCGNTN_SYS_GDGT	TYPE:Weapon	COST:1	VIS
 Paint-On LCD Gadget						KEY:PNT_ON_LCD_GDGT_WPN	TYPE:Weapon	COST:4	VISIBLE:QUALIFY											SOURCEPAGE:FutureEquipment.rtf																		SPROP:can be used as a display for any piece of computer or communications equipment
 
 ###Block:Universal Armor Gadgets
-# Modifier Name			Unique Key			Type		Cost		Visible		Type granted		Source Page					Required Type				Add to base move							Bonus Armor Modifiers		Special Property																																											Choose
+# Modifier Name			Unique Key			Type		Cost		Visible		Type granted		Source Page					Required Type				Add to base move							Bonus Armor Mods			Special Property																																											Choose
 Environment Seal Gadget		KEY:ENVRNMNT_SL_GDGT	TYPE:Armor	COST:4	VISIBLE:QUALIFY	ITYPE:Environmental	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,Medium,Heavy,Powered															SPROP:provides the wearer protection from harsh conditions
 Integrated Equipment Gadget	KEY:INT_EQ_GDGT_AMR	TYPE:Armor	COST:2	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf																					SPROP:%CHOICE has been integrated into the armor and can be used by the armor's wearer at any time																													CHOOSE:EQUIPMENT|TYPE=Goods
 Integrated Weapon Gadget	KEY:INT_WPN_GDGT		TYPE:Armor	COST:0	VISIBLE:QUALIFY					SOURCEPAGE:FutureEquipment.rtf																					SPROP:integrated %CHOICE																																									CHOOSE:EQUIPMENT|TYPE=Weapon
@@ -115,7 +115,7 @@ HUD Software (Ammunition Tracker)	KEY:HUD_SFTWR_AMMO_TRK_AMR	TYPE:Armor	COST:1	V
 Teleporting Magazine Gadget	KEY:TLPRT_MAG_GDGT	TYPE:Weapon	COST:6	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PREMULT:2,[PRETYPE:1,Ranged],[PRETYPE:1,PL8,PL9]	SPROP:Teleporting Magazine
 
 ###Block:Energy Age Armor Gadgets
-# Modifier Name			Unique Key			Type		Cost		Visible		Source Page					Required Type	Bonus Armor Modifiers											Special Property
+# Modifier Name			Unique Key			Type		Cost		Visible		Source Page					Required Type	Bonus Armor Mods												Special Property
 Gravity Anchor Gadget		KEY:GRVT_ANCHR_GDGT	TYPE:Armor	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL8,PL9															SPROP:Character unaffected by low gravity and zero-g conditions
 Morphic Metal Alloy Gadget	KEY:MRPH_MTL_ALL_GDGT	TYPE:Armor	COST:6	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL8,PL9	BONUS:EQMARMOR|ACCHECK|1|TYPE=Equipment	BONUS:EQMARMOR|MAXDEX|1|TYPE=Equipment
 Neg-grav Boosters Gadget	KEY:NEG_GRV_BOOST_GDGT	TYPE:Armor	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:FutureEquipment.rtf	PRETYPE:1,PL8,PL9															SPROP:+10 bonus on all Jump checks in any situation where gravity is a factor

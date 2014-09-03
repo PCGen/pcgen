@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com
 #Original entry by: Eddy Anthony
 
@@ -36,7 +36,7 @@ ABILITYCATEGORY:World Traveller Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
 ABILITYCATEGORY:Heir's Wealth					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Wealth			TYPE:Heirs_Wealth			PLURAL:Heir's Wealth				DISPLAYLOCATION:Background
 
-ABILITYCATEGORY:Wealth	CATEGORY:Wealth	VISIBLE:NO
+ABILITYCATEGORY:Wealth						VISIBLE:NO												CATEGORY:Wealth
 
 #
 # End

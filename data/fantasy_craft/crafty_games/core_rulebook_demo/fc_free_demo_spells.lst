@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 # Original Entry By: Dragon Dark Lord
 # Original Entry Date: 2011-03-01
@@ -7,7 +7,7 @@ SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 #	Basic Spells		#
 #-----------------------------#
 
-# Spell Name			Classes of caster	School		Sub-School			Spell Descriptors				Casting Time														Range					Target Area or Effect									Duration										Save Info							Source Page		Clear Description	Description																																																																																																																																																																																																		Temporary Bonus
+# Spell Name			Classes of caster	School		Sub-School			Descriptor					Casting Time														Range					Target Area or Effect									Duration										Save Info							Source Page		Clear Description	Description																																																																																																																																																																																																		Temporary Bonus
 Alarm					CLASSES:Mage=1	SCHOOL:Preserver	SUBSCHOOL:Seals								CASTTIME:1 half action													RANGE:Close				TARGETAREA:20 ft. penetrating sphere						DURATION:(CASTERLEVEL*2) hours [dismissible, enduring]										SOURCEPAGE:p.115				DESC:The Area is protected by either an audible or mental alarm [your choice] that is triggered whenever a corporeal character enters the Area without saying the pre-set password aloud. The audible alarm can be heard at up to 60 ft., while the mental alarm can only be heard by you [and only if you're within 1 mile of the Area].
 Animate Dead I			CLASSES:Mage=1	SCHOOL:Reaper	SUBSCHOOL:Necromancy							CASTTIME:1 round														RANGE:Close																DURATION:(CASTERLEVEL) minutes [dismissible, enduring]										SOURCEPAGE:p.115				DESC:You animate the remains of 1 dead character as a standard NPC with a Threat Level equal to your Casting Level. ; Skeleton: A skeleton may be created from mostly intact bones, whether flesh remains or not. Zombie - A zombie may only be created from a mostly intact corpse [including muscle].
 Bless					CLASSES:Mage=1	SCHOOL:Prophet	SUBSCHOOL:Blessing							CASTTIME:1 half action													RANGE:Personal															DURATION:(CASTERLEVEL) minutes														SOURCEPAGE:p.117				DESC:You and each ally within 50 ft. when the spell is cast gain a +1 morale bonus with attack checks and Will saves.

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 # Original Entry by: Ian Dale
 
@@ -20,7 +20,7 @@ SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http
 
 ###Block: FX Armor and Weapon Enhancements
 
-# Modifier Name			Unique Key	Naming Option	Type		Cost		Visible		Type granted					Keys to replace					Source Page				Required Type			Combat bonus			Bonus Armor Modifiers						Weapon prop. bonus					Apply to both heads
+# Modifier Name			Unique Key	Naming Option	Type		Cost		Visible		Type granted					Keys to replace					Source Page				Required Type			Combat bonus			Bonus Armor Mods							Weapon prop. bonus					Apply to both heads
 +1 (Enhancement to Weapon)	KEY:PLUS1W	NAMEOPT:TEXT=+1	TYPE:Weapon	COST:10	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus1	REPLACES:PLUS2W,PLUS3W,PLUS4W,PLUS5W	SOURCEPAGE:msrdfxitems.rtf																				BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:NO
 +2 (Enhancement to Weapon)	KEY:PLUS2W	NAMEOPT:TEXT=+2	TYPE:Weapon	COST:15	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus2	REPLACES:PLUS1W,PLUS3W,PLUS4W,PLUS5W	SOURCEPAGE:msrdfxitems.rtf																				BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement	ASSIGNTOALL:NO
 +3 (Enhancement to Weapon)	KEY:PLUS3W	NAMEOPT:TEXT=+3	TYPE:Weapon	COST:20	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus3	REPLACES:PLUS1W,PLUS2W,PLUS4W,PLUS5W	SOURCEPAGE:msrdfxitems.rtf																				BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	ASSIGNTOALL:NO

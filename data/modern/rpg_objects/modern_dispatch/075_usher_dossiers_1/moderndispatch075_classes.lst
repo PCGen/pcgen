@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Modern Dispatch #75 - U.S.H.E.R. Dossiers #1	SOURCESHORT:MD75-USHER#1	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=198	SOURCEDATE:2004-01
 # Original Entry by: Paul W. King
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Modify VAR														Bonus
 CLASS:Supersoldier	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|Action|CL*7	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Feat					Required Skill				Required Text
-CLASS:Supersoldier	PRETOTALAB:6	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=10	PRETEXT:Allegiance to one agency
+# Class Name		Required Feat					Required Skill				Required Text				PRETOTALAB
+CLASS:Supersoldier	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=10	PRETEXT:Allegiance to one agency	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Supersoldier	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Navigate|Pilot|Repair|Spot|Survival|Swim
 1								ADD:FEAT|TYPE=AgencyTraining

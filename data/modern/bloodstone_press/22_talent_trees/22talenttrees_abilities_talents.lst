@@ -1,4 +1,4 @@
-# CVS $Revision: 3922 $ $Author: amaitland $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 3922 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:22 Talent Trees	SOURCESHORT:22TT	SOURCEWEB:http://www.bloodstone-press.com/22tt.html	SOURCEDATE:2003-11
 # Original Entry by: Paul W. King
 #
@@ -42,12 +42,12 @@ Incredible Might	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PRE
 #Fast talents
 #
 ###Block: Elusive Tree
-# Ability Name		Category of Ability	Type						Visible	Required Ability							Combat bonus			Bonus to skill							Source Page
-Slippery			CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES															BONUS:SKILL|Escape Artist|3					SOURCEPAGE:p.5
-Fancy Footwork		CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES										BONUS:COMBAT|AC|1|TYPE=Dodge										SOURCEPAGE:p.5
+# Ability Name		Category of Ability	Type						Visible	Required Ability							Combat bonus			Bonus to skill						Source Page
+Slippery			CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES															BONUS:SKILL|Escape Artist|3				SOURCEPAGE:p.5
+Fancy Footwork		CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES										BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:p.5
 Creeping Reflexes		CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Slippery								BONUS:SKILL|Hide,Move Silently|SAVE.Reflex.BASE	SOURCEPAGE:p.5
-Improved Fancy Footwork	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Fancy Footwork		BONUS:COMBAT|AC|1|TYPE=Dodge										SOURCEPAGE:p.5
-Celeritous Skulking	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Slippery,Fancy Footwork															SOURCEPAGE:p.5
+Improved Fancy Footwork	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Fancy Footwork		BONUS:COMBAT|AC|1|TYPE=Dodge									SOURCEPAGE:p.5
+Celeritous Skulking	CATEGORY:Talent		TYPE:Talent.FastTalent.Elusive	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Slippery,Fancy Footwork														SOURCEPAGE:p.5
 
 ###Block: Finesse Tree
 # Ability Name		Category of Ability	Type						Visible	Required Ability						Prohibited Feat			Multiple Requirements												Add 				Combat bonus												Source Page
@@ -56,11 +56,11 @@ Masterful Finesse		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES		
 Rapid Precision		CATEGORY:Talent		TYPE:Talent.FastTalent.Finesse	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Masterful Finesse																									BONUS:COMBAT|DAMAGE.Finesseable|DEX									SOURCEPAGE:p.5
 
 ###Block: Need for Speed Tree
-# Ability Name	Category of Ability	Type						Visible	Required Ability						Required Feat				Required Skill		Bonus to skill					Source Page
+# Ability Name	Category of Ability	Type						Visible	Required Ability						Required Feat				Required Skill		Bonus to skill				Source Page
 Driven to Drive	CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES									PREFEAT:1,Surface Vehicle Operation	PRESKILL:1,Drive=4	BONUS:SKILL|Drive|SAVE.Reflex.BASE	SOURCEPAGE:p.6
-Speed Racer		CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES									PREFEAT:1,Surface Vehicle Operation	PRESKILL:1,Drive=4								SOURCEPAGE:p.6
-Offensive Driving	CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Driven to Drive																		SOURCEPAGE:p.6
-Speed Demon		CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Driven to Drive																		SOURCEPAGE:p.6
+Speed Racer		CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES									PREFEAT:1,Surface Vehicle Operation	PRESKILL:1,Drive=4							SOURCEPAGE:p.6
+Offensive Driving	CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Driven to Drive																	SOURCEPAGE:p.6
+Speed Demon		CATEGORY:Talent		TYPE:Talent.FastTalent.NeedSpeed	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Driven to Drive																	SOURCEPAGE:p.6
 
 ###Block: Quicker Than the Eye Tree
 # Ability Name		Category of Ability	Type							Visible	Required Ability					Define								Description																	Modify VAR											Source Page
@@ -170,7 +170,7 @@ Terrify			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Intimidating	VISIBLE:YE
 Game Face			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Intimidating	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Intimidating Presence,Shake	SOURCEPAGE:p.13
 
 ###Block: Pulchritudinous Tree
-# Ability Name			Category of Ability	Type								Visible	Required Ability							Bonus to skill								Source Page
+# Ability Name			Category of Ability	Type								Visible	Required Ability							Bonus to skill									Source Page
 Good Impression			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Pulchritudinous	VISIBLE:YES										BONUS:SKILL|Diplomacy,Bluff,TYPE.Perform|3|TYPE=Circumstance	SOURCEPAGE:p.14
 CATEGORY=Talent|Charm.MOD					TYPE:Pulchritudinous
-Stunning Beauty			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Pulchritudinous	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Good Impression,Charm											SOURCEPAGE:p.14
+Stunning Beauty			CATEGORY:Talent		TYPE:Talent.CharismaticTalent.Pulchritudinous	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Good Impression,Charm												SOURCEPAGE:p.14

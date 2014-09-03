@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
 
 ###BLOCK: occupation
 # Feat Name			Output Name		Type			Visible		Required Stat	Add												Modify VAR							Source Page
-# Ability Name	Category of Ability		Type			Visible		Required Stat	Bonus to Ability Pool																	Modify VAR							Source Page
+# Ability Name	Category of Ability		Type			Visible		Required Stat	Bonus Ability Pool																	Modify VAR							Source Page
 Bureaucrat		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				BONUS:ABILITYPOOL|Bureaucrat Occupation Skills|2|TYPE=Bureaucrat_Skills	BONUS:ABILITYPOOL|Bureaucrat Feat|1			BONUS:VAR|Wealth|2					SOURCEPAGE:p.36
 Courtier		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	PRESTAT:1,CHA=13	BONUS:ABILITYPOOL|Courtier Occupation Skills|3|TYPE=Courtier_Skills									BONUS:VAR|Wealth|4					SOURCEPAGE:p.36
 Dissident		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				BONUS:ABILITYPOOL|Dissident Occupation Skills|3|TYPE=Dissident_Skills	BONUS:ABILITYPOOL|Dissident Feat|1			BONUS:VAR|Wealth|1					SOURCEPAGE:p.36

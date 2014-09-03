@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Tue Mar 13 22:54:25 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 # Original Entry By: Dragon Dark Lord
 # Original Entry Date: 2011-03-01
 
 
 # Animal Partner
-# Class of the Master			Type					Ability														Define				Bonus to Ability Pool					Modify VAR
+# Class of the Master			Type					Ability														Define				Bonus Ability Pool					Modify VAR
 FOLLOWER:AnimalPartnerLvl=0		TYPE:Animal Partner		ABILITY:NPC Ability|AUTOMATIC|Special Character								DEFINE:NPCThreatLvl|0										BONUS:VAR|NPCThreatLvl|1|TYPE=Base
 
 # Personal Lieutenant

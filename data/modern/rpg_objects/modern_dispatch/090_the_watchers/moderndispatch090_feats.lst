@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Modern Dispatch #90 - The Watchers	SOURCESHORT:MD90-TW	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=224	SOURCEDATE:2004-01
 
 #Original entry by Paul W. King
 
-# Feat Name			Type						Visible		Required Class			Required Feat				Prohibited Feat				Special ABility																Description																																	Multiple?	Choose								Damage reduction	Bonus to skill rank						Stat bonus				Add to vision			Damage Reduction	Source Page
+# Feat Name			Type						Visible		Required Class			Required Feat				Prohibited Feat				Special ABility																Description																																	Multiple?	Choose								Bonus DR		Bonus to skill rank						Stat bonus				Add to vision			Damage Reduction	Source Page
 Aspect of the Watcher	TYPE:Watcher.Nephilim.Celestial				PRECLASS:1,The Watcher=1																															DESC:While holding still the character can go unnoticed even in plain sight--surrounding observers simply stop paying attention to the character. The PC doesn't actually become invisible, just ignored.																																					SOURCEPAGE:p.2
 Aura				TYPE:Watcher.Nephilim.Celestial				PRECLASS:1,The Watcher=1																															DESC:The character radiates an aura that has impact on allies and/or foes.																						MULT:YES	CHOOSE:STRING|Calm|Inspiration|Light|Strength|Succor																										SOURCEPAGE:p.2
 Celestial Toughness I	TYPE:Watcher.Nephilim.Celestial				PRECLASS:1,The Watcher=1																															DESC:The character gains damage reduction																																																													DR:1/Iron		SOURCEPAGE:p.2

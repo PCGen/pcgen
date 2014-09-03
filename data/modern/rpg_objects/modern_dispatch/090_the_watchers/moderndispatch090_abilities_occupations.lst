@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Modern Dispatch #90 - The Watchers	SOURCESHORT:MD90-TW	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=224	SOURCEDATE:2004-01
 #Original entry by Paul W. King
 
-# Ability Name	Category of Ability		Type			Visible		Bonus to Ability Pool					Modify VAR			Source Page
+# Ability Name	Category of Ability		Type			Visible		Bonus Ability Pool					Modify VAR			Source Page
 Celestial		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Celestial Occupation Skills|3	BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.1
 
 

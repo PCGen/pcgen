@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
-# Skill Name			Key Stat	Untrained?		Type					Source Page
-Knowledge (Ancient Lore)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p. 13
-Knowledge (Mutant Lore)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p. 13
-Knowledge (Twisted Earth)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p. 13
-Profession.MOD	PREVAREQ:AllowedProfessionSkill,100
+# Skill Name			Key Stat	Untrained?		Type					Required Var. value			Source Page
+Knowledge (Ancient Lore)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge							SOURCEPAGE:p. 13
+Knowledge (Mutant Lore)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge							SOURCEPAGE:p. 13
+Knowledge (Twisted Earth)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge							SOURCEPAGE:p. 13
+Profession.MOD													PREVAREQ:AllowedProfessionSkill,100

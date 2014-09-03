@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar 13 22:54:25 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 # Original Entry By: Dragon Dark Lord
 # Original Entry Date: 2011-03-01
@@ -6,7 +6,7 @@ SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 
 
 # Human Talent ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name					Unique Key						SORTKEY	Category of Ability		Type										Required Ability								Multiple Requirements																					Required Text	Description																																																																														Ability																			Bonus to Ability Pool						Add to base move			Stat bonus					Source Page
+# Ability Name					Unique Key						SORTKEY	Category of Ability		Type										Required Ability								Multiple Requirements																					Required Text	Description																																																																														Ability																			Bonus Ability Pool						Add to base move			Stat bonus					Source Page
 Adaptable															CATEGORY:Special Ability	TYPE:Talent.SpecialQuality																																											DESC:You can find a solution to almost any problem and it's often wholly unexpected.																																																																	ABILITY:Special Ability|AUTOMATIC|Grace under Pressure|Inquisitive Mind|Mix-Up Trick|Origin Skills																								SOURCEPAGE:p.18
 Agile																CATEGORY:Special Ability	TYPE:Talent.SpecialQuality																																											DESC:Your body is quicker than most eyes!																																																																									ABILITY:Special Ability|AUTOMATIC|Double Boost (DEX)|Natural Elegance|Parry																						BONUS:STAT|DEX|2				SOURCEPAGE:p.18
 Charismatic															CATEGORY:Special Ability	TYPE:Talent.SpecialQuality																																											DESC:Your natural presence is almost overwhelming.																																																																							ABILITY:Special Ability|AUTOMATIC|Charming|Double Boost (CHA)|Encouragement																						BONUS:STAT|CHA|2				SOURCEPAGE:p.18

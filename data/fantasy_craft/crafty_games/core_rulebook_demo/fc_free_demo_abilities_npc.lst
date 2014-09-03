@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 # Original Entry By: Dragon Dark Lord
 # Original Entry Date: 2011-03-01
 # Errata incorporated as of: May 13th, 2011
 
-# Ability Name			Category of Ability	Type							Define				Automatically Gained Weapon Prof.							Ability															Bonus to HP								Modify VAR
-Special Character			CATEGORY:NPC Ability	TYPE:SpecialQuality.NPCTypeSelection	DEFINE:IsSpecialCharacter|0	BONUS:VAR|IsSpecialCharacter|1																													BONUS:HP|CURRENTMAX|NPCHealthBonus*NPCThreatLvl*5
+# Ability Name			Category of Ability	Type							Define				Auto Weapon Prof										Ability															Bonus to HP								Modify VAR
+Special Character			CATEGORY:NPC Ability	TYPE:SpecialQuality.NPCTypeSelection	DEFINE:IsSpecialCharacter|0																													BONUS:HP|CURRENTMAX|NPCHealthBonus*NPCThreatLvl*5	BONUS:VAR|IsSpecialCharacter|1
 
 # COMMENT: All Creatures / NPCS and PCs should have 'Default' to allow for expansion or additions.
 

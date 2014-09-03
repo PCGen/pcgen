@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
-# Ability Name					Category of Ability		Type							Visible		Restricted Ability								Bonus to Ability Pool
+# Ability Name					Category of Ability		Type							Visible		Restricted Ability								Bonus Ability Pool
 Choose Two Strength Based Powers		CATEGORY:Special Ability	TYPE:PsionicFocus.PsionicFocusChooser	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE=PsionicFocusChooser	BONUS:ABILITYPOOL|Psionic Focus|2
 Choose Two Dexterity Based Powers		CATEGORY:Special Ability	TYPE:PsionicFocus.PsionicFocusChooser	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE=PsionicFocusChooser	BONUS:ABILITYPOOL|Psionic Focus|2
 Choose Two Constitution Based Powers	CATEGORY:Special Ability	TYPE:PsionicFocus.PsionicFocusChooser	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE=PsionicFocusChooser	BONUS:ABILITYPOOL|Psionic Focus|2
@@ -11,7 +11,7 @@ Choose Two Charisma Based Powers		CATEGORY:Special Ability	TYPE:PsionicFocus.Psi
 
 
 ###Block: Strength Based Powers
-# Ability Name		Unique Key			Category of Ability		Type			Visible		Required Ability											Bonus to DC
+# Ability Name		Unique Key			Category of Ability		Type			Visible		Required Ability											Bonus DC
 Verve								CATEGORY:Special Ability	TYPE:PsionicFocus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Choose Two Strength Based Powers		BONUS:DC|SPELL.Verve|2
 Chameleon							CATEGORY:Special Ability	TYPE:PsionicFocus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Choose Two Strength Based Powers		BONUS:DC|SPELL.Chameleon|2
 Immovability						CATEGORY:Special Ability	TYPE:PsionicFocus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Choose Two Strength Based Powers		BONUS:DC|SPELL.Immovability|2

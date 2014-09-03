@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/	SOURCEDATE:2003-01
 # Original Entry by: Frank Kliewe
 
@@ -45,8 +45,8 @@ CLASS:Arcane Scholar	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Visual Art)|Cra
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Modify VAR														Bonus
 CLASS:Bounty Hunter	HD:8		TYPE:PC.Advanced	ABB:BHntr		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Req. Att.	Required Feat						Required Skill
-CLASS:Bounty Hunter	PRETOTALAB:2	PREFEAT:2,Track,Personal Firearms Proficiency	PRESKILL:5,Investigate=6,Sense Motive=6,Spot=6,Survival=6,Treat Injury=6
+# Class Name		Required Feat						Required Skill											PRETOTALAB
+CLASS:Bounty Hunter	PREFEAT:2,Track,Personal Firearms Proficiency	PRESKILL:5,Investigate=6,Sense Motive=6,Spot=6,Survival=6,Treat Injury=6	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bounty Hunter	STARTSKILLPTS:5	CSKILL:Bluff|Disable Device|Drive|Gather Information|Hide|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Profession|READ/WRITE LANGUAGE|Research|Search|Sense Motive|SPEAK LANGUAGE|Spot|Survival|Treat Injury
 1	SAB:Target Bonus +%|Trgt_Bns											BONUS:VAR|Trgt_Bns|1	DEFINE:Trgt_Bns|0
@@ -96,8 +96,8 @@ CLASS:Criminologist	STARTSKILLPTS:9	CSKILL:Computer Use|Craft (Chemical)|Craft (
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Modify VAR														Bonus
 CLASS:Dead Shot	HD:8		TYPE:PC.Advanced	ABB:DdSht		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Req. Att.	Required Feat							Required Skill
-CLASS:Dead Shot	PRETOTALAB:2	PREFEAT:2,Personal Firearms Proficiency,Far Shot	PRESKILL:2,Concentration=6,Spot=6
+# Class Name	Required Feat							Required Skill				PRETOTALAB
+CLASS:Dead Shot	PREFEAT:2,Personal Firearms Proficiency,Far Shot	PRESKILL:2,Concentration=6,Spot=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dead Shot	STARTSKILLPTS:3	CSKILL:Climb|Concentration|Disguise|Gather Information|Hide|Investigate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Profession|Spot|Survival
 1	SAB:Dead Aim
@@ -113,8 +113,8 @@ CLASS:Dead Shot	STARTSKILLPTS:3	CSKILL:Climb|Concentration|Disguise|Gather Infor
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Modify VAR														Bonus
 CLASS:Enforcer	HD:12		TYPE:PC.Advanced	ABB:Enfrc		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Req. Att.	Required Feat	Required Skill
-CLASS:Enforcer	PRETOTALAB:3	PREFEAT:1,Brawl	PRESKILL:1,Intimidate=3
+# Class Name	Required Feat	Required Skill		PRETOTALAB
+CLASS:Enforcer	PREFEAT:1,Brawl	PRESKILL:1,Intimidate=3	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Enforcer	STARTSKILLPTS:3	CSKILL:Climb|Concentration|Drive|Gamble|Gather Information|Hide|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Profession|SPEAK LANGUAGE|Sense Motive|Search
 1	SAB:Sucker Punch
@@ -277,8 +277,8 @@ CLASS:Dark Sage	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Visual Art)|Craft (W
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Modify VAR														Bonus
 CLASS:Martial Arts Master	HD:8		TYPE:PC.Prestige	ABB:MAM		MAXLEVEL:5	SOURCEPAGE:p.45	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|ClassDefense|(CL+1.5)*2/3	BONUS:VAR|Reputation|(CL)/5	BONUS:VAR|Action|CL*7	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+4)/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+4)/2
-# Class Name			Req. Att.	Required Feat										Required Skill			Var. Min. Value
-CLASS:Martial Arts Master	PRETOTALAB:6	PREFEAT:3,Combat Expertise,Combat Martial Arts,Defensive Martial Arts	PRESKILL:2,Balance=12,Jump=6	PREVARGTEQ:ClassDefense,7
+# Class Name			Required Feat										Required Skill			PRETOTALAB		Var. Min. Value
+CLASS:Martial Arts Master	PREFEAT:3,Combat Expertise,Combat Martial Arts,Defensive Martial Arts	PRESKILL:2,Balance=12,Jump=6	PRETOTALAB:6	PREVARGTEQ:ClassDefense,7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Martial Arts Master	STARTSKILLPTS:3	CSKILL:Balance|Climb|Diplomacy|Escape Artist|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Move Silently|Perform (Dance)|Profession|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Spot|Tumble
 1	SAB:Focus Ki|PREVARLT:CL,3

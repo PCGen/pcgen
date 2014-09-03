@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141	SOURCEDATE:2005-01
 #Original entry by: Frank Kliewe and Paul W. King
 
@@ -7,8 +7,8 @@ SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodB
 
 # Class Name			Output Name				Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR													Bonus
 CLASS:Bounty Hunter (BNB)	OUTPUTNAME:Bounty Hunter	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4	BONUS:VAR|ClassDefense|CL/2+1	BONUS:VAR|Reputation|CL/3+1	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
-# Class Name			Req. Att.	Required Skill
-CLASS:Bounty Hunter (BNB)	PRETOTALAB:2	PRESKILL:3,Investigate=6,Listen=6,Sense Motive=6
+# Class Name			Required Skill							PRETOTALAB
+CLASS:Bounty Hunter (BNB)	PRESKILL:3,Investigate=6,Listen=6,Sense Motive=6	PRETOTALAB:2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Bounty Hunter (BNB)	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|READ/WRITE LANGUAGE|Research|Sense Motive|SPEAK LANGUAGE|Spot
 1														AUTO:FEAT|Track
@@ -139,8 +139,8 @@ CLASS:Psychogene	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Combat bonus							Modify VAR														Bonus
 CLASS:Stalker	HD:8		TYPE:PC:Advanced.Slasher	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|6	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Req. Att.	Required Skill				Var. Max. Value
-CLASS:Stalker	PRETOTALAB:2	PRESKILL:2,Hide=6,Move Silently=6	PREVARLTEQ:CurrentSanity,-10
+# Class Name	Required Skill				PRETOTALAB		Var. Max. Value
+CLASS:Stalker	PRESKILL:2,Hide=6,Move Silently=6	PRETOTALAB:2	PREVARLTEQ:CurrentSanity,-10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stalker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Hide|Investigate|Jump|Listen|Move Silently|READ/WRITE LANGUAGE|Search|Sleight of Hand|SPEAK LANGUAGE|Spot|Tumble
 1					SAB:Death Attack (Fortitude DC %)|10+CL+INT	BONUS:VAR|SneakAttack|1	ADD:FEAT|Weapon Focus								ABILITY:Special Ability|NORMAL|Sneak Attack

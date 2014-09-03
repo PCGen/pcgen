@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 # Original Entry By: Dragon Dark Lord
 # Original Entry Date: 2011-03-01
@@ -138,7 +138,7 @@ Granite		VISIBLE:NO	SUBRACE:Granite
 Living Metal	VISIBLE:NO	SUBRACE:Living Metal
 
 ###Block: Cover
-# Template Name	Visible	Temporary Bonus													SORTKEY
+# Template Name	Visible	Temporary Bonus												SORTKEY
 Cover 1/4		VISIBLE:NO	TEMPBONUS:ANYPC|SAVE|Reflex|1|TYPE=Cover	TEMPBONUS:ANYPC|COMBAT|AC|2|TYPE=Cover	SORTKEY:Cover 1
 Cover 1/2		VISIBLE:NO	TEMPBONUS:ANYPC|SAVE|Reflex|2|TYPE=Cover	TEMPBONUS:ANYPC|COMBAT|AC|4|TYPE=Cover	SORTKEY:Cover 2
 Cover 3/4		VISIBLE:NO	TEMPBONUS:ANYPC|SAVE|Reflex|3|TYPE=Cover	TEMPBONUS:ANYPC|COMBAT|AC|6|TYPE=Cover	SORTKEY:Cover 3

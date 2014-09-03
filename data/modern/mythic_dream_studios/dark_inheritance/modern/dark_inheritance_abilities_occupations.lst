@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com	SOURCEDATE:2003-01
 #Original Entry by: Frank Kliewe
 
 # Feat Name				Output Name		Type			Visible	Add											Modify VAR			Source Page
-# Ability Name	Output Name		Category of Ability		Type			Visible		Bonus to Ability Pool													Modify VAR			Source Page
+# Ability Name	Output Name		Category of Ability		Type			Visible		Bonus Ability Pool													Modify VAR			Source Page
 Caregiver					CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Caregiver Occupation Skills|3									BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.88
 Child						CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Child Occupation Skills|3	BONUS:ABILITYPOOL|Child Feat|1							SOURCEPAGE:p.88
 Cultist					CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Cultist Occupation Skills|2	BONUS:ABILITYPOOL|Cultist Feat|1			BONUS:VAR|WealthBonus|1	SOURCEPAGE:p.88

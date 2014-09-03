@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 #REACTION DESIGN
 #All reactions use a matching format to maintain a clear rule set for applying
@@ -24,7 +24,7 @@
 #Weapon: If the reaction can be gained from a particular weapon, it is listed here. Some weapon
 #reactions can allow for additional training points to increase its potential.
 
-# Ability Name	Unique Key						Category of Ability		Type											Var. Min. Value			Ability							Modify VAR				Cost		Source Page		Aspects					Description of the Benefits
+# Ability Name	Unique Key						Category of Ability		Type											Var. Min. Value			Ability							Modify VAR				Cost		Source Page		Aspects					Benefits
 Bleed			KEY:Weapon Granted Reaction ~ Bleed		CATEGORY:Training Pool		TYPE:ReactionWeaponOnly													ABILITY:Special Ability|AUTOMATIC|Bleed
 Burn			KEY:Weapon Granted Reaction ~ Burn		CATEGORY:Training Pool		TYPE:ReactionWeaponOnly													ABILITY:Special Ability|AUTOMATIC|Burn
 Fracture		KEY:Weapon Granted Reaction ~ Fracture	CATEGORY:Training Pool		TYPE:ReactionWeaponOnly													ABILITY:Special Ability|AUTOMATIC|Fracture

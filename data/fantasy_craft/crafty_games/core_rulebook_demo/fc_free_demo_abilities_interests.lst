@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Craft	SOURCESHORT:FC	SOURCEDATE:2009-07
 # Original Entry By: Dragon Dark Lord
 # Original Entry Date: 2011-03-01
 
 # 1st level only
-# Ability Name	Unique Key		Category of Ability		Type										Define			Multiple?	Choose								Selections	Ability												Modify VAR			Aspects				Description of the Benefits
+# Ability Name	Unique Key		Category of Ability		Type										Define			Multiple?	Choose								Selections	Ability												Modify VAR			Aspects				Benefits
 Native Language				CATEGORY:Special Ability	TYPE:SpecialQuality.LanguageDisplay.language_list						MULT:YES	CHOOSE:USERINPUT|TITLE=Select Native Language																					ASPECT:Language|%1|%LIST	BENEFIT:%1|%LIST
 Native Culture				CATEGORY:Special Ability	TYPE:SpecialQuality											MULT:YES	CHOOSE:USERINPUT|TITLE=Select Native Culture																	BONUS:VAR|StudyCount|1
 # Single Choice Only
@@ -48,7 +48,7 @@ Wilderness		KEY:Wilderness	CATEGORY:Path			TYPE:AlignmentPathChoice						DEFINE:
 
 ###Block: Alignment Progression
 #PATH of AIR
-# Ability Name	SORTKEY				Category of Ability		Type										Define				Innate Spells																					Description																																					Automatically Gained Feat						Ability											Bonus to Ability Pool				Add to base move			Bonus to skill					Modify VAR																						Source Page		Aspects												Bonus
+# Ability Name	SORTKEY				Category of Ability		Type										Define				Innate Spells																					Description																																					Auto Feat									Ability											Bonus Ability Pool				Add to base move			Bonus to skill					Modify VAR																						Source Page		Aspects												Bonus
 Air I			SORTKEY:Path of Air 1		CATEGORY:Special Ability	TYPE:SpecialQuality.AlignmentStep.PathOfDevotion.PathOf	DEFINE:PathOfAirLVL|0																									DESC:You gain Bang and Electrical Resistance equal to 3 times your Air Step.																																				ABILITY:Special Ability|AUTOMATIC|Bang Resistance|Electrical Resistance																				BONUS:VAR|PathsTaken|1|TYPE=Air	BONUS:VAR|BangResistanceBonus,ElectricalResistanceBonus|3*PathOfAirLvl	BONUS:VAR|PathOfAirLVL|1	SOURCEPAGE:p.311
 #PATH of BEASTS
 Beasts I		SORTKEY:Path of Beasts 1	CATEGORY:Special Ability	TYPE:SpecialQuality.AlignmentStep.PathOfDevotion.PathOf																													DESC:You gain the Animal Partner feat.																																AUTO:FEAT|Animal Partner																																					BONUS:VAR|PathsTaken|1|TYPE=Beasts																		SOURCEPAGE:p.311

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 #Original Entry by: Paul King
 
@@ -37,8 +37,8 @@ CLASS:Ecclesiarch	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Chemical)|Craft (E
 
 # Class Name			Hit Dice	Type			Class Type		Max Level	Source Page						Modify VAR
 CLASS:Holy Unholy Knight	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	MAXLEVEL:5	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:VAR|Action|floor(CL*7+CL/2*CL/2)
-# Class Name			Req. Att.	Required Feat		Multiple Requirements
-CLASS:Holy Unholy Knight	PRETOTALAB:8	PREFEAT:1,Weapon Focus	PREMULT:2,[PRESKILL:2,Diplomacy=9,Gather Information=9],[PRESKILL:1,TYPE.Knowledge=9]
+# Class Name			Required Feat		Multiple Requirements												PRETOTALAB
+CLASS:Holy Unholy Knight	PREFEAT:1,Weapon Focus	PREMULT:2,[PRESKILL:2,Diplomacy=9,Gather Information=9],[PRESKILL:1,TYPE.Knowledge=9]	PRETOTALAB:8
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Holy Unholy Knight	STARTSKILLPTS:4	CSKILL:Climb|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Knowledge (Technology)|Knowledge (Theology and Philosophy)|Profession|Read/Write Language|Ride|Sense Motive|SPEAK LANGUAGE|Treat Injury
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level

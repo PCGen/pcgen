@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
@@ -65,14 +65,14 @@ Captivate		CATEGORY:Talent		TYPE:Talent.WildlingTalent	PREABILITY:2,CATEGORY=Tal
 Taunt			CATEGORY:Talent		TYPE:Talent.WildlingTalent	PREABILITY:1,CATEGORY=Talent,Charm																			SOURCEPAGE:p.57
 
 ###Block: Greater Lycanthrope Talent Tree
-# Ability Name			Category of Ability	Type									Required Ability											Req. Att.	Source Page
-Greater Lycanthrope		CATEGORY:Talent		TYPE:Talent.WerewolfTalent.GreaterLycanthropeTalent																SOURCEPAGE:p.57
-Regenerative Transformation	CATEGORY:Talent		TYPE:Talent.WerewolfTalent.GreaterLycanthropeTalent	PREABILITY:1,CATEGORY=Talent,Greater Lycanthrope							SOURCEPAGE:p.57
-Large Hybrid			CATEGORY:Talent		TYPE:Talent.WerewolfTalent.GreaterLycanthropeTalent	PREABILITY:2,CATEGORY=Talent,Greater Lycanthrope,Regenerative Transformation			SOURCEPAGE:p.57
+# Ability Name			Category of Ability	Type									Required Ability											PRETOTALAB		Source Page
+Greater Lycanthrope		CATEGORY:Talent		TYPE:Talent.WerewolfTalent.GreaterLycanthropeTalent																	SOURCEPAGE:p.57
+Regenerative Transformation	CATEGORY:Talent		TYPE:Talent.WerewolfTalent.GreaterLycanthropeTalent	PREABILITY:1,CATEGORY=Talent,Greater Lycanthrope								SOURCEPAGE:p.57
+Large Hybrid			CATEGORY:Talent		TYPE:Talent.WerewolfTalent.GreaterLycanthropeTalent	PREABILITY:2,CATEGORY=Talent,Greater Lycanthrope,Regenerative Transformation				SOURCEPAGE:p.57
 
 # Inner Beast Talent Tree
-Intimidating Gaze			CATEGORY:Talent		TYPE:WerewolfTalent.Talent.InnerBeastTalent																	SOURCEPAGE:p.57
-Unnatural Metabolism		CATEGORY:Talent		TYPE:WerewolfTalent.Talent.InnerBeastTalent																	SOURCEPAGE:p.57
+Intimidating Gaze			CATEGORY:Talent		TYPE:WerewolfTalent.Talent.InnerBeastTalent																		SOURCEPAGE:p.57
+Unnatural Metabolism		CATEGORY:Talent		TYPE:WerewolfTalent.Talent.InnerBeastTalent																		SOURCEPAGE:p.57
 Rend					CATEGORY:Talent		TYPE:WerewolfTalent.Talent.InnerBeastTalent															PRETOTALAB:4	SOURCEPAGE:p.57
 Savage Bite				CATEGORY:Talent		TYPE:WerewolfTalent.Talent.InnerBeastTalent															PRETOTALAB:6	SOURCEPAGE:p.58
 

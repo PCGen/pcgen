@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
 #Original entry by: Frank Kliewe
 
@@ -73,9 +73,9 @@ Fast Learner (Smart Lvl 10)	TYPE:FastLearnerLevel	VISIBLE:NO	PREMULT:2,[PRECLASS
 Cross Training Selection	TYPE:CrossTraining	VISIBLE:NO	SAB:Cross Training (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:SKILL|CROSSCLASS	CSKILL:LIST	COST:0	SOURCEPAGE:p.23
 
 ###Block:Cross Training Sub-Entries
-# Feat Name		Type			Visible	Special ABility				Stackable?	Multiple?	Choose		Selections	Bonus Number of Feats	Stat bonus			Source Page
-Raise Abilities	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (+1 to %CHOICE)	STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL	SELECT:2					BONUS:STAT|%LIST|1	SOURCEPAGE:p.23
-Lower Ability	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (-2 to %CHOICE)	STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL			BONUS:FEAT|POOL|1		BONUS:STAT|%LIST|-2	SOURCEPAGE:p.23
+# Feat Name		Type			Visible	Special ABility				Stackable?	Multiple?	Choose		Selections	Number of Feats	Stat bonus			Source Page
+Raise Abilities	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (+1 to %CHOICE)	STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL	SELECT:2				BONUS:STAT|%LIST|1	SOURCEPAGE:p.23
+Lower Ability	TYPE:X-Training	VISIBLE:NO	SAB:Cross Training (-2 to %CHOICE)	STACK:NO	MULT:YES	CHOOSE:PCSTAT|ALL			BONUS:FEAT|POOL|1	BONUS:STAT|%LIST|-2	SOURCEPAGE:p.23
 
 ###Block:Eclectic Selections
 # Feat Name					Type				Visible	Prohibited Class
@@ -271,11 +271,11 @@ Secret Headquarters		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Secret Headquarters		
 Debonair				TYPE:MysteryManAbility	VISIBLE:NO	SAB:Debonair																																																																																																																																										SOURCEPAGE:p.107
 
 ###Block:Mystic Class Abilities
-# Feat Name		Type				Visible	Special ABility																						Define				Stackable?	Multiple?	Choose				Template				Automatically Added to Inventory	Source Page
-Living Weapon	TYPE:MysticAbility	VISIBLE:NO	SAB:Living Weapon 1d%|LivingWeaponDice																		DEFINE:LivingWeaponDice|0	STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE	TEMPLATE:Living Weapon Dice							SOURCEPAGE:p.109
-Flying Kick		TYPE:MysticAbility	VISIBLE:NO	SAB:Flying Kick																																															SOURCEPAGE:p.109
-Iron Fist		TYPE:MysticAbility	VISIBLE:NO	SAB:Iron Fist (one attack)|PREVAREQ:var("COUNT[FEATNAME=Iron Fist]"),1	SAB:Iron Fist (all attacks)|PREVARGT:var("COUNT[FEATNAME=Iron Fist]"),1						STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE												SOURCEPAGE:p.109
-Flurry of Blows	TYPE:MysticAbility	VISIBLE:NO	SAB:Flurry of Blows																																								AUTO:EQUIP|Flurry of Blows		SOURCEPAGE:p.109
+# Feat Name		Type				Visible	Special ABility																						Define				Stackable?	Multiple?	Choose				Template				Auto Equip				Source Page
+Living Weapon	TYPE:MysticAbility	VISIBLE:NO	SAB:Living Weapon 1d%|LivingWeaponDice																		DEFINE:LivingWeaponDice|0	STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=3|NOCHOICE	TEMPLATE:Living Weapon Dice						SOURCEPAGE:p.109
+Flying Kick		TYPE:MysticAbility	VISIBLE:NO	SAB:Flying Kick																																														SOURCEPAGE:p.109
+Iron Fist		TYPE:MysticAbility	VISIBLE:NO	SAB:Iron Fist (one attack)|PREVAREQ:var("COUNT[FEATNAME=Iron Fist]"),1	SAB:Iron Fist (all attacks)|PREVARGT:var("COUNT[FEATNAME=Iron Fist]"),1						STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE											SOURCEPAGE:p.109
+Flurry of Blows	TYPE:MysticAbility	VISIBLE:NO	SAB:Flurry of Blows																																								AUTO:EQUIP|Flurry of Blows	SOURCEPAGE:p.109
 
 ###Block:News Hound Class Abilities
 # Feat Name				Type				Visible	Special ABility																																		Define				Stackable?	Multiple?	Choose				Bonus to skill						Bonus to skill rank						Modify VAR					Source Page

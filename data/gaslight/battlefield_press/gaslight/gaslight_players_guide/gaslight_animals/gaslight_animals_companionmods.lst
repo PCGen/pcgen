@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Gaslight - Animals	SOURCESHORT:GLA	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
 ###Block:Familiar
-# Class of the Master	Type			Spell Res.	Ability												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define			Define a Stat			Combat bonus					Main Race Type
+# Class of the Master	Type			Spell Res.	Ability												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define			Define Stat				Combat bonus					Main Race Type
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	DEFINE:EvasionUsable|0	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Magical Beast
 FOLLOWER:FamiliarLVL=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																									DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:FamiliarLVL=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																										DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
@@ -21,8 +21,8 @@ FOLLOWER:FamiliarLVL=19	TYPE:Familiar	SR:24																																				D
 FOLLOWER:FamiliarLVL=20	TYPE:Familiar	SR:25
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar			Type			Bonus to HP			Bonus to skill		Ability									Bonus
-MASTERBONUSRACE:Bat			TYPE:Familiar					BONUS:SITUATION|Perception=Listen|3
+# Race of familiar			Type			Bonus to HP			Bonus to skill		Ability									Bonus				Bonus to Situation
+MASTERBONUSRACE:Bat			TYPE:Familiar																							BONUS:SITUATION|Perception=Listen|3
 MASTERBONUSRACE:Cat			TYPE:Familiar					BONUS:SKILL|Stealth|3
 MASTERBONUSRACE:Ferret			TYPE:Familiar																			BONUS:SAVE|Reflex|2
 MASTERBONUSRACE:Hawk			TYPE:Familiar									ABILITY:Special Ability|AUTOMATIC|Hawk Familiar Bonuses

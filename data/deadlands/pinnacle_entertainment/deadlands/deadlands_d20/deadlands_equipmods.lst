@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 #
 ###Block:Armor
 #
-# Modifier Name	Unique Key	Type			Cost		Type granted	Source Page		Bonus Armor Modifiers		Apply to both heads
+# Modifier Name	Unique Key	Type			Cost		Type granted	Source Page		Bonus Armor Mods			Apply to both heads
 Masterwork		KEY:ARMRMW	TYPE:Armor.Shield	COST:150	ITYPE:Masterwork	SOURCEPAGE:p.113	BONUS:EQMARMOR|ACCHECK|1	ASSIGNTOALL:YES
 #
 ###Block:Weapon
@@ -22,7 +22,7 @@ Silvered		KEY:DAGSLVR		TYPE:Dagger		COST:10	ITYPE:Silvered	SOURCEPAGE:p.113
 #EXCLUDEEQ_PHB	VISIBLE:NO	ITYPE:Masterwork.Adamantine
 
 ###Block:Weapon
-# Modifier Name	Unique Key		Type		Cost			Keys to replace	Source Page		Required Item		Required Type	Bonus to skill		Bonus Weapon Modifiers					Weapon prop. bonus
+# Modifier Name	Unique Key		Type		Cost			Keys to replace	Source Page		Required Item		Required Type	Bonus to skill		Bonus Weapon Mods						Weapon prop. bonus
 Engraved		KEY:ENGRAVED	TYPE:Weapon	COST:BASECOST/5				SOURCEPAGE:p.65					PRETYPE:1,Firearm
 Gold-inlaid		KEY:GOLD_INLAID	TYPE:Weapon	COST:BASECOST/4	REPLACES:ENGRAVED	SOURCEPAGE:p.65					PRETYPE:1,Firearm
 Hardin's Card	KEY:HARDINS_CARD	TYPE:Weapon	COST:0					SOURCEPAGE:p.197	PREITEM:1,Hardin's Card	PRETYPE:1,Pistol													BONUS:WEAPON|TOHIT|2|TYPE=ENHANCEMENT

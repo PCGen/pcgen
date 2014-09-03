@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:21:11 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html	SOURCEDATE:2004-12
 # Original Entry by: Lone Jedi (MSRD by Barak & Tir Gwaith)
 
 
 ###Block: Sidewinder Occupations
 
-# Ability Name	Category of Ability		Type			Visible		Required Stat	Required Text	Bonus to Ability Pool												Modify VAR							Source Page
+# Ability Name	Category of Ability		Type			Visible		Required Stat	Required Text	Bonus Ability Pool												Modify VAR							Source Page
 Artisan		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	PRESTAT:1,DEX=13				BONUS:ABILITYPOOL|Artisan Occupation Skills|2	BONUS:ABILITYPOOL|Artisan Feat|1		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 44
 Artist		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Artist Occupation Skills|3								BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 44
 Clergy		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 23	BONUS:ABILITYPOOL|Clergy Occupation Skills|3								BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 45

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
 
 ###BLOCK: Velin abilities
@@ -31,7 +31,7 @@ Signature Weapon	CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Signa
 
 ###BLOCK: Lawman abilities
 # Feat Name		Type			Visible	Special ABility		Combat bonus					Damage reduction	Bonus to skill										Modify VAR
-# Ability Name						Category of Ability		Type			Visible	Special ABility		Damage reduction	Bonus to skill										Modify VAR
+# Ability Name						Category of Ability		Type			Visible	Special ABility		Bonus DR		Bonus to skill										Modify VAR
 Grit Your Teeth						CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Grit Your Teeth	BONUS:DR|-|1													BONUS:VAR|DamageThreshold|1
 CATEGORY=Special Ability|Improved Reaction.MOD						TYPE:ClassAbility
 Legwork							CATEGORY:Special Ability	TYPE:ClassAbility	VISIBLE:NO	SAB:Legwork						BONUS:SKILL|Gather Information,Investigate,Research|2|TYPE=Competence

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2003-01
 
 ###Block:Class Skill Templates for monsters with classes
@@ -45,7 +45,7 @@ Spore Plantman		VISIBLE:NO	LEVELADJUSTMENT:2	SAB:Spores (Ex)	BONUS:HP|CURRENTMAX
 Background (Sandman)	VISIBLE:NO	CSKILL:Hide|Listen|Move Silently	ABILITY:FEAT|AUTOMATIC|Blind-Fight|Multiattack
 
 ###Block: Shadow People
-# Template Name			Visible	Bonus to Ability Pool			Ability
+# Template Name			Visible	Bonus Ability Pool			Ability
 Background (Shadow People)	VISIBLE:NO							ABILITY:FEAT|AUTOMATIC|Primitive Technology
 Shadow People Abilities		VISIBLE:NO	BONUS:ABILITYPOOL|Background|1	ABILITY:Mutation|AUTOMATIC|Neural Mutation - Telepathy	ABILITY:FEAT|AUTOMATIC|Flight Trigger|Mental Communication|Mind Stun
 
