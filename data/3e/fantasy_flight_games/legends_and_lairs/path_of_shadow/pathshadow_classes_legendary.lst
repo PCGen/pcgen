@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
 # Original entry by: Blithwyn
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Combat bonus							Bonus
 CLASS:Abyssal Infiltrator	HD:6		TYPE:PC.Legendary	ABB:Aby		MAXLEVEL:5	SOURCEPAGE:Chap.2, Abyssal Infiltrator	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3+1
-# Class Name			Required AL		Req. Att.	Req. Special Ability	Required Skill
-CLASS:Abyssal Infiltrator	PREALIGN:LE,NE,CE	PRETOTALAB:8	PRESA:1,Death Attack	PRESKILL:5,Knowledge (Arcana)=7,Intimidate=10,Hide=15,Move Silently=15,Open Lock=15
+# Class Name			Required AL		Req. Special Ability	Required Skill												PRETOTALAB
+CLASS:Abyssal Infiltrator	PREALIGN:LE,NE,CE	PRESA:1,Death Attack	PRESKILL:5,Knowledge (Arcana)=7,Intimidate=10,Hide=15,Move Silently=15,Open Lock=15	PRETOTALAB:8
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Abyssal Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	ADD:FEAT|Enhanced Dexterity I,Enhanced Strength I,TYPE=AbyssalInfiltratorLAPL1
@@ -47,8 +47,8 @@ CLASS:Fortune's Fool	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Cr
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus							Bonus
 CLASS:Grey Hand	HD:6		TYPE:PC.Legendary	ABB:GrHa		MAXLEVEL:5	SOURCEPAGE:Chap.2, Grey Hand	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+3	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3+1
-# Class Name	Req. Att.	Required Feat							Req. Special Ability	Required Skill									Var. Min. Value
-CLASS:Grey Hand	PRETOTALAB:9	PREFEAT:3,Improved Critical,Weapon Focus,Skill Focus	PRESA:1,Death Attack	PRESKILL:4,Disguise=10,Intimidate=10,Hide=15,Move Silently=15	PREVARGTEQ:SneakAttackDice,5
+# Class Name	Required Feat							Req. Special Ability	Required Skill									PRETOTALAB		Var. Min. Value
+CLASS:Grey Hand	PREFEAT:3,Improved Critical,Weapon Focus,Skill Focus	PRESA:1,Death Attack	PRESKILL:4,Disguise=10,Intimidate=10,Hide=15,Move Silently=15	PRETOTALAB:9	PREVARGTEQ:SneakAttackDice,5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Grey Hand	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
@@ -62,8 +62,8 @@ CLASS:Grey Hand	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher S
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page						Combat bonus							Bonus
 CLASS:Hand of the Reaper	HD:6		TYPE:PC.Legendary	ABB:HaRe		MAXLEVEL:5	SOURCEPAGE:Chap.2, Hand of the Reaper	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+3	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3+1
-# Class Name			Restricted AL		Req. Att.	Req. Special Ability	Required Skill
-CLASS:Hand of the Reaper	!PREALIGN:LG,NG,CG	PRETOTALAB:8	PRESA:1,Death Attack	PRESKILL:6,Bluff=5,Diplomacy=5,Forgery=5,Gather Information=5,Intimidate=10,Open Lock=10,Hide=15,Move Silently=15
+# Class Name			Restricted AL		Req. Special Ability	Required Skill																	PRETOTALAB
+CLASS:Hand of the Reaper	!PREALIGN:LG,NG,CG	PRESA:1,Death Attack	PRESKILL:6,Bluff=5,Diplomacy=5,Forgery=5,Gather Information=5,Intimidate=10,Open Lock=10,Hide=15,Move Silently=15	PRETOTALAB:8
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Hand of the Reaper	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
@@ -153,8 +153,8 @@ CLASS:Master Burglar	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Cr
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Combat bonus								Bonus
 CLASS:Queen of Shadows	HD:6		TYPE:PC.Legendary	ABB:QSh		MAXLEVEL:5	SOURCEPAGE:Chap.2, Queen of Shadows	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3+1
-# Class Name		Req. Att.	Required Class			Required Feat					Required Skill
-CLASS:Queen of Shadows	PRETOTALAB:8	PRECLASS:1,Shadowdancer=1	PREFEAT:3,Dodge,Mobility,Spring Attack	PRESKILL:3,Perform=10,Hide=15,Move Silently=15
+# Class Name		Required Class			Required Feat					Required Skill						PRETOTALAB
+CLASS:Queen of Shadows	PRECLASS:1,Shadowdancer=1	PREFEAT:3,Dodge,Mobility,Spring Attack	PRESKILL:3,Perform=10,Hide=15,Move Silently=15	PRETOTALAB:8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Queen of Shadows	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	ADD:FEAT|Enhanced Charisma I,Enhanced Dexterity I,TYPE=QueenShadowsLAPL1
@@ -169,8 +169,8 @@ CLASS:Queen of Shadows	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Combat bonus								Bonus
 CLASS:Rogue Prince	HD:6		TYPE:PC.Legendary	ABB:RoPr		MAXLEVEL:5	SOURCEPAGE:Chap.2, Rogue Prince	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4+1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3+1
-# Class Name		Req. Att.	Required Feat				Required Skill
-CLASS:Rogue Prince	PRETOTALAB:8	PREFEAT:2,Expertise,Improved Disarm	PRESKILL:4,Search=10,Bluff=15,Pick Pocket=15,Tumble=15
+# Class Name		Required Feat				Required Skill								PRETOTALAB
+CLASS:Rogue Prince	PREFEAT:2,Expertise,Improved Disarm	PRESKILL:4,Search=10,Bluff=15,Pick Pocket=15,Tumble=15	PRETOTALAB:8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rogue Prince	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	ADD:FEAT|Enhanced Charisma I,Enhanced Dexterity I,TYPE=RoguePrinceLAPL1

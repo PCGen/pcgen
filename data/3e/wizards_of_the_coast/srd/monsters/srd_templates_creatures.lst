@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 # Specific Templates used in monster races
 #
@@ -62,6 +62,6 @@ Sahuagin Male	VISIBLE:NO	SOURCEPAGE:srdmonsterss.rtf	PRERACE:1,Sahuagin	FAVOREDC
 Sahuagin Female	VISIBLE:NO	SOURCEPAGE:srdmonsterss.rtf	PRERACE:1,Sahuagin	FAVOREDCLASS:Cleric	REMOVABLE:YES	GENDERLOCK:Female
 
 ###Block: Goblin Calvary
-# Template Name	Visible	Source Page				Required Race	Bonus to skill		Automatically Gained Feat	Removable?		Subrace
+# Template Name	Visible	Source Page				Required Race	Bonus to skill		Auto Feat				Removable?		Subrace
 Goblin Cavalry	VISIBLE:NO	SOURCEPAGE:srdmonstersfg.rtf	PRERACE:1,Goblin	BONUS:SKILL|Ride|6	AUTO:FEAT|Mounted Combat	REMOVABLE:YES	SUBRACE:Calvary
 Normal Goblin	VISIBLE:NO	SOURCEPAGE:srdmonstersfg.rtf	PRERACE:1,Goblin										REMOVABLE:YES

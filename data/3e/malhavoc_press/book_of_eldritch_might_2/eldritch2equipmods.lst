@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Aug  6 13:06:09 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Malhavoc Press - Book of Eldritch Might II	SOURCESHORT:BoEM2	SOURCEWEB:http://www.montecook.com
 
 ###Block:Armor
-# Modifier Name		Unique Key				Type			Plus		Source Page		Required Type					Bonus Armor Modifiers
+# Modifier Name		Unique Key				Type			Plus		Source Page		Required Type					Bonus Armor Mods
 Grace				KEY:BEMII_GRACE			TYPE:Armor.Shield	PLUS:1	SOURCEPAGE:p.53	PRETYPE:1,EQMODTYPE=MagicalEnhancement	BONUS:EQMARMOR|MAXDEX|50
 Superior Spellcasting	KEY:BEMII_SUP_SPELLCASTING	TYPE:Armor.Shield	PLUS:4	SOURCEPAGE:p.53	PRETYPE:1,EQMODTYPE=MagicalEnhancement	BONUS:EQMARMOR|SPELLFAILURE|-100
 Spellcasting		KEY:BEMII_SPELLCASTING		TYPE:Armor.Shield	PLUS:2	SOURCEPAGE:p.53	PRETYPE:1,EQMODTYPE=MagicalEnhancement	BONUS:EQMARMOR|SPELLFAILURE|-15

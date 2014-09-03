@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 ###Block: Specific Armor
 
-# Equipment Name		Required Armor Proficiency	Type								Cost		Weight	AC Penalty Check	Modifier				Maximum DEX Bonus	Source Page					% of Spell Failure	Ability								Innate Spells						Combat bonus			Bonus to skill						Modify VAR								Bonus Armor Modifiers						Special Property
+# Equipment Name		Required Armor Proficiency	Type								Cost		Weight	AC Penalty Check	Modifier				Maximum DEX Bonus	Source Page					% of Spell Failure	Ability								Innate Spells						Combat bonus			Bonus to skill						Modify VAR								Bonus Armor Mods							Special Property
 Adamantine Breastplate	PROFICIENCY:ARMOR|Breastplate	TYPE:Armor.Medium.Suit.Specific			COST:350	WT:30		ACCHECK:-4		EQMOD:ADAMANT_ARMR_MED		MAXDEX:3		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:25																			BONUS:COMBAT|AC|5|TYPE=Armor
 Banded Mail of Luck	PROFICIENCY:ARMOR|Banded Mail	TYPE:Enhancement.Armor.Heavy.Suit.Specific	COST:9750	WT:35		ACCHECK:-6		EQMOD:MWORKA.PLUS3A.STEEL	MAXDEX:1		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:35																			BONUS:COMBAT|AC|6|TYPE=Armor																											SPROP:Allows the wearer to reroll one attack against him 1/week
 Breastplate of Command	PROFICIENCY:ARMOR|Breastplate	TYPE:Enhancement.Armor.Medium.Suit.Specific	COST:17450	WT:30		ACCHECK:-4		EQMOD:MWORKA.PLUS2A.STEEL	MAXDEX:3		SOURCEPAGE:srdmagicitemsarmor.rtf	SPELLFAILURE:25																			BONUS:COMBAT|AC|5|TYPE=Armor	BONUS:SKILL|TYPE.Charisma|2|TYPE=Competence	BONUS:VAR|TurnCheckBase|2														SPROP:When worn, this +2 breastplate bestows a +2 circumstance bonus on Charisma checks, checks using skills for which Charisma is the key ability, and turning checks to its wearer. Friendly troops within 360 feet of the user become braver than normal. The wearer cannot hide or conceal herself in any way and still have the effect function. Caster Level: 15th|PRERULE:1,DisplayFullEquip

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com	SOURCEDATE:2001-01
 
 ###Block: Blood Witch class features
@@ -63,6 +63,6 @@ Resist Massive Damage	TYPE:ClassAbility	VISIBLE:NO	SAB:Resist Massive Damage				
 Natural Healing		TYPE:ClassAbility	VISIBLE:NO	SAB:Natural Healing																																														SOURCEPAGE:p.22
 
 ###Block: Proficiencies
-# Feat Name					Type			Visible	Automatically Gained Weapon Prof.
+# Feat Name					Type			Visible	Auto Weapon Prof
 Penumbral Lord Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Dagger|Club|Quarterstaff|Crossbow (Light)|Dart|Sling|Crossbow (Heavy)|Javelin
 Incarnate Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dart|Longspear|Quarterstaff|Shortspear|Sickle|Sling

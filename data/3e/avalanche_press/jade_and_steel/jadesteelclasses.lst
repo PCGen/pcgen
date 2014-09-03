@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Avalanche Press - Jade and Steel	SOURCESHORT:JadeSteel	SOURCEWEB:http://www.avalanchepress.com	SOURCEDATE:2003-01
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
@@ -20,8 +20,8 @@ CLASS:Alchemist	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE=Craft
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Attack Cycle	Combat bonus											Bonus
 CLASS:Dim Mak Practitioner	HD:8		TYPE:PC.Prestige	ABB:DMk		MAXLEVEL:10	SOURCEPAGE:p.13	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Required AL		Req. Att.	Required Feat
-CLASS:Dim Mak Practitioner	PREALIGN:LG,LN,LE	PRETOTALAB:3	PREFEAT:3,Improved Unarmed Strike,Improved Trip,Improved Initiative
+# Class Name			Required AL		Required Feat										PRETOTALAB
+CLASS:Dim Mak Practitioner	PREALIGN:LG,LN,LE	PREFEAT:3,Improved Unarmed Strike,Improved Trip,Improved Initiative	PRETOTALAB:3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Dim Mak Practitioner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|Perform|TYPE=Profession|Swim|Tumble
 1	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:Chakra Strike %|ChakraStrike	SAB:Student of Perfection	BONUS:COMBAT|AC|MonkAC|PREVARGT:MonkACChk,0	BONUS:VAR|ChakraStrike|1	BONUS:VAR|MonkACChk|MonkAC+WIS	BONUS:VAR|MonkAC|min(floor(CL/5),4)	DEFINE:MonkACChk|0	DEFINE:ChakraStrike|0	DEFINE:MonkAC|0
@@ -76,8 +76,8 @@ CLASS:Geometer	SPELLLIST:1|Cleric
 
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Attack Cycle	Combat bonus											Bonus
 CLASS:Iron Hand Disciple	HD:8		TYPE:PC.Prestige	ABB:IHD		SOURCEPAGE:p.18	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Required AL		Req. Att.	Required Feat
-CLASS:Iron Hand Disciple	PREALIGN:LG,LN,LE	PRETOTALAB:4	PREFEAT:3,Improved Unarmed Strike,Great Fortitude,Power Attack
+# Class Name			Required AL		Required Feat									PRETOTALAB
+CLASS:Iron Hand Disciple	PREALIGN:LG,LN,LE	PREFEAT:3,Improved Unarmed Strike,Great Fortitude,Power Attack	PRETOTALAB:4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Iron Hand Disciple	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|Perform|TYPE=Profession|Swim|Tumble
 1	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10			SAB:Iron Hand attack	SAB:Student of Perfection	BONUS:COMBAT|AC|MonkAC|PREVARGT:MonkACChk,0	BONUS:VAR|MonkACChk|MonkAC+WIS	BONUS:VAR|MonkAC|min(floor(CL/5),4)	DEFINE:MonkACChk|0	DEFINE:MonkAC|0
@@ -93,8 +93,8 @@ CLASS:Iron Hand Disciple	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Sword Saint	HD:10		TYPE:PC.Prestige	ABB:SwS		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Req. Att.	Required Feat
-CLASS:Sword Saint	PRETOTALAB:6	PREFEAT:4,Weapon Specialization,Expertise,Quick Draw,Spring Attack
+# Class Name	Required Feat										PRETOTALAB
+CLASS:Sword Saint	PREFEAT:4,Weapon Specialization,Expertise,Quick Draw,Spring Attack	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sword Saint	STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Knowledge (Religion)|Tumble
 1																								ABILITY:Special Ability|AUTOMATIC|Flurry of Blows

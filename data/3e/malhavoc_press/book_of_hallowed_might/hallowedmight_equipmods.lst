@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Feb 11 12:38:00 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #Original Author: kingpaul, Updated by Beaver
 
 SOURCELONG:Malhavoc Press - Book of Hallowed Might	SOURCESHORT:BoHM	SOURCEWEB:http://www.montecook.com
@@ -6,7 +6,7 @@ SOURCELONG:Malhavoc Press - Book of Hallowed Might	SOURCESHORT:BoHM	SOURCEWEB:ht
 # Fixed Crystal's ACCHECK, removed erroneous comment lines. - Tir Gwaith
 
 ###Block: Armor and Shield special qualities
-# Modifier Name	Unique Key		Type			Plus		Source Page		Required Type		Bonus Armor Modifiers		Special Property
+# Modifier Name	Unique Key		Type			Plus		Source Page		Required Type		Bonus Armor Mods			Special Property
 Absolute Courage	KEY:BOHMASABCOUR	TYPE:Armor.Shield	PLUS:3	SOURCEPAGE:p.40	PRETYPE:1,Enhancement						SPROP:Grants wearer complete immunity to fear-based attacks
 Absolute Purity	KEY:BOHMASABPUR	TYPE:Armor.Shield	PLUS:5	SOURCEPAGE:p.40	PRETYPE:1,Enhancement						SPROP:Grants wearer complete immunity from spells with the evil descriptor
 Charity		KEY:BOHMASCHAR	TYPE:Shield		PLUS:2	SOURCEPAGE:p.40	PRETYPE:1,Enhancement						SPROP:Can extend its enhancement bonus to all allies within 10 ft.

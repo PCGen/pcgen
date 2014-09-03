@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep 30 21:36:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB:http://www.fantasyflightgames.com/llsh.html	SOURCEDATE:2002-01
 # Original Entry by: Eddy Anthony
 
@@ -24,11 +24,11 @@ Spell shell											TYPE:Goods.General.Writing.Documents.Resizable.Aquatic	COS
 
 ###Block: Siege Engines
 
-# Equipment Name	Type						Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page
-Bomb (Acid)		TYPE:Goods.Siege Engines.Consumable	COST:250	CRITMULT:-			CRITRANGE:1			DAMAGE:4d6	RANGE:200	SOURCEPAGE:p.105
-Bomb (Fire)		TYPE:Goods.Siege Engines.Consumable	COST:300	CRITMULT:-			CRITRANGE:1			DAMAGE:5d6	RANGE:200	SOURCEPAGE:p.105
-Bomb (Shrapnel)	TYPE:Goods.Siege Engines.Consumable	COST:200	CRITMULT:-			CRITRANGE:1			DAMAGE:2d6	RANGE:200	SOURCEPAGE:p.105
-Cannon		TYPE:Goods.Siege Engines		COST:5000	CRITMULT:-			CRITRANGE:1			DAMAGE:6d6	RANGE:300	SOURCEPAGE:p.105
+# Equipment Name	Type						Cost		Crit Mult	Crit Range	Damage	Range		Source Page
+Bomb (Acid)		TYPE:Goods.Siege Engines.Consumable	COST:250	CRITMULT:-	CRITRANGE:1	DAMAGE:4d6	RANGE:200	SOURCEPAGE:p.105
+Bomb (Fire)		TYPE:Goods.Siege Engines.Consumable	COST:300	CRITMULT:-	CRITRANGE:1	DAMAGE:5d6	RANGE:200	SOURCEPAGE:p.105
+Bomb (Shrapnel)	TYPE:Goods.Siege Engines.Consumable	COST:200	CRITMULT:-	CRITRANGE:1	DAMAGE:2d6	RANGE:200	SOURCEPAGE:p.105
+Cannon		TYPE:Goods.Siege Engines		COST:5000	CRITMULT:-	CRITRANGE:1	DAMAGE:6d6	RANGE:300	SOURCEPAGE:p.105
 
 ###Block: Ship Castles
 

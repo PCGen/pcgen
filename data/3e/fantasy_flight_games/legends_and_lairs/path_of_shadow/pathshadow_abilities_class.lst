@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
 # Original entry by: Blithwyn
 
 ###Block: Proficiencies
 # Feat Name						Type			Visible	Automaticaly Gained Weapon Prof.
-# Ability Name					Category of Ability		Type			Visible	Automatically Gained Weapon Prof.
+# Ability Name					Category of Ability		Type			Visible	Auto Weapon Prof
 Acolyte of Chance Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dagger|Dagger (Punching)|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
 Aerialist Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Longbow|Longbow (Composite)|Rapier|Sap|Scimitar|Shortbow|Shortbow (Composite)
 Falconer Weapon Proficiencies			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
@@ -22,8 +22,8 @@ White Rose Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:N
 
 ###Block: Chameleon special abilities (similar to the rogue)
 # Feat Name	Type						Visible	Special ABility	Source Page
-# Ability Name	Unique Key				Category of Ability		Type													Visible		Special ABility	Stackable?	Multiple?	Choose		Bonus Number of Feats	Source Page
-Traps								CATEGORY:Special Ability	TYPE:ChameleonSpecialAbilities								VISIBLE:DISPLAY	SAB:Traps													SOURCEPAGE:Chap.3, Chameleon, Special Ability
+# Ability Name	Unique Key				Category of Ability		Type													Visible		Special ABility	Stackable?	Multiple?	Choose		Number of Feats	Source Page
+Traps								CATEGORY:Special Ability	TYPE:ChameleonSpecialAbilities								VISIBLE:DISPLAY	SAB:Traps												SOURCEPAGE:Chap.3, Chameleon, Special Ability
 Bonus Feat		KEY:Chameleon_Bonus_Feat	CATEGORY:Special Ability	TYPE:ChameleonSpecialAbilities.PsychicThiefAbility.ConArtistSpecialAbilities	VISIBLE:DISPLAY				STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:FEAT|POOL|1
 
 ###Block: Con Artist special abilities (similar to the rogue)
@@ -84,7 +84,7 @@ Urban Tracking	CATEGORY:Special Ability	TYPE:QuestionerSpecialAbilities	VISIBLE:
 
 ###Block:White Rose special abilities (similar to the rogue)
 # Feat Name					Type						Visible	Prohibited Feat					Special ABility			Stackable?	Multiple?	Add					Source Page
-# Ability Name				Category of Ability		Type						Visible	Prohibited Feat					Special ABility				Stackable?	Multiple?	Choose		Bonus to Ability Pool			Source Page
+# Ability Name				Category of Ability		Type						Visible	Prohibited Feat					Special ABility				Stackable?	Multiple?	Choose		Bonus Ability Pool			Source Page
 Final Stroke				CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Final Stroke																	SOURCEPAGE:Chap.1, White Rose, Special Ability
 Narrow Miss					CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Narrow Miss																	SOURCEPAGE:Chap.1, White Rose, Special Ability
 Parry						CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Parry																		SOURCEPAGE:Chap.1, White Rose, Special Ability

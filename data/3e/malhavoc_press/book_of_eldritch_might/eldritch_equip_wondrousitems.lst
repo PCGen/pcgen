@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:25:56 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Malhavoc Press - Book of Eldritch Might	SOURCESHORT:BoEM1	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2001-12
 #Spell names and other proper names from The Book of Eldritch Might are
 #	©2001-2003 Monte J. Cook and are used here with his permission.
 
 #Errata from http://pub58.ezboard.com/fokayyourturnfrm16.showMessage?topicID=197.topic applied (changed costs for mirrors, as they take up no item slot)
 
-# Equipment Name			Type						Cost		Weight	Source Page		Bonus to DC			Stat bonus
+# Equipment Name			Type						Cost		Weight	Source Page		Bonus DC			Stat bonus
 Amulet of the Arcanist		TYPE:Magic.Wondrous.Neckgear.Amulet	COST:50000	WT:0		SOURCEPAGE:p.26	BONUS:DC|TYPE.Arcane|2
 Book of Roses			TYPE:Magic.Wondrous.Book		COST:100000	WT:2		SOURCEPAGE:p.26
 Bottled Whirlwind			TYPE:Magic.Wondrous			COST:3000	WT:1		SOURCEPAGE:p.26

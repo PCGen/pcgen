@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2002-04
 
 # ~ Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Profession|Psicraft|Remote View|Speak Language|Spot|Stabilize Self
-# Ability Name		Unique Key							Category of Ability		Type					Define																		Description									Automatically Added to Inventory	Add 				Modify VAR
+# Ability Name		Unique Key							Category of Ability		Type					Define																		Description									Auto Equip			Add 				Modify VAR
 Power Sharing I		KEY:Power Sharing I ~ Colorless Adept		CATEGORY:Special Ability	TYPE:SpecialQuality
 Power Sharing II		KEY:Power Sharing II ~ Colorless Adept		CATEGORY:Special Ability	TYPE:SpecialQuality
 Colorless Fire		KEY:Colorless Fire ~ Colorless Adept		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	DEFINE:ColorlessFireDC|0	DEFINE:ColorlessFireTimes|0										DESC: DC%1, %2 times/day|ColorlessFireDC|ColorlessFireTimes
@@ -11,7 +11,7 @@ Colorless Rain		KEY:Colorless Rain ~ Colorless Adept		CATEGORY:Special Ability	T
 
 # ~ Psion ITCK	SPELLSTAT:OTHER	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion ITCK|CL
 
-Psion 0 level powers	KEY:Psion 0 level powers ~ Psion ITCK		CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:PsionFreePowers|0															DESC: (%1 free / day)|PsionFreePowers														BONUS:VAR|PsionFreePowers|CL+var("BL=Psion ITCK")+3
+Psion 0 level powers	KEY:Psion 0 level powers ~ Psion ITCK		CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:PsionFreePowers|0															DESC: (%1 free / day)|PsionFreePowers												BONUS:VAR|PsionFreePowers|CL+var("BL=Psion ITCK")+3
 
 
 # ~ Metamind ITCK	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowledge (Psionics)|Psicraft|Remote View
@@ -23,8 +23,8 @@ Freely Manifest 4th	KEY:Freely Manifest 4th ~ Metamind ITCK		CATEGORY:Special Ab
 Apotheosis			KEY:Apotheosis ~ Metamind ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality																					DESC: ~ one hour/day
 
 # 35e version
-Cognizance Psicrystal	KEY:Cognizance Psicrystal ~ Metamind ITCK		CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:PowerPsicrystal|0															DESC: %1|PowerPsicrystal																BONUS:VAR|PowerPsicrystal|5
-Sequestration		KEY:Sequestration ~ Metamind ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:SequesVar|0																DESC: %1|SequesVar																	BONUS:VAR|SequesVar|1
+Cognizance Psicrystal	KEY:Cognizance Psicrystal ~ Metamind ITCK		CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:PowerPsicrystal|0															DESC: %1|PowerPsicrystal														BONUS:VAR|PowerPsicrystal|5
+Sequestration		KEY:Sequestration ~ Metamind ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:SequesVar|0																DESC: %1|SequesVar															BONUS:VAR|SequesVar|1
 Font of Power		KEY:Font of Power ~ Metamind ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality																					DESC: ~ one minute/day (Ps)
 
 
@@ -45,14 +45,14 @@ Fire Lord			KEY:Fire Lord ~ Pyrokineticist ITCK			CATEGORY:Special Ability	TYPE:
 
 # ~ Slayer ITCK	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal Enemy Lore)|Listen|Psicraft|Sense Motive|Spot|Wilderness Lore
 Favored Enemy		KEY:Favored Enemy ~ Slayer ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality																					DESC: (Mortal Enemy)
-Mortal Enemy Sense	KEY:Mortal Enemy Sense ~ Slayer ITCK		CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:EnemySense|0																DESC: %1 ft range|EnemySense												ADD:SPELLCASTER|Psionic	BONUS:VAR|EnemySense|60	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|EnemySense|30*CL
+Mortal Enemy Sense	KEY:Mortal Enemy Sense ~ Slayer ITCK		CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:EnemySense|0																DESC: %1 ft range|EnemySense										ADD:SPELLCASTER|Psionic	BONUS:VAR|EnemySense|60	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|EnemySense|30*CL
 Lucid Buffer		KEY:Lucid Buffer ~ Slayer ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality
 Cerebral Blind		KEY:Cerebral Blind ~ Slayer ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality																					DESC: (15+ PP)
 Breach Power Resistance	KEY:Breach Power Resistance ~ Slayer ITCK		CATEGORY:Special Ability	TYPE:SpecialQuality
 Blast Feedback		KEY:Blast Feedback ~ Slayer ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Soulknife ITCK
-Mind-blade Sneak Attack	KEY:Mind-blade sneak attack ~ Soulknife ITCK	CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:MindBladeAllowed|0	DEFINE:MindBladeEnchantment|0	DEFINE:MindBladeSneakAttack|0	DEFINE:SneakAttackDie|0	DESC: +%1d%2|MindBladeSneakAttack|SneakAttackDie		AUTO:EQUIP|Mind Blade							BONUS:VAR|MindBladeAllowed|1	BONUS:VAR|SneakAttackDie|6
+Mind-blade Sneak Attack	KEY:Mind-blade sneak attack ~ Soulknife ITCK	CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:MindBladeAllowed|0	DEFINE:MindBladeEnchantment|0	DEFINE:MindBladeSneakAttack|0	DEFINE:SneakAttackDie|0	DESC: +%1d%2|MindBladeSneakAttack|SneakAttackDie		AUTO:EQUIP|Mind Blade					BONUS:VAR|MindBladeAllowed|1	BONUS:VAR|SneakAttackDie|6
 Throw Mind-Blade		KEY:Throw Mind-Blade ~ Soulknife ITCK		CATEGORY:Special Ability	TYPE:SpecialQuality
 Mind-Blade			KEY:Mind-Blade ~ Soulknife ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:MindBladeRange|0																DESC: +%1|MindBladeEnchantment
 Imbed Power			KEY:Imbed Power ~ Soulknife ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality

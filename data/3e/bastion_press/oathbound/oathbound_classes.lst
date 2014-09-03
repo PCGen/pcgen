@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com	SOURCEDATE:2003-08
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 
@@ -31,8 +31,8 @@ CLASS:Demagogue	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|City Lore|Concentration|TY
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Hone		HD:10		TYPE:PC.Prestige	ABB:Hn		MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL		Req. Att.	Required Feat										Required Lvl
-CLASS:Hone		PREALIGN:LG,LN,LE	PRETOTALAB:5	PREFEAT:3,Improved Unarmed Strike,Weapon Focus,Weapon Specialization	PRELEVEL:MIN=5
+# Class Name	Required AL		Required Feat										Required Lvl	PRETOTALAB
+CLASS:Hone		PREALIGN:LG,LN,LE	PREFEAT:3,Improved Unarmed Strike,Weapon Focus,Weapon Specialization	PRELEVEL:MIN=5	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hone		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Spot|Swim|Tumble
 ###Block: Class Defines
@@ -59,8 +59,8 @@ CLASS:Inquisitor	PREFEAT:1,Skill Focus (Knowledge (Religion))	PRELEVEL:MIN=5	PRE
 CLASS:Inquisitor	STARTSKILLPTS:4	CSKILL:City Lore|Concentration|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Heal|Hide|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Read Lips|Ride|Scry|Search|Sense Motive|Speak Language|Spellcraft|Spot|Wilderness Lore
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1													AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Smite the Heathen (Ex)
 2	SAB:Divine Protection (Ex)																															ADD:SPELLCASTER|Divine	BONUS:SAVE|Fortitude,Reflex,Will|CHA
@@ -81,7 +81,7 @@ CLASS:Rafter	PREFEAT:1,Blind-Fight	PRELEVEL:MIN=5	PRESKILL:4,Appraise=2,Intuit D
 CLASS:Rafter	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE=Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|Knowledge (Arcana)|Knowledge (History)|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1													AUTO:FEAT|Armor Proficiency (Light)
+1										AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Research (Ex)
 2	SAB:Escape (Ex)	SAB:Depth Perception (Ex)
@@ -117,14 +117,14 @@ CLASS:Stalker	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|City Lore|Climb|TYPE
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
 CLASS:Vigilante	HD:8		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Req. Att.	Required Feat					Required Lvl
-CLASS:Vigilante	PRETOTALAB:5	PREFEAT:3,Alertness,Combat Reflexes,Dodge	PRELEVEL:MIN=5
+# Class Name	Required Feat					Required Lvl	PRETOTALAB
+CLASS:Vigilante	PREFEAT:3,Alertness,Combat Reflexes,Dodge	PRELEVEL:MIN=5	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vigilante	STARTSKILLPTS:4	CSKILL:Balance|Bluff|City Lore|Climb|Concentration|TYPE=Craft|Disable Device|Disguise|Escape Artist|Gather Information|Heal|Hide|Innuendo|Intimidate|Jump|Listen|Move Silently|TYPE=Profession|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1													AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1		SAB:Sense Attack (Ex)	SAB:Reflexive Awarness (Ex)
 2											BONUS:VAR|UncannyDodge|CL/5+1							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge

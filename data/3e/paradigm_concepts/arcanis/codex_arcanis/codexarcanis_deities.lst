@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2001-01
 #Original entry by Greg G (Phantom of Krankor)
 
 #Deity Name		Domains							Follower AL		Desciption of Deity/Title											Holy Item		Deity Weapon		ALIGN		Source Index
-# Deity Name	Product Identity?	Domains																Desc is PI?		Description of Deity/Title			Holy Item					Deity Weapon								Alignment	Pantheon			Source Page				Required Race
+# Deity Name	Product Identity?	Domains																Desc is PI?		Description of Deity/Title			Holy Item					Deity Weapon								Align		Pantheon			Source Page				Required Race
 Anshar		NAMEISPI:YES	DOMAINS:Healing,Holy,Pain,Strength,Suffering,Travel|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESCISPI:YES	DESC:The Far Traveler				SYMBOL:Strand of Thorn Bush		DEITYWEAP:Unarmed Strike						ALIGN:TN					SOURCEPAGE:p.10
 Althares		NAMEISPI:YES	DOMAINS:Artifact,Divination,Holy,Knowledge|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE				DESCISPI:YES	DESC:Artificer of the Gods			SYMBOL:Holy Book on a Chain		DEITYWEAP:Warhammer|Flintlock (Pistol)|Flintlock (Rifle)	ALIGN:TN					SOURCEPAGE:p.7
 Belisarda		NAMEISPI:YES	DOMAINS:Air,Animal,Earth,Fire,Healing,Holy,Plant,Water|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE,NONE		DESCISPI:YES	DESC:God of the Elorii				SYMBOL:(Known only to the Elorii)	DEITYWEAP:Longbow								ALIGN:TN	PANTHEON:Elorii		SOURCEPAGE:p.178			PRERACE:1,Elorii

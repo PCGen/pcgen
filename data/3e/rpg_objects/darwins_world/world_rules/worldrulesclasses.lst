@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 # Original entry by wizofice2001
 SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com	SOURCEDATE:2001-01
 
@@ -14,8 +14,8 @@ CLASS:Guardian	HD:10		TYPE:Base.PC	ABB:Grd		SOURCEPAGE:pp.17-19	BONUS:COMBAT|BAS
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guardian	STARTSKILLPTS:2	CSKILL:Gather Information|Handle Animal|Intimidate|Knowledge (Vehicle Operations)|Listen|Ride|Sense Motive|Spot
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Defender																												ADD:FEAT|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter	ADD:FEAT|Primitive Craft Class Skill,Skill Focus Advanced
 2																															ADD:FEAT|Feel for Weapon,Gladiator,Greater Rip A Clip,Rip A Clip,Room-Broom,TYPE=Fighter
@@ -37,7 +37,7 @@ CLASS:Raider	PREALIGN:LE,NE,CE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Raider	STARTSKILLPTS:2	CSKILL:Craft (Mechanics)|Gather Information|Handle Animal|Intimidate|Jump|Knowledge (Vehicle Operations)|Ride|Spot
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	SAB:Chains and Chaps +%|ChainsChaps	BONUS:VAR|ChainsChaps|CL/10+1	DEFINE:ChainsChaps|0	ADD:FEAT|Primitive Raider Craft Class Skill,Primitive Raider Mechanics Bonus,Skill Focus Advanced
 2																ADD:FEAT|Alertness,Combat Reflexes,Dodge,Endurance,Exotic Weapon Proficiency,Far Shot,Feel for Weapon,Gladiator,Greater Rip A Clip,Marauder,Mobility,Point Blank Shot,Rip A Clip,Room-Broom,Run,Spring Attack,Track
@@ -91,8 +91,8 @@ CLASS:Trader	HD:6		TYPE:Base.PC	ABB:Trd		SOURCEPAGE:pp.26-28	BONUS:COMBAT|BASEAB
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trader	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Gather Information|Handle Animal|Heal|Innuendo|Intimidate|Intuit Direction|Ride|Search|Sense Motive|Speak Language|Spot|Wilderness Lore
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Protector																																					ADD:LANGUAGE|Trade	ADD:FEAT|Liked by All,Silver Tongue,Vulture	ADD:FEAT|Primitive Craft Class Skill,Skill Focus Advanced
 2	SAB:Spit Polish					BONUS:SKILL|Bluff,Diplomacy,Forgery|2|TYPE=Morale

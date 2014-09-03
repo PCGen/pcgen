@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
 
 # Move Rogue Proficiency change into hidden feat from SRD's new method.
@@ -22,8 +22,8 @@ CLASS:Agent of the Crown	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|TYPE=Craf
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Bonus
 CLASS:Commando	HD:6		TYPE:PC.Prestige	ABB:Com		MAXLEVEL:5	SOURCEPAGE:p.23-24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Req. Att.	Required Feat				Required Skill			Var. Min. Value
-CLASS:Commando	PRETOTALAB:4	PREFEAT:2,Point Blank Shot,Far Shot	PRESKILL:2,Hide=8,Spot=4	PREVARGTEQ:SneakAttackDice,1
+# Class Name	Required Feat				Required Skill			PRETOTALAB		Var. Min. Value
+CLASS:Commando	PREFEAT:2,Point Blank Shot,Far Shot	PRESKILL:2,Hide=8,Spot=4	PRETOTALAB:4	PREVARGTEQ:SneakAttackDice,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Commando	STARTSKILLPTS:2	CSKILL:Balance|Climb|Hide|Intuit Direction|Listen|Move Silently|Spot|Wilderness Lore
 ###Block: Proficiencies
@@ -38,8 +38,8 @@ CLASS:Commando	STARTSKILLPTS:2	CSKILL:Balance|Climb|Hide|Intuit Direction|Listen
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Bonus
 CLASS:Crusading Footpad	HD:6		TYPE:PC.Prestige	ABB:CrF		MAXLEVEL:10	SOURCEPAGE:p.24-26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required AL		Req. Att.	Required Feat			Required Skill				Req. Spell Type
-CLASS:Crusading Footpad	PREALIGN:LG,NG,CG	PRETOTALAB:4	PREFEAT:2,Dodge,Iron Will	PRESKILL:1,Knowledge (Religion)=4	PRESPELLTYPE:1,Divine=0
+# Class Name		Required AL		Required Feat			Required Skill				Req. Spell Type		PRETOTALAB
+CLASS:Crusading Footpad	PREALIGN:LG,NG,CG	PREFEAT:2,Dodge,Iron Will	PRESKILL:1,Knowledge (Religion)=4	PRESPELLTYPE:1,Divine=0	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Crusading Footpad	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Knowledge (Religion)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1																											ABILITY:Special Ability|AUTOMATIC|Divine Companion ~ Crusading Footpad	ABILITY:Special Ability|AUTOMATIC|Divine Luck ~ Crusading Footpad
@@ -70,8 +70,8 @@ CLASS:Deep Tracker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Decipher Script|Diplo
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Bonus
 CLASS:Executioner	HD:8		TYPE:PC.Prestige	ABB:Exe		MAXLEVEL:5	SOURCEPAGE:p.28-30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL				Req. Att.	Required Feat					Required Skill
-CLASS:Executioner	PREALIGN:LN,LE,TN,NE,CN,CE	PRETOTALAB:7	PREFEAT:3,Cleave,Power Attack,Sunder	PRESKILL:2,Intimidate=6,Spot=6
+# Class Name	Required AL				Required Feat					Required Skill				PRETOTALAB
+CLASS:Executioner	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:3,Cleave,Power Attack,Sunder	PRESKILL:2,Intimidate=6,Spot=6	PRETOTALAB:7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Executioner	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Escape Artist|Heal
 ###Block: Proficiencies
@@ -86,8 +86,8 @@ CLASS:Executioner	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Escape Artist|He
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Bonus
 CLASS:Shadowy Avenger	HD:8		TYPE:PC.Prestige	ABB:ShA		MAXLEVEL:10	SOURCEPAGE:p.30-32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required AL				Req. Att.	Required Feat							Required Skill								Required Text
-CLASS:Shadowy Avenger	PREALIGN:NG,TN,NE,CG,CN,CE	PRETOTALAB:4	PREFEAT:3,Alertness,Improved Unarmed Strike,Toughness	PRESKILL:4,Disguise=8,Intimidate=8,Sense Motive=8,Alchemy=4	PRETEXT:Must have lost a loved one to a criminal act.
+# Class Name		Required AL				Required Feat							Required Skill								Required Text							PRETOTALAB
+CLASS:Shadowy Avenger	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:3,Alertness,Improved Unarmed Strike,Toughness	PRESKILL:4,Disguise=8,Intimidate=8,Sense Motive=8,Alchemy=4	PRETEXT:Must have lost a loved one to a criminal act.	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowy Avenger	STARTSKILLPTS:4	CSKILL:Alchemy|Climb|TYPE=Craft|Disable Device|Disguise|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 ###Block: Proficiencies

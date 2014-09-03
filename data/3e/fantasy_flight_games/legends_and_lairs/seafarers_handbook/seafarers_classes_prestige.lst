@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB:http://www.fantasyflightgames.com/llsh.html	SOURCEDATE:2002-01
 # Original Entry by: Eddy Anthony
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Bonus
 CLASS:Reef Warrior	HD:10		TYPE:PC.Prestige	ABB:RfW		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL		Req. Att.	Required Feat			Required Race	Required Skill			Required Template
-CLASS:Reef Warrior	PREALIGN:LN,NG,TN	PRETOTALAB:5	PREFEAT:1,Skill Focus (Swim)	PRERACE:1,Elf%	PRESKILL:2,Swim=6,Hide=4	PRETEMPLATE:1,Coral Elf
+# Class Name		Required AL		Required Feat			Required Race	Required Skill			Required Template		PRETOTALAB
+CLASS:Reef Warrior	PREALIGN:LN,NG,TN	PREFEAT:1,Skill Focus (Swim)	PRERACE:1,Elf%	PRESKILL:2,Swim=6,Hide=4	PRETEMPLATE:1,Coral Elf	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Reef Warrior	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Heal|Hide|Intimidate|Listen|Scry|Search|Spot|Swim
 1	SAB:Reef Bonding

@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Wed Feb 11 16:09:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
 
 
-# Equipment Name	Required Weapon Proficiency		Type								Cost		Weight	Required Race		Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Weapon prop. bonus
-Byrglaif		PROFICIENCY:WEAPON|Byrglaif		TYPE:Weapon.Exotic.Melee.Slashing.Masterwork	COST:500	WT:3						CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	SIZE:S	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
-Byrglaif (Elven)	PROFICIENCY:WEAPON|Byrglaif		TYPE:Weapon.Martial.Melee.Slashing.Masterwork	COST:500	WT:3		PRERACE:1,Elf,Elf (SS)	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	SIZE:S	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
-Flensing Blade	PROFICIENCY:WEAPON|Flensing Blade	TYPE:Weapon.Exotic.Melee.Slashing			COST:20	WT:7						CRITMULT:x4			CRITRANGE:1			DAMAGE:1d10	SIZE:M	SOURCEPAGE:p.
-Hirglaif		PROFICIENCY:WEAPON|Hirglaif		TYPE:Weapon.Exotic.Melee.Slashing.Masterwork	COST:500	WT:6						CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
-Hirglaif (Elven)	PROFICIENCY:WEAPON|Hirglaif		TYPE:Weapon.Martial.Melee.Slashing.Masterwork	COST:500	WT:6		PRERACE:1,Elf,Elf (SS)	CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
-Sabre (Cavalry)	PROFICIENCY:WEAPON|Sabre		TYPE:Weapon.Exotic.Melee.Slashing			COST:30	WT:5						CRITMULT:x2			CRITRANGE:2			DAMAGE:2d4	SIZE:M	SOURCEPAGE:p.
-Terbosh		PROFICIENCY:WEAPON|Terbosh		TYPE:Weapon.Exotic.Melee.Bludgeoning		COST:15	WT:8						CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	SIZE:L	SOURCEPAGE:p.
+# Equipment Name	Required Weapon Proficiency		Type								Cost		Weight	Required Race		Crit Mult	Crit Range	Damage	Size		Source Page		Weapon prop. bonus
+Byrglaif		PROFICIENCY:WEAPON|Byrglaif		TYPE:Weapon.Exotic.Melee.Slashing.Masterwork	COST:500	WT:3						CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	SIZE:S	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
+Byrglaif (Elven)	PROFICIENCY:WEAPON|Byrglaif		TYPE:Weapon.Martial.Melee.Slashing.Masterwork	COST:500	WT:3		PRERACE:1,Elf,Elf (SS)	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	SIZE:S	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
+Flensing Blade	PROFICIENCY:WEAPON|Flensing Blade	TYPE:Weapon.Exotic.Melee.Slashing			COST:20	WT:7						CRITMULT:x4	CRITRANGE:1	DAMAGE:1d10	SIZE:M	SOURCEPAGE:p.
+Hirglaif		PROFICIENCY:WEAPON|Hirglaif		TYPE:Weapon.Exotic.Melee.Slashing.Masterwork	COST:500	WT:6						CRITMULT:x2	CRITRANGE:2	DAMAGE:1d10	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
+Hirglaif (Elven)	PROFICIENCY:WEAPON|Hirglaif		TYPE:Weapon.Martial.Melee.Slashing.Masterwork	COST:500	WT:6		PRERACE:1,Elf,Elf (SS)	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d10	SIZE:L	SOURCEPAGE:p.	BONUS:WEAPON|TOHIT|1
+Sabre (Cavalry)	PROFICIENCY:WEAPON|Sabre		TYPE:Weapon.Exotic.Melee.Slashing			COST:30	WT:5						CRITMULT:x2	CRITRANGE:2	DAMAGE:2d4	SIZE:M	SOURCEPAGE:p.
+Terbosh		PROFICIENCY:WEAPON|Terbosh		TYPE:Weapon.Exotic.Melee.Bludgeoning		COST:15	WT:8						CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	SIZE:L	SOURCEPAGE:p.
 
 
 # Equipment Name	Required Proficiency			Type								Cost		Weight	Required Race	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus

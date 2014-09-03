@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Bastion Press - Arms and Armor	SOURCESHORT:arms	SOURCEWEB:http://dragonwing.net/	SOURCEDATE:2001-01
 
 #Block: Barbarian-----------------------------------
-# Equipment Name					Output Name					Required Armor Proficiency			Required Shield Proficiency		Type											Contains		Cost		Weight	AC Penalty Check	Base Item for EQMOD		Modifier				Maximum DEX Bonus	Source Page		% of Spell Failure	Virtual Feat	Ability										Damage Reduction	Innate Spells													Combat bonus												Bonus to skill									Stat bonus					Modify VAR										Special Property																																															Automatically Added to Inventory		Bonus
+# Equipment Name					Output Name					Required Armor Proficiency			Required Shield Proficiency		Type											Contains		Cost		Weight	AC Penalty Check	Base Item for EQMOD		Modifier				Maximum DEX Bonus	Source Page		% of Spell Failure	Virtual Feat	Ability										Damage Reduction	Innate Spells													Combat bonus												Bonus to skill									Stat bonus					Modify VAR										Special Property																																															Auto Equip						Bonus
 Armor of the Bull											PROFICIENCY:ARMOR|Hide										TYPE:Magic.Armor.Medium.Standard.Suit.Specific							COST:4335	WT:25		ACCHECK:-3		BASEITEM:Hide			EQMOD:PLUS2A			MAXDEX:4		SOURCEPAGE:p.77	SPELLFAILURE:20																			SPELLS:Armor of the Bull|TIMES=1|CASTERLEVEL=6|Bull's Strength
 Berserker's Mail											PROFICIENCY:ARMOR|Chainmail									TYPE:Magic.Armor.Medium.Standard.Suit.Specific							COST:10400	WT:40		ACCHECK:-5		BASEITEM:Chainmail		EQMOD:PLUS3A			MAXDEX:2		SOURCEPAGE:p.77	SPELLFAILURE:30																																																																	BONUS:VAR|RageBonus|4	BONUS:VAR|RageTimes|1
 

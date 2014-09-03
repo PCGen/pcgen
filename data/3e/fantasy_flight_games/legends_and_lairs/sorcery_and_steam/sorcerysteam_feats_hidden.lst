@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
-# Feat Name				Type				Visible	Required Feat				Special ABility				Description		Multiple?	Choose																																																				Bonus to DC				Bonus to skill		Source Page
+# Feat Name				Type				Visible	Required Feat				Special ABility				Description		Multiple?	Choose																																																				Bonus DC				Bonus to skill		Source Page
 Artificer Skill Focus		TYPE:General		VISIBLE:NO							SAB:Skill Focus (%CHOICE)		DESC:See Text	MULT:YES	CHOOSE:SKILL|Alchemy|Concentration|Diplomacy|Disable Device|Drive|Heal|Intimidate|Knowledge (Architecture and Engineering)|Knowledge (Clockworks)|Knowledge (Engine Programming)|Knowledge (Firearms)|Knowledge (Steamcraft)|Listen|Munitions|Open Lock|Ride|Search|TYPE=Craft|TYPE=Profession|Use Rope|Use Steamcraft Device						BONUS:SKILL|LIST|2	SOURCEPAGE:p.53
 Artificer Steamcraft Focus	TYPE:SteamcraftFocus	VISIBLE:NO							SAB:Steamcraft Focus (%CHOICE)				MULT:YES	CHOOSE:STRING|Armor|General|Vehicles|Weapons
 Musketeer Skill Focus		TYPE:General		VISIBLE:NO							SAB:Skill Focus (%CHOICE)		DESC:See Text	MULT:YES	CHOOSE:SKILL|Balance|Bluff|Climb|Concentration|Diplomacy|Disable Device|Escape Artist|Gather Information|Intimidate|Jump|Munitions|Ride|Sense Motive|Spot|Swim|Tumble|TYPE=Craft|TYPE=Profession|Use Rope|Use Steamcraft Device																					BONUS:SKILL|LIST|2	SOURCEPAGE:p.47
@@ -25,7 +25,7 @@ Master of Enchantment III	TYPE:MasterofEnchantment	VISIBLE:NO	SAB:Master of Ench
 Master of Enchantment IV	TYPE:MasterofEnchantment	VISIBLE:NO	SAB:Master of Enchantment I (Sp) (%CHOICE)	MULT:YES	CHOOSE:STRING|Feeblemind|Hold Monster|Mind Fog
 
 ###Block: Proficiencies
-# Feat Name					Type			Visible	Automatically Gained Weapon Prof.
+# Feat Name					Type			Visible	Auto Weapon Prof
 Street Runner Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Dart|Mace|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M
 Musketeer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dagger (Punching)|Glaive|Guisarme|Halberd|Halfspear|Javelin|Crossbow (Light)|Crossbow (Heavy)|Longspear|Longsword|Quarterstaff|Ranseur|Rapier|Scimitar|Shortspear|Sword (Short)|TYPE=Firearms
 

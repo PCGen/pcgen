@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
-# Equipment Name			Type						Cost		Slot Needed	Modifier	Source Page					Bonus to Ability Pool					Bonus to skill			Special Property
+# Equipment Name			Type						Cost		Slot Needed	Modifier	Source Page					Bonus Ability Pool					Bonus to skill			Special Property
 Amulet of Catapsi			TYPE:Psionic.Universal.Amulet		COST:12000					SOURCEPAGE:srdpsionicitems.rtf
 Amulet of Psychic Bastion	TYPE:Psionic.Universal.Amulet		COST:2000					SOURCEPAGE:srdpsionicitems.rtf
 Boots (Skating)			TYPE:Psionic.Universal.Boot		COST:2000	SLOTS:2			SOURCEPAGE:srdpsionicitems.rtf

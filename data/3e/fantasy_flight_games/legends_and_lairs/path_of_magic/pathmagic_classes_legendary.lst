@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgames.com/llpom.html	SOURCEDATE:2002-01
 # Original Entry by: Ratheof Blithwyn
 
@@ -63,7 +63,7 @@ CLASS:Landwalker	PREALIGN:CG,CN,CE	PREFEAT:2,Alertness,Toughness	PRESKILL:2,Know
 CLASS:Landwalker	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	DEFINE:TurnPlantsAnimals|0	
+1	DEFINE:TurnPlantsAnimals|0
 ###Block:
 1	BONUS:ABILITYPOOL|Maestro Selection 1|1
 2	BONUS:ABILITYPOOL|Maestro Selection 2|1

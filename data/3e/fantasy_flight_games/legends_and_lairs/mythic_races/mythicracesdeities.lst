@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
 
 # No description for the Nature domain is given in the book. Removed Nature from Tangled Woman
 
-# Deity Name	Product Identity?	Domains										Description of Deity/Title						Holy Item								Deity Weapon								Alignment	Pantheon			Source Page
+# Deity Name	Product Identity?	Domains										Description of Deity/Title						Holy Item								Deity Weapon								Align		Pantheon			Source Page
 Limpang-Lahai	NAMEISPI:YES	DOMAINS:Air,Good,Knowledge|PREALIGN:NG,CG,CN				DESC:Aaleear Goddess of art and music																							ALIGN:CG	PANTHEON:Aaleear		SOURCEPAGE:p.7
 Tangled Woman	NAMEISPI:YES	DOMAINS:Animal,Plant|PREALIGN:LG,NG,TN,CG					DESC:Aaleear Goddess of nature																								ALIGN:NG	PANTHEON:Aaleear		SOURCEPAGE:p.7
 Hollos the Archer	NAMEISPI:YES	DOMAINS:Destruction,Law,War|PREALIGN:LG,LN,NG				DESC:Aaleear God of war																DEITYWEAP:Feybow								ALIGN:LG	PANTHEON:Aaleear		SOURCEPAGE:p.7

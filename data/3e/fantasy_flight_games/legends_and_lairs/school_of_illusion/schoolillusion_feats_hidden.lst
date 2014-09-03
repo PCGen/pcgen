@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:http://www.fantasyflightgames.com/dd38.html	SOURCEDATE:2003-02
 # Original entry by: Ratheof Blithwyn
 
 ###Block: Proficiencies
-# Feat Name						Type			Visible	Automatically Gained Weapon Prof.
+# Feat Name						Type			Visible	Auto Weapon Prof
 Devoted Illusionist Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 
 ###Block: Hidden feats: Discipline mastery for the Devoted Illusionist

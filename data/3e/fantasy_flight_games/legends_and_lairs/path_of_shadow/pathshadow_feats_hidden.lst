@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
 # Original entry by: Blithwyn
 
 ###Block: Proficiencies
-# Feat Name						Type			Visible	Automatically Gained Weapon Prof.
+# Feat Name						Type			Visible	Auto Weapon Prof
 Acolyte of Chance Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dagger|Dagger (Punching)|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
 Aerialist Weapon Proficiencies		TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Longbow|Longbow (Composite)|Rapier|Sap|Scimitar|Shortbow|Shortbow (Composite)
 Falconer Weapon Proficiencies			TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)
@@ -74,7 +74,7 @@ Reputation		TYPE:QuestionerSpecialAbilities	VISIBLE:NO	SAB:Reputation		SOURCEPAG
 Urban Tracking	TYPE:QuestionerSpecialAbilities	VISIBLE:NO	SAB:Urban Tracking	SOURCEPAGE:Chap.1, Questioner, Special Ability
 
 ###Block:White Rose special abilities (similar to the rogue)
-# Feat Name					Type						Visible	Prohibited Feat					Special ABility				Stackable?	Multiple?	Choose		Bonus to Ability Pool			Source Page
+# Feat Name					Type						Visible	Prohibited Feat					Special ABility				Stackable?	Multiple?	Choose		Bonus Ability Pool			Source Page
 Final Stroke				TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Final Stroke																	SOURCEPAGE:Chap.1, White Rose, Special Ability
 Narrow Miss					TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Narrow Miss																	SOURCEPAGE:Chap.1, White Rose, Special Ability
 Parry						TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Parry																		SOURCEPAGE:Chap.1, White Rose, Special Ability

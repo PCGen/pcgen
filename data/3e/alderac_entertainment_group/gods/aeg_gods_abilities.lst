@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Hidden Abilities
@@ -8,7 +8,7 @@ Rebuke Giants	CATEGORY:Special Ability	TYPE:Turning.TurnGiant	VISIBLE:NO	SAB:Reb
 HHFavored Enemy	CATEGORY:Special Ability	TYPE:ClassFeatures	VISIBLE:NO	SAB:Favored Humanoid Enemy (%CHOICE)																																												STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Humanoid
 #Voice of Thunder	CATEGORY:Special Ability	TYPE:SpecialQuality
 Bounty of Vendak	CATEGORY:Special Ability	TYPE:SpecialQuality
-Voice of Vendak		CATEGORY:Special Ability	TYPE:SpecialQuality
+Voice of Vendak	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 
 ###Block: Favored Enemies
@@ -52,30 +52,31 @@ Bonus Known Spell 9	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell	VISIBLE:DISP
 
 ###Block: Barbarian Totem Animal Templates
 
-Totem (Badger)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Rage (Ex)		ABILITY:Special Ability|AUTOMATIC|Rage
-Totem (Bat)			TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Blindsight (Ex)
-Totem (Bear)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Tough (Ex)
-Totem (Boar)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Ferocity (Ex)
-Totem (Camel)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Hardiness (Ex)
-Totem (Cat)			TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Cat's Paw (Ex)
-Totem (Cheetah)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Sprint (Ex)
-Totem (Crocodile)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Crocodile Hide (Ex)
-Totem (Dog)			TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Bloodhound (Ex)	VFEAT:Track
-Totem (Eagle)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Eagle Sight (Ex)
-Totem (Hawk)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Hawk Eyes (Ex)
-Totem (Horse)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Union (Ex)
-Totem (Lion)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Pounce (Ex)
-Totem (Lizard)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Lizard Climb (Ex)
-Totem (Monkey)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Monkey Paws (Ex)
-Totem (Owl)			TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Owl Sight (Ex)
-Totem (Rat)			TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Rat's Paws (Ex)
-Totem (Raven)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Clairvoyance (Ex)
-Totem (Stag)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Endurance (Ex)				TEMPLATE:Totem (Stag)
-Totem (Snake)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Venomous Bite (Ex)	
-Totem (Tiger)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Ambush (Ex)
-Totem (Weasle)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Wild Weasel (Ex)
-Totem (Wolf)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Wolf Scent (Ex)
-Totem (Wolverine)		TYPE:BarbarianTotemSelection	CATEGORY:Special Ability				VISIBLE:NO	SAB:Wolverine Totem	ABILITY:Special Ability|AUTOMATIC|Rage
+# Ability Name	Category of Ability		Type					Visible	Special ABility		Template			Virtual Feat	Ability
+Totem (Badger)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Rage (Ex)									ABILITY:Special Ability|AUTOMATIC|Rage
+Totem (Bat)		CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Blindsight (Ex)
+Totem (Bear)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Tough (Ex)
+Totem (Boar)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Ferocity (Ex)
+Totem (Camel)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Hardiness (Ex)
+Totem (Cat)		CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Cat's Paw (Ex)
+Totem (Cheetah)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Sprint (Ex)
+Totem (Crocodile)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Crocodile Hide (Ex)
+Totem (Dog)		CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Bloodhound (Ex)					VFEAT:Track
+Totem (Eagle)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Eagle Sight (Ex)
+Totem (Hawk)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Hawk Eyes (Ex)
+Totem (Horse)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Union (Ex)
+Totem (Lion)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Pounce (Ex)
+Totem (Lizard)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Lizard Climb (Ex)
+Totem (Monkey)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Monkey Paws (Ex)
+Totem (Owl)		CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Owl Sight (Ex)
+Totem (Rat)		CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Rat's Paws (Ex)
+Totem (Raven)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Clairvoyance (Ex)
+Totem (Stag)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Endurance (Ex)	TEMPLATE:Totem (Stag)
+Totem (Snake)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Venomous Bite (Ex)
+Totem (Tiger)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Ambush (Ex)
+Totem (Weasle)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Wild Weasel (Ex)
+Totem (Wolf)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Wolf Scent (Ex)
+Totem (Wolverine)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Wolverine Totem								ABILITY:Special Ability|AUTOMATIC|Rage
 
 
 

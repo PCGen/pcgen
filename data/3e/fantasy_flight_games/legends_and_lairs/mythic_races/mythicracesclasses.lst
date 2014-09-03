@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
@@ -37,8 +37,8 @@ CLASS:Anaeman Crafter	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TY
 
 # Class Name		Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
 CLASS:Animan Atavist	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20-22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+1
-# Class Name		Required AL		Req. Att.	Required Feat					Required Language		Required Race	Required Skill
-CLASS:Animan Atavist	PREALIGN:LG,NG,CG	PRETOTALAB:5	PREFEAT:1,Skill Focus (Animal Empathy)	PRELANG:1,Celestial	PRERACE:1,Animan%	PRESKILL:4,Animal Empathy=8,Knowledge (Nature)=5,Wilderness Lore=6,Handle Animal=6
+# Class Name		Required AL		Required Feat					Required Language		Required Race	Required Skill												PRETOTALAB
+CLASS:Animan Atavist	PREALIGN:LG,NG,CG	PREFEAT:1,Skill Focus (Animal Empathy)	PRELANG:1,Celestial	PRERACE:1,Animan%	PRESKILL:4,Animal Empathy=8,Knowledge (Nature)=5,Wilderness Lore=6,Handle Animal=6	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Animan Atavist	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE=Craft|Handle Animal|Heal|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Swim|Wilderness Lore
 ###Block: Proficiencies
@@ -56,8 +56,8 @@ CLASS:Animan Atavist	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE=Cr
 
 # Class Name			Hit Dice	Type			Max Level	Source Page			Attack Cycle	Combat bonus										Bonus
 CLASS:Chosen of Ba en Aset	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27-29	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name			Required AL			Req. Att.	Required Feat			Required Race
-CLASS:Chosen of Ba en Aset	PREALIGN:LG,NG,CG,CN	PRETOTALAB:6	PREFEAT:2,Power Attack,Cleave	PRERACE:1,Artathi
+# Class Name			Required AL			Required Feat			Required Race	PRETOTALAB
+CLASS:Chosen of Ba en Aset	PREALIGN:LG,NG,CG,CN	PREFEAT:2,Power Attack,Cleave	PRERACE:1,Artathi	PRETOTALAB:6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Chosen of Ba en Aset	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Jump|Knowledge (Religion)|Listen|Move Silently|TYPE=Profession|Ride|Swim|Tumble
 ###Block: Proficiencies
@@ -77,8 +77,8 @@ CLASS:Chosen of Ba en Aset	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TY
 
 # Class Name			Hit Dice	Type			Max Level	Source Page			Combat bonus											Bonus
 CLASS:Blickish Infiltrator	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.33-35	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+3)/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+2)/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+5)/3
-# Class Name			Required AL		Req. Att.	Required Feat					Required Race		Required Skill
-CLASS:Blickish Infiltrator	PREALIGN:LG,LN,LE	PRETOTALAB:6	PREFEAT:3,Dodge,Improved Disarm,Iron Will	PRERACE:1,Blickish	PRESKILL:2,Intuit Direction=4,Move Silently=2
+# Class Name			Required AL		Required Feat					Required Race		Required Skill						PRETOTALAB
+CLASS:Blickish Infiltrator	PREALIGN:LG,LN,LE	PREFEAT:3,Dodge,Improved Disarm,Iron Will	PRERACE:1,Blickish	PRESKILL:2,Intuit Direction=4,Move Silently=2	PRETOTALAB:6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Blickish Infiltrator	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Spot|Tumble
 1	SAB:Piggyback Blink (%)|PiggybackBlink	BONUS:VAR|PiggybackBlink|(CL+3)/4	DEFINE:PiggybackBlink|0
@@ -168,8 +168,8 @@ CLASS:Fairy Dreamer	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Concentration|Diplomacy
 
 # Class Name			Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
 CLASS:Illonis Doomsinger	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.65-66	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)/2
-# Class Name			Required AL				Req. Att.	Required Race	Required Skill							Req. Spell Type
-CLASS:Illonis Doomsinger	PREALIGN:NG,TN,NE,CG,CN,CE	PRETOTALAB:5	PRERACE:1,Illonis	PRESKILL:3,Perform=10,Move Silently=4,Sense Motive=4	PRESPELLTYPE:1,Arcane=1
+# Class Name			Required AL				Required Race	Required Skill							Req. Spell Type		PRETOTALAB
+CLASS:Illonis Doomsinger	PREALIGN:NG,TN,NE,CG,CN,CE	PRERACE:1,Illonis	PRESKILL:3,Perform=10,Move Silently=4,Sense Motive=4	PRESPELLTYPE:1,Arcane=1	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Illonis Doomsinger	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Gather Information|Hide|TYPE=Knowledge|Listen|Move Silently|Perform|Scry|Sense Motive|Speak Language|Spellcraft|Tumble|Use Magic Device
 1	SAB:Aura of Sorrow	SAB:Song of Sadness	ADD:SPELLCASTER|Arcane
@@ -180,8 +180,8 @@ CLASS:Illonis Doomsinger	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Concentration|TYPE
 
 # Class Name			Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
 CLASS:Luminous Lightbringer	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.71-72	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+5)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")-1)/2
-# Class Name			Required AL	Req. Att.	Required Feat										Required Race		Req. Special Ability	Required Skill
-CLASS:Luminous Lightbringer	PREALIGN:LG	PRETOTALAB:7	PREFEAT:2,Extra Turning,Unyielding Aura (MR)	PREFEAT:1,Weapon Focus	PRERACE:1,Luminous	PRESA:1,Turn Undead	PRESKILL:2,Concentration=5,Knowledge (Religion)=5
+# Class Name			Required AL	Required Feat										Required Race		Req. Special Ability	Required Skill							PRETOTALAB
+CLASS:Luminous Lightbringer	PREALIGN:LG	PREFEAT:2,Extra Turning,Unyielding Aura (MR)	PREFEAT:1,Weapon Focus	PRERACE:1,Luminous	PRESA:1,Turn Undead	PRESKILL:2,Concentration=5,Knowledge (Religion)=5	PRETOTALAB:7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Luminous Lightbringer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Knowledge (Religion)|Listen|TYPE=Profession|Ride
 ###Block: Proficiencies
@@ -195,8 +195,8 @@ CLASS:Luminous Lightbringer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Dipl
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Claw of the Hunt	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Feat						Required Race		Required Skill
-CLASS:Claw of the Hunt	PRETOTALAB:5	PREFEAT:2,Improved Control Shape (MR),Track	PRERACE:1,Mhuinntir	PRESKILL:1,Control Shape=8	PRESKILL:2,Move Silently=6,Wilderness Lore=4
+# Class Name		Required Feat						Required Race		Required Skill											PRETOTALAB
+CLASS:Claw of the Hunt	PREFEAT:2,Improved Control Shape (MR),Track	PRERACE:1,Mhuinntir	PRESKILL:1,Control Shape=8	PRESKILL:2,Move Silently=6,Wilderness Lore=4	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Claw of the Hunt	STARTSKILLPTS:4	CSKILL:Balance|Climb|Control Shape|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Swim|Tumble|Wilderness Lore
 ###Block: Proficiencies
@@ -255,8 +255,8 @@ CLASS:Pevishan Spell Siphon	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Cr
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Quissian Blademaster	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.100	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")*2/3
-# Class Name			Req. Att.	Required Feat											Required Race		Required Skill
-CLASS:Quissian Blademaster	PRETOTALAB:10	PREFEAT:6,Cleave,Combat Reflexes,Great Cleave,Power Attack,Sunder,Toughness	PRERACE:1,Quissian	PRESKILL:1,Intimidate=5
+# Class Name			Required Feat											Required Race		Required Skill		PRETOTALAB
+CLASS:Quissian Blademaster	PREFEAT:6,Cleave,Combat Reflexes,Great Cleave,Power Attack,Sunder,Toughness	PRERACE:1,Quissian	PRESKILL:1,Intimidate=5	PRETOTALAB:10
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Quissian Blademaster	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Jump|Listen|Ride|Swim
 ###Block: Proficiencies
@@ -272,8 +272,8 @@ CLASS:Quissian Blademaster	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TY
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Rezurbek Buerin	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.105	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL	Req. Att.	Required Deity	Required Feat					Required Race		Required Skill							Req. Spell Type		Required Text
-CLASS:Rezurbek Buerin	PREALIGN:TN	PRETOTALAB:3	PREDEITY:1,Buer	PREFEAT:2,Blind-Fight,Improved Initiative	PRERACE:1,Rezurbek	PRESKILL:2,Knowledge (Nature)=4,Wilderness Lore=8	PRESPELLTYPE:1,Divine=1	PRETEXT:See text
+# Class Name		Required AL	Required Deity	Required Feat					Required Race		Required Skill							Req. Spell Type		Required Text	PRETOTALAB
+CLASS:Rezurbek Buerin	PREALIGN:TN	PREDEITY:1,Buer	PREFEAT:2,Blind-Fight,Improved Initiative	PRERACE:1,Rezurbek	PRESKILL:2,Knowledge (Nature)=4,Wilderness Lore=8	PRESPELLTYPE:1,Divine=1	PRETEXT:See text	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rezurbek Buerin	STARTSKILLPTS:2	CSKILL:Animal Empathy|Control Shape|TYPE=Craft|Handle Animal|Intuit Direction|Knowledge (Nature)|TYPE=Profession|Swim|Wilderness Lore
 ###Block: Proficiencies
@@ -322,8 +322,8 @@ CLASS:Rhoode Recorder	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Risen Avenger	HD:12		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.124	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Feat		Required Race
-CLASS:Risen Avenger	PRETOTALAB:5	PREFEAT:1,Iron Will	PRERACE:1,Risen Demon
+# Class Name		Required Feat		Required Race		PRETOTALAB
+CLASS:Risen Avenger	PREFEAT:1,Iron Will	PRERACE:1,Risen Demon	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Risen Avenger	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Ride|Swim
 ###Block: Proficiencies
@@ -356,8 +356,8 @@ CLASS:Risen Redeemer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|H
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus
 CLASS:Sendasti Windmaster	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.131	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")+1)*2/3|TYPE=Base.REPLACE
-# Class Name			Req. Att.	Required Feat													Required Race		Required Skill
-CLASS:Sendasti Windmaster	PRETOTALAB:6	PREFEAT:1,Two-Weapon Fighting	PREFEAT:1,Weapon Focus (Scimitar),Weapon Focus (Falchion)	PRERACE:1,Sendasti	PRESKILL:2,Intuit Direction=5,Wilderness Lore=7
+# Class Name			Required Feat													Required Race		Required Skill						PRETOTALAB
+CLASS:Sendasti Windmaster	PREFEAT:1,Two-Weapon Fighting	PREFEAT:1,Weapon Focus (Scimitar),Weapon Focus (Falchion)	PRERACE:1,Sendasti	PRESKILL:2,Intuit Direction=5,Wilderness Lore=7	PRETOTALAB:6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Sendasti Windmaster	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE=Craft|Diplomacy|Disguise|Gather Information|Handle Animal|Heal|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Ride|Search|Sense Motive|Speak Language|Spot|Wilderness Lore
 ###Block: Proficiencies
@@ -378,8 +378,8 @@ CLASS:Sendasti Windmaster	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE=Craft
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Siarran Bladedancer	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.138	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Req. Att.	Required Feat																									Required Race	Required Skill
-CLASS:Siarran Bladedancer	PRETOTALAB:5	PREFEAT:1,Exotic Weapon Proficiency (Reedstaff),Exotic Weapon Proficiency (Sword (Two-Bladed))	PREFEAT:3,Dodge,Multidexterity (MR),Multiweapon Fighting (MR)	PRERACE:1,Siarran	PRESKILL:3,Perform=8,Balance=6,Tumble=6
+# Class Name			Required Feat																									Required Race	Required Skill					PRETOTALAB
+CLASS:Siarran Bladedancer	PREFEAT:1,Exotic Weapon Proficiency (Reedstaff),Exotic Weapon Proficiency (Sword (Two-Bladed))	PREFEAT:3,Dodge,Multidexterity (MR),Multiweapon Fighting (MR)	PRERACE:1,Siarran	PRESKILL:3,Perform=8,Balance=6,Tumble=6	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Siarran Bladedancer	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Innuendo|Intimidate|Jump|Listen|Perform|Sense Motive|Swim|Tumble
 ###Block: Proficiencies
@@ -399,8 +399,8 @@ CLASS:Siarran Bladedancer	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Climb|Concentrati
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										List of Class Spells by Level																																																									Bonus
 CLASS:Sktak Windrider	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.143	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	SPELLLEVEL:CLASS|Sktak Windrider=1|Divine Favor,Magic Fang,Mount,Shield of Faith,Speak with Animals|Sktak Windrider=2|Aid,Cure Light Wounds,Endure Elements,Summon Nature's Ally I|Sktak Windrider=3|Create Food and Water,Fly,Magic Vestment,Resist Elements|Sktak Windrider=4|Cure Moderate Wounds,Freedom of Movement,Protection from Elements,Summon Nature's Ally II	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL		Req. Att.	Required Feat					Required Race	Required Skill
-CLASS:Sktak Windrider	PREALIGN:LG,LN	PRETOTALAB:5	PREFEAT:2,Mounted Combat,Mounted Archery	PRERACE:1,Sktak	PRESKILL:3,Knowledge (Religion)=4,Ride=8,Wilderness Lore=8
+# Class Name		Required AL		Required Feat					Required Race	Required Skill								PRETOTALAB
+CLASS:Sktak Windrider	PREALIGN:LG,LN	PREFEAT:2,Mounted Combat,Mounted Archery	PRERACE:1,Sktak	PRESKILL:3,Knowledge (Religion)=4,Ride=8,Wilderness Lore=8	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sktak Windrider	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Hide|Heal|Intuit Direction|Jump|Knowledge (Nature)|Knowledge (Religion)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spellcraft|Spot|Use Rope|Wilderness Lore
 # Class Name		Spell Stat		Spell Type		Caster level
@@ -423,8 +423,8 @@ CLASS:Sktak Windrider	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Sktak Win
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Siege Grunt	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.150	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2
-# Class Name	Required AL			Req. Att.	Required Feat							Required Race		Required Skill
-CLASS:Siege Grunt	PREALIGN:LG,LN,LE,NG,CG	PRETOTALAB:7	PREFEAT:3,Great Cleave,Endurance,Improved Bull Rush	PRERACE:1,Stonegrunt	PRESKILL:1,Profession (Siege Engineer)=3
+# Class Name	Required AL			Required Feat							Required Race		Required Skill					PRETOTALAB
+CLASS:Siege Grunt	PREALIGN:LG,LN,LE,NG,CG	PREFEAT:3,Great Cleave,Endurance,Improved Bull Rush	PRERACE:1,Stonegrunt	PRESKILL:1,Profession (Siege Engineer)=3	PRETOTALAB:7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Siege Grunt	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Spot
 ###Block: Proficiencies
@@ -480,8 +480,8 @@ CLASS:Uthuk Qi'nok	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowl
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Bonus
 CLASS:Verman Corrupter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.168	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required AL		Req. Att.	Required Race	Required Skill											Required Text
-CLASS:Verman Corrupter	PREALIGN:NE,CE	PRETOTALAB:4	PRERACE:1,Vermen	PRESKILL:5,Bluff=4,Sense Motive=5,Gather Information=6,Intimidate=6,Forgery=6	PRETEXT:See Text
+# Class Name		Required AL		Required Race	Required Skill											Required Text	PRETOTALAB
+CLASS:Verman Corrupter	PREALIGN:NE,CE	PRERACE:1,Vermen	PRESKILL:5,Bluff=4,Sense Motive=5,Gather Information=6,Intimidate=6,Forgery=6	PRETEXT:See Text	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Verman Corrupter	STARTSKILLPTS:6	CSKILL:Alchemy|Appraise|Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Listen|TYPE=Profession|Read Lips|Search|Sense Motive
 # Class Name		Spell Stat		Spell Type		Caster level

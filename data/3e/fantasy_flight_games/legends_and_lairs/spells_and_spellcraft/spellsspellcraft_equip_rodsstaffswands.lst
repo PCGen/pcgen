@@ -1,16 +1,16 @@
-# CVS $Revision$ $Author$ -- Wed Sep 30 21:36:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #Original entry by: Knightcrawler
 SOURCELONG:Fantasy Flight Games - Spells and Spellcraft	SOURCESHORT:Spellcraft	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-03
 
 
 ###Block: Rods
-# Equipment Name	Required Weapon Proficiency	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page		Weapon prop. bonus
-Necromancer's Rod	PROFICIENCY:WEAPON|Mace		TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Standard	COST:73000	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	SIZE:S	SOURCEPAGE:p.168	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
-Rod of Exchange						TYPE:Magic.Rod								COST:43500	WT:4														SOURCEPAGE:p.168
+# Equipment Name	Required Weapon Proficiency	Type										Cost		Weight	Crit Mult	Crit Range	Damage	Size		Source Page		Weapon prop. bonus
+Necromancer's Rod	PROFICIENCY:WEAPON|Mace		TYPE:Magic.Rod.Weapon.Simple.Melee.Bludgeoning.Standard	COST:73000	WT:6		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	SIZE:S	SOURCEPAGE:p.168	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Rod of Exchange						TYPE:Magic.Rod								COST:43500	WT:4										SOURCEPAGE:p.168
 
 ###Block: Staffs
-# Equipment Name	Required Weapon Proficiency		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus
-Staff of Bursting	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard	COST:36000	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.169	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+# Equipment Name	Required Weapon Proficiency		Type										Cost		Weight	Crit Mult	Crit Range	Damage	Alt Damage		Size		Source Page		Weapon prop. bonus
+Staff of Bursting	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard	COST:36000	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	SIZE:L	SOURCEPAGE:p.169	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
 
 ###Block: Wands
 # Equipment Name					Output Name				Type					Weight	Base Item for EQMOD	Modifier																Source Page

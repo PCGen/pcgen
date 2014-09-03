@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page						Combat bonus										Bonus
 CLASS:Arcane Archer	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Feat											Required Race		Req. Spell Type
-CLASS:Arcane Archer	PRETOTALAB:6	PREFEAT:1,Weapon Focus (TYPE=Bow)	PREFEAT:2,Point Blank Shot,Precise Shot	PRERACE:1,Half-Elf,Elf%	PRESPELLTYPE:1,Arcane=1
+# Class Name		Required Feat											Required Race		Req. Spell Type		PRETOTALAB
+CLASS:Arcane Archer	PREFEAT:1,Weapon Focus (TYPE=Bow)	PREFEAT:2,Point Blank Shot,Precise Shot	PRERACE:1,Half-Elf,Elf%	PRESPELLTYPE:1,Arcane=1	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Intuit Direction|Listen|Move Silently|Ride|Spot|Use Rope|Wilderness Lore
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
@@ -41,8 +41,8 @@ CLASS:Assassin	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|As
 
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page					Combat bonus										Bonus
 CLASS:Blackguard	HD:10		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Bgd		MAXLEVEL:10	SOURCEPAGE:prestigeclasses.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL		Req. Att.	Required Feat		Required Skill
-CLASS:Blackguard	PREALIGN:LE,NE,CE	PRETOTALAB:6	PREFEAT:2,Cleave,Sunder	PRESKILL:2,Hide=5,Knowledge (Religion)=2
+# Class Name	Required AL		Required Feat		Required Skill					PRETOTALAB
+CLASS:Blackguard	PREALIGN:LE,NE,CE	PREFEAT:2,Cleave,Sunder	PRESKILL:2,Hide=5,Knowledge (Religion)=2	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blackguard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
@@ -75,8 +75,8 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page						Combat bonus										Bonus
 CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Def		MAXLEVEL:10	SOURCEPAGE:srdbasiccharacterclassesi.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL		Req. Att.	Required Feat				Required Race
-CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PRETOTALAB:7	PREFEAT:3,Dodge,Endurance,Toughness	PRERACE:1,Dwarf%
+# Class Name		Required AL		Required Feat				Required Race	PRETOTALAB
+CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PREFEAT:3,Dodge,Endurance,Toughness	PRERACE:1,Dwarf%	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Listen|Sense Motive|Spot
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency

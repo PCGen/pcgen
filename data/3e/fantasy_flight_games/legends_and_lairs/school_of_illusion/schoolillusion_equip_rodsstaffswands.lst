@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Wed Sep 30 21:36:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:http://www.fantasyflightgames.com/dd38.html	SOURCEDATE:2003-02
 # Original entry by: Ratheof Blithwyn and Paul "Yes, that Paul" Grosse
 
 ###Block: Staffs
-# Equipment Name		Output Name					Required Weapon Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Size		Source Page		Weapon prop. bonus
-Staff (Illusionist)	OUTPUTNAME:The Staff of the [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:200000	WT:0		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		SIZE:L	SOURCEPAGE:p.60	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
-Staff (Terror)		OUTPUTNAME:Staff of [NAME]								TYPE:Magic.Staff																	COST:112500	WT:0																											SOURCEPAGE:p.60
+# Equipment Name		Output Name					Required Weapon Proficiency		Type													Alt Type					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Size		Source Page		Weapon prop. bonus
+Staff (Illusionist)	OUTPUTNAME:The Staff of the [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:200000	WT:0		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	SIZE:L	SOURCEPAGE:p.60	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Staff (Terror)		OUTPUTNAME:Staff of [NAME]								TYPE:Magic.Staff																	COST:112500	WT:0																			SOURCEPAGE:p.60
 
 ###Block: Wands
 # Equipment Name			Output Name				Type				Weight	Base Item for EQMOD	Modifier														Source Page

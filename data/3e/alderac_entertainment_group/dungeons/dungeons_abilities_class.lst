@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 # Added by Andrew Maitland (11/7/2009)
 
 # Crusader
@@ -16,7 +16,7 @@ Craft Musket			KEY:Craft Musket ~ Demolitionist			CATEGORY:Special Ability	TYPE:
 Master of Destruction		KEY:Master of Destruction ~ Demolitionist		CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # Shock Trooper
-Bonus Damage			KEY:Bonus Damage ~ Shock Trooper			CATEGORY:Special Ability	TYPE:SpecialAttack	DEFINE:LargeAttack|0		DESC:%1d6 vs. large or bigger creatures|LargeAttack	BONUS:VAR|LargeAttack|1
+Bonus Damage			KEY:Bonus Damage ~ Shock Trooper			CATEGORY:Special Ability	TYPE:SpecialAttack	DEFINE:LargeAttack|0		DESC:%1d6 vs. large or bigger creatures|LargeAttack										BONUS:VAR|LargeAttack|1
 Improved Aid Another		KEY:Improved Aid Another ~ Shock Trooper		CATEGORY:Special Ability	TYPE:SpecialAttack						DESC:+4 vs. size large or bigger
 Focused Attack			KEY:Focused Attack ~ Shock Trooper			CATEGORY:Special Ability	TYPE:SpecialAttack
 Improved Dodge			KEY:Improved Dodge ~ Shock Trooper			CATEGORY:Special Ability	TYPE:SpecialQuality						DESC:+2 AC vs size large or bigger

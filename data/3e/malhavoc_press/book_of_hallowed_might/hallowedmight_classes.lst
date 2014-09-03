@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #Original Author: kingpaul, Updated by Beaver and Tir Gwaith
 
 SOURCELONG:Malhavoc Press - Book of Hallowed Might	SOURCESHORT:BoHM	SOURCEWEB:http://www.montecook.com
@@ -130,8 +130,8 @@ CLASS:Hallowed Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=4|LEVEL=5|L
 
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Bonus
 CLASS:Knight of the Pale	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:KoP		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Required AL			Req. Att.	Required Feat		Required Skill
-CLASS:Knight of the Pale	PREALIGN:LG,LN,NG,TN	PRETOTALAB:7	PREFEAT:1,Devout Faith	PRESKILL:1,Knowledge (Religion)=4
+# Class Name			Required AL			Required Feat		Required Skill				PRETOTALAB
+CLASS:Knight of the Pale	PREALIGN:LG,LN,NG,TN	PREFEAT:1,Devout Faith	PRESKILL:1,Knowledge (Religion)=4	PRETOTALAB:7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Pale	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Knowledge (Arcana)|Knowledge (Religion)|Listen|TYPE=Profession|Sense Motive|Spot
 ###Block: Proficiencies

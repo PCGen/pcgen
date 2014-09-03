@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:MPG - Quintessential Samurai	SOURCESHORT:mpgqs
 #SOURCEWEB:www.mongoose.com
 # Original Entry by: Andrew Maitland
@@ -56,7 +56,7 @@ Unwavering Strike IV	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAtta
 
 ###Block: Prestige Classes
 # Bodyguard
-# Ability Name		Unique Key						Category of Ability		Type				Automatically Gained Feat	Combat bonus					Bonus to skill										Source Page
+# Ability Name		Unique Key						Category of Ability		Type				Auto Feat				Combat bonus					Bonus to skill										Source Page
 Sworn Charge		KEY:Sworn Charge ~ Bodyguard			CATEGORY:Special Ability	TYPE:SpecialQuality																									SOURCEPAGE:p.14
 Reflexive Defence		KEY:Reflexive Defence ~ Bodyguard		CATEGORY:Special Ability	TYPE:SpecialQuality																									SOURCEPAGE:p.15
 Screen Defence		KEY:Screen Defence ~ Bodyguard		CATEGORY:Special Ability	TYPE:SpecialQuality																									SOURCEPAGE:p.15

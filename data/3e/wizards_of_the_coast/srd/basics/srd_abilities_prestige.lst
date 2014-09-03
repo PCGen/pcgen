@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 
 ###Block: Expert Class Skills
@@ -26,7 +26,7 @@ Save vs Poison	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE
 
 ###Block:Archmage High Arcana Class Abilities ---------------------------------------------------------------------------------------
 # Archmage abilities needs new PRE tag of PRESPELLSLOT that would function as PRESPELLSLOT:1,8 meaning that character must have 1 8th level spell slot
-# Ability Name			Output Name			Category of Ability		Type										Visible	Required Class		Req. Spell Type		Define			Description																												Stackable?	Multiple?	Choose							Bonus to spell cast/day				Modify VAR																	Source Page					Description of the Benefits
+# Ability Name			Output Name			Category of Ability		Type										Visible	Required Class		Req. Spell Type		Define			Description																												Stackable?	Multiple?	Choose							Bonus to spell cast/day				Modify VAR																	Source Page					Benefits
 Arcane Fire								CATEGORY:Special Ability	TYPE:ClassAbility.HighArcana.Supernatural.SpecialAttack	VISIBLE:YES	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=9					DESC:You change arcane spell energy into arcane fire, manifesting it as a bolt of raw magical energy.															MULT:YES	CHOOSE:CLASS|PC[SPELLTYPE=Arcane]			BONUS:SPELLCAST|CLASS=%LIST;LEVEL=9|-1																			SOURCEPAGE:PrestigeClasses.rtf	BENEFIT:The archmage gains the ability to change arcane spell energy into arcane fire, manifesting it as a bolt of raw magical energy. The bolt is a ranged touch attack with long range (400 feet + 40 feet/level of archmage) that deals 1d6 points of damage per class level of the archmage plus 1d6 points of damage per level of the spell used to create the effect. This ability costs one 9th-level spell slot.
 Arcane Reach							CATEGORY:Special Ability	TYPE:ClassAbility.HighArcana.Supernatural.SpecialAttack	VISIBLE:YES	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=7	DEFINE:ArcaneReach|0	DESC:You can use spells with a range of touch on a target up to %1 feet away.|ArcaneReach															STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=2|CLASS|PC[SPELLTYPE=Arcane]	BONUS:SPELLCAST|CLASS=%LIST;LEVEL=7|-1	BONUS:VAR|ArcaneReach|30*count("ABILITIES","CATEGORY=Special Ability","NAME=Arcane Reach")|TYPE=ArcaneReach	SOURCEPAGE:PrestigeClasses.rtf	BENEFIT:The archmage can use spells with a range of touch on a target up to 30 feet away. The archmage must make a ranged touch attack. Arcane reach can be selected a second time as a special ability, in which case the range increases to 60 feet. This ability costs one 7th-level spell slot.
 Mastery of Counterspelling					CATEGORY:Special Ability	TYPE:ClassAbility.HighArcana.SpecialQuality			VISIBLE:YES	PRECLASS:1,Archmage=1	PRESPELLTYPE:1,Arcane=7					DESC:When you counterspell a spell, it is turned back upon the caster as if it were fully affected by a spell turning spell.											MULT:YES	CHOOSE:CLASS|PC[SPELLTYPE=Arcane]			BONUS:SPELLCAST|CLASS=%LIST;LEVEL=7|-1																			SOURCEPAGE:PrestigeClasses.rtf	BENEFIT:When the archmage counterspells a spell, it is turned back upon the caster as if it were fully affected by a spell turning spell. If the spell cannot be affected by spell turning, then it is merely counterspelled. This ability costs one 7th-level spell slot.
@@ -55,7 +55,7 @@ Defensive Awareness	CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC	VISIBL
 
 
 ###Block: Loremaster Abilities
-# Ability Name			Category of Ability		Type							Visible	Var. Min. Value			Define			Description			Stackable?	Multiple?	Choose					Bonus to Ability Pool		Combat bonus			Bonus to HP			Bonus to skill rank	Bonus to spell cast/day				Source Page						Aspects						Bonus
+# Ability Name			Category of Ability		Type							Visible	Var. Min. Value			Define			Description			Stackable?	Multiple?	Choose					Bonus Ability Pool		Combat bonus			Bonus to HP			Bonus to skill rank	Bonus to spell cast/day				Source Page						Aspects						Bonus
 Secret Lore				CATEGORY:Special Ability	TYPE:SpecialQuality				VISIBLE:YES						DEFINE:SecretLore|0	DESC:+%1|SecretLore																																											ASPECT:Ability Benefit|+%1|SecretLore
 Lore					CATEGORY:Special Ability	TYPE:SpecialQuality				VISIBLE:YES
 Greater Lore			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		VISIBLE:YES

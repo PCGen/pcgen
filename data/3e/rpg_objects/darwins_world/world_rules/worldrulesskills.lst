@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com	SOURCEDATE:2001-01
 # Original entry by wizofice2001
 
-# Skill Name				Key Stat	Untrained?		Exclusive?		Type					Source Page			Choose			Automatically Gained Language
+# Skill Name				Key Stat	Untrained?		Exclusive?		Type					Source Page			Choose			Auto Language
 Craft (Cybernetics)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.29
 Craft (Electrician)			KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.29
 Craft (Mechanics)				KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.29

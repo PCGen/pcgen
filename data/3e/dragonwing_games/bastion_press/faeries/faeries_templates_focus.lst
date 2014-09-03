@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm	SOURCEDATE:2003-01
 #Original Entry: darkon_turas
 
@@ -12,17 +12,17 @@ Snouted Creature	VISIBLE:YES	SOURCEPAGE:p.34	PRELEVEL:MIN=6	PRETEMPLATE:1,Wild C
 Tailed Creature	VISIBLE:YES	SOURCEPAGE:p.34	PRELEVEL:MIN=7	PRETEMPLATE:1,Snouted Creature																						BONUS:SLOTS|HANDS|1							ABILITY:Special Ability|AUTOMATIC|Prehensile Tail
 
 ###Block: Focus of the Changling ---------------------------------------------------
-# Template Name		Visible	Source Page		Required Lvl	Required Template				Bonus to skill														Stat bonus		Innate Spells
+# Template Name		Visible	Source Page		Required Lvl	Required Template				Bonus to skill												Stat bonus		Innate Spells
 Bland Creature		VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=2							BONUS:SKILL|Bluff|2|TYPE=Competence	BONUS:SKILL|Disguise|5|TYPE=Competence
-Chameleon Creature	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=3	PRETEMPLATE:1,Bland Creature		BONUS:SKILL|Bluff|4|TYPE=Competence														SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Change Self,11+CHA
+Chameleon Creature	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=3	PRETEMPLATE:1,Bland Creature		BONUS:SKILL|Bluff|4|TYPE=Competence												SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Change Self,11+CHA
 Changeling Creature	VISIBLE:YES	SOURCEPAGE:p.35	PRELEVEL:MIN=6	PRETEMPLATE:1,Chameleon Creature	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Intimidate,Perform|2|TYPE=Competence	BONUS:STAT|CHA|2
 
 ###Block: Focus of the Fey ---------------------------------------------------
-# Template Name		Visible	Source Page		Required Lvl	Required Template				Bonus to skill									Stat bonus		Ability														Main Race Type	Vision
+# Template Name		Visible	Source Page		Required Lvl	Required Template				Bonus to skill							Stat bonus		Ability														Main Race Type	Vision
 Centered Creature		VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=6							BONUS:SKILL|Concentration|4|TYPE=Insight
 Fair Creature (Fey)	VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=7	PRETEMPLATE:1,Centered Creature	BONUS:SKILL|Bluff,Diplomacy,Perform|4|TYPE=Competence	BONUS:STAT|CHA|2
-Discerning Creature	VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=7	PRETEMPLATE:1,Fair Creature (Fey)	BONUS:SKILL|Innuendo,Sense Motive|4|TYPE=Insight			BONUS:STAT|WIS|2	ABILITY:Special Ability|AUTOMATIC|Discerning Creature Illusions and Enhancement Bonus
-Fey Creature		VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=10	PRETEMPLATE:1,Discerning Creature															ABILITY:Special Ability|AUTOMATIC|Immune to Enchantment spells					RACETYPE:Fey	VISION:Darkvision
+Discerning Creature	VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=7	PRETEMPLATE:1,Fair Creature (Fey)	BONUS:SKILL|Innuendo,Sense Motive|4|TYPE=Insight	BONUS:STAT|WIS|2	ABILITY:Special Ability|AUTOMATIC|Discerning Creature Illusions and Enhancement Bonus
+Fey Creature		VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=10	PRETEMPLATE:1,Discerning Creature													ABILITY:Special Ability|AUTOMATIC|Immune to Enchantment spells					RACETYPE:Fey	VISION:Darkvision
 
 
 ###Block: Focus of the Green ---------------------------------------------------
@@ -33,11 +33,11 @@ Regenerating Creature		VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=10	PRETEMPLATE:1
 Green Creature			VISIBLE:YES	SOURCEPAGE:p.36	PRELEVEL:MIN=14	PRETEMPLATE:1,Regenerating Creature
 
 ###Block: Focus of the Hordes ---------------------------------------------------
-# Template Name		Size		Visible	Source Page		Required Lvl	Required Template				Combat bonus				Bonus to skill												Stat bonus					Automatically Gained Feat	Main Race Type	Vision
-Goblinoid Creature			VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=3													BONUS:SKILL|Move Silently|4|TYPE=Competence													AUTO:FEAT|Alertness		RACETYPE:Humanoid	VISION:Darkvision (60')
-Orc-Blooded Creature			VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=4	PRETEMPLATE:1,Goblinoid Creature																					BONUS:STAT|CON|2|TYPE=Inherent									VISION:Darkvision (120')
+# Template Name		Size		Visible	Source Page		Required Lvl	Required Template				Combat bonus				Bonus to skill												Stat bonus					Auto Feat			Main Race Type	Vision
+Goblinoid Creature			VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=3													BONUS:SKILL|Move Silently|4|TYPE=Competence													AUTO:FEAT|Alertness	RACETYPE:Humanoid	VISION:Darkvision (60')
+Orc-Blooded Creature			VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=4	PRETEMPLATE:1,Goblinoid Creature																					BONUS:STAT|CON|2|TYPE=Inherent								VISION:Darkvision (120')
 Hobgoblinoid Creature			VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=5	PRETEMPLATE:1,Orc-Blooded Creature							BONUS:SKILL|Intimidate|4|TYPE=Competence	BONUS:SKILL|Spot,Listen|5|TYPE=Insight	BONUS:STAT|STR|2|TYPE=Inherent
-Ogrish Creature		SIZE:Large	VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=8	PRETEMPLATE:1,Hobgoblinoid Creature	BONUS:COMBAT|AC|3|TYPE=NaturalArmor															BONUS:STAT|STR|2|TYPE=Inherent						RACETYPE:Giant
+Ogrish Creature		SIZE:Large	VISIBLE:YES	SOURCEPAGE:p.37	PRELEVEL:MIN=8	PRETEMPLATE:1,Hobgoblinoid Creature	BONUS:COMBAT|AC|3|TYPE=NaturalArmor															BONUS:STAT|STR|2|TYPE=Inherent					RACETYPE:Giant
 
 ###Block: Focus of the Seersighted ---------------------------------------------------
 # Template Name		Visible	Source Page		Required Lvl	Required Template				Combat bonus				Bonus to skill				Vision		Innate Spells

@@ -1,6 +1,6 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
-# Ability Name							Category of Ability	Define																Automatically Added to Inventory			Ability														Modify VAR
+# Ability Name							Category of Ability	Define																Auto Equip							Ability														Modify VAR
 Default								CATEGORY:Internal
 
 CATEGORY=Internal|Default.MOD									DEFINE:GauntletOS|0	DEFINE:UnarmedLethal|0										AUTO:EQUIP|Gauntlet|PREARMORTYPE:1,TYPE.Heavy																BONUS:VAR|GauntletOS|1|PREARMORTYPE:1,TYPE.Heavy	BONUS:VAR|UnarmedLethal|GauntletOS
@@ -19,7 +19,7 @@ Defines Required							CATEGORY:Internal		DEFINE:EnableBardicInspireCourage|0	DE
 #Low-light Vision							KEY:Low light Vision				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision											DEFINE:LowLightRange|2														DESC:You can see %1x as far as humans in low illumination.|LowLightRange
 
 ###Block: Creature Type Traits
-# Ability Name				Unique Key						Category of Ability		Type						Visible	Define											Define a Stat			Description																																																																																																																																			Template			Ability																								Bonus to HP													Bonus to skill				Modify VAR								Vision						Source Page
+# Ability Name				Unique Key						Category of Ability		Type						Visible	Define											Define Stat				Description																																																																																																																																			Template			Ability																								Bonus to HP													Bonus to skill				Modify VAR								Vision						Source Page
 Master Traits											CATEGORY:Internal			TYPE:Internal				VISIBLE:NO
 #COMMENT: Assigns the Trait based upon RACETYPE
 CATEGORY=Internal|Master Traits.MOD																																																																																																																																																																														ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PRERACE:1,RACETYPE=Aberration
@@ -155,26 +155,26 @@ Swarm Traits				KEY:Traits Output ~ Swarm			CATEGORY:Special Ability	TYPE:Specia
 Water Traits				KEY:Traits Output ~ Water			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait																				DESC:Always have swim speeds and can move in water without making Swim checks/ can breathe underwater and usually can breathe air as well
 
 ###Block: Creature Subtype Traits
-# Ability Name		Category of Ability		Type								Define			Multiple?	Choose						Template		Automatically Gained Weapon Prof.	Ability																												Combat bonus											Modify VAR				Vision
+# Ability Name		Category of Ability		Type								Define			Multiple?	Choose						Template		Auto Weapon Prof		Ability																												Combat bonus											Modify VAR				Vision
 Air Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility
-Angel Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility																											ABILITY:Special Ability|AUTOMATIC|Immunity To Acid|Immunity To Cold|Immunity To Petrification|Protective Aura|Tongues	ABILITY:Special Ability|AUTOMATIC|Low Light Vision																			VISION:Darkvision (60')|Low-light
+Angel Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility																									ABILITY:Special Ability|AUTOMATIC|Immunity To Acid|Immunity To Cold|Immunity To Petrification|Protective Aura|Tongues	ABILITY:Special Ability|AUTOMATIC|Low Light Vision																			VISION:Darkvision (60')|Low-light
 Aquatic Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
-Archon Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility																											ABILITY:Special Ability|AUTOMATIC|Aura of Menace|Magic Circle against Evil|Teleport	ABILITY:Special Ability|AUTOMATIC|Low Light Vision																									VISION:Darkvision (60')|Low-light
+Archon Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility																									ABILITY:Special Ability|AUTOMATIC|Aura of Menace|Magic Circle against Evil|Teleport	ABILITY:Special Ability|AUTOMATIC|Low Light Vision																									VISION:Darkvision (60')|Low-light
 Augmented Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Chaotic Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
-Cold Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility																											ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Vulnerability To Fire
+Cold Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility																									ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Vulnerability To Fire
 Earth Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Evil Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility
 Extraplanar Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility
-Fire Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility																											ABILITY:Special Ability|AUTOMATIC|Immunity To Fire|Vulnerability To Cold
+Fire Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility																									ABILITY:Special Ability|AUTOMATIC|Immunity To Fire|Vulnerability To Cold
 Goblinoid Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Good Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility
-Incorporeal Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility					DEFINE:CanNotGrapple|0																																																BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX	BONUS:VAR|CanNotGrapple|1
+Incorporeal Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility					DEFINE:CanNotGrapple|0																																														BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX	BONUS:VAR|CanNotGrapple|1
 Lawful Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Native Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Reptilian Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Shapechanger Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility
-Swarm Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility					DEFINE:CanNotGrapple|0																																																													BONUS:VAR|CanNotGrapple|1
+Swarm Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility					DEFINE:CanNotGrapple|0																																																											BONUS:VAR|CanNotGrapple|1
 #	ABILITY:Special Ability|AUTOMATIC|Distraction
 Water Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 #

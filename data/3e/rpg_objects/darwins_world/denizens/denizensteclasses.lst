@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #Orginal entry by wizofice2001
 SOURCELONG:RPGObjects - Darwin's World - Denizens of the Twisted Earth	SOURCESHORT:DenizensTE	SOURCEWEB:http://www.darwinrpg.com	SOURCEDATE:2001-01
 
@@ -13,8 +13,8 @@ SOURCELONG:RPGObjects - Darwin's World - Denizens of the Twisted Earth	SOURCESHO
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Bonus
 CLASS:Brethren Follower	HD:12		TYPE:PC.Prestige	ABB:BrF		MAXLEVEL:10	SOURCEPAGE:p.108,109	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL		Req. Att.	Required Feat			Required Skill					Required Template
-CLASS:Brethren Follower	PREALIGN:CG,CN,CE	PRETOTALAB:3	PREFEAT:1,Great Fortitude	PRESKILL:1,Knowledge (Mutant Lore)=4	PRETEMPLATE:1,Feral%,Primitive,Radical,Resentful%,Ritual Preservationist%
+# Class Name		Required AL		Required Feat			Required Skill					Required Template											PRETOTALAB
+CLASS:Brethren Follower	PREALIGN:CG,CN,CE	PREFEAT:1,Great Fortitude	PRESKILL:1,Knowledge (Mutant Lore)=4	PRETEMPLATE:1,Feral%,Primitive,Radical,Resentful%,Ritual Preservationist%	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Brethren Follower	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Hide|Knowledge (Nature)|Move Silently|Wilderness Lore
 ###Block: Proficiencies
@@ -37,8 +37,8 @@ CLASS:Cartel Trade Master	PREALIGN:LN,NG,TN,NE,CN	PRELANG:1,Trade	PRESA:1,Spit P
 CLASS:Cartel Trade Master	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Gather Information|Innuendo|Intimidate|Sense Motive|Speak Language
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1													AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1																AUTO:FEAT|Skill Focus(Diplomacy)
 2	SAB:Make a Deal
@@ -48,14 +48,14 @@ CLASS:Cartel Trade Master	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Gather Informat
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Champion	HD:12		TYPE:PC.Prestige	ABB:Cha		MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Req. Att.	Required Feat		Required Skill		Prohibited Template
-CLASS:Champion	PRETOTALAB:10	PREFEAT:1,Toughness	PRESKILL:1,Intimidate=5	!PRETEMPLATE:1,Feral - 1GM-Human,Feral - 2GM-3GM
+# Class Name	Required Feat		Required Skill		Prohibited Template						PRETOTALAB
+CLASS:Champion	PREFEAT:1,Toughness	PRESKILL:1,Intimidate=5	!PRETEMPLATE:1,Feral - 1GM-Human,Feral - 2GM-3GM	PRETOTALAB:10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Champion	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate|Listen|Ride|Sense Motive|Spot|Tumble
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfExotic
-1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1													AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Rallying Cry
 3	SAB:Study Foe
@@ -76,8 +76,8 @@ CLASS:Demolitions Expert	STARTSKILLPTS:4	CSKILL:Climb|Craft (Tinker)|Disable Dev
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Force Master	HD:8		TYPE:PC.Prestige	ABB:FMa		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required AL		Req. Att.	Required Feat		Required Race											Required Skill			Required Template
-CLASS:Force Master	PREALIGN:LG,LN,LE	PRETOTALAB:5	PREFEAT:1,Iron Will	PRERACE:1,1st Generation Mutant,2nd Generation Mutant,3rd Generation Mutant	PRESKILL:1,Concentration=8	PRETEMPLATE:1,Ritual Preservationist,Visionary Reinventor
+# Class Name		Required AL		Required Feat		Required Race											Required Skill			Required Template								PRETOTALAB
+CLASS:Force Master	PREALIGN:LG,LN,LE	PREFEAT:1,Iron Will	PRERACE:1,1st Generation Mutant,2nd Generation Mutant,3rd Generation Mutant	PRESKILL:1,Concentration=8	PRETEMPLATE:1,Ritual Preservationist,Visionary Reinventor	PRETOTALAB:5
 
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Focus Master	STARTSKILLPTS:2	CSKILL:Animal Empathy|Decipher Script|Heal|Knowledge (Ancient Lore)|Perform|Sense Motive|Speak Language
@@ -91,12 +91,12 @@ CLASS:Focus Master	STARTSKILLPTS:2	CSKILL:Animal Empathy|Decipher Script|Heal|Kn
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Foundationist Paladin	HD:10		TYPE:PC.Prestige	ABB:FPa		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name			Required AL		Req. Att.	Required Skill					Required Stat	Required Template
-CLASS:Foundationist Paladin	PREALIGN:LG,LN,LE	PRETOTALAB:5	PRESKILL:1,Knowledge (Ancient Lore)=8	PRESTAT:1,INT=15	PRETEMPLATE:1,Advanced,Guardian,Resurrector,Ritual Preservationist,Visionary Reinventor
+# Class Name			Required AL		Required Skill					Required Stat	Required Template													PRETOTALAB
+CLASS:Foundationist Paladin	PREALIGN:LG,LN,LE	PRESKILL:1,Knowledge (Ancient Lore)=8	PRESTAT:1,INT=15	PRETEMPLATE:1,Advanced,Guardian,Resurrector,Ritual Preservationist,Visionary Reinventor	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Foundationist Paladin	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate|Knowledge (Ancient Lore)|Knowledge (Vehicle Operations)|Ride
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfExotic
-1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	SAB:Ancient Lore									ADD:FEAT|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus
 3	SAB:Command %|Command	BONUS:VAR|Command|3	DEFINE:Command|0
@@ -140,12 +140,12 @@ CLASS:Mech		STARTSKILLPTS:4	CSKILL:TYPE=Craft|Decipher Script|Disable Device|Kno
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Ranger (DW)	HD:10		TYPE:PC.Prestige	ABB:RDW		MAXLEVEL:5	SOURCEPAGE:p.33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Required AL		Req. Att.	Required Feat			Required Stat
-CLASS:Ranger (DW)	PREALIGN:LG,LN	PRETOTALAB:7	PREFEAT:2,Iron Will,Toughness	PRESTAT:1,CON=15
+# Class Name	Required AL		Required Feat			Required Stat	PRETOTALAB
+CLASS:Ranger (DW)	PREALIGN:LG,LN	PREFEAT:2,Iron Will,Toughness	PRESTAT:1,CON=15	PRETOTALAB:7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ranger (DW)	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Gather Information|Handle Animal|Heal|Intimidate|Intuit Direction|Listen|Move Silently|Ride|Sense Motive|Speak Language|Spot|Use Rope|Wilderness Lore
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	SAB:Rigorous Training
 2	SAB:Wanderer's Reputation +%|WanderersReputation	BONUS:SKILL|Diplomacy,Intimidate|CL	BONUS:VAR|WanderersReputation|2	BONUS:VAR|WanderersReputation|CL	DEFINE:WanderersReputation|0
@@ -155,8 +155,8 @@ CLASS:Ranger (DW)	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Gather Information|Hand
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Road Warrior	HD:8		TYPE:PC.Prestige	ABB:RWa		MAXLEVEL:5	SOURCEPAGE:p.35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Req. Att.	Required Feat		Required Item		Required Skill
-CLASS:Road Warrior	PRETOTALAB:5	PREFEAT:1,Road Warrior	PREITEM:1,TYPE=Vehicle	PRESKILL:2,Craft (Mechanics)=4,Knowledge (Vehicle Operations)=4
+# Class Name		Required Feat		Required Item		Required Skill									PRETOTALAB
+CLASS:Road Warrior	PREFEAT:1,Road Warrior	PREITEM:1,TYPE=Vehicle	PRESKILL:2,Craft (Mechanics)=4,Knowledge (Vehicle Operations)=4	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Road Warrior	STARTSKILLPTS:2	CSKILL:Balance|Climb|Craft (Mechanics)|Disable Device|Escape Artist|Intuit Direction|Jump|Knowledge (Vehicle Operations)|Spot
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
@@ -169,8 +169,8 @@ CLASS:Road Warrior	STARTSKILLPTS:2	CSKILL:Balance|Climb|Craft (Mechanics)|Disabl
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Sister of the Desert	HD:8		TYPE:PC.Prestige	ABB:SoD		MAXLEVEL:5	SOURCEPAGE:p.36	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name			Req. Att.	Required Feat
-CLASS:Sister of the Desert	PRETOTALAB:5	PREFEAT:2,Concubine,Endurance
+# Class Name			Required Feat			PRETOTALAB
+CLASS:Sister of the Desert	PREFEAT:2,Concubine,Endurance	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Sister of the Desert	STARTSKILLPTS:2	CSKILL:Animal Empathy|Climb|TYPE=Craft|Escape Artist|Handle Animal|Hide|Move Silently|Ride|Sense Motive|Tumble|Wilderness Lore
 1	AUTO:FEAT|Simple Weapon Proficiency

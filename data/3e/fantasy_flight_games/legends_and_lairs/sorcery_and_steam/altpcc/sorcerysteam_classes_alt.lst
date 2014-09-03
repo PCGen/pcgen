@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:http://www.fantasyflightgames.com/dd40.html	SOURCEDATE:2003-08
 # Original Entry by: Eddy Anthony
 
 ### Steampunk MODs to base classes
 
-# Class Name	Automatically Gained Weapon Prof.
+# Class Name	Auto Weapon Prof
 CLASS:Bard.MOD	AUTO:WEAPONPROF|TYPE=Firearms
 # Class Name	Class Skill
 CLASS:Bard.MOD	CSKILL:Munitions
@@ -24,7 +24,7 @@ CLASS:Paladin.MOD	CSKILL:Munitions
 # Class Name	Remove Class Skill		Class Skill
 CLASS:Ranger.MOD	CSKILL:.CLEAR.Handle Animal	CSKILL:Munitions
 
-# Class Name	Automatically Gained Weapon Prof.
+# Class Name	Auto Weapon Prof
 CLASS:Rogue.MOD	AUTO:WEAPONPROF|TYPE=Firearms
 # Class Name	Class Skill
 CLASS:Rogue.MOD	CSKILL:Munitions
@@ -32,14 +32,14 @@ CLASS:Rogue.MOD	CSKILL:Munitions
 # Class Name		Class Skill
 CLASS:Sorcerer.MOD	CSKILL:Knowledge (Steamcraft)
 
-# Class Name		Automatically Gained Weapon Prof.
+# Class Name		Auto Weapon Prof
 CLASS:Street Runner.MOD	AUTO:WEAPONPROF|TYPE=Firearms
 
 ### Alternate base classes for Steampunk setting
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class		Source Page		Bonus Languages	Define				Automatically Gained Language	Combat bonus											Modify VAR					Bonus
-CLASS:Urban Druid	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:p. 31	LANGBONUS:Sylvan	DEFINE:AnimalCompanionLVL|0	AUTO:LANG|Druidic			BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|AnimalCompanionLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class		Source Page		Bonus Languages	Define				Auto Language	Combat bonus											Modify VAR					Bonus
+CLASS:Urban Druid	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:p. 31	LANGBONUS:Sylvan	DEFINE:AnimalCompanionLVL|0	AUTO:LANG|Druidic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|AnimalCompanionLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL
 CLASS:Urban Druid	PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -98,8 +98,8 @@ CLASS:Urban Ranger	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYP
 CLASS:Urban Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Urban Ranger|CL/2|PRECLASS:1,Urban Ranger=4	SPELLLIST:1|Ranger
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: Favored Enemy
 1	BONUS:ABILITYPOOL|Favored Enemy|var("RangerFavoredEnemyLVL")/5+1	BONUS:VAR|RangerFavoredEnemyLVL|CL	DEFINE:RangerFavoredEnemyLVL|0
 ###Block: Level progression

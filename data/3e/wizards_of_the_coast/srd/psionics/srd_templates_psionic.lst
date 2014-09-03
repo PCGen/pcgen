@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 # Original entry for Astral Contruct templates by: Ian
 
@@ -11,7 +11,7 @@ Fighter Favored									VISIBLE:NO											FAVOREDCLASS:Fighter
 Psychic Warrior Favored								VISIBLE:NO											FAVOREDCLASS:Psychic Warrior
 
 ###Block: Astral Construct menu choices, groups are all possible combinations of A/B/C choices given any set in the group.
-# Template Name				Visible	Source Page					Bonus to Ability Pool
+# Template Name				Visible	Source Page					Bonus Ability Pool
 Astral Construct Feats (1 0 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|1
 
 Astral Construct Feats (2 0 0)	VISIBLE:NO	SOURCEPAGE:srdpsioniccreatures.rtf	BONUS:ABILITYPOOL|Astral Construct Menu A|2

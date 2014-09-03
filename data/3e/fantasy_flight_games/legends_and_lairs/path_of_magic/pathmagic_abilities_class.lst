@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgames.com/llpom.html	SOURCEDATE:2002-01
 # Original Entry by: Ratheof Blithwyn
 
 
 ###Block: Weapon Proficiencies
 # Feat Name										Automaticaly Gained Weapon Prof.
-# Ability Name				Category of Ability		Automatically Gained Weapon Prof.
+# Ability Name				Category of Ability		Auto Weapon Prof
 Arsenalist Weapon Proficiencies	CATEGORY:Special Ability	AUTO:WEAPONPROF|Crossbow (Repeating)
 
 
@@ -15,30 +15,30 @@ Arsenalist Weapon Proficiencies	CATEGORY:Special Ability	AUTO:WEAPONPROF|Crossbo
 
 ###Block:Generic legendary abilities
 # Feat Name				Type					Visible	Prohibited Feat					Special ABility			Stat bonus					Source Page
-# Ability Name			Category of Ability		Type					Visible	Prohibited Feat					Special ABility			Stat bonus					Source Page
-Enhanced Dexterity I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL1	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|1|TYPE=Legendary	SOURCEPAGE:p.52
-Enhanced Dexterity II		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL2	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|2|TYPE=Legendary	SOURCEPAGE:p.52
-Enhanced Dexterity III		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL3	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|3|TYPE=Legendary	SOURCEPAGE:p.52
-Enhanced Dexterity IV		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL4	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|4|TYPE=Legendary	SOURCEPAGE:p.52
-Enhanced Dexterity V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL5	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|5|TYPE=Legendary	SOURCEPAGE:p.52
+# Ability Name			Category of Ability		Type																							Visible	Prohibited Feat					Special ABility			Stat bonus					Source Page
+Enhanced Dexterity I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL1																	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|1|TYPE=Legendary	SOURCEPAGE:p.52
+Enhanced Dexterity II		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL2																	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|2|TYPE=Legendary	SOURCEPAGE:p.52
+Enhanced Dexterity III		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL3																	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|3|TYPE=Legendary	SOURCEPAGE:p.52
+Enhanced Dexterity IV		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL4																	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|4|TYPE=Legendary	SOURCEPAGE:p.52
+Enhanced Dexterity V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedDEX.MaestroLAPL5																	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedDEX	SAB:Enhanced Dexterity		BONUS:STAT|DEX|5|TYPE=Legendary	SOURCEPAGE:p.52
 
-Enhanced Constitution I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL1.ElementalLordLAPL1	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|1|TYPE=Legendary	SOURCEPAGE:p.46
-Enhanced Constitution II	CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL2.ElementalLordLAPL2	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|2|TYPE=Legendary	SOURCEPAGE:p.46
-Enhanced Constitution III	CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL3.ElementalLordLAPL3	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|3|TYPE=Legendary	SOURCEPAGE:p.46
-Enhanced Constitution IV	CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL4.ElementalLordLAPL4	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|4|TYPE=Legendary	SOURCEPAGE:p.46
-Enhanced Constitution V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL5.ElementalLordLAPL5	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|5|TYPE=Legendary	SOURCEPAGE:p.46
+Enhanced Constitution I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL1.ElementalLordLAPL1														VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|1|TYPE=Legendary	SOURCEPAGE:p.46
+Enhanced Constitution II	CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL2.ElementalLordLAPL2														VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|2|TYPE=Legendary	SOURCEPAGE:p.46
+Enhanced Constitution III	CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL3.ElementalLordLAPL3														VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|3|TYPE=Legendary	SOURCEPAGE:p.46
+Enhanced Constitution IV	CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL4.ElementalLordLAPL4														VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|4|TYPE=Legendary	SOURCEPAGE:p.46
+Enhanced Constitution V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCON.DeathLordLAPL5.ElementalLordLAPL5														VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCON	SAB:Enhanced Constitution	BONUS:STAT|CON|5|TYPE=Legendary	SOURCEPAGE:p.46
 
-Enhanced Intelligence I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL1.InfiltratorLAPL1.OracleLAPL1.PuppetmasterLAPL1.PuzzlemasterLAPL1.TravelerLAPL1	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|1|TYPE=Legendary	SOURCEPAGE:p.61
-Enhanced Intelligence II	CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL2.InfiltratorLAPL2.OracleLAPL2.PuppetmasterLAPL2.PuzzlemasterLAPL2.TravelerLAPL2	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|2|TYPE=Legendary	SOURCEPAGE:p.61
-Enhanced Intelligence III	CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL3.InfiltratorLAPL3.OracleLAPL3.PuppetmasterLAPL3.PuzzlemasterLAPL3.TravelerLAPL3	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|3|TYPE=Legendary	SOURCEPAGE:p.61
-Enhanced Intelligence IV	CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL4.InfiltratorLAPL4.OracleLAPL4.PuppetmasterLAPL4.PuzzlemasterLAPL4.TravelerLAPL4	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|4|TYPE=Legendary	SOURCEPAGE:p.61
-Enhanced Intelligence V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL5.InfiltratorLAPL5.OracleLAPL5.PuppetmasterLAPL5.PuzzlemasterLAPL5.TravelerLAPL5	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|5|TYPE=Legendary	SOURCEPAGE:p.61
+Enhanced Intelligence I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL1.InfiltratorLAPL1.OracleLAPL1.PuppetmasterLAPL1.PuzzlemasterLAPL1.TravelerLAPL1			VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|1|TYPE=Legendary	SOURCEPAGE:p.61
+Enhanced Intelligence II	CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL2.InfiltratorLAPL2.OracleLAPL2.PuppetmasterLAPL2.PuzzlemasterLAPL2.TravelerLAPL2			VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|2|TYPE=Legendary	SOURCEPAGE:p.61
+Enhanced Intelligence III	CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL3.InfiltratorLAPL3.OracleLAPL3.PuppetmasterLAPL3.PuzzlemasterLAPL3.TravelerLAPL3			VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|3|TYPE=Legendary	SOURCEPAGE:p.61
+Enhanced Intelligence IV	CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL4.InfiltratorLAPL4.OracleLAPL4.PuppetmasterLAPL4.PuzzlemasterLAPL4.TravelerLAPL4			VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|4|TYPE=Legendary	SOURCEPAGE:p.61
+Enhanced Intelligence V		CATEGORY:Special Ability	TYPE:LegendaryEnhancedINT.ElementalLordLAPL5.InfiltratorLAPL5.OracleLAPL5.PuppetmasterLAPL5.PuzzlemasterLAPL5.TravelerLAPL5			VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedINT	SAB:Enhanced Intelligence	BONUS:STAT|INT|5|TYPE=Legendary	SOURCEPAGE:p.61
 
-Enhanced Wisdom I			CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL1.OracleLAPL1	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|1|TYPE=Legendary	SOURCEPAGE:p.54
-Enhanced Wisdom II		CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL2.OracleLAPL2	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|2|TYPE=Legendary	SOURCEPAGE:p.54
-Enhanced Wisdom III		CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL3.OracleLAPL3	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|3|TYPE=Legendary	SOURCEPAGE:p.54
-Enhanced Wisdom IV		CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL4.OracleLAPL4	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|4|TYPE=Legendary	SOURCEPAGE:p.54
-Enhanced Wisdom V			CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL5.OracleLAPL5	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|5|TYPE=Legendary	SOURCEPAGE:p.54
+Enhanced Wisdom I			CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL1.OracleLAPL1															VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|1|TYPE=Legendary	SOURCEPAGE:p.54
+Enhanced Wisdom II		CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL2.OracleLAPL2															VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|2|TYPE=Legendary	SOURCEPAGE:p.54
+Enhanced Wisdom III		CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL3.OracleLAPL3															VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|3|TYPE=Legendary	SOURCEPAGE:p.54
+Enhanced Wisdom IV		CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL4.OracleLAPL4															VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|4|TYPE=Legendary	SOURCEPAGE:p.54
+Enhanced Wisdom V			CATEGORY:Special Ability	TYPE:LegendaryEnhancedWIS.LandwalkerLAPL5.OracleLAPL5															VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedWIS	SAB:Enhanced Wisdom		BONUS:STAT|WIS|5|TYPE=Legendary	SOURCEPAGE:p.54
 
 Enhanced Charisma I		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA.DeathLordLAPL1.InfiltratorLAPL1.LandwalkerLAPL1.MaestroLAPL1.PuppetmasterLAPL1.PuzzlemasterLAPL1.TravelerLAPL1	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SAB:Enhanced Charisma		BONUS:STAT|CHA|1|TYPE=Legendary	SOURCEPAGE:p.61
 Enhanced Charisma II		CATEGORY:Special Ability	TYPE:LegendaryEnhancedCHA.DeathLordLAPL2.InfiltratorLAPL2.LandwalkerLAPL2.MaestroLAPL2.PuppetmasterLAPL2.PuzzlemasterLAPL2.TravelerLAPL2	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SAB:Enhanced Charisma		BONUS:STAT|CHA|2|TYPE=Legendary	SOURCEPAGE:p.61
@@ -153,24 +153,24 @@ Whispers and Lies V		CATEGORY:Special Ability	TYPE:LegendaryWhispersLies.Infiltr
 
 ###Block:Landwalker legendary abilities
 # Feat Name				Type								Visible	Required Class		Prohibited Feat					Special ABility							Define				Innate Spells					Add						Modify VAR				Source Page
-# Ability Name			Category of Ability		Type								Visible	Required Class		Prohibited Feat					Special ABility							Define				Innate Spells					Add 						Modify VAR				Source Page
-Dire Familiar I			CATEGORY:Special Ability	TYPE:LegendaryDireFamiliar.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (3HD)																													SOURCEPAGE:p.50
-Dire Familiar II			CATEGORY:Special Ability	TYPE:LegendaryDireFamiliar.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (6HD)																													SOURCEPAGE:p.50
-Dire Familiar III			CATEGORY:Special Ability	TYPE:LegendaryDireFamiliar.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (9HD)																													SOURCEPAGE:p.50
-Dire Familiar IV			CATEGORY:Special Ability	TYPE:LegendaryDireFamiliar.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (12HD)																												SOURCEPAGE:p.50
-Dire Familiar V			CATEGORY:Special Ability	TYPE:LegendaryDireFamiliar.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (15HD)																												SOURCEPAGE:p.50
+# Ability Name			Category of Ability		Type								Visible	Required Class		Prohibited Feat					Special ABility							Define				Innate Spells					Bonus Ability Pool				Modify VAR				Source Page
+Dire Familiar I			CATEGORY:Special Ability	TYPE:LegendaryDireFamiliar.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (3HD)																														SOURCEPAGE:p.50
+Dire Familiar II			CATEGORY:Special Ability	TYPE:LegendaryDireFamiliar.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (6HD)																														SOURCEPAGE:p.50
+Dire Familiar III			CATEGORY:Special Ability	TYPE:LegendaryDireFamiliar.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (9HD)																														SOURCEPAGE:p.50
+Dire Familiar IV			CATEGORY:Special Ability	TYPE:LegendaryDireFamiliar.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (12HD)																													SOURCEPAGE:p.50
+Dire Familiar V			CATEGORY:Special Ability	TYPE:LegendaryDireFamiliar.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryDireFamiliar	SAB:Dire Familiar (15HD)																													SOURCEPAGE:p.50
 
-Healing Earth I			CATEGORY:Special Ability	TYPE:LegendaryHealingEarth.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryHealingEarth	SAB:Healing Earth (1/day)																												SOURCEPAGE:p.50
-Healing Earth II			CATEGORY:Special Ability	TYPE:LegendaryHealingEarth.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryHealingEarth	SAB:Healing Earth (2/day)																												SOURCEPAGE:p.50
-Healing Earth III			CATEGORY:Special Ability	TYPE:LegendaryHealingEarth.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryHealingEarth	SAB:Healing Earth (3/day)																												SOURCEPAGE:p.50
-Healing Earth IV			CATEGORY:Special Ability	TYPE:LegendaryHealingEarth.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryHealingEarth	SAB:Healing Earth (4/day)																												SOURCEPAGE:p.50
-Healing Earth V			CATEGORY:Special Ability	TYPE:LegendaryHealingEarth.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryHealingEarth	SAB:Healing Earth (5/day)																												SOURCEPAGE:p.50
+Healing Earth I			CATEGORY:Special Ability	TYPE:LegendaryHealingEarth.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryHealingEarth	SAB:Healing Earth (1/day)																													SOURCEPAGE:p.50
+Healing Earth II			CATEGORY:Special Ability	TYPE:LegendaryHealingEarth.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryHealingEarth	SAB:Healing Earth (2/day)																													SOURCEPAGE:p.50
+Healing Earth III			CATEGORY:Special Ability	TYPE:LegendaryHealingEarth.LandwalkerLAPL3	VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryHealingEarth	SAB:Healing Earth (3/day)																													SOURCEPAGE:p.50
+Healing Earth IV			CATEGORY:Special Ability	TYPE:LegendaryHealingEarth.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryHealingEarth	SAB:Healing Earth (4/day)																													SOURCEPAGE:p.50
+Healing Earth V			CATEGORY:Special Ability	TYPE:LegendaryHealingEarth.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryHealingEarth	SAB:Healing Earth (5/day)																													SOURCEPAGE:p.50
 
-Nature's Song I			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (1/day)																	BONUS:ABILITYPOOL|NatureSongSpell|1						SOURCEPAGE:p.50
-Nature's Song II			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL2		VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (2/day)																	BONUS:ABILITYPOOL|NatureSongSpell|2						SOURCEPAGE:p.50
-Nature's Song III			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL3		VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (3/day)																	BONUS:ABILITYPOOL|NatureSongSpell|3						SOURCEPAGE:p.50
-Nature's Song IV			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL4		VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (4/day)																	BONUS:ABILITYPOOL|NatureSongSpell|4						SOURCEPAGE:p.50
-Nature's Song V			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL5		VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (5/day)																	BONUS:ABILITYPOOL|NatureSongSpell|5						SOURCEPAGE:p.50
+Nature's Song I			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (1/day)																	BONUS:ABILITYPOOL|NatureSongSpell|1							SOURCEPAGE:p.50
+Nature's Song II			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL2		VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (2/day)																	BONUS:ABILITYPOOL|NatureSongSpell|2							SOURCEPAGE:p.50
+Nature's Song III			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL3		VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (3/day)																	BONUS:ABILITYPOOL|NatureSongSpell|3							SOURCEPAGE:p.50
+Nature's Song IV			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL4		VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (4/day)																	BONUS:ABILITYPOOL|NatureSongSpell|4							SOURCEPAGE:p.50
+Nature's Song V			CATEGORY:Special Ability	TYPE:LegendaryNatureSong.LandwalkerLAPL5		VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryNatureSong		SAB:Nature's Song (5/day)																	BONUS:ABILITYPOOL|NatureSongSpell|5							SOURCEPAGE:p.50
 
 Friends All Around I		CATEGORY:Special Ability	TYPE:LegendaryFriendsAround.LandwalkerLAPL1	VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryFriendsAround	SAB:Friends All Around																		BONUS:ABILITYPOOL|TurnPlantsAnimals|1	BONUS:VAR|TurnPlantsAnimals|1	SOURCEPAGE:p.50
 Friends All Around II		CATEGORY:Special Ability	TYPE:LegendaryFriendsAround.LandwalkerLAPL2	VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryFriendsAround	SAB:Friends All Around																		BONUS:ABILITYPOOL|TurnPlantsAnimals|1	BONUS:VAR|TurnPlantsAnimals|2	SOURCEPAGE:p.50
@@ -178,11 +178,11 @@ Friends All Around III		CATEGORY:Special Ability	TYPE:LegendaryFriendsAround.Lan
 Friends All Around IV		CATEGORY:Special Ability	TYPE:LegendaryFriendsAround.LandwalkerLAPL4	VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryFriendsAround	SAB:Friends All Around																		BONUS:ABILITYPOOL|TurnPlantsAnimals|1	BONUS:VAR|TurnPlantsAnimals|4	SOURCEPAGE:p.50
 Friends All Around V		CATEGORY:Special Ability	TYPE:LegendaryFriendsAround.LandwalkerLAPL5	VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryFriendsAround	SAB:Friends All Around																		BONUS:ABILITYPOOL|TurnPlantsAnimals|1	BONUS:VAR|TurnPlantsAnimals|5	SOURCEPAGE:p.50
 
-The Power of the Land I		CATEGORY:Special Ability	TYPE:LegendaryPowerLand.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryPowerLand		SAB:The Power of the Land (2 spell levels/day)																									SOURCEPAGE:p.50
-The Power of the Land II	CATEGORY:Special Ability	TYPE:LegendaryPowerLand.LandwalkerLAPL2		VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryPowerLand		SAB:The Power of the Land (4 spell levels/day)																									SOURCEPAGE:p.50
-The Power of the Land III	CATEGORY:Special Ability	TYPE:LegendaryPowerLand.LandwalkerLAPL3		VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryPowerLand		SAB:The Power of the Land (6 spell levels/day)																									SOURCEPAGE:p.50
-The Power of the Land IV	CATEGORY:Special Ability	TYPE:LegendaryPowerLand.LandwalkerLAPL4		VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryPowerLand		SAB:The Power of the Land (8 spell levels/day)																									SOURCEPAGE:p.50
-The Power of the Land V		CATEGORY:Special Ability	TYPE:LegendaryPowerLand.LandwalkerLAPL5		VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryPowerLand		SAB:The Power of the Land (10 spell levels/day)																									SOURCEPAGE:p.50
+The Power of the Land I		CATEGORY:Special Ability	TYPE:LegendaryPowerLand.LandwalkerLAPL1		VISIBLE:NO	PRECLASS:1,Landwalker=1	!PREFEAT:1,TYPE.LegendaryPowerLand		SAB:The Power of the Land (2 spell levels/day)																										SOURCEPAGE:p.50
+The Power of the Land II	CATEGORY:Special Ability	TYPE:LegendaryPowerLand.LandwalkerLAPL2		VISIBLE:NO	PRECLASS:1,Landwalker=2	!PREFEAT:1,TYPE.LegendaryPowerLand		SAB:The Power of the Land (4 spell levels/day)																										SOURCEPAGE:p.50
+The Power of the Land III	CATEGORY:Special Ability	TYPE:LegendaryPowerLand.LandwalkerLAPL3		VISIBLE:NO	PRECLASS:1,Landwalker=3	!PREFEAT:1,TYPE.LegendaryPowerLand		SAB:The Power of the Land (6 spell levels/day)																										SOURCEPAGE:p.50
+The Power of the Land IV	CATEGORY:Special Ability	TYPE:LegendaryPowerLand.LandwalkerLAPL4		VISIBLE:NO	PRECLASS:1,Landwalker=4	!PREFEAT:1,TYPE.LegendaryPowerLand		SAB:The Power of the Land (8 spell levels/day)																										SOURCEPAGE:p.50
+The Power of the Land V		CATEGORY:Special Ability	TYPE:LegendaryPowerLand.LandwalkerLAPL5		VISIBLE:NO	PRECLASS:1,Landwalker=5	!PREFEAT:1,TYPE.LegendaryPowerLand		SAB:The Power of the Land (10 spell levels/day)																										SOURCEPAGE:p.50
 
 
 
@@ -193,8 +193,8 @@ Nature's Song Diminish Plants	CATEGORY:Special Ability	TYPE:NatureSongSpell					
 Nature's Song Move Earth	CATEGORY:Special Ability	TYPE:NatureSongSpell					VISIBLE:NO																										SPELLS:Class|TIMES=1|Move Earth
 #Should be castable 1/day per power level but I mention that in the SA instead...
 
-Turn Plants and Animals		CATEGORY:Special Ability	TYPE:TurnPlantsAnimals					VISIBLE:NO												SAB:Turn Plants and Animals %/day|TurnPlantsAnimals	DEFINE:TurnPlantsAnimals|0																			SOURCEPAGE:p.50
-Rebuke Plants and Animals	CATEGORY:Special Ability	TYPE:TurnPlantsAnimals					VISIBLE:NO												SAB:Rebuke Plants and Animals %/day|TurnPlantsAnimals	DEFINE:TurnPlantsAnimals|0																			SOURCEPAGE:p.50
+Turn Plants and Animals		CATEGORY:Special Ability	TYPE:TurnPlantsAnimals					VISIBLE:NO												SAB:Turn Plants and Animals %/day|TurnPlantsAnimals	DEFINE:TurnPlantsAnimals|0																				SOURCEPAGE:p.50
+Rebuke Plants and Animals	CATEGORY:Special Ability	TYPE:TurnPlantsAnimals					VISIBLE:NO												SAB:Rebuke Plants and Animals %/day|TurnPlantsAnimals	DEFINE:TurnPlantsAnimals|0																				SOURCEPAGE:p.50
 
 ###Block:Maestro legendary abilities
 # Feat Name				Type								Visible	Required Class		Prohibited Feat						Special ABility				Bonus to skill					Source Page
@@ -370,47 +370,47 @@ Planar Wrenching V	CATEGORY:Special Ability	TYPE:LegendaryPlanarWrenching.Travel
 
 ###Block:Wizard King legendary abilities
 # Feat Name					Type									Visible	Required Class			Prohibited Feat						Special ABility				Add						Bonus to DC					Bonus to skill								Source Page
-# Ability Name				Category of Ability		Type									Visible	Required Class			Prohibited Feat						Special ABility				Add 						Bonus to DC					Bonus to skill								Source Page
+# Ability Name				Category of Ability		Type									Visible	Required Class			Prohibited Feat						Special ABility				Bonus Ability Pool				Bonus DC					Bonus to skill								Source Page
 Increased Spell Power I			CATEGORY:Special Ability	TYPE:LegendaryIncSpellPower.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		BONUS:ABILITYPOOL|IncSpellPowerSchool|1																	SOURCEPAGE:p.62
 Increased Spell Power II		CATEGORY:Special Ability	TYPE:LegendaryIncSpellPower.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		BONUS:ABILITYPOOL|IncSpellPowerSchool|2																	SOURCEPAGE:p.62
 Increased Spell Power III		CATEGORY:Special Ability	TYPE:LegendaryIncSpellPower.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		BONUS:ABILITYPOOL|IncSpellPowerSchool|3																	SOURCEPAGE:p.62
 Increased Spell Power IV		CATEGORY:Special Ability	TYPE:LegendaryIncSpellPower.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		BONUS:ABILITYPOOL|IncSpellPowerSchool|4																	SOURCEPAGE:p.62
 Increased Spell Power V			CATEGORY:Special Ability	TYPE:LegendaryIncSpellPower.WizardKingLAPL5		VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryIncSpellPower		SAB:Increased Spell Power		BONUS:ABILITYPOOL|IncSpellPowerSchool|5																	SOURCEPAGE:p.62
 
-Mastered Spells I				CATEGORY:Special Ability	TYPE:LegendaryMasteredSpells.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SAB:Mastered Spells (1)																									SOURCEPAGE:p.62
-Mastered Spells II			CATEGORY:Special Ability	TYPE:LegendaryMasteredSpells.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SAB:Mastered Spells (2)																									SOURCEPAGE:p.62
-Mastered Spells III			CATEGORY:Special Ability	TYPE:LegendaryMasteredSpells.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SAB:Mastered Spells (3)																									SOURCEPAGE:p.62
-Mastered Spells IV			CATEGORY:Special Ability	TYPE:LegendaryMasteredSpells.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SAB:Mastered Spells (4)																									SOURCEPAGE:p.62
-Mastered Spells V				CATEGORY:Special Ability	TYPE:LegendaryMasteredSpells.WizardKingLAPL5		VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SAB:Mastered Spells (5)																									SOURCEPAGE:p.62
+Mastered Spells I				CATEGORY:Special Ability	TYPE:LegendaryMasteredSpells.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SAB:Mastered Spells (1)																										SOURCEPAGE:p.62
+Mastered Spells II			CATEGORY:Special Ability	TYPE:LegendaryMasteredSpells.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SAB:Mastered Spells (2)																										SOURCEPAGE:p.62
+Mastered Spells III			CATEGORY:Special Ability	TYPE:LegendaryMasteredSpells.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SAB:Mastered Spells (3)																										SOURCEPAGE:p.62
+Mastered Spells IV			CATEGORY:Special Ability	TYPE:LegendaryMasteredSpells.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SAB:Mastered Spells (4)																										SOURCEPAGE:p.62
+Mastered Spells V				CATEGORY:Special Ability	TYPE:LegendaryMasteredSpells.WizardKingLAPL5		VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryMasteredSpells		SAB:Mastered Spells (5)																										SOURCEPAGE:p.62
 # Can't really see a way to do more here. Gimme, gimme, gimme, Chooser for spells....and then add to a separate spell list...
 
-Unearthly Penetration I			CATEGORY:Special Ability	TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL1	VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SAB:Unearthly Penetration +1																								SOURCEPAGE:p.62
-Unearthly Penetration II		CATEGORY:Special Ability	TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL2	VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SAB:Unearthly Penetration +2																								SOURCEPAGE:p.62
-Unearthly Penetration III		CATEGORY:Special Ability	TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL3	VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SAB:Unearthly Penetration +3																								SOURCEPAGE:p.62
-Unearthly Penetration IV		CATEGORY:Special Ability	TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL4	VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SAB:Unearthly Penetration +4																								SOURCEPAGE:p.62
-Unearthly Penetration V			CATEGORY:Special Ability	TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL5	VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SAB:Unearthly Penetration +5																								SOURCEPAGE:p.62
+Unearthly Penetration I			CATEGORY:Special Ability	TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL1	VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SAB:Unearthly Penetration +1																									SOURCEPAGE:p.62
+Unearthly Penetration II		CATEGORY:Special Ability	TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL2	VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SAB:Unearthly Penetration +2																									SOURCEPAGE:p.62
+Unearthly Penetration III		CATEGORY:Special Ability	TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL3	VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SAB:Unearthly Penetration +3																									SOURCEPAGE:p.62
+Unearthly Penetration IV		CATEGORY:Special Ability	TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL4	VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SAB:Unearthly Penetration +4																									SOURCEPAGE:p.62
+Unearthly Penetration V			CATEGORY:Special Ability	TYPE:LegendaryUnearthlyPenetration.WizardKingLAPL5	VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryUnearthlyPenetration	SAB:Unearthly Penetration +5																									SOURCEPAGE:p.62
 
-Arcane Resistance I			CATEGORY:Special Ability	TYPE:LegendaryArcaneResistance.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SAB:Arcane Resistance +1																								SOURCEPAGE:p.62
-Arcane Resistance II			CATEGORY:Special Ability	TYPE:LegendaryArcaneResistance.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SAB:Arcane Resistance +2																								SOURCEPAGE:p.62
-Arcane Resistance III			CATEGORY:Special Ability	TYPE:LegendaryArcaneResistance.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SAB:Arcane Resistance +3																								SOURCEPAGE:p.62
-Arcane Resistance IV			CATEGORY:Special Ability	TYPE:LegendaryArcaneResistance.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SAB:Arcane Resistance +4																								SOURCEPAGE:p.62
-Arcane Resistance V			CATEGORY:Special Ability	TYPE:LegendaryArcaneResistance.WizardKingLAPL5		VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SAB:Arcane Resistance +5																								SOURCEPAGE:p.62
+Arcane Resistance I			CATEGORY:Special Ability	TYPE:LegendaryArcaneResistance.WizardKingLAPL1		VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SAB:Arcane Resistance +1																									SOURCEPAGE:p.62
+Arcane Resistance II			CATEGORY:Special Ability	TYPE:LegendaryArcaneResistance.WizardKingLAPL2		VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SAB:Arcane Resistance +2																									SOURCEPAGE:p.62
+Arcane Resistance III			CATEGORY:Special Ability	TYPE:LegendaryArcaneResistance.WizardKingLAPL3		VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SAB:Arcane Resistance +3																									SOURCEPAGE:p.62
+Arcane Resistance IV			CATEGORY:Special Ability	TYPE:LegendaryArcaneResistance.WizardKingLAPL4		VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SAB:Arcane Resistance +4																									SOURCEPAGE:p.62
+Arcane Resistance V			CATEGORY:Special Ability	TYPE:LegendaryArcaneResistance.WizardKingLAPL5		VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryArcaneResistance		SAB:Arcane Resistance +5																									SOURCEPAGE:p.62
 
-Master of the Mundane Arts I		CATEGORY:Special Ability	TYPE:LegendaryMundaneArts.WizardKingLAPL1			VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryMundaneArts		SAB:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|5	SOURCEPAGE:p.62
-Master of the Mundane Arts II		CATEGORY:Special Ability	TYPE:LegendaryMundaneArts.WizardKingLAPL2			VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryMundaneArts		SAB:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|10	SOURCEPAGE:p.62
-Master of the Mundane Arts III	CATEGORY:Special Ability	TYPE:LegendaryMundaneArts.WizardKingLAPL3			VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryMundaneArts		SAB:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|15	SOURCEPAGE:p.62
-Master of the Mundane Arts IV		CATEGORY:Special Ability	TYPE:LegendaryMundaneArts.WizardKingLAPL4			VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryMundaneArts		SAB:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|20	SOURCEPAGE:p.62
-Master of the Mundane Arts V		CATEGORY:Special Ability	TYPE:LegendaryMundaneArts.WizardKingLAPL5			VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryMundaneArts		SAB:Master of the Mundane Arts													BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|25	SOURCEPAGE:p.62
+Master of the Mundane Arts I		CATEGORY:Special Ability	TYPE:LegendaryMundaneArts.WizardKingLAPL1			VISIBLE:NO	PRECLASS:1,Wizard King=1	!PREFEAT:1,TYPE.LegendaryMundaneArts		SAB:Master of the Mundane Arts														BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|5	SOURCEPAGE:p.62
+Master of the Mundane Arts II		CATEGORY:Special Ability	TYPE:LegendaryMundaneArts.WizardKingLAPL2			VISIBLE:NO	PRECLASS:1,Wizard King=2	!PREFEAT:1,TYPE.LegendaryMundaneArts		SAB:Master of the Mundane Arts														BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|10	SOURCEPAGE:p.62
+Master of the Mundane Arts III	CATEGORY:Special Ability	TYPE:LegendaryMundaneArts.WizardKingLAPL3			VISIBLE:NO	PRECLASS:1,Wizard King=3	!PREFEAT:1,TYPE.LegendaryMundaneArts		SAB:Master of the Mundane Arts														BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|15	SOURCEPAGE:p.62
+Master of the Mundane Arts IV		CATEGORY:Special Ability	TYPE:LegendaryMundaneArts.WizardKingLAPL4			VISIBLE:NO	PRECLASS:1,Wizard King=4	!PREFEAT:1,TYPE.LegendaryMundaneArts		SAB:Master of the Mundane Arts														BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|20	SOURCEPAGE:p.62
+Master of the Mundane Arts V		CATEGORY:Special Ability	TYPE:LegendaryMundaneArts.WizardKingLAPL5			VISIBLE:NO	PRECLASS:1,Wizard King=5	!PREFEAT:1,TYPE.LegendaryMundaneArts		SAB:Master of the Mundane Arts														BONUS:SKILL|Alchemy,Knowledge (Arcana),Scry,Spellcraft|25	SOURCEPAGE:p.62
 
 
-Increase Abjuration Spell Power	CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																					BONUS:DC|SCHOOL.Abjuration|2												SOURCEPAGE:p.62
-Increase Conjuration Spell Power	CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																					BONUS:DC|SCHOOL.Conjuration|2												SOURCEPAGE:p.62
-Increase Divination Spell Power	CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																					BONUS:DC|SCHOOL.Divination|2												SOURCEPAGE:p.62
-Increase Enchantment Spell Power	CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																					BONUS:DC|SCHOOL.Enchantment|2												SOURCEPAGE:p.62
-Increase Evocation Spell Power	CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																					BONUS:DC|SCHOOL.Evocation|2												SOURCEPAGE:p.62
-Increase Illusion Spell Power		CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																					BONUS:DC|SCHOOL.Illusion|2												SOURCEPAGE:p.62
-Increase Necromancy Spell Power	CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																					BONUS:DC|SCHOOL.Necromancy|2												SOURCEPAGE:p.62
-Increase Transmutation Spell Power	CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																					BONUS:DC|SCHOOL.Transmutation|2											SOURCEPAGE:p.62
+Increase Abjuration Spell Power	CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																						BONUS:DC|SCHOOL.Abjuration|2												SOURCEPAGE:p.62
+Increase Conjuration Spell Power	CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																						BONUS:DC|SCHOOL.Conjuration|2												SOURCEPAGE:p.62
+Increase Divination Spell Power	CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																						BONUS:DC|SCHOOL.Divination|2												SOURCEPAGE:p.62
+Increase Enchantment Spell Power	CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																						BONUS:DC|SCHOOL.Enchantment|2												SOURCEPAGE:p.62
+Increase Evocation Spell Power	CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																						BONUS:DC|SCHOOL.Evocation|2												SOURCEPAGE:p.62
+Increase Illusion Spell Power		CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																						BONUS:DC|SCHOOL.Illusion|2												SOURCEPAGE:p.62
+Increase Necromancy Spell Power	CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																						BONUS:DC|SCHOOL.Necromancy|2												SOURCEPAGE:p.62
+Increase Transmutation Spell Power	CATEGORY:Special Ability	TYPE:IncSpellPowerSchool					VISIBLE:NO	PRECLASS:1,Wizard King=1																						BONUS:DC|SCHOOL.Transmutation|2											SOURCEPAGE:p.62
 # I have a feeling this can be done with chooser directly, but with the poor documentation of it I'm not going to try.
 
 
