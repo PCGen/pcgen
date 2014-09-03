@@ -593,7 +593,7 @@ CLASS:Vispilio de Magus	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Vispilio de Magus|CL
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Going it Solo
 2	ABILITY:Special Ability|AUTOMATIC|Detect Secret Doors|Trap Sense
-3	ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight (Su)|Improved Evasion
+3	ABILITY:Special Ability|AUTOMATIC|Assassin ~ Hide in Plain Sight|Improved Evasion
 4	ABILITY:Special Ability|AUTOMATIC|Greater Dispel
 6	ABILITY:Special Ability|AUTOMATIC|To Walk Like the Spiders
 9	ABILITY:Special Ability|AUTOMATIC|Skill Mastery (Vispilio de Magus)

@@ -38,3 +38,6 @@ Double-Barrel		KEY:FLDOUBLE	NAMEOPT:NORMAL							TYPE:Weapon.Flintlock.DoubleBar
 Reinforced			KEY:FLREINFO	NAMEOPT:NORMAL							TYPE:Weapon.Flintlock.Reinforced		COST:(BASECOST*5)		VISIBLE:QUALIFY	ITYPE:Reinforced					PRETYPE:1,Flintlock								!PRETYPE:1,Altherian																																																					SPROP:May be used as a melee weapon
 Three-Round Chamber	KEY:FLTHREE		NAMEOPT:NORMAL							TYPE:Weapon.Flintlock.ThreeRound		COST:(BASECOST*20)	VISIBLE:QUALIFY	ITYPE:ThreeRound					PRETYPE:2,Flintlock,Altherian							!PRETYPE:2,DoubleBarrel,WeaponAttach
 Weapon Attachment		KEY:FLWEAPATT	NAMEOPT:NORMAL							TYPE:Weapon.Flintlock.WeaponAttach																PRETYPE:1,Standard.Melee
+
+
+Unyielding					KEY:FIM_UNYIELD_W										TYPE:Weapon						COST:10800						VISIBLE:QUALIFY	SOURCEPAGE:p.21															PRETYPE:1,Weapon																										SPROP:Aid 3/day

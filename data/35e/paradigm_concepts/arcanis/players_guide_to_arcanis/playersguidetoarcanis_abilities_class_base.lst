@@ -39,43 +39,6 @@ Turn Abberation													CATEGORY:Special Ability	TYPE:Internal.TurnAbberatio
 # RSRD duplicate
 #Turn Fire									CATEGORY:Special Ability	TYPE:Internal.TurnFire				VISIBLE:NO																																																										SAB:Turn Fire (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesFire|TurnLevelFire|TurnDiceFire|TurnDieSizeFire|TurnDamagePlusFire																																					DEFINE:TurnTimesFire|TurnTimesUndead	DEFINE:TurnLevelFire|TurnLevelUndead	DEFINE:TurnDiceFire|TurnDiceUndead	DEFINE:TurnDieSizeFire|TurnDieSizeUndead	DEFINE:TurnDamagePlusFire|TurnDamagePlusUndead	DEFINE:TurnCheckFire|TurnCheckUndead																																																																																																																																																																																																																																																																																																																																																																																																							SOURCEPAGE:ClassesI.rtf
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #Cleric
 # Ability Name					Product Identity?	Output Name				Category of Ability		Type					Visible		Required Ability									Restricted Ability								Required AL				Required Class		Required Feat				Multiple Requirements								Required Skill							Required Template				Special ABility																																																									Define																																												Innate Spells																				Stackable?	Multiple?	Choose															Selections			Template										Move			Automatically Gained Feat																				Automatically Gained Weapon Prof.																																					Virtual Feat																																																						Ability										Bonus to Ability Pool					Damage reduction		Add to base move			Stat bonus		Modify VAR																																																		Add to vision			Allow Follower			Allowed Companions					Spell Res.				Damage Reduction	Source Page			List of Class Spells by Level		Temporary Bonus																								Bonus
 Fearless														CATEGORY:Special Ability	TYPE:Internal.Extraordinary	VISIBLE:NO																																																																	SAB:Fearless (Ex)																																																																																																																																																																																																																																																																																																																																																																																																								SOURCEPAGE:p.52

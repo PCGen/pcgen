@@ -86,7 +86,7 @@ TEMPLATE:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_templates.lst
 #ABILITY:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_monsters_abilities_racial.lst
 #CLASS:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_classes_monsters_dragons.lst
 #CLASS:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_classes_monsters_specific.lst
-KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits.lst
+#KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits.lst
 #KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_a_b_extras.lst
 #KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_a_b_treasure.lst
 #KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_g_h_extras.lst
@@ -95,13 +95,13 @@ KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits.lst
 #KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_o_p_extras.lst
 #KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_s_t_extras.lst
 #KIT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_kits_races_u_v_extras.lst
-RACE:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_races.lst|(EXCLUDE:Dinosaur (Deinonychus)|Dinosaur (Elasmosaurus)|Dinosaur (Megaraptor)|Dinosaur (Triceratops)|Dinosaur (Tyrannosaurus))
+#RACE:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_races.lst|(EXCLUDE:Dinosaur (Deinonychus)|Dinosaur (Elasmosaurus)|Dinosaur (Megaraptor)|Dinosaur (Triceratops)|Dinosaur (Tyrannosaurus))
 
 # RSRD Imports -  Psionics
 ABILITY:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_abilities_class.lst
 ABILITY:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_abilities_race.lst
 ABILITYCATEGORY:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_abilitycategories.lst
-CLASS:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_classes.lst|(EXCLUDE:Cerebremancer,Elocator,Psion Uncarnate,Thrallherd)
+#CLASS:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_classes.lst|(EXCLUDE:Cerebremancer,Elocator,Psion Uncarnate,Thrallherd)
 COMPANIONMOD:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_companionmods.lst
 EQUIPMENT:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_equip.lst
 EQUIPMOD:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_equipmods.lst
@@ -171,12 +171,13 @@ ARMORPROF:playersguidetoarcanis_armorprofs.lst
 #EQUIPMOD:&/forgedinmagic/forgedmagic_equipmods_specialmaterials.lst
 #WEAPONPROF:&/forgedinmagic/forgedmagic_weaponprofs.lst
 
+FORWARDREF:SKILL|Profession (Hunter)
 FORWARDREF:DOMAIN|Chaos,Evil,Good,Law,Mind
 FORWARDREF:SPELL|Chaos Hammer,Holy Aura,Holy Smite,Order's Wrath,Shield of Law,Unholy Aura,Unholy Blight
 FORWARDREF:LANGUAGE|Draconic,Elven,Gnome,Halfling
 FORWARDREF:RACE|Dinosaur (Deinonychus),Dinosaur (Elasmosaurus),Dinosaur (Megaraptor),Dinosaur (Triceratops),Dinosaur (Tyrannosaurus),Elf,Elf (Drow),Gnome (Svirfneblin),Gnome,Halfling
 FORWARDREF:FEAT|Speed of Thought
-FORWARDREF:ABILITY=Special Ability|Ranger ~ Favored Enemy (Humanoid (Elf))
+FORWARDREF:ABILITY=Special Ability|Ranger Favored Enemy ~ Humanoid (Elf)
 FORWARDREF:ABILITY=Special Ability|Ranger ~ Animal Companion,Druid ~ Animal Companion
 FORWARDREF:ABILITY=Special Ability|Wizard ~ Familiar,Sorcerer ~ Familiar
 

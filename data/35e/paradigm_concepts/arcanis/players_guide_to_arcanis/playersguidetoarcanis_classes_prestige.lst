@@ -164,7 +164,7 @@ CLASS:Centurion	PREALIGN:LG,LN,LE,NG,TN,NE	PRETOTALAB:5	PREFEAT:2,Leadership,Leg
 CLASS:Centurion	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|TYPE=History|TYPE=Profession|Ride|Sense Motive|Spot|Swim
 1								BONUS:ABILITYPOOL|Fighter Feat|CL/3														ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency|Tower Shield Proficiency
 1																											ABILITY:Special Ability|AUTOMATIC|Strength Coryani Heart Ability
-2																											ABILITY:Special Ability|AUTOMATIC|Aura of Courage
+2																											ABILITY:Special Ability|AUTOMATIC|Paladin ~ Aura of Courage
 3:REPEATLEVEL:3															BONUS:VAR|FighterLVL|CL							ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
 4																											ABILITY:Special Ability|AUTOMATIC|Damage Reduction Ability
 5																	BONUS:VAR|DiscSteelDay|1	BONUS:VAR|DiscSteelDmg|CL	ABILITY:Special Ability|AUTOMATIC|Discipline of Steel
@@ -229,7 +229,7 @@ SUBCLASSLEVEL:8										ABILITY:Special Ability|AUTOMATIC|Thracian CSM
 3																																																														VFEAT:Endurance|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 5												ABILITY:Special Ability|AUTOMATIC|Idolized by the Mob|Signature Weapon|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 6												ABILITY:Special Ability|AUTOMATIC|Amazing Fortitude|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
-7	BONUS:VAR|DefensiveRollTimes|1						ABILITY:Special Ability|AUTOMATIC|Defensive Roll|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]					VFEAT:Diehard|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
+7	BONUS:VAR|DefensiveRollTimes|1						ABILITY:Special Ability|AUTOMATIC|Gladiator ~ Defensive Roll|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]					VFEAT:Diehard|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 9												ABILITY:Special Ability|AUTOMATIC|Legendary Fortitude|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 10												ABILITY:Special Ability|AUTOMATIC|As if They Were Gods
 10												ABILITY:Special Ability|AUTOMATIC|GladiatorUDAM10|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
@@ -446,7 +446,7 @@ CLASS:Order of the Thundering Storm	PRECHECKBASE:1,Will=6	PREDEITY:1,Hurrian	PRE
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Order of the Thundering Storm	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Religion|Ride|Tumble
 1								ABILITY:Special Ability|VIRTUAL|The Reluctant Warrior
-2	BONUS:VAR|LayOnHandsLVL|max(CHA,0)*CL	ABILITY:Special Ability|AUTOMATIC|Lay on Hands|!PREABILITY:1,CATEGORY=Special Ability,Lay On Hands
+2	BONUS:VAR|LayOnHandsLVL|max(CHA,0)*CL	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Lay on Hands|!PREABILITY:1,CATEGORY=Special Ability,Paladin ~ Lay On Hands
 3								ABILITY:Special Ability|AUTOMATIC|Way of the Wind
 4								ABILITY:Special Ability|AUTOMATIC|Force of the Storm
 5								ABILITY:Special Ability|AUTOMATIC|The Tempest
@@ -688,19 +688,19 @@ CLASS:Combat Styles of Onara	PRETOTALAB:5	PREFEAT:1,Combat Expertise	PRESKILL:1,
 CLASS:Combat Styles of Onara	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Examine Martial Technique|Intimidate|Jump|Swim|Tumble
 # added errata of weapon focus/specialization kio sword equivalent to longsword
 SUBCLASS:Red Sword Fencing School	ABB:RSFS	PREFEAT:5,Dodge,Power Attack,Mobility,Spring Attack,Whirlwind Attack	PREFEAT:1,Weapon Focus (Longsword),Weapon Focus (Sword (Kio)),Weapon Focus (Sword (Short)),Weapon Focus (Sword (Bastard)),Weapon Focus (Greatsword),Weapon Focus (Rapier),Weapon Focus (Gladius)	PREFEAT:1,Weapon Specialization (Longsword),Weapon Specialization (Sword (Kio),Weapon Specialization (Sword (short)),Weapon Specialization (Sword (Bastard)),Weapon Specialization (Greatsword),Weapon Specialization (Rapier),Weapon Specialization (Gladius)
-SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Canny Defense
+SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Demi-Volt
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Punto Riverso|To Meet the Charge
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Pressing Attack
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Spinning Strike
 SUBCLASS:Steel Wall			ABB:StlWl	PREFEAT:2,Dodge,Quick Draw																																																																																								PRESKILL:1,Sense Motive=5					CSKILL:Sense Motive
-SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Canny Defense
+SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Impeccable Expertise
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Passing the Charge
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Defensive Perfection
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Defensive Spin Ability
 SUBCLASS:Twin Sting			ABB:TwnStg	PREFEAT:4,Dodge,Two-Weapon Fighting,Weapon Focus (Rapier),Weapon Finesse
-SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Canny Defense
+SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Double Lunge
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Balance and Grace|Trap and Cut
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts
@@ -718,13 +718,13 @@ SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Flowing Sand Ability
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Mighty Swing
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Mighty Cleave
 SUBCLASS:Steel Dragon			ABB:StlDrg	PREFEAT:4,Exotic Weapon Proficiency (Steel Whip),Two-Weapon Fighting,Weapon Finesse,Weapon Focus (Steel Whip)
-SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Canny Defense
+SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Cutting Trip
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Spinning Strike
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|Pressing Attack
 SUBCLASSLEVEL:5						ABILITY:Special Ability|AUTOMATIC|Reaping the Whirlwind
 SUBCLASS:Hand Blade and Mind		ABB:HBaM	PREFEAT:2,Weapon Focus (Sword (Kio)),Exotic Weapon Proficiency (Sword (Kio)),Quick Draw																																																																										PREITEM:1,Sword (Kio)	PRESKILL:2,Concentration=4,Knowledge (Psionics)=4	CSKILL:Concentration|TYPE=Psionics
-SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Canny Defense
+SUBCLASSLEVEL:1	BONUS:VAR|CannyDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Duelist ~ Canny Defense
 SUBCLASSLEVEL:2						ABILITY:Special Ability|AUTOMATIC|Parry
 SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Pressing Attack					AUTO:FEAT|Improved Quick Draw
 SUBCLASSLEVEL:4						ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts

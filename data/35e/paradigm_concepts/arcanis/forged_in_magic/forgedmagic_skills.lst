@@ -3,3 +3,4 @@ SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts
 
 # Skill Name				Key Stat	Untrained?		Type
 Knowledge (Warefare and Tactics)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
+Craft (Poisons)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft

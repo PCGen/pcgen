@@ -3,8 +3,8 @@
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
 # Skill Name						Type
-Knowledge (Local).FORGET
-Profession (Hunter).FORGET
+Knowledge (Local).MOD		PREVARGTEQ:ProfessionHunterUsable,100
+Profession (Hunter).MOD		PREVARGTEQ:ProfessionHunterUsable,100
 
 Knowledge (Arcana).MOD					TYPE:Intelligence.Knowledge.Arcana
 Knowledge (Architecture and Engineering).MOD	TYPE:Intelligence.Knowledge.Architecture

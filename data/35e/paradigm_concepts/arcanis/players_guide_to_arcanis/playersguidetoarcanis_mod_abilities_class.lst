@@ -45,9 +45,9 @@ CATEGORY=Special Ability|Favored Enemy ~ Vermin.MOD			PREMULT:1,[!PRECLASS:1,Urb
 #CATEGORY=Special Ability|Ranger ~ Animal Companion.MOD	PREVAREQ:Usable,100
 #CATEGORY=Special Ability|Sorcerer ~ Familiar.FORGET
 #CATEGORY=Special Ability|Wizard ~ Familiar.FORGET
-CATEGORY=Special Ability|Favored Enemy ~ Dragon.MOD	PREVAREQ:Usable,100
-CATEGORY=Special Ability|Favored Enemy ~ Fey.MOD	PREVAREQ:Usable,100
-CATEGORY=Special Ability|Favored Enemy ~ Humanoid (Elf).MOD	PREVAREQ:Usable,100
+CATEGORY=Special Ability|Favored Enemy ~ Dragon.MOD			PREVAREQ:Usable,100
+CATEGORY=Special Ability|Favored Enemy ~ Fey.MOD			PREVAREQ:Usable,100
+CATEGORY=Special Ability|Favored Enemy ~ Humanoid (Elf).MOD		PREVAREQ:Usable,100
 CATEGORY=Special Ability|Favored Enemy ~ Humanoid (Halfling).MOD	PREVAREQ:Usable,100
 
 #

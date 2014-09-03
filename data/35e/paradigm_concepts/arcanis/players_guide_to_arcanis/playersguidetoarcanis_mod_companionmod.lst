@@ -203,8 +203,8 @@ FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
 
 ###Block: Specific Undead Companions
 # Class of the Master		Type				Required Race				Apply Kit
-FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Skeleton (Human Warrior)	KIT:1|Skeleton (Human Warrior) Default
-FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Zombie (Human Commoner)	KIT:1|Zombie (Human Commoner) Default
+FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Skeleton (Human Warrior)	KIT:1|Skeleton (Human Warrior) Companion
+FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Zombie (Human Commoner)	KIT:1|Zombie (Human Commoner) Companion
 
 ###Block:Shadowdancer summoned Shadow
 # Class of the Master		Type				Hit Dice	Special ABility																		Modify VAR

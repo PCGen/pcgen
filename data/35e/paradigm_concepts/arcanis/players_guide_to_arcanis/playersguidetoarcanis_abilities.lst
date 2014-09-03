@@ -114,3 +114,19 @@ Favored Enemy Spell Focus (Outsider (Native))		CATEGORY:Special Ability	TYPE:Spe
 Favored Enemy Spell Focus (Plant)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Plant) +1				MULT:NO	SOURCEPAGE:p.147
 Favored Enemy Spell Focus (Undead)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Undead) +1				MULT:NO	SOURCEPAGE:p.147
 Favored Enemy Spell Focus (Vermin)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Vermin) +1				MULT:NO	SOURCEPAGE:p.147
+
+
+
+
+
+Monk ~ Stunning Fist	CATEGORY:Special Ability	AUTO:FEAT|Stunning Fist
+Improved Trip		CATEGORY:Special Ability	AUTO:FEAT|Improved Trip
+Deflect Arrows		CATEGORY:Special Ability	AUTO:FEAT|Deflect Arrows
+Combat Reflexes		CATEGORY:Special Ability	AUTO:FEAT|Combat Reflexes
+
+
+
+
+
+Holy Champion (Blazing Wyrm) ~ Defensive Stance		CATEGORY:Special Ability	
+Gladiator ~ Defensive Roll					CATEGORY:Special Ability	
