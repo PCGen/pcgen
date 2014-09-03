@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Heart of the Jungle	SOURCESHORT:HOTJ	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy8evh	SOURCEDATE:2010-07
 # Original Entry by:Stefan Radermacher
 
 ###Block: Angazhani Abilities
-# Ability Name	Unique Key					Category of Ability		Type						Description																								Automatically Gained Feat											Bonus to Ability Pool							Source Page
+# Ability Name	Unique Key					Category of Ability		Type						Description																								Auto Feat														Bonus Ability Pool							Source Page
 Martial Training	KEY:Angazhani ~ Martial Training	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Because of their high intelligence, angazhani are proficient with light and medium armors, simple weapons, and one martial weapon of choice.	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Simple Weapon Proficiency	BONUS:ABILITYPOOL|Angazhani Martial Weapon Proficiency|1	SOURCEPAGE:p.58
 
 ###Block: Botfly Abilities

@@ -1,4 +1,4 @@
-# CVS $Revision: 21336 $ $Author: maredudd800 $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21336 $ $Author: maredudd800 $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Inner Sea Primer	SOURCESHORT:ISP	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih	SOURCEDATE:2010-11
 # Original Entry by:Stefan Radermacher
 
@@ -37,7 +37,7 @@ Mage of the Veil				KEY:Wizard Archetype ~ Mage of the Veil							CATEGORY:Arche
 
 ###Block: Wizard arcane schools abilites
 # Arcanamirium Crafter
-# Ability Name		Unique Key										Category of Ability		Type										Define															Description																																																																																																																																																																																																																																																					Automatically Gained Feat	Bonus to Ability Pool				Bonus to skill				Modify VAR																						Source Page		Aspects
+# Ability Name		Unique Key										Category of Ability		Type										Define															Description																																																																																																																																																																																																																																																					Auto Feat				Bonus Ability Pool				Bonus to skill				Modify VAR																						Source Page		Aspects
 Metacharge			KEY:Wizard Arcanamirium Crafter ~ Metacharge				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.WizardHandOfTheApprentice																	DESC:When using metamagic feats to create magic items, your skill and understanding of the principles involved in the item's creation give you a +2 bonus on the skill check made to create the item.																																																																																																																																																																																																																											BONUS:ABILITYPOOL|Wizard Bonus Feat|1																														SOURCEPAGE:p.28
 
 # Egorian Academy Infernal Binder

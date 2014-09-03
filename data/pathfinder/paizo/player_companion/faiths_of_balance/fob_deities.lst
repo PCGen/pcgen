@@ -1,9 +1,9 @@
-# CVS $Revision: 9628 $ $Author: zaister $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 9628 $ $Author: zaister $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Faiths of Purity	SOURCESHORT:FOB	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8lvb	SOURCEDATE:2011-07
 # Original Entry by: Stefan Radermacher
 
 ###Block: Minor Deities
-# Deity Name	Product Identity?	Domains											Description of Deity/Title				Deity Weapon			Alignment	Pantheon					Source Page
+# Deity Name	Product Identity?	Domains											Description of Deity/Title				Deity Weapon			Align		Pantheon					Source Page
 Alseta		NAMEISPI:YES	DOMAINS:Community,Law,Magic,Protection|PREALIGN:LG,LN,NG,TN			DESC:Goddess of doors and portals			DEITYWEAP:Dagger			ALIGN:LN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.20
 Besmara		NAMEISPI:YES	DOMAINS:Chaos,Trickery,War,Water,Weather|PREALIGN:CG,TN,CN,CE		DESC:Goddess of piracy, strife, sea monsters	DEITYWEAP:Rapier			ALIGN:CN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.20
 Brigh			NAMEISPI:YES	DOMAINS:Artifice,Earth,Fire,Knowledge|PREALIGN:LN,NG,TN,NE,CN		DESC:Goddess of inventors				DEITYWEAP:Hammer (Light)	ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.20
@@ -13,7 +13,7 @@ Naderi		NAMEISPI:YES	DOMAINS:Charm,Repose,Water|PREALIGN:LN,NG,TN,NE,CN				DESC:
 Sivanah		NAMEISPI:YES	DOMAINS:Knowledge,Madness,Magic,Rune,Trickery|PREALIGN:LN,NG,TN,NE,CN	DESC:Goddess of illusions, reflections, mystery	DEITYWEAP:Bladed Scarf		ALIGN:TN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.21
 
 ###Block: Eldest
-# Deity Name	Product Identity?	Domains										Description of Deity/Title						Deity Weapon		Alignment	Pantheon		Source Page
+# Deity Name	Product Identity?	Domains										Description of Deity/Title						Deity Weapon		Align		Pantheon		Source Page
 Count Ranalc	NAMEISPI:YES	DOMAINS:Chaos,Darkness,Nobility,Travel|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of betrayal, exiles, shadows			DEITYWEAP:Rapier		ALIGN:CN	PANTHEON:Eldest	SOURCEPAGE:p.21
 Imbrex		NAMEISPI:YES	DOMAINS:Community,Earth,Law,Strength|PREALIGN:LG,LN,NG,TN		DESC:Eldest lord of endings, statues, twins			DEITYWEAP:Flail (Dire)	ALIGN:LN	PANTHEON:Eldest	SOURCEPAGE:p.21
 The Lantern King	NAMEISPI:YES	DOMAINS:Chaos,Charm,Madness,Trickery|PREALIGN:CG,TN,CN,CE		DESC:Eldest lord of laughter, mischief, transformation	DEITYWEAP:Dagger		ALIGN:CN	PANTHEON:Eldest	SOURCEPAGE:p.21

@@ -1,8 +1,8 @@
-# CVS $Revision: 21741 $ $Author: zaister $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21741 $ $Author: zaister $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 
 # Oracle Tongues granting Language:
-# Template Name				Nb Legs	Visible	Automatically Gained Language
+# Template Name				Nb Legs	Visible	Auto Language
 Oracle Tongues Choice ~ Abyssal					AUTO:LANG|Abyssal
 Oracle Tongues Choice ~ Aklo						AUTO:LANG|Aklo
 Oracle Tongues Choice ~ Aquan						AUTO:LANG|Aquan

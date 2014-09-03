@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 # ORIGINAL ENTRY: ? and Douglas Limmer
 # ORIGINAL ENTRY DATE: unknown
 
 ###Block: Mindless Companion ability
-# Ability Name		Category of Ability	Define		Define a Stat		Ability											Bonus Number of Feats			Modify VAR
+# Ability Name		Category of Ability	Define		Define Stat			Ability											Number of Feats				Modify VAR
 Mindless Companion	CATEGORY:Internal		DEFINE:Mindless|0	DEFINESTAT:NONSTAT|INT	ABILITY:Special Ability|AUTOMATIC|Immunity to Mind-Affecting Effects	BONUS:FEAT|POOL|-floor((TL+1)/2)	BONUS:VAR|Mindless|1	BONUS:VAR|BonusTricks|-5
 
 ###Block: New and Modified Companion Stat Increases
@@ -76,7 +76,7 @@ Life Drinker		KEY:Black Blade ~ Life Drinker	CATEGORY:Special Ability	TYPE:Speci
 
 
 ###Block: Eidolon Modded abilities from APG
-# Ability Name									Unique Key							Category of Ability		Type										Visible	Required Ability											Required Stat	Var. Min. Value											Var. Must Be Lower							Define						Innate Spells																	Description																																																																																																																																																																																																																																																																																																		Stackable?	Multiple?	Choose				Ability																																																																													Bonus to Ability Pool						Modify VAR													Weapon prof. bonus			Vision			Cost		Source Page		Natural Attacks
+# Ability Name									Unique Key							Category of Ability		Type										Visible	Required Ability											Required Stat	Var. Min. Value											Var. Must Be Lower							Define						Innate Spells																	Description																																																																																																																																																																																																																																																																																																		Stackable?	Multiple?	Choose				Ability																																																																													Bonus Ability Pool						Modify VAR													Weapon prof. bonus			Vision			Cost		Source Page		Natural Attacks
 CATEGORY=Special Ability|Evolution_Bite.MOD																	TYPE:EvolutionAquatic																									PREVARGTEQ:EidHeads,EidBiteCount+1																																																																																																																																																																																																																																																																																																																																															STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=7|NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Evolution_Bite2|PREVAREQ:EidBiteCount,2	ABILITY:Special Ability|AUTOMATIC|Evolution_Bite3|PREVAREQ:EidBiteCount,3	ABILITY:Special Ability|AUTOMATIC|Evolution_Bite4|PREVAREQ:EidBiteCount,4	ABILITY:Special Ability|AUTOMATIC|Evolution_Bite5|PREVAREQ:EidBiteCount,5	ABILITY:Special Ability|AUTOMATIC|Evolution_Bite6|PREVAREQ:EidBiteCount,6	ABILITY:Special Ability|AUTOMATIC|Evolution_Bite7|PREVAREQ:EidBiteCount,7
 CATEGORY=Special Ability|Evolution_Improved_Natural_Armor.MOD														TYPE:EvolutionAquatic
 CATEGORY=Special Ability|Evolution_Gills.MOD																	TYPE:EvolutionAquatic
@@ -246,7 +246,7 @@ Shell Retreat	KEY:Turtle ~ Shell Retreat		CATEGORY:Special Ability	TYPE:SpecialQ
 
 ###Block: Fused Eidolon
 
-# Ability Name			Category of Ability	Type				Define a Stat																Choose										Ability																							Combat bonus									Bonus to HP									Modify VAR																									Temporary Bonus
+# Ability Name			Category of Ability	Type				Define Stat																	Choose										Ability																							Combat bonus									Bonus to HP									Modify VAR																									Temporary Bonus
 Fused Eidolon HP			CATEGORY:Internal																								CHOOSE:NUMBER|MIN=1|MAX=500|TITLE=Max HP of Eidolon																																						BONUS:HP|CURRENTMAX|EidolonHP|PREVAREQ:FusedEidolonActive,1																											TEMPBONUS:PC|VAR|EidolonHP|%CHOICE
 Fused Eidolon BAB			CATEGORY:Internal																																																											BONUS:COMBAT|BASEAB|EidolonBAB|PREVAREQ:FusedEidolonActive,1											BONUS:VAR|DisableBAB|1|PREVAREQ:FusedEidolonActive,1	BONUS:VAR|EidolonBAB|var("FusedEidolonLVL")	BONUS:VAR|EidolonBAB|-1-(var("FusedEidolonLVL")/4)
 Fused Eidolon Stats		CATEGORY:Internal																																			ABILITY:Internal|AUTOMATIC|Fused Eidolon Stats ~ Active|PREVAREQ:FusedEidolonActive,1	ABILITY:Internal|AUTOMATIC|TYPE=FusedEidolonStats

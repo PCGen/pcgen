@@ -1,23 +1,23 @@
-# CVS $Revision: 9628 $ $Author: zaister $ -- Sun Feb 10 04:09:25 2013 -- reformated by prettylst.pl v1.39 (build 18270)
+# CVS $Revision: 9628 $ $Author: zaister $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Faiths of Corruption	SOURCESHORT:FOC	SOURCEWEB:http://paizo.com/products/btpy8odc?Pathfinder-Player-Companion-Faiths-of-Corruption	SOURCEDATE:2011-10
 # Original Entry by:Stefan Radermacher
 
 ###Block: New Feats
-# Feat Name		Type			Required Ability									Required AL		Req. Att.	Required Class			Required Deity		Required Feat						Required Stat	Description																				Source Page
-Firebrand		TYPE:Combat																							PREDEITY:1,Asmodeus												DESC:You can make use of a torch as a deadly, macelike weapon.											SOURCEPAGE:p.24
-Ordered Mind	TYPE:General												PREALIGN:LG,LN,LE			PRECLASS:1,SPELLCASTER=7	PREDEITY:1,Asmodeus												DESC:Your study of Hell's laws improves your counterspells.												SOURCEPAGE:p.24
-Destroy Identity	TYPE:General															PRETOTALAB:11						PREDEITY:1,Lamashtu	PREFEAT:1,Critical Focus							DESC:You are able to use your weapons to destroy some of your opponent's most distinctive physical characteristics.		SOURCEPAGE:p.24
-Fearsome Finish	TYPE:General																						PREDEITY:1,Lamashtu	PREFEAT:1,Intimidating Prowess						DESC:When you slay enemies, you frighten other opponents.												SOURCEPAGE:p.24
-Reject Poison	TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Poison Use													PREDEITY:1,Norgorber									PRESTAT:1,DEX=13	DESC:You are a careful poisoner, and know how to protect yourself against exposure to the ill effects of most substances.	SOURCEPAGE:p.24
-Shadow Dodge	TYPE:General																						PREDEITY:1,Norgorber									PRESTAT:1,DEX=13	DESC:You use light and darkness to your advantage, confusing your enemies and confounding their senses.				SOURCEPAGE:p.24
-Merciless Rush	TYPE:General																						PREDEITY:1,Rovagug	PREFEAT:1,Improved Bull Rush							DESC:You are a determined foe, and though hordes may stand against you, they will not stand long.					SOURCEPAGE:p.25
-Squash Flat		TYPE:General																						PREDEITY:1,Rovagug	PREFEAT:2,Improved Bull Rush,Merciless Rush				DESC:You are able to bull rush an opponent straight to the ground.										SOURCEPAGE:p.25
-Shatter Resolve	TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy											PREDEITY:1,Urgathoa												DESC:Damaging a foe with negative energy causes despair.												SOURCEPAGE:p.25
-Bloodletting	TYPE:General																						PREDEITY:1,Zon-Kuthon												DESC:When you attack with a piercing or slashing weapon, the wounds you cause bleed profusely.						SOURCEPAGE:p.25
-Welcome Pain	TYPE:General																						PREDEITY:1,Zon-Kuthon	PREFEAT:1,Iron Will								DESC:Your appreciation of pain grants you great stamina.												SOURCEPAGE:p.25
+# Feat Name		Type			Required Ability									Required AL		Required Class			Required Deity		Required Feat						Required Stat	PRETOTALAB		Description																				Source Page
+Firebrand		TYPE:Combat																					PREDEITY:1,Asmodeus															DESC:You can make use of a torch as a deadly, macelike weapon.											SOURCEPAGE:p.24
+Ordered Mind	TYPE:General												PREALIGN:LG,LN,LE	PRECLASS:1,SPELLCASTER=7	PREDEITY:1,Asmodeus															DESC:Your study of Hell's laws improves your counterspells.												SOURCEPAGE:p.24
+Destroy Identity	TYPE:General																				PREDEITY:1,Lamashtu	PREFEAT:1,Critical Focus							PRETOTALAB:11	DESC:You are able to use your weapons to destroy some of your opponent's most distinctive physical characteristics.		SOURCEPAGE:p.24
+Fearsome Finish	TYPE:General																				PREDEITY:1,Lamashtu	PREFEAT:1,Intimidating Prowess									DESC:When you slay enemies, you frighten other opponents.												SOURCEPAGE:p.24
+Reject Poison	TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Poison Use											PREDEITY:1,Norgorber									PRESTAT:1,DEX=13				DESC:You are a careful poisoner, and know how to protect yourself against exposure to the ill effects of most substances.	SOURCEPAGE:p.24
+Shadow Dodge	TYPE:General																				PREDEITY:1,Norgorber									PRESTAT:1,DEX=13				DESC:You use light and darkness to your advantage, confusing your enemies and confounding their senses.				SOURCEPAGE:p.24
+Merciless Rush	TYPE:General																				PREDEITY:1,Rovagug	PREFEAT:1,Improved Bull Rush										DESC:You are a determined foe, and though hordes may stand against you, they will not stand long.					SOURCEPAGE:p.25
+Squash Flat		TYPE:General																				PREDEITY:1,Rovagug	PREFEAT:2,Improved Bull Rush,Merciless Rush							DESC:You are able to bull rush an opponent straight to the ground.										SOURCEPAGE:p.25
+Shatter Resolve	TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy									PREDEITY:1,Urgathoa															DESC:Damaging a foe with negative energy causes despair.												SOURCEPAGE:p.25
+Bloodletting	TYPE:General																				PREDEITY:1,Zon-Kuthon															DESC:When you attack with a piercing or slashing weapon, the wounds you cause bleed profusely.						SOURCEPAGE:p.25
+Welcome Pain	TYPE:General																				PREDEITY:1,Zon-Kuthon	PREFEAT:1,Iron Will											DESC:Your appreciation of pain grants you great stamina.												SOURCEPAGE:p.25
 
 ###Block: Feat benefits
-# Feat Name			Description of the Benefits
+# Feat Name			Benefits
 Firebrand.MOD		BENEFIT:You treat a torch as a light weapon that deals bludgeoning damage equal to that of a light mace of its size, plus 1 point of fire damage, and you do not incur penalties as you would for using it as an improvised weapon.
 Ordered Mind.MOD		BENEFIT:You are able to modify more of your spells to use as counterspells. The DC of the Spellcraft check you must succeed at to identify an opponent's spell is equal to 20 + the spell level of the opponent's spell (instead of 15 + the spell level), but you are able to cast as your counterspell any spell from the same school of the foe's spell (instead of the same spell). The level of the spell used to counterspell must be of a level equal to or higher than your foe's spell.
 Destroy Identity.MOD	BENEFIT:Whenever you score a critical hit against an opponent, the target is so maimed that it takes 2 points of Charisma damage and becomes staggered for 1 round.

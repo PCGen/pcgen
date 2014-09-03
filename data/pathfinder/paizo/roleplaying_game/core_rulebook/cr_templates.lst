@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -51,7 +51,7 @@ Righteous Might (Damage Reduction/Evil)	VISIBLE:DISPLAY	DR:0/Evil		PREABILITY:1,
 Righteous Might (Damage Reduction/Good)	VISIBLE:DISPLAY	DR:0/Good		PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy	PRESPELL:1,Righteous Might	DESC:This Template provides the Damage Reduction to a character when Righteous Might is cast.
 
 ###Block: Trained Animal
-# Template Name	Visible		Restricted Ability								Required Race			Prohibited Stat	Bonus to Ability Pool
+# Template Name	Visible		Restricted Ability								Required Race			Prohibited Stat	Bonus Ability Pool
 Trained Animal	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Animal Tricks and Training	PRERACE:1,RACETYPE=Animal	!PRESTAT:1,INT=3	BONUS:ABILITYPOOL|Animal Trick|3	BONUS:ABILITYPOOL|Animal Trick|3|PRESTAT:1,INT=2
 
 ###Block: Inherent ability bonuses
@@ -122,7 +122,7 @@ Dragon Disciple Bite ~ Gargantuan		VISIBLE:NO																																			
 Dragon Disciple Bite ~ Colossal		VISIBLE:NO																																											PRESIZEEQ:C								BONUS:WEAPONPROF=Bite|WIELDCATEGORY|4	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6
 
 ###Block: Human Ethnicities
-# Template Name			Visible	Template																																																						Required Non-Monster Lvl	Bonus to Ability Pool			Apply Kit
+# Template Name			Visible	Template																																																						Required Non-Monster Lvl	Bonus Ability Pool			Apply Kit
 Human Ethnicity			VISIBLE:NO																																																													BONUS:ABILITYPOOL|Human Ethnicity|1
 
 ### Starting Gold

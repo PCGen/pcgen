@@ -1,12 +1,12 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Halflings of Golarion	SOURCESHORT:HAOG	SOURCEWEB:http://paizo.com/products/btpy8i8p?Pathfinder-Player-Companion-Halflings-of-Golarion	SOURCEDATE:2010-12
 #ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
 #ORIGINAL ENTRY DATE: 2012/12/29
 
 ###Block: Weapons, Ranged
-# Equipment Name	Required Weapon Proficiency		Type																Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Range		Source Page		Weapon prop. bonus
-Sling (Double)	PROFICIENCY:WEAPON|Sling (Double)	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Double.Bludgeoning.Container.Projectile.Sling	CONTAINS:UNLIM|SlingStone	COST:10	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:WOOD		RANGE:50	SOURCEPAGE:p.23	BONUS:WEAPON|DAMAGE|STR
-Sling (Stiched)	PROFICIENCY:WEAPON|Sling (Stiched)	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Bludgeoning.Container.Projectile.Sling.Disarm.Trip	CONTAINS:1|SlingStone		COST:0	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:LEATHER	RANGE:0	SOURCEPAGE:p.23	BONUS:WEAPON|DAMAGE|STR
+# Equipment Name	Required Weapon Proficiency		Type																Contains				Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Range		Source Page		Weapon prop. bonus
+Sling (Double)	PROFICIENCY:WEAPON|Sling (Double)	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Double.Bludgeoning.Container.Projectile.Sling	CONTAINS:UNLIM|SlingStone	COST:10	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:WOOD		RANGE:50	SOURCEPAGE:p.23	BONUS:WEAPON|DAMAGE|STR
+Sling (Stiched)	PROFICIENCY:WEAPON|Sling (Stiched)	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Bludgeoning.Container.Projectile.Sling.Disarm.Trip	CONTAINS:1|SlingStone		COST:0	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:LEATHER	RANGE:0	SOURCEPAGE:p.23	BONUS:WEAPON|DAMAGE|STR
 
 
 ###Block: Ammunition

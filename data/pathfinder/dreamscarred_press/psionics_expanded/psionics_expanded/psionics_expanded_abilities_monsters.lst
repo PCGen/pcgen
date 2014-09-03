@@ -1,21 +1,21 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/05
 
 ###Block: Advanced Constructs Astral Construct abilities
 ###Block: Menu A
-# Ability Name	Unique Key			Category of Ability		Type							Visible	Required Template				Define				Description														Stackable?	Multiple?	Choose		Automatically Gained Feat	Combat bonus					Modify VAR									Natural Attacks
-Armor Spikes	KEY:Astral_Armor Spikes	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct						DESC:Do extra 1d6 piercing damage with trample, constrict, bull rush, or grapple attack.																														NATURALATTACKS:Armor Spikes,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6
+# Ability Name	Unique Key			Category of Ability		Type							Visible	Required Template				Define				Description														Stackable?	Multiple?	Choose		Auto Feat		Combat bonus					Modify VAR									Natural Attacks
+Armor Spikes	KEY:Astral_Armor Spikes	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct						DESC:Do extra 1d6 piercing damage with trample, constrict, bull rush, or grapple attack.																												NATURALATTACKS:Armor Spikes,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6
 Dodge			KEY:Astral_Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																												AUTO:FEAT|Dodge
-Might			KEY:Astral_Might		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																	BONUS:COMBAT|DAMAGE.Melee|1|TYPE=Might
+Might			KEY:Astral_Might		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																															BONUS:COMBAT|DAMAGE.Melee|1|TYPE=Might
 Talons		KEY:Astral_Talons		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct						DESC:Slam attacks do either slashing or piercing damage.
-Utility		KEY:Astral_Utility	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct	DEFINE:AstralUtilityDC|0	DESC:The astral construct can perform various tasks up to DC %1.|AstralUtilityDC		STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|AstralUtilityDC|8	BONUS:VAR|AstralUtilityDC|2
+Utility		KEY:Astral_Utility	CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct	DEFINE:AstralUtilityDC|0	DESC:The astral construct can perform various tasks up to DC %1.|AstralUtilityDC		STACK:YES	MULT:YES	CHOOSE:NOCHOICE											BONUS:VAR|AstralUtilityDC|8	BONUS:VAR|AstralUtilityDC|2
 ###Block: Menu B
-# Ability Name	Unique Key				Category of Ability		Type							Visible	Required Template				Description											Automatically Gained Feat	Combat bonus
+# Ability Name	Unique Key				Category of Ability		Type							Visible	Required Template				Description											Auto Feat			Combat bonus
 Great Cleave	KEY:Astral_Great Cleave		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct													AUTO:FEAT|Great Cleave
-Improved Might	KEY:Astral_Improved Might	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																		BONUS:COMBAT|DAMAGE.Melee|3|TYPE=Might
-Reach			KEY:Astral_Reach			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																		BONUS:COMBAT|REACH|5
+Improved Might	KEY:Astral_Improved Might	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																	BONUS:COMBAT|DAMAGE.Melee|3|TYPE=Might
+Reach			KEY:Astral_Reach			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																	BONUS:COMBAT|REACH|5
 Stunning Fist	KEY:Astral_Stunning Fist	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct	DESC:The astral construct can use Stunning Fist with its slam attacks.	AUTO:FEAT|Stunning Fist
 ###Block: Menu C
 # Ability Name	Unique Key				Category of Ability		Type							Visible	Required Template				Combat bonus					Weapon prof. bonus													Natural Attacks

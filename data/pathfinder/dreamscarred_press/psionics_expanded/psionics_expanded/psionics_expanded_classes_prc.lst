@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/05
@@ -7,8 +7,8 @@ SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpres
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus										Modify VAR									Bonus
 CLASS:Adaptive Warrior	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:p.37	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3
-# Class Name		Req. Att.	Required Feat					Required Skill					Var. Must Be Grater
-CLASS:Adaptive Warrior	PRETOTALAB:5	PREFEAT:2,Combat Expertise,Improved Feint	PRESKILL:2,Autohypnosis=5,Sense Motive=5	PREVARGT:TotalPowerPoints,0
+# Class Name		Required Feat					Required Skill					PRETOTALAB		Var. Must Be Grater
+CLASS:Adaptive Warrior	PREFEAT:2,Combat Expertise,Improved Feint	PRESKILL:2,Autohypnosis=5,Sense Motive=5	PRETOTALAB:5	PREVARGT:TotalPowerPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Adaptive Warrior	STARTSKILLPTS:2	CSKILL:Acrobatics|Bluff|Intimidate|Perception|Sense Motive
 
@@ -121,8 +121,8 @@ CLASS:Metamorph	STARTSKILLPTS:2	CSKILL:Autohypnosis|Climb|Fly|Knowledge (Nature)
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus										Modify VAR									Bonus
 CLASS:Mystic Archer	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:7	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2
-# Class Name		Req. Att.	Required Feat								Required Skill		Var. Must Be Grater
-CLASS:Mystic Archer	PRETOTALAB:6	PREFEAT:3,Intuitive Shot,Point-Blank Shot,Psionic Shot	PRESKILL:1,Perception=6	PREVARGT:IsPsionic,0
+# Class Name		Required Feat								Required Skill		PRETOTALAB		Var. Must Be Grater
+CLASS:Mystic Archer	PREFEAT:3,Intuitive Shot,Point-Blank Shot,Psionic Shot	PRESKILL:1,Perception=6	PRETOTALAB:6	PREVARGT:IsPsionic,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mystic Archer	STARTSKILLPTS:2	CSKILL:Autohypnosis|Knowledge (Psionics)|Perception|Survival
 
@@ -173,11 +173,11 @@ CLASS:Psicrystal Imprinter	STARTSKILLPTS:2	CSKILL:Knowledge (Psionics)|Spellcraf
 
 # Class Name		Hit Dice	Type					Max Level	Base class as subclass?	Source Page		Combat bonus											Modify VAR									Bonus
 CLASS:Sighted Seeker	HD:8		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3
-# Class Name		Req. Att.	Multiple Requirements													Required Skill						Var. Must Be Grater
-CLASS:Sighted Seeker	PRETOTALAB:4	PREMULT:1,[PREFEAT:1,Skill Focus (Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:3,Diplomacy=2,Perception=5,Survival=2	PREVARGT:TotalPowerPoints,0
+# Class Name		Multiple Requirements													Required Skill						PRETOTALAB		Var. Must Be Grater
+CLASS:Sighted Seeker	PREMULT:1,[PREFEAT:1,Skill Focus (Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:3,Diplomacy=2,Perception=5,Survival=2	PRETOTALAB:4	PREVARGT:TotalPowerPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sighted Seeker	STARTSKILLPTS:6	CSKILL:Diplomacy|Knowledge (Local)|Knowledge (Nature)|Knowledge (Psionics)|Perception|Sense Motive|Spellcraft|Stealth|Survival
-# Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level
+# Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
 CLASS:Sighted Seeker	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:PSIONIC	MEMORIZE:NO	BONUS:CASTERLEVEL|Sighted Seeker|SightedSeekerML
 
 ###Block: Sighted Seeker setup for possible manifesting
@@ -228,8 +228,8 @@ CLASS:Sighted Seeker	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:PSIONIC	MEMORIZ
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Combat bonus										Modify VAR									Bonus
 CLASS:Soul Archer	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:p.45	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3
-# Class Name	Required Ability													Req. Att.	Required Feat
-CLASS:Soul Archer	PREABILITY:1,CATEGORY=Special Ability,Enhanced Mind Blade,Enhanced Mind Bolt ~ Soulbolt	PRETOTALAB:5	PREFEAT:2,Point-Blank Shot,Precise Shot
+# Class Name	Required Ability													Required Feat					PRETOTALAB
+CLASS:Soul Archer	PREABILITY:1,CATEGORY=Special Ability,Enhanced Mind Blade,Enhanced Mind Bolt ~ Soulbolt	PREFEAT:2,Point-Blank Shot,Precise Shot	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soul Archer	STARTSKILLPTS:4	CSKILL:Perception|Survival
 
@@ -260,8 +260,8 @@ CLASS:Soul Archer	STARTSKILLPTS:4	CSKILL:Perception|Survival
 
 # Class Name				Hit Dice	Type					Max Level	Source Page		Combat bonus										Modify VAR									Bonus
 CLASS:Telekinetic Weaponmaster	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:5	SOURCEPAGE:p.39	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3
-# Class Name				Req. Att.	Required Feat						Req. Known Spell
-CLASS:Telekinetic Weaponmaster	PRETOTALAB:5	PREFEAT:2,Psionic Meditation,Psionic Weapon	PRESPELL:1,Far Hand,Telekinetic Force
+# Class Name				Required Feat						Req. Known Spell					PRETOTALAB
+CLASS:Telekinetic Weaponmaster	PREFEAT:2,Psionic Meditation,Psionic Weapon	PRESPELL:1,Far Hand,Telekinetic Force	PRETOTALAB:5
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Telekinetic Weaponmaster	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Intimidate
 

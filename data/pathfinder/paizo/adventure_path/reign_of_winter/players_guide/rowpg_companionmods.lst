@@ -1,10 +1,10 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Reign of Winter Player's Guide	SOURCESHORT:ROWPG	SOURCEWEB:http://paizo.com/products/btpy8x1t?Pathfinder-Adventure-Path-Reign-of-Winter-Players-Guide	SOURCEDATE:2013-02
 # Original Entry by: Stefan Radermacher
 
 
 
-# Race of familiar					Combat bonus			Bonus to skill		Bonus				Bonus to Situation
+# Race of familiar		Type			Combat bonus			Bonus to skill		Bonus				Bonus to Situation
 MASTERBONUSRACE:Arctic Fox	TYPE:Familiar										BONUS:SAVE|Reflex|2
 MASTERBONUSRACE:Arctic Hare	TYPE:Familiar	BONUS:COMBAT|INITIATIVE|4
 MASTERBONUSRACE:Arctic Tern	TYPE:Familiar						BONUS:SKILL|Fly|3

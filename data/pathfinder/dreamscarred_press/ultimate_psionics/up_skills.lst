@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu May 22 08:41:39 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
 # ORIGINAL ENTRY: Douglas Limmer
 
@@ -10,7 +10,7 @@ Knowledge (Psionics)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOU
 Perform (Thoughtsong)	KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma.Perform.Base	SOURCEPAGE:p.297	BONUS:SKILL|Perform (Thoughtsong)|3|TYPE=ClassSkill|PRECSKILL:1,Perform (Thoughtsong)|PRESKILL:1,Perform (Thoughtsong)=1
 
 ###Block: Conditional Skills
-# Skill Name		Situational Skill Use
+# Skill Name		Situational Skill
 Acrobatics.MOD		SITUATION:On ship
 Acrobatics.MOD		SITUATION:On the ground
 Climb.MOD			SITUATION:On ship

@@ -1,4 +1,4 @@
-# CVS $Revision: 21421 $ $Author: evilmynex $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21421 $ $Author: evilmynex $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # ORIGINAL ENTRY: Stefan Radermacher, Eric Smith (Maredudd), Douglas Limmer, and Paul Shipley
 # ORIGINAL ENTRY DATE: Unknown
@@ -32,7 +32,7 @@ Words of Power Wizard		KEY:Wizard Archetype ~ Words of Power	CATEGORY:Archetype	
 
 ###Block: Words of Power class abilities
 #Block: Bard abilities by level
-# Ability Name	Category of Ability	Ability																					Bonus to Ability Pool																													Bonus to spell known/L
+# Ability Name	Category of Ability	Ability																					Bonus Ability Pool																													Bonus to spell known/L
 WOP Bard 1		CATEGORY:Internal		ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	ABILITY:0-Level Bard Word|AUTOMATIC|Boost		BONUS:ABILITYPOOL|0-Level Bard Word|4	BONUS:ABILITYPOOL|1st-Level Bard Word|2																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-2
 WOP Bard 2		CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Bard Word|1	BONUS:ABILITYPOOL|1st-Level Bard Word|1																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-1
 WOP Bard 3		CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Bard Word|1	BONUS:ABILITYPOOL|1st-Level Bard Word|1																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-1
@@ -144,7 +144,7 @@ WOP Summoner 20	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-L
 
 
 ###Block: Words of Power extra word abilities
-# Ability Name				Category of Ability	Type			Stackable?	Multiple?	Choose		Bonus to Ability Pool
+# Ability Name				Category of Ability	Type			Stackable?	Multiple?	Choose		Bonus Ability Pool
 Extra Word - Bard 0			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|0-level Bard Word|1
 Extra Word - Bard 1			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|1st-level Bard Word|1
 Extra Word - Bard 2			CATEGORY:Words of Power	TYPE:ExtraWord	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|2nd-level Bard Word|1

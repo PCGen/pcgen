@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Jul 16 09:27:47 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/05
@@ -20,7 +20,7 @@ Rebounding				KEY:RBDNG		TYPE:Weapon.Thrown			COST:12000	VISIBLE:QUALIFY	SOURCEP
 Wrenching				KEY:WRNCH		TYPE:Weapon.Ranged	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.209	PRETYPE:3,Enhancement,Weapon,Ranged													SPROP:Reposition target towards wielder
 
 ###Block: Armor/Shield equipment modifiers
-# Modifier Name	Unique Key			Type		Plus		Visible		Source Page		Required Type				Bonus Armor Modifiers												Special Property										Change Armor Type
+# Modifier Name	Unique Key			Type		Plus		Visible		Source Page		Required Type				Bonus Armor Mods													Special Property										Change Armor Type
 Fusing		KEY:FUSE_ARMR_HVY		TYPE:Armor	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.207	PRETYPE:3,Enhancement,Armor,Heavy	BONUS:EQMARMOR|ACCHECK|1	BONUS:EQMARMOR|MAXDEX|1	BONUS:EQMARMOR|SPELLFAILURE|-10	SPROP:Armor Check reduced, Max Dex increased, one category lighter	ARMORTYPE:Heavy|Medium
 Fusing		KEY:FUSE_ARMR_LT		TYPE:Armor	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.207	PRETYPE:3,Enhancement,Armor,Light	BONUS:EQMARMOR|ACCHECK|1	BONUS:EQMARMOR|MAXDEX|1	BONUS:EQMARMOR|SPELLFAILURE|-10	SPROP:Armor Check reduced, Max Dex increased, one category lighter	ARMORTYPE:Heavy|Medium
 Fusing		KEY:FUSE_ARMR_MED		TYPE:Armor	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.207	PRETYPE:3,Enhancement,Armor,Medium	BONUS:EQMARMOR|ACCHECK|1	BONUS:EQMARMOR|MAXDEX|1	BONUS:EQMARMOR|SPELLFAILURE|-10	SPROP:Armor Check reduced, Max Dex increased, one category lighter	ARMORTYPE:Medium|Light	ARMORTYPE:Heavy|Medium

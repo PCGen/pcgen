@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sun Jun 19 04:35:41 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
 # Original Entry by: Douglas Limmer
 # SRD Original Entry by: TaluronIscandar
 
 ###Block: Astral Construct Menu A Abilities
-# Ability Name								Unique Key						Output Name		Category of Ability		Type								Visible		Description																		Template					Move			Automatically Gained Feat			Ability									Bonus to Ability Pool						Combat bonus				Damage reduction	Bonus to HP			Add to base move			Bonus to skill					Stat bonus									Modify VAR						Vision			Damage Reduction	Aspects
+# Ability Name								Unique Key						Output Name		Category of Ability		Type								Visible		Description																		Template					Move			Auto Feat						Ability									Bonus Ability Pool						Combat bonus				Bonus DR		Bonus to HP			Add to base move			Bonus to skill					Stat bonus									Modify VAR						Vision			Damage Reduction	Aspects
 Buff										KEY:Astral_Buff								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:YES																																																																	BONUS:HP|CURRENTMAX|5
 Celerity									KEY:Astral_Celerity							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:YES																																																																					BONUS:MOVEADD|TYPE.Walk|10
 Cleave									KEY:Astral_Cleave								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													AUTO:FEAT|Cleave

@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/07
@@ -117,7 +117,7 @@ War Mind Power Level 4		CATEGORY:Special Ability	TYPE:BonusSpellKnownWarMind		PR
 War Mind Power Level 5		CATEGORY:Special Ability	TYPE:BonusSpellKnownWarMind		PREVARGTEQ:WarMindMaxPowerLevel,5		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=War Mind;LEVEL=5|1
 
 ###Block: "Gain a bonus power" abilities
-# Ability Name			Unique Key						Category of Ability	Type			Var. Min. Value			Stackable?	Multiple?	Choose		Bonus to Ability Pool
+# Ability Name			Unique Key						Category of Ability	Type			Var. Min. Value			Stackable?	Multiple?	Choose		Bonus Ability Pool
 Bonus Cryptic Power		KEY:Bonus Cryptic Power ~ Generic		CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:CrypticML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Cryptic Power|1
 Bonus Dread Power			KEY:Bonus Dread Power ~ Generic		CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:DreadML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Dread Power|1
 Bonus Marksman Power		KEY:Bonus Marksman Power ~ Generic		CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:MarksmanML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Marksman Power|1
@@ -158,7 +158,7 @@ Good Fortune			KEY:Crown of Chaos ~ Good Fortune		CATEGORY:Special Ability	TYPE:
 Shroud of Chaos			KEY:Crown of Chaos ~ Shroud of Chaos	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						DESC:1/day, for 1 minute, gain 20%% miss chance against ranged attacks and any creature within 30 ft. must roll twice and take the lowest result on any skill check or saving throw.																																																						SOURCEPAGE:p.433	ASPECT:CheckCount|1	ASPECT:CheckType|Uses per day
 
 ###Block: Dancing Robes of Sharatwan abilities
-# Ability Name					Unique Key								Product Identity?	Category of Ability		Type						Define								Innate Spells									Description																								Automatically Gained Feat				Ability																																																														Modify VAR												Source Page		Temporary Bonus
+# Ability Name					Unique Key								Product Identity?	Category of Ability		Type						Define								Innate Spells									Description																								Auto Feat							Ability																																																														Modify VAR												Source Page		Temporary Bonus
 Dancing Robes of Sharatwan Attunement										NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality												SPELLS:Innate|TIMES=3|Physical Acceleration|PREVARGTEQ:TL,12	DESC:Attuned to the Dancing Robes of Sharatwan																		AUTO:FEAT|Speed of Thought|PREVARGTEQ:TL,4	ABILITY:Special Ability|AUTOMATIC|Dancing Robes of Sharatwan ~ Hands Alight|PREVARGTEQ:TL,6	ABILITY:Blade Skill|AUTOMATIC|Blade Skill ~ Twin Strike|PREVARGTEQ:TL,10	ABILITY:Special Ability|AUTOMATIC|Dancing Robes of Sharatwan ~ The Price of Peace|PREVARGTEQ:TL,16	ABILITY:Special Ability|AUTOMATIC|Dancing Robes of Sharatwan ~ Energized Blades|PREVARGTEQ:TL,18														SOURCEPAGE:p.433
 Hands Alight					KEY:Dancing Robes of Sharatwan ~ Hands Alight					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																					DESC:You can cause your hands to glow; +2 to Intimidate, no Stealth, illumines as torch.																																																																																															SOURCEPAGE:p.434	TEMPBONUS:PC|SKILL|Intimidate|2|TYPE=Circumstance
 The Price of Peace				KEY:Dancing Robes of Sharatwan ~ The Price of Peace				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:PriceOfPeaceDuration|0	DEFINE:PriceOfPeaceDC|0												DESC:If you use Diplomacy on a creature that then attacks you, it is shaken for %1 rounds (Will DC %2 negates).|PriceOfPeaceDuration|PriceOfPeaceDC																																																																								BONUS:VAR|PriceOfPeaceDuration|CHA	BONUS:VAR|PriceOfPeaceDC|10+TL/2+CHA	SOURCEPAGE:p.434
@@ -182,7 +182,7 @@ Psychic Whirlwind		KEY:Dissonance ~ Psychic Whirlwind	CATEGORY:Special Ability	T
 Psychic Maelstrom		KEY:Dissonance ~ Psychic Maelstrom	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural								DESC:1/day, any psionic creature within 60 feet attempting to manifest a power must make a DC 20 concentration check; you may make a disarm attempt against all creatures within 30 feet to cause them to drop one held object.																																																																																													SOURCEPAGE:p.436	ASPECT:CheckCount|1	ASPECT:CheckType|Uses per day
 
 ###Block: Groundscorn Boots abilities
-# Ability Name			Unique Key							Product Identity?	Category of Ability		Type						Description											Automatically Gained Feat			Ability																																											Source Page		Aspects
+# Ability Name			Unique Key							Product Identity?	Category of Ability		Type						Description											Auto Feat						Ability																																											Source Page		Aspects
 Groundscorn Boots Attunement									NAMEISPI:YES	CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Attuned to Groundscorn Boots of the Twice-Loved				AUTO:FEAT|Up the Walls|PREVARGTEQ:TL,5	ABILITY:Special Ability|AUTOMATIC|Groundscorn Boots ~ Teleportation Dance|PREVARGTEQ:TL,10	ABILITY:Special Ability|AUTOMATIC|Groundscorn Boots ~ Air Strider|PREVARGTEQ:TL,15	ABILITY:Special Ability|AUTOMATIC|Groundscorn Boots ~ Unshakable|PREVARGTEQ:TL,20	SOURCEPAGE:p.436
 Teleportation Dance		KEY:Groundscorn Boots ~ Teleportation Dance				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:1/day tap into teleportation effect within 30 ft.																																																						SOURCEPAGE:p.436	ASPECT:CheckCount|1	ASPECT:CheckType|Uses per day
 Air Strider				KEY:Groundscorn Boots ~ Air Strider						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Under affects of defy gravity while focused.																																																							SOURCEPAGE:p.437

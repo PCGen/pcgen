@@ -1,10 +1,11 @@
-# CVS $Revision: 21591 $ $Author: amaitland $ -- Fri Oct  4 22:18:51 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: 21591 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 # Abilities granted by Magic Items
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 # ORIGINAL ENTRY: James Dempsey, Scott Meyer
 # ORIGINAL ENTRY DATE: 13 May 2013
 
-CATEGORY=Internal|Default.MOD					DEFINE:KatanaExoticUse|0	BONUS:VAR|KatanaExoticUse|1|PREFEAT:1,Exotic Weapon Proficiency (Katana)
+# Ability Name			Define				Modify VAR
+CATEGORY=Internal|Default.MOD	DEFINE:KatanaExoticUse|0	BONUS:VAR|KatanaExoticUse|1|PREFEAT:1,Exotic Weapon Proficiency (Katana)
 
 ###Block:
 # Ability Name			Category of Ability	Define					Move				Ability														Combat bonus
@@ -15,7 +16,7 @@ Merform Belt Merfolk Form	CATEGORY:Internal								MOVE:Swim,30,Walk,5										
 #TODO: How to reduce walk to 5?
 
 ###Block: Modifier to make Splash Weapon proficiency available to all classes
-# Ability Name								Automatically Gained Weapon Prof.
+# Ability Name								Auto Weapon Prof
 CATEGORY=Special Ability|All Automatic Proficiencies.MOD	AUTO:WEAPONPROF|Splash Weapon
 
 ###Block: Minor variation on Headband of Vast Intelligence
@@ -23,7 +24,7 @@ CATEGORY=Special Ability|All Automatic Proficiencies.MOD	AUTO:WEAPONPROF|Splash 
 Headband of Intellect Knowledge Skill Selection	CATEGORY:Special Ability	TYPE:HeadbandKnowledgeSkill	STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	BONUS:SKILLRANK|%LIST|TL
 
 ###Block: Languages granted by Demon Prince Armor
-# Ability Name			Category of Ability		Automatically Gained Language
+# Ability Name			Category of Ability		Auto Language
 Demon Prince Armor Languages	CATEGORY:Special Ability	AUTO:LANG|Abyssal|Celestial|Draconic
 #
 # EOF

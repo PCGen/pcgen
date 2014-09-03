@@ -1,11 +1,11 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Goblins of Golarion	SOURCESHORT:GOOG	SOURCEWEB:http://paizo.com/products/btpy8mfk?Pathfinder-Player-Companion-Goblins-of-Golarion	SOURCEDATE:2011-07
 #ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
 #ORIGINAL ENTRY DATE: 2013/07/14
 
 
 # Favored Class Bonus Skill Points
-# Class of the Master	Type			Define			Bonus to Ability Pool							Modify VAR
+# Class of the Master	Type			Define			Bonus Ability Pool							Modify VAR
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	DEFINE:FamiliarSP|0	BONUS:ABILITYPOOL|Familiar Bonus Skill|var("FamiliarSP")
 
 FOLLOWER:FamiliarSP=1	TYPE:Familiar															BONUS:VAR|FamiliarSP|1

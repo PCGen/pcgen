@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-09
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2011/10/27
@@ -8,25 +8,25 @@ SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWE
 #Block: Astral suits
 # NEEDS CODE/DATA WORK: Astral Armor and Astral Juggernaut should override
 # NEEDS CODE/DATA WORK:   other worn armor.  Right now, they take a slot.
-# Equipment Name			Output Name		Required Weapon Proficiency				Required Armor Proficiency	Type								Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Maximum DEX Bonus	Range		Source Page		% of Spell Failure	Ability																				Combat bonus													Bonus Equipment Modifiers					Bonus Armor Modifiers
-Astral Skin															PROFICIENCY:ARMOR|Astral Suit	TYPE:Skin.AstralSuit					COST:0	WT:0																							SOURCEPAGE:p.3					ABILITY:Special Ability|AUTOMATIC|Astral Skin ~ Aegis|PREABILITY:1,CATEGORY=Special Ability,Form Astral Suit ~ Aegis
-Astral Armor														PROFICIENCY:ARMOR|Astral Suit	TYPE:Armor.Medium.Suit.AstralSuit			COST:-150	WT:40		ACCHECK:-5												EQMOD:MWORKA	MAXDEX:2				SOURCEPAGE:p.3	SPELLFAILURE:30		ABILITY:Special Ability|AUTOMATIC|Astral Armor ~ Aegis|PREABILITY:1,CATEGORY=Special Ability,Form Astral Suit ~ Aegis		BONUS:COMBAT|AC|6|TYPE=Armor											BONUS:EQM|WEIGHTADD|-10|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|ACCHECK|1|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|ACCHECK|1|PREABILITY:1,CATEGORY=Special Ability,Flexible Suit ~ Aegis	BONUS:EQMARMOR|MAXDEX|1|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|SPELLFAILURE|-5|PREVARGT:AstralSuitLVL,7
-Astral Juggernaut														PROFICIENCY:ARMOR|Astral Suit	TYPE:Armor.Heavy.Suit.AstralSuit			COST:-150	WT:50		ACCHECK:-7												EQMOD:MWORKA	MAXDEX:0				SOURCEPAGE:p.4	SPELLFAILURE:40		ABILITY:Special Ability|AUTOMATIC|Astral Juggernaut ~ Aegis|PREABILITY:1,CATEGORY=Special Ability,Form Astral Suit ~ Aegis	BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:COMBAT|AC|1|TYPE=Armor.STACK|PREVARGT:AstralSuitLVL,6										BONUS:EQMARMOR|ACCHECK|1|PREVARGT:AstralSuitLVL,6	BONUS:EQMARMOR|ACCHECK|1|PREABILITY:1,CATEGORY=Special Ability,Flexible Suit ~ Aegis	BONUS:EQMARMOR|MAXDEX|1|PREVARGT:AstralSuitLVL,6	BONUS:EQMARMOR|SPELLFAILURE|-5|PREVARGT:AstralSuitLVL,6
+# Equipment Name			Output Name		Required Weapon Proficiency				Required Armor Proficiency	Type								Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier		Maximum DEX Bonus	Range		Source Page		% of Spell Failure	Ability																				Combat bonus													Bonus Equip Mods							Bonus Armor Mods
+Astral Skin															PROFICIENCY:ARMOR|Astral Suit	TYPE:Skin.AstralSuit					COST:0	WT:0																			SOURCEPAGE:p.3					ABILITY:Special Ability|AUTOMATIC|Astral Skin ~ Aegis|PREABILITY:1,CATEGORY=Special Ability,Form Astral Suit ~ Aegis
+Astral Armor														PROFICIENCY:ARMOR|Astral Suit	TYPE:Armor.Medium.Suit.AstralSuit			COST:-150	WT:40		ACCHECK:-5								EQMOD:MWORKA	MAXDEX:2				SOURCEPAGE:p.3	SPELLFAILURE:30		ABILITY:Special Ability|AUTOMATIC|Astral Armor ~ Aegis|PREABILITY:1,CATEGORY=Special Ability,Form Astral Suit ~ Aegis		BONUS:COMBAT|AC|6|TYPE=Armor											BONUS:EQM|WEIGHTADD|-10|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|ACCHECK|1|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|ACCHECK|1|PREABILITY:1,CATEGORY=Special Ability,Flexible Suit ~ Aegis	BONUS:EQMARMOR|MAXDEX|1|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|SPELLFAILURE|-5|PREVARGT:AstralSuitLVL,7
+Astral Juggernaut														PROFICIENCY:ARMOR|Astral Suit	TYPE:Armor.Heavy.Suit.AstralSuit			COST:-150	WT:50		ACCHECK:-7								EQMOD:MWORKA	MAXDEX:0				SOURCEPAGE:p.4	SPELLFAILURE:40		ABILITY:Special Ability|AUTOMATIC|Astral Juggernaut ~ Aegis|PREABILITY:1,CATEGORY=Special Ability,Form Astral Suit ~ Aegis	BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:COMBAT|AC|1|TYPE=Armor.STACK|PREVARGT:AstralSuitLVL,6										BONUS:EQMARMOR|ACCHECK|1|PREVARGT:AstralSuitLVL,6	BONUS:EQMARMOR|ACCHECK|1|PREABILITY:1,CATEGORY=Special Ability,Flexible Suit ~ Aegis	BONUS:EQMARMOR|MAXDEX|1|PREVARGT:AstralSuitLVL,6	BONUS:EQMARMOR|SPELLFAILURE|-5|PREVARGT:AstralSuitLVL,6
 
 #Block: Weapons for astral suit
-Astral Suit Ranged Attack				PROFICIENCY:WEAPON|Astral Suit Ranged Attack						TYPE:Weapon.Ranged.Standard.Piercing.Projectile	COST:0	WT:0					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8							RANGE:30	SOURCEPAGE:p.6
-Astral Suit Ram 1			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0					CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6									SOURCEPAGE:p.8
-Astral Suit Ram 2			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0					CRITMULT:x2			CRITRANGE:1			DAMAGE:3d6									SOURCEPAGE:p.8
-Astral Suit Ram 3			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0					CRITMULT:x2			CRITRANGE:1			DAMAGE:4d6									SOURCEPAGE:p.8
-Astral Suit Ram 4			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0					CRITMULT:x2			CRITRANGE:1			DAMAGE:5d6									SOURCEPAGE:p.8
+Astral Suit Ranged Attack				PROFICIENCY:WEAPON|Astral Suit Ranged Attack						TYPE:Weapon.Ranged.Standard.Piercing.Projectile	COST:0	WT:0					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8							RANGE:30	SOURCEPAGE:p.6
+Astral Suit Ram 1			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0					CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6									SOURCEPAGE:p.8
+Astral Suit Ram 2			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0					CRITMULT:x2	CRITRANGE:1	DAMAGE:3d6									SOURCEPAGE:p.8
+Astral Suit Ram 3			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0					CRITMULT:x2	CRITRANGE:1	DAMAGE:4d6									SOURCEPAGE:p.8
+Astral Suit Ram 4			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0					CRITMULT:x2	CRITRANGE:1	DAMAGE:5d6									SOURCEPAGE:p.8
 
 ###Block: Crystal Shard from Metacreative Talent trait
-# Equipment Name	Required Weapon Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page
-Crystal Shard	PROFICIENCY:WEAPON|Crystal Shard	TYPE:Weapon.Resizable.Ranged.Standard.Slashing.Thrown	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	RANGE:10	SOURCEPAGE:p.35
+# Equipment Name	Required Weapon Proficiency		Type									Cost		Weight	Crit Mult	Crit Range	Damage	Range		Source Page
+Crystal Shard	PROFICIENCY:WEAPON|Crystal Shard	TYPE:Weapon.Resizable.Ranged.Standard.Slashing.Thrown	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d2	RANGE:10	SOURCEPAGE:p.35
 
 ###Block: Mundane items
-# Equipment Name	Required Weapon Proficiency		Type																		Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Source Page
-Xephyr Knife	PROFICIENCY:WEAPON|Xephyr Knife	TYPE:Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Exotic.Standard.Piercing.Slashing.BladeLight	COST:15	WT:1		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6	SOURCEPAGE:p.33
+# Equipment Name	Required Weapon Proficiency		Type																		Cost		Weight	Crit Mult	Crit Range	Damage	Source Page
+Xephyr Knife	PROFICIENCY:WEAPON|Xephyr Knife	TYPE:Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Exotic.Standard.Piercing.Slashing.BladeLight	COST:15	WT:1		CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	SOURCEPAGE:p.33
 
 
 ###Block: Psionic items

@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Builder templates
@@ -286,7 +286,7 @@ SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pa
 # Added 3rd printing errata - SR
 
 ###Block: Simple Templates
-# Template Name		Challenge Rating	Visible	Damage Reduction			Source Page		Define					Must be Smaller	Bonus to Ability Pool				Combat bonus						Damage reduction				Misc bonus					Adjust PC Size		Stat bonus											Modify VAR																																																			Ability																					Spell Res.	Applied Name
+# Template Name		Challenge Rating	Visible	Damage Reduction			Source Page		Define					Must be Smaller	Bonus Ability Pool				Combat bonus						Bonus DR					Misc bonus					Adjust PC Size		Stat bonus											Modify VAR																																																			Ability																					Spell Res.	Applied Name
 Advanced Creature		CR:1			VISIBLE:YES						SOURCEPAGE:p.294																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK																		BONUS:STAT|STR,DEX,CON,WIS,CHA|4	BONUS:STAT|INT|4|PRESTAT:1,INT=3																																																																													APPLIEDNAME:Advanced
 Celestial Creature				VISIBLE:YES	DR:5/Evil|PRELEVEL:MIN=5	SOURCEPAGE:p.294	DEFINE:CelestialResistanceBonus|0																			BONUS:DR|Evil|5|PRELEVEL:MIN=11	BONUS:MISC|CR|1|PRELEVEL:MIN=5																	BONUS:VAR|CelestialResistanceBonus|5	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|CelestialResistanceBonus|TYPE=Resistance	BONUS:VAR|CelestialResistanceBonus|5|PRELEVEL:MIN=5	BONUS:VAR|CelestialResistanceBonus|5|PRELEVEL:MIN=11	BONUS:VAR|DarkvisionRange|60|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Celestial Creature ~ Smite Evil|Resistance to Acid|Resistance to Cold|Resistance to Electricity	SR:CR+5	APPLIEDNAME:Celestial
 Fiendish Creature					VISIBLE:YES	DR:5/Good|PRELEVEL:MIN=5	SOURCEPAGE:p.294	DEFINE:FiendishResistanceBonus|0																			BONUS:DR|Good|5|PRELEVEL:MIN=11	BONUS:MISC|CR|1|PRELEVEL:MIN=5																	BONUS:VAR|FiendishResistanceBonus|5	BONUS:VAR|ColdResistanceBonus,FireResistanceBonus|FiendishResistanceBonus|TYPE=Resistance	BONUS:VAR|FiendishResistanceBonus|5|PRELEVEL:MIN=5	BONUS:VAR|FiendishResistanceBonus|5|PRELEVEL:MIN=11	BONUS:VAR|DarkvisionRange|60|TYPE=Base							ABILITY:Special Ability|AUTOMATIC|Fiendish Creature ~ Smite Good|Resistance to Cold|Resistance to Fire					SR:CR+5	APPLIEDNAME:Fiendish
@@ -301,11 +301,11 @@ Size Change (Decrease by 1)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|-1
 Size Change (Decrease by 2)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|-2
 
 ###Block: Template for ability bonuses for creatures with class levels, applied automatically.
-# Template Name				Challenge Rating	Visible	Required Race				Bonus to Ability Pool																																										Combat bonus					Stat bonus					Weapon prof. bonus																Natural Attacks															Applied Name
+# Template Name				Challenge Rating	Visible	Required Race				Bonus Ability Pool																																																									Combat bonus					Stat bonus					Weapon prof. bonus																Natural Attacks															Applied Name
 Creature with Class Levels					VISIBLE:NO							BONUS:ABILITYPOOL|Class Level +4 Ability Adjustment|2|PREMULT:2,[PRECLASS:1,TYPE.Monster=1],[PRECLASS:1,TYPE.PC=1]	BONUS:ABILITYPOOL|Class Level +2 Ability Adjustment|2|PREMULT:2,[PRECLASS:1,TYPE.Monster=1],[PRECLASS:1,TYPE.PC=1]	BONUS:ABILITYPOOL|Class Level -2 Ability Adjustment|1|PREMULT:2,[PRECLASS:1,TYPE.Monster=1],[PRECLASS:1,TYPE.PC=1]
 
 # Companion Shared Templates:
-Advanced Creature (Heavy Horse)	CR:1					PRERACE:1,Companion (Horse),Horse																																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX,CON,WIS,CHA|4	BONUS:WEAPONPROF=Hoof|DAMAGESIZE|1	BONUS:WEAPONPROF=Bite|TOHIT|-5	BONUS:WEAPONPROF=Bite|DAMAGE|-ceil(STR/2)	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Slashing.Bludgeoning.Piercing,*1,1d4	APPLIEDNAME:Advanced
+Advanced Creature (Heavy Horse)	CR:1					PRERACE:1,Companion (Horse),Horse																																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX,CON,WIS,CHA|4	BONUS:WEAPONPROF=Hoof|DAMAGESIZE|1	BONUS:WEAPONPROF=Bite|TOHIT|-5	BONUS:WEAPONPROF=Bite|DAMAGE|-ceil(STR/2)	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Slashing.Bludgeoning.Piercing,*1,1d4	APPLIEDNAME:Advanced
 
 
 SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8ddb	SOURCEDATE:2010-12
@@ -314,7 +314,7 @@ SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/
 # ORIGINAL ENTRY DATE: Unknown
 
 ###Block: Simple Templates
-# Template Name		Visible	Damage Reduction			Source Page		Define					Damage reduction				Misc bonus					Modify VAR																																																	Ability																				Spell Res.	Main Race Type			Applied Name
+# Template Name		Visible	Damage Reduction			Source Page		Define					Bonus DR					Misc bonus					Modify VAR																																																	Ability																				Spell Res.	Main Race Type			Applied Name
 Entropic Creature		VISIBLE:YES	DR:5/Lawful|PRELEVEL:MIN=5	SOURCEPAGE:p.292	DEFINE:EntropicResistanceBonus|0	BONUS:DR|Lawful|5|PRELEVEL:MIN=11	BONUS:MISC|CR|1|PRELEVEL:MIN=5	BONUS:VAR|EntropicResistanceBonus|5	BONUS:VAR|AcidResistanceBonus,FireResistanceBonus|EntropicResistanceBonus|TYPE=Resistance	BONUS:VAR|EntropicResistanceBonus|5|PRELEVEL:MIN=5	BONUS:VAR|EntropicResistanceBonus|5|PRELEVEL:MIN=11	BONUS:VAR|DarkvisionRange|60|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Entropic Creature ~ Smite Law|Resistance to Acid|Resistance to Fire					SR:CR+5						APPLIEDNAME:Entropic
 Resolute Creature		VISIBLE:YES	DR:5/Chaotic|PRELEVEL:MIN=5	SOURCEPAGE:p.292	DEFINE:ResoluteResistanceBonus|0	BONUS:DR|Chaotic|5|PRELEVEL:MIN=11	BONUS:MISC|CR|1|PRELEVEL:MIN=5	BONUS:VAR|ResoluteResistanceBonus|5	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,FireResistanceBonus|ResoluteResistanceBonus|TYPE=Resistance	BONUS:VAR|ResoluteResistanceBonus|5|PRELEVEL:MIN=5	BONUS:VAR|ResoluteResistanceBonus|5|PRELEVEL:MIN=11	BONUS:VAR|DarkvisionRange|60|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Fire|Resolute Creature ~ Smite Chaos	SR:CR+5						APPLIEDNAME:Resolute
 
@@ -366,7 +366,7 @@ Swarm			VISIBLE:NO
 Water			VISIBLE:NO
 
 ###Block: Variable Type Traits
-# Template Name		Visible	Define a Stat
+# Template Name		Visible	Define Stat
 Construct			VISIBLE:NO	DEFINESTAT:NONSTAT|CON
 Undead			VISIBLE:NO	DEFINESTAT:NONSTAT|CON
 Mindless			VISIBLE:NO	DEFINESTAT:NONSTAT|INT
@@ -383,7 +383,7 @@ SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/
 # ORIGINAL ENTRY DATE: Unknown
 
 ###Block: Creature Subtypes
-# Template Name		Visible	Source Page		Modify VAR																	Class Skill							Ability																																					Automatically Gained Language	Race Subtype		Vision
+# Template Name		Visible	Source Page		Modify VAR																	Class Skill							Ability																																					Auto Language			Race Subtype		Vision
 Aeon				VISIBLE:NO	SOURCEPAGE:p.305	BONUS:VAR|ElectricityResistanceBonus,FireResistanceBonus|10|TYPE=Resistance														ABILITY:Special Ability|AUTOMATIC|Aeon ~ Envisaging|Aeon ~ Extension of All|Aeon ~ Void Form|Immunity to Cold|Immunity to Critical Hits|Immunity to Poison|Resistance to Electricity|Resistance to Fire										RACESUBTYPE:Aeon
 Agathion			VISIBLE:NO	SOURCEPAGE:p.306	BONUS:VAR|ColdResistanceBonus,SonicResistanceBonus|10|TYPE=Resistance	BONUS:VAR|LayOnHandsLVL|min(20,TL)									ABILITY:Special Ability|AUTOMATIC|Agathion ~ Lay on Hands|Agathion ~ Poison Save Bonus|Agathion ~ Speak with Animals|Agathion ~ Truespeech|Immunity to Electricity|Immunity to Petrification|Resistance to Cold|Resistance to Sonic						RACESUBTYPE:Agathion	VISION:Low-Light Vision
 Angel ~ Cassisian		VISIBLE:NO	SOURCEPAGE:p.310	BONUS:VAR|ElectricityResistanceBonus,FireResistanceBonus|10|TYPE=Resistance														ABILITY:Special Ability|AUTOMATIC|Angel ~ Save vs Poison|Angel ~ Truespeech|Immunity to Acid|Immunity to Cold|Immunity to Petrification|Resistance to Electricity|Resistance to Fire													RACESUBTYPE:Angel		VISION:Darkvision (60')|Low-Light Vision

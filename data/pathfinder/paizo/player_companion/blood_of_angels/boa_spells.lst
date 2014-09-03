@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #SOURCELONG:Blood of Angels	SOURCESHORT:PFBOA	SOURCEWEB:http://paizo.com/products/btpy8sa7?Pathfinder-Player-Companion-Blood-of-Angels	SOURCEDATE:2012-08
 # ORIGINAL ENTRY: "Swiftbrook"
 # ORIGINAL ENTRY DATE: 7 January 2014
 
 ###Block:
-# Spell Name					Classes of caster			School			Sub-School			Type				Components		Casting Time	Range		Target Area or Effect			Duration											Save Info		Spell Resistance	Description
-Summon Monster III (Lantern Archon Only)	CLASSES:Sorcerer,Wizard=3	SCHOOL:Conjuration	SUBSCHOOL:Summoning	TYPE:Arcane.Divine	COMPS:V, S, F/DF	CASTTIME:1 round	RANGE:Close	TARGETAREA:One summoned creature	DURATION:(ConjurationSummonersCharmBonus+(CASTERLEVEL)) rounds [D]	SAVEINFO:None	SPELLRES:No		DESC:This spell functions like summon monster III, except that you can summon one Lantern Archon.
+# Spell Name					Type				Classes of caster			School			Sub-School			Components		Casting Time	Range		Target Area or Effect			Duration											Save Info		Spell Resistance	Description
+Summon Monster III (Lantern Archon Only)	TYPE:Arcane.Divine	CLASSES:Sorcerer,Wizard=3	SCHOOL:Conjuration	SUBSCHOOL:Summoning	COMPS:V, S, F/DF	CASTTIME:1 round	RANGE:Close	TARGETAREA:One summoned creature	DURATION:(ConjurationSummonersCharmBonus+(CASTERLEVEL)) rounds [D]	SAVEINFO:None	SPELLRES:No		DESC:This spell functions like summon monster III, except that you can summon one Lantern Archon.
 
 
 ###Block: Bardic Masterpiece spell placeholders

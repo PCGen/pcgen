@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Psionics Expanded - Master the Battle	SOURCESHORT:PEMB	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-03
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/01/21
@@ -7,7 +7,7 @@ SOURCELONG:Psionics Expanded - Master the Battle	SOURCESHORT:PEMB	SOURCEWEB:http
 # COMMENT: It's likely that more of these could be coded to take actual effect.
 
 #Block: Duergar
-# Ability Name						Category of Ability		Type										Visible	Required Ability						Required Class		Required Race					Define						Description												Stackable?	Multiple?	Choose		Ability												Bonus to Ability Pool								Bonus to skill									Modify VAR							Source Page
+# Ability Name						Category of Ability		Type										Visible	Required Ability						Required Class		Required Race					Define						Description												Stackable?	Multiple?	Choose		Ability												Bonus Ability Pool								Bonus to skill									Modify VAR							Source Page
 Bonus Terror Use						CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDread	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Dread	PRECLASS:1,Dread=1	PRERACE:1,Duergar,Duergar ~ Psionic,Dwarf								DESC:Use terrors once more per day.								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																				BONUS:VAR|TerrorTimes|1					SOURCEPAGE:p.36
 
 #Block: Elan

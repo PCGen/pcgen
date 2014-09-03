@@ -1,11 +1,11 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Goblins of Golarion	SOURCESHORT:GOOG	SOURCEWEB:http://paizo.com/products/btpy8mfk?Pathfinder-Player-Companion-Goblins-of-Golarion	SOURCEDATE:2011-07
 #ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
 #ORIGINAL ENTRY DATE: 2013/07/14
 
 
 ###Block: Mod for Adopted Social Trait
-# Ability Name						Unique Key				Category of Ability		Type			Bonus to Ability Pool
+# Ability Name						Unique Key				Category of Ability		Type			Bonus Ability Pool
 CATEGORY=Special Ability|Trait ~ Adopted.MOD														BONUS:ABILITYPOOL|Goblin Race Trait|1|PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Goblin
 Goblin							KEY:Adoptive Race ~ Goblin	CATEGORY:Special Ability	TYPE:AdoptiveRace
 

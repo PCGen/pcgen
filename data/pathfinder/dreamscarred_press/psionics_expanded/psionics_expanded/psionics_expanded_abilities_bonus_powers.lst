@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Jul 16 09:27:47 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/07
@@ -101,7 +101,7 @@ Wilder Power Level 8		CATEGORY:Special Ability	TYPE:BonusSpellKnownWilder		STACK
 Wilder Power Level 9		CATEGORY:Special Ability	TYPE:BonusSpellKnownWilder		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Wilder;LEVEL=9|1
 
 ###Block: "Gain a bonus power" abilities
-# Ability Name			Unique Key						Category of Ability	Type			Var. Min. Value			Stackable?	Multiple?	Choose		Bonus to Ability Pool
+# Ability Name			Unique Key						Category of Ability	Type			Var. Min. Value			Stackable?	Multiple?	Choose		Bonus Ability Pool
 Bonus Cryptic Power		KEY:Bonus Cryptic Power ~ Generic		CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:CrypticML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Cryptic Power|1
 Bonus Dread Power			KEY:Bonus Dread Power ~ Generic		CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:DreadML,1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Dread Power|1
 Bonus Gifted Blade Power	KEY:Bonus Gifted Blade Power ~ Generic	CATEGORY:Internal		TYPE:BonusPower	PREVARGTEQ:GiftedBladeML,1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Bonus Gifted Blade Power|1

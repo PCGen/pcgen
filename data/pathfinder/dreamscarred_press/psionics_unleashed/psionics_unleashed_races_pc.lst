@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
 # Original Entry by: Douglas Limmer
 # SRD Original Entry by: Arknight
 
 # COMMENT: Use SORTKEY:a_base_pc if we want these interleaved with the core races.
 
-# Race Name		Output Name			Starting Feats	Size		Move			Face/Space	Reach		Vision			Bonus Languages							Bonus to Ability Pool			Stat bonus								Modify VAR			Automatically Gained Language			Ability								Define			Main Race Type	Type		Template			Challenge Rating	Source Page
+# Race Name		Output Name			Starting Feats	Size		Move			Face/Space	Reach		Vision			Bonus Languages							Bonus Ability Pool			Stat bonus								Modify VAR			Auto Language					Ability								Define			Main Race Type	Type		Template			Challenge Rating	Source Page
 Blue							STARTFEATS:1	SIZE:S	MOVE:Walk,30	FACE:5	REACH:5	VISION:Darkvision (60')	LANGBONUS:Draconic,Dwarven,Gnoll,Gnome,Halfling,Orc							BONUS:STAT|INT|2	BONUS:STAT|DEX|2	BONUS:STAT|STR|-2	BONUS:VAR|IsPsionic|1	AUTO:LANG|Common|Goblin				ABILITY:Internal|AUTOMATIC|Race Traits ~ Blue		DEFINE:IsPsionic|0	RACETYPE:Humanoid	TYPE:PC	TEMPLATE:Goblinoid	CR:1/2		SOURCEPAGE:p.7
 Dromite						STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5					LANGBONUS:Dwarven,Gnome,Goblin,Terran									BONUS:STAT|CHA|2	BONUS:STAT|DEX|2	BONUS:STAT|STR|-2	BONUS:VAR|IsPsionic|1	AUTO:LANG|Common					ABILITY:Internal|AUTOMATIC|Race Traits ~ Dromite	DEFINE:IsPsionic|0	RACETYPE:Humanoid	TYPE:PC	TEMPLATE:Insectoid	CR:1/2		SOURCEPAGE:p.10
 Duergar ~ Psionic	OUTPUTNAME:Duergar	STARTFEATS:1	SIZE:M	MOVE:Walk,20	FACE:5	REACH:5	VISION:Darkvision (60')	LANGBONUS:Aklo,Draconic,Giant,Goblin,Orc,Terran								BONUS:STAT|CON|2	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2	BONUS:VAR|IsPsionic|1	AUTO:LANG|Common|Dwarven|Undercommon	ABILITY:Internal|AUTOMATIC|Race Traits ~ DuergarDSP	DEFINE:IsPsionic|0	RACETYPE:Humanoid	TYPE:PC	TEMPLATE:Dwarf		CR:1/2		SOURCEPAGE:p.11

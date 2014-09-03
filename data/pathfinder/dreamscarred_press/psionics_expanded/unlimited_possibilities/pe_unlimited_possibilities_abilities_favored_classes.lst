@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-09
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2011/10/26
@@ -75,7 +75,7 @@ Bonus to Concentration									CATEGORY:Special Ability	TYPE:SpecialQuality.Favo
 ###Block: Core Race Favored Class Options
 
 #Block: Dwarf
-# Ability Name						Category of Ability		Type											Visible	Required Ability							Required Class			Required Race					Define						Description																Stackable?	Multiple?	Choose		Bonus to Ability Pool										Modify VAR						Source Page
+# Ability Name						Category of Ability		Type											Visible	Required Ability							Required Class			Required Race					Define						Description																Stackable?	Multiple?	Choose		Bonus Ability Pool										Modify VAR						Source Page
 Bonus vs. Bull Rush and Trip				CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPsychicWarrior	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Psychic Warrior	PRECLASS:1,Psychic Warrior=1	PRERACE:1,Dwarf												DESC:+1 on CMD to resist bull rush and trip.										STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:VAR|CMD_BullRush,CMD_Trip|1		SOURCEPAGE:p.34
 # COMMENT: Bonus to Transfer Wounds Level found under Duergar
 

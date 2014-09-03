@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Psionics Expanded - Master the Battle	SOURCESHORT:PEMB	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-03
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/01/15
@@ -78,8 +78,8 @@ CLASS:Dread		SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Dread
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Combat bonus										Modify VAR									Bonus
 CLASS:Adaptive Warrior	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:p.37	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3
-# Class Name		Req. Att.	Required Feat					Required Skill					Var. Must Be Grater
-CLASS:Adaptive Warrior	PRETOTALAB:5	PREFEAT:2,Combat Expertise,Improved Feint	PRESKILL:2,Autohypnosis=5,Sense Motive=5	PREVARGT:TotalPowerPoints,0
+# Class Name		Required Feat					Required Skill					PRETOTALAB		Var. Must Be Grater
+CLASS:Adaptive Warrior	PREFEAT:2,Combat Expertise,Improved Feint	PRESKILL:2,Autohypnosis=5,Sense Motive=5	PRETOTALAB:5	PREVARGT:TotalPowerPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Adaptive Warrior	STARTSKILLPTS:2	CSKILL:Acrobatics|Bluff|Intimidate|Perception|Sense Motive
 
@@ -103,8 +103,8 @@ CLASS:Adaptive Warrior	STARTSKILLPTS:2	CSKILL:Acrobatics|Bluff|Intimidate|Percep
 
 # Class Name				Hit Dice	Type					Max Level	Source Page		Combat bonus										Modify VAR									Bonus
 CLASS:Telekinetic Weaponmaster	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:5	SOURCEPAGE:p.39	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3
-# Class Name				Req. Att.	Required Feat						Req. Known Spell
-CLASS:Telekinetic Weaponmaster	PRETOTALAB:5	PREFEAT:2,Psionic Meditation,Psionic Weapon	PRESPELL:1,Far Hand,Telekinetic Force
+# Class Name				Required Feat						Req. Known Spell					PRETOTALAB
+CLASS:Telekinetic Weaponmaster	PREFEAT:2,Psionic Meditation,Psionic Weapon	PRESPELL:1,Far Hand,Telekinetic Force	PRETOTALAB:5
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Telekinetic Weaponmaster	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Intimidate
 

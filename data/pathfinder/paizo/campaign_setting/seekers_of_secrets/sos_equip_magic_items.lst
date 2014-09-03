@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
 # Original Entry by: Terry Milnes
 
 ###Block: Ioun Stones
-# Equipment Name							Output Name				Type								Cost		Define									Modifier					Source Page		Ability										Bonus to Ability Pool							Caster level						Combat bonus					Bonus to HP										Bonus to skill							Stat bonus											Modify VAR														Special Property																				Bonus
+# Equipment Name							Output Name				Type								Cost		Define									Modifier					Source Page		Ability										Bonus Ability Pool							Caster level						Combat bonus					Bonus to HP										Bonus to skill							Stat bonus											Modify VAR														Special Property																				Bonus
 Ioun Stone (Amber Spindle)					OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun				COST:5000	DEFINE:AmberStoneStack|0												SOURCEPAGE:p.44																																																																					BONUS:VAR|AmberStoneStack|1											SPROP:Adds a +1 Resistance bonus.  Multiple stones stack up to +5 bonus.										BONUS:SAVE|ALL|min(5,AmberStoneStack)|TYPE=Resistance
 Ioun Stone (Amber Spindle - Cracked ~ Fortitude)	OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun.Cracked			COST:3400	DEFINE:AmberStoneStack|0												SOURCEPAGE:p.46																																																																					BONUS:VAR|AmberStoneStack|1											SPROP:Adds a +1 Fortitude Resistance bonus.  Multiple stones stack up to +5 bonus.									BONUS:SAVE|Fortitude|min(5,AmberStoneStack)|TYPE=Resistance
 Ioun Stone (Amber Spindle - Cracked ~ Reflex)		OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Magic.Wondrous.Ioun.Cracked			COST:3400	DEFINE:AmberStoneStack|0												SOURCEPAGE:p.46																																																																					BONUS:VAR|AmberStoneStack|1											SPROP:Adds a +1 Reflex Resistance bonus.  Multiple stones stack up to +5 bonus.									BONUS:SAVE|Reflex|min(5,AmberStoneStack)|TYPE=Resistance

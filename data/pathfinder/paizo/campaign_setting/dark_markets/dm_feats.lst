@@ -1,8 +1,8 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Dark Markets - A Guide to Katapesh	SOURCESHORT:DM	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
 # Original Entry by: Terry Milnes
 
-# Feat Name		Type			Required Feat									Multiple Requirements								Req. Spell Type				Required Template		Serves As			Description																			Template				Bonus to skill			Source Page		Description of the Benefits
+# Feat Name		Type			Required Feat									Multiple Requirements								Req. Spell Type				Required Template		Serves As			Description																			Template				Bonus to skill			Source Page		Benefits
 Jackal Blood	TYPE:General																																					DESC:A jackalwere crouches somewhere in your family tree.																BONUS:SKILL|Perception|2	SOURCEPAGE:p.13	BENEFIT:A jackalwere crouches somewhere in your family tree. You gain a +4 bonus on saving throws to resist spells or effects that would cause you to fall asleep. You also gain a +2 bonus on Listen checks.
 # COMMENT: Lucky Halfling present in APG.
 #Lucky Halfling	TYPE:General																							PRERACE:1,Halfling%,RACESUBTYPE=Halfling															DESC:You bring luck to those with whom you travel.																					SOURCEPAGE:p.13	BENEFIT:You bring luck to those with whom you travel. Once per day, when one of your allies makes a saving throw, you may roll the same saving throw as if you were the one subject to the effect requiring it. You may use this ability after your ally has rolled, but before the GM declares if their roll was a success or failure. Your ally may choose to use your saving throw in place of his own.

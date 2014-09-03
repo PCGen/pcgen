@@ -1,16 +1,16 @@
-# CVS $Revision: 21554 $ $Author: amaitland $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21554 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGTTE	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy88zq	SOURCEDATE:2009-08
 # Original Entry by: Terry Milnes
 
 # These objects are temporary stand-ins for objects that will move to the dataset for the revised book
 # "Pathfinder Campaign Setting World Guide: The Inner Sea" upon release of that dataset.
 
-# Race Name		Starting Feats	Size		Move					Face/Space	Reach		Vision			Bonus Languages				Combat bonus				Bonus to skill								Stat bonus												Modify VAR																								Racial HD Class Skills												Automatically Gained Language			Ability																										Nb Legs	Nb Hands	Natural Attacks															Define				Monster Class Name and Starting Level	Main Race Type	Type		Template				Challenge Rating	Source Page		Innate Spells																				Choose						Apply Kit
+# Race Name		Starting Feats	Size		Move					Face/Space	Reach		Vision			Bonus Languages				Combat bonus				Bonus to skill								Stat bonus												Modify VAR																								Racial HD Class Skills												Auto Language					Ability																										Nb Legs	Nb Hands	Natural Attacks															Define				Monster Class Name and Starting Level	Main Race Type	Type		Template				Challenge Rating	Source Page		Innate Spells																				Choose						Apply Kit
 Half-Elf.MOD																																																																																																																																																																						TEMPLATE:Human Ethnicity
 Half-Orc.MOD																																																																																																																																																																						TEMPLATE:Human Ethnicity
 Human.MOD																																																																																																																																																																							TEMPLATE:Human Ethnicity
 
-# Race Name		Starting Feats	Size		Move					Face/Space	Reach		Vision			Bonus Languages				Combat bonus				Bonus to skill								Stat bonus												Modify VAR																								Racial HD Class Skills												Automatically Gained Language			Ability																										Nb Legs	Nb Hands	Natural Attacks															Define				Monster Class Name and Starting Level	Main Race Type	Type		Template				Challenge Rating	Source Page		Innate Spells																				Choose						Apply Kit
+# Race Name		Starting Feats	Size		Move					Face/Space	Reach		Vision			Bonus Languages				Combat bonus				Bonus to skill								Stat bonus												Modify VAR																								Racial HD Class Skills												Auto Language					Ability																										Nb Legs	Nb Hands	Natural Attacks															Define				Monster Class Name and Starting Level	Main Race Type	Type		Template				Challenge Rating	Source Page		Innate Spells																				Choose						Apply Kit
 Suli			STARTFEATS:1	SIZE:M	MOVE:Walk,30			FACE:5	REACH:5	VISION:Low-Light Vision	LANGBONUS:Aquan,Auran,Ignan,Terran							BONUS:SKILL|Diplomacy,Sense Motive|2|TYPE=Racial		BONUS:STAT|STR,CHA|2										BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus,FireResistanceBonus|5|TYPE=Resistance																					AUTO:LANG|Common|Kelish				ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Electricity|Resistance to Fire|Suli ~ Elemental Assault																																					RACETYPE:Humanoid	TYPE:PC						CR:1/2		SOURCEPAGE:p.29																							CHOOSE:LANGAUTO|Aquan|Auran|Ignan|Terran
 
 # Original entry by Chris 'Barak' Chandler

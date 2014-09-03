@@ -1,4 +1,4 @@
-# CVS $Revision: 19436 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 19436 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Cheliax, Empire of Devils	SOURCESHORT:CEOD	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy89ca	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
@@ -6,8 +6,8 @@ SOURCELONG:Cheliax, Empire of Devils	SOURCESHORT:CEOD	SOURCEWEB:http://paizo.com
 # "Pathfinder Campaign Setting World Guide: The Inner Sea" upon release of that dataset.
 
 ###Block: Human Ethnicities
-# Ability Name	Product Identity?	Category of Ability	Type			Visible		Template						Automatically Gained Language	Source Page
-Chelaxian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanSubrace	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Chelaxian)	AUTO:LANG|Taldane			SOURCEPAGE:p.20
+# Ability Name	Product Identity?	Category of Ability	Type			Visible		Template						Auto Language	Source Page
+Chelaxian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanSubrace	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Chelaxian)	AUTO:LANG|Taldane	SOURCEPAGE:p.20
 
 ###Block: Regional Affinities
 # Ability Name	Product Identity?	Category of Ability	Type		Visible		Description					Template						Source Page

@@ -1,19 +1,19 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
 # Original Entry by: Paul Shipley
 
-# Ability Name			Unique Key						Category of Ability		Type					Var. Must Be Grater		Stackable?	Multiple?	Choose							Automatically Gained Weapon Prof.	Bonus to skill				Modify VAR																Aspects
-Flawed Gamboge Nodule Ability								CATEGORY:Special Ability	TYPE:Internal																																																	ASPECT:SaveBonus|-4 penalty against curses and diseases
+# Ability Name			Unique Key						Category of Ability		Type					Multiple Requirements															Stackable?	Multiple?	Choose							Auto Weapon Prof		Bonus to skill				Modify VAR																															Aspects
+Flawed Gamboge Nodule Ability								CATEGORY:Special Ability	TYPE:Internal																																																																											ASPECT:SaveBonus|-4 penalty against curses and diseases
 
 Animal Companion			KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal			TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:AnimalCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion]																							BONUS:VAR|AnimalCompanionLVL|MIN((TL-AnimalCompanionMasterLVL),4)|PREVARGTEQ:AnimalCompanionLVL,1	BONUS:VAR|AnimalCompanionLVLA|MIN((TL-RangerLVL),4)|PREVARGTEQ:AnimalCompanionLVLA,1
 Familiar				KEY:Boon Companion ~ Familiar			CATEGORY:Internal			TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:FamiliarLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Familiar]																										BONUS:VAR|FamiliarLVL|min(TL-FamiliarMasterLVL,4)|PREVARGT:FamiliarLVL,0
 
 
-Weapon Proficiency Selection	KEY:Weapon Proficiency Selection		CATEGORY:Internal													STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC				AUTO:WEAPONPROF|%LIST
+Weapon Proficiency Selection	KEY:Weapon Proficiency Selection		CATEGORY:Internal																										STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC				AUTO:WEAPONPROF|%LIST
 
 
-Deep Red Sphere			KEY:Equipment ~ Deep Red Sphere		CATEGORY:Internal															MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Dexterity								BONUS:SKILL|LIST|1
-Incandescent Blue Sphere	KEY:Equipment ~ Incandescent Blue Sphere	CATEGORY:Internal															MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Wisdom								BONUS:SKILL|LIST|1|TYPE=Competence
-Pale Blue Rhomboid		KEY:Equipment ~ Pale Blue Rhomboid		CATEGORY:Internal															MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Strength								BONUS:SKILL|LIST|1
-Pink And Green Sphere		KEY:Equipment ~ Pink And Green Sphere	CATEGORY:Internal															MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Charisma								BONUS:SKILL|LIST|1
-Scarlet And Blue Sphere		KEY:Equipment ~ Scarlet and blue Sphere	CATEGORY:Internal															MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Intelligence							BONUS:SKILL|LIST|1
+Deep Red Sphere			KEY:Equipment ~ Deep Red Sphere		CATEGORY:Internal																												MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Dexterity						BONUS:SKILL|LIST|1
+Incandescent Blue Sphere	KEY:Equipment ~ Incandescent Blue Sphere	CATEGORY:Internal																												MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Wisdom						BONUS:SKILL|LIST|1|TYPE=Competence
+Pale Blue Rhomboid		KEY:Equipment ~ Pale Blue Rhomboid		CATEGORY:Internal																												MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Strength						BONUS:SKILL|LIST|1
+Pink And Green Sphere		KEY:Equipment ~ Pink And Green Sphere	CATEGORY:Internal																												MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Charisma						BONUS:SKILL|LIST|1
+Scarlet And Blue Sphere		KEY:Equipment ~ Scarlet and blue Sphere	CATEGORY:Internal																												MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Intelligence					BONUS:SKILL|LIST|1

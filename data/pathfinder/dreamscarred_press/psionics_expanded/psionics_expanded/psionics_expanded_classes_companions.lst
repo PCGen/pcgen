@@ -1,11 +1,11 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/05
 
 ###Block: Astral Warrior class
 
-# Class Name		Hit Dice	Type				Class Type			Max Level		Source Page		Levels per Feat	Ability																		Automatically Gained Weapon Prof.		Combat bonus										Template				Bonus
+# Class Name		Hit Dice	Type				Class Type			Max Level		Source Page		Levels per Feat	Ability																		Auto Weapon Prof					Combat bonus										Template				Bonus
 CLASS:Astral Warrior	HD:10		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.66	LEVELSPERFEAT:0	ABILITY:FEAT|AUTOMATIC|CMB Output	ABILITY:Special Ability|AUTOMATIC|Construct Traits|PREVAREQ:NoTypeTraits,0	AUTO:WEAPONPROF|Astral Warrior Weapon	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	TEMPLATE:Construct|Mindless	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Reg. Race Type
 CLASS:Astral Warrior	PRERACETYPE:Construct

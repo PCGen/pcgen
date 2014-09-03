@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
 # Original Entry by: Paul Shipley
 
 # Ioun Stone equipmods
-# Modifier Name						Unique Key			Naming Option	Type			Visible		Type granted		Prohibited Type					Bonus to skill					Special Property																																													Choose									Automatically Gained Weapon Prof.
+# Modifier Name						Unique Key			Naming Option	Type			Visible		Type granted		Prohibited Type					Bonus to skill					Special Property																																													Choose									Auto Weapon Prof
 |Ioun Knowledge Bonus					KEY:IOUN_KNW		NAMEOPT:NONAME	TYPE:IounKnow	VISIBLE:QUALIFY												BONUS:SKILL|%CHOICE|5|TYPE=Competence	SPROP:Grants +5 competence bonus in %CHOICE																																								CHOOSE:SKILL|TYPE=Knowledge|TITLE=Enhanced Knowledge Skill
 |Ioun Weapon Proficiency				KEY:IOUN_WPN		NAMEOPT:NONAME	TYPE:IounWeapon	VISIBLE:QUALIFY																			SPROP:Grants proficiency in %LIST																																										CHOOSE:WEAPONPROFICIENCY|ANY						AUTO:WEAPONPROF|%LIST
 #elro - CHANGEPROF:%LIST throws a parse error :-(

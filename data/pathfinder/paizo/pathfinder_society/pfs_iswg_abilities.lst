@@ -1,8 +1,8 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 
 ###Block: Human Ethnicities
-# Ability Name				Type			Automatically Gained Language
+# Ability Name				Type			Auto Language
 CATEGORY=Background|Azlanti.MOD	TYPE:PFSLegal	AUTO:LANG|Azlanti
 CATEGORY=Background|Chelaxian.MOD	TYPE:PFSLegal	AUTO:LANG|Common
 CATEGORY=Background|Garundi.MOD	TYPE:PFSLegal	AUTO:LANG|Osiriani

@@ -1,4 +1,4 @@
-# CVS $Revision: 21418 $ $Author: evilmynex $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21418 $ $Author: evilmynex $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
 
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list				Plural description for UI			Display Location
@@ -28,7 +28,7 @@ ABILITYCATEGORY:Merfolk Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	
 ABILITYCATEGORY:Svirfneblin Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SvirfneblinRacialTrait								PLURAL:Svirfneblin Racial Traits		DISPLAYLOCATION:Racial Abilities
 
 ABILITYCATEGORY:Tengu Linguistic Additional Languages	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Tengu Language Selections	PLURAL:Tengu Additional Languages		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Tiefling Subrace	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TieflingSubrace	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Tiefling Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TieflingSubrace																DISPLAYLOCATION:Racial Abilities
 
 #
 # End

@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sat Nov 12 13:14:44 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-09
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2011/11/04
 
 ###Block: Determines whether a Constructor gets Advanced Construct or Boost Construct
-# Template Name				Visible	Template													Required Feat						Prohibited Feat				Bonus to Ability Pool				Automatically Gained Feat
+# Template Name				Visible	Template													Required Feat						Prohibited Feat				Bonus Ability Pool				Auto Feat
 Improved Constructs Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Get Advanced Constructs|Get Boost Construct|Get Bonus Psionic Feat
 Get Advanced Constructs			VISIBLE:NO																							!PREFEAT:1,Advanced Constructs								AUTO:FEAT|Advanced Constructs
 Get Boost Construct			VISIBLE:NO																							!PREFEAT:1,Boost Construct									AUTO:FEAT|Boost Construct
@@ -15,7 +15,7 @@ Get Bonus Psionic Feat			VISIBLE:NO															PREFEAT:2,Advanced Construct,B
 Advanced Construct	PRERACE:1,Astral Construct%
 
 ###Block: Determines Psicrystal Bond choice
-# Template Name		Visible	Template										Required Feat			Prohibited Feat				Automatically Gained Feat
+# Template Name		Visible	Template										Required Feat			Prohibited Feat				Auto Feat
 Psicrystal Bond Choice	VISIBLE:NO	TEMPLATE:CHOOSE:Get Psicrystal Affinity|Get Improved Psicrystal
 Get Psicrystal Affinity	VISIBLE:NO																	!PREFEAT:1,Psicrystal Affinity	AUTO:FEAT|Psicrystal Affinity
 Get Improved Psicrystal	VISIBLE:NO												PREFEAT:1,Psicrystal Affinity							AUTO:FEAT|Improved Psicrystal

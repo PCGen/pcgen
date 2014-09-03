@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Dark Markets - A Guide to Katapesh	SOURCESHORT:DM	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
 # Original Entry by: Terry Milnes
 
 ###Block: Armor
-# Equipment Name		Required Armor Proficiency	Type							Cost		Weight	AC Penalty Check	Modifier				Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+# Equipment Name		Required Armor Proficiency	Type										Cost		Weight	AC Penalty Check	Modifier				Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
 Blink Dog Hide		PROFICIENCY:ARMOR|Leather	TYPE:Armor.Light.ArmorProfLight.Suit.Specific.Nonmetal	COST:0	WT:15		ACCHECK:0		EQMOD:MAGIC_COST|-125.MWORKA	MAXDEX:6		SOURCEPAGE:p.30	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor
 Bone Mail			PROFICIENCY:ARMOR|Scale Mail	TYPE:Armor.Medium.ArmorProfMedium.Suit.Specific.Nonmetal	COST:0	WT:30		ACCHECK:-4		EQMOD:MAGIC_COST|-75.MWORKA	MAXDEX:3		SOURCEPAGE:p.30	SPELLFAILURE:25		BONUS:COMBAT|AC|4|TYPE=Armor
 Giant Scorpion Shell	PROFICIENCY:ARMOR|Breastplate	TYPE:Armor.Medium.ArmorProfMedium.Suit.Specific.Nonmetal	COST:100	WT:30		ACCHECK:-4		EQMOD:MWORKA			MAXDEX:3		SOURCEPAGE:p.30	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
@@ -15,5 +15,5 @@ Wood Lamellar		PROFICIENCY:ARMOR|Splint Mail	TYPE:Armor.Heavy.ArmorProfHeavy.Sui
 Wyvern Hide			PROFICIENCY:ARMOR|Chainmail	TYPE:Armor.Medium.ArmorProfMedium.Suit.Specific.Nonmetal	COST:100	WT:40		ACCHECK:-5		EQMOD:MWORKA			MAXDEX:2		SOURCEPAGE:p.30	SPELLFAILURE:30		BONUS:COMBAT|AC|5|TYPE=Armor
 
 ###Block: Weapons
-# Equipment Name	Required Weapon Proficiency	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Wield Category	Size		Source Page		Virtual Feat	Special Property
-The Brazen Claw	PROFICIENCY:WEAPON|Scimitar	TYPE:Weapon.Resizable.Melee.Martial.Specific.Slashing.Sword	COST:15	WT:4		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6	EQMOD:PLUS2W.STEEL.VICIOUS	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.17	VFEAT:Cleave	SPROP:If a gnoll wields the brazen claw, he takes no damage from the sword's vicious ability.
+# Equipment Name	Required Weapon Proficiency	Type										Cost		Weight	Crit Mult	Crit Range	Damage	Modifier				Wield Category	Size		Source Page		Virtual Feat	Special Property
+The Brazen Claw	PROFICIENCY:WEAPON|Scimitar	TYPE:Weapon.Resizable.Melee.Martial.Specific.Slashing.Sword	COST:15	WT:4		CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	EQMOD:PLUS2W.STEEL.VICIOUS	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.17	VFEAT:Cleave	SPROP:If a gnoll wields the brazen claw, he takes no damage from the sword's vicious ability.
