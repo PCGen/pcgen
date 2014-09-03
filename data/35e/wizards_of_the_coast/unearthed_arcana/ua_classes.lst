@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 # Original Entry by: Tir-Gwaith
 
 
-# Class Name		Bonus to Ability Pool
+# Class Name		Bonus Ability Pool
 CLASS:Barbarian.MOD	BONUS:ABILITYPOOL|Totem Barbarian|1	BONUS:ABILITYPOOL|Barbarian Rage Variant|1
 
 
@@ -27,7 +27,7 @@ CLASS:Bard.MOD	!PRECLASS:1,Bardic Sage=1,Divine Bard=1,Savage Bard=1
 CLASS:Bardic Sage.MOD	ABB:BrdSge		SOURCEPAGE:p.49	BONUS:SAVE|BASE.Reflex|floor(classlevel("APPLIEDAS=NONEPIC")/3)-floor(classlevel("APPLIEDAS=NONEPIC")/2+2)
 # Class Name		Clear Prereq.	Required AL		Prohibited Class
 CLASS:Bardic Sage.MOD	PRE:.CLEAR		PREALIGN:NG,TN,NE	!PRECLASS:1,Bard=1,Divine Bard=1,Savage Bard=1
-# Class Name		Spell Stat		Stat for Bonus Spells	Caster level				Bonus to DC					Use Spell List
+# Class Name		Spell Stat		Spell Stat Bonus		Caster level				Bonus DC					Use Spell List
 CLASS:Bardic Sage.MOD	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic Sage|CL	BONUS:DC|CLASS.Bardic Sage|CHA-INT	SPELLLIST:2|Bard|Bardic Sage
 ###Block: spells
 1	SPELLLEVEL:CLASS|Bardic Sage=1|Detect Chaos,Detect Evil,Detect Good,Detect Law
@@ -64,7 +64,7 @@ CLASS:Bardic Sage.MOD	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic 
 CLASS:Divine Bard.MOD	ABB:DvnBrd		SOURCEPAGE:p.50
 # Class Name		Prohibited Class
 CLASS:Divine Bard.MOD	!PRECLASS:1,Bard=1,Bardic Sage=1,Savage Bard=1
-# Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Caster level				Bonus to DC					Use Spell List
+# Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Caster level				Bonus DC					Use Spell List
 CLASS:Divine Bard.MOD	SPELLSTAT:WIS	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Divine Bard|CL	BONUS:DC|CLASS.Divine Bard|CHA-WIS	SPELLLIST:1|Bard
 ###Block: Expanded spell list options
 1	SPELLLEVEL:CLASS|Divine Bard=0|Create Water,Cure Minor Wounds
@@ -107,7 +107,7 @@ CLASS:Savage Bard.MOD	BONUS:CASTERLEVEL|Savage Bard|CL	SPELLLIST:1|Savage Bard
 # From Page 58, "Other class variants.
 #Since this is an option, and not subclass, I'm NOT changing the SOURCE info.
 
-# Class Name	Bonus to Ability Pool
+# Class Name	Bonus Ability Pool
 CLASS:Bard.MOD	BONUS:ABILITYPOOL|Bard Variant|1
 
 
@@ -161,8 +161,8 @@ CLASS:Cleric (Cloistered Cleric)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVE
 
 # Druid Variant
 
-# Class Name			Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class		Source Page			Bonus Languages	Define		Automatically Gained Language	Combat bonus											Modify VAR			Monster Role	Bonus
-CLASS:Druid (Druidic Avenger)	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	DEFINE:DruidLVL|0	AUTO:LANG|Druidic			BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|DruidLVL|CL	ROLE:Druid		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class		Source Page			Bonus Languages	Define		Auto Language	Combat bonus											Modify VAR			Monster Role	Bonus
+CLASS:Druid (Druidic Avenger)	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	DEFINE:DruidLVL|0	AUTO:LANG|Druidic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|DruidLVL|CL	ROLE:Druid		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL
 CLASS:Druid (Druidic Avenger)	PREALIGN:LN,NG,TN,NE,CN
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -651,8 +651,8 @@ CLASS:Cleric (Spontaneous)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Cler
 
 
 
-# Class Name			Hit Dice	Type				Class Type		Abbreviation	Max Level	Ex Class		Source Page		Bonus Languages	Automatically Gained Language	Combat bonus											Monster Role	Bonus																						Serves As
-CLASS:Druid (Spontaneous)	HD:8		TYPE:Base.PC.Variant	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:p.64	LANGBONUS:Sylvan	AUTO:LANG|Druidic			BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	ROLE:Druid		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	SERVESAS:CLASS|Druid
+# Class Name			Hit Dice	Type				Class Type		Abbreviation	Max Level	Ex Class		Source Page		Bonus Languages	Auto Language	Combat bonus											Monster Role	Bonus																						Serves As
+CLASS:Druid (Spontaneous)	HD:8		TYPE:Base.PC.Variant	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:p.64	LANGBONUS:Sylvan	AUTO:LANG|Druidic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	ROLE:Druid		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	SERVESAS:CLASS|Druid
 # Class Name			Required AL
 CLASS:Druid (Spontaneous)	PREALIGN:LN,NG,TN,NE,CN
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -732,8 +732,8 @@ CLASS:Druid (Spontaneous)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Druid
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
 CLASS:Prestige Bard	HD:6		TYPE:PC.Prestige	ABB:PBrd		MAXLEVEL:15	SOURCEPAGE:p.69	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Restricted AL		Req. Att.	Prohibited Class		Required Skill						Required Spell School
-CLASS:Prestige Bard	!PREALIGN:LG,LN,LE	PRETOTALAB:3	!PRECLASS:1,Bard=1	PRESKILL:2,TYPE.Knowledge=4,TYPE.Perform=8	PRESPELLSCHOOL:1,Divination=1	PRESPELLSCHOOL:1,Enchantment=1	PRESPELLSCHOOL:1,Illusion=1
+# Class Name		Restricted AL		Prohibited Class		Required Skill						Required Spell School													PRETOTALAB
+CLASS:Prestige Bard	!PREALIGN:LG,LN,LE	!PRECLASS:1,Bard=1	PRESKILL:2,TYPE.Knowledge=4,TYPE.Perform=8	PRESPELLSCHOOL:1,Divination=1	PRESPELLSCHOOL:1,Enchantment=1	PRESPELLSCHOOL:1,Illusion=1	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Prestige Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
 ###Block:Proficiencies
@@ -774,8 +774,8 @@ CLASS:Prestige Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentr
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Ex Class				Source Page		Combat bonus										Bonus
 CLASS:Prestige Paladin	HD:8		TYPE:PC.Prestige	ABB:PPal		MAXLEVEL:15	EXCLASS:Ex Prestige Paladin	SOURCEPAGE:p.71	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|2+CL/2
-# Class Name		Required Ability							Required AL	Req. Att.	Prohibited Class				Required Feat			Required Skill											Req. Known Spell				Required Text
-CLASS:Prestige Paladin	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PREALIGN:LG	PRETOTALAB:4	!PRECLASS:2,Paladin=1,Ex Paladin=1	PREFEAT:1,Mounted Combat	PRESKILL:3,Knowledge (Religion)=2,Knowledge(Nobility and Royalty)=2,Ride=4	PRESPELL:1,Protection from Evil	PRETEXT:Must be able to cast Protection from Evil as a Divine Spell
+# Class Name		Required Ability							Required AL	Prohibited Class				Required Feat			Required Skill											Req. Known Spell				Required Text										PRETOTALAB
+CLASS:Prestige Paladin	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PREALIGN:LG	!PRECLASS:2,Paladin=1,Ex Paladin=1	PREFEAT:1,Mounted Combat	PRESKILL:3,Knowledge (Religion)=2,Knowledge(Nobility and Royalty)=2,Ride=4	PRESPELL:1,Protection from Evil	PRETEXT:Must be able to cast Protection from Evil as a Divine Spell	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Prestige Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
 ###Block:Proficiencies
@@ -813,8 +813,8 @@ CLASS:Ex Prestige Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplom
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Prestige Ranger	HD:8		TYPE:PC.Prestige	ABB:PRgr		MAXLEVEL:15	SOURCEPAGE:p.72	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|2+CL/2
-# Class Name		Req. Att.	Prohibited Class		Required Feat										Required Skill
-CLASS:Prestige Ranger	PRETOTALAB:4	!PRECLASS:1,Ranger=1	PREFEAT:2,Endurance,Track	PREFEAT:1,Two-Weapon Fighting,Rapid Shot	PRESKILL:2,Knowledge (Nature)=2,Survival=4
+# Class Name		Prohibited Class		Required Feat										Required Skill						PRETOTALAB
+CLASS:Prestige Ranger	!PRECLASS:1,Ranger=1	PREFEAT:2,Endurance,Track	PREFEAT:1,Two-Weapon Fighting,Rapid Shot	PRESKILL:2,Knowledge (Nature)=2,Survival=4	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Prestige Ranger	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 ###Block:Proficiencies
@@ -1008,7 +1008,7 @@ CLASS:Bloodline	MAXLEVEL:3
 
 ###Block: GENERIC CLASSES
 
-# Class Name	Unique Key		Output Name		Hit Dice	Type				Max Level	Source, Long Desc.	Source, Short Desc.	Source Page		Bonus to Ability Pool				Combat bonus								Bonus
+# Class Name	Unique Key		Output Name		Hit Dice	Type				Max Level	Source, Long Desc.	Source, Short Desc.	Source Page		Bonus Ability Pool				Combat bonus								Bonus
 CLASS:Expert	KEY:GC_Expert	OUTPUTNAME:Expert	HD:6		TYPE:GenericClass.PC	MAXLEVEL:20	SOURCELONG:UA		SOURCESHORT:UA		SOURCEPAGE:p.77	BONUS:ABILITYPOOL|Expert Good Save|2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ExpertFortitudeSaveGood,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ExpertReflexSaveGood,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ExpertWillSaveGood,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ExpertFortitudeSaveGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ExpertReflexSaveGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ExpertWillSaveGood,1
 # Class Name	Multiple Requirements
 CLASS:Expert	PREMULT:1,[!PRECLASS:1,%=1],[PRECLASS:1,TYPE.GenericClass=1]
@@ -1021,7 +1021,7 @@ CLASS:Expert	STARTSKILLPTS:6
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|GC_Expert ~ Weapon and Armor Proficiency
 
-# Class Name	Unique Key				Output Name				Hit Dice	Type				Max Level	Source, Long Desc.	Source, Short Desc.	Source Page		Bonus to Ability Pool						Combat bonus								Bonus
+# Class Name	Unique Key				Output Name				Hit Dice	Type				Max Level	Source, Long Desc.	Source, Short Desc.	Source Page		Bonus Ability Pool						Combat bonus								Bonus
 CLASS:Spellcaster	KEY:GC_Divine Spellcaster	OUTPUTNAME:Divine Spellcaster	HD:4		TYPE:GenericClass.PC	MAXLEVEL:20	SOURCELONG:UA		SOURCESHORT:UA		SOURCEPAGE:p.77	BONUS:ABILITYPOOL|Divine Spellcaster Good Save|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:DivineSpellCasterFortitudeSaveGood,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:DivineSpellCasterReflexSaveGood,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:DivineSpellCasterWillSaveGood,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:DivineSpellCasterFortitudeSaveGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:DivineSpellCasterReflexSaveGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:DivineSpellCasterWillSaveGood,1
 # Class Name	Multiple Requirements
 CLASS:Spellcaster	PREMULT:1,[!PRECLASS:1,%=1],[PRECLASS:1,TYPE.GenericClass=1]
@@ -1081,7 +1081,7 @@ CLASS:GC_Divine Spellcaster	SPELLSTAT:WIS	BONUS:CASTERLEVEL|GC_Divine Spellcaste
 19	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	KNOWN:9,5,5,4,4,4,3,3,3,3
 
-# Class Name	Unique Key				Output Name				Hit Dice	Type				Max Level	Source, Long Desc.	Source, Short Desc.	Source Page		Bonus to Ability Pool						Combat bonus								Bonus
+# Class Name	Unique Key				Output Name				Hit Dice	Type				Max Level	Source, Long Desc.	Source, Short Desc.	Source Page		Bonus Ability Pool						Combat bonus								Bonus
 CLASS:Spellcaster	KEY:GC_Arcane Spellcaster	OUTPUTNAME:Arcane Spellcaster	HD:4		TYPE:GenericClass.PC	MAXLEVEL:20	SOURCELONG:UA		SOURCESHORT:UA		SOURCEPAGE:p.77	BONUS:ABILITYPOOL|Arcane Spellcaster Good Save|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ArcaneSpellCasterFortitudeSaveGood,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ArcaneSpellCasterReflexSaveGood,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:ArcaneSpellCasterWillSaveGood,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ArcaneSpellCasterFortitudeSaveGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ArcaneSpellCasterReflexSaveGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:ArcaneSpellCasterWillSaveGood,1
 # Class Name	Multiple Requirements
 CLASS:Spellcaster	PREMULT:1,[!PRECLASS:1,%=1],[PRECLASS:1,TYPE.GenericClass=1]
@@ -1141,7 +1141,7 @@ CLASS:GC_Arcane Spellcaster	SPELLSTAT:INT	BONUS:CASTERLEVEL|GC_Arcane Spellcaste
 20	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 
-# Class Name	Unique Key		Output Name			Hit Dice	Type				Max Level	Source, Long Desc.	Source, Short Desc.	Source Page		Bonus to Ability Pool				Combat bonus							Bonus
+# Class Name	Unique Key		Output Name			Hit Dice	Type				Max Level	Source, Long Desc.	Source, Short Desc.	Source Page		Bonus Ability Pool				Combat bonus							Bonus
 CLASS:Warrior	KEY:GC_Warrior	OUTPUTNAME:Warrior	HD:10		TYPE:GenericClass.PC	MAXLEVEL:20	SOURCELONG:UA		SOURCESHORT:UA		SOURCEPAGE:p.78	BONUS:ABILITYPOOL|Warrior Good Save|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:WarriorFortitudeSaveGood,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:WarriorReflexSaveGood,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:WarriorWillSaveGood,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:WarriorFortitudeSaveGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:WarriorReflexSaveGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:WarriorWillSaveGood,1
 # Class Name	Multiple Requirements
 CLASS:Warrior	PREMULT:1,[!PRECLASS:1,%=1],[PRECLASS:1,TYPE.GenericClass=1]

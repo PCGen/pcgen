@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
-# Ability Name								Unique Key			SORTKEY			Category of Ability		Type							Define																		Description																							Stackable?	Multiple?	Choose					Ability								Bonus to Ability Pool			Bonus to DC			Add domain number		Modify VAR																									Cost		Source Page
+# Ability Name								Unique Key			SORTKEY			Category of Ability		Type							Define																		Description																							Stackable?	Multiple?	Choose					Ability								Bonus Ability Pool			Bonus DC			Add domain number		Modify VAR																									Cost		Source Page
 Other Default																CATEGORY:Special Ability	TYPE:SpecialQuality.SpecialAttack																					DESC:Display this
 
 # No Level Progression to associate
-# Ability Name								Unique Key			SORTKEY			Category of Ability		Type							Define																		Description																							Stackable?	Multiple?	Choose					Ability								Bonus to Ability Pool			Bonus to DC			Add domain number		Modify VAR																									Cost		Source Page
+# Ability Name								Unique Key			SORTKEY			Category of Ability		Type							Define																		Description																							Stackable?	Multiple?	Choose					Ability								Bonus Ability Pool			Bonus DC			Add domain number		Modify VAR																									Cost		Source Page
 Rune Caster									KEY:Rune Caster Base					CATEGORY:Special Ability	TYPE:SpellCasterOutput				DEFINE:RuneCasterMagicLvls|0	DEFINE:PointBuyRuneCasterLvl|0	DEFINE:PointBuyRuneCasterCasterLvl|0		DESC:Rune Caster Level is listed in each entry, Bonus Caster levels add to all Rune Magic is +%1|PointBuyRuneCasterCasterLvl+CasterLevelAll																										BONUS:DC|ALLSPELLS|INT					BONUS:VAR|PointBuyRuneCasterCasterLvl|count("ABILITIES","CATEGORY=Special Ability","NAME=Base Caster Level ~ Specialized ~ Rune Caster")						SOURCEPAGE:p.97
 Hexcrafter									KEY:Hexcrafter Base					CATEGORY:Special Ability	TYPE:SpellCasterOutput				DEFINE:HexcrafterMagicLvls|0	DEFINE:PointBuyHexcrafterLvl|0	DEFINE:PointBuyHexcrafterCasterLvl|0		DESC:Hexcrafter Caster level is %2|HexcrafterMagicLvls|PointBuyHexcrafterCasterLvl+CasterLevelAll																																	BONUS:DC|ALLSPELLS|INT					BONUS:VAR|PointBuyHexcrafterCasterLvl|count("ABILITIES","CATEGORY=Special Ability","NAME=Base Caster Level ~ Specialized ~ Hexcrafter")						SOURCEPAGE:p.11
 Thaumaturgist								KEY:Thaumaturgist Base					CATEGORY:Special Ability	TYPE:SpellCasterOutput				DEFINE:ThaumaturgistMagicLvls|0	DEFINE:PointBuyThaumaturgistLvl|0	DEFINE:PointBuyThaumaturgistCasterLvl|0	DESC:Thaumaturgist Caster level is %2|ThaumaturgistMagicLvls|PointBuyThaumaturgistCasterLvl+CasterLevelAll																																BONUS:DC|ALLSPELLS|INT					BONUS:VAR|PointBuyThaumaturgistCasterLvl|count("ABILITIES","CATEGORY=Special Ability","KEY=Base Caster Level ~ Specialized ~ Thaumaturgist and Dweomer")			SOURCEPAGE:p.11
@@ -45,7 +45,7 @@ Adept Skill Buy2				KEY:Adept Skill Buy ~ Feat Pull2							CATEGORY:FEAT		TYPE:S
 #######################################
 
 ###Block: Spirit Weapon Choices ~ Melee
-# Ability Name			Category of Ability		Type				Visible		Required Ability									Req. Weapond Prof.					Bonus to Ability Pool			Add domain number		Modify VAR
+# Ability Name			Category of Ability		Type				Visible		Required Ability									Req. Weapond Prof.					Bonus Ability Pool			Add domain number		Modify VAR
 Armor Spikes			CATEGORY:Special Ability	TYPE:SpiritWeaponChoice				PREABILITY:1,CATEGORY=Special Ability,Spirit Weapon ~ Melee		PREWEAPONPROF:1,Spiked Armor														BONUS:VAR|SpiritWeaponMeleeCritMult|2	BONUS:VAR|SpiritWeaponMeleeCritRange|20	BONUS:VAR|SpiritWeaponMeleeDie|1	BONUS:VAR|SpiritWeaponMeleeDieSize|6
 Dagger				CATEGORY:Special Ability	TYPE:SpiritWeaponChoice				PREABILITY:1,CATEGORY=Special Ability,Spirit Weapon ~ Melee		PREWEAPONPROF:1,Dagger															BONUS:VAR|SpiritWeaponMeleeCritMult|2	BONUS:VAR|SpiritWeaponMeleeCritRange|19	BONUS:VAR|SpiritWeaponMeleeDie|1	BONUS:VAR|SpiritWeaponMeleeDieSize|4
 Dagger (Punching)			CATEGORY:Special Ability	TYPE:SpiritWeaponChoice				PREABILITY:1,CATEGORY=Special Ability,Spirit Weapon ~ Melee		PREWEAPONPROF:1,Dagger (Punching)													BONUS:VAR|SpiritWeaponMeleeCritMult|3	BONUS:VAR|SpiritWeaponMeleeCritRange|20	BONUS:VAR|SpiritWeaponMeleeDie|1	BONUS:VAR|SpiritWeaponMeleeDieSize|4
@@ -226,7 +226,7 @@ Immunity to Antimagic and Dispelling vrs Innate Enchantments (Epic L9)	KEY:Immun
 
 ###Block: Immunities Commonly Used ----
 # Common and not Common Immunities
-# Ability Name												Unique Key								Output Name						Category of Ability		Type										Description																											Stackable?	Multiple?	Choose												Combat bonus													Bonus to HP												Bonus to skill				Modify VAR						Cost		Source Page		Description of the Benefits												Bonus
+# Ability Name												Unique Key								Output Name						Category of Ability		Type										Description																											Stackable?	Multiple?	Choose												Combat bonus													Bonus to HP												Bonus to skill				Modify VAR						Cost		Source Page		Benefits															Bonus
 Immunity ~ Natural Law (The restriction of Innate Enchantments to 12 CP in total)																	CATEGORY:Special Ability	TYPE:EclipseAbilityOutput						DESC:(Common / Major / Minor [may exceed the normal limits on Innate Enchantment by up to 12 CP], 6 CP).
 
 Immunity / All Divination Magic																									CATEGORY:Special Ability	TYPE:Abilities.General.EclipseAbilityOutput.BBEG		DESC:(24 CP) Immune to all Divination Magics, including scrying and commune spells. Major,Legendary.																																																																						COST:24
@@ -309,7 +309,7 @@ Rune Casting (Weather)		CATEGORY:Special Ability	TYPE:SpellCasterOutput	DEFINE:R
 ###Block: Abilities Template
 
 
-# Ability Name	Unique Key				SORTKEY			Category of Ability		Type				Combat bonus										Description of the Benefits																																																														Bonus
+# Ability Name	Unique Key				SORTKEY			Category of Ability		Type				Combat bonus										Benefits																																																																	Bonus
 Superior Breeding	KEY:Superior Breeding ~ TFS	SORTKEY:Template_TFS_A	CATEGORY:Special Ability	TYPE:SpecialQuality	BONUS:COMBAT|INITIATIVE|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BENEFIT:A Faithful Steed gains a +2 bonus to its Initiative, Natural Armor Rating, and Saves.																																																			BONUS:SAVE|ALL|2
 Furious Defense	KEY:Furious Defense ~ TFS	SORTKEY:Template_TFS_B	CATEGORY:Special Ability	TYPE:SpecialQuality													BENEFIT:A Faithful Steed becomes berserk when its master is gravely wounded. When the master is dealt a lethal blow or falls below 10%% of his or her hit points, the steed gains +4 Strength, +4 Con, +2 on Will saves and -2 on it's AC for the next 10 combat rounds.
 Calling		KEY:Calling ~ TFS			SORTKEY:Template_TFS_C	CATEGORY:Special Ability	TYPE:SpecialQuality													BENEFIT:A Faithful Steed knows intrinsically when it will be needed. Not only can a character direct it to a specific place with any kind of communication, but the steed automatically comes to a location if the character will need it there soon. This doesn't help the Steed to move through terrain it cannot normally bypass, but may allow it to meet up with the master after being separated.

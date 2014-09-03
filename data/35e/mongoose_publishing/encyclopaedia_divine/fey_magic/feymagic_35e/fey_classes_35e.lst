@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Nov  6 12:49:31 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
 
 
@@ -15,7 +15,7 @@ CLASS:Wylding.MOD	PRE:.CLEAR		PREFEAT:1,Forge Bond	PRESKILL:3,Survival=8,Knowled
 CLASS:Wylding.MOD	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival
 
 
-# Class Name			Clear Prereq.	Req. Att.	Required Feat	Required Skill
-CLASS:Chosen Protector.MOD	PRE:.CLEAR		PRETOTALAB:5	PREFEAT:1,Track	PRESKILL:2,Survival=8,Knowledge (Fey)=6
+# Class Name			Clear Prereq.	Required Feat	Required Skill					PRETOTALAB
+CLASS:Chosen Protector.MOD	PRE:.CLEAR		PREFEAT:1,Track	PRESKILL:2,Survival=8,Knowledge (Fey)=6	PRETOTALAB:5
 # Class Name			Remove Class Skill		Class Skill
 CLASS:Chosen Protector.MOD	CSKILL:.CLEAR.Wilderness Lore	CSKILL:Survival

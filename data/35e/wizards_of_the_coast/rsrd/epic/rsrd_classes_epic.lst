@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Author: Andargor <andargor@yahoo.com>
 
@@ -131,37 +131,37 @@ CLASS:Union Sentinel	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Intimid
 
 # Class Name				Hit Dice	Type			Abbreviation	Visible
 CLASS:Epic Spells (Arcane/INT)	HD:1		TYPE:EpicSpells	ABB:Epic Spells	VISIBLE:NO
-# Class Name				Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level
+# Class Name				Spell Stat		Spell Stat Bonus		Spell Type		Spellbook		Caster level
 CLASS:Epic Spells (Arcane/INT)	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Epic Spells (Arcane/INT)|TL
 1	CAST:0,0,0,0,0,0,0,0,0,0,1
 
 # Class Name				Hit Dice	Type			Abbreviation	Visible
 CLASS:Epic Spells (Arcane/WIS)	HD:1		TYPE:EpicSpells	ABB:Epic Spells	VISIBLE:NO
-# Class Name				Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level
+# Class Name				Spell Stat		Spell Stat Bonus		Spell Type		Spellbook		Caster level
 CLASS:Epic Spells (Arcane/WIS)	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Epic Spells (Arcane/WIS)|TL
 1	CAST:0,0,0,0,0,0,0,0,0,0,1
 
 # Class Name				Hit Dice	Type			Abbreviation	Visible
 CLASS:Epic Spells (Arcane/CHA)	HD:1		TYPE:EpicSpells	ABB:Epic Spells	VISIBLE:NO
-# Class Name				Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level
+# Class Name				Spell Stat		Spell Stat Bonus		Spell Type		Spellbook		Caster level
 CLASS:Epic Spells (Arcane/CHA)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Epic Spells (Arcane/CHA)|TL
 1	CAST:0,0,0,0,0,0,0,0,0,0,1
 
 # Class Name				Hit Dice	Type			Abbreviation	Visible
 CLASS:Epic Spells (Divine/INT)	HD:1		TYPE:EpicSpells	ABB:Epic Spells	VISIBLE:NO
-# Class Name				Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level
+# Class Name				Spell Stat		Spell Stat Bonus		Spell Type		Spellbook		Caster level
 CLASS:Epic Spells (Divine/INT)	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	SPELLBOOK:YES	BONUS:CASTERLEVEL|Epic Spells (Divine/INT)|TL
 1	CAST:0,0,0,0,0,0,0,0,0,0,1
 
 # Class Name				Hit Dice	Type			Abbreviation	Visible
 CLASS:Epic Spells (Divine/WIS)	HD:1		TYPE:EpicSpells	ABB:Epic Spells	VISIBLE:NO
-# Class Name				Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level
+# Class Name				Spell Stat		Spell Stat Bonus		Spell Type		Spellbook		Caster level
 CLASS:Epic Spells (Divine/WIS)	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	SPELLBOOK:YES	BONUS:CASTERLEVEL|Epic Spells (Divine/WIS)|TL
 1	CAST:0,0,0,0,0,0,0,0,0,0,1
 
 # Class Name				Hit Dice	Type			Abbreviation	Visible
 CLASS:Epic Spells (Divine/CHA)	HD:1		TYPE:EpicSpells	ABB:Epic Spells	VISIBLE:NO
-# Class Name				Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level
+# Class Name				Spell Stat		Spell Stat Bonus		Spell Type		Spellbook		Caster level
 CLASS:Epic Spells (Divine/CHA)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	SPELLBOOK:YES	BONUS:CASTERLEVEL|Epic Spells (Divine/CHA)|TL
 1	CAST:0,0,0,0,0,0,0,0,0,0,1
 

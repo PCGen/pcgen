@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
@@ -44,7 +44,7 @@ CATEGORY=Special Ability|Divine Mastery.MOD	TYPE:WoodElfRacialTalent
 ##################
 
 ###Block: Ghost Elf Racial Talents
-# Ability Name		Category of Ability		Type										Visible		Required Ability								Required Casting Type		Req. Spell Type		Required Text									Define			Description							Stackable?	Multiple?	Choose		Bonus to Ability Pool					Modify VAR				Source Page
+# Ability Name		Category of Ability		Type										Visible		Required Ability								Required Casting Type		Req. Spell Type		Required Text									Define			Description							Stackable?	Multiple?	Choose		Bonus Ability Pool					Modify VAR				Source Page
 Blessing of Life		CATEGORY:Special Ability	TYPE:GhostElfRacialTalent.SpecialQuality.Supernatural		VISIBLE:YES																																																																SOURCEPAGE:p.24
 Catch the Winds		CATEGORY:Special Ability	TYPE:GhostElfRacialTalent.SpecialQuality.Supernatural		VISIBLE:YES																	PRESPELLTYPE:1,Any=1												DEFINE:CatchWindsBags|0	DESC:%1 bags, %2 minutes/day|CatchWindsBags|TL	STACK:YES	MULT:YES	CHOOSE:NOCHOICE									BONUS:VAR|CatchWindsBags|1	SOURCEPAGE:p.25
 Dance of the Return	CATEGORY:Special Ability	TYPE:GhostElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																																																SOURCEPAGE:p.25
@@ -55,7 +55,7 @@ Ghost Elf Talent Skills	CATEGORY:Special Ability	TYPE:GhostElfRacialTalent						
 Ghost Elf Talent Feats	CATEGORY:Special Ability	TYPE:GhostElfRacialTalent						VISIBLE:DISPLAY																				PRETEXT:This racial trait may not be selected twice in a row													STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Ghost Elf Talent Feat|1							SOURCEPAGE:p.25
 
 ###Block: Ghost Elf Racial Transformations
-# Ability Name				Category of Ability		Type											Visible		Required Lvl	Req. Spell Type		Required Text									Define				Description				Stackable?	Multiple?	Choose		Ability									Bonus to Ability Pool						Modify VAR						Source Page
+# Ability Name				Category of Ability		Type											Visible		Required Lvl	Req. Spell Type		Required Text									Define				Description				Stackable?	Multiple?	Choose		Ability									Bonus Ability Pool						Modify VAR						Source Page
 Eye of the Storm				CATEGORY:Special Ability	TYPE:GhostElfRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																																					ABILITY:Special Ability|AUTOMATIC|Resistance To Electricity										BONUS:VAR|ElectricityResistanceBonus|5	SOURCEPAGE:p.25
 Hands of Ice				CATEGORY:Special Ability	TYPE:GhostElfRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES		PRELEVEL:MIN=6																					DESC:1/day, %1 rounds|TL																																		SOURCEPAGE:p.25
 Heart of the Mists			CATEGORY:Special Ability	TYPE:GhostElfRacialTransformation.SpecialQuality.SpellLike		VISIBLE:YES		PRELEVEL:MIN=4																DEFINE:HeartoftheMists|0	DESC:%1/day|HeartoftheMists	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																				BONUS:VAR|HeartoftheMists|1			SOURCEPAGE:p.25
@@ -71,7 +71,7 @@ Ghost Elf Transformation Feats	CATEGORY:Special Ability	TYPE:GhostElfRacialTrans
 #################
 
 ###Block: Moon Elf Racial Talents
-# Ability Name		Category of Ability		Type									Visible		Required Ability								Required Lvl	Required Text									Description	Stackable?	Multiple?	Choose		Bonus to Ability Pool				Bonus to skill						Source Page
+# Ability Name		Category of Ability		Type									Visible		Required Ability								Required Lvl	Required Text									Description	Stackable?	Multiple?	Choose		Bonus Ability Pool				Bonus to skill						Source Page
 Perfect Memory		CATEGORY:Special Ability	TYPE:MoonElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																																		SOURCEPAGE:p.27
 Stories of the Past	CATEGORY:Special Ability	TYPE:MoonElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																										BONUS:SKILL|Knowledge (History)|2|TYPE=Racial	SOURCEPAGE:p.27
 Stories of the Future	CATEGORY:Special Ability	TYPE:MoonElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Stories of the Past																																							SOURCEPAGE:p.27
@@ -82,7 +82,7 @@ Moon Elf Talent Skills	CATEGORY:Special Ability	TYPE:MoonElfRacialTalent					VIS
 Moon Elf Talent Feats	CATEGORY:Special Ability	TYPE:MoonElfRacialTalent					VISIBLE:DISPLAY														PRETEXT:This racial trait may not be selected twice in a row			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Moon Elf Talent Feat|1									SOURCEPAGE:p.25
 
 ###Block: Moon Elf Racial Transformations
-# Ability Name				Category of Ability		Type											Visible		Required Ability										Required Lvl	Required Stat	Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool						Bonus to DC				Bonus to skill					Source Page
+# Ability Name				Category of Ability		Type											Visible		Required Ability										Required Lvl	Required Stat	Required Text									Stackable?	Multiple?	Choose		Bonus Ability Pool						Bonus DC				Bonus to skill					Source Page
 Eyes of the Stars				CATEGORY:Special Ability	TYPE:MoonElfRacialTransformation.SpecialQuality.Supernatural	VISIBLE:YES														PRELEVEL:MIN=4	PRESTAT:1,CHA=13																																								SOURCEPAGE:p.27
 Face of the Sun				CATEGORY:Special Ability	TYPE:MoonElfRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																																																				BONUS:SKILL|Bluff,Diplomacy|2|TYPE=Racial	SOURCEPAGE:p.27
 Body of the Moon				CATEGORY:Special Ability	TYPE:MoonElfRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																																															BONUS:DC|SCHOOL.Enchantment|1								SOURCEPAGE:p.27
@@ -97,7 +97,7 @@ Moon Elf Transformation Feats		CATEGORY:Special Ability	TYPE:MoonElfRacialTransf
 ###################
 
 ###Block: Wood Elf Racial Talents
-# Ability Name		Category of Ability		Type									Visible		Required Ability								Required Lvl	Required Text									Description	Stackable?	Multiple?	Choose		Bonus to Ability Pool				Source Page
+# Ability Name		Category of Ability		Type									Visible		Required Ability								Required Lvl	Required Text									Description	Stackable?	Multiple?	Choose		Bonus Ability Pool				Source Page
 Aim is True			CATEGORY:Special Ability	TYPE:WoodElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																										SOURCEPAGE:p.32
 Bounty of the Forest	CATEGORY:Special Ability	TYPE:WoodElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																										DESC:1/day															SOURCEPAGE:p.32
 Dance of Falling Leaves	CATEGORY:Special Ability	TYPE:WoodElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																										SOURCEPAGE:p.32
@@ -111,7 +111,7 @@ Wood Elf Talent Feats	CATEGORY:Special Ability	TYPE:WoodElfRacialTalent					VISI
 
 ###Block: Wood Elf Racial Transformations
 # Feat Name					Type						Visible	Required Feat			Prohibited Feat						Required Lvl	Required Stat	Special ABility					Define				Stackable?	Multiple?	Add																																																																	Bonus to skill					Modify VAR				Source Page
-# Ability Name				Category of Ability		Type											Visible		Required Lvl	Required Stat	Required Text									Define					Stackable?	Multiple?	Choose		Ability									Bonus to Ability Pool						Bonus to skill					Modify VAR					Source Page
+# Ability Name				Category of Ability		Type											Visible		Required Lvl	Required Stat	Required Text									Define					Stackable?	Multiple?	Choose		Ability									Bonus Ability Pool						Bonus to skill					Modify VAR					Source Page
 Feet of a Cat				CATEGORY:Special Ability	TYPE:WoodElfRacialTransformation.SpecialQuality.Supernatural	VISIBLE:YES																																																																SOURCEPAGE:p.33
 Ears of a Fox				CATEGORY:Special Ability	TYPE:WoodElfRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																																																			BONUS:SKILL|Listen|3|TYPE=Transformation							SOURCEPAGE:p.33
 Eyes of a Hawk				CATEGORY:Special Ability	TYPE:WoodElfRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																																																			BONUS:SKILL|Spot|3|TYPE=Transformation							SOURCEPAGE:p.33
@@ -124,7 +124,7 @@ Wood Elf Transformation Feats		CATEGORY:Special Ability	TYPE:WoodElfRacialTransf
 #####################
 
 ###Block: Forest Wight Racial Talents
-# Ability Name			Category of Ability		Type										Visible		Required Lvl	Required Text									Stackable?	Multiple?	Choose		Bonus to Ability Pool					Caster level				Source Page
+# Ability Name			Category of Ability		Type										Visible		Required Lvl	Required Text									Stackable?	Multiple?	Choose		Bonus Ability Pool					Caster level				Source Page
 Forest Fade				CATEGORY:Special Ability	TYPE:ForestWightRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES		PRELEVEL:MIN=6																																	SOURCEPAGE:p.72
 Hawk Swoop				CATEGORY:Special Ability	TYPE:ForestWightRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																					SOURCEPAGE:p.72
 Shadow in Darkness		CATEGORY:Special Ability	TYPE:ForestWightRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																					SOURCEPAGE:p.73
@@ -134,7 +134,7 @@ Forest Wight Talent Feats	CATEGORY:Special Ability	TYPE:ForestWightRacialTalent	
 
 ###Block: Forest Wight Racial Transformations
 # Feat Name						Type							Visible	Prohibited Feat						Required Lvl	Special ABility							Define				Innate Spells							Stackable?	Multiple?	Add																																			Caster level				Modify VAR					Source Page
-# Ability Name				Unique Key				Category of Ability		Type											Visible		Required Lvl	Required Text									Define				Innate Spells							Description					Stackable?	Multiple?	Choose		Ability									Bonus to Ability Pool						Modify VAR					Source Page
+# Ability Name				Unique Key				Category of Ability		Type											Visible		Required Lvl	Required Text									Define				Innate Spells							Description					Stackable?	Multiple?	Choose		Ability									Bonus Ability Pool						Modify VAR					Source Page
 Blood of Shadows									CATEGORY:Special Ability	TYPE:ForestWightRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																																																																				SOURCEPAGE:p.73
 Child of Darkness									CATEGORY:Special Ability	TYPE:ForestWightRacialTransformation.SpecialQuality.SpellLike	VISIBLE:YES		PRELEVEL:MIN=6												DEFINE:ChildDarknessTimes|0	SPELLS:Innate|TIMES=ChildDarknessTimes|Invisibility	DESC:%1/day|ChildDarknessTimes	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																				BONUS:VAR|ChildDarknessTimes|1	SOURCEPAGE:p.73
 Faded Spirit									CATEGORY:Special Ability	TYPE:ForestWightRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES		PRELEVEL:MIN=8																																																																SOURCEPAGE:p.73
@@ -179,10 +179,10 @@ Voice of Stone and Flame	CATEGORY:Special Ability	TYPE:DwarfRacialTalent.Special
 Stone Brother			CATEGORY:Special Ability	TYPE:DwarfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Subterranean Empathy,Master of the Underbeasts	PRELEVEL:MIN=4																																SOURCEPAGE:p.6
 
 ###Block: Dwarf Racial Racial Transformations
-# Ability Name		Category of Ability		Type						Visible		Define				Stackable?	Multiple?	Choose		Ability								Modify VAR					Add to vision					Vision			Source Page
-Dwarf Fire Resistance	CATEGORY:Special Ability	TYPE:DwarfRacialTransformation	VISIBLE:DISPLAY						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|VIRTUAL|Resistance To Fire	BONUS:VAR|FireResistanceBonus|2												SOURCEPAGE:p.7
-Dwarf Fast Healing	CATEGORY:Special Ability	TYPE:DwarfRacialTransformation	VISIBLE:DISPLAY						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|VIRTUAL|Fast Healing		BONUS:VAR|FastHealing|1														SOURCEPAGE:p.7
-Dwarf Tremorsense		CATEGORY:Special Ability	TYPE:DwarfRacialTransformation	VISIBLE:DISPLAY	DEFINE:DwarfTremorsense|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|DwarfTremorsense|5		BONUS:VAR|DwarfTremorsense|10|TYPE=Base		BONUS:VISION|Tremorsense|DwarfTremorsense	VISION:Tremorsense	SOURCEPAGE:p.7
+# Ability Name		Category of Ability		Type						Visible		Define				Stackable?	Multiple?	Choose		Ability								Modify VAR											Add to vision					Vision			Source Page
+Dwarf Fire Resistance	CATEGORY:Special Ability	TYPE:DwarfRacialTransformation	VISIBLE:DISPLAY						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|VIRTUAL|Resistance To Fire	BONUS:VAR|FireResistanceBonus|2																		SOURCEPAGE:p.7
+Dwarf Fast Healing	CATEGORY:Special Ability	TYPE:DwarfRacialTransformation	VISIBLE:DISPLAY						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|VIRTUAL|Fast Healing		BONUS:VAR|FastHealing|1																				SOURCEPAGE:p.7
+Dwarf Tremorsense		CATEGORY:Special Ability	TYPE:DwarfRacialTransformation	VISIBLE:DISPLAY	DEFINE:DwarfTremorsense|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|DwarfTremorsense|5	BONUS:VAR|DwarfTremorsense|10|TYPE=Base	BONUS:VISION|Tremorsense|DwarfTremorsense	VISION:Tremorsense	SOURCEPAGE:p.7
 
 ##################
 ### Elf, Dawn  ###
@@ -370,14 +370,14 @@ Horse Talker	CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.S
 Ironclad		CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																									SOURCEPAGE:p.107
 
 ###Block:Trueborn Racial Transformations
-# Ability Name		Unique Key				Category of Ability		Type											Visible	Req. Att.	Required Feat	Innate Spells				Ability									Bonus to Ability Pool					Source Page
-Defending Soldier							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES			PREFEAT:1,Dodge																									SOURCEPAGE:p.107
-Strength of Conquest						CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Supernatural	VISIBLE:YES																														SOURCEPAGE:p.107
-Holy Light								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.SpellLike		VISIBLE:YES						SPELLS:Innate|TIMES=ATWILL|Light																			SOURCEPAGE:p.107
-Divine Health		KEY:Trueborn Divine Health	CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality			VISIBLE:YES												ABILITY:Special Ability|AUTOMATIC|Paladin ~ Divine Health									SOURCEPAGE:p.107
-Divine Heritage							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																														SOURCEPAGE:p.107
-Followthrough							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES	PRETOTALAB:6																												SOURCEPAGE:p.107
-Staunch								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																						BONUS:ABILITYPOOL|Trueborn Staunch Bonus|2	SOURCEPAGE:p.107
+# Ability Name		Unique Key				Category of Ability		Type											Visible	Required Feat	PRETOTALAB		Innate Spells				Ability									Bonus Ability Pool					Source Page
+Defending Soldier							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES	PREFEAT:1,Dodge																												SOURCEPAGE:p.107
+Strength of Conquest						CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Supernatural	VISIBLE:YES																															SOURCEPAGE:p.107
+Holy Light								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.SpellLike		VISIBLE:YES							SPELLS:Innate|TIMES=ATWILL|Light																			SOURCEPAGE:p.107
+Divine Health		KEY:Trueborn Divine Health	CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality			VISIBLE:YES													ABILITY:Special Ability|AUTOMATIC|Paladin ~ Divine Health									SOURCEPAGE:p.107
+Divine Heritage							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																															SOURCEPAGE:p.107
+Followthrough							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES				PRETOTALAB:6																									SOURCEPAGE:p.107
+Staunch								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																							BONUS:ABILITYPOOL|Trueborn Staunch Bonus|2	SOURCEPAGE:p.107
 
 #################
 ### Minotaur  ###
@@ -393,11 +393,11 @@ Slap the Line		CATEGORY:Special Ability	TYPE:MinotaurRacialTalent.SpecialQuality
 Punish the Wicked		CATEGORY:Special Ability	TYPE:MinotaurRacialTalent.SpecialQuality	VISIBLE:YES										SOURCEPAGE:p.62
 
 ###Block: Minotaur Racial Transformations
-# Ability Name	Category of Ability		Type									Visible	Define								Description								Modify VAR					Source Page
+# Ability Name	Category of Ability		Type									Visible	Define								Description								Modify VAR										Source Page
 Eye of the Maze	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.SpecialQuality	VISIBLE:YES	DEFINE:EyeMazeDuration|0	DEFINE:EyeMazeDC|0	DESC:%1 rounds/day, DC%2|EyeMazeDuration|EyeMazeDC	BONUS:VAR|EyeMazeDC|10+TL/2+CHA	BONUS:VAR|EyeMazeDuration|WIS	SOURCEPAGE:p.62
-Guardian Will	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.SpecialQuality	VISIBLE:YES																									SOURCEPAGE:p.62
-Mighty Spring	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.SpecialQuality	VISIBLE:YES																									SOURCEPAGE:p.62
-Word of Honor	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.SpecialQuality	VISIBLE:YES																									SOURCEPAGE:p.62
+Guardian Will	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.SpecialQuality	VISIBLE:YES																														SOURCEPAGE:p.62
+Mighty Spring	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.SpecialQuality	VISIBLE:YES																														SOURCEPAGE:p.62
+Word of Honor	CATEGORY:Special Ability	TYPE:MinotaurRacialTransformation.SpecialQuality	VISIBLE:YES																														SOURCEPAGE:p.62
 
 #################
 ### Ogre      ###
@@ -434,7 +434,7 @@ Unbound Spirit				CATEGORY:Special Ability	TYPE:OgreRacialTransformation.Special
 ##############
 
 ###Block: Orc Racial Talents
-# Ability Name	Category of Ability		Type									Visible		Required Lvl	Required Stat	Stackable?	Multiple?	Choose		Bonus to Ability Pool				Bonus to skill												Source Page
+# Ability Name	Category of Ability		Type									Visible		Required Lvl	Required Stat	Stackable?	Multiple?	Choose		Bonus Ability Pool				Bonus to skill												Source Page
 Assess		CATEGORY:Special Ability	TYPE:OrcRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																				SOURCEPAGE:p.69
 Ready Grip		CATEGORY:Special Ability	TYPE:OrcRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																						BONUS:SKILL|Climb|STR|TYPE=Talent	BONUS:SKILL|Sleight of Hand|DEX|TYPE=Talent	SOURCEPAGE:p.69
 Sharp Eyes		CATEGORY:Special Ability	TYPE:OrcRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																				SOURCEPAGE:p.69
@@ -477,7 +477,7 @@ Thunder Shout					CATEGORY:Special Ability	TYPE:LizardRacialTransformation.Speci
 #################
 
 ###Block: Tiefling Racial Talents
-# Ability Name		Category of Ability		Type										Visible		Required Ability							Required Feat			Required Lvl	Required Stat	Define					Innate Spells										Stackable?	Multiple?	Choose		Ability						Bonus to Ability Pool					Modify VAR					Source Page
+# Ability Name		Category of Ability		Type										Visible		Required Ability							Required Feat			Required Lvl	Required Stat	Define					Innate Spells										Stackable?	Multiple?	Choose		Ability						Bonus Ability Pool					Modify VAR					Source Page
 Covert Casting		CATEGORY:Special Ability	TYPE:TieflingRacialTalent						VISIBLE:DISPLAY																																							STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:ABILITYPOOL|Tiefling Covert Casting|1							SOURCEPAGE:p.92
 Poisoner			CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																																																				SOURCEPAGE:p.92
 Generalist			CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																																																				SOURCEPAGE:p.93

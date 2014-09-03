@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
 
-# Ability Name														Define				Innate Spells							Bonus to Ability Pool						Modify VAR																						Allowed Companions
+# Ability Name														Define				Innate Spells							Bonus Ability Pool						Modify VAR																						Allowed Companions
 CATEGORY=Internal|Min Skill.MOD											DEFINE:CharacterSkillPts|0										BONUS:ABILITYPOOL|Character Skills|CharacterSkillPts	BONUS:VAR|CharacterSkillPts|TL+3|TYPE=Human|PRERACE:1,Human	BONUS:VAR|CharacterSkillPts|(INT*3)+(EclipseClassLvl*INT)|PRESTAT:1,INT=12
-# Ability Name														Define				Innate Spells							Bonus to Ability Pool						Modify VAR																						Allowed Companions
+# Ability Name														Define				Innate Spells							Bonus Ability Pool						Modify VAR																						Allowed Companions
 CATEGORY=Special Ability|Weapon Prof ~ Any one Exotic Weapon.MOD																				BONUS:ABILITYPOOL|Exotic Weapon Choice|1
 CATEGORY=Special Ability|Weapon Prof ~ All Simple and Martial plus any one Exotic Weapon.MOD															BONUS:ABILITYPOOL|Exotic Weapon Choice|1
 CATEGORY=Special Ability|Weapon Prof ~ All Simple and Martial and Exotic Weapon.MOD																	BONUS:ABILITYPOOL|Exotic Weapon Choice|15

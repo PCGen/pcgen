@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-09
 
-# Class of the Master		Type				Spell Res.	Special ABility														Define			Define a Stat			Combat bonus						Main Race Type
+# Class of the Master		Type				Spell Res.	Special ABility														Define			Define Stat				Combat bonus						Main Race Type
 FOLLOWER:Sorcerer,Wizard=1	TYPE:Demonic Familiar			SAB:Improved Evasion (Ex)	SAB:Empathic Link	SAB:Share Spells	SAB:Immune to Fire and Poison	DEFINE:PHBFeatEvasion|0	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Demonic Beast
 FOLLOWER:Sorcerer,Wizard=3	TYPE:Demonic Familiar			SAB:Touch	SAB:See in Darkness (Including Magical)												DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 FOLLOWER:Sorcerer,Wizard=5	TYPE:Demonic Familiar			SAB:Speak with master	SAB:Invisibility 1/day													DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE

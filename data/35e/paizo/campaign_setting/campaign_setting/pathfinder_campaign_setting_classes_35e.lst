@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Pathfinder Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
 
 
@@ -63,8 +63,8 @@ SUBSTITUTIONCLASS:Skilled Fighter - Pathfinder Varient
 SUBSTITUTIONLEVEL:1	BONUS:SKILLPOINTS|NUMBER|2	TEMPLATE:Skilled Fighter
 ###Block:Proficiencies
 SUBSTITUTIONLEVEL:1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
-SUBSTITUTIONLEVEL:1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-SUBSTITUTIONLEVEL:1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+SUBSTITUTIONLEVEL:1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+SUBSTITUTIONLEVEL:1										AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Advanced Weapon Feat qualifications
 SUBSTITUTIONLEVEL:1	BONUS:VAR|FighterLVL|CL	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
 SUBSTITUTIONLEVEL:1					ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify
@@ -105,8 +105,8 @@ SUBSTITUTIONCLASS:Ranger - Enhanced Companion Pathfinder Varient
 SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Enhanced Companion ~ Ranger|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
 SUBSTITUTIONLEVEL:1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
-SUBSTITUTIONLEVEL:1																	AUTO:FEAT|Armor Proficiency (Light)
-SUBSTITUTIONLEVEL:1																	AUTO:FEAT|Shield Proficiency
+SUBSTITUTIONLEVEL:1										AUTO:FEAT|Armor Proficiency (Light)
+SUBSTITUTIONLEVEL:1										AUTO:FEAT|Shield Proficiency
 ###Block: Favored Enemy level stacking
 SUBSTITUTIONLEVEL:1	BONUS:VAR|RangerFavoredEnemyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Basic Favored Enemy|Ranger Favored Enemy
 ###Block: Combat Trees

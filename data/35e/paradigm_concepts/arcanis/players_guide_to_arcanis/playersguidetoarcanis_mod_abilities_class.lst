@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jan 24 14:56:37 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
 # Companions
@@ -15,7 +15,7 @@ CATEGORY=Special Ability|Favored Enemy ~ Animal.MOD			PREMULT:1,[!PRECLASS:1,Urb
 CATEGORY=Special Ability|Favored Enemy ~ Construct.MOD		PREMULT:1,[!PRECLASS:1,Urban Sentinel=1],[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredEnemy],[PRECLASS:1,Urban Sentinel=1]]						SOURCELONG:ClassesII.rtf
 CATEGORY=Special Ability|Favored Enemy ~ Elemental.MOD		PREMULT:1,[!PRECLASS:1,Urban Sentinel=1],[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredEnemy],[PRECLASS:1,Urban Sentinel=1]]						SOURCELONG:ClassesII.rtf
 CATEGORY=Special Ability|Favored Enemy ~ Giant.MOD			PREMULT:1,[!PRECLASS:1,Urban Sentinel=1],[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredEnemy],[PRECLASS:1,Urban Sentinel=1]]						SOURCELONG:ClassesII.rtf
-CATEGORY=Special Ability|Favored Enemy ~ Humanoid (Human).MOD	PREMULT:1,[!PRECLASS:1,Urban Sentinel=1],[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredEnemy],[PRECLASS:1,Urban Sentinel=1]]	!PRERACE:1,Human,Val,Dark-Kin	SOURCEPAGE:ClassesII.rtf
+CATEGORY=Special Ability|Favored Enemy ~ Humanoid (Human).MOD	PREMULT:1,[!PRECLASS:1,Urban Sentinel=1],[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredEnemy],[PRECLASS:1,Urban Sentinel=1]]	!PRERACE:1,Human,Val,Dark-Kin						SOURCEPAGE:ClassesII.rtf
 CATEGORY=Special Ability|Favored Enemy ~ Humanoid (Aquatic).MOD	PREMULT:1,[!PRECLASS:1,Urban Sentinel=1],[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredEnemy],[PRECLASS:1,Urban Sentinel=1]]						SOURCELONG:ClassesII.rtf
 CATEGORY=Special Ability|Favored Enemy ~ Humanoid (Dwarf).MOD	PREMULT:1,[!PRECLASS:1,Urban Sentinel=1],[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredEnemy],[PRECLASS:1,Urban Sentinel=1]]						SOURCELONG:ClassesII.rtf
 CATEGORY=Special Ability|Favored Enemy ~ Humanoid (Goblinoid).MOD	PREMULT:1,[!PRECLASS:1,Urban Sentinel=1],[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredEnemy],[PRECLASS:1,Urban Sentinel=1]]						SOURCELONG:ClassesII.rtf
@@ -45,6 +45,7 @@ CATEGORY=Special Ability|Favored Enemy ~ Vermin.MOD			PREMULT:1,[!PRECLASS:1,Urb
 #CATEGORY=Special Ability|Ranger ~ Animal Companion.MOD	PREVAREQ:Usable,100
 #CATEGORY=Special Ability|Sorcerer ~ Familiar.FORGET
 #CATEGORY=Special Ability|Wizard ~ Familiar.FORGET
+# Ability Name									Required Var. value
 CATEGORY=Special Ability|Favored Enemy ~ Dragon.MOD			PREVAREQ:Usable,100
 CATEGORY=Special Ability|Favored Enemy ~ Fey.MOD			PREVAREQ:Usable,100
 CATEGORY=Special Ability|Favored Enemy ~ Humanoid (Elf).MOD		PREVAREQ:Usable,100

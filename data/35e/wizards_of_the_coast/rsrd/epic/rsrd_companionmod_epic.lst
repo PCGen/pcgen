@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Sun Jun 22 17:23:35 2014 -- reformated by prettylst.pl v1.51 (build 24190)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 #Original Entry by: Andrew Maitland
 
 
 #Block: Epic Familiar Progression
-# Class of the Master			Type				Hit Dice	Spell Res.	Bonus to Ability Pool				Combat bonus					Stat bonus					Modify VAR
+# Class of the Master			Type				Hit Dice	Spell Res.	Bonus Ability Pool				Combat bonus					Stat bonus					Modify VAR
 FOLLOWER:FamiliarLVL=21			TYPE:Familiar				SR:26		BONUS:ABILITYPOOL|Familiar Spell Choice|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|MasterLvl|1
 FOLLOWER:FamiliarLVL=22			TYPE:Familiar				SR:27																						BONUS:VAR|MasterLvl|1
 FOLLOWER:FamiliarLVL=23			TYPE:Familiar				SR:28									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|MasterLvl|1

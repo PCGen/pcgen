@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-09
 
 # Template Name		Challenge Rating	Visible	Source Page		Special ABility											Define			Damage reduction	Bonus to skill																	Stat bonus		Automatically Gained Feat				Removable?		Type
 # COMMENT: Wisdom can't be used for Additional spells
-# Template Name		Challenge Rating	Visible	Source Page		Special ABility											Damage reduction	Bonus to skill																	Stat bonus							Automatically Gained Feat				Removable?		Type			Bonus
+# Template Name		Challenge Rating	Visible	Source Page		Special ABility											Bonus DR		Bonus to skill																	Stat bonus							Auto Feat							Removable?		Type			Bonus
 Thrall			CR:1					SOURCEPAGE:p. 49	SAB:Mind Leech	SAB:Master	SAB:Limited Mindlessness	SAB:Tireless	BONUS:DR|+1|5	BONUS:SKILL|TYPE=Intelligence|-1*(INT)	BONUS:SKILL|TYPE=Wisdom|-1*(WIS)	BONUS:SKILL|TYPE=Charisma|-1*(CHA)	BONUS:STAT|BASESPELLSTAT|-WIS	BONUS:STAT|DEX|2	AUTO:FEAT|Endurance|Great Fortitude|Toughness	REMOVABLE:YES				BONUS:SAVE|Will|-WIS
 Dark Temptress Level 10				VISIBLE:NO																																																										TYPE:Outsider

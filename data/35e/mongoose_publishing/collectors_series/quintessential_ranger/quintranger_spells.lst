@@ -1,20 +1,20 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
 #Original Entry by: Andrew Maitland
 
 ###Block: Ranger Spells ------------------------------------------------------------------------------------------
-# Spell Name				Classes of caster		School			Sub-School		Spell Descriptors				Type		Components		Casting Time	Range			Target Area or Effect											Duration							Save Info					Spell Resistance		Source Page		Description
-Coralskin					CLASSES:Druid,Ranger=4	SCHOOL:Abjuration											TYPE:Divine	COMPS:V, S, M	CASTTIME:1 action	RANGE:Touch		TARGETAREA:Creature touched										DURATION:10 minutes/level or until discharged	SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.103	DESC:See text
-Gentle Cut					CLASSES:Druid,Ranger=1	SCHOOL:Abjuration											TYPE:Divine	COMPS:V, S, F	CASTTIME:1 round	RANGE:Personal	TARGETAREA:Self												DURATION:Ten minutes/level														SOURCEPAGE:p.103	DESC:See text
-Heal Animal Companion			CLASSES:Druid,Ranger=5	SCHOOL:Conjuration	SUBSCHOOL:Healing							TYPE:Divine	COMPS:V, S, M	CASTTIME:1 action	RANGE:Touch		TARGETAREA:The character's animal companion touched						DURATION:Instantaneous					SAVEINFO:None				SPELLRES:Yes (harmless)	SOURCEPAGE:p.104	DESC:See text
-Invisibility to Favoured Enemies	CLASSES:Ranger=2		SCHOOL:Illusion		SUBSCHOOL:Glamer							TYPE:Divine	COMPS:V		CASTTIME:1 action	RANGE:Personal	TARGETAREA:The character										DURATION:10 minutes/level				SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.104	DESC:See text
-Lay False Trail				CLASSES:Ranger=2		SCHOOL:Transmutation										TYPE:Divine	COMPS:V, S, DF	CASTTIME:1 action	RANGE:Touch		TARGETAREA:One creature/level touched								DURATION:10 minutes/level				SAVEINFO:See text				SPELLRES:See text		SOURCEPAGE:p.104	DESC:See text
-Nature's Revenge				CLASSES:Ranger=4		SCHOOL:Transmutation										TYPE:Divine	COMPS:V, S, M	CASTTIME:1 action	RANGE:Medium	TARGETAREA:One creature of caster's favoured enemy type					DURATION:1 round/two levels				SAVEINFO:See text				SPELLRES:Yes		SOURCEPAGE:p.105	DESC:See text
-Scare Enemies				CLASSES:Ranger=2		SCHOOL:Necromancy					DESCRIPTOR:Fear|Mind-Affecting	TYPE:Divine	COMPS:V, S, M	CASTTIME:1 action	RANGE:Medium	TARGETAREA:All creatures of caster's favoured enemy types within a 30-ft. radius	DURATION:1 round/level					SAVEINFO:Will negates			SPELLRES:Yes		SOURCEPAGE:p.106	DESC:See text
-Sensory Refinement			CLASSES:Ranger=2		SCHOOL:Transmutation										TYPE:Divine	COMPS:V, S, M	CASTTIME:1 action	RANGE:Personal	TARGETAREA:Self												DURATION:10 minutes/level				SAVEINFO:See text								SOURCEPAGE:p.106	DESC:See text
+# Spell Name				Type		Classes of caster		School			Sub-School		Descriptor					Components		Casting Time	Range			Target Area or Effect											Duration							Save Info					Spell Resistance		Source Page		Description
+Coralskin					TYPE:Divine	CLASSES:Druid,Ranger=4	SCHOOL:Abjuration											COMPS:V, S, M	CASTTIME:1 action	RANGE:Touch		TARGETAREA:Creature touched										DURATION:10 minutes/level or until discharged	SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.103	DESC:See text
+Gentle Cut					TYPE:Divine	CLASSES:Druid,Ranger=1	SCHOOL:Abjuration											COMPS:V, S, F	CASTTIME:1 round	RANGE:Personal	TARGETAREA:Self												DURATION:Ten minutes/level														SOURCEPAGE:p.103	DESC:See text
+Heal Animal Companion			TYPE:Divine	CLASSES:Druid,Ranger=5	SCHOOL:Conjuration	SUBSCHOOL:Healing							COMPS:V, S, M	CASTTIME:1 action	RANGE:Touch		TARGETAREA:The character's animal companion touched						DURATION:Instantaneous					SAVEINFO:None				SPELLRES:Yes (harmless)	SOURCEPAGE:p.104	DESC:See text
+Invisibility to Favoured Enemies	TYPE:Divine	CLASSES:Ranger=2		SCHOOL:Illusion		SUBSCHOOL:Glamer							COMPS:V		CASTTIME:1 action	RANGE:Personal	TARGETAREA:The character										DURATION:10 minutes/level				SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.104	DESC:See text
+Lay False Trail				TYPE:Divine	CLASSES:Ranger=2		SCHOOL:Transmutation										COMPS:V, S, DF	CASTTIME:1 action	RANGE:Touch		TARGETAREA:One creature/level touched								DURATION:10 minutes/level				SAVEINFO:See text				SPELLRES:See text		SOURCEPAGE:p.104	DESC:See text
+Nature's Revenge				TYPE:Divine	CLASSES:Ranger=4		SCHOOL:Transmutation										COMPS:V, S, M	CASTTIME:1 action	RANGE:Medium	TARGETAREA:One creature of caster's favoured enemy type					DURATION:1 round/two levels				SAVEINFO:See text				SPELLRES:Yes		SOURCEPAGE:p.105	DESC:See text
+Scare Enemies				TYPE:Divine	CLASSES:Ranger=2		SCHOOL:Necromancy					DESCRIPTOR:Fear|Mind-Affecting	COMPS:V, S, M	CASTTIME:1 action	RANGE:Medium	TARGETAREA:All creatures of caster's favoured enemy types within a 30-ft. radius	DURATION:1 round/level					SAVEINFO:Will negates			SPELLRES:Yes		SOURCEPAGE:p.106	DESC:See text
+Sensory Refinement			TYPE:Divine	CLASSES:Ranger=2		SCHOOL:Transmutation										COMPS:V, S, M	CASTTIME:1 action	RANGE:Personal	TARGETAREA:Self												DURATION:10 minutes/level				SAVEINFO:See text								SOURCEPAGE:p.106	DESC:See text
 
 
 ###Block: Special Spells for Class Abilities
-# Spell Name	School			Type		Components		Casting Time			Range		Target Area or Effect		Duration					Save Info					Spell Resistance		Source Page		Description
-Foxtail Flight	SCHOOL:Transmutation	TYPE:Divine	COMPS:V, S, F/DF	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Creature touched	DURATION:(CASTERLEVEL) minutes	SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.31	DESC:Subject flies at speed of 80 ft.
-Animal Form		SCHOOL:Transmutation	TYPE:Divine	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Self			DURATION:(CASTERLEVEL) minutes [D]	SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.36	DESC:Change into chosen animal.
+# Spell Name	Type		School			Components		Casting Time			Range		Target Area or Effect		Duration					Save Info					Spell Resistance		Source Page		Description
+Foxtail Flight	TYPE:Divine	SCHOOL:Transmutation	COMPS:V, S, F/DF	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Creature touched	DURATION:(CASTERLEVEL) minutes	SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.31	DESC:Subject flies at speed of 80 ft.
+Animal Form		TYPE:Divine	SCHOOL:Transmutation	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Self			DURATION:(CASTERLEVEL) minutes [D]	SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.36	DESC:Change into chosen animal.

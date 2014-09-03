@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Second Darkness - Chapter 6: Descent Into Midnight	SOURCESHORT:PF18	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84bc	SOURCEDATE:2009-01
 
 
-# Deity Name	Product Identity?	Output Name							Domains							Description of Deity/Title				Holy Item												Deity Weapon			Alignment
+# Deity Name	Product Identity?	Output Name							Domains							Description of Deity/Title				Holy Item												Deity Weapon			Align
 Aldinach		NAMEISPI:YES	OUTPUTNAME:Aldinach, She of the Six Venoms	DOMAINS:Animal,Chaos,Evil,Sun				DESC:Demon Lord of sand and scorpions		SYMBOL:Gold scorpion with sand dripping from its claws				DEITYWEAP:Kukri			ALIGN:CE
 Angazhan		NAMEISPI:YES	OUTPUTNAME:Angazhan, The Ravener King		DOMAINS:Animal,Chaos,Evil,Plant			DESC:Demon Lord of apes and jungles			SYMBOL:Demonic ape face										DEITYWEAP:Spear			ALIGN:CE
 Baphomet		NAMEISPI:YES	OUTPUTNAME:Baphomet, Lord of the Minotaurs	DOMAINS:Animal,Chaos,Evil,Strength			DESC:Demon Lord of labyrinths and beasts		SYMBOL:A brass minotaur's head with ruby eyes						DEITYWEAP:Glaive			ALIGN:CE

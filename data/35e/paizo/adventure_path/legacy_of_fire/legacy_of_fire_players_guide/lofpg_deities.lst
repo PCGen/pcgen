@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LoFPG	SOURCEWEB:http://paizo.com/paizo/messageboards/paizo/products/v5748btpy84bh	SOURCEDATE:2009-02
 
 # Gods of Katapesh
 
-# Deity Name	Product Identity?	Domains												Description of Deity/Title					Deity Weapon						Alignment	Pantheon		Source Page
+# Deity Name	Product Identity?	Domains												Description of Deity/Title					Deity Weapon						Align		Pantheon		Source Page
 Abadar		NAMEISPI:YES	DOMAINS:Earth,Law,Nobility,Protection,Travel|PREALIGN:LG,LN,NG			DESC:God of Cities, Wealth, Merchants, Law		DEITYWEAP:Crossbow (Light)|Crossbow (Heavy)	ALIGN:LN	PANTHEON:Katapesh	SOURCEPAGE:p. 25
 Besmara		NAMEISPI:YES	DOMAINS:Chaos,Trickery,War,Water,Weather|PREALIGN:CG,CN,CE				DESC:Goddess of Piracy, Strife, Sea Monsters		DEITYWEAP:Rapier						ALIGN:CN	PANTHEON:Katapesh	SOURCEPAGE:p. 25
 Gozreh		NAMEISPI:YES	DOMAINS:Air,Animal,Plant,Water,Weather|PREALIGN:LN,NG,TN,NE,CN			DESC:God of Nature, Weather, The Sea			DEITYWEAP:Trident						ALIGN:TN	PANTHEON:Katapesh	SOURCEPAGE:p. 25

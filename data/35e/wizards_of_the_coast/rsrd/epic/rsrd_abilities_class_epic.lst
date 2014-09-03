@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Author: Andargor <andargor@yahoo.com>
 
@@ -86,7 +86,7 @@ Deific Face		KEY:High Proselytizer ~ Deific Face		CATEGORY:Special Ability	TYPE:
 Deific Aura		KEY:High Proselytizer ~ Deific Aura		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike	VISIBLE:YES	DEFINE:HPProsetilyzeDA|0	DESC:%1/day|HPProsetilyzeDA
 
 ###Block: Legendary Dreadnought Abilities
-# Ability Name		Unique Key								Category of Ability		Type								Visible	Define			Description				Damage reduction			Bonus to HP
+# Ability Name		Unique Key								Category of Ability		Type								Visible	Define			Description				Bonus DR				Bonus to HP
 Unstoppable			KEY:Legendary Dreadnought ~ Unstoppable			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DEFINE:LDUnstoppable|0	DESC:%1/day|LDUnstoppable
 Unmovable			KEY:Legendary Dreadnought ~ Unmovable			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DEFINE:LDUnmovable|0	DESC:%1/day|LDUnmovable
 Shrug Off Punishment	KEY:Legendary Dreadnought ~ Shrug Off Punishment	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES	DEFINE:LDShrugOff|0											BONUS:HP|CURRENTMAX|LDShrugOff

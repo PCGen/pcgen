@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja	SOURCEDATE:2005-01
 
 # CREATED BY: Paul W. King, Jan 2007
@@ -64,7 +64,7 @@ Worm Immortality	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Super
 
 ###BLOCK: Class Proficiencies
 # Feat Name					Type			Visible	Stackable?	Multiple?	Choose																																		Automatically Gained Weapon Prof.
-# Ability Name				Category of Ability		Type						Stackable?	Multiple?	Choose																																	Automatically Gained Weapon Prof.
+# Ability Name				Category of Ability		Type						Stackable?	Multiple?	Choose																																	Auto Weapon Prof
 Igasaki Disciple Proficiencies	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[Bakuhatsugama|Bo Shuriken|Futokoro Teppo|Hyakurai Ju|Kusarigama|Ninja To|Tsubute|Uchi Ne]															AUTO:WEAPONPROF|%LIST
 Inpo Agent Proficiencies		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[Bakuhatsugama|Bo Shuriken|Futokoro Teppo|Hyakurai Ju|Kama|Kukri|Kusarigama|Ninja To|Nunchaku|Pick (Light)|Sai|Shuriken|Siangham|Sword (Bastard)|Sword (Short)|Tsubute|Uchi Ne]	AUTO:WEAPONPROF|%LIST
 Lotus Warrior Proficiencies		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[Bakuhatsugama|Bo Shuriken|Futokoro Teppo|Hyakurai Ju|Kama|Kukri|Kusarigama|Ninja To|Nunchaku|Pick (Light)|Sai|Shuriken|Siangham|Sword (Bastard)|Sword (Short)|Tsubute|Uchi Ne]	AUTO:WEAPONPROF|%LIST

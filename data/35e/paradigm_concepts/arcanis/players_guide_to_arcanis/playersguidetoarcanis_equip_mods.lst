@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -6,7 +6,7 @@ SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.parad
 
 #Greater Masterwork - no entries in PGtA for use on tools or items or ammunition
 #  Name			Key			Outputname					Name Opt		Type							Cost		Visible		Itype					Bonuses																										Sourcepage			Special Properties
-# Modifier Name		Unique Key		Naming Option							Type							Cost				Visible		Type granted		Source Page		Required Type									Prohibited Type								Combat bonus					Bonus Equipment Modifiers			Bonus Armor Modifiers					Weapon prop. bonus																					Special Property				Automatically Added to Inventory
+# Modifier Name		Unique Key		Naming Option							Type							Cost				Visible		Type granted		Source Page		Required Type									Prohibited Type								Combat bonus					Bonus Equip Mods					Bonus Armor Mods						Weapon prop. bonus																					Special Property				Auto Equip
 Greater Masterwork	KEY:GMWORKW		NAMEOPT:NORMAL							TYPE:Weapon.Masterwork.GreaterMastercraft	COST:600						ITYPE:Masterwork		SOURCEPAGE:p.184																																												BONUS:WEAPON|TOHIT.Melee|1|TYPE=Enhancement	BONUS:WEAPON|DAMAGE.Melee|1|TYPE=Enhancement	BONUS:WEAPON|TOHIT.Ranged|2|TYPE=Enhancement	SPROP:+10 Hardness
 Greater Masterwork	KEY:GMWORKA		NAMEOPT:NORMAL							TYPE:Armor.Masterwork.GreaterMastercraft	COST:300						ITYPE:Masterwork		SOURCEPAGE:p.244																																				BONUS:EQMARMOR|ACCHECK|2																												SPROP:+1 Hardness
 
@@ -40,4 +40,4 @@ Three-Round Chamber	KEY:FLTHREE		NAMEOPT:NORMAL							TYPE:Weapon.Flintlock.Thre
 Weapon Attachment		KEY:FLWEAPATT	NAMEOPT:NORMAL							TYPE:Weapon.Flintlock.WeaponAttach																PRETYPE:1,Standard.Melee
 
 
-Unyielding					KEY:FIM_UNYIELD_W										TYPE:Weapon						COST:10800						VISIBLE:QUALIFY	SOURCEPAGE:p.21															PRETYPE:1,Weapon																										SPROP:Aid 3/day
+Unyielding			KEY:FIM_UNYIELD_W										TYPE:Weapon						COST:10800			VISIBLE:QUALIFY					SOURCEPAGE:p.21	PRETYPE:1,Weapon																																																																	SPROP:Aid 3/day

@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 17:24:32 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
-# Skill Name						Type
-Knowledge (Local).MOD		PREVARGTEQ:ProfessionHunterUsable,100
-Profession (Hunter).MOD		PREVARGTEQ:ProfessionHunterUsable,100
+# Skill Name						Type							Var. Min. Value
+Knowledge (Local).MOD												PREVARGTEQ:ProfessionHunterUsable,100
+Profession (Hunter).MOD												PREVARGTEQ:ProfessionHunterUsable,100
 
 Knowledge (Arcana).MOD					TYPE:Intelligence.Knowledge.Arcana
 Knowledge (Architecture and Engineering).MOD	TYPE:Intelligence.Knowledge.Architecture

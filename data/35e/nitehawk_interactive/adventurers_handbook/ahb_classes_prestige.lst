@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir Gwaith
 
@@ -7,8 +7,8 @@ SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-g
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Ghost Hunter	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.130	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|min(1,classlevel("APPLIEDAS=NONEPIC")/2)+min(1,classlevel("APPLIEDAS=NONEPIC")/5)
-# Class Name		Req. Att.	Required Feat		Required Skill						Required Text
-CLASS:Ghost Hunter	PRETOTALAB:4	PREFEAT:1,Alertness	PRESKILL:2,Knowledge (Undead)=4,Sense Motive=4	PRETEXT:To become a ghost hunter the player character must have encountered and defied the approaches of at least one ghost, without the aid of others or magical assistance.
+# Class Name		Required Feat		Required Skill						Required Text																											PRETOTALAB
+CLASS:Ghost Hunter	PREFEAT:1,Alertness	PRESKILL:2,Knowledge (Undead)=4,Sense Motive=4	PRETEXT:To become a ghost hunter the player character must have encountered and defied the approaches of at least one ghost, without the aid of others or magical assistance.	PRETOTALAB:4
 # Class Name		Class Skill
 CLASS:Ghost Hunter	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Undead)|Listen|Search|Sense Motive|Spot
 ###Block:Proficiencies
@@ -25,8 +25,8 @@ CLASS:Ghost Hunter	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Undead)|
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus												Bonus
 CLASS:Master Chef	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.132	BONUS:COMBAT|BASEAB|max(0,classlevel("APPLIEDAS=NONEPIC")-1)|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2-1	BONUS:SAVE|BASE.Will|max(classlevel("APPLIEDAS=NONEPIC")-3,0)+1
-# Class Name	Req. Att.	Required Skill															Required Text
-CLASS:Master Chef	PRETOTALAB:1	PRESKILL:1,Craft (Cooking)=4	PRESKILL:2,Knowledge (Agriculture)=2,Knowledge (Spices and Herbs)=2	PRETEXT:To become a master chef, the character must have trained under a chef or cook for 10 years.
+# Class Name	Required Skill															Required Text															PRETOTALAB
+CLASS:Master Chef	PRESKILL:1,Craft (Cooking)=4	PRESKILL:2,Knowledge (Agriculture)=2,Knowledge (Spices and Herbs)=2	PRETEXT:To become a master chef, the character must have trained under a chef or cook for 10 years.	PRETOTALAB:1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Master Chef	STARTSKILLPTS:2	CSKILL:Craft (Alchemy)|Craft (Cooking)|Knowledge (Agriculture)|Knowledge (Food Preparation)|Knowledge (Seas and Oceans)|Knowledge (Spices and Herbs)|Knowledge (any specific foods)|TYPE=Perform|Profession (Chef)
 ###Block:Proficiencies
@@ -42,14 +42,14 @@ CLASS:Master Chef	STARTSKILLPTS:2	CSKILL:Craft (Alchemy)|Craft (Cooking)|Knowled
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Seasoned Veteran	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.134	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")+1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2
-# Class Name		Req. Att.	Required Feat			Required Text
-CLASS:Seasoned Veteran	PRETOTALAB:6	PREFEAT:1,Combat Reflexes	PRETEXT:To become a Seasoned Veteran, the character must have actively participated in a minimum of three major campaign battles.
+# Class Name		Required Feat			Required Text																				PRETOTALAB
+CLASS:Seasoned Veteran	PREFEAT:1,Combat Reflexes	PRETEXT:To become a Seasoned Veteran, the character must have actively participated in a minimum of three major campaign battles.	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Seasoned Veteran	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Handle Animal|Intimidate|Listen|TYPE=Profession|Ride|Search|Spot
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1													AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block:Level Progression
 1						BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	AUTO:FEAT|Combat Expertise
 2	BONUS:ABILITYPOOL|FEAT|1
@@ -61,8 +61,8 @@ CLASS:Seasoned Veteran	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Handle Animal|Int
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																		Bonus
 CLASS:Shark Charmer	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.136	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2+floor(min(1,classlevel("APPLIEDAS=NONEPIC")/9))|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2+max(0,classlevel("APPLIEDAS=NONEPIC")/2-3)	BONUS:SAVE|BASE.Reflex|max(1,(classlevel("APPLIEDAS=NONEPIC")+1)/3)	BONUS:SAVE|BASE.Will|min(1,classlevel("APPLIEDAS=NONEPIC")/4)+floor(max(0,min(2,(classlevel("APPLIEDAS=NONEPIC")-5)/2)))
-# Class Name		Req. Att.	Required Feat		Required Skill								Required Text
-CLASS:Shark Charmer	PRETOTALAB:4	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Seas and Oceans)=2	PRESKILL:1,Swim=4	PRETEXT:To become a shark charmer the character must have killed at least one shark without aid from others.
+# Class Name		Required Feat		Required Skill								Required Text																	PRETOTALAB
+CLASS:Shark Charmer	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Seas and Oceans)=2	PRESKILL:1,Swim=4	PRETEXT:To become a shark charmer the character must have killed at least one shark without aid from others.	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shark Charmer	STARTSKILLPTS:2	CSKILL:Handle Animal|Knowledge (Seas and Oceans)|Sense Motive|Survival|Swim|Use Rope
 ###Block:Proficiencies

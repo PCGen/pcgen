@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
 #Original Entry by: Andrew Maitland
 
 ###Block: Animal Champion --------------------------------------------------------------------------
-# Ability Name			Category of Ability		Type			Visible	Special ABility																												Define				Innate Spells																																																		Bonus to Ability Pool					Allow Follower
+# Ability Name			Category of Ability		Type			Visible	Special ABility																												Define				Innate Spells																																																		Bonus Ability Pool					Allow Follower
 Chosen Species			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Chosen Species
 Animal Friendship			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Animal Friendship (Ex)
 Animal Champion Companion	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Animal Companion																																																																																				BONUS:ABILITYPOOL|Animal Companion Choice|1	FOLLOWERS:Animal Champion Companion|1
@@ -285,7 +285,7 @@ Spitting Cobra Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.
 Frenzy			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Frenzy (Ex)
 
 ###Block: MOD Animal Companion
-# Ability Name						Allowed Companions
+# Ability Name								Allowed Companions
 CATEGORY=Special Ability|Ranger ~ Animal Companion.MOD	COMPANIONLIST:Animal Companion|Caracal,Fox,Snake (Spitting Cobra),Wildcat	COMPANIONLIST:Animal Companion|Dire Animal (Dire Mongoose),Lynx|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Saber-Tooth|FOLLOWERADJUSTMENT:-6
 
 #

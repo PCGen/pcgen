@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -78,55 +78,55 @@ Osalikene Ascendant Bloodline							CATEGORY:Special Ability	TYPE:AscendantBlood
 ###Block: Spell Focus Favored Enemy
 # Spell Focus Favored Enemy
 # Feat Name								Category				Type				Visible		Special ABility								Description									Multiple?	Bonus to skill					Source, Long Desc.				Source Page		List of Domain Spells by Level
-# Ability Name							Category of Ability		Type				Visible		Special ABility								Multiple?	Source Page
-Favored Enemy Spell Focus (Aberration)			CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Aberration) +1			MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Animal)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Animal) +1				MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Bioconstruct)			CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Bioconstruct) +1			MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Construct)			CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Construct) +1			MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Dragon)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Dragon) +1				MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Elemental)			CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Elemental) +1			MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Fey)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Fey) +1				MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Giant)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Giant) +1				MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Humanoid (Aquatic))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Aquatic)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Humanoid (Dwarf))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Dwarf)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Humanoid (Dark-Kin))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Reptilian)) +1	MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Humanoid (Elorii))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Elf)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Humanoid (Goblinoid))	CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Goblinoid)) +1	MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Humanoid (Gnoll))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Gnoll)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Humanoid (Gnome))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Gnome)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Humanoid (Human))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Human)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Humanoid (Orc))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Orc)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Humanoid (Reptilian))	CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Reptilian)) +1	MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Shapechanger)			CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Reptilian)) +1	MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Ssethregoran/Ss'ressen)	CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Reptilian)) +1	MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Magical Beast)			CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Magical Beast) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Monstrous Humanoid)		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Monstrous Humanoid) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Ooze)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Ooze) +1				MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Outsider (Air))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Air)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Outsider (Earth))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Earth)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Outsider (Fire))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Fire)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Outsider (Water))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Water)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Outsider (Lawful))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Lawful)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Outsider (Chaotic))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Chaotic)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Outsider (Celestial/Good))	CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Good)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Outsider (Infernal/Evil))	CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Evil)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Outsider (Native))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Native)) +1		MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Plant)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Plant) +1				MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Undead)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Undead) +1				MULT:NO	SOURCEPAGE:p.147
-Favored Enemy Spell Focus (Vermin)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Vermin) +1				MULT:NO	SOURCEPAGE:p.147
+# Ability Name							Category of Ability		Type				Visible		Special ABility								Multiple?	Auto Feat				Source Page
+Favored Enemy Spell Focus (Aberration)			CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Aberration) +1			MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Animal)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Animal) +1				MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Bioconstruct)			CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Bioconstruct) +1			MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Construct)			CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Construct) +1			MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Dragon)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Dragon) +1				MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Elemental)			CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Elemental) +1			MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Fey)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Fey) +1				MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Giant)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Giant) +1				MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Humanoid (Aquatic))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Aquatic)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Humanoid (Dwarf))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Dwarf)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Humanoid (Dark-Kin))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Reptilian)) +1	MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Humanoid (Elorii))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Elf)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Humanoid (Goblinoid))	CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Goblinoid)) +1	MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Humanoid (Gnoll))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Gnoll)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Humanoid (Gnome))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Gnome)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Humanoid (Human))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Human)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Humanoid (Orc))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Orc)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Humanoid (Reptilian))	CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Reptilian)) +1	MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Shapechanger)			CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Reptilian)) +1	MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Ssethregoran/Ss'ressen)	CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Humanoid (Reptilian)) +1	MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Magical Beast)			CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Magical Beast) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Monstrous Humanoid)		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Monstrous Humanoid) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Ooze)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Ooze) +1				MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Outsider (Air))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Air)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Outsider (Earth))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Earth)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Outsider (Fire))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Fire)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Outsider (Water))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Water)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Outsider (Lawful))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Lawful)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Outsider (Chaotic))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Chaotic)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Outsider (Celestial/Good))	CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Good)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Outsider (Infernal/Evil))	CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Evil)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Outsider (Native))		CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Outsider (Native)) +1		MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Plant)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Plant) +1				MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Undead)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Undead) +1				MULT:NO						SOURCEPAGE:p.147
+Favored Enemy Spell Focus (Vermin)				CATEGORY:Special Ability	TYPE:SpellFavoredEnemy	VISIBLE:DISPLAY	SAB:Favored Enemy Spell Focus (Vermin) +1				MULT:NO						SOURCEPAGE:p.147
 
 
 
 
 
-Monk ~ Stunning Fist	CATEGORY:Special Ability	AUTO:FEAT|Stunning Fist
-Improved Trip		CATEGORY:Special Ability	AUTO:FEAT|Improved Trip
-Deflect Arrows		CATEGORY:Special Ability	AUTO:FEAT|Deflect Arrows
-Combat Reflexes		CATEGORY:Special Ability	AUTO:FEAT|Combat Reflexes
+Monk ~ Stunning Fist						CATEGORY:Special Ability																				AUTO:FEAT|Stunning Fist
+Improved Trip							CATEGORY:Special Ability																				AUTO:FEAT|Improved Trip
+Deflect Arrows							CATEGORY:Special Ability																				AUTO:FEAT|Deflect Arrows
+Combat Reflexes							CATEGORY:Special Ability																				AUTO:FEAT|Combat Reflexes
 
 
 
 
 
-Holy Champion (Blazing Wyrm) ~ Defensive Stance		CATEGORY:Special Ability	
-Gladiator ~ Defensive Roll					CATEGORY:Special Ability	
+Holy Champion (Blazing Wyrm) ~ Defensive Stance		CATEGORY:Special Ability
+Gladiator ~ Defensive Roll					CATEGORY:Special Ability

@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
 ###Block: Disadvantages -
-# Ability Name		Category of Ability	Visible	Define				Bonus to Ability Pool								Modify VAR
+# Ability Name		Category of Ability	Visible	Define				Bonus Ability Pool								Modify VAR
 Disadvantage Counter	CATEGORY:Internal		VISIBLE:NO	DEFINE:DisadvantagePoints|0	BONUS:ABILITYPOOL|Character Points|var("DisadvantagePoints")	BONUS:VAR|DisadvantagePoints|3|PREABILITY:1,CATEGORY=Special Ability,TYPE.DisadvantageCounter	BONUS:VAR|DisadvantagePoints|3|PREABILITY:2,CATEGORY=Special Ability,TYPE.DisadvantageCounter	BONUS:VAR|DisadvantagePoints|4|PREABILITY:3,CATEGORY=Special Ability,TYPE.DisadvantageCounter	BONUS:VAR|CharacterPointsTotal|var("DisadvantagePoints")
 
 ###Block: Disadvantage List
-# Ability Name					Unique Key									Category of Ability		Type							Restricted Ability									Desc is PI?		Description																																																																																				Multiple?	Choose														Bonus to skill			Modify VAR					Cost		Source Page		Description of the Benefits
+# Ability Name					Unique Key									Category of Ability		Type							Restricted Ability									Desc is PI?		Description																																																																																				Multiple?	Choose														Bonus to skill			Modify VAR					Cost		Source Page		Benefits
 Accursed						KEY:Disadvantage ~ Accursed						CATEGORY:Special Ability	TYPE:Disadvantage.DisadvantageCounter													DESCISPI:YES	DESC:The universe is out to get you. This covers literal curses, such as dooming those you love, terrible fates, bleeding fire instead of blood, or uncontrollable lycanthropy, as well as lesser, persistent annoyances. The latter might include being a preferred target for attacks (you count as two people if random targeting is used), unpleasant disabilities such as epilepsy, allergies and so on. Your curse can be lifted, but it requires a great deal of work or truly major magic.					MULT:YES	CHOOSE:USERINPUT|TITLE=Accursed																					COST:1	SOURCEPAGE:p.18	BENEFIT:You have an affliction or curse.
 Aged							KEY:Disadvantage ~ Aged							CATEGORY:Special Ability	TYPE:Disadvantage.DisadvantageCounter													DESCISPI:YES	DESC:You didn't take up adventuring until late in life. You are middle-aged or older and may, at the option of the GM, have an extra level or two with the points assigned to abilities of little use in adventuring - giving you a starting edge at the cost of a long-term penalty.																																																																			COST:1	SOURCEPAGE:p.18	BENEFIT:You are older than normal adventurers.
 Blocked						KEY:Disadvantage ~ Blocked						CATEGORY:Special Ability	TYPE:Disadvantage.DisadvantageCounter													DESCISPI:YES	DESC:You cannot use some type of ability to which you'd normally have access. This is commonly a magical school, but this may include racial abilities or class abilities in games which use classes.																																																					MULT:YES	CHOOSE:USERINPUT|TITLE=Blocked																					COST:1	SOURCEPAGE:p.18	BENEFIT:You are blocked from a power or ability.

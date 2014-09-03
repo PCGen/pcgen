@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 #Original Entry: Arknight
 
-# Modifier Name	Unique Key		Naming Option	Type		Cost		Visible		Type granted		Source Page				Required Type		Bonus Weapon Modifiers
+# Modifier Name	Unique Key		Naming Option	Type		Cost		Visible		Type granted		Source Page				Required Type		Bonus Weapon Mods
 Psionic Blade	KEY:PSIBLADE	NAMEOPT:NORMAL	TYPE:Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Energy.Masterwork	SOURCEPAGE:PsionicClasses.rtf	PRETYPE:1,MindBlade
 Thrown Psiblade	KEY:T_PSIBLADE	NAMEOPT:NORMAL	TYPE:Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Ranged.Thrown	SOURCEPAGE:PsionicClasses.rtf	PRETYPE:1,MindBlade	BONUS:EQMWEAPON|RANGEADD|30
 
@@ -11,7 +11,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 #Updates: TaluronIscandar
 
 ###Block: Base Materials
-# Modifier Name	Unique Key			Type																					Cost		Visible		Type granted				Keys to replace		Source Page				Prohibited Type					Bonus Armor Modifiers							Modify the item cost																				Weapon prop. bonus								Special Property															Apply to both heads
+# Modifier Name	Unique Key			Type																					Cost		Visible		Type granted				Keys to replace		Source Page				Prohibited Type					Bonus Armor Mods								Modify the item cost																				Weapon prop. bonus								Special Property															Apply to both heads
 Crystal (Mundane)	KEY:CRYS_MUN		TYPE:MasterworkQuality.Weapon.Armor.Shield.Ammunition.BaseMaterial										COST:0	VISIBLE:QUALIFY	ITYPE:Metal.Crystal.Masterwork	REPLACES:MWORKW,MWORKA	SOURCEPAGE:PsionicItems.rtf								BONUS:EQMARMOR|ACCHECK|1|TYPE=ENHANCEMENT|PRETYPE:1,ARMOR	BONUS:ITEMCOST|TYPE.WEAPON|300	BONUS:ITEMCOST|TYPE.ARMOR|150	BONUS:ITEMCOST|TYPE.SHIELD|150	BONUS:ITEMCOST|TYPE.AMMUNITION|6	BONUS:WEAPON|TOHIT|1|TYPE=ENHANCEMENT|PRETYPE:1,WEAPON,AMMUNITION	SPROP:25hp/inch and 8 hardness												ASSIGNTOALL:YES
 Crystal (Deep)	KEY:CRYS_DEEP		TYPE:MasterworkQuality.Weapon.Armor.Shield.Ammunition.BaseMaterial										COST:0	VISIBLE:QUALIFY	ITYPE:Metal.Crystal.Masterwork	REPLACES:MWORKW,MWORKA	SOURCEPAGE:PsionicItems.rtf								BONUS:EQMARMOR|ACCHECK|1|TYPE=ENHANCEMENT|PRETYPE:1,ARMOR	BONUS:ITEMCOST|TYPE.WEAPON|1300	BONUS:ITEMCOST|TYPE.ARMOR|150	BONUS:ITEMCOST|TYPE.SHIELD|150	BONUS:ITEMCOST|TYPE.AMMUNITION|6	BONUS:WEAPON|TOHIT|1|TYPE=ENHANCEMENT|PRETYPE:1,WEAPON,AMMUNITION	SPROP:30hp/inch and 10 hardness;Weapon may be charged with 2 Psionic Power Points for +2d6 damage	ASSIGNTOALL:YES
 

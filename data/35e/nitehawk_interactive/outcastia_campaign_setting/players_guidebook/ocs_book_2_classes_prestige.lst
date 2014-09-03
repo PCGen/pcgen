@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
 # ORIGINAL ENTRY BY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 2011-11-26
@@ -152,8 +152,8 @@ CLASS:Cord		STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Escape Artis
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Dark Mystic	HD:6		TYPE:Prestige.PC	ABB:DkM		MAXLEVEL:5	SOURCEPAGE:p.94	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
-# Class Name	Required Ability													Required AL		Req. Att.	Required Skill
-CLASS:Dark Mystic	PREABILITY:2,CATEGORY=Special Ability,TYPE.MavitusFlemenSense,TYPE.MavitusFlemenControl	PREALIGN:LE,NE,CE	PRETOTALAB:8	PRESKILL:2,Intimidate=4,Knowledge (undead)=4
+# Class Name	Required Ability													Required AL		Required Skill						PRETOTALAB
+CLASS:Dark Mystic	PREABILITY:2,CATEGORY=Special Ability,TYPE.MavitusFlemenSense,TYPE.MavitusFlemenControl	PREALIGN:LE,NE,CE	PRESKILL:2,Intimidate=4,Knowledge (undead)=4	PRETOTALAB:8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dark Mystic	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Disguise|Forgery|Hide|Intimidate|Knowledge (Undead)|Move Silently|Spellcraft|Tactics
 ###Block:
@@ -235,8 +235,8 @@ CLASS:Dragon Rider	STARTSKILLPTS:4	CSKILL:Balance|TYPE=Craft|Dragon Lore|Handle 
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Dragon Slayer	HD:10		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.101	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL		Req. Att.	Required Feat						Required Skill
-CLASS:Dragon Slayer	PREALIGN:LE,NE,CE	PRETOTALAB:6	PREFEAT:2,Improved Initiative,Power Attack	PRESKILL:2,Dragon Lore=6,Intimidate=6
+# Class Name		Required AL		Required Feat						Required Skill					PRETOTALAB
+CLASS:Dragon Slayer	PREALIGN:LE,NE,CE	PREFEAT:2,Improved Initiative,Power Attack	PRESKILL:2,Dragon Lore=6,Intimidate=6	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dragon Slayer	STARTSKILLPTS:4	CSKILL:Balance|Craft (Apothecary)|Dragon Lore|Hide|Intimidate|Knowledge (Dragons)|Move Silently|Profession (Hunter)|Ride|Search|Spot|Use Rope
 ###Block:
@@ -258,8 +258,8 @@ CLASS:Dragon Slayer	STARTSKILLPTS:4	CSKILL:Balance|Craft (Apothecary)|Dragon Lor
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Feral Raider	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.104	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Feat			Required Skill							Required Text
-CLASS:Feral Raider	PRETOTALAB:3	PREFEAT:1,Improved Initiative	PRESKILL:3,Climb=3,Knowledge (geography)=3,Survival=3	PRETEXT:Special: Must be a Feral Lands native
+# Class Name		Required Feat			Required Skill							Required Text						PRETOTALAB
+CLASS:Feral Raider	PREFEAT:1,Improved Initiative	PRESKILL:3,Climb=3,Knowledge (geography)=3,Survival=3	PRETEXT:Special: Must be a Feral Lands native	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Feral Raider	STARTSKILLPTS:6	CSKILL:Balance|Climb|Escape Artist|Jump|Hide|Knowledge (Geography)|Listen|Move Silently|Spot|Survival|Tactics (guerrilla warfare only)|Tumble
 ###Block:
@@ -298,8 +298,8 @@ CLASS:Goblin Protector	STARTSKILLPTS:4	CSKILL:Balance|Craft (Apothecary)|Escape 
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Holy Terror	HD:10		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.107	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
-# Class Name	Req. Att.	Required Feat							Required Skill											Required Text
-CLASS:Holy Terror	PRETOTALAB:10	PREFEAT:3,Leadership,Mounted Combat,Power Attack	PRESKILL:4,Diplomacy=4,Dragon Lore=10,Knowledge (religion)=4,Intimidate=6	PRETEXT:Special: In order to become a holy terror, a dragon lord must first achieve the rank of captain within the dragon lords. Currently there are only ten captains within the dragon lords. A new holy terror can only be accepted into their if a previous one has passed away. There can be no more than 5 holy terrors at any given time
+# Class Name	Required Feat							Required Skill											Required Text																																																						PRETOTALAB
+CLASS:Holy Terror	PREFEAT:3,Leadership,Mounted Combat,Power Attack	PRESKILL:4,Diplomacy=4,Dragon Lore=10,Knowledge (religion)=4,Intimidate=6	PRETEXT:Special: In order to become a holy terror, a dragon lord must first achieve the rank of captain within the dragon lords. Currently there are only ten captains within the dragon lords. A new holy terror can only be accepted into their if a previous one has passed away. There can be no more than 5 holy terrors at any given time	PRETOTALAB:10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Holy Terror	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Diplomacy|Dragon Lore|Handle Animal|Hide|Intimidate|Knowledge (Religion)|Listen|Move Silently|Ride|Search|Spellcraft|Spot
 ###Block:
@@ -325,8 +325,8 @@ CLASS:Holy Terror	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Diplomacy|Dragon Lo
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus										Modify VAR				Bonus
 CLASS:Horok Guardian	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.110	DEFINE:HorokGuardianLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|HorokGuardianLVL|CL	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Feat				Required Race	Required Skill
-CLASS:Horok Guardian	PRETOTALAB:5	PREFEAT:3,Alertness,Dodge,Endurance	PRERACE:1,Horok	PRESKILL:3,Listen=4,Sense Motive=2,Spot=6
+# Class Name		Required Feat				Required Race	Required Skill					PRETOTALAB
+CLASS:Horok Guardian	PREFEAT:3,Alertness,Dodge,Endurance	PRERACE:1,Horok	PRESKILL:3,Listen=4,Sense Motive=2,Spot=6	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Horok Guardian	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Intimidate|Listen|TYPE=Profession|Search|Sense Motive|Spellcraft|Spot|Survival
 ###Block:
@@ -354,8 +354,8 @@ CLASS:Horok Guardian	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Intim
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Hundite Dragon	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.112	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
-# Class Name		Req. Att.	Required Feat		Required Skill				Required Text
-CLASS:Hundite Dragon	PRETOTALAB:5	PREFEAT:1,Alertness	PRESKILL:1,Knowledge (history)=5	PRETEXT:Special: To become a hundite dragon a character must be from a hundite tribe. Additionally, he must fast for 14 days in the volcanic base of the mountain known as Dragon Forge
+# Class Name		Required Feat		Required Skill				Required Text																													PRETOTALAB
+CLASS:Hundite Dragon	PREFEAT:1,Alertness	PRESKILL:1,Knowledge (history)=5	PRETEXT:Special: To become a hundite dragon a character must be from a hundite tribe. Additionally, he must fast for 14 days in the volcanic base of the mountain known as Dragon Forge	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Hundite Dragon	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Dragon Lore|Jump|Knowledge (History)|Intimidate|Listen|Spot|Survival
 ###Block:
@@ -488,8 +488,8 @@ CLASS:Metaphysician	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Decipher Scr
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Monolith Sentinel	HD:10		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.123	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
-# Class Name		Req. Att.	Required Feat		Required Skill							Req. Spell Type		Required Text
-CLASS:Monolith Sentinel	PRETOTALAB:6	PREFEAT:1,Power Attack	PRESKILL:3,Balance=5,Concentration=5,Spellcraft=5	PRESPELLTYPE:1,Arcane=1	PRETEXT:Special: To become a monolith sentinel the character must have lived in Monolith's Guard for at least 3 cycles
+# Class Name		Required Feat		Required Skill							Req. Spell Type		Required Text																		PRETOTALAB
+CLASS:Monolith Sentinel	PREFEAT:1,Power Attack	PRESKILL:3,Balance=5,Concentration=5,Spellcraft=5	PRESPELLTYPE:1,Arcane=1	PRETEXT:Special: To become a monolith sentinel the character must have lived in Monolith's Guard for at least 3 cycles	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Monolith Sentinel	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Intimidate|Listen|Spot|Spellcraft
 ###Block:
@@ -516,8 +516,8 @@ CLASS:Monolith Sentinel	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus										Modify VAR				Bonus
 CLASS:Mystic Teacher	HD:6		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.125	DEFINE:MysticTeacherLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|MysticTeacherLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
-# Class Name		Required Ability																		Required AL		Req. Att.	Multiple Requirements																																																							Required Text
-CLASS:Mystic Teacher	PREABILITY:3,CATEGORY=Special Ability,TYPE.NavitusFlemenMending,TYPE.NavitusFlemenSensing,TYPE.NavitusFlemenControlling	PREALIGN:LG,NG,CG	PRETOTALAB:8	PREMULT:2,[PRESKILL:1,Knowledge (Dragons)=4,Knowledge (Weaponology)=4,Knowledge (Arcana)=4,Knowledge (Architecture and Engineering)=4,Knowledge (Dungeoneering)=4,Knowledge (Geography)=4,Knowledge (History)=4,Knowledge (Local)=4,Knowledge (Nobility and Royalty)=4,Knowledge (The Planes)=4],[PRESKILL:2,Knowledge (nature)=4,Knowledge (religion)=4]	PRETEXT:Knowledge (Any)=4 plus Knowledge (Nature) and Knowledge (Religion)
+# Class Name		Required Ability																		Required AL		Multiple Requirements																																																							Required Text											PRETOTALAB
+CLASS:Mystic Teacher	PREABILITY:3,CATEGORY=Special Ability,TYPE.NavitusFlemenMending,TYPE.NavitusFlemenSensing,TYPE.NavitusFlemenControlling	PREALIGN:LG,NG,CG	PREMULT:2,[PRESKILL:1,Knowledge (Dragons)=4,Knowledge (Weaponology)=4,Knowledge (Arcana)=4,Knowledge (Architecture and Engineering)=4,Knowledge (Dungeoneering)=4,Knowledge (Geography)=4,Knowledge (History)=4,Knowledge (Local)=4,Knowledge (Nobility and Royalty)=4,Knowledge (The Planes)=4],[PRESKILL:2,Knowledge (nature)=4,Knowledge (religion)=4]	PRETEXT:Knowledge (Any)=4 plus Knowledge (Nature) and Knowledge (Religion)	PRETOTALAB:8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mystic Teacher	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Diplomacy|Gather Information|Heal|TYPE=Knowledge|Spellcraft|Tactics
 ###Block:
@@ -535,8 +535,8 @@ CLASS:Mystic Teacher	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Diplomacy|G
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Observer	HD:8		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.127	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL		Req. Att.	Required Feat		Required Skill										Required Text
-CLASS:Observer	PREALIGN:LG,NG,CG	PRETOTALAB:4	PREFEAT:1,Alertness	PRESKILL:4,Diplomacy=2,Gather Information=4,Intimidate=4,Sense Motive=4	PRETEXT:Special: Must be recommended by a member in good standing of The Order of the Eye and then go on a quest to prove that they are virtuous enough for said post (the details of the quest are up to the CM)
+# Class Name	Required AL		Required Feat		Required Skill										Required Text																																	PRETOTALAB
+CLASS:Observer	PREALIGN:LG,NG,CG	PREFEAT:1,Alertness	PRESKILL:4,Diplomacy=2,Gather Information=4,Intimidate=4,Sense Motive=4	PRETEXT:Special: Must be recommended by a member in good standing of The Order of the Eye and then go on a quest to prove that they are virtuous enough for said post (the details of the quest are up to the CM)	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Observer	STARTSKILLPTS:4	CSKILL:Diplomacy|Gather Information|Hide|Intimidate|Listen|Move Silently|Ride|Sense Motive|Spot|Use Rope
 ###Block:
@@ -580,8 +580,8 @@ CLASS:Permissionist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplom
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Scarlet Rose	HD:8		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.130	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
-# Class Name		Required Ability							Restricted AL		Req. Att.	Required Domain		Required Feat		Req. Spell Type
-CLASS:Scarlet Rose	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	!PREALIGN:LE,NE,CE	PRETOTALAB:4	PREDOMAIN:1,Sun,Glory	PREFEAT:1,Extra Turning	PRESPELLTYPE:1,Divine=3
+# Class Name		Required Ability							Restricted AL		Required Domain		Required Feat		Req. Spell Type		PRETOTALAB
+CLASS:Scarlet Rose	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	!PREALIGN:LE,NE,CE	PREDOMAIN:1,Sun,Glory	PREFEAT:1,Extra Turning	PRESPELLTYPE:1,Divine=3	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Scarlet Rose	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Undead)|TYPE=Profession|Sense Motive|Spellcraft
 ###Block:
@@ -607,8 +607,8 @@ CLASS:Scarlet Rose	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Hea
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Shakasan	HD:8		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.133	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Req. Att.	Required Feat					Required Race		Required Skill
-CLASS:Shakasan	PRETOTALAB:5	PREFEAT:2,Alertness,Two-Weapon Fighting	PRERACE:1,Elf (Feral)	PRESKILL:2,Intimidate=2,Knowledge (religion)=2
+# Class Name	Required Feat					Required Race		Required Skill						PRETOTALAB
+CLASS:Shakasan	PREFEAT:2,Alertness,Two-Weapon Fighting	PRERACE:1,Elf (Feral)	PRESKILL:2,Intimidate=2,Knowledge (religion)=2	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shakasan	STARTSKILLPTS:6	CSKILL:Balance|Climb|Hide|Intimidate|Jump|Listen|Move Silently|Ride|Spot|Survival
 ###Block:
@@ -650,8 +650,8 @@ CLASS:Troubadour	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Concentration|TYP
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Watchman	HD:10		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.139	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Restricted AL		Req. Att.	Required Feat				Required Skill				Required Text
-CLASS:Watchman	!PREALIGN:LE,NE,CE	PRETOTALAB:3	PREFEAT:2,Alertness,Blind-Fight	PRESKILL:1,Knowledge (undead)=3	PRETEXT:Special Must complete a 3-month training program
+# Class Name	Restricted AL		Required Feat				Required Skill				Required Text								PRETOTALAB
+CLASS:Watchman	!PREALIGN:LE,NE,CE	PREFEAT:2,Alertness,Blind-Fight	PRESKILL:1,Knowledge (undead)=3	PRETEXT:Special Must complete a 3-month training program	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Balance|Climb|Jump|Knowledge (Undead)|Listen|Ride|Search|Spot
 #Weapon and Armor Proficiency: Watchmen are skilled with all martial and simple weapons.
@@ -675,8 +675,8 @@ CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Balance|Climb|Jump|Knowledge (Undead)|List
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus										Modify VAR				Bonus
 CLASS:Wereranger	HD:10		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.141	DEFINE:WererangerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|WererangerLVL|CL	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Ability							Required AL		Req. Att.	Required Feat				Required Skill										Req. Spell Type		Required Text
-CLASS:Wereranger	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PREALIGN:LG,NG,CG	PRETOTALAB:6	PREFEAT:2,Bond with Nature,Track	PRESKILL:4,Diplomacy=8,Handle Animal=5,Knowledge (nature)=8,Survival=8	PRESPELLTYPE:1,Divine=1	PRETEXT:Special Must have lived a minimum of 10 years out in the wilderness, having never entered a community with a population no greater than 30.
+# Class Name	Required Ability							Required AL		Required Feat				Required Skill										Req. Spell Type		Required Text																							PRETOTALAB
+CLASS:Wereranger	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PREALIGN:LG,NG,CG	PREFEAT:2,Bond with Nature,Track	PRESKILL:4,Diplomacy=8,Handle Animal=5,Knowledge (nature)=8,Survival=8	PRESPELLTYPE:1,Divine=1	PRETEXT:Special Must have lived a minimum of 10 years out in the wilderness, having never entered a community with a population no greater than 30.	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wereranger	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Search|Spot|Survival|Swim
 ###Block:
@@ -711,8 +711,8 @@ CLASS:Wereranger	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|H
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Wyrm Master	HD:10		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.145	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Req. Att.	Required Feat			Required Race					Required Skill
-CLASS:Wyrm Master	PRETOTALAB:8	PREFEAT:1,Bond with Nature	PRERACE:1,Elf%,Half-Elf,Human,Half-Orc	PRESKILL:3,Diplomacy=8,Handle Animal=8,Knowledge (draconic)=8
+# Class Name	Required Feat			Required Race					Required Skill									PRETOTALAB
+CLASS:Wyrm Master	PREFEAT:1,Bond with Nature	PRERACE:1,Elf%,Half-Elf,Human,Half-Orc	PRESKILL:3,Diplomacy=8,Handle Animal=8,Knowledge (draconic)=8	PRETOTALAB:8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wyrm Master	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Decipher Script|Diplomacy|Handle Animal|Intimidate|Jump|TYPE=Knowledge|Ride|Sense Motive|Speak Language|Spellcraft|Spot|Survival
 ###Block: with all martial and simple weapons, and all shields.

@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
 # ORIGINAL ENTRY BY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 2011-11-26
 
 ###Block:# ~ Arcane Juggler
-# Ability Name		Unique Key							Category of Ability		Type												Define				Description																																																																																																																																		Automatically Gained Feat	Bonus to skill										Source Page
+# Ability Name		Unique Key							Category of Ability		Type												Define				Description																																																																																																																																		Auto Feat				Bonus to skill										Source Page
 Arcane Juggle		KEY:Arcane Juggle ~ Arcane Juggler			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																																																																																																																																SOURCEPAGE:p.82
 Deflect Arrows		KEY:Deflect Arrows ~ Arcane Juggler			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																																																																																															AUTO:FEAT|Deflect Arrows													SOURCEPAGE:p.82
 Performer			KEY:Performer ~ Arcane Juggler			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																																																																																																				BONUS:SKILL|TYPE.Perform,Concentration,Tumble,Balance|2|TYPE=Competence	SOURCEPAGE:p.82
@@ -28,7 +28,7 @@ Juggling Tumble		KEY:Juggling Tumble ~ Arcane Juggler		CATEGORY:Special Ability	
 
 
 ###Block:# ~ Beast Lord
-# Ability Name				Unique Key					Category of Ability		Type						Description																																																																																																																																												Multiple?	Choose							Template				Bonus to Ability Pool						Combat bonus			Bonus to skill		Source Page		Temporary Bonus
+# Ability Name				Unique Key					Category of Ability		Type						Description																																																																																																																																												Multiple?	Choose							Template				Bonus Ability Pool						Combat bonus			Bonus to skill		Source Page		Temporary Bonus
 Animal Noise				KEY:Animal Noise ~ Beast Lord		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																																																																																																																															SOURCEPAGE:p.84
 Animal Reflexes				KEY:Animal Reflexes ~ Beast Lord	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																																																																																																																						BONUS:COMBAT|AC|MAX(WIS,0)					SOURCEPAGE:p.84
 # COMMENT: Loses Ability when Wearing Armor or Shield
@@ -117,47 +117,47 @@ Dragon Blood Bath		KEY:Dragon Blood Bath ~ Dragon Slayer		CATEGORY:Special Abili
 
 
 ###Block:# ~ Feral Raider
-# Ability Name		Unique Key						Category of Ability		Type						Define					Template						Automatically Gained Feat	Add to base move						Source Page
-Run				KEY:Run ~ Feral Raider				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary							TEMPLATE:Run Evaluation Feral Raider														SOURCEPAGE:p.105
-Track				KEY:Track ~ Feral Raider			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary														AUTO:FEAT|Track											SOURCEPAGE:p.105
-Increased Movement	KEY:Increased Movement ~ Feral Raider	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:IncreasedMovementBonus|0													BONUS:MOVEADD|TYPE.Walk|IncreasedMovementBonus	SOURCEPAGE:p.105
-Battle Cry			KEY:Battle Cry ~ Feral Raider			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																											SOURCEPAGE:p.105
+# Ability Name		Unique Key						Category of Ability		Type						Define					Template						Auto Feat		Add to base move						Source Page
+Run				KEY:Run ~ Feral Raider				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary							TEMPLATE:Run Evaluation Feral Raider												SOURCEPAGE:p.105
+Track				KEY:Track ~ Feral Raider			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary														AUTO:FEAT|Track									SOURCEPAGE:p.105
+Increased Movement	KEY:Increased Movement ~ Feral Raider	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:IncreasedMovementBonus|0											BONUS:MOVEADD|TYPE.Walk|IncreasedMovementBonus	SOURCEPAGE:p.105
+Battle Cry			KEY:Battle Cry ~ Feral Raider			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																									SOURCEPAGE:p.105
 # TODO:	DESC:instils fear in his enemies in a 30-foot radius. A raider can affect a number of HD equal to his feral raider levels, beginning with the creatures with the least HD. Those affected must make a Will save with a DC of 10 + raider levels + the raider's Charisma modifier. Failure results in the creature being shaken for 1d4 rounds. Any creatures with less than 1 HD are frightened for 2d4 rounds. He may use this ability as a move equivalent action a number of times per day equal to his Charisma modifier (minimum of 1).
-Running Attack		KEY:Running Attack ~ Feral Raider		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																											SOURCEPAGE:p.105
-Irresistible Charge	KEY:Irresistible Charge ~ Feral Raider	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																											SOURCEPAGE:p.105
+Running Attack		KEY:Running Attack ~ Feral Raider		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																									SOURCEPAGE:p.105
+Irresistible Charge	KEY:Irresistible Charge ~ Feral Raider	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																									SOURCEPAGE:p.105
 
 
 ###Block: Goblin Protector
-# Ability Name	Unique Key					Category of Ability		Type						Automatically Gained Feat	Source Page
-Swarm			KEY:Swarm ~ Goblin Protector		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary						SOURCEPAGE:p.106
-Toughness		KEY:Toughness ~ Goblin Protector	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	AUTO:FEAT|Toughness		SOURCEPAGE:p.106
+# Ability Name	Unique Key					Category of Ability		Type						Auto Feat			Source Page
+Swarm			KEY:Swarm ~ Goblin Protector		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					SOURCEPAGE:p.106
+Toughness		KEY:Toughness ~ Goblin Protector	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	AUTO:FEAT|Toughness	SOURCEPAGE:p.106
 
 ###Block:###Block:# ~ Holy Terror
-# Ability Name	Unique Key					Category of Ability		Type						Define					Description																													Automatically Gained Feat	Ability							Stat bonus			Source Page
-Divine Spells	KEY:Divine Spells ~ Holy Terror	CATEGORY:Special Ability	TYPE:SpecialQuality																																																								SOURCEPAGE:p.108
+# Ability Name	Unique Key					Category of Ability		Type						Define					Description																													Auto Feat			Ability							Stat bonus			Source Page
+Divine Spells	KEY:Divine Spells ~ Holy Terror	CATEGORY:Special Ability	TYPE:SpecialQuality																																																							SOURCEPAGE:p.108
 #: The holy terror may cast spells as a cleric equal to his level. He may continue to cast arcane spells gained as a dragon lord as well. He has access to the following domains: Animal, Good, Healing, Knowledge, Law, Strength, and War. Holy terrors do not gain any domain granted powers.
-Tithing		KEY:Tithing ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																						SOURCEPAGE:p.108
-Turn Undead		KEY:Turn Undead ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																						SOURCEPAGE:p.108
+Tithing		KEY:Tithing ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																					SOURCEPAGE:p.108
+Turn Undead		KEY:Turn Undead ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																					SOURCEPAGE:p.108
 # TODO: Set up Turn Undead to Work
-Divine Armor	KEY:Divine Armor ~ Holy Terror	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																						SOURCEPAGE:p.108
+Divine Armor	KEY:Divine Armor ~ Holy Terror	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																					SOURCEPAGE:p.108
 # TODO: (Su): After reaching 2nd level, the holy terror gains the supernatural ability known as divine armor. He is able to apply his Cha modifier as a divine bonus to his armor class a number of times per day equal to his Cha modifier, for 1 round per holy terror level.
-Smite Evil		KEY:Smite Evil ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																										ABILITY:Special Ability|AUTOMATIC|Smite Evil					SOURCEPAGE:p.108
+Smite Evil		KEY:Smite Evil ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																									ABILITY:Special Ability|AUTOMATIC|Smite Evil					SOURCEPAGE:p.108
 # TODO: SmiteEvil needs to be set.
-Extra Turning	KEY:Extra Turning ~ Holy Terror	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																					AUTO:FEAT|Extra Turning														SOURCEPAGE:p.108
-Wyrmrage		KEY:Wyrmrage ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:HolyTerrorWrymRageTimes|0																																																SOURCEPAGE:p.108
+Extra Turning	KEY:Extra Turning ~ Holy Terror	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																					AUTO:FEAT|Extra Turning													SOURCEPAGE:p.108
+Wyrmrage		KEY:Wyrmrage ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:HolyTerrorWrymRageTimes|0																																															SOURCEPAGE:p.108
 # REVIEW: (Su): The holy terror maintains the wyrmrage ability of his last dragon lord level, except he is now no longer fatigued after the wyrmrage expires. At 4th level he is able to use this ability an addition 1x/day, and at 8th level he can use it a total of 2x/day in addition to his dragon lord ability.
-Bonus Feat		KEY:Bonus Feat ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary							DESC:chooses one of the following bonus metamagic feats: Empower Spell, Enlarge Spell, Extend Spell, Heighten Spell, Maximize Spell, Quicken Spell, Silent Spell, Still Spell.																		SOURCEPAGE:p.108
-Fasting		KEY:Fasting ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																		BONUS:STAT|WIS,CHA|1	SOURCEPAGE:p.108
-Calming Presence	KEY:Calming Presence ~ Holy Terror	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																						SOURCEPAGE:p.109
+Bonus Feat		KEY:Bonus Feat ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary							DESC:chooses one of the following bonus metamagic feats: Empower Spell, Enlarge Spell, Extend Spell, Heighten Spell, Maximize Spell, Quicken Spell, Silent Spell, Still Spell.																	SOURCEPAGE:p.108
+Fasting		KEY:Fasting ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																	BONUS:STAT|WIS,CHA|1	SOURCEPAGE:p.108
+Calming Presence	KEY:Calming Presence ~ Holy Terror	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																					SOURCEPAGE:p.109
 # TODO		 The holy terror is able to add his Charisma modifier to the hit dice of the dragon's lord's Calm Dragon ability.
-Commune		KEY:Commune ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																																																							SOURCEPAGE:p.109
-Divine Resistance	KEY:Divine Resistance ~ Holy Terror	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																						SOURCEPAGE:p.109
+Commune		KEY:Commune ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																																																						SOURCEPAGE:p.109
+Divine Resistance	KEY:Divine Resistance ~ Holy Terror	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																					SOURCEPAGE:p.109
 # TODO:		 Upon reaching 6th level the holy terror is able to add his Charisma modifier to his dragon lord resistance ability.
-Inspiration		KEY:Inspiration ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																						SOURCEPAGE:p.109
-Avatar		KEY:Avatar ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																						SOURCEPAGE:p.109
+Inspiration		KEY:Inspiration ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																					SOURCEPAGE:p.109
+Avatar		KEY:Avatar ~ Holy Terror		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																					SOURCEPAGE:p.109
 
 ###Block: ~ Horok Guardian
-# Ability Name			Unique Key							Category of Ability		Type						Define							Innate Spells											Description																					Multiple?	Choose						Automatically Gained Feat		Bonus to Ability Pool					Bonus to skill											Stat bonus		Weapon prof. bonus														Source Page
+# Ability Name			Unique Key							Category of Ability		Type						Define							Innate Spells											Description																					Multiple?	Choose						Auto Feat					Bonus Ability Pool					Bonus to skill											Stat bonus		Weapon prof. bonus														Source Page
 Overreaction			KEY:Overreaction ~ Horok Guardian			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																						DESC:Wisdom check (DC %1)|10-(HorokGuardianLvl*2)																																																																						SOURCEPAGE:p.110
 Spot Danger				KEY:Spot Danger ~ Horok Guardian			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																			BONUS:SKILL|Search,Spot|2|TYPE=Competency																											SOURCEPAGE:p.111
 Thrown Weapon			KEY:Thrown Weapon ~ Horok Guardian			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:HorokGuardianThrownWeaponLvl|0															DESC:+1 to Attack Roll|PREVAREQ:HorokGuardianThrownWeaponLvl,1	DESC:+2 to Attack Roll|PREVARGTEQ:HorokGuardianThrownWeaponLvl,2										AUTO:FEAT|Improved Critical (%LIST)	BONUS:ABILITYPOOL|Horok Thrown Weapon Choice|1																																		SOURCEPAGE:p.111
@@ -171,20 +171,20 @@ Clairaudience/Clairvoyance	KEY:Clairaudience/Clairvoyance ~ Horok Guardian	CATEG
 Detect Poison			KEY:Detect Poison ~ Horok Guardian			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																																																																																																					SOURCEPAGE:p.111
 
 ###Block:# ~ Hundite Dragon
-# Ability Name		Unique Key						Category of Ability		Type						Description									Automatically Gained Language	Ability									Bonus to Ability Pool						Combat bonus										Bonus to skill																		Modify VAR						Spell Res.	Source Page
-Bonus Language		KEY:Bonus Language ~ Hundite Dragon		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary											AUTO:LANG|Draconic																																																														SOURCEPAGE:p.112
-Draconic Lore		KEY:Draconic Lore ~ Hundite Dragon		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																															BONUS:SKILL|Dragon Lore|4|TYPE=Competence																							SOURCEPAGE:p.113
-Immunities			KEY:Immunities ~ Hundite Dragon		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Immunity to all types of sleep and paralysis attacks.																																																																		SOURCEPAGE:p.113
-Resist Energy		KEY:Resist Energy ~ Hundite Dragon		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																											BONUS:ABILITYPOOL|Hundite Resist Energy Choice|1																																										SOURCEPAGE:p.113
-Acid				KEY:HunditeDragonResist ~ Acid		CATEGORY:Special Ability	TYPE:HunditeDragonResist																	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid																																											BONUS:VAR|AcidResistanceBonus|10
-Cold				KEY:HunditeDragonResist ~ Cold		CATEGORY:Special Ability	TYPE:HunditeDragonResist																	ABILITY:Special Ability|AUTOMATIC|Resistance to Cold																																											BONUS:VAR|ColdResistanceBonus|10
-Electricity			KEY:HunditeDragonResist ~ Electricity	CATEGORY:Special Ability	TYPE:HunditeDragonResist																	ABILITY:Special Ability|AUTOMATIC|Resistance to Electricity																																										BONUS:VAR|ElectricityResistanceBonus|10
-Fire				KEY:HunditeDragonResist ~ Fire		CATEGORY:Special Ability	TYPE:HunditeDragonResist																	ABILITY:Special Ability|AUTOMATIC|Resistance to Fire																																											BONUS:VAR|FireResistanceBonus|10
-Sonic				KEY:HunditeDragonResist ~ Sonic		CATEGORY:Special Ability	TYPE:HunditeDragonResist																	ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic																																											BONUS:VAR|SonicResistanceBonus|10
-Enhanced Awareness	KEY:Enhanced Awareness ~ Hundite Dragon	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																			BONUS:COMBAT|TOHIT|2|TYPE=Intuitive	BONUS:COMBAT|AC|2|TYPE=Intuitive	BONUS:SKILL|Spot,Listen,Survival,Search|2|TYPE=Intuitive																				SOURCEPAGE:p.113
-Sudden Swiftness		KEY:Sudden Swiftness ~ Hundite Dragon	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																																												SOURCEPAGE:p.113
-Dragon Friendship		KEY:Dragon Friendship ~ Hundite Dragon	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																															BONUS:SKILL|Bluff (Draconic Creatures),Diplomacy (Draconic Creatures),Sense Motive (Draconic Creatures)|4|TYPE=Learned										SOURCEPAGE:p.113
-Memragon Bodysense	KEY:Memragons Bodysense ~ Hundite Dragon	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																																										SR:15+CHA	SOURCEPAGE:p.113
+# Ability Name		Unique Key						Category of Ability		Type						Description									Auto Language		Ability									Bonus Ability Pool						Combat bonus										Bonus to skill																		Modify VAR						Spell Res.	Source Page
+Bonus Language		KEY:Bonus Language ~ Hundite Dragon		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary											AUTO:LANG|Draconic																																																													SOURCEPAGE:p.112
+Draconic Lore		KEY:Draconic Lore ~ Hundite Dragon		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																														BONUS:SKILL|Dragon Lore|4|TYPE=Competence																							SOURCEPAGE:p.113
+Immunities			KEY:Immunities ~ Hundite Dragon		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Immunity to all types of sleep and paralysis attacks.																																																																	SOURCEPAGE:p.113
+Resist Energy		KEY:Resist Energy ~ Hundite Dragon		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																										BONUS:ABILITYPOOL|Hundite Resist Energy Choice|1																																										SOURCEPAGE:p.113
+Acid				KEY:HunditeDragonResist ~ Acid		CATEGORY:Special Ability	TYPE:HunditeDragonResist																ABILITY:Special Ability|AUTOMATIC|Resistance to Acid																																											BONUS:VAR|AcidResistanceBonus|10
+Cold				KEY:HunditeDragonResist ~ Cold		CATEGORY:Special Ability	TYPE:HunditeDragonResist																ABILITY:Special Ability|AUTOMATIC|Resistance to Cold																																											BONUS:VAR|ColdResistanceBonus|10
+Electricity			KEY:HunditeDragonResist ~ Electricity	CATEGORY:Special Ability	TYPE:HunditeDragonResist																ABILITY:Special Ability|AUTOMATIC|Resistance to Electricity																																										BONUS:VAR|ElectricityResistanceBonus|10
+Fire				KEY:HunditeDragonResist ~ Fire		CATEGORY:Special Ability	TYPE:HunditeDragonResist																ABILITY:Special Ability|AUTOMATIC|Resistance to Fire																																											BONUS:VAR|FireResistanceBonus|10
+Sonic				KEY:HunditeDragonResist ~ Sonic		CATEGORY:Special Ability	TYPE:HunditeDragonResist																ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic																																											BONUS:VAR|SonicResistanceBonus|10
+Enhanced Awareness	KEY:Enhanced Awareness ~ Hundite Dragon	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																		BONUS:COMBAT|TOHIT|2|TYPE=Intuitive	BONUS:COMBAT|AC|2|TYPE=Intuitive	BONUS:SKILL|Spot,Listen,Survival,Search|2|TYPE=Intuitive																				SOURCEPAGE:p.113
+Sudden Swiftness		KEY:Sudden Swiftness ~ Hundite Dragon	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																																											SOURCEPAGE:p.113
+Dragon Friendship		KEY:Dragon Friendship ~ Hundite Dragon	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																														BONUS:SKILL|Bluff (Draconic Creatures),Diplomacy (Draconic Creatures),Sense Motive (Draconic Creatures)|4|TYPE=Learned										SOURCEPAGE:p.113
+Memragon Bodysense	KEY:Memragons Bodysense ~ Hundite Dragon	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																																																									SR:15+CHA	SOURCEPAGE:p.113
 
 
 ###Block:# ~ Keeper
@@ -217,12 +217,12 @@ Weapon of Disruption	KEY:Weapon of Disruption ~ Knight of Manunzul	CATEGORY:Spec
 
 ###Block:# ~ Living Compass
 #Zenith Fighting Style (Ex): The living compass gains one of the following bonus feats: Blind-Fight, Cleave, Combat Reflexes, Dodge, Great Cleave, Improved Disarm, Improved Sunder, Mobility, Power Attack, Spring Attack, and Whirlwind Attack. He must have the required prerequisites for all feats gained by this ability.
-# Ability Name			Unique Key								Category of Ability		Type						Automatically Gained Feat	Source Page
-Lifeforce Awareness		KEY:Lifeforce Awareness ~ Living Compass			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.118
-Lifeforce Senses			KEY:Lifeforce Senses ~ Living Compass			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	AUTO:FEAT|Blind-Fight		SOURCEPAGE:p.118
-Enhanced Lifeforce		KEY:Enhanced Lifeforce ~ Living Compass			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.118
-Death Touch Resistance		KEY:Death Touch Resistance ~ Living Compass		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.118
-Aura of Darkness Resistance	KEY:Aura Of Darkness Resistance ~ Living Compass	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.118
+# Ability Name			Unique Key								Category of Ability		Type						Auto Feat			Source Page
+Lifeforce Awareness		KEY:Lifeforce Awareness ~ Living Compass			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.118
+Lifeforce Senses			KEY:Lifeforce Senses ~ Living Compass			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	AUTO:FEAT|Blind-Fight	SOURCEPAGE:p.118
+Enhanced Lifeforce		KEY:Enhanced Lifeforce ~ Living Compass			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.118
+Death Touch Resistance		KEY:Death Touch Resistance ~ Living Compass		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.118
+Aura of Darkness Resistance	KEY:Aura Of Darkness Resistance ~ Living Compass	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.118
 
 
 ###Block:# Mastermind
@@ -253,7 +253,7 @@ Defensive Roll		KEY:Defensive Roll ~ Monolith Sentinel		CATEGORY:Special Ability
 
 
 ###Block:# ~ Mystic Teacher
-# Ability Name				Unique Key						Category of Ability		Type						Define					Multiple?	Choose				Bonus to Ability Pool									Combat bonus												Bonus to skill				Source Page		Bonus
+# Ability Name				Unique Key						Category of Ability		Type						Define					Multiple?	Choose				Bonus Ability Pool									Combat bonus												Bonus to skill				Source Page		Bonus
 Guide Other					KEY:Guide Other ~ Mystic Teacher		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																														SOURCEPAGE:p.126
 Insight					KEY:Insight ~ Mystic Teacher			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																										BONUS:COMBAT|TOHIT|1|TYPE=Insight.STACK	BONUS:COMBAT|AC|1|TYPE=Insight.STACK							SOURCEPAGE:p.126	BONUS:SAVE|ALL|1|TYPE=Insight.STACK
 #Navitus Flemen				KEY:Navitus Flemen				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																															SOURCEPAGE:p.126
@@ -282,25 +282,25 @@ Immediate Counterspell		KEY:Immediate Counterspell ~ Permissionist	CATEGORY:Spec
 
 
 ###Block:# ~ Scarlet Rose
-# Ability Name		Unique Key						Category of Ability		Type						Automatically Gained Feat	Source Page
-Improved Turning		KEY:Improved Turning ~ Scarlet Rose		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.131
+# Ability Name		Unique Key						Category of Ability		Type						Auto Feat			Source Page
+Improved Turning		KEY:Improved Turning ~ Scarlet Rose		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.131
 # TODO: Awkward implementation - only adds to turning, nothing else.
-Rosebud			KEY:Rosebud ~ Scarlet Rose			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	AUTO:FEAT|Extra Turning		SOURCEPAGE:p.132
-Blossom			KEY:Blossom ~ Scarlet Rose			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.132
+Rosebud			KEY:Rosebud ~ Scarlet Rose			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	AUTO:FEAT|Extra Turning	SOURCEPAGE:p.132
+Blossom			KEY:Blossom ~ Scarlet Rose			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.132
 # TODO: (Su): The scarlet rose blossoms into a more focused being at third level. He gains a +4 sacred bonus to his Charisma for both turning checks and turning damage rolls. This sacred bonus does not apply to anything else, but does apply to this class's Prune, Abjure, and Burn checks as well as Greater Turning effects.
-Rose-Colored Glasses	KEY:Rose-colored glasses ~ Scarlet Rose	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.132
-Prune				KEY:Prune ~ Scarlet Rose			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.132
-Wire-Rim Glasses		KEY:Wire-rim glasses ~ Scarlet Rose		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.132
-Blast				KEY:Blast ~ Scarlet Rose			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.132
-Abjure			KEY:Abjure ~ Scarlet Rose			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.132
-Burn				KEY:Burn ~ Scarlet Rose				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						SOURCEPAGE:p.132
+Rose-Colored Glasses	KEY:Rose-colored glasses ~ Scarlet Rose	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.132
+Prune				KEY:Prune ~ Scarlet Rose			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.132
+Wire-Rim Glasses		KEY:Wire-rim glasses ~ Scarlet Rose		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.132
+Blast				KEY:Blast ~ Scarlet Rose			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.132
+Abjure			KEY:Abjure ~ Scarlet Rose			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.132
+Burn				KEY:Burn ~ Scarlet Rose				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.132
 
 
 ###Block:# ~ Shakasan
-# Ability Name	Unique Key				Category of Ability		Type						Bonus to Ability Pool					Source Page
+# Ability Name	Unique Key				Category of Ability		Type						Bonus Ability Pool					Source Page
 Mystic Tattoo	KEY:Mystic Tattoo ~ Shakasan	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	BONUS:ABILITYPOOL|Shakasan Mystic Tattoo|1	SOURCEPAGE:p.134
 ###Block: Tattoo
-# Ability Name			Unique Key							Category of Ability		Type									Description																																																								Automatically Gained Feat	Source Page
+# Ability Name			Unique Key							Category of Ability		Type									Description																																																								Auto Feat				Source Page
 Bat													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ShakasanMysticTattoo	DESC:Blindsense 20 ft., Lightning Reflexes																																																							SOURCEPAGE:p.134
 Bear													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ShakasanMysticTattoo	DESC:+4 Strength, +2 Constitution																																																									SOURCEPAGE:p.134
 Bison													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ShakasanMysticTattoo	DESC:+4 Strength, Endurance																																																										SOURCEPAGE:p.134
@@ -345,7 +345,7 @@ Suppress Magic			KEY:Troubadour's Flamboyance ~ Suppress Magic			CATEGORY:Specia
 
 
 ###Block: ~ Watchman
-# Ability Name		Unique Key					Category of Ability		Type						Define					Innate Spells							Description																Automatically Gained Feat	Bonus to skill										Source Page
+# Ability Name		Unique Key					Category of Ability		Type						Define					Innate Spells							Description																Auto Feat				Bonus to skill										Source Page
 Undead Insight		KEY:Undead Insight ~ Watchman		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																		SOURCEPAGE:p.140
 Combat Reflexes		KEY:Combat Reflexes ~ Watchman	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																	AUTO:FEAT|Combat Reflexes													SOURCEPAGE:p.140
 Street Lore			KEY:Street Lore				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																						BONUS:SKILL|Gather Information (City of Nightwatch)|4|TYPE=Competence	SOURCEPAGE:p.140
@@ -370,15 +370,15 @@ Nature's Spirit		KEY:Nature's Spirit ~ Wereranger	CATEGORY:Special Ability	TYPE:
 
 
 ###Block: ~ Wyrm Master
-# Ability Name		Unique Key						Category of Ability		Type						Define					Description																																																							Bonus to Situation					Source Page
-Draconic Friendship	KEY:Draconic Friendship ~ Wyrm Master	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																															BONUS:SITUATION|Diplomacy=Draconic Creatures|10	SOURCEPAGE:p.145
-Dragon Riding		KEY:Dragon Riding ~ Wyrm Master		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																															BONUS:SITUATION|Ride=Dragon|5				SOURCEPAGE:p.145
-Forbidden			KEY:Forbidden ~ Wyrm Master			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																																																																								SOURCEPAGE:p.145
-Summon Dragon		KEY:Summon Dragon ~ Wyrm Master		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DEFINE:WyrmMasterSummonDragonLvl|0	DESC:Summon	DESC: Young|PREVAREQ:WyrmMasterSummonDragonLvl,1	DESC: Juvenile|PREVAREQ:WyrmMasterSummonDragonLvl,2	DESC: Young Adult|PREVAREQ:WyrmMasterSummonDragonLvl,3	DESC: Adult|PREVAREQ:WyrmMasterSummonDragonLvl,4	DESC: Mature Adult|PREVARGTEQ:WyrmMasterSummonDragonLvl,5	DESC:Dragon, [%1/day]|MAX((CHA/2),1)									SOURCEPAGE:p.146
-Lore				KEY:Lore ~ Wyrm Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																							SOURCEPAGE:p.146
+# Ability Name		Unique Key						Category of Ability		Type						Define					Description																																																							Source Page		Bonus to Situation
+Draconic Friendship	KEY:Draconic Friendship ~ Wyrm Master	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																															SOURCEPAGE:p.145	BONUS:SITUATION|Diplomacy=Draconic Creatures|10
+Dragon Riding		KEY:Dragon Riding ~ Wyrm Master		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																															SOURCEPAGE:p.145	BONUS:SITUATION|Ride=Dragon|5
+Forbidden			KEY:Forbidden ~ Wyrm Master			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																																																																SOURCEPAGE:p.145
+Summon Dragon		KEY:Summon Dragon ~ Wyrm Master		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DEFINE:WyrmMasterSummonDragonLvl|0	DESC:Summon	DESC: Young|PREVAREQ:WyrmMasterSummonDragonLvl,1	DESC: Juvenile|PREVAREQ:WyrmMasterSummonDragonLvl,2	DESC: Young Adult|PREVAREQ:WyrmMasterSummonDragonLvl,3	DESC: Adult|PREVAREQ:WyrmMasterSummonDragonLvl,4	DESC: Mature Adult|PREVARGTEQ:WyrmMasterSummonDragonLvl,5	DESC:Dragon, [%1/day]|MAX((CHA/2),1)	SOURCEPAGE:p.146
+Lore				KEY:Lore ~ Wyrm Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																															SOURCEPAGE:p.146
 
 
-Emulate Breath Weapon	KEY:Emulate Breath Weapon ~ Wyrm Master	CATEGORY:Special Ability	TYPE:SpecialQuality.R.Extraordinary																																																																							SOURCEPAGE:p.146
+Emulate Breath Weapon	KEY:Emulate Breath Weapon ~ Wyrm Master	CATEGORY:Special Ability	TYPE:SpecialQuality.R.Extraordinary																																																															SOURCEPAGE:p.146
 
 # COMMENT: Not Listed in the Book - Publisher Notified
-Draconic Defender		KEY:Draconic Defender ~ Wyrm Master		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																																																																								SOURCEPAGE:p.146
+Draconic Defender		KEY:Draconic Defender ~ Wyrm Master		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																																																																SOURCEPAGE:p.146

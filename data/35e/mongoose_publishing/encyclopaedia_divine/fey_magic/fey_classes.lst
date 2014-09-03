@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Bonus
@@ -57,8 +57,8 @@ CLASS:Wylding	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Heal|Intuit Direction|Know
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Bonus
 CLASS:Chosen Protector	HD:10		TYPE:PC.Prestige	ABB:Chp		MAXLEVEL:10	SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
-# Class Name		Req. Att.	Required Feat	Required Skill
-CLASS:Chosen Protector	PRETOTALAB:5	PREFEAT:1,Track	PRESKILL:2,Wilderness Lore=8,Knowledge (Fey)=6
+# Class Name		Required Feat	Required Skill						PRETOTALAB
+CLASS:Chosen Protector	PREFEAT:1,Track	PRESKILL:2,Wilderness Lore=8,Knowledge (Fey)=6	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chosen Protector	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Hide|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Spot|Swim|Wilderness Lore
 1							BONUS:SKILL|Listen,Spot,Wilderness Lore|CL	BONUS:VAR|CPSLAYER|1	BONUS:VAR|ScentoftheHunterLvl|CL	DEFINE:CPSLAYER|0	ABILITY:Special Ability|AUTOMATIC|Scent of the Hunter ~ Chosen Protector|Slayer ~ Chosen Protector

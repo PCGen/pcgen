@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
 # ORIGINAL ENTRY BY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 2011-11-26
@@ -56,7 +56,7 @@ Swift Tracker	KEY:Swift Tracker ~ Highwayman	CATEGORY:Special Ability	TYPE:Speci
 
 
 ###Block: ~ Mystic Knight
-# Ability Name		Unique Key							Category of Ability		Type				Define						Description						Ability									Bonus to Ability Pool							Modify VAR						Source Page
+# Ability Name		Unique Key							Category of Ability		Type				Define						Description						Ability									Bonus Ability Pool							Modify VAR						Source Page
 Intuitive Defense		KEY:Intuitive Defense ~ Mystic Knight		CATEGORY:Special Ability	TYPE:SpecialQuality																																										SOURCEPAGE:p.58
 Essence Finger		KEY:Essence Finger ~ Mystic Knight			CATEGORY:Special Ability	TYPE:SpecialQuality																																										SOURCEPAGE:p.58
 Weapon Focus		KEY:Weapon Focus ~ Mystic Knight			CATEGORY:Special Ability	TYPE:SpecialQuality																																										SOURCEPAGE:p.58
@@ -76,7 +76,7 @@ Navitus Flemen Mastery	KEY:Navitus Flemen mastery ~ Mystic Knight	CATEGORY:Speci
 
 Navitus Flemen		KEY:Navitus Flemen					CATEGORY:Special Ability					DEFINE:NavitusFlemenCount|0																				BONUS:ABILITYPOOL|Navitus Flemen|NavitusFlemenCount
 ###Block:
-# Ability Name						Unique Key				Category of Ability		Type										Define					Bonus to Ability Pool									Source Page
+# Ability Name						Unique Key				Category of Ability		Type										Define					Bonus Ability Pool									Source Page
 Navitus Flemen / Mend Discipline Level 1							CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemen.MavitusFlemenMend																				SOURCEPAGE:p.59
 Navitus Flemen / Mend Discipline Level 2							CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemen.MavitusFlemenMend																				SOURCEPAGE:p.59
 Navitus Flemen / Mend Discipline Level 3							CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemen.MavitusFlemenMend																				SOURCEPAGE:p.59
@@ -89,7 +89,7 @@ Navitus Flemen / Control Discipline Level 3						CATEGORY:Special Ability	TYPE:S
 
 Navitus Flemen Mastery					KEY:Navitus Flemen Mastery	CATEGORY:Special Ability											DEFINE:NavitusFlemenMasteryCount|0	BONUS:ABILITYPOOL|Navitus Flemen Mastery|NavitusFlemenMasteryCount
 ###Block:
-# Ability Name						Category of Ability		Type							Visible	Required Ability									Multiple?	Choose										Automatically Gained Feat					Source Page
+# Ability Name						Category of Ability		Type							Visible	Required Ability									Multiple?	Choose										Auto Feat								Source Page
 Navitus Flemen / Mend Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenMend																							SOURCEPAGE:p.60
 Navitus Flemen / Sense Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenSense																							SOURCEPAGE:p.61
 Navitus Flemen / Control Discipline  Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenControl																							SOURCEPAGE:p.61
@@ -111,7 +111,7 @@ Extend		KEY:Extend ~ Oracle		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellL
 
 
 ###Block: ~ Utter Master
-# Ability Name			Unique Key							Category of Ability		Type						Define						Description						Automatically Gained Feat	Source Page
+# Ability Name			Unique Key							Category of Ability		Type						Define						Description						Auto Feat				Source Page
 Improved Counterspell		KEY:Improved Counterspell ~ Utter Master		CATEGORY:Special Ability	TYPE:SpecialQuality																						SOURCEPAGE:p.77
 Power Cast				KEY:Power Cast ~ Utter Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:UtterMasterPowerCastTimes|0		DESC: %1/day|UtterMasterPowerCastTimes						SOURCEPAGE:p.76
 Quick Cast				KEY:Quick Cast ~ Utter Master				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:UtterMasterQuickCastTimes|0		DESC: %1/day|UtterMasterQuickCastTimes						SOURCEPAGE:p.76

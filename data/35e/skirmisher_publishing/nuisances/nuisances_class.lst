@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Nuisances - Director's Cut	SOURCESHORT:Nuisances	SOURCEWEB:http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download	SOURCEDATE:2007-08
 
 
@@ -22,8 +22,8 @@ CLASS:Prostitute	STARTSKILLPTS:0
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Pimp		HD:8		TYPE:PC.Prestige	ABB:Pimp		MAXLEVEL:3	SOURCEPAGE:p. 38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Req. Att.	Required Feat						Required Skill
-CLASS:Pimp		PRETOTALAB:2	PREFEAT:2,Pimp Slap,Skill Focus (Intimidate)	PRESKILL:1,Intimidate=6
+# Class Name	Required Feat						Required Skill		PRETOTALAB
+CLASS:Pimp		PREFEAT:2,Pimp Slap,Skill Focus (Intimidate)	PRESKILL:1,Intimidate=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pimp		STARTSKILLPTS:3	CSKILL:Appraise|Bluff|Handle Animal|Intimidate|Profession (Pimp)|Sense Motive|Use Rope
 1	ABILITY:Special Ability|AUTOMATIC|Manage the Stable|Pimp Resistance to Disease		AUTO:FEAT|Killer 'Do|Simple Weapon Proficiency	AUTO:WEAPONPROF|Whip|Sap|TYPE=Dagger

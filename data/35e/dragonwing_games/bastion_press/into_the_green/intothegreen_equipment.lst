@@ -1,18 +1,18 @@
-# CVS $Revision$ $Author$ -- Sun Apr 18 16:19:25 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Bastion Press - Into the Green	SOURCESHORT:ittg	SOURCEDATE:2003-01
 #Original Entry: Andrew (LegacyKing) Maitland & Chris Chandler (Barak)
 
 
 ###Block: Mundane Items
-# Equipment Name		Required Weapon Proficiency	Type						Cost		Weight	Critical Hit Multiplier	Damage	Source Page
-Bison Chips								TYPE:Goods					COST:0.2									SOURCEPAGE:p.76
-Cold Compress							TYPE:Goods					COST:35									SOURCEPAGE:p.76
-Drunken Sloth Bile						TYPE:Goods					COST:10									SOURCEPAGE:p.76
-Glow Rod								TYPE:Goods					COST:60									SOURCEPAGE:p.76
-Juniper Oil								TYPE:Goods					COST:5									SOURCEPAGE:p.77
-Kapok Jacket							TYPE:Goods					COST:40									SOURCEPAGE:p.77
-Machete			PROFICIENCY:WEAPON|Machete	TYPE:Weapon.Melee.Simple.Slashing	COST:8	WT:1		CRITMULT:x3			DAMAGE:1d4	SOURCEPAGE:p.77
-Walking Stick							TYPE:Goods					COST:0.2									SOURCEPAGE:p.77
+# Equipment Name		Required Weapon Proficiency	Type						Cost		Weight	Crit Mult	Damage	Source Page
+Bison Chips								TYPE:Goods					COST:0.2							SOURCEPAGE:p.76
+Cold Compress							TYPE:Goods					COST:35							SOURCEPAGE:p.76
+Drunken Sloth Bile						TYPE:Goods					COST:10							SOURCEPAGE:p.76
+Glow Rod								TYPE:Goods					COST:60							SOURCEPAGE:p.76
+Juniper Oil								TYPE:Goods					COST:5							SOURCEPAGE:p.77
+Kapok Jacket							TYPE:Goods					COST:40							SOURCEPAGE:p.77
+Machete			PROFICIENCY:WEAPON|Machete	TYPE:Weapon.Melee.Simple.Slashing	COST:8	WT:1		CRITMULT:x3	DAMAGE:1d4	SOURCEPAGE:p.77
+Walking Stick							TYPE:Goods					COST:0.2							SOURCEPAGE:p.77
 
 
 ###Block: Magic Items

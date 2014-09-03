@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Chain Dancer	HD:10		TYPE:PC.Prestige	ABB:CnDcr		MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")-1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Req. Att.	Required Feat		Required Skill
-CLASS:Chain Dancer	PRETOTALAB:6	PREFEAT:1,Desolati	PRESKILL:1,Perform (Spiked Chain Dancing)=8
+# Class Name		Required Feat		Required Skill						PRETOTALAB
+CLASS:Chain Dancer	PREFEAT:1,Desolati	PRESKILL:1,Perform (Spiked Chain Dancing)=8	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chain Dancer	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Jump|Listen|Move Silently|TYPE=Perform|Search|Sense Motive|Spot|Survival|Tumble|Use Rope
 ###Block: Enthrall
@@ -36,8 +36,8 @@ CLASS:Homefront Guardian	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|D
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Imperial Legionnaire	HD:10		TYPE:PC.Prestige	ABB:ImLgn		MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Req. Att.	Required Feat		Multiple Requirements															Required Stat						Required Text																												Req. Weapond Prof.
-CLASS:Imperial Legionnaire	PRETOTALAB:6	PREFEAT:1,Remarian	PREMULT:2,[PRESKILL:1,Knowledge (Local/Remaria)=8],[PRESKILL:1,Knowledge (History)=5,Knowledge (War)=5]	PRESTAT:6,STR=8,DEX=8,CON=8,INT=8,CHA=8,WIS=8	PRETEXT:You must swear an oath to serve in the Army. When taking this prestige class, the character must advance to level 4 before being eligible to advance in any other class.	PREWEAPONPROF:1,Longsword
+# Class Name			Required Feat		Multiple Requirements															Required Stat						Required Text																												PRETOTALAB		Req. Weapond Prof.
+CLASS:Imperial Legionnaire	PREFEAT:1,Remarian	PREMULT:2,[PRESKILL:1,Knowledge (Local/Remaria)=8],[PRESKILL:1,Knowledge (History)=5,Knowledge (War)=5]	PRESTAT:6,STR=8,DEX=8,CON=8,INT=8,CHA=8,WIS=8	PRETEXT:You must swear an oath to serve in the Army. When taking this prestige class, the character must advance to level 4 before being eligible to advance in any other class.	PRETOTALAB:6	PREWEAPONPROF:1,Longsword
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Imperial Legionnaire	STARTSKILLPTS:3	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Ride|Swim|Use Rope
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
@@ -54,8 +54,8 @@ CLASS:Imperial Legionnaire	STARTSKILLPTS:3	CSKILL:Climb|TYPE=Craft|Handle Animal
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Knight of Pure Heart	HD:10		TYPE:PC.Prestige	ABB:ImLgn		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")-1)/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Req. Att.	Required Skill			Required Text												Req. Weapond Prof.
-CLASS:Knight of Pure Heart	PRETOTALAB:5	PRESKILL:2,Diplomacy=5,Ride=5	PRETEXT:You must be considered to be of "noble worth" by the Calisian royal court.	PREWEAPONPROF:1,Longsword
+# Class Name			Required Skill			Required Text												PRETOTALAB		Req. Weapond Prof.
+CLASS:Knight of Pure Heart	PRESKILL:2,Diplomacy=5,Ride=5	PRETEXT:You must be considered to be of "noble worth" by the Calisian royal court.	PRETOTALAB:5	PREWEAPONPROF:1,Longsword
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of Pure Heart	STARTSKILLPTS:2	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|Knowledge (Local/Calisia)|TYPE=Perform|Ride|Speak Language
 1	BONUS:ABILITYPOOL|Passion Feat|1	ABILITY:Special Ability|AUTOMATIC|Nobility ~ Knight of Pure Heart
@@ -138,16 +138,16 @@ SUBCLASSLEVEL:1	BONUS:VAR|SSImaginosLvl|1		ABILITY:Special Ability|AUTOMATIC|Opp
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Steadfast Knight	HD:10		TYPE:PC.Prestige	ABB:SfKnt		MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Req. Att.	Required Feat				Required Skill						Required Text						Req. Weapond Prof.
-CLASS:Steadfast Knight	PRETOTALAB:3	PREFEAT:1,Armor Proficiency (Light)	PRESKILL:2,Knowledge (Nature)=10,Survival=10	PRETEXT:You must impress two Steadfast Knights	PREWEAPONPROF:1,Longbow
+# Class Name		Required Feat				Required Skill						Required Text						PRETOTALAB		Req. Weapond Prof.
+CLASS:Steadfast Knight	PREFEAT:1,Armor Proficiency (Light)	PRESKILL:2,Knowledge (Nature)=10,Survival=10	PRETEXT:You must impress two Steadfast Knights	PRETOTALAB:3	PREWEAPONPROF:1,Longbow
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Steadfast Knight	STARTSKILLPTS:4	CSKILL:Handle Animal|Climb|Heal|Knowledge (Local/Launhym)|Knowledge (Nature)|Ride|Swim|Use Rope|Survival
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level					Use Spell List
 CLASS:Steadfast Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Steadfast Knight|CL	SPELLLIST:1|Ranger
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
-1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial								AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: level progression
 1	CAST:0,0		BONUS:VAR|SteadfastHitPoints|CL	ABILITY:Special Ability|AUTOMATIC|Launhym Nobility ~ Steadfast Knight|Oath ~ Steadfast Knight	ABILITY:Special Ability|AUTOMATIC|Oath (Active)|Oath (Direct Action)
 2	CAST:0,1
@@ -163,8 +163,8 @@ CLASS:Steadfast Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Steel Dragons	HD:12		TYPE:PC.Prestige	ABB:StDrg		MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Req. Att.	Required Feat		Required Skill
-CLASS:Steel Dragons	PRETOTALAB:3	PREFEAT:1,Galkarnan	PRESKILL:7,Craft (Alchemy)=8,Craft (Gunsmithing)=4,Listen=4,Spot=4,Tumble=4,Knowledge (Architecture and Engineering)=2,Spellcraft=2
+# Class Name		Required Feat		Required Skill																				PRETOTALAB
+CLASS:Steel Dragons	PREFEAT:1,Galkarnan	PRESKILL:7,Craft (Alchemy)=8,Craft (Gunsmithing)=4,Listen=4,Spot=4,Tumble=4,Knowledge (Architecture and Engineering)=2,Spellcraft=2	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE=Craft|Disable Device|TYPE=Knowledge|Listen|Spellcraft|Spot|Tumble
 ###Block: Proficiencies
@@ -182,8 +182,8 @@ CLASS:Steel Dragons	STARTSKILLPTS:3	CSKILL:TYPE=Craft|Disable Device|TYPE=Knowle
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Bonus
 CLASS:Shadowtamer	HD:6		TYPE:PC.Prestige	ABB:ShTmr		MAXLEVEL:5	SOURCEPAGE:p.37	BONUS:COMBAT|BASEAB|min(3,(var("classlevel("APPLIEDAS=NONEPIC")=Shadowtamer")-1))|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name	Req. Att.	Required Feat	Required Skill																Required Spell School
-CLASS:Shadowtamer	PRETOTALAB:3	PREFEAT:1,Shintai	PRESKILL:4,Knowledge (Arcana)=8,Knowledge (The Planes)=8,Knowledge (Nature)=4,Knowledge (Local/Shintai)=2	PRESPELLSCHOOL:1,Necromancy=3
+# Class Name	Required Feat	Required Skill																Required Spell School		PRETOTALAB
+CLASS:Shadowtamer	PREFEAT:1,Shintai	PRESKILL:4,Knowledge (Arcana)=8,Knowledge (The Planes)=8,Knowledge (Nature)=4,Knowledge (Local/Shintai)=2	PRESPELLSCHOOL:1,Necromancy=3	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shadowtamer	STARTSKILLPTS:3	CSKILL:Concentration|TYPE=Craft|Gather Information|TYPE=Knowledge|TYPE=Profession|Speak Language|Spellcraft
 1							BONUS:VAR|ShadowBeast|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Lure of the Dammed ~ Shadowtamer	ABILITY:Special Ability|AUTOMATIC|Summon Shadow Beast

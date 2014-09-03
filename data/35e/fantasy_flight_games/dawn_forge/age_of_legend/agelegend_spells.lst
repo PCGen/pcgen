@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
 #
-# Spell Name		Classes of caster				School		Type		Components	Casting Time			Range		Item		Target Area or Effect			Duration									Save Info		Spell Resistance	Source Page		Description
-Locate Infernal Gateway	CLASSES:Cleric,Sorcerer,Wizard=2	SCHOOL:Divination	TYPE:Arcane	COMPS:V, S	CASTTIME:1 standard action	RANGE:Long	ITEM:Potion	TARGETAREA:Cone-shaped emanation	DURATION:Concentration, up to (CASTERLEVEL*10) min. (D)	SAVEINFO:None	SPELLRES:No		SOURCEPAGE:p.96	DESC:You can detect an infernal gateway
+# Spell Name		Type		Classes of caster				School		Components	Casting Time			Range		Item		Target Area or Effect			Duration									Save Info		Spell Resistance	Source Page		Description
+Locate Infernal Gateway	TYPE:Arcane	CLASSES:Cleric,Sorcerer,Wizard=2	SCHOOL:Divination	COMPS:V, S	CASTTIME:1 standard action	RANGE:Long	ITEM:Potion	TARGETAREA:Cone-shaped emanation	DURATION:Concentration, up to (CASTERLEVEL*10) min. (D)	SAVEINFO:None	SPELLRES:No		SOURCEPAGE:p.96	DESC:You can detect an infernal gateway
 
 ###Block: mod spells for Circle Walker class
 # Spell Name				Classes of caster

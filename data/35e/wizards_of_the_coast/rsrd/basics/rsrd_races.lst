@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
-# Race Name	Skills/Level		Starting Feats	Size		Move			Ignore Encumberance				Face/Space	Reach		Bonus Languages							Automatically Gained Language	Ability								Nb Legs	Nb Hands	Define a Stat			Main Race Type	Race Subtype		Type				Challenge Rating	Source Page			Bonus
+# Race Name	Skills/Level		Starting Feats	Size		Move			Ignore Encumberance				Face/Space	Reach		Bonus Languages							Auto Language			Ability								Nb Legs	Nb Hands	Define Stat				Main Race Type	Race Subtype		Type				Challenge Rating	Source Page			Bonus
 Human		XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30								FACE:5	REACH:5	LANGBONUS:TYPE=Spoken						AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Race Traits ~ Human		LEGS:2	HANDS:2						RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Humanoid.PC.Base	CR:1/2		SOURCEPAGE:races.rtf
 Dwarf						STARTFEATS:1	SIZE:M	MOVE:Walk,20	UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor	FACE:5	REACH:5	LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon	AUTO:LANG|Common|Dwarven	ABILITY:Internal|AUTOMATIC|Race Traits ~ Dwarf		LEGS:2	HANDS:2						RACETYPE:Humanoid	RACESUBTYPE:Dwarf		TYPE:Humanoid.PC.Base	CR:1/2		SOURCEPAGE:races.rtf
 Elf						STARTFEATS:1	SIZE:M	MOVE:Walk,30								FACE:5	REACH:5	LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan	AUTO:LANG|Common|Elven		ABILITY:Internal|AUTOMATIC|Race Traits ~ Elf		LEGS:2	HANDS:2						RACETYPE:Humanoid	RACESUBTYPE:Elf		TYPE:Humanoid.PC.Base	CR:1/2		SOURCEPAGE:races.rtf

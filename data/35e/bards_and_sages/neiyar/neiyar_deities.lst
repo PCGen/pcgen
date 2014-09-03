@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 11:34:50 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
 ###Original Entry: Andrew Maitland
 
-# Deity Name		Product Identity?	Domains										Desc is PI?		Holy Item							Deity Weapon		Alignment	Pantheon		Deity Title							Source Page		Required Race
+# Deity Name		Product Identity?	Domains										Desc is PI?		Holy Item							Deity Weapon		Align		Pantheon		Deity Title							Source Page		Required Race
 Sophia Mater		NAMEISPI:YES	DOMAINS:Good,Healing,Knowledge,Law,Protection|PREALIGN:LG,NG,LN	DESCISPI:YES	SYMBOL:A pair of hands around an island		DEITYWEAP:Quarterstaff	ALIGN:LG	PANTHEON:Neiyar	TITLE:The Great Mother					SOURCEPAGE:12
 Sophia Groa			NAMEISPI:YES	DOMAINS:Chaos,Earth,Good,Plant,Trickery|PREALIGN:CG,NG,CN		DESCISPI:YES	SYMBOL:Groa Rose						DEITYWEAP:Sword (Short)	ALIGN:CG	PANTHEON:Neiyar	TITLE:Rose of Sophia, Lady of the Flowers		SOURCEPAGE:13
 Sophia Kalla		NAMEISPI:YES	DOMAINS:Chaos,Death,Destruction,War|PREALIGN:CN,CG,CE,TN		DESCISPI:YES	SYMBOL:A Black circle					DEITYWEAP:Scimitar	ALIGN:CN	PANTHEON:Neiyar	TITLE:The Dark Mother, Lady Death			SOURCEPAGE:14

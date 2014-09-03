@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
 #Original Entry: Andrew Maitland (LegacyKing), 2008
 
 ###Block: Altherian Artificer -----------------------------------------------------
-# Ability Name			Output Name						Category of Ability		Type						Define				Description			Stackable?	Multiple?	Choose																		Selections	Automatically Gained Feat	Add 										Bonus to skill																Allow Follower				Allowed Companions
+# Ability Name			Output Name						Category of Ability		Type						Define				Description			Stackable?	Multiple?	Choose																		Selections	Auto Feat				Add 										Bonus to skill																Allow Follower				Allowed Companions
 Altherian Craftsman									CATEGORY:Special Ability																																									AUTO:FEAT|Altherian Craftsman
 Sharp Intellect										CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality
 Dedication											CATEGORY:Special Ability							DEFINE:DedicationBonus|0	DESC:%1|DedicationBonus																															ADD:ABILITY|Special Ability|NORMAL|Dedication Output Choice
@@ -21,13 +21,13 @@ Instant Inspection	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 
 ###Block: Hedge Mage -----------------------------------------------------------
-# Ability Name			Category of Ability		Type										Required Ability							Multiple?	Choose		Automatically Gained Feat	Bonus to skill
+# Ability Name			Category of Ability		Type										Required Ability							Stackable?	Multiple?	Choose		Auto Feat			Bonus to skill
 Aura of Faith			CATEGORY:Special Ability
 Hedge Mage's Education		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 #Summon Familiar			CATEGORY:Special Ability
-Intution				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																								BONUS:SKILL|Spot,Listen,Sense Motive|1|TYPE=Insight
+Intution				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																									BONUS:SKILL|Spot,Listen,Sense Motive|1|TYPE=Insight
 #Poison Use				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Brew Potion				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																			AUTO:FEAT|Brew Potion
+Brew Potion				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																					AUTO:FEAT|Brew Potion
 Adaptable Magic			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Hedge Mage's Lore			CATEGORY:Special Ability
 Circle Magic			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
@@ -39,7 +39,7 @@ Hand of Power			CATEGORY:Special Ability	TYPE:HedgeMageLore.SpecialQuality.Super
 Hexencraft				CATEGORY:Special Ability	TYPE:HedgeMageLore.SpecialQuality.Extraordinary
 Presence				CATEGORY:Special Ability	TYPE:HedgeMageLore.SpecialQuality.Supernatural
 Second Sight			CATEGORY:Special Ability	TYPE:HedgeMageLore.SpecialQuality.Supernatural
-Spell Knowledge			CATEGORY:Special Ability	TYPE:HedgeMageLore.SpecialQuality.Extraordinary										STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Spell Knowledge			CATEGORY:Special Ability	TYPE:HedgeMageLore.SpecialQuality.Extraordinary												STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 Wyrd Working			CATEGORY:Special Ability	TYPE:HedgeMageLore.SpecialQuality.Supernatural
 
 #Hedge Mage's Lore, Greater
@@ -54,42 +54,42 @@ Wyrd Mastery			CATEGORY:Special Ability	TYPE:HedgeMageLoreGreater.SpecialQuality
 
 
 ###Block: Shaman -----------------------------------------------------------------------------------------------------
-# Ability Name					Output Name		Category of Ability		Type										Required Ability																			Var. Min. Value			Define									Description						Clone Movement		Automatically Gained Feat	Ability							Combat bonus					Add to base move															Bonus to skill										Modify VAR							Weapon prof. bonus																											Bonus
+# Ability Name					Output Name		Category of Ability		Type										Required Ability																			Var. Min. Value			Define									Description						Clone Movement		Auto Feat			Ability							Combat bonus					Add to base move															Bonus to skill										Modify VAR							Weapon prof. bonus																											Bonus
 Spirit Calling								CATEGORY:Special Ability
 #Channeling									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Between Worlds								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																															DEFINE:BetweenWorlds|0																															BONUS:COMBAT|INITIATIVE|-1																				BONUS:SKILL|Listen,Spot|var("BetweenWorlds")
+Between Worlds								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																															DEFINE:BetweenWorlds|0																														BONUS:COMBAT|INITIATIVE|-1																				BONUS:SKILL|Listen,Spot|var("BetweenWorlds")
 Spirit Guide								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Edge of Perception							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																															DEFINE:EdgeOfPerception|0																																																																		BONUS:VAR|BetweenWorlds|var("EdgeOfPerception")
+Edge of Perception							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																															DEFINE:EdgeOfPerception|0																																																																	BONUS:VAR|BetweenWorlds|var("EdgeOfPerception")
 Query										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Spirit Journey								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Admonish Spirit								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Spiritual Presence							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																									DESC:Aura of Fear|PRECLASS:1,Shaman=14
-Spirit Gift									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.SpellLike.Supernatural																											DEFINE:SpiritGiftLVL|0	DEFINE:ShamanSpiritGiftPenalty|0																																																	BONUS:SKILL|Bluff,Diplomacy,Sense Motive|var("ShamanSpiritGiftPenalty")
+Spirit Gift									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.SpellLike.Supernatural																											DEFINE:SpiritGiftLVL|0	DEFINE:ShamanSpiritGiftPenalty|0																																																BONUS:SKILL|Bluff,Diplomacy,Sense Motive|var("ShamanSpiritGiftPenalty")
 
 #Spirit Gifts
 Lesser Spirit Gift - Ant			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
-Lesser Spirit Gift - Bear			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural																													DEFINE:BearGiftBonus|0							DESC:%1|BearGiftBonus|PRESTAT:1,CHA=12																																																						BONUS:VAR|BearGiftBonus|var("CL=Shaman")*CHA
+Lesser Spirit Gift - Bear			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural																													DEFINE:BearGiftBonus|0							DESC:%1|BearGiftBonus|PRESTAT:1,CHA=12																																																					BONUS:VAR|BearGiftBonus|var("CL=Shaman")*CHA
 Lesser Spirit Gift - Butterfly		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural
-Lesser Spirit Gift - Cat			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
-Lesser Spirit Gift - Dog			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																							ABILITY:Special Ability|AUTOMATIC|Scent
+Lesser Spirit Gift - Cat			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																						ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+Lesser Spirit Gift - Dog			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																						ABILITY:Special Ability|AUTOMATIC|Scent
 Lesser Spirit Gift - Dolphin			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																														MOVECLONE:Walk,Swim,*1
-Lesser Spirit Gift - Dragonfly		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																						BONUS:MOVEADD|TYPE.Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1																																																			BONUS:SAVE|Reflex|1
+Lesser Spirit Gift - Dragonfly		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																					BONUS:MOVEADD|TYPE.Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1																																																			BONUS:SAVE|Reflex|1
 Lesser Spirit Gift - Eagle			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
 Lesser Spirit Gift - Fire			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.SpellLike.Extraordinary
 Lesser Spirit Gift - Horse			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
 Lesser Spirit Gift - Lightning		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.SpellLike.Extraordinary
 Lesser Spirit Gift - Lion			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural
-Lesser Spirit Gift - Lizard			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																															BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
-Lesser Spirit Gift - Rabbit			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																							ABILITY:Special Ability|AUTOMATIC|Evasion
-Lesser Spirit Gift - Owl			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																							BONUS:SKILL|TYPE.Knowledge|2
+Lesser Spirit Gift - Lizard			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
+Lesser Spirit Gift - Rabbit			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																						ABILITY:Special Ability|AUTOMATIC|Evasion
+Lesser Spirit Gift - Owl			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																						BONUS:SKILL|TYPE.Knowledge|2
 Lesser Spirit Gift - Shaman Ancestor	OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
 Lesser Spirit Gift - Spider			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural
 Lesser Spirit Gift - Stone			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																		AUTO:FEAT|Toughness
 Lesser Spirit Gift - Thunder			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.SpellLike.Extraordinary
-Lesser Spirit Gift - Warrior Ancestor	OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																																											BONUS:WEAPONPROF=TYPE.Martial|DAMAGE|2|TYPE=WarriorAncestor	BONUS:WEAPONPROF=TYPE.Simple|DAMAGE|2|TYPE=WarriorAncestor	BONUS:WEAPONPROF=TYPE.Exotic|DAMAGE|2|TYPE=WarriorAncestor
+Lesser Spirit Gift - Warrior Ancestor	OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																																										BONUS:WEAPONPROF=TYPE.Martial|DAMAGE|2|TYPE=WarriorAncestor	BONUS:WEAPONPROF=TYPE.Simple|DAMAGE|2|TYPE=WarriorAncestor	BONUS:WEAPONPROF=TYPE.Exotic|DAMAGE|2|TYPE=WarriorAncestor
 Lesser Spirit Gift - Water			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
 Lesser Spirit Gift - Winter			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
-Lesser Spirit Gift - Wolf			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																																											BONUS:WEAPONPROF=TYPE.Melee|TOHIT|1|TYPE=Insight
+Lesser Spirit Gift - Wolf			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																																										BONUS:WEAPONPROF=TYPE.Melee|TOHIT|1|TYPE=Insight
 
 #Greater Spirit Gifts -
 Greater Spirit Gifts - East Wind		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																								PREVARGTEQ:SpiritGiftLVL,15
@@ -129,7 +129,7 @@ Supreme Battlemagic	CATEGORY:Special Ability	TYPE:SpecialAttack
 
 ###Block: Suromar ----------------------------------------------------------------------------
 #Rogue Special Ability ~ Slippery Mind		CATEGORY:Special Ability	TYPE:SpecialQuality	TYPE:Ex
-# Ability Name		Category of Ability		Type						Automatically Gained Feat
+# Ability Name		Category of Ability		Type						Auto Feat
 Iron Will			CATEGORY:Special Ability	TYPE:SpecialQuality			AUTO:FEAT|Iron Will
 Lack of Focus		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Psionic Resistance	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -375,7 +375,7 @@ Elemental Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 
 ###Block: The Ehtzara -------------------------------------------------------------------------------------------------------------
 #Summon Familiar			CATEGORY:Special Ability	TYPE:SpecialQuality
-# Ability Name		Output Name					Category of Ability		Type						Innate Spells												Automatically Gained Weapon Prof.										Virtual Feat
+# Ability Name		Output Name					Category of Ability		Type						Innate Spells												Auto Weapon Prof													Virtual Feat
 Fetish Crafting								CATEGORY:Special Ability	TYPE:SpecialQuality																																VFEAT:Craft Fetish|Craft Lesser Fetish
 Spirit Robes								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Binding Fetish								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
@@ -456,7 +456,7 @@ Master Craftsman (Weaponsmithing) Bonus	CATEGORY:Special Ability					PREFEAT:1,M
 Clockwork Construct traits			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 ###Block: Savant -----------------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name			Category of Ability		Type						Define				Bonus to Ability Pool
+# Ability Name			Category of Ability		Type						Define				Bonus Ability Pool
 Practiced Spellcaster		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 #Ritualistic Casting		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 #Metamagic Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
@@ -530,8 +530,8 @@ Sudden Storm			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Furious Storm of Vengeance	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 
 ###Block: Afatkuq -------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name		Unique Key				Category of Ability		Type						Automatically Gained Armor Prof.	Automatically Gained Shield Prof.	Automatically Gained Weapon Prof.
-Afatkuq Proficiencies						CATEGORY:Special Ability							AUTO:ARMORPROF|ARMORTYPE=Light	AUTO:SHIELDPROF|Totem Shield		AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Spear
+# Ability Name		Unique Key				Category of Ability		Type						Auto Armor Prof				Auto Shield Prof			Auto Weapon Prof
+Afatkuq Proficiencies						CATEGORY:Special Ability							AUTO:ARMORPROF|ARMORTYPE=Light	AUTO:SHIELDPROF|Totem Shield	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Spear
 Craft Totem Shield						CATEGORY:Special Ability	TYPE:SpecialQuality
 Dedication			KEY:Dedication ~ Afatkuq	CATEGORY:Special Ability	TYPE:SpecialQuality
 Surgery								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -576,7 +576,7 @@ Control of the Flesh			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Touch of Undeath				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 ###Block: Eagle Hunter -----------------------------------------------------------------------------------
-# Ability Name			Category of Ability		Type						Define				Description				Automatically Gained Weapon Prof.											Allow Follower			Allowed Companions																	Vision			Spell Res.	Damage Reduction
+# Ability Name			Category of Ability		Type						Define				Description				Auto Weapon Prof														Allow Follower			Allowed Companions																	Vision			Spell Res.	Damage Reduction
 Eagle Hunter Proficiencies	CATEGORY:Special Ability																	AUTO:WEAPONPROF|Club|Dagger|Handaxe|Longspear|Net|Scimitar|Shortbow|Shortspear|Sling|Spear
 We Are One				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:EagleCompanionLvl|0																						FOLLOWERS:Eagle Companion|1	COMPANIONLIST:Eagle Companion|Eagle (Altai White-Shoulders),Eagle (Cross),Eagle (Hovd Yellow),Eagle (Valley Black)
 Soul Link				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -594,7 +594,7 @@ My Soul Takes Flight		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 
 ###Block: Knowledge Warden of Althares -------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name						Category of Ability		Type						Automatically Gained Weapon Prof.								Ability																				Combat bonus
+# Ability Name						Category of Ability		Type						Auto Weapon Prof											Ability																						Combat bonus
 Knowledge Warden of Althares Proficiencies	CATEGORY:Special Ability							AUTO:WEAPONPROF|Altherian Flintlock (Pistol)|Altherian Flintlock (Rifle)
 Monk Abilities						CATEGORY:Special Ability	TYPE:SpecialQuality
 Sworn Servant of Althares				CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -606,7 +606,7 @@ Altheres' Grace						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		
 #COMMENT: using preclass monk to avoid a loop. They either gain the monk ability if it's not already possessed OR a +2 insight bonus to AC if they possess the Monk AC ability.
 Altheres' Guidance					CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 #Improved Evasion						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Monk AC Bonus						CATEGORY:Special Ability																																									BONUS:COMBAT|AC|2|TYPE=Insight
+Monk AC Bonus						CATEGORY:Special Ability																																											BONUS:COMBAT|AC|2|TYPE=Insight
 
 
 ###Block: The Lifewarden -------------------------------------------------------------------------------------------------------------------------------------------------
@@ -656,7 +656,7 @@ Metamorphosis	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 ###################################
 
 ###Block: Ordainer ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Ability Name			Output Name																													Category of Ability		Type						Var. Min. Value			Define								Automatically Gained Feat	Add
+# Ability Name			Output Name																													Category of Ability		Type						Var. Min. Value			Define								Auto Feat				Add
 Soul Search				OUTPUTNAME:Improved Soul Search|PREVAREQ:SoulSearchLvl,1	OUTPUTNAME:Superior Soul Search|PREVAREQ:SoulSearchLvl,2											CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural						DEFINE:SoulSearchLvl|0
 Arcane Health																																	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Reduced Arcane Spell Failure	OUTPUTNAME:Improved Reduced Arcane Spell Failure|PREVAREQ:ReducedArcaneSpellFailureLvl,1	OUTPUTNAME:Superior Reduced Arcane Spell Failure|PREVAREQ:ReducedArcaneSpellFailureLvl,2	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary						DEFINE:ReducedArcaneSpellFailureLvl|0

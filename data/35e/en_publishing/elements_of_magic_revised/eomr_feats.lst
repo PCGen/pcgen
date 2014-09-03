@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Elements of Magic (Revised)	SOURCESHORT:EOM	SOURCEWEB:http://www.enworld.org/forum/e-n-publishing/	SOURCEDATE:2002-01
 #Original Entry: Joe Frazier, Clean up by Andrew Maitland
 
@@ -8,7 +8,7 @@ Craft Charged Item	TYPE:ItemCreation															SOURCEPAGE:p.14
 Craft Permanent Spell	TYPE:ItemCreation	PREFEAT:2,Craft Charged Item,Craft Wondrous Item	PREVARGTEQ:EOMCasterLevel,7	SOURCEPAGE:p.14
 
 ###Block: Mage feats
-# Feat Name			Unique Key			Type				Required Ability							Required Feat			Multiple Requirements											Required Skill			Var. Min. Value			Description																	Stackable?	Multiple?	Choose		Bonus to Ability Pool			Bonus to spell cast/day			Modify VAR							Source Page
+# Feat Name			Unique Key			Type				Required Ability							Required Feat			Multiple Requirements											Required Skill			Var. Min. Value			Description																	Stackable?	Multiple?	Choose		Bonus Ability Pool			Bonus to spell cast/day			Modify VAR							Source Page
 Abjure Specialist						TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Abjure																														DESC:Your abjure spells are particularly flexible.																																					SOURCEPAGE:p.13
 Arcane Mastery						TYPE:Mage												PREFEAT:1,Arcane Specialist																				PREVARGTEQ:EOMCasterLevel,10	DESC:You can prepare spells you normally could not cast.																																				SOURCEPAGE:p.13
 Arcane Specialist						TYPE:Mage												PREFEAT:1,Arcane Student																				PREVARGTEQ:EOMCasterLevel,3	DESC:You can cast spells from books quickly.																																						SOURCEPAGE:p.13

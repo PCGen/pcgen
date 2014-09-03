@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Rise of the Runelords - Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7zkr	SOURCEDATE:2007-08
 
 ####Block: Melee Weapons
-# Equipment Name		Required Weapon Proficiency		Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Size		Source Page		Bonus
-Horsechopper		PROFICIENCY:WEAPON|Horsechopper	TYPE:Weapon.Melee.Martial.Standard.Piercing.Slashing.Polearm	COST:10	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL	WIELD:TwoHanded	SIZE:S	SOURCEPAGE:p.13
+# Equipment Name		Required Weapon Proficiency		Type											Cost		Weight	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Size		Source Page		Bonus
+Horsechopper		PROFICIENCY:WEAPON|Horsechopper	TYPE:Weapon.Melee.Martial.Standard.Piercing.Slashing.Polearm	COST:10	WT:12		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:STEEL	WIELD:TwoHanded	SIZE:S	SOURCEPAGE:p.13
 
 ####Block: Wondrous Items
-# Equipment Name		Required Weapon Proficiency		Type											Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Size		Source Page		Bonus
-Sihedron Medallion							TYPE:Magic.Wondrous.Amulet							COST:3500	WT:0																			SOURCEPAGE:p.55	BONUS:SAVE|Fortitude,Reflex,Will|1|TYPE=Resistance
+# Equipment Name		Required Weapon Proficiency		Type											Cost		Weight	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Size		Source Page		Bonus
+Sihedron Medallion							TYPE:Magic.Wondrous.Amulet							COST:3500	WT:0															SOURCEPAGE:p.55	BONUS:SAVE|Fortitude,Reflex,Will|1|TYPE=Resistance

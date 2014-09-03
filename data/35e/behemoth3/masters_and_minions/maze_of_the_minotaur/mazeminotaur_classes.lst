@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 # Original Entry by: Aaron Divinsky
 
@@ -45,7 +45,7 @@ CLASS:Minotaur	STARTSKILLPTS:2
 ### The source implies that the characters race changes to Bull Lord once he takes a level in this class.
 ### This is implemented by adding a Bull Lord template with SUBRACE:Bull Lord, the race will now output Minotaur (Bull Lord)
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Automatically Gained Language
+# Class Name	Hit Dice	Type			Max Level	Source Page		Auto Language
 CLASS:Bull Lord	HD:8		TYPE:PC.Prestige	MAXLEVEL:9	SOURCEPAGE:p. 17	AUTO:LANG|Common
 # Class Name	Required Class
 CLASS:Bull Lord	PRECLASS:1,Minotaur=8
@@ -53,7 +53,7 @@ CLASS:Bull Lord	PRECLASS:1,Minotaur=8
 CLASS:Bull Lord	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Listen|Search|Spot|Survival|Swim
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Progression
 1	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|INT|2	BONUS:STAT|CHA|2									TEMPLATE:Bull Lord
 2																										AUTO:FEAT|Great Fortitude

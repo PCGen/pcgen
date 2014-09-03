@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Mongoose Publishing - Quintessential Ranger II	SOURCESHORT:QR_II	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2004-01
 #Original Entry by: Andrew Maitland
 
 
 ###Block: The Winding Paths
-# Ability Name			Unique Key			Category of Ability		Type				Required Class		Required Feat																																				Required Skill													Required Stat	Required Text								Special ABility									Bonus to Ability Pool				Bonus to Situation						Bonus to skill
+# Ability Name			Unique Key			Category of Ability		Type				Required Class		Required Feat																																				Required Skill													Required Stat	Required Text								Special ABility									Bonus Ability Pool				Bonus to skill		Bonus to Situation
 The Avenger								CATEGORY:Special Ability	TYPE:TheWindingPaths	PRECLASS:1,Ranger=1	PREFEAT:2,Alertness,Blind-Fight,Cleave,Combat Expertise,Combat Reflexes,Great Cleave,Improved Initiative,Improved Trip,Power Attack,Weapon Focus														PRESKILL:2,Concentration=5,Hide=5,Intimidate=5,Move Silently=5					PRESTAT:1,STR=13																						BONUS:ABILITYPOOL|The Avenger|1
 #
 Killing Rage							CATEGORY:Special Ability	TYPE:TheAvenger																																																																								SAB:Killing Rage	SAB:Dampended Fury
@@ -42,8 +42,8 @@ Chameleon								CATEGORY:Special Ability	TYPE:TheStalkingCat																			
 #Block: The Survivor -------------------------------------------------------------------------------------------------------
 The Survivor							CATEGORY:Special Ability	TYPE:TheWindingPaths	PRECLASS:1,Ranger=1	PREFEAT:2,Alertness,Diehard,Endurance,Great Fortitude,Iron Will,Lightning Reflexes,Run,Self-Sufficient,Toughness,Skill Focus (Escape Artist),Skill Focus (Heal),Skill Focus (Knowledge (Geography)),Skill Focus (Survival)		PRESKILL:2,Escape Artist=5,Heal=5,Knowledge (Geography)=5,Survival=5				PRESTAT:1,CON=13																						BONUS:ABILITYPOOL|The Survivor|1
 #
-Immune to Nature's Fury						CATEGORY:Special Ability	TYPE:TheSurvivor																																																																								SAB:Immune to Nature's Fury	SAB:Weather Focused										BONUS:SITUATION|Survival=Find or follow tracks|-4
-Resilient				KEY:Resilient Career	CATEGORY:Special Ability	TYPE:TheSurvivor																																																																								SAB:Resilient	SAB:Jealous Spirit																					BONUS:SKILL|Heal|2
+Immune to Nature's Fury						CATEGORY:Special Ability	TYPE:TheSurvivor																																																																								SAB:Immune to Nature's Fury	SAB:Weather Focused														BONUS:SITUATION|Survival=Find or follow tracks|-4
+Resilient				KEY:Resilient Career	CATEGORY:Special Ability	TYPE:TheSurvivor																																																																								SAB:Resilient	SAB:Jealous Spirit												BONUS:SKILL|Heal|2
 Snake Eater								CATEGORY:Special Ability	TYPE:TheSurvivor																																																																								SAB:Snake Eater	SAB:Naked Beneath His Armour
 
 

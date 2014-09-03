@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
 ###Block: Proficiencies
-# Ability Name									Unique Key								SORTKEY		Output Name														Category of Ability		Type								Required Ability																	Description																																																			Multiple?	Choose							Selections	Automatically Gained Armor Prof.	Automatically Gained Shield Prof.							Automatically Gained Weapon Prof.						Ability										Cost		Source Page
+# Ability Name									Unique Key								SORTKEY		Output Name														Category of Ability		Type								Required Ability																	Description																																																			Multiple?	Choose							Selections	Auto Armor Prof				Auto Shield Prof										Auto Weapon Prof									Ability										Cost		Source Page
 Armor ~ Light																					OUTPUTNAME:Armor Proficiency (Light)									CATEGORY:Special Ability	TYPE:Proficiencies.SpecialQuality																						DESC:Proficient with Light Armors																																																											AUTO:ARMORPROF|ARMORTYPE=Light																																			COST:3	SOURCEPAGE:p.49
 Armor ~ Medium																					OUTPUTNAME:Armor Proficiency (Medium)									CATEGORY:Special Ability	TYPE:Proficiencies.SpecialQuality			PREABILITY:1,CATEGORY=Special Ability,Armor ~ Light											DESC:Proficient with Medium Armors																																																											AUTO:ARMORPROF|ARMORTYPE=Medium																																			COST:6	SOURCEPAGE:p.49
 Armor ~ Heavy																					OUTPUTNAME:Armor Proficiency (Heavy)									CATEGORY:Special Ability	TYPE:Proficiencies.SpecialQuality			PREABILITY:2,CATEGORY=Special Ability,Armor ~ Light,Armor ~ Medium								DESC:Proficient with Heavy Armors																																																											AUTO:ARMORPROF|ARMORTYPE=Heavy																																			COST:6	SOURCEPAGE:p.49

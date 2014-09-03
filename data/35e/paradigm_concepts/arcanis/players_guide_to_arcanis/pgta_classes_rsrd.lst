@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 # Original Entry by: dlm1065
 
@@ -71,8 +71,8 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
 
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class		Source Page			Bonus Languages	Group of Prohibited Spells																																																																			Define		Automatically Gained Language	Combat bonus															Modify VAR			Monster Role	Bonus
-CLASS:Druid		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE	DEFINE:DruidLVL|0	AUTO:LANG|Druidic			BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|DruidLVL|CL	ROLE:Druid		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class		Source Page			Bonus Languages	Group of Prohibited Spells																																																																			Define		Auto Language	Combat bonus															Modify VAR			Monster Role	Bonus
+CLASS:Druid		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE	DEFINE:DruidLVL|0	AUTO:LANG|Druidic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|DruidLVL|CL	ROLE:Druid		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL
 CLASS:Druid		PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -116,8 +116,8 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Source Page			Bonus Languages	Visible	Automatically Gained Language	Combat bonus															Monster Role	Bonus
-CLASS:Ex Druid	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:XDrd		SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	VISIBLE:NO	AUTO:LANG|Druidic			BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Druid		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Source Page			Bonus Languages	Visible	Auto Language	Combat bonus															Monster Role	Bonus
+CLASS:Ex Druid	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:XDrd		SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	VISIBLE:NO	AUTO:LANG|Druidic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	ROLE:Druid		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ex Druid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 ###Block:Proficiencies

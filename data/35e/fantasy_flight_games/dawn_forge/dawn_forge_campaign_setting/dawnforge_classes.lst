@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn and Tir Gwaith
 
@@ -113,8 +113,8 @@ CLASS:Spirit Adept	HD:10		TYPE:Base.PC	ABB:SpA		MAXLEVEL:20	SOURCEPAGE:p.70	BONU
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spirit Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-1													AUTO:FEAT|Shield Proficiency
-1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Level progression
 1	SAB:Spirit Sense I	SAB:Spirit Strength (%)|SpiritStrength	BONUS:ABILITYPOOL|Spirit Adept Powers Choice|1					BONUS:VAR|SpiritStrength|2*min(var("CL=Spirit Adept"),5)		DEFINE:SpiritStrength|0
 2																																							ABILITY:Special Ability|AUTOMATIC|Evasion

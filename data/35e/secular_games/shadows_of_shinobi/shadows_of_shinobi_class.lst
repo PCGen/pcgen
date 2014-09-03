@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja	SOURCEDATE:2005-01
 
 #CREATED BY: Paul W. King, Jan 2007
@@ -6,8 +6,8 @@ SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Igasaki Disciple	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required AL			Req. Att.	Required Feat					Required Race	Required Skill
-CLASS:Igasaki Disciple	PREALIGN:LN,LE,TN,NE	PRETOTALAB:5	PREFEAT:2,Alertness,Improved Initiative	PRERACE:1,Human	PRESKILL:5,Craft (Alchemy)=10,Disguise=10,Hide=8,Move Silently=8,TYPE.Perform=8
+# Class Name		Required AL			Required Feat					Required Race	Required Skill												PRETOTALAB
+CLASS:Igasaki Disciple	PREALIGN:LN,LE,TN,NE	PREFEAT:2,Alertness,Improved Initiative	PRERACE:1,Human	PRESKILL:5,Craft (Alchemy)=10,Disguise=10,Hide=8,Move Silently=8,TYPE.Perform=8	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Igasaki Disciple	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Knowledge (Architecture and Engineering)|Listen|Move Silently|Open Lock|TYPE=Perform|Search|Sense Motive|Sleight of Hand|Spot|Tumble|Use Magic Device|Use Rope
 ###Block:Proficiencies
@@ -54,8 +54,8 @@ CLASS:Inpo Agent	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Lotus Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL			Req. Att.	Required Feat							Required Skill
-CLASS:Lotus Warrior	PREALIGN:LN,TN,LE,NE	PRETOTALAB:6	PREFEAT:3,Improved Initiative,Iron Will,Weapon Focus	PRESKILL:4,Hide=9,Move Silently=9,Intimidate=5,Knowledge (Arcana)=5
+# Class Name		Required AL			Required Feat							Required Skill										PRETOTALAB
+CLASS:Lotus Warrior	PREALIGN:LN,TN,LE,NE	PREFEAT:3,Improved Initiative,Iron Will,Weapon Focus	PRESKILL:4,Hide=9,Move Silently=9,Intimidate=5,Knowledge (Arcana)=5	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Lotus Warrior	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|Ride|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block:Proficiencies
@@ -72,13 +72,13 @@ CLASS:Lotus Warrior	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escape
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Shadow Saint	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL		Req. Att.	Required Feat										Required Skill
-CLASS:Shadow Saint	PREALIGN:LG,LN	PRETOTALAB:7	PREFEAT:4,Blind-Fight,Improved Unarmed Strike,Stealthy,Stunning Fist	PRESKILL:3,Knowledge (Religion)=5,Sense Motive=5,Spot=5
+# Class Name		Required AL		Required Feat										Required Skill								PRETOTALAB
+CLASS:Shadow Saint	PREALIGN:LG,LN	PREFEAT:4,Blind-Fight,Improved Unarmed Strike,Stealthy,Stunning Fist	PRESKILL:3,Knowledge (Religion)=5,Sense Motive=5,Spot=5	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadow Saint	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Escape Artist|Handle Animal|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Listen|Move Silently|Ride|Search|Sense Motive|Spot|Swim|Tumble
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
-1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial								AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block:general
 1	BONUS:VAR|ShadowSaint|CL	DEFINE:ShadowSaint|0	ABILITY:Special Ability|AUTOMATIC|Curse of Darkness|Shadow Meld
 2	BONUS:VAR|ShadowCast|(CL+1)/3					ABILITY:Special Ability|AUTOMATIC|Shadow Cast

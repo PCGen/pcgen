@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
 #Original Entry:E. C. Smith (Maredudd), 2007; Andrew Maitland
 
@@ -12,7 +12,7 @@ SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts
 
 #Sarishan Steel (Med)				KEY:SARISH_MSHD		NAMEISPI:YES										TYPE:Armor.BaseMaterial				COST:0	VISIBLE:QUALIFY	ITYPE:Sarishan.Masterwork.SpecialMaterial			REPLACES:STEEL																										PRETYPE:1,Metal	PRETYPE:1,Shield						!PRETYPE:1,SpecialMaterial	!PRETYPE:1,Upgrade																			BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement		BONUS:ITEMCOST|TYPE.Shield.Light|800	BONUS:ITEMCOST|TYPE.Shield.Heavy|1600																																								SPROP:30 hp/inch, hardness 10								ASSIGNTOALL:YES
 
-# Modifier Name			Unique Key				Product Identity?	Naming Option					Type													Cost			Visible		Type granted							Keys to replace			Source Page						Required Type						Prohibited Type											Damage Reduction	Combat bonus					Bonus Equipment Modifiers					Bonus Armor Modifiers																			Modify the item cost																																							Weapon prop. bonus																	Special Property															Change Armor Type		Apply to both heads
+# Modifier Name			Unique Key				Product Identity?	Naming Option					Type													Cost			Visible		Type granted							Keys to replace			Source Page						Required Type						Prohibited Type											Damage Reduction	Combat bonus					Bonus Equip Mods							Bonus Armor Mods																				Modify the item cost																																							Weapon prop. bonus																	Special Property															Change Armor Type		Apply to both heads
 A1-Test				KEY:FIM_TEST													TYPE:Armor.BaseMaterial										COST:0		VISIBLE:QUALIFY	ITYPE:Aerium.Masterwork.SpecialMaterial								SOURCEPAGE:p.156					PRETYPE:2,Armor,Metal																												BONUS:EQM|WEIGHTDIV|2|TYPE=Enhancement.REPLACE		BONUS:EQMARMOR|SPELLFAILURE|-10|TYPE=Enhancement	BONUS:EQMARMOR|ACCHECK|3|TYPE=Enhancement.REPLACE	BONUS:EQMARMOR|MAXDEX|2	BONUS:ITEMCOST|TYPE.Armor.Light|2*600*SIZE	BONUS:ITEMCOST|TYPE.Armor.Medium|8*600*SIZE	BONUS:ITEMCOST|TYPE.Armor.Heavy|18*600*SIZE																																							SPROP:Sonic Resistance 2
 
 ###Aerium 600 ------------------------------------------------------------------------------------------

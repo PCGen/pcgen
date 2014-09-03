@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir Gwaith and Andrew Maitland
 
 
-# Spell Name				Unique Key		Product Identity?	Output Name				Classes of caster									Domains granting the spell	School			Sub-School			Spell Descriptors			Components			Casting Time			Range						Target Area or Effect												Duration								Save Info								Spell Resistance			Cost		XP Cost	Source Page
+# Spell Name				Unique Key		Product Identity?	Output Name				Classes of caster									Domains granting the spell	School			Sub-School			Descriptor				Components			Casting Time			Range						Target Area or Effect												Duration								Save Info								Spell Resistance			Cost		XP Cost	Source Page
 Aerial Battle															CLASSES:Sorcerer,Wizard=3												SCHOOL:Transmutation					DESCRIPTOR:Air			COMPS:V			CASTTIME:Free-Action		RANGE:Touch					TARGETAREA:1 creature												DURATION:(CASTERLEVEL) rounds					SAVEINFO:None							SPELLRES:No								SOURCEPAGE:96
 Ancient Counsel															CLASSES:Cleric,Shaman=7													SCHOOL:Divination											COMPS:V, S, M, DF, XP	CASTTIME:10 minutes		RANGE:Personal				TARGETAREA:You													DURATION:1 hour plus see below [D]																				XPCOST:300	SOURCEPAGE:97
 Argent Sword															CLASSES:Outcast,Sorcerer,Wizard=4											SCHOOL:Evocation											COMPS:V, S, M		CASTTIME:1 standard action	RANGE:(CASTERLEVEL*5+10) ft.		TARGETAREA:Creature(s) attacked										DURATION:(CASTERLEVEL*2) rounds [D]				SAVEINFO:None							SPELLRES:No				COST:20			SOURCEPAGE:98

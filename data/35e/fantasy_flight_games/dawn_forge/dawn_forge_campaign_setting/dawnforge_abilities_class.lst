@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
 # Original Entry by: Ratheof Blithwyn
 
@@ -45,7 +45,7 @@ Elemental Form	CATEGORY:Special Ability	TYPE:ShamanElementalForm	VISIBLE:DISPLAY
 
 ###Block: Shapers Divine focuses
 # Feat Name			Type				Visible	Special ABility																		Innate Spells																	Virtual Feat			Add							Combat bonus								Bonus to skill
-# Ability Name		Category of Ability		Type				Visible		Special ABility																			Innate Spells																			Virtual Feat			Bonus to Ability Pool					Combat bonus									Bonus to skill
+# Ability Name		Category of Ability		Type				Visible		Special ABility																			Innate Spells																			Virtual Feat			Bonus Ability Pool					Combat bonus									Bonus to skill
 Divine Focus Alignment	CATEGORY:Special Ability	TYPE:ShaperDivineFocus	VISIBLE:DISPLAY	SAB:Alignment (Domains:Chaos, Good, Evil, Lawful)	SAB:Damage reduction 1/opposed alignment|PRECLASS:1,Shaper (DF)=10	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=var("CL=Shaper")+var("BL=Shaper")|Undetectable Alignment,12+CHA
 Divine Focus Defense	CATEGORY:Special Ability	TYPE:ShaperDivineFocus	VISIBLE:DISPLAY	SAB:Defense (Domains:Protection, Sun, Travel)																																																BONUS:COMBAT|AC|1	BONUS:COMBAT|AC|1|PRECLASS:1,Shaper (DF)=10
 Divine Focus Elemental	CATEGORY:Special Ability	TYPE:ShaperDivineFocus	VISIBLE:DISPLAY	SAB:Elemental (Domains:Air, Earth, Fire, Water)	SAB:Elemental resistance 10

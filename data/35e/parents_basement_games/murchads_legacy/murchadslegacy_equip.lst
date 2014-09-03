@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
@@ -18,8 +18,8 @@ Jousting Armor	TYPE:Armor.Heavy.Suit.Standard	COST:2000	WT:70		ACCHECK:-9		EQMOD
 
 ###Block: Special Weapons
 
-# Equipment Name			Output Name				Required Weapon Proficiency		Type												Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Reach Multiplier	Size		Source Page
-Chain (Spiked/Elongated)	OUTPUTNAME:Chain, Spiked	PROFICIENCY:WEAPON|Chain (Spiked)	TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Standard.Piercing.Chain	COST:25	WT:10		SLOTS:2	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	EQMOD:STEEL	WIELD:TwoHanded	REACHMULT:2		SIZE:M	SOURCEPAGE:p.24
+# Equipment Name			Output Name				Required Weapon Proficiency		Type												Cost		Weight	Slot Needed	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Reach Multiplier	Size		Source Page
+Chain (Spiked/Elongated)	OUTPUTNAME:Chain, Spiked	PROFICIENCY:WEAPON|Chain (Spiked)	TYPE:Weapon.Melee.Exotic.Reach.Finesseable.Standard.Piercing.Chain	COST:25	WT:10		SLOTS:2	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	EQMOD:STEEL	WIELD:TwoHanded	REACHMULT:2		SIZE:M	SOURCEPAGE:p.24
 
 ###Block: Tools
 # Equipment Name			Type							Cost		Weight	Source Page		Bonus to skill

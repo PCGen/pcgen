@@ -1,17 +1,17 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:From the Laboratory of the Mad Wizard Shadmar	SOURCESHORT:MWS	SOURCEWEB:http://www.nitehawk-games.biz/products/shadmar_rev2.html	SOURCEDATE:09-2009
 # Original Entry: Andrew Maitland
 
 # Spells with classes not included with set.
-# Spell Name		Classes of caster				School			Sub-School			Spell Descriptors			Type		Components		Casting Time			Range					Target Area or Effect						Duration				Save Info				Spell Resistance	Source Page		Description
-Alter Allegiance.MOD	CLASSES:Witch=7
-Longevity.MOD		CLASSES:Witch=9
+# Spell Name		Type		Classes of caster				School			Sub-School			Descriptor				Components		Casting Time			Range					Target Area or Effect						Duration				Save Info				Spell Resistance	Source Page		Description
+Alter Allegiance.MOD			CLASSES:Witch=7
+Longevity.MOD				CLASSES:Witch=9
 
 #Block: --------------------------------------------------------------------------------------------------------
-# Spell Name		Classes of caster				School			Sub-School			Spell Descriptors			Type		Components		Casting Time			Range					Target Area or Effect						Duration				Save Info				Spell Resistance	Source Page		Description
-Alter Allegiance		CLASSES:Bard=6|Sorcerer,Wizard=7	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	TYPE:Arcane	COMPS:V, S		CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:1 summoned creature				DURATION:(CASTERLEVEL) rounds	SAVEINFO:Special (see text)	SPELLRES:Yes	SOURCEPAGE:p.17	DESC:See text.
-Arcane Tap			CLASSES:Bard=6|Sorcerer,Wizard=7	SCHOOL:Evocation											TYPE:Arcane	COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:1 arcane spellcaster				DURATION:2 days (see text)	SAVEINFO:Will negates		SPELLRES:Yes	SOURCEPAGE:p.17	DESC:See text.
-Chaotic Burst		CLASSES:Sorcerer,Wizard=6		SCHOOL:Transmutation					DESCRIPTOR:Chaotic		TYPE:Arcane	COMPS:V, S		CASTTIME:1 standard action	RANGE:((CASTERLEVEL/2)*5) ft.	TARGETAREA:20 ft. radius					DURATION:Instantaneous		SAVEINFO:Fortitude negates	SPELLRES:Yes	SOURCEPAGE:p.17	DESC:See text.
-Form Binding		CLASSES:Sorcerer,Wizard=4		SCHOOL:Abjuration											TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:1 living creature, special (see below)	DURATION:(CASTERLEVEL) rounds	SAVEINFO:Will negates		SPELLRES:Yes	SOURCEPAGE:p.17	DESC:See text.
-Longevity			CLASSES:Sorcerer,Wizard=9		SCHOOL:Necromancy						DESCRIPTOR:Evil			TYPE:Arcane	COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Living creature touched				DURATION:Instantaneous		SAVEINFO:Will negates		SPELLRES:Yes	SOURCEPAGE:p.17	DESC:See text.
-Spell Restore		CLASSES:Sorcerer,Wizard=8		SCHOOL:Transmutation										TYPE:Arcane	COMPS:V		CASTTIME:10 minutes		RANGE:Personal			TARGETAREA:You							DURATION:Instantaneous										SOURCEPAGE:p.18	DESC:See text.
+# Spell Name		Type		Classes of caster				School			Sub-School			Descriptor				Components		Casting Time			Range					Target Area or Effect						Duration				Save Info				Spell Resistance	Source Page		Description
+Alter Allegiance		TYPE:Arcane	CLASSES:Bard=6|Sorcerer,Wizard=7	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	COMPS:V, S		CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:1 summoned creature				DURATION:(CASTERLEVEL) rounds	SAVEINFO:Special (see text)	SPELLRES:Yes	SOURCEPAGE:p.17	DESC:See text.
+Arcane Tap			TYPE:Arcane	CLASSES:Bard=6|Sorcerer,Wizard=7	SCHOOL:Evocation											COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:1 arcane spellcaster				DURATION:2 days (see text)	SAVEINFO:Will negates		SPELLRES:Yes	SOURCEPAGE:p.17	DESC:See text.
+Chaotic Burst		TYPE:Arcane	CLASSES:Sorcerer,Wizard=6		SCHOOL:Transmutation					DESCRIPTOR:Chaotic		COMPS:V, S		CASTTIME:1 standard action	RANGE:((CASTERLEVEL/2)*5) ft.	TARGETAREA:20 ft. radius					DURATION:Instantaneous		SAVEINFO:Fortitude negates	SPELLRES:Yes	SOURCEPAGE:p.17	DESC:See text.
+Form Binding		TYPE:Arcane	CLASSES:Sorcerer,Wizard=4		SCHOOL:Abjuration											COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Medium			TARGETAREA:1 living creature, special (see below)	DURATION:(CASTERLEVEL) rounds	SAVEINFO:Will negates		SPELLRES:Yes	SOURCEPAGE:p.17	DESC:See text.
+Longevity			TYPE:Arcane	CLASSES:Sorcerer,Wizard=9		SCHOOL:Necromancy						DESCRIPTOR:Evil			COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch				TARGETAREA:Living creature touched				DURATION:Instantaneous		SAVEINFO:Will negates		SPELLRES:Yes	SOURCEPAGE:p.17	DESC:See text.
+Spell Restore		TYPE:Arcane	CLASSES:Sorcerer,Wizard=8		SCHOOL:Transmutation										COMPS:V		CASTTIME:10 minutes		RANGE:Personal			TARGETAREA:You							DURATION:Instantaneous										SOURCEPAGE:p.18	DESC:See text.

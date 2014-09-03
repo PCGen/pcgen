@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
@@ -63,7 +63,7 @@ Low Level Adventure Template
 
 ###Block: Templates Applied to the Companion - Would be nice if we had a Feature that could Apply this from the Master PC
 # 02 Comp Bonus Might grants the Positive Level (+2) - and since we can't assign from master, grant a virtual 'ability' that will display in character points showing the companion has this.
-# Template Name						Visible		Level Adjustment		Template				Define				Bonus to Ability Pool						Combat bonus					Bonus to skill				Modify VAR				Ability															Description											Temporary Bonus																																					Bonus
+# Template Name						Visible		Level Adjustment		Template				Define				Bonus Ability Pool						Combat bonus					Bonus to skill				Modify VAR				Ability															Description											Temporary Bonus																																					Bonus
 02 Companion Bonus ~ Might (+2 Positive Levels)	VISIBLE:DISPLAY					TEMPLATE:Positive Level (+2)																																	ABILITY:Character Points|VIRTUAL|Companion ~ Might
 
 # This needs to be taken so the TEMP BONUS may be used. Increases Size and all associated bonuses.

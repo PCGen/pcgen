@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Rise of the Runelords - Chapter 2: The Skinsaw Murders	SOURCESHORT:PF2	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
 # Original Entry by: Stefan Radermacher
 
-# Spell Name	Classes of caster			School			Sub-School			Type		Components		Casting Time			Range			Item		Target Area or Effect		Duration					Save Info					Spell Resistance		Source Page		Description
-Dream Feast		CLASSES:Cleric,Druid,Ranger=1	SCHOOL:Conjuration	SUBSCHOOL:Creation	TYPE:Divine	COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Touch		ITEM:Potion	TARGETAREA:Creature touched	DURATION:Instantaneous			SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.72	DESC:Target gets sated during sleep.
-Traveling Dream	CLASSES:Cleric,Druid=4		SCHOOL:Divination		SUBSCHOOL:Scrying		TYPE:Divine	COMPS:V, S, DF	CASTTIME:10 minutes		RANGE:Unlimited			TARGETAREA:Magical sensor	DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.72	DESC:Create dreamscryer magic sensor
+# Spell Name	Type		Classes of caster			School			Sub-School			Components		Casting Time			Range			Item		Target Area or Effect		Duration					Save Info					Spell Resistance		Source Page		Description
+Dream Feast		TYPE:Divine	CLASSES:Cleric,Druid,Ranger=1	SCHOOL:Conjuration	SUBSCHOOL:Creation	COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Touch		ITEM:Potion	TARGETAREA:Creature touched	DURATION:Instantaneous			SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.72	DESC:Target gets sated during sleep.
+Traveling Dream	TYPE:Divine	CLASSES:Cleric,Druid=4		SCHOOL:Divination		SUBSCHOOL:Scrying		COMPS:V, S, DF	CASTTIME:10 minutes		RANGE:Unlimited			TARGETAREA:Magical sensor	DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:None				SPELLRES:No			SOURCEPAGE:p.72	DESC:Create dreamscryer magic sensor

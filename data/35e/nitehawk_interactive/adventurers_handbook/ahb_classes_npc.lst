@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir Gwaith
 
@@ -9,8 +9,8 @@ CLASS:Exile		HD:8		TYPE:Base.NPC	ABB:Exile		MAXLEVEL:20	SOURCEPAGE:p.138	BONUS:C
 CLASS:Exile		STARTSKILLPTS:2	CSKILL:Bluff|Hide|Intimidate|TYPE=Knowledge|Jump|Listen|Move Silently|TYPE=Perform|Sense Motive|Speak Language|Spot|Swim
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
 1	AUTO:FEAT|Run
 

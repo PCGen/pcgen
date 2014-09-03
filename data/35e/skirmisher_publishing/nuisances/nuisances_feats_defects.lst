@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Nuisances - Director's Cut	SOURCESHORT:Nuisances	SOURCEWEB:http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download	SOURCEDATE:2007-08
 
-# Ability Name		Category of Ability	Define							Bonus Number of Feats					Modify VAR
+# Ability Name		Category of Ability	Define							Number of Feats						Modify VAR
 Defect Bonus Feats	CATEGORY:Internal		DEFINE:DefectCount|0	DEFINE:TotalFeats|0	BONUS:FEAT|POOL|min(DefectCount,TotalFeats)	BONUS:VAR|TotalFeats|floor((TL+3)/3)	BONUS:VAR|TotalFeats|1|PRERACE:1,Human
 
 ###Block: Defects

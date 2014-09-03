@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:DHG - The Practical Enchanter	SOURCESHORT:TPE	SOURCEWEB:http://www.lulu.com/product/paperback/the-practical-enchanter/559616	SOURCEDATE:01-2001
 #Original Entry: Andrew Maitland
 
@@ -12,7 +12,7 @@ SOURCELONG:DHG - The Practical Enchanter	SOURCESHORT:TPE	SOURCEWEB:http://www.lu
 #COMMENT: The Above unlock access to the Spells in this book.
 
 ###Block: Talents
-# Template Name				Visible		Level Adjustment		Bonus to Ability Pool
+# Template Name				Visible		Level Adjustment		Bonus Ability Pool
 Use the Talent System			VISIBLE:DISPLAY					BONUS:ABILITYPOOL|Talent Pool|1
 # This is to turn on the Talent System
 
@@ -32,7 +32,7 @@ Buy Off ECL Penalty ~ Level 12				LEVELADJUSTMENT:-12
 
 
 ###Block: Permanent Starting Wealth Level
-# Template Name			Unique Key				Visible		Level Adjustment		Define				Bonus to Ability Pool
+# Template Name			Unique Key				Visible		Level Adjustment		Define				Bonus Ability Pool
 01 - Use Wealth Templates	KEY:Use Wealth Templates	VISIBLE:DISPLAY					DEFINE:EclipseExtraLvl|0	BONUS:ABILITYPOOL|Starting Wealth Level Choice|1	BONUS:ABILITYPOOL|Current Wealth Level Choice|1	BONUS:ABILITYPOOL|Level Advancement Wealth Template|TL+EclipseExtraLvl
 #COMMENT: This allows the use of the option system "Wealth Templates"
 
@@ -45,7 +45,7 @@ Poor Wealth ECL Modifier						VISIBLE:NO		LEVELADJUSTMENT:-1
 ###Block: Wealth Level affects on Companions
 # COMMENT: Intended to be added directly to the companion - Mount / Familiar // \
 
-# Template Name							Define											Bonus to Ability Pool																			Bonus to HP				Add to base move			Modify VAR
+# Template Name							Define											Bonus Ability Pool																			Bonus to HP				Add to base move			Modify VAR
 02 Companion Bonus ~ Destitute Template ~ Mount																																				BONUS:HP|CURRENTMAX|-(HP/2)	BONUS:MOVEADD|TYPE.Walk|-5
 02 Companion Bonus ~ Wealthy Template ~ Mount		DEFINE:CompanionMaxLvls|0	DEFINE:MinGranted|0	DEFINE:StatMax|0	BONUS:ABILITYPOOL|Companion Stat Increase|6	BONUS:ABILITYPOOL|Extra Creature Level|1													BONUS:MOVEADD|TYPE.Walk|5	BONUS:VAR|MinGranted|2	BONUS:VAR|CompanionMaxLvls|8	BONUS:VAR|StatMax|3
 02 Companion Bonus ~ Wealthy Template ~ Familiar	DEFINE:CompanionMaxLvls|0	DEFINE:StatMax|0					BONUS:ABILITYPOOL|Companion Stat Increase|6	BONUS:ABILITYPOOL|Extra Creature Level|1	BONUS:ABILITYPOOL|Companion Bonus HP|1						BONUS:MOVEADD|TYPE.Walk|5	BONUS:VAR|CompanionMaxLvls|4	BONUS:VAR|StatMax|2

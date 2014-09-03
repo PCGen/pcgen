@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # RSRD Entry by: jaymecox
 # COMMENT: Updates Jan 20, 2013 - HD Growth For Companions reimplemented; Mounts do not gain automatic Barding Proficiency. In fact, there is no 'Barding' proficiency.
 
 
 ###Block: Special Mount
-# Class of the Master		Type				Hit Dice	Spell Res.					Ability																Automatically Gained Armor Prof.	Define a Stat			Combat bonus					Add to base move																																					Stat bonus
+# Class of the Master		Type				Hit Dice	Spell Res.					Ability																Auto Armor Prof				Define Stat				Combat bonus					Add to base move																																					Stat bonus
 FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	HD:2								ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1
 FOLLOWER:SpecialMountLVL=8	TYPE:Special Mount	HD:2								ABILITY:Special Ability|AUTOMATIC|Improved Speed															DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
 FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount	HD:2								ABILITY:Special Ability|AUTOMATIC|Command Own Kind															DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1
@@ -25,7 +25,7 @@ FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Shark (Large
 #
 
 ###Block: Fiendish Servant
-# Class of the Master			Type				Hit Dice	Spell Res.	Ability																Define a Stat			Combat bonus					Stat bonus
+# Class of the Master			Type				Hit Dice	Spell Res.	Ability																Define Stat				Combat bonus					Stat bonus
 FOLLOWER:FiendishServantLVL=5		TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:FiendishServantLVL=13	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Speak with Blackguard								DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:FiendishServantLVL=16	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Blood Bond										DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
@@ -34,7 +34,7 @@ FOLLOWER:FiendishServantLVL=20	TYPE:Fiendish Servant			SR:25
 #
 
 ###Block: Undead Companion
-# Class of the Master			Type				Hit Dice	Spell Res.	Ability																											Define a Stat			Combat bonus					Stat bonus		Modify VAR
+# Class of the Master			Type				Hit Dice	Spell Res.	Ability																											Define Stat				Combat bonus					Stat bonus		Modify VAR
 FOLLOWER:UndeadCompanionLVL=1		TYPE:Undead Companion	HD:2				ABILITY:Special Ability|VIRTUAL|Smite Good	ABILITY:Special Ability|AUTOMATIC|Cannot be Turned|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:VAR|SmiteGood|3	BONUS:VAR|SmiteGoodDamage|min(TL,20)
 FOLLOWER:UndeadCompanionLVL=13	TYPE:Undead Companion	HD:2				ABILITY:Special Ability|AUTOMATIC|Speak with Blackguard																			DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=16	TYPE:Undead Companion	HD:2				ABILITY:Special Ability|AUTOMATIC|Blood Bond																					DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
@@ -50,7 +50,7 @@ FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Companion ~ Zombie
 ###Block:Familiar
 #COMMENT: Familiar is an Animal that becomes a Magical Beast
 
-# Class of the Master	Type			Spell Res.		Ability														Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define a Stat						Combat bonus								Modify VAR							Template
+# Class of the Master	Type			Spell Res.		Ability														Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat							Combat bonus								Modify VAR							Template
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link						COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES																											TEMPLATE:Familiar Race Change
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Improved Evasion|Familiar ~ Share Spells																		DEFINESTAT:MINVALUE|INT|5+((MasterLVL+1)/2)	BONUS:COMBAT|AC|(MasterLVL+1)/2|TYPE=NaturalArmor.STACK	BONUS:VAR|MasterLVL|mastervar("FamiliarLVL")
 FOLLOWER:FamiliarLVL=3	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Deliver Touch Spells
@@ -104,7 +104,7 @@ MASTERBONUSRACE:Companion ~ Weasel			TYPE:Familiar										VFEAT:Alertness	BONU
 #
 
 ###Block:Animal Companion
-# Class of the Master			Type				Hit Dice	Ability															Automatically Gained Feat			Define							Combat bonus					Stat bonus					Modify VAR
+# Class of the Master			Type				Hit Dice	Ability															Auto Feat						Define							Combat bonus					Stat bonus					Modify VAR
 FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link|Share Spells								DEFINE:BonusTricks|0	DEFINE:SecondAttack|0														BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Evasion																									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Devotion																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1

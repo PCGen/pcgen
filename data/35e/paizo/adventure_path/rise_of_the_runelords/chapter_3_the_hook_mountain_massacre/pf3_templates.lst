@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Rise of the Runelords - Chapter 3: The Hook Mountain Massacre	SOURCESHORT:PF3	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80e8	SOURCEDATE:2007-08
 
-# Template Name	Challenge Rating	Level Adjustment	Source Page		Required Race										Required Size	Bonus to Ability Pool												Combat bonus				Stat bonus									Subrace		Main Race Type	Vision
+# Template Name	Challenge Rating	Level Adjustment	Source Page		Required Race										Required Size	Bonus Ability Pool												Combat bonus				Stat bonus									Subrace		Main Race Type	Vision
 Ogrekin		CR:1			LEVELADJUSTMENT:2	SOURCEPAGE:p.90	PRERACE:1,RACETYPE=Fey,RACETYPE=Humanoid,RACETYPE=Monstrous Humanoid	PRESIZEEQ:M		BONUS:ABILITYPOOL|Ogrekin Advantageous Deformity,Ogrekin Disadvantageous Deformity|1	BONUS:COMBAT|AC|3|TYPE=NaturalArmor	BONUS:STAT|STR|6	BONUS:STAT|CON|4	BONUS:STAT|INT,CHA|-2	SUBRACE:Ogrekin	RACETYPE:Giant	VISION:Low-Light Vision
 
 ###Block: Custom NPC Templates

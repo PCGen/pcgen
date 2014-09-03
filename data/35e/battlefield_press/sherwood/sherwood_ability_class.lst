@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Sherwood - The Legend of Robin Hood	SOURCESHORT:Sherwood	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2008-01
 #Original Entry: Andrew Maitland
 
@@ -13,7 +13,7 @@ YeomanDefense	CATEGORY:Internal		VISIBLE:DISPLAY	DEFINE:YeomanAC|0			BONUS:COMBA
 ConjurerDefense	CATEGORY:Internal		VISIBLE:DISPLAY	DEFINE:ConjurerAC|0		BONUS:COMBAT|AC|ConjurerAC|TYPE=ClassBonus.REPLACE
 
 ###Block: Class Bonus Feats
-# Ability Name		Category of Ability		Type				Visible		Stackable?	Multiple?	Choose		Bonus to Ability Pool
+# Ability Name		Category of Ability		Type				Visible		Stackable?	Multiple?	Choose		Bonus Ability Pool
 Engineer Bonus Feat	CATEGORY:Special Ability	TYPE:EngineerAbility	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Engineer Feat|1
 Knave Bonus Feat		CATEGORY:Special Ability	TYPE:KnaveAbility		VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Knave Feat|1
 Man-At-Arms Bonus Feat	CATEGORY:Special Ability	TYPE:ManAtArmsAbility	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Man-at-Arms Feat|1
@@ -28,7 +28,7 @@ Swashbuckling Points	CATEGORY:Special Ability	TYPE:SpecialQuality				DEFINE:Swas
 Swashbuckling Point	CATEGORY:Special Ability	TYPE:SwashbucklingPoint	VISIBLE:DISPLAY														STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|SwashbucklingPointTotal|1|TYPE=NoStack
 
 ###Block: Core Ability
-# Ability Name		Category of Ability		Type				Define					Description				Bonus to Ability Pool								Modify VAR
+# Ability Name		Category of Ability		Type				Define					Description				Bonus Ability Pool								Modify VAR
 Invention			CATEGORY:Special Ability	TYPE:SpecialQuality
 Swashbuckler		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SwashbucklerBonusPoints|0																	BONUS:VAR|SwashbucklingPointTotal|SwashbucklerBonusPoints
 Tactician			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:TacticianTactics|0							BONUS:ABILITYPOOL|Tactician|TacticianTactics

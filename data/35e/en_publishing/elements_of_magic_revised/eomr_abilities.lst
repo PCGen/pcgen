@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Elements of Magic (Revised)	SOURCESHORT:EOM	SOURCEWEB:http://www.enworld.org/forum/e-n-publishing/	SOURCEDATE:2002-01
 #Original Entry: Joe Frazier, Clean up by Andrew Maitland
 
 
-# Ability Name		Output Name				Category of Ability		Type				Visible	Define																						Description																					Ability															Bonus to Ability Pool				Modify VAR									Aspects
+# Ability Name		Output Name				Category of Ability		Type				Visible	Define																						Description																					Ability															Bonus Ability Pool				Modify VAR									Aspects
 Elements of Magic							CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	DEFINE:EOMCasterlevel|0	DEFINE:CantripsPerDay|0	DEFINE:BaseSpellPoints|0	DEFINE:BonusSpellPoints|0	DEFINE:TotalSpellPoints|0	DESC:Base Magic Points (%1), Bonus Magic Points (%2), Total Magic Points (%3)|BaseSpellPoints|BonusSpellPoints|TotalSpellPoints	ABILITY:Special Ability|AUTOMATIC|Magic Points ~ Base|Magic Points ~ Bonus|Magic Points ~ Total	BONUS:ABILITYPOOL|Magical Tradition|1	BONUS:VAR|TotalSpellPoints|BaseSpellPoints+BonusSpellPoints
 
 Magic Points ~ Base	OUTPUTNAME:Base Magic Points	CATEGORY:Special Ability	TYPE:SpecialQuality																										DESC:%1|BaseSpellPoints																																																				ASPECT:Ability Benefit|(%1)|BaseSpellPoints
@@ -16,7 +16,7 @@ CATEGORY=Special Ability|Rogue Special Ability ~ Skill Mastery.MOD	TYPE:Taskmage
 
 ###Block: Boons ---------------------------------------------------------------------------
 #Block: Minor Boons
-# Ability Name		Category of Ability		Type								Visible		Define				Description															Stackable?	Multiple?	Choose																							Bonus to Ability Pool		Bonus to skill rank	Modify VAR					Source Page
+# Ability Name		Category of Ability		Type								Visible		Define				Description															Stackable?	Multiple?	Choose																							Bonus Ability Pool		Bonus to skill rank	Modify VAR					Source Page
 Animal Speak		CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.SpellLike										DESC:You can speak with the following animals as if you have a common language, %1|%CHOICE			MULT:YES	CHOOSE:RACE|RACETYPE=Animal																																			SOURCEPAGE:p.6
 Mage Bonus Feat		CATEGORY:Special Ability	TYPE:MinorBoon						VISIBLE:DISPLAY																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:ABILITYPOOL|Mage Feat|1											SOURCEPAGE:p.
 Resist Fear			CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.Supernatural																																																																				SOURCEPAGE:p.6
@@ -25,7 +25,7 @@ Minor Energy Resistance	CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.S
 Spiritual Medium		CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.Supernatural																																																																				SOURCEPAGE:p.6
 
 ###Block: Moderate Boons
-# Ability Name				Output Name				Category of Ability		Type								Visible		Required Vision									Prohibited Vision				Define					Description																																							Stackable?	Multiple?	Choose																							Ability									Bonus to Ability Pool				Modify VAR					Add to vision			Allow Follower		Allowed Companions												Vision			Source Page
+# Ability Name				Output Name				Category of Ability		Type								Visible		Required Vision									Prohibited Vision				Define					Description																																							Stackable?	Multiple?	Choose																							Ability									Bonus Ability Pool				Modify VAR					Add to vision			Allow Follower		Allowed Companions												Vision			Source Page
 Animagus										CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon																													DESC:You can can transform into the shape of the following animals as a standard action, %1|%CHOICE																								STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Animal																																																																							SOURCEPAGE:p.7
 Sixth Sense										CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon																													DESC:Mage gains the supernatural ability to see and hear incorporeal undead.																																																																																																											SOURCEPAGE:p.7
 Mage Summon Familiar			OUTPUTNAME:Summon Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon																							DEFINE:FamiliarLVL|0																																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																		FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel					SOURCEPAGE:p.7

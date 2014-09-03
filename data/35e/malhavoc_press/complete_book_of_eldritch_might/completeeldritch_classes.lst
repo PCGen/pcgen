@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
 # Original Entry by: Felipe Diniz
 
@@ -8,7 +8,7 @@ CLASS:Bard (Monte Cook's)	HD:6		TYPE:Base.PC	ABB:Brd(MC)		MAXLEVEL:20	SOURCEPAGE
 CLASS:Bard (Monte Cook's)	PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Bard (Monte Cook's)	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Survival|Swim|Tumble|Use Magic Device
-# Class Name			Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level
+# Class Name			Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
 CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard (Monte Cook's)|CL
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block:
@@ -108,13 +108,13 @@ CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Dip
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Eldritch Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Feat					Required Skill
-CLASS:Eldritch Warrior	PRETOTALAB:5	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:3,Craft (Alchemy)=3,Knowledge (Arcana)=3,Spellcraft=1
+# Class Name		Required Feat					Required Skill									PRETOTALAB
+CLASS:Eldritch Warrior	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:3,Craft (Alchemy)=3,Knowledge (Arcana)=3,Spellcraft=1	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (Arcana)|Knowledge (the planes)|Move Silently|Ride|Spellcraft
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
-1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1													AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
 1	BONUS:ABILITYPOOL|Ritual of Potency Choice|1
 2	BONUS:ABILITYPOOL|Eldritch Warrior Feat|1		ABILITY:Special Ability|AUTOMATIC|Enrune Armor ~ Eldritch Warrior
@@ -169,8 +169,8 @@ CLASS:Knight of the Chord	PREALIGN:CG,CN,CE	PREFEAT:2,Toughness,Weapon Focus	PRE
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Chord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|Ride|Sense Motive|Speak Language|Spellcraft|Use Magic Device
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
-1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1													AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
 1									BONUS:MISC|SPELLFAILURE|-KotCSpellFailure|PREVARGTEQ:5,KotCArmorCheckPenalty	BONUS:VAR|KotCArmorCheckPenalty|-ACCHECK	BONUS:VAR|KotCSpellFailure|SPELLFAILURE	BONUS:VAR|KnightoftheChordLvl|CL	DEFINE:KotCArmorCheckPenalty|0	DEFINE:KotCSpellFailure|0	DEFINE:KnightoftheChordLvl|0					ABILITY:Special Ability|AUTOMATIC|Armor Song ~ Knight of the Chord
 2	BONUS:ABILITYPOOL|Imbue Vibration Choice|1																																																		ADD:SPELLCASTER|ANY

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Legends of the Ancients - Macedon	SOURCESHORT:Macedon	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=137	SOURCEDATE:2005-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
@@ -7,8 +7,8 @@ CLASS:Cavalry	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:COMBAT|BASEAB
 CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Tactics)|Ride|Spot|Survival
 ###Block: proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Martial
-1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial								AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: standard
 1	BONUS:VAR|MountedCombat|(CL/4)+1					ABILITY:Special Ability|AUTOMATIC|Mounted Combat ~ Cavalry					VFEAT:Mounted Combat
 2											ABILITY:Special Ability|AUTOMATIC|Mounted Mobility ~ Cavalry|Saddle Leap ~ Cavalry

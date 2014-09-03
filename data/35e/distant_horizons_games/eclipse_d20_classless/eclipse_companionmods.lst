@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
@@ -54,7 +54,7 @@ FOLLOWER:PsiCrystalLvl=20	TYPE:Psicrystal																																							
 
 
 ###Block: Special Mount Progression
-# Class of the Master		Type				Hit Dice	Ability																																															Copy Masters Checks	Define			Bonus to Ability Pool						Combat bonus													Modify VAR										Main Race Type
+# Class of the Master		Type				Hit Dice	Ability																																															Copy Masters Checks	Define			Bonus Ability Pool						Combat bonus													Modify VAR										Main Race Type
 FOLLOWER:SpecialMountLvl=1	TYPE:Special Mount			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Communicate with Master ~ Companion Creature|Improved Evasion|Improved Fortune ~ Evasion|Share Saving Throws ~ Companion Creature|Share Spells ~ Companion Creature	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker	COPYMASTERCHECK:MASTER	DEFINE:CompanionCPLvl|0	BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																BONUS:VAR|IntelligenceLockNumber|8	BONUS:VAR|CompanionCPLvl|3	RACETYPE:Magical Beast
 FOLLOWER:SpecialMountLvl=2	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
 FOLLOWER:SpecialMountLvl=3	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
@@ -77,7 +77,7 @@ FOLLOWER:SpecialMountLvl=19	TYPE:Special Mount																																		
 FOLLOWER:SpecialMountLvl=20	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
 
 ###Block: Mystic Companion Progression
-# Class of the Master			Type				Hit Dice	Ability																																															Copy Masters Checks	Define			Bonus to Ability Pool						Combat bonus													Modify VAR										Main Race Type
+# Class of the Master			Type				Hit Dice	Ability																																															Copy Masters Checks	Define			Bonus Ability Pool						Combat bonus													Modify VAR										Main Race Type
 FOLLOWER:MysticCompanionLvl=1		TYPE:Mystic Companion			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Communicate with Master ~ Companion Creature|Improved Evasion|Improved Fortune ~ Evasion|Share Saving Throws ~ Companion Creature|Share Spells ~ Companion Creature	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker	COPYMASTERCHECK:MASTER	DEFINE:CompanionCPLvl|0	BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																BONUS:VAR|IntelligenceLockNumber|8	BONUS:VAR|CompanionCPLvl|3	RACETYPE:Magical Beast
 FOLLOWER:MysticCompanionLvl=2		TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
 FOLLOWER:MysticCompanionLvl=3		TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3

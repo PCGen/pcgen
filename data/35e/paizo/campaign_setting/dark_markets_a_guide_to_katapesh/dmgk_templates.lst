@@ -1,4 +1,4 @@
-# CVS $Revision: 12606 $ $Author: zaister $ -- Sat Mar 30 17:42:47 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+# CVS $Revision: 12606 $ $Author: zaister $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Dark Markets: A Guide to Katapesh	SOURCESHORT:DMGK	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
 # Original Entry by: Terry Milnes
 
@@ -23,7 +23,7 @@ Sahir-Afiyun Spells ~ Wizard		VISIBLE:NO	PRECLASS:1,Wizard=1	SPELLKNOWN:CLASS|Wi
 
 ###Block: Greater Ghul Template
 
-# Template Name	Bonus to Ability Pool				Ability
+# Template Name	Bonus Ability Pool				Ability
 Greater Ghul	BONUS:ABILITYPOOL|Genie Type Selection|1	ABILITY:Racial Trait|AUTOMATIC|Bleed ~ Ghul|Cursed Claws|Genie-Kin|Rend ~ Ghul|Skills ~ Ghul	ABILITY:Racial Trait|AUTOMATIC|Bonus Feats ~ Greater Ghul|Change Shape ~ Greater Ghul|Create Spawn ~ Greater Ghul|DR ~ Greater Ghul|Greater Invisibility ~ Greater Ghul
 
 #

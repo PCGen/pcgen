@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
-# Race Name				Clear Bonus Languages	Bonus Languages										Automatically Gained Language
+# Race Name				Clear Bonus Languages	Bonus Languages										Auto Language
 Human.MOD				LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Remarian
 Dwarf.MOD				LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Galkarnic
 Elf.MOD				LANGBONUS:.CLEAR		LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian	AUTO:LANG|Aeylamdyarian

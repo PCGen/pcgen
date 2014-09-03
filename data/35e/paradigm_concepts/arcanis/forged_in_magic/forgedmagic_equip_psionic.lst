@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
 #AUTHOR:E. C. Smith (Maredudd) 2007; Andrew Maitland
 
 #Block: Psicrowns ----------------------------------------------------------------------------
-# Equipment Name						Type						Cost		Source Page		Virtual Feat	Vision			Combat bonus			Bonus to DC								Bonus to skill							Stat bonus						Special ABility		Bonus
+# Equipment Name						Type						Cost		Source Page		Virtual Feat	Vision			Combat bonus			Bonus DC								Bonus to skill							Stat bonus						Special ABility		Bonus
 val'Abebi Psicrown of the Artisan			TYPE:Psionic.Psicrown			COST:184900	SOURCEPAGE:p.44
 val'Assante Psicrown of Radiant Light		TYPE:Psionic.Psicrown			COST:56550	SOURCEPAGE:p.45
 val'Dellenov Psicrown of the Beast			TYPE:Psionic.Psicrown			COST:68250	SOURCEPAGE:p.45

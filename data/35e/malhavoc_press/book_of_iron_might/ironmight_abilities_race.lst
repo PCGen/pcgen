@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 
 ###Block: Ironborn
-# Ability Name		Unique Key						Category of Ability		Type										Required Template							Description					Multiple?	Choose							Automatically Added to Inventory	Ability											Combat bonus				Add to base move			Bonus to skill							Modify VAR								Vision
+# Ability Name		Unique Key						Category of Ability		Type										Required Template							Description					Multiple?	Choose							Auto Equip					Ability											Combat bonus				Add to base move			Bonus to skill							Modify VAR								Vision
 Enhanced Agility									CATEGORY:Special Ability	TYPE:SpecialQuality.IronbornPrimaryAbility			PRETEMPLATE:1,Ironborn Acrobat Ability Package																																															BONUS:SKILL|Escape Artist,Jump,Tumble|2|TYPE=Racial
 Enhanced Mobility		KEY:Enhanced Mobility ~ BoIM			CATEGORY:Special Ability	TYPE:SpecialQuality.IronbornSecondaryAbility			PRETEMPLATE:1,Ironborn Acrobat Ability Package																																										BONUS:MOVEADD|TYPE.Walk|5
 Armored Body									CATEGORY:Special Ability	TYPE:SpecialQuality.IronbornPrimaryAbility			PRETEMPLATE:1,Ironborn Centurion Ability Package																	AUTO:EQUIP|Ironborn Armored Body

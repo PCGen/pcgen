@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:DCC 28 - Into the Wilds	SOURCESHORT:DCC28	SOURCEWEB:http://www.goodman-games.com/	SOURCEDATE:2006-01
-# Deity Name	Domains							Description of Deity/Title												Holy Item					Alignment	Pantheon			Source Page
+# Deity Name	Domains							Description of Deity/Title												Holy Item					Align		Pantheon			Source Page
 Sodoutym		DOMAINS:Evil,Law,Trickery|PREALIGN:LE,LN,NE	DESC:The Dark Foe, Blackhammer, Hellbeard. He is the lawful evil god of averice and tyranny.	SYMBOL:Swarm of attacking bats	ALIGN:LE	PANTHEON:DCC|Dwarven	SOURCEPAGE:p.25

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
@@ -7,7 +7,7 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 # RSRD Skills - Ability conversion to make any skill that is purchased with 6 or more CP a Class Skill as per Eclipse
 
 
-# Ability Name								SORTKEY		Category of Ability		Type				Define						Stackable?	Multiple?	Choose		Ability																																Bonus to Ability Pool								Modify VAR																																																																																																																																																																																					Class Skill
+# Ability Name								SORTKEY		Category of Ability		Type				Define						Stackable?	Multiple?	Choose		Ability																																Bonus Ability Pool								Modify VAR																																																																																																																																																																																					Class Skill
 Make CSKILL ~ Appraise										CATEGORY:Internal																																																																																																																																																																																																																																																							CSKILL:Appraise
 Make CSKILL ~ Balance										CATEGORY:Internal																																																																																																																																																																																																																																																							CSKILL:Balance
 Make CSKILL ~ Bluff										CATEGORY:Internal																																																																																																																																																																																																																																																							CSKILL:Bluff

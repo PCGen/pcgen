@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Book of Iron Might	SOURCESHORT:BoIM	SOURCEWEB:http://www.montecook.com/cgi-bin/page.cgi?mpress_BOIM	SOURCEDATE:2004-01
 
 ###Block: arcane battle mastery
-# Template Name				Source Page		Req. Att.	Required Class Skill							Req. Spell Type		Required Stat	Automatically Gained Feat
-Automatic Arcane Battle Mastery	SOURCEPAGE:p.36	PRETOTALAB:1	PRECSKILL:3,Concentration,Knowledge (Arcana),Spellcraft	PRESPELLTYPE:1,Arcane=1	PRESTAT:1,INT=13	AUTO:FEAT|Arcane Battle Mastery
+# Template Name				Source Page		Required Class Skill							Req. Spell Type		Required Stat	PRETOTALAB		Auto Feat
+Automatic Arcane Battle Mastery	SOURCEPAGE:p.36	PRECSKILL:3,Concentration,Knowledge (Arcana),Spellcraft	PRESPELLTYPE:1,Arcane=1	PRESTAT:1,INT=13	PRETOTALAB:1	AUTO:FEAT|Arcane Battle Mastery
 
 ###Block: ironborn
 # Template Name	Visible	Template																																																																							Combat bonus				Bonus to skill											Ability
@@ -27,7 +27,7 @@ Ironborn Plus Wis				VISIBLE:NO																																									BONUS:ST
 Ironborn Plus Cha				VISIBLE:NO																																									BONUS:STAT|CHA|2
 
 ###Block: Ironborn Packages
-# Template Name					Visible	Bonus to Ability Pool
+# Template Name					Visible	Bonus Ability Pool
 Ironborn Acrobat Ability Package		VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
 Ironborn Centurion Ability Package		VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
 Ironborn Divine Mark Ability Package	VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
@@ -38,6 +38,6 @@ Ironborn Spellmaster Ability Package	VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Prima
 Ironborn Trailblazer Ability Package	VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Primary Ability Choice|1
 
 ###Block: Ironborn Secondary Ability (Small Ironborn)
-# Template Name			Visible	Bonus to Ability Pool						Stat bonus
+# Template Name			Visible	Bonus Ability Pool						Stat bonus
 Ironborn Secondary Ability	VISIBLE:NO	BONUS:ABILITYPOOL|Ironborn Secondary Ability Choice|1	BONUS:STAT|STR|-2
 Ironborn No Secondary Ability	VISIBLE:NO

@@ -1,7 +1,7 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 
-# Class of the Master	Type				Ability																							Bonus to Ability Pool
+# Class of the Master	Type				Ability																							Bonus Ability Pool
 FOLLOWER:TL=1		TYPE:Item Familiar	ABILITY:Special Ability|AUTOMATIC|Item Familiar ~ Invest life energy|Item Familiar ~ invest skill ranks|Item Familiar ~ invest spell slots
 FOLLOWER:TL=7		TYPE:Item Familiar	ABILITY:Special Ability|AUTOMATIC|Item Familiar ~ communication|Item Familiar ~ Sapience|Item Familiar ~ senses
 #ABILITY:Special Ability|AUTOMATIC|Item Familiar ~ Special ability

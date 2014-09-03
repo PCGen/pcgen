@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Secrets of Theurgy	SOURCESHORT:SoTheurgy	SOURCEWEB:http://www.rpgnow.com/product_info.php?manufacturers_id=313&products_id=3023&	SOURCEDATE:2004-07
 
 # Ability Name	Category of Ability		Type						Visible		Special ABility	Description
@@ -6,7 +6,7 @@ Theurgy		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:DISP
 #You can only gain spellcaster level from one Theurgy class, not sure how this can be enforced.
 
 ###Block: Elemental Theurge Abilities
-# Ability Name		Category of Ability		Type						Visible		Special ABility					Define					Innate Spells								Bonus to DC																														Modify VAR														Allowed Companions
+# Ability Name		Category of Ability		Type						Visible		Special ABility					Define					Innate Spells								Bonus DC																														Modify VAR														Allowed Companions
 Elemental Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	SAB:Elemental Familiar																																																																		COMPANIONLIST:Familiar|Elemental (Air Small)|PREDOMAIN:1,Air	COMPANIONLIST:Familiar|Elemental (Earth Small)|PREDOMAIN:1,Earth	COMPANIONLIST:Familiar|Elemental (Fire Small)|PREDOMAIN:1,Fire	COMPANIONLIST:Familiar|Elemental (Water Small)|PREDOMAIN:1,Water
 Elemental Turning		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:DISPLAY	SAB:Elemental Turning (Ex)			DEFINE:ElementalTurningLevel|0																																										BONUS:VAR|TurnLevelAir,TurnLevelEarth,TurnLevelWater,TurnLevelFire|ElementalTurningLevel
 Domain Access		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	SAB:Domain Access (Level %)|DomainAccess	DEFINE:DomainAccess|0
@@ -56,7 +56,7 @@ Theurgic Feat (Tap All-Magic)			CATEGORY:Special Ability	TYPE:TheurgicFeats			VI
 
 
 ###Block: Hierophant Theurge Ability I block
-# Ability Name			Output Name					Category of Ability		Type								Visible		Required Ability									Restricted Ability												Required Var. value			Special ABility			Description							Multiple?	Choose			Bonus to DC			Add domain number		Bonus to skill				Stat bonus					Modify VAR				Source Page
+# Ability Name			Output Name					Category of Ability		Type								Visible		Required Ability									Restricted Ability												Required Var. value			Special ABility			Description							Multiple?	Choose			Bonus DC			Add domain number		Bonus to skill				Stat bonus					Modify VAR				Source Page
 Channeled Might I			OUTPUTNAME:Channeled Might		CATEGORY:Special Ability	TYPE:SpecialQuality.HierophantTheurgeAbility	VISIBLE:DISPLAY																											PREVAREQ:HierophantTheurgeLevel,1	SAB:Channeled Might										MULT:YES	CHOOSE:SCHOOLS|ALL	BONUS:DC|SCHOOL.%LIST|1																						SOURCEPAGE:11
 Defense of Faith I		OUTPUTNAME:Defense of Faith		CATEGORY:Special Ability	TYPE:SpecialQuality.HierophantTheurgeAbility	VISIBLE:DISPLAY																											PREVAREQ:HierophantTheurgeLevel,1	SAB:Defense of Faith																																									SOURCEPAGE:11
 Enhanced Charisma I		OUTPUTNAME:Enhanced Charisma		CATEGORY:Special Ability	TYPE:SpecialQuality.HierophantTheurgeAbility	VISIBLE:DISPLAY																											PREVAREQ:HierophantTheurgeLevel,1	SAB:Enhanced Charisma																														BONUS:STAT|CHA|1|TYPE=Legendary						SOURCEPAGE:11

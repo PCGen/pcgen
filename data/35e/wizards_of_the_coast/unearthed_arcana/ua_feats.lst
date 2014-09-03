@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 
 # Feat Name		Type			Description																Source Page
@@ -6,7 +6,7 @@ Urban Tracking	TYPE:General	DESC:You can track down the location of missing pers
 
 
 ###Block: Reputation based Feats
-# Feat Name		Type			Prohibited Feat		Required Non-Monster Lvl	Description																																			Modify VAR				Allow Follower			Allowed Companions				Source Page		Description of the Benefits
+# Feat Name		Type			Prohibited Feat		Required Non-Monster Lvl	Description																																			Modify VAR				Allow Follower			Allowed Companions				Source Page		Benefits
 Low Profile		TYPE:General	!PREFEAT:1,Renown							DESC:You are less famous than others of your class and level, or you wish to maintain a less visible presence than others of your station.													BONUS:VAR|ReputationScore|-3													SOURCEPAGE:p.182	BENEFIT: Reduce your reputation bonus by 3 points. Special: You can't select both the Low Profile feat and the Renown feat. You're either famous or you're not.
 Renown		TYPE:General	!PREFEAT:1,Low Profile						DESC:You have a better chance of being recognized.BENEFIT: Increase your reputation bonus by 3 points. Special: You can't select both the Low Profile feat and the Renown feat. You're either famous or you're not.	BONUS:VAR|ReputationScore|3													SOURCEPAGE:p.182
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 ###Block: Companion Choices
 # Ability Name	Unique Key					SORTKEY						Category of Ability		Type				Define												Stackable?	Multiple?	Choose		Ability									Modify VAR																												Allow Follower							Allowed Companions							Source Page
@@ -20,7 +20,7 @@ Other Companion	KEY:Master ~ Other Companion	SORTKEY:Companion_2_e	CATEGORY:Spec
 # Other Choices are in the Respective Gamemode Sets
 
 ###Block: Companion Stuff
-# Ability Name			Unique Key								SORTKEY			Category of Ability		Type							Visible	Required Ability									Define											Description																																																																																																																															Move		Bonus to Ability Pool					Modify VAR									Spell Res.				Source Page
+# Ability Name			Unique Key								SORTKEY			Category of Ability		Type							Visible	Required Ability									Define											Description																																																																																																																															Move		Bonus Ability Pool					Modify VAR									Spell Res.				Source Page
 Channel spells and powers	KEY:Channel spells and powers					SORTKEY:Companion_3_a	CATEGORY:Special Ability	TYPE:EclipseAbilityOutput																												DESC:Channels those master spells with ease																																																																																																																																																		SOURCEPAGE:p.189
 Improved Fortune / Evasion	KEY:Improved Fortune ~ Evasion				SORTKEY:Companion_3_b	CATEGORY:Special Ability	TYPE:EclipseAbilityOutput																												DESC:Takes no damage on successful save																																																																																																																																																			SOURCEPAGE:p.189
 
@@ -50,7 +50,7 @@ Communicate with Master		KEY:Communicate with Master ~ Companion Creature	SORTKE
 
 
 ###Block: ------------------------------------------------------------------------------------------
-# Ability Name					Unique Key				SORTKEY		Category of Ability		Type							Define													Stackable?	Multiple?	Choose						Bonus to Ability Pool						Combat bonus				Add to base move			Stat bonus		Modify VAR
+# Ability Name					Unique Key				SORTKEY		Category of Ability		Type							Define													Stackable?	Multiple?	Choose						Bonus Ability Pool						Combat bonus				Add to base move			Stat bonus		Modify VAR
 Character Points For Companions										CATEGORY:Special Ability								DEFINE:CompanionCPLvl|0	DEFINE:CharacterPoints|0	DEFINE:CharacterPointsTotal|0												BONUS:ABILITYPOOL|Character Points|CharacterPoints															BONUS:VAR|CharacterPoints,CharacterPointsTotal|var("CompanionCPLvl")
 
 

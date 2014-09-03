@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#aa	SOURCEDATE:2005-01
 #Originally done by Paul W. King
 
@@ -35,8 +35,8 @@ CLASS:Arcane Archer ~ Core	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CA
 20	CAST:0,3,3,3,3
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)
-1																							AUTO:SHIELDPROF|Buckler
+1										AUTO:FEAT|Armor Proficiency (Light)
+1																AUTO:SHIELDPROF|Buckler
 ###Block: Standard
 1																		VFEAT:Point Blank Shot
 2	BONUS:ABILITYPOOL|Weapon Focus|1

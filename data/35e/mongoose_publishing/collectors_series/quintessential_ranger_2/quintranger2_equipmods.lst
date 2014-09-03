@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Aug 24 17:53:58 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Mongoose Publishing - Quintessential Ranger II	SOURCESHORT:QR_II	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2004-01
 #Original Entry by: Andrew Maitland
 
@@ -10,7 +10,7 @@ Animal Shape Armour	KEY:QRII_ANIMALSH_ARMR	TYPE:Armor	COST:50	PRETYPE:1,Light,Me
 Climber's Armour		KEY:QRII_CLIMBERS_ARMR	TYPE:Armor	COST:50	PRETYPE:1,Light,Medium
 
 ###Block: Weapon Options (Make These EQMODS -------------------------------------------------------------------------------------
-# Modifier Name	Unique Key			Type				Cost		Type granted		Bonus Weapon Modifiers
+# Modifier Name	Unique Key			Type				Cost		Type granted		Bonus Weapon Mods
 Atlatl		KEY:QRII_ATLATL_WEAP	TYPE:Weapon.Thrown	COST:5					BONUS:EQMWEAPON|RANGEADD|10
 Balanced		KEY:QRII_BALANCED_WEAP	TYPE:Weapon			COST:50	ITYPE:Ranged.Thrown	BONUS:EQMWEAPON|RANGEADD|5
 Dagger Hilt		KEY:QRII_DAGRHILT_WEAP	TYPE:Weapon			COST:20

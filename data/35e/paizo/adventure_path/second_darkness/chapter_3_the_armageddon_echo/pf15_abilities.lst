@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Second Darkness - Chapter 3: The Armageddon Echo	SOURCESHORT:PF15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
 # Original Entry by Eddy Anthony (MoSaT)
 
@@ -33,7 +33,7 @@ Raptor Dive		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOpt
 Runic Tattoos	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:The eldritch tattoos scribed on a maftet's body power its spell-like abilities and glow faintly when those abilities are used.	SOURCEPAGE:p. 88
 
 ###Block: Pain Taster Abilities
-# Ability Name		Category of Ability		Type								Define								Description																			Bonus to Ability Pool					Stat bonus					Modify VAR						Source Page
+# Ability Name		Category of Ability		Type								Define								Description																			Bonus Ability Pool					Stat bonus					Modify VAR						Source Page
 Masochism			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary												DESC:You have a perverse tolerance for pain																																		SOURCEPAGE:p. 61
 Disciple of Pain		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural												DESC:A pain taster gains insight into the mysteries of self-torture and torment.							BONUS:ABILITYPOOL|Disciple of Pain Routine|1														SOURCEPAGE:p. 61
 Disciple of Acuity	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																							BONUS:STAT|INT|2|TYPE=Enhancement								SOURCEPAGE:p. 61

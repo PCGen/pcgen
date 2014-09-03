@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RotRPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9	SOURCEDATE:2007-08
 # Original Entry by: Stefan Radermacher
 
-# Deity Name	Product Identity?	Domains												Description of Deity/Title					Deity Weapon						Alignment	Pantheon					Source Page
+# Deity Name	Product Identity?	Domains												Description of Deity/Title					Deity Weapon						Align		Pantheon					Source Page
 Abadar		NAMEISPI:YES	DOMAINS:Earth,Law,Nobility,Protection,Travel|PREALIGN:LG,LN,NG			DESC:God of cities, wealth, merchants, law		DEITYWEAP:Crossbow (Heavy)|Crossbow (Light)	ALIGN:LN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.7
 Asmodeus		NAMEISPI:YES	DOMAINS:Evil,Fire,Law,Magic,Trickery|PREALIGN:LN,LE,NE				DESC:God of tyranny, slavery, pride, contracts		DEITYWEAP:Mace (Heavy)|Mace (Light)			ALIGN:LE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.7
 Calistria		NAMEISPI:YES	DOMAINS:Chaos,Charm,Knowledge,Luck,Trickery|PREALIGN:CG,CN,CE			DESC:Goddess of trickery, lust, revenge			DEITYWEAP:Whip						ALIGN:CN	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.7

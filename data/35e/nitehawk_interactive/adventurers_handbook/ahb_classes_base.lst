@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir Gwaith
 
@@ -13,7 +13,7 @@ CLASS:Bounty Hunter	PREALIGN:LN,LE,TN,NE,CN,CE	PRESTAT:2,CHA=13,CON=13
 CLASS:Bounty Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Gather Information|Hide|Intimidate|Jump|Knowledge (Trapmaking)|Listen|Move Silently|Ride|Use Rope|Spot|Search|Sense Motive|Swim|Survival
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:Special Ability|AUTOMATIC|Bounty Hunter Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																						AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																					AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block:Level Progression
 1																									AUTO:FEAT|Track
 1	BONUS:ABILITYPOOL|Favored Prey Choice|1
@@ -34,7 +34,7 @@ CLASS:Outcast	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craf
 CLASS:Outcast	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Outcast|CL
 ###Block:Proficiencies
 1	BONUS:ABILITYPOOL|Outcast Exotic Weapon|1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																								AUTO:FEAT|Armor Proficiency (Light)
+1																	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level Progression
 5	CAST:1		KNOWN:0		BONUS:SPELLKNOWN|CLASS=Outcast;LEVEL=0|INT
 6	CAST:1		KNOWN:0
@@ -175,8 +175,8 @@ CLASS:Mentalist	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|
 #Stabilize Self|
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: Level Progression
 1									BONUS:VAR|MentalistAltLvl|CL	BONUS:VAR|MentalistPowerPoints|CL*var("MentalistPowerPointsVariable")|TYPE=Base	BONUS:VAR|MentalistPowersKnown|CL+1						ABILITY:Special Ability|AUTOMATIC|Mentalist Power Points|Mentalist Powers Known
 1	BONUS:ABILITYPOOL|Mentalist Feat|(CL/3)+1
