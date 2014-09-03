@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Armor and Shields
@@ -7,18 +7,18 @@ Bear Shield		PROFICIENCY:SHIELD|Buckler	TYPE:Magic.Shield.Wood.Buckler	COST:1300
 Vesshlik Scales						TYPE:Magic.ArmorLight.Suit.Specific	COST:2100	WT:25		ACCHECK:0		EQMOD:PLUS1A	MAXDEX:4		SOURCEPAGE:p.90	SPELLFAILURE:20		BONUS:COMBAT|AC|TYPE=Armor.REPLACE
 
 ###Block: Weapons
-# Equipment Name			Output Name				Required Weapon Proficiency		Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Special Property
-Javelin (Bonetip)			OUTPUTNAME:[NAME] Javelin	PROFICIENCY:WEAPON|Javelin		TYPE:Magic.Weapon.Simple.Ranged.Piercing.Specific.Thrown.Javelin				COST:2001	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:BONE.PLUS1W.WOOD		RANGE:30	SIZE:M	SOURCEPAGE:p.88	SPROP:-2 cursed weapon when used agains lizardfolk.
-Dagger (Everpoison)		OUTPUTNAME:[NAME] Dagger	PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific.Thrown.Dagger			COST:25316	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:PLUS2W.STEEL		RANGE:10	SIZE:T	SOURCEPAGE:p.28
-Flail of Tyrok								PROFICIENCY:WEAPON|Flail		TYPE:Magic.Weapon.Martial.Melee.Specific.Bludgeoning.Flail					COST:8315	WT:20		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:BONE.PLUS1W					SIZE:L	SOURCEPAGE:p.123
-Greatclub (Flameshooter)	OUTPUTNAME:[NAME] Greatclub	PROFICIENCY:WEAPON|Greatclub		TYPE:Magic.Weapon.Martial.Melee.Specific.Bludgeoning.Club					COST:16005	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:FLM_BR_M.PLUS1W.WOOD			SIZE:L	SOURCEPAGE:p.43	SPROP:+1d8+4 fire dammage on critical hit.
-Knife (Hunter)			OUTPUTNAME:Hunter's Knife	PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Slashing.Specific.Thrown.Dagger	COST:20240	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:STEEL				RANGE:10	SIZE:T	SOURCEPAGE:p.19
-Mace of Urog								PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Magic.Weapon.Simple.Melee.Bludgeoning.Specific.Mace					COST:8315	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS1W.STEEL				SIZE:M	SOURCEPAGE:p.124
-Nightspear									PROFICIENCY:WEAPON|Javelin		TYPE:Magic.Weapon.Simple.Ranged.Piercing.Specific.Thrown.Javelin				COST:18650	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:PLUS2W.WOOD			RANGE:30	SIZE:M	SOURCEPAGE:p.88
-Nightswitches								PROFICIENCY:WEAPON|Whip			TYPE:Magic.Weapon.Exotic.Ranged.Slashing.Specific.Whip					COST:1500	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	EQMOD:LEATHER			RANGE:15	SIZE:S	SOURCEPAGE:p.53
-Spear of Silence								PROFICIENCY:WEAPON|Shortspear		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific.Thrown.Spear			COST:15310	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS2W.WOOD			RANGE:20	SIZE:L	SOURCEPAGE:p.19
-Umber Cestus								PROFICIENCY:WEAPON|Gauntlet		TYPE:Magic.Weapon.Unarmed.Exotic.Melee.Bludgeoning.Specific.Gauntlet			COST:15000	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:PLUS2W.STEEL				SIZE:M	SOURCEPAGE:p.75
-Warding Sticks								PROFICIENCY:WEAPON|Club			TYPE:Magic.Weapon.Simple.Melee.Ranged.Bludgeoning.Specific.Thrown.Club			COST:150	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD				RANGE:10	SIZE:M	SOURCEPAGE:p.61	SPROP:5d6 damage to inanimate objects.
+# Equipment Name			Output Name				Required Weapon Proficiency		Type														Cost		Weight	Crit Mult	Crit Range	Damage	Modifier				Range		Size		Source Page		Special Property
+Javelin (Bonetip)			OUTPUTNAME:[NAME] Javelin	PROFICIENCY:WEAPON|Javelin		TYPE:Magic.Weapon.Simple.Ranged.Piercing.Specific.Thrown.Javelin				COST:2001	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:BONE.PLUS1W.WOOD		RANGE:30	SIZE:M	SOURCEPAGE:p.88	SPROP:-2 cursed weapon when used agains lizardfolk.
+Dagger (Everpoison)		OUTPUTNAME:[NAME] Dagger	PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific.Thrown.Dagger			COST:25316	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:PLUS2W.STEEL		RANGE:10	SIZE:T	SOURCEPAGE:p.28
+Flail of Tyrok								PROFICIENCY:WEAPON|Flail		TYPE:Magic.Weapon.Martial.Melee.Specific.Bludgeoning.Flail					COST:8315	WT:20		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d10	EQMOD:BONE.PLUS1W					SIZE:L	SOURCEPAGE:p.123
+Greatclub (Flameshooter)	OUTPUTNAME:[NAME] Greatclub	PROFICIENCY:WEAPON|Greatclub		TYPE:Magic.Weapon.Martial.Melee.Specific.Bludgeoning.Club					COST:16005	WT:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d10	EQMOD:FLM_BR_M.PLUS1W.WOOD			SIZE:L	SOURCEPAGE:p.43	SPROP:+1d8+4 fire dammage on critical hit.
+Knife (Hunter)			OUTPUTNAME:Hunter's Knife	PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Slashing.Specific.Thrown.Dagger	COST:20240	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:STEEL				RANGE:10	SIZE:T	SOURCEPAGE:p.19
+Mace of Urog								PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Magic.Weapon.Simple.Melee.Bludgeoning.Specific.Mace					COST:8315	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:PLUS1W.STEEL				SIZE:M	SOURCEPAGE:p.124
+Nightspear									PROFICIENCY:WEAPON|Javelin		TYPE:Magic.Weapon.Simple.Ranged.Piercing.Specific.Thrown.Javelin				COST:18650	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:PLUS2W.WOOD			RANGE:30	SIZE:M	SOURCEPAGE:p.88
+Nightswitches								PROFICIENCY:WEAPON|Whip			TYPE:Magic.Weapon.Exotic.Ranged.Slashing.Specific.Whip					COST:1500	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d2	EQMOD:LEATHER			RANGE:15	SIZE:S	SOURCEPAGE:p.53
+Spear of Silence								PROFICIENCY:WEAPON|Shortspear		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific.Thrown.Spear			COST:15310	WT:5		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:PLUS2W.WOOD			RANGE:20	SIZE:L	SOURCEPAGE:p.19
+Umber Cestus								PROFICIENCY:WEAPON|Gauntlet		TYPE:Magic.Weapon.Unarmed.Exotic.Melee.Bludgeoning.Specific.Gauntlet			COST:15000	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:PLUS2W.STEEL				SIZE:M	SOURCEPAGE:p.75
+Warding Sticks								PROFICIENCY:WEAPON|Club			TYPE:Magic.Weapon.Simple.Melee.Ranged.Bludgeoning.Specific.Thrown.Club			COST:150	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:WOOD				RANGE:10	SIZE:M	SOURCEPAGE:p.61	SPROP:5d6 damage to inanimate objects.
 
 ###Block: Ammunition
 # Equipment Name	Type							Cost		Weight	Modifier			Source Page
@@ -38,12 +38,12 @@ Ring (the Land)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:12000	WT:0		EQMO
 Ring (Weathercraft)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:90000	WT:0		EQMOD:RING			SOURCEPAGE:p.43				SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20
 
 ###Block:Rods, Staves and Wands
-# Equipment Name		Output Name				Required Weapon Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier							Alternative Modifier		Size		Source Page		Innate Spells									Combat bonus					Special Property
-Spiderstaff														TYPE:Magic.Staff																	COST:35000	WT:0																									EQMOD:WOOD														SOURCEPAGE:p.28	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Spider Climb,11|Web,13								SPROP:Summon Spiders
-Staff (Dominion)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:52400	WT:0																									EQMOD:CHARGED_ITEM_50|CHARGES[50].WOOD									SOURCEPAGE:p.106
-Staff (Night)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:25000	WT:0																									EQMOD:CHARGED_ITEM_50|CHARGES[50].WOOD									SOURCEPAGE:p.106
-Staff (Poison Thorns)	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff							COST:80000	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50].PLUS2W.WOOD								SOURCEPAGE:p.131
-Staff of the Bull							PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Specific.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:28000	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8		EQMOD:DEFEND.PLUS2W.WOOD				ALTEQMOD:DEFEND.PLUS2W.WOOD	SIZE:H	SOURCEPAGE:p.96												BONUS:COMBAT|AC|2|TYPE=Natural Armor
+# Equipment Name		Output Name				Required Weapon Proficiency		Type													Alt Type					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier							Alt EQModifier			Size		Source Page		Innate Spells									Combat bonus					Special Property
+Spiderstaff														TYPE:Magic.Staff																	COST:35000	WT:0																	EQMOD:WOOD														SOURCEPAGE:p.28	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Spider Climb,11|Web,13								SPROP:Summon Spiders
+Staff (Dominion)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:52400	WT:0																	EQMOD:CHARGED_ITEM_50|CHARGES[50].WOOD									SOURCEPAGE:p.106
+Staff (Night)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:25000	WT:0																	EQMOD:CHARGED_ITEM_50|CHARGES[50].WOOD									SOURCEPAGE:p.106
+Staff (Poison Thorns)	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff							COST:80000	WT:4		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	EQMOD:CHARGED_ITEM_50|CHARGES[50].PLUS2W.WOOD								SOURCEPAGE:p.131
+Staff of the Bull							PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Specific.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:28000	WT:4		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d8	ALTDAMAGE:1d8	EQMOD:DEFEND.PLUS2W.WOOD				ALTEQMOD:DEFEND.PLUS2W.WOOD	SIZE:H	SOURCEPAGE:p.96												BONUS:COMBAT|AC|2|TYPE=Natural Armor
 
 ###Block: Wonderous Items
 # Equipment Name						Output Name						Type												Cost		Weight	Slot Needed	Modifier			Source Page		Vision				Innate Spells																																						Combat bonus			Bonus to skill							Modify VAR							Special Property			Natural Attacks

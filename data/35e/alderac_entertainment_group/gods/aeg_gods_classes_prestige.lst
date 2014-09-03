@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 #
@@ -9,8 +9,8 @@ SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:200
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																										Bonus
 CLASS:Medicine Man	HD:8		TYPE:PC.Prestige	ABB:MedMn		MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")/3)+(classlevel("APPLIEDAS=NONEPIC")/4)-(classlevel("APPLIEDAS=NONEPIC")/7)+(classlevel("APPLIEDAS=NONEPIC")/10)+1	BONUS:SAVE|Fortitude,Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL		Req. Att.	Required Feat					Required Race	Required Skill								Req. Spell Type		Required Stat
-CLASS:Medicine Man	PREALIGN:LG,NG,CG	PRETOTALAB:4	PREFEAT:3,Great Fortitude,Toughness,Track	PRERACE:1,Human	PRESKILL:3,Heal=6,Knowledge (Nature)=6,Wilderness Lore=6	PRESPELLTYPE:1,Divine=3	PRESTAT:1,WIS=17
+# Class Name		Required AL		Required Feat					Required Race	Required Skill								Req. Spell Type		Required Stat	PRETOTALAB
+CLASS:Medicine Man	PREALIGN:LG,NG,CG	PREFEAT:3,Great Fortitude,Toughness,Track	PRERACE:1,Human	PRESKILL:3,Heal=6,Knowledge (Nature)=6,Wilderness Lore=6	PRESPELLTYPE:1,Divine=3	PRESTAT:1,WIS=17	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Diplomacy|Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Jump|Knowledge (Religion)|Listen|Move Silently|Perform|Ride|Scry|Search|Sense Motive|Spellcraft|Spot|Swim|Tumble|Use Rope|Wilderness Lore
 ###Block: Weapon, Armor, and Shield Proficiencies
@@ -24,16 +24,16 @@ CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Diplomacy|Balance|Climb|Concentration|
 ### FIX: Medicine Man missing 'TotemAnimal' feats
 1	BONUS:ABILITYPOOL|Barbarian Totem Selection|1
 ###Block: Normal Progression
-1	BONUS:CASTERLEVEL|TYPE.Divine|CL
-2																SAB:Read Spirit
-3																SAB:Shared Life
-4																SAB:Improved Augury
-5												ADD:FEAT|TYPE=Metamagic
-6																SAB:Rain Dance
-7							BONUS:VAR|BecomeTotemTimes|1					SAB:Become Totem
-8												ADD:FEAT|TYPE=Metamagic
-9							BONUS:VAR|BecomeTotemTimes|1
-10																SAB:Shape of the Beast
+1					BONUS:CASTERLEVEL|TYPE.Divine|CL
+2	SAB:Read Spirit
+3	SAB:Shared Life
+4	SAB:Improved Augury
+5																ADD:FEAT|TYPE=Metamagic
+6	SAB:Rain Dance
+7	SAB:Become Totem								BONUS:VAR|BecomeTotemTimes|1
+8																ADD:FEAT|TYPE=Metamagic
+9											BONUS:VAR|BecomeTotemTimes|1
+10	SAB:Shape of the Beast
 
 #
 # Bugbear Prestige Classes
@@ -43,30 +43,30 @@ CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Diplomacy|Balance|Climb|Concentration|
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus														Bonus
 CLASS:Hunter	HD:8		TYPE:PC.Prestige	ABB:Hntr		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/4+(classlevel("APPLIEDAS=NONEPIC")-1)	BONUS:SAVE|Fortitude,Will|(classlevel("APPLIEDAS=NONEPIC")/3)	BONUS:SAVE|Reflex|(classlevel("APPLIEDAS=NONEPIC")/2+1)
-# Class Name	Required Feat						Required Skill								Required Text
+# Class Name	Required Feat						Required Skill							Required Text
 CLASS:Hunter	PREFEAT:2,Track,Weapon Focus (TYPE=Ranged)	PRESKILL:4,Hide=6,Move Silently=6,Spot=6,Survival=4	PRETEXT:Must have a +6 or greater total attack bonus with at least one ranged weapon and +2 or higher racial modifier to Move Silent checks.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hunter	STARTSKILLPTS:4	CSKILL:Climb|Hide|Jump|Listen|Move Silently|Search|Spot|Use Rope|Survival
 ###Block: Class Features
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1	AUTO:FEAT|Armor Proficiency (Light)
+1										AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Progression
-1:REPEATLEVEL:3									ADD:FEAT|Far Shot,Point Blank Shot,Precise Shot,Shot on the Run
-2			BONUS:VAR|CrackShotMult|1															SAB:Crack Shot
-3			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1												SAB:Vital Shot
-5			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
-6			BONUS:VAR|CrackShotMult|1
-7			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
-8																						SAB:Arrow of Death
-9			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
-10			BONUS:VAR|CrackShotMult|1
+1:REPEATLEVEL:3													ADD:FEAT|Far Shot,Point Blank Shot,Precise Shot,Shot on the Run
+2			SAB:Crack Shot		BONUS:VAR|CrackShotMult|1
+3			SAB:Vital Shot		BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
+5							BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
+6							BONUS:VAR|CrackShotMult|1
+7							BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
+8			SAB:Arrow of Death
+9							BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
+10							BONUS:VAR|CrackShotMult|1
 
 #Class:Slaver (Complete)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus														Bonus
 CLASS:Slaver	HD:8		TYPE:PC.Prestige	ABB:Slvr		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)/4+(classlevel("APPLIEDAS=NONEPIC")-1)	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL		Req. Att.	Required Feat				Required Skill
-CLASS:Slaver	PREALIGN:LE,NE,CE	PRETOTALAB:3	PREFEAT:1,Skill Focus (Intimidate)	PRESKILL:2,Handle Animal=4,Intimidate=8
+# Class Name	Required AL		Required Feat				Required Skill					PRETOTALAB
+CLASS:Slaver	PREALIGN:LE,NE,CE	PREFEAT:1,Skill Focus (Intimidate)	PRESKILL:2,Handle Animal=4,Intimidate=8	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slaver	STARTSKILLPTS:2	CSKILL:Bluff|Handle Animal|Intimidate|Sense Motive|Spot
 ###Block: Class Features
@@ -74,17 +74,17 @@ CLASS:Slaver	STARTSKILLPTS:2	CSKILL:Bluff|Handle Animal|Intimidate|Sense Motive|
 #|Slaver Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Progression
-1																			SAB:Break Slave	SAB:Terrifying Visage
-2																			SAB:Slaver Command
-2:REPEATLEVEL:2					BONUS:VAR|SlaverCommandTimes|1
-3													VFEAT:Weapon Focus(Whip)		SAB:Master of the Whip
-4																			SAB:Dominator
-5													VFEAT:Weapon Specialization(Whip)	SAB:Touch of the Lash
-6																			SAB:Aura of Weakness
-7																			SAB:Slave Trader
-8							BONUS:VAR|AuraofWeaknessRange|30
+1			SAB:Break Slave	SAB:Terrifying Visage
+2			SAB:Slaver Command
+2:REPEATLEVEL:2								BONUS:VAR|SlaverCommandTimes|1
+3			SAB:Master of the Whip										VFEAT:Weapon Focus(Whip)
+4			SAB:Dominator
+5			SAB:Touch of the Lash										VFEAT:Weapon Specialization(Whip)
+6			SAB:Aura of Weakness
+7			SAB:Slave Trader
+8										BONUS:VAR|AuraofWeaknessRange|30
 9			SAB:Frightful Presence
-10																			SAB:Master of Wills
+10			SAB:Master of Wills
 
 #
 # Dark Elf Prestige Classes (QC'd)
@@ -115,22 +115,22 @@ CLASS:Poison Master	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|Heal|Knowledge 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Bonus
 CLASS:Spider Warrior	HD:10		TYPE:PC.Prestige	ABB:SpdrWr		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude,Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Race		Required Skill
-CLASS:Spider Warrior	PRETOTALAB:6	PRERACE:1,Elf (Drow)	PRESKILL:2,Diplomacy=6,Ride=6
+# Class Name		Required Race		Required Skill			PRETOTALAB
+CLASS:Spider Warrior	PRERACE:1,Elf (Drow)	PRESKILL:2,Diplomacy=6,Ride=6	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spider Warrior	STARTSKILLPTS:2	CSKILL:Diplomacy|Balance|Climb|Handle Animal|Hide|Jump|Move Silently|Ride
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Progression
-1:REPEATLEVEL:2							ADD:FEAT|Alertness,Far Shot,Improved Initiative,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Trample
-2																																							SAB:Spider Mount
-3																																							SAB:Immunity to Webs
-4			BONUS:VAR|SummonSpidersTimes|1																															SAB:Summon Spiders
-6																																							SAB:Immunity to Poison
-7			BONUS:VAR|SummonSpidersTimes|1
-8																																							SAB:Spider Climb
-10			BONUS:VAR|SummonSpidersTimes|1																															SAB:Spider Shape
+1:REPEATLEVEL:2											ADD:FEAT|Alertness,Far Shot,Improved Initiative,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Trample
+2			SAB:Spider Mount
+3			SAB:Immunity to Webs
+4			SAB:Summon Spiders	BONUS:VAR|SummonSpidersTimes|1
+6			SAB:Immunity to Poison
+7							BONUS:VAR|SummonSpidersTimes|1
+8			SAB:Spider Climb
+10			SAB:Spider Shape		BONUS:VAR|SummonSpidersTimes|1
 
 #
 # Giant Prestige Classes (QC'd)
@@ -146,18 +146,18 @@ CLASS:Karhollan Guard	PREFEAT:3,Cleave,Great Cleave,Power Attack	PRERACE:1,Giant
 CLASS:Karhollan Guard	STARTSKILLPTS:2	CSKILL:Climb|Craft (Stoneworking)|Diplomacy|Intimidate|Jump|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|Swim|Wilderness Lore
 ###Block: Class Features
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Normal Progression
-1	BONUS:VAR|PersonalPresenceBonus|1							SAB:Personal Presence
-2	BONUS:VAR|RangedCombatDefense|1							SAB:Ranged Combat Defense
-3	BONUS:VAR|PersonalPresenceBonus|1	BONUS:VAR|PrayerCircleRadius|10	SAB:Prayer Circle
-4	BONUS:VAR|RangedCombatDefense|1
-5	BONUS:VAR|PersonalPresenceBonus|1	BONUS:VAR|FlameStrikeCasterLevel|12	SAB:Flame Strike
-6	BONUS:VAR|RangedCombatDefense|1	BONUS:VAR|PrayerCircleRadius|10
-7	BONUS:VAR|PersonalPresenceBonus|1
-8	BONUS:VAR|RangedCombatDefense|1
-9	BONUS:VAR|PersonalPresenceBonus|1	BONUS:VAR|PrayerCircleRadius|10
-10	BONUS:VAR|RangedCombatDefense|1	BONUS:VAR|FlameStrikeCasterLevel|3
+1	SAB:Personal Presence		BONUS:VAR|PersonalPresenceBonus|1
+2	SAB:Ranged Combat Defense	BONUS:VAR|RangedCombatDefense|1
+3	SAB:Prayer Circle			BONUS:VAR|PersonalPresenceBonus|1	BONUS:VAR|PrayerCircleRadius|10
+4						BONUS:VAR|RangedCombatDefense|1
+5	SAB:Flame Strike			BONUS:VAR|PersonalPresenceBonus|1	BONUS:VAR|FlameStrikeCasterLevel|12
+6						BONUS:VAR|RangedCombatDefense|1	BONUS:VAR|PrayerCircleRadius|10
+7						BONUS:VAR|PersonalPresenceBonus|1
+8						BONUS:VAR|RangedCombatDefense|1
+9						BONUS:VAR|PersonalPresenceBonus|1	BONUS:VAR|PrayerCircleRadius|10
+10						BONUS:VAR|RangedCombatDefense|1	BONUS:VAR|FlameStrikeCasterLevel|3
 
 #
 # Gnoll Prestige Classes
@@ -167,22 +167,22 @@ CLASS:Karhollan Guard	STARTSKILLPTS:2	CSKILL:Climb|Craft (Stoneworking)|Diplomac
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:The Returned	HD:8		TYPE:PC.Prestige	ABB:Rtnd		MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|Fortitude,Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required AL					Req. Att.	Prohibited Check		Required Text
-CLASS:The Returned	PREALIGN:LN,LE,NG,TN,NE,CG,CN,CE	PRETOTALAB:4	!PRECHECK:1,Will=6	PRETEXT:The character must be a hero to a group of people and must undergo blasphemous rites. See text.
+# Class Name		Required AL					Prohibited Check		Required Text																PRETOTALAB
+CLASS:The Returned	PREALIGN:LN,LE,NG,TN,NE,CG,CN,CE	!PRECHECK:1,Will=6	PRETEXT:The character must be a hero to a group of people and must undergo blasphemous rites. See text.	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:The Returned	STARTSKILLPTS:3	CSKILL:Bluff|Climb|Concentration|Diplomacy|Intimidate|Jump|Knowledge (Arcana)|Listen|Spellcraft|Swim
 ###Block: Class Features
 ###Block: Normal Progression
-1													SAB:Demons Heart	SAB:Demons Mark
-2	BONUS:VAR|UGBonus|2						VFEAT:Leadership	SAB:Unholy Glory
-3	BONUS:VAR|FMLevel|CL									SAB:Summon Familiar
-4													SAB:Forbidden Lore
-5	BONUS:VAR|UGBonus|2	BONUS:VAR|LeadershipScore|1
-6													SAB:Surrender the Soul
-7													SAB:Sense Outsider
-8	BONUS:VAR|UGBonus|2	BONUS:VAR|LeadershipScore|1
-9													SAB:Demon in Form
-10													SAB:Demon in Fact
+1	SAB:Demons Heart	SAB:Demons Mark
+2	SAB:Unholy Glory				BONUS:VAR|UGBonus|2						VFEAT:Leadership
+3	SAB:Summon Familiar			BONUS:VAR|FMLevel|CL
+4	SAB:Forbidden Lore
+5							BONUS:VAR|UGBonus|2	BONUS:VAR|LeadershipScore|1
+6	SAB:Surrender the Soul
+7	SAB:Sense Outsider
+8							BONUS:VAR|UGBonus|2	BONUS:VAR|LeadershipScore|1
+9	SAB:Demon in Form
+10	SAB:Demon in Fact
 
 #
 # Goblin Prestige Classes
@@ -199,16 +199,16 @@ CLASS:Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|K
 ###Block: Class Features
 1	BONUS:ABILITYPOOL|Deity Weapon|1
 ###Block: Normal Progression
-1						ADD:SPELLCASTER|Divine	VFEAT:Leadership	SAB:Strength of Purpose
-2						ADD:SPELLCASTER|Divine				SAB:Divine Wrath
-3	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine				AUTO:FEAT|Leadership
-4						ADD:SPELLCASTER|Divine				SAB:Enlightened Madness
-5						ADD:SPELLCASTER|Divine
-6	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine				SAB:Scorn the Heretic
-7						ADD:SPELLCASTER|Divine				SAB:Divine Grace
-8						ADD:SPELLCASTER|Divine				SAB:Departure
-9	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine
-10						ADD:SPELLCASTER|Divine				SAB:Exemplar Revealed
+1	SAB:Strength of Purpose						ADD:SPELLCASTER|Divine	VFEAT:Leadership
+2	SAB:Divine Wrath							ADD:SPELLCASTER|Divine
+3					BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine				AUTO:FEAT|Leadership
+4	SAB:Enlightened Madness						ADD:SPELLCASTER|Divine
+5										ADD:SPELLCASTER|Divine
+6	SAB:Scorn the Heretic	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine
+7	SAB:Divine Grace							ADD:SPELLCASTER|Divine
+8	SAB:Departure							ADD:SPELLCASTER|Divine
+9					BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine
+10	SAB:Exemplar Revealed						ADD:SPELLCASTER|Divine
 
 #Class:Ex-Exemplar (Complete)
 
@@ -235,14 +235,14 @@ CLASS:Servants of the One	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|G
 ###Block: Class Features
 1	SAB:Lost Souls - You may contact your fellow servants by sendings %/day.|CL
 ###Block: Normal Progression
-1:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
-2							SAB:One Heart Many Hands
-3							SAB:Hollow Heart
-4							SAB:The Flesh is Weak
-5							SAB:The Hunger of the Damned
-6							SAB:Ensnare the Mind
-9							SAB:Many Bodies One Soul
-10							SAB:Eternitys Humble Offerings
+1:REPEATLEVEL:2							ADD:SPELLCASTER|Divine
+2			SAB:One Heart Many Hands
+3			SAB:Hollow Heart
+4			SAB:The Flesh is Weak
+5			SAB:The Hunger of the Damned
+6			SAB:Ensnare the Mind
+9			SAB:Many Bodies One Soul
+10			SAB:Eternitys Humble Offerings
 
 #
 # Impossible Things Prestige Classes (QC'd)
@@ -252,13 +252,13 @@ CLASS:Servants of the One	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|G
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Bonus
 CLASS:Humanoid Hunter	HD:10		TYPE:PC.Prestige	ABB:HdHnt		MAXLEVEL:10	SOURCEPAGE:p.73	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Race							Required Skill							Required Text
-CLASS:Humanoid Hunter	PRETOTALAB:3	PRERACE:1,RACETYPE=Aberration,RACETYPE=Magical Beast	PRESKILL:2,Knowledge (Humanoids)=4,Wilderness Lore=2	PRETEXT:Must have tracked down a humanoid that has slain a family member.
+# Class Name		Required Race							Required Skill							Required Text											PRETOTALAB
+CLASS:Humanoid Hunter	PRERACE:1,RACETYPE=Aberration,RACETYPE=Magical Beast	PRESKILL:2,Knowledge (Humanoids)=4,Wilderness Lore=2	PRETEXT:Must have tracked down a humanoid that has slain a family member.	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Humanoid Hunter	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Hide|Jump|Knowledge (Humanoids)|Listen|Move Silently|Spot|Wilderness Lore
 ###Block: Weapon and Armor Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|PRERACE:1,RACETYPE=Humanoid
-1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|PRERACE:1,RACETYPE=Humanoid
+1														AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|PRERACE:1,RACETYPE=Humanoid
 ###Block: Humanoid Hunter Class Features
 1:REPEATLEVEL:2	BONUS:ABILITYPOOL|Fighter Feat|1
 ###Block: Favored Enemy
@@ -288,16 +288,16 @@ CLASS:The Broken	STARTSKILLPTS:3	CSKILL:Alchemy|Bluff|Concentration|Diplomacy|In
 #1:REPEATLEVEL:1	BONUS:STAT|CHA|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[PRECLASS:1,Bard=1,Sorcerer=1]
 2:REPEATLEVEL:2|MAX=8				ADD:FEAT|TYPE=Metamagic
 ###Block: Normal Progression
-1						SAB:No Pain	SAB:The Wasting
+1	SAB:No Pain	SAB:The Wasting
 2
-3						SAB:Unnatural Drives
+3	SAB:Unnatural Drives
 4
-5	BONUS:VAR|KnowPainTimes|1	SAB:Know Pain
+5	SAB:Know Pain			BONUS:VAR|KnowPainTimes|1
 6
-7						SAB:Divine Malice
-8	BONUS:VAR|KnowPainTimes|1
-9						SAB:Beyond Flesh
-10						SAB:Beyond Pain
+7	SAB:Divine Malice
+8						BONUS:VAR|KnowPainTimes|1
+9	SAB:Beyond Flesh
+10	SAB:Beyond Pain
 
 #
 # Lizardfolk Prestige Classes
@@ -307,23 +307,23 @@ CLASS:The Broken	STARTSKILLPTS:3	CSKILL:Alchemy|Bluff|Concentration|Diplomacy|In
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Bonus
 CLASS:Master of the Swamp	HD:10		TYPE:PC.Prestige	ABB:MotS		MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name			Required AL		Req. Att.	Required Feat										Required Race				Required Skill							Required Text
-CLASS:Master of the Swamp	PREALIGN:LN,TN	PRETOTALAB:6	PREFEAT:2,Iron Will,Track	PREFEAT:1,Point Blank Shot,Power Attack	PRERACE:1,Lizardfolk,Human,Elf%	PRESKILL:2,Knowledge (Nature)=6,Wilderness Lore=8	PRETEXT:Must take a vow never to harm Lizardfolk. See text.
+# Class Name			Required AL		Required Feat										Required Race				Required Skill							Required Text								PRETOTALAB
+CLASS:Master of the Swamp	PREALIGN:LN,TN	PREFEAT:2,Iron Will,Track	PREFEAT:1,Point Blank Shot,Power Attack	PRERACE:1,Lizardfolk,Human,Elf%	PRESKILL:2,Knowledge (Nature)=6,Wilderness Lore=8	PRETEXT:Must take a vow never to harm Lizardfolk. See text.	PRETOTALAB:6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Master of the Swamp	STARTSKILLPTS:4	CSKILL:Diplomacy|Climb|TYPE=Craft|Heal|Hide|Intuit Direction|Jump|Listen|Move Silently|Search|Spot|Swim|Use Magic Device|Wilderness Lore
 ###Block: Weapon and Armor Proficiencies
 1	BONUS:ABILITYPOOL|Deity Weapon|1
 ###Block: Normal Progression
-1	BONUS:VAR|LizardfolkAllyBonus|1							SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Entangle,12+CHA						SAB:Lizardfolk Ally	SAB:Water Breathing
-2	BONUS:VAR|IncreasedAgilityBonus|1																					SAB:Increased Agility
-3													SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Summon Nature's Ally II,12+CHA|PREVARLT:CL,5
-4	BONUS:VAR|LizardfolkAllyBonus|1	BONUS:VAR|IncreasedAgilityBonus|1															SAB:Woodlands Stride
-5													SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Summon Nature's Ally III,13+CHA|PREVARLT:CL,9
-6	BONUS:VAR|IncreasedAgilityBonus|1																					SAB:AEG Trackless Step
-7	BONUS:VAR|LizardfolkAllyBonus|1
-8	BONUS:VAR|IncreasedAgilityBonus|1																					SAB:Power of the Swamp
-9													SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Summon Nature's Ally IV,14+CHA
-10	BONUS:VAR|LizardfolkAllyBonus|1																					SAB:Power of Istos
+1	SAB:Lizardfolk Ally	SAB:Water Breathing	BONUS:VAR|LizardfolkAllyBonus|1							SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Entangle,12+CHA
+2	SAB:Increased Agility					BONUS:VAR|IncreasedAgilityBonus|1
+3																					SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Summon Nature's Ally II,12+CHA|PREVARLT:CL,5
+4	SAB:Woodlands Stride					BONUS:VAR|LizardfolkAllyBonus|1	BONUS:VAR|IncreasedAgilityBonus|1
+5																					SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Summon Nature's Ally III,13+CHA|PREVARLT:CL,9
+6	SAB:AEG Trackless Step					BONUS:VAR|IncreasedAgilityBonus|1
+7									BONUS:VAR|LizardfolkAllyBonus|1
+8	SAB:Power of the Swamp					BONUS:VAR|IncreasedAgilityBonus|1
+9																					SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Summon Nature's Ally IV,14+CHA
+10	SAB:Power of Istos					BONUS:VAR|LizardfolkAllyBonus|1
 
 #
 # Ogre Prestige Classes
@@ -333,48 +333,48 @@ CLASS:Master of the Swamp	STARTSKILLPTS:4	CSKILL:Diplomacy|Climb|TYPE=Craft|Heal
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Bonus
 CLASS:Black Nail	HD:10		TYPE:PC.Prestige	ABB:BlkNl		MAXLEVEL:5	SOURCEPAGE:p.102	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL		Req. Att.	Required Feat								Required Race			Required Skill
-CLASS:Black Nail	PREALIGN:LE,NE,CE	PRETOTALAB:6	PREFEAT:4,Cleave,Improved Initiative,Power Attack,Toughness	PRERACE:1,Ogre,Ogre Mage	PRESKILL:1,Intimidate=6
+# Class Name	Required AL		Required Feat								Required Race			Required Skill		PRETOTALAB
+CLASS:Black Nail	PREALIGN:LE,NE,CE	PREFEAT:4,Cleave,Improved Initiative,Power Attack,Toughness	PRERACE:1,Ogre,Ogre Mage	PRESKILL:1,Intimidate=6	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Black Nail	STARTSKILLPTS:2	CSKILL:Balance|Climb|Intimidate|Intuit Direction|Jump|TYPE=Knowledge|Listen|Move Silently|Search|Sense Motive|Spot
 ###Block: Class Features
 ###Block: Weapon and Shield Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: Normal Progression
-1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor					SAB:Thick Hide
-2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor
-3	BONUS:COMBAT|AC|1|TYPE=NaturalArmor					SAB:Battle Cry	SAB:Formation Fighting
-4	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:ABILITYPOOL|Fighter Feat|1
-5	BONUS:COMBAT|AC|1|TYPE=NaturalArmor					SAB:Great Leadership
+1	SAB:Thick Hide											BONUS:COMBAT|AC|1|TYPE=NaturalArmor
+2														BONUS:COMBAT|AC|1|TYPE=NaturalArmor
+3	SAB:Battle Cry	SAB:Formation Fighting							BONUS:COMBAT|AC|1|TYPE=NaturalArmor
+4								BONUS:ABILITYPOOL|Fighter Feat|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor
+5	SAB:Great Leadership										BONUS:COMBAT|AC|1|TYPE=NaturalArmor
 
 #Class:Chaos Crusader
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Bonus
 CLASS:Chaos Crusader	HD:8		TYPE:PC.Prestige	ABB:ChsCr		MAXLEVEL:10	SOURCEPAGE:p.104	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|Fortitude,Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Required AL		Req. Att.	Required Feat			Required Race			Req. Spell Type		Required Stat
-CLASS:Chaos Crusader	PREALIGN:LE,CE	PRETOTALAB:6	PREFEAT:3,TYPE=Metamagic	PRERACE:1,Ogre,Ogre Mage	PRESPELLTYPE:1,Divine=4	PRESTAT:1,CHA=13
+# Class Name		Required AL		Required Feat			Required Race			Req. Spell Type		Required Stat	PRETOTALAB
+CLASS:Chaos Crusader	PREALIGN:LE,CE	PREFEAT:3,TYPE=Metamagic	PRERACE:1,Ogre,Ogre Mage	PRESPELLTYPE:1,Divine=4	PRESTAT:1,CHA=13	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Chaos Crusader	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Listen|Gather Information|Scry|Sense Motive|Spellcraft|Search|Spot
 ###Block: Weapon and Shield Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
-1																WEAPONBONUS:TYPE=Exotic
+1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
+1																									WEAPONBONUS:TYPE=Exotic
 ###Block: Class Features
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
 ###Block: Normal Progression
-1												AUTO:FEAT|Leadership
+1																AUTO:FEAT|Leadership
 2
 3	DR:1/-
-4												SAB:Voice of Thunder
-5												SAB:Hand of God
+4			SAB:Voice of Thunder
+5			SAB:Hand of God
 6
-7			BONUS:DR|-|1							SAB:Gathering Horde
-8						BONUS:VAR|VoiceofThunderTimes|1
-9			BONUS:DR|-|1
-10												SAB:Dispel Good
+7			SAB:Gathering Horde	BONUS:DR|-|1
+8										BONUS:VAR|VoiceofThunderTimes|1
+9							BONUS:DR|-|1
+10			SAB:Dispel Good
 
 #
 # Orc Prestige Classes
@@ -391,16 +391,16 @@ CLASS:Keeper of Secrets	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Gather I
 ###Block: Class Features
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 ###Block: Normal Progression
-1								SAB:Shadow Walker
-2	BONUS:ABILITYPOOL|KSKnownSpellBonus|3	SAB:Lore of Sathus
-3								SAB:Envoy of Sathus
-4	BONUS:ABILITYPOOL|KSKnownSpellBonus|3	SAB:Lore of Sathus
-5								SAB:Arcane Seeker
-6	BONUS:ABILITYPOOL|KSKnownSpellBonus|3
-7								SAB:Mind Delver
-8	BONUS:ABILITYPOOL|KSKnownSpellBonus|3
-9								SAB:Shadow Double
-10	BONUS:ABILITYPOOL|KSKnownSpellBonus|2
+1	SAB:Shadow Walker
+2	SAB:Lore of Sathus	BONUS:ABILITYPOOL|KSKnownSpellBonus|3
+3	SAB:Envoy of Sathus
+4	SAB:Lore of Sathus	BONUS:ABILITYPOOL|KSKnownSpellBonus|3
+5	SAB:Arcane Seeker
+6					BONUS:ABILITYPOOL|KSKnownSpellBonus|3
+7	SAB:Mind Delver
+8					BONUS:ABILITYPOOL|KSKnownSpellBonus|3
+9	SAB:Shadow Double
+10					BONUS:ABILITYPOOL|KSKnownSpellBonus|2
 
 #Class:Underworld Druid of Thovis
 
@@ -428,14 +428,14 @@ CLASS:Underworld Druid of Thovis	STARTSKILLPTS:4	CSKILL:Diplomacy|Concentration|
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus																										Bonus
 CLASS:Whip of Urog	HD:8		TYPE:PC.Prestige	ABB:WpUr		MAXLEVEL:10	SOURCEPAGE:p.122	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")-1)-(classlevel("APPLIEDAS=NONEPIC")/5)-(classlevel("APPLIEDAS=NONEPIC")/9)+(classlevel("APPLIEDAS=NONEPIC")/10)	BONUS:SAVE|Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Reflex,Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Domain	Required Feat		Required Skill
-CLASS:Whip of Urog	PRETOTALAB:4	PREDOMAIN:1,Fury	PREFEAT:1,Toughness	PRESKILL:1,Intimidate=4
+# Class Name		Required Domain	Required Feat		Required Skill		PRETOTALAB
+CLASS:Whip of Urog	PREDOMAIN:1,Fury	PREFEAT:1,Toughness	PRESKILL:1,Intimidate=4	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Whip of Urog	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Perform|Ride|Swim
 ###Block: Weapon, Armor, and Shield Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										AUTO:FEAT|Shield Proficiency
 ###Block: Class Features, Normal Progression
 1	SAB:Channel Urogs Might
 2	SAB:Urogs Toughness
@@ -464,21 +464,21 @@ CLASS:Dryad Ranger	STARTSKILLPTS:4	CSKILL:Diplomacy|Climb|Concentration|TYPE=Cra
 CLASS:Dryad Ranger	SPELLSTAT:WIS
 ###Block: Weapon, Armor, and Shield Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1	AUTO:FEAT|Armor Proficiency (Light)
+1										AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Class Features
 1	BONUS:COMBAT|TOHIT-SECONDARY|4|!PREARMORTYPE:1,TYPE.Medium,TYPE.Heavy	BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2|TYPE=NotRanged|!PREARMORTYPE:1,TYPE.Medium,TYPE.Heavy
 1
 ###Block: Normal Progression
-1						VFEAT:Track
+1										VFEAT:Track
 2
-3												SAB:Evasion
-4												SAB:Uncanny Dodge
-5												SAB:Woodlands Stride
-6												SAB:AEG Trackless Step
-7	BONUS:VAR|UncannyDodge|1
-8						VFEAT:Improved Two-Weapon Fighting
-9												SAB:Improved Evasion
-10												SAB:Freedom
+3	SAB:Evasion
+4	SAB:Uncanny Dodge
+5	SAB:Woodlands Stride
+6	SAB:AEG Trackless Step
+7					BONUS:VAR|UncannyDodge|1
+8										VFEAT:Improved Two-Weapon Fighting
+9	SAB:Improved Evasion
+10	SAB:Freedom
 
 #
 # Troll Prestige Classes
@@ -494,13 +494,13 @@ CLASS:Vendaks Chosen	PREDOMAIN:1,Troll Ancestry	PRERACE:1,Troll%	PRESPELLTYPE:1,
 CLASS:Vendaks Chosen	STARTSKILLPTS:2	CSKILL:Alchemy|Climb|Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|Listen|Swim
 ###Block: Class Features
 ###Block: Normal Progression
-1	BONUS:VAR|AncestralKnowledge|2									SAB:Ancestral Knowledge
-2											BONUS:ABILITYPOOL|Fighter Feat|1	SAB:Blessing of Vendak
-3															SAB:Improved Regeneration
-4	BONUS:VAR|AncestralKnowledge|2									SAB:Song of Vendak
-5	BONUS:VAR|GrowthBonus|1							BONUS:ABILITYPOOL|Fighter Feat|1	SAB:Growth
-6															ABILITY:Special Ability|AUTOMATIC|Bounty of Vendak
-7	BONUS:VAR|AncestralKnowledge|2					BONUS:ABILITYPOOL|Fighter Feat|1
-8															SAB:Greater Regeneration
-9															ABILITY:Special Ability|AUTOMATIC|Voice of Vendak
-10	BONUS:VAR|AncestralKnowledge|2	BONUS:VAR|GrowthBonus|1
+1	SAB:Ancestral Knowledge								BONUS:VAR|AncestralKnowledge|2
+2	SAB:Blessing of Vendak		BONUS:ABILITYPOOL|Fighter Feat|1
+3	SAB:Improved Regeneration
+4	SAB:Song of Vendak								BONUS:VAR|AncestralKnowledge|2
+5	SAB:Growth				BONUS:ABILITYPOOL|Fighter Feat|1	BONUS:VAR|GrowthBonus|1
+6																						ABILITY:Special Ability|AUTOMATIC|Bounty of Vendak
+7						BONUS:ABILITYPOOL|Fighter Feat|1	BONUS:VAR|AncestralKnowledge|2
+8	SAB:Greater Regeneration
+9																						ABILITY:Special Ability|AUTOMATIC|Voice of Vendak
+10												BONUS:VAR|AncestralKnowledge|2	BONUS:VAR|GrowthBonus|1

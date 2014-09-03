@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Tue Feb 17 12:47:49 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
-# Deity Name	Product Identity?	Domains																	Holy Item										Deity Weapon				Alignment	Pantheon		Deity Title										Usual Worshippers			Source Page		Required AL
+# Deity Name	Product Identity?	Domains																	Holy Item										Deity Weapon				Align		Pantheon		Deity Title										Usual Worshippers			Source Page		Required AL
 Ahroukin		NAMEISPI:YES	DOMAINS:Chaos|PREALIGN:CG,CN,CE	DOMAINS:Destruction,Hatred,War							SYMBOL:The Swallowed Sun							DEITYWEAP:Axe (Throwing)|Battleaxe	ALIGN:CE	PANTHEON:AEG_Gods	TITLE:The Slayer of Heaven							WORSHIPPERS:Gnolls		SOURCEPAGE:p.151	PREALIGN:NE,CE,CN
 Aziel			NAMEISPI:YES	DOMAINS:Evil|PREALIGN:LE,NE,CE	DOMAINS:Law|PREALIGN:LG,LN,LE	DOMAINS:Conquest,Strength			SYMBOL:Hobgoblin in Shadow							DEITYWEAP:Greatsword			ALIGN:LE	PANTHEON:AEG_Gods	TITLE:Lord of Conquest								WORSHIPPERS:Hobgoblins		SOURCEPAGE:p.151	PREALIGN:LN,LE,NE
 Barrachus		NAMEISPI:YES	DOMAINS:Chaos|PREALIGN:CG,CN,CE	DOMAINS:Evil|PREALIGN:LE,NE,CE	DOMAINS:Destruction,Power		SYMBOL:Two maces									DEITYWEAP:Greatclub			ALIGN:CE	PANTHEON:AEG_Gods	TITLE:The Savage Storm								WORSHIPPERS:Bugbears		SOURCEPAGE:p.151	PREALIGN:NE,CE,CN

@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
-# Class Name	Product Identity?	Hit Dice	Starting Feats	Abbreviation	Max Level	Source Page			Combat bonus										Bonus
-CLASS:Air Lord	NAMEISPI:NO		HD:10		XTRAFEATS:1		ABB:AL		MAXLEVEL:10	SOURCEPAGE:p.32-35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Product Identity?	Hit Dice	Extra Feats	Abbreviation	Max Level	Source Page			Combat bonus										Bonus
+CLASS:Air Lord	NAMEISPI:NO		HD:10		XTRAFEATS:1	ABB:AL		MAXLEVEL:10	SOURCEPAGE:p.32-35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Feat			Required Skill
 CLASS:Air Lord	PREFEAT:1,Mounted Combat	PRESKILL:2,Balance=4,Ride=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -20,8 +20,8 @@ CLASS:Air Lord	STARTSKILLPTS:2	CSKILL:Balance|TYPE=Climb|TYPE=Craft|Handle Anima
 
 # Class Name		Product Identity?	Hit Dice	Abbreviation	Max Level	Source Page			Combat bonus										Bonus
 CLASS:Dragon Slayer	NAMEISPI:NO		HD:10		ABB:DS		MAXLEVEL:10	SOURCEPAGE:p.35-37	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Feat
-CLASS:Dragon Slayer	PRETOTALAB:5	PREFEAT:1,Iron Will	PREFEAT:1,Power Attack
+# Class Name		Required Feat						PRETOTALAB
+CLASS:Dragon Slayer	PREFEAT:1,Iron Will	PREFEAT:1,Power Attack	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dragon Slayer	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|TYPE=Jump|Listen|Ride|Spot|Swim
 1							ABILITY:Special Ability|AUTOMATIC|Improved Power Attack ~ Dragon Slayer	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
@@ -37,8 +37,8 @@ CLASS:Dragon Slayer	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimi
 
 # Class Name			Product Identity?	Hit Dice	Abbreviation	Max Level	Source Page			Define					Combat bonus										Modify VAR					Bonus
 CLASS:Student of the Dragon	NAMEISPI:NO		HD:8		ABB:SotD		MAXLEVEL:10	SOURCEPAGE:p.37-40	DEFINE:StudentoftheDragonLvl|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|StudentoftheDragonLvl|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Req. Att.	Required Feat				Required Language		Required Skill
-CLASS:Student of the Dragon	PRETOTALAB:7	PREFEAT:1,Improved Unarmed Strike	PRELANG:1,Draconic	PRESKILL:1,Knowledge (Arcana)=13
+# Class Name			Required Feat				Required Language		Required Skill				PRETOTALAB
+CLASS:Student of the Dragon	PREFEAT:1,Improved Unarmed Strike	PRELANG:1,Draconic	PRESKILL:1,Knowledge (Arcana)=13	PRETOTALAB:7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Student of the Dragon	STARTSKILLPTS:4	CSKILL:Balance|TYPE=Climb|Concentration|TYPE=Craft|TYPE=Diplomacy|Escape Artist|Hide|TYPE=Jump|Knowledge (Arcana)|Listen|Move Silently|TYPE=Profession|Swim|Tumble
 1					ABILITY:Special Ability|AUTOMATIC|Wings of the Dragon ~ Student of the Dragon

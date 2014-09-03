@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders	SOURCESHORT:GuideMO	SOURCEWEB:http://www.aleapublishing.com	SOURCEDATE:2003-01
 # Original Entry: Andrew Maitland
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Knight Commander	HD:10		TYPE:PC.Prestige	ABB:KnCmdr		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Feat					Required Skill
-CLASS:Knight Commander	PRETOTALAB:7	PREFEAT:1,Banneret,Preceptor,Leadership	PRESKILL:2,Diplomacy=13,Knowledge (Nobility and Royalty)=5
+# Class Name		Required Feat					Required Skill								PRETOTALAB
+CLASS:Knight Commander	PREFEAT:1,Banneret,Preceptor,Leadership	PRESKILL:2,Diplomacy=13,Knowledge (Nobility and Royalty)=5	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Knight Commander	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Knowledge (Local)|Knowledge (Nobility and Royalty)|Profession (Soldier)|Ride|Sense Motive
 ### CLass Ability Block

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.com	SOURCEDATE:2005-01
 #Original entry: Andrew Maitland
 #NEW FORMAT		ADD:FEAT|2|Alertness,TYPE.Fighter
@@ -9,7 +9,7 @@ SOURCELONG:Honor and Corruption	SOURCESHORT:Honor	SOURCEWEB:www.aleapublishing.c
 #Every 4 levels begining at 4 gain 1d10 additional hp
 # A random 1 to 10 hp need a mechanism to deal with this... Perhap a PREAPPLY:PC style tag in a feat call...
 
-# Template Name			Source Page		Define												Required Lvl	Required Template					Bonus to Ability Pool				Modify VAR													Choose								Ability																								Temporary effect description													Temporary Bonus
+# Template Name			Source Page		Define												Required Lvl	Required Template					Bonus Ability Pool				Modify VAR													Choose								Ability																								Temporary effect description													Temporary Bonus
 Subclass (Knight Lvl 01)	SOURCEPAGE:p.22	DEFINE:HonorScore|0																																																		ABILITY:Special Ability|AUTOMATIC|Honor ~ Knight Subclass|Squire ~ Knight Subclass	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Indomitable Will
 Subclass (Knight Lvl 02)	SOURCEPAGE:p.22														PRELEVEL:MIN=2	PRETEMPLATE:1,Subclass (Knight Lvl 1)
 Subclass (Knight Lvl 03)	SOURCEPAGE:p.22														PRELEVEL:MIN=3	PRETEMPLATE:1,Subclass (Knight Lvl 2)

@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #SOURCELONG:Alderac Entertainment Group (AEG) - Gods	SOURCESHORT:Gods	SOURCEWEB:http://www.alderac.com/d20
 
 ###Block: Bonus Ability Category
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Base Pool number		Category of Object		Type of Object		Specific choices list		Plural description for UI		Display Location
-ABILITYCATEGORY:KSKnownSpellBonus			VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:KSKnownSpellBonus	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell						PLURAL:KofS Bonus Known Spells	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Hunter Humanoid Favored Enemy	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability					ABILITYLIST:HHFavored Enemy							DISPLAYLOCATION:Class Abilities
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Base Pool number		Category of Object		Type of Object			Specific choices list		Plural description for UI		Display Location
+ABILITYCATEGORY:KSKnownSpellBonus			VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:KSKnownSpellBonus	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell							PLURAL:KofS Bonus Known Spells	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hunter Humanoid Favored Enemy	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO										CATEGORY:Special Ability						ABILITYLIST:HHFavored Enemy							DISPLAYLOCATION:Class Abilities
 
 
-ABILITYCATEGORY:Barbarian Totem Selection			VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO			CATEGORY:Special Ability	TYPE:BarbarianTotemSelection													DISPLAYLOCATION:Class Abilities
-	
+ABILITYCATEGORY:Barbarian Totem Selection		VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:BarbarianTotemSelection												DISPLAYLOCATION:Class Abilities
+

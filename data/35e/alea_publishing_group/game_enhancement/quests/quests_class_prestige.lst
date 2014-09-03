@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Quests	SOURCESHORT:Quests	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup	SOURCEDATE:2005-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Honor Guard	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL		Req. Att.	Required Feat		Required Skill								Required Text
-CLASS:Honor Guard	PREALIGN:LG,NG,CG	PRETOTALAB:5	PREFEAT:1,Alertness	PRESKILL:2,Diplomacy=2,Knowledge (Nobility and Royalty)=2	PRETEXT:Honor Guard, Honor score of 25+
+# Class Name	Required AL		Required Feat		Required Skill								Required Text					PRETOTALAB
+CLASS:Honor Guard	PREALIGN:LG,NG,CG	PREFEAT:1,Alertness	PRESKILL:2,Diplomacy=2,Knowledge (Nobility and Royalty)=2	PRETEXT:Honor Guard, Honor score of 25+	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Honor Guard	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Listen|Knowledge (Local)|Knowledge (Nobility and Royalty)|Profession (Soldier)|Sense Motive|Spot
 1							ABILITY:Special Ability|AUTOMATIC|Harm's Way ~ Honor Guard|Honor Guard ~ Honor Guard	SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=CL|Detect Evil,11+WIS
@@ -18,8 +18,8 @@ CLASS:Honor Guard	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Listen|Kno
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Questing Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name		Req. Att.	Required Feat	Required Skill									Required Text
-CLASS:Questing Knight	PRETOTALAB:5	PREFEAT:1,Quest	PRESKILL:2,Knowledge (Local)=2,Knowledge (Nobility and Royalty)=2	PRETEXT:Bound by an Oath
+# Class Name		Required Feat	Required Skill									Required Text			PRETOTALAB
+CLASS:Questing Knight	PREFEAT:1,Quest	PRESKILL:2,Knowledge (Local)=2,Knowledge (Nobility and Royalty)=2	PRETEXT:Bound by an Oath	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Questing Knight	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Knowledge (Local)|Knowledge (Nobility and Royalty)|Sense Motive
 1								BONUS:VAR|KnowledgeLocal|((CL+1)/2)*2	ABILITY:Special Ability|AUTOMATIC|Fearless ~ Questing Knight	ABILITY:Special Ability|AUTOMATIC|Knowledge Local ~ Questing Knight

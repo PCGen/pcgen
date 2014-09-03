@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
 ###Block: ~ Air Lord
-# Ability Name		Unique Key						Category of Ability
+# Ability Name		Unique Key						Category of Ability		Type
 Improved Aerial Rider	KEY:Improved Aerial Rider ~ Air Lord	CATEGORY:Special Ability	TYPE:SpecialQuality
 Aerial mount		KEY:Aerial mount ~ Air Lord			CATEGORY:Special Ability	TYPE:SpecialQuality
 Swoop attack		KEY:Swoop attack ~ Air Lord			CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -12,7 +12,7 @@ Summon Air Elemental	KEY:Summon Air Elemental ~ Air Lord		CATEGORY:Special Abili
 Improved Mount		KEY:Improved Mount ~ Air Lord			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 ###Block: ~ Dragon Slayer
-# Ability Name			Unique Key								Category of Ability		Define					Description
+# Ability Name			Unique Key								Category of Ability		Type				Define					Description
 Improved Power Attack		KEY:Improved Power Attack ~ Dragon Slayer			CATEGORY:Special Ability	TYPE:SpecialQuality
 Latch Attack			KEY:Latch Attack ~ Dragon Slayer				CATEGORY:Special Ability	TYPE:SpecialQuality
 Fearless				KEY:Fearless ~ Dragon Slayer					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:DragonSlayerFearlessLVL|0	DESC: (+4 saves)|PREVAREQ:DragonSlayerFearlessLVL,1	DESC:Fearless (Immune)|PREVAREQ:DragonSlayerFearlessLVL,2
@@ -25,7 +25,7 @@ Improved Penetrating Blow	KEY:Improved Penetrating Blow ~ Dragon Slayer		CATEGOR
 
 
 ###Block: ~ Student of the Dragon
-# Ability Name		Unique Key								Category of Ability		Description
+# Ability Name		Unique Key								Category of Ability		Type				Description
 Wings of the Dragon	KEY:Wings of the Dragon ~ Student of the Dragon		CATEGORY:Special Ability	TYPE:SpecialQuality
 Strength of the Dragon	KEY:Strength of the Dragon ~ Student of the Dragon	CATEGORY:Special Ability	TYPE:SpecialQuality
 Eyes of the Dragon	KEY:Eyes of the Dragon ~ Student of the Dragon		CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -40,7 +40,7 @@ Master of the Dragon	KEY:Master of the Dragon ~ Student of the Dragon	CATEGORY:S
 
 ###Block: ~ Wyrmfoe
 # Ability Name				Unique Key					Category of Ability		Type					Visible		Define					Description														Ability								Modify VAR
-Dragon Magic				KEY:Dragon Magic ~ Wyrmfoe		CATEGORY:Special Ability	TYPE:SpecialQuality									DEFINE:DragonMagicProgression|0	DESC: (-%1 metamagic or +%2 casterlevel)|DragonMagicProgression|DragonMagicProgression
+Dragon Magic				KEY:Dragon Magic ~ Wyrmfoe		CATEGORY:Special Ability	TYPE:SpecialQuality					DEFINE:DragonMagicProgression|0	DESC: (-%1 metamagic or +%2 casterlevel)|DragonMagicProgression|DragonMagicProgression
 Dragon Claws				KEY:Dragon Claws ~ Wyrmfoe		CATEGORY:Special Ability	TYPE:SpecialQuality
 Dragon Creature Type			KEY:Dragon Creature Type ~ Wyrmfoe	CATEGORY:Special Ability	TYPE:SpecialQuality
 Dragon Breath				KEY:Dragon Breath ~ Wyrmfoe		CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -49,7 +49,7 @@ Wyrmfoe Damage Resistance (Cold)							CATEGORY:Special Ability	TYPE:WyrmfoeDama
 Wyrmfoe Damage Resistance (Fire)							CATEGORY:Special Ability	TYPE:WyrmfoeDamageResistance	VISIBLE:DISPLAY	DEFINE:WyrmfoeDR|0																		ABILITY:Special Ability|AUTOMATIC|Resistance To Fire	BONUS:VAR|FireResistanceBonus|WyrmfoeDR
 
 ###Block: ~ Wyrm Spawn
-# Ability Name		Unique Key						Category of Ability		Description	Ability
+# Ability Name		Unique Key						Category of Ability		Type				Description	Ability
 Draconic Blood		KEY:Draconic Blood ~ Wyrm Spawn		CATEGORY:Special Ability	TYPE:SpecialQuality
 Resist Elements		KEY:Resist Elements ~ Wyrm Spawn		CATEGORY:Special Ability	TYPE:SpecialQuality
 Immune to dragon fear	KEY:Immune to dragon fear ~ Wyrm Spawn	CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -58,5 +58,5 @@ Draconic Hide		KEY:Draconic Hide ~ Wyrm Spawn		CATEGORY:Special Ability	TYPE:Spe
 Longevity			KEY:Longevity ~ Wyrm Spawn			CATEGORY:Special Ability	TYPE:SpecialQuality
 Scent				KEY:Scent ~ Wyrm Spawn				CATEGORY:Special Ability	TYPE:SpecialQuality			ABILITY:Special Ability|AUTOMATIC|Scent
 Flight			KEY:Flight ~ Wyrm Spawn				CATEGORY:Special Ability	TYPE:SpecialQuality
-Polymorph			KEY:Polymorph ~ Wyrm Spawn			CATEGORY:Special Ability	TYPE:SpecialQuality	
-Breath Weapon		KEY:Breath Weapon ~ Wyrm Spawn		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Polymorph			KEY:Polymorph ~ Wyrm Spawn			CATEGORY:Special Ability	TYPE:SpecialQuality
+Breath Weapon		KEY:Breath Weapon ~ Wyrm Spawn		CATEGORY:Special Ability	TYPE:SpecialQuality

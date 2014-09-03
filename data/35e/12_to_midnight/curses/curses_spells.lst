@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Curses!	SOURCESHORT:Curses	SOURCEWEB:http://www.silven.com/	SOURCEDATE:2005-04
 # Original Entry by: Eddy Anthony (MoSaT)
 
-# Spell Name				Output Name			Classes of caster							School			Sub-School			Spell Descriptors					Components		Casting Time			Range									Target Area or Effect								Duration				Save Info								Spell Resistance		Source Page		Description
+# Spell Name				Output Name			Classes of caster							School			Sub-School			Descriptor						Components		Casting Time			Range									Target Area or Effect								Duration				Save Info								Spell Resistance		Source Page		Description
 Color										CLASSES:Bard,Sorcerer,Wizard=1				SCHOOL:Transmutation					DESCRIPTOR:Curse					COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch								TARGETAREA:One creature or object of no more than 2 cu. ft./level	DURATION:Instantaneous		SAVEINFO:Will negates, see text; or none (object)	SPELLRES:Yes		SOURCEPAGE:p.9	DESC:This spell permanently alters the color of a creature or object.
 Curse of Ineptitude							CLASSES:Bard,Cleric,Sorcerer,Wizard=1			SCHOOL:Necromancy						DESCRIPTOR:Curse					COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Touch								TARGETAREA:One creature								DURATION:1 round			SAVEINFO:Will negates						SPELLRES:Yes		SOURCEPAGE:p.9	DESC:You impart a streak of bad luck on the target. Any actions the target takes in the round in which it is affected have a 50%% chance of failing. Material Component: The fur of a black cat.
 Curse of Item Rebellion							CLASSES:Sorcerer,Wizard=3|Cleric=4				SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Curse|Mind Affecting		COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch								TARGETAREA:One touched object of up to 2 cu ft./level			DURATION:1 day/level (D)	SAVEINFO:Will negates (object)				SPELLRES:Yes (object)	SOURCEPAGE:p.9	DESC:You are able to impart a curse on an object. This causes the object to function exactly opposite how it was meant to work.
@@ -23,7 +23,7 @@ Toady										CLASSES:Druid,Sorcerer,Wizard=3				SCHOOL:Transmutation					DESCR
 Troglodyte's Curse							CLASSES:Druid,Sorcerer,Wizard=5				SCHOOL:Transmutation					DESCRIPTOR:Curse					COMPS:V, S, M	CASTTIME:1 standard action	RANGE:Close								TARGETAREA:One creature								DURATION:Permanent (D)		SAVEINFO:Fortitude negates					SPELLRES:Yes		SOURCEPAGE:p.12	DESC:When the victim of troglodyte's curse is angry or frightened, including any combat situation, it secretes an oily, musklike chemical that nearly every form of animal life finds offensive. Material Component: A sprinkle of troglodyte musk.
 
 ###Block: The curse subtype can be added to the following spells in the RSRD
-# Spell Name			Spell Descriptors
+# Spell Name			Descriptor
 Baleful Polymorph.MOD		DESCRIPTOR:Curse
 Bane.MOD				DESCRIPTOR:Curse
 Bestow Curse.MOD			DESCRIPTOR:Curse
