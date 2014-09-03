@@ -1628,7 +1628,7 @@
 									<xsl:with-param name="attribute" select="'weapon.title'"/>
 								</xsl:call-template>
 								<fo:block font-size="7pt" font-weight="bold">
-								To Hit: <xsl:value-of select="../ammunition/to_hit"/> 
+								To Hit: <xsl:value-of select="./ammunition/to_hit"/> 
 								</fo:block>
 								</fo:table-cell>
 								<fo:table-cell number-columns-spanned="2">
@@ -1636,7 +1636,7 @@
 									<xsl:with-param name="attribute" select="'weapon.title'"/>
 								</xsl:call-template>
 								<fo:block font-size="7pt" font-weight="bold">
-								Damage: <xsl:value-of select="../ammunition/damage"/>
+								Damage: <xsl:value-of select="./ammunition/damage"/>
 								</fo:block>
 								</fo:table-cell>
 							</xsl:for-each>	
@@ -1677,7 +1677,7 @@
 										<xsl:otherwise>7pt</xsl:otherwise>
 									</xsl:choose>
 								</xsl:attribute>
-								<xsl:value-of select="../ammunition/to_hit"/>
+								<xsl:value-of select="./ammunition/to_hit"/>
 							</fo:block>
 						</fo:table-cell>
 					</xsl:for-each>
@@ -1693,7 +1693,7 @@
 						<fo:table-cell>
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
 							<fo:block font-size="7pt" space-before="1pt">
-								<xsl:value-of select="../ammunition/damage"/>
+								<xsl:value-of select="./ammunition/damage"/>
 							</fo:block>
 						</fo:table-cell>
 					</xsl:for-each>
@@ -1737,7 +1737,7 @@
 											<xsl:otherwise>7pt</xsl:otherwise>
 										</xsl:choose>
 									</xsl:attribute>
-									<xsl:value-of select="../ammunition/to_hit"/>
+									<xsl:value-of select="./ammunition/to_hit"/>
 								</fo:block>
 							</fo:table-cell>
 						</xsl:for-each>
@@ -1753,7 +1753,7 @@
 							<fo:table-cell>
 								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
 								<fo:block font-size="7pt" space-before="1pt">
-									<xsl:value-of select="../ammunition/damage"/>
+									<xsl:value-of select="./ammunition/damage"/>
 								</fo:block>
 							</fo:table-cell>
 						</xsl:for-each>
@@ -1795,7 +1795,7 @@
 											<xsl:otherwise>7pt</xsl:otherwise>
 										</xsl:choose>
 									</xsl:attribute>
-									<xsl:value-of select="../ammunition/to_hit"/>
+									<xsl:value-of select="./ammunition/to_hit"/>
 								</fo:block>
 							</fo:table-cell>
 						</xsl:for-each>
@@ -1811,7 +1811,7 @@
 							<fo:table-cell>
 								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
 								<fo:block font-size="7pt" space-before="1pt">
-									<xsl:value-of select="../ammunition/damage"/>
+									<xsl:value-of select="./ammunition/damage"/>
 								</fo:block>
 							</fo:table-cell>
 						</xsl:for-each>
@@ -1854,7 +1854,7 @@
 											<xsl:otherwise>7pt</xsl:otherwise>
 										</xsl:choose>
 									</xsl:attribute>
-									<xsl:value-of select="../ammunition/to_hit"/>
+									<xsl:value-of select="./ammunition/to_hit"/>
 								</fo:block>
 							</fo:table-cell>
 						</xsl:for-each>
@@ -1870,7 +1870,7 @@
 							<fo:table-cell>
 								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'weapon.hilight'"/></xsl:call-template>
 								<fo:block font-size="7pt" space-before="1pt">
-									<xsl:value-of select="../ammunition/damage"/>
+									<xsl:value-of select="./ammunition/damage"/>
 								</fo:block>
 							</fo:table-cell>
 						</xsl:for-each>
