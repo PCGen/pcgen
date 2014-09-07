@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Sat Sep  6 20:29:21 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
@@ -6,98 +6,98 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 
 
 ###Block: Familiar Progression
-# Class of the Master	Type			Ability																											Copy Masters BAB		Copy Masters Checks	HP formula based on Master					Use Masters skills?	Define								Combat bonus					Modify VAR																	Main Race Type
-FOLLOWER:FamiliarLvl=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Improved Fortune ~ Evasion|Link ~ Companion	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,(MASTER/2)+var("FamiliarBonusHP"))	USEMASTERSKILL:YES	DEFINE:FamiliarLevel|0	DEFINE:FamiliarBonusHP|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|6	BONUS:VAR|FamiliarLevel|1								RACETYPE:Magical Beast
-FOLLOWER:FamiliarLvl=2	TYPE:Familiar																																																																		BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=3	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Location and Emotion Sharing																																																BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|7	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=4	TYPE:Familiar																																																																		BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=5	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Telepathic Speech ~ Eclipse																																																BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|8	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=6	TYPE:Familiar																																																																		BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=7	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak with other Animals																																																	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|9	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=8	TYPE:Familiar																																																																		BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=9	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak normally																																																		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|10	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=10	TYPE:Familiar																																																																		BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=11	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spell or Power Resistance																																								DEFINE:CompanionResistanceBonus|0				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|11	BONUS:VAR|CompanionResistanceBonus|16	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=12	TYPE:Familiar																																																																		BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=13	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Link ~ Sense Sharing																																																	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|12	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=14	TYPE:Familiar																																																																		BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=15	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Channel spells and powers																																																	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|13	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=16	TYPE:Familiar																																																																		BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=17	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Link ~ Planetary Range																																																	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|14	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=18	TYPE:Familiar																																																																		BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=19	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Link ~ Transdimensional Range																																																BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|15	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=20	TYPE:Familiar																																																																		BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+# Class of the Master	Type			Ability																		Copy Masters BAB		Copy Masters Checks	HP formula based on Master					Use Masters skills?	Define								Define Stat				Combat bonus					Modify VAR											Main Race Type
+FOLLOWER:FamiliarLvl=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Improved Fortune ~ Evasion|Link ~ Companion	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,(MASTER/2)+var("FamiliarBonusHP"))	USEMASTERSKILL:YES	DEFINE:FamiliarLevel|0	DEFINE:FamiliarBonusHP|0	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|FamiliarLevel|1								RACETYPE:Magical Beast
+FOLLOWER:FamiliarLvl=2	TYPE:Familiar																																																														BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=3	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Location and Emotion Sharing																																							DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=4	TYPE:Familiar																																																														BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=5	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Telepathic Speech ~ Eclipse																																							DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=6	TYPE:Familiar																																																														BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=7	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak with other Animals																																								DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=8	TYPE:Familiar																																																														BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=9	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak normally																																									DEFINESTAT:MINVALUE|INT|10	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=10	TYPE:Familiar																																																														BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=11	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spell or Power Resistance																															DEFINE:CompanionResistanceBonus|0				DEFINESTAT:MINVALUE|INT|11	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionResistanceBonus|16	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=12	TYPE:Familiar																																																														BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=13	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Link ~ Sense Sharing																																								DEFINESTAT:MINVALUE|INT|12	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=14	TYPE:Familiar																																																														BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=15	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Channel spells and powers																																								DEFINESTAT:MINVALUE|INT|13	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=16	TYPE:Familiar																																																														BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=17	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Link ~ Planetary Range																																								DEFINESTAT:MINVALUE|INT|14	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=18	TYPE:Familiar																																																														BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=19	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Link ~ Transdimensional Range																																							DEFINESTAT:MINVALUE|INT|15	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:FamiliarLvl=20	TYPE:Familiar																																																														BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
 
 
 ###Block: Psi-Crystal Progression
-# Class of the Master		Type			Ability																											Copy Masters BAB		Copy Masters Checks	Use Masters skills?	Define								Combat bonus					Bonus to HP			Modify VAR																	Main Race Type
-FOLLOWER:PsiCrystalLvl=1	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Improved Fortune ~ Evasion|Link ~ Companion	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	USEMASTERSKILL:YES	DEFINE:FamiliarLevel|0	DEFINE:FamiliarBonusHP|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:HP|CURRENTMAX|12	DEFINESTAT:MINVALUE|INT|6	BONUS:VAR|FamiliarLevel|1								RACETYPE:Magical Beast
-FOLLOWER:PsiCrystalLvl=2	TYPE:Psicrystal																																																													BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=3	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Location and Emotion Sharing																																							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					DEFINESTAT:MINVALUE|INT|7	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=4	TYPE:Psicrystal																																																													BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=5	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Telepathic Speech ~ Eclipse																																							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					DEFINESTAT:MINVALUE|INT|8	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=6	TYPE:Psicrystal																																																													BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=7	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Speak normally																																									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					DEFINESTAT:MINVALUE|INT|9	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=8	TYPE:Psicrystal																																																													BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=9	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Psicrystal Move																																									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					DEFINESTAT:MINVALUE|INT|10	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=10	TYPE:Psicrystal																																																													BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=11	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Spell or Power Resistance																															DEFINE:CompanionResistanceBonus|0				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					DEFINESTAT:MINVALUE|INT|11	BONUS:VAR|CompanionResistanceBonus|16	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=12	TYPE:Psicrystal																																																													BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=13	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Link ~ Sense Sharing																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					DEFINESTAT:MINVALUE|INT|12	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=14	TYPE:Psicrystal																																																													BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=15	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Channel spells and powers																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					DEFINESTAT:MINVALUE|INT|13	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=16	TYPE:Psicrystal																																																													BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=17	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Link ~ Planetary Range																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					DEFINESTAT:MINVALUE|INT|14	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=18	TYPE:Psicrystal																																																													BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=19	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Link ~ Transdimensional Range																																							BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					DEFINESTAT:MINVALUE|INT|15	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:PsiCrystalLvl=20	TYPE:Psicrystal																																																													BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+# Class of the Master		Type			Ability																		Copy Masters BAB		Copy Masters Checks	Use Masters skills?	Define								Define Stat				Combat bonus					Bonus to HP			Modify VAR											Main Race Type
+FOLLOWER:PsiCrystalLvl=1	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Improved Fortune ~ Evasion|Link ~ Companion	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	USEMASTERSKILL:YES	DEFINE:FamiliarLevel|0	DEFINE:FamiliarBonusHP|0	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:HP|CURRENTMAX|12	BONUS:VAR|FamiliarLevel|1								RACETYPE:Magical Beast
+FOLLOWER:PsiCrystalLvl=2	TYPE:Psicrystal																																																									BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=3	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Location and Emotion Sharing																														DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=4	TYPE:Psicrystal																																																									BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=5	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Telepathic Speech ~ Eclipse																														DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=6	TYPE:Psicrystal																																																									BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=7	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Speak normally																																DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=8	TYPE:Psicrystal																																																									BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=9	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Psicrystal Move																																DEFINESTAT:MINVALUE|INT|10	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=10	TYPE:Psicrystal																																																									BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=11	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Spell or Power Resistance																						DEFINE:CompanionResistanceBonus|0				DEFINESTAT:MINVALUE|INT|11	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					BONUS:VAR|CompanionResistanceBonus|16	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=12	TYPE:Psicrystal																																																									BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=13	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Link ~ Sense Sharing																															DEFINESTAT:MINVALUE|INT|12	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=14	TYPE:Psicrystal																																																									BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=15	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Channel spells and powers																															DEFINESTAT:MINVALUE|INT|13	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=16	TYPE:Psicrystal																																																									BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=17	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Link ~ Planetary Range																															DEFINESTAT:MINVALUE|INT|14	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=18	TYPE:Psicrystal																																																									BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=19	TYPE:Psicrystal	ABILITY:Special Ability|AUTOMATIC|Link ~ Transdimensional Range																														DEFINESTAT:MINVALUE|INT|15	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK					BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+FOLLOWER:PsiCrystalLvl=20	TYPE:Psicrystal																																																									BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
 
 
 ###Block: Special Mount Progression
-# Class of the Master		Type				Hit Dice	Ability																																															Copy Masters Checks	Define			Bonus Ability Pool						Combat bonus													Modify VAR										Main Race Type
-FOLLOWER:SpecialMountLvl=1	TYPE:Special Mount			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Communicate with Master ~ Companion Creature|Improved Evasion|Improved Fortune ~ Evasion|Share Saving Throws ~ Companion Creature|Share Spells ~ Companion Creature	COPYMASTERCHECK:MASTER	DEFINE:CompanionCPLvl|0	BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																DEFINESTAT:MINVALUE|INT|8	BONUS:VAR|CompanionCPLvl|3	RACETYPE:Magical Beast
-FOLLOWER:SpecialMountLvl=2	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=3	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=4	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=5	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=6	TYPE:Special Mount	HD:1																																																										BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=7	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=8	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=9	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=10	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=11	TYPE:Special Mount																																																											BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=12	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=13	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=14	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=15	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=16	TYPE:Special Mount	HD:1																																																										BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=17	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=18	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=19	TYPE:Special Mount																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:SpecialMountLvl=20	TYPE:Special Mount	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+# Class of the Master		Type				Hit Dice	Ability																																						Copy Masters Checks	Define			Define Stat				Bonus Ability Pool						Combat bonus													Modify VAR				Main Race Type
+FOLLOWER:SpecialMountLvl=1	TYPE:Special Mount			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Communicate with Master ~ Companion Creature|Improved Evasion|Improved Fortune ~ Evasion|Share Saving Throws ~ Companion Creature|Share Spells ~ Companion Creature	COPYMASTERCHECK:MASTER	DEFINE:CompanionCPLvl|0	DEFINESTAT:MINVALUE|INT|8	BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																BONUS:VAR|CompanionCPLvl|3	RACETYPE:Magical Beast
+FOLLOWER:SpecialMountLvl=2	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=3	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=4	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=5	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=6	TYPE:Special Mount	HD:1																																																						BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=7	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=8	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=9	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=10	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=11	TYPE:Special Mount																																																							BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=12	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=13	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=14	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=15	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=16	TYPE:Special Mount	HD:1																																																						BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=17	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=18	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=19	TYPE:Special Mount																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:SpecialMountLvl=20	TYPE:Special Mount	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
 
 ###Block: Mystic Companion Progression
-# Class of the Master			Type				Hit Dice	Ability																																															Copy Masters Checks	Define			Bonus Ability Pool						Combat bonus													Modify VAR										Main Race Type
-FOLLOWER:MysticCompanionLvl=1		TYPE:Mystic Companion			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Communicate with Master ~ Companion Creature|Improved Evasion|Improved Fortune ~ Evasion|Share Saving Throws ~ Companion Creature|Share Spells ~ Companion Creature	COPYMASTERCHECK:MASTER	DEFINE:CompanionCPLvl|0	BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																DEFINESTAT:MINVALUE|INT|8	BONUS:VAR|CompanionCPLvl|3	RACETYPE:Magical Beast
-FOLLOWER:MysticCompanionLvl=2		TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=3		TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=4		TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=5		TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=6		TYPE:Mystic Companion	HD:1																																																										BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=7		TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=8		TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=9		TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=10	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=11	TYPE:Mystic Companion																																																											BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=12	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=13	TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=14	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=15	TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=16	TYPE:Mystic Companion	HD:1																																																										BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=17	TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=18	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=19	TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:MysticCompanionLvl=20	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+# Class of the Master			Type				Hit Dice	Ability																																						Copy Masters Checks	Define			Define Stat				Bonus Ability Pool						Combat bonus													Modify VAR				Main Race Type
+FOLLOWER:MysticCompanionLvl=1		TYPE:Mystic Companion			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Communicate with Master ~ Companion Creature|Improved Evasion|Improved Fortune ~ Evasion|Share Saving Throws ~ Companion Creature|Share Spells ~ Companion Creature	COPYMASTERCHECK:MASTER	DEFINE:CompanionCPLvl|0	DEFINESTAT:MINVALUE|INT|8	BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																BONUS:VAR|CompanionCPLvl|3	RACETYPE:Magical Beast
+FOLLOWER:MysticCompanionLvl=2		TYPE:Mystic Companion	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=3		TYPE:Mystic Companion																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=4		TYPE:Mystic Companion	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=5		TYPE:Mystic Companion																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=6		TYPE:Mystic Companion	HD:1																																																						BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=7		TYPE:Mystic Companion																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=8		TYPE:Mystic Companion	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=9		TYPE:Mystic Companion																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=10	TYPE:Mystic Companion	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=11	TYPE:Mystic Companion																																																							BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1																BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=12	TYPE:Mystic Companion	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=13	TYPE:Mystic Companion																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=14	TYPE:Mystic Companion	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=15	TYPE:Mystic Companion																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=16	TYPE:Mystic Companion	HD:1																																																						BONUS:ABILITYPOOL|Mystic Companion Stat Choice|1	BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=17	TYPE:Mystic Companion																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=18	TYPE:Mystic Companion	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=19	TYPE:Mystic Companion																																																																															BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:MysticCompanionLvl=20	TYPE:Mystic Companion	HD:1																																																															BONUS:COMBAT|BASEAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
 
 ###Block: Animal Progression
 # Class of the Master		Type				Hit Dice	Ability																	Define			Combat bonus													Stat bonus							Modify VAR								Main Race Type		Bonus

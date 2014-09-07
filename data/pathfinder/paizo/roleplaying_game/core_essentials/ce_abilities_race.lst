@@ -1,4 +1,4 @@
-# CVS $Revision: 21637 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 21637 $ $Author: amaitland $ -- Sat Sep  6 20:29:21 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 # COMMENT: Everything in the Pathfinder GameMode is run off the Default Internal Ability, placing it in Core Essentials
@@ -84,157 +84,158 @@ SIZE_C		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_C
 # COMMENT: Rules for standard creatures based upon Size - Just Grant the Base Internal Attack Mode and the correct Damage will be assigned
 # COMMENT: Switched to using PREBASESIZE as BONUS:SIZEMOD|NUMBER also was acting as a TYPE.Natural Dice Boost. This won't affect Dragons since they use a different system.
 ###Block:
-# Bite -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B/S/P	Primary	
-# Gore -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 P		Primary	
-# Pincers -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B		Secondary	
-# Tail Slap -	1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B		Secondary	
-# Claw -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S		Primary	
-# Slam -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Primary	
-# Sting -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 P		Primary	
-# Talons -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 S		Primary	
-# Hoof -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Secondary	
-# Tentacle -	1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Secondary	
-# Wing -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Secondary		
-# Ability Name		Category of Ability	Type						Define			Bonus Var				Bonus Weapon Prof												Ability																																																																																															Weapon prof. bonus											Natural Attacks
-Bite				CATEGORY:Internal		TYPE:NaturalAttack.Primary		DEFINE:NaturalAttacks|0	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Bite|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1			ABILITY:Internal|AUTOMATIC|Bite (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Bite (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Bite (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Bite (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Bite (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Bite (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Bite (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Bite (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Bite (Colossal)|PREBASESIZEEQ:C
-Gore				CATEGORY:Internal		TYPE:NaturalAttack.Primary		DEFINE:NaturalAttacks|0	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Gore|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1			ABILITY:Internal|AUTOMATIC|Gore (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Gore (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Gore (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Gore (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Gore (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Gore (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Gore (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Gore (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Gore (Colossal)|PREBASESIZEEQ:C
-Pincers			CATEGORY:Internal		TYPE:NaturalAttack.Secondary		DEFINE:NaturalAttacks|0	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)		ABILITY:Internal|AUTOMATIC|Pincers (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Pincers (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Pincers (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Pincers (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Pincers (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Pincers (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Pincers (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Pincers (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Pincers (Colossal)|PREBASESIZEEQ:C	
-Tail Slap			CATEGORY:Internal		TYPE:NaturalAttack.Secondary		DEFINE:NaturalAttacks|0	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)	ABILITY:Internal|AUTOMATIC|Tail Slap (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Tail Slap (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Tail Slap (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Tail Slap (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Tail Slap (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Tail Slap (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Tail Slap (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Tail Slap (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Tail Slap (Colossal)|PREBASESIZEEQ:C	
-Claw				CATEGORY:Internal		TYPE:NaturalAttack.Primary		DEFINE:NaturalAttacks|0	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Claw|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1			ABILITY:Internal|AUTOMATIC|Claw (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Claw (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Claw (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Claw (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Claw (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Claw (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Claw (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Claw (Colossal)|PREBASESIZEEQ:C
-Slam				CATEGORY:Internal		TYPE:NaturalAttack.Primary		DEFINE:NaturalAttacks|0	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Slam|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1			ABILITY:Internal|AUTOMATIC|Slam (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Slam (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Slam (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Slam (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Slam (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Slam (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Slam (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Slam (Colossal)|PREBASESIZEEQ:C
-Sting				CATEGORY:Internal		TYPE:NaturalAttack.Primary		DEFINE:NaturalAttacks|0	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Sting|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1			ABILITY:Internal|AUTOMATIC|Sting (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Sting (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Sting (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Sting (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Sting (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Sting (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Sting (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Sting (Colossal)|PREBASESIZEEQ:C
-Talons			CATEGORY:Internal		TYPE:NaturalAttack.Primary		DEFINE:NaturalAttacks|0	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Talons|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1			ABILITY:Internal|AUTOMATIC|Talons (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Talons (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Talons (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Talons (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Talons (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Talons (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Talons (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Talons (Colossal)|PREBASESIZEEQ:C
-Hoof				CATEGORY:Internal		TYPE:NaturalAttack.Secondary		DEFINE:NaturalAttacks|0	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)		ABILITY:Internal|AUTOMATIC|Hoof (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Hoof (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Hoof (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Hoof (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Hoof (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Hoof (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Hoof (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Hoof (Colossal)|PREBASESIZEEQ:C	
-Tentacle			CATEGORY:Internal		TYPE:NaturalAttack.Secondary		DEFINE:NaturalAttacks|0	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Tentacle|TOHIT|-5	BONUS:WEAPONPROF=Tentacle|DAMAGE|-(STR/2)		ABILITY:Internal|AUTOMATIC|Tentacle (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Tentacle (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Tentacle (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Tentacle (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Tentacle (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Tentacle (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Tentacle (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Tentacle (Colossal)|PREBASESIZEEQ:C	
-Wing				CATEGORY:Internal		TYPE:NaturalAttack.Secondary		DEFINE:NaturalAttacks|0	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)		ABILITY:Internal|AUTOMATIC|Wing (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Wing (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Wing (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Wing (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Wing (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Wing (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Wing (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Wing (Colossal)|PREBASESIZEEQ:C	
+# Bite -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B/S/P	Primary
+# Gore -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 P		Primary
+# Pincers -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B		Secondary
+# Tail Slap -	1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B		Secondary
+# Claw -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S		Primary
+# Slam -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Primary
+# Sting -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 P		Primary
+# Talons -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 S		Primary
+# Hoof -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Secondary
+# Tentacle -	1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Secondary
+# Wing -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Secondary
+# Ability Name	Category of Ability	Type					Define			Ability																																																																																															Modify VAR				Weapon prof. bonus
+Bite			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	ABILITY:Internal|AUTOMATIC|Bite (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Bite (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Bite (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Bite (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Bite (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Bite (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Bite (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Bite (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Bite (Colossal)|PREBASESIZEEQ:C					BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Bite|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Gore			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	ABILITY:Internal|AUTOMATIC|Gore (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Gore (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Gore (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Gore (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Gore (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Gore (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Gore (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Gore (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Gore (Colossal)|PREBASESIZEEQ:C					BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Gore|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Pincers		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	ABILITY:Internal|AUTOMATIC|Pincers (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Pincers (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Pincers (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Pincers (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Pincers (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Pincers (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Pincers (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Pincers (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Pincers (Colossal)|PREBASESIZEEQ:C				BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)
+Tail Slap		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	ABILITY:Internal|AUTOMATIC|Tail Slap (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Tail Slap (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Tail Slap (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Tail Slap (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Tail Slap (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Tail Slap (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Tail Slap (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Tail Slap (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Tail Slap (Colossal)|PREBASESIZEEQ:C	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)
+Claw			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	ABILITY:Internal|AUTOMATIC|Claw (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Claw (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Claw (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Claw (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Claw (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Claw (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Claw (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Claw (Colossal)|PREBASESIZEEQ:C															BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Claw|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Slam			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	ABILITY:Internal|AUTOMATIC|Slam (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Slam (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Slam (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Slam (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Slam (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Slam (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Slam (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Slam (Colossal)|PREBASESIZEEQ:C															BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Slam|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Sting			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	ABILITY:Internal|AUTOMATIC|Sting (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Sting (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Sting (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Sting (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Sting (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Sting (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Sting (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Sting (Colossal)|PREBASESIZEEQ:C															BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Sting|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Talons		CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	ABILITY:Internal|AUTOMATIC|Talons (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Talons (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Talons (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Talons (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Talons (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Talons (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Talons (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Talons (Colossal)|PREBASESIZEEQ:C														BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Talons|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Hoof			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	ABILITY:Internal|AUTOMATIC|Hoof (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Hoof (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Hoof (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Hoof (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Hoof (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Hoof (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Hoof (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Hoof (Colossal)|PREBASESIZEEQ:C															BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)
+Tentacle		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	ABILITY:Internal|AUTOMATIC|Tentacle (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Tentacle (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Tentacle (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Tentacle (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Tentacle (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Tentacle (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Tentacle (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Tentacle (Colossal)|PREBASESIZEEQ:C													BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Tentacle|TOHIT|-5	BONUS:WEAPONPROF=Tentacle|DAMAGE|-(STR/2)
+Wing			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	ABILITY:Internal|AUTOMATIC|Wing (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Wing (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Wing (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Wing (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Wing (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Wing (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Wing (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Wing (Colossal)|PREBASESIZEEQ:C															BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)
 
 #Other - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S/P Secondary	Dragon Tail Sweep and Crush	Note: Dragons break the secondary attack rules...
-Tail Sweep			CATEGORY:Internal		TYPE:NaturalAttack.Secondary		DEFINE:NaturalAttacks|0	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Tail Sweep|DAMAGE|(STR/2)							ABILITY:Internal|AUTOMATIC|Tail Sweep (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Tail Sweep (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Tail Sweep (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Tail Sweep (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Tail Sweep (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Tail Sweep (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Tail Sweep (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Tail Sweep (Colossal)|PREBASESIZEEQ:C	
-Crush				CATEGORY:Internal		TYPE:NaturalAttack.Secondary		DEFINE:NaturalAttacks|0	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Crush|DAMAGE|(STR/2)								ABILITY:Internal|AUTOMATIC|Crush (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Crush (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Crush (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Crush (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Crush (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Crush (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Crush (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Crush (Colossal)|PREBASESIZEEQ:C	
+Tail Sweep		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	ABILITY:Internal|AUTOMATIC|Tail Sweep (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Tail Sweep (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Tail Sweep (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Tail Sweep (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Tail Sweep (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Tail Sweep (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Tail Sweep (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Tail Sweep (Colossal)|PREBASESIZEEQ:C							BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Tail Sweep|DAMAGE|(STR/2)
+Crush			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	ABILITY:Internal|AUTOMATIC|Crush (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Crush (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Crush (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Crush (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Crush (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Crush (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Crush (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Crush (Colossal)|PREBASESIZEEQ:C															BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Crush|DAMAGE|(STR/2)
 
 
 ###Block: Grants Natural Attacks
 # Bite -  1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B/S/P Primary
-Bite (Fine)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:F	TEMPLATE:Bite (Fine)		
-Bite (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D	TEMPLATE:Bite (Diminutive)	
-Bite (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T	TEMPLATE:Bite (Tiny)		
-Bite (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S	TEMPLATE:Bite (Small)	
-Bite (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M	TEMPLATE:Bite (Medium)	
-Bite (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L	TEMPLATE:Bite (Large)	
-Bite (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H	TEMPLATE:Bite (Huge)		
-Bite (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G	TEMPLATE:Bite (Gargantuan)	
-Bite (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C	TEMPLATE:Bite (Colossal)	
+# Ability Name		Category of Ability	Type				Required Base Size	Template
+Bite (Fine)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:F		TEMPLATE:Bite (Fine)
+Bite (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Bite (Diminutive)
+Bite (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Bite (Tiny)
+Bite (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Bite (Small)
+Bite (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Bite (Medium)
+Bite (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Bite (Large)
+Bite (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Bite (Huge)
+Bite (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Bite (Gargantuan)
+Bite (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Bite (Colossal)
 # Gore - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 P Primary
-Gore (Fine)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:F	TEMPLATE:Gore (Fine)		
-Gore (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D	TEMPLATE:Gore (Diminutive)	
-Gore (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T	TEMPLATE:Gore (Tiny)		
-Gore (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S	TEMPLATE:Gore (Small)	
-Gore (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M	TEMPLATE:Gore (Medium)	
-Gore (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L	TEMPLATE:Gore (Large)	
-Gore (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H	TEMPLATE:Gore (Huge)		
-Gore (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G	TEMPLATE:Gore (Gargantuan)	
-Gore (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C	TEMPLATE:Gore (Colossal)	
+Gore (Fine)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:F		TEMPLATE:Gore (Fine)
+Gore (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Gore (Diminutive)
+Gore (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Gore (Tiny)
+Gore (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Gore (Small)
+Gore (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Gore (Medium)
+Gore (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Gore (Large)
+Gore (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Gore (Huge)
+Gore (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Gore (Gargantuan)
+Gore (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Gore (Colossal)
 # Pincers - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B Secondary
-Pincers (Fine)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:F	TEMPLATE:Pincers (Fine)		
-Pincers (Diminutive)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D	TEMPLATE:Pincers (Diminutive)	
-Pincers (Tiny)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T	TEMPLATE:Pincers (Tiny)		
-Pincers (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S	TEMPLATE:Pincers (Small)		
-Pincers (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M	TEMPLATE:Pincers (Medium)		
-Pincers (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L	TEMPLATE:Pincers (Large)		
-Pincers (Huge)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H	TEMPLATE:Pincers (Huge)		
-Pincers (Gargantuan)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G	TEMPLATE:Pincers (Gargantuan)	
-Pincers (Colossal)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C	TEMPLATE:Pincers (Colossal)	
+Pincers (Fine)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:F		TEMPLATE:Pincers (Fine)
+Pincers (Diminutive)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Pincers (Diminutive)
+Pincers (Tiny)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Pincers (Tiny)
+Pincers (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Pincers (Small)
+Pincers (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Pincers (Medium)
+Pincers (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Pincers (Large)
+Pincers (Huge)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Pincers (Huge)
+Pincers (Gargantuan)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Pincers (Gargantuan)
+Pincers (Colossal)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Pincers (Colossal)
 # Tail Slap - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B Secondary
-Tail Slap (Fine)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:F	TEMPLATE:Tail Slap (Fine)		
-Tail Slap (Diminutive)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D	TEMPLATE:Tail Slap (Diminutive)	
-Tail Slap (Tiny)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T	TEMPLATE:Tail Slap (Tiny)		
-Tail Slap (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S	TEMPLATE:Tail Slap (Small)		
-Tail Slap (Medium)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M	TEMPLATE:Tail Slap (Medium)	
-Tail Slap (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L	TEMPLATE:Tail Slap (Large)		
-Tail Slap (Huge)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H	TEMPLATE:Tail Slap (Huge)		
-Tail Slap (Gargantuan)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G	TEMPLATE:Tail Slap (Gargantuan)	
-Tail Slap (Colossal)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C	TEMPLATE:Tail Slap (Colossal)	
+Tail Slap (Fine)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:F		TEMPLATE:Tail Slap (Fine)
+Tail Slap (Diminutive)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Tail Slap (Diminutive)
+Tail Slap (Tiny)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Tail Slap (Tiny)
+Tail Slap (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Tail Slap (Small)
+Tail Slap (Medium)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Tail Slap (Medium)
+Tail Slap (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Tail Slap (Large)
+Tail Slap (Huge)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Tail Slap (Huge)
+Tail Slap (Gargantuan)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Tail Slap (Gargantuan)
+Tail Slap (Colossal)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Tail Slap (Colossal)
 # Claw - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S Primary
-Claw (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D	TEMPLATE:Claw (Diminutive)		
-Claw (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T	TEMPLATE:Claw (Tiny)			
-Claw (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S	TEMPLATE:Claw (Small)		
-Claw (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M	TEMPLATE:Claw (Medium)		
-Claw (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L	TEMPLATE:Claw (Large)		
-Claw (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H	TEMPLATE:Claw (Huge)			
-Claw (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G	TEMPLATE:Claw (Gargantuan)		
-Claw (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C	TEMPLATE:Claw (Colossal)		
+Claw (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Claw (Diminutive)
+Claw (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Claw (Tiny)
+Claw (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Claw (Small)
+Claw (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Claw (Medium)
+Claw (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Claw (Large)
+Claw (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Claw (Huge)
+Claw (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Claw (Gargantuan)
+Claw (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Claw (Colossal)
 # Slam - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B Primary
-Slam (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D	TEMPLATE:Slam (Diminutive)		
-Slam (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T	TEMPLATE:Slam (Tiny)			
-Slam (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S	TEMPLATE:Slam (Small)		
-Slam (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M	TEMPLATE:Slam (Medium)		
-Slam (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L	TEMPLATE:Slam (Large)		
-Slam (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H	TEMPLATE:Slam (Huge)			
-Slam (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G	TEMPLATE:Slam (Gargantuan)		
-Slam (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C	TEMPLATE:Slam (Colossal)		
+Slam (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Slam (Diminutive)
+Slam (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Slam (Tiny)
+Slam (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Slam (Small)
+Slam (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Slam (Medium)
+Slam (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Slam (Large)
+Slam (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Slam (Huge)
+Slam (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Slam (Gargantuan)
+Slam (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Slam (Colossal)
 # Sting - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 P Primary
-Sting (Diminutive)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D	TEMPLATE:Sting (Diminutive)	
-Sting (Tiny)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T	TEMPLATE:Sting (Tiny)		
-Sting (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S	TEMPLATE:Sting (Small)		
-Sting (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M	TEMPLATE:Sting (Medium)		
-Sting (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L	TEMPLATE:Sting (Large)		
-Sting (Huge)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H	TEMPLATE:Sting (Huge)		
-Sting (Gargantuan)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G	TEMPLATE:Sting (Gargantuan)	
-Sting (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C	TEMPLATE:Sting (Colossal)		
+Sting (Diminutive)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Sting (Diminutive)
+Sting (Tiny)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Sting (Tiny)
+Sting (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Sting (Small)
+Sting (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Sting (Medium)
+Sting (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Sting (Large)
+Sting (Huge)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Sting (Huge)
+Sting (Gargantuan)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Sting (Gargantuan)
+Sting (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Sting (Colossal)
 # Talons - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 S Primary
-Talons (Diminutive)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D	TEMPLATE:Talons (Diminutive)	
-Talons (Tiny)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T	TEMPLATE:Talons (Tiny)		
-Talons (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S	TEMPLATE:Talons (Small)		
-Talons (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M	TEMPLATE:Talons (Medium)		
-Talons (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L	TEMPLATE:Talons (Large)		
-Talons (Huge)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H	TEMPLATE:Talons (Huge)		
-Talons (Gargantuan)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G	TEMPLATE:Talons (Gargantuan)	
-Talons (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C	TEMPLATE:Talons (Colossal)		
+Talons (Diminutive)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Talons (Diminutive)
+Talons (Tiny)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Talons (Tiny)
+Talons (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Talons (Small)
+Talons (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Talons (Medium)
+Talons (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Talons (Large)
+Talons (Huge)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Talons (Huge)
+Talons (Gargantuan)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Talons (Gargantuan)
+Talons (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Talons (Colossal)
 # Hoof - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B Secondary
-Hoof (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D	TEMPLATE:Hoof (Diminutive)		
-Hoof (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T	TEMPLATE:Hoof (Tiny)			
-Hoof (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S	TEMPLATE:Hoof (Small)		
-Hoof (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M	TEMPLATE:Hoof (Medium)		
-Hoof (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L	TEMPLATE:Hoof (Large)		
-Hoof (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H	TEMPLATE:Hoof (Huge)			
-Hoof (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G	TEMPLATE:Hoof (Gargantuan)		
-Hoof (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C	TEMPLATE:Hoof (Colossal)		
+Hoof (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Hoof (Diminutive)
+Hoof (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Hoof (Tiny)
+Hoof (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Hoof (Small)
+Hoof (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Hoof (Medium)
+Hoof (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Hoof (Large)
+Hoof (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Hoof (Huge)
+Hoof (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Hoof (Gargantuan)
+Hoof (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Hoof (Colossal)
 # Tentacle - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B Secondary
-Tentacle (Diminutive)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D	TEMPLATE:Tentacle (Diminutive)	
-Tentacle (Tiny)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T	TEMPLATE:Tentacle (Tiny)		
-Tentacle (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S	TEMPLATE:Tentacle (Small)		
-Tentacle (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M	TEMPLATE:Tentacle (Medium)		
-Tentacle (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L	TEMPLATE:Tentacle (Large)		
-Tentacle (Huge)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H	TEMPLATE:Tentacle (Huge)		
-Tentacle (Gargantuan)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G	TEMPLATE:Tentacle (Gargantuan)	
-Tentacle (Colossal)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C	TEMPLATE:Tentacle (Colossal)	
+Tentacle (Diminutive)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Tentacle (Diminutive)
+Tentacle (Tiny)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Tentacle (Tiny)
+Tentacle (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Tentacle (Small)
+Tentacle (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Tentacle (Medium)
+Tentacle (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Tentacle (Large)
+Tentacle (Huge)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Tentacle (Huge)
+Tentacle (Gargantuan)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Tentacle (Gargantuan)
+Tentacle (Colossal)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Tentacle (Colossal)
 # Wing - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B Secondary
-Wing (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D	TEMPLATE:Wing (Diminutive)		
-Wing (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T	TEMPLATE:Wing (Tiny)			
-Wing (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S	TEMPLATE:Wing (Small)		
-Wing (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M	TEMPLATE:Wing (Medium)		
-Wing (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L	TEMPLATE:Wing (Large)		
-Wing (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H	TEMPLATE:Wing (Huge)			
-Wing (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G	TEMPLATE:Wing (Gargantuan)		
-Wing (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C	TEMPLATE:Wing (Colossal)		
+Wing (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Wing (Diminutive)
+Wing (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Wing (Tiny)
+Wing (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Wing (Small)
+Wing (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Wing (Medium)
+Wing (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Wing (Large)
+Wing (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Wing (Huge)
+Wing (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Wing (Gargantuan)
+Wing (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Wing (Colossal)
 #Other - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S/P Secondary	Dragon Tail Sweep and Crush
-Tail Sweep (Diminutive)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D	TEMPLATE:Tail Sweep (Diminutive)	
-Tail Sweep (Tiny)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T	TEMPLATE:Tail Sweep (Tiny)		
-Tail Sweep (Small)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S	TEMPLATE:Tail Sweep (Small)	
-Tail Sweep (Medium)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M	TEMPLATE:Tail Sweep (Medium)	
-Tail Sweep (Large)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L	TEMPLATE:Tail Sweep (Large)	
-Tail Sweep (Huge)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H	TEMPLATE:Tail Sweep (Huge)		
-Tail Sweep (Gargantuan)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G	TEMPLATE:Tail Sweep (Gargantuan)	
-Tail Sweep (Colossal)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C	TEMPLATE:Tail Sweep (Colossal)	
+Tail Sweep (Diminutive)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Tail Sweep (Diminutive)
+Tail Sweep (Tiny)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Tail Sweep (Tiny)
+Tail Sweep (Small)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Tail Sweep (Small)
+Tail Sweep (Medium)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Tail Sweep (Medium)
+Tail Sweep (Large)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Tail Sweep (Large)
+Tail Sweep (Huge)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Tail Sweep (Huge)
+Tail Sweep (Gargantuan)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Tail Sweep (Gargantuan)
+Tail Sweep (Colossal)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Tail Sweep (Colossal)
 #Crush
-Crush (Diminutive)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D	TEMPLATE:Crush (Diminutive)	
-Crush (Tiny)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T	TEMPLATE:Crush (Tiny)		
-Crush (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S	TEMPLATE:Crush (Small)		
-Crush (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M	TEMPLATE:Crush (Medium)		
-Crush (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L	TEMPLATE:Crush (Large)		
-Crush (Huge)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H	TEMPLATE:Crush (Huge)		
-Crush (Gargantuan)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G	TEMPLATE:Crush (Gargantuan)	
-Crush (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C	TEMPLATE:Crush (Colossal)		
+Crush (Diminutive)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Crush (Diminutive)
+Crush (Tiny)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Crush (Tiny)
+Crush (Small)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Crush (Small)
+Crush (Medium)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Crush (Medium)
+Crush (Large)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Crush (Large)
+Crush (Huge)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Crush (Huge)
+Crush (Gargantuan)	CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Crush (Gargantuan)
+Crush (Colossal)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Crush (Colossal)
 #
 
 ###BLOCK: Dragons

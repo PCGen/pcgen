@@ -1,7 +1,6 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Sat Sep  6 20:29:21 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Specific choices list				Plural description for UI		Display Location
-ABILITYCATEGORY:Exotic Weapon Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:FEAT		ABILITYLIST:Exotic Weapon Proficiency	PLURAL:Exotic Weapon Choices		DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Psion Subclass Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Internal		TYPE:PsionSelection				PLURAL:Psion Subclass Selection	DISPLAYLOCATION:Character Creation Pool
-
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object		Specific choices list				Plural description for UI		Display Location
+ABILITYCATEGORY:Exotic Weapon Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:FEAT						ABILITYLIST:Exotic Weapon Proficiency	PLURAL:Exotic Weapon Choices		DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:Psion Subclass Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Internal		TYPE:PsionSelection								PLURAL:Psion Subclass Selection	DISPLAYLOCATION:Character Creation Pool
