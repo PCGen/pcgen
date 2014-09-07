@@ -5,40 +5,40 @@
 ###Block: Subclass Support
 
 # Class Name
-CLASS:Psion.COPY=Psion (Egoist)
+#CLASS:Psion.COPY=Psion (Egoist)
 
 # Class Name
-CLASS:Psion.COPY=Psion (Kineticist)
+#CLASS:Psion.COPY=Psion (Kineticist)
 
 # Class Name
-CLASS:Psion.COPY=Psion (Nomad)
+#CLASS:Psion.COPY=Psion (Nomad)
 
 # Class Name
-CLASS:Psion.COPY=Psion (Seer)
+#CLASS:Psion.COPY=Psion (Seer)
 
 # Class Name
-CLASS:Psion.COPY=Psion (Shaper)
+#CLASS:Psion.COPY=Psion (Shaper)
 
 # Class Name
-CLASS:Psion.COPY=Psion (Telepath)
+#CLASS:Psion.COPY=Psion (Telepath)
 
 # Class Name			Use Spell List
-CLASS:Psion (Egoist).MOD	SPELLLIST:2|Egoist|Psion
+#CLASS:Psion (Egoist).MOD	SPELLLIST:2|Egoist|Psion
 
 # Class Name			Use Spell List
-CLASS:Psion (Kineticist).MOD	SPELLLIST:2|Kineticist|Psion
+#CLASS:Psion (Kineticist).MOD	SPELLLIST:2|Kineticist|Psion
 
 # Class Name		Use Spell List
-CLASS:Psion (Nomad).MOD	SPELLLIST:2|Nomad|Psion
+#CLASS:Psion (Nomad).MOD	SPELLLIST:2|Nomad|Psion
 
 # Class Name		Use Spell List
-CLASS:Psion (Seer).MOD	SPELLLIST:2|Psion|Seer
+#CLASS:Psion (Seer).MOD	SPELLLIST:2|Psion|Seer
 
 # Class Name			Use Spell List
-CLASS:Psion (Shaper).MOD	SPELLLIST:2|Psion|Shaper
+#CLASS:Psion (Shaper).MOD	SPELLLIST:2|Psion|Shaper
 
 # Class Name			Use Spell List
-CLASS:Psion (Telepath).MOD	SPELLLIST:2|Psion|Telepath
+#CLASS:Psion (Telepath).MOD	SPELLLIST:2|Psion|Telepath
 
 
 # Class Name
