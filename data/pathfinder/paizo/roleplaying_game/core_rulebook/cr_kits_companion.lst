@@ -513,4 +513,3 @@ STARTPACK:Familiar ~ Spider (Scarlet)	TYPE:Default Monster.Vermin	VISIBLE:QUALIF
 NAME:Scarlet Spider
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
-ABILITY:CATEGORY=Giant Spider Type|Web-spinning Giant Spider
