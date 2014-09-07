@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
 CAMPAIGN:Eclipse - The Codex Persona (MSRD)
 RANK:4
-GAMEMODE:Modern
+#GAMEMODE:Modern	REQUIRES MORE WORK TO SUPPORT
 GENRE:Any
 BOOKTYPE:EclipseCore
 SETTING:Any
@@ -42,8 +42,8 @@ SKILL:eclipse_msrd_skills.lst
 
 ABILITY:../eclipse_abilities.lst
 ABILITY:../eclipse_abilities_disadvantages.lst
-ABILITY:../eclipse_abilities_enchantments.lst
-ABILITY:../eclipse_abilities_martial_arts.lst
+#ABILITY:../eclipse_abilities_enchantments.lst
+#ABILITY:../eclipse_abilities_martial_arts.lst
 ABILITY:../eclipse_abilities.lst
 ABILITY:../eclipse_abilities_misc.lst
 ABILITY:../eclipse_abilities_mods.lst
@@ -58,7 +58,7 @@ ABILITYCATEGORY:../eclipse_ability_categories.lst
 
 CLASS:../eclipse_class.lst
 
-COMPANIONMOD:../eclipse_companionmods.lst
+#COMPANIONMOD:../eclipse_companionmods.lst
 
 EQUIPMENT:../eclipse_equip.lst
 
@@ -68,7 +68,7 @@ KIT:../eclipse_kits.lst
 
 #LANGUAGE:../eclipse_languages.lst
 
-RACE:../eclipse_races_companions.lst
+#RACE:../eclipse_races_companions.lst
 RACE:../eclipse_races_samples.lst
 
 ARMORPROF:../eclipse_profs_armor.lst
