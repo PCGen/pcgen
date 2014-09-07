@@ -5,8 +5,13 @@ SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SO
 # Ability Name			Unique Key						Category of Ability		Type					Multiple Requirements															Stackable?	Multiple?	Choose							Auto Weapon Prof		Bonus to skill				Modify VAR																															Aspects
 Flawed Gamboge Nodule Ability								CATEGORY:Special Ability	TYPE:Internal																																																																											ASPECT:SaveBonus|-4 penalty against curses and diseases
 
-Animal Companion			KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal			TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:AnimalCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion]																							BONUS:VAR|AnimalCompanionLVL|MIN((TL-AnimalCompanionMasterLVL),4)|PREVARGTEQ:AnimalCompanionLVL,1	BONUS:VAR|BeastmasterCompanionChoice|MIN((TL-RangerLVL),4)|PREVARGTEQ:AnimalCompanionLVLA,1
-Familiar				KEY:Boon Companion ~ Familiar			CATEGORY:Internal			TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:FamiliarLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Familiar]																										BONUS:VAR|FamiliarLVL|min(TL-FamiliarMasterLVL,4)|PREVARGT:FamiliarLVL,0
+###Block: Boon Companion Selection
+Animal Companion					KEY:Boon Companion ~ Animal Companion			CATEGORY:Internal			TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:AnimalCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion]																							BONUS:VAR|AnimalCompanionLVL|MIN((TL-AnimalCompanionMasterLVL),4)|PREVARGTEQ:AnimalCompanionLVL,1	
+Familiar						KEY:Boon Companion ~ Familiar					CATEGORY:Internal			TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:FamiliarLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Familiar]																										BONUS:VAR|FamiliarLVL|min(TL-FamiliarMasterLVL,4)|PREVARGT:FamiliarLVL,0
+#
+Animal Companion (Beast Master Archetype)	KEY:Boon Companion ~ Animal Companion (Beast Master)	CATEGORY:Internal			TYPE:BoonCompanionSelection	PREVARGTEQ:AnimalCompanionLVLA,1																							BONUS:VAR|BeastmasterCompanionChoice|MIN((TL-RangerLVL),4)	
+
+
 
 
 Weapon Proficiency Selection	KEY:Weapon Proficiency Selection		CATEGORY:Internal																										STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC				AUTO:WEAPONPROF|%LIST
