@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Sun Sep  7 23:21:45 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 # Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list		Plural description for UI			Display Location
 ABILITYCATEGORY:Totem Barbarian					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF			TYPE:Totem Barbarian									PLURAL:Totem Barbarian Variants		DISPLAYLOCATION:Class Features
@@ -6,21 +6,21 @@ ABILITYCATEGORY:Totem Barbarian					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FR
 
 
 # Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list		Plural description for UI			Display Location
-ABILITYCATEGORY:Flaws							VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Flaws																		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Traits							VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Traits																		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Flaws							VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Flaws																		DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Traits							VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Traits																		DISPLAYLOCATION:Race Traits
 
 
 
 # Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list		Plural description for UI			Display Location
-ABILITYCATEGORY:Human Paragon Stat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:HumanParagon										PLURAL:Human Paragon Stats			DISPLAYLOCATION:Race Abilities
-ABILITYCATEGORY:Adaptive Learning Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:HumanParagonAdaptiveLearningChoice						PLURAL:Adaptive Learning Choice		DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Human Paragon Stat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:HumanParagon										PLURAL:Human Paragon Stats			DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Adaptive Learning Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:HumanParagonAdaptiveLearningChoice						PLURAL:Adaptive Learning Choice		DISPLAYLOCATION:Race Traits
 
 
 
-ABILITYCATEGORY:Elf Paragon Weapon Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WeaponFocusElfParagon															DISPLAYLOCATION:Race Abilities
-ABILITYCATEGORY:Half-Elf Paragon Stat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:HalfElfParagonStat									PLURAL:Half-Elf Paragon Stats			DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Elf Paragon Weapon Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WeaponFocusElfParagon															DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Half-Elf Paragon Stat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:HalfElfParagonStat									PLURAL:Half-Elf Paragon Stats			DISPLAYLOCATION:Race Traits
 
-ABILITYCATEGORY:Tiefling Resistance Boost				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:TieflingResistanceChoice								PLURAL:Tiefling Resistance Boost		DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Tiefling Resistance Boost				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:TieflingResistanceChoice								PLURAL:Tiefling Resistance Boost		DISPLAYLOCATION:Race Traits
 
 
 
@@ -72,3 +72,6 @@ ABILITYCATEGORY:Reputation Modifier					VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		F
 ABILITYCATEGORY:Honor Modifier					VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HonorAdjustment									PLURAL:Honor Modifer				DISPLAYLOCATION:Misc
 ABILITYCATEGORY:Taint System						VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TaintSystem										PLURAL:Taint Modifer				DISPLAYLOCATION:Misc
 ABILITYCATEGORY:Fobidden Lore Modifier				VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:ForbiddenLore									PLURAL:Forbidden Lore Modifer			DISPLAYLOCATION:Misc
+
+
+ABILITYCATEGORY:Arctic Elf Craft Bonus				VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Arctic Elf Craft Bonus								PLURAL:Arctic Elf Craft Bonus			DISPLAYLOCATION:Race Traits

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Sun Sep  7 23:21:45 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 
 ### UNEARTHED ARCANA BUY DOWN:
@@ -37,7 +37,7 @@ Arctic Gnome		VISIBLE:NO																							SUBRACE:Arctic
 Arctic Goblin		VISIBLE:NO																							SUBRACE:Arctic
 Arctic Half-Elf		VISIBLE:NO																							SUBRACE:Arctic
 Arctic Half-Orc		VISIBLE:NO																							SUBRACE:Arctic
-Arctic Halfling		VISIBLE:NO																							SUBRACE:Arctic
+Arctic Halfling		VISIBLE:NO	FAVOREDCLASS:Ranger																			SUBRACE:Arctic
 Arctic Human		VISIBLE:NO																							SUBRACE:Arctic
 Arctic Orc			VISIBLE:NO																							SUBRACE:Arctic
 Desert Dwarf		VISIBLE:NO																							SUBRACE:Desert
@@ -49,9 +49,9 @@ Desert Half-Orc		VISIBLE:NO																							SUBRACE:Desert
 Desert Halfling		VISIBLE:NO																							SUBRACE:Desert
 Desert Human		VISIBLE:NO																							SUBRACE:Desert
 Desert Orc			VISIBLE:NO																							SUBRACE:Desert
-Jungle Dwarf		VISIBLE:NO																							SUBRACE:Jungle
+Jungle Dwarf		VISIBLE:NO	FAVOREDCLASS:Ranger																			SUBRACE:Jungle
 Jungle Elf			VISIBLE:NO																							SUBRACE:Jungle
-Jungle Gnome		VISIBLE:NO																							SUBRACE:Jungle
+Jungle Gnome		VISIBLE:NO	FAVOREDCLASS:Barbarian																			SUBRACE:Jungle
 Jungle Goblin		VISIBLE:NO																							SUBRACE:Jungle
 Jungle Half-Elf		VISIBLE:NO																							SUBRACE:Jungle
 Jungle Half-Orc		VISIBLE:NO																							SUBRACE:Jungle
