@@ -1,4 +1,4 @@
-# CVS $Revision: 21399 $ $Author: evilmynex $ -- Thu Sep  4 23:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 21399 $ $Author: evilmynex $ -- Wed Sep 10 00:55:03 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher, Eric Smith (Maredudd) and Andrew Maitland
 
@@ -254,3 +254,6 @@ ABILITYCATEGORY:Point Blank Master			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	F
 ###Block:
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
 ABILITYCATEGORY:Master Chymist Advanced Mutagen	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MasterChymistAdvancedMutagen	PLURAL:Master Chymist Advanced Mutagens	DISPLAYLOCATION:Class Features
+
+
+ABILITYCATEGORY:Select Beast Master Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Select Beast Master Companion	PLURAL:Select Beast Master Companions	DISPLAYLOCATION:Feats
