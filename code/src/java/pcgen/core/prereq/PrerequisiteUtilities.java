@@ -26,6 +26,7 @@ package pcgen.core.prereq;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
@@ -701,6 +702,35 @@ public final class PrerequisiteUtilities
 		}
 	
 		return false;
+	}
+
+	/**
+	 * Identify if the prerequisite is itself of the supplied kind or has a 
+	 * descendant of the required kind.
+	 * @param prereq Prerequisite to be checked
+	 * @param matchKind Kind to be checked for.
+	 * @return true if we got as match.
+	 */
+	public static Collection<Prerequisite> getPreReqsOfKind(final Prerequisite prereq, String matchKind)
+	{
+		Set<Prerequisite> matchingPrereqs = new HashSet<Prerequisite>();
+		if (prereq == null)
+		{
+			return matchingPrereqs;
+		}
+
+		if (matchKind == prereq.getKind()
+				|| matchKind.equalsIgnoreCase(prereq.getKind()))
+		{
+			matchingPrereqs.add(prereq);
+		}
+		
+		for (Prerequisite childPrereq : prereq.getPrerequisites())
+		{
+			matchingPrereqs.addAll(getPreReqsOfKind(childPrereq, matchKind));
+		}
+	
+		return matchingPrereqs;
 	}
 
 	/**

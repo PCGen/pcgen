@@ -29,4 +29,11 @@ public class EquipBonus
 		this.conditions = conditions;
 	}
 
+	@Override
+	public String toString()
+	{
+		return "EquipBonus [bonus=" + bonus + ", conditions=" + conditions
+			+ "]";
+	}
+
 }

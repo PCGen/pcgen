@@ -999,7 +999,7 @@ BIO
 				<hand>Primary</hand>
 				<num_attacks>4</num_attacks>
 				<reach>15</reach>
-				<size>M</size>
+				<size>H</size>
 				<special_properties></special_properties>
 				<template></template>
 				<type>PS</type>
@@ -1065,7 +1065,7 @@ BIO
 				<hand>Off-hand</hand>
 				<num_attacks>3</num_attacks>
 				<reach>15</reach>
-				<size>M</size>
+				<size>H</size>
 				<special_properties></special_properties>
 				<template></template>
 				<type>BPS</type>
@@ -1098,7 +1098,7 @@ BIO
 				<hand>Off-hand</hand>
 				<num_attacks>3</num_attacks>
 				<reach>15</reach>
-				<size>M</size>
+				<size>H</size>
 				<special_properties></special_properties>
 				<template></template>
 				<type>PS</type>
@@ -1167,8 +1167,8 @@ BIO
 			<quantity>1</quantity>
 			<checkbox>1</checkbox>
 			<size>
-				<long>Medium</long>
-				<short>M</short>
+				<long>Huge</long>
+				<short>H</short>
 			</size>
 			<special_properties></special_properties>
 			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
@@ -1219,8 +1219,8 @@ BIO
 			<quantity>1</quantity>
 			<checkbox>1</checkbox>
 			<size>
-				<long>Medium</long>
-				<short>M</short>
+				<long>Huge</long>
+				<short>H</short>
 			</size>
 			<special_properties></special_properties>
 			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
@@ -1245,8 +1245,8 @@ BIO
 			<quantity>1</quantity>
 			<checkbox>1</checkbox>
 			<size>
-				<long>Medium</long>
-				<short>M</short>
+				<long>Huge</long>
+				<short>H</short>
 			</size>
 			<special_properties></special_properties>
 			<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
@@ -1275,8 +1275,8 @@ BIO
 					<note></note>
 					<quantity>1</quantity>
 					<size>
-						<long>Medium</long>
-						<short>M</short>
+						<long>Huge</long>
+						<short>H</short>
 					</size>
 					<special_properties></special_properties>
 					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
@@ -1317,8 +1317,8 @@ BIO
 					<note></note>
 					<quantity>1</quantity>
 					<size>
-						<long>Medium</long>
-						<short>M</short>
+						<long>Huge</long>
+						<short>H</short>
 					</size>
 					<special_properties></special_properties>
 					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
@@ -1338,8 +1338,8 @@ BIO
 					<note></note>
 					<quantity>1</quantity>
 					<size>
-						<long>Medium</long>
-						<short>M</short>
+						<long>Huge</long>
+						<short>H</short>
 					</size>
 					<special_properties></special_properties>
 					<type>WEAPON.NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>

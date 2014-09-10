@@ -19,13 +19,16 @@ package plugin.lsttokens;
 
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -38,8 +41,11 @@ import pcgen.core.Equipment;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.SpecialProperty;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -399,6 +405,16 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		if (natWeapons != null)
 		{
 			Formula sizeFormula = obj.getSafe(FormulaKey.SIZE);
+			// If the size was just a default, check for a size prereq and use that instead.
+			if (obj.get(FormulaKey.SIZE) == null && obj.hasPreReqTypeOf("SIZE"))
+			{
+				Integer requiredSize = getRequiredSize(obj);
+				if (requiredSize != null)
+				{
+					sizeFormula = FormulaFactory.getFormulaFor(requiredSize);
+				}
+			}
+			
 			if (sizeFormula.isStatic())
 			{
 				int isize =
@@ -419,6 +435,33 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			}
 		}
 		return true;
+	}
+
+	/**
+	 * Retrieve the required size (i.e. PRESIZE) for the object defining the attack. Will
+	 * only return a value if there is a single size. 
+	 * @param obj The defining object. 
+	 * @return The size integer, or null if none (or multiple) specified.
+	 */
+	private Integer getRequiredSize(CDOMObject obj)
+	{
+		Set<Prerequisite> sizePrereqs = new HashSet<Prerequisite>();
+		for (Prerequisite prereq : obj.getPrerequisiteList())
+		{
+			sizePrereqs.addAll(PrerequisiteUtilities.getPreReqsOfKind(prereq, "SIZE"));
+		}
+
+		Integer requiredSize = null;
+		for (Prerequisite prereq : sizePrereqs)
+		{
+			final int targetSize = SizeUtilities.sizeInt(prereq.getOperand());
+			if (requiredSize != null && requiredSize != targetSize)
+			{
+				return null;
+			}
+			requiredSize = targetSize;
+		}
+		return requiredSize;
 	}
 
 	@Override
