@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Sep  7 23:21:45 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Tue Sep  9 17:53:09 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
 
 ### UNEARTHED ARCANA BUY DOWN:
@@ -52,10 +52,10 @@ Desert Orc			VISIBLE:NO																							SUBRACE:Desert
 Jungle Dwarf		VISIBLE:NO	FAVOREDCLASS:Ranger																			SUBRACE:Jungle
 Jungle Elf			VISIBLE:NO																							SUBRACE:Jungle
 Jungle Gnome		VISIBLE:NO	FAVOREDCLASS:Barbarian																			SUBRACE:Jungle
-Jungle Goblin		VISIBLE:NO																							SUBRACE:Jungle
+Jungle Goblin		VISIBLE:NO	FAVOREDCLASS:Barbarian																			SUBRACE:Jungle
 Jungle Half-Elf		VISIBLE:NO																							SUBRACE:Jungle
 Jungle Half-Orc		VISIBLE:NO																							SUBRACE:Jungle
-Jungle Halfling		VISIBLE:NO																							SUBRACE:Jungle
+Jungle Halfling		VISIBLE:NO	FAVOREDCLASS:Barbarian																			SUBRACE:Jungle
 Jungle Human		VISIBLE:NO																							SUBRACE:Jungle
 Jungle Orc			VISIBLE:NO																							SUBRACE:Jungle
 #
@@ -71,7 +71,7 @@ Fire Hobgoblin		VISIBLE:NO																							SUBRACE:Fire
 #
 Aquatic Kobold		VISIBLE:NO																							SUBRACE:Aquatic
 Arctic Kobold		VISIBLE:NO																							SUBRACE:Arctic
-Desert Kobold		VISIBLE:NO																							SUBRACE:Desert
+Desert Kobold		VISIBLE:NO	FAVOREDCLASS:Rogue																			SUBRACE:Desert
 Fire Half-Elf		VISIBLE:NO																							SUBRACE:Fire
 Jungle Kobold		VISIBLE:NO																							SUBRACE:Jungle
 Water Half-Orc		VISIBLE:NO																							SUBRACE:Water
