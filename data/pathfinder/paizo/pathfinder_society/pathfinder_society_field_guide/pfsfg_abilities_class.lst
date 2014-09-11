@@ -260,8 +260,8 @@ Hair's Breadth	KEY:Lore Warden ~ Hair's Breadth	CATEGORY:Special Ability	TYPE:Sp
 Swift Lore		KEY:Lore Warden ~ Swift Lore		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.FighterClassFeatures						DESC:At 14th level, a lore warden can use his Know Thy Enemy ability as a swift action. This ability replaces armor training 4.																																																																																																																																																																																										SOURCEPAGE:p.31
 Know Weakness	KEY:Lore Warden ~ Know Weakness	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.FighterClassFeatures						DESC:At 19th level, a lore warden can automatically conf irm a critical hit once per round when he threatens a critical hit. This ability replaces armor mastery.																																																																																																																																																																																					SOURCEPAGE:p.31
 #
-Add Skills		KEY:Skills ~ Int Based			CATEGORY:Special Ability	TYPE:IntBaseSkill																																																																																																																																														STACK:YES	MULT:YES	CHOOSE:SKILL|!RANKS=MAXRANK[TYPE=Intelligence]																BONUS:SKILLRANK|%LIST|1
-
+Add Skills		KEY:Skills ~ Int Based			CATEGORY:Special Ability	TYPE:IntBaseSkill																																																																																																																																														STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Intelligence																BONUS:SKILLRANK|%LIST|1
+# !RANKS=MAXRANK,
 #
 ###END
 #
