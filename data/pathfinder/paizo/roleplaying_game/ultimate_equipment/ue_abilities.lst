@@ -46,7 +46,7 @@ Unarmed Grounding			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedN
 Unarmed Grayflame			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|+1 to enhancement bonus, +1d6 holy/unholy damage, counts as good/silver or evil/cold iron, when infused with channeled energy
 Unarmed Guardian			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Guardian)
 Unarmed Heartseeker		CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|Ignores the miss chance for concealment against most living targets
-Unarmed Hunter			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 damage to creatures tracked with Survival
+Unarmed Huntsman			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 damage to creatures tracked with Survival
 Unarmed Igniting			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 fire damage, on a critical hit target catches fire
 # More code needed for Impact (if possible)
 Unarmed Impact			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|An impact weapon deals damage as if the weapon were one size category larger.
