@@ -1,4 +1,4 @@
-# CVS $Revision: 21591 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 21591 $ $Author: amaitland $ -- Thu Sep 11 15:23:30 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 
 # Equipment Name		Required Armor Proficiency			Type								Cost		Weight	AC Penalty Check	Modifier			Maximum DEX Bonus	% of Spell Failure	Combat bonus
@@ -145,115 +145,115 @@ Fortress Shield.MOD																			TYPE:LesserMajor														WT:45							
 
 
 ###Block: Barding
-# Equipment Name										Output Name						Required Armor Proficiency		Type																Contains			Cost		Weight	AC Penalty Check	Base Quantity	Modifier								Maximum DEX Bonus	Requires Modification?	Source Page		% of Spell Failure	Combat bonus			Bonus to skill		Bonus Weapon Mods														Weapon prop. bonus					Special Property																								Description									Bonus to Situation
-Barding (Haramaki)																PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Barding.Mount									COST:6	WT:1		ACCHECK:0					EQMOD:CLOTH															SOURCEPAGE:p.80	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
-Barding (Padded).MOD																																																																				SOURCEPAGE:p.80
-Barding (Quilted Cloth)																PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:200	WT:15		ACCHECK:0					EQMOD:CLOTH								MAXDEX:8						SOURCEPAGE:p.80	SPELLFAILURE:10		BONUS:COMBAT|AC|1|TYPE=Armor
-Barding (Silken Ceremonial)															PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:60	WT:4		ACCHECK:0					EQMOD:CLOTH															SOURCEPAGE:p.80	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
-Barding (Lamellar Cuirass)															PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Barding.Mount									COST:30	WT:8		ACCHECK:0					EQMOD:LEATHER							MAXDEX:4						SOURCEPAGE:p.80	SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor
-Barding (Parade)																	PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:50	WT:20		ACCHECK:-1					EQMOD:LEATHER							MAXDEX:5						SOURCEPAGE:p.80	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor
-Barding (Wooden)																	PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:40	WT:25		ACCHECK:-1					EQMOD:WOOD								MAXDEX:3						SOURCEPAGE:p.80	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor
-Barding (Lamellar/Leather)															PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:120	WT:25		ACCHECK:-2					EQMOD:LEATHER							MAXDEX:3						SOURCEPAGE:p.80	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
-Barding (Armored Coat)																PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:100	WT:20		ACCHECK:-2					EQMOD:STEEL								MAXDEX:3						SOURCEPAGE:p.80	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
-Barding (Do-maru)																	PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Nonmetal.Barding.Mount										COST:400	WT:30		ACCHECK:-4					EQMOD:LEATHER							MAXDEX:4						SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
-Barding (Kikko)																	PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:60	WT:25		ACCHECK:-3					EQMOD:STEEL								MAXDEX:4						SOURCEPAGE:p.80	SPELLFAILURE:20		BONUS:COMBAT|AC|5|TYPE=Armor
-Barding (Lemellar/Horn)																PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Nonmetal.Barding.Mount										COST:200	WT:30		ACCHECK:-4					EQMOD:BONE								MAXDEX:3						SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
-Barding (Agile Breastplate)															PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:800	WT:25		ACCHECK:-4					EQMOD:STEEL								MAXDEX:3						SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor	BONUS:SKILL|Climb|3																																																													BONUS:SITUATION|Acrobatics=Jump|3
-Barding (Four-mirror)																PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Nonmetal.Barding.Mount										COST:90	WT:45		ACCHECK:-5					EQMOD:STEEL								MAXDEX:2						SOURCEPAGE:p.80	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
-Barding (Lamellar/Steel)															PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:300	WT:35		ACCHECK:-5					EQMOD:STEEL								MAXDEX:3						SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor
-Barding (Mountain Pattern)															PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:500	WT:40		ACCHECK:-4					EQMOD:STEEL								MAXDEX:3						SOURCEPAGE:p.80	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
-Barding (Kusari Gusoku)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:700	WT:45		ACCHECK:-7					EQMOD:STEEL								MAXDEX:1						SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
-Barding (Lamellar/Iron)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:400	WT:50		ACCHECK:-7					EQMOD:STEEL								MAXDEX:0						SOURCEPAGE:p.80	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor
-Barding (Tatami-do)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:2000	WT:45		ACCHECK:-6					EQMOD:STEEL								MAXDEX:3						SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
-Barding (Agile Half-Plate)															PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:1700	WT:55		ACCHECK:-7					EQMOD:STEEL								MAXDEX:0						SOURCEPAGE:p.80	SPELLFAILURE:40		BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:SKILL|Climb|3																																																													BONUS:SITUATION|Acrobatics=Jump|3
-Barding (Lamellar/Stone)															PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Nonmetal.Barding.Mount										COST:1000	WT:45		ACCHECK:-7					EQMOD:STONE								MAXDEX:0						SOURCEPAGE:p.80	SPELLFAILURE:40		BONUS:COMBAT|AC|8|TYPE=Armor
-Barding (O-yoroi)																	PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:3400	WT:45		ACCHECK:-6					EQMOD:STEEL								MAXDEX:2						SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor
-Barding (Stone Plate)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Nonmetal.Barding.Mount										COST:3600	WT:75		ACCHECK:-6					EQMOD:STONE								MAXDEX:1						SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor
+# Equipment Name										Output Name						Required Armor Proficiency		Type																Contains			Cost		Weight	AC Penalty Check	Base Quantity	Modifier								Maximum DEX Bonus	Requires Modification?	Size		Source Page		% of Spell Failure	Combat bonus			Bonus to skill		Bonus Weapon Mods														Weapon prop. bonus					Special Property																								Description									Bonus to Situation
+Barding (Haramaki)																PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Barding.Mount									COST:6	WT:1		ACCHECK:0					EQMOD:CLOTH																	SOURCEPAGE:p.80	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
+Barding (Padded).MOD																																																																						SOURCEPAGE:p.80
+Barding (Quilted Cloth)																PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:200	WT:15		ACCHECK:0					EQMOD:CLOTH								MAXDEX:8								SOURCEPAGE:p.80	SPELLFAILURE:10		BONUS:COMBAT|AC|1|TYPE=Armor
+Barding (Silken Ceremonial)															PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:60	WT:4		ACCHECK:0					EQMOD:CLOTH																	SOURCEPAGE:p.80	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
+Barding (Lamellar Cuirass)															PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Barding.Mount									COST:30	WT:8		ACCHECK:0					EQMOD:LEATHER							MAXDEX:4								SOURCEPAGE:p.80	SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor
+Barding (Parade)																	PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:50	WT:20		ACCHECK:-1					EQMOD:LEATHER							MAXDEX:5								SOURCEPAGE:p.80	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor
+Barding (Wooden)																	PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:40	WT:25		ACCHECK:-1					EQMOD:WOOD								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor
+Barding (Lamellar/Leather)															PROFICIENCY:ARMOR|Barding (Light)	TYPE:Armor.Light.ArmorProfLight.ArmorProfLight.Standard.Nonmetal.Barding.Mount							COST:120	WT:25		ACCHECK:-2					EQMOD:LEATHER							MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
+Barding (Armored Coat)																PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:100	WT:20		ACCHECK:-2					EQMOD:STEEL								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
+Barding (Do-maru)																	PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Nonmetal.Barding.Mount										COST:400	WT:30		ACCHECK:-4					EQMOD:LEATHER							MAXDEX:4								SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
+Barding (Kikko)																	PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:60	WT:25		ACCHECK:-3					EQMOD:STEEL								MAXDEX:4								SOURCEPAGE:p.80	SPELLFAILURE:20		BONUS:COMBAT|AC|5|TYPE=Armor
+Barding (Lemellar/Horn)																PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Nonmetal.Barding.Mount										COST:200	WT:30		ACCHECK:-4					EQMOD:BONE								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
+Barding (Agile Breastplate)															PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:800	WT:25		ACCHECK:-4					EQMOD:STEEL								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor	BONUS:SKILL|Climb|3																																																													BONUS:SITUATION|Acrobatics=Jump|3
+Barding (Four-mirror)																PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Nonmetal.Barding.Mount										COST:90	WT:45		ACCHECK:-5					EQMOD:STEEL								MAXDEX:2								SOURCEPAGE:p.80	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
+Barding (Lamellar/Steel)															PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:300	WT:35		ACCHECK:-5					EQMOD:STEEL								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor
+Barding (Mountain Pattern)															PROFICIENCY:ARMOR|Barding (Medium)	TYPE:Armor.Medium.ArmorProfMedium.Standard.Barding.Mount											COST:500	WT:40		ACCHECK:-4					EQMOD:STEEL								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
+Barding (Kusari Gusoku)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:700	WT:45		ACCHECK:-7					EQMOD:STEEL								MAXDEX:1								SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
+Barding (Lamellar/Iron)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:400	WT:50		ACCHECK:-7					EQMOD:STEEL								MAXDEX:0								SOURCEPAGE:p.80	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor
+Barding (Tatami-do)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:2000	WT:45		ACCHECK:-6					EQMOD:STEEL								MAXDEX:3								SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
+Barding (Agile Half-Plate)															PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:1700	WT:55		ACCHECK:-7					EQMOD:STEEL								MAXDEX:0								SOURCEPAGE:p.80	SPELLFAILURE:40		BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:SKILL|Climb|3																																																													BONUS:SITUATION|Acrobatics=Jump|3
+Barding (Lamellar/Stone)															PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Nonmetal.Barding.Mount										COST:1000	WT:45		ACCHECK:-7					EQMOD:STONE								MAXDEX:0								SOURCEPAGE:p.80	SPELLFAILURE:40		BONUS:COMBAT|AC|8|TYPE=Armor
+Barding (O-yoroi)																	PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:3400	WT:45		ACCHECK:-6					EQMOD:STEEL								MAXDEX:2								SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor
+Barding (Stone Plate)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Nonmetal.Barding.Mount										COST:3600	WT:75		ACCHECK:-6					EQMOD:STONE								MAXDEX:1								SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor
 Barding (Haramaki).COPY=Barding (Haramaki/Large)
-Barding (Haramaki/Large).MOD																																									COST:12	WT:2	SIZE:L
+Barding (Haramaki/Large).MOD																																									COST:12	WT:2																								SIZE:L
 Barding (Padded).COPY=Barding (Padded/Large)
-Barding (Padded/Large).MOD																																									COST:20	WT:20	SIZE:L
+Barding (Padded/Large).MOD																																									COST:20	WT:20																								SIZE:L
 Barding (Quilted Cloth).COPY=Barding (Quilted Cloth/Large)
-Barding (Quilted Cloth/Large).MOD																																								COST:400	WT:30	SIZE:L
+Barding (Quilted Cloth/Large).MOD																																								COST:400	WT:30																								SIZE:L
 Barding (Silken Ceremonial).COPY=Barding (Silken Ceremonial/Large)
-Barding (Silken Ceremonial/Large).MOD																																							COST:120	WT:8	SIZE:L
+Barding (Silken Ceremonial/Large).MOD																																							COST:120	WT:8																								SIZE:L
 Barding (Lamellar Cuirass).COPY=Barding (Lamellar Cuirass/Large)
-Barding (Lamellar Cuirass/Large).MOD																																							COST:60	WT:16	SIZE:L
+Barding (Lamellar Cuirass/Large).MOD																																							COST:60	WT:16																								SIZE:L
 Barding (Leather).COPY=Barding (Leather/Large)
-Barding (Leather/Large).MOD																																									COST:40	WT:30	SIZE:L
+Barding (Leather/Large).MOD																																									COST:40	WT:30																								SIZE:L
 Barding (Parade).COPY=Barding (Parade/Large)
-Barding (Parade/Large).MOD																																									COST:100	WT:40	SIZE:L
+Barding (Parade/Large).MOD																																									COST:100	WT:40																								SIZE:L
 Barding (Studded Leather).COPY=Barding (Studded Leather/Large)
-Barding (Studded Leather/Large).MOD																																								COST:100	WT:40	SIZE:L
+Barding (Studded Leather/Large).MOD																																								COST:100	WT:40																								SIZE:L
 Barding (Wooden).COPY=Barding (Wooden/Large)
-Barding (Wooden/Large).MOD																																									COST:80	WT:50	SIZE:L
+Barding (Wooden/Large).MOD																																									COST:80	WT:50																								SIZE:L
 Barding (Chain Shirt).COPY=Barding (Chain Shirt/Large)
-Barding (Chain Shirt/Large).MOD																																								COST:400	WT:100	SIZE:L
+Barding (Chain Shirt/Large).MOD																																								COST:400	WT:100																							SIZE:L
 Barding (Lamellar/Leather).COPY=Barding (Lamellar/Leather/Large)
-Barding (Lamellar/Leather/Large).MOD																																							COST:240	WT:50	SIZE:L
+Barding (Lamellar/Leather/Large).MOD																																							COST:240	WT:50																								SIZE:L
 Barding (Armored Coat).COPY=Barding (Armored Coat/Large)
-Barding (Armored Coat/Large).MOD																																								COST:200	WT:40	SIZE:L
+Barding (Armored Coat/Large).MOD																																								COST:200	WT:40																								SIZE:L
 Barding (Hide).COPY=Barding (Hide/Large)
-Barding (Hide/Large).MOD																																									COST:60	WT:50	SIZE:L
+Barding (Hide/Large).MOD																																									COST:60	WT:50																								SIZE:L
 Barding (Do-maru).COPY=Barding (Do-maru/Large)
-Barding (Do-maru/Large).MOD																																									COST:800	WT:60	SIZE:L
+Barding (Do-maru/Large).MOD																																									COST:800	WT:60																								SIZE:L
 Barding (Kikko).COPY=Barding (Kikko/Large)
-Barding (Kikko/Large).MOD																																									COST:120	WT:50	SIZE:L
+Barding (Kikko/Large).MOD																																									COST:120	WT:50																								SIZE:L
 Barding (Lemellar/Horn).COPY=Barding (Lemellar/Horn/Large)
-Barding (Lemellar/Horn/Large).MOD																																								COST:400	WT:60	SIZE:L
+Barding (Lemellar/Horn/Large).MOD																																								COST:400	WT:60																								SIZE:L
 Barding (Scale Mail).COPY=Barding (Scale Mail/Large)
-Barding (Scale Mail/Large).MOD																																								COST:200	WT:60	SIZE:L
+Barding (Scale Mail/Large).MOD																																								COST:200	WT:60																								SIZE:L
 Barding (Agile Breastplate).COPY=Barding (Agile Breastplate/Large)
-Barding (Agile Breastplate/Large).MOD																																							COST:800	WT:50	SIZE:L
+Barding (Agile Breastplate/Large).MOD																																							COST:800	WT:50																								SIZE:L
 Barding (Chainmail).COPY=Barding (Chainmail/Large)
-Barding (Chainmail/Large).MOD																																									COST:600	WT:80	SIZE:L
+Barding (Chainmail/Large).MOD																																									COST:600	WT:80																								SIZE:L
 Barding (Breastplate).COPY=Barding (Breastplate/Large)
-Barding (Breastplate/Large).MOD																																								COST:800	WT:60	SIZE:L
+Barding (Breastplate/Large).MOD																																								COST:800	WT:60																								SIZE:L
 Barding (Four-mirror).COPY=Barding (Four-mirror/Large)
-Barding (Four-mirror/Large).MOD																																								COST:180	WT:90	SIZE:L
+Barding (Four-mirror/Large).MOD																																								COST:180	WT:90																								SIZE:L
 Barding (Lamellar/Steel).COPY=Barding (Lamellar/Steel/Large)
-Barding (Lamellar/Steel/Large).MOD																																								COST:600	WT:70	SIZE:L
+Barding (Lamellar/Steel/Large).MOD																																								COST:600	WT:70																								SIZE:L
 Barding (Mountain Pattern).COPY=Barding (Mountain Pattern/Large)
-Barding (Mountain Pattern/Large).MOD																																							COST:1000	WT:80	SIZE:L
+Barding (Mountain Pattern/Large).MOD																																							COST:1000	WT:80																								SIZE:L
 Barding (Splint Mail).COPY=Barding (Splint Mail/Large)
-Barding (Splint Mail/Large).MOD																																								COST:800	WT:90	SIZE:L
+Barding (Splint Mail/Large).MOD																																								COST:800	WT:90																								SIZE:L
 Barding (Kusari Gusoku).COPY=Barding (Kusari Gusoku/Large)
-Barding (Kusari Gusoku/Large).MOD																																								COST:1400	WT:90	SIZE:L
+Barding (Kusari Gusoku/Large).MOD																																								COST:1400	WT:90																								SIZE:L
 Barding (Banded Mail).COPY=Barding (Banded Mail/Large)
-Barding (Banded Mail/Large).MOD																																								COST:1000	WT:70	SIZE:L
+Barding (Banded Mail/Large).MOD																																								COST:1000	WT:70																								SIZE:L
 Barding (Lamellar/Iron).COPY=Barding (Lamellar/Iron/Large)
-Barding (Lamellar/Iron/Large).MOD																																								COST:800	WT:80	SIZE:L
+Barding (Lamellar/Iron/Large).MOD																																								COST:800	WT:80																								SIZE:L
 Barding (Tatami-do).COPY=Barding (Tatami-do/Large)
-Barding (Tatami-do/Large).MOD																																									COST:4000	WT:90	SIZE:L
+Barding (Tatami-do/Large).MOD																																									COST:4000	WT:90																								SIZE:L
 Barding (Agile Half-Plate).COPY=Barding (Agile Half-Plate/Large)
-Barding (Agile Half-Plate/Large).MOD																																							COST:3400	WT:110	SIZE:L
+Barding (Agile Half-Plate/Large).MOD																																							COST:3400	WT:110																							SIZE:L
 Barding (Half-Plate).COPY=Barding (Half-Plate/Large)
-Barding (Half-Plate/Large).MOD																																								COST:2400	WT:100	SIZE:L
+Barding (Half-Plate/Large).MOD																																								COST:2400	WT:100																							SIZE:L
 Barding (Lamellar/Stone).COPY=Barding (Lamellar/Stone/Large)
-Barding (Lamellar/Stone/Large).MOD																																								COST:2000	WT:90	SIZE:L
+Barding (Lamellar/Stone/Large).MOD																																								COST:2000	WT:90																								SIZE:L
 Barding (O-yoroi).COPY=Barding (O-yoroi/Large)
-Barding (O-yoroi/Large).MOD																																									COST:6800	WT:90	SIZE:L
+Barding (O-yoroi/Large).MOD																																									COST:6800	WT:90																								SIZE:L
 Barding (Full Plate).COPY=Barding (Full Plate/Large)
-Barding (Full Plate/Large).MOD																																								COST:6000	WT:90	SIZE:L
+Barding (Full Plate/Large).MOD																																								COST:6000	WT:90																								SIZE:L
 Barding (Stone Plate).COPY=Barding (Stone Plate/Large)
-Barding (Stone Plate/Large).MOD																																								COST:7200	WT:150	SIZE:L
+Barding (Stone Plate/Large).MOD																																								COST:7200	WT:150																							SIZE:L
 
 
 
 ####Block: Ammunition
-# Equipment Name										Output Name						Required Armor Proficiency		Type																Contains			Cost		Weight	AC Penalty Check	Base Quantity	Modifier								Maximum DEX Bonus	Requires Modification?	Source Page		% of Spell Failure	Combat bonus			Bonus to skill		Bonus Weapon Mods														Weapon prop. bonus					Special Property																								Description									Bonus to Situation
-Arrows (20).MOD																																											COST:1	WT:3					BASEQTY:20																		SOURCEPAGE:p.23
-Darts (Blowgun/10).MOD									OUTPUTNAME:Blowgun Darts (10)																													COST:0.5	WT:0					BASEQTY:10																		SOURCEPAGE:p.24
-Bolts (Crossbow/10).MOD									OUTPUTNAME:Crossbow Bolts (10)																												COST:1	WT:1					BASEQTY:10																		SOURCEPAGE:p.26
-Bolts (Crossbow/Repeating/5).MOD							OUTPUTNAME:Repeating Crossbow Bolts (5)																											COST:1	WT:1					BASEQTY:5																		SOURCEPAGE:p.34
-Bullets (Sling/10).MOD									OUTPUTNAME:Sling Bullets (10)																													COST:0.1	WT:5					BASEQTY:10																		SOURCEPAGE:p.37
-Atlatl Dart																								TYPE:Ammunition.Resizable.Standard.AtlatlDart													COST:1	WT:2					BASEQTY:1		EQMOD:STEEL.WOOD										MODS:YES			SOURCEPAGE:p.23
-Bamboo Shaft Arrows (10)																					TYPE:Ammunition.Resizable.Standard.Arrow														COST:1	WT:0.5				BASEQTY:10		EQMOD:STEEL.WOOD										MODS:YES			SOURCEPAGE:p.23
-Blunt Arrows (20)																							TYPE:Ammunition.Resizable.Standard.Arrow														COST:2	WT:3					BASEQTY:20		EQMOD:WOOD											MODS:YES			SOURCEPAGE:p.24
-Flight Arrows (20)																						TYPE:Ammunition.Resizable.Standard.Arrow														COST:2	WT:3					BASEQTY:20		EQMOD:STEEL.WOOD										MODS:YES			SOURCEPAGE:p.27														BONUS:EQMWEAPON|RANGEADD|10|PRETYPE:1,Shortbow	BONUS:EQMWEAPON|RANGEADD|20|PRETYPE:1,Longbow	BONUS:WEAPON|DAMAGESIZE|-1				SPROP:A flight arrow's range increment is 20 feet greater with longbows, 10 feet greater with shortbows. They deal damage as if one size category smaller.
-Kestros Dart (10)																							TYPE:Ammunition.Resizable.Standard.KestrosDart													COST:5	WT:5					BASEQTY:10		EQMOD:STEEL.WOOD										MODS:YES			SOURCEPAGE:p.30
-Smoke Arrow																								TYPE:Ammunition.Resizable.Standard.Arrow														COST:10	WT:0.15				BASEQTY:1		EQMOD:STEEL.WOOD										MODS:YES			SOURCEPAGE:p.37
-Whistling Arrows (20)																						TYPE:Ammunition.Resizable.Standard.Arrow														COST:2	WT:3					BASEQTY:20		EQMOD:STEEL.WOOD										MODS:YES			SOURCEPAGE:p.40
+# Equipment Name										Output Name						Required Armor Proficiency		Type																Contains			Cost		Weight	AC Penalty Check	Base Quantity	Modifier								Maximum DEX Bonus	Requires Modification?	Size		Source Page		% of Spell Failure	Combat bonus			Bonus to skill		Bonus Weapon Mods														Weapon prop. bonus					Special Property																								Description									Bonus to Situation
+Arrows (20).MOD																																											COST:1	WT:3					BASEQTY:20																				SOURCEPAGE:p.23
+Darts (Blowgun/10).MOD									OUTPUTNAME:Blowgun Darts (10)																													COST:0.5	WT:0					BASEQTY:10																				SOURCEPAGE:p.24
+Bolts (Crossbow/10).MOD									OUTPUTNAME:Crossbow Bolts (10)																												COST:1	WT:1					BASEQTY:10																				SOURCEPAGE:p.26
+Bolts (Crossbow/Repeating/5).MOD							OUTPUTNAME:Repeating Crossbow Bolts (5)																											COST:1	WT:1					BASEQTY:5																				SOURCEPAGE:p.34
+Bullets (Sling/10).MOD									OUTPUTNAME:Sling Bullets (10)																													COST:0.1	WT:5					BASEQTY:10																				SOURCEPAGE:p.37
+Atlatl Dart																								TYPE:Ammunition.Resizable.Standard.AtlatlDart													COST:1	WT:2					BASEQTY:1		EQMOD:STEEL.WOOD										MODS:YES					SOURCEPAGE:p.23
+Bamboo Shaft Arrows (10)																					TYPE:Ammunition.Resizable.Standard.Arrow														COST:1	WT:0.5				BASEQTY:10		EQMOD:STEEL.WOOD										MODS:YES					SOURCEPAGE:p.23
+Blunt Arrows (20)																							TYPE:Ammunition.Resizable.Standard.Arrow														COST:2	WT:3					BASEQTY:20		EQMOD:WOOD											MODS:YES					SOURCEPAGE:p.24
+Flight Arrows (20)																						TYPE:Ammunition.Resizable.Standard.Arrow														COST:2	WT:3					BASEQTY:20		EQMOD:STEEL.WOOD										MODS:YES					SOURCEPAGE:p.27														BONUS:EQMWEAPON|RANGEADD|10|PRETYPE:1,Shortbow	BONUS:EQMWEAPON|RANGEADD|20|PRETYPE:1,Longbow	BONUS:WEAPON|DAMAGESIZE|-1				SPROP:A flight arrow's range increment is 20 feet greater with longbows, 10 feet greater with shortbows. They deal damage as if one size category smaller.
+Kestros Dart (10)																							TYPE:Ammunition.Resizable.Standard.KestrosDart													COST:5	WT:5					BASEQTY:10		EQMOD:STEEL.WOOD										MODS:YES					SOURCEPAGE:p.30
+Smoke Arrow																								TYPE:Ammunition.Resizable.Standard.Arrow														COST:10	WT:0.15				BASEQTY:1		EQMOD:STEEL.WOOD										MODS:YES					SOURCEPAGE:p.37
+Whistling Arrows (20)																						TYPE:Ammunition.Resizable.Standard.Arrow														COST:2	WT:3					BASEQTY:20		EQMOD:STEEL.WOOD										MODS:YES					SOURCEPAGE:p.40
 Alchemical Cartridge (Dragon's Breath)																			TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:40
 Alchemical Cartridge (Entangling Shot)																			TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:40
 Alchemical Cartridge (Flare)																					TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmCartridge											COST:10
@@ -269,31 +269,31 @@ Metal Cartridge																							TYPE:FirearmGear.Ammo.Ammunition.Resizable
 Pellets (Handful)																							TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmPellet											COST:1
 Pellets (Handful/30)																						TYPE:FirearmGear.Ammo.Ammunition.Resizable.FirearmPellet											COST:30	WT:0.5				BASEQTY:30
 #
-Arrow (Hushing)																							TYPE:Ammunition.Resizable.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1					COST:547	WT:0.05				BASEQTY:1		EQMOD:STEEL.WOOD										MODS:NO			SOURCEPAGE:p.156																														BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
-Arrow (Hushing/Greater)																						TYPE:Ammunition.Resizable.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1					COST:1047	WT:0.05				BASEQTY:1		EQMOD:STEEL.WOOD										MODS:NO			SOURCEPAGE:p.156																														BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Arrow (Hushing)																							TYPE:Ammunition.Resizable.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1					COST:547	WT:0.05				BASEQTY:1		EQMOD:STEEL.WOOD										MODS:NO					SOURCEPAGE:p.156																														BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
+Arrow (Hushing/Greater)																						TYPE:Ammunition.Resizable.Standard.Arrow.Individual.Specific.Masterwork.Enhancement.Magic.Plus1					COST:1047	WT:0.05				BASEQTY:1		EQMOD:STEEL.WOOD										MODS:NO					SOURCEPAGE:p.156																														BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement
 #
 #Arrow.COPY=Arrow (Hushing)
 #Arrow (Hushing).MOD	OUTPUTNAME:Hushing Arrow	EQMOD:MAGIC_COST|545.PLUS1M												SOURCEPAGE:p.156					SPELLS:Magic Item|TIMES=1|Silence,13						SPROP:Creature struck affected by Silence.
 #Arrow.COPY=Arrow (Hushing/Greater)
 #Arrow (Hushing/Greater).MOD							OUTPUTNAME:Greater Hushing Arrow																															EQMOD:MAGIC_COST|1045.PLUS1M												SOURCEPAGE:p.156					SPELLS:Magic Item|TIMES=1|Silence,16						SPROP:Creature struck affected by Silence.
-Arrow (Searing).MOD																																																																				SOURCEPAGE:p.159
-Arrow (Sizzling).MOD																																																																				SOURCEPAGE:p.160
-Arrow (Slaying).MOD																																																																				SOURCEPAGE:p.160
-Arrow (Slaying/Greater).MOD																																																																			SOURCEPAGE:p.160
-Arrow (Sleep).MOD																																																																					SOURCEPAGE:p.160
+Arrow (Searing).MOD																																																																						SOURCEPAGE:p.159
+Arrow (Sizzling).MOD																																																																						SOURCEPAGE:p.160
+Arrow (Slaying).MOD																																																																						SOURCEPAGE:p.160
+Arrow (Slaying/Greater).MOD																																																																					SOURCEPAGE:p.160
+Arrow (Sleep).MOD																																																																							SOURCEPAGE:p.160
 Bolt (Crossbow).COPY=Bolt (Dust)
-Bolt (Dust).MOD										OUTPUTNAME:Dust Bolt																																								EQMOD:BANE|Outsider (Water).MAGIC_COST|1729.PLUS1M								SOURCEPAGE:p.154																																						SPROP:Any living creature struck begins dying of thirst as per Cup of Dust.
-Bolt (Screaming).MOD																																																																				SOURCEPAGE:p.159
-Bolt (Tangle).MOD																																																																					SOURCEPAGE:p.162
+Bolt (Dust).MOD										OUTPUTNAME:Dust Bolt																																								EQMOD:BANE|Outsider (Water).MAGIC_COST|1729.PLUS1M										SOURCEPAGE:p.154																																						SPROP:Any living creature struck begins dying of thirst as per Cup of Dust.
+Bolt (Screaming).MOD																																																																						SOURCEPAGE:p.159
+Bolt (Tangle).MOD																																																																							SOURCEPAGE:p.162
 Bullet (Sling).COPY=Bullet (Alchemist's)
-Bullet (Alchemist's).MOD								OUTPUTNAME:Alchemist's Bullet									TYPE:Container														CONTAINS:*1|Splash=1											EQMOD:MAGIC_COST|330.PLUS1M												SOURCEPAGE:p.150																																																																DESC:On successful hit, splash damage is dealt as normal.
+Bullet (Alchemist's).MOD								OUTPUTNAME:Alchemist's Bullet									TYPE:Container														CONTAINS:*1|Splash=1											EQMOD:MAGIC_COST|330.PLUS1M														SOURCEPAGE:p.150																																																																DESC:On successful hit, splash damage is dealt as normal.
 Bullet (Firearm).COPY=Bullet (Burrowing/Greater)
-Bullet (Burrowing/Greater).MOD							OUTPUTNAME:Greater Burrowing Bullet																																						EQMOD:MAGIC_COST|1721.PLUS1M												SOURCEPAGE:p.153																																						SPROP:Target staggered for 1d3+2 rounds.
+Bullet (Burrowing/Greater).MOD							OUTPUTNAME:Greater Burrowing Bullet																																						EQMOD:MAGIC_COST|1721.PLUS1M														SOURCEPAGE:p.153																																						SPROP:Target staggered for 1d3+2 rounds.
 Bullet (Firearm).COPY=Bullet (Burrowing/Lesser)
-Bullet (Burrowing/Lesser).MOD								OUTPUTNAME:Lesser Burrowing Bullet																																						EQMOD:MAGIC_COST|3446.PLUS1M												SOURCEPAGE:p.153																																						SPROP:Target staggered for 1d3 rounds.
-Bullet (Dustburst).MOD																																																																				SOURCEPAGE:p.154
+Bullet (Burrowing/Lesser).MOD								OUTPUTNAME:Lesser Burrowing Bullet																																						EQMOD:MAGIC_COST|3446.PLUS1M														SOURCEPAGE:p.153																																						SPROP:Target staggered for 1d3 rounds.
+Bullet (Dustburst).MOD																																																																						SOURCEPAGE:p.154
 Bullet (Firearm).COPY=Bullet (Tracer)
-Bullet (Tracer).MOD									OUTPUTNAME:Tracer Bullet																																							EQMOD:MAGIC_COST|99.PLUS1M												SOURCEPAGE:p.162																																						SPROP:No damage but outlines target as per Faerie Fire with -2 AC for 1d4 rounds.
+Bullet (Tracer).MOD									OUTPUTNAME:Tracer Bullet																																							EQMOD:MAGIC_COST|99.PLUS1M														SOURCEPAGE:p.162																																						SPROP:No damage but outlines target as per Faerie Fire with -2 AC for 1d4 rounds.
 
 
 ###BLOCK: Firearms
