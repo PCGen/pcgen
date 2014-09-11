@@ -2205,7 +2205,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Weapon and Armor Proficiency</name>
-			<description>Clerics are proficient with all simple weapons, light armor, medium armor, and shields (except tower shields). Clerics are also proficient with the favored weapon of their deity</description>
+			<description>Clerics are proficient with all simple weapons, light armor, medium armor, and shields (except tower shields). Clerics are also proficient with the favored weapon of their deity.</description>
 			<type>CLERICCLASSFEATURES.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
