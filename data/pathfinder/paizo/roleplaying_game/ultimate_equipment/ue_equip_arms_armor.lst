@@ -170,73 +170,73 @@ Barding (Lamellar/Stone)															PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Ar
 Barding (O-yoroi)																	PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Barding.Mount											COST:3400	WT:45		ACCHECK:-6					EQMOD:STEEL								MAXDEX:2						SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor
 Barding (Stone Plate)																PROFICIENCY:ARMOR|Barding (Heavy)	TYPE:Armor.Heavy.ArmorProfHeavy.Standard.Nonmetal.Barding.Mount										COST:3600	WT:75		ACCHECK:-6					EQMOD:STONE								MAXDEX:1						SOURCEPAGE:p.80	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor
 Barding (Haramaki).COPY=Barding (Haramaki/Large)
-Barding (Haramaki/Large).MOD																																									COST:12	WT:2
+Barding (Haramaki/Large).MOD																																									COST:12	WT:2	SIZE:L
 Barding (Padded).COPY=Barding (Padded/Large)
-Barding (Padded/Large).MOD																																									COST:20	WT:20
+Barding (Padded/Large).MOD																																									COST:20	WT:20	SIZE:L
 Barding (Quilted Cloth).COPY=Barding (Quilted Cloth/Large)
-Barding (Quilted Cloth/Large).MOD																																								COST:400	WT:30
+Barding (Quilted Cloth/Large).MOD																																								COST:400	WT:30	SIZE:L
 Barding (Silken Ceremonial).COPY=Barding (Silken Ceremonial/Large)
-Barding (Silken Ceremonial/Large).MOD																																							COST:120	WT:8
+Barding (Silken Ceremonial/Large).MOD																																							COST:120	WT:8	SIZE:L
 Barding (Lamellar Cuirass).COPY=Barding (Lamellar Cuirass/Large)
-Barding (Lamellar Cuirass/Large).MOD																																							COST:60	WT:16
+Barding (Lamellar Cuirass/Large).MOD																																							COST:60	WT:16	SIZE:L
 Barding (Leather).COPY=Barding (Leather/Large)
-Barding (Leather/Large).MOD																																									COST:40	WT:30
+Barding (Leather/Large).MOD																																									COST:40	WT:30	SIZE:L
 Barding (Parade).COPY=Barding (Parade/Large)
-Barding (Parade/Large).MOD																																									COST:100	WT:40
+Barding (Parade/Large).MOD																																									COST:100	WT:40	SIZE:L
 Barding (Studded Leather).COPY=Barding (Studded Leather/Large)
-Barding (Studded Leather/Large).MOD																																								COST:100	WT:40
+Barding (Studded Leather/Large).MOD																																								COST:100	WT:40	SIZE:L
 Barding (Wooden).COPY=Barding (Wooden/Large)
-Barding (Wooden/Large).MOD																																									COST:80	WT:50
+Barding (Wooden/Large).MOD																																									COST:80	WT:50	SIZE:L
 Barding (Chain Shirt).COPY=Barding (Chain Shirt/Large)
-Barding (Chain Shirt/Large).MOD																																								COST:400	WT:100
+Barding (Chain Shirt/Large).MOD																																								COST:400	WT:100	SIZE:L
 Barding (Lamellar/Leather).COPY=Barding (Lamellar/Leather/Large)
-Barding (Lamellar/Leather/Large).MOD																																							COST:240	WT:50
+Barding (Lamellar/Leather/Large).MOD																																							COST:240	WT:50	SIZE:L
 Barding (Armored Coat).COPY=Barding (Armored Coat/Large)
-Barding (Armored Coat/Large).MOD																																								COST:200	WT:40
+Barding (Armored Coat/Large).MOD																																								COST:200	WT:40	SIZE:L
 Barding (Hide).COPY=Barding (Hide/Large)
-Barding (Hide/Large).MOD																																									COST:60	WT:50
+Barding (Hide/Large).MOD																																									COST:60	WT:50	SIZE:L
 Barding (Do-maru).COPY=Barding (Do-maru/Large)
-Barding (Do-maru/Large).MOD																																									COST:800	WT:60
+Barding (Do-maru/Large).MOD																																									COST:800	WT:60	SIZE:L
 Barding (Kikko).COPY=Barding (Kikko/Large)
-Barding (Kikko/Large).MOD																																									COST:120	WT:50
+Barding (Kikko/Large).MOD																																									COST:120	WT:50	SIZE:L
 Barding (Lemellar/Horn).COPY=Barding (Lemellar/Horn/Large)
-Barding (Lemellar/Horn/Large).MOD																																								COST:400	WT:60
+Barding (Lemellar/Horn/Large).MOD																																								COST:400	WT:60	SIZE:L
 Barding (Scale Mail).COPY=Barding (Scale Mail/Large)
-Barding (Scale Mail/Large).MOD																																								COST:200	WT:60
+Barding (Scale Mail/Large).MOD																																								COST:200	WT:60	SIZE:L
 Barding (Agile Breastplate).COPY=Barding (Agile Breastplate/Large)
-Barding (Agile Breastplate/Large).MOD																																							COST:800	WT:50
+Barding (Agile Breastplate/Large).MOD																																							COST:800	WT:50	SIZE:L
 Barding (Chainmail).COPY=Barding (Chainmail/Large)
-Barding (Chainmail/Large).MOD																																									COST:600	WT:80
+Barding (Chainmail/Large).MOD																																									COST:600	WT:80	SIZE:L
 Barding (Breastplate).COPY=Barding (Breastplate/Large)
-Barding (Breastplate/Large).MOD																																								COST:800	WT:60
+Barding (Breastplate/Large).MOD																																								COST:800	WT:60	SIZE:L
 Barding (Four-mirror).COPY=Barding (Four-mirror/Large)
-Barding (Four-mirror/Large).MOD																																								COST:180	WT:90
+Barding (Four-mirror/Large).MOD																																								COST:180	WT:90	SIZE:L
 Barding (Lamellar/Steel).COPY=Barding (Lamellar/Steel/Large)
-Barding (Lamellar/Steel/Large).MOD																																								COST:600	WT:70
+Barding (Lamellar/Steel/Large).MOD																																								COST:600	WT:70	SIZE:L
 Barding (Mountain Pattern).COPY=Barding (Mountain Pattern/Large)
-Barding (Mountain Pattern/Large).MOD																																							COST:1000	WT:80
+Barding (Mountain Pattern/Large).MOD																																							COST:1000	WT:80	SIZE:L
 Barding (Splint Mail).COPY=Barding (Splint Mail/Large)
-Barding (Splint Mail/Large).MOD																																								COST:800	WT:90
+Barding (Splint Mail/Large).MOD																																								COST:800	WT:90	SIZE:L
 Barding (Kusari Gusoku).COPY=Barding (Kusari Gusoku/Large)
-Barding (Kusari Gusoku/Large).MOD																																								COST:1400	WT:90
+Barding (Kusari Gusoku/Large).MOD																																								COST:1400	WT:90	SIZE:L
 Barding (Banded Mail).COPY=Barding (Banded Mail/Large)
-Barding (Banded Mail/Large).MOD																																								COST:1000	WT:70
+Barding (Banded Mail/Large).MOD																																								COST:1000	WT:70	SIZE:L
 Barding (Lamellar/Iron).COPY=Barding (Lamellar/Iron/Large)
-Barding (Lamellar/Iron/Large).MOD																																								COST:800	WT:80
+Barding (Lamellar/Iron/Large).MOD																																								COST:800	WT:80	SIZE:L
 Barding (Tatami-do).COPY=Barding (Tatami-do/Large)
-Barding (Tatami-do/Large).MOD																																									COST:4000	WT:90
+Barding (Tatami-do/Large).MOD																																									COST:4000	WT:90	SIZE:L
 Barding (Agile Half-Plate).COPY=Barding (Agile Half-Plate/Large)
-Barding (Agile Half-Plate/Large).MOD																																							COST:3400	WT:110
+Barding (Agile Half-Plate/Large).MOD																																							COST:3400	WT:110	SIZE:L
 Barding (Half-Plate).COPY=Barding (Half-Plate/Large)
-Barding (Half-Plate/Large).MOD																																								COST:2400	WT:100
+Barding (Half-Plate/Large).MOD																																								COST:2400	WT:100	SIZE:L
 Barding (Lamellar/Stone).COPY=Barding (Lamellar/Stone/Large)
-Barding (Lamellar/Stone/Large).MOD																																								COST:2000	WT:90
+Barding (Lamellar/Stone/Large).MOD																																								COST:2000	WT:90	SIZE:L
 Barding (O-yoroi).COPY=Barding (O-yoroi/Large)
-Barding (O-yoroi/Large).MOD																																									COST:6800	WT:90
+Barding (O-yoroi/Large).MOD																																									COST:6800	WT:90	SIZE:L
 Barding (Full Plate).COPY=Barding (Full Plate/Large)
-Barding (Full Plate/Large).MOD																																								COST:6000	WT:90
+Barding (Full Plate/Large).MOD																																								COST:6000	WT:90	SIZE:L
 Barding (Stone Plate).COPY=Barding (Stone Plate/Large)
-Barding (Stone Plate/Large).MOD																																								COST:7200	WT:150
+Barding (Stone Plate/Large).MOD																																								COST:7200	WT:150	SIZE:L
 
 
 
