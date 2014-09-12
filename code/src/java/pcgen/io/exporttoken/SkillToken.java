@@ -45,7 +45,6 @@ import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.display.SkillCostDisplay;
 import pcgen.core.display.SkillDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
@@ -133,7 +132,7 @@ public class SkillToken extends Token
 		try
 		{
 			final int i = Integer.parseInt(details.getSkillId());
-			final List<Skill> pcSkills = getSkillList(pc);
+			final List<Skill> pcSkills = new ArrayList<Skill>(getSkillList(pc));
 
 			SkillFilter filter = details.getSkillFilter();
 			if (filter == null || filter == SkillFilter.Selected)
