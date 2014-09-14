@@ -71,7 +71,7 @@ public class AddFilterConverter<B, R> implements Converter<B, R>
 		@Override
 		public boolean allow(PlayerCharacter pc, T obj)
 		{
-			return filter1.allow(pc, obj) && filter2.allow(pc, obj);
+			return filter1.allow(pc, obj) == filter2.allow(pc, obj);
 		}
 
 	}
