@@ -218,19 +218,6 @@
 									<xsl:with-param name="title" select="'Race Sub Type'"/>
 									<xsl:with-param name="value" select="race/racesubtype"/>
 								</xsl:call-template>
-								<!-- Attempt to change Style -->
-								<fo:table-row>
-											<xsl:message>Test END</xsl:message>
-									<fo:table-cell>
-										<xsl:call-template name="attrib">
-											<xsl:with-param name="attribute" select="'bio'"/>
-										</xsl:call-template>
-										<fo:block font-size="8pt" padding-top="3pt">
-											<xsl:value-of select="vision/all"/>
-											<xsl:if test="vision/all = ''">Normal</xsl:if>
-										</fo:block>
-									</fo:table-cell>
-								</fo:table-row>
 							</fo:table-body>
 						</fo:table>
 					</fo:block>
