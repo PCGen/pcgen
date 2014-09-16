@@ -3600,7 +3600,7 @@ BIO
 		<!-- Visible standard feats (not including the auto feats) -->
 		<feat>
 			<name>Combat Expertise</name>
-			<description>You can choose to take a -3 penalty on melee attack rolls and combat maneuver checks to gain a +3 dodge bonus to your Armor Class. You can only choose to use this feat when you declare that you are making an attack or a full-attack action with a melee weapon. The effects of this feat last until your next turn.</description>
+			<description>You can increase your defense at the expense of your accuracy.</description>
 			<type>COMBAT.ATTACKOPTION.MODIFYAC.INFERNALBLOODLINE.DREAMSPUNBLOODLINE.DRUIDSHAMANSERPENT</type>
 			<associated></associated>
 			<count>0</count>
@@ -3610,7 +3610,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Dodge</name>
-			<description>You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat.</description>
+			<description>Your training and reflexes allow you to react swiftly to avoid an opponent&#39;s attack.</description>
 			<type>COMBAT.CELESTIALBLOODLINE.ELEMENTALBLOODLINE.FEYBLOODLINE.AQUATICBLOODLINE.SHADOWBLOODLINE.STARSOULBLOODLINE.STORMBORNBLOODLINE.DRUIDSHAMANLION</type>
 			<associated></associated>
 			<count>0</count>
@@ -3620,7 +3620,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Fleet</name>
-			<description>While you are wearing light or no armor, your base speed increases by 5 feet. You lose the benefits of this feat if you carry a medium or heavy load.</description>
+			<description>You are faster than most.</description>
 			<type>GENERAL.VERDANTBLOODLINE</type>
 			<associated></associated>
 			<count>1</count>
@@ -3630,7 +3630,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Improved Two-Weapon Fighting</name>
-			<description>In addition to the standard single extra attack you get with an off-hand weapon, you get a second attack with it, albeit at a -5 penalty.</description>
+			<description>You are skilled at fighting with two weapons.</description>
 			<type>COMBAT</type>
 			<associated></associated>
 			<count>0</count>
@@ -3640,7 +3640,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Quick Draw</name>
-			<description>You can draw a weapon as a free action instead of as a move action. You can draw a hidden weapon (see the Sleight of Hand skill) as a move action. A character who has selected this feat may throw weapons at his full normal rate of attacks (much like a character with a bow). Alchemical items, potions, scrolls, and wands cannot be drawn quickly using this feat.</description>
+			<description>You can draw weapons faster than most.</description>
 			<type>COMBAT.SHADOWBLOODLINE</type>
 			<associated></associated>
 			<count>0</count>
@@ -3650,7 +3650,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Two-Weapon Fighting</name>
-			<description>Your penalties on attack rolls for fighting with two weapons are reduced. The penalty for your primary hand lessens by 2 and the one for your off hand lessens by 6. See Two-Weapon Fighting in Chapter 8.</description>
+			<description>You can fight with a weapon in each of your hands. You can make one extra attack each round with the secondary weapon.</description>
 			<type>COMBAT</type>
 			<associated></associated>
 			<count>0</count>
@@ -3660,7 +3660,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Weapon Finesse</name>
-			<description>With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.</description>
+			<description>You are trained in using your agility in melee combat, as opposed to brute strength.</description>
 			<type>COMBAT.CELESTIALBLOODLINE.ELEMENTALBLOODLINE.SHADOWBLOODLINE</type>
 			<associated></associated>
 			<count>0</count>
@@ -3720,7 +3720,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Crippling Strike</name>
-			<description>You can sneak attack opponents with such precision that your blows weaken and hamper them. An opponent damaged by one of your sneak attacks also takes 2 points of Strength damage.</description>
+			<description>You can sneak attack opponents with such precision that your blows weaken and hamper them.</description>
 			<type>ROGUECLASSFEATURES.SPECIALATTACK.EXTRAORDINARY.ROGUETALENT.ROGUEADVANCEDTALENT.ATTACKOPTION</type>
 			<associated></associated>
 			<count>0</count>
@@ -3753,7 +3753,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Natural-Born Leader</name>
-			<description>You&#39;ve always found yourself in positions where others look up to you as a leader, and you can distinctly remember an event from your early childhood where you led several other children to accomplish a goal that each of you individually could not. All cohorts, followers, or summoned creatures under your leadership gain a +1 morale bonus on Will saves to avoid mind-affecting effects. If you ever take the Leadership feat, you gain a +1 trait bonus to your Leadership score.</description>
+			<description>You&#39;ve always found yourself in positions where others look up to you as a leader, and you can distinctly remember an event from your early childhood where you led several other children to accomplish a goal that each of you individually could not.</description>
 			<type>TRAIT.BASICTRAIT.SOCIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
@@ -3809,7 +3809,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Improved Evasion</name>
-			<description>You can avoid damage from many area-effect attacks. If you make a successful Reflex save against an attack that normally deals half damage on a successful save, you instead take no damage, and even on a failed saving throw you take only half damage. If you are helpless, you do not gain the benefit of improved evasion.</description>
+			<description>You can avoid damage from many area-effect attacks.</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY.DEFENSIVE.ADVANCEDROGUETALENT.ROGUECLASSFEATURES.RANGERCLASSFEATURES.MONKCLASSFEATURES</type>
 			<associated></associated>
 			<count>0</count>
@@ -3842,7 +3842,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Sneak Attack</name>
-			<description>If you can catch an opponent when he is unable to defend himself effectively from your attack, you can strike a vital spot for extra damage. Your attack deals 6d6 points of extra damage anytime your target would be denied a Dexterity bonus to AC, or when you flank your target. Should you score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet. With a weapon that deals nonlethal damage, you can make a sneak attack that deals nonlethal damage instead of lethal damage. You cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual -4 penalty. You must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. You cannot sneak attack while striking a creature with concealment.</description>
+			<description>If you can catch an opponent when he is unable to defend himself effectively from your attack, you can strike a vital spot for extra damage. [6d6]</description>
 			<type>ROGUECLASSFEATURES.ALCHEMISTCLASSFEATURES.SPECIALATTACK.EXTRAORDINARY.ATTACKOPTION</type>
 			<associated></associated>
 			<count>0</count>
@@ -3886,7 +3886,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Uncanny Dodge</name>
-			<description>You can react to danger before your senses would normally allow you to do so. You cannot be caught flat-footed, nor do you lose your Dexterity bonus to AC if the attacker is invisible. You still lose your Dexterity bonus to AC if immobilized. You can still lose your Dexterity bonus to AC if an opponent successfully uses the feint action against you.</description>
+			<description>You can react to danger before your senses would normally allow you to do so.</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY.DEFENSIVE</type>
 			<associated></associated>
 			<count>0</count>
@@ -3953,7 +3953,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Improved Evasion</name>
-			<description>This works like Evasion, except that while you still take no damage on a successful Reflex saving throw against attacks, you henceforth take only half damage on a failed save. If you are helpless, you do not gain the benefit of Improved Evasion.</description>
+			<description>Like Evasion, you still take no damage on a successful Reflex saving throw against attacks, additionally you take only half damage on a failed save.</description>
 			<type>ROGUECLASSFEATURES.SPECIALQUALITY.EXTRAORDINARY.ROGUETALENT.ROGUEADVANCEDTALENT</type>
 			<associated></associated>
 			<count>0</count>

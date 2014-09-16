@@ -1196,8 +1196,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Sor1</sourcelevel>
-							<source>PCGen Team - PCGen Testing Set, SpellsM-O.rtf</source>
-							<sourcepage>SpellsM-O.rtf</sourcepage>
+							<source>PCGen Team - PCGen Testing Set, SpellsM-O</source>
+							<sourcepage>SpellsM-O</sourcepage>
 							<sourceshort>PTS</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>

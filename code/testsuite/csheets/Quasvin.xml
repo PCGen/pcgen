@@ -1640,8 +1640,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Psi1</sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersA-C.rtf</source>
-							<sourcepage>PsionicPowersA-C.rtf</sourcepage>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersA-C</source>
+							<sourcepage>PsionicPowersA-C</sourcepage>
 							<sourceshort>RSRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -1669,8 +1669,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Psi1</sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersD-F.rtf</source>
-							<sourcepage>PsionicPowersD-F.rtf</sourcepage>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersD-F</source>
+							<sourcepage>PsionicPowersD-F</sourcepage>
 							<sourceshort>RSRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -1698,8 +1698,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Psi1</sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersG-P.rtf</source>
-							<sourcepage>PsionicPowersG-P.rtf</sourcepage>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersG-P</source>
+							<sourcepage>PsionicPowersG-P</sourcepage>
 							<sourceshort>RSRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -1727,8 +1727,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Psi1</sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersG-P.rtf</source>
-							<sourcepage>PsionicPowersG-P.rtf</sourcepage>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersG-P</source>
+							<sourcepage>PsionicPowersG-P</sourcepage>
 							<sourceshort>RSRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
@@ -1756,8 +1756,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Psi1</sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersQ-W.rtf</source>
-							<sourcepage>PsionicPowersQ-W.rtf</sourcepage>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersQ-W</source>
+							<sourcepage>PsionicPowersQ-W</sourcepage>
 							<sourceshort>RSRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless, object)</spell_resistance>
@@ -1787,8 +1787,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Psi2</sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersA-C.rtf</source>
-							<sourcepage>PsionicPowersA-C.rtf</sourcepage>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersA-C</source>
+							<sourcepage>PsionicPowersA-C</sourcepage>
 							<sourceshort>RSRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -1816,8 +1816,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Psi2</sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersA-C.rtf</source>
-							<sourcepage>PsionicPowersA-C.rtf</sourcepage>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersA-C</source>
+							<sourcepage>PsionicPowersA-C</sourcepage>
 							<sourceshort>RSRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -1845,8 +1845,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Psi2</sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersD-F.rtf</source>
-							<sourcepage>PsionicPowersD-F.rtf</sourcepage>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersD-F</source>
+							<sourcepage>PsionicPowersD-F</sourcepage>
 							<sourceshort>RSRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -1874,8 +1874,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Psi2</sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersQ-W.rtf</source>
-							<sourcepage>PsionicPowersQ-W.rtf</sourcepage>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersQ-W</source>
+							<sourcepage>PsionicPowersQ-W</sourcepage>
 							<sourceshort>RSRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -1905,8 +1905,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Psi3</sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersA-C.rtf</source>
-							<sourcepage>PsionicPowersA-C.rtf</sourcepage>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersA-C</source>
+							<sourcepage>PsionicPowersA-C</sourcepage>
 							<sourceshort>RSRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -1934,8 +1934,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Psi3</sourcelevel>
-							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersD-F.rtf</source>
-							<sourcepage>PsionicPowersD-F.rtf</sourcepage>
+							<source>Wizards of the Coast - Revised (v.3.5) System Reference Document, PsionicPowersD-F</source>
+							<sourcepage>PsionicPowersD-F</sourcepage>
 							<sourceshort>RSRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>

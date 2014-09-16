@@ -2883,7 +2883,7 @@ BIO
 		<!-- Visible standard feats (not including the auto feats) -->
 		<feat>
 			<name>Power Attack</name>
-			<description>You can choose to take a -2 penalty on all melee attack rolls and combat maneuver checks to gain a +4 bonus on all melee damage rolls. This bonus to damage is increased by half (+50%) if you are making an attack with a two-handed weapon, a one handed weapon using two hands, or a primary natural weapon that adds 1-1/2 times your Strength modifier on damage rolls. This bonus to damage is halved (-50%) if you are making an attack with an off-hand weapon or secondary natural weapon. You must choose to use this feat before making an attack roll, and its effects last until your next turn. The bonus damage does not apply to touch attacks or effects that do not deal hit point damage.</description>
+			<description>You can make exceptionally deadly melee attacks by sacrificing accuracy for strength.</description>
 			<type>COMBAT.ATTACKOPTION.ABYSSALBLOODLINE.DRACONICBLOODLINE.ELEMENTALBLOODLINE.BOREALBLOODLINE.SAURIANSHAMANBONUS.DJINNIBLOODLINE.EFREETIBLOODLINE.MARIDBLOODLINE.SHAITANBLOODLINE</type>
 			<associated></associated>
 			<count>0</count>
@@ -2893,7 +2893,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Reward of Grace</name>
-			<description>Each time you use your lay on hands ability, you gain a +1 sacred bonus on all attack rolls for 1 round.</description>
+			<description>When you lay on hands, divine energy ripples through you, granting you grace.</description>
 			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
@@ -2903,7 +2903,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Skill Focus (Diplomacy)</name>
-			<description>You get a +3 bonus on all checks involving the chosen skill. If you have 10 or more ranks in that skill, this bonus increases to +6.</description>
+			<description>You are particularly adept at your chosen skill.</description>
 			<type>GENERAL.SKILLFOCUS</type>
 			<associated>Diplomacy</associated>
 			<count>1</count>
@@ -2913,7 +2913,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Weapon Focus (Flail (Heavy))</name>
-			<description>You gain a +1 bonus on all attack rolls you make using the selected weapon.</description>
+			<description>You are especially good at using your chosen weapon.</description>
 			<type>COMBAT.WEAPONFOCUS.DESTINEDBLOODLINE.ORACLEWEAPONMASTERY</type>
 			<associated>Flail (Heavy)</associated>
 			<count>1</count>
@@ -3002,7 +3002,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Celestial Spirit</name>
-			<description>Your divine bond allows you to enhance your weapon as a standard action by calling upon the aid of a celestial spirit for 6 minutes. When called, the spirit causes the weapon to shed light as a torch. This spirit grants the weapon a +1 enhancement bonus. This bonus can be added to the weapon, stacking with existing weapon bonuses to a maximum of +5, or it can be used to add any of the following weapon properties: defending, flaming, keen, merciful (+1), axiomatic, disruption, flaming burst, holy (+2), speed (+3), and brilliant energy (+4). Adding these properties consumes an amount of bonus equal to the property&#39;s cost. These bonuses are added to any properties the weapon already has, but duplicate abilities do not stack. If the weapon is not magical, at least a +1 enhancement bonus must be added before any other properties can be added. The bonus and properties granted by the spirit are determined when the spirit is called and cannot be changed until the spirit is called again. The celestial spirit imparts no bonuses if the weapon is held by anyone other than you but resumes giving bonuses if returned to you. These bonuses apply to only one end of a double weapon. You can use this ability 1 times per day. If a weapon bonded with a celestial spirit is destroyed, you lose the use of this ability for 30 days, or until you gain a level, whichever comes first. During this 30-day period, you take a -1 penalty on attack and weapon damage rolls.</description>
+			<description>Your divine bond allows you to enhance your weapon as a standard action by calling upon the aid of a celestial spirit.</description>
 			<type>PALADINCLASSFEATURES.SPECIALQUALITY.SPELLLIKE.DIVINEBOND.DIVINE BOND</type>
 			<associated></associated>
 			<count>0</count>
@@ -3024,7 +3024,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Rich Parents</name>
-			<description>You were born into a rich family, perhaps even the nobility. Your starting cash increases to 900 gp.</description>
+			<description>You were born into a rich family, perhaps even the nobility.</description>
 			<type>TRAIT.BASICTRAIT.SOCIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
@@ -3091,7 +3091,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Channel Positive Energy</name>
-			<description>You can unleash a wave of positive energy. You must choose to deal 3d6 points of positive energy damage to undead creatures or to heal living creatures of 3d6 points of damage. Creatures that take damage from channeled energy receive a DC 15 Will save to halve the damage. Using this ability consumes two uses of her lay on hands ability.</description>
+			<description>You can unleash a wave of positive energy dealing 3d6 (DC 15 for half) /day.</description>
 			<type>PALADINCLASSFEATURES.SPECIALATTACK.SUPERNATURAL.CHANNEL ENERGY.CHANNEL ENERGY POSITIVE</type>
 			<associated></associated>
 			<count>0</count>
@@ -3102,7 +3102,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Detect Evil</name>
-			<description>At will, you can use Detect Evil, as the Spell. You can, as a move action, concentrate on a single individual or item within 60 feet and determine if it is evil, learning the strength of its aura as if having studied it for 3 rounds. While focusing on one individual or object, you do not detect evil in any other object or individual within range.</description>
+			<description>At will, you can use Detect Evil, as the Spell.</description>
 			<type>PALADINCLASSFEATURES.SPECIALQUALITY.SPELLLIKE.DETECT EVIL</type>
 			<associated></associated>
 			<count>0</count>
@@ -3124,7 +3124,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Lay on Hands</name>
-			<description>You can heal wounds (your own or those of others) by touch. Each day you can use this ability 5 times per day. With one use of this ability, you can heal 3d6 hit points of damage. Using this ability is a standard action, unless you target yourself, in which case it is a swift action. Despite the name of this ability, you only need one free hand to use this ability. Alternatively, you can use this healing power to deal damage to undead creatures, dealing 3d6 points of damage. Using Lay in Hands in this way requires a melee touch attack and doesn&#39;t provide an attack of opportunity. Undead to not receive a saving throw against this damage.</description>
+			<description>You can heal wounds (your own or those of others) by touch.</description>
 			<type>PALADINCLASSFEATURES.SPECIALQUALITY.SUPERNATURAL.LAYONHANDS.LAY ON HANDS</type>
 			<associated></associated>
 			<count>0</count>
@@ -3146,7 +3146,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Smite Evil</name>
-			<description>You can call out to the powers of good to aid you in your struggle against evil 2 times per day. As a swift action, you choose one target within sight to smite. If this target is evil, you add +2 to your attack rolls and +6 to all damage rolls made against the target of your smite. If the target of Smite Evil is an outsider with the evil subtype, an evil-aligned dragon, or an undead creature, the bonus to damage on the first successful attack increases to +12. Regardless of the target, Smite Evil attacks automatically bypass any DR the creature might possess. In addition, while smite evil is in effect, you gain a +2 deflection bonus to your AC against attacks made by the target of the smite. If you target a creature that is not evil, the smite is wasted with no effect. The Smite Evil effect remains until the target of the smite is dead or the next time you rest and regain your uses of this ability.</description>
+			<description>You can call out to the powers of good to aid you in your struggle against evil.</description>
 			<type>PALADINCLASSFEATURES.SPECIALATTACK.SUPERNATURAL.SMITE EVIL</type>
 			<associated></associated>
 			<count>0</count>

@@ -43,7 +43,7 @@ BIO
 			<favoredweapon>ANY</favoredweapon>
 			<holyitem>None</holyitem>
 			<pantheonlist></pantheonlist>
-			<source>Wizards of the Coast - System Reference Document, srdbasiccharacterclassesi.rtf</source>
+			<source>Wizards of the Coast - System Reference Document, srdbasiccharacterclassesi</source>
 			<special_abilities></special_abilities>
 			<appearance></appearance>
 			<title></title>
@@ -1697,8 +1697,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
-							<sourcepage>srdspellsc.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsc</source>
+							<sourcepage>srdspellsc</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -1726,8 +1726,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
-							<sourcepage>srdspellsc.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsc</source>
+							<sourcepage>srdspellsc</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (Harmless)</spell_resistance>
@@ -1755,8 +1755,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
-							<sourcepage>srdspellsd.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsd</source>
+							<sourcepage>srdspellsd</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -1784,8 +1784,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
-							<sourcepage>srdspellsd.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsd</source>
+							<sourcepage>srdspellsd</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -1813,8 +1813,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsg.rtf</source>
-							<sourcepage>srdspellsg.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsg</source>
+							<sourcepage>srdspellsg</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -1842,8 +1842,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsi.rtf</source>
-							<sourcepage>srdspellsi.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsi</source>
+							<sourcepage>srdspellsi</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -1871,8 +1871,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsjkl.rtf</source>
-							<sourcepage>srdspellsjkl.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsjkl</source>
+							<sourcepage>srdspellsjkl</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -1900,8 +1900,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsm.rtf</source>
-							<sourcepage>srdspellsm.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsm</source>
+							<sourcepage>srdspellsm</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (Harmless object)</spell_resistance>
@@ -1929,8 +1929,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsp.rtf</source>
-							<sourcepage>srdspellsp.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsp</source>
+							<sourcepage>srdspellsp</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (object)</spell_resistance>
@@ -1958,8 +1958,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsqr.rtf</source>
-							<sourcepage>srdspellsqr.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsqr</source>
+							<sourcepage>srdspellsqr</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -1987,8 +1987,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsqr.rtf</source>
-							<sourcepage>srdspellsqr.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsqr</source>
+							<sourcepage>srdspellsqr</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (Harmless)</spell_resistance>
@@ -2016,8 +2016,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsuvwxyz.rtf</source>
-							<sourcepage>srdspellsuvwxyz.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsuvwxyz</source>
+							<sourcepage>srdspellsuvwxyz</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (Harmless)</spell_resistance>
@@ -2047,8 +2047,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsb.rtf</source>
-							<sourcepage>srdspellsb.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsb</source>
+							<sourcepage>srdspellsb</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -2076,8 +2076,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsb.rtf</source>
-							<sourcepage>srdspellsb.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsb</source>
+							<sourcepage>srdspellsb</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (Harmless)</spell_resistance>
@@ -2105,8 +2105,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsb.rtf</source>
-							<sourcepage>srdspellsb.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsb</source>
+							<sourcepage>srdspellsb</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (object)</spell_resistance>
@@ -2134,8 +2134,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
-							<sourcepage>srdspellsc.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsc</source>
+							<sourcepage>srdspellsc</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -2163,8 +2163,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
-							<sourcepage>srdspellsc.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsc</source>
+							<sourcepage>srdspellsc</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -2192,8 +2192,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
-							<sourcepage>srdspellsc.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsc</source>
+							<sourcepage>srdspellsc</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -2221,8 +2221,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsc.rtf</source>
-							<sourcepage>srdspellsc.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsc</source>
+							<sourcepage>srdspellsc</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (Harmless)</spell_resistance>
@@ -2250,8 +2250,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
-							<sourcepage>srdspellsd.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsd</source>
+							<sourcepage>srdspellsd</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -2279,8 +2279,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
-							<sourcepage>srdspellsd.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsd</source>
+							<sourcepage>srdspellsd</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -2308,8 +2308,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
-							<sourcepage>srdspellsd.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsd</source>
+							<sourcepage>srdspellsd</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -2337,8 +2337,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
-							<sourcepage>srdspellsd.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsd</source>
+							<sourcepage>srdspellsd</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -2366,8 +2366,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
-							<sourcepage>srdspellsd.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsd</source>
+							<sourcepage>srdspellsd</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -2395,8 +2395,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
-							<sourcepage>srdspellsd.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsd</source>
+							<sourcepage>srdspellsd</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -2424,8 +2424,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
-							<sourcepage>srdspellsd.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsd</source>
+							<sourcepage>srdspellsd</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -2453,8 +2453,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsd.rtf</source>
-							<sourcepage>srdspellsd.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsd</source>
+							<sourcepage>srdspellsd</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -2482,8 +2482,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellse.rtf</source>
-							<sourcepage>srdspellse.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellse</source>
+							<sourcepage>srdspellse</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -2511,8 +2511,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellse.rtf</source>
-							<sourcepage>srdspellse.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellse</source>
+							<sourcepage>srdspellse</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -2540,8 +2540,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsi.rtf</source>
-							<sourcepage>srdspellsi.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsi</source>
+							<sourcepage>srdspellsi</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -2569,8 +2569,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsi.rtf</source>
-							<sourcepage>srdspellsi.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsi</source>
+							<sourcepage>srdspellsi</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -2598,8 +2598,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsm.rtf</source>
-							<sourcepage>srdspellsm.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsm</source>
+							<sourcepage>srdspellsm</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (Harmless)</spell_resistance>
@@ -2627,8 +2627,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsm.rtf</source>
-							<sourcepage>srdspellsm.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsm</source>
+							<sourcepage>srdspellsm</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (Harmless)</spell_resistance>
@@ -2656,8 +2656,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsno.rtf</source>
-							<sourcepage>srdspellsno.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsno</source>
+							<sourcepage>srdspellsno</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -2685,8 +2685,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Law1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsp.rtf</source>
-							<sourcepage>srdspellsp.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsp</source>
+							<sourcepage>srdspellsp</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (Harmless)</spell_resistance>
@@ -2714,8 +2714,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Law1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsp.rtf</source>
-							<sourcepage>srdspellsp.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsp</source>
+							<sourcepage>srdspellsp</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (Harmless)</spell_resistance>
@@ -2743,8 +2743,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsp.rtf</source>
-							<sourcepage>srdspellsp.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsp</source>
+							<sourcepage>srdspellsp</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (Harmless)</spell_resistance>
@@ -2772,8 +2772,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsqr.rtf</source>
-							<sourcepage>srdspellsqr.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsqr</source>
+							<sourcepage>srdspellsqr</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -2801,8 +2801,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsqr.rtf</source>
-							<sourcepage>srdspellsqr.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsqr</source>
+							<sourcepage>srdspellsqr</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (Harmless)</spell_resistance>
@@ -2830,8 +2830,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Protection1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellss.rtf</source>
-							<sourcepage>srdspellss.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellss</source>
+							<sourcepage>srdspellss</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -2859,8 +2859,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Protection1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellss.rtf</source>
-							<sourcepage>srdspellss.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellss</source>
+							<sourcepage>srdspellss</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -2888,8 +2888,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellss.rtf</source>
-							<sourcepage>srdspellss.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellss</source>
+							<sourcepage>srdspellss</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes (Harmless)</spell_resistance>
@@ -2917,8 +2917,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellss.rtf</source>
-							<sourcepage>srdspellss.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellss</source>
+							<sourcepage>srdspellss</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>

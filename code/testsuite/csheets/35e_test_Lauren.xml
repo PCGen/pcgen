@@ -1140,7 +1140,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Ability That Grants Two</name>
-			<description>[Benefit] This ability Greants Two More Abilities</description>
+			<description>[Desc]This Ability Grants Two More Abilities</description>
 			<type>RACIAL.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>

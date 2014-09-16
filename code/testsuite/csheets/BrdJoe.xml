@@ -1317,8 +1317,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsf.rtf</source>
-							<sourcepage>srdspellsf.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsf</source>
+							<sourcepage>srdspellsf</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
@@ -1346,8 +1346,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsg.rtf</source>
-							<sourcepage>srdspellsg.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsg</source>
+							<sourcepage>srdspellsg</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -1375,8 +1375,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsjkl.rtf</source>
-							<sourcepage>srdspellsjkl.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsjkl</source>
+							<sourcepage>srdspellsjkl</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
@@ -1404,8 +1404,8 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd0</sourcelevel>
-							<source>Wizards of the Coast - System Reference Document, srdspellsm.rtf</source>
-							<sourcepage>srdspellsm.rtf</sourcepage>
+							<source>Wizards of the Coast - System Reference Document, srdspellsm</source>
+							<sourcepage>srdspellsm</sourcepage>
 							<sourceshort>SRD</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
