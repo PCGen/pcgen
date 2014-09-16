@@ -71,7 +71,6 @@ import pcgen.util.Logging;
 public final class SettingsHandler
 {
 	private static boolean autoFeatsRefundable = false;
-	private static boolean useFeatBenefits = true;
 	private static boolean autogenExoticMaterial = false;
 	private static boolean autogenMagic = false;
 	private static boolean autogenMasterwork = false;
@@ -920,7 +919,6 @@ public final class SettingsHandler
 
 		setAlwaysOverwrite(getPCGenOption("alwaysOverwrite", false)); //$NON-NLS-1$
 		setAutoFeatsRefundable(getPCGenOption("autoFeatsRefundable", false)); //$NON-NLS-1$
-		setUseFeatBenefits(getPCGenOption("useFeatBenefits", true)); //$NON-NLS-1$
 		setAutogenExoticMaterial(getPCGenOption("autoGenerateExoticMaterial", false)); //$NON-NLS-1$
 		setAutogenMagic(getPCGenOption("autoGenerateMagic", false)); //$NON-NLS-1$
 		setAutogenMasterwork(getPCGenOption("autoGenerateMasterwork", false)); //$NON-NLS-1$
@@ -1178,7 +1176,6 @@ public final class SettingsHandler
 		setPCGenOption("allowMetamagicInCustomizer", isMetamagicAllowedInEqBuilder()); //$NON-NLS-1$
 		setPCGenOption("alwaysOverwrite", getAlwaysOverwrite()); //$NON-NLS-1$
 		setPCGenOption("autoFeatsRefundable", isAutoFeatsRefundable()); //$NON-NLS-1$
-		setPCGenOption("useFeatBenefits", useFeatBenefits()); //$NON-NLS-1$
 		setPCGenOption("autoGenerateExoticMaterial", isAutogenExoticMaterial()); //$NON-NLS-1$
 		setPCGenOption("autoGenerateMagic", isAutogenMagic()); //$NON-NLS-1$
 		setPCGenOption("autoGenerateMasterwork", isAutogenMasterwork()); //$NON-NLS-1$
@@ -1852,11 +1849,6 @@ public final class SettingsHandler
 		return isShowToolBar();
 	}
 
-	public static void setUseFeatBenefits(final boolean arg)
-	{
-		useFeatBenefits = arg;
-	}
-
 	/**
 	 * @return Returns the useHigherLevelSlotsDefault.
 	 */
@@ -1988,11 +1980,6 @@ public final class SettingsHandler
 	{
 		return getFilterSettings().getProperty("pcgen.filters." + optionName, //$NON-NLS-1$
 			getOptions().getProperty("pcgen.filters." + optionName, "")); //$NON-NLS-1$ //$NON-NLS-2$
-	}
-
-	public static boolean useFeatBenefits()
-	{
-		return useFeatBenefits;
 	}
 
 	public static boolean wantToLoadMasterworkAndMagic()

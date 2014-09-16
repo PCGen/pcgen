@@ -208,7 +208,9 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 			useOutputNamesOther.isSelected());
 		UIPropertyContext.setSingleChoiceAction(cmbChoiceMethods
 			.getSelectedIndex());
-		SettingsHandler.setUseFeatBenefits(!featDescriptionShown.isSelected());
+		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
+			PCGenSettings.OPTION_SHOW_FEAT_BENEFIT_NOT_DESC,
+			!featDescriptionShown.isSelected());
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
 			PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN,
 			showSkillModifier.isSelected());
@@ -225,7 +227,8 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	{
 		cmbChoiceMethods.setSelectedIndex(UIPropertyContext
 			.getSingleChoiceAction());
-		featDescriptionShown.setSelected(!SettingsHandler.useFeatBenefits());
+		featDescriptionShown.setSelected(!PCGenSettings.OPTIONS_CONTEXT.getBoolean(
+			PCGenSettings.OPTION_SHOW_FEAT_BENEFIT_NOT_DESC, false));
 //		showMemory.setSelected(SettingsHandler.isShowMemoryArea());
 //		showImagePreview.setSelected(SettingsHandler.isShowImagePreview());
 		showSkillModifier.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(

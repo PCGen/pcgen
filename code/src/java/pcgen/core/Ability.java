@@ -33,10 +33,11 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
-import pcgen.facade.core.AbilityFacade;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.facade.core.AbilityFacade;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.system.PCGenSettings;
 
 /**
  * Definition and games rules for an Ability.
@@ -190,7 +191,9 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 	@Override
 	public ListKey<Description> getDescriptionKey()
 	{
-		if (SettingsHandler.useFeatBenefits() && containsListFor(ListKey.BENEFIT))
+		boolean showFeatBenefitNotDesc = PCGenSettings.OPTIONS_CONTEXT.getBoolean(
+			PCGenSettings.OPTION_SHOW_FEAT_BENEFIT_NOT_DESC, false);
+		if (showFeatBenefitNotDesc && containsListFor(ListKey.BENEFIT))
 		{
 			return ListKey.BENEFIT;
 		}
