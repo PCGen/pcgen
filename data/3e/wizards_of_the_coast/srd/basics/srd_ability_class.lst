@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 # Original Entry by Tir Gwaith
 
@@ -36,8 +36,8 @@ Smite Good		CATEGORY:Special Ability	TYPE:SpecialAttack.Smite.Supernatural	VISIB
 Leadership Score	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment	TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.	TEMPBONUS:PC|VAR|LeadershipScore|%CHOICE
 
 ###Block:Hidden Feat for Negative Levels
-# Ability Name	Category of Ability		Type				Visible	Define			Description																					Combat bonus				Bonus to HP					Bonus to skill																		Aspects					Bonus
-Negative Levels	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:NegLevels|0	DESC:%1 negative level(s) (-%1 effective level(s) and loses access to %1 spell(s) from the highest spell level castable)|NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:HP|CURRENTMAX|-5*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels	ASPECT:Ability Bonus|%1|NegLevels	BONUS:SAVE|Fortitude,Reflex,Will|-1*NegLevels
+# Ability Name	Category of Ability		Type				Visible	Define			Description																					Combat bonus				Bonus to HP					Save bonus							Bonus to skill																		Aspects
+Negative Levels	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:NegLevels|0	DESC:%1 negative level(s) (-%1 effective level(s) and loses access to %1 spell(s) from the highest spell level castable)|NegLevels	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:HP|CURRENTMAX|-5*NegLevels	BONUS:SAVE|Fortitude,Reflex,Will|-1*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels	ASPECT:Ability Bonus|%1|NegLevels
 
 
 ###Block: Class Proficiencies
@@ -174,13 +174,13 @@ Perfect Self								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Flurry of Blows								CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DEFINE:FlurryOfBlows|0																																																																																																																																																									BONUS:VAR|FlurryOfBlows|1
 
 ###Block: Paladin special abilities
-# Ability Name	Category of Ability		Type						Visible	Define			Description					Aspects							Bonus
+# Ability Name	Category of Ability		Type						Visible	Define			Description					Save bonus							Aspects
 Detect Evil		CATEGORY:Special Ability	TYPE:SpecialQuality.Sense		VISIBLE:YES
-Divine Grace	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																			BONUS:SAVE|Fortitude,Reflex,Will|max(CHA,0)
+Divine Grace	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES											BONUS:SAVE|Fortitude,Reflex,Will|max(CHA,0)
 Divine Health	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Lay on Hands	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:LayOnHands|0	DESC:%1 hp per day|LayOnHands		ASPECT:Ability Benefit|%1 hp/day|LayOnHands
+Lay on Hands	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:LayOnHands|0	DESC:%1 hp per day|LayOnHands										ASPECT:Ability Benefit|%1 hp/day|LayOnHands
 Aura of Courage	CATEGORY:Special Ability	TYPE:SpecialQuality.Aura		VISIBLE:YES
-Remove Disease	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:RemoveDisease|0	DESC:%1 per week|RemoveDisease	ASPECT:Ability Benefit|%1/week|RemoveDisease
+Remove Disease	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:RemoveDisease|0	DESC:%1 per week|RemoveDisease									ASPECT:Ability Benefit|%1/week|RemoveDisease
 
 
 ###Block: Ranger Favored Enemies

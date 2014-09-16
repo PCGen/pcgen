@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 # Equipment Name			Type						Cost		Slot Needed	Modifier	Source Page				Bonus Ability Pool					Bonus to skill			Special Property
@@ -43,16 +43,16 @@ Crystal Capacitor (7 PP)	TYPE:Psionic.Universal	COST:16000	SOURCEPAGE:srdpsionic
 Crystal Capacitor (9 PP)	TYPE:Psionic.Universal	COST:25000	SOURCEPAGE:srdpsionicitems
 
 ###Block: Psycoactive Skin
-# Equipment Name				Type						Cost		Damage	Source Page				Combat bonus					Bonus to skill		Special Property		Bonus
-Psychoactive Skin (Chameleon)		TYPE:Psionic.Universal.PsycoSkin	COST:4500			SOURCEPAGE:srdpsionicitems								BONUS:SKILL|Hide|15
-Psychoactive Skin (Claw)		TYPE:Psionic.Universal.PsycoSkin	COST:16000	DAMAGE:1d12	SOURCEPAGE:srdpsionicitems												SPROP:+STR to Damage
+# Equipment Name				Type						Cost		Damage	Source Page				Combat bonus					Save bonus					Bonus to skill		Special Property
+Psychoactive Skin (Chameleon)		TYPE:Psionic.Universal.PsycoSkin	COST:4500			SOURCEPAGE:srdpsionicitems														BONUS:SKILL|Hide|15
+Psychoactive Skin (Claw)		TYPE:Psionic.Universal.PsycoSkin	COST:16000	DAMAGE:1d12	SOURCEPAGE:srdpsionicitems																		SPROP:+STR to Damage
 Psychoactive Skin (Defender)		TYPE:Psionic.Universal.PsycoSkin	COST:32000			SOURCEPAGE:srdpsionicitems	BONUS:COMBAT|AC|4
-Psychoactive Skin (Hero)		TYPE:Psionic.Universal.PsycoSkin	COST:68000			SOURCEPAGE:srdpsionicitems	BONUS:COMBAT|AC|3	BONUS:COMBAT|TOHIT|3									BONUS:SAVE|Fortitude,Will,Reflex|3
+Psychoactive Skin (Hero)		TYPE:Psionic.Universal.PsycoSkin	COST:68000			SOURCEPAGE:srdpsionicitems	BONUS:COMBAT|AC|3	BONUS:COMBAT|TOHIT|3	BONUS:SAVE|Fortitude,Will,Reflex|3
 Psychoactive Skin (Iron)		TYPE:Psionic.Universal.PsycoSkin	COST:240000			SOURCEPAGE:srdpsionicitems
-Psychoactive Skin (Nimbleness)	TYPE:Psionic.Universal.PsycoSkin	COST:2000			SOURCEPAGE:srdpsionicitems								BONUS:SKILL|Tumble|10
+Psychoactive Skin (Nimbleness)	TYPE:Psionic.Universal.PsycoSkin	COST:2000			SOURCEPAGE:srdpsionicitems														BONUS:SKILL|Tumble|10
 Psychoactive Skin (Proteus)		TYPE:Psionic.Universal.PsycoSkin	COST:90000			SOURCEPAGE:srdpsionicitems
 Psychoactive Skin (Psion)		TYPE:Psionic.Universal.PsycoSkin	COST:66000			SOURCEPAGE:srdpsionicitems
-Psychoactive Skin (Spider)		TYPE:Psionic.Universal.PsycoSkin	COST:20000			SOURCEPAGE:srdpsionicitems								BONUS:SKILL|Climb|20
+Psychoactive Skin (Spider)		TYPE:Psionic.Universal.PsycoSkin	COST:20000			SOURCEPAGE:srdpsionicitems														BONUS:SKILL|Climb|20
 Psychoactive Skin (Striking)		TYPE:Psionic.Universal.PsycoSkin	COST:24000			SOURCEPAGE:srdpsionicitems
 Psychoactive Skin (Troll)		TYPE:Psionic.Universal.PsycoSkin	COST:90000			SOURCEPAGE:srdpsionicitems
 

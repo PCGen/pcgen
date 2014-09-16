@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
@@ -53,7 +53,7 @@ CLASS:Wizard.MOD
 1	PROHIBITSPELL:SCHOOL.Transmutation|PREVARGTEQ:ForbidTransmutation,1	PROHIBITSPELL:SCHOOL.Transmutation|PREVARGTEQ:ForbidTransmutation,1
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Visible	Combat bonus										Bonus
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Visible	Combat bonus										Save bonus
 CLASS:Sorcerer (Theurgy)	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Sorcerer (Theurgy)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer (Theurgy)|CL

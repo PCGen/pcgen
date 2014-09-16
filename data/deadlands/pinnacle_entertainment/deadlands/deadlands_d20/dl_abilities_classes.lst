@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 ###Block: Agency Operative class features
 # Feat Name			Type			Visible	Special ABility					Define			Source Page
 # Ability Name		Category of Ability		Type						Define			Description							Source Page
@@ -87,11 +87,11 @@ Jinx			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality				DESC:Jinx			
 
 ###Block: Maverick class features
 # Feat Name			Type			Visible	Special ABility		Virtual Feat		Save checks bonus						Modify VAR				Source Page
-# Ability Name		Category of Ability		Type						Description			Virtual Feat		Modify VAR				Source Page		Bonus
-Extraordinary Luck	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DESC:Extraordinary Luck										SOURCEPAGE:p.34	BONUS:SAVE|Fortitude,Reflex,Will|max(CHA,0)
-Gambler's Luck		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DESC:Gambler's Luck										SOURCEPAGE:p.34
-Maverick Sneak Attack	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					VFEAT:Sneak Attack	BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.34
-Slippery Mind		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DESC:Slippery Mind										SOURCEPAGE:p.34
+# Ability Name		Category of Ability		Type						Description			Virtual Feat		Save bonus							Modify VAR				Source Page
+Extraordinary Luck	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DESC:Extraordinary Luck					BONUS:SAVE|Fortitude,Reflex,Will|max(CHA,0)						SOURCEPAGE:p.34
+Gambler's Luck		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DESC:Gambler's Luck																		SOURCEPAGE:p.34
+Maverick Sneak Attack	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality					VFEAT:Sneak Attack									BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.34
+Slippery Mind		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	DESC:Slippery Mind																		SOURCEPAGE:p.34
 # Not sure on the Maverick Sneak Attack, but had to remove the ADD:SPECIAL. - Tir Gwaith
 
 ###Block: Rowdy class abilities

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgames.com/llpom.html	SOURCEDATE:2002-01
 # Original Entry by: Ratheof Blithwyn
 
@@ -7,7 +7,7 @@ SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgam
 # Variant classes
 #
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Arcane Engineer	HD:6		TYPE:Base.PC	ABB:AEn		MAXLEVEL:20	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Engineer	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
@@ -38,7 +38,7 @@ CLASS:Arcane Engineer	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELL
 20	CAST:4,4,4,4,4,4,4,4,4,4																ADD:FEAT|TYPE=ItemCreation,TYPE=Metamagic
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Arsenalist	HD:4		TYPE:Base.PC	ABB:AEn		MAXLEVEL:20	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Arsenalist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|Listen|TYPE=Profession|Search|Spellcraft
@@ -70,7 +70,7 @@ CLASS:Arsenalist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:
 # Add sample firearms as equipment???
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Mind Weaver	HD:6		TYPE:Base.PC	ABB:MiW		MAXLEVEL:20	SOURCEPAGE:p.68	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mind Weaver	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|TYPE=Knowledge|TYPE=Profession|Scry|Search|Sense Motive|Spellcraft
@@ -101,7 +101,7 @@ CLASS:Mind Weaver	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|M
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3																ADD:FEAT|Spell Focus,TYPE=Metamagic
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Sun Mage	HD:4		TYPE:Base.PC	ABB:SuM		MAXLEVEL:20	SOURCEPAGE:p.72	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sun Mage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Heal|Intimidate|TYPE=Knowledge|TYPE=Profession|Spellcraft|Wilderness Lore

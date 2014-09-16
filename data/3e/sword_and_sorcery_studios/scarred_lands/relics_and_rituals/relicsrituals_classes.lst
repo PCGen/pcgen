@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com	SOURCEDATE:2001-01
 
 #CHANGES 9/24 - ADDED Ritual Casting to all the spell casting classes in this data set.
 #.MOD the base class for the SRD to have CSKILL:Ritual Casting or Paladin/Rangers to have CCSKILL:Ritual Casting
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Blood Witch	HD:4		TYPE:PC.Prestige	ABB:BlW		MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Multiple Requirements										Required Skill
 CLASS:Blood Witch	PREMULT:2,[PREFEAT:1,Skill Focus (Concentration)],[PREFEAT:2,TYPE=Metamagic]	PRESKILL:2,Concentration=10,Knowledge (Arcana)=10
@@ -24,7 +24,7 @@ CLASS:Blood Witch	SPELLSTAT:WIS	SPELLTYPE:Any	BONUS:CASTERLEVEL|Blood Witch|CL	S
 9					ADD:SPELLCASTER|ANY	ADD:FEAT|Blood Enhancement
 10					ADD:SPELLCASTER|ANY						AUTO:FEAT|Major Sacrifice
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Crypt Lord	HD:4		TYPE:PC.Prestige	ABB:CrL		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Feat				Required Skill				Required Spell School
 CLASS:Crypt Lord	PREALIGN:LE,NE,CE	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:1,Knowledge (Undead)=7	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLSCHOOL:7,Necromancy=0
@@ -47,7 +47,7 @@ CLASS:Crypt Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowled
 9														ADD:SPELLCASTER|ANY	AUTO:FEAT|Energy Drain Immunity
 10														ADD:SPELLCASTER|ANY	AUTO:FEAT|Lichdom
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Incarnate	HD:8		TYPE:PC.Prestige	ABB:Inc		MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:COMBAT|BASEAB|3*classlevel("APPLIEDAS=NONEPIC")/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL	Required Class		Required Feat		Required Skill
 CLASS:Incarnate	PREALIGN:TN	PRECLASS:1,Druid=4	PREFEAT:1,Quicken Spell	PRESKILL:1,Knowledge (Nature)=7
@@ -68,7 +68,7 @@ CLASS:Incarnate	STARTSKILLPTS:4	SKILLLIST:1|Druid		CSKILL:Animal Empathy|Concent
 9	BONUS:PCLEVEL|Druid|1								ABILITY:Special Ability|AUTOMATIC|Timeless Body		TEMPLATE:Timeless Body
 10	BONUS:PCLEVEL|Druid|1	ADD:FEAT|Pastlife Form																	AUTO:FEAT|Designate Life Form
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Penumbral Lord	HD:4		TYPE:PC.Prestige	ABB:PeL		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat		Required Skill	Req. Known Spell			Required Sub-school
 CLASS:Penumbral Lord	PREFEAT:1,Silent Spell	PRESKILL:1,Hide=5	PRESPELL:1,Shadow Conjuration	PRESPELLSCHOOLSUB:3,Shadow=1
@@ -101,7 +101,7 @@ CLASS:Penumbral Lord	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Penumbral 
 9	CAST:5,5,4,3,2,2,2,2,1
 10	CAST:5,5,4,4,2,2,2,2,1,1										AUTO:FEAT|Shadow Home
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page		Combat bonus											Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page		Combat bonus											Save bonus
 CLASS:Sea Witch	HD:6		TYPE:PC.Prestige	ABB:SeW		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Skill							Req. Spell Type
 CLASS:Sea Witch	PRESKILL:2,Concentration=8,Profession (Sailor)=8	PRESPELLTYPE:1,Arcane=3,Divine=3
@@ -134,7 +134,7 @@ SUBCLASS:Charisma Base		COST:0	SPELLSTAT:CHA	SPELLTYPE:Arcane
 9	CAST:0,4,4,4,2,1
 10	CAST:0,4,4,4,3,2
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Summoner	HD:4		TYPE:PC.Prestige	ABB:Sum		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat				Required Skill			Required Sub-school
 CLASS:Summoner	PREFEAT:1,Skill Focus (Knowledge %)	PRESKILL:1,TYPE.Knowledge=8	PRESPELLSCHOOLSUB:1,Summoning=3
@@ -155,7 +155,7 @@ CLASS:Summoner	STARTSKILLPTS:2	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Dip
 10	ADD:SPELLCASTER|ANY
 #10	ADD:SPELLCASTER|1|ANY	BONUS:SPELLKNOWN|TYPE=Arcane;LEVEL=5|1
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Vigilant	HD:12		TYPE:PC.Prestige	ABB:Vig		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL				Required Feat			Required Skill											PRETOTALAB
 CLASS:Vigilant	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:2,Endurance,Track	PRESKILL:4,Wilderness Lore=7,Diplomacy=5,Gather Information=5,Handle Animal=5	PRETOTALAB:5

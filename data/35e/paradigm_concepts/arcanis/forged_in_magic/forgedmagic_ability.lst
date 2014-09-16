@@ -1,15 +1,15 @@
-# CVS $Revision: 8692 $ $Author: eddyanthony $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 8692 $ $Author: eddyanthony $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 
 #ABILITIES support for items - not actual feats or abilities
-# Ability Name				Category of Ability	Type			Visible	Special ABility								Move			Combat bonus				Misc bonus								Stat bonus					Weapon prof. bonus												Natural Attacks												Bonus
-EloriiBonusforArmguardofTalisos	CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																																			BONUS:WEAPONPROF=TYPE.Bow|TOHIT|2|TYPE=Competence
-Emerald Scale Tail Bracer		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																																			BONUS:WEAPONPROF=Tail|TOHIT,DAMAGE|1|TYPE=Enhancement	BONUS:WEAPONPROF=Tail|DAMAGESIZE|1
+# Ability Name				Category of Ability	Type			Visible	Special ABility								Move			Combat bonus				Misc bonus								Save bonus					Stat bonus					Weapon prof. bonus												Natural Attacks
+EloriiBonusforArmguardofTalisos	CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																																									BONUS:WEAPONPROF=TYPE.Bow|TOHIT|2|TYPE=Competence
+Emerald Scale Tail Bracer		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																																									BONUS:WEAPONPROF=Tail|TOHIT,DAMAGE|1|TYPE=Enhancement	BONUS:WEAPONPROF=Tail|DAMAGESIZE|1
 Helm of Protection Penalty		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																				BONUS:MISC|ACCHECK|-3	BONUS:MISC|SPELLFAILURE|-10
-Mask of Ancient Yhassremore		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO	SAB:Serpentine Dance 1/day; see Mask of Ancient Yhassremore				BONUS:COMBAT|AC|1|TYPE=Profane																																													BONUS:SAVE|ALL|1|TYPE=Profane
+Mask of Ancient Yhassremore		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO	SAB:Serpentine Dance 1/day; see Mask of Ancient Yhassremore				BONUS:COMBAT|AC|1|TYPE=Profane										BONUS:SAVE|ALL|1|TYPE=Profane
 Monkey Gloves				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO											MOVE:Climb,20
 Ranseur of Wind and Wave		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO											MOVE:Fly,30
-Toga of Office				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO														BONUS:COMBAT|AC|6|TYPE=Armor											BONUS:STAT|CHA|6|TYPE=Enhancement																														BONUS:SAVE|ALL|4|TYPE=Resistance
-Red Howler Mask				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																																																		NATURALATTACKS:Red Howler Mask ~ Bite,Melee.Piercing.Slashing.Bludgeoning,*1,1d6
+Toga of Office				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO														BONUS:COMBAT|AC|6|TYPE=Armor											BONUS:SAVE|ALL|4|TYPE=Resistance	BONUS:STAT|CHA|6|TYPE=Enhancement
+Red Howler Mask				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																																																								NATURALATTACKS:Red Howler Mask ~ Bite,Melee.Piercing.Slashing.Bludgeoning,*1,1d6
 
 Duelist Blade				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO
 #COMMENT: TODO - DESC:In the hands of a Duelist the Duelist blade increase the AC bonus from Canny defense by 1, increases precise strike damage by 1d6 (only if the duelist already has the ability) and increases the dodge bonus the duelist receives from the elaborate parry ability by 1 when that ability is used.

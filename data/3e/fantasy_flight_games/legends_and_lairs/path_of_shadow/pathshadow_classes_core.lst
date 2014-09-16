@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
 # Original entry by: Blithwyn
 
@@ -8,7 +8,7 @@ SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyfli
 #   On the other hand .MODding the spells is even worse since this would restrict the Chameleon to SRD spells.
 #
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Save bonus
 CLASS:Chameleon	HD:6		TYPE:Base.PC	ABB:Chm		MAXLEVEL:20	SOURCEPAGE:Chap.3, Chameleon	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Chameleon	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Speak Language|Spellcraft|Swim
@@ -48,7 +48,7 @@ CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,
 #   These could be added but I haven't found a way to make that prereq work so that they only show up (OS) if prereqs are met.
 #
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Save bonus
 CLASS:Con Artist	HD:6		TYPE:Base.PC	ABB:Con		MAXLEVEL:20	SOURCEPAGE:Chap.3, Con Artist	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Con Artist	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Use Magic Device
@@ -67,7 +67,7 @@ CLASS:Con Artist	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|Decipher Script|Dip
 
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Combat bonus								Save bonus
 CLASS:Delver	HD:6		TYPE:Base.PC	ABB:Delv		MAXLEVEL:20	SOURCEPAGE:Chap.3, Delver	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Escape Artist|Gather Information|Hide|Innuendo|Intuit Direction|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
@@ -92,7 +92,7 @@ CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE=Cr
 
 # Psychic Thief
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Combat bonus								Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Combat bonus								Save bonus
 CLASS:Psychic Thief	HD:6		TYPE:Base.PC	ABB:PsyThf		MAXLEVEL:20	SOURCEPAGE:Chap.3, Psychic Thief	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Thief	STARTSKILLPTS:6	CSKILL:Autohypnosis|Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Psionic Device|Use Rope

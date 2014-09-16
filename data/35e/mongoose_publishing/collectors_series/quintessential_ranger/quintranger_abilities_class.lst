@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
 #Original Entry by: Andrew Maitland
 
@@ -52,7 +52,7 @@ Boar's Charge	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Boar's C
 Boar's Cunning	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Boar's Cunning (Sp)		SPELLS:Class|TIMES=2|True Strike
 
 ###Block:Animal Champion ~ (Camel)	PREFEAT:1,Endurance
-# Ability Name			Category of Ability		Type			Visible	Special ABility				Bonus
+# Ability Name			Category of Ability		Type			Visible	Special ABility				Save bonus
 Camel's Wilful Fortitude	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Camel's Wilful Fortitude (Ex)	BONUS:SAVE|Fortitude|min(WIS,0)
 Camel's Fortified Will		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Camel's Fortified Will (Ex)	BONUS:SAVE|Will|min(CON,0)
 Camel's Hardiness			CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Camel's Hardiness (Ex)
@@ -77,9 +77,9 @@ Dinosaur Strength	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Dino
 Terrible Lizard	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Terrible Lizard (Ex)
 
 ###Block:Animal Champion ~ (Dog/Riding Dog)	PREFEAT:1,Track
-# Ability Name	Category of Ability		Type			Visible	Special ABility		Bonus to skill				Bonus
-Dog's Nose		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Dog's Nose (Ex)	BONUS:SKILL|Search|2|TYPE=Innate
-Doggedness		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Doggedness (Ex)							BONUS:SAVE|Fortitude|2|TYPE=Innate
+# Ability Name	Category of Ability		Type			Visible	Special ABility		Save bonus					Bonus to skill
+Dog's Nose		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Dog's Nose (Ex)							BONUS:SKILL|Search|2|TYPE=Innate
+Doggedness		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Doggedness (Ex)	BONUS:SAVE|Fortitude|2|TYPE=Innate
 Dog Guardian	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Dog Guardian (Ex)
 
 ###Block:Animal Champion ~ (Eagle)			PREFEAT:1,Alertness

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:eFaeries	SOURCESHORT:eFaeries	SOURCEWEB:http://dragonwing.net/Faeries.htm	SOURCEDATE:2003-01
 #Original Entry: Andrew Maitland
 
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Number of Feats	Bonus
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Number of Feats	Save bonus
 CLASS:The Master of the Hunt	HD:10		TYPE:Monster	MAXLEVEL:15	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:FEAT|POOL|4	BONUS:SAVE|BASE.Will,BASE.Reflex|6	BONUS:SAVE|BASE.Fortitude|13
 # Class Name			Required Race
 CLASS:The Master of the Hunt	PRERACE:1,RACETYPE=Fey

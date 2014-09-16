@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Modern Dispatch #6 - 172nd Infantry Brigade [Sep]	SOURCESHORT:MD06-172nd	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3990	SOURCEDATE:2004-01
 #Original Entry by: Frank Kliewe
 
-# Class Name				Hit Dice	Type			Source Page		Combat bonus								Modify VAR														Bonus
-CLASS:Arctic Warfare Specialist	HD:10		TYPE:PC.Advanced	SOURCEPAGE:p.4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name				Hit Dice	Type			Source Page		Combat bonus								Save bonus																						Modify VAR
+CLASS:Arctic Warfare Specialist	HD:10		TYPE:PC.Advanced	SOURCEPAGE:p.4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name				Required Feat						Required Skill			PRETOTALAB
 CLASS:Arctic Warfare Specialist	PREFEAT:2,Arctic Warfare College,Endurance	PRESKILL:2,Survival=6,Drive=4	PRETOTALAB:2
 # Class Name				Skill Pts/Lvl	Class Skill

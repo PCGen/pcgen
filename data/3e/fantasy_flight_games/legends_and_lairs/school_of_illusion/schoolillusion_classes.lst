@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:http://www.fantasyflightgames.com/dd38.html	SOURCEDATE:2003-02
 # Original Entry by: Ratheof Blithwyn
 
@@ -6,7 +6,7 @@ SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:h
 # Core class
 #
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Devoted Illusionist	HD:4		TYPE:Base.PC	ABB:Ill		MAXLEVEL:20	SOURCEPAGE:p.4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL
 CLASS:Devoted Illusionist	PREALIGN:CG,CN,CE
@@ -45,7 +45,7 @@ CLASS:Devoted Illusionist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			S
 # Prestige classes
 #
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Arcane Herald	HD:4		TYPE:PC.Prestige	ABB:Her		MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat		Required Skill				Req. Known Spell		Req. Spell Type
 CLASS:Arcane Herald	PREFEAT:1,Scribe Scroll	PRESKILL:1,Knowledge (Heraldry)=8	PRESPELL:1,Stolen Sight	PRESPELLTYPE:2,Arcane=3
@@ -63,7 +63,7 @@ CLASS:Arcane Herald	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Scr
 10	SAB:The Messenger								ADD:SPELLCASTER|ANY
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Deceiver	HD:4		TYPE:PC.Prestige	ABB:Dec		MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")-1)/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL				Required Feat				Required Skill						Req. Known Spell			Req. Spell Type
 CLASS:Deceiver	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Spell Focus (Illusion)	PRESKILL:3,Bluff=8,Concentration=8,Spellcraft=8	PRESPELL:1,False Thoughts	PRESPELLTYPE:2,Arcane=3
@@ -81,7 +81,7 @@ CLASS:Deceiver	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Bluff|Concentration|TYPE=
 10	SAB:Detect Cursed Items													ADD:SPELLCASTER|ANY
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Dread Lord	HD:4		TYPE:PC.Prestige	ABB:Dre		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL				Required Feat				Required Skill					Req. Known Spell			Req. Spell Type		Required Text
 CLASS:Dread Lord	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:1,Spell Focus (Illusion)	PRESKILL:2,Intimidate=6,Spellcraft=8	PRESPELL:1,Awakened Fears	PRESPELLTYPE:2,Arcane=3	PRETEXT:See text
@@ -99,7 +99,7 @@ CLASS:Dread Lord	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidat
 10	SAB:Master Fears											ADD:SPELLCASTER|ANY
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Lord of Illusion	HD:4		TYPE:PC.Prestige	ABB:LoIl		MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Skill				Req. Known Spell		Req. Spell Type
 CLASS:Lord of Illusion	PRESKILL:2,Bluff=8,Spellcraft=8	PRESPELL:1,Major Image	PRESPELLTYPE:2,Arcane=3
@@ -117,7 +117,7 @@ CLASS:Lord of Illusion	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Dip
 10	SAB:Augment Illusions																		ADD:SPELLCASTER|ANY
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Master of the Ruse	HD:4		TYPE:PC.Prestige	ABB:MRus		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL		Required Feat								Required Skill							Req. Known Spell		Req. Spell Type		Required Text
 CLASS:Master of the Ruse	PREALIGN:CG,CN,CE	PREFEAT:3,Enlarge Spell,Extend Spell,Spell Focus (Illusion)	PRESKILL:4,Bluff=8,Disguise=8,Hide=8,Spellcraft=8	PRESPELL:1,Displacement	PRESPELLTYPE:2,Arcane=3	PRETEXT:See text
@@ -135,7 +135,7 @@ CLASS:Master of the Ruse	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|D
 10	SAB:Unassailable Ruse											ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=MasterRuseSpecialAbilities
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Mind Master	HD:4		TYPE:PC.Prestige	ABB:Mind		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")-1)/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat				Required Skill									Req. Known Spell	Req. Spell Type
 CLASS:Mind Master	PREFEAT:1,Spell Focus (Illusion)	PRESKILL:3,Concentration=8,Knowledge (Arcana)=8,Spellcraft=8	PRESPELL:1,Lure	PRESPELLTYPE:2,Arcane=3
@@ -153,7 +153,7 @@ CLASS:Mind Master	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Bluff|Concentration|TY
 10	SAB:Convincing Illusions	ADD:SPELLCASTER|ANY
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Mystic Infiltrator	HD:6		TYPE:PC.Prestige	ABB:Inf		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Feat			Required Skill						Req. Known Spell		Req. Spell Type		Required Text
 CLASS:Mystic Infiltrator	PREFEAT:2,Alertness,Toughness	PRESKILL:3,Disguise=8,Hide=8,Move Silently=8	PRESPELL:1,Faceless	PRESPELLTYPE:2,Arcane=3	PRETEXT:See text
@@ -171,7 +171,7 @@ CLASS:Mystic Infiltrator	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Bluff|Concentra
 10	SAB:Mystic Form (at will)														ADD:SPELLCASTER|ANY
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Shadowmancer	HD:4		TYPE:PC.Prestige	ABB:Sha		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat				Required Skill				Req. Known Spell			Req. Spell Type
 CLASS:Shadowmancer	PREFEAT:2,Silent Spell,Still Spell	PRESKILL:2,Hide=8,Move Silently=8	PRESPELL:1,Deeper Darkness	PRESPELLTYPE:2,Arcane=3
@@ -189,7 +189,7 @@ CLASS:Shadowmancer	STARTSKILLPTS:2	CSKILL:Concentration|Hide|Knowledge (Arcana)|
 10	SAB:Summmon Shadow (1st&2nd shadow,+2 HD,strength funneling)		ADD:SPELLCASTER|ANY
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Unseen Master	HD:4		TYPE:PC.Prestige	ABB:Uns		MAXLEVEL:10	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Skill				Req. Known Spell				Req. Spell Type
 CLASS:Unseen Master	PRESKILL:2,Hide=8,Spellcraft=8	PRESPELL:1,Selective Invisibility	PRESPELLTYPE:2,Arcane=3

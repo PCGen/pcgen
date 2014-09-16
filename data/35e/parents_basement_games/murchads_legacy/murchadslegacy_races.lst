@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
-# Race Name		Output Name			Favored Class		Starting Feats	Size		Move			Face/Space	Reach		Vision				Bonus to skill					Stat bonus								Auto Language	Ability								Special ABility																								Main Race Type	Level Adjustment	Challenge Rating	Source Page		Innate Spells																	Bonus
-Elf (Dark)		OUTPUTNAME:[NAME] Elf	FAVCLASS:Druid|Sorcerer	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	VISION:Darkvision (120')								BONUS:STAT|DEX,CHA|2	BONUS:STAT|CON|-2			AUTO:LANG|Shintai	ABILITY:Special Ability|AUTOMATIC|Light Blindness																											RACETYPE:Humanoid	LEVELADJUSTMENT:1	CR:1			SOURCEPAGE:p.7	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Darkness,12+WIS|Detect Magic,10+WIS|Inflict Minor Wounds,10+WIS	BONUS:SAVE|Fortitude,Reflex,Will|1	BONUS:SAVE|Will|1|TYPE=Racial
-Orc (Gadohig)	OUTPUTNAME:Orc		FAVCLASS:Barbarian	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	VISION:Darkvision (60')		BONUS:SKILL|Intimidate|2|TYPE=Racial	BONUS:STAT|STR|4	BONUS:STAT|INT|-2	BONUS:STAT|CHA|-2	AUTO:LANG|Gadohig										SAB:For the purposes of finding food and water orcs have a +4 racial bonus to Survival in the spring and summer, +2 in the fall, and -2 in the winter.	RACETYPE:Humanoid				CR:1/2		SOURCEPAGE:p.9
+# Race Name		Output Name			Favored Class		Starting Feats	Size		Move			Face/Space	Reach		Vision				Save bonus										Bonus to skill					Stat bonus								Auto Language	Ability								Special ABility																								Main Race Type	Level Adjustment	Challenge Rating	Source Page		Innate Spells
+Elf (Dark)		OUTPUTNAME:[NAME] Elf	FAVCLASS:Druid|Sorcerer	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	VISION:Darkvision (120')	BONUS:SAVE|Fortitude,Reflex,Will|1	BONUS:SAVE|Will|1|TYPE=Racial								BONUS:STAT|DEX,CHA|2	BONUS:STAT|CON|-2			AUTO:LANG|Shintai	ABILITY:Special Ability|AUTOMATIC|Light Blindness																											RACETYPE:Humanoid	LEVELADJUSTMENT:1	CR:1			SOURCEPAGE:p.7	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Darkness,12+WIS|Detect Magic,10+WIS|Inflict Minor Wounds,10+WIS
+Orc (Gadohig)	OUTPUTNAME:Orc		FAVCLASS:Barbarian	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	VISION:Darkvision (60')													BONUS:SKILL|Intimidate|2|TYPE=Racial	BONUS:STAT|STR|4	BONUS:STAT|INT|-2	BONUS:STAT|CHA|-2	AUTO:LANG|Gadohig										SAB:For the purposes of finding food and water orcs have a +4 racial bonus to Survival in the spring and summer, +2 in the fall, and -2 in the winter.	RACETYPE:Humanoid				CR:1/2		SOURCEPAGE:p.9
 
 #
 # End

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2001-01
 #Original entry by Greg G (Phantom of Krankor)
 
@@ -67,14 +67,14 @@ Mourners in Silence	VISIBLE:EXPORT
 
 
 ###Block: Monastic Orders
-# Template Name				Visible		Special ABility																	Combat bonus					Add to base move			Bonus to skill			Class Skill								Cross-Class Skill			Auto Weapon Prof			Bonus
-Order of the Iron Soul			VISIBLE:EXPORT																																																								BONUS:SAVE|Will|2	BONUS:SAVE|Reflex|-1
-Order of the Blade			VISIBLE:EXPORT	SAB:Longsword as Monk Weapon																																														AUTO:WEAPONPROF|Longsword
+# Template Name				Visible		Special ABility																	Combat bonus					Add to base move			Save bonus						Bonus to skill			Class Skill								Cross-Class Skill			Auto Weapon Prof
+Order of the Iron Soul			VISIBLE:EXPORT																																BONUS:SAVE|Will|2	BONUS:SAVE|Reflex|-1
+Order of the Blade			VISIBLE:EXPORT	SAB:Longsword as Monk Weapon																																																					AUTO:WEAPONPROF|Longsword
 Order of the Perfect Union		VISIBLE:EXPORT	SAB:+2 save vs Mind Affecting spells/powers	SAB:-2 save vs. Fear spells/powers	SAB:Undead Vulnerability +2
 Brotherhood of Man			VISIBLE:EXPORT	SAB:Wisdom bonus to Unarmed Damage vs Vals (loses Wis AC)
-Order of the Bronze Sepulcer		VISIBLE:EXPORT	SAB:+2 save vs Fear spells/powers																										BONUS:SKILL|Diplomacy|-5
+Order of the Bronze Sepulcer		VISIBLE:EXPORT	SAB:+2 save vs Fear spells/powers																																	BONUS:SKILL|Diplomacy|-5
 Order of the Incandescent Path	VISIBLE:EXPORT	SAB:Cannot use Ranged Weapons															BONUS:COMBAT|AC|1|TYPE=Natural.REPLACE
-Order of the Pearl Maidens		VISIBLE:EXPORT																																					CSKILL:Knowledge (Sailing)|Knowledge (Navigation)	CCSKILL:Diplomacy|Perform	AUTO:WEAPONPROF|Longbow
+Order of the Pearl Maidens		VISIBLE:EXPORT																																												CSKILL:Knowledge (Sailing)|Knowledge (Navigation)	CCSKILL:Diplomacy|Perform	AUTO:WEAPONPROF|Longbow
 Contemplation of the Elements		VISIBLE:EXPORT
 Order of the Iridescent Scales	VISIBLE:EXPORT	SAB:AoOs against PC are at -2																						BONUS:MOVEADD|TYPE.Walk|10
 

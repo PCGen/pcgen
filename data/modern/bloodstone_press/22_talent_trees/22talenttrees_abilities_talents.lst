@@ -1,4 +1,4 @@
-# CVS $Revision: 3922 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 3922 $ $Author: amaitland $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:22 Talent Trees	SOURCESHORT:22TT	SOURCEWEB:http://www.bloodstone-press.com/22tt.html	SOURCEDATE:2003-11
 # Original Entry by: Paul W. King
 #
@@ -31,12 +31,12 @@ Hardened Body	CATEGORY:Talent		TYPE:Talent.StrongTalent.LikeRock	VISIBLE:YES	PRE
 Solid as a Rock	CATEGORY:Talent		TYPE:Talent.StrongTalent.LikeRock	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Strengthened Body,Hardened Body												BONUS:VAR|LikeRock|1	SOURCEPAGE:p.4
 
 ###Block: Mighty Tree
-# Ability Name	Category of Ability	Type						Visible	Required Ability												Description									Source Page		Bonus
-Might			CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES															DESC:Add Str bonus (+%1) to one saving throw 1/day|STR	SOURCEPAGE:p.4
-Mighty Fortitude	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Might																			SOURCEPAGE:p.5	BONUS:SAVE|Fortitude|STR|TYPE=Morale
-Mighty Reflexes	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Might																			SOURCEPAGE:p.5	BONUS:SAVE|Reflex|STR|TYPE=Morale
-Mighty Will		CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Might																			SOURCEPAGE:p.5	BONUS:SAVE|Will|STR|TYPE=Morale
-Incredible Might	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:4,CATEGORY=Talent,Might,Mighty Fortitude,Mighty Reflexes,Mighty Will											SOURCEPAGE:p.5
+# Ability Name	Category of Ability	Type						Visible	Required Ability												Description									Save bonus						Source Page
+Might			CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES															DESC:Add Str bonus (+%1) to one saving throw 1/day|STR								SOURCEPAGE:p.4
+Mighty Fortitude	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Might																			BONUS:SAVE|Fortitude|STR|TYPE=Morale	SOURCEPAGE:p.5
+Mighty Reflexes	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Might																			BONUS:SAVE|Reflex|STR|TYPE=Morale		SOURCEPAGE:p.5
+Mighty Will		CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Might																			BONUS:SAVE|Will|STR|TYPE=Morale		SOURCEPAGE:p.5
+Incredible Might	CATEGORY:Talent		TYPE:Talent.StrongTalent.Might	VISIBLE:YES	PREABILITY:4,CATEGORY=Talent,Might,Mighty Fortitude,Mighty Reflexes,Mighty Will																		SOURCEPAGE:p.5
 
 #
 #Fast talents
@@ -98,11 +98,11 @@ Cross Training	CATEGORY:Talent		TYPE:Talent.SmartTalent.FastLearner	VISIBLE:YES	
 #	 - ADD:CLASSSKILLS() is a Class level line tag ONLY
 
 ###Block: Quick Thinking Tree
-# Ability Name				Category of Ability	Type							Visible	Required Ability									Multiple?	Choose																																																Combat bonus				Bonus to skill		Source Page		Bonus
-Keen Reflex					CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:YES																																																																									SOURCEPAGE:p.7	BONUS:SAVE|Reflex|INT
-Keenly Skilled				CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:YES												MULT:YES	CHOOSE:STRING|Bluff|Climb|Diplomacy|Disguise|Drive|Handle Animal|Jump|Perform (Act)|Perform (Dance)|Perform (Keyboards)|Perform (Percussion Instruments)|Perform (Sing)|Perform (Stand-Up)|Perform (Stringed Instruments)|Perform (Wind Instruments)|Pilot|Profession|Ride|Sense Motive|Survival|Swim							BONUS:SKILL|LIST|INT	SOURCEPAGE:p.7
-Perspicacious Response			CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:YES																																																															BONUS:COMBAT|INITIATIVE|INT						SOURCEPAGE:p.8
-Greater Perspicacious Response	CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Perspicacious Response,Keen Reflex																																																				BONUS:COMBAT|INITIATIVE|SAVE.Will					SOURCEPAGE:p.8
+# Ability Name				Category of Ability	Type							Visible	Required Ability									Multiple?	Choose																																																Combat bonus				Save bonus			Bonus to skill		Source Page
+Keen Reflex					CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:YES																																																																					BONUS:SAVE|Reflex|INT					SOURCEPAGE:p.7
+Keenly Skilled				CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:YES												MULT:YES	CHOOSE:STRING|Bluff|Climb|Diplomacy|Disguise|Drive|Handle Animal|Jump|Perform (Act)|Perform (Dance)|Perform (Keyboards)|Perform (Percussion Instruments)|Perform (Sing)|Perform (Stand-Up)|Perform (Stringed Instruments)|Perform (Wind Instruments)|Pilot|Profession|Ride|Sense Motive|Survival|Swim											BONUS:SKILL|LIST|INT	SOURCEPAGE:p.7
+Perspicacious Response			CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:YES																																																															BONUS:COMBAT|INITIATIVE|INT										SOURCEPAGE:p.8
+Greater Perspicacious Response	CATEGORY:Talent		TYPE:Talent.SmartTalent.QuickThinking	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Perspicacious Response,Keen Reflex																																																				BONUS:COMBAT|INITIATIVE|SAVE.Will									SOURCEPAGE:p.8
 
 ###Block: Tactical Tree
 # Ability Name		Category of Ability	Type						Visible	Required Ability							Source Page
@@ -138,13 +138,13 @@ Financial Support	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Selfless	VISIBLE:
 Life Support	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Selfless	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Moral Support,Financial Support	SOURCEPAGE:p.11
 
 ###Block: Virtuous Tree
-# Ability Name		Category of Ability	Type						Visible	Required Ability							Define			Stackable?	Multiple?	Choose		Bonus to skill																							Modify VAR			Source Page		Bonus
-Virtue			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:YES										DEFINE:VirtueBonus|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILL|Diplomacy,Handle Animal,Intimidate,Knowledge (Arcane Lore),Knowledge (Theology and Philosophy),TYPE.Perform,Treat Injury|VirtueBonus	BONUS:VAR|VirtueBonus|1	SOURCEPAGE:p.11
+# Ability Name		Category of Ability	Type						Visible	Required Ability							Define			Stackable?	Multiple?	Choose		Save bonus				Bonus to skill																							Modify VAR			Source Page
+Virtue			CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:YES										DEFINE:VirtueBonus|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE						BONUS:SKILL|Diplomacy,Handle Animal,Intimidate,Knowledge (Arcane Lore),Knowledge (Theology and Philosophy),TYPE.Perform,Treat Injury|VirtueBonus	BONUS:VAR|VirtueBonus|1	SOURCEPAGE:p.11
 # MULT:YES without a CHOOSE?
-Aura of Virtue		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Virtue																																												SOURCEPAGE:p.11
-Greater Aura of Virtue	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Virtue,Aura of Virtue																																									SOURCEPAGE:p.11
-Aura of Righteousness	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Virtue,Aura of Virtue																																									SOURCEPAGE:p.11
-Clean Living		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Virtue																																												SOURCEPAGE:p.12	BONUS:SAVE|Fortitude|WIS
+Aura of Virtue		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Virtue																																																	SOURCEPAGE:p.11
+Greater Aura of Virtue	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Virtue,Aura of Virtue																																														SOURCEPAGE:p.11
+Aura of Righteousness	CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:YES	PREABILITY:2,CATEGORY=Talent,Virtue,Aura of Virtue																																														SOURCEPAGE:p.11
+Clean Living		CATEGORY:Talent		TYPE:Talent.DedicatedTalent.Virtue	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Virtue															BONUS:SAVE|Fortitude|WIS																														SOURCEPAGE:p.12
 
 #
 #Charismatic talents

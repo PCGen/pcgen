@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders	SOURCESHORT:GuideMO	SOURCEWEB:http://www.aleapublishing.com	SOURCEDATE:2003-01
 # Original Entry: Andrew Maitland
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Knight Commander	HD:10		TYPE:PC.Prestige	ABB:KnCmdr		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat					Required Skill								PRETOTALAB
 CLASS:Knight Commander	PREFEAT:1,Banneret,Preceptor,Leadership	PRESKILL:2,Diplomacy=13,Knowledge (Nobility and Royalty)=5	PRETOTALAB:7

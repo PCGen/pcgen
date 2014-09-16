@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCESHORT:Vlad	SOURCEWEB:http://www.avalanchepress.com/gameVlad.php	SOURCEDATE:2002-01
 # Original Entry by: Jerril
 
@@ -11,7 +11,7 @@ SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCES
 #   No class abbreviations are listed. Left blank. Need to ask Avalanche if they have any preferences.
 
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Boyar		HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Skill		Required Stat	Required Text
 CLASS:Boyar		PRESKILL:1,Intimidate=8	PRESTAT:1,CHA=13	PRETEXT:Must own a Castle
@@ -34,7 +34,7 @@ CLASS:Boyar		STARTSKILLPTS:2	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Handl
 9							BONUS:VAR|BoyarOverTaxing|1
 10	BONUS:ABILITYPOOL|Boyar Feat|1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Black Hussar	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Skill	Required Stat	Required Text
 CLASS:Black Hussar	PRESKILL:1,Ride=8	PRESTAT:1,CHA=13	PRETEXT:Must be Nobility
@@ -56,7 +56,7 @@ CLASS:Black Hussar	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Handle Animal|I
 9							ABILITY:Special Ability|AUTOMATIC|Graceful Fall
 10	BONUS:VAR|HussarCoursersFury|1
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Red Hussar	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Skill	Required Stat	Required Text
 CLASS:Red Hussar	PRESKILL:1,Ride=8	PRESTAT:1,CHA=13	PRETEXT:Must be Common
@@ -76,7 +76,7 @@ CLASS:Red Hussar	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Handle Animal|Int
 9								ABILITY:Special Ability|AUTOMATIC|Graceful Fall
 
 
-# Class Name	Hit Dice	Type			Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Source Page		Combat bonus										Save bonus
 CLASS:Herbalist	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Herbalist	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Nature)|Profession (Apothecary)|Search|Spellcraft|Spot|Use Magic Device|Wilderness Lore|TYPE=Craft
@@ -93,7 +93,7 @@ CLASS:Herbalist	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|Gath
 16	BONUS:ABILITYPOOL|Herbalist Moderate Poultice|1
 19	BONUS:ABILITYPOOL|Herbalist Major Poultice|1
 
-# Class Name	Hit Dice	Type			Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Source Page		Combat bonus										Save bonus
 CLASS:Lautar	HD:4		TYPE:NPC.Base	SOURCEPAGE:p.31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lautar	STARTSKILLPTS:2	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE=Craft|Gather Information|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Local History)|Knowledge (Religion)|Knowledge (Undead)|Perform|Spellcraft|Use Magic Device

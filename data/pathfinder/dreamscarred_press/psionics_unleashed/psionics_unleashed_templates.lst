@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
 # Original Entry by: Douglas Limmer
 # SRD Original Entry by: Arknight
@@ -60,7 +60,7 @@ Melee touch 10d8	VISIBLE:DISPLAY	NATURALATTACKS:Touch,Weapon.Natural.Melee.Touch
 
 
 ###BLOCK: Ascetic Trance bonus choice
-# Template Name		Visible		Multiple Requirements															Combat bonus																									Bonus
+# Template Name		Visible		Multiple Requirements															Combat bonus																									Save bonus
 Ascetic Trance AC		VISIBLE:DISPLAY	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Trance ~ Ascetic],[!PRETEMPLATE:1,Ascetic Trance Saves]	BONUS:COMBAT|AC|((WarriorPathLVL+1)/4)*PsionicFocusActive*(var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")+(1-var("COUNT[EQTYPE.ARMOR.EQUIPPED]")))|TYPE=Insight
 Ascetic Trance Saves	VISIBLE:DISPLAY	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Trance ~ Ascetic],[!PRETEMPLATE:1,Ascetic Trance AC]																													BONUS:SAVE|ALL|((WarriorPathLVL+1)/4)*PsionicFocusActive*(var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")+(1-var("COUNT[EQTYPE.ARMOR.EQUIPPED]")))|TYPE=Insight
 

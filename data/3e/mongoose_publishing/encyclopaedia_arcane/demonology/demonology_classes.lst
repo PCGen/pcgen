@@ -1,7 +1,7 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology	SOURCESHORT:Demonology	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-01
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Demonologist	HD:4		TYPE:PC.Prestige	ABB:Dem		MAXLEVEL:10	SOURCEPAGE:p.8-9	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat		Required Language
 CLASS:Demonologist	PREFEAT:1,Spell Mastery	PRELANG:1,Draconic
@@ -18,7 +18,7 @@ CLASS:Demonologist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Decip
 9	ADD:SPELLCASTER|Arcane
 10	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Greater Control ~ Demonologist
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Binder	HD:4		TYPE:PC.Prestige	ABB:Bnd		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat								Required Skill				Req. Spell Type
 CLASS:Binder	PREFEAT:2,Craft Magic Arms and Armor,Craft Wondrous Item	PRESKILL:1,Knowledge (Demonology)=8	PRESPELLTYPE:1,Arcane=1
@@ -35,7 +35,7 @@ CLASS:Binder	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Decipher Sc
 9	ADD:SPELLCASTER|Arcane
 10	ADD:SPELLCASTER|Arcane
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Save bonus
 CLASS:Possessed	HD:4		TYPE:PC.Prestige	ABB:Pos		MAXLEVEL:10	SOURCEPAGE:p.11-12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL				Required Feat				Required Skill
 CLASS:Possessed	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:1,Strength of Personality	PRESKILL:1,Knowledge (Demonology)=11

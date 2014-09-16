@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 # Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
 SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
 
-# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Save bonus
 CLASS:Champion of the Dead	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.29-31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL		Required Skill				PRETOTALAB
 CLASS:Champion of the Dead	PREALIGN:LE,NE,CE	PRESKILL:1,Knowledge (Arcana)=4	PRETOTALAB:5
@@ -23,8 +23,8 @@ CLASS:Champion of the Dead	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Intimidate|Knowledg
 9							ABILITY:Special Ability|AUTOMATIC|Unholy Radiance ~ Champion of the Dead
 10							ABILITY:Special Ability|AUTOMATIC|Warlord of the Dead ~ Champion of the Dead
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus															Modify VAR													Bonus
-CLASS:Chirurgeon	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.31-34	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus															Save bonus																					Modify VAR
+CLASS:Chirurgeon	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.31-34	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required AL				Required Feat								Required Skill										Req. Known Spell			Required Spell School		Required Text
 CLASS:Chirurgeon	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Craft Wondrous Item,Spell Focus (Necromancy)	PRESKILL:4,Craft (Autopsy)=6,Heal=3,Alchemy=8,Knowledge (Arcana)=8	PRESPELL:1,Gentle Repose	PRESPELLSCHOOL:4,Necromancy=0	PRETEXT:Must have successfully studied, dissected, and reassembled the fresh corpse of at least one creature with a CR of 5 or higher.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -41,7 +41,7 @@ CLASS:Chirurgeon	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Heal|In
 9	BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Improved Flesh Golem ~ Chirurgeon
 10	BONUS:VAR|TouchofRepose|1					ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Brain Graft ~ Chirurgeon
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:The Dying	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl
 CLASS:The Dying	STARTSKILLPTS:2
@@ -62,8 +62,8 @@ CLASS:The Dying	STARTSKILLPTS:2
 9	VISION:Darkvision (60')	DR:15/+2																				ABILITY:Special Ability|AUTOMATIC|Blindness ~ The Dying
 10																										ABILITY:Special Ability|AUTOMATIC|Death ~ The Dying
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus															Modify VAR														Bonus
-CLASS:Exorcist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.37-40	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus															Save bonus																					Modify VAR
+CLASS:Exorcist	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.37-40	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required AL				Required Feat		Required Skill
 CLASS:Exorcist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Extra Turning	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=8
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -88,7 +88,7 @@ CLASS:Exorcist	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Gather In
 9	BONUS:ABILITYPOOL|Extra Turning|1					ABILITY:Special Ability|AUTOMATIC|Holy Aura ~ Exorcist
 10							ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Touch of the Holy ~ Exorcist
 
-# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Save bonus
 CLASS:Faith Hunter	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.40-42	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL					Required Feat		Required Skill
 CLASS:Faith Hunter	PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	PREFEAT:1,Iron Will	PRESKILL:2,Heal=4,Knowledge (Arcana)=5
@@ -107,7 +107,7 @@ CLASS:Faith Hunter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Escape Artist
 9	BONUS:VAR|CompelSolidForm|CHA+10+CL					ABILITY:Special Ability|AUTOMATIC|Compel Solid Form ~ Faith Hunter
 10											ABILITY:Special Ability|AUTOMATIC|Undead Foe ~ Faith Hunter
 
-# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Save bonus
 CLASS:Hunter of the Fallen	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.42-44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL			Required Feat
 CLASS:Hunter of the Fallen	PREALIGN:NG,TN,CG,CN	PREFEAT:1,Martial Weapon Proficiency
@@ -123,7 +123,7 @@ CLASS:Hunter of the Fallen	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disguise|Forge
 8												ABILITY:Special Ability|AUTOMATIC|True Death ~ Hunter of the Fallen
 10	BONUS:VAR|FavoredEnemy|1
 
-# Class Name				Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
+# Class Name				Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Save bonus
 CLASS:Knight of the Eternal Eye	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44-46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|0*classlevel("APPLIEDAS=NONEPIC")
 # Class Name				Required AL		Required Check Base	Required Feat
 CLASS:Knight of the Eternal Eye	PREALIGN:LG,LN,LE	PRECHECKBASE:1,Will=5	PREFEAT:1,Iron Will
@@ -139,7 +139,7 @@ CLASS:Knight of the Eternal Eye	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|
 8																								ABILITY:Special Ability|AUTOMATIC|Incorporeality ~ Knight of the Eternal Eye
 10																								ABILITY:Special Ability|AUTOMATIC|Darkness form Darkness ~ Knight of the Eternal Eye
 
-# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Save bonus
 CLASS:Paladin of the Pale	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.47-48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required Class		Required Skill					Required Text
 CLASS:Paladin of the Pale	PRECLASS:1,Paladin=5	PRESKILL:2,Knowledge (Religion)=8,Heal=8	PRETEXT:Special (see text)
@@ -162,7 +162,7 @@ CLASS:Paladin of the Pale	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Palad
 9	BONUS:PCLEVEL|Paladin|1
 10	BONUS:PCLEVEL|Paladin|1															ABILITY:Special Ability|AUTOMATIC|Holy Terror ~ Paladin of the Pale
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Save bonus
 CLASS:Puppet	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.49-50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|0*classlevel("APPLIEDAS=NONEPIC")
 # Class Name	Required AL				Required Text
 CLASS:Puppet	PREALIGN:LN,LE,TN,NE,CN,CE	PRETEXT:Special (see text)
@@ -178,8 +178,8 @@ CLASS:Puppet	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Decipher Script|Disguise|Gat
 9	BONUS:VAR|ThyMastersWill|1																									AUTO:FEAT|Toughness
 10	BONUS:VAR|ThyMastersWill|1
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus															Modify VAR														Bonus
-CLASS:Raider	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus															Save bonus																					Modify VAR
+CLASS:Raider	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.50-52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Skill											Required Text
 CLASS:Raider	PRESKILL:4,Hide=6,Move Silently=6,Intuit Direction=4,Knowledge (Arcana)=4	PRETEXT:Special (see text)
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -194,7 +194,7 @@ CLASS:Raider	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script
 9																				ABILITY:Special Ability|AUTOMATIC|Skillful Dodge ~ Raider
 10																				ABILITY:Special Ability|AUTOMATIC|Escape Certain Doom ~ Raider
 
-# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Bonus
+# Class Name	Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus										Save bonus
 CLASS:Risen		NAMEISPI:YES	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.53-54	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|0*classlevel("APPLIEDAS=NONEPIC")
 # Class Name	Required Check Base	Required Feat
 CLASS:Risen		PRECHECKBASE:1,Will=8	PREFEAT:4,Endurance,Great Fortitude,Iron Will,Toughness
@@ -211,8 +211,8 @@ CLASS:Risen		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Swim
 9	BONUS:VAR|Blood,WotG|1
 10											ABILITY:Special Ability|AUTOMATIC|Rejecting the Crypt ~ Risen										AUTO:FEAT|Toughness
 
-# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus															Modify VAR													Bonus
-CLASS:Sacred Theurgist	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.54-56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus															Save bonus																					Modify VAR
+CLASS:Sacred Theurgist	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.54-56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required AL				Required Feat				Required Skill				Required Spell School		Req. Spell Type		Required Text
 CLASS:Sacred Theurgist	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:1,Knowledge (Religion)=8	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLTYPE:1,Arcane=3	PRETEXT:Special (see text)
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -229,8 +229,8 @@ CLASS:Sacred Theurgist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|T
 10								ABILITY:Special Ability|AUTOMATIC|Master of the Dead ~ Sacred Theurgis
 
 
-# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus															Modify VAR														Bonus
-CLASS:Unbeating Heart	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.57-59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus															Save bonus																					Modify VAR
+CLASS:Unbeating Heart	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.57-59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required AL		PRETOTALAB
 CLASS:Unbeating Heart	PREALIGN:LE,NE,CE	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -251,8 +251,8 @@ CLASS:Unbeating Heart	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|
 9																													ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Beyond the Veil ~ Unbeating Heart
 10																																	ABILITY:Special Ability|AUTOMATIC|Beyond Death ~ Unbeating Heart		TEMPLATE:Undeath
 
-# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus															Modify VAR														Bonus
-CLASS:Wasteland Druid	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.59-60	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page			Combat bonus															Save bonus																					Modify VAR
+CLASS:Wasteland Druid	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.59-60	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required AL	Required Feat			Required Skill												Required Spell School		Req. Spell Type		Required Text
 CLASS:Wasteland Druid	PREALIGN:NE	PREFEAT:2,Iron Will,Toughness	PRESKILL:4,Knowledge (Arcana)=4,Wilderness Lore=8,Knowledge (Nature)=8,Diplomacy=8	PRESPELLSCHOOL:1,Necromancy=3	PRESPELLTYPE:1,Divine=3	PRETEXT:Special (see text)
 # Class Name		Skill Pts/Lvl	Class Skill

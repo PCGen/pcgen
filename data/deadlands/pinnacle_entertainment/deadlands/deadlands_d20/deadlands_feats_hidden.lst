@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
 ###Block: Agency Operative class features
@@ -78,11 +78,11 @@ Jury Rig		TYPE:ClassAbility	VISIBLE:NO	SAB:Jury Rig %|JuryRig	DEFINE:JuryRig|0	S
 Jinx			TYPE:ClassAbility	VISIBLE:NO	SAB:Jinx						SOURCEPAGE:p.32
 
 ###Block: Maverick class features
-# Feat Name			Type			Visible	Special ABility		Virtual Feat		Modify VAR				Source Page		Bonus
-Extraordinary Luck	TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Luck										SOURCEPAGE:p.34	BONUS:SAVE|Fortitude,Reflex,Will|max(CHA,0)
-Gambler's Luck		TYPE:ClassAbility	VISIBLE:NO	SAB:Gambler's Luck										SOURCEPAGE:p.34
-Maverick Sneak Attack	TYPE:ClassAbility	VISIBLE:NO					VFEAT:Sneak Attack	BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.34
-Slippery Mind		TYPE:ClassAbility	VISIBLE:NO	SAB:Slippery Mind											SOURCEPAGE:p.34
+# Feat Name			Type			Visible	Special ABility		Virtual Feat		Save bonus							Modify VAR				Source Page
+Extraordinary Luck	TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Luck					BONUS:SAVE|Fortitude,Reflex,Will|max(CHA,0)						SOURCEPAGE:p.34
+Gambler's Luck		TYPE:ClassAbility	VISIBLE:NO	SAB:Gambler's Luck																		SOURCEPAGE:p.34
+Maverick Sneak Attack	TYPE:ClassAbility	VISIBLE:NO					VFEAT:Sneak Attack									BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.34
+Slippery Mind		TYPE:ClassAbility	VISIBLE:NO	SAB:Slippery Mind																			SOURCEPAGE:p.34
 # Not sure on the Maverick Sneak Attack, but had to remove the ADD:SPECIAL. - Tir Gwaith
 
 ###Block: Rowdy class abilities

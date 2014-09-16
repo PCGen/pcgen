@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Malhavoc Press - Book of Eldritch Might II	SOURCESHORT:BoEM2	SOURCEWEB:http://www.montecook.com
 # The Bard, Sorcerer, and Eldritch Warrior are the only OGC named classes.  The rest of the names are PI
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Optionnal Weapon Prof.																Combat bonus											Bonus
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Optionnal Weapon Prof.																Combat bonus											Save bonus
 CLASS:Bard (Monte Cook's)	HD:6		TYPE:Base.PC	ABB:Brd(MC)		MAXLEVEL:20	SOURCEPAGE:p.5	WEAPONBONUS:Longbow|Longbow (Composite)|Longsword|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|Whip	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL
 CLASS:Bard (Monte Cook's)	PREALIGN:NG,TN,NE,CG,CN,CE
@@ -41,7 +41,7 @@ CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEM
 19	CAST:0,12,0,9,0,6	KNOWN:0,11,0,8,0,4
 20	CAST:0,12,0,9,0,7	KNOWN:0,11,0,8,0,5	SAB:Weave Melodies
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Sorceror (Monte Cook's)	HD:6		TYPE:Base.PC	ABB:Sor(MC)		MAXLEVEL:20	SOURCEPAGE:p.8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Sorceror (Monte Cook's)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Diplomacy|Gather Information|Knowledge (Arcana)|TYPE=Profession|Scry|Spellcraft
@@ -71,7 +71,7 @@ CLASS:Sorceror (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:C
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,5,5,5,5,4,3,3
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,5,5,5,5,4,4,3
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Bonus
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Diplomancer	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat								Required Skill
 CLASS:Diplomancer	PREFEAT:2,Skill Focus (Diplomacy),Spell Focus (Enchantment)	PRESKILL:2,Diplomacy=10,Sense Motive=8
@@ -88,7 +88,7 @@ CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Dip
 9	SAB:Word Cunning														ADD:SPELLCASTER|ANY
 10									BONUS:VAR|EnchantAff|1					ADD:SPELLCASTER|ANY
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Eldritch Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat					Required Skill								PRETOTALAB
 CLASS:Eldritch Warrior	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:3,Alchemy=3,Knowledge (Arcana)=3,Spellcraft=1	PRETOTALAB:5
@@ -107,7 +107,7 @@ CLASS:Eldritch Warrior	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Eldritch Warrior|CL
 9					ADD:FEAT|Ambidexterity,Cleave,Dodge,Exotic Weapon Proficiency,Expertise,Far Shot,Great Cleave,Improved Bull Rush,Improved Critical,Improved Disarm,Improved Initiative,Improved Trip,Improved Two-Weapon Fighting,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Power Attack,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Sunder,Trample,Two-Weapon Fighting,Weapon Finesse,Weapon Focus,Whirlwind Attack
 10	SAB:Ritual of Potency
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Knight of the Chord	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL		Required Feat				Required Skill					Var. Min. Value
 CLASS:Knight of the Chord	PREALIGN:CG,CN,CE	PREFEAT:2,Toughness,Weapon Focus	PRESKILL:2,Knowledge (Arcana)=3,Perform=9	PREVARGTEQ:Spellsong,2
@@ -124,7 +124,7 @@ CLASS:Knight of the Chord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE=
 9	SAB:Sonic Protection
 10	SAB:Song of Smiting				ADD:SPELLCASTER|ANY
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Song Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL				Required Feat			Required Skill					Var. Min. Value
 CLASS:Song Mage	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Magical Talent	PRESKILL:2,Knowledge (Arcana)=3,Perform=8	PREVARGTEQ:Spellsong,2

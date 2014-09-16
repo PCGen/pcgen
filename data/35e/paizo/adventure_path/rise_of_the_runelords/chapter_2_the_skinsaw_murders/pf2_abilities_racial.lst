@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Rise of the Runelords - Chapter 2: The Skinsaw Murders	SOURCESHORT:PF2	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
 # Original Entry by: Stefan Radermacher
 
@@ -35,9 +35,9 @@ Desna's Glare	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:N
 Traveler's Friend	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Traveler's Friend (Su)
 
 ###Block: Revenant Abilities
-# Ability Name	Category of Ability		Type						Visible	Special ABility						Define				Bonus to HP				Modify VAR						Vision			Bonus
-Baleful Shriek	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Baleful Shriek (Su) DC %|BalefulShriekDC	DEFINE:BalefulShriekDC|0						BONUS:VAR|BalefulShriekDC|10+(HD/2)+CHA
+# Ability Name	Category of Ability		Type						Visible	Special ABility						Define				Bonus to HP				Save bonus				Modify VAR						Vision
+Baleful Shriek	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Baleful Shriek (Su) DC %|BalefulShriekDC	DEFINE:BalefulShriekDC|0											BONUS:VAR|BalefulShriekDC|10+(HD/2)+CHA
 Reason to Hate	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Reason to Hate (Su)
 Self-Loathing	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Self-Loathing (Ex)
-Sense Murderer	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO																										VISION:Sense Murderer
-Unholy Fortitude	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Unholy Fortitude										BONUS:HP|CURRENTMAX|CHA*TL												BONUS:SAVE|Fortitude|CHA
+Sense Murderer	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO																															VISION:Sense Murderer
+Unholy Fortitude	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Unholy Fortitude										BONUS:HP|CURRENTMAX|CHA*TL	BONUS:SAVE|Fortitude|CHA

@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/05
@@ -334,14 +334,14 @@ Critical Master			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC
 Through the Eye of the Needle	CATEGORY:Special Ability	TYPE:SpecialAttack			DESC:Do extra damage and add a penalty (DC %1) with standard action.|20+WIS													SOURCEPAGE:p.51
 
 ###Block: Volley Style Abilities
-# Ability Name	Category of Ability		Type						Description																																		Combat bonus												Source Page		Temporary Bonus								Bonus
-Volley Technique	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Expend focus to gain one additional attack on full attack.																																							SOURCEPAGE:p.51
-Volley Mantra	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:+%1 bonus on initiative and Reflex saves.|(MarksmanStyleLVL+1)/4																								BONUS:COMBAT|INITIATIVE|(MarksmanStyleLVL+1)/4*PsionicFocusActive|TYPE=Competence	SOURCEPAGE:p.51											BONUS:SAVE|Reflex|(MarksmanStyleLVL+1)/4*PsionicFocusActive|TYPE=Competence
-Split Shot		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Split damage between two targets, %1/day.  Use the same attack roll for both targets.|3+WIS																																	SOURCEPAGE:p.51
-Quick Volley	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:When focused, make full attack while moving with -4 to attacks and -2 AC.																																				SOURCEPAGE:p.52	TEMPBONUS:PC|COMBAT|TOHIT|-4	TEMPBONUS:PC|COMBAT|AC|-2
-Burst Arrows	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Expend focus as part of a full attack to cover the target area with caltrops for %1 rounds and deal %1 damage to all within 5 ft .(DC %2), %3/day|WIS|10+MarksmanStyleLVL/2+WIS|(MarksmanStyleLVL-10)/2															SOURCEPAGE:p.52
-Vicious Volley	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Make two attack rolls per attack on full attack, 1/10 minutes.																																						SOURCEPAGE:p.52
-Block the Sun	CATEGORY:Special Ability	TYPE:SpecialAttack			DESC:Target several adjacent squares, and attack all creatures in those squares once, as a full-round action.																															SOURCEPAGE:p.52
+# Ability Name	Category of Ability		Type						Description																																		Combat bonus												Save bonus												Source Page		Temporary Bonus
+Volley Technique	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Expend focus to gain one additional attack on full attack.																																																				SOURCEPAGE:p.51
+Volley Mantra	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:+%1 bonus on initiative and Reflex saves.|(MarksmanStyleLVL+1)/4																								BONUS:COMBAT|INITIATIVE|(MarksmanStyleLVL+1)/4*PsionicFocusActive|TYPE=Competence	BONUS:SAVE|Reflex|(MarksmanStyleLVL+1)/4*PsionicFocusActive|TYPE=Competence	SOURCEPAGE:p.51
+Split Shot		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Split damage between two targets, %1/day.  Use the same attack roll for both targets.|3+WIS																																														SOURCEPAGE:p.51
+Quick Volley	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:When focused, make full attack while moving with -4 to attacks and -2 AC.																																																	SOURCEPAGE:p.52	TEMPBONUS:PC|COMBAT|TOHIT|-4	TEMPBONUS:PC|COMBAT|AC|-2
+Burst Arrows	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Expend focus as part of a full attack to cover the target area with caltrops for %1 rounds and deal %1 damage to all within 5 ft .(DC %2), %3/day|WIS|10+MarksmanStyleLVL/2+WIS|(MarksmanStyleLVL-10)/2																												SOURCEPAGE:p.52
+Vicious Volley	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DESC:Make two attack rolls per attack on full attack, 1/10 minutes.																																																			SOURCEPAGE:p.52
+Block the Sun	CATEGORY:Special Ability	TYPE:SpecialAttack			DESC:Target several adjacent squares, and attack all creatures in those squares once, as a full-round action.																																												SOURCEPAGE:p.52
 
 
 # ======================== TACTICIAN ====================== #

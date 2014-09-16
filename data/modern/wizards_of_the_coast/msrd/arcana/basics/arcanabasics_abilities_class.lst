@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 
@@ -119,7 +119,7 @@ Wildlord Skill Mastery	CATEGORY:Special Ability	TYPE:WildlordSkillMastery	VISIBL
 
 ###Block: Prestige ----------------------------------------------------------------------------------------------------------------
 #Block:Archmage ---------------------------------------------------------------------------------------------------------------------------------
-# Ability Name				Category of Ability		Type					Visible	Special ABility																																							Define							Caster level																																								Bonus
+# Ability Name				Category of Ability		Type					Visible	Special ABility																																							Define							Caster level																																								Save bonus
 Total Spellcasting ~ Archmage		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Total Spellcasting																																														BONUS:CASTERLEVEL|Techno Mage|CL=Mage|PRECLASS:1,Techno Mage=1	BONUS:CASTERLEVEL|Mage|CL=Techno Mage|PRECLASS:1,Mage=1
 Increased Spells ~ Archmage		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Increased Spells/Day (base number of arcane spells increase by 1/2 round down)|PREVAREQ:IncreasedSpellsProgression,1	SAB:Increased Spells/Day (double base number of arcane spells)|PREVAREQ:IncreasedSpellsProgression,2				DEFINE:IncreasedSpellsProgression|0
 Gifted Incantations			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Gifted Incantations

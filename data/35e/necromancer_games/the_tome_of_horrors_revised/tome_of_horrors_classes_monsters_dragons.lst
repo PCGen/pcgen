@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2002-01
 # Initial Author: Aaron Divinsky <boomer70@yahoo.com>
 
-# Class Name		Hit Dice	Type			Max Level		Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Max Level		Source Page		Combat bonus										Save bonus
 CLASS:Cloud Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.162	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Race			Reg. Race Type
 CLASS:Cloud Dragon	PRERACE:1,Dragon (Cloud%	PRERACETYPE:Dragon
@@ -44,7 +44,7 @@ CLASS:Cloud Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 
 # Added by: Arjan van Ginneken
 
-# Class Name	Hit Dice	Type			Max Level		Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Max Level		Source Page		Combat bonus										Save bonus
 CLASS:Mist Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.165	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Race		Reg. Race Type
 CLASS:Mist Dragon	PRERACE:1,Dragon (Mist%	PRERACETYPE:Dragon

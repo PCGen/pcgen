@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
 # Original Entry by: Paul Shipley (elro the onk)
 
@@ -13,11 +13,11 @@ Head Butt ~ Large		VISIBLE:NO	!PREEQUIP:1,Head Butt	PRESIZEEQ:L		NATURALATTACKS:
 Earthborn		RACESUBTYPE:Earth
 
 ###Block: New templates
-# Template Name		Damage Reduction				Source Page		Define									Required Race							Bonus DR													Misc bonus			Modify VAR																																		Ability																		Auto Language		Race Subtype				Bonus
-Arctic									SOURCEPAGE:p.95																																																																									ABILITY:Special Ability|AUTOMATIC|Cold Resistance ~ Arctic|Fire Vulnerability ~ Arctic|Snowy Adaptation ~ Arctic
-Cold-Iron Elemental							SOURCEPAGE:p.95	DEFINE:NoEarthMastery|0	DEFINE:NoEarthGlide|0			PRERACE:2,RACESUBTYPE=Earth,RACESUBTYPE=Elemental															BONUS:MISC|SR|5+HD	BONUS:VAR|NoEarthMastery|1	BONUS:VAR|NoEarthGlide|1																										ABILITY:Special Ability|AUTOMATIC|Cold Iron Attacks ~ Cold Iron Elemental
-Ice Elemental								SOURCEPAGE:p.95	DEFINE:NoEarthMastery|0							PRERACE:2,RACESUBTYPE=Earth,RACESUBTYPE=Elemental																			BONUS:VAR|NoEarthMastery|1																															ABILITY:Special Ability|AUTOMATIC|Freeze ~ Ice Elemental										AUTO:LANG|.CLEAR|Aquan	RACESUBTYPE:.REMOVE.Earth|Cold
-Ironskinned			DR:1/adamantine|PREVARGTEQ:TL,6	SOURCEPAGE:p.96	DEFINE:AcidResistanceBonus|0	DEFINE:IronskinnedBonus|0										BONUS:DR|adamantine|1|PREVARGTEQ:TL,11	BONUS:DR|adamantine|1|PREVARGTEQ:TL,21					BONUS:VAR|AcidResistanceBonus|3+IronskinnedBonus|TYPE=Resistance	BONUS:VAR|IronskinnedBonus|2|PREVARGTEQ:TL,6	BONUS:VAR|IronskinnedBonus|5|PREVARGTEQ:TL,11	BONUS:VAR|IronskinnedBonus|5|PREVARGTEQ:TL,21	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Thick Build ~ Ironskinned|Vulnerability to Sonic													BONUS:SAVE|Reflex|-2
+# Template Name		Damage Reduction				Source Page		Define									Required Race							Bonus DR													Misc bonus			Save bonus			Modify VAR																																		Ability																		Auto Language		Race Subtype
+Arctic									SOURCEPAGE:p.95																																																																													ABILITY:Special Ability|AUTOMATIC|Cold Resistance ~ Arctic|Fire Vulnerability ~ Arctic|Snowy Adaptation ~ Arctic
+Cold-Iron Elemental							SOURCEPAGE:p.95	DEFINE:NoEarthMastery|0	DEFINE:NoEarthGlide|0			PRERACE:2,RACESUBTYPE=Earth,RACESUBTYPE=Elemental															BONUS:MISC|SR|5+HD					BONUS:VAR|NoEarthMastery|1	BONUS:VAR|NoEarthGlide|1																										ABILITY:Special Ability|AUTOMATIC|Cold Iron Attacks ~ Cold Iron Elemental
+Ice Elemental								SOURCEPAGE:p.95	DEFINE:NoEarthMastery|0							PRERACE:2,RACESUBTYPE=Earth,RACESUBTYPE=Elemental																							BONUS:VAR|NoEarthMastery|1																															ABILITY:Special Ability|AUTOMATIC|Freeze ~ Ice Elemental										AUTO:LANG|.CLEAR|Aquan	RACESUBTYPE:.REMOVE.Earth|Cold
+Ironskinned			DR:1/adamantine|PREVARGTEQ:TL,6	SOURCEPAGE:p.96	DEFINE:AcidResistanceBonus|0	DEFINE:IronskinnedBonus|0										BONUS:DR|adamantine|1|PREVARGTEQ:TL,11	BONUS:DR|adamantine|1|PREVARGTEQ:TL,21					BONUS:SAVE|Reflex|-2	BONUS:VAR|AcidResistanceBonus|3+IronskinnedBonus|TYPE=Resistance	BONUS:VAR|IronskinnedBonus|2|PREVARGTEQ:TL,6	BONUS:VAR|IronskinnedBonus|5|PREVARGTEQ:TL,11	BONUS:VAR|IronskinnedBonus|5|PREVARGTEQ:TL,21	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Thick Build ~ Ironskinned|Vulnerability to Sonic
 
 ###Block: Templates for unbreathing subtype
 # Template Name		Visible	Define				Required Race							Prohibited Race			Modify VAR								Ability

@@ -1,15 +1,15 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Reign of Winter Player's Guide	SOURCESHORT:ROWPG	SOURCEWEB:http://paizo.com/products/btpy8x1t?Pathfinder-Adventure-Path-Reign-of-Winter-Players-Guide	SOURCEDATE:2013-02
 # Original Entry by: Stefan Radermacher
 
 
 
-# Race of familiar		Type			Combat bonus			Bonus to skill		Bonus				Bonus to Situation
-MASTERBONUSRACE:Arctic Fox	TYPE:Familiar										BONUS:SAVE|Reflex|2
+# Race of familiar		Type			Combat bonus			Save bonus			Bonus to skill		Bonus to Situation
+MASTERBONUSRACE:Arctic Fox	TYPE:Familiar						BONUS:SAVE|Reflex|2
 MASTERBONUSRACE:Arctic Hare	TYPE:Familiar	BONUS:COMBAT|INITIATIVE|4
-MASTERBONUSRACE:Arctic Tern	TYPE:Familiar						BONUS:SKILL|Fly|3
-MASTERBONUSRACE:Ermine		TYPE:Familiar										BONUS:SAVE|Reflex|2
-MASTERBONUSRACE:Lemming		TYPE:Familiar										BONUS:SAVE|Fortitude|2
-MASTERBONUSRACE:Ptarmigan	TYPE:Familiar						BONUS:SKILL|Stealth|3
-MASTERBONUSRACE:Puffin		TYPE:Familiar						BONUS:SKILL|Swim|3
+MASTERBONUSRACE:Arctic Tern	TYPE:Familiar										BONUS:SKILL|Fly|3
+MASTERBONUSRACE:Ermine		TYPE:Familiar						BONUS:SAVE|Reflex|2
+MASTERBONUSRACE:Lemming		TYPE:Familiar						BONUS:SAVE|Fortitude|2
+MASTERBONUSRACE:Ptarmigan	TYPE:Familiar										BONUS:SKILL|Stealth|3
+MASTERBONUSRACE:Puffin		TYPE:Familiar										BONUS:SKILL|Swim|3
 MASTERBONUSRACE:Snowy Owl	TYPE:Familiar														BONUS:SITUATION|Perception=sight-based|3

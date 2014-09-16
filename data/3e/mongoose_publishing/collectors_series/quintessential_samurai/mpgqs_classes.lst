@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:MPG - Quintessential Samurai	SOURCESHORT:mpgqs
 #SOURCEWEB:www.mongoose.com
 # Original Entry by: Andrew Maitland
@@ -6,7 +6,7 @@ SOURCELONG:MPG - Quintessential Samurai	SOURCESHORT:mpgqs
 
 # The Samurai -------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Source Page		Combat bonus										Save bonus
 CLASS:The Samurai	HD:10		SOURCEPAGE:p.12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL
 CLASS:The Samurai	PREALIGN:LG,LN,LE
@@ -37,7 +37,7 @@ CLASS:The Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather
 
 # Bodyguard
 
-# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Bodyguard	HD:10		MAXLEVEL:5	SOURCEPAGE:p.14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Feat						PRETOTALAB
 CLASS:Bodyguard	PREALIGN:LG,LN,LE	PREFEAT:2,Great Fortitude,Improved Initiative	PRETOTALAB:10
@@ -51,7 +51,7 @@ CLASS:Bodyguard	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|
 
 # Delegate
 
-# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Delegate	HD:8		MAXLEVEL:5	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Feat			Required Skill		PRETOTALAB
 CLASS:Delegate	PREALIGN:LG,LN,LE	PREFEAT:1,Socially Graceful	PRESKILL:1,Diplomacy=10	PRETOTALAB:5
@@ -65,7 +65,7 @@ CLASS:Delegate	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Innuendo|
 
 # Information Broker
 
-# Class Name			Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+# Class Name			Hit Dice	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Information Broker	HD:10		MAXLEVEL:5	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL		Required Feat		Required Skill
 CLASS:Information Broker	PREALIGN:LG,LN,LE	PREFEAT:1,Informants	PRESKILL:1,Gather Information=10
@@ -79,7 +79,7 @@ CLASS:Information Broker	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Forgery
 
 # Overseer
 
-# Class Name	Hit Dice	Max Level	Source Page		Bonus
+# Class Name	Hit Dice	Max Level	Source Page		Save bonus
 CLASS:Overseer	HD:10		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Feat		PRETOTALAB
 CLASS:Overseer	PREALIGN:LG,LN,LE	PREFEAT:1,Leadership	PRETOTALAB:10
@@ -97,7 +97,7 @@ CLASS:Overseer	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather In
 
 # Paragon
 
-# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Paragon	HD:10		MAXLEVEL:5	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Feat										Required Skill		Required Text		PRETOTALAB
 CLASS:Paragon	PREALIGN:LG,LN,LE	PREFEAT:3,Mounted Combat,Weapon Focus (Longbow),Weapon Focus (Katana)	PRESKILL:1,Riding=12	PRETEXT:Honour 15+	PRETOTALAB:15
@@ -111,7 +111,7 @@ CLASS:Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather Inf
 
 # Protector
 
-# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Protector	HD:10		MAXLEVEL:5	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Skill				PRETOTALAB
 CLASS:Protector	PREALIGN:LG,LN,LE	PRESKILL:2,Handle Animal=5,Ride=5	PRETOTALAB:5
@@ -125,7 +125,7 @@ CLASS:Protector	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Gather Informa
 
 # Ronin
 
-# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Ronin		HD:12		MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Text																			PRETOTALAB
 CLASS:Ronin		PREALIGN:LG,LN,LE	PRETEXT:The samurai must either be released from service or have suffered the loss of his daimyo to some other misfortune.	PRETOTALAB:5
@@ -139,7 +139,7 @@ CLASS:Ronin		STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Gather Informatio
 
 # Slayer
 
-# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Slayer	HD:12		MAXLEVEL:5	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Text		PRETOTALAB
 CLASS:Slayer	PREALIGN:LG,LN,LE	PRETEXT:Honour 10+	PRETOTALAB:10

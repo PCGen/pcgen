@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Clash of Arms - Cavalry	SOURCESHORT:CoA-C	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21487&	SOURCEDATE:2007-03
 
 #CREATED BY: Paul W. King, Mar 2007, EDITED BY: Paul W. King, Mar 2007, UPDATED BY: Eddy Anthony, Jan 2008
 
-# Class of the Master		Type				Hit Dice	Special ABility		Combat bonus					Add to base move			Bonus
+# Class of the Master		Type				Hit Dice	Special ABility		Combat bonus					Add to base move			Save bonus
 FOLLOWER:CavalryMountLevel=1	TYPE:Warrior's Mount			SAB:Mounted Combat
 FOLLOWER:CavalryMountLevel=3	TYPE:Warrior's Mount	HD:2						BONUS:COMBAT|AC|3|TYPE=Natural.STACK	BONUS:MOVEADD|TYPE.Walk|10
 FOLLOWER:CavalryMountLevel=5	TYPE:Warrior's Mount	HD:2		SAB:Devotion		BONUS:COMBAT|AC|1|TYPE=Natural.STACK						BONUS:SAVE|Will|4

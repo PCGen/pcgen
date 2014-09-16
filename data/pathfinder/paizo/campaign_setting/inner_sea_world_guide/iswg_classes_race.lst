@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Original Entry by: Paul Shipley
 
-# Class Name			Product Identity?	Hit Dice	Type			Class Type		Max Level		Source Page		Ability																	Combat bonus											Template		Bonus
-CLASS:Daughter of Urgathoa	NAMEISPI:YES	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	TEMPLATE:Undead	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Product Identity?	Hit Dice	Type			Class Type		Max Level		Source Page		Ability																	Combat bonus											Save bonus																					Template
+CLASS:Daughter of Urgathoa	NAMEISPI:YES	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	TEMPLATE:Undead
 # Class Name			Reg. Race Type
 CLASS:Daughter of Urgathoa	PRERACETYPE:Undead
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill

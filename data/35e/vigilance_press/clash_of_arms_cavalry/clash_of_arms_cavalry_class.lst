@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Clash of Arms - Cavalry	SOURCESHORT:CoA-C	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21487&	SOURCEDATE:2007-03
 
 #CREATED BY: Paul W. King, Mar 2007, EDITED BY: Paul W. King, Mar 2007, UPDATED BY: Eddy Anthony, Jan 2008
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Bonus
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus
 CLASS:Cavalryman	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cavalryman	STARTSKILLPTS:2	CSKILL:Balance|Handle Animal|Intimidate|Knowledge (Nobility and Royalty)|Ride

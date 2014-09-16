@@ -1,4 +1,4 @@
-# CVS $Revision: 20122 $ $Author: zaister $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 20122 $ $Author: zaister $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # Original Entry by: Scott Meyer
 
@@ -49,18 +49,18 @@ FOLLOWER:FamiliarLVL=3	TYPE:Familiar											TEMPLATE:Fiendish Creature	PREABI
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Parrot)	KIT:1|Raven Familiar Language
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar			Type				Bonus to HP			Bonus to skill			Virtual Feat	Bonus
-MASTERBONUSRACE:Familiar (Bat)	TYPE:Demonic Familiar					BONUS:SKILL|Fly|3			VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Cat)	TYPE:Demonic Familiar					BONUS:SKILL|Stealth|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Hawk)	TYPE:Demonic Familiar					BONUS:SKILL|Perception|3	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Lizard)	TYPE:Demonic Familiar					BONUS:SKILL|Climb|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Monkey)	TYPE:Demonic Familiar					BONUS:SKILL|Acrobatics|3	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Owl)	TYPE:Demonic Familiar					BONUS:SKILL|Perception|3	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Rat)	TYPE:Demonic Familiar										VFEAT:Alertness	BONUS:SAVE|Fortitude|2
-MASTERBONUSRACE:Familiar (Raven)	TYPE:Demonic Familiar					BONUS:SKILL|Appraise|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Viper)	TYPE:Demonic Familiar					BONUS:SKILL|Bluff|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Toad)	TYPE:Demonic Familiar	BONUS:HP|CURRENTMAX|3						VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Weasel)	TYPE:Demonic Familiar										VFEAT:Alertness	BONUS:SAVE|Reflex|2
+# Race of familiar			Type				Bonus to HP			Save bonus			Bonus to skill			Virtual Feat
+MASTERBONUSRACE:Familiar (Bat)	TYPE:Demonic Familiar									BONUS:SKILL|Fly|3			VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Cat)	TYPE:Demonic Familiar									BONUS:SKILL|Stealth|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Hawk)	TYPE:Demonic Familiar									BONUS:SKILL|Perception|3	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Lizard)	TYPE:Demonic Familiar									BONUS:SKILL|Climb|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Monkey)	TYPE:Demonic Familiar									BONUS:SKILL|Acrobatics|3	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Owl)	TYPE:Demonic Familiar									BONUS:SKILL|Perception|3	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Rat)	TYPE:Demonic Familiar					BONUS:SAVE|Fortitude|2						VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Raven)	TYPE:Demonic Familiar									BONUS:SKILL|Appraise|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Viper)	TYPE:Demonic Familiar									BONUS:SKILL|Bluff|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Toad)	TYPE:Demonic Familiar	BONUS:HP|CURRENTMAX|3										VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Weasel)	TYPE:Demonic Familiar					BONUS:SAVE|Reflex|2						VFEAT:Alertness
 #
 
 ###Block Base Eidolon modded for Shaitan Binder

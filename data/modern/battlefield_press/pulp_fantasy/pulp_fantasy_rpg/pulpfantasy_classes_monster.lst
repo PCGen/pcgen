@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
 #Original entry by: Frank Kliewe
 
@@ -9,7 +9,7 @@ SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http:/
 # Class Name	Prohibited Class
 CLASS:Animal.MOD	!PRECLASS:1,Animal (Low Reflex)=1
 
-# Class Name			Hit Dice	Type			Source Page		Levels per Feat	Combat bonus								Bonus
+# Class Name			Hit Dice	Type			Source Page		Levels per Feat	Combat bonus								Save bonus
 CLASS:Animal (Low Reflex)	HD:8		TYPE:Monster	SOURCEPAGE:p.149	LEVELSPERFEAT:0	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel()/3
 # Class Name			Prohibited Class		Reg. Race Type
 CLASS:Animal (Low Reflex)	!PRECLASS:1,Animal=1	PRERACETYPE:Animal

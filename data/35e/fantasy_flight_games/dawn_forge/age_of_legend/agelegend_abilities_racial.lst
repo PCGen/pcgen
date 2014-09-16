@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
@@ -253,11 +253,11 @@ Voices on the Leaves		CATEGORY:Special Ability	TYPE:GnomeRacialTalent.SpecialQua
 #TODO: Friend of the Land: animal companion....
 
 ###Block: Gnome Racial Transformations
-# Ability Name	Category of Ability		Type										Visible	Ability								Modify VAR					Source Page		Bonus
-Heart of Autumn	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																SOURCEPAGE:p.34	BONUS:SAVE|Fortitude|2|TYPE=Talent
-Heart of Spring	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																SOURCEPAGE:p.34
-Heart of Summer	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES	ABILITY:Special Ability|VIRTUAL|Resistance To Fire	BONUS:VAR|FireResistanceBonus|5	SOURCEPAGE:p.34
-Heart of Winter	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES	ABILITY:Special Ability|VIRTUAL|Resistance To Cold	BONUS:VAR|ColdResistanceBonus|5	SOURCEPAGE:p.34
+# Ability Name	Category of Ability		Type										Visible	Ability								Save bonus					Modify VAR					Source Page
+Heart of Autumn	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES										BONUS:SAVE|Fortitude|2|TYPE=Talent							SOURCEPAGE:p.34
+Heart of Spring	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																						SOURCEPAGE:p.34
+Heart of Summer	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES	ABILITY:Special Ability|VIRTUAL|Resistance To Fire							BONUS:VAR|FireResistanceBonus|5	SOURCEPAGE:p.34
+Heart of Winter	CATEGORY:Special Ability	TYPE:GnomeRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES	ABILITY:Special Ability|VIRTUAL|Resistance To Cold							BONUS:VAR|ColdResistanceBonus|5	SOURCEPAGE:p.34
 
 #################
 ### Halfling  ###
@@ -312,16 +312,16 @@ Thoughtful		CATEGORY:Special Ability	TYPE:HighlanderRacialTransformation.Special
 ########################
 
 ###Block:Lowlander Racial Talents
-# Ability Name	Category of Ability		Type							Visible	Multiple?	Choose											Selections	Combat bonus					Bonus to skill							Class Skill					Source Page		Bonus
-Elnaria		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																								BONUS:SKILL|Knowledge (Geography)|2|TYPE=Talent		CSKILL:Knowledge (Geography)		SOURCEPAGE:p.47
+# Ability Name	Category of Ability		Type							Visible	Multiple?	Choose											Selections	Combat bonus					Save bonus					Bonus to skill							Class Skill					Source Page
+Elnaria		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																														BONUS:SKILL|Knowledge (Geography)|2|TYPE=Talent		CSKILL:Knowledge (Geography)		SOURCEPAGE:p.47
 #+ a Knowledge skill of his choice...
-Larakis		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																																							SOURCEPAGE:p.47
-Ironwall		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Martial]|EQUIPMENT[TYPE=Simple]	SELECT:3	BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent																SOURCEPAGE:p.47
+Larakis		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																																													SOURCEPAGE:p.47
+Ironwall		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Martial]|EQUIPMENT[TYPE=Simple]	SELECT:3	BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent																						SOURCEPAGE:p.47
 #TODO:zzzzz Ironwall...
-Riversend		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																																							SOURCEPAGE:p.47
-Seaward		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																																							SOURCEPAGE:p.47	BONUS:SAVE|Fortitude|2|TYPE=Talent
-Saranor		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																																							SOURCEPAGE:p.48
-Stormhaven		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																								BONUS:SKILL|Decipher Script,Forgery|2|TYPE=Talent	CSKILL:Decipher Script|Forgery	SOURCEPAGE:p.48
+Riversend		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																																													SOURCEPAGE:p.47
+Seaward		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																								BONUS:SAVE|Fortitude|2|TYPE=Talent																SOURCEPAGE:p.47
+Saranor		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																																													SOURCEPAGE:p.48
+Stormhaven		CATEGORY:Special Ability	TYPE:LowlanderRacialTalent.SpecialQuality	VISIBLE:YES																														BONUS:SKILL|Decipher Script,Forgery|2|TYPE=Talent	CSKILL:Decipher Script|Forgery	SOURCEPAGE:p.48
 
 ###Block: Lowlander Racial Transformations
 # Ability Name		Category of Ability		Type									Visible	Innate Spells							Ability																			Modify VAR																Source Page
@@ -516,13 +516,13 @@ Unseen Stillness		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQua
 Wall Walking		CATEGORY:Special Ability	TYPE:ThinbloodRacialTalent.SpecialQuality.SpellLike		VISIBLE:YES											SPELLS:Innate|TIMES=1|Spider Climb	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.115
 
 ###Block: Thinblood Racial Transformations
-# Ability Name		Unique Key				Category of Ability		Type											Visible		Required Ability									Restricted Ability											Ability							Source Page		Bonus
-Embracing the Taint						CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality			VISIBLE:YES																																			SOURCEPAGE:p.115
-Becoming the Taint						CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES													!PREABILITY:1,CATEGORY=Special Ability,Bite Attack,Natural Armor,Balancing Tail									SOURCEPAGE:p.116
-Improved Grab		KEY:Thinblood Improved Grab	CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation						VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bite Attack,Lashing Tail															ABILITY:Special Ability|AUTOMATIC|Improved Grab	SOURCEPAGE:p.116
-Balancing Tail							CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																																			SOURCEPAGE:p.116	BONUS:SAVE|Reflex|1|TYPE=Transformation
-Lashing Tail							CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Balancing Tail																									SOURCEPAGE:p.116
-Constricting Tail							CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lashing Tail																									SOURCEPAGE:p.116
+# Ability Name		Unique Key				Category of Ability		Type											Visible		Required Ability									Restricted Ability											Ability							Save bonus						Source Page
+Embracing the Taint						CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality			VISIBLE:YES																																										SOURCEPAGE:p.115
+Becoming the Taint						CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES													!PREABILITY:1,CATEGORY=Special Ability,Bite Attack,Natural Armor,Balancing Tail																SOURCEPAGE:p.116
+Improved Grab		KEY:Thinblood Improved Grab	CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation						VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bite Attack,Lashing Tail															ABILITY:Special Ability|AUTOMATIC|Improved Grab								SOURCEPAGE:p.116
+Balancing Tail							CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES																																			BONUS:SAVE|Reflex|1|TYPE=Transformation	SOURCEPAGE:p.116
+Lashing Tail							CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Balancing Tail																																SOURCEPAGE:p.116
+Constricting Tail							CATEGORY:Special Ability	TYPE:ThinbloodRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Lashing Tail																																SOURCEPAGE:p.116
 
 #
 # End

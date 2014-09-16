@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Rise of the Runelords - Chapter 2: The Skinsaw Murders	SOURCESHORT:PF2	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
 # Original Entry by: Stefan Radermacher
 
-# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page		Combat bonus							Bonus
+# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page		Combat bonus							Save bonus
 CLASS:Lamia Matriarch	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:12	SOURCEPAGE:p.92	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Race			Reg. Race Type
 CLASS:Lamia Matriarch	PRERACE:1,Lamia Matriarch	PRERACETYPE:Monstrous Humanoid

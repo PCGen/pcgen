@@ -1,4 +1,4 @@
-# CVS $Revision: 21399 $ $Author: evilmynex $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 21399 $ $Author: evilmynex $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: gjorbjond & Andrew Maitland
 
@@ -201,13 +201,13 @@ FOLLOWER:CavalierMountLVL=20	TYPE:Cavalier Mount	HD:1																											
 #
 
 
-# Race of familiar						Type			Combat bonus			Bonus to skill		Modify VAR			Virtual Feat	Bonus
-MASTERBONUSRACE:Familiar (Centipede (House))		TYPE:Familiar						BONUS:SKILL|Stealth|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Crab (Giant King))		TYPE:Familiar										BONUS:VAR|CMB_Grapple|2	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Fox)				TYPE:Familiar														VFEAT:Alertness	BONUS:SAVE|Reflex|2
-MASTERBONUSRACE:Familiar (Octopus)				TYPE:Familiar						BONUS:SKILL|Swim|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Scorpion (Greensting))	TYPE:Familiar	BONUS:COMBAT|INITIATIVE|2									VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Spider (Scarlet))		TYPE:Familiar						BONUS:SKILL|Climb|3					VFEAT:Alertness
+# Race of familiar						Type			Combat bonus			Save bonus			Bonus to skill		Modify VAR			Virtual Feat
+MASTERBONUSRACE:Familiar (Centipede (House))		TYPE:Familiar										BONUS:SKILL|Stealth|3					VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Crab (Giant King))		TYPE:Familiar														BONUS:VAR|CMB_Grapple|2	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Fox)				TYPE:Familiar						BONUS:SAVE|Reflex|2									VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Octopus)				TYPE:Familiar										BONUS:SKILL|Swim|3					VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Scorpion (Greensting))	TYPE:Familiar	BONUS:COMBAT|INITIATIVE|2													VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Spider (Scarlet))		TYPE:Familiar										BONUS:SKILL|Climb|3					VFEAT:Alertness
 
 
 # COMPANION ADD-ON FOR RANGER BEAST MASTER

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 ###Block: Xenobiology
@@ -77,11 +77,11 @@ Psi-Ability (Vigor)						VISIBLE:NO	SPELLS:Extraterrestial|TIMES=3|CASTERLEVEL=T
 
 ###Block: Scientific Engineering
 
-# Template Name	Visible	Source Page						Bonus to skill						Modify VAR									Ability								Auto Feat			Vision					Bonus
-Aquan			VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering																			ABILITY:Special Ability|AUTOMATIC|Amphibious		AUTO:FEAT|Athletic	VISION:Blindsight (60')|Low-light
-Healer		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering									BONUS:VAR|FastHealingRate|3	BONUS:VAR|DamageThreshold|-3	ABILITY:Special Ability|AUTOMATIC|Fast Healing
-Morphean		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering																			ABILITY:Special Ability|AUTOMATIC|Hibernate|Sleepless											BONUS:SAVE|Will|2|TYPE=Species
-Nocturnal		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering	BONUS:SKILL|Listen,Move Silently|2|TYPE=Species											ABILITY:Special Ability|AUTOMATIC|Light Sensitivity	AUTO:FEAT|Blind-Fight	VISION:Darkvision (60')
+# Template Name	Visible	Source Page						Save bonus					Bonus to skill						Modify VAR									Ability								Auto Feat			Vision
+Aquan			VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering																									ABILITY:Special Ability|AUTOMATIC|Amphibious		AUTO:FEAT|Athletic	VISION:Blindsight (60')|Low-light
+Healer		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering															BONUS:VAR|FastHealingRate|3	BONUS:VAR|DamageThreshold|-3	ABILITY:Special Ability|AUTOMATIC|Fast Healing
+Morphean		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering	BONUS:SAVE|Will|2|TYPE=Species																			ABILITY:Special Ability|AUTOMATIC|Hibernate|Sleepless
+Nocturnal		VISIBLE:YES	SOURCEPAGE:FutureScientificEngineering							BONUS:SKILL|Listen,Move Silently|2|TYPE=Species											ABILITY:Special Ability|AUTOMATIC|Light Sensitivity	AUTO:FEAT|Blind-Fight	VISION:Darkvision (60')
 
 #
 # End

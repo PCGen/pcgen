@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
 
 # Move Rogue Proficiency change into hidden feat from SRD's new method.
 
 #TBD - implement Language requirement (2 languages other than Common or native language)
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Bonus
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Save bonus
 CLASS:Agent of the Crown	HD:6		TYPE:PC.Prestige	ABB:AgC		MAXLEVEL:5	SOURCEPAGE:p.21-23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Feat									Multiple Requirements																						Required Text
 CLASS:Agent of the Crown	PREFEAT:1,Skill Focus (Diplomacy),Skill Focus (Sense Motive)	PREMULT:2,[PRESKILL:2,Diplomacy=8,Sense Motive=8],[PRESKILL:1,Knowledge (Local)=8,Knowledge (Nobility and Royalty)=8,Knowledge (Court Protocol)=8]	PRETEXT:Gain an officially recognised position within a government as an operative.
@@ -20,7 +20,7 @@ CLASS:Agent of the Crown	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|TYPE=Craf
 4																								ABILITY:Special Ability|AUTOMATIC|Man of 1000 Faces ~ Agent of the Crown
 5													BONUS:VAR|CharmingDemeanor|CHA	DEFINE:CharmingDemeanor|0	ABILITY:Special Ability|AUTOMATIC|Charming Demeanor ~ Agent of the Crown
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Save bonus
 CLASS:Commando	HD:6		TYPE:PC.Prestige	ABB:Com		MAXLEVEL:5	SOURCEPAGE:p.23-24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Feat				Required Skill			PRETOTALAB		Var. Min. Value
 CLASS:Commando	PREFEAT:2,Point Blank Shot,Far Shot	PRESKILL:2,Hide=8,Spot=4	PRETOTALAB:4	PREVARGTEQ:SneakAttackDice,1
@@ -36,7 +36,7 @@ CLASS:Commando	STARTSKILLPTS:2	CSKILL:Balance|Climb|Hide|Intuit Direction|Listen
 3							ABILITY:Special Ability|AUTOMATIC|Prepare Ambush ~ Commando
 5							ABILITY:Special Ability|AUTOMATIC|Sniper ~ Commando
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Save bonus
 CLASS:Crusading Footpad	HD:6		TYPE:PC.Prestige	ABB:CrF		MAXLEVEL:10	SOURCEPAGE:p.24-26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Feat			Required Skill				Req. Spell Type		PRETOTALAB
 CLASS:Crusading Footpad	PREALIGN:LG,NG,CG	PREFEAT:2,Dodge,Iron Will	PRESKILL:1,Knowledge (Religion)=4	PRESPELLTYPE:1,Divine=0	PRETOTALAB:4
@@ -52,7 +52,7 @@ CLASS:Crusading Footpad	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE
 
 #TBD - implement Language requirement
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Save bonus
 CLASS:Deep Tracker	HD:6		TYPE:PC.Prestige	ABB:DTr		MAXLEVEL:5	SOURCEPAGE:p.26-28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat				Required Skill
 CLASS:Deep Tracker	PREFEAT:3,Alertness,Endurance,Track	PRESKILL:1,Wilderness Lore=6
@@ -68,7 +68,7 @@ CLASS:Deep Tracker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Decipher Script|Diplo
 4							ABILITY:Special Ability|AUTOMATIC|Maze Sense ~ Deep Tracker
 5							ABILITY:Special Ability|AUTOMATIC|Dark Sense ~ Deep Tracker
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Save bonus
 CLASS:Executioner	HD:8		TYPE:PC.Prestige	ABB:Exe		MAXLEVEL:5	SOURCEPAGE:p.28-30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL				Required Feat					Required Skill				PRETOTALAB
 CLASS:Executioner	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:3,Cleave,Power Attack,Sunder	PRESKILL:2,Intimidate=6,Spot=6	PRETOTALAB:7
@@ -84,7 +84,7 @@ CLASS:Executioner	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Escape Artist|He
 4																															ABILITY:Special Ability|AUTOMATIC|Executioner's Song ~ Executioner
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Save bonus
 CLASS:Shadowy Avenger	HD:8		TYPE:PC.Prestige	ABB:ShA		MAXLEVEL:10	SOURCEPAGE:p.30-32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL				Required Feat							Required Skill								Required Text							PRETOTALAB
 CLASS:Shadowy Avenger	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:3,Alertness,Improved Unarmed Strike,Toughness	PRESKILL:4,Disguise=8,Intimidate=8,Sense Motive=8,Alchemy=4	PRETEXT:Must have lost a loved one to a criminal act.	PRETOTALAB:4
@@ -104,7 +104,7 @@ CLASS:Shadowy Avenger	STARTSKILLPTS:4	CSKILL:Alchemy|Climb|TYPE=Craft|Disable De
 
 #TBD - implement Superior Knowledge?
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Save bonus
 CLASS:Tomb Raider	HD:6		TYPE:PC.Prestige	ABB:TmR		MAXLEVEL:5	SOURCEPAGE:p.32-33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat											Multiple Requirements								Required Stat
 CLASS:Tomb Raider	PREFEAT:4,Dodge,Lightning Reflexes,Mobility,Skill Focus (TYPE.Knowledge)	PREMULT:2,[PRESKILL:1,Tumble=10],[PRESKILL:2,TYPE.Knowledge=4]	PRESTAT:1,DEX=15

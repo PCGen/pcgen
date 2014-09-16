@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir Gwaith
 
 # Skipping Favored Prey for now..
 # Outcast: Casterlevel progression???
 
-# Class Name		Hit Dice	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Source Page		Combat bonus										Save bonus
 CLASS:Bounty Hunter	HD:8		SOURCEPAGE:p.35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL				Required Stat
 CLASS:Bounty Hunter	PREALIGN:LN,LE,TN,NE,CN,CE	PRESTAT:2,CHA=13,CON=13
@@ -59,7 +59,7 @@ CLASS:Outcast	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Outca
 # Class Name	Visible
 CLASS:Shaman	VISIBLE:NO
 
-# Class Name			Hit Dice	Type			Ex Class			Source Page		Combat bonus								Bonus
+# Class Name			Hit Dice	Type			Ex Class			Source Page		Combat bonus								Save bonus
 CLASS:Shaman (Alternate)	HD:6		TYPE:Base.PC	EXCLASS:Ex-Shamans	SOURCEPAGE:p.42	BONUS:COMBAT|BASEAB|var("ShamanBAB")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL
 CLASS:Shaman (Alternate)	PREALIGN:LG,LN,TN,NG,CG
@@ -109,7 +109,7 @@ CLASS:Shaman (Alternate)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shaman
 19	CAST:6,7,6,5,5,4,3,3,3,2
 20	CAST:6,8,6,5,5,4,4,3,3,2
 
-# Class Name	Hit Dice	Source Page		Visible	Combat bonus								Bonus
+# Class Name	Hit Dice	Source Page		Visible	Combat bonus								Save bonus
 CLASS:Ex-Shamans	HD:6		SOURCEPAGE:p.42	VISIBLE:NO	BONUS:COMBAT|BASEAB|var("ShamanBAB")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 1					DEFINE:ShamanBAB|0	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																				AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
@@ -126,8 +126,8 @@ CLASS:Ex-Shamans	HD:6		SOURCEPAGE:p.42	VISIBLE:NO	BONUS:COMBAT|BASEAB|var("Shama
 18	BONUS:VAR|ShamanBAB|1
 20	BONUS:VAR|ShamanBAB|1
 
-# Class Name	Hit Dice	Type			Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Witch		HD:4		TYPE:Base.PC	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Source Page		Combat bonus															Save bonus																					Modify VAR
+CLASS:Witch		HD:4		TYPE:Base.PC	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required AL
 CLASS:Witch		PREALIGN:LN,NG,TN,CN,NE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -166,8 +166,8 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Witch|CL
 #Witch has exclass, but all it says is you can't advance without atonement, no loss of spells, or powers.
 
 
-# Class Name	Hit Dice	Type			Source Page		Combat bonus															Modify VAR																			Bonus
-CLASS:Mentalist	HD:8		TYPE:Base.PC	SOURCEPAGE:p.53	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Source Page		Combat bonus															Save bonus																						Modify VAR
+CLASS:Mentalist	HD:8		TYPE:Base.PC	SOURCEPAGE:p.53	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL
 # Class Name	Restricted AL
 CLASS:Mentalist	!PREALIGN:CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -185,8 +185,8 @@ CLASS:Mentalist	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|
 7									BONUS:VAR|WeapSpecQualify|1|TYPE=Base																			DEFINE:WeapSpecQualify|0
 
 
-# Class Name			Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Psionist (Alternate)	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Source Page		Combat bonus															Save bonus																					Modify VAR
+CLASS:Psionist (Alternate)	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Psionist (Alternate)	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Concentration|TYPE=Craft|Diplomacy|Knowledge (Psionics)|Listen|Psicraft|Sense Motive|Tumble
 # Remote View - Not found in any 3.5 sources - not listed, left over from 3e.

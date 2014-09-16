@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
 # Original Entry: Andrew Maitland (LegacyKing)
 # Original Entry Date: 2008
 
 ###Block: Bio Construct
 
-# Class Name		Hit Dice	Type				Combat bonus							Bonus
+# Class Name		Hit Dice	Type				Combat bonus							Save bonus
 CLASS:Bio-Construct	HD:10		TYPE:Base.PC.Monster	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Skill Pts/Lvl
 CLASS:Bio-Construct	STARTSKILLPTS:4

@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Nuisances - Director's Cut	SOURCESHORT:Nuisances	SOURCEWEB:http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download	SOURCEDATE:2007-08
 
-# Template Name			Nb Hands	Visible	Combat bonus			Bonus to HP				Bonus to skill				Bonus
+# Template Name			Nb Hands	Visible	Combat bonus			Bonus to HP				Save bonus												Bonus to skill
 Extra Arm				HANDS:3	VISIBLE:NO
-Polychromatimorph Silliness			VISIBLE:NO	BONUS:COMBAT|BASEAB|7485	BONUS:HP|CURRENTMAX|54900	BONUS:SKILL|Climb,Jump,Swim|6657	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|3325	BONUS:SAVE|BASE.Will|4988
+Polychromatimorph Silliness			VISIBLE:NO	BONUS:COMBAT|BASEAB|7485	BONUS:HP|CURRENTMAX|54900	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|3325	BONUS:SAVE|BASE.Will|4988	BONUS:SKILL|Climb,Jump,Swim|6657
 
 #
 # End

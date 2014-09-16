@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 
 # Ability Name					Unique Key				Category of Ability		Type												Required Base Size	Define																Description																																																																																																																																																																																																																																																																																																																																																																														Ability																																																																																											Add 								Modify VAR																											Natural Attacks																	Aspects
 Bite												CATEGORY:Internal			TYPE:NaturalAttack																																																																																																																																																																																																																																																																																																																																																																																																													ABILITY:Internal|AUTOMATIC|Bite (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Bite (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Bite (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Bite (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Bite (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Bite (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Bite (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Bite (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Bite (Colossal)|PREBASESIZEEQ:C
@@ -1143,18 +1143,18 @@ Body Thief			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE
 Burn				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 
 ###Block: RSRD Abilities C-D
-# Ability Name			Category of Ability		Type								Visible	Define															Description																																											Combat bonus						Bonus to HP				Bonus to skill				Modify VAR																Source Page					Temporary effect description																										Temporary Bonus																Bonus
+# Ability Name			Category of Ability		Type								Visible	Define															Description																																											Combat bonus						Bonus to HP				Save bonus				Bonus to skill				Modify VAR																Source Page					Temporary effect description																										Temporary Bonus
 Capsize				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Captivating Song			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Carapace				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Cascade Flu				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Chameleon Ability			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
-Change Shape			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES																	DESC:You can assume the appearance of a specific creature or type of creature, but retain most of your own physical qualities.																																																											SOURCEPAGE:TypesSubtypesAbilities
+Change Shape			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES																	DESC:You can assume the appearance of a specific creature or type of creature, but retain most of your own physical qualities.																																																																SOURCEPAGE:TypesSubtypesAbilities
 Change Size				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Charisma Drain			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Charm Person			CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike				VISIBLE:YES
-Charm Reptiles			CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike				VISIBLE:YES	DEFINE:CharmReptilesTimes|0												DESC:%1/day|CharmReptilesTimes																																																										BONUS:VAR|CharmReptilesTimes|3
-Charming Gaze			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES	DEFINE:CharmingGazeDC|0													DESC:DC %1|CharmingGazeDC|PREVARGT:CharmingGazeDC,0																																																							BONUS:VAR|CharmingGazeDC|2|PREFEAT:1,Ability Focus (Charming Gaze)
+Charm Reptiles			CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike				VISIBLE:YES	DEFINE:CharmReptilesTimes|0												DESC:%1/day|CharmReptilesTimes																																																															BONUS:VAR|CharmReptilesTimes|3
+Charming Gaze			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES	DEFINE:CharmingGazeDC|0													DESC:DC %1|CharmingGazeDC|PREVARGT:CharmingGazeDC,0																																																												BONUS:VAR|CharmingGazeDC|2|PREFEAT:1,Ability Focus (Charming Gaze)
 Children of the Night		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Chronal Blast			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Cloudwalking			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
@@ -1162,18 +1162,18 @@ Cocoon				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:Y
 Cold					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES																	DESC:Your body generates intense cold, causing opponents to take an extra 1d8 points of cold damage every time you succeed on a natural attack. Creatures attacking you unarmed or with natural weapons take this same cold damage each time one of their attacks hits.
 Cold Aura				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES																	DESC:A 10-foot-radius spread cold aura surrounds a you. Creatures of the cold sub-type are treated as if having turn resistance +6 (if undead) and fast healing 10. Creatures subject to cold Damage take 2d10 cold Damage each round they remain within the cold aura.
 Combustion				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
-Compound Eyes			CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBLE:YES																																																																										BONUS:SKILL|Spot|2|TYPE=Racial
+Compound Eyes			CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBLE:YES																																																																															BONUS:SKILL|Spot|2|TYPE=Racial
 Concealing Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura		VISIBLE:YES
 Confusion Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES																	DESC:This ability operates continuously, as the confusion spell but with a 30-foot radius. Potential victims can make a Will save (DC 47) to resist confusion.
 Constant Insight			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Constitution Drain		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
-Constrict				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES																	DESC:You can crush an opponent, dealing bludgeoning damage, after making a successful grapple check.																																																																SOURCEPAGE:TypesSubtypesAbilities
+Constrict				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES																	DESC:You can crush an opponent, dealing bludgeoning damage, after making a successful grapple check.																																																																					SOURCEPAGE:TypesSubtypesAbilities
 Corporeal Instability		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Corrosive Slime			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
-Corrupt Water			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES	DEFINE:CorruptWaterPresDC|0	DEFINE:CorruptWaterTimes|0							DESC:%1/day (DC %2)|CorruptWaterTimes|CorruptWaterPresDC																																																						BONUS:VAR|CorruptWaterPresDC|10+(HD/2)+CHA	BONUS:VAR|CorruptWaterTimes|1
-Create/Destroy Water		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES	DEFINE:CreateDestroyWaterTimes|0											DESC:%1/day|CreateDestroyWaterTimes																																																										BONUS:VAR|CreateDestroyWaterTimes|3
+Corrupt Water			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES	DEFINE:CorruptWaterPresDC|0	DEFINE:CorruptWaterTimes|0							DESC:%1/day (DC %2)|CorruptWaterTimes|CorruptWaterPresDC																																																											BONUS:VAR|CorruptWaterPresDC|10+(HD/2)+CHA	BONUS:VAR|CorruptWaterTimes|1
+Create/Destroy Water		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES	DEFINE:CreateDestroyWaterTimes|0											DESC:%1/day|CreateDestroyWaterTimes																																																															BONUS:VAR|CreateDestroyWaterTimes|3
 Create Spawn			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
-Crush					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:CrushDice|0	DEFINE:CrushDamageDie|0	DEFINE:CrushBonusDamage|0	DEFINE:CrushDC|0	DESC:DC %1|CrushDC|PREVAREQ:CrushDice,0	DESC:%1d%2+%3 (DC %4)|CrushDice|CrushDamageDie|CrushBonusDamage|CrushDC|PREVARGT:CrushDice,0																																									BONUS:VAR|CrushDC|10+(HD/2)+CON	BONUS:VAR|CrushDC|2|PREFEAT:1,Ability Focus (Crush)
+Crush					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:CrushDice|0	DEFINE:CrushDamageDie|0	DEFINE:CrushBonusDamage|0	DEFINE:CrushDC|0	DESC:DC %1|CrushDC|PREVAREQ:CrushDice,0	DESC:%1d%2+%3 (DC %4)|CrushDice|CrushDamageDie|CrushBonusDamage|CrushDC|PREVARGT:CrushDice,0																																														BONUS:VAR|CrushDC|10+(HD/2)+CON	BONUS:VAR|CrushDC|2|PREFEAT:1,Ability Focus (Crush)
 Crush Item				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Cure Serious Wounds		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
 Curse of Lycanthropy		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
@@ -1183,14 +1183,14 @@ Dancing Chains			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISI
 Darkness				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Aura			VISIBLE:YES
 Daylight				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Daylight Powerlessness		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
-Death Gaze				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES	DEFINE:DeathGazeDC|0													DESC:DC %1|DeathGazeDC																																																												BONUS:VAR|DeathGazeDC|CHA+(HD/2)+10	BONUS:VAR|DeathGazeDC|2|PREFEAT:1,Ability Focus (Death Gaze)
+Death Gaze				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES	DEFINE:DeathGazeDC|0													DESC:DC %1|DeathGazeDC																																																																	BONUS:VAR|DeathGazeDC|CHA+(HD/2)+10	BONUS:VAR|DeathGazeDC|2|PREFEAT:1,Ability Focus (Death Gaze)
 Death Throes			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Deflecting Force			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
-Desecrating Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES																	DESC:You give off a 20-foot radius emanation of utter desecration, imbuing your surroundings with negative energy.																									BONUS:COMBAT|TOHIT,DAMAGE.Melee|2|TYPE=Profane	BONUS:HP|CURRENTMAX|HD*2																								SOURCEPAGE:MonstersM-N			TEMPDESC:Apply this penalty if the nightshade's desecrating aura ability is dispelled by a dispel evil spell or similar effect, or if it enters a consecrated or hallowed area.	TEMPBONUS:PC|SAVE|ALL|-2	TEMPBONUS:PC|COMBAT|TOHIT,DAMAGE.Melee|-2	TEMPBONUS:PC|HP|CURRENTMAX|-(HD*2)	BONUS:SAVE|ALL|2|TYPE=Profane
+Desecrating Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES																	DESC:You give off a 20-foot radius emanation of utter desecration, imbuing your surroundings with negative energy.																									BONUS:COMBAT|TOHIT,DAMAGE.Melee|2|TYPE=Profane	BONUS:HP|CURRENTMAX|HD*2	BONUS:SAVE|ALL|2|TYPE=Profane																								SOURCEPAGE:MonstersM-N			TEMPDESC:Apply this penalty if the nightshade's desecrating aura ability is dispelled by a dispel evil spell or similar effect, or if it enters a consecrated or hallowed area.	TEMPBONUS:PC|SAVE|ALL|-2	TEMPBONUS:PC|COMBAT|TOHIT,DAMAGE.Melee|-2	TEMPBONUS:PC|HP|CURRENTMAX|-(HD*2)
 Despair				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Destabilize Form			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Destructive Harmonics		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
-Detect Gems				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense			VISIBLE:YES	DEFINE:DetectGemsTimes|0												DESC:%1/day|DetectGemsTimes																																																											BONUS:VAR|DetectGemsTimes|3
+Detect Gems				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense			VISIBLE:YES	DEFINE:DetectGemsTimes|0												DESC:%1/day|DetectGemsTimes																																																																BONUS:VAR|DetectGemsTimes|3
 Detect Magic			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		VISIBLE:YES
 Detect Thoughts			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		VISIBLE:YES
 Dimension Door			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyMovement	VISIBLE:YES
@@ -1208,7 +1208,7 @@ Domination				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE
 Double Damage Against Objects	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.AttackOption	VISIBLE:YES
 Double Manifest			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Drag					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
-Draw Moisture			CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike				VISIBLE:YES	DEFINE:DrawMoistureDice|0	DEFINE:DrawMoistureDamageDie|0						DESC:%1d%2 damage DC %3 half|DrawMoistureDice|DrawMoistureDamageDie|12+CHA																																																			BONUS:VAR|DrawMoistureDice|2	BONUS:VAR|DrawMoistureDamageDie|8
+Draw Moisture			CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike				VISIBLE:YES	DEFINE:DrawMoistureDice|0	DEFINE:DrawMoistureDamageDie|0						DESC:%1d%2 damage DC %3 half|DrawMoistureDice|DrawMoistureDamageDie|12+CHA																																																								BONUS:VAR|DrawMoistureDice|2	BONUS:VAR|DrawMoistureDamageDie|8
 Dream Haunting			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Drench				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 

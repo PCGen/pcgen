@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Secrets of the Planes - Planar Magic	SOURCESHORT:PlanarMagic	SOURCEWEB:http://www.lionsdenpress.com/	SOURCEDATE:2005-01
 # Original Entry by: Tir Gwaith
 
 # - This was one heck of a workaround with hidden classes. - Tir Gwaith
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Planar Mage	HD:4		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Planar Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft|Survival

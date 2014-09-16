@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
 #Original Entry: Douglas Limmer
 #SRD Original Entry: Arknight
@@ -22,17 +22,17 @@ FOLLOWER:PsiCrystalLVL=19	TYPE:Psicrystal	SR:24																																	
 FOLLOWER:PsiCrystalLVL=20	TYPE:Psicrystal	SR:25
 
 ###Block:Psicrystal Bonuses to Master
-# Race of familiar					Type			Combat bonus			Bonus to skill			Virtual Feat	Bonus
-MASTERBONUSRACE:Psicrystal (Artiste)		TYPE:Psicrystal						BONUS:SKILL|TYPE.Craft|3	VFEAT:Alertness
-MASTERBONUSRACE:Psicrystal (Bully)			TYPE:Psicrystal						BONUS:SKILL|Intimidate|3	VFEAT:Alertness
-MASTERBONUSRACE:Psicrystal (Friendly)		TYPE:Psicrystal						BONUS:SKILL|Diplomacy|3		VFEAT:Alertness
-MASTERBONUSRACE:Psicrystal (Hero)			TYPE:Psicrystal											VFEAT:Alertness	BONUS:SAVE|Fortitude|2
-MASTERBONUSRACE:Psicrystal (Liar)			TYPE:Psicrystal						BONUS:SKILL|Bluff|3		VFEAT:Alertness
-MASTERBONUSRACE:Psicrystal (Meticulous)		TYPE:Psicrystal						BONUS:SKILL|Perception|3	VFEAT:Alertness
-MASTERBONUSRACE:Psicrystal (Nimble)			TYPE:Psicrystal	BONUS:COMBAT|INITIATIVE|2						VFEAT:Alertness
-MASTERBONUSRACE:Psicrystal (Poised)			TYPE:Psicrystal						BONUS:SKILL|Acrobatics|3	VFEAT:Alertness
-MASTERBONUSRACE:Psicrystal (Resolved)		TYPE:Psicrystal											VFEAT:Alertness	BONUS:SAVE|Will|2
-MASTERBONUSRACE:Psicrystal (Sage)			TYPE:Psicrystal						BONUS:SKILL|TYPE.Knowledge|3	VFEAT:Alertness
-MASTERBONUSRACE:Psicrystal (Single Minded)	TYPE:Psicrystal						BONUS:SKILL|Autohypnosis|3	VFEAT:Alertness
-MASTERBONUSRACE:Psicrystal (Sneaky)			TYPE:Psicrystal						BONUS:SKILL|Stealth|3		VFEAT:Alertness
-MASTERBONUSRACE:Psicrystal (Sympathetic)		TYPE:Psicrystal						BONUS:SKILL|Sense Motive|3	VFEAT:Alertness
+# Race of familiar					Type			Combat bonus			Save bonus			Bonus to skill			Virtual Feat
+MASTERBONUSRACE:Psicrystal (Artiste)		TYPE:Psicrystal										BONUS:SKILL|TYPE.Craft|3	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Bully)			TYPE:Psicrystal										BONUS:SKILL|Intimidate|3	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Friendly)		TYPE:Psicrystal										BONUS:SKILL|Diplomacy|3		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Hero)			TYPE:Psicrystal						BONUS:SAVE|Fortitude|2						VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Liar)			TYPE:Psicrystal										BONUS:SKILL|Bluff|3		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Meticulous)		TYPE:Psicrystal										BONUS:SKILL|Perception|3	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Nimble)			TYPE:Psicrystal	BONUS:COMBAT|INITIATIVE|2										VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Poised)			TYPE:Psicrystal										BONUS:SKILL|Acrobatics|3	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Resolved)		TYPE:Psicrystal						BONUS:SAVE|Will|2							VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Sage)			TYPE:Psicrystal										BONUS:SKILL|TYPE.Knowledge|3	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Single Minded)	TYPE:Psicrystal										BONUS:SKILL|Autohypnosis|3	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Sneaky)			TYPE:Psicrystal										BONUS:SKILL|Stealth|3		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Sympathetic)		TYPE:Psicrystal										BONUS:SKILL|Sense Motive|3	VFEAT:Alertness

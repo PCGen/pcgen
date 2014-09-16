@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Alchemy and Herbalists	SOURCESHORT:AlchemyHrb	SOURCEWEB:http://dragonwing.net/	SOURCEDATE:2002-03
 # Orginal Entry By: Knightcrawler
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Black Alchemist	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Check		Required Class			Required Feat				Required Skill
 CLASS:Black Alchemist	PRECHECK:1,Fortitude=3	PRECLASS:1,Spellcaster=3	PREFEAT:1,Skill Focus (Alchemy)	PRESKILL:1,Alchemy=8	PRESKILL:1,TYPE.Craft=4
@@ -19,7 +19,7 @@ CLASS:Black Alchemist	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|TYPE
 9						ADD:SPELLCASTER|ANY
 10						ADD:SPELLCASTER|ANY	AUTO:FEAT|Craft Magic Arms and Armor
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:White Alchemist	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Check		Required Class			Required Feat				Required Skill
 CLASS:White Alchemist	PRECHECK:1,Fortitude=3	PRECLASS:1,Spellcaster=3	PREFEAT:1,Skill Focus (Alchemy)	PRESKILL:3,Alchemy=8,Heal=4,Profession (Herbalist)=8
@@ -36,7 +36,7 @@ CLASS:White Alchemist	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Concentratio
 9					ADD:SPELLCASTER|ANY	AUTO:FEAT|Craft Wondrous Item
 10	SAB:Perfect Medicinals	ADD:SPELLCASTER|ANY
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Red Alchemist	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat				Multiple Requirements
 CLASS:Red Alchemist	PREFEAT:1,Skill Focus (Alchemy)	PREMULT:2,[PRESKILL:2,Alchemy=8,Profession (Brewer)=4],[PRESKILL:1,TYPE.Craft=2]
@@ -53,7 +53,7 @@ CLASS:Red Alchemist	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Appraise|Conce
 9	ADD:SPELLCASTER|ANY	AUTO:FEAT|Perfect Materials
 10	ADD:SPELLCASTER|ANY	AUTO:FEAT|Create Greater Alchana
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Taraston Herbalist	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Check		Required Class			Required Feat						Required Skill
 CLASS:Taraston Herbalist	PRECHECK:1,Fortitude=2	PRECLASS:1,Spellcaster=3	PREFEAT:1,Skill Focus (Profession (Herbalist))	PRESKILL:1,Profession (Herbalist)=8
@@ -70,7 +70,7 @@ CLASS:Taraston Herbalist	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|T
 9								AUTO:FEAT|Create Erlcana
 10				ADD:SPELLCASTER|ANY
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Taraston Apothecary	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Check		Required Skill										Required Stat
 CLASS:Taraston Apothecary	PRECHECK:1,Fortitude=3	PRESKILL:3,Heal=1,Profession (Herbalist)=4,Profession (Apothecary)=8	PRESTAT:1,WIS=12

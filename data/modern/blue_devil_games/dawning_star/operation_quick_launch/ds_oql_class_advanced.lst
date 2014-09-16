@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
-CLASS:Air Runner	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*6	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																														Modify VAR
+CLASS:Air Runner	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat			Required Skill
 CLASS:Air Runner	PREFEAT:1,Aircraft Operation	PRESKILL:3,Navigate=4,Survival=4,Pilot=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -16,8 +16,8 @@ CLASS:Air Runner	STARTSKILLPTS:4	CSKILL:Barter|Bluff|Computer Use|Craft (Electro
 7			SAB:Steady Hand
 10			SAB:Old Reliable
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Modify VAR															Bonus
-CLASS:Barter Jack	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:VAR|Action|CL*6	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
+CLASS:Barter Jack	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|CL*6	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1
 # Class Name	Required Skill
 CLASS:Barter Jack	PRESKILL:1,Barter=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -33,8 +33,8 @@ CLASS:Barter Jack	STARTSKILLPTS:8	CSKILL:Barter|Bluff|TYPE=Craft|Diplomacy|Disab
 7:REPEATLEVEL:3																			ADD:FEAT|Windfall
 10			SAB:Military Permit
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR														Bonus
-CLASS:Colonial Leader	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																														Modify VAR
+CLASS:Colonial Leader	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3
 # Class Name		Required Feat							Required Skill							Required Text
 CLASS:Colonial Leader	PREFEAT:3,Coordinate,Empathy,Improved Aid Another	PRESKILL:3,Diplomacy=4,Intimidate=4,Sense Motive=4	PRETEXT:The Colonial Leader must pledge his primary allegiance to a group that has interests in helping the colonies of Eos survive
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -48,8 +48,8 @@ CLASS:Colonial Leader	STARTSKILLPTS:6	CSKILL:Barter|Bluff|Computer Use|TYPE=Craf
 8			SAB:Prosperity
 10							BONUS:ABILITYPOOL|Word of Law Choice|1
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Modify VAR														Bonus
-CLASS:Gunhand	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
+CLASS:Gunhand	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name	Required Feat					Required Skill		PRETOTALAB
 CLASS:Gunhand	PREFEAT:1,Weapon Focus (TYPE=Firearm)	PRESKILL:1,Intimidate=4	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -62,8 +62,8 @@ CLASS:Gunhand	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Mechanical)|Drive|Gamble|Gathe
 7			SAB:Speed Draw
 10			SAB:Danger Sense
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR													Bonus
-CLASS:Lawman	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|CL/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																															Modify VAR
+CLASS:Lawman	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|CL/3
 # Class Name	Required Feat					Multiple Requirements													PRETOTALAB
 CLASS:Lawman	PREFEAT:1,Personal Firearms Proficiency	PREMULT:2,[PRESKILL:1,Intimidate=4],[PRESKILL:1,Knowledge (Civics)=4,Knowledge (Streetwise)=4]	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -77,8 +77,8 @@ CLASS:Lawman	STARTSKILLPTS:4	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|D
 8					BONUS:ABILITYPOOL|Word of Law Choice|1
 10																						ABILITY:Special Ability|AUTOMATIC|Improved Reaction
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR													Bonus
-CLASS:Rancher	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																															Modify VAR
+CLASS:Rancher	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name	Required Feat								Required Skill			PRETOTALAB
 CLASS:Rancher	PREFEAT:2,Mounted Combat,Personal Firearms Proficiency	PRESKILL:2,Ride=6,Survival=4	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -92,8 +92,8 @@ CLASS:Rancher	STARTSKILLPTS:4	CSKILL:Barter|Climb|Drive|Gamble|Handle Animal|Hid
 8			SAB:Survival Mastery
 10			SAB:Weather Resistant
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Modify VAR													Bonus
-CLASS:Rebuilder	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
+CLASS:Rebuilder	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name	Required Feat				Required Skill					Required Text
 CLASS:Rebuilder	PREFEAT:1,Dawning Star Familiarity	PRESKILL:2,Repair=6,Craft (Structural)=4	PRETEXT:Dawning Star Republic allegiance
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -107,8 +107,8 @@ CLASS:Rebuilder	STARTSKILLPTS:6	CSKILL:Climb|Computer Use|Concentration|TYPE=Cra
 8									BONUS:ABILITYPOOL|Rebuilder Sworn Enemy Choice|1
 10			SAB:Disease and Poison Resistance
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Modify VAR															Bonus
-CLASS:Velin Guardian	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
+CLASS:Velin Guardian	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name		Multiple Requirements							Required Skill						Required Text								PRETOTALAB
 CLASS:Velin Guardian	PREMULT:1,[PRERACE:1,Velin],[PREFEAT:1,Velin Tribal Guest]	PRESKILL:3,Hide=4,Move Silently=4,Survival=6	PRETEXT:Velin Tribe or Velin Tribal Council allegiance	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill

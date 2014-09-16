@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
 # Original Entry by: Felipe Diniz
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Optionnal Weapon Prof.									Combat bonus															Modify VAR														Bonus
-CLASS:Bard (Monte Cook's)	HD:6		TYPE:Base.PC	ABB:Brd(MC)		MAXLEVEL:20	SOURCEPAGE:p.5	WEAPONBONUS:Longbow|Longsword|Rapier|Sap|Shortbow|Sword (Short)|Whip	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Optionnal Weapon Prof.									Combat bonus															Save bonus																					Modify VAR
+CLASS:Bard (Monte Cook's)	HD:6		TYPE:Base.PC	ABB:Brd(MC)		MAXLEVEL:20	SOURCEPAGE:p.5	WEAPONBONUS:Longbow|Longsword|Rapier|Sap|Shortbow|Sword (Short)|Whip	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name			Required AL
 CLASS:Bard (Monte Cook's)	PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -47,8 +47,8 @@ CLASS:Bard (Monte Cook's)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEM
 19	CAST:0,12,0,9,0,6	KNOWN:0,11,0,8,0,4
 20	CAST:0,12,0,9,0,7	KNOWN:0,11,0,8,0,5					ABILITY:Special Ability|AUTOMATIC|Weave Melodies ~ Bard (Monte Cook's)
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Sorcerer (Monte Cook's)	HD:6		TYPE:Base.PC	ABB:Sor(MC)		MAXLEVEL:20	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
+CLASS:Sorcerer (Monte Cook's)	HD:6		TYPE:Base.PC	ABB:Sor(MC)		MAXLEVEL:20	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Sorcerer (Monte Cook's)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Gather Information|Knowledge (Arcana)|TYPE=Profession|Spellcraft
 # Class Name			Spell Stat		Spell Type		Memorize	Caster level
@@ -89,8 +89,8 @@ CLASS:Sorcerer (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:C
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,5,5,5,5,4,3,3
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,5,5,5,5,4,4,3
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
-CLASS:Diplomancer	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
+CLASS:Diplomancer	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Feat								Required Skill					Required Spell School
 CLASS:Diplomancer	PREFEAT:2,Skill Focus (Diplomacy),Spell Focus (Enchantment)	PRESKILL:2,Diplomacy=10,Sense Motive=8	PRESPELLSCHOOL:5,Enchantment=1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -106,7 +106,7 @@ CLASS:Diplomancer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Dip
 9																																					ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Word Cunning ~ Diplomancer
 10																										BONUS:VAR|EnchantAffinity|1							ADD:SPELLCASTER|ANY
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Eldritch Warrior	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat					Required Skill									PRETOTALAB
 CLASS:Eldritch Warrior	PREFEAT:2,Magical Talent,Weapon Focus	PRESKILL:3,Craft (Alchemy)=3,Knowledge (Arcana)=3,Spellcraft=1	PRETOTALAB:5
@@ -127,8 +127,8 @@ CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Hid
 9	BONUS:ABILITYPOOL|Eldritch Warrior Feat|1
 10	BONUS:ABILITYPOOL|Ritual of Potency Choice|1
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Embermage	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
+CLASS:Embermage	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Feat									Required Skill				Required Spell Descriptor	Req. Spell Type		Prohibited Spell Descriptor
 CLASS:Embermage	PREFEAT:3,Endurance,Spell Focus (Evocation),Spell Penetration	PRESKILL:1,Knowledge (Arcana)=10	PRESPELLDESCRIPTOR:5,Fire=1	PRESPELLTYPE:3,Arcane=1	!PRESPELLDESCRIPTOR:1,Cold=1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -144,8 +144,8 @@ CLASS:Embermage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|T
 9	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Eyes of Fire ~ Embermage
 10					ABILITY:Special Ability|AUTOMATIC|Internal Explosion ~ Embermage
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
-CLASS:Graven One	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																						Modify VAR
+CLASS:Graven One	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Feat									Required Language					Required Skill								Req. Known Spell							Req. Spell Type
 CLASS:Graven One	PREFEAT:4,Etch Object Rune,Item Image,Scribe Scroll,Toughness	PRELANG:3,Celestial,Draconic,Infernal	PRESKILL:1,Knowledge (Arcana)=5	PRESKILL:1,Spellcraft=7	PRESPELL:3,Erase,Explosive Runes,Sepia Snake Sigil	PRESPELLTYPE:1,Arcane=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -162,7 +162,7 @@ CLASS:Graven One	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arca
 9	BONUS:ABILITYPOOL|Tattoo Of Power Choice|1																				ADD:SPELLCASTER|ANY
 10																			BONUS:VAR|GravenImageHD|5
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Knight of the Chord	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL		Required Feat				Multiple Requirements								Required Skill
 CLASS:Knight of the Chord	PREALIGN:CG,CN,CE	PREFEAT:2,Toughness,Weapon Focus	PREMULT:1,[PREVARGTEQ:Spellsong,2],[PRESPELL:1,Sculpt Sound]	PRESKILL:2,Knowledge (Arcana)=3,Perform (Sing)=9
@@ -183,8 +183,8 @@ CLASS:Knight of the Chord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE=
 9																																																														ABILITY:Special Ability|AUTOMATIC|Sonic Protection ~ Knight of the Chord
 10																																																										ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Song of Smiting ~ Knight of the Chord
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Mirror Master	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
+CLASS:Mirror Master	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required Feat						Required Skill							Req. Spell Type
 CLASS:Mirror Master	PREFEAT:2,Craft Wondrous Item,Mirror Sight	PRESKILL:2,Knowledge (Arcana)=5,Craft (Glassmaking)=5	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -207,8 +207,8 @@ CLASS:Mirror Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (A
 7																						ADD:SPELLCASTER|ANY
 9																						ADD:SPELLCASTER|ANY
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Song Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
+CLASS:Song Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required AL				Required Feat							Required Skill							Var. Min. Value
 CLASS:Song Mage	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Magical Talent	PREFEAT:1,TYPE.Song	PRESKILL:2,Knowledge (Arcana)=3,Perform (Sing)=8	PREVARGTEQ:Spellsong,2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -225,8 +225,8 @@ CLASS:Song Mage	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Decipher Scr
 10																		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Clarity of Music ~ Song Mage
 
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Starlight Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.40	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Save bonus																					Modify VAR
+CLASS:Starlight Mage	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.40	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required Feat				Required Race	Required Skill								Req. Known Spell
 CLASS:Starlight Mage	PREFEAT:2,Alertness,Spell Focus	PRERACE:1,Elf%	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Astronomy)=8	PRESPELL:3,Dancing Lights,Glitterdust,Temporal Venom
 # Class Name		Skill Pts/Lvl	Class Skill

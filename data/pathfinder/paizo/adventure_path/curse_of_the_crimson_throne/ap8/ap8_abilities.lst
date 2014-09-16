@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOURCESHORT:AP8	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
 
 ###Block: Daemon (Leukodaemon) Abilities
@@ -10,11 +10,11 @@ Summon Daemon												CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatura
 Leukodaemon Immunities	OUTPUTNAME:Immune to death effects, disease, and poison	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity																			SOURCEPAGE:p.80
 
 ###Block: Daughter Of Urgathoa Abilities
-# Ability Name	Category of Ability		Type								Description																												Bonus to HP				Source Page		Bonus
-Great Claw		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.AttackOption	DESC:When a follower of the goddess of disease is transformed into a daughter of Urgathoa, she grows a massive and terrible weapon.													SOURCEPAGE:p.82
-Desecrate Aura	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		DESC:A daughter of Urgathoa is surrounded by a 20-foot aura that functions as the desecrate spell.																		SOURCEPAGE:p.82
-Diseased Touch	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:Any time a daughter of Urgathoa strikes with her great claw or claw attack, she can choose to afflict the damaged opponent with a disease, as per the spell contagion.						SOURCEPAGE:p.82
-Unholy Fortitude	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:Daughters of Urgathoa gain bonus hit points																					BONUS:HP|CURRENTMAX|CHA*TL	SOURCEPAGE:p.82	BONUS:SAVE|Fortitude|CHA
+# Ability Name	Category of Ability		Type								Description																												Bonus to HP				Save bonus				Source Page
+Great Claw		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.AttackOption	DESC:When a follower of the goddess of disease is transformed into a daughter of Urgathoa, she grows a massive and terrible weapon.																		SOURCEPAGE:p.82
+Desecrate Aura	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		DESC:A daughter of Urgathoa is surrounded by a 20-foot aura that functions as the desecrate spell.																							SOURCEPAGE:p.82
+Diseased Touch	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			DESC:Any time a daughter of Urgathoa strikes with her great claw or claw attack, she can choose to afflict the damaged opponent with a disease, as per the spell contagion.											SOURCEPAGE:p.82
+Unholy Fortitude	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:Daughters of Urgathoa gain bonus hit points																					BONUS:HP|CURRENTMAX|CHA*TL	BONUS:SAVE|Fortitude|CHA	SOURCEPAGE:p.82
 
 ###Block: Giant Fly and Giant Maggot Abilities
 # Ability Name		Output Name									Category of Ability		Type						Description																				Source Page

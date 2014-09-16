@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
 #Original Entry by: Eddy Anthony
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR														Bonus
-CLASS:Wing Jockey	HD:8		TYPE:PC.Prestige	ABB:WgJky		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Save bonus																						Modify VAR
+CLASS:Wing Jockey	HD:8		TYPE:PC.Prestige	ABB:WgJky		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Feat			Required Skill
 CLASS:Wing Jockey	PREFEAT:1,Mounted Combat	PRESKILL:2,Ride=4,Handle Animal=4
 # Class Name	Skill Pts/Lvl	Class Skill

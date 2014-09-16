@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 15:58:53 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
@@ -49,10 +49,10 @@ Character Creation Untrained				KEY:Untrained (-6)				OUTPUTNAME:Untrained			CAT
 Character Creation Very Limited Spell List	KEY:Very Limited Spell List (+1/2 CP)	OUTPUTNAME:Very Limited Spell List	CATEGORY:Special Ability	TYPE:Character Creation.CharCreation.General			DESC:(+.5) The character's spell lists are unusually specialized, or otherwise restricted, for his or her magic style and class. The Paladin doesn't receive this, because his or her spell list covers nearly anything he or she might want to do and even offers some unique and powerful spells. Rangers, on the other hand, don't have nearly the versatility they arguably should get, so they receive this small bonus.																																													MULT:YES	CHOOSE:USERINPUT|TITLE=Restrictions	BONUS:VAR|CharacterPoints,CharacterPointsTotal|var("EclipseClassLvl")/2		COST:0	SOURCEPAGE:p.17	BENEFIT:You have a restricted spell list. Gain 1/2 CP per level. [+%1 total CP].|EclipseClassLvl/2
 
 ###Block: Saves
-# Ability Name	Unique Key			Category of Ability		Type						Description						Stackable?	Multiple?	Choose		Cost		Source Page		Benefits																					Bonus
-Save / Fortitude	KEY:Save ~ Fortitude	CATEGORY:Special Ability	TYPE:SavingThrow.Character Creation	DESC:Increases the Fortitude Save by +1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	COST:3	SOURCEPAGE:p.10	BENEFIT:Increases the Fortitude Save by +1. [+%1 Total].|count("ABILITIES","CATEGORY=Special Ability","NAME=Save / Fortitude")	BONUS:SAVE|BASE.Fortitude|1
-Save / Reflex	KEY:Save ~ Reflex		CATEGORY:Special Ability	TYPE:SavingThrow.Character Creation	DESC:Increases the Reflex Save by +1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	COST:3	SOURCEPAGE:p.10	BENEFIT:Increases the Reflex Save by +1. [+%1 Total].|count("ABILITIES","CATEGORY=Special Ability","NAME=Save / Reflex")		BONUS:SAVE|BASE.Reflex|1
-Save / Will		KEY:Save ~ Will		CATEGORY:Special Ability	TYPE:SavingThrow.Character Creation	DESC:Increases the Will Save by +1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	COST:3	SOURCEPAGE:p.10	BENEFIT:Increases the Will Save by +1. [+%1 Total].|count("ABILITIES","CATEGORY=Special Ability","NAME=Save / Will")			BONUS:SAVE|BASE.Will|1
+# Ability Name	Unique Key			Category of Ability		Type						Description						Stackable?	Multiple?	Choose		Save bonus				Cost		Source Page		Benefits
+Save / Fortitude	KEY:Save ~ Fortitude	CATEGORY:Special Ability	TYPE:SavingThrow.Character Creation	DESC:Increases the Fortitude Save by +1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SAVE|BASE.Fortitude|1	COST:3	SOURCEPAGE:p.10	BENEFIT:Increases the Fortitude Save by +1. [+%1 Total].|count("ABILITIES","CATEGORY=Special Ability","NAME=Save / Fortitude")
+Save / Reflex	KEY:Save ~ Reflex		CATEGORY:Special Ability	TYPE:SavingThrow.Character Creation	DESC:Increases the Reflex Save by +1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SAVE|BASE.Reflex|1	COST:3	SOURCEPAGE:p.10	BENEFIT:Increases the Reflex Save by +1. [+%1 Total].|count("ABILITIES","CATEGORY=Special Ability","NAME=Save / Reflex")
+Save / Will		KEY:Save ~ Will		CATEGORY:Special Ability	TYPE:SavingThrow.Character Creation	DESC:Increases the Will Save by +1		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SAVE|BASE.Will|1		COST:3	SOURCEPAGE:p.10	BENEFIT:Increases the Will Save by +1. [+%1 Total].|count("ABILITIES","CATEGORY=Special Ability","NAME=Save / Will")
 
 
 ###########################

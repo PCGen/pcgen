@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Elements of Magic (Revised)	SOURCESHORT:EOM	SOURCEWEB:http://www.enworld.org/forum/e-n-publishing/	SOURCEDATE:2002-01
 #Original Entry: Joe Frazier, Clean up by Andrew Maitland
 
@@ -38,19 +38,19 @@ Uncanny Vision Output			OUTPUTNAME:Uncanny Vision	CATEGORY:Special Ability	TYPE:
 Two Minor Boons									CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon			VISIBLE:DISPLAY																																																																																																						BONUS:ABILITYPOOL|Magical Boon Minor|2																																			SOURCEPAGE:p.7
 
 ###Block:  Major Boons
-# Ability Name			Category of Ability		Type					Visible		Define				Description								Multiple?	Choose																							Combat bonus						Modify VAR					Source Page		Bonus
+# Ability Name			Category of Ability		Type					Visible		Define				Description								Multiple?	Choose																							Combat bonus						Save bonus						Modify VAR					Source Page
 Greater Animagus			CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon
 Improved Signature Spell	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon
 #
-Magical Protection ~ INT	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																																							SOURCEPAGE:p.7	BONUS:SAVE|ALL|min(INT,5)|TYPE=Resistance
-Magical Protection ~ WIS	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																																							SOURCEPAGE:p.7	BONUS:SAVE|ALL|min(WIS,5)|TYPE=Resistance
-Magical Protection ~ CHA	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																																							SOURCEPAGE:p.7	BONUS:SAVE|ALL|min(CHA,5)|TYPE=Resistance
+Magical Protection ~ INT	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																																	BONUS:SAVE|ALL|min(INT,5)|TYPE=Resistance							SOURCEPAGE:p.7
+Magical Protection ~ WIS	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																																	BONUS:SAVE|ALL|min(WIS,5)|TYPE=Resistance							SOURCEPAGE:p.7
+Magical Protection ~ CHA	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																																	BONUS:SAVE|ALL|min(CHA,5)|TYPE=Resistance							SOURCEPAGE:p.7
 #
-Magical Defense ~ INT		CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																									BONUS:COMBAT|AC|min(INT,5)|TYPE=Deflection							SOURCEPAGE:p.7
-Magical Defense ~ WIS		CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																									BONUS:COMBAT|AC|min(WIS,5)|TYPE=Deflection							SOURCEPAGE:p.7
-Magical Defense ~ CHA		CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																									BONUS:COMBAT|AC|min(CHA,5)|TYPE=Deflection							SOURCEPAGE:p.7
+Magical Defense ~ INT		CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																									BONUS:COMBAT|AC|min(INT,5)|TYPE=Deflection														SOURCEPAGE:p.7
+Magical Defense ~ WIS		CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																									BONUS:COMBAT|AC|min(WIS,5)|TYPE=Deflection														SOURCEPAGE:p.7
+Magical Defense ~ CHA		CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																									BONUS:COMBAT|AC|min(CHA,5)|TYPE=Deflection														SOURCEPAGE:p.7
 #
-Major Energy Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon				DEFINE:ResistanceBonusMajor|0	DESC:Resistance %1 to %2|ResistanceBonusMajor|%LIST	MULT:YES	CHOOSE:STRING|Acid|Air|Crystal|Death|Earth|Fire|Force|Ice|Lava|Life|Light|Lightning|Metal|Mist|Nature|Ooze|Shadow|Sound|Space|Time|Void|Water									BONUS:VAR|ResistanceBonusMajor|10
+Major Energy Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon				DEFINE:ResistanceBonusMajor|0	DESC:Resistance %1 to %2|ResistanceBonusMajor|%LIST	MULT:YES	CHOOSE:STRING|Acid|Air|Crystal|Death|Earth|Fire|Force|Ice|Lava|Life|Light|Lightning|Metal|Mist|Nature|Ooze|Shadow|Sound|Space|Time|Void|Water																BONUS:VAR|ResistanceBonusMajor|10
 
 
 ###Block: Spell Lists
