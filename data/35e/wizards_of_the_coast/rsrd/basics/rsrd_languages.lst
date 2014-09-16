@@ -3,14 +3,14 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 # input by Ruemere, email: ruemere@poczta.onet.pl
 
-# languages from races.rtf and various monsters*.rtf
+# languages from races and various monsters*
 # SPECIAL: all class specific languages gained new TYPE value: class (Cleric etc)
 
-# Added alphabet type to each language in accordance with SkillsII.rtf
+# Added alphabet type to each language in accordance with SkillsII
 # Alphabet type will be final type, such as:
 # Abyssal	TYPE:Spoken.Written.Read.Infernal
 # ... since the Abyssal language uses the Infernal Alphabet for its writing.
-# Per SkillsII.rtf, each language listed in Speak Language is also written/read
+# Per SkillsII, each language listed in Speak Language is also written/read
 # - Fluxxdog - Nov 4 08
 
 #	everyone's language
@@ -23,7 +23,7 @@ Elven				TYPE:Spoken.Written.Read.Elven
 Gnome				TYPE:Spoken.Written.Read.Dwarven
 Halfling			TYPE:Spoken.Written.Read.Common
 
-#	other languages (races.rtf)
+#	other languages (races)
 Giant				TYPE:Spoken.Written.Read.Dwarven
 Gnoll				TYPE:Spoken.Written.Read.Common
 Goblin			TYPE:Spoken.Written.Read.Dwarven
@@ -39,7 +39,7 @@ Infernal			TYPE:Spoken.Written.Read.Cleric.Infernal
 Sylvan			TYPE:Spoken.Written.Read.Druid.Elven
 Druidic			TYPE:Spoken.Written.Read.Druid.Secret.Druidic	PREVARGTEQ:DruidicLanguage,1
 
-# 	other languages (found in monsters*.rtf)
+# 	other languages (found in monsters*)
 #		assuming that all non-basic languages are of Spoken type, i.e. that they do not possess any alphabet (exceptions happen, of course)
 Aboleth			TYPE:Spoken
 Aquan				TYPE:Spoken.Written.Read.Elven

@@ -226,21 +226,21 @@ Whirlwind Attack			KEY:Astral_Whirlwind Attack			CATEGORY:Special Ability	TYPE:C
 
 ###Block: Psicrystal personalities
 # Ability Name			Unique Key				Category of Ability		Type							Stackable?	Multiple?	Choose				Combat bonus			Bonus to skill				Source Page				Bonus
-Psicrystal (Artiste)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|TYPE.Craft|3		SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Bully)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Intimidate|3		SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Coward)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Hide|3			SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Friendly)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Diplomacy|3			SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Hero)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																					SOURCEPAGE:PsionicClasses.rtf	BONUS:SAVE|Fortitude|2
-Psicrystal (Liar)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Bluff|3			SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Meticulous)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Search|3			SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Nimble)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality										BONUS:COMBAT|INITIATIVE|2							SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Observant)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Spot|3			SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Poised)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Balance|3			SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Resolved)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																					SOURCEPAGE:PsionicClasses.rtf	BONUS:SAVE|Will|2
-Psicrystal (Sage)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																					SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Single Minded)						CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Concentration|3		SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Sneaky)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Move Silently|3		SOURCEPAGE:PsionicClasses.rtf
-Psicrystal (Sympathetic)						CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Sense Motive|3		SOURCEPAGE:PsionicClasses.rtf
+Psicrystal (Artiste)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|TYPE.Craft|3		SOURCEPAGE:PsionicClasses
+Psicrystal (Bully)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Intimidate|3		SOURCEPAGE:PsionicClasses
+Psicrystal (Coward)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Hide|3			SOURCEPAGE:PsionicClasses
+Psicrystal (Friendly)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Diplomacy|3			SOURCEPAGE:PsionicClasses
+Psicrystal (Hero)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																					SOURCEPAGE:PsionicClasses	BONUS:SAVE|Fortitude|2
+Psicrystal (Liar)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Bluff|3			SOURCEPAGE:PsionicClasses
+Psicrystal (Meticulous)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Search|3			SOURCEPAGE:PsionicClasses
+Psicrystal (Nimble)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality										BONUS:COMBAT|INITIATIVE|2							SOURCEPAGE:PsionicClasses
+Psicrystal (Observant)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Spot|3			SOURCEPAGE:PsionicClasses
+Psicrystal (Poised)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Balance|3			SOURCEPAGE:PsionicClasses
+Psicrystal (Resolved)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																					SOURCEPAGE:PsionicClasses	BONUS:SAVE|Will|2
+Psicrystal (Sage)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																					SOURCEPAGE:PsionicClasses
+Psicrystal (Single Minded)						CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Concentration|3		SOURCEPAGE:PsionicClasses
+Psicrystal (Sneaky)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Move Silently|3		SOURCEPAGE:PsionicClasses
+Psicrystal (Sympathetic)						CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SKILL|Sense Motive|3		SOURCEPAGE:PsionicClasses
 
 #
 # End

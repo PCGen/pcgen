@@ -4,7 +4,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # VAR SynergyBonus defined in statsandchecks.lst to allow raising the value of the Synergy bonus -- Frank
 
 
-###Block: Epic Synergy Bonuses, see EpicSkills.rtf
+###Block: Epic Synergy Bonuses, see EpicSkills
 
 # Skill Name		Bonus to skill
 Balance.MOD			BONUS:SKILL|Balance|max(0,floor((var("SKILLRANK=Tumble")-5)/20))*SynergyBonus|TYPE=Synergy.STACK

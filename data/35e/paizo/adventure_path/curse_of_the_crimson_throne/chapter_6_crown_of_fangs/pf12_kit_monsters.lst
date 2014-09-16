@@ -8,7 +8,7 @@ NAME:Akaruzug
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 
 
-STARTPACK:Devil (Belier (Bdellavritra)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Devil (Belier (Bdellavritra))],[!PRERACE:1,%]	SOURCEPAGE:p. 84
+STARTPACK:Devil (Belier (Bdellavritra)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Devil (Belier (Bdellavritra))],[!PRERACE:1,%]	SOURCEPAGE:p.84
 ALIGN:LE
 RACE:Devil (Belier (Bdellavritra))	!PRERACE:1,%
 NAME:Belier Devil (Bdellavritra)
@@ -36,7 +36,7 @@ FEAT:Multiattack
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 
 
-STARTPACK:Devil (Contract (Phistophilus)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Devil (Contract (Phistophilus))],[!PRERACE:1,%]	SOURCEPAGE:p. 86
+STARTPACK:Devil (Contract (Phistophilus)) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Devil (Contract (Phistophilus))],[!PRERACE:1,%]	SOURCEPAGE:p.86
 ALIGN:LE
 RACE:Devil (Contract (Phistophilus))	!PRERACE:1,%
 NAME:Contract Devil (Phistophilus)
@@ -64,7 +64,7 @@ FEAT:Iron Will
 FEAT:Mobility
 
 
-STARTPACK:Mobogo Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mobogo],[!PRERACE:1,%]	SOURCEPAGE:p. 88
+STARTPACK:Mobogo Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mobogo],[!PRERACE:1,%]	SOURCEPAGE:p.88
 ALIGN:CE
 RACE:Mobogo	!PRERACE:1,%
 NAME:Mobogo

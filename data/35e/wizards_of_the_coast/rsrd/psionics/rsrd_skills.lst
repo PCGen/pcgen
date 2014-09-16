@@ -6,7 +6,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 
 # Skill Name		Key Stat	Untrained?		Type							Source Page				Bonus to skill
-Autohypnosis		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Base.Standard			SOURCEPAGE:PsionicSkills.rtf	BONUS:SKILL|Autohypnosis|SynergyBonus|PRESKILL:1,Concentration=5|TYPE=Synergy.STACK
-Knowledge (Psionics)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Base.Standard	SOURCEPAGE:PsionicSkills.rtf	BONUS:SKILL|Knowledge (Psionics)|SynergyBonus|PRESKILL:1,Autohypnosis=5|TYPE=Synergy.STACK
-Psicraft			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Base.Standard		SOURCEPAGE:PsionicSkills.rtf	BONUS:SKILL|Psicraft|SynergyBonus|PRESKILL:1,Knowledge (Psionics)=5|TYPE=Synergy.STACK
-Use Psionic Device	KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma.Base.Standard			SOURCEPAGE:PsionicSkills.rtf
+Autohypnosis		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Base.Standard			SOURCEPAGE:PsionicSkills	BONUS:SKILL|Autohypnosis|SynergyBonus|PRESKILL:1,Concentration=5|TYPE=Synergy.STACK
+Knowledge (Psionics)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Base.Standard	SOURCEPAGE:PsionicSkills	BONUS:SKILL|Knowledge (Psionics)|SynergyBonus|PRESKILL:1,Autohypnosis=5|TYPE=Synergy.STACK
+Psicraft			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Base.Standard		SOURCEPAGE:PsionicSkills	BONUS:SKILL|Psicraft|SynergyBonus|PRESKILL:1,Knowledge (Psionics)=5|TYPE=Synergy.STACK
+Use Psionic Device	KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma.Base.Standard			SOURCEPAGE:PsionicSkills

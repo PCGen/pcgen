@@ -1,11 +1,11 @@
 # CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
-# Added alphabet type to each language in accordance with srdskillsii.rtf
+# Added alphabet type to each language in accordance with srdskillsii
 # Alphabet type will be final type, such as:
 # Abyssal	TYPE:Spoken.Written.Read.Infernal
 # ... since the Abyssal language uses the Infernal Alphabet for its writing.
-# Per srdskillsii.rtf, each language listed in Speak Language is also written/read
+# Per srdskillsii, each language listed in Speak Language is also written/read
 # - Fluxxdog - Nov 4 08
 
 # Language	Type									Var. Min. Value

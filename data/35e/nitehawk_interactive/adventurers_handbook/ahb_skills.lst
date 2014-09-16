@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
 SOURCELONG:Adventurer's Handbook	SOURCESHORT:AHB	SOURCEWEB:http://www.nitehawk-games.biz/products/ahb.html	SOURCEDATE:06-2005
 #Original Entry by: Tir-Gwaith
 
@@ -21,15 +21,15 @@ Knowledge (Cultures)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
 #	Conditionals that might be useful, but can be skipped for a first pass.
 
 ###Block: New skills
-# Skill Name		Key Stat	Untrained?		Skill Penalty?	Exclusive?		Classes			Type			Source Page		Bonus to skill											Bonus to Situation
-Dragon Lore			KEYSTAT:INT	USEUNTRAINED:NO											TYPE:Intelligence	SOURCEPAGE:p.61	BONUS:SKILL|Knowledge (Dragons)|SKILL.Dragon Lore.RANK|TYPE=SkillGranted
+# Skill Name		Key Stat	Untrained?		Skill Penalty?	Exclusive?		Classes			Type			Source Page		Bonus to Situation										Bonus to skill
+Dragon Lore			KEYSTAT:INT	USEUNTRAINED:NO											TYPE:Intelligence	SOURCEPAGE:p.61														BONUS:SKILL|Knowledge (Dragons)|SKILL.Dragon Lore.RANK|TYPE=SkillGranted
 Improvised Trap Setting	KEYSTAT:INT	USEUNTRAINED:NO				EXCLUSIVE:YES	CLASSES:Ranger|Rogue	TYPE:Intelligence	SOURCEPAGE:p.62
 Sailing			KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES									TYPE:Dexterity	SOURCEPAGE:p.62
 Seduction			KEYSTAT:CHA	USEUNTRAINED:YES											TYPE:Charisma	SOURCEPAGE:p.63
 # Not tackling the racial modifier table for now.  Not even sure if we can (not reading in detail yet. - Tir-Gwaith)
 Star Reading		KEYSTAT:WIS	USEUNTRAINED:NO											TYPE:Wisdom		SOURCEPAGE:p.64
 Tactics			KEYSTAT:INT	USEUNTRAINED:NO											TYPE:Intelligence	SOURCEPAGE:p.65
-Witchcraft			KEYSTAT:INT	USEUNTRAINED:NO											TYPE:Intelligence	SOURCEPAGE:p.65														BONUS:SITUATION|Use Magic Device=Scroll|SynergyBonus|PRESKILL:1,Witchcraft=5
+Witchcraft			KEYSTAT:INT	USEUNTRAINED:NO											TYPE:Intelligence	SOURCEPAGE:p.65	BONUS:SITUATION|Use Magic Device=Scroll|SynergyBonus|PRESKILL:1,Witchcraft=5
 
 
 ###Block: Craft/Knowledge/Profession subskills

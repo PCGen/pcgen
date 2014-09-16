@@ -30,7 +30,7 @@ CLASS:Brethren Follower	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Hide|Knowledge
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Bonus
-CLASS:Cartel Trade Master	HD:6		TYPE:PC.Prestige	ABB:CTM		MAXLEVEL:5	SOURCEPAGE:p. 25, 26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Cartel Trade Master	HD:6		TYPE:PC.Prestige	ABB:CTM		MAXLEVEL:5	SOURCEPAGE:p.25, 26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL			Required Language	Req. Special Ability	Required Skill				Required Stat
 CLASS:Cartel Trade Master	PREALIGN:LN,NG,TN,NE,CN	PRELANG:1,Trade	PRESA:1,Spit Polish	PRESKILL:2,Bluff=7,Diplomacy=7	PRESTAT:1,CHA=15
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -108,7 +108,7 @@ CLASS:Foundationist Paladin	STARTSKILLPTS:2	CSKILL:Handle Animal|Heal|Intimidate
 10					BONUS:VAR|Command|1				ADD:FEAT|Ambidexterity,Blind-Fight,Combat Reflexes,Dodge,Far Shot,Improved Critical,Improved Initiative,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Trample,Weapon Focus
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus										Bonus
-CLASS:Juju Doctor	HD:4		TYPE:PC.Prestige	ABB:JJD		MAXLEVEL:10	SOURCEPAGE:p. 30, 31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Juju Doctor	HD:4		TYPE:PC.Prestige	ABB:JJD		MAXLEVEL:10	SOURCEPAGE:p.30, 31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Feat														Required Skill
 CLASS:Juju Doctor	PREFEAT:3,Brew Potion,Skill Focus (Knowledge (Medicine)),Skill Focus (Knowledge (Pharmacy))	PRESKILL:3,Heal=9,Knowledge (Medicine)=9,Knowledge (Pharmacy)=9
 # Class Name	Skill Pts/Lvl	Class Skill

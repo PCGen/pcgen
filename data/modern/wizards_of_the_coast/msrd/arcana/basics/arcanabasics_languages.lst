@@ -4,35 +4,35 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 #Abyssal, Auran, Draconic, Giant, Gnoll, Goblin and Terran moved to moderncreatures_languages.lst
 
 # Language			Unique Key					Type			Source Page
-Aquan										TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Aquan				KEY:Aquan ~ Written			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
-Celestial									TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind.rtf
-Celestial			KEY:Celestial ~ Written			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf
-Common									TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind.rtf
-Common			KEY:Common ~ Written			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf
-Drow Sign Language							TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind.rtf
-Drow Sign Language	KEY:Drow Sign Language ~ Written	TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf
-Dwarven									TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Dwarven			KEY:Dwarven ~ Written			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
-Elven										TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Elven				KEY:Elven ~ Written			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
-Gnome										TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Gnome				KEY:Gnome ~ Written			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
-Halfling									TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind.rtf
-Halfling			KEY:Halfling ~ Written			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf
-Ingan										TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Ingan				KEY:Ingan ~ Written			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
-Infernal									TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Infernal			KEY:Infernal ~ Written			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
-Kuo toan									TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind.rtf
-Kuo toan			KEY:Kuo toan ~ Written			TYPE:Written	SOURCEPAGE:ArcanaShadowkind.rtf
-Orc										TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Orc				KEY:Orc ~ Written				TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
-Skunk Ape									TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Sylvan									TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Sylvan			KEY:Sylvan ~ Written			TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
-Undertongue									TYPE:Spoken		SOURCEPAGE:ArcanaCreatures.rtf
-Undertongue			KEY:Undertongue ~ Written		TYPE:Written	SOURCEPAGE:ArcanaCreatures.rtf
+Aquan										TYPE:Spoken		SOURCEPAGE:ArcanaCreatures
+Aquan				KEY:Aquan ~ Written			TYPE:Written	SOURCEPAGE:ArcanaCreatures
+Celestial									TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind
+Celestial			KEY:Celestial ~ Written			TYPE:Written	SOURCEPAGE:ArcanaShadowkind
+Common									TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind
+Common			KEY:Common ~ Written			TYPE:Written	SOURCEPAGE:ArcanaShadowkind
+Drow Sign Language							TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind
+Drow Sign Language	KEY:Drow Sign Language ~ Written	TYPE:Written	SOURCEPAGE:ArcanaShadowkind
+Dwarven									TYPE:Spoken		SOURCEPAGE:ArcanaCreatures
+Dwarven			KEY:Dwarven ~ Written			TYPE:Written	SOURCEPAGE:ArcanaCreatures
+Elven										TYPE:Spoken		SOURCEPAGE:ArcanaCreatures
+Elven				KEY:Elven ~ Written			TYPE:Written	SOURCEPAGE:ArcanaCreatures
+Gnome										TYPE:Spoken		SOURCEPAGE:ArcanaCreatures
+Gnome				KEY:Gnome ~ Written			TYPE:Written	SOURCEPAGE:ArcanaCreatures
+Halfling									TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind
+Halfling			KEY:Halfling ~ Written			TYPE:Written	SOURCEPAGE:ArcanaShadowkind
+Ingan										TYPE:Spoken		SOURCEPAGE:ArcanaCreatures
+Ingan				KEY:Ingan ~ Written			TYPE:Written	SOURCEPAGE:ArcanaCreatures
+Infernal									TYPE:Spoken		SOURCEPAGE:ArcanaCreatures
+Infernal			KEY:Infernal ~ Written			TYPE:Written	SOURCEPAGE:ArcanaCreatures
+Kuo toan									TYPE:Spoken		SOURCEPAGE:ArcanaShadowkind
+Kuo toan			KEY:Kuo toan ~ Written			TYPE:Written	SOURCEPAGE:ArcanaShadowkind
+Orc										TYPE:Spoken		SOURCEPAGE:ArcanaCreatures
+Orc				KEY:Orc ~ Written				TYPE:Written	SOURCEPAGE:ArcanaCreatures
+Skunk Ape									TYPE:Spoken		SOURCEPAGE:ArcanaCreatures
+Sylvan									TYPE:Spoken		SOURCEPAGE:ArcanaCreatures
+Sylvan			KEY:Sylvan ~ Written			TYPE:Written	SOURCEPAGE:ArcanaCreatures
+Undertongue									TYPE:Spoken		SOURCEPAGE:ArcanaCreatures
+Undertongue			KEY:Undertongue ~ Written		TYPE:Written	SOURCEPAGE:ArcanaCreatures
 
 #
 # End

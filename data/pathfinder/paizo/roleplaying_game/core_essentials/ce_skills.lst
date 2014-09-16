@@ -1,4 +1,4 @@
-# CVS $Revision: 20121 $ $Author: zaister $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 20121 $ $Author: zaister $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
 # Original Entry by: Eric Smith (Maredudd), Stefan Radermacher
 
 # Conditional skills for bard's Versatile Performance ability
@@ -41,9 +41,9 @@ Samurai Mount							KEYSTAT:DEX						TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,C
 ###Block:
 
 ###Block:
-# Skill Name	Define							Modify VAR														Bonus to Situation
-Acrobatics.MOD																								BONUS:SITUATION|Acrobatics=Jump|floor((var("MOVE[Walk]")-30)/10)*4|TYPE=Move
-Ride.MOD		DEFINE:RideACP|0	DEFINE:SamuraiMountACP|0	BONUS:VAR|RideACP|var("ARMOR.0.ACCHECK")	BONUS:VAR|SamuraiMountACP|RideACP-(RideACP*2)	BONUS:SITUATION|Samurai Mount|SamuraiMountACP
+# Skill Name	Define							Bonus to Situation										Modify VAR
+Acrobatics.MOD									BONUS:SITUATION|Acrobatics=Jump|floor((var("MOVE[Walk]")-30)/10)*4|TYPE=Move
+Ride.MOD		DEFINE:RideACP|0	DEFINE:SamuraiMountACP|0	BONUS:SITUATION|Samurai Mount|SamuraiMountACP						BONUS:VAR|RideACP|var("ARMOR.0.ACCHECK")	BONUS:VAR|SamuraiMountACP|RideACP-(RideACP*2)
 #BONUS:SKILLRANK|Samurai Mount|skillinfo("TOTALRANK", "Ride")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai	BONUS:SKILL|Samurai Mount|var("SKILL.Ride.MISC")
 ###Block: New Skill
 # Skill Name			Key Stat	Untrained?		Type				Source, Long Desc.		Source, Short Desc.	Source URI																		Source Page		Bonus to skill																						Source Pub. Date

@@ -3,7 +3,7 @@ SOURCELONG:Curse of the Crimson Throne - Chapter 4: A History of Ashes	SOURCESHO
 # Original Entry by: Paul Grosse
 
 
-STARTPACK:Bonestorm Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bonestorm]	SOURCEPAGE:p. 82
+STARTPACK:Bonestorm Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bonestorm]	SOURCEPAGE:p.82
 RACE:Bonestorm	!PRERACE:1,%
 NAME:Bonestorm
 ALIGN:CE
@@ -11,7 +11,7 @@ STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 
 
-STARTPACK:Cinder Wolf Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cinder Wolf]	SOURCEPAGE:p. 84
+STARTPACK:Cinder Wolf Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cinder Wolf]	SOURCEPAGE:p.84
 RACE:Cinder Wolf	!PRERACE:1,%
 NAME:Cinder Wolf
 ALIGN:TN
@@ -22,7 +22,7 @@ FEAT:Track
 
 
 
-STARTPACK:Havero Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Havero]	SOURCEPAGE:p. 86
+STARTPACK:Havero Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Havero]	SOURCEPAGE:p.86
 RACE:Havero	!PRERACE:1,%
 NAME:Havero
 ALIGN:NE
@@ -77,7 +77,7 @@ ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Poison Stinger
 ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Vorpal Tentacle
 
 
-STARTPACK:Red Reaver Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Red Reaver]	SOURCEPAGE:p. 88
+STARTPACK:Red Reaver Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Red Reaver]	SOURCEPAGE:p.88
 RACE:Red Reaver	!PRERACE:1,%
 NAME:Red Reaver
 ALIGN:TN

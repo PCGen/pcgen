@@ -45,28 +45,28 @@ Bolt (Crossbow).MOD																				COST:1.5
 
 # Equipment Name			Output Name							Type									Cost		Weight	Source Page
 # Packs
-Bullet (.22LR/50)				OUTPUTNAME:.22LR Bullets, 50 pack			TYPE:Ammunition.Standard.Metal.Bullet			COST:30	WT:0		SOURCEPAGE:p. 372
-Rockets (AT-5/5)				OUTPUTNAME:AT-5 Rockets, 5 pack			TYPE:Ammunition.Standard.Metal.AT5				COST:2500	WT:0		SOURCEPAGE:p. 129
-Flechettes (Gauss/50)			OUTPUTNAME:Gauss Flechette, 50 pack			TYPE:Ammunition.Standard.Metal.Gauss			COST:100	WT:0		SOURCEPAGE:p. 129
-Rockets (Gyrojet/30)			OUTPUTNAME:Gyrojet Rockets, 30 pack			TYPE:Ammunition.Standard.Metal.Gyrojet			COST:500	WT:0		SOURCEPAGE:p. 129
-Rockets (Hydra 70 M247/5)		OUTPUTNAME:Hydra 70 (M247) Rockets, 5 pack	TYPE:Ammunition.Standard.Metal.Hydra70			COST:1000	WT:0		SOURCEPAGE:p. 129
-Rockets (Hydra 70 M255/5)		OUTPUTNAME:Hydra 70 (M255) Rockets, 5 pack	TYPE:Ammunition.Standard.Metal.Hydra70			COST:1000	WT:0		SOURCEPAGE:p. 129
-Rockets (Hydra 70 M261/5)		OUTPUTNAME:Hydra 70 (M261) Rockets, 5 pack	TYPE:Ammunition.Standard.Metal.Hydra70			COST:1000	WT:0		SOURCEPAGE:p. 129
-Rockets (Hydra 70 M264/5)		OUTPUTNAME:Hydra 70 (M264) Rockets, 5 pack	TYPE:Ammunition.Standard.Metal.Hydra70			COST:200	WT:0		SOURCEPAGE:p. 129
-Rockets (Ramjet/30)			OUTPUTNAME:Ramjet Rockets, 30 pack			TYPE:Ammunition.Standard.Metal.Ramjet			COST:700	WT:0		SOURCEPAGE:p. 129
-Rockets (TOW II/5)			OUTPUTNAME:TOW II Rockets, 5 pack			TYPE:Ammunition.Standard.Metal.TOWII			COST:2000	WT:0		SOURCEPAGE:p. 129
+Bullet (.22LR/50)				OUTPUTNAME:.22LR Bullets, 50 pack			TYPE:Ammunition.Standard.Metal.Bullet			COST:30	WT:0		SOURCEPAGE:p.372
+Rockets (AT-5/5)				OUTPUTNAME:AT-5 Rockets, 5 pack			TYPE:Ammunition.Standard.Metal.AT5				COST:2500	WT:0		SOURCEPAGE:p.129
+Flechettes (Gauss/50)			OUTPUTNAME:Gauss Flechette, 50 pack			TYPE:Ammunition.Standard.Metal.Gauss			COST:100	WT:0		SOURCEPAGE:p.129
+Rockets (Gyrojet/30)			OUTPUTNAME:Gyrojet Rockets, 30 pack			TYPE:Ammunition.Standard.Metal.Gyrojet			COST:500	WT:0		SOURCEPAGE:p.129
+Rockets (Hydra 70 M247/5)		OUTPUTNAME:Hydra 70 (M247) Rockets, 5 pack	TYPE:Ammunition.Standard.Metal.Hydra70			COST:1000	WT:0		SOURCEPAGE:p.129
+Rockets (Hydra 70 M255/5)		OUTPUTNAME:Hydra 70 (M255) Rockets, 5 pack	TYPE:Ammunition.Standard.Metal.Hydra70			COST:1000	WT:0		SOURCEPAGE:p.129
+Rockets (Hydra 70 M261/5)		OUTPUTNAME:Hydra 70 (M261) Rockets, 5 pack	TYPE:Ammunition.Standard.Metal.Hydra70			COST:1000	WT:0		SOURCEPAGE:p.129
+Rockets (Hydra 70 M264/5)		OUTPUTNAME:Hydra 70 (M264) Rockets, 5 pack	TYPE:Ammunition.Standard.Metal.Hydra70			COST:200	WT:0		SOURCEPAGE:p.129
+Rockets (Ramjet/30)			OUTPUTNAME:Ramjet Rockets, 30 pack			TYPE:Ammunition.Standard.Metal.Ramjet			COST:700	WT:0		SOURCEPAGE:p.129
+Rockets (TOW II/5)			OUTPUTNAME:TOW II Rockets, 5 pack			TYPE:Ammunition.Standard.Metal.TOWII			COST:2000	WT:0		SOURCEPAGE:p.129
 
 # Singles
-Bullet (.22LR)				OUTPUTNAME:.22LR Bullet					TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:0.6	WT:0		SOURCEPAGE:p. 372
-Rocket (AT-5)				OUTPUTNAME:AT-5 Rocket					TYPE:Ammunition.Standard.Metal.AT5				COST:500	WT:0		SOURCEPAGE:p. 129
-Flechette (Gauss)				OUTPUTNAME:Gauss Flechette				TYPE:Ammunition.Standard.Metal.Gauss			COST:2	WT:0		SOURCEPAGE:p. 129
-Rocket (Gyrojet)				OUTPUTNAME:Gyrojet Rocket				TYPE:Ammunition.Standard.Metal.Gyrojet			COST:17	WT:0		SOURCEPAGE:p. 129
-Rocket (Hydra 70 M247)			OUTPUTNAME:Hydra 70 (M247) Rocket			TYPE:Ammunition.Standard.Metal.Hydra70			COST:200	WT:0		SOURCEPAGE:p. 129
-Rocket (Hydra 70 M255)			OUTPUTNAME:Hydra 70 (M255) Rocket			TYPE:Ammunition.Standard.Metal.Hydra70			COST:200	WT:0		SOURCEPAGE:p. 129
-Rocket (Hydra 70 M261)			OUTPUTNAME:Hydra 70 (M261) Rocket			TYPE:Ammunition.Standard.Metal.Hydra70			COST:200	WT:0		SOURCEPAGE:p. 129
-Rocket (Hydra 70 M264)			OUTPUTNAME:Hydra 70 (M264) Rocket			TYPE:Ammunition.Standard.Metal.Hydra70			COST:40	WT:0		SOURCEPAGE:p. 129
-Rocket (Ramjet)				OUTPUTNAME:Ramjet Rockets				TYPE:Ammunition.Standard.Metal.Ramjet			COST:25	WT:0		SOURCEPAGE:p. 129
-Rocket (TOW II)				OUTPUTNAME:TOW II Rockets				TYPE:Ammunition.Standard.Metal.TOWII			COST:400	WT:0		SOURCEPAGE:p. 129
+Bullet (.22LR)				OUTPUTNAME:.22LR Bullet					TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:0.6	WT:0		SOURCEPAGE:p.372
+Rocket (AT-5)				OUTPUTNAME:AT-5 Rocket					TYPE:Ammunition.Standard.Metal.AT5				COST:500	WT:0		SOURCEPAGE:p.129
+Flechette (Gauss)				OUTPUTNAME:Gauss Flechette				TYPE:Ammunition.Standard.Metal.Gauss			COST:2	WT:0		SOURCEPAGE:p.129
+Rocket (Gyrojet)				OUTPUTNAME:Gyrojet Rocket				TYPE:Ammunition.Standard.Metal.Gyrojet			COST:17	WT:0		SOURCEPAGE:p.129
+Rocket (Hydra 70 M247)			OUTPUTNAME:Hydra 70 (M247) Rocket			TYPE:Ammunition.Standard.Metal.Hydra70			COST:200	WT:0		SOURCEPAGE:p.129
+Rocket (Hydra 70 M255)			OUTPUTNAME:Hydra 70 (M255) Rocket			TYPE:Ammunition.Standard.Metal.Hydra70			COST:200	WT:0		SOURCEPAGE:p.129
+Rocket (Hydra 70 M261)			OUTPUTNAME:Hydra 70 (M261) Rocket			TYPE:Ammunition.Standard.Metal.Hydra70			COST:200	WT:0		SOURCEPAGE:p.129
+Rocket (Hydra 70 M264)			OUTPUTNAME:Hydra 70 (M264) Rocket			TYPE:Ammunition.Standard.Metal.Hydra70			COST:40	WT:0		SOURCEPAGE:p.129
+Rocket (Ramjet)				OUTPUTNAME:Ramjet Rockets				TYPE:Ammunition.Standard.Metal.Ramjet			COST:25	WT:0		SOURCEPAGE:p.129
+Rocket (TOW II)				OUTPUTNAME:TOW II Rockets				TYPE:Ammunition.Standard.Metal.TOWII			COST:400	WT:0		SOURCEPAGE:p.129
 Cannister (Flame Pistol)		OUTPUTNAME:Flamethrower Cannister			TYPE:Ammunition.FlameCannister				COST:50	WT:0
 Tank (Flamethrower)			OUTPUTNAME:Flamethrower Tank				TYPE:Ammunition.FlameCannister				COST:250	WT:0
 

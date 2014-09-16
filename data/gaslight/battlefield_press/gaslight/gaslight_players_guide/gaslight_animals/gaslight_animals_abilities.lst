@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
 SOURCELONG:Gaslight - Animals	SOURCESHORT:GLA	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
@@ -27,11 +27,11 @@ Spot in Darkness		OUTPUTNAME:+8 Spot in dusk/darkness					CATEGORY:Special Abili
 Spot in Daylight		OUTPUTNAME:+8 species bonus on Spot checks during daylight	CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBLE:YES
 Stampede													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Tracking by Scent		OUTPUTNAME:+4 Survival checks when Tracking by Scent		CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
-Trample													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES	DEFINE:TrampleDC|0	DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC																																								BONUS:VAR|TrampleDC|10	BONUS:VAR|TrampleDC|2|PREFEAT:1,Ability Focus (Trample)	BONUS:VAR|TrampleDC|STR+(HD/2)	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Trample													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES	DEFINE:TrampleDC|0	DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC																																								BONUS:VAR|TrampleDC|10	BONUS:VAR|TrampleDC|2|PREFEAT:1,Ability Focus (Trample)	BONUS:VAR|TrampleDC|STR+(HD/2)	SOURCEPAGE:TypesSubtypesAbilities
 Trip														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
 
 ###Block: Companion Modifier Abilities -----------------------------------------
-# Ability Name				Category of Ability		Type						Visible	Source Page						Temporary effect description							Temporary Bonus
+# Ability Name				Category of Ability		Type						Visible	Source Page					Temporary effect description							Temporary Bonus
 Empathic Link				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Share Spells				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Deliver Touch Spells			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
@@ -39,8 +39,8 @@ Devotion					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:
 Speak with Master				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Speak with Animals of its Kind	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 Scry on Familiar				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Hawk Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight		TEMPBONUS:PC|SITUATION|Perception=Spot|3|TYPE=HawkFamiliar
-Owl Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness	TEMPBONUS:PC|SITUATION|Perception=Spot|3|TYPE=OwlFamiliar
+Hawk Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	SOURCEPAGE:msrdadvancedclassesII	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight		TEMPBONUS:PC|SITUATION|Perception=Spot|3|TYPE=HawkFamiliar
+Owl Familiar Bonuses			CATEGORY:Special Ability							VISIBLE:NO	SOURCEPAGE:msrdadvancedclassesII	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness	TEMPBONUS:PC|SITUATION|Perception=Spot|3|TYPE=OwlFamiliar
 
 ###Block: Animal Tricks & Training Section ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name			Category of Ability		Type				Define			Description			Bonus Ability Pool

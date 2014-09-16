@@ -7,7 +7,7 @@ Blackaxe		PROFICIENCY:WEAPON|Greataxe	TYPE:Weapon.Melee.Martial.Slashing.Axe	COS
 
 ###Block: Artifact
 # Equipment Name	Type			Cost		Weight	Source Page
-Maleficus Spike	TYPE:Artifact	COST:0	WT:16		SOURCEPAGE:p. 25
+Maleficus Spike	TYPE:Artifact	COST:0	WT:16		SOURCEPAGE:p.25
 
 #
 # End

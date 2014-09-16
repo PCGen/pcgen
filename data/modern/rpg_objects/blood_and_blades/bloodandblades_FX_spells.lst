@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
 SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141	SOURCEDATE:2005-01
 #Original entry by: Frank Kliewe
 
@@ -15,10 +15,10 @@ Pumpkin Pact	TYPE:Divine	CLASSES:Acolyte=5	SCHOOL:Conjuration	SUBSCHOOL:Calling	
 #Polymorph.COPY=Polymorph (Self only)
 #Polymorph (Self only).MOD		RANGE:.CLEAR	RANGE:Personal	TARGETAREA:You	DESC:Gives you another form that you designate
 
-# Spell Name		Type			School			Components		Casting Time			Range			Target Area or Effect	Duration			Save Info				Spell Resistance	Source Page					Description
-Polymorph (Self only)	TYPE:Incantation	SCHOOL:Transmutation	COMPS:V, S, M, F	CASTTIME:60 minutes (minimum)	RANGE:Personal	TARGETAREA:You		DURATION:12 minutes	SAVEINFO:Fortitude negates	SPELLRES:Yes	SOURCEPAGE:ArcanaIncantations.rtf	DESC:Gives you another form that you designate
+# Spell Name		Type			School			Components		Casting Time			Range			Target Area or Effect	Duration			Save Info				Spell Resistance	Source Page				Description
+Polymorph (Self only)	TYPE:Incantation	SCHOOL:Transmutation	COMPS:V, S, M, F	CASTTIME:60 minutes (minimum)	RANGE:Personal	TARGETAREA:You		DURATION:12 minutes	SAVEINFO:Fortitude negates	SPELLRES:Yes	SOURCEPAGE:ArcanaIncantations	DESC:Gives you another form that you designate
 
 ###Block: Etherealness and Nightmare from RSRD
-# Spell Name	Type				School			Sub-School			Descriptor					Components	Casting Time			Range				Item		Target Area or Effect							Duration					Save Info					Spell Resistance	Source Page				Description
-Etherealness	TYPE:Arcane.Divine	SCHOOL:Transmutation											COMPS:V, S	CASTTIME:1 standard action	RANGE:Touch; see text	ITEM:Potion	TARGETAREA:You and (CASTERLEVEL/3) other touched creatures	DURATION:(CASTERLEVEL) minutes [D]	SAVEINFO:None				SPELLRES:Yes	SOURCEPAGE:SpellsD-E.rtf	DESC:Travel to Ethereal Plane with companions.
-Nightmare		TYPE:Arcane			SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-Affecting|Evil	COMPS:V, S	CASTTIME:10 minutes		RANGE:Unlimited				TARGETAREA:One living creature					DURATION:Instantaneous			SAVEINFO:Will negates; see text	SPELLRES:Yes	SOURCEPAGE:SpellsM-O.rtf	DESC:Sends vision dealing 1d10 damage, fatigue.
+# Spell Name	Type				School			Sub-School			Descriptor					Components	Casting Time			Range				Item		Target Area or Effect							Duration					Save Info					Spell Resistance	Source Page			Description
+Etherealness	TYPE:Arcane.Divine	SCHOOL:Transmutation											COMPS:V, S	CASTTIME:1 standard action	RANGE:Touch; see text	ITEM:Potion	TARGETAREA:You and (CASTERLEVEL/3) other touched creatures	DURATION:(CASTERLEVEL) minutes [D]	SAVEINFO:None				SPELLRES:Yes	SOURCEPAGE:SpellsD-E	DESC:Travel to Ethereal Plane with companions.
+Nightmare		TYPE:Arcane			SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-Affecting|Evil	COMPS:V, S	CASTTIME:10 minutes		RANGE:Unlimited				TARGETAREA:One living creature					DURATION:Instantaneous			SAVEINFO:Will negates; see text	SPELLRES:Yes	SOURCEPAGE:SpellsM-O	DESC:Sends vision dealing 1d10 damage, fatigue.

@@ -3,10 +3,10 @@ SOURCELONG:Modern System Reference Document - Menace	SOURCESHORT:MSRD	SOURCEWEB:
 #Original Entry by: Frank Kliewe
 
 # Language	Unique Key			Type				Source Page
-Cat Folk					TYPE:Spoken.CatFolk	SOURCEPAGE:MenaceCreaturesA-I.rtf
-Cat Folk	KEY:Cat Folk ~ Written	TYPE:Written.CatFolk	SOURCEPAGE:MenaceCreaturesA-I.rtf
-Feline					TYPE:Spoken.CatFolk	SOURCEPAGE:MenaceCreaturesA-I.rtf
-Feline	KEY:Feline ~ Written	TYPE:Written.CatFolk	SOURCEPAGE:MenaceCreaturesA-I.rtf
-Mothfolk					TYPE:Spoken.MothFolk	SOURCEPAGE:MenaceCreaturesJ-Z.rtf
-Mothfolk	KEY:Mothfolk ~ Written	TYPE:Written.MothFolk	SOURCEPAGE:MenaceCreaturesJ-Z.rtf
-Weren						TYPE:Spoken.Weren		SOURCEPAGE:MenaceCreaturesJ-Z.rtf
+Cat Folk					TYPE:Spoken.CatFolk	SOURCEPAGE:MenaceCreaturesA-I
+Cat Folk	KEY:Cat Folk ~ Written	TYPE:Written.CatFolk	SOURCEPAGE:MenaceCreaturesA-I
+Feline					TYPE:Spoken.CatFolk	SOURCEPAGE:MenaceCreaturesA-I
+Feline	KEY:Feline ~ Written	TYPE:Written.CatFolk	SOURCEPAGE:MenaceCreaturesA-I
+Mothfolk					TYPE:Spoken.MothFolk	SOURCEPAGE:MenaceCreaturesJ-Z
+Mothfolk	KEY:Mothfolk ~ Written	TYPE:Written.MothFolk	SOURCEPAGE:MenaceCreaturesJ-Z
+Weren						TYPE:Spoken.Weren		SOURCEPAGE:MenaceCreaturesJ-Z

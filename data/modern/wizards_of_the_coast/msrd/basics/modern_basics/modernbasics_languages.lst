@@ -7,140 +7,140 @@ SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:
 # reformatted for readability
 # Spoken
 # Language				Unique Key						Type					Source Page
-Algonkin											TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii.rtf
-Algonkin				KEY:Algonkin ~ Written				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii.rtf
-Arapaho											TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii.rtf
-Arapaho				KEY:Arapaho ~ Written				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii.rtf
-Blackfoot											TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii.rtf
-Blackfoot				KEY:Blackfoot ~ Written				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii.rtf
-Cheyenne											TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii.rtf
-Cheyenne				KEY:Cheyenne ~ Written				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii.rtf
-Shawnee											TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii.rtf
-Shawnee				KEY:Shawnee ~ Written				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii.rtf
-Armenian											TYPE:Spoken.Armenian		SOURCEPAGE:msrdskillsii.rtf
-Armenian				KEY:Armenian ~ Written				TYPE:Written.Armenian		SOURCEPAGE:msrdskillsii.rtf
-Apache											TYPE:Spoken.Athabascan		SOURCEPAGE:msrdskillsii.rtf
-Apache				KEY:Apache ~ Written				TYPE:Written.Athabascan		SOURCEPAGE:msrdskillsii.rtf
-Chipewyan											TYPE:Spoken.Athabascan		SOURCEPAGE:msrdskillsii.rtf
-Chipewyan				KEY:Chipewyan ~ Written				TYPE:Written.Athabascan		SOURCEPAGE:msrdskillsii.rtf
-Navaho											TYPE:Spoken.Athabascan		SOURCEPAGE:msrdskillsii.rtf
-Navaho				KEY:Navaho ~ Written				TYPE:Written.Athabascan		SOURCEPAGE:msrdskillsii.rtf
-Ancient Greek										TYPE:Spoken.Attic			SOURCEPAGE:msrdskillsii.rtf
-Ancient Greek			KEY:Ancient Greek ~ Written			TYPE:Written.Attic		SOURCEPAGE:msrdskillsii.rtf
-Greek												TYPE:Spoken.Attic			SOURCEPAGE:msrdskillsii.rtf
-Greek					KEY:Greek ~ Written				TYPE:Written.Attic		SOURCEPAGE:msrdskillsii.rtf
-Latvian											TYPE:Spoken.Baltic		SOURCEPAGE:msrdskillsii.rtf
-Latvian				KEY:Latvian ~ Written				TYPE:Written.Baltic		SOURCEPAGE:msrdskillsii.rtf
-Lithuanian											TYPE:Spoken.Baltic		SOURCEPAGE:msrdskillsii.rtf
-Lithuanian				KEY:Lithuanian ~ Written			TYPE:Written.Baltic		SOURCEPAGE:msrdskillsii.rtf
-Gaelic (Irish)										TYPE:Spoken.Celtic		SOURCEPAGE:msrdskillsii.rtf
-Gaelic (Irish)			KEY:Gaelic (Irish) ~ Written			TYPE:Written.Celtic		SOURCEPAGE:msrdskillsii.rtf
-Gaelic (Scots)										TYPE:Spoken.Celtic		SOURCEPAGE:msrdskillsii.rtf
-Gaelic (Scots)			KEY:Gaelic (Scots) ~ Written			TYPE:Written.Celtic		SOURCEPAGE:msrdskillsii.rtf
-Welsh												TYPE:Spoken.Celtic		SOURCEPAGE:msrdskillsii.rtf
-Welsh					KEY:Welsh ~ Written				TYPE:Written.Celtic		SOURCEPAGE:msrdskillsii.rtf
-Cantonese											TYPE:Spoken.Chinese		SOURCEPAGE:msrdskillsii.rtf
-Cantonese				KEY:Cantonese ~ Written				TYPE:Written.Chinese		SOURCEPAGE:msrdskillsii.rtf
-Mandarin											TYPE:Spoken.Chinese		SOURCEPAGE:msrdskillsii.rtf
-Mandarin				KEY:Mandarin ~ Written				TYPE:Written.Chinese		SOURCEPAGE:msrdskillsii.rtf
-Estonian											TYPE:Spoken.Finno-Lappic	SOURCEPAGE:msrdskillsii.rtf
-Estonian				KEY:Estonian ~ Written				TYPE:Written.Finno-Lappic	SOURCEPAGE:msrdskillsii.rtf
-Finnish											TYPE:Spoken.Finno-Lappic	SOURCEPAGE:msrdskillsii.rtf
-Finnish				KEY:Finnish ~ Written				TYPE:Written.Finno-Lappic	SOURCEPAGE:msrdskillsii.rtf
-Lapp												TYPE:Spoken.Finno-Lappic	SOURCEPAGE:msrdskillsii.rtf
-Lapp					KEY:Lapp ~ Written				TYPE:Written.Finno-Lappic	SOURCEPAGE:msrdskillsii.rtf
-Afrikaans											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Afrikaans				KEY:Afrikaans ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Danish											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Danish				KEY:Danish ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Dutch												TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Dutch					KEY:Dutch ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
-English											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
-English				KEY:English ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Flemish											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Flemish				KEY:Flemish ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
-German											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
-German				KEY:German ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Icelandic											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Icelandic				KEY:Icelandic ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Norwegian											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Norwegian				KEY:Norwegian ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Swedish											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Swedish				KEY:Swedish ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Yiddish											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Yiddish				KEY:Yiddish ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii.rtf
-Coptic											TYPE:Spoken.Hamo-Semitic	SOURCEPAGE:msrdskillsii.rtf
-Coptic				KEY:Coptic ~ Written				TYPE:Written.Hamo-Semitic	SOURCEPAGE:msrdskillsii.rtf
-Middle Egyptian										TYPE:Spoken.Hamo-Semitic	SOURCEPAGE:msrdskillsii.rtf
-Middle Egyptian			KEY:Middle Egyptian ~ Written			TYPE:Written.Hamo-Semitic	SOURCEPAGE:msrdskillsii.rtf
-Hindi												TYPE:Spoken.Indic			SOURCEPAGE:msrdskillsii.rtf
-Hindi					KEY:Hindi ~ Written				TYPE:Written.Indic		SOURCEPAGE:msrdskillsii.rtf
-Punjabi											TYPE:Spoken.Indic			SOURCEPAGE:msrdskillsii.rtf
-Punjabi				KEY:Punjabi ~ Written				TYPE:Written.Indic		SOURCEPAGE:msrdskillsii.rtf
-Sanskrit											TYPE:Spoken.Indic			SOURCEPAGE:msrdskillsii.rtf
-Sanskrit				KEY:Sanskrit ~ Written				TYPE:Written.Indic		SOURCEPAGE:msrdskillsii.rtf
-Urdu												TYPE:Spoken.Indic			SOURCEPAGE:msrdskillsii.rtf
-Urdu					KEY:Urdu ~ Written				TYPE:Written.Indic		SOURCEPAGE:msrdskillsii.rtf
-Farsi												TYPE:Spoken.Iranian		SOURCEPAGE:msrdskillsii.rtf
-Farsi					KEY:Farsi ~ Written				TYPE:Written.Iranian		SOURCEPAGE:msrdskillsii.rtf
-Pashto											TYPE:Spoken.Iranian		SOURCEPAGE:msrdskillsii.rtf
-Pashto				KEY:Pashto ~ Written				TYPE:Written.Iranian		SOURCEPAGE:msrdskillsii.rtf
-Japanese											TYPE:Spoken.Japanese		SOURCEPAGE:msrdskillsii.rtf
-Japanese				KEY:Japanese ~ Written				TYPE:Written.Japanese		SOURCEPAGE:msrdskillsii.rtf
-Korean											TYPE:Spoken.Korean		SOURCEPAGE:msrdskillsii.rtf
-Korean				KEY:Korean ~ Written				TYPE:Written.Korean		SOURCEPAGE:msrdskillsii.rtf
-French											TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii.rtf
-French				KEY:French ~ Written				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii.rtf
-Italian											TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii.rtf
-Italian				KEY:Italian ~ Written				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii.rtf
-Latin												TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii.rtf
-Latin					KEY:Latin ~ Written				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii.rtf
-Portuguese											TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii.rtf
-Portuguese				KEY:Portuguese ~ Written			TYPE:Written.Romance		SOURCEPAGE:msrdskillsii.rtf
-Romanian											TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii.rtf
-Romanian				KEY:Romanian ~ Written				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii.rtf
-Spanish											TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii.rtf
-Spanish				KEY:Spanish ~ Written				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii.rtf
-Akkadian (aka Babylonian)								TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii.rtf
-Akkadian (aka Babylonian)	KEY:Akkadian (aka Babylonian) ~ Written	TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii.rtf
-Ancient Hebrew										TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii.rtf
-Ancient Hebrew			KEY:Ancient Hebrew ~ Written			TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii.rtf
-Arabic											TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii.rtf
-Arabic				KEY:Arabic ~ Written				TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii.rtf
-Aramaic											TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii.rtf
-Aramaic				KEY:Aramaic ~ Written				TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii.rtf
-Herbrew											TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii.rtf
-Herbrew				KEY:Herbrew ~ Written				TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii.rtf
-Belorussian											TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Belorussian				KEY:Belorussian ~ Written			TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Bulgarian											TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Bulgarian				KEY:Bulgarian ~ Written				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Czech												TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Czech					KEY:Czech ~ Written				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Polish											TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Polish				KEY:Polish ~ Written				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Russian											TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Russian				KEY:Russian ~ Written				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Serbo-Croatian										TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Serbo-Croatian			KEY:Serbo-Croatian ~ Written			TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Slovak											TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Slovak				KEY:Slovak ~ Written				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Ukrainian											TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Ukrainian				KEY:Ukrainian ~ Written				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii.rtf
-Burmese											TYPE:Spoken.Tibeto-Burman	SOURCEPAGE:msrdskillsii.rtf
-Burmese				KEY:Burmese ~ Written				TYPE:Written.Tibeto-Burman	SOURCEPAGE:msrdskillsii.rtf
-Sherpa											TYPE:Spoken.Tibeto-Burman	SOURCEPAGE:msrdskillsii.rtf
-Sherpa				KEY:Sherpa ~ Written				TYPE:Written.Tibeto-Burman	SOURCEPAGE:msrdskillsii.rtf
-Tibetan											TYPE:Spoken.Tibeto-Burman	SOURCEPAGE:msrdskillsii.rtf
-Tibetan				KEY:Tibetan ~ Written				TYPE:Written.Tibeto-Burman	SOURCEPAGE:msrdskillsii.rtf
-Azerbaijani											TYPE:Spoken.Turkic		SOURCEPAGE:msrdskillsii.rtf
-Azerbaijani				KEY:Azerbaijani ~ Written			TYPE:Written.Turkic		SOURCEPAGE:msrdskillsii.rtf
-Turkish											TYPE:Spoken.Turkic		SOURCEPAGE:msrdskillsii.rtf
-Turkish				KEY:Turkish ~ Written				TYPE:Written.Turkic		SOURCEPAGE:msrdskillsii.rtf
-Uzbek												TYPE:Spoken.Turkic		SOURCEPAGE:msrdskillsii.rtf
-Uzbek					KEY:Uzbek ~ Written				TYPE:Written.Turkic		SOURCEPAGE:msrdskillsii.rtf
-Hungarian (aka Magyar)									TYPE:Spoken.Urgic			SOURCEPAGE:msrdskillsii.rtf
-Hungarian (aka Magyar)		KEY:Hungarian (aka Magyar) ~ Written	TYPE:Written.Urgic		SOURCEPAGE:msrdskillsii.rtf
+Algonkin											TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii
+Algonkin				KEY:Algonkin ~ Written				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii
+Arapaho											TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii
+Arapaho				KEY:Arapaho ~ Written				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii
+Blackfoot											TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii
+Blackfoot				KEY:Blackfoot ~ Written				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii
+Cheyenne											TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii
+Cheyenne				KEY:Cheyenne ~ Written				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii
+Shawnee											TYPE:Spoken.Algic			SOURCEPAGE:msrdskillsii
+Shawnee				KEY:Shawnee ~ Written				TYPE:Written.Algic		SOURCEPAGE:msrdskillsii
+Armenian											TYPE:Spoken.Armenian		SOURCEPAGE:msrdskillsii
+Armenian				KEY:Armenian ~ Written				TYPE:Written.Armenian		SOURCEPAGE:msrdskillsii
+Apache											TYPE:Spoken.Athabascan		SOURCEPAGE:msrdskillsii
+Apache				KEY:Apache ~ Written				TYPE:Written.Athabascan		SOURCEPAGE:msrdskillsii
+Chipewyan											TYPE:Spoken.Athabascan		SOURCEPAGE:msrdskillsii
+Chipewyan				KEY:Chipewyan ~ Written				TYPE:Written.Athabascan		SOURCEPAGE:msrdskillsii
+Navaho											TYPE:Spoken.Athabascan		SOURCEPAGE:msrdskillsii
+Navaho				KEY:Navaho ~ Written				TYPE:Written.Athabascan		SOURCEPAGE:msrdskillsii
+Ancient Greek										TYPE:Spoken.Attic			SOURCEPAGE:msrdskillsii
+Ancient Greek			KEY:Ancient Greek ~ Written			TYPE:Written.Attic		SOURCEPAGE:msrdskillsii
+Greek												TYPE:Spoken.Attic			SOURCEPAGE:msrdskillsii
+Greek					KEY:Greek ~ Written				TYPE:Written.Attic		SOURCEPAGE:msrdskillsii
+Latvian											TYPE:Spoken.Baltic		SOURCEPAGE:msrdskillsii
+Latvian				KEY:Latvian ~ Written				TYPE:Written.Baltic		SOURCEPAGE:msrdskillsii
+Lithuanian											TYPE:Spoken.Baltic		SOURCEPAGE:msrdskillsii
+Lithuanian				KEY:Lithuanian ~ Written			TYPE:Written.Baltic		SOURCEPAGE:msrdskillsii
+Gaelic (Irish)										TYPE:Spoken.Celtic		SOURCEPAGE:msrdskillsii
+Gaelic (Irish)			KEY:Gaelic (Irish) ~ Written			TYPE:Written.Celtic		SOURCEPAGE:msrdskillsii
+Gaelic (Scots)										TYPE:Spoken.Celtic		SOURCEPAGE:msrdskillsii
+Gaelic (Scots)			KEY:Gaelic (Scots) ~ Written			TYPE:Written.Celtic		SOURCEPAGE:msrdskillsii
+Welsh												TYPE:Spoken.Celtic		SOURCEPAGE:msrdskillsii
+Welsh					KEY:Welsh ~ Written				TYPE:Written.Celtic		SOURCEPAGE:msrdskillsii
+Cantonese											TYPE:Spoken.Chinese		SOURCEPAGE:msrdskillsii
+Cantonese				KEY:Cantonese ~ Written				TYPE:Written.Chinese		SOURCEPAGE:msrdskillsii
+Mandarin											TYPE:Spoken.Chinese		SOURCEPAGE:msrdskillsii
+Mandarin				KEY:Mandarin ~ Written				TYPE:Written.Chinese		SOURCEPAGE:msrdskillsii
+Estonian											TYPE:Spoken.Finno-Lappic	SOURCEPAGE:msrdskillsii
+Estonian				KEY:Estonian ~ Written				TYPE:Written.Finno-Lappic	SOURCEPAGE:msrdskillsii
+Finnish											TYPE:Spoken.Finno-Lappic	SOURCEPAGE:msrdskillsii
+Finnish				KEY:Finnish ~ Written				TYPE:Written.Finno-Lappic	SOURCEPAGE:msrdskillsii
+Lapp												TYPE:Spoken.Finno-Lappic	SOURCEPAGE:msrdskillsii
+Lapp					KEY:Lapp ~ Written				TYPE:Written.Finno-Lappic	SOURCEPAGE:msrdskillsii
+Afrikaans											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii
+Afrikaans				KEY:Afrikaans ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii
+Danish											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii
+Danish				KEY:Danish ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii
+Dutch												TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii
+Dutch					KEY:Dutch ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii
+English											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii
+English				KEY:English ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii
+Flemish											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii
+Flemish				KEY:Flemish ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii
+German											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii
+German				KEY:German ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii
+Icelandic											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii
+Icelandic				KEY:Icelandic ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii
+Norwegian											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii
+Norwegian				KEY:Norwegian ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii
+Swedish											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii
+Swedish				KEY:Swedish ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii
+Yiddish											TYPE:Spoken.Germanic		SOURCEPAGE:msrdskillsii
+Yiddish				KEY:Yiddish ~ Written				TYPE:Written.Germanic		SOURCEPAGE:msrdskillsii
+Coptic											TYPE:Spoken.Hamo-Semitic	SOURCEPAGE:msrdskillsii
+Coptic				KEY:Coptic ~ Written				TYPE:Written.Hamo-Semitic	SOURCEPAGE:msrdskillsii
+Middle Egyptian										TYPE:Spoken.Hamo-Semitic	SOURCEPAGE:msrdskillsii
+Middle Egyptian			KEY:Middle Egyptian ~ Written			TYPE:Written.Hamo-Semitic	SOURCEPAGE:msrdskillsii
+Hindi												TYPE:Spoken.Indic			SOURCEPAGE:msrdskillsii
+Hindi					KEY:Hindi ~ Written				TYPE:Written.Indic		SOURCEPAGE:msrdskillsii
+Punjabi											TYPE:Spoken.Indic			SOURCEPAGE:msrdskillsii
+Punjabi				KEY:Punjabi ~ Written				TYPE:Written.Indic		SOURCEPAGE:msrdskillsii
+Sanskrit											TYPE:Spoken.Indic			SOURCEPAGE:msrdskillsii
+Sanskrit				KEY:Sanskrit ~ Written				TYPE:Written.Indic		SOURCEPAGE:msrdskillsii
+Urdu												TYPE:Spoken.Indic			SOURCEPAGE:msrdskillsii
+Urdu					KEY:Urdu ~ Written				TYPE:Written.Indic		SOURCEPAGE:msrdskillsii
+Farsi												TYPE:Spoken.Iranian		SOURCEPAGE:msrdskillsii
+Farsi					KEY:Farsi ~ Written				TYPE:Written.Iranian		SOURCEPAGE:msrdskillsii
+Pashto											TYPE:Spoken.Iranian		SOURCEPAGE:msrdskillsii
+Pashto				KEY:Pashto ~ Written				TYPE:Written.Iranian		SOURCEPAGE:msrdskillsii
+Japanese											TYPE:Spoken.Japanese		SOURCEPAGE:msrdskillsii
+Japanese				KEY:Japanese ~ Written				TYPE:Written.Japanese		SOURCEPAGE:msrdskillsii
+Korean											TYPE:Spoken.Korean		SOURCEPAGE:msrdskillsii
+Korean				KEY:Korean ~ Written				TYPE:Written.Korean		SOURCEPAGE:msrdskillsii
+French											TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii
+French				KEY:French ~ Written				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii
+Italian											TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii
+Italian				KEY:Italian ~ Written				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii
+Latin												TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii
+Latin					KEY:Latin ~ Written				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii
+Portuguese											TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii
+Portuguese				KEY:Portuguese ~ Written			TYPE:Written.Romance		SOURCEPAGE:msrdskillsii
+Romanian											TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii
+Romanian				KEY:Romanian ~ Written				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii
+Spanish											TYPE:Spoken.Romance		SOURCEPAGE:msrdskillsii
+Spanish				KEY:Spanish ~ Written				TYPE:Written.Romance		SOURCEPAGE:msrdskillsii
+Akkadian (aka Babylonian)								TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii
+Akkadian (aka Babylonian)	KEY:Akkadian (aka Babylonian) ~ Written	TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii
+Ancient Hebrew										TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii
+Ancient Hebrew			KEY:Ancient Hebrew ~ Written			TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii
+Arabic											TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii
+Arabic				KEY:Arabic ~ Written				TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii
+Aramaic											TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii
+Aramaic				KEY:Aramaic ~ Written				TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii
+Herbrew											TYPE:Spoken.Semitic		SOURCEPAGE:msrdskillsii
+Herbrew				KEY:Herbrew ~ Written				TYPE:Written.Semitic		SOURCEPAGE:msrdskillsii
+Belorussian											TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii
+Belorussian				KEY:Belorussian ~ Written			TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii
+Bulgarian											TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii
+Bulgarian				KEY:Bulgarian ~ Written				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii
+Czech												TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii
+Czech					KEY:Czech ~ Written				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii
+Polish											TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii
+Polish				KEY:Polish ~ Written				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii
+Russian											TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii
+Russian				KEY:Russian ~ Written				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii
+Serbo-Croatian										TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii
+Serbo-Croatian			KEY:Serbo-Croatian ~ Written			TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii
+Slovak											TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii
+Slovak				KEY:Slovak ~ Written				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii
+Ukrainian											TYPE:Spoken.Slavic		SOURCEPAGE:msrdskillsii
+Ukrainian				KEY:Ukrainian ~ Written				TYPE:Written.Slavic		SOURCEPAGE:msrdskillsii
+Burmese											TYPE:Spoken.Tibeto-Burman	SOURCEPAGE:msrdskillsii
+Burmese				KEY:Burmese ~ Written				TYPE:Written.Tibeto-Burman	SOURCEPAGE:msrdskillsii
+Sherpa											TYPE:Spoken.Tibeto-Burman	SOURCEPAGE:msrdskillsii
+Sherpa				KEY:Sherpa ~ Written				TYPE:Written.Tibeto-Burman	SOURCEPAGE:msrdskillsii
+Tibetan											TYPE:Spoken.Tibeto-Burman	SOURCEPAGE:msrdskillsii
+Tibetan				KEY:Tibetan ~ Written				TYPE:Written.Tibeto-Burman	SOURCEPAGE:msrdskillsii
+Azerbaijani											TYPE:Spoken.Turkic		SOURCEPAGE:msrdskillsii
+Azerbaijani				KEY:Azerbaijani ~ Written			TYPE:Written.Turkic		SOURCEPAGE:msrdskillsii
+Turkish											TYPE:Spoken.Turkic		SOURCEPAGE:msrdskillsii
+Turkish				KEY:Turkish ~ Written				TYPE:Written.Turkic		SOURCEPAGE:msrdskillsii
+Uzbek												TYPE:Spoken.Turkic		SOURCEPAGE:msrdskillsii
+Uzbek					KEY:Uzbek ~ Written				TYPE:Written.Turkic		SOURCEPAGE:msrdskillsii
+Hungarian (aka Magyar)									TYPE:Spoken.Urgic			SOURCEPAGE:msrdskillsii
+Hungarian (aka Magyar)		KEY:Hungarian (aka Magyar) ~ Written	TYPE:Written.Urgic		SOURCEPAGE:msrdskillsii
 
 #
 # End

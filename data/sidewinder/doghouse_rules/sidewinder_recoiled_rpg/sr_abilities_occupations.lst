@@ -6,23 +6,23 @@ SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserul
 ###Block: Sidewinder Occupations
 
 # Ability Name	Category of Ability		Type			Visible		Required Stat	Required Text	Bonus Ability Pool												Modify VAR							Source Page
-Artisan		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	PRESTAT:1,DEX=13				BONUS:ABILITYPOOL|Artisan Occupation Skills|2	BONUS:ABILITYPOOL|Artisan Feat|1		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 44
-Artist		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Artist Occupation Skills|3								BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 44
-Clergy		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 23	BONUS:ABILITYPOOL|Clergy Occupation Skills|3								BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 45
-Engineer		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 23	BONUS:ABILITYPOOL|Engineer Occupation Skills|3								BONUS:VAR|WealthBonus|3					SOURCEPAGE:p. 45
-Entertainer		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Entertainer Occupation Skills|1							BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 45
-Greenhorn		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 16	BONUS:ABILITYPOOL|Greenhorn Occupation Skills|2								BONUS:VAR|WealthBonus|2					SOURCEPAGE:p. 46
-Hunter		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Hunter Occupation Skills|2	BONUS:ABILITYPOOL|Hunter Feat|1		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 46
-Idle Rich		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 18	BONUS:ABILITYPOOL|Idle Rich Occupation Skills|1								BONUS:VAR|WealthBonus|6	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 46
-Laborer		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 14	BONUS:ABILITYPOOL|Laborer Occupation Skills|3								BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 46
-Mariner		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 14	BONUS:ABILITYPOOL|Mariner Occupation Skills|2	BONUS:ABILITYPOOL|Mariner Feat|1		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 47
-Merchant		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 20	BONUS:ABILITYPOOL|Merchant Occupation Skills|2								BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 47
-Outlaw		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Outlaw Occupation Skills|2	BONUS:ABILITYPOOL|Outlaw Feat|1		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 47
-Politician		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	PRESTAT:1,CHA=13	PRETEXT:Age 21	BONUS:ABILITYPOOL|Politician Occupation Skills|2	BONUS:ABILITYPOOL|Politician Feat|1	BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p. 48
-Prospector		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Prospector Occupation Skills|2	BONUS:ABILITYPOOL|Prospector Feat|1	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48
-Ranch Hand		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Ranch Hand Occupation Skills|2	BONUS:ABILITYPOOL|Ranch Hand Feat|1	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48
-Sodbuster		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Sodbuster Occupation Skills|2	BONUS:ABILITYPOOL|Sodbuster Feat|1		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 48
-Tribal		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 13	BONUS:ABILITYPOOL|Tribal Occupation Skills|3	BONUS:ABILITYPOOL|Tribal Feat|1		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p. 49
+Artisan		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	PRESTAT:1,DEX=13				BONUS:ABILITYPOOL|Artisan Occupation Skills|2	BONUS:ABILITYPOOL|Artisan Feat|1		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.44
+Artist		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Artist Occupation Skills|3								BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.44
+Clergy		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 23	BONUS:ABILITYPOOL|Clergy Occupation Skills|3								BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.45
+Engineer		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 23	BONUS:ABILITYPOOL|Engineer Occupation Skills|3								BONUS:VAR|WealthBonus|3					SOURCEPAGE:p.45
+Entertainer		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Entertainer Occupation Skills|1							BONUS:VAR|WealthBonus|4	BONUS:VAR|Reputation|1	SOURCEPAGE:p.45
+Greenhorn		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 16	BONUS:ABILITYPOOL|Greenhorn Occupation Skills|2								BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.46
+Hunter		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Hunter Occupation Skills|2	BONUS:ABILITYPOOL|Hunter Feat|1		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.46
+Idle Rich		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 18	BONUS:ABILITYPOOL|Idle Rich Occupation Skills|1								BONUS:VAR|WealthBonus|6	BONUS:VAR|Reputation|1	SOURCEPAGE:p.46
+Laborer		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 14	BONUS:ABILITYPOOL|Laborer Occupation Skills|3								BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.46
+Mariner		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 14	BONUS:ABILITYPOOL|Mariner Occupation Skills|2	BONUS:ABILITYPOOL|Mariner Feat|1		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.47
+Merchant		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 20	BONUS:ABILITYPOOL|Merchant Occupation Skills|2								BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p.47
+Outlaw		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Outlaw Occupation Skills|2	BONUS:ABILITYPOOL|Outlaw Feat|1		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.47
+Politician		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	PRESTAT:1,CHA=13	PRETEXT:Age 21	BONUS:ABILITYPOOL|Politician Occupation Skills|2	BONUS:ABILITYPOOL|Politician Feat|1	BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p.48
+Prospector		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Prospector Occupation Skills|2	BONUS:ABILITYPOOL|Prospector Feat|1	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.48
+Ranch Hand		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Ranch Hand Occupation Skills|2	BONUS:ABILITYPOOL|Ranch Hand Feat|1	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.48
+Sodbuster		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 15	BONUS:ABILITYPOOL|Sodbuster Occupation Skills|2	BONUS:ABILITYPOOL|Sodbuster Feat|1		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.48
+Tribal		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY				PRETEXT:Age 13	BONUS:ABILITYPOOL|Tribal Occupation Skills|3	BONUS:ABILITYPOOL|Tribal Feat|1		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.49
 
 
 ###Block: MSRD Imported occupations

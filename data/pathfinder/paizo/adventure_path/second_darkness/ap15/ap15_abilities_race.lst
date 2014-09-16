@@ -4,33 +4,33 @@ SOURCELONG:Second Darkness, Chapter 3 - The Armageddon Echo	SOURCESHORT:AP15	SOU
 
 ###Block: Blast Shadow Abilities
 # Ability Name		Output Name									Category of Ability		Type							Define			Description																							Modify VAR						Source Page
-Cloud of Smoke and Fire											CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Aura					DESC:A blast shadow can, as a free action, surround itself with a cloud of smoke that burns living flesh.														SOURCEPAGE:p. 82
-Death Burst													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DEFINE:DeathBurstDC|0	DESC:When a blast shadow is reduced to 0 or fewer hit points, it explodes in a blast of flame. DC 18 Reflex save for half damage.|DeathBurstDC	BONUS:VAR|DeathBurstDC|10+(HD/2)+CHA	SOURCEPAGE:p. 82
-Blast Shadow Claws	OUTPUTNAME:Claw attacks do an additional 1d6 fire damage	CATEGORY:Special Ability	TYPE:SpecialQuality																																							SOURCEPAGE:p. 82
+Cloud of Smoke and Fire											CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Aura					DESC:A blast shadow can, as a free action, surround itself with a cloud of smoke that burns living flesh.														SOURCEPAGE:p.82
+Death Burst													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DEFINE:DeathBurstDC|0	DESC:When a blast shadow is reduced to 0 or fewer hit points, it explodes in a blast of flame. DC 18 Reflex save for half damage.|DeathBurstDC	BONUS:VAR|DeathBurstDC|10+(HD/2)+CHA	SOURCEPAGE:p.82
+Blast Shadow Claws	OUTPUTNAME:Claw attacks do an additional 1d6 fire damage	CATEGORY:Special Ability	TYPE:SpecialQuality																																							SOURCEPAGE:p.82
 
 ###Block: Cutlass Spider Abilities
 # Ability Name				Output Name																Category of Ability		Type							Description																												Source Page
-Cutlass Spider All-Around Vision	OUTPUTNAME:All-Around Vision													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense	DESC:A cutlass spider can see through the blades that makes up its body as if they were eyes and can't be flanked.										SOURCEPAGE:p. 84
-Collapse																						CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:As a full-round action, a cutlass spider may withdraw the magical energy holding its body together and fall into a heap of blades and wooden pieces.				SOURCEPAGE:p. 84
-Shared Enhancement																				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		DESC:Should a cutlass spider have a magical weapon incorporated into its body it shares the weapon's enhancement bonus and special abilities with all of its natural attacks.	SOURCEPAGE:p. 84
-Weapon Thief																					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		DESC:A cutlass spider that disarms an opponent incorporates the disarmed weapon into its body.														SOURCEPAGE:p. 84
-Cutlass Spider Hide			OUTPUTNAME:+8 racial bonus on Hide checks (+12 amid trash and debris) when using its collapse ability	CATEGORY:Special Ability	TYPE:SpecialQuality																																	SOURCEPAGE:p. 84
+Cutlass Spider All-Around Vision	OUTPUTNAME:All-Around Vision													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense	DESC:A cutlass spider can see through the blades that makes up its body as if they were eyes and can't be flanked.										SOURCEPAGE:p.84
+Collapse																						CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:As a full-round action, a cutlass spider may withdraw the magical energy holding its body together and fall into a heap of blades and wooden pieces.				SOURCEPAGE:p.84
+Shared Enhancement																				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		DESC:Should a cutlass spider have a magical weapon incorporated into its body it shares the weapon's enhancement bonus and special abilities with all of its natural attacks.	SOURCEPAGE:p.84
+Weapon Thief																					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		DESC:A cutlass spider that disarms an opponent incorporates the disarmed weapon into its body.														SOURCEPAGE:p.84
+Cutlass Spider Hide			OUTPUTNAME:+8 racial bonus on Hide checks (+12 amid trash and debris) when using its collapse ability	CATEGORY:Special Ability	TYPE:SpecialQuality																																	SOURCEPAGE:p.84
 
 ###Block: Forest Drake Abilities
 # Ability Name			Output Name											Category of Ability		Type									Define				Description																							Modify VAR								Source Page
-Forest Drake Immunities		OUTPUTNAME:Immune to acid, sleep and paralysis					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity																																								SOURCEPAGE:p. 86
-Acidic Cloud Breath														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				DEFINE:AcidicCloudBreathDC|0	DESC:60 feet range ball of acid deals 4d4 points of acid damage within the 10-foot-radius cloud, DC %1 Reflex save for half|AcidicCloudBreathDC	BONUS:VAR|AcidicCloudBreathDC|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p. 86
-Speed Surge																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement						DESC:Three times per day, a forest drake may take an additional move action																					SOURCEPAGE:p. 86
-Forest Drake Bite			OUTPUTNAME:Bite attack does an additional 1d6 acid damage			CATEGORY:Special Ability	TYPE:SpecialQuality																																												SOURCEPAGE:p. 86
-Forest Drake Hide			OUTPUTNAME:+8 racial bonus on Hide checks made in a forest environment	CATEGORY:Special Ability	TYPE:SpecialQuality																																												SOURCEPAGE:p. 86
-Forest Drake Water Breathing	OUTPUTNAME:Water Breathing								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary									DESC:A forest drake can breathe underwater indefinitely and can freely use its breath weapon and other abilities while underwater.												SOURCEPAGE:p. 86
+Forest Drake Immunities		OUTPUTNAME:Immune to acid, sleep and paralysis					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity																																								SOURCEPAGE:p.86
+Acidic Cloud Breath														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				DEFINE:AcidicCloudBreathDC|0	DESC:60 feet range ball of acid deals 4d4 points of acid damage within the 10-foot-radius cloud, DC %1 Reflex save for half|AcidicCloudBreathDC	BONUS:VAR|AcidicCloudBreathDC|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p.86
+Speed Surge																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement						DESC:Three times per day, a forest drake may take an additional move action																					SOURCEPAGE:p.86
+Forest Drake Bite			OUTPUTNAME:Bite attack does an additional 1d6 acid damage			CATEGORY:Special Ability	TYPE:SpecialQuality																																												SOURCEPAGE:p.86
+Forest Drake Hide			OUTPUTNAME:+8 racial bonus on Hide checks made in a forest environment	CATEGORY:Special Ability	TYPE:SpecialQuality																																												SOURCEPAGE:p.86
+Forest Drake Water Breathing	OUTPUTNAME:Water Breathing								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary									DESC:A forest drake can breathe underwater indefinitely and can freely use its breath weapon and other abilities while underwater.												SOURCEPAGE:p.86
 
 ###Block: Maftet Abilities
 # Ability Name	Category of Ability		Type								Description																					Source Page
-Aerial Pounce	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	DESC:When making a raptor dive, a maftet can take a full attack.												SOURCEPAGE:p. 88
-Paired Weapons	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DESC:A maftet is ambidextrous and fights with a scimitar in each hand.											SOURCEPAGE:p. 88
-Raptor Dive		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	DESC:Maftets begin combat from the air. When airborne, they can swoop down and strike at lightning speed.					SOURCEPAGE:p. 88
-Runic Tattoos	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:The eldritch tattoos scribed on a maftet's body power its spell-like abilities and glow faintly when those abilities are used.	SOURCEPAGE:p. 88
+Aerial Pounce	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	DESC:When making a raptor dive, a maftet can take a full attack.												SOURCEPAGE:p.88
+Paired Weapons	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DESC:A maftet is ambidextrous and fights with a scimitar in each hand.											SOURCEPAGE:p.88
+Raptor Dive		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	DESC:Maftets begin combat from the air. When airborne, they can swoop down and strike at lightning speed.					SOURCEPAGE:p.88
+Runic Tattoos	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			DESC:The eldritch tattoos scribed on a maftet's body power its spell-like abilities and glow faintly when those abilities are used.	SOURCEPAGE:p.88
 
 
 ###Block: Abyssal Resistance Benefits

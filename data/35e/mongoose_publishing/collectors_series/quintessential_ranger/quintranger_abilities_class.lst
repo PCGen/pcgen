@@ -280,7 +280,7 @@ Puncture			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOptio
 Tooth Breaking		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Tooth Breaking (Ex)
 Low-light Vision		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Senses		VISIBLE:NO																																									VISION:Low-Light Vision
 
-Spitting Cobra Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Poison (Ex) DC %|PoisonDC	DEFINE:PoisonDC|0	DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC	BONUS:VAR|PoisonDC|10+HD+CON|TYPE=Base					SOURCEPAGE:TypesSubtypesAbilities.rtf
+Spitting Cobra Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Poison (Ex) DC %|PoisonDC	DEFINE:PoisonDC|0	DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC	BONUS:VAR|PoisonDC|10+HD+CON|TYPE=Base					SOURCEPAGE:TypesSubtypesAbilities
 
 Frenzy			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:NO	SAB:Frenzy (Ex)
 

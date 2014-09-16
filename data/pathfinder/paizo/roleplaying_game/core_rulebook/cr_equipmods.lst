@@ -1,4 +1,4 @@
-# CVS $Revision: 20121 $ $Author: zaister $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 20121 $ $Author: zaister $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -44,11 +44,11 @@ Trip			KEY:TRIP		NAMEOPT:NOTHING	TYPE:SpecialWeaponQualities	COST:0	VISIBLE:NO	I
 ###Block: Armor Accesories
 
 # Modifier Name	Unique Key		Type			Cost													Visible		Type granted		Source Page				Required Type		Modify VAR						Bonus Equip Mods		Bonus Weapon Mods			Special Property	Auto Equip
-Armor Spikes	KEY:SPIKE_A		TYPE:Armor		COST:50												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Shield,Armor																	SPROP:Spiked	AUTO:EQUIP|Armor Spikes
-Shield Spikes	KEY:SPIKE_S		TYPE:Shield		COST:10												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:1,Shield,Armor	BONUS:VAR|SHIELDBASHINGDIESIZESTEP|1	BONUS:EQM|WEIGHTADD|5	BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
-Shield Spikes	KEY:SPIKE_SB	TYPE:Shieldbash	COST:0												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment.rtf																BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
-Locked Gauntlets	KEY:Lock_G		TYPE:Gauntlet	COST:8												VISIBLE:QUALIFY	ITYPE:GauntletLock	SOURCEPAGE:RSRD Equipment.rtf												BONUS:EQM|WEIGHTADD|5						SPROP:Locked
-Nonhumanoid		KEY:NONHUMANOID	TYPE:Armor		COST:BASECOST*(((SIZE<=2)*.5)+(SIZE==3)+(SIZE==4)+((SIZE>=5)*(2^(SIZE-4))))	VISIBLE:QUALIFY					SOURCEPAGE:RSRD Equipment.rtf
+Armor Spikes	KEY:SPIKE_A		TYPE:Armor		COST:50												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment	PRETYPE:1,Shield,Armor																	SPROP:Spiked	AUTO:EQUIP|Armor Spikes
+Shield Spikes	KEY:SPIKE_S		TYPE:Shield		COST:10												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment	PRETYPE:1,Shield,Armor	BONUS:VAR|SHIELDBASHINGDIESIZESTEP|1	BONUS:EQM|WEIGHTADD|5	BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
+Shield Spikes	KEY:SPIKE_SB	TYPE:Shieldbash	COST:0												VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:RSRD Equipment																BONUS:EQMWEAPON|DAMAGESIZE|1	SPROP:Spiked
+Locked Gauntlets	KEY:Lock_G		TYPE:Gauntlet	COST:8												VISIBLE:QUALIFY	ITYPE:GauntletLock	SOURCEPAGE:RSRD Equipment												BONUS:EQM|WEIGHTADD|5						SPROP:Locked
+Nonhumanoid		KEY:NONHUMANOID	TYPE:Armor		COST:BASECOST*(((SIZE<=2)*.5)+(SIZE==3)+(SIZE==4)+((SIZE>=5)*(2^(SIZE-4))))	VISIBLE:QUALIFY					SOURCEPAGE:RSRD Equipment
 
 ###Block: Masterwork
 # Modifier Name	Unique Key	Naming Format	Naming Option	Type						Cost		Visible		Type granted	Source Page		Required Type		Modify the item cost											Weapon prop. bonus					Special Property										Apply to both heads
@@ -168,19 +168,19 @@ Magical Enhancment Cost		KEY:MAGIC_COST				COST:%CHOICE	CHOOSE:NUMBER|MIN=1|MAX=
 |Spell Effect (Staff/Lesser Powers)						KEY:SPL_SLP			NAMEOPT:SPELL	TYPE:Staff																				COST:((800/2*(max(%SPELLLEVEL,(1/2)))*(max(%CASTERLEVEL,8))+%SPELLCOST+(5*%SPELLXPCOST)))/%CHARGES	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic																																				CHOOSE:EQBUILDER.SPELL	CHARGES:1|5
 
 ###Block: Scrolls
-# Modifier Name					Unique Key		Naming Option	Type					Cost													Visible		Type granted				Source Page				Required Type				Prohibited Type			Choose
-Divine						KEY:SCROLL_DIVINE				TYPE:Scroll																	VISIBLE:QUALIFY	ITYPE:Divine															!PRETYPE:1,Divine,Arcane
-Arcane						KEY:SCROLL_ARCANE				TYPE:Scroll																	VISIBLE:QUALIFY	ITYPE:Arcane															!PRETYPE:1,Divine,Arcane
-Minor							KEY:SCROLL_MINOR				TYPE:Scroll																	VISIBLE:QUALIFY	ITYPE:Minor										PRETYPE:1,Arcane,Divine			!PRETYPE:1,Minor,Medium,Major
-Medium						KEY:SCROLL_MEDIUM				TYPE:Scroll																	VISIBLE:QUALIFY	ITYPE:Medium									PRETYPE:1,Arcane,Divine			!PRETYPE:1,Minor,Medium,Major
-Major							KEY:SCROLL_MAJOR				TYPE:Scroll																	VISIBLE:QUALIFY	ITYPE:Major										PRETYPE:1,Arcane,Divine			!PRETYPE:1,Minor,Medium,Major
+# Modifier Name					Unique Key		Naming Option	Type					Cost													Visible		Type granted				Source Page			Required Type				Prohibited Type			Choose
+Divine						KEY:SCROLL_DIVINE				TYPE:Scroll																	VISIBLE:QUALIFY	ITYPE:Divine														!PRETYPE:1,Divine,Arcane
+Arcane						KEY:SCROLL_ARCANE				TYPE:Scroll																	VISIBLE:QUALIFY	ITYPE:Arcane														!PRETYPE:1,Divine,Arcane
+Minor							KEY:SCROLL_MINOR				TYPE:Scroll																	VISIBLE:QUALIFY	ITYPE:Minor									PRETYPE:1,Arcane,Divine			!PRETYPE:1,Minor,Medium,Major
+Medium						KEY:SCROLL_MEDIUM				TYPE:Scroll																	VISIBLE:QUALIFY	ITYPE:Medium								PRETYPE:1,Arcane,Divine			!PRETYPE:1,Minor,Medium,Major
+Major							KEY:SCROLL_MAJOR				TYPE:Scroll																	VISIBLE:QUALIFY	ITYPE:Major									PRETYPE:1,Arcane,Divine			!PRETYPE:1,Minor,Medium,Major
 
-Spell Effect (Single Use/Completion)	KEY:A_1USEMI	NAMEOPT:SPELL	TYPE:Scroll.Arcane.Minor	COST:(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI.rtf	PRETYPE:3,Scroll,Arcane,Minor							CHOOSE:EQBUILDER.SPELL|Arcane|0|3
-Spell Effect (Single Use/Completion)	KEY:A_1USEME	NAMEOPT:SPELL	TYPE:Scroll.Arcane.Medium	COST:(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI.rtf	PRETYPE:3,Scroll,Arcane,Medium						CHOOSE:EQBUILDER.SPELL|Arcane|2|5
-Spell Effect (Single Use/Completion)	KEY:A_1USEMA	NAMEOPT:SPELL	TYPE:Scroll.Arcane.Major	COST:(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI.rtf	PRETYPE:3,Scroll,Arcane,Major							CHOOSE:EQBUILDER.SPELL|Arcane|4|9
-Spell Effect (Single Use/Completion)	KEY:D_1USEMI	NAMEOPT:SPELL	TYPE:Scroll.Divine.Minor	COST:(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI.rtf	PRETYPE:3,Scroll,Divine,Minor							CHOOSE:EQBUILDER.SPELL|Divine|0|3
-Spell Effect (Single Use/Completion)	KEY:D_1USEME	NAMEOPT:SPELL	TYPE:Scroll.Divine.Medium	COST:(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI.rtf	PRETYPE:3,Scroll,Divine,Medium						CHOOSE:EQBUILDER.SPELL|Divine|2|5
-Spell Effect (Single Use/Completion)	KEY:D_1USEMA	NAMEOPT:SPELL	TYPE:Scroll.Divine.Major	COST:(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI.rtf	PRETYPE:3,Scroll,Divine,Major							CHOOSE:EQBUILDER.SPELL|Divine|4|9
+Spell Effect (Single Use/Completion)	KEY:A_1USEMI	NAMEOPT:SPELL	TYPE:Scroll.Arcane.Minor	COST:(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI	PRETYPE:3,Scroll,Arcane,Minor							CHOOSE:EQBUILDER.SPELL|Arcane|0|3
+Spell Effect (Single Use/Completion)	KEY:A_1USEME	NAMEOPT:SPELL	TYPE:Scroll.Arcane.Medium	COST:(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI	PRETYPE:3,Scroll,Arcane,Medium						CHOOSE:EQBUILDER.SPELL|Arcane|2|5
+Spell Effect (Single Use/Completion)	KEY:A_1USEMA	NAMEOPT:SPELL	TYPE:Scroll.Arcane.Major	COST:(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI	PRETYPE:3,Scroll,Arcane,Major							CHOOSE:EQBUILDER.SPELL|Arcane|4|9
+Spell Effect (Single Use/Completion)	KEY:D_1USEMI	NAMEOPT:SPELL	TYPE:Scroll.Divine.Minor	COST:(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI	PRETYPE:3,Scroll,Divine,Minor							CHOOSE:EQBUILDER.SPELL|Divine|0|3
+Spell Effect (Single Use/Completion)	KEY:D_1USEME	NAMEOPT:SPELL	TYPE:Scroll.Divine.Medium	COST:(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI	PRETYPE:3,Scroll,Divine,Medium						CHOOSE:EQBUILDER.SPELL|Divine|2|5
+Spell Effect (Single Use/Completion)	KEY:D_1USEMA	NAMEOPT:SPELL	TYPE:Scroll.Divine.Major	COST:(25*(max((%SPELLLEVEL),(1/2)))*%CASTERLEVEL)+%SPELLCOST+(5*%SPELLXPCOST)	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic.Consumable	SOURCEPAGE:MagicItemsI	PRETYPE:3,Scroll,Divine,Major							CHOOSE:EQBUILDER.SPELL|Divine|4|9
 
 ###Block: Greater Size Items
 # Modifier Name				Unique Key				Type			Visible		Weapon prop. bonus

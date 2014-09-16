@@ -15,7 +15,7 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com	SOURCED
 #
 #####Example
 
-#Teleport		CLASSES:Sorcerer,Wizard=5		DOMAINS:Travel=5		SCHOOL:Conjuration	SUBSCHOOL:Teleportation		TYPE:Arcane.Divine	COMPS:V		CASTTIME:1 standard action		RANGE:Personal and touch	TARGETAREA:You and touched objects or other touched willing creatures		DURATION:Instantaneous		SAVEINFO:None and Will negates (object)		SPELLRES:No and Yes (object)		DESC:Instantly transports you as far as (CASTERLEVEL*100) miles.		SOURCEPAGE:SpellsT-Z.rtf	ITEM:Potion
+#Teleport		CLASSES:Sorcerer,Wizard=5		DOMAINS:Travel=5		SCHOOL:Conjuration	SUBSCHOOL:Teleportation		TYPE:Arcane.Divine	COMPS:V		CASTTIME:1 standard action		RANGE:Personal and touch	TARGETAREA:You and touched objects or other touched willing creatures		DURATION:Instantaneous		SAVEINFO:None and Will negates (object)		SPELLRES:No and Yes (object)		DESC:Instantly transports you as far as (CASTERLEVEL*100) miles.		SOURCEPAGE:SpellsT-Z	ITEM:Potion
 
 #####
 #Teleport is the name of the spell. It will appear in the spells list on PCGen's Spells tab and will be used if a spell is

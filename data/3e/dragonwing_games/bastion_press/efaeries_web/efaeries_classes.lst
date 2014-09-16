@@ -4,7 +4,7 @@ SOURCELONG:eFaeries	SOURCESHORT:eFaeries	SOURCEWEB:http://dragonwing.net/Faeries
 
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Number of Feats	Bonus
-CLASS:The Master of the Hunt	HD:10		TYPE:Monster	MAXLEVEL:15	SOURCEPAGE:p. 10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:FEAT|POOL|4	BONUS:SAVE|BASE.Will,BASE.Reflex|6	BONUS:SAVE|BASE.Fortitude|13
+CLASS:The Master of the Hunt	HD:10		TYPE:Monster	MAXLEVEL:15	SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:FEAT|POOL|4	BONUS:SAVE|BASE.Will,BASE.Reflex|6	BONUS:SAVE|BASE.Fortitude|13
 # Class Name			Required Race
 CLASS:The Master of the Hunt	PRERACE:1,RACETYPE=Fey
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill

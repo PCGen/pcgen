@@ -5,4 +5,4 @@ SOURCELONG:Fort Griffin Echo Vol. 1 No. 1	SOURCESHORT:FGE1-1	SOURCEWEB:http://ww
 # Weapon Name				Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternate Damage		Modifier	Range		Size		Source Page
 #Archaic Weapons ------------------------------------------------------------------------------------------------
 # Equipment Name	Type									Cost		Weight	Crit Mult	Crit Range	Damage	Size		Source Page
-Lance			TYPE:Weapon.Archaic.Melee.Standard.Piercing.Wooden	COST:2	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	SIZE:L	SOURCEPAGE:p. 10
+Lance			TYPE:Weapon.Archaic.Melee.Standard.Piercing.Wooden	COST:2	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	SIZE:L	SOURCEPAGE:p.10

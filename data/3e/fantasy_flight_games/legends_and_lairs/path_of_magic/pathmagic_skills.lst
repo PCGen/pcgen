@@ -4,7 +4,7 @@ SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgam
 
 
 # Skill Name		Output Name					Key Stat	Untrained?		Exclusive?		Type					Source Page
-Craft (Firearms)								KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Intelligence			SOURCEPAGE:srdskillsi.rtf
+Craft (Firearms)								KEYSTAT:INT	USEUNTRAINED:NO	EXCLUSIVE:YES	TYPE:Intelligence			SOURCEPAGE:srdskillsi
 Knowledge (Dragons)							KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p.142
 Knowledge (Outsiders)							KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p.34
 Perform (Juggling/Wit)	OUTPUTNAME:Perform (Juggling, Wit)	KEYSTAT:CHA	USEUNTRAINED:NO				TYPE:Charisma.Perform		SOURCEPAGE:p.19

@@ -4,8 +4,8 @@ SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fa
 
 ### TODO: Not really sure how to do this.
 # Equipment Name		Output Name					Type							Cost		Weight	Modifier		Source Page
-Shard Arrow (Longbow)	OUTPUTNAME:Shard Arrow, Longbow	TYPE:Ammunition.Standard.Wooden.Arrow	COST:12	WT:0.5	EQMOD:STEEL.WOOD	SOURCEPAGE:p. 84
-Shard Arrow (Shortbow)	OUTPUTNAME:Shard Arrow, Shortbow	TYPE:Ammunition.Standard.Wooden.Arrow	COST:12	WT:0.5	EQMOD:STEEL.WOOD	SOURCEPAGE:p. 84
+Shard Arrow (Longbow)	OUTPUTNAME:Shard Arrow, Longbow	TYPE:Ammunition.Standard.Wooden.Arrow	COST:12	WT:0.5	EQMOD:STEEL.WOOD	SOURCEPAGE:p.84
+Shard Arrow (Shortbow)	OUTPUTNAME:Shard Arrow, Shortbow	TYPE:Ammunition.Standard.Wooden.Arrow	COST:12	WT:0.5	EQMOD:STEEL.WOOD	SOURCEPAGE:p.84
 
 #
 # End

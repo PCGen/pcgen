@@ -3,7 +3,7 @@ SOURCELONG:Fort Griffin Echo Vol. 1 No. 1	SOURCESHORT:FGE1-1	SOURCEWEB:http://ww
 # Original Entry by: Lone Jedi
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Modify VAR										Bonus
-CLASS:Comanche Parabio	HD:8		TYPE:PC.Prestige	ABB:Cmp		MAXLEVEL:5	SOURCEPAGE:p. 13	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|CL/4+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+1
+CLASS:Comanche Parabio	HD:8		TYPE:PC.Prestige	ABB:Cmp		MAXLEVEL:5	SOURCEPAGE:p.13	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|CL/4+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+1
 # Class Name		Required Feat		Required Skill					Var. Min. Value
 CLASS:Comanche Parabio	PREFEAT:1,Trustworthy	PRESKILL:2,Diplomacy=10,Intimidate=10	PREVARGTEQ:Reputation,6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -15,7 +15,7 @@ CLASS:Comanche Parabio	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information
 5	SAB:Great Puha
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Modify VAR										Bonus
-CLASS:Comanche Rider	HD:10		TYPE:PC.Prestige	ABB:Cmr		MAXLEVEL:5	SOURCEPAGE:p. 14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+2)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3
+CLASS:Comanche Rider	HD:10		TYPE:PC.Prestige	ABB:Cmr		MAXLEVEL:5	SOURCEPAGE:p.14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+2)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Required Feat										Required Skill		PRETOTALAB
 CLASS:Comanche Rider	PREFEAT:3,Archaic Weapons Proficiency,Blazing Saddle,Defensive Riding	PRESKILL:1,Ride=10	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill

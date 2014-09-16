@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -254,60 +254,60 @@ Military Feats																VISIBLE:NO
 Ascendant Elorii							NAMEISPI:YES							VISIBLE:NO																																																																																																																																																																																																																																																																																																																																																																													TYPE:Native
 
 ###Block: HC (Fire Dragon) - Apotheosis Templates
-# Template Name			Challenge Rating	Visible		Level Adjustment	Template																								Source Page						Special ABility																								Define				Required Class	Prohibited Class		Required Gender	Required Race			Prohibited Subclass		Combat bonus					Stat bonus					Modify VAR							Favored Class																Main Race Type	Race Subtype		Type					Vision						Natural Attacks
-Dragon Apotheosis			CR:2			VISIBLE:NO		LEVELADJUSTMENT:3	TEMPLATE:CHOOSE:Half Dragon Wings ~ Normal|Half Dragon Wings ~ Fast	TEMPLATE:CHOOSE:Bite ~ Claw (Medium)							SOURCEPAGE:MonstersG-H.rtf																													DEFINE:HalfDragonBreathDC|0																					BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|HalfDragonBreathDC|10+HD+max(CON,0)																										TYPE:Dragon				VISION:Darkvision (60')|Low-Light Vision
-Dragon Apotheosis (Red)					VISIBLE:EXPORT				TEMPLATE:Dragon Apotheosis																					SOURCEPAGE:p.89					SAB:Immunity to Fire (Ex)	SAB:Immune to sleep and paralysis effects (Ex)	SAB:Breath Weapon (Ex) 30' Cone of Fire 1/day 6d8 (DC%)|HalfDragonBreathDC																					!PRESUBCLASS:1,Blazing Wyrm
-Dragon Apotheosis (Gold)				VISIBLE:EXPORT				TEMPLATE:Dragon Apotheosis																					SOURCEPAGE:p.89					SAB:Immunity to Fire (Ex)	SAB:Immune to sleep and paralysis effects (Ex)	SAB:Breath Weapon (Ex) 30' Cone of Fire 1/day 6d8 (DC%)|HalfDragonBreathDC																					!PRESUBCLASS:1,Blazing Wyrm
+# Template Name			Challenge Rating	Visible		Level Adjustment	Template																								Source Page					Special ABility																								Define				Required Class	Prohibited Class		Required Gender	Required Race			Prohibited Subclass		Combat bonus					Stat bonus					Modify VAR							Favored Class																Main Race Type	Race Subtype		Type					Vision						Natural Attacks
+Dragon Apotheosis			CR:2			VISIBLE:NO		LEVELADJUSTMENT:3	TEMPLATE:CHOOSE:Half Dragon Wings ~ Normal|Half Dragon Wings ~ Fast	TEMPLATE:CHOOSE:Bite ~ Claw (Medium)							SOURCEPAGE:MonstersG-H																													DEFINE:HalfDragonBreathDC|0																					BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|HalfDragonBreathDC|10+HD+max(CON,0)																										TYPE:Dragon				VISION:Darkvision (60')|Low-Light Vision
+Dragon Apotheosis (Red)					VISIBLE:EXPORT				TEMPLATE:Dragon Apotheosis																					SOURCEPAGE:p.89				SAB:Immunity to Fire (Ex)	SAB:Immune to sleep and paralysis effects (Ex)	SAB:Breath Weapon (Ex) 30' Cone of Fire 1/day 6d8 (DC%)|HalfDragonBreathDC																					!PRESUBCLASS:1,Blazing Wyrm
+Dragon Apotheosis (Gold)				VISIBLE:EXPORT				TEMPLATE:Dragon Apotheosis																					SOURCEPAGE:p.89				SAB:Immunity to Fire (Ex)	SAB:Immune to sleep and paralysis effects (Ex)	SAB:Breath Weapon (Ex) 30' Cone of Fire 1/day 6d8 (DC%)|HalfDragonBreathDC																					!PRESUBCLASS:1,Blazing Wyrm
 
 # Adding Favored Classes
-FMFavoredClass						VISIBLE:NO																																																																																																													FAVOREDCLASS:Bard
-CEFavoredClass						VISIBLE:NO																																																																																																													FAVOREDCLASS:Cleric
-LGFavoredClass						VISIBLE:NO																																																																																																													FAVOREDCLASS:Fighter
-SPFavoredClass						VISIBLE:NO																																																																																																													FAVOREDCLASS:Ranger
-DellenovFavClassF						VISIBLE:NO																																																																											PREGENDER:F																																	FAVOREDCLASS:Ranger																						TYPE:ClassFeature.FCDellenov
-DellenovFavClassM						VISIBLE:NO																																																																											PREGENDER:M																																	FAVOREDCLASS:Druid																						TYPE:ClassFeature.FCDellenov
+FMFavoredClass						VISIBLE:NO																																																																																																												FAVOREDCLASS:Bard
+CEFavoredClass						VISIBLE:NO																																																																																																												FAVOREDCLASS:Cleric
+LGFavoredClass						VISIBLE:NO																																																																																																												FAVOREDCLASS:Fighter
+SPFavoredClass						VISIBLE:NO																																																																																																												FAVOREDCLASS:Ranger
+DellenovFavClassF						VISIBLE:NO																																																																										PREGENDER:F																																	FAVOREDCLASS:Ranger																						TYPE:ClassFeature.FCDellenov
+DellenovFavClassM						VISIBLE:NO																																																																										PREGENDER:M																																	FAVOREDCLASS:Druid																						TYPE:ClassFeature.FCDellenov
 # 2006-06-03 errata refers to Altherian Artificer - no info so removing
-AltherianTriggermageFavClass				VISIBLE:NO																																																																																																													FAVOREDCLASS:Altherian Triggermage|Bard|Cleric|Expert|Loremaster|Paladin|Patrician|Psion
-BearerofWoeFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Ansharan Gatekeeper|Cleric|Monk
+AltherianTriggermageFavClass				VISIBLE:NO																																																																																																												FAVOREDCLASS:Altherian Triggermage|Bard|Cleric|Expert|Loremaster|Paladin|Patrician|Psion
+BearerofWoeFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Ansharan Gatekeeper|Cleric|Monk
 # 2006-06-03 errata has Warder, Suromar and Lifewarden as favored - don't know where they are so taking out
-TwelveOaksFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Cleric|Druid|Paladin|Ranger
-BeltinianHospitalerFavClass				VISIBLE:NO																																																																																																													FAVOREDCLASS:Beltinian Exorcist|Cleric|Priest
-TwilightWarriorFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Bard|Cleric|Obsidian Sniper|Rogue|Shadowdancer|Soulknife|Urban Sentinel
+TwelveOaksFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Cleric|Druid|Paladin|Ranger
+BeltinianHospitalerFavClass				VISIBLE:NO																																																																																																												FAVOREDCLASS:Beltinian Exorcist|Cleric|Priest
+TwilightWarriorFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Bard|Cleric|Obsidian Sniper|Rogue|Shadowdancer|Soulknife|Urban Sentinel
 # 2006-06-03 errata refers to Ssethric Inquisitor - no stats so removing from favored class line
-BlazingWyrmFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Cleric|Druid|Fighter|Holy Champion.Harbingers|Paladin
-StormLordFavClass						VISIBLE:NO																																																																																																													FAVOREDCLASS:Barbarian|Cleric|Fighter|Hurrianic Aegis|Order of the Thundering Storm|Paladin|Psychic Warrior
-HarbingersFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Centurion|Cleric|Fighter|Paladin
-FatespinnerFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Bard|Cleric|Larissan Dancer|Rogue|Shadowdancer|Sorcerer|Wilder
-DeathbringerFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Cleric|Fighter
-HolyJudgeFavClass						VISIBLE:NO																																																																																																													FAVOREDCLASS:Cleric|Fighter|Paladin|Psychic Warrior|Warrior of the Eternal Flame
-VerdantChampFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Cleric|Druid|Ranger
-InnerDemonFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Cleric|Fighter|Paladin|Rogue|Sorcerer|Wizard
-SeaLordFavClass						VISIBLE:NO																																																																																																													FAVOREDCLASS:Barbarian|Cleric|Druid|Fighter|Royal Marine of Milandir
-OrderofAltharesFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Psion|Wizard
-OrderofBladeFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Fighter
-OrderBronzeSepulcherFavClass				VISIBLE:NO																																																																																																													FAVOREDCLASS:Wizard.Necromancer
-BrosofCryptFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Wizard.Necromancer
-ContElementsFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Wizard
-IncandPathFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Wizard
-IrridScaleFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Ranger
-PerfectUnionFavClass					VISIBLE:NO																																																																																																													FAVOREDCLASS:Psion|Psychic Warrior
-HCFavClass							VISIBLE:NO																																																																																																													FAVOREDCLASS:Holy Champion
+BlazingWyrmFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Cleric|Druid|Fighter|Holy Champion.Harbingers|Paladin
+StormLordFavClass						VISIBLE:NO																																																																																																												FAVOREDCLASS:Barbarian|Cleric|Fighter|Hurrianic Aegis|Order of the Thundering Storm|Paladin|Psychic Warrior
+HarbingersFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Centurion|Cleric|Fighter|Paladin
+FatespinnerFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Bard|Cleric|Larissan Dancer|Rogue|Shadowdancer|Sorcerer|Wilder
+DeathbringerFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Cleric|Fighter
+HolyJudgeFavClass						VISIBLE:NO																																																																																																												FAVOREDCLASS:Cleric|Fighter|Paladin|Psychic Warrior|Warrior of the Eternal Flame
+VerdantChampFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Cleric|Druid|Ranger
+InnerDemonFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Cleric|Fighter|Paladin|Rogue|Sorcerer|Wizard
+SeaLordFavClass						VISIBLE:NO																																																																																																												FAVOREDCLASS:Barbarian|Cleric|Druid|Fighter|Royal Marine of Milandir
+OrderofAltharesFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Psion|Wizard
+OrderofBladeFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Fighter
+OrderBronzeSepulcherFavClass				VISIBLE:NO																																																																																																												FAVOREDCLASS:Wizard.Necromancer
+BrosofCryptFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Wizard.Necromancer
+ContElementsFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Wizard
+IncandPathFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Wizard
+IrridScaleFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Ranger
+PerfectUnionFavClass					VISIBLE:NO																																																																																																												FAVOREDCLASS:Psion|Psychic Warrior
+HCFavClass							VISIBLE:NO																																																																																																												FAVOREDCLASS:Holy Champion
 
-HandsofOurMotherMonk					VISIBLE:NO																														SOURCEPAGE:p.276																																				PRECLASS:1,Monk=1																																																																												NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing.Bludgeoning,*2,1d4
-HandsofOurMotherNotMonk					VISIBLE:NO																														SOURCEPAGE:p.276																																							!PRECLASS:1,Monk=1																																																																								NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,1d4
+HandsofOurMotherMonk					VISIBLE:NO																														SOURCEPAGE:p.276																																			PRECLASS:1,Monk=1																																																																												NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing.Bludgeoning,*2,1d4
+HandsofOurMotherNotMonk					VISIBLE:NO																														SOURCEPAGE:p.276																																						!PRECLASS:1,Monk=1																																																																								NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*2,1d4
 
 InfernalWithinTemp					VISIBLE:NO					TEMPLATE:Augmented|Tainted
-ApotheosisTemp						VISIBLE:NO																																																																																																																															RACETYPE:Outsider	RACESUBTYPE:Native
+ApotheosisTemp						VISIBLE:NO																																																																																																																														RACETYPE:Outsider	RACESUBTYPE:Native
 
 # Type template
-Tainted							VISIBLE:NO																														SOURCEPAGE:TypesSubtypesAbilities.rtf
+Tainted							VISIBLE:NO																														SOURCEPAGE:TypesSubtypesAbilities
 
 Elorii Subrace						VISIBLE:NO					TEMPLATE:CHOOSE:Elorii Subrace ~ Berokene|Elorii Subrace ~ Marokene|Elorii Subrace ~ Kelekene|Elorii Subrace ~ Osalikene|Elorii Subrace ~ Ardakene
-Elorii Subrace ~ Berokene				VISIBLE:NO																																																																														PRERACE:1,Elorii (Berokene)																																																RACESUBTYPE:Water
-Elorii Subrace ~ Marokene				VISIBLE:NO																																																																														PRERACE:1,Elorii (Marokene)																																																RACESUBTYPE:Earth
-Elorii Subrace ~ Kelekene				VISIBLE:NO																																																																														PRERACE:1,Elorii (Kelekene)																																																RACESUBTYPE:Fire
-Elorii Subrace ~ Osalikene				VISIBLE:NO																																																																														PRERACE:1,Elorii (Osalikene)																																																RACESUBTYPE:Air
-Elorii Subrace ~ Ardakene				VISIBLE:NO																																																																														PRERACE:1,Elorii (Ardakene)																																																RACESUBTYPE:Celestial
+Elorii Subrace ~ Berokene				VISIBLE:NO																																																																													PRERACE:1,Elorii (Berokene)																																																RACESUBTYPE:Water
+Elorii Subrace ~ Marokene				VISIBLE:NO																																																																													PRERACE:1,Elorii (Marokene)																																																RACESUBTYPE:Earth
+Elorii Subrace ~ Kelekene				VISIBLE:NO																																																																													PRERACE:1,Elorii (Kelekene)																																																RACESUBTYPE:Fire
+Elorii Subrace ~ Osalikene				VISIBLE:NO																																																																													PRERACE:1,Elorii (Osalikene)																																																RACESUBTYPE:Air
+Elorii Subrace ~ Ardakene				VISIBLE:NO																																																																													PRERACE:1,Elorii (Ardakene)																																																RACESUBTYPE:Celestial
 
 #
 # End

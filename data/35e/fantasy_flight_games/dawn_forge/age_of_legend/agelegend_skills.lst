@@ -3,6 +3,6 @@ SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames
 # Original Entry by: Ratheof Blithwyn
 
 # Skill Name				Key Stat	Untrained?		Type					Source Page
-Knowledge (Local Sildanyr)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:SkillsII.rtf
-Knowledge (Local Valhedar Dominion)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:SkillsII.rtf
+Knowledge (Local Sildanyr)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:SkillsII
+Knowledge (Local Valhedar Dominion)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:SkillsII
 Profession (Sailor)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.76

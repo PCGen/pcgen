@@ -304,7 +304,7 @@ Shadowkind				CATEGORY:Special Ability	VISIBLE:NO	SAB:Shadowkind	SAB:Can only be
 
 ###Block: Negative Levels
 # Ability Name	Category of Ability		Visible	Special ABility																							Define			Combat bonus				Bonus to skill																		Source Page					Bonus
-Negative Levels	CATEGORY:Special Ability	VISIBLE:NO	SAB:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels	SOURCEPAGE:msrdspecialabilities.rtf	BONUS:SAVE|Fortitude,Reflex,Will|-1*NegLevels
+Negative Levels	CATEGORY:Special Ability	VISIBLE:NO	SAB:% negative level(s) (-% effective level(s) and loses access to % spell(s) from the highest spell level castable)|NegLevels|NegLevels|NegLevels	DEFINE:NegLevels|0	BONUS:COMBAT|TOHIT|-1*NegLevels	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Constitution,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*NegLevels	SOURCEPAGE:msrdspecialabilities	BONUS:SAVE|Fortitude,Reflex,Will|-1*NegLevels
 
 ###Block: Standard Immunities
 # Ability Name		Category of Ability		Type								Visible	Special ABility				Description

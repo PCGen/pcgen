@@ -3,7 +3,7 @@ SOURCELONG:Pathfinder Character Traits Web Enhancement	SOURCESHORT:PCT	SOURCEWEB
 
 
 # Feat Name		Type			Description						Bonus Ability Pool		Source Page
-Additional Traits	TYPE:General	DESC:You have more traits than normal	BONUS:ABILITYPOOL|Traits|2	SOURCEPAGE:p. 6
+Additional Traits	TYPE:General	DESC:You have more traits than normal	BONUS:ABILITYPOOL|Traits|2	SOURCEPAGE:p.6
 
 #
 # End

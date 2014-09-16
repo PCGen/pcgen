@@ -216,7 +216,7 @@ Disrupting Attack	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Disrupting Atta
 
 Aradil's Eye Spy	TYPE:Special				VISIBLE:NO	SAB:Spy Initiate|PRECLASS:1,Aradil's Eye=5	SAB:Spy|PREMULT:2,[PRECLASS:1,Aradil's Eye=5],[!PRECLASS:1,Aradil's Eye=10]	SAB:Master Spy|PRECLASS:1,Aradil's Eye=10	DEFINE:ElvenDiplomacyBonus|0												BONUS:VAR|ElvenDiplomacyBonus|4|PRECLASS:1,Aradil's Eye=1	BONUS:VAR|ElvenDiplomacyBonus|4|PRECLASS:1,Aradil's Eye=5	BONUS:VAR|ElvenDiplomacyBonus|2|PRECLASS:1,Aradil's Eye=10				TEMPDESC:Bonus when dealing with elves and their allies	TEMPBONUS:PC|SKILL|Diplomacy|ElvenDiplomacyBonus
 Still Mind		TYPE:Special				VISIBLE:NO	SAB:Still Mind (Ex)
-Slippery Mind	TYPE:Special.RogueAbilities		VISIBLE:NO	SAB:Slippery Mind (Ex)																																				DESC:Class Special Ability																															SOURCEPAGE:p. 51
+Slippery Mind	TYPE:Special.RogueAbilities		VISIBLE:NO	SAB:Slippery Mind (Ex)																																				DESC:Class Special Ability																															SOURCEPAGE:p.51
 
 
 Infusion Mastery	TYPE:ConcoctionMastery			VISIBLE:NO	SAB:Infusion Mastery

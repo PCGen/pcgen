@@ -42,7 +42,7 @@ Battle Mind PsiShield	CATEGORY:Special Ability						VISIBLE:NO					DEFINE:PsiShi
 ###Block:Mage -----------------------------------------------------------------------------------------------------------------------------------
 # Ability Name		Category of Ability		Type					Visible	Special ABility							Description																			Multiple?	Choose						Selections	Source Page
 Concentration ~ Mage	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:+4 to Concentration while casting defensively
-Spell Mastery		CATEGORY:Special Ability	TYPE:SpellMastery					SAB:Spell Mastery (%CHOICE)					DESC:Choose a number of spells equal to your Intelligence modifier, those spells may be prepared without a spell book	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Mage[KNOWN=YES]	SELECT:INT	SOURCEPAGE:msrdadvancedclassesII.rtf
+Spell Mastery		CATEGORY:Special Ability	TYPE:SpellMastery					SAB:Spell Mastery (%CHOICE)					DESC:Choose a number of spells equal to your Intelligence modifier, those spells may be prepared without a spell book	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Mage[KNOWN=YES]	SELECT:INT	SOURCEPAGE:msrdadvancedclassesII
 
 
 ###Block:Acolyte --------------------------------------------------------------------------------------------------------------------------------

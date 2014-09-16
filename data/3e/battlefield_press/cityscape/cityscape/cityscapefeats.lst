@@ -184,7 +184,7 @@ Remote Operation.MOD									PRE:.CLEAR		PRECLASS:1,Mechanist=1,Techie=1
 #Space Jockey.MOD																PRE:.CLEAR		PREFEAT:1,Starship Operation																																												PRESKILL:1,Pilot=1
 
 ###RSRD / SRD + Others
-Acrobatic			TYPE:General																												DESC:You get a +2 bonus on all Jump checks and Tumble checks.																																BONUS:SKILL|Jump,Tumble|2									SOURCEPAGE:Feats.rtf
-Animal Affinity		TYPE:General																												DESC:You get a +2 bonus on all Handle Animal checks and Ride checks.																															BONUS:SKILL|Handle Animal,Ride|2								SOURCEPAGE:Feats.rtf
-Athletic			TYPE:General																												DESC:You get a +2 bonus on all Climb checks and Swim checks.																																BONUS:SKILL|Climb,Swim|2									SOURCEPAGE:Feats.rtf
-Combat Expertise		TYPE:General.Fighter.AttackOption.ModifyAC															PRESTAT:1,INT=13	DEFINE:CombatExpertiseMax|0	DESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as %1 on your attack roll and add the same number as a dodge bonus to your Armor Class.|CombatExpertiseMax	TEMPLATE:Combat Expertise trade off							BONUS:VAR|CombatExpertiseMax|min(BAB,5)	SOURCEPAGE:Feats.rtf
+Acrobatic			TYPE:General																												DESC:You get a +2 bonus on all Jump checks and Tumble checks.																																BONUS:SKILL|Jump,Tumble|2									SOURCEPAGE:Feats
+Animal Affinity		TYPE:General																												DESC:You get a +2 bonus on all Handle Animal checks and Ride checks.																															BONUS:SKILL|Handle Animal,Ride|2								SOURCEPAGE:Feats
+Athletic			TYPE:General																												DESC:You get a +2 bonus on all Climb checks and Swim checks.																																BONUS:SKILL|Climb,Swim|2									SOURCEPAGE:Feats
+Combat Expertise		TYPE:General.Fighter.AttackOption.ModifyAC															PRESTAT:1,INT=13	DEFINE:CombatExpertiseMax|0	DESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as %1 on your attack roll and add the same number as a dodge bonus to your Armor Class.|CombatExpertiseMax	TEMPLATE:Combat Expertise trade off							BONUS:VAR|CombatExpertiseMax|min(BAB,5)	SOURCEPAGE:Feats

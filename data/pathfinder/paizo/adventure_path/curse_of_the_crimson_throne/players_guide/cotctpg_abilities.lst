@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: $ $Author: $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
 SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:COTCTPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb	SOURCEDATE:2008-02
 
 ###Block: Campaign Traits
@@ -15,9 +15,9 @@ Unhappy Childhood (Religious)			CATEGORY:Special Ability	TYPE:Trait.CampaignTrai
 Unhappy Childhood (Tortured)			CATEGORY:Special Ability	TYPE:Trait.CampaignTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Unhappy Childhood (Tortured)],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CampaignTrait]		DESC:You spent a period of time as one of Gaedren's enslaved orphans. Maybe you were abducted from your parent's home or during a trip to the market. Perhaps the irresponsible matron who ruled your orphanage traded you to him in return for a desperately needed loan of money. Or perhaps you, like most of Gaedren's slaves, were merely a child of the street who succumbed to his promise of regular meals and a roof in return for what he said would be "a little light work." Whatever the case, you spent several years of your life as one of his "Little Lamms" before escaping. You've nursed a grudge for the old man ever since. Gaedren tortured you and left you for dead on a garbage heap after you made one too many errors. Your scars and memories have honed your reaction speed and make you rather jumpy. You gain a +1 trait bonus on Reflex saves.																																																																					SOURCEPAGE:p.16	BONUS:SAVE|Reflex|1|TYPE=Trait
 
 ###Block: Addicted Friend Choice
-# Ability Name		Unique Key								Category of Ability		Type					Bonus to skill						Bonus to Situation
-Knowledge (Local)		KEY:Drug Addict Addicted Friend ~ Knowledge (Local)	CATEGORY:Special Ability	TYPE:AddictedFriendSkill	BONUS:SKILL|Knowledge (Local)|2|TYPE=Trait
-Gather Information	KEY:Drug Addict Addicted Friend ~ Gather Information	CATEGORY:Special Ability	TYPE:AddictedFriendSkill									BONUS:SITUATION|Diplomacy=Gather Information|2|TYPE=Trait
+# Ability Name		Unique Key								Category of Ability		Type					Bonus to Situation							Bonus to skill
+Knowledge (Local)		KEY:Drug Addict Addicted Friend ~ Knowledge (Local)	CATEGORY:Special Ability	TYPE:AddictedFriendSkill											BONUS:SKILL|Knowledge (Local)|2|TYPE=Trait
+Gather Information	KEY:Drug Addict Addicted Friend ~ Gather Information	CATEGORY:Special Ability	TYPE:AddictedFriendSkill	BONUS:SITUATION|Diplomacy=Gather Information|2|TYPE=Trait
 
 ###Block: Ranger abilities
 # Ability Name									Unique Key						Category of Ability		Type					Visible		Required Ability						Restricted Ability								Prohibited Feat					Required Race				Var. Min. Value			Special ABility			Description																	Virtual Feat																																																							Ability							Combat bonus						Stat bonus			Source Page		Natural Attacks

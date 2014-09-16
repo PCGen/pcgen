@@ -3,13 +3,13 @@ SOURCELONG:Nuisances - Director's Cut	SOURCESHORT:Nuisances	SOURCEWEB:http://ski
 
 
 # Skill Name		Key Stat	Untrained?		Skill Penalty?	Type					Source Page
-Metagame			KEYSTAT:INT							TYPE:Intelligence			SOURCEPAGE:p. 43
-Profession (Bartender)	KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES		TYPE:Wisdom.Profession		SOURCEPAGE:p. 44
-Profession (Courtesan)	KEYSTAT:WIS	USEUNTRAINED:NO				TYPE:Wisdom.Profession		SOURCEPAGE:p. 44
-Profession (Pimp)		KEYSTAT:WIS	USEUNTRAINED:NO				TYPE:Wisdom.Profession		SOURCEPAGE:p. 43
-Profession (Prostitute)	KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES		TYPE:Wisdom.Profession		SOURCEPAGE:p. 44
-Schwaggle			KEYSTAT:CHA							TYPE:Charisma			SOURCEPAGE:p. 44
-Knowledge (Music)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p. 121
+Metagame			KEYSTAT:INT							TYPE:Intelligence			SOURCEPAGE:p.43
+Profession (Bartender)	KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES		TYPE:Wisdom.Profession		SOURCEPAGE:p.44
+Profession (Courtesan)	KEYSTAT:WIS	USEUNTRAINED:NO				TYPE:Wisdom.Profession		SOURCEPAGE:p.44
+Profession (Pimp)		KEYSTAT:WIS	USEUNTRAINED:NO				TYPE:Wisdom.Profession		SOURCEPAGE:p.43
+Profession (Prostitute)	KEYSTAT:WIS	USEUNTRAINED:NO	ACHECK:YES		TYPE:Wisdom.Profession		SOURCEPAGE:p.44
+Schwaggle			KEYSTAT:CHA							TYPE:Charisma			SOURCEPAGE:p.44
+Knowledge (Music)		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge	SOURCEPAGE:p.121
 
 #
 # End

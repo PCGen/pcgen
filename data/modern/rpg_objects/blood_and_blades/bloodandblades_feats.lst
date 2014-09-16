@@ -40,4 +40,4 @@ Unnerving Laugh							TYPE:Stalker	PREFEAT:1,Catch Phrase																							
 ###Block: Improved Unarmed Strike from RSRD
 #One class has Improved Unarmed Strike as a pre-req, yet this in not in the MSRD.
 # Feat Name			Type				Description																																									Source Page
-Improved Unarmed Strike	TYPE:General.Fighter	DESC:You are considered to be armed even when unarmed. However, you still get an attack of opportunity against any opponent who makes an unarmed attack on you. In addition, your unarmed strikes can deal lethal or nonlethal damage, at your option.	SOURCEPAGE:Feats.rtf
+Improved Unarmed Strike	TYPE:General.Fighter	DESC:You are considered to be armed even when unarmed. However, you still get an attack of opportunity against any opponent who makes an unarmed attack on you. In addition, your unarmed strikes can deal lethal or nonlethal damage, at your option.	SOURCEPAGE:Feats

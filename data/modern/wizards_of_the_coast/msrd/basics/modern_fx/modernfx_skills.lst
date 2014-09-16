@@ -3,7 +3,7 @@ SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http
 
 
 # Skill Name	Key Stat	Untrained?		Type			Source Page
-Psicraft		KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma	SOURCEPAGE:msrdskillsii.rtf
-Spellcraft		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence	SOURCEPAGE:msrdskillsii.rtf
-Autohypnosis	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom		SOURCEPAGE:msrdskillsii.rtf
-Use Magic Device	KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma	SOURCEPAGE:msrdskillsii.rtf
+Psicraft		KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma	SOURCEPAGE:msrdskillsii
+Spellcraft		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence	SOURCEPAGE:msrdskillsii
+Autohypnosis	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom		SOURCEPAGE:msrdskillsii
+Use Magic Device	KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma	SOURCEPAGE:msrdskillsii

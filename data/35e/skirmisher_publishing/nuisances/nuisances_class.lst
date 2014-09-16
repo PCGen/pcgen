@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
 SOURCELONG:Nuisances - Director's Cut	SOURCESHORT:Nuisances	SOURCEWEB:http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download	SOURCEDATE:2007-08
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page
-CLASS:Slovely Trull	HD:4		TYPE:PC.Prestige	ABB:SlTrl		MAXLEVEL:1	SOURCEPAGE:p. 36
+CLASS:Slovely Trull	HD:4		TYPE:PC.Prestige	ABB:SlTrl		MAXLEVEL:1	SOURCEPAGE:p.36
 # Class Name		Prohibited Stat
 CLASS:Slovely Trull	!PRESTAT:2,WIS=10,INT=10
 # Class Name		Skill Pts/Lvl
@@ -12,7 +12,7 @@ CLASS:Slovely Trull	STARTSKILLPTS:0
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus
-CLASS:Prostitute	HD:4		TYPE:PC.Prestige	ABB:Ho		MAXLEVEL:1	SOURCEPAGE:p. 37	BONUS:SAVE|BASE.Fortitude|2
+CLASS:Prostitute	HD:4		TYPE:PC.Prestige	ABB:Ho		MAXLEVEL:1	SOURCEPAGE:p.37	BONUS:SAVE|BASE.Fortitude|2
 # Class Name	Required Skill
 CLASS:Prostitute	PRESKILL:1,Profession (Courtesan)=1
 # Class Name	Skill Pts/Lvl
@@ -21,7 +21,7 @@ CLASS:Prostitute	STARTSKILLPTS:0
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
-CLASS:Pimp		HD:8		TYPE:PC.Prestige	ABB:Pimp		MAXLEVEL:3	SOURCEPAGE:p. 38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Pimp		HD:8		TYPE:PC.Prestige	ABB:Pimp		MAXLEVEL:3	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat						Required Skill		PRETOTALAB
 CLASS:Pimp		PREFEAT:2,Pimp Slap,Skill Focus (Intimidate)	PRESKILL:1,Intimidate=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -34,8 +34,8 @@ CLASS:Pimp		STARTSKILLPTS:3	CSKILL:Appraise|Bluff|Handle Animal|Intimidate|Profe
 
 ###Block: Monster Class
 
-# Class Name		Hit Dice	Type			Max Level		Source Page					Ability												Combat bonus												Bonus
-CLASS:Decapussywhipper	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PREVAREQ:NoTypeTraits,0	BONUS:COMBAT|BASEAB|((classlevel("APPLIEDAS=NONEPIC")*3)/4)+1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Hit Dice	Type			Max Level		Source Page				Ability												Combat bonus												Bonus
+CLASS:Decapussywhipper	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PREVAREQ:NoTypeTraits,0	BONUS:COMBAT|BASEAB|((classlevel("APPLIEDAS=NONEPIC")*3)/4)+1|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Reg. Race Type
 CLASS:Decapussywhipper	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?

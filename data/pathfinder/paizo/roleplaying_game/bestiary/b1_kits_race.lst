@@ -4449,7 +4449,7 @@ SKILL:Stealth	RANK:1
 FEAT:Toughness
 
 
-STARTPACK:Golem (Clay) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Clay)],[!PRERACE:1,%]	SOURCEPAGE:p. 159
+STARTPACK:Golem (Clay) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Clay)],[!PRERACE:1,%]	SOURCEPAGE:p.159
 RACE:Golem (Clay)	!PRERACE:1,%
 NAME:Clay Golem
 ALIGN:TN

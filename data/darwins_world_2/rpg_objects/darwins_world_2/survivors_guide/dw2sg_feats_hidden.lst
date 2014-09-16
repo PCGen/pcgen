@@ -4,8 +4,8 @@ SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_
 ###Block: Mutations
 #Hidden Feats for Additional Limb Development
 # Feat Name		Type					Visible	Required Ability									Restricted Ability							Special ABility															Define				Stackable?	Multiple?	Choose					Combat bonus		Add to base move						Bonus to skill					Bonus to nb of slots	Modify VAR				Source Page
-Extra Arm Feat	TYPE:MutantAbility.Limb		VISIBLE:NO	PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Arm)											SAB:Extra Arm (x%) (+% additional attacks during full attack)|AdditionalLimbArm|AdditionalLimbArm	DEFINE:AdditionalLimbArm|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:COMBAT|ATTACKS|1																BONUS:SLOTS|GLOVE|1	BONUS:VAR|AdditionalLimbArm|1	SOURCEPAGE:p. 77
-Extra Leg Feat	TYPE:MutantAbility.Limb		VISIBLE:NO	PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Leg)											SAB:Extra Leg (x%) (+5' to Base Speed, +2 to Balance each)|AdditionalLimbLeg					DEFINE:AdditionalLimbLeg|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:MOVEADD|TYPE.Walk|(5*AdditionalLimbLeg)	BONUS:SKILL|Balance|(2*AdditionalLimbLeg)					BONUS:VAR|AdditionalLimbLeg|1	SOURCEPAGE:p. 77
+Extra Arm Feat	TYPE:MutantAbility.Limb		VISIBLE:NO	PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Arm)											SAB:Extra Arm (x%) (+% additional attacks during full attack)|AdditionalLimbArm|AdditionalLimbArm	DEFINE:AdditionalLimbArm|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:COMBAT|ATTACKS|1																BONUS:SLOTS|GLOVE|1	BONUS:VAR|AdditionalLimbArm|1	SOURCEPAGE:p.77
+Extra Leg Feat	TYPE:MutantAbility.Limb		VISIBLE:NO	PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Leg)											SAB:Extra Leg (x%) (+5' to Base Speed, +2 to Balance each)|AdditionalLimbLeg					DEFINE:AdditionalLimbLeg|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:MOVEADD|TYPE.Walk|(5*AdditionalLimbLeg)	BONUS:SKILL|Balance|(2*AdditionalLimbLeg)					BONUS:VAR|AdditionalLimbLeg|1	SOURCEPAGE:p.77
 
 #Hidden Feats for Diurnal/Nocturnal
 Diurnal		TYPE:MutantAbility.DiNoc	VISIBLE:NO												!PREABILITY:1,CATEGORY=Mutation,Diurnal/Nocturnal (Night)	SAB:+% to %CHOICE during Daytime hours (6am to 6pm)|dayBonus							DEFINE:dayBonus|0			STACK:YES	MULT:YES	CHOOSE:STRING|Dexterity|Strength																								BONUS:VAR|dayBonus|2
@@ -17,7 +17,7 @@ Rage		TYPE:Special	VISIBLE:NO	SAB:Rage (Ex) % times/day (% rounds)|RageTimes|Rag
 
 ###Block: Sneak Attack
 # Feat Name		Type			Visible	Special ABility							Define								Description				Modify VAR				Source Page
-Sneak Attack	TYPE:Special	VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttackDice|SneakAttackDie	DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0	DESC:Class Special Ability	BONUS:VAR|SneakAttackDie|6	SOURCEPAGE:p. 29
+Sneak Attack	TYPE:Special	VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttackDice|SneakAttackDie	DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0	DESC:Class Special Ability	BONUS:VAR|SneakAttackDie|6	SOURCEPAGE:p.29
 
 ###Block: Skill Mastery
 # Feat Name		Type			Visible	Special ABility			Multiple?	Choose			Selections
@@ -26,7 +26,7 @@ Skill Mastery	TYPE:Special	VISIBLE:NO	SAB:Skill Mastery (%CHOICE)	MULT:YES	CHOOS
 ###Block: Evasion/Improved Evasion
 # Feat Name		Type							Visible	Required Feat	Special ABility						Define					Modify VAR																													Source Page
 Evasion		TYPE:Special.Extraordinary			VISIBLE:NO				SAB:Evasion (Ex)|EvasionUsable			DEFINE:EvasionUsable|0			BONUS:VAR|EvasionUsable|1|PREVAREQ:var("COUNT[FEATNAME=Improved Evasion.ALL]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0
-Improved Evasion	TYPE:Special.Extraordinary.RogueAbilities	VISIBLE:NO	PREFEAT:1,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionUsable	DEFINE:ImprovedEvasionUsable|0	BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0								SOURCEPAGE:ClassesII.rtf
+Improved Evasion	TYPE:Special.Extraordinary.RogueAbilities	VISIBLE:NO	PREFEAT:1,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionUsable	DEFINE:ImprovedEvasionUsable|0	BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0								SOURCEPAGE:ClassesII
 
 #
 # EoF

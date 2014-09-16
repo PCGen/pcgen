@@ -3,20 +3,20 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 #Original Entry: Matt Chambers (Otiendikil)
 
 # Includes the follow tables (a subsection of the tables for epic items)
-# From http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
+# From http://www.wizards.com/d20/files/v35/EpicMagicItems1
 #STARTPACK:Epic Specific Magic Armor and Shields
 #STARTPACK:Bulwark of the Great Dragon	(Not visible)
 #STARTPACK:Dragonskin Armor	(Not visible)
 #STARTPACK:Epic Specific Weapons
 #STARTPACK:Epic Rings
 #STARTPACK:Epic Rods
-# From http://www.wizards.com/d20/files/v35/EpicMagicItems2.rtf
+# From http://www.wizards.com/d20/files/v35/EpicMagicItems2
 #STARTPACK:Epic Staves
 #STARTPACK:Staff (Planar Might)
 #STARTPACK:Epic Wondrous Items
 
 
-# http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
+# http://www.wizards.com/d20/files/v35/EpicMagicItems1
 STARTPACK:Epic Specific Magic Armor and Shields	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Shapeshifter's Armor			OPTION:01,20
@@ -27,7 +27,7 @@ GEAR:Armor of the Abyssal Horde		OPTION:72,82
 GEAR:Antimagic Armor				OPTION:83,93
 KIT:Bulwark of the Great Dragon	OPTION:94,100
 
-# http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
+# http://www.wizards.com/d20/files/v35/EpicMagicItems1
 STARTPACK:Bulwark of the Great Dragon	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Bulwark of the Great Dragon (Black)	OPTION:01,10
@@ -41,7 +41,7 @@ GEAR:Bulwark of the Great Dragon (Red)	OPTION:71,80
 GEAR:Bulwark of the Great Dragon (Silver)	OPTION:81,90
 GEAR:Bulwark of the Great Dragon (White)	OPTION:91,100
 
-# http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
+# http://www.wizards.com/d20/files/v35/EpicMagicItems1
 STARTPACK:Dragonskin Armor	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Dragonskin Armor (Black)		OPTION:01,10
@@ -56,7 +56,7 @@ GEAR:Dragonskin Armor (Silver)	OPTION:81,90
 GEAR:Dragonskin Armor (White)		OPTION:91,100
 
 
-# http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
+# http://www.wizards.com/d20/files/v35/EpicMagicItems1
 STARTPACK:Epic Specific Weapons	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Stormbrand			OPTION:01,18
@@ -73,7 +73,7 @@ GEAR:Unholy Despoiler		OPTION:95,98
 GEAR:Everwhirling Chain		OPTION:99,100
 
 
-# http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
+# http://www.wizards.com/d20/files/v35/EpicMagicItems1
 STARTPACK:Epic Rings	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Ring of Universal Energy Resistance (Greater)	OPTION:01,08
@@ -103,7 +103,7 @@ GEAR:Ring of Protection +10					OPTION:99
 GEAR:Ring of Universal Energy Immunity			OPTION:100
 
 
-# http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
+# http://www.wizards.com/d20/files/v35/EpicMagicItems1
 STARTPACK:Epic Rods	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Rod (Epic Spellcaster)	OPTION:01,08
@@ -133,7 +133,7 @@ GEAR:Rod (Wyrm/Red)		OPTION:98
 GEAR:Rod (Epic Might)		OPTION:99,100
 
 
-# http://www.wizards.com/d20/files/v35/EpicMagicItems2.rtf
+# http://www.wizards.com/d20/files/v35/EpicMagicItems2
 STARTPACK:Epic Staves	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Staff (Spheres)		OPTION:01,09
@@ -158,7 +158,7 @@ GEAR:Staff (Planar Might/Bane (Outsiders (good)))	OPTION:3
 GEAR:Staff (Planar Might/Bane (Outsiders (lawful)))	OPTION:4
 
 
-# http://www.wizards.com/d20/files/v35/EpicMagicItems2.rtf
+# http://www.wizards.com/d20/files/v35/EpicMagicItems2
 STARTPACK:Epic Wondrous Items	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Horseshoes of the Peerless Steed	OPTION:01,02

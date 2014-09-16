@@ -15,7 +15,7 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #
 #####Example
 
-#Sleight of Hand		KEYSTAT:DEX		USEUNTRAINED:NO	ACHECK:YES		TYPE:Dexterity		BONUS:SKILL|Sleight of Hand|2|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK		SOURCEPAGE:SkillsII.rtf
+#Sleight of Hand		KEYSTAT:DEX		USEUNTRAINED:NO	ACHECK:YES		TYPE:Dexterity		BONUS:SKILL|Sleight of Hand|2|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK		SOURCEPAGE:SkillsII
 
 ###Sample for Ability by Skill rules guide.
 #Ability by Skill	TYPE:NoStat	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|AbilitybySkillPool|SKILL.Ability by Skill.RANK

@@ -83,5 +83,5 @@ Weird Science!				KEYSTAT:INT	USEUNTRAINED:NO				EXCLUSIVE:YES	TYPE:Intelligence
 
 ###Block - RSRD
 # Skill Name	Key Stat	Untrained?		Skill Penalty?	Type								Source Page			Bonus to skill
-Sleight of Hand	KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES		TYPE:Dexterity.Standard.Base.Sleight of Hand	SOURCEPAGE:SkillsII.rtf
-Survival		KEYSTAT:WIS							TYPE:Wisdom.Standard.Base.Survival			SOURCEPAGE:SkillsII.rtf	BONUS:SKILL|Knowledge (Nature)|SynergyBonus|PRESKILL:1,Survival=5|TYPE=Synergy.STACK
+Sleight of Hand	KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES		TYPE:Dexterity.Standard.Base.Sleight of Hand	SOURCEPAGE:SkillsII
+Survival		KEYSTAT:WIS							TYPE:Wisdom.Standard.Base.Survival			SOURCEPAGE:SkillsII	BONUS:SKILL|Knowledge (Nature)|SynergyBonus|PRESKILL:1,Survival=5|TYPE=Synergy.STACK

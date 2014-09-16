@@ -37,7 +37,7 @@ NAME:Giant Maggot
 STAT:STR=10|DEX=10|CON=10|WIS=11|INT=10|CHA=11
 
 
-STARTPACK:Daughter of Urgathoa Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Daughter of Urgathoa],[!PRERACE:1,%]	SOURCEPAGE:p. 82
+STARTPACK:Daughter of Urgathoa Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Daughter of Urgathoa],[!PRERACE:1,%]	SOURCEPAGE:p.82
 ALIGN:NE
 RACE:Daughter of Urgathoa	!PRERACE:1,%
 NAME:Daughter of Urgathoa
@@ -62,7 +62,7 @@ SPELLS:Animate Dead|Contagion|Dispel Magic|Death Knell|Hold Person|Spiritual Wea
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Animate Dead|Contagion|Dispel Magic|Death Knell|Hold Person|Spiritual Weapon|Cause Fear|Entropic Shield|Inflict Light Wounds|Protection from Good|Detect Magic|Guidance|Resistance|Virtue
 
 
-STARTPACK:Lawgiver Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lawgiver],[!PRERACE:1,%]	SOURCEPAGE:p. 86
+STARTPACK:Lawgiver Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lawgiver],[!PRERACE:1,%]	SOURCEPAGE:p.86
 ALIGN:LN
 RACE:Lawgiver	!PRERACE:1,%
 NAME:Lawgiver

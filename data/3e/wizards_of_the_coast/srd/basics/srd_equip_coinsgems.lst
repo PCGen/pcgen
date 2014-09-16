@@ -2,79 +2,79 @@
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 # Equipment Name	Type		Cost		Weight	Source Page
-Coin (Platinum)	TYPE:Coin	COST:10	WT:0.02	SOURCEPAGE:SRDTreasure.rtf
-Coin (Gold)		TYPE:Coin	COST:1	WT:0.02	SOURCEPAGE:SRDTreasure.rtf
-Coin (Silver)	TYPE:Coin	COST:0.1	WT:0.02	SOURCEPAGE:SRDTreasure.rtf
-Coin (Copper)	TYPE:Coin	COST:0.01	WT:0.02	SOURCEPAGE:SRDTreasure.rtf
+Coin (Platinum)	TYPE:Coin	COST:10	WT:0.02	SOURCEPAGE:SRDTreasure
+Coin (Gold)		TYPE:Coin	COST:1	WT:0.02	SOURCEPAGE:SRDTreasure
+Coin (Silver)	TYPE:Coin	COST:0.1	WT:0.02	SOURCEPAGE:SRDTreasure
+Coin (Copper)	TYPE:Coin	COST:0.01	WT:0.02	SOURCEPAGE:SRDTreasure
 
 
 ###Block:Gems
 # Equipment Name				Type			Cost		Weight	Source Page
-Agate (Banded)				TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Agate (Eye)					TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Agate (Moss)				TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Azurite					TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Quartz (Blue)				TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Hematite					TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Lapis Lazuli				TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Malachite					TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Obsidian					TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Rhodochrosite				TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Tiger Eye					TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Turquoise					TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Pearl (Freshwater)			TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Bloodstone					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Carnelian					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Chalcehony					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Chrysoprase					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Citrine					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Iolite					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Jasper					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Moonstone					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Onyx						TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Peridot					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Rock (Crystal)				TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Sard						TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Sardonyx					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Quartz (Rose)				TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Quartz (Smoky)				TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Quartz (Star Rose)			TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Zircon					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Amber						TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Amethyst					TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Chrysoberyl					TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Coral						TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Garnet (Red)				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Garnet (Brown-Green)			TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Jade						TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Jet						TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Pearl (White)				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Pearl (Golden)				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Pearl (Pink)				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Pearl (Silver)				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Spinel (Red)				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Spinel (Red-Brown)			TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Spinel (Deep Green)			TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Tourmaline					TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Alexandrite					TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Aquamarine					TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Garnet (Violet)				TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Pearl (Black)				TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Spinel (Deep Blue)			TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Topaz (Golden Yellow)			TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Emerald					TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Opal (White)				TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Opal (Black)				TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Opal (Fire)					TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Corundum (Firey Yellow)			TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Corundum (Rich Purple)			TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Sapphire (Blue)				TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Sapphire (Black Star)			TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Ruby (Star)					TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Emerald (Clearest Bright Green)	TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Diamond (Blue-White)			TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Diamond (Canary)				TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Diamond (Pink)				TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Diamond (Brown)				TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Diamond (Blue)				TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:SRDTreasure.rtf
-Jacinth					TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:SRDTreasure.rtf
+Agate (Banded)				TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure
+Agate (Eye)					TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure
+Agate (Moss)				TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure
+Azurite					TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure
+Quartz (Blue)				TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure
+Hematite					TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure
+Lapis Lazuli				TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure
+Malachite					TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure
+Obsidian					TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure
+Rhodochrosite				TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure
+Tiger Eye					TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure
+Turquoise					TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure
+Pearl (Freshwater)			TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:SRDTreasure
+Bloodstone					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Carnelian					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Chalcehony					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Chrysoprase					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Citrine					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Iolite					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Jasper					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Moonstone					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Onyx						TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Peridot					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Rock (Crystal)				TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Sard						TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Sardonyx					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Quartz (Rose)				TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Quartz (Smoky)				TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Quartz (Star Rose)			TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Zircon					TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:SRDTreasure
+Amber						TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Amethyst					TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Chrysoberyl					TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Coral						TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Garnet (Red)				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Garnet (Brown-Green)			TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Jade						TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Jet						TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Pearl (White)				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Pearl (Golden)				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Pearl (Pink)				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Pearl (Silver)				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Spinel (Red)				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Spinel (Red-Brown)			TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Spinel (Deep Green)			TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Tourmaline					TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:SRDTreasure
+Alexandrite					TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:SRDTreasure
+Aquamarine					TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:SRDTreasure
+Garnet (Violet)				TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:SRDTreasure
+Pearl (Black)				TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:SRDTreasure
+Spinel (Deep Blue)			TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:SRDTreasure
+Topaz (Golden Yellow)			TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:SRDTreasure
+Emerald					TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure
+Opal (White)				TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure
+Opal (Black)				TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure
+Opal (Fire)					TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure
+Corundum (Firey Yellow)			TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure
+Corundum (Rich Purple)			TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure
+Sapphire (Blue)				TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure
+Sapphire (Black Star)			TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure
+Ruby (Star)					TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:SRDTreasure
+Emerald (Clearest Bright Green)	TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:SRDTreasure
+Diamond (Blue-White)			TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:SRDTreasure
+Diamond (Canary)				TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:SRDTreasure
+Diamond (Pink)				TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:SRDTreasure
+Diamond (Brown)				TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:SRDTreasure
+Diamond (Blue)				TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:SRDTreasure
+Jacinth					TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:SRDTreasure
