@@ -926,26 +926,18 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			if (abilityObj instanceof AbilityFacade)
 			{
 				AbilityFacade ability = (AbilityFacade) abilityObj;
-				if (!character.isQualifiedFor(ability))
+				Nature nature = character.getAbilityNature(ability);
+				if (nature == Nature.VIRTUAL)
+				{
+					setForeground(UIPropertyContext.getVirtualColor());
+				}
+				else if (!character.isQualifiedFor(ability))
 				{
 					setForeground(UIPropertyContext.getNotQualifiedColor());
 				}
-				else
+				else if (nature == Nature.AUTOMATIC)
 				{
-					Nature nature = character.getAbilityNature(ability);
-					if (nature != null)
-					{
-						switch (nature)
-						{
-							case AUTOMATIC:
-								setForeground(UIPropertyContext.getAutomaticColor());
-								break;
-							case VIRTUAL:
-								setForeground(UIPropertyContext.getVirtualColor());
-								break;
-						}
-					}
-
+					setForeground(UIPropertyContext.getAutomaticColor());
 				}
 			}
 			return this;

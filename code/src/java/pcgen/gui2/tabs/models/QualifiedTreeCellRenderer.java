@@ -34,6 +34,7 @@ import pcgen.system.LanguageBundle;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+@SuppressWarnings("serial")
 public class QualifiedTreeCellRenderer extends CharacterTreeCellRenderer
 {
 
@@ -47,7 +48,7 @@ public class QualifiedTreeCellRenderer extends CharacterTreeCellRenderer
 			obj = LanguageBundle.getString("in_none"); //$NON-NLS-1$
 		}
 		super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, focus);
-		if (obj instanceof InfoFacade && !character.isQualifiedFor((InfoFacade) obj))
+		if (obj instanceof InfoFacade && character != null && !character.isQualifiedFor((InfoFacade) obj))
 		{
 			setForeground(UIPropertyContext.getNotQualifiedColor());
 		}
