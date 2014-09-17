@@ -999,7 +999,7 @@ BIO
 		<ability_object>
 			<name>Bardic Music</name>
 			<description>Once per day per bard level, a bard can use his song or poetics to produce magical effects on those around him (usually including himself, if desired). While these abilities fall under the category of bardic music and the descriptions discuss singing or playing instruments, they can all be activated by reciting poetry, chanting, singing lyrical songs, singing melodies, whistling, playing an instrument, or playing an instrument in combination with some spoken performance. Each ability requires both a minimum bard level and a minimum number of ranks in the Perform skill to qualify; if a bard does not have the required number of ranks in at least one Perform skill, he does not gain the bardic music ability until he acquires the needed ranks. Starting a bardic music effect is a standard action. Some bardic music abilities require concentration, which means the bard must take a standard action each round to maintain the ability. Even while using bardic music that doesn&#39;t require concentration, a bard cannot cast spells, activate magic items by spell completion (such as scrolls), or activate magic items by magic word (such as wands). Just as for casting a spell with a verbal component, a deaf bard has a 20% chance to fail when attempting to use bardic music. If he fails, the attempt still counts against his daily limit.</description>
-			<type>CLASSFEATURES.BARDCLASSFEATURES.SPECIALQUALITY</type>
+			<type>CLASSFEATURES.BARDCLASSFEATURES.SPECIALQUALITY.BARDIC MUSIC</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1066,17 +1066,6 @@ BIO
 			<name>Weapon and Armor Proficiency</name>
 			<description>Rogues are proficient with all simple weapons, plus the hand crossbow, rapier, sap, shortbow, and short sword. Rogues are proficient with light armor, but not with shields.</description>
 			<type>CLASSFEATURES.ROGUECLASSFEATURES.SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Sneak Attack</name>
-			<description>If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage. The rogue&#39;s attack deals extra damage any time her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and it increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet. With a sap (blackjack) or an unarmed strike, a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual -4 penalty. A rogue can sneak attack only living creatures with discernible anatomies-undead, constructs, oozes, plants, and incorporeal creatures lack vital areas to attack. Any creature that is immune to critical hits is not vulnerable to sneak attacks. The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment or striking the limbs of a creature whose vitals are beyond reach.</description>
-			<type>CLASSFEATURES.ROGUECLASSFEATURES.SPECIALQUALITY.SNEAK ATTACK</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1152,12 +1141,24 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Sneak Attack</name>
-			<description>+1d6</description>
+			<description>Your attack deals extra damage any time your target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the you flank your target. This extra damage is 1d6. Should you score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet. With a sap (blackjack) or an unarmed strike, you can make a sneak attack that deals nonlethal damage instead of lethal damage. You cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual -4 penalty. You can sneak attack only living creatures with discernible anatomies-undead, constructs, oozes, plants, and incorporeal creatures lack vital areas to attack. Any creature that is immune to critical hits is not vulnerable to sneak attacks. You must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. You cannot sneak attack while striking a creature with concealment or striking the limbs of a creature whose vitals are beyond reach.</description>
 			<type>SPECIALATTACK</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Sneak Attack</name>
+			<description>If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage. The rogue&#39;s attack deals extra damage any time her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and it increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet. With a sap (blackjack) or an unarmed strike, a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual -4 penalty. A rogue can sneak attack only living creatures with discernible anatomies-undead, constructs, oozes, plants, and incorporeal creatures lack vital areas to attack. Any creature that is immune to critical hits is not vulnerable to sneak attacks. The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment or striking the limbs of a creature whose vitals are beyond reach.</description>
+			<type>CLASSFEATURES.ROGUECLASSFEATURES.SPECIALQUALITY.SNEAK ATTACK</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
