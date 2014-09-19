@@ -20,7 +20,7 @@
  */
 package pcgen.gui2.tabs.spells;
 
-import java.awt.Dimension;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
@@ -29,6 +29,7 @@ import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.tree.TreePath;
@@ -36,11 +37,19 @@ import javax.swing.tree.TreePath;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.ClassFacade;
+import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade;
 import pcgen.facade.core.SpellSupportFacade.RootNode;
 import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.facade.core.SpellSupportFacade.SuperNode;
 import pcgen.facade.util.ListFacade;
+import pcgen.gui2.filter.Filter;
+import pcgen.gui2.filter.FilterBar;
+import pcgen.gui2.filter.FilterButton;
+import pcgen.gui2.filter.FilterUtilities;
+import pcgen.gui2.filter.FilteredTreeViewTable;
+import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
@@ -60,11 +69,12 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
 	private final TabTitle tabTitle = new TabTitle(Tab.SPELLBOOKS);
-	private final JTreeViewTable<SuperNode> availableTable;
+	private final FilteredTreeViewTable<CharacterFacade, SuperNode> availableTable;
 	private final JTreeViewTable<SuperNode> selectedTable;
 	private final QualifiedSpellTreeCellRenderer spellRenderer;
 	private final JButton addButton;
 	private final JButton removeButton;
+	private final FilterButton<CharacterFacade, SuperNode> qFilterButton;
 	private final InfoPane spellsPane;
 	private final InfoPane classPane;
 	private final JComboBox defaultBookCombo;
@@ -72,11 +82,12 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 	public SpellBooksTab()
 	{
 		super("SpellBooks");
-		this.availableTable = new JTreeViewTable<SuperNode>();
+		this.availableTable = new FilteredTreeViewTable<CharacterFacade, SuperNode>();
 		this.selectedTable = new JTreeViewTable<SuperNode>();
 		this.spellRenderer = new QualifiedSpellTreeCellRenderer();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
+		this.qFilterButton = new FilterButton<CharacterFacade, SuperNode>("SpellBooksQualified");
 		this.spellsPane = new InfoPane(LanguageBundle.getString("InfoSpells.spell.info"));
 		this.classPane = new InfoPane(LanguageBundle.getString("InfoSpells.class.info"));
 		this.defaultBookCombo = new JComboBox();
@@ -87,11 +98,14 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		availableTable.setTreeCellRenderer(spellRenderer);
 		selectedTable.setTreeCellRenderer(spellRenderer);
+		FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<CharacterFacade, SuperNode>();
+		filterBar.addDisplayableFilter(new SearchFilterPanel());
+		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
+		filterBar.addDisplayableFilter(qFilterButton);
+
 		FlippingSplitPane upperPane = new FlippingSplitPane("SpellBooksTop");
+		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTable, filterBar);
 		Box box = Box.createVerticalBox();
-		JScrollPane pane = new JScrollPane(availableTable);
-		pane.setPreferredSize(new Dimension(250, 300));
-		box.add(pane);
 		box.add(Box.createVerticalStrut(5));
 		{
 			Box hbox = Box.createHorizontalBox();
@@ -112,7 +126,8 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 			box.add(hbox);
 		}
 		box.add(Box.createVerticalStrut(5));
-		upperPane.setLeftComponent(box);
+		availPanel.add(box, BorderLayout.SOUTH);
+		upperPane.setLeftComponent(availPanel);
 
 		box = Box.createVerticalBox();
 		box.add(new JScrollPane(selectedTable));
@@ -148,12 +163,14 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		models.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable,
 				selectedTable, classPane));
 		models.put(SpellBookModel.class, new SpellBookModel(character));
+		models.put(SpellFilterHandler.class, new SpellFilterHandler(character));
 		return models;
 	}
 
 	@Override
 	public void restoreModels(ModelMap models)
 	{
+		models.get(SpellFilterHandler.class).install();
 		models.get(TreeViewModelHandler.class).install();
 		models.get(SpellInfoHandler.class).install();
 		models.get(ClassInfoHandler.class).install();
@@ -347,6 +364,35 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		public void uninstall()
 		{
 			spellRenderer.setCharacter(null);
+		}
+
+	}
+
+	private class SpellFilterHandler implements Filter<CharacterFacade, SuperNode>
+	{
+
+		private final CharacterFacade character;
+
+		public SpellFilterHandler(CharacterFacade character)
+		{
+			this.character = character;
+		}
+
+		public void install()
+		{
+			qFilterButton.setFilter(this);
+		}
+		@Override
+		public boolean accept(CharacterFacade context, SuperNode element)
+		{
+			if (element instanceof SpellNode)
+			{
+				SpellNode spellNode = (SpellNode) element;
+				SpellFacade spell = spellNode.getSpell();
+				ClassFacade pcClass = spellNode.getSpellcastingClass();
+				return character.isQualifiedFor(spell, pcClass);
+			}
+			return true;
 		}
 
 	}

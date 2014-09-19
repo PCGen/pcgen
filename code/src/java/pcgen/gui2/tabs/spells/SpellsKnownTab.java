@@ -20,7 +20,7 @@
  */
 package pcgen.gui2.tabs.spells;
 
-import java.awt.Dimension;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -31,12 +31,21 @@ import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.ClassFacade;
+import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.facade.core.SpellSupportFacade.SuperNode;
+import pcgen.gui2.filter.Filter;
+import pcgen.gui2.filter.FilterBar;
+import pcgen.gui2.filter.FilterButton;
+import pcgen.gui2.filter.FilterUtilities;
+import pcgen.gui2.filter.FilteredTreeViewTable;
+import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tools.FlippingSplitPane;
@@ -57,11 +66,12 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 {
 
 	private final TabTitle tabTitle = new TabTitle(Tab.KNOWN_SPELLS);
-	private final JTreeViewTable<SuperNode> availableTable;
+	private final FilteredTreeViewTable<CharacterFacade, SuperNode> availableTable;
 	private final JTreeViewTable<SuperNode> selectedTable;
 	private final QualifiedSpellTreeCellRenderer spellRenderer;
 	private final JButton addButton;
 	private final JButton removeButton;
+	private final FilterButton<CharacterFacade, SuperNode> qFilterButton;
 	private final JCheckBox autoKnownBox;
 	private final JCheckBox slotsBox;
 	private final JTextField spellSheetField;
@@ -74,11 +84,12 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	public SpellsKnownTab()
 	{
 		super("SpellsKnown");
-		this.availableTable = new JTreeViewTable<SuperNode>();
+		this.availableTable = new FilteredTreeViewTable<CharacterFacade, SuperNode>();
 		this.selectedTable = new JTreeViewTable<SuperNode>();
 		this.spellRenderer = new QualifiedSpellTreeCellRenderer();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
+		this.qFilterButton = new FilterButton<CharacterFacade, SuperNode>("SpellsKnownQualified");
 		this.autoKnownBox = new JCheckBox();
 		this.slotsBox = new JCheckBox();
 		this.spellSheetField = new JTextField();
@@ -91,11 +102,14 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	{
 		availableTable.setTreeCellRenderer(spellRenderer);
 		selectedTable.setTreeCellRenderer(spellRenderer);
+		FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<CharacterFacade, SuperNode>();
+		filterBar.addDisplayableFilter(new SearchFilterPanel());
+		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
+		filterBar.addDisplayableFilter(qFilterButton);
+
 		FlippingSplitPane upperPane = new FlippingSplitPane("SpellsKnownTop");
+		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTable, filterBar);
 		Box box = Box.createVerticalBox();
-		JScrollPane pane = new JScrollPane(availableTable);
-		pane.setPreferredSize(new Dimension(250, 300));
-		box.add(pane);
 		box.add(Box.createVerticalStrut(2));
 		{
 			Box hbox = Box.createHorizontalBox();
@@ -116,7 +130,8 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			box.add(hbox);
 		}
 		box.add(Box.createVerticalStrut(5));
-		upperPane.setLeftComponent(box);
+		availPanel.add(box, BorderLayout.SOUTH);
+		upperPane.setLeftComponent(availPanel);
 
 		box = Box.createVerticalBox();
 		box.add(new JScrollPane(selectedTable));
@@ -186,12 +201,15 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 				selectedTable, spellsPane));
 		models.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable,
 				selectedTable, classPane));
+		models.put(SpellFilterHandler.class, new SpellFilterHandler(character));
+		
 		return models;
 	}
 
 	@Override
 	public void restoreModels(ModelMap models)
 	{
+		models.get(SpellFilterHandler.class).install();
 		models.get(TreeViewModelHandler.class).install();
 		models.get(SpellInfoHandler.class).install();
 		models.get(ClassInfoHandler.class).install();
@@ -430,6 +448,35 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		public void uninstall()
 		{
 			spellRenderer.setCharacter(null);
+		}
+
+	}
+
+	private class SpellFilterHandler implements Filter<CharacterFacade, SuperNode>
+	{
+
+		private final CharacterFacade character;
+
+		public SpellFilterHandler(CharacterFacade character)
+		{
+			this.character = character;
+		}
+
+		public void install()
+		{
+			qFilterButton.setFilter(this);
+		}
+		@Override
+		public boolean accept(CharacterFacade context, SuperNode element)
+		{
+			if (element instanceof SpellNode)
+			{
+				SpellNode spellNode = (SpellNode) element;
+				SpellFacade spell = spellNode.getSpell();
+				ClassFacade pcClass = spellNode.getSpellcastingClass();
+				return character.isQualifiedFor(spell, pcClass);
+			}
+			return true;
 		}
 
 	}
