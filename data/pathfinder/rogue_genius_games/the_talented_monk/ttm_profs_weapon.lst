@@ -1,0 +1,12 @@
+###Block: Weapon Groups:
+#Pirate
+Crossbow (Heavy).MOD		TYPE:Pirate.Weapon Group Pirate
+Crossbow (Light).MOD		TYPE:Pirate.Weapon Group Pirate
+Cutlass.MOD				TYPE:Pirate.Weapon Group Pirate
+Dagger.MOD				TYPE:Pirate.Weapon Group Pirate
+Hook Hand.MOD			TYPE:Pirate.Weapon Group Pirate
+Rapier.MOD				TYPE:Pirate.Weapon Group Pirate
+Sword (Short).MOD			TYPE:Pirate.Weapon Group Pirate
+Lungchuan Tamo.MOD		TYPE:Monk.Weapon Group Monk
+Nunchaku.MOD			TYPE:Monk.Weapon Group Monk
+Siangham.MOD			TYPE:Monk.Weapon Group Monk

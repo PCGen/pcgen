@@ -1,0 +1,33 @@
+# CVS $Revision: 23163 $ $Author: amaitland $ -- Fri Feb  7 19:38:46 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+# Original Entry By: Andrew (LegacyKing) Maitland
+# Entry Date: 26-Dec-2013
+# Copied from ttr_abilities_class.lst by Jon Catron
+# Modification Date: 20-June-2014
+
+
+###Block: The Talented Monk
+
+# Class Name		Hit Dice	Type				Source Page		Save checks bonus												Combat bonus
+CLASS:Talented Monk	HD:8		TYPE:PC.Base.Monk		SOURCEPAGE:p.1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2					BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Multiple Requirements
+CLASS:Talented Monk		PREMULT:1,[PREALIGN:LG,LN,LE],[PREABILITY:1,CATEGORY=Archetype,TYPE.MonkAlignment],[PREMULT:2,[PREALIGN:LG,LN,LE,CG,CN,CE],[PREABILITY:1,CATEGORY=Special Ability,Talented Monk Talent ~ Drunken Ki]],[PREABILITY:1,CATEGORY=Special Ability,Talented Monk Talent ~ Martial Artist]
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Talented Monk		STARTSKILLPTS:4		CSKILL:Acrobatics|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (History)|Knowledge (Religion)|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Stealth|Swim
+CLASS:Talented Monk		SERVESAS:CLASS|Monk
+
+###Block:
+1	BONUS:VAR|TalentedMonkTalentCount|2+(CL>1)+(CL>1)+(CL>2)+(CL>2)+(CL>3)+(CL>4)+(CL>5)+(CL>6)+(CL>8)+(CL>9)+(CL>10)+(CL>11)+(CL>12)+(CL>13)+(CL>14)+(CL>15)+(CL>16)+(CL>17)+(CL>18)+(CL>19)
+1	BONUS:VAR|TalentedMonkEdgeCount|3+(CL>1)+(CL>2)+(CL>3)+(CL>7)+(CL>19)
+1	DEFINE:MonkLVL|0		BONUS:VAR|MonkLVL|CL
+1	DEFINE:DeadlyUnarmed|0
+1	DEFINE:TMFusedStyles|0
+1	DEFINE:TMQP|0
+1	DEFINE:UnarmedIncrement|0
+1	BONUS:WEAPONPROF=Unarmed Strike|WEAPONBAB|if(UnarmedIncrement>1,-(MonkLVL-BAB)*(UnarmedIncrement-1),0)
+
+###Block:
+1	ABILITY:Talented Monk Class Ability|AUTOMATIC|Proficiencies ~ Talented Monk
+1	ABILITY:Talented Monk Class Ability|AUTOMATIC|Monk Edges ~ Talented Monk
+1	ABILITY:Talented Monk Class Ability|AUTOMATIC|Monk Talents ~ Talented Monk
+10	ABILITY:Talented Monk Class Ability|AUTOMATIC|Advanced Talents ~ Talented Monk
+20	ABILITY:Talented Monk Class Ability|AUTOMATIC|Grand Talent ~ Talented Monk

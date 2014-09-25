@@ -1,0 +1,22 @@
+# CVS $Revision: 23163 $ $Author: amaitland $ -- Fri Feb  7 19:38:46 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+# Original Entry By: Andrew (LegacyKing) Maitland
+# Entry Date: 26-Dec-2013
+# Copied from ttr_abilities_class.lst by Jon Catron
+# Modification Date: 20-June-2014
+
+###Block:
+# Ability Category				Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Talented Monk Edge		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TalentedMonkEdge		PLURAL:Talented Monk Edges	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Talented Monk Talent	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TalentedMonkTalent	PLURAL:Talented Monk Talents	DISPLAYLOCATION:Class Abilities
+
+###Block:
+# Ability Category					Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Talented Monk Class Ability	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TalentedMonkClassAbility		PLURAL:Talented Monk Talents			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Style Master Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:StyleMasterFeat			PLURAL:Style Master Feats			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Talented Monk Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TalentedMonkBonusFeat		PLURAL:Talented Monk Bonus Feats		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Talented Monk Basics Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TalentedMonkBasicsFeat		PLURAL:Talented Monk Basics Feats		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Talented Monk Ki Power		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TalentedMonkKiPower		PLURAL:Talented Monk Ki Powers		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Talented Monk Advanced Ki Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TalentedMonkAdvKiPower		PLURAL:Talented Monk Advanced Ki Powers	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Talented Monk Grand Ki Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TalentedMonkGrKiPower		PLURAL:Talented Monk Grand Ki Powers	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Talented Monk Fighting Style	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TalentedMonkFightingStyle	PLURAL:Talented Monk Fighting Styles	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Talented Monk Aspect		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TalentedMonkAspect			PLURAL:Talented Monk Aspects			DISPLAYLOCATION:Class Abilities
