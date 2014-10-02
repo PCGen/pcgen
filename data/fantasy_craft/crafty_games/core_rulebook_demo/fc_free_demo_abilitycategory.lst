@@ -38,6 +38,7 @@ ABILITYCATEGORY:Lifestyle				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:
 
 # Skill Selections
 ABILITYCATEGORY:Crafting Focus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:CraftingFocus														PLURAL:Crafting Focuses			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Ride Focus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:RideFocus															PLURAL:Ride Focuses			DISPLAYLOCATION:Class Abilities
 
 # Class Selections:
 ABILITYCATEGORY:Battle Planning			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:BattlePlanning														PLURAL:Battle Planning			DISPLAYLOCATION:Class Abilities
