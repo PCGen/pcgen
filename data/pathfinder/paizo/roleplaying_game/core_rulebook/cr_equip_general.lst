@@ -447,7 +447,7 @@ Crushed Pearls (1500 gp)											TYPE:MaterialComponent.Consumable	COST:1500	W
 Diamond Dust (200 gp)												TYPE:MaterialComponent.Consumable	COST:200	WT:0		SPROP:Material Component for Glyph of Warding
 Gold Dust (50 gp)													TYPE:MaterialComponent.Consumable	COST:50	WT:0		SPROP:Material Component for Wall of Iron
 Herbs Oils and Incense (1000 gp)		OUTPUTNAME:Herbs, Oils, and Incense (1000 gp)	TYPE:MaterialComponent.Consumable	COST:2000	WT:0		SPROP:Material Component for Hallow or Unhallow
-Incense (1500 gp)													TYPE:MaterialComponent.Consumable	COST:500	WT:0		SPROP:Material Component for Forbiddance
+Incense (1500 gp)													TYPE:MaterialComponent.Consumable	COST:1500	WT:0		SPROP:Material Component for Forbiddance
 Jacinth (1000 gp)													TYPE:MaterialComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Astral Projection
 Jade Dust (10 gp)													TYPE:MaterialComponent.Consumable	COST:10	WT:0		SPROP:Material Component for Magic Mouth
 Laboratory Supplies (1000 gp)											TYPE:MaterialComponent.Consumable	COST:1000	WT:0		SPROP:Material Component for Clone
