@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Pathfinder Society
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder RPG
+TYPE:Paizo Publishing
 RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
@@ -11,8 +11,7 @@ SHOWINMENU:YES
 # COMMENT: No other books should be allowed if this set is used. Causes issues!
 !PRECAMPAIGN:1,BOOKTYPE=MultiSet[Pathfinder Society],BOOKTYPE=Core Rules
 !PRECAMPAIGN:1,BOOKTYPE=Campaign Setting
-# Not correct. Some supplements, such as PFS Chronicle Sheets (currently in development) will need to be optionally included as well as other sources that have not yet been included in this source.
-#!PRECAMPAIGN:1,BOOKTYPE=Supplement
+!PRECAMPAIGN:1,BOOKTYPE=Supplement
 # Roleplaying Game
 !PRECAMPAIGN:1,Advanced Player's Guide
 !PRECAMPAIGN:1,Advanced Race Guide
