@@ -40,6 +40,11 @@ ABILITYCATEGORY:Flowing Monk Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL
 ABILITYCATEGORY:Maneuver Master Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat.MonkBonusFeat																														DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Master Of Many Styles Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MasterOfManyStylesBonusFeat																																DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Sohei Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoheiBonusFeat																																		DISPLAYLOCATION:Feats
+#
+ABILITYCATEGORY:Sohei Weapon Training I				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			PLURAL:Sohei Weapon Training I			DISPLAYLOCATION:Class Features	ABILITYLIST:Weapon Training 1 Bows|Weapon Training 1 Crossbows|Weapon Training 1 Monk|Weapon Training 1 Pole Arms|Weapon Training 1 Spears|Weapon Training 1 Thrown
+ABILITYCATEGORY:Sohei Weapon Training II				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			PLURAL:Sohei Weapon Training II			DISPLAYLOCATION:Class Features	ABILITYLIST:Weapon Training 2 Bows|Weapon Training 2 Crossbows|Weapon Training 2 Monk|Weapon Training 2 Pole Arms|Weapon Training 2 Spears|Weapon Training 2 Thrown
+ABILITYCATEGORY:Sohei Weapon Training III				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			PLURAL:Sohei Weapon Training III			DISPLAYLOCATION:Class Features	ABILITYLIST:Weapon Training 3 Bows|Weapon Training 3 Crossbows|Weapon Training 3 Monk|Weapon Training 3 Pole Arms|Weapon Training 3 Spears|Weapon Training 3 Thrown
+
 ABILITYCATEGORY:Tetori Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TetoriBonusFeat																																		DISPLAYLOCATION:Feats
 
 
