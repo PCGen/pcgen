@@ -6,6 +6,14 @@
 # Rules for migrating characters from old data to new.
 #
 
+
+SOURCE:Princes of Darkness - Book of the Damned, Volume 1	MAXVER:6.6.00	NEWKEY:Princes of Darkness - Book of the Damned - Volume 1	MAXDEVVER:6.6.0
+SOURCE:Qadira, Gateway to the East					MAXVER:6.6.00	NEWKEY:Qadira - Gateway to the East					MAXDEVVER:6.6.0
+SOURCE:Cheliax, Empire of Devils					MAXVER:6.6.00	NEWKEY:Cheliax - Empire of Devils					MAXDEVVER:6.6.0
+
+
+###Block:6.4 Updates
+
 ABILITY:Special Ability|Chosen Weapon ~ Kensai			MAXVER:6.4.00	NEWKEY:Kensai ~ Chosen Weapon
 ABILITY:Special Ability|Weapon Proficiency ~ Kensai		MAXVER:6.4.00	NEWKEY:Kensai ~ Weapon Proficiency
 ABILITY:Special Ability|Weapon Focus Display ~ Kensai		MAXVER:6.4.00	NEWKEY:Kensai ~ Weapon Focus Display
