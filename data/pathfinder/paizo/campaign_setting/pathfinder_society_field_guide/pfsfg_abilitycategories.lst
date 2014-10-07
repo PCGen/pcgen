@@ -1,0 +1,20 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+#SOURCELONG:Pathfinder Society Field Guide		SOURCESHORT:PFSFG	SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4	SOURCEDATE:2011-08
+# Original Entry by: Mark Means
+
+###Block: Background Ability Categories
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number	Category of Object	Type of Object		Plural description for UI	Display Location
+#ABILITYCATEGORY:Society Faction	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:1		CATEGORY:Background	TYPE:Society Faction	PLURAL:Society Factions		DISPLAYLOCATION:Background
+
+#ABILITYCATEGORY:Prestige Awards		VISIBLE:YES	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:99		CATEGORY:Special Ability		TYPE:FactionPrestigeAward.GeneralPrestigeAward.VanityPrestigeAward	PLURAL:Prestige Awards	DISPLAYLOCATION:Background
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Specific choices list								Display Location
+ABILITYCATEGORY:Cleric Scroll Scholar Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Choose Knowledge Skill ~ Cleric Scroll Scholar		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Diviner Scroll Scholar Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Choose Knowledge Skill ~ Diviner Scroll Scholar		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Universalist Scroll Scholar Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Choose Knowledge Skill ~ Universalist Scroll Scholar	DISPLAYLOCATION:Class Abilities
+
+
+
+#
+###END
+#
