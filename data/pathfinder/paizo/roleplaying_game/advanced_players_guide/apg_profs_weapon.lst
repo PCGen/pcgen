@@ -3,62 +3,62 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 # Original Entry by: Eric C. Smith (Maredudd)
 
 # Weapon Name			Type																Nb Hands
-Bomb					TYPE:Exotic.Ranged.Splash
+Bomb					TYPE:Exotic.Ranged.Splash.Weapon Group Thrown
 # SIMPLE WEAPONS
 # -- unarmed
 # Weapon Name			Type																		Nb Hands
-#Brass Knuckles			TYPE:Simple.Melee.Unarmed.Bludgeoning
+#Brass Knuckles			TYPE:Simple.Melee.Unarmed.Bludgeoning.Weapon Group Close.Weapon Group Monk
 
 # -- light melee
-Cestus				TYPE:Simple.Melee.Light.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing
-Stake					TYPE:Simple.Melee.Ranged.Light.Piercing.RangedPiercing
+Cestus				TYPE:Simple.Melee.Light.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing.Weapon Group Close.Weapon Group Monk
+Stake					TYPE:Simple.Melee.Ranged.Light.Piercing.RangedPiercing.Weapon Group Close
 
 # -- 2-handers
-Bayonet				TYPE:Simple.Melee.Piercing.MeleePiercing.TwoHanded
-Spear (Boar)			TYPE:Simple.Melee,Piercing.MeleePiercing.Spear.TwoHanded
+Bayonet				TYPE:Simple.Melee.Piercing.MeleePiercing.TwoHanded.Weapon Group Close.Weapon Group Blades Light
+Spear (Boar)			TYPE:Simple.Melee,Piercing.MeleePiercing.Spear.TwoHanded.Weapon Group Spears
 
 # Martial
 # 1-handers
-Sword Cane				TYPE:Martial.Melee.Piercing.MeleePiercing.Sword
+Sword Cane				TYPE:Martial.Melee.Piercing.MeleePiercing.Sword.Weapon Group Blades Light.SwordLike.Tengu
 
 # 2-handers
-Bardiche				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm
-Bec de Corbin			TYPE:Martial.Melee.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing.Hammer.TwoHanded.Polearm
-Bill					TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm
-Glaive-Guisarme			TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm
-Lucerne Hammer			TYPE:Martial.Melee.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing.Hammer.TwoHanded.Polearm
+Bardiche				TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm.Weapon Group Polearms.Weapon Group Axes
+Bec de Corbin			TYPE:Martial.Melee.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing.Hammer.TwoHanded.Polearm.Weapon Group Polearms
+Bill					TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm.Weapon Group Polearms
+Glaive-Guisarme			TYPE:Martial.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Polearm.Weapon Group Polearms
+Lucerne Hammer			TYPE:Martial.Melee.Bludgeoning.Piercing.MeleeBludgeoning.MeleePiercing.Hammer.TwoHanded.Polearm.Weapon Group Polearms
 
 # --ranged
 #Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow											HANDS:2
-Chakram				TYPE:Martial.Ranged.Slashing.RangedSlashing
-Pilum					TYPE:Martial.Ranged.Piercing.RangedPiercing.Spear
+Chakram				TYPE:Martial.Ranged.Slashing.RangedSlashing.Weapon Group Thrown.Weapon Group Blades Light.Weapon Group Blades Heavy
+Pilum					TYPE:Martial.Ranged.Piercing.RangedPiercing.Spear.Weapon Group Spears
 
 # EXOTIC
 # -- light
-Dagger (Swordbreaker)		TYPE:Exotic.Melee.Light.Slashing.MeleeSlashing.Dagger.Tengu
+Dagger (Swordbreaker)		TYPE:Exotic.Melee.Light.Slashing.MeleeSlashing.Dagger.Tengu.SwordLike.Weapon Group Blades Light
 
 # -- 1-handers
-Falcata				TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword
-Khopesh				TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword
-Sword (Temple)			TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Monk
+Falcata				TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Weapon Group Blades Heavy.SwordLike.Tengu
+Khopesh				TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Weapon Group Blades Heavy.SwordLike.Tengu
+Sword (Temple)			TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Monk.Weapon Group Blades Heavy.SwordLike.Tengu.Weapon Group Monk
 
 # -- 2-handers
-Spear (Chain)			TYPE:Exotic.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing.Spear.TwoHanded
-Mancatcher				TYPE:Exotic.Melee.Piercing.MeleePiercing.Spear.TwoHanded
+Spear (Chain)			TYPE:Exotic.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing.Spear.TwoHanded.Weapon Group Double.Weapon Group Flails.Weapon Group Spears
+Mancatcher				TYPE:Exotic.Melee.Piercing.MeleePiercing.Spear.TwoHanded.Weapon Group Polearms
 
 # -- ranged
-Boomerang				TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning
-Crossbow (Double)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow								HANDS:2
-Lasso					TYPE:Exotic.Ranged.Lasso												HANDS:2
+Boomerang				TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning.Weapon Group Thrown
+Crossbow (Double)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Weapon Group Crossbows								HANDS:2
+Lasso					TYPE:Exotic.Ranged.Lasso.Weapon Group Lasso												HANDS:2
 
 ###Weapon Groups:
 Bardiche.MOD			TYPE:Axe.Polearm
-Chakram.MOD				TYPE:Bladeheavy.Thrown
-Falcata.MOD				TYPE:Bladeheavy
-Khopesh.MOD				TYPE:Bladeheavy
-Sword (Temple).MOD		TYPE:Bladeheavy
-Bayonet.MOD				TYPE:Bladelight.Close
-Dagger (Swordbreaker).MOD	TYPE:Bladelight
+Chakram.MOD				TYPE:BladeHeavy.Thrown
+Falcata.MOD				TYPE:BladeHeavy
+Khopesh.MOD				TYPE:BladeHeavy
+Sword (Temple).MOD		TYPE:BladeHeavy
+Bayonet.MOD				TYPE:BladeLight.Close
+Dagger (Swordbreaker).MOD	TYPE:BladeLight
 #Brass Knuckles.MOD	TYPE:Close.Monk
 #Wooden Stake.MOD	TYPE:Close
 Stake.MOD				TYPE:Close
@@ -71,4 +71,4 @@ Lucerne Hammer.MOD		TYPE:Polearm
 Mancatcher.MOD			TYPE:Polearm
 Boomerang.MOD			TYPE:Thrown
 Lasso.MOD				TYPE:Thrown
-Sword Cane.MOD			TYPE:Bladelight
+Sword Cane.MOD			TYPE:BladeLight
