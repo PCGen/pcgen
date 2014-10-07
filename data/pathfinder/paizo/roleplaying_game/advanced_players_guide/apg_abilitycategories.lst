@@ -130,7 +130,7 @@ ABILITYCATEGORY:Mounted Mastery Selection					VISIBLE:QUALIFY	EDITABLE:YES	EDITP
 
 ABILITYCATEGORY:Adaptation Creature Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdaptationCreature														PLURAL:Adaptation Creature Selections				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Shifter's Blessing Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShifterBlessing														PLURAL:Shifter's Blessing Selections				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Master Shifter Selection					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MasterShifter														PLURAL:Master Shifter Selections					DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Master Shifter Selection					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MasterShifter														PLURAL:Master Shifter Selections					DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Inspiring Command Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InspiringCommand														PLURAL:Inspiring Command Selections					DISPLAYLOCATION:Class Features
 
