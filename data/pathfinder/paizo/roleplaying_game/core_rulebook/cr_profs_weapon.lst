@@ -156,7 +156,7 @@ Dagger (Punching).MOD			TYPE:Close.Weapon Group Close
 Sap.MOD					TYPE:Close.Weapon Group Close
 Spiked Armor.MOD				TYPE:Close.Weapon Group Close
 Gauntlet (Spiked).MOD			TYPE:Close.Weapon Group Close
-Spiked Shield.MOD				TYPE:Close.Weapon Group Close
+#Spiked Shield.MOD				TYPE:Close.Weapon Group Close
 Unarmed Strike.MOD			TYPE:Close.Weapon Group Close
 
 #Crossbows:
