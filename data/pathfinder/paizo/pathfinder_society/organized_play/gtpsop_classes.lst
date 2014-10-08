@@ -3,24 +3,44 @@ SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPSOP	SOURCEW
 # Original Entry by: Jeff Baril
 # Updated by: Andrew Wilson
 
+# Apply starting gold kit to all CR classes
+
 # Class Name
-CLASS:Wizard.MOD
-###Block: Level progression
-1	BONUS:ABILITYPOOL|Spell Focus Replacement|1	AUTO:FEAT|.CLEAR.Scribe Scroll
+CLASS:Barbarian.MOD	TEMPLATE:PFS Starting Gold
+CLASS:Bard.MOD		TEMPLATE:PFS Starting Gold
+CLASS:Cleric.MOD	TEMPLATE:PFS Starting Gold
+CLASS:Druid.MOD		TEMPLATE:PFS Starting Gold
+CLASS:Fighter.MOD	TEMPLATE:PFS Starting Gold
+CLASS:Monk.MOD		TEMPLATE:PFS Starting Gold
+CLASS:Paladin.MOD	TEMPLATE:PFS Starting Gold
+CLASS:Ranger.MOD	TEMPLATE:PFS Starting Gold
+CLASS:Rogue.MOD		TEMPLATE:PFS Starting Gold
+CLASS:Sorcerer.MOD	TEMPLATE:PFS Starting Gold
+CLASS:Wizard.MOD	TEMPLATE:PFS Starting Gold
+
+
+# Limit all CR PC classes to non-evil
+
+# Class Name
+CLASS:Barbarian.MOD	!PREALIGN:CE,NE,LE
+CLASS:Bard.MOD		!PREALIGN:CE,NE,LE
+CLASS:Cleric.MOD	!PREALIGN:CE,NE,LE
+CLASS:Druid.MOD		!PREALIGN:CE,NE,LE
+CLASS:Fighter.MOD	!PREALIGN:CE,NE,LE
+CLASS:Monk.MOD		!PREALIGN:CE,NE,LE
+CLASS:Paladin.MOD	!PREALIGN:CE,NE,LE
+CLASS:Ranger.MOD	!PREALIGN:CE,NE,LE
+CLASS:Rogue.MOD		!PREALIGN:CE,NE,LE
+CLASS:Sorcerer.MOD	!PREALIGN:CE,NE,LE
+CLASS:Wizard.MOD	!PREALIGN:CE,NE,LE
+
 
 # Class Name
 CLASS:Cleric.MOD
 1	AUTO:FEAT|Improved Unarmed Strike|PREDEITY:1,Irori
 
-# TODO: move these to "Advanced Player's Guide (PFS)"
+# Class Name
+CLASS:Wizard.MOD
+###Block: Level progression
+1	BONUS:ABILITYPOOL|Spell Focus Replacement|1	AUTO:FEAT|.CLEAR.Scribe Scroll
 
-## Class Name
-#CLASS:Alchemist.MOD
-#1	ABILITY:Archetype|AUTOMATIC|Remove Alchemist Brew Potion	AUTO:FEAT|Extra Bombs
-#
-## Class Name
-#CLASS:Antipaladin.MOD	TYPE:PFSNotLegal
-#
-## Class Name
-#CLASS:Cavalier.MOD
-#4	ABILITY:Archetype|AUTOMATIC|Remove Cavalier Expert Trainer	AUTO:FEAT|Skill Focus (Handle Animal)
