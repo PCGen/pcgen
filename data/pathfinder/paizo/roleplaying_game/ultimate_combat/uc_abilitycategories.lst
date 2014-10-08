@@ -27,6 +27,7 @@ ABILITYCATEGORY:Samurai Expertise					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	
 
 # Ninja
 ABILITYCATEGORY:Ninja Trick						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Ninjatrick																												PLURAL:Ninja Tricks				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Advanced Ninja Trick				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdvancedNinjaTrick																												PLURAL:Ninja Tricks				DISPLAYLOCATION:Class Features
 
 
 # Archetype Support
