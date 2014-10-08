@@ -1,0 +1,7 @@
+# CVS $Revision: 20125 $ $Author: zaister $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+
+
+# Equipment Name		Output Name		Type					Weight	Source Page		Special Property
+Poison (Black Smear).MOD	TYPE:PFSNotLegal

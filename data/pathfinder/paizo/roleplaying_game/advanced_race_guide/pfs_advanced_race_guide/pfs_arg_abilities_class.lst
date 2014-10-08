@@ -1,0 +1,20 @@
+# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
+# ORIGINAL ENTRY: none
+# ORIGINAL ENTRY DATE: none
+
+CATEGORY=Archetype|Gunslinger Archetype ~ Experimental Gunsmith.FORGET
+CATEGORY=Archetype|Summoner Archetype ~ Wild Caller.FORGET
+CATEGORY=Archetype|Summoner Archetype ~ Blood God Disciple.FORGET
+CATEGORY=Archetype|Barbarian Archetype ~ Hateful Rager.FORGET
+CATEGORY=Archetype|Gunslinger Archetype ~ Buccaneer.FORGET
+CATEGORY=Archetype|Druid Archetype ~ Feral Child.FORGET
+CATEGORY=Archetype|Summoner Archetype ~ Shadow Caller.FORGET
+CATEGORY=Archetype|Cleric Archetype ~ Fiendish Vessel.FORGET
+
+CATEGORY=Special Ability|Craft Magic Arms and Armor.FORGET
+Craft Magic Arms and Armor	KEY:Forgemaster ~ Craft Magic Arms and Armor	CATEGORY:Special Ability	TYPE:ArchetypeAbility.SpecialQuality			DESC:The forgemaster gains this as a bonus feat at 3rd level.																																																																										AUTO:FEAT|Armor Proficiency (Heavy)																SOURCEPAGE:p.16
+
+CATEGORY=Special Ability|Master Smith.FORGET
+Master Smith			KEY:Forgemaster ~ Master Smith			CATEGORY:Special Ability	TYPE:ArchetypeAbility.SpecialQuality.Extraordinary	DESC:The forgemaster gains this as a bonus feat at 5th level.																																																																				AUTO:FEAT|Skill Focus (Craft (Blacksmithing))							SOURCEPAGE:p.16
+

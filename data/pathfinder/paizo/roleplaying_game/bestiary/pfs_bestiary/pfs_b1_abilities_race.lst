@@ -1,0 +1,17 @@
+# CVS $Revision: 21544 $ $Author: nuance $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+
+# Animal Companions: ankylosaurus, aurochs, brachiosaurus, dire bat, dire rat, dolphin, elasmosaurus, electric eel, elephant/mastodon, frog, goblin dog, hyena, monitor lizard, moray eel, octopus, orca, pteranodon, rhinoceros, roc, squid, stegosaurus, triceratops, and tyrannosaurus; Familiars: all familiars listed on pages 131-133; Feats: none of the feats are legal for play for PCs, animal companions, or familiars unless specifically granted by another legal source. Other: all creatures in this book are legal for polymorph effects (including a druid's wild shape ability) within the boundaries of each spell or ability's parameters.
+# Only those abilities necessary for these anumal companions are allowed
+
+#CATEGORY=Internal|Race Traits ~ Drow.FORGET
+#CATEGORY=Internal|Race Traits ~ Tiefling.FORGET
+#CATEGORY=Internal|Race Traits ~ Aasimar.FORGET
+#CATEGORY=Internal|Race Traits ~ Goblin.FORGET
+#CATEGORY=Internal|Race Traits ~ Hobgoblin.FORGET
+#CATEGORY=Internal|Race Traits ~ Kobold.FORGET
+#CATEGORY=Internal|Race Traits ~ Orc.FORGET
+#CATEGORY=Internal|Race Traits ~ Tengu.FORGET
+#CATEGORY=Internal|Race Traits ~ Duergar.FORGET
+#CATEGORY=Internal|Race Traits ~ Merfolk.FORGET
+#CATEGORY=Internal|Race Traits ~ Svirfneblin.FORGET
+

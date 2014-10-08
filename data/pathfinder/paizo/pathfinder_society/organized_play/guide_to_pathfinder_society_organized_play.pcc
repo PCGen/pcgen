@@ -1,7 +1,7 @@
 # CVS $Revision: 21684 $ $Author: spraynpray $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 CAMPAIGN:Guide To Pathfinder Society Organized Play
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Society Organized Play
+TYPE:Paizo Publishing PFS.Pathfinder Society Organized Play
 RANK:9
 STATUS:RELEASE
 GENRE:Fantasy
@@ -45,6 +45,32 @@ SKILL:gtpsop_skills.lst
 SPELL:gtpsop_spells.lst
 EQUIPMENT:gtpsop_equip_magic_items.lst
 
-# Optional Rules
-FEAT:gtpsop_feats_heropoints.lst|PRERULE:1,HEROPOINTS
-SPELL:gtpsop_spells_heropoints.lst|PRERULE:1,HEROPOINTS
+OPTION:gameMode.Pathfinder_RPG.purchaseMethodName=High Fantasy
+OPTION:gameMode.Pathfinder_RPG.xpTableName=PFS Rules
+OPTION:gameMode.Pathfinder_RPG.rollMethod=2
+OPTION:gameMode.Pathfinder_RPG.allStatsValue=10
+
+# Want to supress errors concerning .MODs
+# These didn't resolve the .MODs
+#FORWARDREF:FEAT|Cooperative Crafting
+#FORWARDREF:RACE|Orc
+#FORWARDREF:CLASS|Alchemist,Antipaladin,Cavalier
+#FORWARDREF:ABILITY=Special Ability|Alchemist ~ Brew Potion
+
+# Resolve .MOD's when the source isn't loaded
+# These didn't work either
+#FEAT:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_feats.lst|(INCLUDE:CATEGORY=FEAT,Cooperative Crafting)|!PRECAMPAIGN:1,Advanced Player's Guide
+#CLASS:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_classes.lst|(INCLUDE:Alchemist,Antipaladin,Cavalier)|!PRECAMPAIGN:1,Advanced Player's Guide
+#ABILITY:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Alchemist ~ Brew Potion,Cavalier ~ Expert Trainer)|!PRECAMPAIGN:1,Advanced Player's Guide
+
+## Optional Rules
+#FEAT:gtpsop_feats_heropoints.lst|PRERULE:1,HEROPOINTS
+#SPELL:gtpsop_spells_heropoints.lst|PRERULE:1,HEROPOINTS
+
+# TODO: p.8 All characters gain Common as a free language.
+# You gain free languages granted by your race, ethnicity (for humans), and class (e.g., Druidic for druids).
+# If you have a high Intelligence modifier, you may select bonus languages from those listed in your race’s entry in the Core Rulebook and the Modern Human Languages list (The Inner Sea World Guide 251).
+# Certain classes grant access to additional bonus languages (e.g., Draconic for wizards).
+# Humans and half-elves with high Intelligence scores may learn all the above languages as bonus languages as well as any other language except Druidic and the languages listed under Ancient Languages on page 251 of The Inner Sea World Guide.
+# All languages except Druidic are available by putting a skill rank in Linguistics (see below).
+# Tian characters receive the languages Tien and Common for free.

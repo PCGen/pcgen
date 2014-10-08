@@ -4,6 +4,6 @@ SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPSOP	SOURCEW
 # Updated by: Andrew Wilson
 
 # Spell Name
-Awaken.MOD
-Permanency.MOD
-Reincarnate.MOD
+Awaken.MOD			TYPE:PFSNotLegal
+Permanency.MOD			TYPE:PFSNotLegal
+Reincarnate.MOD			TYPE:PFSNotLegal

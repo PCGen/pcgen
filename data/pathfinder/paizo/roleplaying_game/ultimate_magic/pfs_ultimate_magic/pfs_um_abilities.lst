@@ -1,0 +1,48 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+
+# Other: No content from Chapter 2 is legal for play except new familiars;
+
+###Block: Spellblights
+#Block: Minor Spellblights
+CATEGORY=Afflictions|Spellblight ~ Caster Blank.FORGET
+CATEGORY=Afflictions|Spellblight ~ Caster Croak.FORGET
+CATEGORY=Afflictions|Spellblight ~ Confounded Casting.FORGET
+CATEGORY=Afflictions|Spellblight ~ Disassociation.FORGET
+CATEGORY=Afflictions|Spellblight ~ Ebon Eyes.FORGET
+CATEGORY=Afflictions|Spellblight ~ Eldritch Ague.FORGET
+CATEGORY=Afflictions|Spellblight ~ Hemoculysis.FORGET
+CATEGORY=Afflictions|Spellblight ~ Lassitude.FORGET
+CATEGORY=Afflictions|Spellblight ~ Ritualistic Obsession.FORGET
+CATEGORY=Afflictions|Spellblight ~ Spell Addiction.FORGET
+
+#Block: Major Spellblights
+CATEGORY=Afflictions|Spellblight ~ Eldritch Cataracts.FORGET
+CATEGORY=Afflictions|Spellblight ~ Nameless Dread.FORGET
+CATEGORY=Afflictions|Spellblight ~ Negated.FORGET
+CATEGORY=Afflictions|Spellblight ~ Obsessive Fixation.FORGET
+CATEGORY=Afflictions|Spellblight ~ Phase Blight.FORGET
+CATEGORY=Afflictions|Spellblight ~ Spell Burn.FORGET
+CATEGORY=Afflictions|Spellblight ~ Spell Sap.FORGET
+CATEGORY=Afflictions|Spellblight ~ Tranference Block.FORGET
+CATEGORY=Afflictions|Spellblight ~ Vertigo.FORGET
+
+###Block: Preparation Rituals for spellbooks
+CATEGORY=Special Ability|Preparation Ritual ~ Harmful Surge.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Alchemical Protection.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Breath of the Grave.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Glittering Eyes.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Defensive Transmutation.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Eyes of Rul Thaven.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Beastly Concoction.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Rime Bite.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Sturdy Summoning.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Travel Sage.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Guardian Trick.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Shadow Knowledge.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Improved Eyes of Rul Thaven.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Revivifying Contingency.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Defensive Boon.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Spontaneous Bomb.FORGET
+CATEGORY=Special Ability|Preparation Ritual ~ Curse of Names.FORGET
+
+

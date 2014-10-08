@@ -1,0 +1,37 @@
+# CVS $Revision: 21421 $ $Author: evilmynex $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: Stefan Radermacher, Eric Smith (Maredudd), Douglas Limmer, and Paul Shipley
+# ORIGINAL ENTRY DATE: Unknown
+
+
+#   Alternate class abilities: alchemical simulacrum discovery, alchemical zombie discovery, doppelganger simulacrum discovery, and greater alchemical simulacrum discovery are not legal for play.
+CATEGORY=Special Ability|Discovery ~ Alchemical Simulacrum.FORGET
+CATEGORY=Special Ability|Discovery ~ Alchemical Zombie.FORGET
+CATEGORY=Special Ability|Discovery ~ Doppelganger Simulacrum.FORGET
+CATEGORY=Special Ability|Discovery ~ Greater Alchemical Simulacrum.FORGET
+
+#   Archetypes: broodmaster summoner, clone master alchemist, gravewalker witch, pack lord druid, master summoner, reincarnated druid, synthesist summoner, undead lord cleric, vivisectionist alchemist archetypes are not legal for play.
+CATEGORY=Special Ability|Summoner Archetype ~ Broodmaster.FORGET
+CATEGORY=Special Ability|Alchemist Archetype ~ Clone Master.FORGET
+CATEGORY=Special Ability|Witch Archetype ~ Gravewalker.FORGET
+CATEGORY=Special Ability|Druid Archetype ~ Pack Lord.FORGET
+CATEGORY=Special Ability|Summoner Archetype ~ Master Summoner.FORGET
+CATEGORY=Special Ability|Druid Archetype ~ Reincarnated Druid.FORGET
+CATEGORY=Special Ability|Summoner Archetype ~ Synthesist.FORGET
+CATEGORY=Special Ability|Cleric Archetype ~ Undead Lord.FORGET
+CATEGORY=Special Ability|Alchemist Archetype ~ Vivisectionist.FORGET
+
+#   Hexes: child scent hex, poison steep hex, cook people major hex, and witch's brew major hex are not legal for play.
+CATEGORY=Special Ability|Witch Hex ~ Child-Scent.FORGET
+CATEGORY=Special Ability|Witch Hex ~ Poison Steep.FORGET
+CATEGORY=Special Ability|Witch Major Hex ~ Cook People.FORGET
+CATEGORY=Special Ability|Witch Major Hex ~ Witch's Brew.FORGET
+
+# Other: No content from Chapter 2 is legal for play except new familiars;
+# Becuase Hexcrafter relies on barred abilities, it too is not legal for play.
+CATEGORY=Archetype|Magus Archetype ~ Hexcrafter.FORGET
+CATEGORY=Special Ability|Hexcrafter ~ Spells.FORGET
+
+#   [not implemented] Geisha bard archetype grants Spell Focus instead of Scribe Scroll.
+#   [not implemented] Geisha bard archetype grants Spell Focus instead of Scribe Scroll.
+#   [not implemented] Clostered Cleric archetype grants Spell Focus at 4th level in place of Scribe Scroll.

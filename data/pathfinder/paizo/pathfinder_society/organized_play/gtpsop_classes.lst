@@ -8,21 +8,19 @@ CLASS:Wizard.MOD
 ###Block: Level progression
 1	BONUS:ABILITYPOOL|Spell Focus Replacement|1	AUTO:FEAT|.CLEAR.Scribe Scroll
 
-
-# Class Name
-CLASS:Alchemist.MOD
-1	ABILITY:Archetype|AUTOMATIC|Remove Alchemist Brew Potion	AUTO:FEAT|Extra Bombs
-
-
-
 # Class Name
 CLASS:Cleric.MOD
 1	AUTO:FEAT|Improved Unarmed Strike|PREDEITY:1,Irori
 
+# TODO: move these to "Advanced Player's Guide (PFS)"
 
-# Class Name
-CLASS:Antipaladin.MOD
-
-# Class Name
-CLASS:Cavalier.MOD
-4	ABILITY:Archetype|AUTOMATIC|Remove Cavalier Expert Trainer	AUTO:FEAT|Skill Focus (Handle Animal)
+## Class Name
+#CLASS:Alchemist.MOD
+#1	ABILITY:Archetype|AUTOMATIC|Remove Alchemist Brew Potion	AUTO:FEAT|Extra Bombs
+#
+## Class Name
+#CLASS:Antipaladin.MOD	TYPE:PFSNotLegal
+#
+## Class Name
+#CLASS:Cavalier.MOD
+#4	ABILITY:Archetype|AUTOMATIC|Remove Cavalier Expert Trainer	AUTO:FEAT|Skill Focus (Handle Animal)
