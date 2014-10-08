@@ -63,9 +63,9 @@ OPTION:gameMode.Pathfinder_RPG.allStatsValue=10
 #CLASS:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_classes.lst|(INCLUDE:Alchemist,Antipaladin,Cavalier)|!PRECAMPAIGN:1,Advanced Player's Guide
 #ABILITY:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Alchemist ~ Brew Potion,Cavalier ~ Expert Trainer)|!PRECAMPAIGN:1,Advanced Player's Guide
 
-## Optional Rules
-#FEAT:gtpsop_feats_heropoints.lst|PRERULE:1,HEROPOINTS
-#SPELL:gtpsop_spells_heropoints.lst|PRERULE:1,HEROPOINTS
+# Optional Rules
+FEAT:gtpsop_feats_heropoints.lst|PRERULE:1,HEROPOINTS
+SPELL:gtpsop_spells_heropoints.lst|PRERULE:1,HEROPOINTS
 
 # TODO: p.8 All characters gain Common as a free language.
 # You gain free languages granted by your race, ethnicity (for humans), and class (e.g., Druidic for druids).
