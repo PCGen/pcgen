@@ -1,0 +1,99 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Pathfinder Society Complete
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing PFS
+RANK:3
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:MultiSet
+SETTING:Pathfinder|Golarion
+SHOWINMENU:YES
+# COMMENT: No books should be allowed if this set is used. Causes issues!
+!PRECAMPAIGN:1,BOOKTYPE=MultiSet[Pathfinder Society Core Assumption]
+!PRECAMPAIGN:1,BOOKTYPE=Campaign Setting
+!PRECAMPAIGN:1,BOOKTYPE=Supplement
+
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Society
+SOURCESHORT:PS
+SOURCEWEB:http://paizo.com/pathfinderSociety
+SOURCEDATE:2013-10
+ISOGL:YES
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric Smith (Mardudd), Andrew Maitland (LegacyKing) )
+
+COVER:pathfinder_society_logo.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255|Buy this publication from Paizo Publishing!
+DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer fighting to survive in a world beset by magic and evil. Will you cut your way through monster-filled ruins and cities rife with political intrigue to emerge as a famous hero laden with fabulous treasure, or will you fall victim to treacherous traps and fiendish monsters in a forgotten dungeon? Your fate is yours to decide with this giant Core Rulebook that provides everything a player needs to set out on a life of adventure and excitement!
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+#######################
+# PFS Core Assumption #
+#######################
+
+PCC:@/pathfinder/paizo/pathfinder_society/pathfinder_society_core_assumption.pcc
+
+############################
+# PFS Additional Resources #
+############################
+
+PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/pfs_advanced_race_guide/pfs_advanced_race_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary/pfs_bestiary/pfs_bestiary.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary_2/pfs_bestiary_2/pfs_bestiary_2.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary_3/pfs_bestiary_3/pfs_bestiary_3.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/pfs_ultimate_combat/pfs_ultimate_combat.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/pfs_ultimate_equipment/pfs_ultimate_equipment.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/pfs_ultimate_magic/pfs_ultimate_magic.pcc
+
+PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/pfs_book_of_the_damned_volume_1/pfs_book_of_the_damned_volume_1.pcc
+PCC:@/pathfinder/paizo/campaign_setting/dark_markets/pfs_dark_markets/pfs_dark_markets.pcc
+PCC:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/pfs_dragon_empires_gazetteer/pfs_dragon_empires_gazetteer.pcc
+PCC:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/pfs_guide_to_the_river_kingdoms/pfs_guide_to_the_river_kingdoms.pcc
+PCC:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/pfs_heart_of_the_jungle/pfs_heart_of_the_jungle.pcc
+PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/pfs_inner_sea_world_guide/pfs_inner_sea_world_guide.pcc
+PCC:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pfs_pathfinder_society_field_guide/pfs_pathfinder_society_field_guide.pcc
+PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/pfs_seekers_of_secrets/pfs_seekers_of_secrets.pcc
+
+PCC:@/pathfinder/paizo/player_companion/andoran_spirit_of_liberty/pfs_andoran_spirit_of_liberty/pfs_andoran_spirit_of_liberty.pcc
+PCC:@/pathfinder/paizo/player_companion/blood_of_angels/pfs_blood_of_angels/pfs_blood_of_angels.pcc
+PCC:@/pathfinder/paizo/player_companion/blood_of_fiends/pfs_blood_of_fiends/pfs_blood_of_fiends.pcc
+PCC:@/pathfinder/paizo/player_companion/cheliax_empire_of_devils/pfs_cheliax_empire_of_devils/pfs_cheliax_empire_of_devils.pcc
+PCC:@/pathfinder/paizo/player_companion/dragon_empires_primer/pfs_dragon_empires_primer/pfs_dragon_empires_primer.pcc
+PCC:@/pathfinder/paizo/player_companion/dungeoneers_handbook/pfs_dungeoneers_handbook/pfs_dungeoneers_handbook.pcc
+PCC:@/pathfinder/paizo/player_companion/dwarves_of_golarion/pfs_dwarves_of_golarion/pfs_dwarves_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/faiths_of_balance/pfs_faiths_of_balance/pfs_faiths_of_balance.pcc
+PCC:@/pathfinder/paizo/player_companion/faiths_of_corruption/pfs_faiths_of_corruption/pfs_faiths_of_corruption.pcc
+PCC:@/pathfinder/paizo/player_companion/faiths_of_purity/pfs_faiths_of_purity/pfs_faiths_of_purity.pcc
+PCC:@/pathfinder/paizo/player_companion/gnomes_of_golarion/pfs_gnomes_of_golarion/pfs_gnomes_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/goblins_of_golarion/pfs_goblins_of_golarion/pfs_goblins_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/halflings_of_golarion/pfs_halflings_of_golarion/pfs_halflings_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/inner_sea_primer/pfs_inner_sea_primer/pfs_inner_sea_primer.pcc
+PCC:@/pathfinder/paizo/player_companion/orcs_of_golarion/pfs_orcs_of_golarion/pfs_orcs_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pfs_pirates_of_the_inner_sea/pfs_pirates_of_the_inner_sea.pcc
+PCC:@/pathfinder/paizo/player_companion/qadira_gateway_to_the_east/pfs_qadira_gateway_to_the_east/pfs_qadira_gateway_to_the_east.pcc
+PCC:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/pfs_sargava_the_lost_colony/pfs_sargava_the_lost_colony.pcc
+
+PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/pfs_rise_of_the_runelords_ae/pfs_rise_of_the_runelords_ae.pcc
+PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/curse_of_the_crimson_throne/pfs_curse_of_the_crimson_throne/pfs_curse_of_the_crimson_throne.pcc
+PCC:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/pfs_legacy_of_fire_players_guide.pcc
+
+
+
+# Adventure Paths that are not included
+# To use any adventure path source, you can browse to the main Paizo Publishing folder to select it.
+# You must manually verify that the items are PFS Legal by consulting the Pathfinder Society Additional Resources Guide at Paizo.com.
+# NOTE: Using an unconverted set may cause load errors.
+

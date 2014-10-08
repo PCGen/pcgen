@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+
+###BLOCK: Armor
+# Equipment Name			Output Name			Required Armor Proficiency	Type										Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Requires Modification?	Size		Source Page		% of Spell Failure	Combat bonus
+Rag Armor (Dark Creeper).MOD	TYPE:PFSNotLegal
+
+###BLOCK: Weapons
+# Equipment Name	Required Weapon Proficiency	Type																		Cost		Weight	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Range		Size		Source Page		Special Property
+Aklys.MOD	TYPE:PFSNotLegal

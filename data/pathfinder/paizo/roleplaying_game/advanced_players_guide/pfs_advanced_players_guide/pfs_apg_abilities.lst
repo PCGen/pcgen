@@ -1,0 +1,24 @@
+# CVS $Revision: 21722 $ $Author: zaister $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+
+###Block: Modify default ability
+# Add traits for PCs only
+# Ability Name			Bonus Ability Pool
+
+CATEGORY=Special Ability|Trait ~ Hedge Magician.FORGET
+CATEGORY=Special Ability|Trait ~ Natural-Born Leader.FORGET
+CATEGORY=Special Ability|Trait ~ Rich Parents.FORGET
+
+# No campaign traits allowed from this source
+###Block: Campaign Traits
+# Ability Name													Unique Key					Category of Ability		Type						Required Ability									Multiple Requirements																				Description																																																																																																																																Stackable?	Multiple?	Choose									Bonus Ability Pool				Combat bonus					Bonus to skill						Class Skill				Source Page
+CATEGORY=Special Ability|Trait ~ Favored Person.FORGET
+CATEGORY=Special Ability|Trait ~ Favored Person ~ Ameiko.FORGET
+CATEGORY=Special Ability|Trait ~ Favored Person ~ Belor.FORGET
+CATEGORY=Special Ability|Trait ~ Black Sheep.FORGET
+CATEGORY=Special Ability|Trait ~ Black Sheep ~ Aliver.FORGET
+CATEGORY=Special Ability|Trait ~ Black Sheep ~ Titus.FORGET
+CATEGORY=Special Ability|Trait ~ Outlander.FORGET
+CATEGORY=Special Ability|Trait ~ Outlander ~ Lore Seeker.FORGET
+CATEGORY=Special Ability|Trait ~ Outlander ~ Exile.FORGET
+CATEGORY=Special Ability|Trait ~ Outlander ~ Missionary.FORGET
