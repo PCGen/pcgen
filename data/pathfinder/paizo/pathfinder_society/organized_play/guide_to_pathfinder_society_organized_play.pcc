@@ -44,24 +44,12 @@ FEAT:gtpsop_feats.lst
 SKILL:gtpsop_skills.lst
 SPELL:gtpsop_spells.lst
 EQUIPMENT:gtpsop_equip_magic_items.lst
+TEMPLATE:gtpsop_templates.lst
 
 OPTION:gameMode.Pathfinder_RPG.purchaseMethodName=High Fantasy
 OPTION:gameMode.Pathfinder_RPG.xpTableName=PFS Rules
-OPTION:gameMode.Pathfinder_RPG.rollMethod=2
+OPTION:gameMode.Pathfinder_RPG.rollMethod=0
 OPTION:gameMode.Pathfinder_RPG.allStatsValue=10
-
-# Want to supress errors concerning .MODs
-# These didn't resolve the .MODs
-#FORWARDREF:FEAT|Cooperative Crafting
-#FORWARDREF:RACE|Orc
-#FORWARDREF:CLASS|Alchemist,Antipaladin,Cavalier
-#FORWARDREF:ABILITY=Special Ability|Alchemist ~ Brew Potion
-
-# Resolve .MOD's when the source isn't loaded
-# These didn't work either
-#FEAT:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_feats.lst|(INCLUDE:CATEGORY=FEAT,Cooperative Crafting)|!PRECAMPAIGN:1,Advanced Player's Guide
-#CLASS:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_classes.lst|(INCLUDE:Alchemist,Antipaladin,Cavalier)|!PRECAMPAIGN:1,Advanced Player's Guide
-#ABILITY:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_abilities_class.lst|(INCLUDE:CATEGORY=Special Ability,Alchemist ~ Brew Potion,Cavalier ~ Expert Trainer)|!PRECAMPAIGN:1,Advanced Player's Guide
 
 # Optional Rules
 FEAT:gtpsop_feats_heropoints.lst|PRERULE:1,HEROPOINTS
