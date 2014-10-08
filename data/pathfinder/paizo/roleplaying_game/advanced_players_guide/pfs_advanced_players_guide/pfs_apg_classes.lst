@@ -2,6 +2,31 @@
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher, Andrew Maitland, Eric Smith (Maredudd) and James Dempsey
 
+# Apply starting gold kit to all classes
+
+# Class Name
+CLASS:Alchemist.MOD	TEMPLATE:PFS Starting Gold
+CLASS:Cavalier.MOD		TEMPLATE:PFS Starting Gold
+CLASS:Inquisitor.MOD	TEMPLATE:PFS Starting Gold
+CLASS:Oracle.MOD		TEMPLATE:PFS Starting Gold
+CLASS:Summoner.MOD	TEMPLATE:PFS Starting Gold
+CLASS:Witch.MOD		TEMPLATE:PFS Starting Gold
+CLASS:Antipaladin.MOD	TEMPLATE:PFS Starting Gold
+
+# Limit all PC classes to non-evil
+
+# Class Name
+CLASS:Alchemist.MOD	!PREALIGN:CE,NE,LE
+CLASS:Cavalier.MOD	!PREALIGN:CE,NE,LE
+CLASS:Inquisitor.MOD	!PREALIGN:CE,NE,LE
+CLASS:Oracle.MOD	!PREALIGN:CE,NE,LE
+CLASS:Summoner.MOD	!PREALIGN:CE,NE,LE
+CLASS:Witch.MOD	!PREALIGN:CE,NE,LE
+CLASS:Antipaladin.MOD	!PREALIGN:CE,NE,LE
+
+
+
+
 ##
 ## Block: Base Classes
 ##
