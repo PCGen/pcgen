@@ -2,9 +2,9 @@
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher & Andrew Maitland
 
-Cooperative Crafting.FORGET
-Blood of Heroes.FORGET
-Hero's Fortune.FORGET
-Luck of Heroes.FORGET
+Cooperative Crafting.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+Blood of Heroes.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+Hero's Fortune.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+Luck of Heroes.MOD			TYPE:PFSNotLegal	VISIBLE:NO
 
 Master Alchemist.MOD	PREMULT:1,[PRECLASS:1,Alchemist],[PREMULT:2,[PRECLASS:1,Rogue],[PREABILITY:1,CATEGORY=Archetype,Poisoner]]

@@ -5,20 +5,20 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 # Add traits for PCs only
 # Ability Name			Bonus Ability Pool
 
-CATEGORY=Special Ability|Trait ~ Hedge Magician.FORGET
-CATEGORY=Special Ability|Trait ~ Natural-Born Leader.FORGET
-CATEGORY=Special Ability|Trait ~ Rich Parents.FORGET
+CATEGORY=Special Ability|Trait ~ Hedge Magician.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Natural-Born Leader.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Rich Parents.MOD	TYPE:PFSNotLegal	VISIBLE:NO
 
 # No campaign traits allowed from this source
 ###Block: Campaign Traits
 # Ability Name													Unique Key					Category of Ability		Type						Required Ability									Multiple Requirements																				Description																																																																																																																																Stackable?	Multiple?	Choose									Bonus Ability Pool				Combat bonus					Bonus to skill						Class Skill				Source Page
-CATEGORY=Special Ability|Trait ~ Favored Person.FORGET
-CATEGORY=Special Ability|Trait ~ Favored Person ~ Ameiko.FORGET
-CATEGORY=Special Ability|Trait ~ Favored Person ~ Belor.FORGET
-CATEGORY=Special Ability|Trait ~ Black Sheep.FORGET
-CATEGORY=Special Ability|Trait ~ Black Sheep ~ Aliver.FORGET
-CATEGORY=Special Ability|Trait ~ Black Sheep ~ Titus.FORGET
-CATEGORY=Special Ability|Trait ~ Outlander.FORGET
-CATEGORY=Special Ability|Trait ~ Outlander ~ Lore Seeker.FORGET
-CATEGORY=Special Ability|Trait ~ Outlander ~ Exile.FORGET
-CATEGORY=Special Ability|Trait ~ Outlander ~ Missionary.FORGET
+CATEGORY=Special Ability|Trait ~ Favored Person.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Favored Person ~ Ameiko.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Favored Person ~ Belor.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Black Sheep.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Black Sheep ~ Aliver.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Black Sheep ~ Titus.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Outlander.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Outlander ~ Lore Seeker.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Outlander ~ Exile.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Outlander ~ Missionary.MOD	TYPE:PFSNotLegal	VISIBLE:NO

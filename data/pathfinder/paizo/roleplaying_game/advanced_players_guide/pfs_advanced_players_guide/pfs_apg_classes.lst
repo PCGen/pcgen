@@ -6,4 +6,4 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 ## Block: Base Classes
 ##
 
-CLASS:Antipaladin.MOD	TYPE:PFSNotLegal
+CLASS:Antipaladin.MOD	TYPE:PFSNotLegal	VISIBLE:NO

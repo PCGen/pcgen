@@ -2,6 +2,6 @@
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher & Andrew Maitland
 
-CATEGORY=Special Ability|Dwarf ~ Craftsman.FORGET
-CATEGORY=Special Ability|Halfling ~ Practicality.FORGET
-CATEGORY=Special Ability|Human ~ Heart of the Fields.FORGET
+CATEGORY=Special Ability|Dwarf ~ Craftsman.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Halfling ~ Practicality.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Human ~ Heart of the Fields.MOD	TYPE:PFSNotLegal	VISIBLE:NO
