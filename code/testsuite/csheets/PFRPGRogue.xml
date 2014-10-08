@@ -3721,7 +3721,7 @@ BIO
 		<ability_object>
 			<name>Crippling Strike</name>
 			<description>You can sneak attack opponents with such precision that your blows weaken and hamper them.</description>
-			<type>ROGUECLASSFEATURES.SPECIALATTACK.EXTRAORDINARY.ROGUETALENT.ROGUEADVANCEDTALENT.ATTACKOPTION</type>
+			<type>ROGUECLASSFEATURES.SPECIALATTACK.EXTRAORDINARY.ROGUEADVANCEDTALENT.ATTACKOPTION</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3954,7 +3954,7 @@ BIO
 		<ability_object>
 			<name>Improved Evasion</name>
 			<description>Like Evasion, you still take no damage on a successful Reflex saving throw against attacks, additionally you take only half damage on a failed save.</description>
-			<type>ROGUECLASSFEATURES.SPECIALQUALITY.EXTRAORDINARY.ROGUETALENT.ROGUEADVANCEDTALENT</type>
+			<type>ROGUECLASSFEATURES.SPECIALQUALITY.EXTRAORDINARY.ROGUEADVANCEDTALENT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
