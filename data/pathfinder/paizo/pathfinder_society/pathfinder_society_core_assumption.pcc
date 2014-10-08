@@ -54,6 +54,8 @@ DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer 
 PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
 PCC:@/pathfinder/paizo/pathfinder_society/organized_play/guide_to_pathfinder_society_organized_play.pcc
 
+FORWARDREF:RACE|Orc
+
 # PFS Additional Resources (http://paizo.com/pathfinderSociety/about/additionalResources)
 # Updated Oct 1, 2014
 
