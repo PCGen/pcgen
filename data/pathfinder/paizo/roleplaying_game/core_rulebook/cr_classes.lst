@@ -504,7 +504,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Bonus Languages		Ability																Visible	Define																					Combat bonus										Save bonus																					Modify VAR															Monster Role
-CLASS:Wizard	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:p.77	LANGBONUS:Draconic	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,WizardClassSkills	VISIBLE:YES	DEFINE:DisallowWizardArcaneSchoolArchetype|0	DEFINE:WizardLVL|0	DEFINE:WizardSchoolLVL|0	DEFINE:SpellMasteryQualify|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|WizardLVL|CL	BONUS:VAR|WizardSchoolLVL|WizardLVL	BONUS:VAR|SpellMasteryQualify|1	ROLE:Wizard
+CLASS:Wizard	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wiz	ALLOWBASECLASS:NO	MAXLEVEL:20	SOURCEPAGE:p.77	LANGBONUS:Draconic	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,WizardClassSkills	VISIBLE:YES	DEFINE:DisallowWizardArcaneSchoolArchetype|0	DEFINE:WizardLVL|0	DEFINE:WizardSchoolLVL|0	DEFINE:SpellMasteryQualify|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|WizardLVL|CL	BONUS:VAR|WizardSchoolLVL|WizardLVL	BONUS:VAR|SpellMasteryQualify|1	ROLE:Wizard
 # Class Name	Skill Pts/Lvl
 CLASS:Wizard	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
@@ -527,13 +527,15 @@ SUBCLASS:Necromancer	CHOICE:SCHOOL|Necromancy
 SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Necromancy School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 SUBCLASS:Transmuter	CHOICE:SCHOOL|Transmutation
 SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmutation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Universalist	
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
 ###Block:
 1	AUTO:FEAT|Scribe Scroll|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardScribeScroll
 ###Block:
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
+#1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneBond
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Cantrips|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardCantrips
 5	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Bonus Feats|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeats
