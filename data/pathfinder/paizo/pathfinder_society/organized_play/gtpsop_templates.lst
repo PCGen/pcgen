@@ -1,0 +1,14 @@
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+# Template Name			Visible	Template										Modify VAR						Apply Kit
+PFS Starting Gold			VISIBLE:NO		KIT:1|Starting Gold PFS
+
+### Starting Gold
+#Starting Gold ~ CRB.FORGET
+#Starting Gold CRB ~ Random.FORGET
+#Starting Gold CRB ~ Maximum.FORGET
+#Starting Gold CRB ~ Average.FORGET
+

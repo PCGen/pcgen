@@ -87,8 +87,8 @@ PCC:@/pathfinder/paizo/player_companion/qadira_gateway_to_the_east/pfs_qadira_ga
 PCC:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/pfs_sargava_the_lost_colony/pfs_sargava_the_lost_colony.pcc
 
 PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/pfs_rise_of_the_runelords_ae/pfs_rise_of_the_runelords_ae.pcc
-PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/curse_of_the_crimson_throne/players_guide/curse_of_the_crimson_throne_players_guide.pcc
-PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/curse_of_the_crimson_throne/ap9/pfs_ap9.pcc
+PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/curse_of_the_crimson_throne/players_guide/pfs_players_guide/pfs_curse_of_the_crimson_throne_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/curse_of_the_crimson_throne/ap9/pfs_ap9/pfs_ap9.pcc
 PCC:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/pfs_players_guide/pfs_legacy_of_fire_players_guide.pcc
 
 # Adventure Paths that are not included

@@ -385,7 +385,7 @@ GEAR:Blanket			QTY:1	SIZE:PC
 GEAR:Saddlebags			QTY:1	SIZE:PC
 GEAR:Feed (Per Day)		QTY:2
 
-STARTPACK:Spelunker's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:17
+STARTPACK:Spelunker's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:174
 GEAR:Lantern (Hooded)	QTY:1			LOCATION:Carried
 GEAR:Oil (1 Pint Flask)	QTY:4			LOCATION:Backpack
 GEAR:Hammer			QTY:1			LOCATION:Backpack
