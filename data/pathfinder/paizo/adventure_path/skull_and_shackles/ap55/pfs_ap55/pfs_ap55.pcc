@@ -53,3 +53,4 @@ KIT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_kits_companio
 KIT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_kits_races.lst
 #KIT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_kits_npcs.lst
 
+FORWARDREF:SPELL|Freedom of Movement (self only)
