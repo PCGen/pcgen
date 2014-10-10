@@ -16,12 +16,12 @@
 	TEMPLATE - SPELLS_LIST
 ====================================
 ====================================-->
-	<xsl:template match="spells_list">
+	<xsl:template match="spells">
 		<!-- BEGIN Spells Pages -->
 		<xsl:if test="count(.//spell) &gt; 0">
 					<xsl:apply-templates select="spells_innate/racial_innate"/>	
 					<xsl:apply-templates select="spells_innate/class_innate"/>	
-<!--					<xsl:apply-templates select="known_spells"/>	-->
+<!--					<xsl:apply-templates select="known_spells"/>		-->
 					<xsl:apply-templates select="memorized_spells"/>	
 		</xsl:if>
 		<!-- END Spells Pages -->

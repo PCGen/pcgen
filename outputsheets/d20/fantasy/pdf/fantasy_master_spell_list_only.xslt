@@ -26,7 +26,7 @@
 	<xsl:import href="common_sheet/block_protection.xslt"/>
 	<xsl:import href="common_sheet/block_psionics.xslt"/>
 	<xsl:import href="common_sheet/block_skills.xslt"/>
-	<xsl:import href="common_sheet/block_spells_list.xslt"/>
+	<xsl:import href="common_sheet/block_spells_list.xslt"/>	
 	<xsl:import href="common_sheet/block_stat_block.xslt"/>
 	<xsl:import href="common_sheet/block_weapons.xslt"/>
 <!-- END -->
@@ -275,7 +275,7 @@
 					<!--	CHARACTER HEADER	-->
 					<fo:block span="all" space-after.optimum="3pt">
  <!-- We Display only the Spells in List Form -->
-						<xsl:apply-templates select="spells_list"/>	
+						<xsl:apply-templates select="spells"/>	
 					</fo:block>
 					<fo:block span="all">
 						<fo:table table-layout="fixed">
