@@ -257,3 +257,6 @@ ABILITYCATEGORY:Master Chymist Advanced Mutagen	VISIBLE:QUALIFY	EDITABLE:YES	EDI
 
 
 ABILITYCATEGORY:Select Beast Master Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Select Beast Master Companion	PLURAL:Select Beast Master Companions	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Paladin Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:PaladinFavoredEnergyResistance															DISPLAYLOCATION:Class Features
+
