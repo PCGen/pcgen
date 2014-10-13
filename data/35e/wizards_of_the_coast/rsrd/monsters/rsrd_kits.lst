@@ -5162,8 +5162,8 @@ FEAT:Alertness
 FEAT:Blind-Fight
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 
-STARTPACK:Will o Wisp Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Will o Wisp]
-RACE:Will o Wisp	!PRERACE:1,%
+STARTPACK:Will-o'-Wisp Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Will-o'-Wisp]
+RACE:Will-o'-Wisp	!PRERACE:1,%
 NAME:Will-o'-Wisp
 ALIGN:CE
 SKILL:Bluff		RANK:12
