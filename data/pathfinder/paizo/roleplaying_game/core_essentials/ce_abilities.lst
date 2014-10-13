@@ -3,6 +3,12 @@
 ###SPells Temp Spot - Move these to the originating book or set up control list
 ###Block: Spell Like Abilities - Make it easier to manage spells individually
 
+# Template for Innate SPELL-LIKE ABILITY:
+#	Spell Name			KEY:Spell Name						CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLVLx.ArcaneLVLx.DivineLVLx	DEFINE:xxx_SpellTimes|0	DEFINE:xxx_SpellLevel|0	DEFINE:xxx_SpellCasterLVL|0	DEFINE:xxx_SpellDC|0	DEFINE:xxx_SpellTimesAtWill|0		SPELLS:Innate|TIMES=xxx_SpellTimes|CASTERLEVEL=xxx_SpellCasterLVL|xxx,xxx_SpellDC|PREVAREQ:xxx_SpellTimesAtWill,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=xxx_SpellCasterLVL|xxx,xxx_SpellDC|PREVARGTEQ:xxx_SpellTimesAtWill,1		
+# Example Spell:
+#Flare Burst	KEY:Flare Burst	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLVL1.DivineLVL1	DEFINE:Flare_Burst_SpellTimes|0	DEFINE:Flare_Burst_SpellLevel|0	DEFINE:Flare_Burst_SpellCasterLVL|0	DEFINE:Flare_Burst_SpellDC|0			SPELLS:Innate|TIMES=Flare_Burst_SpellTimes|CASTERLEVEL=TL|Flare Burst,10+TL+CHA|PREVAREQ:Flare_Burst_SpellTimesAtWill,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=Flare_Burst_SpellCasterLVL|Flare Burst,Flare_Burst_SpellDC|PREVARGTEQ:Flare_Burst_SpellTimesAtWill,1		
+
+
 #L0
 # Ability Name	Category of Ability		Type								Visible	Define									Innate Spells
 Detect Magic	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:DetectMagicTimes|0	DEFINE:DetectMagicLVL|0		SPELLS:Innate|TIMES=DetectMagicTimes|TIMEUNIT=Day|CASTERLEVEL=DetectMagicLVL|Detect Magic|PREVAREQ:DisableSpellDetectMagic,0|PREVARGTEQ:DetectMagicTimes,1	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Constant|CASTERLEVEL=DetectMagicLVL|Detect Magic|PREVAREQ:DisableSpellDetectMagic,0|PREVARLTEQ:DetectMagicTimes,0
@@ -22,6 +28,32 @@ Spider Climb	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQua
 Dispel Magic	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:DispelMagicTimes|0	DEFINE:DispelMagicLVL|0		SPELLS:Innate|TIMES=DispelMagicTimes|TIMEUNIT=Day|CASTERLEVEL=DispelMagicLVL|Dispel Magic|PREVAREQ:DisableSpellDispelMagic,0|PREVARGTEQ:DispelMagicTimes,1	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Day|CASTERLEVEL=DispelMagicLVL|Dispel Magic|PREVAREQ:DisableSpellDispelMagic,0|PREVARLTEQ:DispelMagicTimes,0
 Divine Favor	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:DivineFavorTimes|0	DEFINE:DivineFavorLVL|0		SPELLS:Innate|TIMES=DivineFavorTimes|TIMEUNIT=Day|CASTERLEVEL=DivineFavorLVL|Divine Favor|PREVAREQ:DisableSpellDivineFavor,0|PREVARGTEQ:DivineFavorTimes,1	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Day|CASTERLEVEL=DivineFavorLVL|Divine Favor|PREVAREQ:DisableSpellDivineFavor,0|PREVARLTEQ:DivineFavorTimes,0
 Suggestion		CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:SuggestionTimes|0	DEFINE:SuggestionLVL|0		SPELLS:Innate|TIMES=SuggestionTimes|TIMEUNIT=Day|CASTERLEVEL=SuggestionLVL|Suggestion,13+CHA|PREVAREQ:DisableSpellSuggestion,0|PREVARGTEQ:SuggestionTimes,1	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Day|CASTERLEVEL=SuggestionLVL|Suggestion,13+CHA|PREVAREQ:DisableSpellSuggestion,0|PREVARLTEQ:SuggestionTimes,0
+
+###Block:
+Spell-Like Ability LVL 0 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL0.SpellLikeDivineLVL0
+Spell-Like Ability LVL 1 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL1.SpellLikeDivineLVL1
+Spell-Like Ability LVL 2 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL2.SpellLikeDivineLVL2
+Spell-Like Ability LVL 3 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL3.SpellLikeDivineLVL3
+Spell-Like Ability LVL 4 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL4.SpellLikeDivineLVL4
+Spell-Like Ability LVL 5 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL5.SpellLikeDivineLVL5
+Spell-Like Ability LVL 6 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL6.SpellLikeDivineLVL6
+Spell-Like Ability LVL 7 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL7.SpellLikeDivineLVL7
+Spell-Like Ability LVL 8 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL8.SpellLikeDivineLVL8
+Spell-Like Ability LVL 9 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL9.SpellLikeDivineLVL9
+
+Spell-Like Ability LVL 0 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL0.SpellLikeArcaneLVL0
+Spell-Like Ability LVL 1 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL1.SpellLikeArcaneLVL1
+Spell-Like Ability LVL 2 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL2.SpellLikeArcaneLVL2
+Spell-Like Ability LVL 3 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL3.SpellLikeArcaneLVL3
+Spell-Like Ability LVL 4 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL4.SpellLikeArcaneLVL4
+Spell-Like Ability LVL 5 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL5.SpellLikeArcaneLVL5
+Spell-Like Ability LVL 6 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL6.SpellLikeArcaneLVL6
+Spell-Like Ability LVL 7 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL7.SpellLikeArcaneLVL7
+Spell-Like Ability LVL 8 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL8.SpellLikeArcaneLVL8
+Spell-Like Ability LVL 9 ~ Arcane	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL9.SpellLikeArcaneLVL9
+
+
+
 
 
 ###Block: Common
