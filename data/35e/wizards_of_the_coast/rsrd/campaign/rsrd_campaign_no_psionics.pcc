@@ -76,7 +76,6 @@ HIDETYPE:SKILL|Craft (Dreamweaving)|Craft (Gemcutting)|Craft (Metalworking)|Craf
 
 
 # Monsters
-ABILITY:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_abilities_race.lst
 CLASS:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_classes_monsters_dragons.lst
 CLASS:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_classes_monsters_specific.lst
 EQUIPMENT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_equip.lst
@@ -87,6 +86,7 @@ RACE:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_races.lst
 
 # Epic
 ABILITY:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_abilities_class_epic.lst
+ABILITY:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_abilities_epic_companions.lst
 
 ABILITYCATEGORY:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_ability_categories_epic.lst
 
@@ -94,6 +94,8 @@ CLASS:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_classes_base_epic.lst
 CLASS:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_classes_epic.lst
 CLASS:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_classes_monsters_dragons_epic.lst
 CLASS:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_classes_prestige_epic.lst
+
+COMPANIONMOD:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_companionmod_epic.lst
 
 FEAT:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_feats_epic.lst
 FEAT:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_feats_monster_epic.lst
@@ -122,8 +124,8 @@ HIDETYPE:FEAT|AgentRetriever|CosmicDescryer|DivineEmissary|GuardianParamount|Hig
 
 # Divine
 ABILITY:@/35e/wizards_of_the_coast/rsrd/divine/rsrd_divine_abilities.lst
-TEMPLATE:@/35e/wizards_of_the_coast/rsrd/divine/rsrd_divine_templates.lst
 ABILITYCATEGORY:@/35e/wizards_of_the_coast/rsrd/divine/rsrd_divine_abilitycategories.lst
+TEMPLATE:@/35e/wizards_of_the_coast/rsrd/divine/rsrd_divine_templates.lst
 
 # Universal tags
 COMPANIONLIST:Mount|ANY
