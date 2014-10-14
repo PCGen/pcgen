@@ -76,7 +76,6 @@ HIDETYPE:SKILL|Craft (Dreamweaving)|Craft (Gemcutting)|Craft (Metalworking)|Craf
 
 
 # Monsters
-ABILITY:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_abilities_race.lst
 CLASS:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_classes_monsters_dragons.lst
 CLASS:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_classes_monsters_specific.lst
 EQUIPMENT:@/35e/wizards_of_the_coast/rsrd/monsters/rsrd_equip.lst
