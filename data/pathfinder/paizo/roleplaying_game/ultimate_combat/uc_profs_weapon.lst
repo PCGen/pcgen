@@ -41,19 +41,19 @@ Shotgun		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Shotgun.Scatter.TwoHandedFireA
 ###Block: Eastern  - Martial
 # Light
 # Weapon Name				Type
-Butterfly Sword				TYPE:Eastern.Melee.Martial.Light.Monk.Tengu.Sword
-Iron Brush					TYPE:Eastern.Melee.Martial.Light
-Jutte						TYPE:Eastern.Melee.Martial.Light.Disarm.Monk
-Kerambit					TYPE:Eastern.Melee.Martial.Light
-Lungchuan Tamo				TYPE:Eastern.Melee.Martial.Light.Monk
-Shang Gou					TYPE:Eastern.Melee.Martial.Light.Disarm.Trip.Monk
-Tonfa						TYPE:Eastern.Melee.Martial.Light.Blocking.Monk
-Wushu Dart					TYPE:Eastern.Melee.Martial.Light.Monk
+Butterfly Sword				TYPE:Eastern.Melee.Martial.Light.Monk.Tengu.Sword.LightMartial
+Iron Brush					TYPE:Eastern.Melee.Martial.Light.LightMartial
+Jutte						TYPE:Eastern.Melee.Martial.Light.Disarm.Monk.LightMartial
+Kerambit					TYPE:Eastern.Melee.Martial.Light.LightMartial
+Lungchuan Tamo				TYPE:Eastern.Melee.Martial.Light.Monk.LightMartial
+Shang Gou					TYPE:Eastern.Melee.Martial.Light.Disarm.Trip.Monk.LightMartial
+Tonfa						TYPE:Eastern.Melee.Martial.Light.Blocking.Monk.LightMartial
+Wushu Dart					TYPE:Eastern.Melee.Martial.Light.Monk.LightMartial
 
 # One-Handed Melee
-Broadsword (Nine Ring)			TYPE:Eastern.Melee.Martial.OneHanded.Monk.Tengu.Sword
-Double Chicken Saber			TYPE:Eastern.Melee.Martial.OneHanded.Disarm.Monk.Tengu.Sword
-Sibat						TYPE:Eastern.Melee.Martial.OneHanded.Spear
+Broadsword (Nine Ring)			TYPE:Eastern.Melee.Martial.OneHanded.Monk.Tengu.Sword.OneHandedMartial
+Double Chicken Saber			TYPE:Eastern.Melee.Martial.OneHanded.Disarm.Monk.Tengu.Sword.OneHandedMartial
+Sibat						TYPE:Eastern.Melee.Martial.OneHanded.Spear.OneHandedMartial
 
 # Two-Handed Melee
 Hooked Lance				TYPE:Eastern.Melee.Martial.TwoHanded.Reach.Trip.Polearm
@@ -150,7 +150,7 @@ Mere Club					TYPE:StoneAge.Simple.Bludgeoning.Piercing.Fragile
 
 #Martial
 #One-Handed Melee
-Terbutje					TYPE:StoneAge.Martial.Slashing.Fragile
+Terbutje					TYPE:StoneAge.Martial.Slashing.Fragile.OneHandedMartial
 
 #Two-Handed Melee
 Tepoztopilli				TYPE:StoneAge.Martial.Piercing.Slashing.Fragile.Reach

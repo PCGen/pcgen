@@ -26,20 +26,20 @@ Underwater Crossbow (Light)		TYPE:Simple.Ranged.Piercing
 ####Block: Martial Weapons
 #------light---------
 # Weapon Name				Type												Nb Hands
-Butterfly Sword				TYPE:Martial.Melee.Light.Slashing.Eastern
-Dogslicer					TYPE:Martial.Melee.Light.Slashing.Goblin
-Gladius					TYPE:Martial.Melee.Light.Piercing.Slashing
-Jutte						TYPE:Martial.Melee.Light.Bludgeoning.Eastern
-Kerambit					TYPE:Martial.Melee.Light.Slashing.Eastern
-Shang Gou					TYPE:Martial.Melee.Light.Slashing.Eastern
-Tonfa						TYPE:Martial.Melee.Light.Bludgeoning.Eastern
+Butterfly Sword				TYPE:Martial.Melee.Light.Slashing.Eastern.LightMartial
+Dogslicer					TYPE:Martial.Melee.Light.Slashing.Goblin.LightMartial
+Gladius					TYPE:Martial.Melee.Light.Piercing.Slashing.LightMartial
+Jutte						TYPE:Martial.Melee.Light.Bludgeoning.Eastern.LightMartial
+Kerambit					TYPE:Martial.Melee.Light.Slashing.Eastern.LightMartial
+Shang Gou					TYPE:Martial.Melee.Light.Slashing.Eastern.LightMartial
+Tonfa						TYPE:Martial.Melee.Light.Bludgeoning.Eastern.LightMartial
 
 #-----one handed -------
-Double Chicken Saber			TYPE:Martial.Melee.OneHanded.Slashing.Eastern
-Klar						TYPE:Martial.Melee.OneHanded.Slashing
-Broadsword (Nine Ring)			TYPE:Martial.Melee.OneHanded.Slashing.Eastern
-Scizore					TYPE:Martial.Melee.OneHanded.Piercing
-Terbutje					TYPE:Martial.Melee.OneHanded.Slashing
+Double Chicken Saber			TYPE:Martial.Melee.OneHanded.Slashing.Eastern.OneHandedMartial
+Klar						TYPE:Martial.Melee.OneHanded.Slashing.OneHandedMartial
+Broadsword (Nine Ring)			TYPE:Martial.Melee.OneHanded.Slashing.Eastern.OneHandedMartial
+Scizore					TYPE:Martial.Melee.OneHanded.Piercing.OneHandedMartial
+Terbutje					TYPE:Martial.Melee.OneHanded.Slashing.OneHandedMartial
 
 #-----two handed -------
 Earth Breaker				TYPE:Martial.Melee.TwoHanded.Bludgeoning
