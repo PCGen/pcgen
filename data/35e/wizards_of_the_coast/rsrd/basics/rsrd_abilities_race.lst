@@ -713,6 +713,7 @@ Race Traits ~ Dire Animal (Dire Boar)		CATEGORY:Internal						ABILITY:Special Ab
 Race Traits ~ Dire Animal (Dire Lion)		CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Dire Lion ~ Improved Grab|Dire Lion ~ Pounce|Dire Lion ~ Rake|Dire Lion ~ Skills|Scent
 Race Traits ~ Dire Animal (Dire Shark)		CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Dire Shark ~ Improved Grab|Dire Shark ~ Keen Scent|Dire Shark ~ Skills|Dire Shark ~ Swallow Whole
 Race Traits ~ Dire Animal (Dire Tiger)		CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Dire Tiger ~ Improved Grab|Dire Tiger ~ Pounce|Dire Tiger ~ Rake|Dire Tiger ~ Skills|Scent
+Race Traits ~ Dire Animal (Dire Rat)		CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Dire Rat ~ Disease|Dire Rat ~ Skills|Scent
 Race Traits ~ Dire Animal (Dire Weasel)		CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Dire Weasel ~ Attach|Dire Weasel ~ Blood Drain|Scent
 Race Traits ~ Dire Animal (Dire Wolf)		CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Dire Wolf ~ Skills|Dire Wolf ~ Trip|Scent
 Race Traits ~ Dire Animal (Dire Wolverine)	CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Dire Wolverine ~ Rage|Dire Wolverine ~ Skills|Scent
@@ -929,6 +930,10 @@ Race Traits ~ Wraith					CATEGORY:Internal						ABILITY:Special Ability|AUTOMATI
 Race Traits ~ Wraith (Dread)				CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Dread Wraith ~ Constitution Drain|Dread Wraith ~ Create Spawn|Dread Wraith ~ Lifesense|Flight Maneuverability|Wraith Shared ~ Daylight Powerlessness|Wraith Shared ~ Unnatural Aura
 Race Traits ~ Wyvern					CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Immunity to Paralysis|Immunity To Sleep|Scent|Wyvern ~ Improved Grab|Wyvern ~ Poison|Wyvern ~ Skills
 Race Traits ~ Xill					CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Xill ~ Implant|Xill ~ Improved Grab|Xill ~ Paralysis|Xill ~ Planewalk
+Race Traits ~ Xorn (Minor)				CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Immunity To Fire|Resistance To Electricity|Xorn ~ All-Around Vision|Xorn ~ Earth Glide
+Race Traits ~ Xorn (Average)				CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Immunity To Fire|Resistance To Electricity|Xorn ~ All-Around Vision|Xorn ~ Earth Glide
+Race Traits ~ Xorn (Elder)				CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Immunity To Fire|Resistance To Electricity|Xorn ~ All-Around Vision|Xorn ~ Earth Glide
+Race Traits ~ Yeth Hound				CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Scent|Yeth Hound ~ Bay|Yeth Hound ~ Flight|Yeth Hound ~ Natural Weapons|Yeth Hound ~ Skills|Yeth Hound ~ Trip
 Race Traits ~ Yeth Hound				CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Scent|Yeth Hound ~ Bay|Yeth Hound ~ Flight|Yeth Hound ~ Natural Weapons|Yeth Hound ~ Skills|Yeth Hound ~ Trip
 Race Traits ~ Yrthak					CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Yrthak ~ Blindsight|Yrthak ~ Explosion|Yrthak ~ Immunities|Yrthak ~ Skills|Yrthak ~ Sonic Lance
 Race Traits ~ Zombie (Kobold)				CATEGORY:Internal						ABILITY:Special Ability|AUTOMATIC|ZOMBIE TEMPLATE ~ Single Actions Only
