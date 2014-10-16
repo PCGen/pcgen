@@ -3091,7 +3091,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Channel Positive Energy</name>
-			<description>You can unleash a wave of positive energy dealing 3d6 (DC 15 for half) /day.</description>
+			<description>You can unleash a wave of positive energy dealing 3d6 (DC 15 for half) /day. You can unleash a wave of positive energy. You must choose to deal 3d6 points of positive energy damage to undead creatures or to heal living creatures of 3d6 points of damage. Creatures that take damage from channeled energy receive a DC 15 Will save to halve the damage. Using this ability consumes two uses of her lay on hands ability.</description>
 			<type>PALADINCLASSFEATURES.SPECIALATTACK.SUPERNATURAL.CHANNEL ENERGY.CHANNEL ENERGY POSITIVE.CHANNEL POSITIVE ENERGY</type>
 			<associated></associated>
 			<count>0</count>
@@ -3102,7 +3102,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Detect Evil</name>
-			<description>At will, you can use Detect Evil, as the Spell.</description>
+			<description>At will, you can use Detect Evil, as the Spell. You can, as a move action, concentrate on a single individual or item within 60 feet and determine if it is evil, learning the strength of its aura as if having studied it for 3 rounds. While focusing on one individual or object, you do not detect evil in any other object or individual within range.</description>
 			<type>PALADINCLASSFEATURES.SPECIALQUALITY.SPELLLIKE.DETECT EVIL</type>
 			<associated></associated>
 			<count>0</count>
@@ -3124,7 +3124,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Lay on Hands</name>
-			<description>You can heal wounds (your own or those of others) by touch.</description>
+			<description>You can heal wounds (your own or those of others) by touch. Each day you can use this ability 5 times per day. With one use of this ability, you can heal 3d6 hit points of damage. Using this ability is a standard action, unless you target yourself, in which case it is a swift action. Despite the name of this ability, you only need one free hand to use this ability. Alternatively, you can use this healing power to deal damage to undead creatures, dealing 3d6 points of damage. Using Lay in Hands in this way requires a melee touch attack and doesn&#39;t provide an attack of opportunity. Undead to not receive a saving throw against this damage.</description>
 			<type>PALADINCLASSFEATURES.SPECIALQUALITY.SUPERNATURAL.LAYONHANDS.LAY ON HANDS</type>
 			<associated></associated>
 			<count>0</count>
@@ -3146,7 +3146,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Smite Evil</name>
-			<description>You can call out to the powers of good to aid you in your struggle against evil.</description>
+			<description>You can call out to the powers of good to aid you in your struggle against evil 2 times per day. As a swift action, you choose one target within sight to smite. If this target is evil, you add +2 to your attack rolls and +6 to all damage rolls made against the target of your smite. If the target of Smite Evil is an outsider with the evil subtype, an evil-aligned dragon, or an undead creature, the bonus to damage on the first successful attack increases to +12. Regardless of the target, Smite Evil attacks automatically bypass any DR the creature might possess. In addition, while smite evil is in effect, you gain a +2 deflection bonus to your AC against attacks made by the target of the smite. If you target a creature that is not evil, the smite is wasted with no effect. The Smite Evil effect remains until the target of the smite is dead or the next time you rest and regain your uses of this ability.</description>
 			<type>PALADINCLASSFEATURES.SPECIALATTACK.SUPERNATURAL.SMITE EVIL</type>
 			<associated></associated>
 			<count>0</count>
