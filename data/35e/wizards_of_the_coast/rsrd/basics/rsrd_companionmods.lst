@@ -10,11 +10,6 @@ FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	HD:2								ABILITY:Special Abilit
 FOLLOWER:SpecialMountLVL=8	TYPE:Special Mount	HD:2								ABILITY:Special Ability|AUTOMATIC|Improved Speed															DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
 FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount	HD:2								ABILITY:Special Ability|AUTOMATIC|Command Own Kind															DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1
 FOLLOWER:SpecialMountLVL=15	TYPE:Special Mount	HD:2		SR:mastervar("SpecialMountLVL")+5																								DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1
-#FOLLOWER:SpecialMountLVL=16	TYPE:Special Mount			SR:21
-#FOLLOWER:SpecialMountLVL=17	TYPE:Special Mount			SR:22
-#FOLLOWER:SpecialMountLVL=18	TYPE:Special Mount			SR:23
-#FOLLOWER:SpecialMountLVL=19	TYPE:Special Mount			SR:24
-#FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount			SR:25
 
 ###Block: Special Mount Specific Kits per allowed Race
 # Class of the Master		Type				Required Race						Apply Kit
@@ -29,8 +24,8 @@ FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Shark (Large
 FOLLOWER:FiendishServantLVL=5		TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:FiendishServantLVL=13	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Speak with Blackguard								DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:FiendishServantLVL=16	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Blood Bond										DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
-FOLLOWER:FiendishServantLVL=19	TYPE:Fiendish Servant	HD:2		SR:24																			DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
-FOLLOWER:FiendishServantLVL=20	TYPE:Fiendish Servant			SR:25
+FOLLOWER:FiendishServantLVL=19	TYPE:Fiendish Servant	HD:2		SR:mastervar("FiendishServantLVL")+5																			DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
+FOLLOWER:FiendishServantLVL=20	TYPE:Fiendish Servant			
 #
 
 ###Block: Undead Companion
@@ -38,8 +33,8 @@ FOLLOWER:FiendishServantLVL=20	TYPE:Fiendish Servant			SR:25
 FOLLOWER:UndeadCompanionLVL=1		TYPE:Undead Companion	HD:2				ABILITY:Special Ability|VIRTUAL|Smite Good	ABILITY:Special Ability|AUTOMATIC|Cannot be Turned|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:VAR|SmiteGood|3	BONUS:VAR|SmiteGoodDamage|min(TL,20)
 FOLLOWER:UndeadCompanionLVL=13	TYPE:Undead Companion	HD:2				ABILITY:Special Ability|AUTOMATIC|Speak with Blackguard																			DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=16	TYPE:Undead Companion	HD:2				ABILITY:Special Ability|AUTOMATIC|Blood Bond																					DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
-FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:24																														DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
-FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
+FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:mastervar("UndeadCompanionLVL")+5																								DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
+FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			
 
 ###Block: Specific Undead Companions
 # Class of the Master		Type				Required Race						Apply Kit
@@ -50,23 +45,14 @@ FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Companion ~ Zombie
 ###Block:Familiar
 #COMMENT: Familiar is an Animal that becomes a Magical Beast
 
-# Class of the Master	Type			Spell Res.		Ability														Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat							Combat bonus								Modify VAR							Template
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link						COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES																											TEMPLATE:Familiar Race Change
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Improved Evasion|Familiar ~ Share Spells																		DEFINESTAT:MINVALUE|INT|5+((MasterLVL+1)/2)	BONUS:COMBAT|AC|(MasterLVL+1)/2|TYPE=NaturalArmor.STACK	BONUS:VAR|MasterLVL|mastervar("FamiliarLVL")
+# Class of the Master	Type			Spell Res.		Ability														Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat									Combat bonus										Template
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link						COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES																							TEMPLATE:Familiar Race Change
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Improved Evasion|Familiar ~ Share Spells																		DEFINESTAT:MINVALUE|INT|5+((mastervar("FamiliarLVL")+1)/2)	BONUS:COMBAT|AC|(mastervar("FamiliarLVL")+1)/2|TYPE=NaturalArmor.STACK
 FOLLOWER:FamiliarLVL=3	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Deliver Touch Spells
 FOLLOWER:FamiliarLVL=5	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Master
 FOLLOWER:FamiliarLVL=7	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Animals of Its Kind
-FOLLOWER:FamiliarLVL=9	TYPE:Familiar
 FOLLOWER:FamiliarLVL=11	TYPE:Familiar	SR:MasterLVL+5
-FOLLOWER:FamiliarLVL=12	TYPE:Familiar
 FOLLOWER:FamiliarLVL=13	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Scry on Familiar
-FOLLOWER:FamiliarLVL=14	TYPE:Familiar
-FOLLOWER:FamiliarLVL=15	TYPE:Familiar
-FOLLOWER:FamiliarLVL=16	TYPE:Familiar
-FOLLOWER:FamiliarLVL=17	TYPE:Familiar
-FOLLOWER:FamiliarLVL=18	TYPE:Familiar
-FOLLOWER:FamiliarLVL=19	TYPE:Familiar
-FOLLOWER:FamiliarLVL=20	TYPE:Familiar
 
 ###Block: Specific Familiars
 # Class of the Master	Type			Required Race					Apply Kit
