@@ -345,4 +345,4 @@ Invest Spell Slots	KEY:Item Familiar Master ~ Invest Spell Slots	PREFEAT:1,Item 
 
 Item Familiar Bonus Skill Selection	MULT:YES	STACK:YES	CHOOSE:SKILL|TYPE=Standard	TYPE:IFSkillBonus	BONUS:SKILL|%LIST|1	CATEGORY:Internal	
 
-Item Familiar Features	VISIBLE:NO	CATEGORY:Internal	TYPE:ItemFamiliar
+Item Familiar Features	VISIBLE:NO	CATEGORY:Special Ability	TYPE:ItemFamiliar
