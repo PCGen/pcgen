@@ -8,7 +8,16 @@ NAME:Yargin Balko
 ALIGN:LE
 TEMPLATE:Yargin Balko's Skills
 CLASS:Expert	LEVEL:2
-ABILITY:CATEGORY=Special Ability|Expert Class Skills(Appraise,Craft (Alchemy),Disable Device,Forgery,Knowledge (Arcana),Search,Spellcraft,Use Magic Device,Bluff,Craft (Trapmaking))
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Appraise)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Craft (Alchemy))
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Disable Device)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Forgery)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Knowledge (Arcana))
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Search)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Spellcraft)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Use Magic Device)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Bluff)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Craft (Trapmaking))
 STAT:STR=10|DEX=12|CON=13|INT=11|WIS=9|CHA=8
 SKILL:Appraise		RANK:5
 SKILL:Craft (Alchemy)	RANK:5
@@ -37,7 +46,16 @@ ALIGN:TN
 STAT:STR=7|DEX=15|CON=10|INT=9|WIS=8|CHA=10
 TEMPLATE:Lamm's Lambs Skills
 CLASS:Expert	LEVEL:1
-ABILITY:CATEGORY=Special Ability|Expert Class Skills(Balance,Bluff,Climb,Escape Artist,Sleight of Hand,Tumble,Spot,Search,Hide,Listen)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Balance)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Bluff)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Climb)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Escape Artist)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Sleight of Hand)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Tumble)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Spot)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Search)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Hide)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Listen)
 SKILL:Balance		RANK:4
 SKILL:Bluff			RANK:4
 SKILL:Climb			RANK:4
@@ -90,7 +108,16 @@ ALIGN:NE
 STAT:STR=5|DEX=13|CON=7|INT=16|WIS=14|CHA=15
 TEMPLATE:Gaedren Lamm's Skills
 CLASS:Expert	LEVEL:4
-ABILITY:CATEGORY=Special Ability|Expert Class Skills(Appraise,Bluff,Forgery,Handle Animal,Intimidate,Knowledge (Local),Open Lock,Sleight of Hand,Spot,Listen)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Appraise)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Bluff)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Forgery)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Handle Animal)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Intimidate)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Knowledge (Local))
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Open Lock)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Sleight of Hand)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Spot)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Listen)
 CLASS:Rogue		LEVEL:2
 SKILL:Appraise		RANK:9
 SKILL:Bluff			RANK:9
@@ -236,7 +263,7 @@ FEAT:Combat Casting
 FEAT:Craft Wand
 FEAT:Spell Focus(Necromancy)
 ABILITY:CATEGORY=Wizard Feat|Extend Spell
-GEAR:Ring (Protection +1)				LOCATION:Equipped
+GEAR:Ring of Protection +1				LOCATION:Equipped
 GEAR:Robe of Bones					LOCATION:Equipped
 GEAR:Dagger					SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Wand							LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Ghoul Touch]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[44]

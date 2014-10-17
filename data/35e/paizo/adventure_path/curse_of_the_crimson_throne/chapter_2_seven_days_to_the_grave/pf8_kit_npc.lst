@@ -8,7 +8,16 @@ NAME:Vendra Loaggri
 ALIGN:CN
 TEMPLATE:Vendra Loaggri Expert Skills
 CLASS:Expert	LEVEL:2
-ABILITY:CATEGORY=Special Ability|Expert Class Skills(Bluff,Craft (Alchemy),Diplomacy,Escape Artist,Forgery,Knowledge (Local),Listen,Move Silently,Spot,Use Magic Device)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Bluff)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Craft (Alchemy))
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Diplomacy)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Escape Artist)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Forgery)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Knowledge (Local))
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Listen)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Move Silently)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Spot)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Use Magic Device)
 CLASS:Rogue		LEVEL:4
 STAT:STR=10|DEX=14|CON=8|INT=13|WIS=12|CHA=16
 SKILL:Bluff				RANK:9
@@ -198,7 +207,16 @@ ALIGN:NE
 TEMPLATE:Dr. Davaulus Expert Skills
 CLASS:Rogue		LEVEL:3
 CLASS:Expert	LEVEL:3
-ABILITY:CATEGORY=Special Ability|Expert Class Skills(Heal,Move Silently,Knowledge (Nature),Knowledge (Religion),Open Lock,Profession (Doctor),Search,Sense Motive,Sleight of Hand,Spot)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Heal)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Move Silently)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Knowledge (Nature))
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Knowledge (Religion))
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Open Lock)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Profession (Doctor))
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Search)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Sense Motive)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Sleight of Hand)
+ABILITY:CATEGORY=Special Ability|Expert Class Skills(Spot)
 CLASS:Bard		LEVEL:4
 STAT:STR=8|DEX=14|CON=10|INT=16|WIS=12|CHA=14
 SKILL:Appraise			RANK:4
@@ -257,7 +275,7 @@ GEAR:Wand				LOCATION:Equipped		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVE
 GEAR:Dagger				LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Cloak of Resistance +1	LOCATION:Equipped
 GEAR:Headband of Intellect +2	LOCATION:Equipped
-GEAR:Ring (Protection +1)	LOCATION:Equipped
+GEAR:Ring of Protection +1	LOCATION:Equipped
 GEAR:Unguent of Timelessness	LOCATION:Equipped
 GEAR:Mortician's Tools		LOCATION:Equipped
 TEMPLATE:Rolth's Magic Buffs

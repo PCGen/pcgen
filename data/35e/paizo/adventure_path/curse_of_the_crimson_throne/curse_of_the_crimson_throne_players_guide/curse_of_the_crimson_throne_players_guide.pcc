@@ -32,7 +32,7 @@ DESC:Rebellion is in the air! The Pathfinder: Curse of the Crimson Throne Player
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
-
+ABILITYCATEGORY:cotct_pg_abilitycategories.lst
 ABILITY:cotct_pg_abilities.lst
 DEITY:cotct_pg_deities.lst
 EQUIPMENT:cotct_pg_equipment.lst
