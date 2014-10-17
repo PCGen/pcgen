@@ -1030,9 +1030,10 @@
 						<xsl:with-param name="attribute" select="'spells.memorized'"/>
 					</xsl:call-template>
 					<xsl:value-of select="bonusspell"/>
+					<xsl:value-of select="name"/>
 					<xsl:choose>
 						<xsl:when test="dc &gt;= 0">
-							<xsl:value-of select="name"/> (DC:<xsl:value-of select="dc"/>)
+							 (DC:<xsl:value-of select="dc"/>)
 						</xsl:when>
 					</xsl:choose>
 				</fo:block>
