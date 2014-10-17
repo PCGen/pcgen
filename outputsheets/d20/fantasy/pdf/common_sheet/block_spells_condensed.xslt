@@ -821,8 +821,7 @@
 				<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth" />mm</xsl:attribute>
 			</fo:table-column>
 			<fo:table-body>
-				<fo:table-row>
-											<xsl:message>Test</xsl:message>
+				<fo:table-row>											<xsl:message>Test</xsl:message>
 					<fo:table-cell padding-top="1pt">
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'spells.memorized.header'"/>
@@ -919,8 +918,7 @@
 					<xsl:attribute name="column-width"><xsl:value-of select="$pagePrintableWidth div 5" />mm</xsl:attribute>
 				</fo:table-column>
 				<fo:table-body>
-					<fo:table-row>
-											<xsl:message>Test</xsl:message>
+					<fo:table-row>											<xsl:message>Test Spells Memorized Header</xsl:message>
 						<fo:table-cell padding-top="1pt" number-columns-spanned="5">
 							<xsl:call-template name="attrib">
 								<xsl:with-param name="attribute" select="'spells.memorized.header'"/>
@@ -943,8 +941,7 @@
 ====================================-->
 	<xsl:template match="class" mode="spells.memorized">
 		<xsl:if test="count(.//spell) &gt; 0">
-			<fo:table-row>
-											<xsl:message>Test</xsl:message>
+			<fo:table-row>											<xsl:message>Test "Spells Memorized Section"</xsl:message>
 				<fo:table-cell padding-top="1pt" number-columns-spanned="5">
 					<xsl:call-template name="attrib">
 						<xsl:with-param name="attribute" select="'spells.memorized.header'"/>
@@ -954,12 +951,10 @@
 					</fo:block>
 				</fo:table-cell>
 			</fo:table-row>
-			<fo:table-row>
-											<xsl:message>Test</xsl:message>
+			<fo:table-row>													<xsl:message>Test Levels 4-</xsl:message>
 				<xsl:apply-templates select="level[@number &lt; 5]" mode="spells.memorized"/>
 			</fo:table-row>
-			<fo:table-row>
-											<xsl:message>Test</xsl:message>
+			<fo:table-row>													<xsl:message>Test Levels 5+</xsl:message>
 				<xsl:apply-templates select="level[@number &gt;= 5]" mode="spells.memorized"/>
 			</fo:table-row>
 		</xsl:if>
@@ -982,8 +977,7 @@
 							<xsl:attribute name="column-width"><xsl:value-of select="0.80 * $pagePrintableWidth div 5" />mm</xsl:attribute>
 						</fo:table-column>
 						<fo:table-body>
-							<fo:table-row>
-											<xsl:message>Test</xsl:message>
+							<fo:table-row>				<xsl:message>Test Spells Memorized Level Grant</xsl:message>
 								<fo:table-cell padding-top="1pt" number-columns-spanned="2">
 									<xsl:call-template name="attrib">
 										<xsl:with-param name="attribute" select="'spells.memorized.level'"/>
@@ -1007,8 +1001,7 @@
 ====================================
 ====================================-->
 	<xsl:template match="spell" mode="spells.memorized">
-		<fo:table-row>
-											<xsl:message>Test END</xsl:message>
+		<fo:table-row>					<xsl:message>Test END - Spells Memorized</xsl:message>
 			<xsl:choose>
 				<xsl:when test="times_memorized &gt;= 0">
 					<fo:table-cell padding-top="0pt" text-align="end">
@@ -1037,7 +1030,11 @@
 						<xsl:with-param name="attribute" select="'spells.memorized'"/>
 					</xsl:call-template>
 					<xsl:value-of select="bonusspell"/>
-					<xsl:value-of select="name"/> (DC:<xsl:value-of select="dc"/>)
+					<xsl:choose>
+						<xsl:when test="dc &gt;= 0">
+							<xsl:value-of select="name"/> (DC:<xsl:value-of select="dc"/>)
+						</xsl:when>
+					</xsl:choose>
 				</fo:block>
 			</fo:table-cell>
 		</fo:table-row>
