@@ -339,7 +339,7 @@ Spell Use						KEY:Item Familiar Special Ability ~ Spell Use					CATEGORY:Specia
 # IFSkillPointsInvested = Tracks the total Skill Ranks the user enters for investment.
 
 Invest Life Energy	KEY:Item Familiar Master ~ Invest Life Energy	PREFEAT:1,Item Familiar	CATEGORY:Special Ability	TYPE:ItemFamiliar	COST:0	DESC:You have invested a portion of your life force.
-Invest Skill Ranks	KEY:Item Familiar Master ~ Invest Skill Ranks	PREFEAT:1,Item Familiar	CATEGORY:Special Ability	TYPE:ItemFamiliar	COST:0	DESC:You have invested %1 skill ranks into your Item Familiar, which grants you +%2 Total Bonus back to assign to your skills.|IFSkillPointsInvested|IFSkillBonus	CHOOSE:USERINPUT|TITLE=Skill Ranks Total Invested - NUMBER ONLY	MULT:YES	STACK:NO	BONUS:ABILITYPOOL|Item Familiar Bonus to Skill|IFSkillBonus	DEFINE:IFSkillPointsInvested|0	BONUS:VAR|IFSkillPointsInvested|%LIST	DEFINE:IFSkillBonus|0	BONUS:VAR|IFSkillBonus|IFSkillPointsInvested/3
+Invest Skill Ranks	KEY:Item Familiar Master ~ Invest Skill Ranks	PREFEAT:1,Item Familiar	CATEGORY:Special Ability	TYPE:ItemFamiliar	COST:0	DESC:You have invested %1 skill ranks into your Item Familiar, which grants you +%2 Total Bonus back to assign to your skills.|IFSkillPointsInvested|IFSkillBonus	CHOOSE:NUMCHOICES=1|USERINPUT|TITLE=Skill Ranks Total Invested - NUMBER ONLY	MULT:YES	STACK:NO	BONUS:ABILITYPOOL|Item Familiar Bonus to Skill|IFSkillBonus	DEFINE:IFSkillPointsInvested|0	BONUS:VAR|IFSkillPointsInvested|%LIST	DEFINE:IFSkillBonus|0	BONUS:VAR|IFSkillBonus|IFSkillPointsInvested/3
 Invest Spell Slots	KEY:Item Familiar Master ~ Invest Spell Slots	PREFEAT:1,Item Familiar	CATEGORY:Special Ability	TYPE:ItemFamiliar	COST:0	DESC:You have invested your highest level Spell Slot.
 
 
