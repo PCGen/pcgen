@@ -753,11 +753,11 @@ Righteous Might.MOD	TEMPBONUS:ANYPC|COMBAT|AC|2|TYPE=NaturalArmorEnhancement.STA
 Righteous Might.MOD	TEMPBONUS:ANYPC|DR|Evil|5|TYPE=Temporary	TEMPBONUS:ANYPC|DR|Good|5|TYPE=Temporary	TEMPBONUS:ANYPC|DR|Evil|10|TYPE=Temporary|PREVARGTEQ:var("CL=Cleric")+var("BL=Cleric"),15	TEMPBONUS:ANYPC|DR|Good|10|TYPE=Temporary|PREVARGTEQ:var("CL=Cleric")+var("BL=Cleric"),15
 Righteous Might.MOD	TEMPBONUS:ANYPC|WEAPONPROF=TYPE.Simple|DAMAGESIZE|1|TYPE=Size	TEMPBONUS:ANYPC|WEAPONPROF=TYPE.Martial|DAMAGESIZE|1|TYPE=Size	TEMPBONUS:ANYPC|WEAPONPROF=TYPE.Exotic|DAMAGESIZE|1|TYPE=Size
 
-Resist Energy (Fire).MOD		CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|FireResistanceBonus|%CHOICE|TYPE=Resistance	
-Resist Energy (Acid).MOD		CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|AcidResistanceBonus|%CHOICE|TYPE=Resistance	
-Resist Energy (Cold).MOD		CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|ColdResistanceBonus|%CHOICE|TYPE=Resistance	
-Resist Energy (Sonic).MOD		CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|SonicResistanceBonus|%CHOICE|TYPE=Resistance	
-Resist Energy (Electricity).MOD	CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|ElectricityResistanceBonus|%CHOICE|TYPE=Resistance	
+Resist Energy (Fire)		CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|FireResistanceBonus|%CHOICE|TYPE=Resistance	
+Resist Energy (Acid)		CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|AcidResistanceBonus|%CHOICE|TYPE=Resistance	
+Resist Energy (Cold)		CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|ColdResistanceBonus|%CHOICE|TYPE=Resistance	
+Resist Energy (Sonic)		CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|SonicResistanceBonus|%CHOICE|TYPE=Resistance	
+Resist Energy (Electricity)	CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|ElectricityResistanceBonus|%CHOICE|TYPE=Resistance	
 
 
 #################################################
