@@ -60,13 +60,13 @@ ABILITYCATEGORY:Rapid Reload				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTI
 
 ###Block: New Racial Trait Blocks
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list									Plural description for UI		Display Location
-ABILITYCATEGORY:Human Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HumanRaceTrait																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Dwarf Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DwarfRaceTrait																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Elf Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfRaceTrait																							DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Gnome Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeRaceTrait																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Half-Elf Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfElfRaceTrait																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Half-Orc Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfOrcRaceTrait																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Halfling Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingRaceTrait																						DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Human Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Human Race Trait.HumanRaceTrait																						DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Dwarf Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dwarf Race Trait.DwarfRaceTrait																						DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Elf Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Elf Race Trait.ElfRaceTrait																							DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Gnome Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gnome Race Trait.GnomeRaceTrait																						DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Half-Elf Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Elf Race Trait.HalfElfRaceTrait																						DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Half-Orc Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Orc Race Trait.HalfOrcRaceTrait																						DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Halfling Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Halfling Race Trait.HalflingRaceTrait																						DISPLAYLOCATION:Race Traits
 
 # Subrace Support
 ABILITYCATEGORY:Human Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:HumanSubrace.HumanSubraceDisplay																			DISPLAYLOCATION:Race Traits
