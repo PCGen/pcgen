@@ -6,7 +6,8 @@ SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pa
 # COMMENT: Size_Master sets the Face and Reach - use 'RaceSizeIsLong' at a value of 1 for creatures that aren't 'Tall'
 
 # Ability Name		Category of Ability	Define								Ability																																		Modify VAR
-Default			CATEGORY:Internal		DEFINE:Maneuverability|0					ABILITY:Internal|AUTOMATIC|Companion Tracker|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,1],[PREVARGTEQ:AnimalCompanionMasterLVL,1]	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|PREMOVE:1,Fly=1	BONUS:VAR|Maneuverability|0
+Default			CATEGORY:Internal		DEFINE:Maneuverability|0					ABILITY:Internal|AUTOMATIC|Companion Tracker|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,1],[PREVARGTEQ:AnimalCompanionMasterLVL,1]	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|PREMOVE:1,Fly=1	BONUS:VAR|Maneuverability|0	DEFINE:FireResistanceBonus|0	DEFINE:AcidResistanceBonus|0	DEFINE:ColdResistanceBonus|0	DEFINE:SonicResistanceBonus|0	DEFINE:ElectricityResistanceBonus|0
+
 #BONUS:ABILITYPOOL|Feat|-HD+1/2|PRERACE:1,RACETYPE=Companion
 
 # TODO: Move ALL races from 'Select Racial Traits' to individual calls from the race.
@@ -35,6 +36,11 @@ CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Blindsight|PREVA
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Tremorsense|PREVARGTEQ:TremorsenseRange,1
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|See Etheral|PREVARGTEQ:SeeEtheralRange,1
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|See Invisibility|PREVARGTEQ:SeeInvisibilityRange,1
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|PREVARGTEQ:AcidResistanceBonus,1				
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|PREVARGTEQ:ColdResistanceBonus,1		
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Resistance to Fire|PREVARGTEQ:FireResistanceBonus,1		
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Resistance to Electricity|PREVARGTEQ:ElectricityResistanceBonus,1	
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic|PREVARGTEQ:SonicResistanceBonus,1		
 ###Block
 # Ability Name			Unique Key					Category of Ability	Type				Define																																														Description											Ability																																																																																																																																																																											Modify VAR
 CATEGORY=Internal|Default.MOD															DEFINE:PoisonSaveDC|0	DEFINE:LowLightRange|0	DEFINE:DarkvisionRange|0	DEFINE:HasLowLightVision|0	DEFINE:TremorsenseRange|0	DEFINE:BlindsenseRange|0	DEFINE:BlindsightRange|0	DEFINE:SeeInvisibilityRange|0	DEFINE:SeeEtheralRange|0	DEFINE:KeenScentRange|0																																																																																																																																																																																									BONUS:VAR|PoisonSaveDC|10+(HD/2)+CON|TYPE=Base

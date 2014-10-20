@@ -753,6 +753,17 @@ Righteous Might.MOD	TEMPBONUS:ANYPC|COMBAT|AC|2|TYPE=NaturalArmorEnhancement.STA
 Righteous Might.MOD	TEMPBONUS:ANYPC|DR|Evil|5|TYPE=Temporary	TEMPBONUS:ANYPC|DR|Good|5|TYPE=Temporary	TEMPBONUS:ANYPC|DR|Evil|10|TYPE=Temporary|PREVARGTEQ:var("CL=Cleric")+var("BL=Cleric"),15	TEMPBONUS:ANYPC|DR|Good|10|TYPE=Temporary|PREVARGTEQ:var("CL=Cleric")+var("BL=Cleric"),15
 Righteous Might.MOD	TEMPBONUS:ANYPC|WEAPONPROF=TYPE.Simple|DAMAGESIZE|1|TYPE=Size	TEMPBONUS:ANYPC|WEAPONPROF=TYPE.Martial|DAMAGESIZE|1|TYPE=Size	TEMPBONUS:ANYPC|WEAPONPROF=TYPE.Exotic|DAMAGESIZE|1|TYPE=Size
 
+Resist Energy (Fire).MOD		CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|FireResistanceBonus|%CHOICE|TYPE=Resistance	
+Resist Energy (Acid).MOD		CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|AcidResistanceBonus|%CHOICE|TYPE=Resistance	
+Resist Energy (Cold).MOD		CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|ColdResistanceBonus|%CHOICE|TYPE=Resistance	
+Resist Energy (Sonic).MOD		CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|SonicResistanceBonus|%CHOICE|TYPE=Resistance	
+Resist Energy (Electricity).MOD	CHOOSE:NUMBER|10|20|30|TITLE=Choose Resistance Level	TEMPBONUS:ANYPC|VAR|ElectricityResistanceBonus|%CHOICE|TYPE=Resistance	
+
+
+
+
+
+DESC:This abjuration grants a creature limited protection from damage of whichever one of five energy types you select: acid, cold, electricity, fire, or sonic. The subject gains resist energy 10 against the energy type chosen, meaning that each time the creature is subjected to such damage [whether from a natural or magical source], that damage is reduced by 10 points before being applied to the creature's hit points. The value of the energy resistance granted increases to 20 points at 7th level and to a maximum of 30 points at 11th level. The spell protects the recipient's equipment as well. Resist energy absorbs only damage. The subject could still suffer unfortunate side effects. Resist energy overlaps [and does not stack with] protection from energy. If a character is warded by protection from energy and resist energy, the protection spell absorbs damage until its power is exhausted.|PRERULE:1,DisplayFullSpell
 
 #################################################
 #	Full Spell Descriptions				#
