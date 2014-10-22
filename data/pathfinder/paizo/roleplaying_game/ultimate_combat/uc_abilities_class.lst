@@ -14,7 +14,7 @@ CATEGORY=Internal|Archetype Display.MOD	ABILITY:Samurai Archetype|AUTOMATIC|Arch
 Archetype Gunslinger				CATEGORY:Archetype	TYPE:GunslingerArchetype	VISIBLE:NO
 Archetype Ninja					CATEGORY:Archetype	TYPE:NinjaArchetype		VISIBLE:NO
 Archetype Samurai					CATEGORY:Archetype	TYPE:SamuraiArchetype		VISIBLE:NO
-
+	
 
 CATEGORY=Internal|Default.MOD														DEFINE:KatanaExoticUse|0	DEFINE:KatanaExoticUse|0						BONUS:VAR|KatanaExoticUse|1|PREFEAT:1,Exotic Weapon Proficiency (Katana)
 
