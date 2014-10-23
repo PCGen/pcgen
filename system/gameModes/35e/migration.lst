@@ -220,7 +220,8 @@ ABILITY:Special Ability|Divine Grace			MAXVER:6.4.00	NEWKEY:Paladin ~ Divine Gra
 ABILITY:Special Ability|Lay on Hands			MAXVER:6.4.00	NEWKEY:Paladin ~ Lay on Hands				
 ABILITY:Special Ability|Aura of Courage			MAXVER:6.4.00	NEWKEY:Paladin ~ Aura of Courage				
 ABILITY:Special Ability|Divine Health			MAXVER:6.4.00	NEWKEY:Paladin ~ Divine Health				
-ABILITY:Special Ability|Turn Undead				MAXVER:6.4.00	NEWKEY:Paladin ~ Turn Undead				
+# This ruins the Turn Undead Base Ability for Clerics!
+#ABILITY:Special Ability|Turn Undead				MAXVER:6.4.00	NEWKEY:Paladin ~ Turn Undead				
 ABILITY:Special Ability|Spells				MAXVER:6.4.00	NEWKEY:Paladin ~ Spells					
 ABILITY:Special Ability|Special Mount			MAXVER:6.4.00	NEWKEY:Paladin ~ Special Mount				
 ABILITY:Special Ability|Remove Disease			MAXVER:6.4.00	NEWKEY:Paladin ~ Remove Disease				
