@@ -324,6 +324,7 @@
 								<fo:table-row>
 									<fo:table-cell number-columns-spanned="2">
 										<xsl:apply-templates select="saving_throws"/>
+										<xsl:apply-templates select="resistances"/>
 										<xsl:apply-templates select="attack" mode="conditional"/>
 										<xsl:apply-templates select="attack" mode="ranged_melee"/>
 										<xsl:apply-templates select="weapons/martialarts"/>
@@ -436,7 +437,7 @@
 <!-->	ADITIONAL PAGES for Spells	-->
 			<xsl:apply-templates select="spells"/>	
 			<xsl:apply-templates select="basics" mode="bio"/>
-			<xsl:apply-templates select="basics/notes" mode="bio"/>
+			<xsl:apply-templates select="basics/notes" mode="bio"/>	
 		</fo:root>
 	</xsl:template>
 

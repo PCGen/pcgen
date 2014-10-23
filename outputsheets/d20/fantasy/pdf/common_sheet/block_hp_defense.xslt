@@ -804,7 +804,8 @@
 		</fo:table>
 		<!-- END ini-base table -->
 	</xsl:template>
-	<!--
+
+	<!--		NOT USED
 ====================================
 ====================================
 	TEMPLATE - Base Attack TABLE
@@ -901,6 +902,47 @@
 		<!-- END encumberance table -->
 	</xsl:template>
 
+	<!--
+====================================
+====================================
+	TEMPLATE - Resistance TABLE
+====================================
+====================================-->
+	<xsl:template name="resistances">
+		<!-- BEGIN Resistance table -->
+		<fo:table table-layout="fixed">
+			<!-- 0.26 * $pagePrintableWidth - 2 mm -->
+			<fo:table-column>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.50 * (0.26 * $pagePrintableWidth - 4)" />mm</xsl:attribute>
+			</fo:table-column>
+			<fo:table-body>
+				<fo:table-row height="2pt">
+											<xsl:message>Test</xsl:message>
+					<fo:table-cell/>
+				</fo:table-row>
+				<fo:table-row>
+											<xsl:message>Test</xsl:message>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'initiative.title'"/>
+						</xsl:call-template>
+					<fo:block line-height="10pt" font-weight="bold" font-size="7pt" space-before="1pt">Res</fo:block>
+					</fo:table-cell>
+					<fo:table-cell/>
+					<fo:table-cell>
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'initiative.total'"/>
+						</xsl:call-template>
+						<fo:block space-before.optimum="2pt" font-size="8pt">
+							<xsl:value-of select="resistance"/>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+			</fo:table-body>
+		</fo:table>
+<!--	</xsl:if>	-->
+		<!-- END Resistance table -->
+	</xsl:template>
 
 <!--
 ====================================

@@ -1602,6 +1602,18 @@
 		<!--
 	  ====================================
 	  ====================================
+			Resistance Table
+	  ====================================
+	  ====================================-->
+		<resistances>
+		<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","ASPECT=ResistanceOutput")-1') ; resistance , resistance_has_next>
+			<resistance>${pcstring('ABILITYALL.Special Ability.${resistance}.TYPE=Resistance.ASPECT.ResistanceOutput')}</resistance>
+		</@loop>
+		</resistances>
+
+		<!--
+	  ====================================
+	  ====================================
 			Racial Traits
 	  ====================================
 	  ====================================-->
