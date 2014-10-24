@@ -76,5 +76,6 @@ Tamiir-Quah (Wind Clan)		KEY:Tamiir-Quah		NAMEISPI:YES	CATEGORY:Background	TYPE:
 
 ###Block: Placeholder objects for no Human Ethnicities or Regional Affinities
 # Ability Name	Category of Ability	Type
-None			CATEGORY:Background	TYPE:HumanEthnicity.Region
-Unknown		CATEGORY:Background	TYPE:HumanEthnicity.Region
+# These are in Core Rules
+#None			CATEGORY:Background	TYPE:HumanEthnicity.Region
+#Unknown		CATEGORY:Background	TYPE:HumanEthnicity.Region

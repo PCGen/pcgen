@@ -3,9 +3,10 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 # ORIGINAL ENTRY: none
 # ORIGINAL ENTRY DATE: none
 
-Half-Drow Paragon.REMOVE
-Tenacious Survivor.REMOVE
-Blood Drinker.REMOVE
-Blood Feaster.REMOVE
-Blood Salvage.REMOVE
-Diverse Palate.REMOVE
+Half-Drow Paragon.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+Tenacious Survivor.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+Blood Drinker.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+Blood Feaster.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+Blood Salvage.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+Diverse Palate.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+

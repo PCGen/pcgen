@@ -38,7 +38,7 @@ SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
 FEAT:Great Fortitude
 FEAT:Skill Focus (Perception)
-ABILITY:CATEGORY=Region of Origin|Unknown
+ABILITY:CATEGORY=Region of Origin|Region ~ Unknown
 
 STARTPACK:Shark (Jigsaw) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark (Jigsaw)]	SOURCEPAGE:p.255
 RACE:Shark (Jigsaw)	!PRERACE:1,%
@@ -48,7 +48,7 @@ STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Perception	RANK:4
 FEAT:Great Fortitude
 FEAT:Improved Initiative
-ABILITY:CATEGORY=Region of Origin|Unknown
+ABILITY:CATEGORY=Region of Origin|Region ~ Unknown
 
 STARTPACK:Boar (Sargavan) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boar (Sargavan)]	SOURCEPAGE:p.255
 RACE:Boar (Sargavan)	!PRERACE:1,%
@@ -82,7 +82,7 @@ RACE:Calikang	!PRERACE:1,%
 NAME:Calikang
 ALIGN:LN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-ABILITY:CATEGORY=Region of Origin|Unknown
+ABILITY:CATEGORY=Region of Origin|Region ~ Unknown
 SKILL:Intimidate		RANK:15
 SKILL:Perception		RANK:15
 SKILL:Use Magic Device	RANK:15
@@ -119,7 +119,7 @@ DEITY:Urgathoa	DOMAIN:Death|Magic
 #DEITY:Urgathoa
 ALIGN:NE
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-ABILITY:CATEGORY=Region of Origin|Unknown
+ABILITY:CATEGORY=Region of Origin|Region ~ Unknown
 LANGBONUS:Abyssal|Common|Infernal|Necril
 FEAT:Ability Focus (Disease)
 FEAT:Combat Casting

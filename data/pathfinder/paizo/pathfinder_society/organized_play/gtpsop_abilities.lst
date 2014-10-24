@@ -25,6 +25,8 @@ Sczarni Faction													NAMEISPI:YES	CATEGORY:Background		TYPE:Society Facti
 Shadow Lodge Faction												NAMEISPI:YES	CATEGORY:Background		TYPE:Society Faction						VISIBLE:DISPLAY																																																																																																																																																																													SOURCEPAGE:p.12
 Silver Crusade Faction												NAMEISPI:YES	CATEGORY:Background		TYPE:Society Faction						VISIBLE:DISPLAY																																																																																																																																																																													SOURCEPAGE:p.12
 Taldor Faction													NAMEISPI:YES	CATEGORY:Background		TYPE:Society Faction						VISIBLE:DISPLAY																																																																																																																																																																													SOURCEPAGE:p.12		DESC:The Taldor faction was retired with Season 6.0. Sovereign Court faction PCs qaualify for Taldor faction vanities and mission boons.
+None			KEY:Society Faction ~ None			CATEGORY:Background	TYPE:Society Faction
+
 
 ####Block: Basic Traits: Andoran Faction
 
