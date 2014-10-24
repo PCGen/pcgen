@@ -1030,6 +1030,17 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Inspire Competence</name>
+			<description>A bard of 3rd level or higher with 6 or more ranks in a Perform skill can use his music or poetics to help an ally succeed at a task. The ally must be within 30 feet and able to see and hear the Bard. The bard must also be able to see the ally. The ally gets a +2 competence bonus on skill checks with a particular skill as long as he or she continues to hear the Bard&#39;s music. Certain uses of this ability are infeasible. The effect lasts as long as the bard concentrates, up to a maximum of 2 minutes. A bard can&#39;t inspire competence in himself. Inspire competence is a mind-affecting ability.</description>
+			<type>SUPERNATURAL.CLASSFEATURES.BARDCLASSFEATURES.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Inspire Courage</name>
 			<description>A bard with 3 or more ranks in a Perform skill can use song or poetics to inspire courage in his allies (including himself ), bolstering them against fear and improving their combat abilities. To be affected, an ally must be able to hear the bard sing. The effect lasts for as long as the ally hears the bard sing and for 5 rounds thereafter. An affected ally receives a +1 morale bonus on saving throws against charm and fear effects and a +1 morale bonus on attack and weapon damage rolls. At 8th level, and every six bard levels thereafter, this bonus increases by 1 (+2 at 8th, +3 at 14th, and +4 at 20th). Inspire courage is a mind-affecting ability.</description>
 			<type>SUPERNATURAL.CLASSFEATURES.BARDCLASSFEATURES.SPECIALQUALITY</type>
