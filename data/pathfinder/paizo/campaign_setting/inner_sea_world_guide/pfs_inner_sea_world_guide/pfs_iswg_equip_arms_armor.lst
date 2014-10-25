@@ -3,29 +3,29 @@ SOURCELONG:Pathfinder Society	SOURCESHORT:PS	SOURCEWEB:http://paizo.com/pathfind
 # Original Entry by: Stefan Radermacher
 
 # Equipment Name		Type			Required Feat
-Blackaxe			TYPE:PFSLegal
-Shield of Aroden		TYPE:PFSLegal
-Dogslicer			TYPE:PFSLegal
-War Razor			TYPE:PFSLegal
-Klar (as weapon)		TYPE:PFSLegal
-Earth Breaker		TYPE:PFSLegal
-Horsechopper		TYPE:PFSLegal
-Ogre Hook			TYPE:PFSLegal
-Aldori Dueling Sword	TYPE:PFSLegal
-Sawtooth Sabre		TYPE:PFSLegal
-Urumi				TYPE:PFSLegal
-Bladed Scarf		TYPE:PFSLegal
-Bolas (Shoanti)		TYPE:PFSLegal
-Leaf Armor			TYPE:PFSLegal
-Field Plate			TYPE:PFSLegal
-Hellknight Plate		TYPE:PFSLegal
-Stoneplate			TYPE:PFSLegal
-Klar (as Shield)		TYPE:PFSLegal
-Pepperbox			TYPE:PFSLegal	PREFEAT:1,Gunsmithing
-Pistol			TYPE:PFSLegal	PREFEAT:1,Gunsmithing
-Musket			TYPE:PFSLegal	PREFEAT:1,Gunsmithing
-Cannon			TYPE:PFSLegal	PREFEAT:1,Gunsmithing
-Black Powder (Dose)	TYPE:PFSLegal
-Black Powder (Keg)	TYPE:PFSLegal
-Cannon Ball			TYPE:PFSLegal
-Firearm Bullet		TYPE:PFSLegal
+Blackaxe.MOD			TYPE:PFSLegal
+Shield of Aroden.MOD		TYPE:PFSLegal
+Dogslicer.MOD			TYPE:PFSLegal
+War Razor.MOD			TYPE:PFSLegal
+Klar (as weapon).MOD		TYPE:PFSLegal
+Earth Breaker.MOD		TYPE:PFSLegal
+Horsechopper.MOD		TYPE:PFSLegal
+Ogre Hook.MOD			TYPE:PFSLegal
+Aldori Dueling Sword.MOD	TYPE:PFSLegal
+Sawtooth Sabre.MOD		TYPE:PFSLegal
+Urumi.MOD				TYPE:PFSLegal
+Bladed Scarf.MOD		TYPE:PFSLegal
+Bolas (Shoanti).MOD		TYPE:PFSLegal
+Leaf Armor.MOD			TYPE:PFSLegal
+Field Plate.MOD			TYPE:PFSLegal
+Hellknight Plate.MOD		TYPE:PFSLegal
+Stoneplate.MOD			TYPE:PFSLegal
+Klar (as Shield).MOD		TYPE:PFSLegal
+Pepperbox.MOD			TYPE:PFSLegal	PREFEAT:1,Gunsmithing
+Pistol.MOD			TYPE:PFSLegal	PREFEAT:1,Gunsmithing
+Musket.MOD			TYPE:PFSLegal	PREFEAT:1,Gunsmithing
+Cannon.MOD			TYPE:PFSLegal	PREFEAT:1,Gunsmithing
+Black Powder (Dose).MOD	TYPE:PFSLegal
+Black Powder (Keg).MOD	TYPE:PFSLegal
+Cannon Ball.MOD			TYPE:PFSLegal
+Firearm Bullet.MOD		TYPE:PFSLegal
