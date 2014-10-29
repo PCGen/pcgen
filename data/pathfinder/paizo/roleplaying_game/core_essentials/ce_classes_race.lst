@@ -160,7 +160,7 @@ CLASS:Vermin (Intelligent)	OUTPUTNAME:Vermin	HD:8		TYPE:Monster	CLASSTYPE:Monste
 # Class Name			Reg. Race Type
 CLASS:Vermin (Intelligent)	PRERACETYPE:Vermin
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
-CLASS:Vermin (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES
+CLASS:Vermin (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Acrobatics|Climb|Fly|Perception|Stealth|Swim
 
 # Class Name				Visible
 CLASS:Sorcerer/Cleric (Arcane)	VISIBLE:NO
