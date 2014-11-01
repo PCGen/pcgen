@@ -41,7 +41,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Gnomes of Golarion
 # Traits: Brastlewark Businessman, Charlatan, Collector, Excitable, Explorer, Etymologist, First Memories, Naturally Gifted, Rapscallion, Sprint, Trickster, and Zealot
 
 !PRECAMPAIGN:1,Gnomes of Golarion
-PCC:@../gnomes_of_golarion.pcc
+PCC:../gnomes_of_golarion.pcc
 ABILITY:pfs_gnog_abilities_pfs.lst
 EQUIPMENT:pfs_gnog_equip_arms_armor.lst
 
