@@ -1,0 +1,71 @@
+# CVS $Revision: 9628 $ $Author: zaister $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Faiths of Corruption	SOURCESHORT:FOC	SOURCEWEB:http://paizo.com/products/btpy8odc?Pathfinder-Player-Companion-Faiths-of-Corruption	SOURCEDATE:2011-10
+# Original Entry by: Stefan Radermacher
+
+# None of these deities are listed as legal
+
+###Block: Minor Deities
+# Deity Name	Product Identity?	Domains											Description of Deity/Title						Deity Weapon			Align		Pantheon					Source Page
+Achaekek.FORGET
+Dahak.FORGET
+Ghlaunder.FORGET
+Gyronna.FORGET
+Lissala.FORGET
+Ydersius.FORGET
+Zyphus.FORGET
+
+###Block: Archdevils
+# Deity Name	Product Identity?	Domains								Description of Deity/Title					Deity Weapon		Align		Pantheon			Source Page
+Baalzebul.FORGET
+Barbatos.FORGET
+Belial.FORGET
+Dispater.FORGET
+Geryon.FORGET
+Mammon.FORGET
+Mephistopheles.FORGET
+Moloch.FORGET
+
+###Block: Demon Lords
+# Deity Name	Product Identity?	Domains									Description of Deity/Title					Deity Weapon			Align		Pantheon			Source Page
+Abraxas.FORGET
+Angazhan.FORGET
+Baphomet.FORGET
+Cyth-V'sug.FORGET
+Dagon.FORGET
+Deskari.FORGET
+Gogunta.FORGET
+Kostchtchie.FORGET
+Nocticula.FORGET
+Orcus.FORGET
+Pazuzu.FORGET
+Shax.FORGET
+Socothbenoth.FORGET
+Zura.FORGET
+
+###Block: Elemental Lords
+# Deity Name	Product Identity?	Domains									Description of Deity/Title	Deity Weapon		Align		Pantheon				Source Page
+Ayrzul.FORGET
+Hshurha.FORGET
+Kelizandri.FORGET
+Ymeri.FORGET
+
+###Block: Horsemen
+# Deity Name	Product Identity?	Domains									Description of Deity/Title	Deity Weapon			Align		Pantheon		Source Page
+Apollyon.FORGET
+Charon.FORGET
+Szuriel.FORGET
+Trelmarixian.FORGET
+
+###Block: Great Old Ones
+# Deity Name	Product Identity?	Domains										Deity Weapon		Align		Pantheon						Source Page
+Great Old Ones.FORGET
+Azathoth.FORGET
+Bokrug.FORGET
+Cthulhu.FORGET
+Hastur.FORGET
+Mhar.FORGET
+Nyarlathotep.FORGET
+Shub-Niggurath.FORGET
+Xhamen-Dor.FORGET
+Yog-Sothoth.FORGET
+

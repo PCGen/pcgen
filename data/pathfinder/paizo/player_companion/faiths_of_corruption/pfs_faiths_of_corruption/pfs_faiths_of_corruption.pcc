@@ -34,8 +34,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Faiths of C
 #EXTRAFILE:OGL.txt
 
 # Pathfinder Player Companion: Faiths of Corruption
-# Feats: all feats on pages 24-25; Spells: all spells on pages 28-29; Traits: all traits on pages 4-21
+# Feats: all feats on pages 24-25;
+# Spells: all spells on pages 28-29;
+# Traits: all traits on pages 4-21
 
 !PRECAMPAIGN:1,Faiths of Corruption
-PCC:@/pathfinder/paizo/player_companion/faiths_of_corruption/faiths_of_corruption.pcc
-
+PCC:../faiths_of_corruption.pcc
+DEITY:pfs_foc_deities.lst
