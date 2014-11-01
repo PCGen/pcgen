@@ -35,6 +35,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Dungeoneer's Handbook"
 #EXTRAFILE:OGL.txt
 
 # Data Files
+ABILITY:dh_abilities.lst
 ABILITY:dh_abilities_class.lst
 COMPANIONMOD:dh_companionmods.lst
 EQUIPMENT:dh_equip_general.lst
@@ -43,5 +44,6 @@ FEAT:dh_feats.lst
 SPELL:dh_spells.lst
 KIT:dh_kits.lst
 SKILL:dh_skills.lst
+TEMPLATE:dh_templates.lst
 
 WEAPONPROF:dh_profs_weapon.lst
