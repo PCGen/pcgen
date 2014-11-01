@@ -41,7 +41,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Dwarves of Golario
 # Traits: all traits except Coin Hoarder, Eldritch Smith, and Toilcrafter
 
 !PRECAMPAIGN:1,Dwarves of Golarion
-PCC:@../dwarves_of_golarion.pcc
+PCC:../dwarves_of_golarion.pcc
 ABILITY:pfs_dog_abilities.lst
 DEITY:pfs_dog_deities.lst
 
