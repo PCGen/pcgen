@@ -1,0 +1,51 @@
+# CVS $Revision: 19436 $ $Author: amaitland $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+#Author: Gerard van Konijnenburg
+SOURCELONG:Dwarves of Golarion	SOURCESHORT:DOG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8b9j	SOURCEDATE:2009-12
+
+# Traits: all traits except Coin Hoarder, Eldritch Smith, and Toilcrafter
+
+###Block: Regional Affinities
+# Ability Name			Product Identity?	Category of Ability	Type		Visible		Template									Source Page
+#CATEGORY=Background|Darklands.MOD
+#CATEGORY=Background|Five Kings Mountains.MOD
+#CATEGORY=Background|Kodar Mountains.MOD
+#CATEGORY=Background|Mindspin Mountains.MOD
+#CATEGORY=Background|Lands of the Linnorm Kings.MOD
+#CATEGORY=Background|Osirion.MOD
+#CATEGORY=Background|Shattered Range.MOD
+
+###Block: Magic Traits
+# Ability Name		Unique Key					Category of Ability		Type				Multiple Requirements																				Required Race				Description																																																											Source Page
+#CATEGORY=Special Ability|Deep Guardian.MOD
+#CATEGORY=Special Ability|Earthbound.MOD
+CATEGORY=Special Ability|Eldritch Smith.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+#CATEGORY=Special Ability|Strength of the Land.MOD
+
+###Block: Race Traits
+# Ability Name	Unique Key				Category of Ability		Type						Multiple Requirements																																					Description																																									Save bonus					Bonus to skill				Class Skill					Source Page		Aspects
+#CATEGORY=Special Ability|Clearheaded.MOD
+#CATEGORY=Special Ability|Deep Marker.MOD
+#CATEGORY=Special Ability|Goldsniffer.MOD
+#CATEGORY=Special Ability|Grounded.MOD
+#CATEGORY=Special Ability|Ruthless.MOD
+#CATEGORY=Special Ability|Tunnel Fighter.MOD
+#CATEGORY=Special Ability|Warsmith.MOD
+#CATEGORY=Special Ability|Zest for Battle.MOD
+
+###Block: Region Traits
+# Ability Name	Unique Key				Category of Ability		Type					Multiple Requirements																			Required Region					Description																																																	Source Page		Aspects
+#CATEGORY=Special Ability|Blooded.MOD
+CATEGORY=Special Ability|Coin Hoarder.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+#CATEGORY=Special Ability|Frostborn.MOD
+#CATEGORY=Special Ability|Glory of Old.MOD
+#CATEGORY=Special Ability|Perseverance.MOD
+#CATEGORY=Special Ability|Warrior Poet.MOD
+
+###Block: Religion Traits
+# Ability Name		Unique Key					Category of Ability		Type					Required Deity					Multiple Requirements																					Description																																																																																																					Multiple?	Choose									Bonus to skill										Class Skill	Source Page
+#CATEGORY=Special Ability|Alluring.MOD
+#CATEGORY=Special Ability|Battlefield Caster.MOD
+#CATEGORY=Special Ability|Guardian of the Forge.MOD
+#CATEGORY=Special Ability|Honeyed Words.MOD
+#CATEGORY=Special Ability|Resigned.MOD
+CATEGORY=Special Ability|Toilcrafter.MOD		TYPE:PFSNotLegal	VISIBLE:NO
