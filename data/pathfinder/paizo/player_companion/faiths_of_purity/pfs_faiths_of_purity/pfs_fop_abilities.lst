@@ -1,0 +1,9 @@
+# CVS $Revision: 9628 $ $Author: zaister $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+SOURCELONG:Faiths of Purity	SOURCESHORT:FOP	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8j60	SOURCEDATE:2011-04
+# Original Entry by: Stefan Radermacher
+
+# Traits: all traits on pages 5, 7, 9, 11, 13, 15, 17, and 18-21. Note that Eye of the Father grants Appraise as a class skill, not Perform, as written.
+
+CATEGORY=Special Ability|Trait ~ Eye of the Father.MOD 			DESC:You have an innate sense of what is right and wrong in the works you appraise, based on your years studying with the church fathers at their forges. You gain +1 trait bonus to Appraise skill, and Appraise is always a class skill for you.				CSKILL:Appraise			SOURCEPAGE:p.17
+
+# TODO: This should also remove the CHOOSE and CSKILL:Craft on the parent skill, but it doesn't

@@ -34,8 +34,13 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Faiths of Purity" Copy
 #EXTRAFILE:OGL.txt
 
 # Pathfinder Player Companion: Faiths of Purity
-# Feats: all feats on pages 24-25 with the following errata: Glorious Heat grants a number of points of healing equal to the spell level, not the caster level (ie. flame strike grants 5 points, while spark grants 0); Spells: all spells on pages 28-29; Traits: all traits on pages 5, 7, 9, 11, 13, 15, 17, and 18-21. Note that Eye of the Father grants Appraise as a class skill, not Perform, as written.
+# Feats: all feats on pages 24-25 with the following errata: Glorious Heat grants a number of points of healing equal to the spell level, not the caster level (ie. flame strike grants 5 points, while spark grants 0);
+# Spells: all spells on pages 28-29;
+# Traits: all traits on pages 5, 7, 9, 11, 13, 15, 17, and 18-21. Note that Eye of the Father grants Appraise as a class skill, not Perform, as written.
 
 !PRECAMPAIGN:1,Faiths of Purity
-PCC:@/pathfinder/paizo/player_companion/faiths_of_purity/faiths_of_purity.pcc
+PCC:../faiths_of_purity.pcc
+FEAT:pfs_fop_feats.lst
+DEITY:pfs_fop_deities.lst
+ABILITY:pfs_fop_abilities.lst
 
