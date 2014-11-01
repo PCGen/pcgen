@@ -1,0 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
+SOURCELONG:Dungeoneer's Handbook	SOURCESHORT:DH	SOURCEWEB:http://paizo.com/products/btpy8wfn?Pathfinder-Player-Companion-Dungeoneers-Handbook	SOURCEDATE:2013-03
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Scott Meyer
+
+# Traits: all traits on back inside cover are legal except Alien Origins and Lost Role Model.
+
+CATEGORY=Special Ability|Trait ~ Alien Origins.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Lost Role Model.MOD		TYPE:PFSNotLegal	VISIBLE:NO

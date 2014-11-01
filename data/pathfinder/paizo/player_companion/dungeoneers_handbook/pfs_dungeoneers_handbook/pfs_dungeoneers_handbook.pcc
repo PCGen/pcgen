@@ -43,5 +43,6 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Dungeoneer's Handbook"
 # Traits: all traits on back inside cover are legal except Alien Origins and Lost Role Model.
 
 !PRECAMPAIGN:1,Dungeoneer's Handbook
-PCC:@/pathfinder/paizo/player_companion/dungeoneers_handbook/dungeoneers_handbook.pcc
-
+PCC:../dungeoneers_handbook.pcc
+EQUIPMENT:pfs_dh_equip_general.lst
+ABILITY:pfs_dh_abilities.lst
