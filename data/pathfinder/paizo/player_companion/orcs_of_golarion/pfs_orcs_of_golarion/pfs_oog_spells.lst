@@ -5,5 +5,5 @@ SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinde
 # Spells: all spells on pages 28-29 except enemy's heart and shield the banner;
 
 # Spell Name		Type				Classes of caster						School			Sub-School			Descriptor				Components		Casting Time			Range			Target Area or Effect														Duration											Save Info								Spell Resistance	Source Page		Description
-Enemy's Heart.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-Shield the Banner.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+Enemy's Heart.FORGET
+Shield the Banner.FORGET
