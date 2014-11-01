@@ -34,8 +34,12 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Sargava, the Lost 
 #EXTRAFILE:OGL.txt
 
 # Pathfinder Player Companion: Sargava, The Lost Colony
-# Equipment: Kaava Musk on page 24, all magic items on pages 228-29; Feats: all feats on pages 24-25; Spells: all spells on page 24; Traits: all traits on page 23 except Spirit Talker
+# Equipment: Kaava Musk on page 24, all magic items on pages 228-29;
+# Feats: all feats on pages 24-25;
+# Spells: all spells on page 24;
+# Traits: all traits on page 23 except Spirit Talker
 
 !PRECAMPAIGN:1,Sargava the Lost Colony
 PCC:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/sargava_the_lost_colony.pcc
+ABILITY:pfs_stlc_abilities.lst
 

@@ -34,8 +34,12 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Halflings of Golar
 #EXTRAFILE:OGL.txt
 
 # Pathfinder Player Companion: Halflings of Golarion
-# Alternate Racial Trait: Halfling Jinx; Equipment: halfling hooch on page 10, all equipment in the table on page 22; Feats: all feats on pages 23, and 26-27; Prestige Class: Halfling Opportunist; Traits: all traits on pages 30-31.
+# Alternate Racial Trait: Halfling Jinx;
+# Equipment: halfling hooch on page 10, all equipment in the table on page 22;
+# Feats: all feats on pages 23, and 26-27;
+# Prestige Class: Halfling Opportunist;
+# Traits: all traits on pages 30-31.
 
 !PRECAMPAIGN:1,Halflings of Golarion
-PCC:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.pcc
+PCC:../halflings_of_golarion.pcc
 

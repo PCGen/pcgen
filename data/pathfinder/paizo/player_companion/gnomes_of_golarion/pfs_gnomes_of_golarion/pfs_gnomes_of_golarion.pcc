@@ -34,8 +34,14 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Gnomes of Golarion
 #EXTRAFILE:OGL.txt
 
 # Pathfinder Player Companion: Gnomes of Golarion
-# Equipment: all equipment in the table on page 23; Feats: Arcane School Spirit, Bewildering Koan, Blood Ties, Caustic Slur, Effortless Trickery, Extra Gnome Magic, Helpless Prisoner, Invoke Primal Instinct, Tantrum, Threatening Illusion, Witty Feint; Gods: all gods on the inside front cover; Spell: illusory poison; Traits: Brastlewark Businessman, Charlatan, Collector, Excitable, Explorer, Etymologist, First Memories, Naturally Gifted, Rapscallion, Sprint, Trickster, and Zealot
+# Equipment: all equipment in the table on page 23;
+# Feats: Arcane School Spirit, Bewildering Koan, Blood Ties, Caustic Slur, Effortless Trickery, Extra Gnome Magic, Helpless Prisoner, Invoke Primal Instinct, Tantrum, Threatening Illusion, Witty Feint;
+# Gods: all gods on the inside front cover;
+# Spell: illusory poison;
+# Traits: Brastlewark Businessman, Charlatan, Collector, Excitable, Explorer, Etymologist, First Memories, Naturally Gifted, Rapscallion, Sprint, Trickster, and Zealot
 
 !PRECAMPAIGN:1,Gnomes of Golarion
-PCC:@/pathfinder/paizo/player_companion/gnomes_of_golarion/gnomes_of_golarion.pcc
+PCC:../gnomes_of_golarion.pcc
+ABILITY:pfs_gnog_abilities_pfs.lst
+EQUIPMENT:pfs_gnog_equip_arms_armor.lst
 

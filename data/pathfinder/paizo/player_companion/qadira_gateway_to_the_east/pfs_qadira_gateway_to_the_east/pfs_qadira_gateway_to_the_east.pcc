@@ -35,7 +35,10 @@ DESC:A hot-blooded realm of riches, slavery, and blood feuds, the desert nation 
 #EXTRAFILE:OGL.txt
 
 # Pathfinder Player Companion: Qadira, Gateway to the East
-# Equipment: all equipment, items, and materials on pages 19, 23, and 25; Feats: all feats on pages 9 and 23; Prestige Class: Daivrat; Traits: all traits on pages 9, 15, 19, 23, and 25
+# Equipment: all equipment, items, and materials on pages 19, 23, and 25;
+# Feats: all feats on pages 9 and 23;
+# Prestige Class: Daivrat;
+# Traits: all traits on pages 9, 15, 19, 23, and 25
 
 !PRECAMPAIGN:1,Qadira - Gateway to the East
 PCC:@/pathfinder/paizo/player_companion/qadira_gateway_to_the_east/qadira_gateway_to_the_east.pcc

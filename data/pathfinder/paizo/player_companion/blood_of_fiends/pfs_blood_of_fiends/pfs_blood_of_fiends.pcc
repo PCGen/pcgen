@@ -37,7 +37,15 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Fiends" Copyr
 
 # Pathfinder Player Companion: Blood of Fiends
 # *Note: Tieflings may only be half-human. Other races, including but not limited to dwarf, elf, gnome, halfling, half-orc, tengu, and any other race, are not legal in PFS.
-# Bloodlines: daemon bloodline is not legal for Pathfinder Society; Feats: all feats on pages 24-25 are legal; Heritages: all heritages, and associated traits, on pages 18-23 are legal; Magic: bard masterpieces are legal; Other: variant tiefling abilities are not legal for Pathfinder Society; oracle curses on page 26 are legal; Inquisitons on pages 26-27 are legal; Subdomains: all subdomains on page 15 are legal; Traits: all traits on pages 30-31 are legal
+# Bloodlines: daemon bloodline is not legal for Pathfinder Society;
+# Feats: all feats on pages 24-25 are legal;
+# Heritages: all heritages, and associated traits, on pages 18-23 are legal;
+# Magic: bard masterpieces are legal;
+# Other: variant tiefling abilities are not legal for Pathfinder Society;
+# Oracle curses on page 26 are legal;
+# Inquisitons on pages 26-27 are legal;
+# Subdomains: all subdomains on page 15 are legal;
+# Traits: all traits on pages 30-31 are legal
 
 !PRECAMPAIGN:1,Blood of Fiends
 PCC:@/pathfinder/paizo/player_companion/blood_of_fiends/blood_of_fiends.pcc

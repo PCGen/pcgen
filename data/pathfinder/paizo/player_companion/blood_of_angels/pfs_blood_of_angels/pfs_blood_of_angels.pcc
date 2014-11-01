@@ -31,8 +31,20 @@ COPYRIGHT:Pathfinder Player Companion: Blood of Angels Copyright 2012, Paizo Pub
 COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Angels" Copyright 2014, PCgen Data team (Including, but not limited to Andrew Wilson (nuance), Paul Grosse, Andrew Maitland)
 
 # Pathfinder Player Companion: Blood of Angels
-# Bloodlines: martyred bloodline is legal for Pathfinder Society but the bonus feat Leadership remains unavailable; Heritages: all heritages, and associated traits, on pages 21-23 are legal; Feats: all feats on pages 24-25 are legal except Supernal Feast; Magic: bard masterpieces are legal; Other: variant assimar abilities are not legal for Pathfinder Society; Oracle Curses on page 26 are legal; Inquisitons on pages 26-27 are legal; Subdomains: all subdomains on page 27 are legal; Traits: all traits on pages 30-31 are legal except ethical leader. Clergy member is useable once per scenario instead of once per week. Faith healer may be used for Day Job checks.
+# Bloodlines: martyred bloodline is legal for Pathfinder Society but the bonus feat Leadership remains unavailable;
+# Heritages: all heritages, and associated traits, on pages 21-23 are legal;
+# Feats: all feats on pages 24-25 are legal except Supernal Feast;
+# Magic: bard masterpieces are legal;
+# Other: variant assimar abilities are not legal for Pathfinder Society;
+# Oracle Curses on page 26 are legal;
+# Inquisitons on pages 26-27 are legal;
+# Subdomains: all subdomains on page 27 are legal;
+# Traits: all traits on pages 30-31 are legal except ethical leader. Clergy member is useable once per scenario instead of once per week. Faith healer may be used for Day Job checks.
 
 !PRECAMPAIGN:1,Blood of Angels
-PCC:@/pathfinder/paizo/player_companion/blood_of_angels/blood_of_angels.pcc
+PCC:../blood_of_angels.pcc
+ABILITY:pfs_boa_abilities.lst
+ABILITY:pfs_boa_abilities_variant.lst
+ABILITYCATEGORY:pfs_boa_abilitycategories.lst
+FEAT:pfs_boa_feats.lst
 

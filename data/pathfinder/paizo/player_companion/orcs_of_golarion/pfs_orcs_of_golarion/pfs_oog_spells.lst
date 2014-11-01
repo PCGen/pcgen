@@ -1,0 +1,9 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8fvz	SOURCEDATE:2010-12
+# Original Entry by: Henk Slaaf
+
+# Spells: all spells on pages 28-29 except enemy's heart and shield the banner;
+
+# Spell Name		Type				Classes of caster						School			Sub-School			Descriptor				Components		Casting Time			Range			Target Area or Effect														Duration											Save Info								Spell Resistance	Source Page		Description
+Enemy's Heart.FORGET
+Shield the Banner.FORGET

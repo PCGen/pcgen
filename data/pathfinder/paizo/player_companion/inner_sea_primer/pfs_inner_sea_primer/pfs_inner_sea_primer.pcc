@@ -34,7 +34,8 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Inner Sea Primer" Copy
 #EXTRAFILE:OGL.txt
 
 # Pathfinder Player Companion: Inner Sea Primer
-# Traits: all traits on pages 4-22 with the following changes: Pesh Addict may only be taken at 1st level and Ustalavic Noble provides no additional starting gold; Other: Egorian Academy Infernal Binder and Mage of the Veil arcane schools on page 29, and all fighter archetypes on pages 24-25
+# Traits: all traits on pages 4-22 with the following changes: Pesh Addict may only be taken at 1st level and Ustalavic Noble provides no additional starting gold;
+# Other: Egorian Academy Infernal Binder and Mage of the Veil arcane schools on page 29, and all fighter archetypes on pages 24-25
 
 !PRECAMPAIGN:1,Inner Sea Primer
 PCC:@/pathfinder/paizo/player_companion/inner_sea_primer/inner_sea_primer.pcc

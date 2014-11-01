@@ -37,5 +37,5 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Goblins of Golarion" C
 # Equipment: all equipment in the table on page 12 except cobbled item are legal for play; Feats: all feats on pages 24-25 are legal for play; Magic Items: all magic items on page 29 are legal for play; Misc.: all goblin gods and subdomains except flotsam on pages 26-27 are legal for play; Spells: all spells on pages 28-29 except limp lash are legal for play; Traits: all traits on pages 15-16 are legal for play
 
 !PRECAMPAIGN:1,Goblins of Golarion
-PCC:@/pathfinder/paizo/player_companion/goblins_of_golarion/goblins_of_golarion.pcc
+PCC:../goblins_of_golarion.pcc
 

@@ -11,7 +11,7 @@ PRECAMPAIGN:2,Pathfinder Society Core Assumption,INCLUDES=Advanced Player's Guid
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
-SOURCELONG:Faiths of Purity
+SOURCELONG:Faiths of Balance
 SOURCESHORT:FOB
 SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8lvb
 SOURCEDATE:2011-07
@@ -34,8 +34,12 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Faiths of B
 #EXTRAFILE:OGL.txt
 
 # Pathfinder Player Companion: Faiths of Balance
-# Equipment: all channel foci on pages 24-25, all magic items on pages 26-27; Feats: All feats on page 24; Spells: all spells on pages 28-29; Traits: all traits on pages 4-21
+# Equipment: all channel foci on pages 24-25, all magic items on pages 26-27;
+# Feats: All feats on page 24;
+# Spells: all spells on pages 28-29;
+# Traits: all traits on pages 4-21
 
 !PRECAMPAIGN:1,Faiths of Balance
-PCC:@/pathfinder/paizo/player_companion/faiths_of_balance/faiths_of_balance.pcc
+PCC:../faiths_of_balance.pcc
+DEITY:pfs_fob_deities.lst
 
