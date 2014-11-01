@@ -41,5 +41,5 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Halflings of Golar
 # Traits: all traits on pages 30-31.
 
 !PRECAMPAIGN:1,Halflings of Golarion
-PCC:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.pcc
+PCC:../halflings_of_golarion.pcc
 
