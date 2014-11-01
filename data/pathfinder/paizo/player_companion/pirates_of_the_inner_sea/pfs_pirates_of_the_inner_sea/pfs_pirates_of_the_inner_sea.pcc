@@ -34,8 +34,12 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Pirates of the Inner S
 #EXTRAFILE:OGL.txt
 
 # Pathfinder Player Companion: Pirates of the Inner Sea
-# Archetypes: all Equipment: all equipment, items, and weapons on pages 18-20; Prestige Class: Inner Sea Pirate; Spells: all spells on pages 28-29; Traits: all traits on pages 5, 7, 9, 11, 13, 15, and 27
+# Archetypes: all
+# Equipment: all equipment, items, and weapons on pages 18-20;
+# Prestige Class: Inner Sea Pirate;
+# Spells: all spells on pages 28-29;
+# Traits: all traits on pages 5, 7, 9, 11, 13, 15, and 27
 
 !PRECAMPAIGN:1,Pirates of the Inner Sea
-PCC:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.pcc
+PCC:../pirates_of_the_inner_sea.pcc
 
