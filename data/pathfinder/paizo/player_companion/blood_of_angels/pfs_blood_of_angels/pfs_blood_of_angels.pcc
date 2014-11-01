@@ -42,7 +42,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Angels" Copyr
 # Traits: all traits on pages 30-31 are legal except ethical leader. Clergy member is useable once per scenario instead of once per week. Faith healer may be used for Day Job checks.
 
 !PRECAMPAIGN:1,Blood of Angels
-PCC:@../blood_of_angels.pcc
+PCC:../blood_of_angels.pcc
 ABILITY:pfs_boa_abilities.lst
 ABILITY:pfs_boa_abilities_variant.lst
 ABILITYCATEGORY:pfs_boa_abilitycategories.lst
