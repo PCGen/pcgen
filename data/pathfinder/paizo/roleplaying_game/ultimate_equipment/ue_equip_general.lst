@@ -502,7 +502,7 @@ Holy Symbol (Wooden).COPY=Holy Symbol (Wooden/Compartment)
 Holy Symbol (Wooden/Compartment).MOD												TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:6
 Holy Symbol (Wooden).COPY=Holy Symbol (Wooden/Flask)
 Holy Symbol (Wooden/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:11
-Holy Symbol (Iron)															TYPE:Goods.Tools.DivineFocus														COST:5	WT:1					SOURCEPAGE:p.66
+Holy Symbol (Iron)															TYPE:Goods.Tools.SpellComponent.DivineFocus											COST:5	WT:1					SOURCEPAGE:p.66
 Holy Symbol (Iron).COPY=Holy Symbol (Iron/Compartment)
 Holy Symbol (Iron/Compartment).MOD													TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:10
 Holy Symbol (Iron).COPY=Holy Symbol (Iron/Flask)
@@ -512,17 +512,17 @@ Holy Symbol (Silver).COPY=Holy Symbol (Silver/Compartment)
 Holy Symbol (Silver/Compartment).MOD												TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:30
 Holy Symbol (Silver).COPY=Holy Symbol (Silver/Flask)
 Holy Symbol (Silver/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:35
-Holy Symbol (Gold)															TYPE:Goods.Tools.DivineFocus														COST:100	WT:1					SOURCEPAGE:p.66
+Holy Symbol (Gold)															TYPE:Goods.Tools.SpellComponent.DivineFocus											COST:100	WT:1					SOURCEPAGE:p.66
 Holy Symbol (Gold).COPY=Holy Symbol (Gold/Compartment)
 Holy Symbol (Gold/Compartment).MOD													TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:105
 Holy Symbol (Gold).COPY=Holy Symbol (Gold/Flask)
 Holy Symbol (Gold/Flask).MOD														TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:110
-Holy Symbol (Platinum)															TYPE:Goods.Tools.DivineFocus														COST:500	WT:1					SOURCEPAGE:p.66
+Holy Symbol (Platinum)															TYPE:Goods.Tools.SpellComponent.DivineFocus											COST:500	WT:1					SOURCEPAGE:p.66
 Holy Symbol (Platinum).COPY=Holy Symbol (Platinum/Compartment)
 Holy Symbol (Platinum/Compartment).MOD												TYPE:Container						CONTAINS:1|Vial=1|Flask=1						COST:505
 Holy Symbol (Platinum).COPY=Holy Symbol (Platinum/Flask)
 Holy Symbol (Platinum/Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:510
-Holy Symbol (Tattoo)															TYPE:Goods.Tools.DivineFocus														COST:100						SOURCEPAGE:p.66
+Holy Symbol (Tattoo)															TYPE:Goods.Tools.SpellComponent.DivineFocus											COST:100						SOURCEPAGE:p.66
 Holy Text (Cheap)																TYPE:Goods.Tools.Book															COST:1	WT:1					SOURCEPAGE:66																																																				SPROP:A small, light book with no illustrations, printed or written on thin paper, and with a cover made of canvas or thin leather.
 Holy Text (Typical)															TYPE:Goods.Tools.Book															COST:25	WT:2					SOURCEPAGE:66																																																				SPROP:A typical holy text for an experienced adventuring priest. Durable, with a leather cover, chapter illustrations and quality paper.
 Holy Text (Expensive)															TYPE:Goods.Tools.Book															COST:100	WT:20					SOURCEPAGE:66																																																				SPROP:The most expensive versions have detailed illustrations, gilded initials and border decorations, covers made of fine leather, wood, or even metal, and are often oversized and difficult to carry around.
