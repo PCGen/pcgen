@@ -18,8 +18,8 @@ Immunity to Exhaustion (becomes fatigued)					CATEGORY:Special Ability	TYPE:Spec
 
 
 ##Block: Extra Channel feat support
-Oracle of Bone Extra Channel							CATEGORY:Special Ability	TYPE:ExtraChannel								PREABILITY:1,CATEGORY=Special Ability,Undead Servitude ~ Bone Mystery																																																														BONUS:VAR|UndeadServitudeTimes|2
-Oracle of Life Extra Channel							CATEGORY:Special Ability	TYPE:ExtraChannel								PREABILITY:1,CATEGORY=Special Ability,Channel ~ Life Mystery																																																															BONUS:VAR|OracleChannelTimes|2
+Oracle of Bone Extra Channel							CATEGORY:Special Ability	TYPE:ExtraChannel								PREABILITY:1,CATEGORY=Special Ability,Bone Mystery ~ Undead Servitude																																																														BONUS:VAR|UndeadServitudeTimes|2
+Oracle of Life Extra Channel							CATEGORY:Special Ability	TYPE:ExtraChannel								PREABILITY:1,CATEGORY=Special Ability,Life Mystery ~ Channel																																																															BONUS:VAR|OracleChannelTimes|2
 
 CATEGORY=Special Ability|Prestige Class ~ Channel Energy.MOD																																																																																									BONUS:VAR|UndeadServitudeLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|OracleChannelLVL|PrestigeClassChannelEnergyLVL
 

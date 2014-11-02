@@ -262,5 +262,5 @@ Brooch (Folding Plate)				TYPE:Magic.Wondrous.Brooch	COST:12650	SOURCEPAGE:p.284
 
 
 
-Phylactery of Negative Channeling.MOD											BONUS:VAR|AntipaladinChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy ~ Antipaladin
-Phylactery of Positive Channeling.MOD											BONUS:VAR|OracleChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Channel ~ Life Mystery
+Phylactery of Negative Channeling.MOD											BONUS:VAR|AntipaladinChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Antipaladin ~ Channel Negative Energy
+Phylactery of Positive Channeling.MOD											BONUS:VAR|OracleChannelDice|2|PREABILITY:1,CATEGORY=Special Ability,Life Mystery ~ Channel
