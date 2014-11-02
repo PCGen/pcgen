@@ -1,0 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Goblins of Golarion	SOURCESHORT:GOOG	SOURCEWEB:http://paizo.com/products/btpy8mfk?Pathfinder-Player-Companion-Goblins-of-Golarion	SOURCEDATE:2011-07
+#ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
+#ORIGINAL ENTRY DATE: 2013/07/14
+
+# Misc.: all goblin gods and subdomains except flotsam on pages 26-27 are legal for play;
+# Traits: all traits on pages 15-16 are legal for play
+
+###Block: Domain Abilities
+# Ability Name							Unique Key						Category of Ability		Type																																																																																																					Define									Description																																																																																												Modify VAR																			Source Page
+CATEGORY=Special Ability|Flotsam Subdomain ~ Sift.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+
