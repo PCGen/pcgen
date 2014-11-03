@@ -502,7 +502,7 @@
 				<base_attack_bonus>${pcstring('ATTACK.MELEE')}</base_attack_bonus>
 				<stat_mod>${pcstring('VAR.CMB_STAT.INTVAL.SIGN')}</stat_mod>
 				<size_mod>${pcstring('VAR.CMB_SizeMod.INTVAL.SIGN')}</size_mod>
-				<misc_mod>${pcstring('VAR.CMB-ATTACK.MELEE.BASE-VAR.CMB_STAT-VAR.CMB_SizeMod.INTVAL.SIGN')}</misc_mod>
+				<misc_mod></misc_mod>	<#--	This formula is giving incorrect results - STAT/STAT	${pcstring('VAR.CMB-ATTACK.MELEE.BASE-VAR.CMB_STAT-VAR.CMB_SizeMod.INTVAL.SIGN')}	-->
 				<epic_mod/>
 				<temp_mod/>
 				<!-- Base values (not yet used) -->
