@@ -1403,7 +1403,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>GOODS.TOOLS.DIVINEFOCUS</type>
+			<type>GOODS.TOOLS.SPELLCOMPONENT.DIVINEFOCUS</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1882,7 +1882,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>GOODS.TOOLS.DIVINEFOCUS</type>
+				<type>GOODS.TOOLS.SPELLCOMPONENT.DIVINEFOCUS</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
