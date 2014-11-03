@@ -221,7 +221,7 @@ Antihero		CATEGORY:Special Ability	TYPE:SpecialQuality				DESC:You have elected 
 
 ###Block: Boon Companion Support for Beast Master
 # Ability Name			Category of Ability	Type			Define					Modify VAR
-Beast Master Companion LVL	CATEGORY:Internal		TYPE:Internal	DEFINE:BeastmasterCompanionLVL|0	BONUS:VAR|BeastmasterCompanionLVL|MIN((TL-(RangerLVL-3)),4)|TYPE=Base
+Beast Master Companion LVL	CATEGORY:Internal		TYPE:Internal	DEFINE:BeastmasterCompanionLVL|0	BONUS:VAR|BeastmasterCompanionLVL|4|TYPE=Base
 
 ###Block:
 # Ability Name					Unique Key								Category of Ability	Type					Var. Min. Value				Stackable?	Multiple?	Choose		Ability								Bonus Ability Pool
@@ -229,26 +229,49 @@ Animal Companion (Beast Master Archetype)	KEY:Boon Companion ~ Animal Companion 
 
 ###Block: Selections
 # Ability Name			Unique Key								SORTKEY	Category of Ability	Type						Var. Min. Value				Var. Max. Value									Modify VAR
-Animal Companion / Primary	KEY:Beastmaster Boon Companion ~ Animal Companion 1	SORTKEY:1	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLA,1	PREVARLTEQ:AnimalCompanionLVLA,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLA|BeastmasterCompanionLVL
-Animal Companion / II		KEY:Beastmaster Boon Companion ~ Animal Companion 2	SORTKEY:2	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLB,1	PREVARLTEQ:AnimalCompanionLVLB,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLB|BeastmasterCompanionLVL
-Animal Companion / III		KEY:Beastmaster Boon Companion ~ Animal Companion 3	SORTKEY:3	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLC,1	PREVARLTEQ:AnimalCompanionLVLC,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLC|BeastmasterCompanionLVL
-Animal Companion / IV		KEY:Beastmaster Boon Companion ~ Animal Companion 4	SORTKEY:4	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLD,1	PREVARLTEQ:AnimalCompanionLVLD,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLD|BeastmasterCompanionLVL
-Animal Companion / V		KEY:Beastmaster Boon Companion ~ Animal Companion 5	SORTKEY:5	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLE,1	PREVARLTEQ:AnimalCompanionLVLE,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLE|BeastmasterCompanionLVL
-Animal Companion / VI		KEY:Beastmaster Boon Companion ~ Animal Companion 6	SORTKEY:6	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLF,1	PREVARLTEQ:AnimalCompanionLVLF,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLF|BeastmasterCompanionLVL
-Animal Companion / VII		KEY:Beastmaster Boon Companion ~ Animal Companion 7	SORTKEY:7	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLG,1	PREVARLTEQ:AnimalCompanionLVLG,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLG|BeastmasterCompanionLVL
-Animal Companion / VIII		KEY:Beastmaster Boon Companion ~ Animal Companion 8	SORTKEY:8	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLH,1	PREVARLTEQ:AnimalCompanionLVLH,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLH|BeastmasterCompanionLVL
-Animal Companion / IX		KEY:Beastmaster Boon Companion ~ Animal Companion 9	SORTKEY:9	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLI,1	PREVARLTEQ:AnimalCompanionLVLI,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLI|BeastmasterCompanionLVL
-Animal Companion / X		KEY:Beastmaster Boon Companion ~ Animal Companion 10	SORTKEY:10	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLJ,1	PREVARLTEQ:AnimalCompanionLVLJ,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLJ|BeastmasterCompanionLVL
-Animal Companion / XI		KEY:Beastmaster Boon Companion ~ Animal Companion 11	SORTKEY:11	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLK,1	PREVARLTEQ:AnimalCompanionLVLK,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLK|BeastmasterCompanionLVL
-Animal Companion / XII		KEY:Beastmaster Boon Companion ~ Animal Companion 12	SORTKEY:12	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLL,1	PREVARLTEQ:AnimalCompanionLVLL,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLL|BeastmasterCompanionLVL
-Animal Companion / XIII		KEY:Beastmaster Boon Companion ~ Animal Companion 13	SORTKEY:13	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLM,1	PREVARLTEQ:AnimalCompanionLVLM,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLM|BeastmasterCompanionLVL
-Animal Companion / XIV		KEY:Beastmaster Boon Companion ~ Animal Companion 14	SORTKEY:14	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLN,1	PREVARLTEQ:AnimalCompanionLVLN,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLN|BeastmasterCompanionLVL
-Animal Companion / XV		KEY:Beastmaster Boon Companion ~ Animal Companion 15	SORTKEY:15	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLO,1	PREVARLTEQ:AnimalCompanionLVLO,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLO|BeastmasterCompanionLVL
-Animal Companion / XVI		KEY:Beastmaster Boon Companion ~ Animal Companion 16	SORTKEY:16	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLP,1	PREVARLTEQ:AnimalCompanionLVLP,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLP|BeastmasterCompanionLVL
-Animal Companion / XVII		KEY:Beastmaster Boon Companion ~ Animal Companion 17	SORTKEY:17	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLQ,1	PREVARLTEQ:AnimalCompanionLVLQ,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLQ|BeastmasterCompanionLVL
-Animal Companion / XVIII	KEY:Beastmaster Boon Companion ~ Animal Companion 18	SORTKEY:18	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLR,1	PREVARLTEQ:AnimalCompanionLVLR,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLR|BeastmasterCompanionLVL
-Animal Companion / XIX		KEY:Beastmaster Boon Companion ~ Animal Companion 19	SORTKEY:19	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLS,1	PREVARLTEQ:AnimalCompanionLVLS,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLS|BeastmasterCompanionLVL
-Animal Companion / XX		KEY:Beastmaster Boon Companion ~ Animal Companion 20	SORTKEY:20	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLT,1	PREVARLTEQ:AnimalCompanionLVLT,RangerLVL-BeastmasterCompanionLVL	BONUS:VAR|AnimalCompanionLVLT|BeastmasterCompanionLVL
+Animal Companion / Primary	KEY:Beastmaster Boon Companion ~ Animal Companion 1	SORTKEY:1	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLA,1		BONUS:VAR|AnimalCompanionLVLA|BeastmasterCompanionLVL
+Animal Companion / II		KEY:Beastmaster Boon Companion ~ Animal Companion 2	SORTKEY:2	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLB,1		BONUS:VAR|AnimalCompanionLVLB|BeastmasterCompanionLVL
+Animal Companion / III		KEY:Beastmaster Boon Companion ~ Animal Companion 3	SORTKEY:3	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLC,1		BONUS:VAR|AnimalCompanionLVLC|BeastmasterCompanionLVL
+Animal Companion / IV		KEY:Beastmaster Boon Companion ~ Animal Companion 4	SORTKEY:4	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLD,1		BONUS:VAR|AnimalCompanionLVLD|BeastmasterCompanionLVL
+Animal Companion / V		KEY:Beastmaster Boon Companion ~ Animal Companion 5	SORTKEY:5	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLE,1		BONUS:VAR|AnimalCompanionLVLE|BeastmasterCompanionLVL
+Animal Companion / VI		KEY:Beastmaster Boon Companion ~ Animal Companion 6	SORTKEY:6	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLF,1		BONUS:VAR|AnimalCompanionLVLF|BeastmasterCompanionLVL
+Animal Companion / VII		KEY:Beastmaster Boon Companion ~ Animal Companion 7	SORTKEY:7	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLG,1		BONUS:VAR|AnimalCompanionLVLG|BeastmasterCompanionLVL
+Animal Companion / VIII		KEY:Beastmaster Boon Companion ~ Animal Companion 8	SORTKEY:8	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLH,1		BONUS:VAR|AnimalCompanionLVLH|BeastmasterCompanionLVL
+Animal Companion / IX		KEY:Beastmaster Boon Companion ~ Animal Companion 9	SORTKEY:9	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLI,1		BONUS:VAR|AnimalCompanionLVLI|BeastmasterCompanionLVL
+Animal Companion / X		KEY:Beastmaster Boon Companion ~ Animal Companion 10	SORTKEY:10	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLJ,1		BONUS:VAR|AnimalCompanionLVLJ|BeastmasterCompanionLVL
+Animal Companion / XI		KEY:Beastmaster Boon Companion ~ Animal Companion 11	SORTKEY:11	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLK,1		BONUS:VAR|AnimalCompanionLVLK|BeastmasterCompanionLVL
+Animal Companion / XII		KEY:Beastmaster Boon Companion ~ Animal Companion 12	SORTKEY:12	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLL,1		BONUS:VAR|AnimalCompanionLVLL|BeastmasterCompanionLVL
+Animal Companion / XIII		KEY:Beastmaster Boon Companion ~ Animal Companion 13	SORTKEY:13	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLM,1		BONUS:VAR|AnimalCompanionLVLM|BeastmasterCompanionLVL
+Animal Companion / XIV		KEY:Beastmaster Boon Companion ~ Animal Companion 14	SORTKEY:14	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLN,1		BONUS:VAR|AnimalCompanionLVLN|BeastmasterCompanionLVL
+Animal Companion / XV		KEY:Beastmaster Boon Companion ~ Animal Companion 15	SORTKEY:15	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLO,1		BONUS:VAR|AnimalCompanionLVLO|BeastmasterCompanionLVL
+Animal Companion / XVI		KEY:Beastmaster Boon Companion ~ Animal Companion 16	SORTKEY:16	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLP,1		BONUS:VAR|AnimalCompanionLVLP|BeastmasterCompanionLVL
+Animal Companion / XVII		KEY:Beastmaster Boon Companion ~ Animal Companion 17	SORTKEY:17	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLQ,1		BONUS:VAR|AnimalCompanionLVLQ|BeastmasterCompanionLVL
+Animal Companion / XVIII	KEY:Beastmaster Boon Companion ~ Animal Companion 18	SORTKEY:18	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLR,1		BONUS:VAR|AnimalCompanionLVLR|BeastmasterCompanionLVL
+Animal Companion / XIX		KEY:Beastmaster Boon Companion ~ Animal Companion 19	SORTKEY:19	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLS,1		BONUS:VAR|AnimalCompanionLVLS|BeastmasterCompanionLVL
+Animal Companion / XX		KEY:Beastmaster Boon Companion ~ Animal Companion 20	SORTKEY:20	CATEGORY:Internal		TYPE:Select Beast Master Companion	PREVARGTEQ:AnimalCompanionLVLT,1		BONUS:VAR|AnimalCompanionLVLT|BeastmasterCompanionLVL
+
+#	PREVARLTEQ:AnimalCompanionLVLA,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLB,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLC,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLD,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLE,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLF,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLG,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLH,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLI,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLJ,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLK,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLL,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLM,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLN,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLO,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLP,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLQ,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLR,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLS,RangerLVL-BeastmasterCompanionLVL
+#	PREVARLTEQ:AnimalCompanionLVLT,RangerLVL-BeastmasterCompanionLVL
+
+
 
 #
 # End
