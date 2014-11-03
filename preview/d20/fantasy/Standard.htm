@@ -802,10 +802,6 @@ Immune
 |ENDIF|
 <!-- STOP Spirit Weapon Ranged -->
 
-
-
-
-
 <!-- START Natural Attack Block -->
 |IIF(count("ABILITIES";"CATEGORY=Natural Attack";"TYPE=NaturalAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 
@@ -850,15 +846,15 @@ Immune
 
 
 
-<!-- START Weapon Table -->
+<!-- START Weapon Table	width="100%"	width="20%" -->
 |FOR,%weap,0,2,1,1|
-	<table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Table">
+	<table cellpadding="0" colspan="5" cellspacing="0" border="0" summary="Weapon Table">
 |IIF(WEAPON.%weap.CATEGORY:BOTH)|
 |IIF(WEAPON.%weap.CATEGORY:Ranged)|
 	<tr>
-	<td align="left" height="15" bgcolor="black" width="8%" class="ablableb">&nbsp;&nbsp;Range</td>
+	<td align="left" height="15" bgcolor="black" colspan="1" class="ablableb">&nbsp;&nbsp;Range</td>
 |FOR,%range,0,4,1,0|
-	<td width="18%" align="center" bgcolor="black" class="ablable"><b>|WEAPON.%weap.RANGELIST.%range|<br /></b></td>
+	<td colspan="1" align="center" bgcolor="black" class="ablable"><b>|WEAPON.%weap.RANGELIST.%range|<br /></b></td>
 |ENDFOR|
 	</tr>
 	<tr>
@@ -878,7 +874,7 @@ Immune
 	<td valign="bottom" class="border10c" colspan="5">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</td>
 	</tr>
 	<tr>
-	<td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
+	<td align="left" bgcolor="black" colspan="3" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
 	<td align="left" colspan="5" class="border10">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
 	</tr>
 	</table>
@@ -934,10 +930,10 @@ Immune
 |IIF(WEAPON.%weap.CATEGORY:Ranged)|
 	<tr>
 	<td align="center" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|WEAPON.%weap.NAME|<br /></b></td>
-	<td align="center" bgcolor="black" width="15%" height="15" class="ablableb">HAND</td>
-	<td align="center" bgcolor="black" width="15%" height="15" class="ablableb">TYPE</td>
-	<td align="center" bgcolor="black" width="15%" height="15" class="ablableb">SIZE</td>
-	<td align="center" bgcolor="black" width="15%" height="15" class="ablableb">CRITICAL</td>
+	<td align="center" bgcolor="black" width="16%" height="15" class="ablableb">HAND</td>
+	<td align="center" bgcolor="black" width="16%" height="15" class="ablableb">TYPE</td>
+	<td align="center" bgcolor="black" width="16%" height="15" class="ablableb">SIZE</td>
+	<td align="center" bgcolor="black" width="16%" height="15" class="ablableb">CRITICAL</td>
 	</tr>
 	<tr>
 	<td class="border10c"><b>|WEAPON.%weap.HAND|<br /></b></td>
@@ -1031,10 +1027,10 @@ Immune
 	</table>
 	<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Table">
 	<tr>
-	<td align="center" height="15" bgcolor="black" width="15%" class="ablableb">HAND</td>
-	<td align="center" height="15" bgcolor="black" width="15%" class="ablableb">RANGE</td>
-	<td align="center" bgcolor="black" width="15%" height="15" class="ablableb">TYPE</td>
-	<td align="center" bgcolor="black" width="15%" height="15" class="ablableb">SIZE</td>
+	<td align="center" height="15" bgcolor="black" width="16%" class="ablableb">HAND</td>
+	<td align="center" height="15" bgcolor="black" width="16%" class="ablableb">RANGE</td>
+	<td align="center" bgcolor="black" width="16%" height="15" class="ablableb">TYPE</td>
+	<td align="center" bgcolor="black" width="16%" height="15" class="ablableb">SIZE</td>
 	<td align="center" bgcolor="black" width="40%" height="15" class="ablableb">SPECIAL PROPERTIES</td>
 	</tr>
 	<tr>
@@ -1049,11 +1045,11 @@ Immune
 |ELSE|
 	<tr>
 	<td align="center" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|WEAPON.%weap.NAME|<br /></b></td>
-	<td align="center" bgcolor="black" width="12%" height="15" class="ablableb">HAND</td>
-	<td align="center" bgcolor="black" width="12%" height="15" class="ablableb">TYPE</td>
-	<td align="center" bgcolor="black" width="12%" height="15" class="ablableb">SIZE</td>
-	<td align="center" bgcolor="black" width="12%" height="15" class="ablableb">CRITICAL</td>
-	<td align="center" bgcolor="black" width="12%" height="15" class="ablableb">REACH</td>
+	<td align="center" bgcolor="black" width="16%" height="15" class="ablableb">HAND</td>
+	<td align="center" bgcolor="black" width="16%" height="15" class="ablableb">TYPE</td>
+	<td align="center" bgcolor="black" width="16%" height="15" class="ablableb">SIZE</td>
+	<td align="center" bgcolor="black" width="16%" height="15" class="ablableb">CRITICAL</td>
+	<td align="center" bgcolor="black" width="16%" height="15" class="ablableb">REACH</td>
 	</tr>
 	<tr>
 	<td class="border10c"><b>|WEAPON.%weap.HAND|<br /></b></td>
