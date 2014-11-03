@@ -1,0 +1,12 @@
+# CVS $Revision: 21336 $ $Author: maredudd800 $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Inner Sea Primer	SOURCESHORT:ISP	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih	SOURCEDATE:2010-11
+# Original Entry by:Stefan Radermacher
+
+###Block: Buckler Shieldbash for Rondelero Duelist
+Buckler.MOD			TYPE:Shield.Buckler.Standard.Close.Weapon.Resizable.Melee.ShieldBash 	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:STEEL	WIELD:Light	SIZE:M	BONUS:WEAPON|TOHIT|4|PREMULT:2,[PREWEAPONPROF:1,Shieldbash],[PREABILITY:1,CATEGORY=Special Ability,Fighter Rondelero Duelist ~ Buckler Bash]	SPROP:Applies a -1 to hit to Two-Handed Weapon, or Off-hand held weapon.
+#
+Shieldbash (Buckler)	PROFICIENCY:WEAPON|Shieldbash	TYPE:Weapon.Resizable.Melee.Light.Martial.Unarmed.Bludgeoning.Finesseable.Shieldbash	COST:0	WT:0	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	WIELD:Light	SIZE:M	PREABILITY:1,CATEGORY=Special Ability,Fighter Rondelero Duelist ~ Buckler Bash
+
+#
+# End
+#

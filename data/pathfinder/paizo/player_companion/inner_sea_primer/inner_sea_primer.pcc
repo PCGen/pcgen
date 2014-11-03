@@ -37,6 +37,7 @@ BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 
 ABILITY:isp_abilities.lst
 ABILITY:isp_abilities_class.lst
+EQUIPMENT:isp_equip_arms_and_armor.lst
 LANGUAGE:isp_languages.lst
 RACE:isp_races.lst
 SKILL:isp_skills.lst
