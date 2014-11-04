@@ -44,3 +44,6 @@ CLASS:Wizard.MOD
 ###Block: Level progression
 1	BONUS:ABILITYPOOL|Spell Focus Replacement|1	AUTO:FEAT|.CLEAR.Scribe Scroll
 
+CLASS:Companion.MOD
+1	BONUS:ABILITYPOOL|Society Faction|-1
+
