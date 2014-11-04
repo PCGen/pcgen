@@ -5,7 +5,7 @@
 # Class of the Master			Type				Hit Dice	Ability																												Auto Feat					Define							Bonus Ability Pool					Combat bonus					Stat bonus			Modify VAR							Main Race Type
 FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Companion ~ Bonus Tricks	ABILITY:Animal Trick|AUTOMATIC|Animal Training ~ Combat Riding	AUTO:FEAT|Armor Proficiency (Light)	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0	BONUS:ABILITYPOOL|Animal Trick|-6														BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount				ABILITY:Special Ability|AUTOMATIC|Companion ~ Link|!PREABILITY:1,CATEGORY=Archetype,CompanionLink
-FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount				ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|!PREABILITY:1,CATEGORY=Archetype,CompanionShareSpells	
+FOLLOWER:SamuraiMountLVL=1		TYPE:Samurai Mount				ABILITY:Archetype|AUTOMATIC|Companion ~ Block Share Spells Archetypes	
 FOLLOWER:SamuraiMountLVL=2		TYPE:Samurai Mount	HD:1																																																																BONUS:VAR|MasterLevel|1
 FOLLOWER:SamuraiMountLVL=3		TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionEvasion																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:SamuraiMountLVL=4		TYPE:Samurai Mount	HD:1																																													BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
