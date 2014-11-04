@@ -7,8 +7,9 @@ Flawed Gamboge Nodule Ability	CATEGORY:Special Ability	TYPE:Internal	ASPECT:Save
 
 ###Block: Boon Companion Selection
 # Ability Name			Unique Key						Category of Ability	Type					Multiple Requirements															Stackable?	Multiple?	Choose							Auto Weapon Prof		Bonus to skill				Modify VAR
-Animal Companion			KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:AnimalCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion]																							BONUS:VAR|AnimalCompanionLVL|MIN((TL-AnimalCompanionMasterLVL),4)|PREVARGTEQ:AnimalCompanionLVL,1
-Familiar				KEY:Boon Companion ~ Familiar			CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:FamiliarLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Familiar]																										BONUS:VAR|FamiliarLVL|min(TL-FamiliarMasterLVL,4)|PREVARGT:FamiliarLVL,0
+Boon Companion Tracker									CATEGORY:Internal							DEFINE:BoonCompanionBonus|0	BONUS:VAR|BoonCompanionBonus|MIN(4,TL)
+Animal Companion			KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:AnimalCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion]																							BONUS:VAR|AnimalCompanionLVL|BoonCompanionBonus|PREVARGTEQ:AnimalCompanionLVL,1
+Familiar				KEY:Boon Companion ~ Familiar			CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:FamiliarLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Familiar]																										BONUS:VAR|FamiliarLVL|BoonCompanionBonus|PREVARGTEQ:FamiliarLVL,1
 #
 Weapon Proficiency Selection	KEY:Weapon Proficiency Selection		CATEGORY:Internal																									STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC				AUTO:WEAPONPROF|%LIST
 
