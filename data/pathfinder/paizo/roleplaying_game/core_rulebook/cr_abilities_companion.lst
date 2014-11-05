@@ -139,11 +139,12 @@ Air Walk		KEY:Animal Trick ~ Air Walk	CATEGORY:Special Ability	TYPE:AnimalTrick	
 CompStat 1 Strength	KEY:Companion Stat ~ STR	OUTPUTNAME:Strength	CATEGORY:Special Ability	TYPE:CompStatChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|STR|1
 CompStat 2 Dexterity	KEY:Companion Stat ~ DEX	OUTPUTNAME:Dexterity	CATEGORY:Special Ability	TYPE:CompStatChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|DEX|1
 CompStat 3 Constitution	KEY:Companion Stat ~ CON	OUTPUTNAME:Constitution	CATEGORY:Special Ability	TYPE:CompStatChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|CON|1
-CompStat 4 Intelligence	KEY:Companion Stat ~ INT	OUTPUTNAME:Intelligence	CATEGORY:Special Ability	TYPE:CompStatChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|INT|1
+CompStat 4 Intelligence	KEY:Companion Stat ~ INT	OUTPUTNAME:Intelligence	CATEGORY:Special Ability	TYPE:CompStatChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|INT|1	DEFINESTAT:STAT|INT
 CompStat 5 Wisdom		KEY:Companion Stat ~ WIS	OUTPUTNAME:Wisdom		CATEGORY:Special Ability	TYPE:CompStatChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|WIS|1
 CompStat 6 Charisma	KEY:Companion Stat ~ CHA	OUTPUTNAME:Charisma	CATEGORY:Special Ability	TYPE:CompStatChoice	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|CHA|1
-
-
+#
+Companion Skill			KEY:Companion Skill			TYPE:AnimalCompanionSkill				CATEGORY:Internal	MULT:YES	STACK:YES	CHOOSE:SKILL|Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Stealth|Survival|Swim	BONUS:SKILLRANK|%LIST|1
+Companion Skill (Int > 3)	KEY:Companion Skill ~ INT Higher	TYPE:AnimalCompanionSkill	PRESTAT:1,INT=3	CATEGORY:Internal	MULT:YES	STACK:YES	CHOOSE:SKILL|TYPE=Base													BONUS:SKILLRANK|%LIST|1
 
 
 #-------------------------------------------------------

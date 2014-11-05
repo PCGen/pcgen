@@ -240,6 +240,17 @@ Shaken		VISIBLE:NO	SOURCEPAGE:p.568	TEMPDESC:A shaken character takes a -2 penal
 Sickened		VISIBLE:NO	SOURCEPAGE:p.568	TEMPDESC:The character takes a -2 penalty on all attack rolls, weapon damage rolls, saving throws, skill checks, and ability checks.																																																																										TEMPBONUS:ANYPC|SAVE|ALL|-2	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2	TEMPBONUS:ANYPC|COMBAT|DAMAGE.MELEE,DAMAGE.RANGED,DAMAGE.NATURAL|-2	TEMPBONUS:ANYPC|SKILL|TYPE.Base|-2
 Stunned		VISIBLE:NO	SOURCEPAGE:p.568	TEMPDESC:A stunned creature drops everything held, can't take actions, takes a -2 penalty to AC, and loses its Dexterity bonus to AC (if any).																																																																									TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|AC|-max(0,DEX)
 
+###Block: Test
+TestChoose		VISIBLE:YES	TEMPLATE:%LIST	CHOOSE:TEMPLATE|TYPE=TestChooseTemplate
+
+
+TestMedium		VISIBLE:YES	SIZE:M	TYPE:TestChooseTemplate
+TestSmall		VISIBLE:YES	SIZE:S	TYPE:TestChooseTemplate
+TestTiny		VISIBLE:YES	SIZE:T	TYPE:TestChooseTemplate
+TestLarge		VISIBLE:YES	SIZE:L	TYPE:TestChooseTemplate
+TestDiminutive	VISIBLE:YES	SIZE:D	TYPE:TestChooseTemplate
+TestHuge		VISIBLE:YES	SIZE:H	TYPE:TestChooseTemplate
+
 
 ###BLOCK: Wildshape
 # Template Name	Visible	Template		Choose
