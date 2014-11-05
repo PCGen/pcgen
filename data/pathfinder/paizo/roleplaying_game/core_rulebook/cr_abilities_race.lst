@@ -356,7 +356,7 @@ Permanency Spell / Telepathic Bond						CATEGORY:Special Ability	TYPE:SpecialQua
 ###Block: Universal Bonuses
 #Block: Animal Tricks - 3 for Int 1 or 6 for Int 2
 # Ability Name			Category of Ability		Type			Visible		Bonus Ability Pool
-Animal Tricks and Training	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Animal Trick|3	BONUS:ABILITYPOOL|Animal Trick|3|PRESTAT:1,INT=2
+Animal Tricks and Training	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Animal Trick|1	BONUS:ABILITYPOOL|Animal Trick|2|PRESTAT:1,INT=1	BONUS:ABILITYPOOL|Animal Trick|(INTSCORE-1)*3|PRESTAT:1,INT=2	ABILITY:Special Ability|AUTOMATIC|Companion ~ Bonus Tricks
 
 
 ###Block: Ability Bonus Abilities

@@ -7,9 +7,8 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0		BONUS:VAR|MasterLevel|1			BONUS:VAR|BonusTricks|1				RACETYPE:Animal
 FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Link|!PREABILITY:1,CATEGORY=Archetype,CompanionLink
 FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|!PREABILITY:1,CATEGORY=Archetype,CompanionShareSpells
-FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			
 FOLLOWER:AnimalCompanionLVL=2		TYPE:Animal Companion	HD:1																																																							BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionEvasion																																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionEvasion																																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=4		TYPE:Animal Companion	HD:1																																				BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=5		TYPE:Animal Companion	HD:1																																																							BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion|!PREABILITY:1,CATEGORY=Archetype,CompanionDevotion																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
@@ -23,7 +22,7 @@ FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Companion	HD:1																							
 FOLLOWER:AnimalCompanionLVL=13	TYPE:Animal Companion	HD:1																																																							BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=14	TYPE:Animal Companion	HD:1																																				BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Companion																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=16	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionImprovedEvasion																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:AnimalCompanionLVL=16	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionImprovedEvasion																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=17	TYPE:Animal Companion	HD:1																																																							BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Companion	HD:1																																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=19	TYPE:Animal Companion																																																								BONUS:VAR|MasterLevel|1

@@ -52,7 +52,7 @@ Righteous Might (Damage Reduction/Good)	VISIBLE:DISPLAY	DR:0/Good		PREABILITY:1,
 
 ###Block: Trained Animal
 # Template Name	Visible		Restricted Ability								Required Race			Prohibited Stat	Bonus Ability Pool
-Trained Animal	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Animal Tricks and Training	PRERACE:1,RACETYPE=Animal	!PRESTAT:1,INT=3	BONUS:ABILITYPOOL|Animal Trick|3	BONUS:ABILITYPOOL|Animal Trick|3|PRESTAT:1,INT=2
+Trained Animal	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Animal Tricks and Training	PRERACE:1,RACETYPE=Animal	BONUS:ABILITYPOOL|Animal Trick|1	BONUS:ABILITYPOOL|Animal Trick|2|PRESTAT:1,INT=1	BONUS:ABILITYPOOL|Animal Trick|3|PRESTAT:1,INT=2
 
 ###Block: Inherent ability bonuses
 # Template Name					Visible		Template																																					Source Page		Required Size	Stat bonus					Weapon prof. bonus				Natural Attacks
