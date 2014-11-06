@@ -920,8 +920,32 @@ ${pcstring('SKILLSIT.${skill}.NONDEFAULT.TOTAL.INTVAL.SIGN')}${' '}<#t>
 </#if>
 </@loop>
 </@compress>
-
 </p>
+
+<!-- Trait TYPE Abilities -->
+<p>
+<#if (pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Trait","EXCLUDETYPE=Implicit.Immunity.Defensive.Weakness.Communicate.Vision","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+ <@compress single_line=true>
+<b>Traits</b>${' '}<#t>
+  <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Trait","EXCLUDETYPE=Implicit.Immunity.Defensive.Weakness.Communicate.Vision","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAbilities , specialAbilities_has_next>
+   <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Trait.EXCLUDETYPE=Implicit;Immunity;Defensive;Weakness;Communicate;Vision.HASASPECT.Ability Bonus") = "Y")>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Trait.EXCLUDETYPE=Implicit;Immunity;Defensive;Weakness;Communicate;VisionASPECT.Ability Bonus')}<#t>
+   </#if>
+${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Trait.EXCLUDETYPE=Implicit;Immunity;Defensive;Weakness;Communicate;Vision')}<#t>
+   <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Trait.EXCLUDETYPE=Implicit;Immunity;Defensive;Weakness;Communicate;Vision.HASASPECT.Ability Benefit") = "Y")>
+${' '}${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Trait.EXCLUDETYPE=Implicit;Immunity;Defensive;Weakness;Communicate;Vision.ASPECT.Ability Benefit')}<#t>
+   </#if>
+   <#if (specialAbilities_has_next) >
+,${' '}<#t>
+   </#if>
+  </@loop>
+ </@compress>
+</#if>
+</p>
+<!-- End SpecialQuality TYPE Abilities -->
+
+
+
 
 <#macro communicationBlock>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAbilities , specialAbilities_has_next>
@@ -969,16 +993,16 @@ ${pcstring('ABILITYALL.Feat.VISIBLE.${specialAbilities}.TYPE=Communicate')}<#t>
 
 <!-- SpecialQuality TYPE Abilities -->
 <p>
-<#if (pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","EXCLUDETYPE=Implicit.Immunity.Defensive.Weakness.Communicate.Vision","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<#if (pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","EXCLUDETYPE=Trait.Implicit.Immunity.Defensive.Weakness.Communicate.Vision","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
  <@compress single_line=true>
 <b>SQ</b>${' '}<#t>
-  <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","EXCLUDETYPE=Implicit.Immunity.Defensive.Weakness.Communicate.Vision","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAbilities , specialAbilities_has_next>
-   <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality.EXCLUDETYPE=Implicit;Immunity;Defensive;Weakness;Communicate;Vision.HASASPECT.Ability Bonus") = "Y")>
+  <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","EXCLUDETYPE=Trait.Implicit.Immunity.Defensive.Weakness.Communicate.Vision","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAbilities , specialAbilities_has_next>
+   <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality.EXCLUDETYPE=Trait;Implicit;Immunity;Defensive;Weakness;Communicate;Vision.HASASPECT.Ability Bonus") = "Y")>
 ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality.EXCLUDETYPE=Implicit;Immunity;Defensive;Weakness;Communicate;VisionASPECT.Ability Bonus')}<#t>
    </#if>
-${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality.EXCLUDETYPE=Implicit;Immunity;Defensive;Weakness;Communicate;Vision')}<#t>
-   <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality.EXCLUDETYPE=Implicit;Immunity;Defensive;Weakness;Communicate;Vision.HASASPECT.Ability Benefit") = "Y")>
-${' '}${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality.EXCLUDETYPE=Implicit;Immunity;Defensive;Weakness;Communicate;Vision.ASPECT.Ability Benefit')}<#t>
+${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality.EXCLUDETYPE=Trait.Implicit;Immunity;Defensive;Weakness;Communicate;Vision')}<#t>
+   <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality.EXCLUDETYPE=Trait;Implicit;Immunity;Defensive;Weakness;Communicate;Vision.HASASPECT.Ability Benefit") = "Y")>
+${' '}${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=SpecialQuality.EXCLUDETYPE=Trait;Implicit;Immunity;Defensive;Weakness;Communicate;Vision.ASPECT.Ability Benefit')}<#t>
    </#if>
    <#if (specialAbilities_has_next) >
 ,${' '}<#t>
