@@ -319,7 +319,7 @@ public final class ExportHandler
 		{
 			// Set Directory for templates
 			cfg.setDirectoryForTemplateLoading(templateFile.getParentFile());
-			cfg.setIncompatibleImprovements(new Version("2.3.19"));
+			cfg.setIncompatibleImprovements(new Version("2.3.20"));
 			
 			// load template
 			Template template = cfg.getTemplate(templateFile.getName());

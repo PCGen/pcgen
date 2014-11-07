@@ -647,33 +647,33 @@
         </plugins>
     </build>
 
-	<reporting>
-		<!-- Include the program java doc in the generated site. -->
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9</version>
-				<configuration>
-				</configuration>
-			</plugin>
-<!--			
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-changelog-plugin</artifactId>
-        <version>2.2</version>
-        <configuration>
-<type>date</type>
-          <dates>
-            <date implementation="java.lang.String">2013-08-13</date>
-            <date implementation="java.lang.String">2013-09-12</date>
-          </dates>    
-          <dateFormat>yyyy-MM-dd</dateFormat>    
-        </configuration>
-      </plugin>
-      -->
-		</plugins>
-	</reporting>
+    <reporting>
+        <!-- Include the program java doc in the generated site. -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                </configuration>
+            </plugin>
+            <!--			
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-changelog-plugin</artifactId>
+              <version>2.2</version>
+              <configuration>
+      <type>date</type>
+                <dates>
+                  <date implementation="java.lang.String">2013-08-13</date>
+                  <date implementation="java.lang.String">2013-09-12</date>
+                </dates>    
+                <dateFormat>yyyy-MM-dd</dateFormat>    
+              </configuration>
+            </plugin>
+            -->
+        </plugins>
+    </reporting>
   
     <dependencies>
         <!-- Compilation Dependencies -->
@@ -743,11 +743,11 @@
             <scope>compile</scope>
             <!-- url>http://www.singularsys.com/jep/</ url -->
         </dependency>
-		<dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
-			<version>2.3.19</version>
-		</dependency>        
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.20</version>
+        </dependency>
         <dependency>
             <!-- Can't go to 2+ due to code changes required-->
             <groupId>org.jdom</groupId>
