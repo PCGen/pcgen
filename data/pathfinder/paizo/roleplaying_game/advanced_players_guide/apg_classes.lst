@@ -590,23 +590,23 @@ CLASS:Master Chymist	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:MC		MAXLEVEL:10	SO
 # Class Name		Multiple Requirements																									Req. Spell Type
 CLASS:Master Chymist	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Alchemist ~ Mutagen],[PREABILITY:1,CATEGORY=Special Ability,Discovery ~ Feral Mutagen,Discovery ~ Infuse Mutagen]	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Master Chymist	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Sense Motive|Stealth|Swim
+CLASS:Master Chymist	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Sense Motive|Stealth|Swim	DEFINE:MasterChymistLVL|0	BONUS:VAR|MasterChymistLVL|CL
 ##Block: Normal Level Progression
-1	BONUS:VAR|MutateLVL|CL							ABILITY:Special Ability|AUTOMATIC|Master Chymist ~ Bomb-Thrower|Master Chymist ~ Mutagenic Form|Master Chymist ~ Mutate
-2	BONUS:VAR|AdvancedMutagenLVL|CL	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Master Chymist ~ Advanced Mutagen
-3	BONUS:VAR|BrutalityLVL|CL		ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Master Chymist ~ Brutality
-5							ADD:SPELLCASTER|Arcane
-6							ADD:SPELLCASTER|Arcane
-7							ADD:SPELLCASTER|Arcane
-9							ADD:SPELLCASTER|Arcane
-10							ADD:SPELLCASTER|Arcane
+1					ABILITY:Special Ability|AUTOMATIC|Master Chymist ~ Bomb-Thrower|Master Chymist ~ Mutagenic Form|Master Chymist ~ Mutate
+2	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Master Chymist ~ Advanced Mutagen
+3	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Master Chymist ~ Brutality
+5	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+7	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
 
 ###Block: Master Spy --------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Master Spy	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:MS		MAXLEVEL:10	SOURCEPAGE:p.270	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name	Required Feat			Required Skill
-CLASS:Master Spy	PREFEAT:2,Deceitful,Iron Will	PRESKILL:4,Bluff=7,Disguise=7,Perception=5,Sense Motive=5
+CLASS:Master Spy	PREFEAT:2,Deceitful,Iron Will	PRESKILL:4,Bluff=7,Disguise=7,Perception=5,Sense Motive=5	DEFINE:MasterSpyLVL|0	BONUS:VAR|MasterSpyLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Master Spy	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Use Magic Device
 ##Block: Normal Level Progression
@@ -619,9 +619,6 @@ CLASS:Master Spy	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|
 8	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Death Attack|Master Spy ~ Fool Casting
 9	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Hidden Mind
 10	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Assumption
-###Block:
-1	BONUS:VAR|SneakAttackDice|(CL+1)/2
-1	BONUS:VAR|MasterSpyArtOfDeceptionBonus|CL
 
 ###Block: Nature Warden --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -652,37 +649,36 @@ CLASS:Nature Warden	STARTSKILLPTS:4	CSKILL:Handle Animal|Heal|Knowledge (Geograp
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Rage Prophet	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:RP		MAXLEVEL:10	SOURCEPAGE:p.275	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Required Ability												Required Skill				PRETOTALAB
-CLASS:Rage Prophet	PREABILITY:2,CATEGORY=Special Ability,Oracle's Curse,Rage Power ~ Moment of Clarity	PRESKILL:1,Knowledge (Religion)=5	PRETOTALAB:5
+CLASS:Rage Prophet	PREABILITY:2,CATEGORY=Special Ability,Oracle's Curse,Rage Power ~ Moment of Clarity	PRESKILL:1,Knowledge (Religion)=5	PRETOTALAB:5	BONUS:VAR|RageProphetLVL|CL	DEFINE:RageProphetLVL|0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rage Prophet	STARTSKILLPTS:4	CSKILL:Climb|Heal|Intimidate|Knowledge (History)|Knowledge (Religion)|Sense Motive|Spellcraft|Swim
 ##Block: Normal Level Progression
-1											ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Savage Seer|Rage Prophet ~ Spirit Guide
-2	BONUS:VAR|RageProphetMysteryLVL|CL	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Rage Prophet Mystery|Rage Prophet ~ Raging Healer
-3							ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Indomitable Caster
-4	BONUS:VAR|RagecasterLVL|CL		ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Ragecaster
-5											ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Spirit Guardian
-6							ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Enduring Rage
-7							ADD:SPELLCASTER|Divine
-8											ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Raging Spellstrength
-9							ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Spirit Warrior
-10							ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Greater Rage
+1					ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Savage Seer|Rage Prophet ~ Spirit Guide
+2	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Rage Prophet Mystery|Rage Prophet ~ Raging Healer
+3	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Indomitable Caster
+4	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Ragecaster
+5					ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Spirit Guardian
+6	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Enduring Rage
+7	ADD:SPELLCASTER|Divine
+8					ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Raging Spellstrength
+9	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Spirit Warrior
+10	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Greater Rage
 
 ###Block: Stalwart Defender --------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Stalwart Defender	HD:12		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:SD		MAXLEVEL:10	SOURCEPAGE:p.277	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Required Feat													PRETOTALAB
-CLASS:Stalwart Defender	PREFEAT:5,Dodge,Endurance,Toughness,Armor Proficiency (Light),Armor Proficiency (Medium)	PRETOTALAB:7
+CLASS:Stalwart Defender	PREFEAT:5,Dodge,Endurance,Toughness,Armor Proficiency (Light),Armor Proficiency (Medium)	PRETOTALAB:7	DEFINE:StalwartDefenderLVL|0	BONUS:VAR|StalwartDefenderLVL|CL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Stalwart Defender	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Perception|Sense Motive
 ##Block: Normal Level Progression
-1												ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Defensive Stance
-2	BONUS:VAR|DefensivePowerLVL|1							ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Defensive Powers
-3												ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Uncanny Dodge
-4	BONUS:VAR|DefensivePowerLVL|1
-5	BONUS:VAR|DamageReductionLVL|1						ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Damage Reduction
-6	BONUS:VAR|DefensivePowerLVL|1
-7	BONUS:VAR|DamageReductionLVL|2						ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Improved Uncanny Dodge
-8	BONUS:VAR|DefensivePowerLVL|1
-9												ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Mobile Defense
-10	BONUS:VAR|DefensivePowerLVL|1	BONUS:VAR|DamageReductionLVL|2	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Last Word
+1	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Defensive Stance
+2	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Defensive Powers
+3	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Uncanny Dodge
+5	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Damage Reduction
+7	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Improved Uncanny Dodge
+9	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Mobile Defense
+
+
+	
