@@ -1002,7 +1002,7 @@ Master Mender						CATEGORY:Special Ability	TYPE:VitalistClassFeatures.SpecialQu
 
 ###Block: Mender Method Knack
 # Ability Name	Category of Ability		Type					List of Known Class Spells by Level
-Halt Death		CATEGORY:Special Ability	TYPE:Knack.GuardianKnack	SPELLKNOWN:CLASS|Vitalist=0|Halt Death
+Halt Death		CATEGORY:Special Ability	TYPE:Knack.MenderKnack	SPELLKNOWN:CLASS|Vitalist=0|Halt Death
 
 ###Block: Soulthief Method
 # Ability Name		Unique Key				Category of Ability		Type										Define										Description																									Modify VAR																Source Page
@@ -1014,8 +1014,8 @@ Master Soulthief							CATEGORY:Special Ability	TYPE:VitalistClassFeatures.Speci
 
 ###Block: Soulthief Method Knacks
 # Ability Name	Category of Ability		Type					List of Known Class Spells by Level
-Fatigue		CATEGORY:Special Ability	TYPE:Knack.GuardianKnack	SPELLKNOWN:CLASS|Vitalist=0|Fatigue
-Siphon		CATEGORY:Special Ability	TYPE:Knack.GuardianKnack	SPELLKNOWN:CLASS|Vitalist=0|Siphon
+Fatigue		CATEGORY:Special Ability	TYPE:Knack.SoulthiefKnack	SPELLKNOWN:CLASS|Vitalist=0|Fatigue
+Siphon		CATEGORY:Special Ability	TYPE:Knack.SoulthiefKnack	SPELLKNOWN:CLASS|Vitalist=0|Siphon
 
 
 # ======================== WILDER ====================== #
