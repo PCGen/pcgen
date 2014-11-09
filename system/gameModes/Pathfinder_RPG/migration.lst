@@ -2528,3 +2528,101 @@ ABILITY:Special Ability|Blood Enmity ~ Duergar		MAXVER:6.4.00	NEWKEY:Duergar ~ B
 ABILITY:Special Ability|Daysighted ~ Duergar		MAXVER:6.4.00	NEWKEY:Duergar ~ Daysighted	
 ABILITY:Special Ability|Deep Magic ~ Duergar		MAXVER:6.4.00	NEWKEY:Duergar ~ Deep Magic	
 ABILITY:Archetype|Rogue Arcehtype ~ Pirate	MAXVER:6.4.00	NEWKEY:Rogue Archetype ~ Pirate
+
+###Block: 6.4.1 - Pre-6.5
+
+ABILITY:Special Ability|Acidic Ray ~ Eldritch Heritage				MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Acidic Ray
+ABILITY:Special Ability|Eldritch Heritage ~ Abyssal Bloodline			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Abyssal
+ABILITY:Special Ability|Claws ~ Eldritch Heritage					MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Abyssal Claws
+ABILITY:Special Ability|Eldritch Heritage ~ Arcane Bloodline			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Arcane
+ABILITY:Special Ability|Metamagic Adept ~ Eldritch Heritage				MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Metamagic Adept
+ABILITY:Special Ability|Eldritch Heritage ~ Celestial Bloodline			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Celestial
+ABILITY:Special Ability|Heavenly Fire ~ Eldritch Heritage				MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Heavenly Fire
+ABILITY:Special Ability|Eldritch Heritage ~ Destined Bloodline			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Destined
+ABILITY:Special Ability|Touch of Destiny ~ Eldritch Heritage			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Touch of Destiny
+ABILITY:Special Ability|Eldritch Heritage ~ Draconic Bloodline			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Draconic
+ABILITY:Special Ability|Claws ~ Eldritch Heritage ~ Draconic			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Draconic Claws
+ABILITY:Special Ability|Eldritch Heritage ~ Elemental Bloodline (Air)		MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Elemental (Air)
+ABILITY:Special Ability|Elemental Ray (Base) ~ Eldritch Heritage			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Elemental Ray (Base)
+ABILITY:Special Ability|Elemental Ray (Air) ~ Eldritch Heritage			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Elemental Ray (Air)
+ABILITY:Special Ability|Elemental Bloodline (Earth)					MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Elemental (Earth)
+ABILITY:Special Ability|Elemental Ray (Earth) ~ Eldritch Heritage			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Elemental Ray (Earth)
+ABILITY:Special Ability|Eldritch Heritage ~ Elemental Bloodline (Fire)		MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Elemental (Fire)
+ABILITY:Special Ability|Elemental Ray (Fire) ~ Eldritch Heritage			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Elemental Ray (Fire)
+ABILITY:Special Ability|Eldritch Heritage ~ Elemental Bloodline (Water)		MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Elemental (Water)
+ABILITY:Special Ability|Elemental Ray (Water) ~ Eldritch Heritage			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Elemental Ray (Water)
+ABILITY:Special Ability|Eldritch Heritage ~ Fey Bloodline				MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Fey
+ABILITY:Special Ability|Laughing Touch ~ Eldritch Heritage				MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Laughing Touch
+ABILITY:Special Ability|Eldritch Heritage ~ Infernal Bloodline			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Infernal
+ABILITY:Special Ability|Corrupting Touch ~ Eldritch Heritage			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Corrupting Touch
+ABILITY:Special Ability|Eldritch Heritage ~ Undead Bloodline			MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Undead
+ABILITY:Special Ability|Grave Touch ~ Eldritch Heritage				MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Grave Touch
+
+ABILITY:Special Ability|Aquatic Bloodline										MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Aquatic		
+ABILITY:Special Ability|Boreal Bloodline										MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Boreal		
+ABILITY:Special Ability|Deepearth Bloodline									MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Deepearth	
+ABILITY:Special Ability|Dreamspun Bloodline									MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Dreamspun	
+ABILITY:Special Ability|Protean Bloodline										MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Protean		
+ABILITY:Special Ability|Serpentine Bloodline									MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Serpentine	
+ABILITY:Special Ability|Shadow Bloodline										MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Shadow		
+ABILITY:Special Ability|Starsoul Bloodline									MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Starsoul	
+ABILITY:Special Ability|Stormborn Bloodline									MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Stormborn	
+ABILITY:Special Ability|Verdant Bloodline										MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Verdant		
+ABILITY:Special Ability|Orc Bloodline										MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Orc		
+ABILITY:Special Ability|Anarchic (Wildblooded Protean) Bloodline						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Anarchic	
+ABILITY:Special Ability|Arial (Wildblooded Stormborn) Bloodline						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Arial		
+ABILITY:Special Ability|Bedrock (Wildblooded Deepearth) Bloodline						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Bedrock		
+ABILITY:Special Ability|Brutal (Wildblooded Abyssal) Bloodline						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Brutal		
+ABILITY:Special Ability|Empyreal (Wildblooded Celestial) Bloodline					MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Empyreal	
+ABILITY:Special Ability|Envenomed (Wildblooded Serpentine) Bloodline					MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Envenomed	
+ABILITY:Special Ability|Groveborn (Wildblooded Verdant) Bloodline						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Groveborn	
+ABILITY:Special Ability|Karmic (Wildblooded Destined) Bloodline						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Karmic		
+ABILITY:Special Ability|Linnorm (Wildblooded Draconic) Bloodline		MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Linnorm		
+ABILITY:Special Ability|Pit-Touched (Wildblooded Infernal) Bloodline					MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Pit-Touched	
+ABILITY:Special Ability|Rime-Blooded (Wildblooded Boreal) Bloodline					MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Rime-Blooded	
+ABILITY:Special Ability|Sage (Wildblooded Arcane) Bloodline							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Sage				
+ABILITY:Special Ability|Sanguine (Wildblooded Undead) Bloodline						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Sanguine			
+ABILITY:Special Ability|Seaborn (Wildblooded Aquatic) Bloodline						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Seaborn		
+ABILITY:Special Ability|Sylvan (Wildblooded Fey) Bloodline							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Sylvan		
+ABILITY:Special Ability|Umbral (Wildblooded Shadow) Bloodline						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Umbral		
+ABILITY:Special Ability|Visionary (Wildblooded Dreamspun) Bloodline					MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Visionary	
+ABILITY:Special Ability|Void-Touched (Wildblooded Starsoul) Bloodline					MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Void-Touched	
+ABILITY:Special Ability|Warped (Wildblooded Aberrant) Bloodline						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Bloodline ~ Warped		
+ABILITY:Special Ability|Dehydrating Touch ~ Eldritch Heritage						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Dehydrating Touch		
+ABILITY:Special Ability|Cold Steel ~ Eldritch Heritage							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Cold Steel			
+ABILITY:Special Ability|Tremor ~ Eldritch Heritage								MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Tremor			
+ABILITY:Special Ability|Lullaby ~ Eldritch Heritage								MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Lullaby			
+ABILITY:Special Ability|Protoplasm ~ Eldritch Heritage							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Protoplasm			
+ABILITY:Special Ability|Serpent's Fang ~ Eldritch Heritage							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Serpent's Fang		
+ABILITY:Special Ability|Shadowstrike ~ Eldritch Heritage							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Shadowstrike		
+ABILITY:Special Ability|Minute Meteors ~ Eldritch Heritage							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Minute Meteors		
+ABILITY:Special Ability|Thunderstaff ~ Eldritch Heritage							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Thunderstaff		
+ABILITY:Special Ability|Tanglevine ~ Eldritch Heritage							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Tanglevine			
+ABILITY:Special Ability|Touch of Rage ~ Eldritch Heritage							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Touch of Rage		
+ABILITY:Special Ability|Claws ~ Eldritch Heritage ~ Abyssal							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Fate's Retribution	
+ABILITY:Special Ability|Fate's Retribution ~ Eldritch Heritage						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Elemental Spit		
+ABILITY:Special Ability|Arcane Bolt ~ Eldritch Heritage							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Arcane Bolt			
+ABILITY:Special Ability|The Blood is the Life ~ Eldritch Heritage						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ The Blood is the Life	
+ABILITY:Special Ability|Water Blast ~ Eldritch Heritage							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Water Blast			
+ABILITY:Special Ability|Animal Companion ~ Eldritch Heritage						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Animal Companion		
+ABILITY:Special Ability|Cloak of Shadows ~ Eldritch Heritage						MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Cloak of Shadows		
+ABILITY:Special Ability|Black Motes ~ Eldritch Heritage							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Black Motes			
+ABILITY:Special Ability|Warp Touch ~ Eldritch Heritage							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Warp Touch			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
