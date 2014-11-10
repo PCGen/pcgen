@@ -70,6 +70,7 @@ ABILITYCATEGORY:Dromite Chitin	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIO
 ###Block: Improved Psicrystal Personality category
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
 ABILITYCATEGORY:Improved Psicrystal Personality	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsicrystalPersonality	PLURAL:Improved Psicrystal Personalities	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psicrystal Personality		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PsicrystalPersonality	PLURAL:Psicrystal Personalities		DISPLAYLOCATION:Feats
 
 ###Block: Astral Construct ability pools
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
