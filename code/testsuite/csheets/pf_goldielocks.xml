@@ -1426,7 +1426,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Flyby Attack</name>
-			<description>When flying you can take a move action and another standard action at any point during the move. The creature cannot take a second move action during a round when it makes a flyby attack.</description>
+			<description>This creature can make an attack before and after it moves while flying.</description>
 			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
@@ -1446,7 +1446,7 @@ BIO
 		</feat>
 		<feat>
 			<name>Hover</name>
-			<description>You can halt your movement while flying, allowing you to hover without needing to make a Fly skill check. Hovering within 20 feet of the ground in an area with lots of loose debris creates a hemispherical cloud with a radius of 60 feet. The winds generated can snuff torches, small campfires, exposed lanterns, and other small, open flames of non-magical origin. Clear vision within the cloud is limited to 10 feet. Creatures have concealment at 15 to 20 feet (20% miss chance). At 25 feet or more, creatures have total concealment (50% miss chance, and opponents cannot use sight to locate the creature).</description>
+			<description>This creature can hover in place with ease and can kick up clouds of dust and debris.</description>
 			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
