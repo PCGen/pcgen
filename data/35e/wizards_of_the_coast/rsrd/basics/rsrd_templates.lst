@@ -847,6 +847,32 @@ Hydra (Cryohydra)			PRERACE:1,Hydra%		!PRETEMPLATE:1,Hydra (Pyrohydra)						ABIL
 Sahuagin (Mutant)	HANDS:4	PRERACE:1,Sahuagin																											SUBRACE:Mutant
 Troll (Scrag)			PRERACE:1,Troll								BONUS:MOVEADD|TYPE.Walk|-10	ABILITY:Special Ability|AUTOMATIC|Regenerate in Water				MOVE:Swim,40	SUBRACE:Scrag	RACESUBTYPE:Aquatic
 
+###Block: Reincarnation Freq
+Reincarnation	CHOOSE:TEMPLATE|TYPE=Reincarnation	TEMPLATE:%LIST	ABILITY:Special Ability|AUTOMATIC|Remove Racial Traits	DEFINE:OriginalMoveValue|0	TEMPLATE:Reset Race Movement	DEFINE:ReincarnateRaceMove|0		DEFINE:Difference_In_Move|0	BONUS:VAR|Difference_In_Move|ReincarnateRaceMove-OriginalMoveValue
+#
+Bugbear		KEY:Reincarnation ~ Bugbear			TYPE:Reincarnation	SIZE:M	BONUS:VAR|ReincarnateRaceMove|30	
+Dwarf			KEY:Reincarnation ~ Dwarf			TYPE:Reincarnation	SIZE:M	BONUS:VAR|ReincarnateRaceMove|20		TEMPLATE:Hill Dwarf		ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Darkvision	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Stonecunning	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Stability	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Poison Save Bonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Spell Save Bonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Attack Bonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Dodge Bonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Appraise Bonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Craft Bonus														BONUS:STAT|CON|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial
+Elf			KEY:Reincarnation ~ Elf				TYPE:Reincarnation	SIZE:M	BONUS:VAR|ReincarnateRaceMove|30		TEMPLATE:High Elf			ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Racial Immunity	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Low-Light Vision	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Weapon Proficiency	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Skill Bonus																																																																																																																																																																			BONUS:STAT|CON|-2|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial
+Gnoll			KEY:Reincarnation ~ Gnoll			TYPE:Reincarnation	SIZE:L	BONUS:VAR|ReincarnateRaceMove|30	
+Gnome			KEY:Reincarnation ~ Gnome			TYPE:Reincarnation	SIZE:S	BONUS:VAR|ReincarnateRaceMove|20		TEMPLATE:Rock Gnome		ABILITY:Gnome Race Trait|AUTOMATIC|Gnome ~ Low-Light Vision	ABILITY:Gnome Race Trait|AUTOMATIC|Gnome ~ Weapon Familiarity	ABILITY:Gnome Race Trait|AUTOMATIC|Gnome ~ Racial Save Bonus	ABILITY:Gnome Race Trait|AUTOMATIC|Gnome ~ Racial School DC Bonus	ABILITY:Gnome Race Trait|AUTOMATIC|Gnome ~ Racial Attack Bonus	ABILITY:Gnome Race Trait|AUTOMATIC|Gnome ~ Racial Dodge Bonus	ABILITY:Gnome Race Trait|AUTOMATIC|Gnome ~ Racial Listen Skill	ABILITY:Gnome Race Trait|AUTOMATIC|Gnome ~ Racial Alchemy Skill	ABILITY:Gnome Race Trait|AUTOMATIC|Gnome ~ Spell-Like Abilities																											BONUS:STAT|CON|2|TYPE=Racial	BONUS:STAT|STR|-2|TYPE=Racial
+Goblin		KEY:Reincarnation ~ Goblin			TYPE:Reincarnation	SIZE:S	BONUS:VAR|ReincarnateRaceMove|20	
+Half-Elf		KEY:Reincarnation ~ Half-Elf			TYPE:Reincarnation	SIZE:M	BONUS:VAR|ReincarnateRaceMove|30		TEMPLATE:Half-Elf			ABILITY:Half-Elf Race Trait|AUTOMATIC|Half-Elf ~ Elven Blood	ABILITY:Half-Elf Race Trait|AUTOMATIC|Half-Elf ~ Low-Light Vision	ABILITY:Half-Elf Race Trait|AUTOMATIC|Half-Elf ~ Racial +1 Skill Bonus	ABILITY:Half-Elf Race Trait|AUTOMATIC|Half-Elf ~ Racial +2 Skill Bonus	ABILITY:Half-Elf Race Trait|AUTOMATIC|Half-Elf ~ Racial Immunity
+Half-Orc		KEY:Reincarnation ~ Half-Orc			TYPE:Reincarnation	SIZE:M	BONUS:VAR|ReincarnateRaceMove|30		TEMPLATE:Half-Orc			ABILITY:Half-Orc Race Trait|AUTOMATIC|Half-Orc ~ Darkvision	ABILITY:Half-Orc Race Trait|AUTOMATIC|Half-Orc ~ Orc Blood																																																																																																																																																																																																																		BONUS:STAT|STR|2|TYPE=Racial	BONUS:STAT|INT,CHA|-2|TYPE=Racial
+Halfling		KEY:Reincarnation ~ Halfling			TYPE:Reincarnation	SIZE:S	BONUS:VAR|ReincarnateRaceMove|20		TEMPLATE:Lightfoot Halfling	ABILITY:Halfling Race Trait|AUTOMATIC|Halfling ~ Racial +2 Save Bonus	ABILITY:Halfling Race Trait|AUTOMATIC|Halfling ~ Racial +1 Save Bonus	ABILITY:Halfling Race Trait|AUTOMATIC|Halfling ~ Racial Attack Bonus	ABILITY:Halfling Race Trait|AUTOMATIC|Halfling ~ Racial Skill Bonus																																																																																																																																																							BONUS:STAT|STR|-2|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial
+Human			KEY:Reincarnation ~ Human			TYPE:Reincarnation	SIZE:M	BONUS:VAR|ReincarnateRaceMove|30		TEMPLATE:Human Base		ABILITY:Human Race Trait|AUTOMATIC|Human ~ Skill Bonus	ABILITY:Human Race Trait|AUTOMATIC|Human ~ Bonus Feat
+Kobold		KEY:Reincarnation ~ Kobold			TYPE:Reincarnation	SIZE:S	BONUS:VAR|ReincarnateRaceMove|20	
+Lizardfolk		KEY:Reincarnation ~ Lizardfolk		TYPE:Reincarnation	SIZE:M	BONUS:VAR|ReincarnateRaceMove|30	
+Orc			KEY:Reincarnation ~ Orc				TYPE:Reincarnation	SIZE:M	BONUS:VAR|ReincarnateRaceMove|30	
+Troglodyte		KEY:Reincarnation ~ Troglodyte		TYPE:Reincarnation	SIZE:M	BONUS:VAR|ReincarnateRaceMove|30	
+
+
+Reset Race Movement	VISIBLE:NO		TEMPLATE:CHOOSE|Move Base 20|Move Base 30
+Move Base 20	VISIBLE:NO	PREVAREQ:MOVEBASE,20	BONUS:VAR|OriginalMoveValue|20	TEMPLATE:CHOOSE|Add Move 10|No Add Move
+Move Base 30	VISIBLE:NO	PREVAREQ:MOVEBASE,30	BONUS:VAR|OriginalMoveValue|30	TEMPLATE:CHOOSE|Decrease Move 10|No Add Move
+
+Add Move 10		VISIBLE:NO	PREVAREQ:Difference_In_Move,10	BONUS:MOVEADD|TYPE.Walk|10
+Decrease Move 10	VISIBLE:NO	PREVAREQ:Difference_In_Move,-10	BONUS:MOVEADD|TYPE.Walk|-10
+No Add Move		VISIBLE:NO	PREVAREQ:Difference_In_Move,0
 #
 # End
 #
