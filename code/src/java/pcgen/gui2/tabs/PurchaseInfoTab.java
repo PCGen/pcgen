@@ -394,8 +394,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	public void restoreModels(ModelMap models)
 	{
 		models.get(EquipmentFilterHandler.class).install();
-		models.get(AvailableTreeViewModel.class).install();
 		models.get(Handler.class).install();
+		models.get(AvailableTreeViewModel.class).install();
 		purchasedTable.setTreeViewModel(models.get(PurchasedTreeViewModel.class));
 		autoResizeBox.setAction(models.get(UseAutoResizeAction.class));
 		addCustomButton.setAction(models.get(AddCustomAction.class));
