@@ -340,6 +340,7 @@
 		<spell_failure>${pcstring('SPELLFAILURE')}</spell_failure>
 		<check_penalty>${pcstring('ACCHECK')}</check_penalty>
 		<spell_resistance>${pcstring('SR')}</spell_resistance>
+		<hero_points>${pcstring('VAR.HEROPOINTS.INTVAL')}</hero_points>
 	</initiative>
 	<!--
 	  ====================================
