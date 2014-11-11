@@ -513,6 +513,37 @@ To Hit:
 |ENDFOR|
 </blockquote>
 
+|IIF(count("ABILITIES";"CATEGORY=Skill")==0)|
+|ELSE|
+<b>Skill Abilities</b>
+|ENDIF|
+<blockquote>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Skill")-1,1,0|
+<b>|ABILITYALL.Skill.%ability|</b> [<i>|ABILITYALL.Skill.%ability.SOURCE|</i>]<br>
+|ENDFOR|
+</blockquote>
+
+|IIF(count("ABILITIES";"CATEGORY=Language")==0)|
+|ELSE|
+<b>Language Abilities</b>
+|ENDIF|
+<blockquote>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Language")-1,1,0|
+<b>|ABILITYALL.Language.%ability|</b> [<i>|ABILITYALL.Language.%ability.SOURCE|</i>]<br>
+|ENDFOR|
+</blockquote>
+
+|IIF(count("ABILITIES";"CATEGORY=Language")==0)|
+|ELSE|
+<b>Language Abilities</b>
+|ENDIF|
+<blockquote>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Language")-1,1,0|
+<b>|ABILITYALL.Language.%ability|</b> [<i>|ABILITYALL.Language.%ability.SOURCE|</i>]<br>
+|ENDFOR|
+</blockquote>
+
+
 |IIF(count("ABILITIES";"CATEGORY=Natural Attack")==0)|
 |ELSE|
 <b>Natural Attack</b>
