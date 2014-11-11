@@ -3,7 +3,105 @@ SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefie
 #Original Entry: Andrew Maitland
 
 # Ability Name	Category of Ability
-Default		CATEGORY:Internal
+Default		CATEGORY:Internal	DEFINE:Max_Rank_Display|0				BONUS:VAR|Max_Rank_Display|MaxRank-10
+###Block:
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Acrobatics|0					BONUS:VAR|Max_Rank_Acrobatics|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Athletics|0					BONUS:VAR|Max_Rank_Athletics|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Benchthumping|0				BONUS:VAR|Max_Rank_Benchthumping|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Concentration|0				BONUS:VAR|Max_Rank_Concentration|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Craft(Chemical)|0				BONUS:VAR|Max_Rank_Craft(Chemical)|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Athletics|0					BONUS:VAR|Max_Rank_Athletics|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Craft(Mechanical)|0				BONUS:VAR|Max_Rank_Craft(Mechanical)|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Craft(Structural)|0				BONUS:VAR|Max_Rank_Craft(Structural)|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Deception|0					BONUS:VAR|Max_Rank_Deception|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Decipher_Script|0				BONUS:VAR|Max_Rank_Decipher_Script|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Demolitions|0					BONUS:VAR|Max_Rank_Demolitions|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Disable_Device|0				BONUS:VAR|Max_Rank_Disable_Device|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Escape_Artist|0				BONUS:VAR|Max_Rank_Escape_Artist|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Forgery|0					BONUS:VAR|Max_Rank_Forgery|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Gamble|0					BONUS:VAR|Max_Rank_Gamble|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Gather_Information|0			BONUS:VAR|Max_Rank_Gather_Information|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Handle_Animal|0				BONUS:VAR|Max_Rank_Handle_Animal|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Investigate|0					BONUS:VAR|Max_Rank_Investigate|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Art|0				BONUS:VAR|Max_Rank_Knowledge_Art|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Behavioral_Sciences|0		BONUS:VAR|Max_Rank_Knowledge_Behavioral_Sciences|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Business|0			BONUS:VAR|Max_Rank_Knowledge_Business|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Civics|0				BONUS:VAR|Max_Rank_Knowledge_Civics|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Current_Events|0		BONUS:VAR|Max_Rank_Knowledge_Current_Events|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Dungeoneering|0			BONUS:VAR|Max_Rank_Knowledge_Dungeoneering|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Earth_and_Life_Sciences|0	BONUS:VAR|Max_Rank_Knowledge_Earth_and_Life_Sciences|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_History|0				BONUS:VAR|Max_Rank_Knowledge_History|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Military_Science|0		BONUS:VAR|Max_Rank_Knowledge_Military_Science|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Occult_Science|0		BONUS:VAR|Max_Rank_Knowledge_Occult_Science|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Pharmaceutical|0		BONUS:VAR|Max_Rank_Knowledge_Pharmaceutical|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Physical_Sciences|0		BONUS:VAR|Max_Rank_Knowledge_Physical_Sciences|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Popular_Culture|0		BONUS:VAR|Max_Rank_Knowledge_Popular_Culture|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Psychic|0				BONUS:VAR|Max_Rank_Knowledge_Psychic|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Streetwise|0			BONUS:VAR|Max_Rank_Knowledge_Streetwise|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Technology|0			BONUS:VAR|Max_Rank_Knowledge_Technology|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_Theology_and_Philosophy|0	BONUS:VAR|Max_Rank_Knowledge_Theology_and_Philosophy|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Knowledge_The_Planes|0			BONUS:VAR|Max_Rank_Knowledge_The_Planes|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Navigate|0					BONUS:VAR|Max_Rank_Navigate|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Notice|0					BONUS:VAR|Max_Rank_Notice|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Operate_Vehicle_Aircraft|0		BONUS:VAR|Max_Rank_Operate_Vehicle_Aircraft|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Operate_Vehicle_Ground_Vehicles|0	BONUS:VAR|Max_Rank_Operate_Vehicle_Ground_Vehicles|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Operate_Vehicle_Watercraft|0		BONUS:VAR|Max_Rank_Operate_Vehicle_Watercraft|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Perform_Act|0					BONUS:VAR|Max_Rank_Perform_Act|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Perform_Dance|0				BONUS:VAR|Max_Rank_Perform_Dance|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Perform_Keyboards|0				BONUS:VAR|Max_Rank_Perform_Keyboards|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Perform_Percussion_Instruments|0	BONUS:VAR|Max_Rank_Perform_Percussion_Instruments|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Perform_Sing|0				BONUS:VAR|Max_Rank_Perform_Sing|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Perform_Stand_Up|0				BONUS:VAR|Max_Rank_Perform_Stand_Up|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Perform_Stringed_Instruments|0		BONUS:VAR|Max_Rank_Perform_Stringed_Instruments|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Perform_Vaudeville|0			BONUS:VAR|Max_Rank_Perform_Vaudeville|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Perform_Wind_Instruments|0		BONUS:VAR|Max_Rank_Perform_Wind_Instruments|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Persuasion|0					BONUS:VAR|Max_Rank_Persuasion|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Profession|0					BONUS:VAR|Max_Rank_Profession|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Read_WriteLanguage|0			BONUS:VAR|Max_Rank_Read_WriteLanguage|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Repair|0					BONUS:VAR|Max_Rank_Repair|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Research|0					BONUS:VAR|Max_Rank_Research|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Ride|0						BONUS:VAR|Max_Rank_Ride|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Search|0					BONUS:VAR|Max_Rank_Search|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Sense_Motive|0				BONUS:VAR|Max_Rank_Sense_Motive|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Sleight_of_Hand|0				BONUS:VAR|Max_Rank_Sleight_of_Hand|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Speak_Language|0				BONUS:VAR|Max_Rank_Speak_Language|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Stealth|0					BONUS:VAR|Max_Rank_Stealth|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Survival|0					BONUS:VAR|Max_Rank_Survival|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Treat_Injury|0				BONUS:VAR|Max_Rank_Treat_Injury|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Use_Device|0					BONUS:VAR|Max_Rank_Use_Device|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Adaptation|0			BONUS:VAR|Max_Rank_Psychic_Adaptation|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Combat_Sense|0			BONUS:VAR|Max_Rank_Psychic_Combat_Sense|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Domination|0			BONUS:VAR|Max_Rank_Psychic_Domination|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Drain_Ability_STR|0		BONUS:VAR|Max_Rank_Psychic_Drain_Ability_STR|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Drain_Ability_DEX|0		BONUS:VAR|Max_Rank_Psychic_Drain_Ability_DEX|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Drain_Ability_CON|0		BONUS:VAR|Max_Rank_Psychic_Drain_Ability_CON|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Drain_Ability_INT|0		BONUS:VAR|Max_Rank_Psychic_Drain_Ability_INT|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Drain_Ability_WIS|0		BONUS:VAR|Max_Rank_Psychic_Drain_Ability_WIS|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Drain_Ability_CHA|0		BONUS:VAR|Max_Rank_Psychic_Drain_Ability_CHA|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Drain_Emotion|0			BONUS:VAR|Max_Rank_Psychic_Drain_Emotion|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Drain_Vitality|0			BONUS:VAR|Max_Rank_Psychic_Drain_Vitality|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Enhance_Ability|0			BONUS:VAR|Max_Rank_Psychic_Enhance_Ability|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Enhance_Senses|0			BONUS:VAR|Max_Rank_Psychic_Enhance_Senses|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Illusion|0				BONUS:VAR|Max_Rank_Psychic_Illusion|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Life_Extension|0			BONUS:VAR|Max_Rank_Psychic_Life_Extension|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Mental_Contact|0			BONUS:VAR|Max_Rank_Psychic_Mental_Contact|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Mind_Reading|0			BONUS:VAR|Max_Rank_Psychic_Mind_Reading|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Mind_Switch|0			BONUS:VAR|Max_Rank_Psychic_Mind_Switch|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Precognition|0			BONUS:VAR|Max_Rank_Psychic_Precognition|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Psychic_Blast|0			BONUS:VAR|Max_Rank_Psychic_Psychic_Blast|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Psychic_Sense|0			BONUS:VAR|Max_Rank_Psychic_Psychic_Sense|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Psychic_Shield|0			BONUS:VAR|Max_Rank_Psychic_Psychic_Shield|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Psychic_Static|0			BONUS:VAR|Max_Rank_Psychic_Psychic_Static|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Psychic_Surgery|0			BONUS:VAR|Max_Rank_Psychic_Psychic_Surgery|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Psychometry|0			BONUS:VAR|Max_Rank_Psychic_Psychometry|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Remote_Viewing|0			BONUS:VAR|Max_Rank_Psychic_Remote_Viewing|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Sense_Minds|0			BONUS:VAR|Max_Rank_Psychic_Sense_Minds|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Sleep|0				BONUS:VAR|Max_Rank_Psychic_Sleep|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Suggestion|0			BONUS:VAR|Max_Rank_Psychic_Suggestion|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Telekinesis|0			BONUS:VAR|Max_Rank_Psychic_Telekinesis|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Telekinetic_Blast|0		BONUS:VAR|Max_Rank_Psychic_Telekinetic_Blast|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Telekinetic_Grip|0		BONUS:VAR|Max_Rank_Psychic_Telekinetic_Grip|MaxRank-10
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Rank_Psychic_Telekinetic_Shield|0		BONUS:VAR|Max_Rank_Psychic_Telekinetic_Shield|MaxRank-10
 
 ###Block: Automatic Proficiencies for all classes
 # Ability Name			Category of Ability		Visible	Template				Auto Weapon Prof
@@ -35,24 +133,22 @@ Insanity		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:Insani
 ###Block: Acolyte Talent Trees
 # Empathic Talent Tree
 # Ability Name		Category of Ability	Type					Required Ability								Define				Description																																Stackable?	Multiple?	Choose																			Selections		Bonus to skill			Modify VAR				Source Page
-Empathy			CATEGORY:Talent		TYPE:Talent.AcolyteTalent																DESC:The Acolyte has a knack for being sensitive to the feelings and thoughts of others without having those feelings and thoughts communicated in any objectively explicit manner.																																									SOURCEPAGE:p.79
-Improved Aid Another	CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Empathy				DEFINE:ImprovedAidBonus|0	DESC:The Acolyte's bonus on attempts to aid another increases by +%1 on a successful aid another check.|ImprovedAidBonus													STACK:YES	MULT:YES	CHOOSE:NOCHOICE																										BONUS:VAR|ImprovedAidBonus|1	SOURCEPAGE:p.79
-Intuition			CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Empathy									DESC:The Acolyte has an innate ability to sense trouble in the air.																																																											SOURCEPAGE:p.79
+Empathy			CATEGORY:Talent		TYPE:Talent.AcolyteTalent.Empathic Talent Tree																DESC:The Acolyte has a knack for being sensitive to the feelings and thoughts of others without having those feelings and thoughts communicated in any objectively explicit manner.																																									SOURCEPAGE:p.95
+Improved Aid Another	CATEGORY:Talent		TYPE:Talent.AcolyteTalent.Empathic Talent Tree	PREABILITY:1,CATEGORY=Talent,Empathy				DEFINE:ImprovedAidBonus|0	DESC:The Acolyte's bonus on attempts to aid another increases by +%1 on a successful aid another check.|ImprovedAidBonus													STACK:YES	MULT:YES	CHOOSE:NOCHOICE																										BONUS:VAR|ImprovedAidBonus|1	SOURCEPAGE:p.95
+Intuition			CATEGORY:Talent		TYPE:Talent.AcolyteTalent.Empathic Talent Tree	PREABILITY:1,CATEGORY=Talent,Empathy									DESC:The Acolyte has an innate ability to sense trouble in the air.																																																											SOURCEPAGE:p.95
 
 # Healing Talent Tree
-Healing Knack		CATEGORY:Talent		TYPE:Talent.AcolyteTalent																DESC:The Acolyte has a knack for the healing arts.																																																				BONUS:SKILL|Treat Injury|2						SOURCEPAGE:p.79
-Healing Touch 1		CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Healing Knack								DESC:The Acolyte's ability to restore damage with a medical kit or perform surgery with a surgery kit increases by +2 hit points.																																																	SOURCEPAGE:p.79
-Healing Touch 2		CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:2,CATEGORY=Talent,Healing Knack,Healing Touch 1						DESC:The Acolyte's ability to restore damage with a medical kit or perform surgery with a surgery kit increases by +2 hit points, which stacks with healing touch 1 for a total of +4 hit points.																																						SOURCEPAGE:p.79
+Healing Knack		CATEGORY:Talent		TYPE:Talent.AcolyteTalent.Healing Talent Tree																DESC:The Acolyte has a knack for the healing arts.																																																				BONUS:SKILL|Treat Injury|2						SOURCEPAGE:p.95
+Healing Touch 1		CATEGORY:Talent		TYPE:Talent.AcolyteTalent.Healing Talent Tree	PREABILITY:1,CATEGORY=Talent,Healing Knack								DESC:The Acolyte's ability to restore damage with a medical kit or perform surgery with a surgery kit increases by +2 hit points.																																																	SOURCEPAGE:p.95
+Healing Touch 2		CATEGORY:Talent		TYPE:Talent.AcolyteTalent.Healing Talent Tree	PREABILITY:2,CATEGORY=Talent,Healing Knack,Healing Touch 1						DESC:The Acolyte's ability to restore damage with a medical kit or perform surgery with a surgery kit increases by +2 hit points, which stacks with healing touch 1 for a total of +4 hit points.																																						SOURCEPAGE:p.95
 
 # Insightful Talent Tree
-Skill Emphasis		CATEGORY:Talent		TYPE:Talent.AcolyteTalent																DESC:The Acolyte chooses a skill and receives a +3 bonus on all checks with that skill.																			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom				BONUS:SKILL|LIST|3							SOURCEPAGE:p.79
-Aware				CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Skill Emphasis								DESC:The Acolyte is intuitively aware of her surroundings.																																																													SOURCEPAGE:p.80
-Faith				CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Skill Emphasis								DESC:The Acolyte has a great deal of faith.																																																															SOURCEPAGE:p.80
-Cool Under Pressure	CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Aware,Faith									DESC:When making a check with %1, the Acolyte can take 10 even when distracted or under duress.|%LIST																	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom	SELECT:3+WIS											SOURCEPAGE:p.80
-
+Skill Emphasis		CATEGORY:Talent		TYPE:Talent.AcolyteTalent.Insightful Talent Tree																DESC:The Acolyte chooses a skill and receives a +3 bonus on all checks with that skill.																			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom				BONUS:SKILL|%LIST|3							SOURCEPAGE:p.95
+Aware				CATEGORY:Talent		TYPE:Talent.AcolyteTalent.Insightful Talent Tree	PREABILITY:1,CATEGORY=Talent,Skill Emphasis								DESC:The Acolyte is intuitively aware of her surroundings.																																																													SOURCEPAGE:p.95
+Faith				CATEGORY:Talent		TYPE:Talent.AcolyteTalent.Insightful Talent Tree	PREABILITY:1,CATEGORY=Talent,Skill Emphasis								DESC:The Acolyte has a great deal of faith.																																																															SOURCEPAGE:p.95
+Cool Under Pressure	CATEGORY:Talent		TYPE:Talent.AcolyteTalent.Insightful Talent Tree	PREABILITY:1,CATEGORY=Talent,Aware,Faith									DESC:When making a check with %1, the Acolyte can take 10 even when distracted or under duress.|%LIST																	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom	SELECT:3+WIS											SOURCEPAGE:p.95
 
 ###Block:   Apprentice class abilities   =======================================
-
 # Ability Name	Category of Ability		Type				Visible	Define			Description																	Source Page
 Summon Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:FamiliarLVL|0	DESC:An Apprentice has the ability to obtain a familiar. A familiar is magically linked to its master.	SOURCEPAGE:p.81
 

@@ -5,7 +5,7 @@ SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefie
 ###Block: Acolyte --------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Add domain number		Save bonus																					Modify VAR
-CLASS:Acolyte	HD:8		TYPE:Base.PC	ABB:Aclyt		MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3
+CLASS:Acolyte	HD:8		TYPE:Base.PC	ABB:Aclyt		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel()/2+2	BONUS:SAVE|BASE.Reflex|classlevel()/3	BONUS:VAR|ClassDefense|(AcolyteLVL+1)/2	BONUS:VAR|Reputation|(AcolyteLVL+5)/3	DEFINE:AcolyteLVL|0	BONUS:VAR|AcolyteLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Acolyte	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Structural)|Craft (Expression)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Occult Science)|Knowledge (Theology and Philosophy)|Knowledge (The Planes)|Notice|Persuasion|Profession|Read/Write Language|Sense Motive|Speak Language|Treat Injury
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
@@ -17,42 +17,48 @@ CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 ###Block: Turning
 2	BONUS:ABILITYPOOL|Undead Turning|1	BONUS:VAR|TurnTimesBase|3+CHA	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	ABILITY:Special Ability|AUTOMATIC|Basic Turning
 ###Block: Class progression
-1	BONUS:ABILITYPOOL|Acolyte Talent|1
-3	BONUS:ABILITYPOOL|Acolyte Talent|1
-4	BONUS:ABILITYPOOL|Acolyte Feat|1
-5	BONUS:ABILITYPOOL|Acolyte Talent|1
-6	BONUS:ABILITYPOOL|Acolyte Feat|1
-7	BONUS:ABILITYPOOL|Acolyte Talent|1
-8							ABILITY:Special Ability|AUTOMATIC|Medical Mastery
-9	BONUS:ABILITYPOOL|Acolyte Talent|1
-10	BONUS:ABILITYPOOL|Acolyte Feat|1	ABILITY:Special Ability|AUTOMATIC|Combat Casting
+1	BONUS:ABILITYPOOL|Acolyte Talent|(AcolyteLVL+1)/2
+4	BONUS:ABILITYPOOL|Acolyte Feat|1+(AcolyteLVL>5)+(AcolyteLVL>9)
+###Block:
+8	ABILITY:Special Ability|AUTOMATIC|Medical Mastery
+10	ABILITY:Special Ability|AUTOMATIC|Combat Casting
 ###Block: Divine Caster Progression
 1	CAST:3,1
 2	CAST:4,2
 3	CAST:4,2,1
-4	CAST:4,3,2
-5	CAST:4,3,2,1
-6	CAST:4,3,3,2
-7	CAST:4,4,3,2,1
-8	CAST:4,4,3,3,2
-9	CAST:4,4,4,3,2,1
-10	CAST:4,4,4,3,3,2
-11	CAST:4,4,4,4,3,2,1
-12	CAST:4,4,4,4,3,3,2
-13	CAST:4,4,4,4,4,3,2,1
-14	CAST:4,4,4,4,4,3,3,2
-15	CAST:4,4,4,4,4,4,3,2,1
-16	CAST:4,4,4,4,4,4,3,3,2
-17	CAST:4,4,4,4,4,4,4,3,2,1
-18	CAST:4,4,4,4,4,4,4,3,3,2
-19	CAST:4,4,4,4,4,4,4,4,3,3
-20	CAST:4,4,4,4,4,4,4,4,4,4
+4	CAST:5,3,2
+5	CAST:5,3,2,1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1
+10	CAST:6,4,4,3,3,2
+11	CAST:6,5,4,4,3,2,1
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4
+21	CAST:6,5,5,5,5,5,4,4,4,4
+22	CAST:6,5,5,5,5,5,4,4,4,4
+23	CAST:6,5,5,5,5,5,4,4,4,4
+24	CAST:6,5,5,5,5,5,4,4,4,4
+25	CAST:6,5,5,5,5,5,4,4,4,4
+26	CAST:6,5,5,5,5,5,4,4,4,4
+27	CAST:6,5,5,5,5,5,4,4,4,4
+28	CAST:6,5,5,5,5,5,4,4,4,4
+29	CAST:6,5,5,5,5,5,4,4,4,4
+30	CAST:6,5,5,5,5,5,4,4,4,4
 
 
 ###Block: Apprentice ----------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
-CLASS:Apprentice	HD:6		TYPE:Base.PC	ABB:Appr		MAXLEVEL:10	SOURCEPAGE:p.81	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Apprentice	HD:6		TYPE:Base.PC	ABB:Appr		MAXLEVEL:10	SOURCEPAGE:p.95	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Will|1+(CL>1)+(CL>4)+(CL>6)+(CL>9)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Apprentice	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Expression)|Decipher Script|TYPE=OperateVehicle|Escape Artist|Forgery|Investigate|TYPE=Knowledge|Profession|Read/Write Language|Research|Sleight of Hand|Speak Language|Use Device
 # Class Name	Spell Type		Caster level
@@ -63,14 +69,10 @@ CLASS:Apprentice	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Aprentice|CL
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapons Proficiency
 ###Block: Class progression
 1	BONUS:ABILITYPOOL|Apprentice Talent|(CL+1)/2						ABILITY:Special Ability|AUTOMATIC|Summon Familiar
-2									BONUS:VAR|ClassDefense|1										AUTO:FEAT|Scribe Scroll
-3									BONUS:VAR|Reputation|1
+2									BONUS:VAR|ClassDefense|1+(CL>5)+(CL>7)										AUTO:FEAT|Scribe Scroll
+3									BONUS:VAR|Reputation|CL/3
 4	BONUS:ABILITYPOOL|Apprentice Feat|(CL-2)/2
-5									BONUS:VAR|Reputation|1
-6									BONUS:VAR|ClassDefense|1
 7														ABILITY:Special Ability|AUTOMATIC|Combat Casting
-8									BONUS:VAR|ClassDefense|1
-9									BONUS:VAR|Reputation|1
 ###Block: Arcane Caster Progression
 1	CAST:5,3
 2	CAST:6,4
@@ -92,12 +94,22 @@ CLASS:Apprentice	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Aprentice|CL
 18	CAST:6,6,6,6,6,6,6,6,5,3
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,6
+21	CAST:6,6,6,6,6,6,6,6,6,6
+22	CAST:6,6,6,6,6,6,6,6,6,6
+23	CAST:6,6,6,6,6,6,6,6,6,6
+24	CAST:6,6,6,6,6,6,6,6,6,6
+25	CAST:6,6,6,6,6,6,6,6,6,6
+26	CAST:6,6,6,6,6,6,6,6,6,6
+27	CAST:6,6,6,6,6,6,6,6,6,6
+28	CAST:6,6,6,6,6,6,6,6,6,6
+29	CAST:6,6,6,6,6,6,6,6,6,6
+30	CAST:6,6,6,6,6,6,6,6,6,6
 
 
 ###Block: Everyman ----------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Save bonus
-CLASS:Everyman	HD:6		TYPE:Base.PC	ABB:Evm		MAXLEVEL:10	SOURCEPAGE:p.85	BONUS:COMBAT|BASEAB|(((classlevel("APPLIEDAS=NONEPIC")+2)*2)/3)-2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+4)/2
+CLASS:Everyman	HD:6		TYPE:Base.PC	ABB:Evm		MAXLEVEL:10	SOURCEPAGE:p.85	BONUS:COMBAT|BASEAB|(((classlevel()+2)*2)/3)-2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Will|(classlevel()+4)/2
 # Class Name	Skill Pts/Lvl
 CLASS:Everyman	STARTSKILLPTS:5
 ###Block: Background
@@ -116,7 +128,7 @@ CLASS:Everyman	STARTSKILLPTS:5
 ###Block: Explorer ----------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus																						Modify VAR
-CLASS:Explorer	HD:8		TYPE:Base.PC	ABB:Explr		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
+CLASS:Explorer	HD:8		TYPE:Base.PC	ABB:Explr		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel()/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Athletics|Concentration|TYPE=Craft|Handle Animal|Treat Injury|Knowledge (Dungeoneering)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Notice|TYPE=OperateVehicle|Persuasion|Profession|Ride|Search|Stealth|Survival
 ###Block: Background
@@ -134,7 +146,7 @@ CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Athletics|Concentration|TYPE=Craft|Handle 
 ###Block: Gunslinger ------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus																					Modify VAR
-CLASS:Gunslinger	HD:10		TYPE:Base.PC	ABB:Gunsl		MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
+CLASS:Gunslinger	HD:10		TYPE:Base.PC	ABB:Gunsl		MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel()/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Deception|Demolitions|Escape Artist|Gamble|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Notice|TYPE=OperateVehicle|Persuasion|Profession|Read/Write Language|Ride|Sleight of Hand|Stealth|Speak Language|Survival
 ###Block: Background
@@ -154,7 +166,7 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Deception|Demolitions|Escape Artist|Gamb
 ###Block: Investigator ---------------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save bonus																						Modify VAR
-CLASS:Investigator	HD:6		TYPE:Base.PC	ABB:Inves		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:VAR|ClassDefense|(CL+2)/3	BONUS:VAR|Reputation|(CL-1)/2
+CLASS:Investigator	HD:6		TYPE:Base.PC	ABB:Inves		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel()/3	BONUS:SAVE|BASE.Reflex|(classlevel()+4)/2	BONUS:VAR|ClassDefense|(CL+2)/3	BONUS:VAR|Reputation|(CL-1)/2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Investigator	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Deception|Disable Device|Forgery|Gather Information|Persuasion|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Notice|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language
 ###Block: Background
@@ -176,7 +188,7 @@ CLASS:Investigator	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Deception|Disable Device|Fo
 ###Block: Martial Artist ----------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus																					Modify VAR
-CLASS:Martial Artist	HD:8		TYPE:Base.PC	ABB:MrArt		MAXLEVEL:10	SOURCEPAGE:p.97	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|0
+CLASS:Martial Artist	HD:8		TYPE:Base.PC	ABB:MrArt		MAXLEVEL:10	SOURCEPAGE:p.97	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel()/3	BONUS:SAVE|BASE.Reflex|classlevel()/2+2	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Martial Artist	STARTSKILLPTS:6	CSKILL:Acrobatics|Athletics|Escape Artist|Athletics|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Notice|Persuasion|Perform (Dance)|Profession|Read/Write Language|Stealth|Speak Language
 ###Block: Background
@@ -193,7 +205,7 @@ CLASS:Martial Artist	STARTSKILLPTS:6	CSKILL:Acrobatics|Athletics|Escape Artist|A
 ###Block: Officer ----------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus																					Modify VAR
-CLASS:Officer	HD:8		TYPE:Base.PC	ABB:Offcr		MAXLEVEL:10	SOURCEPAGE:p.100	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
+CLASS:Officer	HD:8		TYPE:Base.PC	ABB:Offcr		MAXLEVEL:10	SOURCEPAGE:p.100	BONUS:COMBAT|BASEAB|classlevel()|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Officer	STARTSKILLPTS:4	CSKILL:Demolitions|Athletics|Knowledge (Current Events)|Knowledge (History)|Knowledge (Military Science)|Notice|Navigate|TYPE=OperateVehicle|Persuasion|Profession|Read/Write Language|Speak Language|Survival
 ###Block: Background
@@ -216,15 +228,15 @@ CLASS:Officer	STARTSKILLPTS:4	CSKILL:Demolitions|Athletics|Knowledge (Current Ev
 ###Block: Rogue ----------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus																														Modify VAR
-CLASS:Rogue		HD:8		TYPE:Base.PC	ABB:Rogue		MAXLEVEL:10	SOURCEPAGE:p.103	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+6)/2	BONUS:VAR|Reputation|CL/3
+CLASS:Rogue		HD:8		TYPE:Base.PC	ABB:Rogue		MAXLEVEL:10	SOURCEPAGE:p.103	BONUS:COMBAT|BASEAB|(classlevel()*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex|(classlevel()+3)*2/5	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:VAR|ClassDefense|(CL+6)/2	BONUS:VAR|Reputation|CL/3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Acrobatics|Deception|Athletics|Craft (Mechanical)|Decipher Script|Demolitions|Disable Device|Deception|Escape Artist|Forgery|Gather Information|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Navigate|Notice|TYPE=OperateVehicle|Persuasion|TYPE=Perform|Profession|Read/Write Language|Ride|Sleight of Hand|Search|Stealth|Speak Language|Survival|Use Device|Notice (Locate Traps)
+CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Acrobatics|Deception|Athletics|Craft (Mechanical)|Decipher Script|Demolitions|Disable Device|Deception|Escape Artist|Forgery|Gather Information|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Navigate|Notice|TYPE=OperateVehicle|Persuasion|TYPE=Perform|Profession|Read/Write Language|Ride|Sleight of Hand|Search|Stealth|Speak Language|Survival|Use Device
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapons Proficiency
 ###Block: Class progression
-1	BONUS:ABILITYPOOL|Rogue Talent|(CL+1)/2	BONUS:SKILL|Disable Device,Notice (Locate Traps)|CL/2						ABILITY:Special Ability|AUTOMATIC|Trapfinding
+1	BONUS:ABILITYPOOL|Rogue Talent|(CL+1)/2	BONUS:SKILL|Disable Device|CL/2	BONUS:SITUATION|Notice=Locate Traps|CL/2						ABILITY:Special Ability|AUTOMATIC|Trapfinding
 2																						ABILITY:Special Ability|AUTOMATIC|Evasion
 3																	BONUS:VAR|TrapSenseBonus|CL/3	ABILITY:Special Ability|AUTOMATIC|Trap Sense
 4	BONUS:ABILITYPOOL|Rogue Feat|CL/4																ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
@@ -234,7 +246,7 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Acrobatics|Deception|Athletics|Craft (Mechan
 ###Block: Scholar ----------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus																					Modify VAR
-CLASS:Scholar	HD:8		TYPE:Base.PC	ABB:Schlr		MAXLEVEL:10	SOURCEPAGE:p.109	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+4)/3	BONUS:VAR|ClassDefense|(CL-1)/3	BONUS:VAR|Reputation|(CL+5)/3
+CLASS:Scholar	HD:8		TYPE:Base.PC	ABB:Schlr		MAXLEVEL:10	SOURCEPAGE:p.109	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel()+4)/3	BONUS:VAR|ClassDefense|(CL-1)/3	BONUS:VAR|Reputation|(CL+5)/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scholar	STARTSKILLPTS:6	CSKILL:Craft (Chemical)|Craft (Expression)|Craft (Mechanical)|Craft (Chemical)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|TYPE=OperateVehicle|Profession|Read/Write Language|Research|Search|Speak Language|Treat Injury
 ###Block: Background
