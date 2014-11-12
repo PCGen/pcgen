@@ -3,16 +3,16 @@ SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/sto
 
 ###Block: Modern Human Languages
 # Language		Product Identity?	Type					Source Page
-Hallit		NAMEISPI:YES	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
-Kelish		NAMEISPI:YES	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
-Osiriani		NAMEISPI:YES	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
-Polyglot					TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
-Shadowtongue				TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
-Shoanti		NAMEISPI:YES	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
-Skald			NAMEISPI:YES	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
-Tien			NAMEISPI:YES	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
-Varisian		NAMEISPI:YES	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
-Vudrani		NAMEISPI:YES	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
+Hallit		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage	SOURCEPAGE:p.251
+Kelish		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage	SOURCEPAGE:p.251
+Osiriani		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage	SOURCEPAGE:p.251
+Polyglot					TYPE:Spoken.Written.Read.ModernHumanLanguage	SOURCEPAGE:p.251
+Shadowtongue				TYPE:Spoken.Written.Read.ModernHumanLanguage	SOURCEPAGE:p.251
+Shoanti		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage	SOURCEPAGE:p.251
+Skald			NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage	SOURCEPAGE:p.251
+Tien			NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage	SOURCEPAGE:p.251
+Varisian		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage	SOURCEPAGE:p.251
+Vudrani		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage	SOURCEPAGE:p.251
 
 ###Block: Ancient Languages
 # Language		Product Identity?	Type					Source Page
