@@ -805,12 +805,12 @@ public class CharacterDisplay
 		return getSafeStringFor(StringKey.PLAYERS_NAME);
 	}
 
-	public Float calcCR()
+	public Integer calcCR()
 	{
 		return crFacet.getCR(id);
 	}
 
-	public float calcBaseCR()
+	public Integer calcBaseCR()
 	{
 		return crFacet.calcRaceCR(id);
 	}

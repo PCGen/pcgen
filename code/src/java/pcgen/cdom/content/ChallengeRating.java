@@ -17,9 +17,12 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Map;
+
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.core.SettingsHandler;
 
 /**
  * A ChallengeRating is intended to be a type-safe wrapper for an Formula
@@ -85,6 +88,17 @@ public class ChallengeRating extends ConcretePrereqObject
 			str = "1/" + str.substring(1);
 		}
 		return str;
+	}
+
+	/**
+	 * Returns the internal integer representation of this ChallengeRating, 
+	 * using 0 and negative numbers for fractional CRs
+	 * 
+	 * @return An integer representation of this ChallengeRating
+	 */
+	public Integer toInteger()
+	{
+		return SettingsHandler.getGame().getCRInteger(rating.toString());
 	}
 
 	/**

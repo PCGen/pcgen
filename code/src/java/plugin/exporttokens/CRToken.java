@@ -25,8 +25,7 @@
  */
 package plugin.exporttokens;
 
-import org.apache.commons.lang.math.Fraction;
-
+import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
@@ -53,40 +52,20 @@ public class CRToken extends AbstractExportToken
 		ExportHandler eh)
 	{
 		String retString = "";
-		Float cr = display.calcCR();
+		Integer cr = display.calcCR();
 		
-		String crAsString = Float.toString(cr);
-		String decimalPlaceValue =
-				crAsString.substring(crAsString.length() - 2);
-		
-		if (cr > 0 && cr < 1)
-		{
-			// If the CR is a fractional CR then we convert to a 1/x format
-			Fraction fraction = Fraction.getFraction(cr);// new Fraction(CR);
-			int denominator = fraction.getDenominator();
-			int numerator = fraction.getNumerator();
-			retString = numerator + "/" + denominator;
-		}
-		else if (cr >= 1 || cr == 0)
-		{
-			int newCr = -99;
-			if (decimalPlaceValue.equals(".0"))
-			{
-				newCr = (int) cr.floatValue();
-			}
-		
-			if (newCr > -99)
-			{
-				retString = retString + newCr;
-			}
-			else
-			{
-				retString = retString + cr;
-			}
-		}
-		else if (cr.isNaN())
+		if (cr == null)
 		{
 			retString = "0";
+		}
+		else if (cr >= 1)
+		{
+			retString = cr.toString();
+		}
+		else if (cr < 1)
+		{
+			// If the CR is a fractional CR then we get the 1/x format from the map
+			retString = SettingsHandler.getGame().getCRSteps().get(cr);
 		}
 		return retString;
 	}

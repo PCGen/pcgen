@@ -39,7 +39,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.math.Fraction;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMReference;
@@ -126,8 +125,8 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String weaponCategories = "";
 	private String weaponTypes = "";
 	private String weaponReachFormula = "";
-	private Map<String, Integer> xpAwardsMap = new HashMap<String, Integer>();
-	private Map<Integer, Float> crStepsMap = new HashMap<Integer, Float>();
+	private Map<Integer, Integer> xpAwardsMap = new HashMap<Integer, Integer>();
+	private Map<Integer, String> crStepsMap = new HashMap<Integer, String>();
 	private String crThreshold = null;
 	private String rankModFormula = "";
 	private String addWithMetamagic = "";
@@ -937,7 +936,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get the XP awards.
 	 * @return the XP awards
 	 */
-	public Map<String, Integer> getXPAwards()
+	public Map<Integer, Integer> getXPAwards()
 	{
 		return xpAwardsMap;
 	}
@@ -946,9 +945,29 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get the CR steps for CRs lower than CR 1.
 	 * @return the CR steps
 	 */
-	public Map<Integer, Float> getCRSteps()
+	public Map<Integer, String> getCRSteps()
 	{
 		return crStepsMap;
+	}
+
+	/**
+	 * Get the internal Integer representation for a CR.
+	 * @return the CR steps
+	 */
+	public Integer getCRInteger(String cr)
+	{
+		if (cr.startsWith("1/"))
+		{
+			for (Map.Entry<Integer, String> entry : crStepsMap.entrySet())
+			{
+				if (entry.getValue().equals(cr))
+				{
+					return entry.getKey();
+				}
+			}
+			return null;
+		}
+		return Integer.parseInt(cr);
 	}
 
 	/**
@@ -1169,7 +1188,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 			{
 				sTmp = aTok.nextToken();
 				final String xpAward[] = sTmp.split("=");
-				xpAwardsMap.put(xpAward[0], new Integer(xpAward[1]));
+				xpAwardsMap.put(getCRInteger(xpAward[0]), new Integer(xpAward[1]));
 			}
 			catch (ArrayIndexOutOfBoundsException e)
 			{
@@ -1192,7 +1211,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		
 		for (Integer index = 0; aTok.hasMoreTokens(); index--)
 		{
-			crStepsMap.put(index, Fraction.getFraction(aTok.nextToken()).floatValue());
+			crStepsMap.put(index, aTok.nextToken());
 		}
 	}
 

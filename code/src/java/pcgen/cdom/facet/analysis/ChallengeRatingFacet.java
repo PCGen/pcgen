@@ -67,15 +67,15 @@ public class ChallengeRatingFacet
 	 * @return The Challenge Rating of the Player Character represented by the
 	 *         given CharID
 	 */
-	public Float getCR(CharID id)
+	public Integer getCR(CharID id)
 	{
-		Float cr = new Float(0);
+		Integer cr = new Integer(0);
 		
 		if (levelFacet.getMonsterLevelCount(id) == 0)
 		{
 			if (levelFacet.getNonMonsterLevelCount(id) == 0)
 			{
-				return Float.NaN;
+				return null;
 			}
 			// calculate and add class CR for 0-HD races
 			cr += calcClassesCR(id);
@@ -84,10 +84,10 @@ public class ChallengeRatingFacet
 		{
 			// calculate and add race CR and classes CR for 
 			// races with racial hit dice
-			Float classRaceCR = calcClassesForRaceCR(id);
-			if (classRaceCR.isNaN())
+			Integer classRaceCR = calcClassesForRaceCR(id);
+			if (classRaceCR == null)
 			{
-				return Float.NaN;
+				return null;
 			}
 			cr += calcRaceCR(id);
 			cr += classRaceCR;
@@ -97,21 +97,7 @@ public class ChallengeRatingFacet
 		cr += getTemplateCR(id);
 
 		// calculate and add in the MISC bonus to CR
-		cr += (float) bonusCheckingFacet.getBonus(id, "MISC", "CR");
-
-		// change calculated results of less than CR 1 to fraction format
-		if (cr < 1)
-		{
-			Float crMod = SettingsHandler.getGame().getCRSteps().get((int)cr.floatValue());
-			if (crMod != null)
-			{
-				cr = crMod;
-			}
-			else
-			{
-				cr = Math.max(cr, 0);
-			}
-		}
+		cr += (int) bonusCheckingFacet.getBonus(id, "MISC", "CR");
 
 		return cr;
 	}
@@ -125,14 +111,12 @@ public class ChallengeRatingFacet
 	 * @return the Challenge Rating provided by the Race of the Player Character
 	 *         identified by the given CharID
 	 */
-	public Float calcRaceCR(CharID id)
+	public Integer calcRaceCR(CharID id)
 	{
 		// Calculate and add the CR from race
 		ChallengeRating cr = raceFacet.get(id).getSafe(
 				ObjectKey.CHALLENGE_RATING);
-		final Float raceCR = formulaResolvingFacet.resolve(id, cr.getRating(), "")
-				.floatValue();
-		return raceCR;
+		return cr.toInteger();
 	}
 
 	/**
@@ -161,16 +145,14 @@ public class ChallengeRatingFacet
 	 * @return the Challenge Rating provided by the PCTemplate objects granted
 	 *         to the Player Character identified by the given CharID
 	 */
-	private Float getTemplateCR(CharID id)
+	private Integer getTemplateCR(CharID id)
 	{
-		Float cr = new Float(0);
+		Integer cr = new Integer(0);
 
 		// Calculate and add the CR from the templates
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
-			cr +=
-					template.getCR(levelFacet.getTotalLevels(id), levelFacet
-						.getMonsterLevelCount(id));
+			cr += template.getCR(levelFacet.getTotalLevels(id), levelFacet.getMonsterLevelCount(id));
 		}
 		return cr;
 	}
@@ -184,10 +166,10 @@ public class ChallengeRatingFacet
 	 * @return the Challenge Rating provided by the PCClass objects granted to
 	 *         the Player Character identified by the given CharID
 	 */
-	private Float calcClassesCR(CharID id)
+	private Integer calcClassesCR(CharID id)
 	{
-		Float cr = new Float(0);
-		Float crMod = new Float(0);
+		Integer cr = new Integer(0);
+		Integer crMod = new Integer(0);
 		int crModPriority = 0;
 		
 		for (PCClass pcClass : classFacet.getClassSet(id))
@@ -196,7 +178,7 @@ public class ChallengeRatingFacet
 			int crmp = getClassCRModPriority(pcClass);
 			if (crmp != 0 && (crmp < crModPriority || crModPriority == 0))
 			{
-				Float raceMod = getClassRaceCRMod(id, pcClass);
+				Integer raceMod = getClassRaceCRMod(id, pcClass);
 				if (raceMod != null)
 				{
 					crMod = raceMod;
@@ -212,9 +194,9 @@ public class ChallengeRatingFacet
 		
 		return cr;
 	}
-	private Float calcClassesForRaceCR(CharID id)
+	private Integer calcClassesForRaceCR(CharID id)
 	{
-		Float cr = new Float(0);
+		Integer cr = new Integer(0);
 		int levelsKey = 0;
 		int levelsNonKey = 0;
 		int levelsConverted = 0;
@@ -229,10 +211,10 @@ public class ChallengeRatingFacet
 		// Calculate and add the CR from the PC Classes
 		for (PCClass pcClass : classFacet.getClassSet(id))
 		{
-			Float levels = calcClassCR(id, pcClass);
-			if (levels.isNaN())
+			Integer levels = calcClassCR(id, pcClass);
+			if (levels == null)
 			{
-				return Float.NaN;
+				return null;
 			}
 			
 			List<String> classRoleList = pcClass.getListFor(ListKey.MONSTER_ROLES);
@@ -241,22 +223,22 @@ public class ChallengeRatingFacet
 				classRoleList.retainAll(raceRoleList);
 				if (classRoleList.size() > 0)
 				{
-					levelsKey += (int) levels.floatValue();
+					levelsKey += levels;
 				}
 				else
 				{
-					levelsNonKey += (int) levels.floatValue();
+					levelsNonKey += levels;
 				}
 			}
 			else
 			{
 				if (raceRoleList != null)
 				{
-					levelsNonKey += (int) levels.floatValue();
+					levelsNonKey += levels;
 				}
 				else
 				{
-					levelsKey += (int) levels.floatValue();
+					levelsKey += levels;
 				}
 			}
 			
@@ -290,7 +272,7 @@ public class ChallengeRatingFacet
 		return cr;
 	}
 
-	private Float getClassRaceCRMod(CharID id, PCClass cl)
+	private Integer getClassRaceCRMod(CharID id, PCClass cl)
 	{
 		String classType = cl.getClassType();
 		
@@ -298,7 +280,7 @@ public class ChallengeRatingFacet
 		{
 			if (SettingsHandler.getGame().getClassTypeByName(classType) != null)
 			{
-				Float crMod = raceFacet.get(id).get(MapKey.CRMOD, classType);
+				Integer crMod = raceFacet.get(id).get(MapKey.CRMOD, classType);
 				if (crMod != null)
 				{
 					return crMod;
@@ -314,7 +296,7 @@ public class ChallengeRatingFacet
 				classType = type.toString();
 				if (SettingsHandler.getGame().getClassTypeByName(classType) != null)
 				{
-					Float crMod = raceFacet.get(id).get(MapKey.CRMOD, classType);
+					Integer crMod = raceFacet.get(id).get(MapKey.CRMOD, classType);
 					if (crMod != null)
 					{
 						return crMod;
@@ -337,18 +319,11 @@ public class ChallengeRatingFacet
 	 * @return the Challenge Rating provided solely by the given Class of the
 	 *         Player Character identified by the given CharID
 	 */
-	private Float calcClassCR(CharID id, PCClass cl)
+	private Integer calcClassCR(CharID id, PCClass cl)
 	{
 		Formula cr = cl.get(FormulaKey.CR);
 		if (cr == null)
 		{
-			/*
-			 * TODO I don't like the fact that this method is accessing the
-			 * ClassTypes and using one of those to set one of its variables. In
-			 * theory, we should have a ClassType that triggers CR that is not a
-			 * TYPE, but a unique token. See this thread:
-			 * http://tech.groups.yahoo.com/group/pcgen_experimental/message/10778
-			 */
 			ClassType aClassType = SettingsHandler.getGame()
 						.getClassTypeByName(cl.getClassType());
 			if (aClassType != null)
@@ -356,7 +331,7 @@ public class ChallengeRatingFacet
 				String crf = aClassType.getCRFormula();
 				if ("NONE".equalsIgnoreCase(crf))
 				{
-					return Float.NaN;
+					return null;
 				}
 				else if (!"0".equals(crf))
 				{
@@ -376,7 +351,7 @@ public class ChallengeRatingFacet
 						String crf = aClassType.getCRFormula();
 						if ("NONE".equalsIgnoreCase(crf))
 						{
-							return Float.NaN;
+							return null;
 						}
 						else if (!"0".equals(crf))
 						{
@@ -388,13 +363,13 @@ public class ChallengeRatingFacet
 		}
 
 		return cr == null ? 0 : formulaResolvingFacet.resolve(id, cr,
-				cl.getQualifiedKey()).floatValue();
+				cl.getQualifiedKey()).intValue();
 	}
 
-	private Float getClassCRMod(CharID id, PCClass cl)
+	private Integer getClassCRMod(CharID id, PCClass cl)
 	{
 		Formula crm = cl.get(FormulaKey.CRMOD);
-		Float crMod = new Float(0);
+		Integer crMod = new Integer(0);
 
 		ClassType aClassType = SettingsHandler.getGame()
 				.getClassTypeByName(cl.getClassType());
@@ -404,7 +379,7 @@ public class ChallengeRatingFacet
 			crm = FormulaFactory.getFormulaFor(crmf);
 			
 			crMod = Math.min(crMod, formulaResolvingFacet.resolve(id, crm,
-					cl.getQualifiedKey()).floatValue());
+					cl.getQualifiedKey()).intValue());
 		}
 		else
 		{
@@ -420,7 +395,7 @@ public class ChallengeRatingFacet
 					crm = FormulaFactory.getFormulaFor(crmf);
 					
 					crMod = Math.min(crMod, formulaResolvingFacet.resolve(id, crm,
-							cl.getQualifiedKey()).floatValue());
+							cl.getQualifiedKey()).intValue());
 				}
 			}
 		}
@@ -466,47 +441,42 @@ public class ChallengeRatingFacet
 
 	public int getXPAward(CharID id)
 	{
-		Map<String, Integer> xpAwardsMap = SettingsHandler.getGame().getXPAwards();
+		Map<Integer, Integer> xpAwardsMap = SettingsHandler.getGame().getXPAwards();
 
 		if (xpAwardsMap.size() > 0)
 		{
-			Float cr = getCR(id);
-			if (cr.isNaN()|| cr == 0)
+			Integer cr = getCR(id);
+			if (cr == null)
 			{
 				return 0;
 			}
-			String crString = "";
-			String crAsString = Float.toString(cr);
-			String decimalPlaceValue =
-					crAsString.substring(crAsString.length() - 2);
-			
 			// If the CR is a fractional CR then we convert to a 1/x format
-			if (cr > 0 && cr < 1)
-			{
-				Fraction fraction = Fraction.getFraction(cr);
-				int denominator = fraction.getDenominator();
-				int numerator = fraction.getNumerator();
-				crString = numerator + "/" + denominator;
-			}
-			else if (cr >= 1 || cr == 0)
-			{
-				int newCr = -99;
-				if (decimalPlaceValue.equals(".0"))
-				{
-					newCr = (int) cr.floatValue();
-				}
+//			if (cr > 0 && cr < 1)
+//			{
+//				Fraction fraction = Fraction.getFraction(cr);
+//				int denominator = fraction.getDenominator();
+//				int numerator = fraction.getNumerator();
+//				crString = numerator + "/" + denominator;
+//			}
+//			else if (cr >= 1 || cr == 0)
+//			{
+//				int newCr = -99;
+//				if (decimalPlaceValue.equals(".0"))
+//				{
+//					newCr = (int) cr.floatValue();
+//				}
+//			
+//				if (newCr > -99)
+//				{
+//					crString = crString + newCr;
+//				}
+//				else
+//				{
+//					crString = crString + cr;
+//				}
+//			}
 			
-				if (newCr > -99)
-				{
-					crString = crString + newCr;
-				}
-				else
-				{
-					crString = crString + cr;
-				}
-			}
-			
-			Integer xp = xpAwardsMap.get(crString);
+			Integer xp = xpAwardsMap.get(cr);
 			return xp == null ? 0 : xp;
 		}
 		return 0;

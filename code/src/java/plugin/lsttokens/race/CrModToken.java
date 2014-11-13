@@ -78,7 +78,7 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements
 			StringTokenizer aTok = new StringTokenizer(keys, Constants.DOT, false);
 			while (aTok.hasMoreTokens())
 			{
-				context.getObjectContext().put(race, MapKey.CRMOD, aTok.nextToken(), new Float(val));
+				context.getObjectContext().put(race, MapKey.CRMOD, aTok.nextToken(), new Integer(val));
 			}
 		}
 		catch (NumberFormatException e)
@@ -100,15 +100,15 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		MapChanges<String, Float> changes = context.getObjectContext()
+		MapChanges<String, Integer> changes = context.getObjectContext()
 				.getMapChanges(race, MapKey.CRMOD);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
 		Set<String> set = new TreeSet<String>();
-		Map<String, Float> added = changes.getAdded();
-		for (Map.Entry<String, Float> me : added.entrySet())
+		Map<String, Integer> added = changes.getAdded();
+		for (Map.Entry<String, Integer> me : added.entrySet())
 		{
 			set.add(new StringBuilder().append(me.getKey()).append(
 					Constants.PIPE).append(me.getValue()).toString());

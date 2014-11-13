@@ -89,9 +89,11 @@ ${pcstring('CR')}
 </table>
 
 <!-- xp award -->
+<#if (pcstring("XPAWARD") != "0")>
 <p class="xp">
-<b>XP ${pcstring('XPAWARD')}</b>
+<b>XP ${pcstring("XPAWARD")}</b>
 </p>
+</#if>
 
 <!-- gender, classes -->
 <p>

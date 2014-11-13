@@ -61,12 +61,12 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 	 * 
 	 * @return a Challenge Rating adjustment
 	 */
-	public float getCR(final int level, final int hitdice)
+	public Integer getCR(final int level, final int hitdice)
 	{
-		float localCR = getSafe(ObjectKey.CR_MODIFIER).floatValue();
+		Integer localCR = getSafe(ObjectKey.CR_MODIFIER).intValue();
 		for (PCTemplate pct : getConditionalTemplates(level, hitdice))
 		{
-			localCR += pct.getSafe(ObjectKey.CR_MODIFIER).floatValue();
+			localCR += pct.getSafe(ObjectKey.CR_MODIFIER).intValue();
 		}
 		return localCR;
 	}

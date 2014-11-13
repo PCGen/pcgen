@@ -52,6 +52,11 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	private Race babauRace;
 	private Race dryadRace;
 	private Race companionRace;
+	private Race zombieRace;
+	private Race direRatRace;
+	private Race miteRace;
+	private Race beetleRace;
+	private Race centipedeRace;
 	
 	private PCClass pcClass;
 	private PCClass pcClass2;
@@ -109,6 +114,26 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		raceLoader.parseLine(context, null, companionLine, source);
 		companionRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "TestCompanion");
 
+		final String zombieLine = "Zombie	MONSTERCLASS:TestMonsterClass:1	CR:1/2	ROLE:Combat";
+		raceLoader.parseLine(context, null, zombieLine, source);
+		zombieRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Zombie");
+
+		final String direRatLine = "Dire Rat	MONSTERCLASS:TestMonsterClass:1	CR:1/3	ROLE:Combat";
+		raceLoader.parseLine(context, null, direRatLine, source);
+		direRatRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Dire rat");
+
+		final String miteLine = "Mite	MONSTERCLASS:TestMonsterClass:1	CR:1/4	ROLE:Combat";
+		raceLoader.parseLine(context, null, miteLine, source);
+		miteRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Mite");
+
+		final String beetleLine = "Beetle	MONSTERCLASS:TestMonsterClass:1	CR:1/6	ROLE:Combat";
+		raceLoader.parseLine(context, null, beetleLine, source);
+		beetleRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Beetle");
+
+		final String centipedeLine = "Centipede	MONSTERCLASS:TestMonsterClass:1	CR:1/8	Centipede";
+		raceLoader.parseLine(context, null, centipedeLine, source);
+		centipedeRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Centipede");
+		
 		final String pcClassLine = "CLASS:TestPCClass	TYPE:PC		ROLE:Combat";
 		pcClass = classLoader.parseLine(context, null, pcClassLine, source);
 		context.getReferenceContext().importObject(pcClass);
@@ -149,7 +174,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(1, pcClass);
-		assertEquals(0.5, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.0);
 	}
 
 	/**
@@ -161,7 +186,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(2, pcClass);
-		assertEquals(1, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("1"), pc.getDisplay().calcCR(), 0.0);
 	}
 
 	/**
@@ -173,7 +198,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(1, npcClass);
-		assertEquals(0.333, pc.getDisplay().calcCR(), 0.01);
+		assertEquals(SettingsHandler.getGame().getCRInteger("1/3"), pc.getDisplay().calcCR(), 0.01);
 	}
 
 	/**
@@ -185,7 +210,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(2, npcClass);
-		assertEquals(0.5, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.0);
 	}
 
 	/**
@@ -197,7 +222,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(3, npcClass);
-		assertEquals(1, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("1"), pc.getDisplay().calcCR(), 0.0);
 	}
 	
 	
@@ -211,7 +236,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(4, pcClass);
 		pc.incrementClassLevel(4, pcClass2);
-		assertEquals(7, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("7"), pc.getDisplay().calcCR(), 0.0);
 	}
 	
 	/**
@@ -224,7 +249,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(4, npcClass);
 		pc.incrementClassLevel(4, npcClass2);
-		assertEquals(6, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("6"), pc.getDisplay().calcCR(), 0.0);
 	}
 
 	/**
@@ -237,7 +262,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(4, npcClass);
 		pc.incrementClassLevel(4, pcClass);
-		assertEquals(7, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("7"), pc.getDisplay().calcCR(), 0.0);
 	}
 	
 
@@ -250,7 +275,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(koboldRace);
 		pc.incrementClassLevel(1, npcClass);
-		assertEquals(0.25, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("1/4"), pc.getDisplay().calcCR(), 0.0);
 	}
 
 	/**
@@ -262,7 +287,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(koboldRace);
 		pc.incrementClassLevel(2, npcClass);
-		assertEquals(0.333, pc.getDisplay().calcCR(), 0.01);
+		assertEquals(SettingsHandler.getGame().getCRInteger("1/3"), pc.getDisplay().calcCR(), 0.01);
 	}
 
 	/**
@@ -274,7 +299,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(koboldRace);
 		pc.incrementClassLevel(3, npcClass);
-		assertEquals(0.5, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.0);
 	}
 
 	/**
@@ -286,7 +311,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(koboldRace);
 		pc.incrementClassLevel(4, npcClass);
-		assertEquals(1, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("1"), pc.getDisplay().calcCR(), 0.0);
 	}
 
 	/**
@@ -298,7 +323,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(koboldRace);
 		pc.incrementClassLevel(4, pcClass);
-		assertEquals(3, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("3"), pc.getDisplay().calcCR(), 0.0);
 	}
 
 
@@ -311,7 +336,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(drowNobleRace);
 		pc.incrementClassLevel(4, pcClass);
-		assertEquals(4, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("4"), pc.getDisplay().calcCR(), 0.0);
 	}
 
 	/**
@@ -323,7 +348,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(drowNobleRace);
 		pc.incrementClassLevel(4, npcClass);
-		assertEquals(4, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("4"), pc.getDisplay().calcCR(), 0.0);
 	}
 
 	/**
@@ -335,7 +360,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(babauRace);
 		pc.incrementClassLevel(4, pcClass);
-		assertEquals(10, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("10"), pc.getDisplay().calcCR(), 0.0);
 	}
 
 	/**
@@ -347,7 +372,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(babauRace);
 		pc.incrementClassLevel(4, pcClass2);
-		assertEquals(8, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("8"), pc.getDisplay().calcCR(), 0.0);
 	}
 	/**
 	 * Test PC class key level 10 babau => CR 13
@@ -358,7 +383,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(babauRace);
 		pc.incrementClassLevel(10, pcClass2);
-		assertEquals(13, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("13"), pc.getDisplay().calcCR(), 0.0);
 	}
 
 	/**
@@ -370,7 +395,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(dryadRace);
 		pc.incrementClassLevel(8, pcClass2);
-		assertEquals(15, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("15"), pc.getDisplay().calcCR(), 0.0);
 	}
 	/**
 	 * Test PC class non key level 8 dryad => CR 11
@@ -381,7 +406,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(dryadRace);
 		pc.incrementClassLevel(8, pcClass);
-		assertEquals(11, pc.getDisplay().calcCR(), 0.0);
+		assertEquals(SettingsHandler.getGame().getCRInteger("11"), pc.getDisplay().calcCR(), 0.0);
 	}
 	
 	/**
@@ -393,6 +418,57 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(companionRace);
 		pc.incrementClassLevel(4, companionClass);
-		assertEquals(Float.NaN, pc.getDisplay().calcCR(), 0.0);
+		assertNull(pc.getDisplay().calcCR());
+	}
+
+	/**
+	 * Test zombie => CR 1/2
+	 * @throws Exception If an error occurs.
+	 */
+	public void testZombie() throws Exception
+	{
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(zombieRace);
+		assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.0);
+	}
+	/**
+	 * Test dire rat => CR 1/3
+	 * @throws Exception If an error occurs.
+	 */
+	public void testDireRat() throws Exception
+	{
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(direRatRace);
+		assertEquals(SettingsHandler.getGame().getCRInteger("1/3"), pc.getDisplay().calcCR(), 0.0);
+	}
+	/**
+	 * Test mite => CR 1/4
+	 * @throws Exception If an error occurs.
+	 */
+	public void testMite() throws Exception
+	{
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(miteRace);
+		assertEquals(SettingsHandler.getGame().getCRInteger("1/4"), pc.getDisplay().calcCR(), 0.0);
+	}
+	/**
+	 * Test beetle => CR 1/6
+	 * @throws Exception If an error occurs.
+	 */
+	public void testBeetle() throws Exception
+	{
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(beetleRace);
+		assertEquals(SettingsHandler.getGame().getCRInteger("1/6"), pc.getDisplay().calcCR(), 0.0);
+	}
+	/**
+	 * Test centipede => CR 1/8
+	 * @throws Exception If an error occurs.
+	 */
+	public void testCentipede() throws Exception
+	{
+		PlayerCharacter pc = getCharacter();
+		pc.setRace(centipedeRace);
+		assertEquals(SettingsHandler.getGame().getCRInteger("1/8"), pc.getDisplay().calcCR(), 0.0);
 	}
 }
