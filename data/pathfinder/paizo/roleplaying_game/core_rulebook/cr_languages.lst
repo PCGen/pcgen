@@ -8,7 +8,7 @@ Aklo		TYPE:Spoken.Written.Read
 Aquan		TYPE:Spoken.Written.Read.Elemental
 Auran		TYPE:Spoken.Written.Read.Elemental
 Celestial	TYPE:Spoken.Written.Read.Planar
-Common	TYPE:Spoken.Written.Read
+Common	TYPE:Spoken.Written.Read.ModernHumanLanguage
 Draconic	TYPE:Spoken.Written.Read
 Druidic	TYPE:Spoken.Written.Read		PREVAREQ:DruidSecretLanguage,1
 Dwarven	TYPE:Spoken.Written.Read
