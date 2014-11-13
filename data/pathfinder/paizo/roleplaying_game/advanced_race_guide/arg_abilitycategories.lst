@@ -92,6 +92,10 @@ ABILITYCATEGORY:Tengu Exotic Weapon Training Choice	VISIBLE:QUALIFY	EDITABLE:YES
 # Ability Category							Visible		Editable?		Change Pool?	Base Pool number			Category of Object		Type of Object								Display Location
 ABILITYCATEGORY:Race Builder Design					VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:Race Builder Design
 
+ABILITYCATEGORY:Race Name						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability		TYPE:RaceName							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Languages					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability		TYPE:Language							DISPLAYLOCATION:Race Builder Design
+
+
 ABILITYCATEGORY:Racial Traits						VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO							CATEGORY:Racial Traits
 
 ABILITYCATEGORY:Race Starting Points				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:Race Builder Design						DISPLAYLOCATION:Race Builder Design
