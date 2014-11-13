@@ -2140,7 +2140,7 @@ BIO
 		<ability_object>
 			<name>Domains</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>INTERNAL.CF_DOMAIN</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
