@@ -148,6 +148,7 @@
 		<@loop from=0 to=pcvar('COUNT[LANGUAGES]-1') ; lang , lang_has_next>
 			<language>${pcstring('LANGUAGES.${lang}')}</language>
 		</@loop>
+			<language>${pcstring('ABILITYALL.ANY.0.ASPECT=Language.ASPECT.Language')}</language>
 			<all>${pcstring('LANGUAGES')}</all>
 		</languages>
 		<location>${pcstring('LOCATION')}</location>
@@ -173,7 +174,11 @@
 			<portrait_thumb>${pcstring('PORTRAIT.THUMB')}</portrait_thumb>
 		</portrait>
 		<phobias>${pcstring('PHOBIAS')}</phobias>
-		<race>${pcstring('RACE')}</race>
+		<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
+			<race>${pcstring('ABILITYALL.ANY.0.ASPECT=RaceName.ASPECT.RaceName')}</race>
+		<#else>
+			<race>${pcstring('RACE')}</race>
+		</#if>
 		<race>
 		<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Internal","ASPECT=RaceExtra")-1') ; ability , ability_has_next>
 			<raceextra>${pcstring('ABILITYALL.Internal.HIDDEN.${ability}.ASPECT.RaceExtra')}</raceextra>
