@@ -138,6 +138,12 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
 
   <td colspan="1" class="h">${pcstring('EXP.CURRENT')}</td>
   <td colspan="1" class="h">${pcstring('RACE')}</td>
+  		<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
+			  <td colspan="1" class="h">${pcstring('ABILITYALL.ANY.0.ASPECT=RaceName.ASPECT.RaceName')}</td>
+		<#else>
+			  <td colspan="1" class="h">${pcstring('RACE')}</td>
+		</#if>
+
   <td class="h">${pcstring('SIZELONG')} / ${pcstring('FACE')}</td>
   <td class="h">${pcstring('HEIGHT')}</td>
   <td class="h">${pcstring('WEIGHT')}</td>
@@ -1488,7 +1494,7 @@ ${pcstring('FOLLOWERTYPE.FOLLOWERS.${follower}.NAME')},&nbsp;
      <td bgcolor="black" align="center" colspan="1"><font color="white" style="font-size: small"><b>LANGUAGES</b></font></td>
     </tr>
     <tr>
-     <td valign="top" width="100%" class="border8">${pcstring('LANGUAGES')}<br /></td>
+     <td valign="top" width="100%" class="border8">${pcstring('LANGUAGES')} ${pcstring('ABILITYALL.ANY.0.ASPECT=Language.ASPECT.Language')}<br /></td>
     </tr>
    </table>
 <!-- STOP Language Table -->
