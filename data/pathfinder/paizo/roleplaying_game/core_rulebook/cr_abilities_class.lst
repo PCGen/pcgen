@@ -719,15 +719,83 @@ Snatch Arrows		KEY:Monk Bonus Feat ~ Snatch Arrows		CATEGORY:Special Ability	TYP
 Spring Attack		KEY:Monk Bonus Feat ~ Spring Attack		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREFEAT:1,Spring Attack	PREVARGTEQ:MonkBonusFeatLVL,10										VFEAT:Spring Attack
 
 ###Block: Unarmed Damage Tracker - Can't grant Class based from other items
-# Ability Name			Category of Ability	Define											Unarmed Damage						Unarmed Multiplier	Ability																																																																																															Modify VAR
-Monk ~ Unarmed Damage		CATEGORY:Internal		DEFINE:MonkUnarmedDamageProgression|0	DEFINE:MonkUnarmedDamageLVL|0													ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 1|PREVAREQ:MonkUnarmedDamageProgression,0	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 4|PREVAREQ:MonkUnarmedDamageProgression,1	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 8|PREVAREQ:MonkUnarmedDamageProgression,2	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 12|PREVAREQ:MonkUnarmedDamageProgression,3	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 16|PREVAREQ:MonkUnarmedDamageProgression,4	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 20|PREVAREQ:MonkUnarmedDamageProgression,5	BONUS:VAR|MonkUnarmedDamageLVL|MonkLVL	BONUS:VAR|MonkUnarmedDamageProgression|(min(5,MonkUnarmedDamageLVL/4))
+# Ability Name			Category of Ability	Define											Ability																																																																																															Modify VAR
+Monk ~ Unarmed Damage		CATEGORY:Internal		DEFINE:MonkUnarmedDamageProgression|0	DEFINE:MonkUnarmedDamageLVL|0	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 1|PREVAREQ:MonkUnarmedDamageProgression,0	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 4|PREVAREQ:MonkUnarmedDamageProgression,1	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 8|PREVAREQ:MonkUnarmedDamageProgression,2	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 12|PREVAREQ:MonkUnarmedDamageProgression,3	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 16|PREVAREQ:MonkUnarmedDamageProgression,4	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 20|PREVAREQ:MonkUnarmedDamageProgression,5	BONUS:VAR|MonkUnarmedDamageLVL|MonkLVL	BONUS:VAR|MonkUnarmedDamageProgression|(min(5,MonkUnarmedDamageLVL/4))
+#									F   D   T   S   M   L   H   G   C
+#Monk Unarmed Damage LVL 1	CATEGORY:Internal	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2
+#Monk Unarmed Damage LVL 4	CATEGORY:Internal	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6		UMULT:2
+#Monk Unarmed Damage LVL 8	CATEGORY:Internal	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8		UMULT:2
+#Monk Unarmed Damage LVL 12	CATEGORY:Internal	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6		UMULT:2
+#Monk Unarmed Damage LVL 16	CATEGORY:Internal	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8		UMULT:2
+#Monk Unarmed Damage LVL 20	CATEGORY:Internal	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8	UMULT:2
+###Block:
+Monk Unarmed Damage LVL 1	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 1 (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 1 (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 1 (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 1 (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 1 (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 1 (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 1 (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 1 (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 1 (Colossal)|PREBASESIZEEQ:C
+Monk Unarmed Damage LVL 4	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 4 (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 4 (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 4 (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 4 (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 4 (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 4 (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 4 (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 4 (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 4 (Colossal)|PREBASESIZEEQ:C
+Monk Unarmed Damage LVL 8	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 8 (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 8 (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 8 (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 8 (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 8 (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 8 (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 8 (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 8 (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 8 (Colossal)|PREBASESIZEEQ:C
+Monk Unarmed Damage LVL 12	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 12 (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 12 (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 12 (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 12 (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 12 (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 12 (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 12 (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 12 (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 12 (Colossal)|PREBASESIZEEQ:C
+Monk Unarmed Damage LVL 16	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 16 (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 16 (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 16 (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 16 (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 16 (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 16 (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 16 (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 16 (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 16 (Colossal)|PREBASESIZEEQ:C
+Monk Unarmed Damage LVL 20	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 20 (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 20 (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 20 (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 20 (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 20 (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 20 (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 20 (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 20 (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Monk Unarmed Damage LVL 20 (Colossal)|PREBASESIZEEQ:C
+
+###Block:
+Monk Unarmed Damage LVL 1 (Fine)		CATEGORY:Internal		UDAM:1d1	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base
+Monk Unarmed Damage LVL 1 (Diminutive)	CATEGORY:Internal		UDAM:1d2	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base
+Monk Unarmed Damage LVL 1 (Tiny)		CATEGORY:Internal		UDAM:1d3	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base
+Monk Unarmed Damage LVL 1 (Small)		CATEGORY:Internal		UDAM:1d4	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base
+Monk Unarmed Damage LVL 1 (Medium)		CATEGORY:Internal		UDAM:1d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 1 (Large)		CATEGORY:Internal		UDAM:1d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 1 (Huge)		CATEGORY:Internal		UDAM:2d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 1 (Gargantuan)	CATEGORY:Internal		UDAM:3d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|3|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 1 (Colossal)	CATEGORY:Internal		UDAM:4d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|4|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
 #
-Monk Unarmed Damage LVL 1	CATEGORY:Internal														UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2
-Monk Unarmed Damage LVL 4	CATEGORY:Internal														UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6		UMULT:2
-Monk Unarmed Damage LVL 8	CATEGORY:Internal														UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8		UMULT:2
-Monk Unarmed Damage LVL 12	CATEGORY:Internal														UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6		UMULT:2
-Monk Unarmed Damage LVL 16	CATEGORY:Internal														UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8		UMULT:2
-Monk Unarmed Damage LVL 20	CATEGORY:Internal														UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8	UMULT:2
+Monk Unarmed Damage LVL 4 (Fine)		CATEGORY:Internal		UDAM:1d2	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base
+Monk Unarmed Damage LVL 4 (Diminutive)	CATEGORY:Internal		UDAM:1d3	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base
+Monk Unarmed Damage LVL 4 (Tiny)		CATEGORY:Internal		UDAM:1d4	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|5|TYPE=Base
+Monk Unarmed Damage LVL 4 (Small)		CATEGORY:Internal		UDAM:1d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 4 (Medium)		CATEGORY:Internal		UDAM:1d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 4 (Large)		CATEGORY:Internal		UDAM:2d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 4 (Huge)		CATEGORY:Internal		UDAM:3d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|3|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 4 (Gargantuan)	CATEGORY:Internal		UDAM:4d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|4|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 4 (Colossal)	CATEGORY:Internal		UDAM:6d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|6|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+#
+Monk Unarmed Damage LVL 8 (Fine)		CATEGORY:Internal		UDAM:1d3	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base
+Monk Unarmed Damage LVL 8 (Diminutive)	CATEGORY:Internal		UDAM:1d4	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base
+Monk Unarmed Damage LVL 8 (Tiny)		CATEGORY:Internal		UDAM:1d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 8 (Small)		CATEGORY:Internal		UDAM:1d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 8 (Medium)		CATEGORY:Internal		UDAM:1d10	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|10|TYPE=Base
+Monk Unarmed Damage LVL 8 (Large)		CATEGORY:Internal		UDAM:2d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 8 (Huge)		CATEGORY:Internal		UDAM:3d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|3|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 8 (Gargantuan)	CATEGORY:Internal		UDAM:4d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|4|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 8 (Colossal)	CATEGORY:Internal	 	UDAM:6d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|6|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+#
+Monk Unarmed Damage LVL 12 (Fine)		CATEGORY:Internal		UDAM:1d4	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base
+Monk Unarmed Damage LVL 12 (Diminutive)	CATEGORY:Internal		UDAM:1d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 12 (Tiny)		CATEGORY:Internal		UDAM:1d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 12 (Small)		CATEGORY:Internal		UDAM:1d10	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|10|TYPE=Base
+Monk Unarmed Damage LVL 12 (Medium)		CATEGORY:Internal		UDAM:2d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 12 (Large)		CATEGORY:Internal		UDAM:3d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|3|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 12 (Huge)		CATEGORY:Internal		UDAM:4d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|4|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 12 (Gargantuan)	CATEGORY:Internal		UDAM:6d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|6|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 12 (Colossal)	CATEGORY:Internal		UDAM:8d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|8|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+#
+Monk Unarmed Damage LVL 16 (Fine)		CATEGORY:Internal		UDAM:1d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 16 (Diminutive)	CATEGORY:Internal		UDAM:1d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 16 (Tiny)		CATEGORY:Internal		UDAM:1d10	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|10|TYPE=Base
+Monk Unarmed Damage LVL 16 (Small)		CATEGORY:Internal		UDAM:2d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 16 (Medium)		CATEGORY:Internal		UDAM:2d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 16 (Large)		CATEGORY:Internal		UDAM:3d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|3|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 16 (Huge)		CATEGORY:Internal		UDAM:4d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|4|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 16 (Gargantuan)	CATEGORY:Internal		UDAM:6d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|6|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 16 (Colossal)	CATEGORY:Internal		UDAM:8d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|8|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+#
+Monk Unarmed Damage LVL 20 (Fine)		CATEGORY:Internal		UDAM:1d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 20 (Diminutive)	CATEGORY:Internal		UDAM:1d10	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|10|TYPE=Base
+Monk Unarmed Damage LVL 20 (Tiny)		CATEGORY:Internal		UDAM:2d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Monk Unarmed Damage LVL 20 (Small)		CATEGORY:Internal		UDAM:2d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 20 (Medium)		CATEGORY:Internal		UDAM:2d10	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|10|TYPE=Base
+Monk Unarmed Damage LVL 20 (Large)		CATEGORY:Internal		UDAM:4d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|4|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 20 (Huge)		CATEGORY:Internal		UDAM:6d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|6|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 20 (Gargantuan)	CATEGORY:Internal		UDAM:8d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|8|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 20 (Colossal)	CATEGORY:Internal		UDAM:12d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|12|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
 
 ###Block: Paladin abilities
 # Ability Name		Unique Key						Category of Ability		Type																Visible	Serves As														Define																						Innate Spells										Description																							Bonus Ability Pool			Bonus DR		Save bonus				Modify VAR																										Source Page		Aspects															Benefits
