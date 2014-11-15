@@ -202,6 +202,22 @@ Stealth.MOD						BONUS:SKILL|Stealth|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus (St
 Survival.MOD					BONUS:SKILL|Survival|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Survival)	BONUS:SKILL|Survival|6|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Survival)|PRESKILL:1,Survival=10
 Swim.MOD						BONUS:SKILL|Swim|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Swim)	BONUS:SKILL|Swim|6|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Swim)|PRESKILL:1,Swim=10
 Use Magic Device.MOD				BONUS:SKILL|Use Magic Device|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Use Magic Device)	BONUS:SKILL|Use Magic Device|6|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Use Magic Device)|PRESKILL:1,Use Magic Device=10
+
+###Block: Improvisation
+Untrained Strength		SORTKEY:z	KEYSTAT:STR							PREVARGTEQ:UseUntrainedSkills,1							VISIBLE:EXPORT
+Untrained Dexterity		SORTKEY:z	KEYSTAT:DEX							PREVARGTEQ:UseUntrainedSkills,1							VISIBLE:EXPORT
+Untrained Intelligence		SORTKEY:z	KEYSTAT:INT							PREVARGTEQ:UseUntrainedSkills,1							VISIBLE:EXPORT
+Untrained Wisdom			SORTKEY:z	KEYSTAT:WIS							PREVARGTEQ:UseUntrainedSkills,1							VISIBLE:EXPORT
+Untrained Charisma		SORTKEY:z	KEYSTAT:CHA							PREVARGTEQ:UseUntrainedSkills,1							VISIBLE:EXPORT
+Knowledge (Untrained)				KEYSTAT:INT							PREVARGTEQ:UseUntrainedSkills,1							VISIBLE:EXPORT
+Profession (Untrained)				KEYSTAT:WIS							PREVARGTEQ:UseUntrainedSkills,1							VISIBLE:EXPORT
+Disable Device					KEYSTAT:DEX	KEY:Untrained ~ Disable Device	PREVARGTEQ:UseUntrainedSkills,1	!PRESKILL:1,Disable Device=1		VISIBLE:EXPORT
+Handle Animal					KEYSTAT:CHA	KEY:Untrained ~ Handle Animal		PREVARGTEQ:UseUntrainedSkills,1	!PRESKILL:1,Handle Animal=1		VISIBLE:EXPORT
+Linguistics						KEYSTAT:INT	KEY:Untrained ~ Linguistics		PREVARGTEQ:UseUntrainedSkills,1	!PRESKILL:1,Linguistics=1		VISIBLE:EXPORT
+Sleight of Hand					KEYSTAT:DEX	KEY:Untrained ~ Sleight of Hand	PREVARGTEQ:UseUntrainedSkills,1	!PRESKILL:1,Sleight of Hand=1		VISIBLE:EXPORT
+Spellcraft						KEYSTAT:INT	KEY:Untrained ~ Spellcraft		PREVARGTEQ:UseUntrainedSkills,1	!PRESKILL:1,Spellcraft=1		VISIBLE:EXPORT
+Use Magic Device					KEYSTAT:CHA	KEY:Untrained ~ Use Magic Device	PREVARGTEQ:UseUntrainedSkills,1	!PRESKILL:1,Use Magic Device=1	VISIBLE:EXPORT
+
 #
 # EOF
 #
