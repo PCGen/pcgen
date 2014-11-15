@@ -1353,15 +1353,15 @@ Wizard Spells			CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Abjuration Wizard S
 
 ###Block:
 # Ability Name			Category of Ability		
-Abjuration Wizard Spells	CATEGORY:Internal	SPELLKNOWN|CLASS|Wizard=0|Resistance
-Conjuration Wizard Spells	CATEGORY:Internal	SPELLKNOWN|CLASS|Wizard=0|Acid Splash
-Divination Wizard Spells	CATEGORY:Internal	SPELLKNOWN|CLASS|Wizard=0|Detect Magic,Detect Poison,Read Magic
-Enchantment Wizard Spells	CATEGORY:Internal	SPELLKNOWN|CLASS|Wizard=0|Daze
-Evocation Wizard Spells		CATEGORY:Internal	SPELLKNOWN|CLASS|Wizard=0|Dancing Lights,Flare,Light,Ray of Frost
-Illusion Wizard Spells		CATEGORY:Internal	SPELLKNOWN|CLASS|Wizard=0|Ghost Sound
-Necromancy Wizard Spells	CATEGORY:Internal	SPELLKNOWN|CLASS|Wizard=0|Bleed,Disrupt Undead,Touch of Fatigue
-Transmutation Wizard Spells	CATEGORY:Internal	SPELLKNOWN|CLASS|Wizard=0|Mage Hand,Mending,Message,Open/Close
-Universal Wizard Spells		CATEGORY:Internal	SPELLKNOWN|CLASS|Wizard=0|Arcane Mark,Prestidigitation
+Abjuration Wizard Spells	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Resistance
+Conjuration Wizard Spells	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Acid Splash
+Divination Wizard Spells	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Detect Magic,Detect Poison,Read Magic
+Enchantment Wizard Spells	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Daze
+Evocation Wizard Spells		CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Dancing Lights,Flare,Light,Ray of Frost
+Illusion Wizard Spells		CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Ghost Sound
+Necromancy Wizard Spells	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Bleed,Disrupt Undead,Touch of Fatigue
+Transmutation Wizard Spells	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Mage Hand,Mending,Message,Open/Close
+Universal Wizard Spells		CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Arcane Mark,Prestidigitation
 
 
 ###Block: Abjuration School Abilities
