@@ -2,6 +2,8 @@
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher & Andrew Maitland
 
+###Block: Wizard Cantrips
+CATEGORY=Internal|Evocation Wizard Spells.MOD	SPELLKNOWN:CLASS|Wizard=0|Spark
 
 ###Block: Weapon Proficiencies
 # Ability Name				Category of Ability		Type			Visible	Auto Weapon Prof

@@ -509,8 +509,9 @@ CLASS:Wizard	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wiz	ALLOWBASECLASS:NO	MAXLEVEL:
 # Class Name	Skill Pts/Lvl
 CLASS:Wizard	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
-CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
-#							Need some way to remove cantrips known
+CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	
+#	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
+#	Need some way to remove cantrips known
 #
 SUBCLASS:Abjurer		CHOICE:SCHOOL|Abjuration
 SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Abjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool

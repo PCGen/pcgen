@@ -4,6 +4,9 @@
 # ORIGINAL ENTRY DATE: 2012-02-03
 # Implemented 2nd printing errata: 2014-01-27, Stefan Radermacher
 
+###Block: Wizard Cantrips
+CATEGORY=Internal|Illusion Wizard Spells.MOD	SPELLKNOWN:CLASS|Wizard=0|Haunted Fey Aspect
+
 ###Block: Archetype Display Support
 # Ability Name					Ability
 CATEGORY=Internal|Archetype Display.MOD	ABILITY:Gunslinger Archetype|AUTOMATIC|Archetype Gunslinger|PRECLASS:1,Gunslinger=1
