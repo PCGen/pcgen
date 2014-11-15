@@ -765,7 +765,7 @@ Monk Unarmed Damage LVL 8 (Medium)		CATEGORY:Internal		UDAM:1d10	UMULT:2	BONUS:V
 Monk Unarmed Damage LVL 8 (Large)		CATEGORY:Internal		UDAM:2d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
 Monk Unarmed Damage LVL 8 (Huge)		CATEGORY:Internal		UDAM:3d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|3|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
 Monk Unarmed Damage LVL 8 (Gargantuan)	CATEGORY:Internal		UDAM:4d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|4|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
-Monk Unarmed Damage LVL 8 (Colossal)	CATEGORY:Internal	 	UDAM:6d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|6|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Monk Unarmed Damage LVL 8 (Colossal)	CATEGORY:Internal		UDAM:6d8	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|6|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
 #
 Monk Unarmed Damage LVL 12 (Fine)		CATEGORY:Internal		UDAM:1d4	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base
 Monk Unarmed Damage LVL 12 (Diminutive)	CATEGORY:Internal		UDAM:1d6	UMULT:2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
