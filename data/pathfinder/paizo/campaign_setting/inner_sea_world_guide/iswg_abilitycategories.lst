@@ -26,7 +26,7 @@ ABILITYCATEGORY:Low Templar Final Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:N
 
 ###Block: Feat Support Abilities
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
-ABILITYCATEGORY:Andoren Falconry Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AndorenFalconry	PLURAL:Andoren Falconry Bonuses	DISPLAYLOCATION:Companion Abilities
+ABILITYCATEGORY:Andoren Falconry Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AndorenFalconry	PLURAL:Andoren Falconry Bonuses	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Hermean Blood			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HermeanBlood		PLURAL:Hermean Blood			DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Noble Scion Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NobleScion		PLURAL:Noble Scion Choices		DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Scholar Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Scholar		PLURAL:Scholar Choices			DISPLAYLOCATION:Feats
