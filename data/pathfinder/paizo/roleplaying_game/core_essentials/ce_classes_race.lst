@@ -73,7 +73,7 @@ CLASS:Monstrous humanoid	PRERACETYPE:Monstrous humanoid
 CLASS:Monstrous humanoid	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Climb|TYPE=Craft|Fly|Intimidate|Perception|Ride|Stealth|Survival|Swim
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Ability																	Combat bonus								Save bonus										Template
-CLASS:Ooze		HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.308		ABILITY:Special Ability|AUTOMATIC|Ooze Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/3	TEMPLATE:Mindless
+CLASS:Ooze		HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.308		ABILITY:Special Ability|AUTOMATIC|Ooze Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/3
 # Class Name	Reg. Race Type
 CLASS:Ooze		PRERACETYPE:Ooze
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
@@ -124,7 +124,7 @@ CLASS:Undead	STARTSKILLPTS:0+BaseClassSkillPts	DEFINE:BaseClassSkillPts|0	BONUS:
 3:REPEATLEVEL:2	BONUS:ABILITYPOOL|FEAT|-1|PRETEMPLATE:1,No Intelligence Score
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Ability																	Combat bonus								Save bonus															Template
-CLASS:Vermin	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.310		ABILITY:Special Ability|AUTOMATIC|Vermin Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel()/3	TEMPLATE:Mindless
+CLASS:Vermin	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.310		ABILITY:Special Ability|AUTOMATIC|Vermin Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel()/3
 # Class Name	Reg. Race Type
 CLASS:Vermin	PRERACETYPE:Vermin
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
