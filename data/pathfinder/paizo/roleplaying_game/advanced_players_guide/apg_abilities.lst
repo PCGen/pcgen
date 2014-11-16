@@ -272,7 +272,32 @@ Animal Companion / XX		KEY:Beastmaster Boon Companion ~ Animal Companion 20	SORT
 #	PREVARLTEQ:AnimalCompanionLVLS,RangerLVL-BeastmasterCompanionLVL
 #	PREVARLTEQ:AnimalCompanionLVLT,RangerLVL-BeastmasterCompanionLVL
 
+###Block: Arcane Talent Selection
+Resistance		KEY:Arcane Talent ~ Resistance		ABILITY:Spell-Like Ability|AUTOMATIC|Resistance			TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Resistance_Times|3|TYPE=Base			
+Acid Splash		KEY:Arcane Talent ~ Acid Splash		ABILITY:Spell-Like Ability|AUTOMATIC|Acid Splash		TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Acid_Splash_Times|3|TYPE=Base		
+Detect Magic	KEY:Arcane Talent ~ Detect Magic		ABILITY:Spell-Like Ability|AUTOMATIC|Detect Magic		TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Detect_Magic_Times|3|TYPE=Base		
+Detect Poison	KEY:Arcane Talent ~ Detect Poison		ABILITY:Spell-Like Ability|AUTOMATIC|Detect Poison		TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Detect_Poison_Times|3|TYPE=Base		
+Read Magic		KEY:Arcane Talent ~ Read Magic		ABILITY:Spell-Like Ability|AUTOMATIC|Read Magic			TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Read_Magic_Times|3|TYPE=Base		
+Daze			KEY:Arcane Talent ~ Daze			ABILITY:Spell-Like Ability|AUTOMATIC|Daze				TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Daze_Times|3|TYPE=Base			
+Dancing Lights	KEY:Arcane Talent ~ Dancing Lights		ABILITY:Spell-Like Ability|AUTOMATIC|Dancing Lights		TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Dancing_Lights_Times|3|TYPE=Base		
+Flare			KEY:Arcane Talent ~ Flare			ABILITY:Spell-Like Ability|AUTOMATIC|Flare			TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Flare_Times|3|TYPE=Base			
+Light			KEY:Arcane Talent ~ Light			ABILITY:Spell-Like Ability|AUTOMATIC|Light			TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Light_Times|3|TYPE=Base			
+Ray of Frost	KEY:Arcane Talent ~ Ray of Frost		ABILITY:Spell-Like Ability|AUTOMATIC|Ray of Frost		TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Ray_of_Frost_Times|3|TYPE=Base		
+Ghost Sound		KEY:Arcane Talent ~ Ghost Sound		ABILITY:Spell-Like Ability|AUTOMATIC|Ghost Sound		TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Ghost_Sound_Times|3|TYPE=Base		
+Touch of Fatigue	KEY:Arcane Talent ~ Touch of Fatigue	ABILITY:Spell-Like Ability|AUTOMATIC|Touch of Fatigue		TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Touch_of_Fatigue_Times|3|TYPE=Base	
+Disrupt Undead	KEY:Arcane Talent ~ Disrupt Undead		ABILITY:Spell-Like Ability|AUTOMATIC|Disrupt Undead		TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Disrupt_Undead_Times|3|TYPE=Base		
+Bleed			KEY:Arcane Talent ~ Bleed			ABILITY:Spell-Like Ability|AUTOMATIC|Bleed			TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Bleed_Times|3|TYPE=Base			
+Open/Close		KEY:Arcane Talent ~ Open/Close		ABILITY:Spell-Like Ability|AUTOMATIC|Open/Close			TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Open_Close_Times|3|TYPE=Base		
+Message		KEY:Arcane Talent ~ Message			ABILITY:Spell-Like Ability|AUTOMATIC|Message			TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Message_Times|3|TYPE=Base			
+Mending		KEY:Arcane Talent ~ Mending			ABILITY:Spell-Like Ability|AUTOMATIC|Mending			TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Mending_Times|3|TYPE=Base			
+Mage Hand		KEY:Arcane Talent ~ Mage Hand			ABILITY:Spell-Like Ability|AUTOMATIC|Mage Hand			TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Mage_Hand_Times|3|TYPE=Base		
+Prestidigitation	KEY:Arcane Talent ~ Prestidigitation	ABILITY:Spell-Like Ability|AUTOMATIC|Prestidigitation		TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Prestidigitation_Times|3|TYPE=Base	
+Arcane Mark		KEY:Arcane Talent ~ Arcane Mark		ABILITY:Spell-Like Ability|AUTOMATIC|Arcane Mark		TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Arcane_Mark_Times|3|TYPE=Base		
 
+Spark			KEY:Arcane Talent ~ Spark			ABILITY:Spell-Like Ability|AUTOMATIC|Spark			TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Spark_Times|3|TYPE=Base		
+
+###Block: APG Spells
+Spark	CATEGORY:Spell-Like Ability	TYPE:ClassAbility.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:Spark_Times|0	DEFINE:Spark_LVL|0	BONUS:VAR|Spark_LVL|TL|TYPE=Base	SPELLS:Innate|TIMES=Spark_Times|TIMEUNIT=Day|CASTERLEVEL=Spark_LVL|Spark|PREVARGTEQ:Spark_Times,1|PREVAREQ:DisableSpellSpark,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=Spark_LVL|Spark|PREVARLTEQ:Spark_Times,0|PREVAREQ:DisableSpellSpark,0	DESC:Blank
 
 #
 # End
