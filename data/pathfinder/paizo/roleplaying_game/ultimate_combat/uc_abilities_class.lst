@@ -1496,12 +1496,7 @@ School of the Gun		KEY:School Of The Gun ~ Display		CATEGORY:Special Ability	TYP
 
 
 ###Block: Arcane Talent Support
-
-
-###Block: UC Spell-Like
-Haunted Fey Aspect
-
 Haunted Fey Aspect	KEY:Arcane Talent ~ Haunted Fey Aspect	ABILITY:Spell-Like Ability|AUTOMATIC|Haunted Fey Aspect			TYPE:ArcaneTalentSelection	CATEGORY:Internal	BONUS:VAR|Haunted_Fey_Aspect_Times|3|TYPE=Base		
 
-###Block: APG Spells
+###Block: UC Spell-Like
 Haunted Fey Aspect	CATEGORY:Spell-Like Ability	TYPE:SpellLike	VISIBLE:YES	DEFINE:Haunted_Fey_Aspect_Times|0	DEFINE:Haunted_Fey_Aspect_LVL|0	BONUS:VAR|Haunted_Fey_Aspect_LVL|TL|TYPE=Base	SPELLS:Innate|TIMES=Haunted_Fey_Aspect_Times|TIMEUNIT=Day|CASTERLEVEL=Haunted_Fey_Aspect_LVL|Haunted Fey Aspect|PREVARGTEQ:Haunted_Fey_Aspect_Times,1|PREVAREQ:DisableSpellHaunted_Fey_Aspect,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=Haunted_Fey_Aspect_LVL|Haunted Fey Aspect|PREVARLTEQ:Haunted_Fey_Aspect_Times,0|PREVAREQ:DisableSpellHaunted_Fey_Aspect,0	DESC:Blank
