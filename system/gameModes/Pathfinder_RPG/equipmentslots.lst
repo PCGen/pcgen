@@ -50,3 +50,15 @@ EQSLOT:Weapon	CONTAINS:Weapon=1											NUMBER:HANDS
 #Shoulders: This slot consists of capes, cloaks, cords, mantels, pauldrons, shawls, stoles, wings, and other items that can be worn on the shoulders.
 #Wrists: This slot consists of armbands, bracelets, bracers, gauntlets, manacles, shackles, vambraces, and other items that can worn over the wrists.
 
+# Tattoo Slots
+EQSLOT:TattoHead		CONTAINS:TattoHead=1		NUMBER:HEAD
+EQSLOT:TattoShoulders	CONTAINS:TattoShoulders=1	NUMBER:TORSO
+EQSLOT:TattoNeck		CONTAINS:TattoNeck=1		NUMBER:HEAD
+EQSLOT:TattoChest		CONTAINS:TattoChest=1		NUMBER:TORSO
+EQSLOT:TattoBody		CONTAINS:TattoBody=1		NUMBER:TORSO
+EQSLOT:TattoBelt		CONTAINS:TattoBelt=1		NUMBER:TORSO
+EQSLOT:TattoWrist		CONTAINS:TattoWrist=1		NUMBER:HANDS
+EQSLOT:TattoHands		CONTAINS:TattoHandst=1		NUMBER:HANDS
+EQSLOT:TattoRing		CONTAINS:TattoRing=2		NUMBER:TORSO
+EQSLOT:TattoFeet		CONTAINS:TattoFeet=1		NUMBER:LEGS
+#
