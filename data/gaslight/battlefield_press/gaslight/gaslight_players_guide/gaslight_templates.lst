@@ -8,18 +8,21 @@ SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefie
 Occupation		VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1
 
 ###Block: Starting Class
-# Template Name	Visible	Template																		Required Class			Bonus to HP
-Starting Class	VISIBLE:NO	TEMPLATE:CHOOSE:Acolyte|Apprentice|Everyman|Explorer|Gunslinger|Investigator|Martial Artist|Officer|Rogue|Scholar
-Acolyte		VISIBLE:NO																				PRECLASS:1,Acolyte=1		BONUS:HP|CURRENTMAX|16
-Apprentice		VISIBLE:NO																				PRECLASS:1,Apprentice=1		BONUS:HP|CURRENTMAX|12
-Everyman		VISIBLE:NO																				PRECLASS:1,Everyman=1		BONUS:HP|CURRENTMAX|12
-Explorer		VISIBLE:NO																				PRECLASS:1,Explorer=1		BONUS:HP|CURRENTMAX|16
-Gunslinger		VISIBLE:NO																				PRECLASS:1,Gunslinger=1		BONUS:HP|CURRENTMAX|20
-Investigator	VISIBLE:NO																				PRECLASS:1,Investigator=1	BONUS:HP|CURRENTMAX|12
-Martial Artist	VISIBLE:NO																				PRECLASS:1,Martial Artist=1	BONUS:HP|CURRENTMAX|16
-Officer		VISIBLE:NO																				PRECLASS:1,Officer=1		BONUS:HP|CURRENTMAX|16
-Rogue			VISIBLE:NO																				PRECLASS:1,Rogue=1		BONUS:HP|CURRENTMAX|16
-Scholar		VISIBLE:NO																				PRECLASS:1,Scholar=1		BONUS:HP|CURRENTMAX|16
+# Template Name	Visible	Template					Required Class			Bonus to HP
+Starting Class	VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=StartingClass
+#
+Acolyte		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Acolyte=1		BONUS:HP|CURRENTMAX|16
+Apprentice		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Apprentice=1		BONUS:HP|CURRENTMAX|12
+Everyman		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Everyman=1		BONUS:HP|CURRENTMAX|12
+Explorer		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Explorer=1		BONUS:HP|CURRENTMAX|16
+Gunslinger		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Gunslinger=1		BONUS:HP|CURRENTMAX|20
+Inventor		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Inventor=1		BONUS:HP|CURRENTMAX|12
+Investigator	VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Investigator=1	BONUS:HP|CURRENTMAX|12
+Martial Artist	VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Martial Artist=1	BONUS:HP|CURRENTMAX|16
+Officer		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Officer=1		BONUS:HP|CURRENTMAX|16
+Personality		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Personality=1	BONUS:HP|CURRENTMAX|12
+Rogue			VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Rogue=1		BONUS:HP|CURRENTMAX|16
+Scholar		VISIBLE:NO	TYPE:StartingClass			PRECLASS:1,Scholar=1		BONUS:HP|CURRENTMAX|16
 
 
 

@@ -163,10 +163,28 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Deception|Demolitions|Escape Artist|Gamb
 10									ABILITY:Special Ability|AUTOMATIC|Bullseye
 
 
+###Block: Inventor ---------------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save bonus																						Modify VAR
+CLASS:Inventor	HD:6		TYPE:Base.PC	ABB:Ivt		MAXLEVEL:10	SOURCEPAGE:p.105	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel()/3	BONUS:SAVE|BASE.Will|classlevel()/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Inventor	STARTSKILLPTS:6	CSKILL:Benchthumping|Craft (chemical)|(mechanical)|(Structural)|Deception|Decipher Script|Demolitions|Disable Device|Operate Vehicle (Ground Vehicles)|Knowledge (Physical Sciences)|Knowledge (Technology)|Repair|Research|TYPE=Profession|Read/Write Language|Speak Language
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Inventor Talent|(CL+1)/2	
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Inventor ~ Weird Science		
+2	ABILITY:Special Ability|AUTOMATIC|Inventor ~ Feat grab		
+4	ABILITY:Special Ability|AUTOMATIC|Inventor ~ Jack of All Trades	
+10	ABILITY:Special Ability|AUTOMATIC|Inventor ~ Exemplar			
+
 ###Block: Investigator ---------------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save bonus																						Modify VAR
-CLASS:Investigator	HD:6		TYPE:Base.PC	ABB:Inves		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel()/3	BONUS:SAVE|BASE.Reflex|(classlevel()+4)/2	BONUS:VAR|ClassDefense|(CL+2)/3	BONUS:VAR|Reputation|(CL-1)/2
+CLASS:Investigator	HD:6		TYPE:Base.PC	ABB:Ivs		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel()/3	BONUS:SAVE|BASE.Reflex|(classlevel()+4)/2	BONUS:VAR|ClassDefense|(CL+2)/3	BONUS:VAR|Reputation|(CL-1)/2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Investigator	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Deception|Disable Device|Forgery|Gather Information|Persuasion|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Notice|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language
 ###Block: Background
@@ -198,7 +216,7 @@ CLASS:Martial Artist	STARTSKILLPTS:6	CSKILL:Acrobatics|Athletics|Escape Artist|A
 ###Block: Class progression
 1	BONUS:ABILITYPOOL|Martial Artist Talent|(CL+1)/2	BONUS:VAR|LivingWeaponProgression|1			ABILITY:Special Ability|AUTOMATIC|Living Weapon
 2										BONUS:VAR|FastMovementProgression|(CL+2)/4	ABILITY:Special Ability|AUTOMATIC|Fast Movement
-4																		ABILITY:Special Ability|AUTOMATIC|Stunning Fist
+4																		ABILITY:Special Ability|AUTOMATIC|Stunning Attack
 8										BONUS:VAR|LivingWeaponProgression|1			ABILITY:Special Ability|AUTOMATIC|Evade Fire
 
 
@@ -223,6 +241,26 @@ CLASS:Officer	STARTSKILLPTS:4	CSKILL:Demolitions|Athletics|Knowledge (Current Ev
 8	BONUS:ABILITYPOOL|Officer Feat|1	ABILITY:Special Ability|AUTOMATIC|Branch Elite
 9	BONUS:ABILITYPOOL|Officer Talent|1
 10							ABILITY:Special Ability|AUTOMATIC|Legendary Speech
+
+###Block: Rogue ----------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus																														Modify VAR
+CLASS:Personality		HD:6		TYPE:Base.PC	ABB:Per		MAXLEVEL:10	SOURCEPAGE:p.113	BONUS:COMBAT|BASEAB|classlevel()/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|1+(CL>1)+(CL>4)+(CL>6)+(CL>9)	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Personality		STARTSKILLPTS:8	CSKILL:Craft (Expression|Deception|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Perform (Act)|Perform (Dance)|Perform (Sing)|Perform (Vaudeville)|Persuasion|TYPE=Profession|Read/Write Language|Speak Language
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Personality Talent|(CL+1)/2					
+4	BONUS:ABILITYPOOL|Personality Feat|CL-1/3						
+###Block:
+2	ABILITY:Special Ability|AUTOMATIC|Personality ~ Unlimited Access		
+3	ABILITY:Special Ability|AUTOMATIC|Personality ~ Bonus Class Skills	
+4	ABILITY:Special Ability|AUTOMATIC|Personality ~ Bonus Feats			
+5	ABILITY:Special Ability|AUTOMATIC|Personality ~ Royalty			
+6	ABILITY:Special Ability|AUTOMATIC|Personality ~ Winning Smile		
 
 
 ###Block: Rogue ----------------------------------------------------------------------------------------------

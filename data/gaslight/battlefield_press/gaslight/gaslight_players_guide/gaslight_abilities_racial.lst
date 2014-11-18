@@ -2,15 +2,12 @@
 SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
 #Original Entry: Andrew Maitland
 
-#TODO: Magical Potency - No Method to Increase the Max Ranks for Selected Skill without changing All Skills currently
-
 Beast Man Race Trait	CATEGORY:Internal		BONUS:ABILITYPOOL|Beast Man Racial Trait|1	ABILITY:Special Ability|AUTOMATIC|Scent															
 Human Race Trait		CATEGORY:Internal		BONUS:ABILITYPOOL|Bonus Stat|1		
 Ratling Race Trait	CATEGORY:Internal	BONUS:SKILL|Athletics,Notice,Use Device|2	NATURALATTACKS:Bite,Weapon.Melee.Natural,*1,1d4	ABILITY:Special Ability|AUTOMATIC|Ratling Immunity|Rodent Empathy	
 Vampire Race Trait	CATEGORY:Internal	BONUS:STAT|STR,CON|4|TYPE=Racial	ABILITY:Special Ability|AUTOMATIC|Blood Drain|Blood Requirement|Daylight Vulnerability|Limited Immortality			
 Werewolf Race Trait	CATEGORY:Internal	BONUS:SKILL|Acrobatics,Athletics|2|TYPE=Racial									BONUS:STAT|CON,WIS|2|TYPE=Racial	BONUS:STAT|INT,CHA|-2|TYPE=Racial	ABILITY:Special Ability|AUTOMATIC|Alternate Form|Damage Reduction|Scent							ASPECT:CombatBonus|DR:5/Silver in Werewolf form		
 Wildling Race Trait	CATEGORY:Internal	BONUS:COMBAT|TOHIT.Thrown,TOHIT.Sling|1|TYPE=Racial	BONUS:SKILL|Notice,Search,Escape Artist,Disable Device,Stealth,Sleight of Hand|2|TYPE=Racial	BONUS:STAT|STR|-2|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial	ABILITY:Special Ability|AUTOMATIC|Natural Enemy ~ Wildling
-
 
 ###Block: Human Ability Bonus --------------------------------------------------
 # Ability Name		Category of Ability		Type			Visible		Stat bonus
@@ -71,10 +68,10 @@ Keen Hearing	CATEGORY:Talent		TYPE:Talent.BeastManTalent.RatlingTalent.WerewolfT
 
 ###Block: Charm Talent Tree
 # Ability Name	Category of Ability	Type					Required Ability					Description																Source Page
-Charm			CATEGORY:Talent		TYPE:Talent.WildlingTalent.Charm Talent Tree								DESC:+%1 bonus on all Charisma-based skill checks made to influence members of his chosen gender|TL	SOURCEPAGE:p.77
-Favor			CATEGORY:Talent		TYPE:Talent.WildlingTalent.Charm Talent Tree	PREABILITY:1,CATEGORY=Talent,Charm																			SOURCEPAGE:p.77
-Captivate		CATEGORY:Talent		TYPE:Talent.WildlingTalent.Charm Talent Tree	PREABILITY:2,CATEGORY=Talent,Charm,Favor																		SOURCEPAGE:p.77
-Taunt			CATEGORY:Talent		TYPE:Talent.WildlingTalent.Charm Talent Tree	PREABILITY:1,CATEGORY=Talent,Charm																			SOURCEPAGE:p.77
+Charm			CATEGORY:Talent		TYPE:Talent.WildlingTalent.Charm Talent Tree.PersonalityTalent								DESC:+%1 bonus on all Charisma-based skill checks made to influence members of his chosen gender|TL	SOURCEPAGE:p.77
+Favor			CATEGORY:Talent		TYPE:Talent.WildlingTalent.Charm Talent Tree.PersonalityTalent	PREABILITY:1,CATEGORY=Talent,Charm																			SOURCEPAGE:p.77
+Captivate		CATEGORY:Talent		TYPE:Talent.WildlingTalent.Charm Talent Tree.PersonalityTalent	PREABILITY:2,CATEGORY=Talent,Charm,Favor																		SOURCEPAGE:p.77
+Taunt			CATEGORY:Talent		TYPE:Talent.WildlingTalent.Charm Talent Tree.PersonalityTalent	PREABILITY:1,CATEGORY=Talent,Charm																			SOURCEPAGE:p.77
 
 ###Block: Greater Lycanthrope Talent Tree
 # Ability Name			Category of Ability	Type									Required Ability											PRETOTALAB		Source Page
