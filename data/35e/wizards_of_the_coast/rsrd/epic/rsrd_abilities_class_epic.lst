@@ -111,3 +111,8 @@ Imprisonment	KEY:Union Sentinel ~ Imprisonment		CATEGORY:Special Ability	TYPE:Sp
 Imprisonment	KEY:Living Vault ~ Imprisonment		CATEGORY:Special Ability	TYPE:SpecialQuality
 Recognition		KEY:Living Vault ~ Recognition		CATEGORY:Special Ability	TYPE:SpecialQuality
 Safekeeping		KEY:Living Vault ~ Safekeeping		CATEGORY:Special Ability	TYPE:SpecialQuality
+
+
+###Block:
+Spell Knowledge Arcane	CATEGORY:Special Ability	TYPE:EpicSpellKnowledgeChoice	PRECLASS:1,SPELLCASTER.Arcane=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:EpicFeats
+Spell Knowledge Divine	CATEGORY:Special Ability	TYPE:EpicSpellKnowledgeChoice	PRECLASS:1,SPELLCASTER.Divine=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Divine|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:EpicFeats
