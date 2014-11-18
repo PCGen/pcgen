@@ -67,6 +67,7 @@ Prismatic Plate							PROFICIENCY:ARMOR|Full Plate			TYPE:Armor.Magic.ArmorProfH
 Scarab Breastplate						PROFICIENCY:ARMOR|Breastplate			TYPE:Armor.Magic.ArmorProfMedium.Medium.Suit.Specific.GreaterMajor		COST:23200	WT:30		ACCHECK:-4		EQMOD:PLUS3A.STEEL			MAXDEX:3											SOURCEPAGE:p.129	SPELLFAILURE:25																															BONUS:COMBAT|AC|6|TYPE=Armor
 Soothsayer's Raiment						PROFICIENCY:ARMOR|Chainmail			TYPE:Armor.Magic.ArmorProfMedium.Medium.Suit.Specific.GreaterMedium		COST:9150	WT:40		ACCHECK:-5		EQMOD:PLUS1A.STEEL			MAXDEX:2											SOURCEPAGE:p.129	SPELLFAILURE:30																															BONUS:COMBAT|AC|6|TYPE=Armor
 Warden of The Woods						PROFICIENCY:ARMOR|Splint Mail			TYPE:Armor.Magic.ArmorProfHeavy.Heavy.Suit.Specific.GreaterMajor			COST:19100	WT:25		ACCHECK:-7		EQMOD:GRNWD.PLUS3A			MAXDEX:0											SOURCEPAGE:p.129	SPELLFAILURE:40																															BONUS:COMBAT|AC|7|TYPE=Armor
+
 Adamantine Breastplate.MOD												TYPE:GreaterMedium												WT:30																							SOURCEPAGE:p.124
 Banded Mail of Luck.MOD													TYPE:LesserMajor													WT:35																							SOURCEPAGE:p.124
 Breastplate of Command.MOD												TYPE:GreaterMajor													WT:30																							SOURCEPAGE:p.124
@@ -74,7 +75,7 @@ Celestial Armor.MOD													TYPE:LesserMajor													WT:20														
 Demon Armor.MOD														TYPE:GreaterMajor													WT:50																							SOURCEPAGE:p.125
 Dragonhide Plate.MOD													TYPE:GreaterMinor													WT:50																							SOURCEPAGE:p.126
 Dwarven Plate.MOD														TYPE:LesserMajor													WT:50																							SOURCEPAGE:p.126
-Elven Chain.MOD														TYPE:LesserMedium													WT:20																							SOURCEPAGE:p.126
+Elven Chain.MOD														TYPE:LesserMedium																																				SOURCEPAGE:p.126
 Mithral Full Plate of Speed.MOD											TYPE:GreaterMajor																																				SOURCEPAGE:p.128
 Mithral Shirt.MOD														TYPE:LesserMinor																																				SOURCEPAGE:p.128
 Plate Armor of the Deep.MOD												TYPE:LesserMajor													WT:50																							SOURCEPAGE:p.128
@@ -95,6 +96,9 @@ Giant Hide (storm).MOD													TYPE:GreaterMajor													WT:25										
 Giant Hide (Troll).MOD													TYPE:GreaterMajor													WT:25																							SOURCEPAGE:p.127
 Mistmail.MOD														TYPE:GreaterMinor													WT:25																							SOURCEPAGE:p.127
 Murderer's Blackcloth.MOD												TYPE:GreaterMedium												WT:10																							SOURCEPAGE:p.128
+
+
+
 Armor of Arrow Attraction					PROFICIENCY:ARMOR|Full Plate			TYPE:Magic.Cursed.Armor.Heavy.ArmorProfHeavy.Suit.Standard				COST:0	WT:50		ACCHECK:-6		EQMOD:STEEL					MAXDEX:1											SOURCEPAGE:p.342	SPELLFAILURE:35																															BONUS:COMBAT|AC|9|TYPE=Armor	BONUS:COMBAT|AC|3|TYPE=ArmorEnhancement																								SPROP:The wearer takes a -15 penalty to AC against ranged weapons.
 Armor of Rage							PROFICIENCY:ARMOR|Full Plate			TYPE:Magic.Cursed.Armor.Heavy.ArmorProfHeavy.Suit.Standard				COST:0	WT:50		ACCHECK:-6		EQMOD:STEEL					MAXDEX:1											SOURCEPAGE:p.342	SPELLFAILURE:35																															BONUS:COMBAT|AC|9|TYPE=Armor	BONUS:COMBAT|AC|1|TYPE=ArmorEnhancement	BONUS:STAT|CHA|-4																					SPROP:All unfriendly creatures within 300 feet gain a +1 morale bonus on attack rolls against the wearer.
 Demon Prince Armor						PROFICIENCY:ARMOR|Full Plate			TYPE:Artifact.Major.Armor.Heavy.ArmorProfHeavy.Suit					COST:0	WT:80		ACCHECK:-6		EQMOD:FRT_HVY.PLUS5A.STEEL		MAXDEX:1											SOURCEPAGE:p.337	SPELLFAILURE:35		ABILITY:Special Ability|AUTOMATIC|Demon Prince Armor Languages|Immunity to Electricity|Immunity to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy	BONUS:COMBAT|AC|9|TYPE=Armor											BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,FireResistanceBonus|10|TYPE=Resistance	BONUS:VISION|Darkvision|60																			AUTO:EQUIP|Demon Prince Armor Claw Attack
