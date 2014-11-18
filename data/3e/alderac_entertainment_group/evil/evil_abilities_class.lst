@@ -24,3 +24,31 @@ Regeneration		KEY:Regeneration ~ Blood Archer			CATEGORY:Special Ability	TYPE:Sp
 Sneak Attack		KEY:Sneak Attack ~ Blood Archer			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:BowSneakAttack|0	DEFINE:SneakAttackDie|0	DESC: +%1d%2 (Bow Only)|BowSneakAttack|SneakAttackDie																																			BONUS:VAR|SneakAttackDie|6
 
 #
+Fire Damage Special			CATEGORY:Special Ability	TYPE:SpecialQuality	
+Acid Damage Special			CATEGORY:Special Ability	TYPE:SpecialQuality	
+Electrical Damage Special		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Poison Damage Special		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Dex Damage Special			CATEGORY:Special Ability	TYPE:SpecialQuality	
+Insanity Damage Special		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Celestial Qualities		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Aura of Menace		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Magic Circle Against Evil		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Petrification		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Electricity Immunity		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Teleport		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Tongues		CATEGORY:Special Ability	TYPE:SpecialQuality	
++4 Save Vs. Poisons		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Spell-Like Abilities		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Teleport Damage Special		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Trip		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Howl		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Scent												CATEGORY:Special Ability	TYPE:SpecialQuality																									
+Charge		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Immune to Mind-Affecting Spells		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Scent																CATEGORY:Special Ability	TYPE:SpecialQuality																	
++3 to any three skills		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Cast spells as Sorcerer of level equal to HitDie level		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Will Save Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	
+Strength Damage Special	CATEGORY:Special Ability	TYPE:SpecialQuality	
+
+
