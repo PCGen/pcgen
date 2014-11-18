@@ -1,0 +1,15 @@
+#
+# Current Ver: $Revision$
+# Last Editor: $Author$
+# Last Edited: $Date$
+#
+# Stat definitions for Immortal mode
+#
+
+STATNAME:Strength		ABB:STR
+STATNAME:Agility		ABB:AGL
+STATNAME:Endurance	ABB:END
+STATNAME:Perception	ABB:PER
+STATNAME:Willpower	ABB:WIL
+STATNAME:Presence		ABB:PRS
+STATNAME:Spirit		ABB:SPT	
