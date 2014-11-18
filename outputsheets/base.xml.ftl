@@ -174,7 +174,7 @@
 			<portrait_thumb>${pcstring('PORTRAIT.THUMB')}</portrait_thumb>
 		</portrait>
 		<phobias>${pcstring('PHOBIAS')}</phobias>
-		<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
+		<#if (pcstring("ABILITYALL.ANY.0.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
 			<race>${pcstring('ABILITYALL.ANY.0.ASPECT=RaceName.ASPECT.RaceName')}</race>
 		<#else>
 			<race>${pcstring('RACE')}</race>
