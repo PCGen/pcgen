@@ -14,3 +14,5 @@ PFS Starting Gold			VISIBLE:NO		KIT:1|Starting Gold PFS
 
 ###Block:
 Race Bonus Language ~ Modern Human Language	VISIBLE:NO	LANGBONUS:TYPE=ModernHumanLanguage
+
+Add PFS Society Faction		BONUS:VAR|Society_Faction_Pool|1|TYPE=Base
