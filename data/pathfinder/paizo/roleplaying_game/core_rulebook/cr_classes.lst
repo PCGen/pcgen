@@ -289,7 +289,7 @@ CLASS:Monk		STARTSKILLPTS:4
 1	ABILITY:Internal|AUTOMATIC|Monk ~ Unarmed Damage
 ###Block: Level progression
 #           F   D   T   S   M   L   H   G   C
-#1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2
 2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
 3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
 4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
