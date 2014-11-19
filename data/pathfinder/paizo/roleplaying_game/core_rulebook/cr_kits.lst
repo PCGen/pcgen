@@ -5,7 +5,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 
 ### Monk Flurry of Blows Issue
 STARTPACK:Monk Flurry of Blows	VISIBLE:NO	APPLY:INSTANT	TOTALCOST:0
-GEAR:Flurry of Blows	LOCATION:Unarmed
+GEAR:Flurry of Blows	LOCATION:Unarmed	SIZE:PC
 
 
 
