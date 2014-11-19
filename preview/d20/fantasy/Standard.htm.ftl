@@ -124,7 +124,7 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
   <td colspan="1" class="topline">DEITY</td>
   <td class="topline">POINTS</td>
  </tr>
- <tr>			
+ <tr>
 	<@loop from=0 to=pcvar('COUNT[CLASSES]-1') ; class , class_has_next>
 	<#if (pcvar(pcstring('CLASS.${class}.LEVEL')) > 0) >
 	<td colspan="1" class="h">${pcstring('CLASS.${class}')}
@@ -138,7 +138,7 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
 
   <td colspan="1" class="h">${pcstring('EXP.CURRENT')}</td>
   <td colspan="1" class="h">${pcstring('RACE')}</td>
-  		<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
+  		<#if (pcstring("ABILITYALL.ANY.0.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
 			  <td colspan="1" class="h">${pcstring('ABILITYALL.ANY.0.ASPECT=RaceName.ASPECT.RaceName')}</td>
 		<#else>
 			  <td colspan="1" class="h">${pcstring('RACE')}</td>
@@ -210,7 +210,7 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
     <td colspan="2" valign="top">
 <#if (pcvar("UseAlternateDamage") = 0 )>
 <!-- START Hit Point Table -->
-	<table summary="Hit Point Table"> 
+	<table summary="Hit Point Table">
         <tr>
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="bottom"></td>
@@ -247,7 +247,7 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
 <!-- STOP Hit Point Table -->
 <#else>
 <!-- START Vitality/Wound Point Table-->
-       <table summary="Vitality/Wound Point Table"> 
+       <table summary="Vitality/Wound Point Table">
         <tr>
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="bottom"></td>
@@ -291,7 +291,7 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
 </@loop>
 	    </td>
           </tr>
-       </table> 
+       </table>
 <!-- STOP Vitality/Wound Point Table -->
 </#if>
       <table summary="AC Table"> <!-- Armour Class Table -->
@@ -1364,9 +1364,8 @@ ${pcstring('FOLLOWERTYPE.FOLLOWERS.${follower}.NAME')},&nbsp;
       <td align="center" class="font8"><b>4 - 6</b></td>
       <td align="center" class="font8"><b>${pcstring('((ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnLevel)-2).INTVAL')}</b></td>
       <td colspan="2" class="border" align="center"><font style="font-size: small">
-      <@loop from=0 to=pcvar('ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnTimes.INTVAL') step=5 > &#9744; </@loop>
-<!--		-->
-	  </font></td>
+        <@loop from=0 to=pcstring('ABILITYALL.Special Ability.${turncount}.ASPECT=TurnType.ASPECT.TurnTimes.INTVAL')?number-1> &#9744; </@loop></font>
+      </td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
@@ -1433,8 +1432,8 @@ ${pcstring('FOLLOWERTYPE.FOLLOWERS.${follower}.NAME')},&nbsp;
       <td align="center" class="font8"><b>4 - 6</b></td>
       <td align="center" class="font8"><b>${pcstring('((ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingLevel)-6).INTVAL')}</b></td>
       <td colspan="2" class="border" align="center"><font style="font-size: small">
-       <@loop from=0 to=pcvar('ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingUses.INTVAL') step=5 > &#9744; </@loop>
-      </font></td>
+        <@loop from=0 to=pcstring('ABILITYALL.Special Ability.${channelingcount}.ASPECT=ChannelingType.ASPECT.ChannelingUses.INTVAL')?number-1> &#9744; </@loop></font>
+     </td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
@@ -1570,16 +1569,16 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${trait}.TYPE=Trait.DESC')}
 <!-- STOP Traits Table -->
 
 <#macro typeOfAbilitySuffix typeOfAbility >
-<#if (typeOfAbility?contains("extraordinary"))> 
+<#if (typeOfAbility?contains("extraordinary"))>
  (Ex)
 </#if>
-<#if (typeOfAbility?contains("supernatural"))> 
+<#if (typeOfAbility?contains("supernatural"))>
  (Su)
 </#if>
-<#if (typeOfAbility?contains("spelllike"))> 
+<#if (typeOfAbility?contains("spelllike"))>
  (Sp)
 </#if>
-<#if (typeOfAbility?contains("psilike"))> 
+<#if (typeOfAbility?contains("psilike"))>
  (Ps)
 </#if>
 </#macro>
@@ -1695,27 +1694,27 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialQuality}.TYPE=SpecialQua
 <!-- STOP Feat Table -->
 <!-- ================================================================ -->
 
-<!-- Start of Temporary Bonuses table --> 
-<#if (pcvar("COUNT[TEMPBONUSNAMES]") > 0) > 
-<tr><td> 
-<table width="100%" cellspacing="0" cellpadding="2"> 
-<tr> 
-<td class="c9wB">Temporary Bonuses Applied</td> 
-</tr> 
-<tr> 
-<td width="100%" class="l8"> 
-<@loop from=0 to=pcvar('COUNT[TEMPBONUSNAMES]-1') ; temp , temp_has_next> 
-<#if (temp = 0)> 
-<#else> 
-&bull;&nbsp; 
-</#if> 
-${pcstring('TEMPBONUS.${temp}')} 
-</@loop> 
-</td> 
-</tr> 
-</table> 
-</td></tr> 
-</#if> 
+<!-- Start of Temporary Bonuses table -->
+<#if (pcvar("COUNT[TEMPBONUSNAMES]") > 0) >
+<tr><td>
+<table width="100%" cellspacing="0" cellpadding="2">
+<tr>
+<td class="c9wB">Temporary Bonuses Applied</td>
+</tr>
+<tr>
+<td width="100%" class="l8">
+<@loop from=0 to=pcvar('COUNT[TEMPBONUSNAMES]-1') ; temp , temp_has_next>
+<#if (temp = 0)>
+<#else>
+&bull;&nbsp;
+</#if>
+${pcstring('TEMPBONUS.${temp}')}
+</@loop>
+</td>
+</tr>
+</table>
+</td></tr>
+</#if>
 
 
 <#include "common/common-spells.ftl">
