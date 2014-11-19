@@ -4,6 +4,9 @@ SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPSOP	SOURCEW
 # Updated by: Jeff Baril
 # Updated by: Vincent Lhote
 
+CATEGORY=Internal|Default.MOD	BONUS:VAR|Society_Faction_Pool|1|TYPE=Base|PRECLASS:1,TYPE.Base=1	DEFINE:Society_Faction_Pool|0
+
+
 ###Block: Boon from season 4 to freely change faction
 # Ability Name			Unique Key						Product Identity?	Category of Ability		Type				Visible		Required Ability								Restricted Ability										Description													Multiple?	Choose		Selections	Ability									Bonus Ability Pool			Stat bonus			Cost		Source, Long Desc.				Source, Short Desc.	Aspects
 Pawn of the Grandmaster		KEY:Boon ~ Pawn of the Grandmaster					CATEGORY:Special Ability	TYPE:Boon.Scenario Boon	VISIBLE:YES		PREABILITY:1,CATEGORY=Background,Shadow Lodge Faction		!PREABILITY:1,CATEGORY=Special Ability,Boon ~ Triumph of the Lantern Lodge	DESC:Ex Shadow Lodge member. Allow to keep Shadow Lodge specific prestige awards.	MULT:YES	CHOOSE:PCSTAT|ALL	SELECT:1	ABILITY:Society Faction|AUTOMATIC|Ex Shadow Lodge Faction							BONUS:STAT|%LIST|1	COST:0	SOURCELONG:PFS S4-21: Rivalry's End		SOURCESHORT:PFS S4-21	ASPECT:NAME|Pawn of the Grandmaster (Retired 14th August 2013)

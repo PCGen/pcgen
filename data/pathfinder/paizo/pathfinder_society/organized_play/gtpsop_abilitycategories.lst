@@ -9,7 +9,7 @@ ABILITYCATEGORY:Spell Focus Replacement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YE
 
 ###Block: Background Ability Categories
 # Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Base Pool number	Category of Object		Type of Object															Plural description for UI	Display Location
-ABILITYCATEGORY:Society Faction	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:1		CATEGORY:Background		TYPE:Society Faction														PLURAL:Society Factions		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Society Faction	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:Society_Faction_Pool		CATEGORY:Background		TYPE:Society Faction														PLURAL:Society Factions		DISPLAYLOCATION:Background
 
 ABILITYCATEGORY:Prestige Awards	VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO					CATEGORY:Special Ability	TYPE:Faction Prestige Award.Generic Prestige Awards.Vanity Prestige Award.Prestige Award Display	PLURAL:Prestige Awards		DISPLAYLOCATION:Background
 
