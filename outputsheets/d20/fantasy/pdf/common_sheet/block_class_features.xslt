@@ -23,7 +23,7 @@ first page
 	<xsl:template name="features.left">
 		<xsl:param name="features"/>
 		<xsl:param name="RunningTotal" select="0"/>
-		
+
 		<xsl:choose>
 			<xsl:when test="not($features)">
 				<!--No more Items so return Running Total -->
@@ -104,7 +104,7 @@ first page
 		<xsl:param name="description.title" select="''"/>
 		<xsl:param name="description" />
 		<xsl:param name="width" select="'wide'" />
-		
+
 		<fo:table table-layout="fixed" space-before="2mm" keep-together="always" border-collapse="collapse">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column column-width="18mm"/>
@@ -231,7 +231,7 @@ first page
 	<xsl:template name="eclipse_channeling.intensity">
 		<xsl:param name="die"/>
 		<xsl:param name="number"/>
-		
+
 		<xsl:variable name="shade">
 			<xsl:choose>
 				<xsl:when test="$number mod 2 = 0">darkline</xsl:when>
@@ -371,7 +371,7 @@ first page
 								<xsl:call-template name="eclipse_channeling.intensity">
 									<xsl:with-param name="die" select="'Up to 0'"/>
 									<xsl:with-param name="number" select="number(channel_intensity)-8"/>
-									
+
 								</xsl:call-template>
 								<xsl:call-template name="eclipse_channeling.intensity">
 									<xsl:with-param name="die" select="'1 - 3'"/>
@@ -502,7 +502,7 @@ first page
 	<xsl:template name="turning.hitdice">
 		<xsl:param name="die"/>
 		<xsl:param name="number"/>
-		
+
 		<xsl:variable name="shade">
 			<xsl:choose>
 				<xsl:when test="$number mod 2 = 0">darkline</xsl:when>
@@ -808,7 +808,7 @@ first page
 ====================================
 ====================================-->
 	<xsl:template match="layonhands">
-		
+
 		<xsl:call-template name="class.feature.perday">
 			<xsl:with-param name="attribute" select="'bard'"/>
 			<xsl:with-param name="name" select="'LAY ON HANDS'"/>
@@ -877,6 +877,19 @@ first page
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
+				<xsl:for-each select="subability">
+				<fo:table-row keep-with-next.within-column="always">
+					<fo:table-cell padding="3pt" number-columns-spanned="2">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'checklist'"/>
+						</xsl:call-template>
+						<fo:block font-size="5pt" font-weight="bold">
+							<xsl:if test="name != ''"> <xsl:value-of select="name"/>:</xsl:if>
+								<fo:inline font-size="5pt" font-weight="normal"><xsl:value-of select="description"/><xsl:if test="source != ''"> [<xsl:value-of select="source"/>]</xsl:if></fo:inline>
+						</fo:block>
+					</fo:table-cell>
+				</fo:table-row>
+				</xsl:for-each>
 			</fo:table-body>
 		</fo:table>
 |%|
