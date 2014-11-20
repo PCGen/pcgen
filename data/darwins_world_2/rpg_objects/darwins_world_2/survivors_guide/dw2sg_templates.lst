@@ -53,6 +53,10 @@ Companion Track			VISIBLE:NO	VFEAT:Track
 Companion Evasion			VISIBLE:NO	VFEAT:Evasion
 Companion Improved Evasion	VISIBLE:NO	VFEAT:Improved Evasion
 
+Half Hitdie		HITDIE:%/2|CLASS.TYPE=Monster	VISIBLE:NO
+Quarter Hitdie	HITDIE:%/4|CLASS.TYPE=Monster	VISIBLE:NO
+Eighth Hitdie	HITDIE:%/8|CLASS.TYPE=Monster	VISIBLE:NO
+
 #
 # End
 #

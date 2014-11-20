@@ -39,15 +39,15 @@ Pony (Old Nag).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Old Nag)
 Pony (War/Old Nag).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Old Nag)
 
 Camel (Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
-Dog (Riding/Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)|Half Hitdie
-Donkey (Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)|Half Hitdie
+Dog (Riding/Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)	BONUS:VAR|FractionalHD|1|TYPE=Race
+Donkey (Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)	BONUS:VAR|FractionalHD|1|TYPE=Race
 Horse (Heavy/Bag of Bones).MOD		MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
 Horse (Light/Bag of Bones).MOD		MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
 Horse (Warhorse Heavy/Bag of Bones).MOD	MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Bag of Bones)
 Horse (Warhorse Light/Bag of Bones).MOD	MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
 Mule (Bag of Bones).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
-Pony (Bag of Bones).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)|Half Hitdie
-Pony (War/Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)|Half Hitdie
+Pony (Bag of Bones).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)	BONUS:VAR|FractionalHD|1|TYPE=Race
+Pony (War/Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)	BONUS:VAR|FractionalHD|1|TYPE=Race
 
 #
 # End

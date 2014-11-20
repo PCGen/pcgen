@@ -5,6 +5,18 @@ Default								CATEGORY:Internal
 
 CATEGORY=Internal|Default.MOD									DEFINE:GauntletOS|0	DEFINE:UnarmedLethal|0										AUTO:EQUIP|Gauntlet|PREARMORTYPE:1,TYPE.Heavy																BONUS:VAR|GauntletOS|1|PREARMORTYPE:1,TYPE.Heavy	BONUS:VAR|UnarmedLethal|GauntletOS
 
+CATEGORY=Internal|Default.MOD	DEFINE:FractionalHD|0	ABILITY:Fractional HD Progression|AUTOMATIC|Fractional Hit Die|PREVARGTEQ:FractionalHD,1
+Fractional Hit Die	CATEGORY:Internal		TYPE:FractionalHD	DEFINE:FractionalHDTier|0	BONUS:VAR|FractionalHDTier|FractionalHD	ASPECT:NAME|Hit Die Fraction Removed|PREVAREQ:FractionalHDTier,0	ASPECT:NAME|Hit Die Fraction 1/2|PREVAREQ:FractionalHDTier,1	ASPECT:NAME|Hit Die Fraction 1/4|PREVAREQ:FractionalHDTier,2	ASPECT:NAME|Hit Die Fraction 1/8|PREVAREQ:FractionalHDTier,3	ABILITY:Internal|AUTOMATIC|Hitdie ~ Half|PREVAREQ:FractionalHDTier,1	ABILITY:Internal|AUTOMATIC|Hitdie ~ Quarter|PREVAREQ:FractionalHDTier,2	ABILITY:Internal|AUTOMATIC|Hitdie ~ Eighth|PREVAREQ:FractionalHDTier,3
+#
+Reduce Fraction to 1/4	TYPE:FractionalHD	COST:0	CATEGORY:Internal	BONUS:VAR|FractionalHDTier|-1	PREVAREQ:FractionalHD,3
+Reduce Fraction to 1/2	TYPE:FractionalHD	COST:0	CATEGORY:Internal	BONUS:VAR|FractionalHDTier|-1	PREVARGTEQ:FractionalHD,2
+Reduce Fraction to 1/1	TYPE:FractionalHD	COST:0	CATEGORY:Internal	BONUS:VAR|FractionalHDTier|-1	PREVARGTEQ:FractionalHD,1
+#
+Hitdie ~ Full	CATEGORY:Internal					
+Hitdie ~ Half	CATEGORY:Internal	TEMPLATE:Half Hitdie	
+Hitdie ~ Quarter	CATEGORY:Internal	TEMPLATE:Quarter Hitdie	
+Hitdie ~ Eighth	CATEGORY:Internal	TEMPLATE:Eighth Hitdie
+
 
 
 #BLOCK: Where to store Abilities
