@@ -97,7 +97,7 @@ Bonus vs. Disarm and Overrun				CATEGORY:Special Ability	TYPE:SpecialQuality.Fav
 Bonus Wilder Talent					CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWilder		VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Wilder		PRECLASS:1,Wilder=1		PRERACE:1,Half-Elf,Half-Orc,Half-Giant								DESC:Gain a talent.														STACK:YES	MULT:YES	CHOOSE:NOCHOICE																					SOURCEPAGE:p.34
 
 #Block: Half-Orc
-Bonus Power Point (Half-Orc)				CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPsychicWarrior	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Psychic Warrior	PRECLASS:1,Psychic Warrior=1	PRERACE:1,Half-Orc											DESC:Add 1 power point.														STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:VAR|BonusPowerPoints|1			SOURCEPAGE:p.34
+Bonus Power Point ~ Half-Orc				CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPsychicWarrior	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Psychic Warrior	PRECLASS:1,Psychic Warrior=1	PRERACE:1,Half-Orc											DESC:Add 1 power point.														STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:VAR|BonusPowerPoints|1			SOURCEPAGE:p.34
 Bonus Psychic Strike Damage				CATEGORY:Special Ability	TYPE:SpecialAttack.FavoredClassBonus.FavoredClassSoulknife		VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Soulknife		PRECLASS:1,Soulknife=1		PRERACE:1,Half-Orc											DESC:Add +1/2 to psychic strike damage.											STACK:YES	MULT:YES	CHOOSE:NOCHOICE																					SOURCEPAGE:p.34
 # COMMENT: Bonus Wilder Talent to be found under Half-Elf
 

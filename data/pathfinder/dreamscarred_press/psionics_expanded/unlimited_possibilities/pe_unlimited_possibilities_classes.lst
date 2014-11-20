@@ -95,7 +95,7 @@ CLASS:Gifted Blade	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 1				BONUS:ABILITYPOOL|Soulknife Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeBonusFeat																																																																																																														TEMPLATE:Wild Talent Determination
 
 #Block: Manifesting Ability
-3	KNOWN:0,1																																																										DEFINE:GiftedBladePowersKnown|1	DEFINE:GiftedBladeMaxPowerLevel|1
+3	KNOWN:0,1																																																										DEFINE:GiftedBladePowersKnown|0	BONUS:VAR|GiftedBladePowersKnown|1	DEFINE:GiftedBladeMaxPowerLevel|0	BONUS:VAR|GiftedBladeMaxPowerLevel|1
 4	KNOWN:0,1
 5	KNOWN:0,2																		BONUS:VAR|GiftedBladePowersKnown|1
 6	KNOWN:0,2
@@ -123,7 +123,7 @@ CLASS:Metaforge	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:p.38	BONU
 CLASS:Metaforge	PREABILITY:2,CATEGORY=Special Ability,Enhanced Mind Blade,Invigorating Suit ~ Aegis	PRESKILL:1,TYPE.Craft=3,TYPE.Craft=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Metaforge	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Fly|Intimidate|Knowledge (Psionics)
-1	BONUS:VAR|AegisCL|CL	BONUS:VAR|AegisDRLVL|CL	BONUS:VAR|AstralSuitLVL|CL	BONUS:VAR|MndBladeLVL|CL	DEFINE:MetaforgedLVL|CL
+1	BONUS:VAR|AegisCL|CL	BONUS:VAR|AegisDRLVL|CL	BONUS:VAR|AstralSuitLVL|CL	BONUS:VAR|MndBladeLVL|CL	DEFINE:MetaforgedLVL|0	BONUS:VAR|MetaforgedLVL|CL
 1	BONUS:VAR|CrystallizedMindBlade|(CL+3)/4																ABILITY:Special Ability|AUTOMATIC|Crystallized Mind Blade ~ Metaforge
 2	BONUS:VAR|TransferEnhancement|CL/2																	ABILITY:Special Ability|AUTOMATIC|Transfer Enhancement ~ Metaforge
 3																							ABILITY:Special Ability|AUTOMATIC|Dual Summon ~ Metaforge
