@@ -189,7 +189,9 @@
 								<fo:block space-before.optimum="1pt" font-size="5pt">
 									<xsl:value-of select="special_properties"/>
 									<xsl:value-of select="quality"/>
-									<xsl:value-of select="contents"/>
+									<xsl:if test="contents_num &gt; 0">
+										<xsl:value-of select="contents"/>
+									</xsl:if>
 								</fo:block>
 							</fo:table-cell>
 						</fo:table-row>
