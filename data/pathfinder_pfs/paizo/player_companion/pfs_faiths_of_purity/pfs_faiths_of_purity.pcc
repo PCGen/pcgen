@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pa
 SOURCEDATE:2011-04
 ISOGL:YES
 
-COVER:../faiths_of_purity.jpg
+COVER:@/pathfinder/paizo/player_companion/faiths_of_purity/faiths_of_purity.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -40,7 +40,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Faiths of Purity" Copy
 # Traits: all traits on pages 5, 7, 9, 11, 13, 15, 17, and 18-21. Note that Eye of the Father grants Appraise as a class skill, not Perform, as written.
 
 !PRECAMPAIGN:1,Faiths of Purity
-PCC:../faiths_of_purity.pcc
+PCC:@/pathfinder/paizo/player_companion/faiths_of_purity/faiths_of_purity.pcc
 FEAT:pfs_fop_feats.lst
 DEITY:pfs_fop_deities.lst
 ABILITY:pfs_fop_abilities.lst

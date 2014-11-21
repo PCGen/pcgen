@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8i8p?Pathfinder-Player-Companion-Halflin
 SOURCEDATE:2010-12
 ISOGL:YES
 
-COVER:../halflings_of_golarion.jpg
+COVER:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -42,5 +42,5 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Halflings of Golar
 # Traits: all traits on pages 30-31.
 
 !PRECAMPAIGN:1,Halflings of Golarion
-PCC:../halflings_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.pcc
 

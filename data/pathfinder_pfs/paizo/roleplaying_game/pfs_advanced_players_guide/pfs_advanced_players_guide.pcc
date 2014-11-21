@@ -21,7 +21,7 @@ ISOGL:YES
 # COMMENT: Updated to Errata 2nd Printing - Last Updated - 12/01/2010 on Oct 6th, 2012 - LegacyKing
 
 
-COVER:../advanced_players_guide.jpg
+COVER:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

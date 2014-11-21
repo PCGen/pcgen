@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wo
 SOURCEDATE:2012-04
 ISOGL:YES
 
-COVER:../ap55.jpeg
+COVER:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

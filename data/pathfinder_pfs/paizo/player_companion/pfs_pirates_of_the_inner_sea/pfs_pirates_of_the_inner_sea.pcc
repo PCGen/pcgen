@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8qif?Pathfinder-Player-Companion-Pirates
 SOURCEDATE:2012-04
 ISOGL:YES
 
-COVER:../pirates_of_the_inner_sea.jpg
+COVER:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -42,5 +42,5 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Pirates of the Inner S
 # Traits: all traits on pages 5, 7, 9, 11, 13, 15, and 27
 
 !PRECAMPAIGN:1,Pirates of the Inner Sea
-PCC:../pirates_of_the_inner_sea.pcc
+PCC:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.pcc
 

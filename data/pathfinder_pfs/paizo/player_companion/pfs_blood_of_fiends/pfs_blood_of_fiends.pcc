@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8qzz?Pathfinder-Player-Companion-Blood-o
 SOURCEDATE:2012-04
 ISOGL:YES
 
-COVER:../blood_of_fiends.jpg
+COVER:@/pathfinder/paizo/player_companion/blood_of_fiends/blood_of_fiends.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8dmh?Pathfinder-Companion-Gnomes-of-Gola
 SOURCEDATE:2010-03
 ISOGL:YES
 
-COVER:../gnomes_of_golarion.jpg
+COVER:@/pathfinder/paizo/player_companion/gnomes_of_golarion/gnomes_of_golarion.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -42,7 +42,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Gnomes of Golarion
 # Traits: Brastlewark Businessman, Charlatan, Collector, Excitable, Explorer, Etymologist, First Memories, Naturally Gifted, Rapscallion, Sprint, Trickster, and Zealot
 
 !PRECAMPAIGN:1,Gnomes of Golarion
-PCC:../gnomes_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/gnomes_of_golarion/gnomes_of_golarion.pcc
 ABILITY:pfs_gnog_abilities_pfs.lst
 EQUIPMENT:pfs_gnog_equip_arms_armor.lst
 

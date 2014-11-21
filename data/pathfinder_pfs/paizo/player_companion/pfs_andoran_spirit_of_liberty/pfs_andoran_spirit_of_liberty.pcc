@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8bc3?Pathfinder-Companion-Andoran-Spirit
 SOURCEDATE:2009-11
 ISOGL:YES
 
-COVER:../andoran_spirit_of_liberty.jpg
+COVER:@/pathfinder/paizo/player_companion/andoran_spirit_of_liberty/andoran_spirit_of_liberty.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btp
 SOURCEDATE:2010-07
 ISOGL:YES
 
-COVER:../sargava_the_lost_colony.jpg
+COVER:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/sargava_the_lost_colony.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

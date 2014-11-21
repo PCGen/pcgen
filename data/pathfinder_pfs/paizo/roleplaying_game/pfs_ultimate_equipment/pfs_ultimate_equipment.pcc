@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimat
 SOURCEDATE:2012-08
 ISOGL:YES
 
-COVER:../ultimate_equipment.jpg
+COVER:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

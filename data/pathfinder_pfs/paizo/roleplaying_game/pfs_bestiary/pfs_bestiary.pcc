@@ -20,7 +20,7 @@ SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8au
 SOURCEDATE:2009-10
 ISOGL:YES
 
-COVER:../bestiary.jpg
+COVER:@/pathfinder/paizo/roleplaying_game/bestiary/bestiary.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

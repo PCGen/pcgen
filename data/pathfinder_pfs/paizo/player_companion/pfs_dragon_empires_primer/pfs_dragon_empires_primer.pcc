@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8pg0?Pathfinder-Player-Companion-Dragon-
 SOURCEDATE:2012-01
 ISOGL:YES
 
-COVER:../dragon_empires_primer.jpg
+COVER:@/pathfinder/paizo/player_companion/dragon_empires_primer/dragon_empires_primer.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

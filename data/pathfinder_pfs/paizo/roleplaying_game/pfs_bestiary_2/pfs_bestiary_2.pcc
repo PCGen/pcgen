@@ -20,7 +20,7 @@ SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathf
 SOURCEDATE:2010-12
 ISOGL:YES
 
-COVER:../bestiary_2.jpg
+COVER:@/pathfinder/paizo/roleplaying_game/bestiary_2/bestiary_2.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748bt
 SOURCEDATE:2010-07
 ISOGL:YES
 
-COVER:../heart_of_the_jungle.jpg
+COVER:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/heart_of_the_jungle.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

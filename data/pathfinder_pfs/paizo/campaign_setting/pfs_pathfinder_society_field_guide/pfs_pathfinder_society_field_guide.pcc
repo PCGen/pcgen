@@ -19,7 +19,7 @@ SOURCEWEB:http://paizo.com/products/btpy8mfq
 SOURCEDATE:2011-08
 ISOGL:YES
 
-COVER:../pathfinder_society_field_guide.jpg
+COVER:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pathfinder_society_field_guide.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

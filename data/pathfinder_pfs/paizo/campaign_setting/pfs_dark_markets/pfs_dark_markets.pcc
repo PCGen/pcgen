@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut
 SOURCEDATE:2009-04
 ISOGL:YES
 
-COVER:../dark_markets.jpg
+COVER:@/pathfinder/paizo/campaign_setting/dark_markets/dark_markets.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

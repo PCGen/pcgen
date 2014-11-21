@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pa
 SOURCEDATE:2009-12
 ISOGL:YES
 
-COVER:../dwarves_of_golarion.jpg
+COVER:@/pathfinder/paizo/player_companion/dwarves_of_golarion/dwarves_of_golarion.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -42,7 +42,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Dwarves of Golario
 # Traits: all traits except Coin Hoarder, Eldritch Smith, and Toilcrafter
 
 !PRECAMPAIGN:1,Dwarves of Golarion
-PCC:../dwarves_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/dwarves_of_golarion/dwarves_of_golarion.pcc
 ABILITY:pfs_dog_abilities.lst
 DEITY:pfs_dog_deities.lst
 

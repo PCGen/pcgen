@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8mfk?Pathfinder-Player-Companion-Goblins
 SOURCEDATE:2011-07
 ISOGL:YES
 
-COVER:../goblins_of_golarion.jpeg
+COVER:@/pathfinder/paizo/player_companion/goblins_of_golarion/goblins_of_golarion.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -43,7 +43,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Goblins of Golarion" C
 # Traits: all traits on pages 15-16 are legal for play
 
 !PRECAMPAIGN:1,Goblins of Golarion
-PCC:../goblins_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/goblins_of_golarion/goblins_of_golarion.pcc
 
 # Data files
 ABILITY:pfs_goog_abilities.lst

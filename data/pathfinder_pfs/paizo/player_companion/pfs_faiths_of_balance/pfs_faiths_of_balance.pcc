@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pa
 SOURCEDATE:2011-07
 ISOGL:YES
 
-COVER:../faiths_of_balance.jpg
+COVER:@/pathfinder/paizo/player_companion/faiths_of_balance/faiths_of_balance.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -41,6 +41,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Faiths of B
 # Traits: all traits on pages 4-21
 
 !PRECAMPAIGN:1,Faiths of Balance
-PCC:../faiths_of_balance.pcc
+PCC:@/pathfinder/paizo/player_companion/faiths_of_balance/faiths_of_balance.pcc
 DEITY:pfs_fob_deities.lst
 

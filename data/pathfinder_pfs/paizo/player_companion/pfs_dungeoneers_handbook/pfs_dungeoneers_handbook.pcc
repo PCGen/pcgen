@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8wfn?Pathfinder-Player-Companion-Dungeon
 SOURCEDATE:2013-03
 ISOGL:YES
 
-COVER:../dungeoneers_handbook.jpeg
+COVER:@/pathfinder/paizo/player_companion/dungeoneers_handbook/dungeoneers_handbook.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -44,6 +44,6 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Dungeoneer's Handbook"
 # Traits: all traits on back inside cover are legal except Alien Origins and Lost Role Model.
 
 !PRECAMPAIGN:1,Dungeoneer's Handbook
-PCC:../dungeoneers_handbook.pcc
+PCC:@/pathfinder/paizo/player_companion/dungeoneers_handbook/dungeoneers_handbook.pcc
 EQUIPMENT:pfs_dh_equip_general.lst
 ABILITY:pfs_dh_abilities.lst

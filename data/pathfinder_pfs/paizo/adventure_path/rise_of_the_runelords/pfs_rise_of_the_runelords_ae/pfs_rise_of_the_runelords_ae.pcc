@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8tgl?Pathfinder-Adventure-Path-Rise-of-t
 SOURCEDATE:2012-07
 ISOGL:YES
 
-COVER:../rotr_ae.jpg
+COVER:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rotr_ae.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

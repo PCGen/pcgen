@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/compa
 SOURCEDATE:2010-11
 ISOGL:YES
 
-COVER:../inner_sea_primer.jpg
+COVER:@/pathfinder/paizo/player_companion/inner_sea_primer/inner_sea_primer.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

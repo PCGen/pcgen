@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btp
 SOURCEDATE:2009-08
 ISOGL:YES
 
-COVER:../cheliax_empire_of_devils.jpg
+COVER:@/pathfinder/paizo/player_companion/cheliax_empire_of_devils/cheliax_empire_of_devils.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8sa7?Pathfinder-Player-Companion-Blood-o
 SOURCEDATE:2012-07
 ISOGL:YES
 
-COVER:../blood_of_angels.jpeg
+COVER:@/pathfinder/paizo/player_companion/blood_of_angels/blood_of_angels.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -43,7 +43,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Angels" Copyr
 # Traits: all traits on pages 30-31 are legal except ethical leader. Clergy member is useable once per scenario instead of once per week. Faith healer may be used for Day Job checks.
 
 !PRECAMPAIGN:1,Blood of Angels
-PCC:../blood_of_angels.pcc
+PCC:@/pathfinder/paizo/player_companion/blood_of_angels/blood_of_angels.pcc
 ABILITY:pfs_boa_abilities.lst
 ABILITY:pfs_boa_abilities_variant.lst
 ABILITYCATEGORY:pfs_boa_abilitycategories.lst
