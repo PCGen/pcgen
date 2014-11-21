@@ -266,7 +266,7 @@
 							</xsl:when>
 							<xsl:otherwise>
 								<xsl:choose>
-									<xsl:when test="@known != 0">
+									<xsl:when test="@number != 0 and @known != 0">
 										at will
 									</xsl:when>
 									<xsl:otherwise>
