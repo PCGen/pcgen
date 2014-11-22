@@ -1,6 +1,6 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Core Rulebook (PFS)
-KEY:Core Rulebook
+KEY:PFS ~ Core Rulebook
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
 RANK:0
@@ -8,7 +8,7 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Core Rules
 SETTING:Pathfinder
-!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Core Rulebook]
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[PFS ~ Core Rulebook]
 PRECAMPAIGN:1,Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
