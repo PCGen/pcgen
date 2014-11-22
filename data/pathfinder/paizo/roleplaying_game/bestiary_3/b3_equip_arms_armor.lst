@@ -10,6 +10,4 @@ Binding Contract					PROFICIENCY:WEAPON|Binding Contract	TYPE:Weapon.Melee.OneHa
 Shears						PROFICIENCY:WEAPON|Scimitar		TYPE:Weapon.Melee.OneHanded.Martial.Standard.Slashing.Sword.BladeHeavy					COST:0	WT:4		PRERACE:1,Norn				CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	EQMOD:KEEN.MITHRAL_ITEM.PLUS5M.SPEED	WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.201
 
 ###BLOCK: Ranged
-# Equipment Name	Unique Key						Crit Mult	Damage
-Ranged Cannon	KEY:Ranged Cannon ~ Clockwork Goliath	CRITMULT:x4	DAMAGE:6d6
-Ranged Cannon	KEY:Ranged Cannon					CRITMULT:x4	DAMAGE:6d6
+Cannon						PROFICIENCY:WEAPON|Cannon	KEY:Ranged Cannon ~ Clockwork Goliath			TYPE:Weapon.Ranged.SiegeWeapon.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:0	CRITMULT:x4			DAMAGE:6d6	RANGE:100	PRERACE:1,Clockwork Goliath
