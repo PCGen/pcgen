@@ -79,6 +79,7 @@ MENUENTRY:Pathfinder RPG
 MENUTOOLTIP:Use Pathfinder RPG character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Pathfinder|Pathfinder_RPG
+GAMEMODEKEY:Pathfinder_RPG
 #
 # SHORTRANGE sets the Short Range as referenced by
 #  TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE
