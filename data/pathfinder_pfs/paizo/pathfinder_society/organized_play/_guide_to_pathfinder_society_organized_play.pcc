@@ -47,8 +47,8 @@ OPTION:gameMode.Pathfinder_PFS.rollMethod=0
 OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
 
 # Optional Rules
-LSTEXCLUDE:gtpsop_feats_heropoints.lst
-LSTEXCLUDE:gtpsop_spells_heropoints.lst
+#LSTEXCLUDE:gtpsop_feats_heropoints.lst
+#LSTEXCLUDE:gtpsop_spells_heropoints.lst
 
 # TODO: p.8 All characters gain Common as a free language.
 # You gain free languages granted by your race, ethnicity (for humans), and class (e.g., Druidic for druids).

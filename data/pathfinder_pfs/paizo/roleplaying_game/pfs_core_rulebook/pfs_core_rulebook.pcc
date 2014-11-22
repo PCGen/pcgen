@@ -40,7 +40,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 #EXTRAFILE:OGL.txt
 
 # Data Files
-PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
 ABILITY:pfs_cr_abilities.lst
 CLASS:pfs_cr_classes.lst
 FEAT:pfs_cr_feats.lst
