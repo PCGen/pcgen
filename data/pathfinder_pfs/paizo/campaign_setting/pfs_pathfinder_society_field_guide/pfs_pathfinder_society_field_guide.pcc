@@ -1,7 +1,7 @@
 # CVS $Revision: 24514 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 CAMPAIGN:Pathfinder Society Field Guide (PFS)
 KEY:PFS ~ Pathfinder Society Field Guide
-GAMEMODE:Pathfinder_PFS
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Campaign Setting
 RANK:1
 STATUS:BETA

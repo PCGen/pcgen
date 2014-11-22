@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 CAMPAIGN:Blood of Angels (PFS)
 KEY:PFS ~ Blood of Angels
-GAMEMODE:Pathfinder_PFS
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 RANK:3
 STATUS:BETA

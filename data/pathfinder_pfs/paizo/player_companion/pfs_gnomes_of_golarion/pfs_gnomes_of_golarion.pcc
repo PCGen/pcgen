@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Gnomes of Golarion (PFS)
 KEY:PFS ~ Gnomes of Golarion
-GAMEMODE:Pathfinder_PFS
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
