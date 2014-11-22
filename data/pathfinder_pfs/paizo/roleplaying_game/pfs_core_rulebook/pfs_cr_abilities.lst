@@ -1,0 +1,8 @@
+# CVS $Revision: 21684 $ $Author: spraynpray $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPSOP	SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play	SOURCEDATE:2013-08
+
+Remove Alchemist Brew Potion																			CATEGORY:Archetype		TYPE:Homebrew.ClassAbilityRemoval									DESC:Alchemists receive the Extra Bombs feat at 1st level instead of Brew Potion.																																																																																																																																																																																																																																																																																																																																																					COST:0	SOURCEPAGE:p.7
+Remove Cavalier Expert Trainer																		CATEGORY:Archetype		TYPE:Homebrew.ClassAbilityRemoval									DESC:Instead of the Expert Trainer class feature, Pathfinder Society cavaliers receive Skill Focus (Handle Animal) as a bonus feat.																																																																																																																																																																																																																																																																																																																																													COST:0	SOURCEPAGE:p.7
+
+###Block: Language Support
+CATEGORY=Internal|Default.MOD		TEMPLATE:Race Bonus Language ~ Modern Human Language
