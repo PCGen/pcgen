@@ -213,22 +213,23 @@ task copyToLibs(type: Copy) {
 	from configurations.runtime
 }
 
-task copyToRoot(dependsOn: [copyToLibs, jar, converterJar]) {
-	// We have to use this approach due to http://issues.gradle.org/browse/GRADLE-3002
-	doLast{
-		sync {
-			from "${buildDir}/libs"
-			into "$projectDir/libs"
-			exclude "pcgen-*.jar"
-		} 
-		copy {
-			from "$buildDir/libs/pcgen-${version}.jar"
-			from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
-			from "$projectDir/code/pcgen.exe"
-			into "$projectDir"
-		 	rename "(.+)-$version(.+)", '$1$2'
-		} 
-	}
+task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
+	outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
+
+	from "$buildDir/libs/pcgen-${version}.jar"
+	from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
+	from "$projectDir/code/pcgen.exe"
+	from "$projectDir/code/pcgen.sh"
+	into "$projectDir"
+ 	rename "(.+)-$version(.+)", '$1$2'
+}
+
+task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
+	outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
+
+	from "${buildDir}/libs"
+	into "$projectDir/libs"
+	exclude "pcgen-*.jar"
 }
 
 task cleanRoot(type: Delete) {
@@ -237,13 +238,14 @@ task cleanRoot(type: Delete) {
 	delete "$projectDir/pcgen-batch-convert.jar"
 	delete "$projectDir/batch-convert.jar"
 	delete "$projectDir/pcgen.exe"
+	delete "$projectDir/pcgen.sh"
 	delete "$projectDir/libs"
 	delete "$projectDir/autobuild.properties"
 	delete "$projectDir/svn.properties"
 }
 
 build {
-	it.dependsOn 'copyToRoot'
+	it.dependsOn 'copyToRoot', 'syncLibsToRoot'
 }
 
 clean {
@@ -350,6 +352,10 @@ task svninfo << {
 			file("svn.properties").delete()
 		}
 	}
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2'
 }
 
 apply from: 'code/gradle/autobuild.gradle'
