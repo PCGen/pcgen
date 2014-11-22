@@ -38,12 +38,7 @@ COPYRIGHT:PCGen dataset conversion for "Guide to Pathfinder Society Organized Pl
 # Data files
 ABILITYCATEGORY:gtpsop_abilitycategories.lst
 ABILITY:gtpsop_abilities.lst
-CLASS:gtpsop_classes.lst
 KIT:gtpsop_kits.lst
-FEAT:gtpsop_feats.lst
-SKILL:gtpsop_skills.lst
-SPELL:gtpsop_spells.lst
-EQUIPMENT:gtpsop_equip_magic_items.lst
 TEMPLATE:gtpsop_templates.lst
 
 OPTION:gameMode.Pathfinder_PFS.purchaseMethodName=High Fantasy
@@ -52,8 +47,8 @@ OPTION:gameMode.Pathfinder_PFS.rollMethod=0
 OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
 
 # Optional Rules
-FEAT:gtpsop_feats_heropoints.lst|PRERULE:1,HEROPOINTS
-SPELL:gtpsop_spells_heropoints.lst|PRERULE:1,HEROPOINTS
+LSTEXCLUDE:gtpsop_feats_heropoints.lst
+LSTEXCLUDE:gtpsop_spells_heropoints.lst
 
 # TODO: p.8 All characters gain Common as a free language.
 # You gain free languages granted by your race, ethnicity (for humans), and class (e.g., Druidic for druids).
