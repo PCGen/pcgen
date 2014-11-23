@@ -202,12 +202,6 @@ CLASS:Sorcerer.MOD	CSKILL:Ritual Casting
 CLASS:Wizard.MOD	CSKILL:Ritual Casting
 #
 
-# Class Name	Cross-Class Skill
-CLASS:Paladin.MOD	CCSKILL:Ritual Casting
-
-# Class Name	Cross-Class Skill
-CLASS:Ranger.MOD	CCSKILL:Ritual Casting
-###
 ###This File -
 
 # Class Name		Class Skill
