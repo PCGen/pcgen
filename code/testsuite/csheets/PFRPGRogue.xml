@@ -3753,7 +3753,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Natural-Born Leader</name>
-			<description>You&#39;ve always found yourself in positions where others look up to you as a leader, and you can distinctly remember an event from your early childhood where you led several other children to accomplish a goal that each of you individually could not.</description>
+			<description>You&#39;ve always found yourself in positions where others look up to you as a leader, and you can distinctly remember an event from your early childhood where you led several other children to accomplish a goal that each of you individually could not. All cohorts, followers, or summoned creatures under your leadership gain a +1 morale bonus on Will saves to avoid mind-affecting effects. If you ever take the Leadership feat, you gain a +1 trait bonus to your Leadership score.</description>
 			<type>TRAIT.BASICTRAIT.SOCIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
@@ -3888,17 +3888,6 @@ BIO
 			<name>Uncanny Dodge</name>
 			<description>You can react to danger before your senses would normally allow you to do so.</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY.DEFENSIVE</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Weapon and Armor Proficiency</name>
-			<description>Rogues are proficient with all simple weapons, plus the hand crossbow, rapier, sap, shortbow, and short sword. Rogues are proficient with light armor, but not with shields.</description>
-			<type>ROGUECLASSFEATURES.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -4055,6 +4044,17 @@ BIO
 			<name>Uncanny Dodge ~ Base</name>
 			<description></description>
 			<type>INTERNAL.CLASSFEATURES</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon and Armor Proficiency</name>
+			<description>Rogues are proficient with all simple weapons, plus the hand crossbow, rapier, sap, shortbow, and short sword. Rogues are proficient with light armor, but not with shields.</description>
+			<type>ROGUECLASSFEATURES.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
