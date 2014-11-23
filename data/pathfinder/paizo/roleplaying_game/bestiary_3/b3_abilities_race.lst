@@ -160,7 +160,7 @@ Race Traits ~ Cecaelia				CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TY
 Race Traits ~ Ceratioidi			CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=CeratioidiRacialAbility|Immunity to Mind-Affecting Effects
 Race Traits ~ Cerberi				CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=CerberiRacialAbility|Rend
 Race Traits ~ Cerebric Fungus			CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=CerebricFungusRacialAbility|Pull|Telepathy	BONUS:VAR|ColdResistanceBonus|5|TYPE=Resistance
-Race Traits ~ Clockwork Goliath		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=ClockworkGoliathRacialAbility|Trample
+Race Traits ~ Clockwork Goliath		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=ClockworkGoliathRacialAbility|Trample		AUTO:WEAPONPROF|Cannon
 Race Traits ~ Clockwork Leviathan		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=ClockworkLeviathanRacialAbility|Can't be Tripped|Immunity to Fire
 Race Traits ~ Clockwork Servant		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=ClockworkServantRacialAbility	BONUS:VAR|FastHealingRate|2	AUTO:WEAPONPROF|Net
 Race Traits ~ Clockwork Soldier		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=ClockworkSoldierRacialAbility	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
