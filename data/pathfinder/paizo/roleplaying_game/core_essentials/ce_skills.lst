@@ -154,6 +154,7 @@ Spellcraft.MOD			SITUATION:Identify magic item
 Stealth.MOD				SITUATION:Darkness or smoke
 Stealth.MOD				SITUATION:In ambush
 Stealth.MOD				SITUATION:In bright light
+Stealth.MOD				SITUATION:In brush
 Stealth.MOD				SITUATION:In caverns
 Stealth.MOD				SITUATION:In darkness
 Stealth.MOD				SITUATION:In deserts
@@ -172,6 +173,7 @@ Stealth.MOD				SITUATION:In scrubland or brush
 Stealth.MOD				SITUATION:In shadowy conditions
 Stealth.MOD				SITUATION:In shallow water
 Stealth.MOD				SITUATION:In snow
+Stealth.MOD				SITUATION:In grass
 Stealth.MOD				SITUATION:In stony environs
 Stealth.MOD				SITUATION:In stony or icy areas
 Stealth.MOD				SITUATION:In swamps
@@ -189,6 +191,9 @@ Stealth.MOD				SITUATION:Underground
 Stealth.MOD				SITUATION:Underwater
 Stealth.MOD				SITUATION:When moving
 Stealth.MOD				SITUATION:When submerged
+Stealth.MOD				SITUATION:In rocks
+Stealth.MOD				SITUATION:Undergrowth
+Stealth.MOD				SITUATION:In dense vegetation
 Survival.MOD			SITUATION:Avoid Becoming Lost in Caverns and Rocky Areas
 Survival.MOD			SITUATION:Avoid Getting Lost
 Survival.MOD			SITUATION:Avoid becoming lost
@@ -204,6 +209,7 @@ Survival.MOD			SITUATION:Sea
 Survival.MOD			SITUATION:Track Giant
 Survival.MOD			SITUATION:Track by scent
 Survival.MOD			SITUATION:Tracking
+Survival.MOD			SITUATION:Tracking Undead
 Survival.MOD			SITUATION:Underground
 Survival.MOD			SITUATION:Urban
 Use Magic Device.MOD		SITUATION:Spell Trigger or Spell Completion
