@@ -3,14 +3,14 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 
 # Oracle Tongues granting Language:
 # Template Name				Nb Legs	Visible	Auto Language
-Oracle Tongues Choice ~ Abyssal					AUTO:LANG|Abyssal
-Oracle Tongues Choice ~ Aklo						AUTO:LANG|Aklo
-Oracle Tongues Choice ~ Aquan						AUTO:LANG|Aquan
-Oracle Tongues Choice ~ Auran						AUTO:LANG|Auran
-Oracle Tongues Choice ~ Celestial					AUTO:LANG|Celestial
-Oracle Tongues Choice ~ Ignan						AUTO:LANG|Ignan
-Oracle Tongues Choice ~ Infernal					AUTO:LANG|Infernal
-Oracle Tongues Choice ~ Terran					AUTO:LANG|Terran
+Oracle Tongues Choice ~ Abyssal			VISIBLE:NO	AUTO:LANG|Abyssal
+Oracle Tongues Choice ~ Aklo				VISIBLE:NO	AUTO:LANG|Aklo
+Oracle Tongues Choice ~ Aquan				VISIBLE:NO	AUTO:LANG|Aquan
+Oracle Tongues Choice ~ Auran				VISIBLE:NO	AUTO:LANG|Auran
+Oracle Tongues Choice ~ Celestial			VISIBLE:NO	AUTO:LANG|Celestial
+Oracle Tongues Choice ~ Ignan				VISIBLE:NO	AUTO:LANG|Ignan
+Oracle Tongues Choice ~ Infernal			VISIBLE:NO	AUTO:LANG|Infernal
+Oracle Tongues Choice ~ Terran			VISIBLE:NO	AUTO:LANG|Terran
 
 LEGS 2					LEGS:2	VISIBLE:NO
 LEGS 4					LEGS:4	VISIBLE:NO
