@@ -7,10 +7,10 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 ##Block: Core Racial Abilities
 ##
 # Ability Name						Category of Ability	Template						Ability																		Bonus Ability Pool
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Kitsune|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
-CATEGORY=Internal|Race Traits ~ Nagaji.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Nagaji|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
-CATEGORY=Internal|Race Traits ~ Samsaran.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Samsaran|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
-CATEGORY=Internal|Race Traits ~ Wayang.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Wayang|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
+CATEGORY=Internal|Race Traits ~ Kitsune.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Kitsune|!PREVAREQ:DefaultLanguageSetting,0
+CATEGORY=Internal|Race Traits ~ Nagaji.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Nagaji|!PREVAREQ:DefaultLanguageSetting,0	
+CATEGORY=Internal|Race Traits ~ Samsaran.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Samsaran|!PREVAREQ:DefaultLanguageSetting,0	
+CATEGORY=Internal|Race Traits ~ Wayang.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Wayang|!PREVAREQ:DefaultLanguageSetting,0	
 
 Default Language ~ Kitsune				CATEGORY:Internal		TEMPLATE:Default Language ~ Kitsune
 Default Language ~ Nagaji				CATEGORY:Internal		TEMPLATE:Default Language ~ Nagaji

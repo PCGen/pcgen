@@ -6,7 +6,7 @@ SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pa
 # COMMENT: Size_Master sets the Face and Reach - use 'RaceSizeIsLong' at a value of 1 for creatures that aren't 'Tall'
 
 # Ability Name		Category of Ability	Define									Ability																																		Modify VAR
-Default			CATEGORY:Internal		DEFINE:Maneuverability|0	DEFINE:ArmorCheckPenalty|0	ABILITY:Internal|AUTOMATIC|Companion Tracker|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,1],[PREVARGTEQ:AnimalCompanionMasterLVL,1]	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|PREMOVE:1,Fly=1	BONUS:VAR|Maneuverability|0	DEFINE:FireResistanceBonus|0	DEFINE:AcidResistanceBonus|0	DEFINE:ColdResistanceBonus|0	DEFINE:SonicResistanceBonus|0	DEFINE:ElectricityResistanceBonus|0	DEFINE:OverrideSubtypeLanguage|0	ABILITY:Special Ability|AUTOMATIC|Fast Healing|PREVARGT:FastHealingRate,0	DEFINE:FastHealingRate|0
+Default			CATEGORY:Internal		DEFINE:Maneuverability|0	DEFINE:ArmorCheckPenalty|0	ABILITY:Internal|AUTOMATIC|Companion Tracker|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,1],[PREVARGTEQ:AnimalCompanionMasterLVL,1]	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|PREMOVE:1,Fly=1	BONUS:VAR|Maneuverability|0	DEFINE:FireResistanceBonus|0	DEFINE:AcidResistanceBonus|0	DEFINE:ColdResistanceBonus|0	DEFINE:SonicResistanceBonus|0	DEFINE:ElectricityResistanceBonus|0	DEFINE:OverrideSubtypeLanguage|0	ABILITY:Special Ability|AUTOMATIC|Fast Healing|PREVARGT:FastHealingRate,0	DEFINE:FastHealingRate|0	DEFINE:DefaultLanguageSetting|0
 
 #BONUS:ABILITYPOOL|Feat|-HD+1/2|PRERACE:1,RACETYPE=Companion
 
