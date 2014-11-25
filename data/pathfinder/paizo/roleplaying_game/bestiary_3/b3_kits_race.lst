@@ -140,7 +140,7 @@ ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Ant Lion (Giant Adult) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ant Lion (Giant Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.17
 ALIGN:TN
-RACEAnt Lion (Giant Adult)	!PRERACE:1,%
+RACE:Ant Lion (Giant Adult)	!PRERACE:1,%
 NAME:Giant Adult Ant Lion
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 ABILITY:CATEGORY=Traits|Trait ~ No Traits
