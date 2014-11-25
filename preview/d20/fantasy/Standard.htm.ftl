@@ -137,7 +137,6 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
 	</td>
 
   <td colspan="1" class="h">${pcstring('EXP.CURRENT')}</td>
-  <td colspan="1" class="h">${pcstring('RACE')}</td>
   		<#if (pcstring("ABILITYALL.ANY.0.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
 			  <td colspan="1" class="h">${pcstring('ABILITYALL.ANY.0.ASPECT=RaceName.ASPECT.RaceName')}</td>
 		<#else>
