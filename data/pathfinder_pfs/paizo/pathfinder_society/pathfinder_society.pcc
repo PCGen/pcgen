@@ -11,7 +11,7 @@ SHOWINMENU:YES
 # COMMENT: No other books should be allowed if this set is used. Causes issues!
 !PRECAMPAIGN:1,BOOKTYPE=MultiSet[Pathfinder Society],BOOKTYPE=Core Rules
 !PRECAMPAIGN:1,BOOKTYPE=Campaign Setting
-!PRECAMPAIGN:1,BOOKTYPE=Supplement
+#!PRECAMPAIGN:1,BOOKTYPE=Supplement
 # Roleplaying Game
 !PRECAMPAIGN:1,Advanced Player's Guide
 !PRECAMPAIGN:1,Advanced Race Guide
@@ -55,7 +55,7 @@ DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer 
 # PFS Core Assumption #
 #######################
 PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
-PCC:@/pathfinder/paizo/pathfinder_society/organized_play/guide_to_pathfinder_society_organized_play.pcc
+PCC:@/pathfinder_pfs/paizo/pathfinder_society/organized_play/_guide_to_pathfinder_society_organized_play.pcc
 
 # PFS Additional Resources (http://paizo.com/pathfinderSociety/about/additionalResources)
 
@@ -397,29 +397,29 @@ PCC:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/heart_of_the_jungle.
 # Prestige Classes: Hellknight, Low Templar;
 # Races: All human ethnicities are legal except Azlanti, humans begin play knowing all listed languages for their chosen ethnicity as racial languages;
 # Spells: all spells on pages 294-297 except harrowing, extraplanetary teleport, and teleport trap
-PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_guide.pcc
-ABILITY:pfs_iswg_abilities.lst
-ABILITY:pfs_iswg_abilities_class.lst
-ABILITY:pfs_iswg_abilities_race.lst
-ABILITYCATEGORY:pfs_iswg_abilitycategories.lst
-CLASS:pfs_iswg_classes.lst
-CLASS:pfs_iswg_classes_race.lst
-COMPANIONMOD:pfs_iswg_companionmods.lst
-DEITY:pfs_iswg_deities.lst
-DOMAIN:pfs_iswg_domains.lst
-EQUIPMENT:pfs_iswg_equip_arms_armor.lst
-EQUIPMENT:pfs_iswg_equip_general.lst
-EQUIPMENT:pfs_iswg_equip_magic_items.lst
-EQUIPMOD:pfs_iswg_equipmods.lst
-FEAT:pfs_iswg_feats.lst
-KIT:pfs_iswg_kits_race.lst
-LANGUAGE:pfs_iswg_languages.lst
-RACE:pfs_iswg_races.lst
-SKILL:pfs_iswg_skills.lst
-SPELL:pfs_iswg_spells.lst
-TEMPLATE:pfs_iswg_templates.lst
-ARMORPROF:pfs_iswg_profs_armor.lst
-WEAPONPROF:pfs_iswg_profs_weapon.lst
+PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_world_guide/pfs_inner_sea_world_guide.pcc
+#ABILITY:pfs_iswg_abilities.lst
+#ABILITY:pfs_iswg_abilities_class.lst
+#ABILITY:pfs_iswg_abilities_race.lst
+#ABILITYCATEGORY:pfs_iswg_abilitycategories.lst
+#CLASS:pfs_iswg_classes.lst
+#CLASS:pfs_iswg_classes_race.lst
+#COMPANIONMOD:pfs_iswg_companionmods.lst
+#DEITY:pfs_iswg_deities.lst
+#DOMAIN:pfs_iswg_domains.lst
+#EQUIPMENT:pfs_iswg_equip_arms_armor.lst
+#EQUIPMENT:pfs_iswg_equip_general.lst
+#EQUIPMENT:pfs_iswg_equip_magic_items.lst
+#EQUIPMOD:pfs_iswg_equipmods.lst
+#FEAT:pfs_iswg_feats.lst
+#KIT:pfs_iswg_kits_race.lst
+#LANGUAGE:pfs_iswg_languages.lst
+#RACE:pfs_iswg_races.lst
+#SKILL:pfs_iswg_skills.lst
+#SPELL:pfs_iswg_spells.lst
+#TEMPLATE:pfs_iswg_templates.lst
+#ARMORPROF:pfs_iswg_profs_armor.lst
+#WEAPONPROF:pfs_iswg_profs_weapon.lst
 
 
 
@@ -443,7 +443,7 @@ WEAPONPROF:pfs_iswg_profs_weapon.lst
 
 # Pathfinder Campaign Setting: Pathfinder Society Field Guide
 # All rules in this book are legal for play in Pathfinder Society Organized Play, and this book is considered part of the Core Assumption.
-PCC:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pathfinder_society_field_guide.pcc
+PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_pathfinder_society_field_guide/pfs_pathfinder_society_field_guide.pcc
 
 # Pathfinder Campaign Setting: Paths of Prestige
 # Presige Classes: Aldori Swordlord, Bellflower Tiller, Brother of the Seal, Champion of Irori, Dawnflower Dissident, Golden Legionnaire, Green Faith Acolyte, Hellknight Signifier, Knight of Ozem, Lantern Bearer, Magaambyan Arcanist, Mammoth Rider, Prophet of Kalistrade, Riftwarden, Shieldmarshal, Skyseeker, Sleepless Detective, Storm Kindler, Tattooed Mystic, Veiled Illusionist, and Winter Witch are legal for play.
@@ -712,9 +712,9 @@ PCC:@/pathfinder/paizo/roleplaying_game/bestiary_3/bestiary_3.pcc
 # Equipment: No firearm sized Large or larger is available for purchase. The double hackbut and culverin on Table 3-4 and advanced firearms on Table 3-5 and are not permitted in Pathfinder Society Organized Play. No character may purchase a firearm unless she possesses the Gunsmithing feat and firearms are never considered Always Available; a character must possess enough Fame to purchase any firearm not found on a Chronicle sheet or granted by a class feature. All ammunition except metal cartridges may be purchased.
 # Spells: All spells in chapter 6 are legal for play except the following: arcane cannon, energy siege shot, greater energy siege shot, greater magic siege engine, and magic siege engine.
 # Other: Unless prompted in a scenario or granted by a Chronicle, the rules for duels, performance combat, and siege engines, and all variant rules in Chapter 5 are not used in Pathfinder Society Organized Play.
-PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/ultimate_combat.pcc
-WEAPONPROF:uc_mods_profs_weapon.lst
-FEAT:uc_mods_feats.lst
+PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_combat/pfs_ultimate_combat.pcc
+#WEAPONPROF:uc_mods_profs_weapon.lst
+#FEAT:uc_mods_feats.lst
 
 # Pathfinder Roleplaying Game: Ultimate Equipment
 # All items from Chapter 1 are legal for play except as noted below. Some rules elements are legal but function differently in Pathfinder Society Organized Play, as described here.
