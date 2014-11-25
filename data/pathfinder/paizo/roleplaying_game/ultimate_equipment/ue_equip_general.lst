@@ -623,7 +623,7 @@ String (50 ft.).MOD															TYPE:Goods.General															COST:0.01	WT:
 Survival Kit (Common)															TYPE:Goods.General															COST:5	WT:4					SOURCEPAGE:p.73
 Survival Kit (Masterwork)														TYPE:Goods.General															COST:50	WT:5					SOURCEPAGE:p.73																						BONUS:SKILL|Survival|2|TYPE=Circumstance
 Swarmsuit.MOD																TYPE:Goods.General.Resizable														COST:20	WT:10					SOURCEPAGE:p.73
-#Tattoo 1 cp-20 gp —
+#Tattoo 1 cp-20 gp -
 Teapot																	TYPE:Goods.General															COST:0.1	WT:1					SOURCEPAGE:p.74
 Tent.MOD										OUTPUTNAME:Tent, Small				TYPE:Goods.General.Resizable																					SOURCEPAGE:p.74
 Tent (Medium).MOD									OUTPUTNAME:Tent, Medium				TYPE:Goods.General.Resizable														COST:15	WT:30					SOURCEPAGE:p.74
@@ -637,7 +637,7 @@ Waffle Iron (Common)															TYPE:Goods.General															COST:1	WT:5	
 Waffle Iron (Mithral)															TYPE:Goods.General															COST:1260	WT:2.5				SOURCEPAGE:p.74
 Water Clock.MOD																																									SOURCEPAGE:p.74
 Waterproof Bag																TYPE:Goods.General.Container.Resizable		CONTAINS:UNLIM|Any							COST:0.5	WT:0.5				SOURCEPAGE:p.74
-#Waterproof Lantern +5 gp —
+#Waterproof Lantern +5 gp -
 Waterskin.MOD																																									SOURCEPAGE:p.75
 Wax Key Blank																TYPE:Goods.General															COST:15	WT:0.5				SOURCEPAGE:p.75
 Weapon Cord.MOD																TYPE:Goods.General															COST:0.1	WT:0					SOURCEPAGE:p.75
