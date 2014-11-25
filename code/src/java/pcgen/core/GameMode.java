@@ -54,8 +54,8 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReference;
 import pcgen.core.character.WieldCategory;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.core.system.LoadInfo;
+import pcgen.facade.core.GameModeFacade;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.GameReferenceContext;
@@ -289,6 +289,35 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return ACTypeRemoveMap.getListFor(ACType);
 	}
 
+	/**
+	 * Retrieve the correct case of the supplied ACType name. 
+	 * @param acType The name to be found.
+	 * @return The name in the correct case.
+	 */
+	public String getACTypeName(String acType)
+	{
+		if (ACTypeAddMap.containsListFor(acType)
+			|| ACTypeRemoveMap.containsListFor(acType))
+		{
+			return acType;
+		}
+		for (String acKey : ACTypeAddMap.getKeySet())
+		{
+			if (acKey.equalsIgnoreCase(acType))
+			{
+				return acKey;
+			}
+		}
+		for (String acKey : ACTypeRemoveMap.getKeySet())
+		{
+			if (acKey.equalsIgnoreCase(acType))
+			{
+				return acKey;
+			}
+		}
+		
+		return acType;
+	}
 	/**
 	 * Set Alignment Text.
 	 * @param aString
