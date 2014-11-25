@@ -91,3 +91,48 @@ Formula Book			VISIBLE:NO																																																		KIT:1
 
 #STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|RACE|RACETYPE=Humanoid
 Racial Heritage					TEMPLATE:%LIST																																								CHOOSE:TEMPLATE|TYPE=Racial Heritage
+
+
+###Block:
+Mental Acuity	TEMPLATE:CHOOSE:TYPE=MentalAcuityOracleLevel	VISIBLE:NO	DEFINE:MentalAcuityLVL|0	BONUS:STAT|INT|1+MentalAcuityBonus	BONUS:VAR|MentalAcuityBonus|(OracleLVL-MentalAcuityLVL)/3
+
+###Block:
+Mental Acuity 07	PREVAREQ:OracleLVL,7	VISIBLE:NO	TYPE:MentalAcuityOracleLevel	BONUS:VAR|MentalAcuityLVL|7
+Mental Acuity 08	PREVAREQ:OracleLVL,8	VISIBLE:NO	TYPE:MentalAcuityOracleLevel	BONUS:VAR|MentalAcuityLVL|8	
+Mental Acuity 09	PREVAREQ:OracleLVL,9	VISIBLE:NO	TYPE:MentalAcuityOracleLevel	BONUS:VAR|MentalAcuityLVL|9	
+Mental Acuity 10	PREVAREQ:OracleLVL,10	VISIBLE:NO	TYPE:MentalAcuityOracleLevel	BONUS:VAR|MentalAcuityLVL|10
+Mental Acuity 11	PREVAREQ:OracleLVL,11	VISIBLE:NO	TYPE:MentalAcuityOracleLevel	BONUS:VAR|MentalAcuityLVL|11
+Mental Acuity 12	PREVAREQ:OracleLVL,12	VISIBLE:NO	TYPE:MentalAcuityOracleLevel	BONUS:VAR|MentalAcuityLVL|12
+Mental Acuity 13	PREVAREQ:OracleLVL,13	VISIBLE:NO	TYPE:MentalAcuityOracleLevel	BONUS:VAR|MentalAcuityLVL|13
+Mental Acuity 14	PREVAREQ:OracleLVL,14	VISIBLE:NO	TYPE:MentalAcuityOracleLevel	BONUS:VAR|MentalAcuityLVL|14
+Mental Acuity 15	PREVAREQ:OracleLVL,15	VISIBLE:NO	TYPE:MentalAcuityOracleLevel	BONUS:VAR|MentalAcuityLVL|15
+Mental Acuity 16	PREVAREQ:OracleLVL,16	VISIBLE:NO	TYPE:MentalAcuityOracleLevel	BONUS:VAR|MentalAcuityLVL|16
+Mental Acuity 17	PREVAREQ:OracleLVL,17	VISIBLE:NO	TYPE:MentalAcuityOracleLevel	BONUS:VAR|MentalAcuityLVL|17
+Mental Acuity 18	PREVAREQ:OracleLVL,18	VISIBLE:NO	TYPE:MentalAcuityOracleLevel	BONUS:VAR|MentalAcuityLVL|18
+Mental Acuity 19	PREVAREQ:OracleLVL,19	VISIBLE:NO	TYPE:MentalAcuityOracleLevel	BONUS:VAR|MentalAcuityLVL|19
+Mental Acuity 20	PREVAREQ:OracleLVL,20	VISIBLE:NO	TYPE:MentalAcuityOracleLevel	BONUS:VAR|MentalAcuityLVL|20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
