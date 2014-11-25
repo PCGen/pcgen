@@ -25,6 +25,7 @@
  */
 package plugin.exporttokens;
 
+import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
@@ -51,6 +52,7 @@ public class ACToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return Integer.toString(display.calcACOfType(tokenSource.substring(3)));
+		String acTypeKey = SettingsHandler.getGame().getACTypeName(tokenSource.substring(3));
+		return Integer.toString(display.calcACOfType(acTypeKey));
 	}
 }
