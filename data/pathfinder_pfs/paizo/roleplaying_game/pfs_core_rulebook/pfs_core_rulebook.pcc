@@ -2,14 +2,14 @@
 CAMPAIGN:Core Rulebook (PFS)
 KEY:PFS ~ Core Rulebook
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG
+TYPE:Paizo Publishing PFS.Pathfinder Roleplaying Game
 RANK:0
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Core Rules
 SETTING:Pathfinder
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,[PFS ~ Core Rulebook]
-PRECAMPAIGN:1,Pathfinder Society Core Assumption
+#PRECAMPAIGN:1,Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
