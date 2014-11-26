@@ -3720,7 +3720,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Crippling Strike</name>
-			<description>You can sneak attack opponents with such precision that your blows weaken and hamper them.</description>
+			<description>You can sneak attack opponents with such precision that your blows weaken and hamper them. An opponent damaged by one of your sneak attacks also takes 2 points of Strength damage.</description>
 			<type>ROGUECLASSFEATURES.SPECIALATTACK.EXTRAORDINARY.ROGUEADVANCEDTALENT.ATTACKOPTION</type>
 			<associated></associated>
 			<count>0</count>
@@ -3809,7 +3809,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Improved Evasion</name>
-			<description>You can avoid damage from many area-effect attacks.</description>
+			<description>You can avoid damage from many area-effect attacks. If you make a successful Reflex save against an attack that normally deals half damage on a successful save, you instead take no damage, and even on a failed saving throw you take only half damage. If you are helpless, you do not gain the benefit of improved evasion.</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY.DEFENSIVE.ADVANCEDROGUETALENT.ROGUECLASSFEATURES.RANGERCLASSFEATURES.MONKCLASSFEATURES</type>
 			<associated></associated>
 			<count>0</count>
@@ -3842,7 +3842,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Sneak Attack</name>
-			<description>If you can catch an opponent when he is unable to defend himself effectively from your attack, you can strike a vital spot for extra damage. [6d6]</description>
+			<description>If you can catch an opponent when he is unable to defend himself effectively from your attack, you can strike a vital spot for extra damage. Your attack deals 6d6 points of extra damage anytime your target would be denied a Dexterity bonus to AC, or when you flank your target. Should you score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet. With a weapon that deals nonlethal damage, you can make a sneak attack that deals nonlethal damage instead of lethal damage. You cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual -4 penalty. You must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. You cannot sneak attack while striking a creature with concealment.</description>
 			<type>ROGUECLASSFEATURES.ALCHEMISTCLASSFEATURES.SPECIALATTACK.EXTRAORDINARY.ATTACKOPTION</type>
 			<associated></associated>
 			<count>0</count>
@@ -3886,7 +3886,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Uncanny Dodge</name>
-			<description>You can react to danger before your senses would normally allow you to do so.</description>
+			<description>You can react to danger before your senses would normally allow you to do so. You cannot be caught flat-footed, nor do you lose your Dexterity bonus to AC if the attacker is invisible. You still lose your Dexterity bonus to AC if immobilized. You can still lose your Dexterity bonus to AC if an opponent successfully uses the feint action against you.</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY.DEFENSIVE</type>
 			<associated></associated>
 			<count>0</count>
@@ -3942,7 +3942,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Improved Evasion</name>
-			<description>Like Evasion, you still take no damage on a successful Reflex saving throw against attacks, additionally you take only half damage on a failed save.</description>
+			<description>This works like Evasion, except that while you still take no damage on a successful Reflex saving throw against attacks, you henceforth take only half damage on a failed save. If you are helpless, you do not gain the benefit of Improved Evasion.</description>
 			<type>ROGUECLASSFEATURES.SPECIALQUALITY.EXTRAORDINARY.ROGUEADVANCEDTALENT</type>
 			<associated></associated>
 			<count>0</count>

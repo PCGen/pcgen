@@ -1579,7 +1579,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Crush</name>
-			<description>A flying or jumping Huge or larger dragon can land on foes as a standard action, using its whole body to crush them.</description>
+			<description></description>
 			<type>RACEABILITY.SPECIALATTACK.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
@@ -1733,7 +1733,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Luck</name>
-			<description>Once per day an adult or older gold dragon can touch a gem, usually one embedded in the dragon&#39;s hide, and enspell it to bring good luck.</description>
+			<description>Once per day an adult or older gold dragon can touch a gem, usually one embedded in the dragon&#39;s hide, and enspell it to bring good luck. As long as the dragon carries the gem, it and every good creature within a given radius of it (120 ft.) receives a +1 luck bonus on all saving throws. If the dragon gives an enspelled gem to another creature, only that bearer gets the bonus. The effect lasts 1d3+12 hours. This ability is the equivalent of a 2nd-level spell.</description>
 			<type>SPECIALQUALITY.SPELLLIKE.AURA</type>
 			<associated></associated>
 			<count>0</count>
@@ -1788,7 +1788,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Tail Sweep</name>
-			<description>This allows a Gargantuan or larger dragon to sweep with its tail as a standard action.</description>
+			<description></description>
 			<type>RACEABILITY.SPECIALATTACK.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>

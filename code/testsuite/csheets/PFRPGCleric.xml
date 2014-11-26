@@ -2105,7 +2105,7 @@ BIO
 		<!-- Visible Normal "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Channel Positive Energy</name>
-			<description>You can unleash a wave of positive energy dealing 2d6 (DC 16 for half) 6/day.</description>
+			<description>You can unleash a wave of positive energy. You must choose to deal 2d6 points of positive energy damage to undead creatures or to heal living creatures of 2d6 points of damage. Creatures that take damage from channeled energy receive a DC 16 Will save to halve the damage. You can use this ability 6 times per day.</description>
 			<type>CLERICCLASSFEATURES.SUPERNATURAL.SPECIALATTACK.CHANNELENERGY.CHANNEL ENERGY.CHANNEL ENERGY POSITIVE.CHANNEL POSITIVE ENERGY</type>
 			<associated></associated>
 			<count>0</count>
@@ -2172,7 +2172,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Spontaneous Casting</name>
-			<description>You can channel stored spell energy into healing spells that you did not prepare ahead of time.</description>
+			<description>You can channel stored spell energy into healing spells that you did not prepare ahead of time. You can &quot;lose&quot; any prepared spell that is not an orison or domain spell in order to cast any cure spell of the same spell level or lower (a cure spell is any spell with &quot;Cure&quot; in its name).</description>
 			<type>CLERICCLASSFEATURES.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
@@ -2183,7 +2183,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Sun&#39;s Blessing</name>
-			<description>You add bonus damage whenever you channel positive energy to harm undead creatures.</description>
+			<description>Whenever you channel positive energy to harm undead creatures, add a +3 bonus to the damage dealt. Undead do not add their channel resistance to their saves when you channel positive energy.</description>
 			<type>CLERICCLASSFEATURES.SPECIALATTACK.SUPERNATURAL.DOMAINPOWER</type>
 			<associated></associated>
 			<count>0</count>
@@ -2194,7 +2194,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Touch of Glory</name>
-			<description>You can cause you hand to shimmer with divine radiance, allowing you to touch a creature as a standard action and give it a bonus to a single Charisma-based skill check or Charisma ability check.</description>
+			<description>You can cause you hand to shimmer with divine radiance, allowing you to touch a creature as a standard action and give it a +3 bonus to a single Charisma-based skill check or Charisma ability check. This ability lasts for one hour or until the creature touched elects to apply the bonus to a roll. You can use this ability to grant the bonus 7 times per day.</description>
 			<type>CLERICCLASSFEATURES.SPECIALQUALITY.SPELLLIKE.DOMAINPOWER</type>
 			<associated></associated>
 			<count>0</count>
