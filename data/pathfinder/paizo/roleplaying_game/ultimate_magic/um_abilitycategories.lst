@@ -123,6 +123,11 @@ ABILITYCATEGORY:Crossblooded Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FR
 
 ABILITYCATEGORY:Magus Class Feature			VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability		TYPE:MagusClassFeatures		PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Forbidden Rites Domain		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:ForbiddenRiteSDomain	PLURAL:Forbidden Rites Domains		DISPLAYLOCATION:Class Features
+
+
+ABILITYCATEGORY:Inquisition				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:Inquisition			PLURAL:Inquisitions		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Inquisition Alternative		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:AltClassInquisition	PLURAL:Inquisitions		DISPLAYLOCATION:Class Features
+
 #
 # End
 #
