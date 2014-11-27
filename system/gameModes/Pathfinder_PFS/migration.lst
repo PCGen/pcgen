@@ -56,6 +56,23 @@ SOURCE:Sargava the Lost Colony (PFS)	MAXVER:6.6.00	NEWKEY:PFS ~ Sargava the Lost
 SOURCE:Core Rulebook (PFS)	MAXVER:6.6.00	NEWKEY:PFS ~ Core Rulebook
 
 
+ABILITY:Special Ability|Inquisitor Domain ~ Anger Inquisition				MAXVER:6.6.00	NEWKEY:Inquisition ~ Anger			
+ABILITY:Special Ability|Inquisitor Domain ~ Conversion Inquisition			MAXVER:6.6.00	NEWKEY:Inquisition ~ Conversion		
+ABILITY:Special Ability|Inquisitor Domain ~ Fate Inquisition				MAXVER:6.6.00	NEWKEY:Inquisition ~ Fate			
+ABILITY:Special Ability|Inquisitor Domain ~ Fervor Inquisition			MAXVER:6.6.00	NEWKEY:Inquisition ~ Fervor		
+ABILITY:Special Ability|Inquisitor Domain ~ Heresy Inquisition			MAXVER:6.6.00	NEWKEY:Inquisition ~ Heresy		
+ABILITY:Special Ability|Inquisitor Domain ~ Imprisonment Inquisition		MAXVER:6.6.00	NEWKEY:Inquisition ~ Imprisonment	
+ABILITY:Special Ability|Inquisitor Domain ~ Illumination Inquisition		MAXVER:6.6.00	NEWKEY:Inquisition ~ Illumination	
+ABILITY:Special Ability|Inquisitor Domain ~ Justice Inquisition			MAXVER:6.6.00	NEWKEY:Inquisition ~ Justice		
+ABILITY:Special Ability|Inquisitor Domain ~ Oblivion Inquisition			MAXVER:6.6.00	NEWKEY:Inquisition ~ Oblivion		
+ABILITY:Special Ability|Inquisitor Domain ~ Order Inquisition				MAXVER:6.6.00	NEWKEY:Inquisition ~ Order			
+ABILITY:Special Ability|Inquisitor Domain ~ Persistence Inquisition			MAXVER:6.6.00	NEWKEY:Inquisition ~ Persistence		
+ABILITY:Special Ability|Inquisitor Domain ~ Tactics Inquisition			MAXVER:6.6.00	NEWKEY:Inquisition ~ Tactics		
+ABILITY:Special Ability|Inquisitor Domain ~ Torture Inquisition			MAXVER:6.6.00	NEWKEY:Inquisition ~ Torture		
+ABILITY:Special Ability|Inquisitor Domain ~ Truth Inquisition				MAXVER:6.6.00	NEWKEY:Inquisition ~ Truth			
+ABILITY:Special Ability|Inquisitor Domain ~ Valor Inquisition				MAXVER:6.6.00	NEWKEY:Inquisition ~ Valor			
+ABILITY:Special Ability|Inquisitor Domain ~ Vengeance Inquisition			MAXVER:6.6.00	NEWKEY:Inquisition ~ Vengeance		
+ABILITY:Special Ability|Inquisitor Domain ~ Zeal Inquisition				MAXVER:6.6.00	NEWKEY:Inquisition ~ Zeal			
 
 
 
