@@ -3,7 +3,7 @@ SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRP
 # ORIGINAL ENTRY: Stefan Radermacher, Eric Smith (Maredudd), Douglas Limmer, and Paul Shipley
 # ORIGINAL ENTRY DATE: Unknown
 
-CATEGORY=Special Ability|Domains.MOD	DEFINE:DomainTaken|0	DEFINE:ClericInquisitionPool|0	BONUS:VAR|ClericInquisitionPool|ClericDomainCount-DomainTaken	BONUS:ABILITYPOOL|Inquisition Alternative|ClericInquisitionPool
+CATEGORY=Special Ability|Domains.MOD	DEFINE:DomainTaken|0	DEFINE:ClericInquisitionPool|0	BONUS:VAR|ClericInquisitionPool|ClericDomainCount-DomainTaken	BONUS:ABILITYPOOL|Domain Alternative ~ Inquisition|ClericInquisitionPool
 
 
 Take Inquisition	KEY:Take Inquisition ~ Cleric	CATEGORY:Special Ability	TYPE:AltClassInquisition.ClericInquisition		BONUS:ABILITYPOOL|Inquisition|1	PRECLASS:1,Cleric=1	BONUS:VAR|ClericDomainCount|-1	COST:0

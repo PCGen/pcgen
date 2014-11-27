@@ -126,7 +126,7 @@ ABILITYCATEGORY:Forbidden Rites Domain		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO
 
 
 ABILITYCATEGORY:Inquisition				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:Inquisition			PLURAL:Inquisitions		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Inquisition Alternative		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:AltClassInquisition	PLURAL:Inquisitions		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Domain Alternative ~ Inquisition		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:AltClassInquisition	PLURAL:Inquisitions		DISPLAYLOCATION:Class Features
 
 #
 # End
