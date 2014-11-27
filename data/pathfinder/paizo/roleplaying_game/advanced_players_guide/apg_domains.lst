@@ -112,3 +112,75 @@ Weather.MOD							PREMULT:1,[PREDOMAIN:1,Weather],[PREVARLT:WeatherDomain,1]				
 
 # Implement Pharasma-Friendly Souls Subdomain from http://paizo.com/paizo/blog/v5748dyo5lbvp
 Souls (Pharasma) Subdomain				PREMULT:1,[PREDOMAIN:1,Souls (Pharasma) Subdomain],[PREVARLT:ReposeDomain,1]														ABILITY:Special Ability|AUTOMATIC|Souls Subdomain ~ Touch the Spirit World|PREVARGTEQ:DomainReposeAbilityTriggerLVL,1	ABILITY:Special Ability|AUTOMATIC|Repose Domain ~ Ward Against Death|PREVARGTEQ:DomainReposeAbilityTriggerLVL,8								DEFINE:ReposeDomain|0	DEFINE:DomainReposeLVL|0	DEFINE:DomainReposeDC|0	DEFINE:DomainReposeTimes|0	DEFINE:DomainReposeAbilityTriggerLVL|0																												BONUS:VAR|ReposeDomain|1|TYPE=Domain	BONUS:VAR|DomainReposeLVL|DomainLVL|TYPE=Domain	BONUS:VAR|DomainReposeDC|10+(DomainReposeLVL/2)+WIS|TYPE=Domain	BONUS:VAR|DomainReposeTimes|DomainPowerTimes|TYPE=Domain	BONUS:VAR|DomainReposeAbilityTriggerLVL|DomainAbilityTriggerLVL|TYPE=Domain																		SOURCEPAGE:p.96																														SPELLLEVEL:DOMAIN|Souls Subdomain=1|Deathwatch|Souls Subdomain=2|Gentle Repose|Souls Subdomain=3|Animate Dead|Souls Subdomain=4|Death Ward|Souls Subdomain=5|Slay Living|Souls Subdomain=6|Antilife Shell|Souls Subdomain=7|Destruction|Souls Subdomain=8|Waves of Exhaustion|Souls Subdomain=9|Trap the Soul
+
+Agathion Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Ancestors Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Arcane Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Archon Subdomain (Good).MOD	BONUS:VAR|DomainTaken|1
+Archon Subdomain (Law).MOD	BONUS:VAR|DomainTaken|1
+Ash Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Azata Subdomain (Good).MOD	BONUS:VAR|DomainTaken|1
+Azata Subdomain (Chaos).MOD	BONUS:VAR|DomainTaken|1
+Blood Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Catastrophe Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Caves Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Cloud Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Construct Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Curse Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Daemon Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Day Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Decay Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Deception Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Defense Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Demon Subdomain (Evil).MOD	BONUS:VAR|DomainTaken|1
+Demon Subdomain (Chaos).MOD	BONUS:VAR|DomainTaken|1
+Devil Subdomain (Evil).MOD	BONUS:VAR|DomainTaken|1
+Devil Subdomain (Law).MOD	BONUS:VAR|DomainTaken|1
+Divine Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Exploration Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Family Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Fate Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Feather Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Ferocity Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Freedom Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Fur Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Growth Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Heroism Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Home Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Honor Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Ice Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Inevitable Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Insanity Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Language Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Leadership Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Light Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Loss Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Love Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Lust Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Martyr Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Memory Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Metal Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Murder Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Night Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Nightmare Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Oceans Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Protean Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Purity Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Rage Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Resolve Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Restoration Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Resurrection Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Revolution Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Seasons Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Smoke Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Souls Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Storms Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Tactics Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Thievery Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Thought Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Toil Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Trade Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Undead Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Wards Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Wind Subdomain.MOD	BONUS:VAR|DomainTaken|1
+Souls (Pharasma) Subdomain.MOD	BONUS:VAR|DomainTaken|1
