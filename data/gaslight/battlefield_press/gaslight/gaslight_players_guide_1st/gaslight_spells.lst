@@ -1,0 +1,461 @@
+# CVS $Revision: 25130 $ $Author: amaitland $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
+SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
+###Original Entry: Andrew Maitland
+
+
+# Spell Name				Output Name					Type				Classes of caster				School					Sub-School			Descriptor							Components			Casting Time			Range				Target Area or Effect																								Duration													Save Info											Spell Resistance				Choose								Source Page			Description																				Temporary effect description												Temporary Bonus
+Aid												TYPE:Divine			CLASSES:Acolyte=2				SCHOOL:Enchantment							DESCRIPTOR:Mind-Affecting				COMPS:V,S,DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Living creature touched																						DURATION:(CASTERLEVEL) minutes									SAVEINFO:None										SPELLRES:Yes (harmless)			CHOOSE:NUMBER|MIN=1|MAX=8|TITLE=Choose temporary HP	SOURCEPAGE:p.		DESC:+1 attack, +1 on saves against fear, 1d8 temporary hit points.										TEMPDESC:Grants attack bonus and temporary HP									TEMPBONUS:ANYPC|COMBAT|TOHIT|1|TYPE=Morale	TEMPBONUS:ANYPC|HP|CURRENTMAX|%CHOICE|TYPE=Temporary
+Animate Dead										TYPE:Arcane.Divine	CLASSES:Acolyte=3|Apprentice=4	SCHOOL:Necromancy								DESCRIPTOR:Evil						COMPS:V,S,M			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:One or more corpses touched																					DURATION:Instantaneous											SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Creates undead skeletons and zombies.
+Arcane Eye											TYPE:Arcane			CLASSES:Apprentice=4			SCHOOL:Divination																COMPS:V,S,M			CASTTIME:10 minutes		RANGE:Unlimited		TARGETAREA:Magical sensor																							DURATION:(CASTERLEVEL) minutes [D]									SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Invisible floating eye moves 30 ft./round.
+Arcane Graffiti														CLASSES:Apprentice=0			SCHOOL:Conjuration			SUBSCHOOL:Creation									COMPS:V, S			CASTTIME:Attack action		RANGE:0 ft.			TARGETAREA:One personal rune or short message																				DURATION:Instantaneous											SAVEINFO:None										SPELLRES:No
+Arcane Lock											TYPE:Arcane			CLASSES:Apprentice=2			SCHOOL:Abjuration																COMPS:V,S,M			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:One door, cabinet, chest, or portal touched, up to (CASTERLEVEL*30) sq. ft. in size												DURATION:Permanent											SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Magically locks a portal or chest.
+Augury											TYPE:Divine			CLASSES:Acolyte=2				SCHOOL:Divination																COMPS:V,S,F			CASTTIME:Attack action		RANGE:Personal		TARGETAREA:You																									DURATION:Instantaneous																																						SOURCEPAGE:p.		DESC:Learn whether an action will be good or bad.
+Bane												TYPE:Divine			CLASSES:Acolyte=1				SCHOOL:Enchantment							DESCRIPTOR:Mind-Affecting				COMPS:V,S,DF		CASTTIME:Attack action		RANGE:50 ft.		TARGETAREA:All enemies within 50 ft.																					DURATION:(CASTERLEVEL) minutes									SAVEINFO:Will negates									SPELLRES:Yes													SOURCEPAGE:p.		DESC:Enemies suffer -1 attack, -1 on saves against fear.																												TEMPBONUS:ANYPC|COMBAT|TOHIT|-1|TYPE=Temporary
+Be the Ball															CLASSES:Acolyte,Apprentice=1		SCHOOL:Enchantment							DESCRIPTOR:Mind-Affecting				COMPS:V, S, F		CASTTIME:Attack action		RANGE:Close			TARGETAREA:One creature																								DURATION:Until used or 1 minute/level								SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)
+Bestow Curse										TYPE:Arcane.Divine	CLASSES:Acolyte=3|Apprentice=4	SCHOOL:Necromancy																COMPS:V,S			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:Permanent											SAVEINFO:Will negates									SPELLRES:Yes													SOURCEPAGE:p.		DESC:-6 to an ability; -4 on attacks, saves, and checks; or 50%% chance of losing each action.
+Bless												TYPE:Divine			CLASSES:Acolyte=1				SCHOOL:Enchantment							DESCRIPTOR:Mind-Affecting				COMPS:V,S,DF		CASTTIME:Attack action		RANGE:50 ft.		TARGETAREA:All allies within 50 ft.																						DURATION:(CASTERLEVEL) minutes									SAVEINFO:None										SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Allies gain +1 attack and +1 on saves against fear.												TEMPDESC:Grants attack bonus												TEMPBONUS:ANYPC|COMBAT|TOHIT|1|TYPE=Morale
+Bloodcurdling Scream													CLASSES:Acolyte=2				SCHOOL:Necromancy								DESCRIPTOR:Fear|Mind-Affecting|Sonic		COMPS:V			CASTTIME:Attack action		RANGE:Personal		TARGETAREA:25 ft. + 5 ft./level emanation																					DURATION:1 round/level											SAVEINFO:Will negates									SPELLRES:Yes
+Blur												TYPE:Arcane			CLASSES:Apprentice=2			SCHOOL:Illusion																COMPS:V			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL) minutes [D]									SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Attacks miss subject 20%% of the time.
+Brawl																CLASSES:Acolyte,Apprentice=4		SCHOOL:Enchantment							DESCRIPTOR:Mind-Affecting				COMPS:V, S, M		CASTTIME:Attack action		RANGE:Close			TARGETAREA:All creatures, 5 HD or less, in a 15-ft. radius																		DURATION:3 rounds												SAVEINFO:Will negates									SPELLRES:Yes
+Break Enchantment										TYPE:Divine			CLASSES:Acolyte=5				SCHOOL:Abjuration																COMPS:V,S			CASTTIME:1 minute			RANGE:Close			TARGETAREA:Up to (CASTERLEVEL) creatures, all within 30 ft. of each other															DURATION:Instantaneous											SAVEINFO:See text										SPELLRES:No														SOURCEPAGE:p.		DESC:Frees subjects from enchantments, alterations, curses, and petrification.
+Burning Hands										TYPE:Arcane			CLASSES:Apprentice=1			SCHOOL:Transmutation							DESCRIPTOR:Fire						COMPS:V,S			CASTTIME:Attack action		RANGE:10 ft.		TARGETAREA:Semicircular burst of flames 10 ft. long, centered on your hands															DURATION:Instantaneous											SAVEINFO:Reflex half									SPELLRES:Yes													SOURCEPAGE:p.		DESC:(min((CASTERLEVEL),5))d4 fire damage
+Bypass Bystanders														CLASSES:Apprentice=1			SCHOOL:Abjuration																COMPS:V, S, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:One firearm																								DURATION:1 round/level											SAVEINFO:None										SPELLRES:No
+Carillon															CLASSES:Acolyte=4				SCHOOL:Enchantment							DESCRIPTOR:Mind-Affecting|Sonic			COMPS:F			CASTTIME:Attack action		RANGE:Personal		TARGETAREA:All creatures within 50 ft.																					DURATION:1 minute/level (D)										SAVEINFO:Will negates									SPELLRES:Yes
+Catalog															CLASSES:Apprentice=1			SCHOOL:Divination																COMPS:V, S, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Object touched																							DURATION:Instantaneous											SAVEINFO:Will negates (object)							SPELLRES:Yes (object)
+Cause Fear											TYPE:Arcane.Divine	CLASSES:Acolyte,Apprentice=1		SCHOOL:Necromancy								DESCRIPTOR:Fear|Mind-Affecting			COMPS:V,S			CASTTIME:Attack action		RANGE:Close			TARGETAREA:One living creature																						DURATION:1d4 rounds											SAVEINFO:Will negates									SPELLRES:Yes													SOURCEPAGE:p.		DESC:One creature flees for 1d4 rounds.																															TEMPBONUS:ANYPC|SAVE|ALL|-2|TYPE=Morale	TEMPBONUS:ANYPC|COMBAT|TOHIT,DAMAGE|-2|TYPE=Morale
+Change Self											TYPE:Arcane			CLASSES:Apprentice=1			SCHOOL:Illusion																COMPS:V,S			CASTTIME:Attack action		RANGE:Personal		TARGETAREA:You																									DURATION:(CASTERLEVEL*10) minutes [D]																																			SOURCEPAGE:p.		DESC:Changes the caster's appearance.																															TEMPBONUS:PC|SITUATION|Deception=Disguise|10|TYPE=Temporary
+Clean																CLASSES:Acolyte,Apprentice=1		SCHOOL:Transmutation															COMPS:V, S, M		CASTTIME:Full-round action	RANGE:Close			TARGETAREA:One creature, object of up to 1,000 lb./level, or room of up to 100 square feet/level											DURATION:Instantaneous											SAVEINFO:Fortitude negates (harmless)						SPELLRES:Yes (harmless)
+Close Shave															CLASSES:Acolyte,Apprentice=0		SCHOOL:Transmutation															COMPS:S, V, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:1 minute/level											SAVEINFO:Fortitude negates (harmless)						SPELLRES:Yes (harmless)
+Cloudkill											TYPE:Arcane			CLASSES:Apprentice=5			SCHOOL:Conjuration			SUBSCHOOL:Creation									COMPS:V,S			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:Cloud spreads 30 ft. wide and 20 ft. high																			DURATION:(CASTERLEVEL) minutes									SAVEINFO:See text										SPELLRES:Yes													SOURCEPAGE:p.		DESC:Kills 3 HD or less; 4-6 HD save or die.
+Clown Car															CLASSES:Apprentice=4			SCHOOL:Conjuration			SUBSCHOOL:Summoning									COMPS:V, S, F		CASTTIME:1 minute			RANGE:0 ft.			TARGETAREA:Extradimensional space within an enclosed vehicle capable of holding one creature per caster level									DURATION:1 hour/level											SAVEINFO:None										SPELLRES:No
+Command											TYPE:Divine			CLASSES:Acolyte=1				SCHOOL:Enchantment							DESCRIPTOR:Language-Dependent|Mind-Affecting	COMPS:V			CASTTIME:Attack action		RANGE:Close			TARGETAREA:One living creature																						DURATION:1 round												SAVEINFO:Will negates									SPELLRES:Yes													SOURCEPAGE:p.		DESC:One subject obeys one-word command for 1 round.
+Comprehend Languages									TYPE:Arcane.Divine	CLASSES:Acolyte,Apprentice=1		SCHOOL:Divination																COMPS:V,S,M/DF		CASTTIME:Attack action		RANGE:Personal		TARGETAREA:You																									DURATION:(CASTERLEVEL*10) minutes																																				SOURCEPAGE:p.		DESC:Understands all spoken and written languages.
+Cone of Cold										TYPE:Arcane			CLASSES:Apprentice=5			SCHOOL:Evocation								DESCRIPTOR:Cold						COMPS:V,S,M			CASTTIME:Attack action		RANGE:Close			TARGETAREA:Cone																									DURATION:Instantaneous											SAVEINFO:Reflex half									SPELLRES:Yes													SOURCEPAGE:p.		DESC:(CASTERLEVEL)d6 cold damage
+Confusion											TYPE:Arcane			CLASSES:Apprentice=4			SCHOOL:Enchantment							DESCRIPTOR:Mind-Affecting				COMPS:V,S,M			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:All creatures in a 15-ft. radius																				DURATION:(CASTERLEVEL) rounds										SAVEINFO:Will negates									SPELLRES:Yes													SOURCEPAGE:p.		DESC:Makes subject behave oddly for (CASTERLEVEL) rounds
+Crawling Carpet														CLASSES:Acolyte=4				SCHOOL:Conjuration			SUBSCHOOL:Summoning									COMPS:V, S, DF		CASTTIME:Fullround action	RANGE:Long			TARGETAREA:Carpet of monstrous spiders, scarab beetles, or centipedes filling a 10-ft.-radius spread											DURATION:1 minute/level											SAVEINFO:None										SPELLRES:No
+Create Water										TYPE:Divine			CLASSES:Acolyte=0				SCHOOL:Conjuration			SUBSCHOOL:Creation									COMPS:V,S			CASTTIME:Attack action		RANGE:Close			TARGETAREA:Up to (CASTERLEVEL*2) gallons of water																			DURATION:Instantaneous											SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Creates (CASTERLEVEL*2) gallons of pure water.
+Darkvision											TYPE:Arcane			CLASSES:Apprentice=2			SCHOOL:Transmutation															COMPS:V,S,M			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL) hours										SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:See 60 ft. in total darkness.
+Dancing Lights														CLASSES:Apprentice=0			SCHOOL:Evocation								DESCRIPTOR:Light						COMPS:V, S			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:Up to four lights, all within a 10-ft.-radius area																	DURATION:1 minute (D)											SAVEINFO:None										SPELLRES:No
+Daze												TYPE:Arcane			CLASSES:Apprentice=0			SCHOOL:Enchantment							DESCRIPTOR:Mind-Affecting				COMPS:V,S,M			CASTTIME:Attack action		RANGE:Close			TARGETAREA:One person																								DURATION:1 round												SAVEINFO:Will negates									SPELLRES:Yes													SOURCEPAGE:p.		DESC:Subject takes no actions for 1 round.
+Darkness															CLASSES:Acolyte=2				SCHOOL:Evocation								DESCRIPTOR:Darkness					COMPS:V, DF			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Object touched																							DURATION:10 minutes/level (D)										SAVEINFO:None										SPELLRES:No
+Daylight															CLASSES:Acolyte=2				SCHOOL:Evocation								DESCRIPTOR:Light						COMPS:V, DF			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Object touched																							DURATION:10 minutes/level (D)										SAVEINFO:None										SPELLRES:No
+Detect Magical Aura									TYPE:Arcane.Divine	CLASSES:Acolyte,Apprentice=0		SCHOOL:Universal																COMPS:V,S			CASTTIME:Attack action		RANGE:60ft.			TARGETAREA:Quarter-circle emanating from you to the extreme of the range															DURATION:Concentration, up to (CASTERLEVEL) minutes [D]																																SOURCEPAGE:p.		DESC:Detects spells, magic items within 60 ft.
+Detect Scrying														CLASSES:Apprentice=4			SCHOOL:Divination																COMPS:V, S, M		CASTTIME:Attack action		RANGE:120 ft.		TARGETAREA:120-ft.-radius emanation centered on you																			DURATION:24 hours												SAVEINFO:None										SPELLRES:No
+Dimension Door (Spell)			OUTPUTNAME:Dimension Door		TYPE:Arcane			CLASSES:Apprentice=4			SCHOOL:Conjuration			SUBSCHOOL:Teleporting									COMPS:V			CASTTIME:Attack action		RANGE:Long			TARGETAREA:You and touched objects or other touched willing creatures weighing up to (CASTERLEVEL*50) lb.										DURATION:Instantaneous											SAVEINFO:None and Will negates (object)						SPELLRES:No and Yes (object)											SOURCEPAGE:p.		DESC:Teleports caster and up to (CASTERLEVEL*50) lb.
+Discern Lies										TYPE:Divine			CLASSES:Acolyte=4				SCHOOL:Divination																COMPS:V,S,DF		CASTTIME:Attack action		RANGE:Close			TARGETAREA:(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart														DURATION:Concentration, up to (CASTERLEVEL) rounds						SAVEINFO:Will negates									SPELLRES:No														SOURCEPAGE:p.		DESC:Reveals deliberate falsehoods.
+Dispel Magic										TYPE:Arcane.Divine	CLASSES:Acolyte,Apprentice=3		SCHOOL:Abjuration																COMPS:V,S			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:One spellcaster, creature, or object; or 30-ft.-radius burst																DURATION:Instantaneous											SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Cancels magical spells and effects.
+Displacement										TYPE:Arcane			CLASSES:Apprentice=3			SCHOOL:Illusion																COMPS:V,M			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL) rounds [D]									SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Attacks miss subject 50%% of the time.
+Divination															CLASSES:Acolyte=4				SCHOOL:Divination																COMPS:V, S, M		CASTTIME:10 minutes		RANGE:Personal		TARGETAREA:You																									DURATION: Instantaneous
+Divine Copilot														CLASSES:Acolyte=3				SCHOOL:Conjuration															COMPS:V, S			CASTTIME:Attack action		RANGE:Personal		TARGETAREA:Computer or device touched	TARGETAREA:One invisible, shapeless, insubstantial copilot											DURATION:Until all skill checks are made or 10 minutes/level
+Dud																CLASSES:Apprentice=1			SCHOOL:Transmutation															COMPS:V, S			CASTTIME:Attack action		RANGE:Close			TARGETAREA:One explosive device/level; Duration; 1 minute/level																															SAVEINFO:Will negates (object)							SPELLRES:Yes (object)
+Ectodermis															CLASSES:Acolyte,Apprentice=2		SCHOOL:Abjuration|Conjuration		SUBSCHOOL:Creation									COMPS:V, S, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:1 hour/level (D)										SAVEINFO:Fortitude negates (harmless)						SPELLRES:Yes (harmless)
+Energy Trap											TYPE:Arcane			CLASSES:Apprentice=4			SCHOOL:Abjuration																COMPS:V,S,M			CASTTIME:10 minutes		RANGE:Touch			TARGETAREA:Object touched																							DURATION:Permanent until discharged [D]								SAVEINFO:Reflex half									SPELLRES:Yes													SOURCEPAGE:p.		DESC:Opened object deals 1d4 + (CASTERLEVEL) damage of given energy type.
+Enhance Ability										TYPE:Arcane.Divine	CLASSES:Acolyte,Apprentice=2		SCHOOL:Transmutation															COMPS:V,S,M/DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL) minutes									SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Subject gains +5 bonus to one ability score for (CASTERLEVEL) minutes.									TEMPDESC:Grants bonus to chosen stat
+#
+Enhance Ability (STR)																																																																																																																																																															TEMPBONUS:ANYPC|STAT|STR|5|TYPE=Enhancement
+Enhance Ability (DEX)																																																																																																																																																															TEMPBONUS:ANYPC|STAT|DEX|5|TYPE=Enhancement
+Enhance Ability (CON)																																																																																																																																																															TEMPBONUS:ANYPC|STAT|CON|5|TYPE=Enhancement
+Enhance Ability (INT)																																																																																																																																																															TEMPBONUS:ANYPC|STAT|INT|5|TYPE=Enhancement
+Enhance Ability (WIS)																																																																																																																																																															TEMPBONUS:ANYPC|STAT|WIS|5|TYPE=Enhancement
+Enhance Ability (CHA)																																																																																																																																																															TEMPBONUS:ANYPC|STAT|CHA|5|TYPE=Enhancement
+#
+Faerie Fire															CLASSES:Acolyte=1				SCHOOL:Evocation								DESCRIPTOR:Light						COMPS:V, S, DF		CASTTIME:Attack action		RANGE:Long			TARGETAREA:Creatures and objects within a 5-ft.-radius burst																	DURATION:1 minute/level (D)										SAVEINFO:None										SPELLRES:Yes
+Faith's Fury										TYPE:Divine			CLASSES:Acolyte=4				SCHOOL:Evocation																COMPS:V,S			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:20-ft.-radius burst																						DURATION:Instantaneous											SAVEINFO:Fortitude partial [see text]						SPELLRES:Yes													SOURCEPAGE:p.		DESC:Damages and blinds creatures with a specific allegiance.
+Fear												TYPE:Arcane			CLASSES:Apprentice=4			SCHOOL:Necromancy								DESCRIPTOR:Fear|Mind-Affecting			COMPS:V,S,M			CASTTIME:Attack action		RANGE:Close			TARGETAREA:Cone																									DURATION:(CASTERLEVEL) rounds										SAVEINFO:Will negates									SPELLRES:Yes													SOURCEPAGE:p.		DESC:Subjects within cone flee for (CASTERLEVEL) rounds.
+Feather Fall (Spell)			OUTPUTNAME:Feather Fall			TYPE:Arcane			CLASSES:Apprentice=1			SCHOOL:Transmutation							DESCRIPTOR:Fire						COMPS:V			CASTTIME:See text			RANGE:Close			TARGETAREA:Any free-falling objects or creatures in a 10-ft. radius whose weight does not total more than (CASTERLEVEL*300) lb.						DURATION:Until landing or (CASTERLEVEL) rounds							SAVEINFO:Will negates (harmless) or Will negates (object)			SPELLRES:Yes (object)												SOURCEPAGE:p.		DESC:Objects or creatures fall slowly.
+Fireball											TYPE:Arcane			CLASSES:Apprentice=3			SCHOOL:Evocation								DESCRIPTOR:Fire						COMPS:V,S,M			CASTTIME:Attack action		RANGE:Long			TARGETAREA:20-ft.-radius spread																						DURATION:Instantaneous											SAVEINFO:Reflex half									SPELLRES:Yes													SOURCEPAGE:p.		DESC:(CASTERLEVEL)d6 damage, 20-ft. radius.
+Flaming Projectiles									TYPE:Arcane			CLASSES:Apprentice=3			SCHOOL:Transmutation							DESCRIPTOR:Fire						COMPS:V,S,M			CASTTIME:Attack action		RANGE:Close			TARGETAREA:50 projectiles, all of which must be in contact with each other at the time of casting											DURATION:(CASTERLEVEL*10) minutes									SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Projectiles deal +1d6 fire damage.
+Flaming Wrath										TYPE:Divine			CLASSES:Acolyte=5				SCHOOL:Evocation																COMPS:V,S,DF		CASTTIME:Attack action		RANGE:Medium		TARGETAREA:Cylinder 10-ft. radius, 40 ft. high																				DURATION:Instantaneous											SAVEINFO:Reflex half									SPELLRES:Yes													SOURCEPAGE:p.		DESC:Smites foes with fire (CASTERLEVEL)d6.
+Freedom of Movement (Spell)		OUTPUTNAME:Freedom of Movement	TYPE:Divine			CLASSES:Acolyte=4				SCHOOL:Abjuration																COMPS:V,S,M,DF		CASTTIME:Attack action		RANGE:Personal or touch	TARGETAREA:You or creature touched																						DURATION:(CASTERLEVEL*10) minutes									SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Subject moves normally despite impediments.
+Gaseous Form														CLASSES:Apprentice=3			SCHOOL:Transmutation															COMPS:S, M			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Willing corporeal creature touched																				DURATION:1 minute/level (D)										SAVEINFO:None										SPELLRES:No
+Gender Bender														CLASSES:Apprentice=3			SCHOOL:Transmutation															COMPS:V, S, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:2 hours/level (D)										SAVEINFO:Fortitude negates (harmless)						SPELLRES:Yes (harmless)
+Glitterdust											TYPE:Arcane			CLASSES:Apprentice=2			SCHOOL:Conjuration			SUBSCHOOL:Creation									COMPS:V,S,M			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:Creatures and objects within 10-ft. spread																			DURATION:(CASTERLEVEL) rounds										SAVEINFO:Will negates (blinding only)						SPELLRES:Yes													SOURCEPAGE:p.		DESC:Blinds creatures, outlines invisible creatures.
+Glyph of Warding										TYPE:Divine			CLASSES:Acolyte=3				SCHOOL:Abjuration																COMPS:V,S,M			CASTTIME:10 minutes		RANGE:Touch			TARGETAREA:Object touched or up to (CASTERLEVEL*5) sq. ft.																		DURATION:Permanent until discharged [D]								SAVEINFO:See text										SPELLRES:Yes (object)												SOURCEPAGE:p.		DESC:Inscription harms those who pass it.
+Greater Command										TYPE:Divine			CLASSES:Acolyte=5				SCHOOL:Enchantment							DESCRIPTOR:Language-Dependent|Mind-Affecting	COMPS:V			CASTTIME:Attack action		RANGE:Close			TARGETAREA:(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart														DURATION:(CASTERLEVEL) rounds										SAVEINFO:Will negates									SPELLRES:Yes													SOURCEPAGE:p.		DESC:As command, but affects (CASTERLEVEL) subjects.
+Greater Magic Weapon									TYPE:Arcane.Divine	CLASSES:Apprentice=3|Acolyte=4	SCHOOL:Transmutation															COMPS:V,S,M/DF		CASTTIME:Attack action		RANGE:Close			TARGETAREA:One weapon or 50 projectiles, all of which must be in contact with each other at the time of casting									DURATION:(CASTERLEVEL) hours										SAVEINFO:Will negates (harmless, object)						SPELLRES:Yes (harmless, object)										SOURCEPAGE:p.		DESC:+(min(floor((CASTERLEVEL)/3),5)).															TEMPDESC:Adds bonus to weapon.  Not intended for Unarmed Strike or other natural weapons		TEMPBONUS:EQ|Weapon|WEAPON|DAMAGE,TOHIT|1+(min(1,%CHOICE/8))|TYPE=Enhancement
+Guardian Angel														CLASSES:Acolyte=4				SCHOOL:Conjuration															COMPS:V, S, F		CASTTIME:Attack action		RANGE:Personal		TARGETAREA:One invisible, shapeless, insubstantial guardian																		DURATION:Until all acts of kindness are performed or 10 minutes/level
+Halt Undead											TYPE:Arcane			CLASSES:Apprentice=3			SCHOOL:Necromancy																COMPS:V,S,M			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:Up to three undead, no two of which can be more than 30 ft. apart															DURATION:(CASTERLEVEL) rounds										SAVEINFO:See text										SPELLRES:Yes													SOURCEPAGE:p.		DESC:Immobilizes undead for (CASTERLEVEL) rounds.
+#Need way to augment ALL forms of momvement at once - Fluxxdog
+Hand Gun															CLASSES:Apprentice=2			SCHOOL:Conjuration			SUBSCHOOL:Creation									COMPS:V, S			CASTTIME:Attack action		RANGE:Personal		TARGETAREA:You																									DURATION:until all shots are fired or 1 minute/level
+Hand Gun (Greater)			OUTPUTNAME:Hand Gun, Greater						CLASSES:Apprentice=3			SCHOOL:Conjuration			SUBSCHOOL:Creation									COMPS:V, S			CASTTIME:Attack action		RANGE:Personal		TARGETAREA:You																									DURATION:until all shots are fired or 1 minute/level
+Haste												TYPE:Arcane			CLASSES:Apprentice=3			SCHOOL:Transmutation															COMPS:V,S,M			CASTTIME:Attack action		RANGE:Close			TARGETAREA:One creature																								DURATION:(CASTERLEVEL) rounds										SAVEINFO:Fortitude negates (harmless)						SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Extra attack action, additional move, and +2 Defense.												TEMPDESC:Grants defense bonus												TEMPBONUS:ANYPC|COMBAT|AC|2|TYPE=Dodge
+Hawkeye															CLASSES:Acolyte=1				SCHOOL:Transmutation															COMPS:V, S, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:1 round/level											SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)
+Haywire															CLASSES:Acolyte,Apprentice=0		SCHOOL:Transmutation															COMPS:V, S, M		CASTTIME:Attack action		RANGE:Close			TARGETAREA:One object of up to 100 lb./level																				DURATION:1 minute/level											SAVEINFO:Will negates (object)							SPELLRES:Yes (object)
+Hold Monster										TYPE:Arcane			CLASSES:Apprentice=5			SCHOOL:Enchantment							DESCRIPTOR:Mind-Affecting				COMPS:V,S,M			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:One living creature																						DURATION:(CASTERLEVEL) rounds [D]									SAVEINFO:Will negates									SPELLRES:Yes													SOURCEPAGE:p.		DESC:As hold person, but any creature.
+Hold Person											TYPE:Arcane.Divine	CLASSES:Acolyte=2|Apprentice=3	SCHOOL:Enchantment							DESCRIPTOR:Mind-Affecting				COMPS:V,S,F/DF		CASTTIME:Attack action		RANGE:Medium		TARGETAREA:One Medium-size or smaller humanoid																				DURATION:(CASTERLEVEL) rounds [D]									SAVEINFO:Will negates									SPELLRES:Yes													SOURCEPAGE:p.		DESC:Holds one person helpless; (CASTERLEVEL) rounds.
+Hold Portal											TYPE:Arcane			CLASSES:Apprentice=1			SCHOOL:Abjuration																COMPS:V			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:One portal, up to (CASTERLEVEL*20) sq. ft.																			DURATION:(CASTERLEVEL) minutes									SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Holds door shut.
+Ice Storm											TYPE:Arcane			CLASSES:Apprentice=4			SCHOOL:Evocation								DESCRIPTOR:Cold						COMPS:V,S,M			CASTTIME:Attack action		RANGE:Long			TARGETAREA:Cylinder 20-ft. radius, 40 ft. high																				DURATION:1 round												SAVEINFO:None										SPELLRES:Yes													SOURCEPAGE:p.		DESC:Hail deals 5d6 damage in cylinder 40 ft. across.
+Improved Arcane Lock													CLASSES:Apprentice=3			SCHOOL:Abjuration																									RANGE:Long			TARGETAREA:One door, cabinet, chest, or portal/level, up to 30 sq. ft. / level each														DURATION:1 hour/level
+Insect Plague										TYPE:Divine			CLASSES:Acolyte=5				SCHOOL:Conjuration			SUBSCHOOL:Summoning	DESCRIPTOR:See text					COMPS:V,S,DF		CASTTIME:Full-round action	RANGE:Long			TARGETAREA:Cloud of insects 180 ft. in diameter																				DURATION:(CASTERLEVEL) minutes									SAVEINFO:See text										SPELLRES:No														SOURCEPAGE:p.		DESC:Insect horde limits vision, inflicts damage, and weak creatures flee.
+Instant Fame														CLASSES:Acolyte=4				SCHOOL:Illusion																COMPS:V, S, M		CASTTIME:Attack action		RANGE:Close			TARGETAREA:One creature																								DURATION:15 minutes											SAVEINFO:Will negates									SPELLRES:Yes
+Instant Identify														CLASSES:Acolyte,Apprentice=1		SCHOOL:Divination																COMPS:V, S, M/DF		CASTTIME:Full-round action	RANGE:Touch			TARGETAREA:One touched object																							DURATION:Instantaneous											SAVEINFO:None										SPELLRES:No
+Itchy Trigger Finger													CLASSES:Apprentice=3			SCHOOL:Transmutation															COMPS:V, S, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:Until surprise-round attack is made or 5 minutes/level (see text)		SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)
+Jargon															CLASSES:Apprentice=0|Acolyte=1	SCHOOL:Divination																COMPS:V, S			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:5 minutes/level										SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)
+Jump												TYPE:Arcane			CLASSES:Apprentice=1			SCHOOL:Transmutation															COMPS:V,S,M			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL) minutes [D]									SAVEINFO:Will negates (harmless)							SPELLRES:Yes				CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Choose caster level	SOURCEPAGE:p.		DESC:Subject gets bonus on Jump checks.															TEMPDESC:Grants Jump bonus												TEMPBONUS:ANYPC|SITUATION|Athletics=Jump|10*(min(3,(%CHOICE+1)))/2
+#BONUS:WEAPON doesn't support CRITRANGEDOUBLE at this time
+#Keen Edge will have to wait.  Otherwise it would get:
+#BONUS:WEAPON|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit|PREAPPLY:Weapon
+Keen Edge											TYPE:Arcane			CLASSES:Apprentice=3			SCHOOL:Transmutation															COMPS:V,S			CASTTIME:Attack action		RANGE:Close			TARGETAREA:One weapon or 50 projectiles, all of which must be in contact with each other at the time of casting									DURATION:(CASTERLEVEL*10) minutes									SAVEINFO:Will negates (harmless, object)						SPELLRES:Yes (harmless, object)										SOURCEPAGE:p.		DESC:Doubles normal weapon's threat range.
+Knock (Spell)				OUTPUTNAME:Knock				TYPE:Arcane			CLASSES:Apprentice=2			SCHOOL:Transmutation															COMPS:V			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:One door, box, or chest with an area of up to (CASTERLEVEL*10) sq. ft.														DURATION:Instantaneous [see text]									SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Opens locked or magically sealed door.
+Levitate											TYPE:Arcane			CLASSES:Apprentice=2			SCHOOL:Transmutation															COMPS:V,S,F			CASTTIME:Attack action		RANGE:Personal or Close	TARGETAREA:You or one willing creature or one object (total weight up to (CASTERLEVEL*100) lb.)												DURATION:(CASTERLEVEL) rounds [D]									SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Subject moves up and down at caster's direction.
+Light												TYPE:Arcane.Divine	CLASSES:Acolyte,Apprentice=0		SCHOOL:Evocation								DESCRIPTOR:Light						COMPS:V,M/DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Object touched																							DURATION:(CASTERLEVEL*10) minutes [D]								SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Object shines like a torch.
+Light-Gathering Eyes													CLASSES:Apprentice=1			SCHOOL:Transmutation															COMPS:V, S, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched;Duration: 1 hour/level																																	SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)
+Lightning Bolt										TYPE:Arcane			CLASSES:Apprentice=3			SCHOOL:Evocation								DESCRIPTOR:Electricity					COMPS:V,S,M			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:5 ft. wide to medium range (((CASTERLEVEL*10)+100)); or 10 ft. wide to ((CASTERLEVEL*5)+50)										DURATION:Instantaneous											SAVEINFO:Reflex half									SPELLRES:Yes													SOURCEPAGE:p.		DESC:Electricity deals (CASTERLEVEL)d6 damage.
+Locate Object										TYPE:Divine			CLASSES:Acolyte=3				SCHOOL:Divination																COMPS:V,S,DF		CASTTIME:Attack action		RANGE:Long			TARGETAREA:Circle, centered on you, with a radius of (400+(40*CASTERLEVEL)) ft.														DURATION:(CASTERLEVEL) minutes									SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Senses direction toward object [specific or type].
+Mage Armor											TYPE:Arcane			CLASSES:Apprentice=1			SCHOOL:Conjuration			SUBSCHOOL:Creation	DESCRIPTOR:Force						COMPS:V,S,F			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL) hours [D]									SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Gives subject +4 Defense bonus.															TEMPDESC:Grants defense bonus												TEMPBONUS:ANYPC|COMBAT|AC|4|TYPE=Equipment
+Mage Hand											TYPE:Arcane			CLASSES:Apprentice=0			SCHOOL:Transmutation															COMPS:V,S			CASTTIME:Attack action		RANGE:Close			TARGETAREA:Nonmagical, unattended object weighing up to 5 lb.																	DURATION:Concentration											SAVEINFO:No											SPELLRES:No														SOURCEPAGE:msrdspells	DESC:5-pound telekinesis.
+Magic Bullets														CLASSES:Acolyte,Apprentice=4		SCHOOL:Transmutation															COMPS:V, S, F		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:50 bullets, all of which must be in contact with each other at the time of casting												DURATION:1 hour/level											SAVEINFO:Will negates (harmless, object)						SPELLRES:Yes (harmless, object)
+Magic Circle														CLASSES:Acolyte=3				SCHOOL:Abjuration																COMPS:V, S, DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:10-ft.-radius emanation from touched creature																		DURATION:10 minutes/level										SAVEINFO:Will negates (harmless)							SPELLRES:No (see text)
+Magic ID															CLASSES:Apprentice=0			SCHOOL:Illusion																COMPS:V, S, F		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Illusory identification card																					DURATION:See description										SAVEINFO:Will disbelief (if interacted with)					SPELLRES:No
+Magic Message														CLASSES:Apprentice=2			SCHOOL:Illusion																COMPS:V, S, M		CASTTIME:Fullround action	RANGE:Close			TARGETAREA:One object (see text)																						DURATION:Permanent until discharged									SAVEINFO:Will negates (object)							SPELLRES:Yes (object)
+Magic Missile										TYPE:Arcane			CLASSES:Apprentice=1			SCHOOL:Evocation								DESCRIPTOR:Force						COMPS:V,S			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:Up to five creatures, no two of which can be more than 15 ft. apart														DURATION:Instantaneous											SAVEINFO:No											SPELLRES:Yes													SOURCEPAGE:p.		DESC:1d4+1 damage; (min(floor((CASTERLEVEL)/2),5)) missiles.
+Magic Mouth											TYPE:Arcane			CLASSES:Apprentice=2			SCHOOL:Illusion																COMPS:V,S,M			CASTTIME:Attack action		RANGE:Close			TARGETAREA:One creature or object																						DURATION:Permanent until discharged									SAVEINFO:Will negates (object)							SPELLRES:Yes (object)												SOURCEPAGE:p.		DESC:Speaks once when triggered.
+Magic Weapon										TYPE:Arcane.Divine	CLASSES:Acolyte,Apprentice=1		SCHOOL:Transmutation															COMPS:V,S,DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Weapon touched																							DURATION:(CASTERLEVEL) minutes									SAVEINFO:Will negates (harmless, object)						SPELLRES:Yes (harmless, object)										SOURCEPAGE:p.		DESC:Weapon gains +1 bonus.																	TEMPDESC:Grants enahcenment bonus.  Not intended for Unarmed Strike or other natural weapons	TEMPBONUS:EQ|Weapon|WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement
+#Manual-Focus Binoculars									CLASSES:Apprentice=0																													COMPS:V, S				CASTTIME:Attack action		RANGE:Personal								TARGETAREA:You																									DURATION:5 minutes/ level
+###COMMENT:Missing School
+Mending															CLASSES:Acolyte,Apprentice=0		SCHOOL:Transmutation															COMPS:V, S			CASTTIME:Attack action		RANGE:10 ft.		TARGETAREA:One object of up to 1 pound/level																				DURATION:Instantaneous											SAVEINFO:Will negates (harmless, object)						SPELLRES:Yes (harmless, object)
+Message											TYPE:Arcane			CLASSES:Apprentice=0			SCHOOL:Transmutation							DESCRIPTOR:Language-Dependent				COMPS:V,S,F			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:(CASTERLEVEL) creatures																						DURATION:(CASTERLEVEL*10) minutes									SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Whispered conversation at distance.
+No Doze															CLASSES:Apprentice=0			SCHOOL:Conjuration			SUBSCHOOL:Healing										COMPS:M			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:One living creature/level																					DURATION:8 hours + 1 hour/level									SAVEINFO:None										SPELLRES:Yes (harmless)
+Nondetection														CLASSES:Apprentice=3			SCHOOL:Abjuration																COMPS:V, S, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature or object touched																					DURATION:1 hour/level											SAVEINFO:Will negates (harmless, object)						SPELLRES:Yes (harmless, object)
+Object to Ink														CLASSES:Apprentice=3			SCHOOL:Transmutation															COMPS:V, S, M, F		CASTTIME:30 minutes		RANGE:Touch			TARGETAREA:One touched creature and one touched object of the same size category or smaller												DURATION:One day/level											SAVEINFO:Will negates (harmless); Spell Resistance:Yes (harmless)
+Obscuring Mist														CLASSES:Acolyte,Apprentice=1		SCHOOL:Conjuration			SUBSCHOOL:Creation									COMPS:V, S			CASTTIME:Attack action		RANGE:30 ft.		TARGETAREA:Cloud centered on you spreads 30 ft. and is 20 ft. high																DURATION:1 minute/level											SAVEINFO:None										SPELLRES:No
+Passwall											TYPE:Arcane			CLASSES:Apprentice=5			SCHOOL:Transmutation															COMPS:V,S,M			CASTTIME:Attack action		RANGE:Close			TARGETAREA:5-ft.-by-8 ft. opening, (CASTERLEVEL) ft. deep																		DURATION:(CASTERLEVEL) hours [D]									SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Breaches walls (CASTERLEVEL) ft. thick.
+Phantasmal Killer														CLASSES:Apprentice=4			SCHOOL:Illusion								DESCRIPTOR:Fear|Mind-Affecting			COMPS:V, S			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:One living creature																						DURATION:Instantaneous											SAVEINFO:Will disbelief (if interacted with), then Fortitude partial	SPELLRES:Yes
+Phantom Projectiles													CLASSES:Apprentice=5			SCHOOL:Transmutation															COMPS:V, S, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:50 projectiles, all of which must be in contact with each other at the time of casting											DURATION:1 hour/level											SAVEINFO:Will negates (harmless, object)						SPELLRES:Yes (harmless, object)
+Phantom Watchdog										TYPE:Arcane			CLASSES:Apprentice=5			SCHOOL:Conjuration			SUBSCHOOL:Creation									COMPS:V,S,M			CASTTIME:Attack action		RANGE:Close			TARGETAREA:Phantom watchdog																							DURATION:(CASTERLEVEL) hours or until discharged, then (CASTERLEVEL) rounds		SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Spectral dog can guard or attack.
+Plain Brown Wrapper													CLASSES:Apprentice=1			SCHOOL:Illusion																COMPS:V, S, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Object touched																							DURATION:5 minutes/level										SAVEINFO:Will disbelief									SPELLRES:No
+Point-N-Shoot														CLASSES:Apprentice=1			SCHOOL:Illusion																COMPS:V, S			CASTTIME:Attack action		RANGE:Personal		TARGETAREA:You																									DURATION:Until all pictures are taken or 2 hours/level (See text)				SAVEINFO:Fortitude negates (harmless)						SPELLRES:No
+Prayer											TYPE:Divine			CLASSES:Acolyte=3				SCHOOL:Conjuration			SUBSCHOOL:Creation									COMPS:V,S,DF		CASTTIME:Attack action		RANGE:30ft.			TARGETAREA:All allies and foes within a 30-ft.-radius burst centered on you															DURATION:(CASTERLEVEL) rounds										SAVEINFO:None										SPELLRES:Yes													SOURCEPAGE:p.		DESC:Allies gain +1 on most rolls, and enemies suffer -1.
+Prestidigitation										TYPE:Arcane			CLASSES:Apprentice=0			SCHOOL:Universal																COMPS:V,S			CASTTIME:Attack action		RANGE:10ft.			TARGETAREA:See text																								DURATION:1 hour												SAVEINFO:See text										SPELLRES:No														SOURCEPAGE:p.		DESC:Perform minor tricks.
+Protection from Arrows/Bullets							TYPE:Arcane			CLASSES:Apprentice=2			SCHOOL:Abjuration																COMPS:V,S,F			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL*10) minutes or until discharged						SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Subject immune to most ranged attacks.
+R R						OUTPUTNAME:R&R								CLASSES:Apprentice=1			SCHOOL:Conjuration			SUBSCHOOL:Healing										COMPS:V, M			CASTTIME:Attack Action		RANGE:Touch			TARGETAREA:One living creature/level																					DURATION:Instantaneous											SAVEINFO:None; Spell									SPELLRES:Yes (harmless)
+Rage of Bees														CLASSES:Acolyte=5				SCHOOL:Conjuration			SUBSCHOOL:Summoning									COMPS:V, S, DF		CASTTIME:Full-round action	RANGE:Long			TARGETAREA:1d3 swarms of sentient killer bees, no two of which can be more than 30 ft. apart												DURATION:1 minute/level											SAVEINFO:None										SPELLRES:No
+Ray of Fatigue										TYPE:Arcane			CLASSES:Apprentice=1			SCHOOL:Necromancy																COMPS:V,S,M			CASTTIME:Attack action		RANGE:Close			TARGETAREA:Ray																									DURATION:(CASTERLEVEL) minutes									SAVEINFO:No											SPELLRES:Yes													SOURCEPAGE:p.		DESC:Ray fatigues target.
+Read Magic											TYPE:Arcane.Divine	CLASSES:Acolyte,Apprentice=0		SCHOOL:Universal																COMPS:V,S,F			CASTTIME:Attack action		RANGE:Personal		TARGETAREA:You																									DURATION:(CASTERLEVEL*10) minutes																																				SOURCEPAGE:p.		DESC:Read scrolls, spellbooks, and magical writing.
+Remove Curse										TYPE:Arcane.Divine	CLASSES:Acolyte=3|Apprentice=4	SCHOOL:Abjuration																COMPS:V,S			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature or item touched																						DURATION:Instantaneous											SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Frees object or person from curse.
+Remove Fear											TYPE:Divine			CLASSES:Acolyte=1				SCHOOL:Abjuration																COMPS:V,S			CASTTIME:Attack action		RANGE:Close			TARGETAREA:((CASTERLEVEL/4)+1) creatures, no two of which can be more than 30 ft. apart													DURATION:10 minutes [see text]									SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:+4 on saves against fear for 1+((CASTERLEVEL)/4) subjects, no two of which can be more than 30 ft. apart
+Remove Paralysis										TYPE:Divine			CLASSES:Acolyte=2				SCHOOL:Conjuration			SUBSCHOOL:Healing										COMPS:V,S			CASTTIME:Attack action		RANGE:Close			TARGETAREA:Up to four creatures, no two of which can be more than 30 ft. apart														DURATION:Instantaneous											SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Frees one or more creatures from paralysis, hold, or slow.
+Resist Energy										TYPE:Arcane.Divine	CLASSES:Acolyte,Apprentice=2		SCHOOL:Abjuration																COMPS:V,S,DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL*10) minutes									SAVEINFO:Fortitude negates (harmless)						SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Ignores (10+(5*(floor((CASTERLEVEL)-3)/3))) points of damage/round from one energy type.
+Resistance											TYPE:Arcane.Divine	CLASSES:Acolyte,Apprentice=0		SCHOOL:Abjuration																COMPS:V,S,M/DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:1 minute												SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Subject gains +1 on saving throws.															TEMPDESC:Grants saving throw bonus											TEMPBONUS:ANYPC|SAVE|ALL|1|TYPE=Resistance
+Sanctuary															CLASSES:Acolyte=1				SCHOOL:Abjuration																COMPS:V, S, DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:1 round/level											SAVEINFO:Will negates									SPELLRES:No
+Scrying															CLASSES:Apprentice=4|Acolyte=5	SCHOOL:Divination																COMPS:V, S, M/DF, F	CASTTIME:1 hour			RANGE:See text		TARGETAREA:Magical sensor																							DURATION:1 minute/level											SAVEINFO:Will negates									SPELLRES:Yes
+Secret Pocket														CLASSES:Acolyte,Apprentice=3		SCHOOL:Conjuration			SUBSCHOOL:Summoning									COMPS:V, S, M/DF		CASTTIME:Attack action		RANGE:Object touched	TARGETAREA:One pocket on a garment																						DURATION:1 hour/level											SAVEINFO:None										SPELLRES:No
+Secret Vault														CLASSES:Apprentice=5			SCHOOL:Conjuration			SUBSCHOOL:Summoning									COMPS:V, S, F		CASTTIME:10 minutes		RANGE:See text		TARGETAREA:One chest and up to 1 cu. ft. of goods/caster level																	DURATION:60 days or until discharged								SAVEINFO:None										SPELLRES:No
+Seeming															CLASSES:Apprentice=5			SCHOOL:Illusion																COMPS:V, S			CASTTIME:Attack action		RANGE:Close			TARGETAREA:One creature/two levels, no two of which can be more than 30 ft. apart														DURATION:12 hours (D)											SAVEINFO:Will negates or Will disbelief (if interacted with)		SPELLRES:Yes or No (see text)
+Shatter															CLASSES:Acolyte=2				SCHOOL:Evocation								DESCRIPTOR:Sonic|Concussion				COMPS:V, S, F		CASTTIME:Attack action		RANGE:Close			TARGETAREA:5-ft.-radius spread; or one solid object or one crystalline creature														DURATION:Instantaneous											SAVEINFO:Will negates (object) or Fortitude half (see text)			SPELLRES:Yes (object)
+Shield Other														CLASSES:Acolyte=2				SCHOOL:Abjuration																COMPS:V, S, F		CASTTIME:Attack action		RANGE:Close			TARGETAREA:One creature																								DURATION:1 hour/level (D)										SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)
+Shield											TYPE:Arcane			CLASSES:Apprentice=1			SCHOOL:Abjuration								DESCRIPTOR:Force						COMPS:V,S			CASTTIME:Attack action		RANGE:Personal		TARGETAREA:You																									DURATION:(CASTERLEVEL) minutes [D]																																				SOURCEPAGE:p.		DESC:Invisible disc gives cover, blocks magic missiles.																												TEMPBONUS:PC|COMBAT|AC|4|TYPE=Temporary
+Shield of Faith										TYPE:Divine			CLASSES:Acolyte=1				SCHOOL:Abjuration																COMPS:V,S,M			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL) minutes									SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)			CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Choose caster level	SOURCEPAGE:p.		DESC:Aura grants +2 or higher deflection bonus.																														TEMPBONUS:ANYPC|COMBAT|AC|2+(min(1,%CHOICE/6))|TYPE=Deflection
+Shout												TYPE:Arcane			CLASSES:Apprentice=4			SCHOOL:Evocation								DESCRIPTOR:Sonic						COMPS:V			CASTTIME:Attack action		RANGE:Close			TARGETAREA:Cone																									DURATION:Instantaneous											SAVEINFO:Fortitude partial (see text) (object)					SPELLRES:Yes (object)												SOURCEPAGE:p.		DESC:Deafens all within cone and deals 2d6 damage.
+Silence											TYPE:Divine			CLASSES:Acolyte=2				SCHOOL:Illusion																COMPS:V,S			CASTTIME:Attack action		RANGE:Long			TARGETAREA:15-ft.-radius emanation centered on a creature, object, or point in space													DURATION:(CASTERLEVEL) minutes									SAVEINFO:Will negates or none (object)						SPELLRES:Yes or no (object)											SOURCEPAGE:p.		DESC:Negates sound in 15-ft. radius.
+Sleep												TYPE:Arcane			CLASSES:Apprentice=1			SCHOOL:Enchantment							DESCRIPTOR:Mind-Affecting				COMPS:V,S,M			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:Several living creatures within a 15-ft.-radius burst																	DURATION:(CASTERLEVEL) minutes									SAVEINFO:Will negates									SPELLRES:Yes													SOURCEPAGE:p.		DESC:Put 2d4 HD of creatures into comatose slumber.
+Slow												TYPE:Arcane			CLASSES:Apprentice=3			SCHOOL:Transmutation															COMPS:V,S,M			CASTTIME:Attack action		RANGE:Close			TARGETAREA:(CASTERLEVEL/2) creatures, no two of which can be more than 30 ft. apart														DURATION:(CASTERLEVEL) rounds										SAVEINFO:Will negates									SPELLRES:Yes													SOURCEPAGE:p.		DESC:(CASTERLEVEL) subjects may only move or attack; -2 to Defense, -2 on melee attack and damage rolls, -2 on Reflex saves.
+Sparkly Shiny														CLASSES:Acolyte,Apprentice=1		SCHOOL:Enchantment															COMPS:V, S, M, F		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:One small object																							DURATION:1 round/level											SAVEINFO:Will negates; Spell								SPELLRES:No
+Speak with Animals													CLASSES:Acolyte=2				SCHOOL:Divination																COMPS:V, S			CASTTIME:Attack action		RANGE:Personal		TARGETAREA:You																									DURATION:1 minute/ level
+Spell Immunity														CLASSES:Acolyte=4				SCHOOL:Abjuration																COMPS:V, S, DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:10 minutes/level										SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)
+Spell Resistance														CLASSES:Acolyte=5				SCHOOL:Abjuration																COMPS:V, S, DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:1 minute/level											SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)
+Spider Climb (Spell)			OUTPUTNAME:Spider Climb			TYPE:Arcane.Divine	CLASSES:Acolyte,Apprentice=2		SCHOOL:Transmutation															COMPS:V,S,M			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL*10) minutes									SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Grants ability to travel on walls and ceilings.
+Status											TYPE:Divine			CLASSES:Acolyte=3				SCHOOL:Divination																COMPS:V,S			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:(min(CASTERLEVEL/3,1)) creatures touched																			DURATION:(CASTERLEVEL) hours										SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Monitors condition and position of one ally per 3 caster levels.
+Stoneskin											TYPE:Arcane			CLASSES:Apprentice=4			SCHOOL:Abjuration																COMPS:V,S,M			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL*10) minutes or until discharged						SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Stops blows, cuts, stabs, and slashes.
+Summon Vivilor I														CLASSES:Acolyte,Apprentice=1		SCHOOL:Conjuration			SUBSCHOOL:Summoning									COMPS:V, S			CASTTIME:Full-round action	RANGE:Close			TARGETAREA:One summoned creature																						DURATION:1 round/level											SAVEINFO:None										SPELLRES:No
+Summon Vivilor II														CLASSES:Acolyte,Apprentice=2		SCHOOL:Conjuration			SUBSCHOOL:Summoning									COMPS:V, S			CASTTIME:Full-round action	RANGE:Close			TARGETAREA:One or more summoned creatures, no two of which can be more than 30 ft. apart													DURATION:1 round/level											SAVEINFO:None										SPELLRES:No
+Summon Vivilor III													CLASSES:Acolyte,Apprentice=3		SCHOOL:Conjuration			SUBSCHOOL:Summoning									COMPS:V, S			CASTTIME:Full-round action	RANGE:Close			TARGETAREA:One or more summoned creatures, no two of which can be more than 30 ft. apart													DURATION:1 round/level											SAVEINFO:None										SPELLRES:No
+Summon Vivilor IV														CLASSES:Acolyte,Apprentice=4		SCHOOL:Conjuration			SUBSCHOOL:Summoning									COMPS:V, S			CASTTIME:Full-round action	RANGE:Close			TARGETAREA:One or more summoned creatures, no two of which can be more than 30 ft. apart													DURATION:1 round/level											SAVEINFO:None										SPELLRES:No
+Summon Vivilor V														CLASSES:Acolyte,Apprentice=5		SCHOOL:Conjuration			SUBSCHOOL:Summoning									COMPS:V, S			CASTTIME:Full-round action	RANGE:Close			TARGETAREA:One or more summoned creatures, no two of which can be more than 30 ft. apart													DURATION:1 round/level											SAVEINFO:None										SPELLRES:No
+Sympathetic Sight														CLASSES:Acolyte=3				SCHOOL:Divination				SUBSCHOOL:Scrying										COMPS:V, S, M, F		CASTTIME:10 minutes		RANGE:10 miles		TARGETAREA:Magical sensor																							DURATION:5 rounds												SAVEINFO:None										SPELLRES:No
+Sympathetic Sound														CLASSES:Acolyte=2				SCHOOL:Divination				SUBSCHOOL:Scrying										COMPS:V, S, M, F		CASTTIME:10 minutes		RANGE:10 miles		TARGETAREA:Magical sensor																							DURATION:5 rounds												SAVEINFO:None										SPELLRES:No
+Sympathetic Trail														CLASSES:Acolyte=1				SCHOOL:Divination				SUBSCHOOL:Scrying										COMPS:V, S, M, F		CASTTIME:10 minutes		RANGE:Touch			TARGETAREA:One distinct footprint																						DURATION:15 minutes											SAVEINFO:None										SPELLRES:No
+Synchronicity														CLASSES:Acolyte,Apprentice=5		SCHOOL:Abjuration																COMPS:V, S, F/DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:10 minutes/level										SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)
+Tanglemat															CLASSES:Acolyte,Apprentice=1		SCHOOL:Transmutation															COMPS:V, S, M		CASTTIME:Attack action		RANGE:Medium		TARGETAREA:Carpeting in a 20-ft.-radius spread																				DURATION:1 minute/level (D)										SAVEINFO:Reflex partial (see text)							SPELLRES:No
+Telekinesis											TYPE:Arcane			CLASSES:Apprentice=5			SCHOOL:Transmutation															COMPS:V,S			CASTTIME:Attack action		RANGE:Long			TARGETAREA:See text																								DURATION:Concentration [up to (CASTERLEVEL) rounds] or instantaneous [see text]	SAVEINFO:Will negates (object) (see text)						SPELLRES:Yes (object) (see text)										SOURCEPAGE:p.		DESC:Lifts or moves (CASTERLEVEL*25) lb. at long range.
+Tongues											TYPE:Arcane.Divine	CLASSES:Apprentice=3|Acolyte=4	SCHOOL:Divination																COMPS:V,M/DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL*10) minutes									SAVEINFO:Will negates (harmless)							SPELLRES:No														SOURCEPAGE:p.		DESC:Speak any language.
+Trace Purge															CLASSES:Acolyte,Apprentice=1		SCHOOL:Transmutation															COMPS:V, S, M/DF		CASTTIME:Attack action		RANGE:Close			TARGETAREA:15-ft.-radius emanation centered on a point in space																	DURATION:Instantaneous											SAVEINFO:None										SPELLRES:No
+True Seeing											TYPE:Divine			CLASSES:Acolyte=5				SCHOOL:Divination																COMPS:V,S,M			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:(CASTERLEVEL) minutes									SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:See all things as they really are.
+True Strike											TYPE:Arcane			CLASSES:Apprentice=1			SCHOOL:Divination																COMPS:V,F			CASTTIME:Attack action		RANGE:Personal		TARGETAREA:You																									DURATION:See text																																							SOURCEPAGE:p.		DESC:Adds +20 bonus to caster's next attack roll.
+Undetectable Magical Aura												CLASSES:Apprentice=1			SCHOOL:Illusion																COMPS:V, S, F		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Object touched weighing up to 5 lb./level																			DURATION:1 day/level (D)										SAVEINFO:None (see text)								SPELLRES:No
+Vampiric Touch														CLASSES:Acolyte,Apprentice=3		SCHOOL:Necromancy																COMPS:V, S			CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Living creature touched																						DURATION:Instantaneous and 1 hour (see text)							SAVEINFO:None										SPELLRES:Yes
+Vertigo															CLASSES:Apprentice=3			SCHOOL:Illusion																COMPS:V, S, F		CASTTIME:Attack Action		RANGE:Medium		TARGETAREA:One person																								DURATION:1 round/2 levels										SAVEINFO:Will partial (see text)
+Via Negativa														CLASSES:Acolyte,Apprentice=4		SCHOOL:Necromancy																COMPS:S, F/DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:1 round/level											SAVEINFO:Fortitude half									SPELLRES:Yes
+Vigilant Vermin														CLASSES:Apprentice=2			SCHOOL:Conjuration|Enchantment	SUBSCHOOL:Summoning									COMPS:V, S, M		CASTTIME:Attack action		RANGE:Long			TARGETAREA:50 sq. ft./level																							DURATION:1 hours/level											SAVEINFO:None										SPELLRES:No
+Virtue											TYPE:Divine			CLASSES:Acolyte=0				SCHOOL:Transmutation															COMPS:V,S,DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:1 minute												SAVEINFO:Yes (harmless)									SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Subject gains 1 temporary hp.																																TEMPBONUS:ANYPC|HP|CURRENTMAX|1|TYPE=Temporary
+Wall of Fire										TYPE:Arcane			CLASSES:Apprentice=4			SCHOOL:Evocation								DESCRIPTOR:Fire						COMPS:V,S,M			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:Opaque sheet of flame up to (CASTERLEVEL*20) ft. long or a ring of fire with a radius of up to (5*floor(CASTERLEVEL/2)) ft.; either form 20 ft. high	DURATION:Concentration + (CASTERLEVEL) rounds							SAVEINFO:See text										SPELLRES:Yes													SOURCEPAGE:p.		DESC:Deals 2d4 fire damage out to 10 ft. and 1d4 out to 20 ft. Passing through wall deals 2d6 + (CASTERLEVEL).
+Wall of Force										TYPE:Arcane			CLASSES:Apprentice=5			SCHOOL:Evocation								DESCRIPTOR:Force						COMPS:V,S,M			CASTTIME:Attack action		RANGE:Close			TARGETAREA:Wall whose area is up to one (CASTERLEVEL*10) ft. square or a sphere or hemisphere with a radius of up to (CASTERLEVEL) ft.					DURATION:(CASTERLEVEL) minutes [D]									SAVEINFO:None										SPELLRES:No														SOURCEPAGE:p.		DESC:Wall is immune to damage.
+Wall of Ice											TYPE:Arcane			CLASSES:Apprentice=4			SCHOOL:Evocation								DESCRIPTOR:Cold						COMPS:V,S,M			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:Anchored plane of ice, up to one (CASTERLEVEL*10) ft. square, or hemisphere of ice with a radius of up to (CASTERLEVEL+3) ft.					DURATION:(CASTERLEVEL) minute										SAVEINFO:See text										SPELLRES:Yes													SOURCEPAGE:p.		DESC:Ice plane creates wall with (CASTERLEVEL+15) hp, or hemisphere can trap creatures inside.
+Wall of Iron										TYPE:Arcane			CLASSES:Apprentice=5			SCHOOL:Conjuration			SUBSCHOOL:Creation									COMPS:V,S,M			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:Iron wall whose area is up to one (CASTERLEVEL*5) ft. square [see text]														DURATION:Instantaneous											SAVEINFO:See text										SPELLRES:No														SOURCEPAGE:p.		DESC:(30*(floor((CASTERLEVEL)/4))) hp; can topple onto foes.
+Wall of Stone										TYPE:Arcane.Divine	CLASSES:Acolyte,Apprentice=5		SCHOOL:Conjuration			SUBSCHOOL:Creation									COMPS:V,S,M/DF		CASTTIME:Attack action		RANGE:Medium		TARGETAREA:Stone wall whose area is up to one (CASTERLEVEL*5) ft. square [S]															DURATION:Instantaneous											SAVEINFO:See text										SPELLRES:No														SOURCEPAGE:p.		DESC:Creates a stone wall that can be shaped.
+Wall Walk															CLASSES:Apprentice=3|Acolyte=4	SCHOOL:Transmutation															COMPS:V, S, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Creature touched																							DURATION:10 minutes/ level										SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)
+Water Breathing										TYPE:Arcane.Divine	CLASSES:Acolyte,Apprentice=3		SCHOOL:Transmutation															COMPS:V,S,M/DF		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:Living creatures touched																						DURATION:(CASTERLEVEL*2) hours [see text]								SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)												SOURCEPAGE:p.		DESC:Subjects can breathe underwater.
+Web												TYPE:Arcane			CLASSES:Apprentice=2			SCHOOL:Conjuration			SUBSCHOOL:Creation									COMPS:V,S,M			CASTTIME:Attack action		RANGE:Medium		TARGETAREA:Webs in a 20-ft.-radius spread																					DURATION:(CASTERLEVEL*10) minutes									SAVEINFO:Reflex negates [see text]							SPELLRES:Yes													SOURCEPAGE:p.		DESC:Fills 20-ft.-radius spread with sticky spider webs.
+Whorlooparch														CLASSES:Apprentice=1			SCHOOL:Transmutation															COMPS:V, S, M		CASTTIME:Attack Action		RANGE:Touch			TARGETAREA:Person touched																							DURATION:5 minutes/level										SAVEINFO:Fortitude negates (Harmless)						SPELLRES:Yes (Harmless)
+
+
+X-Mark															CLASSES:Acolyte,Apprentice=3		SCHOOL:Divination																COMPS:V, S, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:One creature, object, or structure																				DURATION:1 day												SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)
+Zen Focus															CLASSES:Acolyte=2				SCHOOL:Enchantment							DESCRIPTOR:Mind-Affecting				COMPS:V, S, F		CASTTIME:Attack action		RANGE:Close			TARGETAREA:One creature																								DURATION:1 minute/level											SAVEINFO:Will negates(harmless)							SPELLRES:Yes (harmless)
+Zone of Truth										TYPE:Divine			CLASSES:Acolyte=2				SCHOOL:Enchantment							DESCRIPTOR:Mind-Affecting				COMPS:V,S,DF		CASTTIME:Attack action		RANGE:Close			TARGETAREA:(CASTERLEVEL*5)-ft.-radius emanation																				DURATION:(CASTERLEVEL) minutes									SAVEINFO:Will negates									SPELLRES:Yes													SOURCEPAGE:p.		DESC:Subjects within range cannot lie.
+Zonk																CLASSES:Apprentice=2			SCHOOL:Enchantment							DESCRIPTOR:Mind-Affecting				COMPS:V, S, M		CASTTIME:Attack action		RANGE:Touch			TARGETAREA:One creature with 8 HD or																					DURATION:1 minute/level											SAVEINFO:Will negates									SPELLRES:Yes
+
+
+###Block: Newest editions
+# Spell Name				Product Identity?	Type				Classes of caster				School			Sub-School			Descriptor							Components		Casting Time			Range				Item		Target Area or Effect											Duration									Save Info						Spell Resistance		Source Page			Description
+Animate Rope							TYPE:Arcane			CLASSES:Apprentice=1			SCHOOL:Transmutation													COMPS:V, S		CASTTIME:1 standard action	RANGE:Medium		ITEM:Potion	TARGETAREA:One ropelike object, length up to ((CASTERLEVEL*5)+50) ft.; see text	DURATION:(CASTERLEVEL) rounds						SAVEINFO:None					SPELLRES:No			SOURCEPAGE:SpellsA-B	DESC:Makes a rope move at your command.
+Calm Emotions							TYPE:Arcane.Divine	CLASSES:Acolyte=2				SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting				COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Medium		ITEM:Potion	TARGETAREA:Creatures in a 20-ft.-radius spread							DURATION:Concentration, up to (CASTERLEVEL) rounds [D]	SAVEINFO:Will negates				SPELLRES:Yes		SOURCEPAGE:SpellsC	DESC:Calms creatures, negating emotion effects.
+Charm Monster							TYPE:Arcane			CLASSES:Apprentice=4			SCHOOL:Enchantment	SUBSCHOOL:Charm		DESCRIPTOR:Mind-Affecting				COMPS:V, S		CASTTIME:1 standard action	RANGE:Close			ITEM:Potion	TARGETAREA:One living creature									DURATION:(CASTERLEVEL) days						SAVEINFO:Will negates				SPELLRES:Yes		SOURCEPAGE:SpellsC	DESC:Makes monster believe it is your ally.
+Charm Person							TYPE:Arcane			CLASSES:Apprentice=1			SCHOOL:Enchantment	SUBSCHOOL:Charm		DESCRIPTOR:Mind-Affecting				COMPS:V, S		CASTTIME:1 standard action	RANGE:Close			ITEM:Potion	TARGETAREA:One humanoid creature									DURATION:(CASTERLEVEL) hours						SAVEINFO:Will negates				SPELLRES:Yes		SOURCEPAGE:SpellsC	DESC:Makes one person your friend.
+Fog Cloud								TYPE:Arcane.Divine	CLASSES:Acolyte,Apprentice=2		SCHOOL:Conjuration	SUBSCHOOL:Creation									COMPS:V, S		CASTTIME:1 standard action	RANGE:Medium		ITEM:Potion	TARGETAREA:Fog spreads in 20-ft. radius, 20 ft. high						DURATION:(CASTERLEVEL*10) minutes					SAVEINFO:None					SPELLRES:No			SOURCEPAGE:SpellsF-G	DESC:Fog obscures vision.
+Freedom of Movement						TYPE:Arcane.Divine	CLASSES:Acolyte=4				SCHOOL:Abjuration														COMPS:V, S, M, DF	CASTTIME:1 standard action	RANGE:Personal or touch	ITEM:Potion	TARGETAREA:You or creature touched									DURATION:(CASTERLEVEL*10) minutes					SAVEINFO:Will negates (harmless)		SPELLRES:Yes (harmless)	SOURCEPAGE:SpellsF-G	DESC:Subject moves normally despite impediments.
+Suggestion								TYPE:Arcane			CLASSES:Acolyte=2|Apprentice=3	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Language-Dependent|Mind-Affecting	COMPS:V, M		CASTTIME:1 standard action	RANGE:Close			ITEM:Potion	TARGETAREA:One living creature									DURATION:(CASTERLEVEL) hours or until completed			SAVEINFO:Will negates				SPELLRES:Yes		SOURCEPAGE:SpellsS	DESC:Compels subject to follow stated course of action.
+
+Emotion												CLASSES:Apprentice=4			SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting				COMPS:V, S		CASTTIME:1 action			RANGE:Medium				TARGETAREA:All living creatures within a 15-ft. radius					DURATION:Concentration							SAVEINFO:Will negates				SPELLRES:Yes
+Wilde's Pangenderal Transformation	NAMEISPI:YES					CLASSES:Apprentice=3			SCHOOL:Transmutation													COMPS:V, S, M	CASTTIME:Attack action		RANGE:Touch					TARGETAREA:Creature touched										DURATION:(CASTERLEVEL*2) hours (D)					SAVEINFO:Fortitude negates (harmless)	SPELLRES:Yes (harmless)
+
+
+
+
+
+
+
+
+#
+# End
+#
+
+
+###Block: Short Descriptions and other Mods.
+
+#Arcane Spells
+
+#0-Level Arcane Spells
+# Spell Name					Clear Description	Description
+Arcane Graffiti.MOD				DESC:.CLEAR		DESC:Inscribes personal rune or short message on object or surface.
+Close Shave.MOD					DESC:.CLEAR		DESC:Remove hair from touched skin.
+Daze.MOD						DESC:.CLEAR		DESC:Subject takes no actions for 1 round.
+Detect Magical Aura.MOD				DESC:.CLEAR		DESC:Detects spells and magic items within 60 ft.
+Haywire.MOD						DESC:.CLEAR		DESC:Causes a single device to behave randomly and erratically.
+Jargon.MOD						DESC:.CLEAR		DESC:Provides a +2 insight bonus to skill checks related to a specified Knowledge category.
+Light.MOD						DESC:.CLEAR		DESC:Object shines like a torch.
+Magic ID.MOD					DESC:.CLEAR		DESC:Creates a false but visually accurate identification card.
+#Manual-Focus Binoculars.MOD		DESC:.CLEAR		DESC:Pantomimed set of binoculars function as standard binoculars.
+No Doze.MOD						DESC:.CLEAR		DESC:Subject temporarily suffers no effects due to lack of sleep.
+Mending.MOD						DESC:.CLEAR		DESC:Repairs small breaks or tears in objects.
+Message.MOD						DESC:.CLEAR		DESC:Whispered conversation at distance.
+Prestidigitation.MOD				DESC:.CLEAR		DESC:Perform minor tricks.
+Read Magic.MOD					DESC:.CLEAR		DESC:Read scrolls, spellbooks, and magical writing.
+Resistance.MOD					DESC:.CLEAR		DESC:Subject gains +1 on saving throws.
+
+#1st-level Arcane Spells
+Animate Rope.MOD					DESC:.CLEAR		DESC:Makes a rope move at your command.
+Be the Ball.MOD					DESC:.CLEAR		DESC:Subject receives a +10 insight bonus to a single physical action.
+Burning Hands.MOD					DESC:.CLEAR		DESC:1d4 fire damage/level (max 5d4).
+Bypass Bystanders.MOD				DESC:.CLEAR		DESC:Bullets pass harmlessly through individuals other than the designated target(s), negating cover bonuses.
+Catalog.MOD						DESC:.CLEAR		DESC:Creates an inventory of everything inside touched object.
+Cause Fear.MOD					DESC:.CLEAR		DESC:One creature flees for 1d4 rounds.
+Change Self.MOD					DESC:.CLEAR		DESC:Changes your appearance.
+Clean.MOD						DESC:.CLEAR		DESC:Eliminates grime, dirt, and bacterial contaminants from the target, and renders target scentless.
+Comprehend Languages.MOD			DESC:.CLEAR		DESC:Understands all spoken and written languages.
+Dancing Lights.MOD				DESC:.CLEAR		DESC:Creates up to four lights or a glowing, vaguely humanoid shape.
+Dud.MOD						DESC:.CLEAR		DESC:Renders target explosive device inactive.
+Hold Portal.MOD					DESC:.CLEAR		DESC:Holds door shut.
+Instant Identify.MOD				DESC:.CLEAR		DESC:Determines all magic properties of a single magic item.
+Jump.MOD						DESC:.CLEAR		DESC:Subject gets bonus on Jump checks.
+Light-Gathering Eyes.MOD			DESC:.CLEAR		DESC:See twice as far in reduced lighting, as if possessing low-light vision.
+Mage Armor.MOD					DESC:.CLEAR		DESC:Gives subject +4 Defense bonus.
+Magic Missile.MOD					DESC:.CLEAR		DESC:1d4+1 damage; +1 missile/two levels above 1st (max 5).
+Magic Weapon.MOD					DESC:.CLEAR		DESC:Weapon gains +1 bonus.
+Obscuring Mist.MOD				DESC:.CLEAR		DESC:Creates cloud of vapor that obscures all sight, including darkvision, beyond 5 feet.
+Plain Brown Wrapper.MOD				DESC:.CLEAR		DESC:Confers a +10 equipment bonus to Sleight of Hand checks made to conceal an object.
+Point-N-Shoot.MOD					DESC:.CLEAR		DESC:Pantomimed camera stores one photograph/level on a roll of film.
+Ray of Fatigue.MOD				DESC:.CLEAR		DESC:Ray fatigues target.
+R R.MOD						DESC:.CLEAR		DESC:Removes penalties associated with lack of sleep.
+Shield.MOD						DESC:.CLEAR		DESC:Invisible disc gives cover, blocks magic missiles.
+Sleep.MOD						DESC:.CLEAR		DESC:Put 2d4 HD of creatures into comatose slumber.
+Summon Vivilor I.MOD				DESC:.CLEAR		DESC:Summons a 1st-level vivilor from Shadow to fight for you.
+Trace Purge.MOD					DESC:.CLEAR		DESC:Removes physical traces of the subject's presence or passage.
+True Strike.MOD					DESC:.CLEAR		DESC:Adds +20 bonus to your next attack roll.
+Undetectable Magical Aura.MOD			DESC:.CLEAR		DESC:Masks a magic item's aura from detection.
+Whorlooparch.MOD					DESC:.CLEAR		DESC:Subject's fingerprints constantly change.
+
+#2nd-Level Arcane Spells
+Arcane Lock.MOD					DESC:.CLEAR		DESC:Magically locks a portal or chest.
+Blur.MOD						DESC:.CLEAR		DESC:Attacks miss subject 20%% of the time.
+Darkvision.MOD					DESC:.CLEAR		DESC:See 60 ft. in total darkness.
+Ectodermis.MOD					DESC:.CLEAR		DESC:Creates layer of thick, flexible chitin that provides natural armor and energy resistance.
+Enhance Ability.MOD				DESC:.CLEAR		DESC:Subject gains +5 bonus to one ability score for 1 min./Level.
+Glitterdust.MOD					DESC:.CLEAR		DESC:Blinds creatures, outlines invisible creatures.
+Hand Gun.MOD					DESC:.CLEAR		DESC:Pantomimed pistol fires a single "bullet"/level.
+Levitate.MOD					DESC:.CLEAR		DESC:Subject moves up and down at your direction.
+Locate Object.MOD					DESC:.CLEAR		DESC:Senses direction toward object (specific or type).
+Magic Message.MOD					DESC:.CLEAR		DESC:Device delivers a message of 25 words or less when specific conditions are met.
+Magic Mouth.MOD					DESC:.CLEAR		DESC:Speaks once when triggered.
+Protection from Arrows/Bullets.MOD		DESC:.CLEAR		DESC:Subject immune to most ranged attacks.
+Resist Energy.MOD					DESC:.CLEAR		DESC:Ignores 10 points of damage/round from one energy type.
+Sparkly Shiny.MOD					DESC:.CLEAR		DESC:Target object draws the attention of anyone who views it and holds it for one round/caster level.
+Summon Vivilor II.MOD				DESC:.CLEAR		DESC:Summons a 2nd-level vivilor or 1d3 1st-level vivilors to fight for you.
+Vigilant Vermin.MOD				DESC:.CLEAR		DESC:Rats or pigeons guard specified area, alerting caster when target approaches.
+Web.MOD						DESC:.CLEAR		DESC:Fills 20-ft.-radius spread with sticky spider webs.
+Zonk.MOD						DESC:.CLEAR		DESC:Touched creature must make a Fortitude save or fall asleep.
+
+#3rd-level Arcane Spells
+Dispel Magic.MOD					DESC:.CLEAR		DESC:Cancels magical spells and effects.
+Displacement.MOD					DESC:.CLEAR		DESC:Attacks miss subject 50%% of the time.
+Fireball.MOD					DESC:.CLEAR		DESC:1d6 damage per level, 20-ft. radius.
+Flaming Projectiles.MOD				DESC:.CLEAR		DESC:Projectiles deal +1d6 fire damage.
+Gaseous Form.MOD					DESC:.CLEAR		DESC:Turns subject into translucent mist or wispy smoke and grants damage reduction 10/+1.
+Gender Bender.MOD					DESC:.CLEAR		DESC:Temporarily alters subject's physiology to that of the opposite gender.
+Halt Undead.MOD					DESC:.CLEAR		DESC:Immobilizes undead for 1 round/level.
+Hand Gun (Greater).MOD				DESC:.CLEAR		DESC:Pantomimed longarm fires two "bullets" or "shells" per level.
+Haste.MOD						DESC:.CLEAR		DESC:Extra attack action, additional move, and +2 Defense.
+Hold Person.MOD					DESC:.CLEAR		DESC:Holds one person helpless; 1 round/level.
+Improved Arcane Lock.MOD			DESC:.CLEAR		DESC:Closes and locks all specifically targeted doors within range.
+Itchy Trigger Finger.MOD			DESC:.CLEAR		DESC:Allows the subject to make an attack even if the subject would normally be caught flat-footed.
+Keen Edge.MOD					DESC:.CLEAR		DESC:Doubles normal weapon's threat range.
+Lightning Bolt.MOD				DESC:.CLEAR		DESC:Electricity deals 1d6 damage/level.
+Nondetection.MOD					DESC:.CLEAR		DESC:Creature or object becomes difficult to detect by divination and detection spells.
+Object to Ink.MOD					DESC:.CLEAR		DESC:Transforms a single non-magical object into a tattoo that reverts back to its normal physical form when activated by the bearer.
+Secret Pocket.MOD					DESC:.CLEAR		DESC:Creates extradimensional space within a pocket on a garment.
+Slow.MOD						DESC:.CLEAR		DESC:One subject/level may only move or attack; -2 to Defense, -2 on melee attack and damage rolls, -2 on Reflex saves.
+Summon Vivilor III.MOD				DESC:.CLEAR		DESC:Summons a 3rd-level vivilor, 1d3 2nd-level vivilors, or 1d4+1 1st-level vivilors to fight for you.
+Tongues.MOD						DESC:.CLEAR		DESC:Speak any language.
+Vertigo.MOD						DESC:.CLEAR		DESC:Target is stunned, then nauseated.
+Vampiric Touch.MOD				DESC:.CLEAR		DESC:Touch deals 1d6 points of damage per two caster levels; caster gains damage as temporary hit points.
+Wall Walk.MOD					DESC:.CLEAR		DESC:Subject can move on ceilings and walls at normal speed as well as hold and wield weapons.
+Water Breathing.MOD				DESC:.CLEAR		DESC:Subjects can breathe underwater.
+Wilde's Pangenderal Transformation.MOD	DESC:.CLEAR		DESC:see text
+X-Mark.MOD						DESC:.CLEAR		DESC:Caster is constantly aware of the distance and direction of the person, object, or place targeted by this spell.
+
+#4th-level Arcane Spells
+Animate Dead.MOD					DESC:.CLEAR		DESC:Creates undead skeletons and zombies.
+Arcane Eye.MOD					DESC:.CLEAR		DESC:Invisible floating eye moves 30 ft. /round.
+Bestow Curse.MOD					DESC:.CLEAR		DESC:-6 to an ability; -4 on attacks, saves, and checks; or 50%% chance of taking no action.
+Brawl.MOD						DESC:.CLEAR		DESC:All individuals in area attack nearest creature for three rounds.
+Clown Car.MOD					DESC:.CLEAR		DESC:Creates extradimensional space within enclosed vehicle that holds one passenger per caster level.
+Confusion.MOD					DESC:.CLEAR		DESC:Makes subject behave oddly for 1 round/Level.
+Detect Scrying.MOD				DESC:.CLEAR		DESC:You are aware of any attempt to scry on you and can sense the presence of scrying devices.
+Energy Trap.MOD					DESC:.CLEAR		DESC:Opened object deals 1d4 +1/level damage of given energy type.
+Fear.MOD						DESC:.CLEAR		DESC:Subjects within cone flee for 1 round/level.
+Ice Storm.MOD					DESC:.CLEAR		DESC:Hail deals 5d6 damage in cylinder 40 ft. across.
+Magic Bullets.MOD					DESC:.CLEAR		DESC:Enchants bullets with the power to knock out or panic targets.
+Phantasmal Killer.MOD				DESC:.CLEAR		DESC:Fearsome illusion kills subject or deals 3d6 points of damage.
+Remove Curse.MOD					DESC:.CLEAR		DESC:Frees object or person from curse.
+Scrying.MOD						DESC:.CLEAR		DESC:Spies on subject from a distance.
+Shout.MOD						DESC:.CLEAR		DESC:Deafens all within cone and deals 2d6 damage.
+Stoneskin.MOD					DESC:.CLEAR		DESC:Stops blows, cuts, stabs, and slashes.
+Summon Vivilor IV.MOD				DESC:.CLEAR		DESC:Summons a 4th-level vivilor, 1d3 3rd-level vivilors, or 1d4+1 2nd-level vivilors to fight for you.
+Via Negativa.MOD					DESC:.CLEAR		DESC:Crackling energy deals 4d6 points of damage per round to grappled foe; +5 bonus to grapple checks.
+Wall of Fire.MOD					DESC:.CLEAR		DESC:Deals 2d4 fire damage out to 10 ft. and 1d4 out to 20 ft. passing through wall deals 2d6 +1/level.
+Wall of Ice.MOD					DESC:.CLEAR		DESC:Ice plane creates wall with 15 hp +1/level, or hemisphere can trap creatures inside.
+
+#5th-level Arcane Spells
+Cloudkill.MOD					DESC:.CLEAR		DESC:Kills 3 HD or less; 4-6 HD save or die.
+Cone of Cold.MOD					DESC:.CLEAR		DESC:1d6 cold damage/level.
+Hold Monster.MOD					DESC:.CLEAR		DESC:As hold person, but any creature.
+Passwall.MOD					DESC:.CLEAR		DESC:Breaches walls 1 ft. thick/level.
+Phantom Projectiles.MOD				DESC:.CLEAR		DESC:Projectiles pass through obstacles and armor and ignore most damage reduction.
+Phantom Watchdog.MOD				DESC:.CLEAR		DESC:Spectral dog can guard or attack.
+Secret Vault.MOD					DESC:.CLEAR		DESC:Creates extradimensional space in which to hide a container, which you can retrieve at will.
+Seeming.MOD						DESC:.CLEAR		DESC:Changes the appearance of one creature per two levels.
+Summon Vivilor V.MOD				DESC:.CLEAR		DESC:Summons a 5th-level vivilor, 1d3 4th-level vivilors, or 1d4+1 3rd-level vivilors to fight for you.
+Synchronicity.MOD					DESC:.CLEAR		DESC:Subject isn't delayed by the inconveniences of modern life.
+Telekinesis.MOD					DESC:.CLEAR		DESC:Lifts or moves 25 lb./level at long range.
+Wall of Force.MOD					DESC:.CLEAR		DESC:Wall is immune to damage.
+Wall of Iron.MOD					DESC:.CLEAR		DESC:30 hp/four levels; can topple onto foes.
+Wall of Stone.MOD					DESC:.CLEAR		DESC:Creates a stone wall that can be shaped.
+
+#Divine Spells
+
+#0-Level Divine Spells
+Create Water.MOD					DESC:.CLEAR		DESC:Creates 2 gallons/level of pure water.
+Detect Magical Aura.MOD				DESC:.CLEAR		DESC:Detects spells, magic items within 60 ft.
+Haywire.MOD						DESC:.CLEAR		DESC:Causes a single device to behave randomly and erratically.
+Light.MOD						DESC:.CLEAR		DESC:Object shines like a torch.
+Mending.MOD						DESC:.CLEAR		DESC:Repairs small breaks or tears in objects.
+Read Magic.MOD					DESC:.CLEAR		DESC:Read scrolls and magical writing.
+Resistance.MOD					DESC:.CLEAR		DESC:Subject gains +1 on saving throws.
+Virtue.MOD						DESC:.CLEAR		DESC:Subject gains 1 temporary hp.
+
+#1st-level Divine Spells
+Bane.MOD						DESC:.CLEAR		DESC:Enemies suffer -1 attack, -1 on saves against fear.
+Be the Ball.MOD					DESC:.CLEAR		DESC:Subject receives a +10 insight bonus to a single physical action.
+Bless.MOD						DESC:.CLEAR		DESC:Allies gain +1 attack and +1 on saves against fear.
+Cause Fear.MOD					DESC:.CLEAR		DESC:One creature flees for 1d4 rounds.
+Clean.MOD						DESC:.CLEAR		DESC:Eliminates grime, dirt, and bacterial contaminants from the target, and renders target scentless.
+Command.MOD						DESC:.CLEAR		DESC:One subject obeys one-word command for 1 round.
+Comprehend Languages.MOD			DESC:.CLEAR		DESC:Understand all spoken and written languages.
+Faerie Fire.MOD					DESC:.CLEAR		DESC:Pale glow surrounds and outlines creatures and objects in a 5-foot-radius burst.
+Hawkeye.MOD						DESC:.CLEAR		DESC:Enhances subject's long-distance vision when aiming a firearm; subject treats all targets as if they were one range increment closer.
+Jargon.MOD						DESC:.CLEAR		DESC:Provides a +2 insight bonus to skill checks related to a specified Knowledge category.
+Magic Weapon.MOD					DESC:.CLEAR		DESC:Weapon gains +1 bonus.
+Obscuring Mist.MOD				DESC:.CLEAR		DESC:Creates cloud of vapor that obscures all sight, including darkvision, beyond 5 feet.
+Remove Fear.MOD					DESC:.CLEAR		DESC:+4 on saves against fear for one subject + one additional subject/four levels.
+Sanctuary.MOD					DESC:.CLEAR		DESC:Opponents can't attack you, and you can't attack them.
+Shield of Faith.MOD				DESC:.CLEAR		DESC:Aura grants +2 or higher deflection bonus.
+Sparkly Shiny.MOD					DESC:.CLEAR		DESC:Target object draws the attention of anyone who views it and holds it for one round/caster level.
+Summon Vivilor I.MOD				DESC:.CLEAR		DESC:Summons a 1st-level vivilor from Shadow to fight for you.
+Sympathetic Trail.MOD				DESC:.CLEAR		DESC:A single discernable footprint left by a subject allows caster to begin tracking that subject.
+Tanglemat.MOD					DESC:.CLEAR		DESC:Causes carpeting in area to impede creatures.
+Trace Purge.MOD					DESC:.CLEAR		DESC:Removes physical traces of the subject's presence or passage.
+
+#2nd-Level Divine Spells
+Aid.MOD						DESC:.CLEAR		DESC:+1 attack, +1 on saves against fear, 1d8 temporary hit points.
+Augury.MOD						DESC:.CLEAR		DESC:Learn whether an action will be good or bad.
+Bloodcurdling Scream.MOD			DESC:.CLEAR		DESC:All enemies are shaken, suffering -2 to attack rolls, saving throws, and skill checks.
+Darkness.MOD					DESC:.CLEAR		DESC:Causes an object to radiate darkness out to a 20-foot radius.
+Daylight.MOD					DESC:.CLEAR		DESC:Object touched sheds light as bright as full daylight in a 60-foot radius.
+Ectodermis.MOD					DESC:.CLEAR		DESC:Creates layer of thick, yet flexible chitin that provides a natural armor bonus and a small amount of energy resistance, based on caster level.
+Enhance Ability.MOD				DESC:.CLEAR		DESC:Subject gains +5 bonus to one ability score for 1 min./level.
+Hold Person.MOD					DESC:.CLEAR		DESC:Holds one person helpless; 1 round/level.
+Remove Paralysis.MOD				DESC:.CLEAR		DESC:Frees one or more creatures from paralysis, hold, or slow.
+Resist Energy.MOD					DESC:.CLEAR		DESC:Ignores 10 points of damage/round from one energy type.
+Shatter.MOD						DESC:.CLEAR		DESC:Sonic vibration damages objects or crystalline creatures.
+Shield Other.MOD					DESC:.CLEAR		DESC:You take half of the subject's damage. Subject gains +1 deflection bonus to Defense and +1 resistance bonus to saves.
+Silence.MOD						DESC:.CLEAR		DESC:Negates sound in 15-ft. radius.
+Speak with Animals.MOD				DESC:.CLEAR		DESC:You can comprehend and communicate with animals.
+Summon Vivilor II.MOD				DESC:.CLEAR		DESC:Summons a 2nd-level vivilor or 1d3 1st-level vivilors to fight for you.
+Sympathetic Sound.MOD				DESC:.CLEAR		DESC:Using hair, nail clippings, blood, or other piece of a person's body, the caster gains the ability to hear through that subject's ears.
+Zen Focus.MOD					DESC:.CLEAR		DESC:Subject may Take 10 on all skill checks, even under stressful conditions.
+Zone of Truth.MOD					DESC:.CLEAR		DESC:Subjects within range cannot lie.
+
+#3rd-level Divine Spells
+Bestow Curse.MOD					DESC:.CLEAR		DESC:-6 to an ability; -4 on attacks, saves, and checks; or 50%% chance of losing each action.
+Dispel Magic.MOD					DESC:.CLEAR		DESC:Cancels magical spells and effects.
+Divine Copilot.MOD				DESC:.CLEAR		DESC:Insubstantial entity allows a number of failed Operate Vehicles checks to be re-rolled.
+Glyph of Warding.MOD				DESC:.CLEAR		DESC:Inscription harms those who pass it.
+Locate Object.MOD					DESC:.CLEAR		DESC:Senses direction toward object (specific or type).
+Magic Circle.MOD					DESC:.CLEAR		DESC:10-foot-radius area grants +2 bonus to Defense and saves, counters mind control, and hedges out summoned and conjured creatures of specified allegiance.
+Prayer.MOD						DESC:.CLEAR		DESC:Allies gain +1 on most rolls, and enemies suffer -1.
+Remove Curse.MOD					DESC:.CLEAR		DESC:Frees object or person from curse.
+Secret Pocket.MOD					DESC:.CLEAR		DESC:Creates extradimensional space within a pocket on a garment.
+Status.MOD						DESC:.CLEAR		DESC:Monitors condition and position of one ally per 3 caster levels.
+Summon Vivilor III.MOD				DESC:.CLEAR		DESC:Summons a 3rd-level vivilor, 1d3 2nd-level vivilors, or 1d4+1 1st-level vivilors to fight for you.
+Sympathetic Sight.MOD				DESC:.CLEAR		DESC:Using hair, nail clippings, blood, or other piece of a person's body, the caster gains the ability to see through that subject's eyes.
+Vampiric Touch.MOD				DESC:.CLEAR		DESC:Touch deals 1d6 points of damage per two caster levels; caster gains damage as temporary hit points.
+Water Breathing.MOD				DESC:.CLEAR		DESC:Subjects can breathe underwater.
+X-Mark.MOD						DESC:.CLEAR		DESC:Caster is constantly aware of the distance and direction of the person, object, or place targeted.
+
+#4th-level Divine Spells
+Brawl.MOD						DESC:.CLEAR		DESC:All individuals in area attack nearest creature for three rounds.
+Carillon.MOD					DESC:.CLEAR		DESC:Resonating chimes benefit allies and hinder enemies with bonuses or penalties to attack rolls and saving throws against fear effects.
+Crawling Carpet.MOD				DESC:.CLEAR		DESC:Summons a 10-foot-radius carpet of monstrous centipedes, scarab beetles, or spiders.
+Discern Lies.MOD					DESC:.CLEAR		DESC:Reveals deliberate falsehoods.
+Divination.MOD					DESC:.CLEAR		DESC:Provides useful (if cryptic) advice to a single question.
+Faith's Fury.MOD					DESC:.CLEAR		DESC:Damages and blinds creatures with a specific allegiance.
+Guardian Angel.MOD				DESC:.CLEAR		DESC:Insubstantial entity comes to the aid of the caster, providing minor benefits in dangerous situations.
+Instant Fame.MOD					DESC:.CLEAR		DESC:Subject gains a +5 bonus to reputation checks.
+Magic Bullets.MOD					DESC:.CLEAR		DESC:Enchants bullets with power.
+Spell Immunity.MOD				DESC:.CLEAR		DESC:Subject is immune to one spell per four levels.
+Summon Vivilor IV.MOD				DESC:.CLEAR		DESC:Summons a 4th-level vivilor, 1d3 3rd-level vivilors, or 1d4+1 2nd-level vivilors to fight for you.
+Tongues.MOD						DESC:.CLEAR		DESC:Speak any language.
+Via Negativa.MOD					DESC:.CLEAR		DESC:Crackling energy deals 4d6 points of damage per round to grappled foe; +5 bonus to grapple checks.
+Wall Walk.MOD					DESC:.CLEAR		DESC:Subject can move on ceilings and walls at normal speed as well as hold and wield weapons.
+
+#5th-level Divine Spells
+Break Enchantment.MOD				DESC:.CLEAR		DESC:Frees subjects from enchantments, alterations, curses, and petrifaction.
+Flaming Wrath.MOD					DESC:.CLEAR		DESC:Smites foes with fire (1d6/level).
+Greater Command.MOD				DESC:.CLEAR		DESC:As command, but affects one subject/level.
+Insect Plague.MOD					DESC:.CLEAR		DESC:Insect horde limits vision, inflicts damage, and weak creatures flee.
+Rage of Bees.MOD					DESC:.CLEAR		DESC:Summons 1d3 swarms of sentient killer bees to fight for you.
+Scrying.MOD						DESC:.CLEAR		DESC:Spies on subject from a distance.
+Spell Resistance.MOD				DESC:.CLEAR		DESC:Subject gains spell resistance 12 + your caster level.
+Summon Vivilor V.MOD				DESC:.CLEAR		DESC:Summons a 5th-level vivilor, 1d3 4th-level vivilors, or 1d4+1 3rd-level vivilors to fight for you.
+Synchronicity.MOD					DESC:.CLEAR		DESC:Subject isn't delayed by the inconveniences of modern life.
+True Seeing.MOD					DESC:.CLEAR		DESC:See all things as they really are.
+Wall of Stone.MOD					DESC:.CLEAR		DESC:Creates a stone wall that can be shaped.

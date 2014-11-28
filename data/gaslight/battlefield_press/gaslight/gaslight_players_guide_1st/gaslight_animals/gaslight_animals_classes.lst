@@ -1,0 +1,14 @@
+# CVS $Revision: 25136 $ $Author: amaitland $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+SOURCELONG:Gaslight - Animals	SOURCESHORT:GLA	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
+
+
+# Class Name	Hit Dice	Type			Combat bonus								Save bonus															Modify VAR
+CLASS:Animal	HD:8		TYPE:Monster	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel()/2+2	BONUS:SAVE|BASE.Will|classlevel()/3	BONUS:VAR|NativeLanguage|-1
+# Class Name	Reg. Race Type
+CLASS:Animal	PRERACETYPE:Animal
+# Class Name	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Animal	MODTOSKILLS:NO			MONSKILL:10
+
+#
+# End
+#

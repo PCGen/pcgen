@@ -1,0 +1,57 @@
+# CVS $Revision: 25050 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
+#Original Entry: Andrew Maitland
+
+
+###Block: Occupation
+# Template Name	Visible	Bonus Ability Pool
+Occupation		VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1
+
+###Block: Starting Class
+# Template Name	Visible	Template																		Required Class			Bonus to HP
+Starting Class	VISIBLE:NO	TEMPLATE:CHOOSE:Acolyte|Apprentice|Everyman|Explorer|Gunslinger|Investigator|Martial Artist|Officer|Rogue|Scholar
+Acolyte		VISIBLE:NO																				PRECLASS:1,Acolyte=1		BONUS:HP|CURRENTMAX|16
+Apprentice		VISIBLE:NO																				PRECLASS:1,Apprentice=1		BONUS:HP|CURRENTMAX|12
+Everyman		VISIBLE:NO																				PRECLASS:1,Everyman=1		BONUS:HP|CURRENTMAX|12
+Explorer		VISIBLE:NO																				PRECLASS:1,Explorer=1		BONUS:HP|CURRENTMAX|16
+Gunslinger		VISIBLE:NO																				PRECLASS:1,Gunslinger=1		BONUS:HP|CURRENTMAX|20
+Investigator	VISIBLE:NO																				PRECLASS:1,Investigator=1	BONUS:HP|CURRENTMAX|12
+Martial Artist	VISIBLE:NO																				PRECLASS:1,Martial Artist=1	BONUS:HP|CURRENTMAX|16
+Officer		VISIBLE:NO																				PRECLASS:1,Officer=1		BONUS:HP|CURRENTMAX|16
+Rogue			VISIBLE:NO																				PRECLASS:1,Rogue=1		BONUS:HP|CURRENTMAX|16
+Scholar		VISIBLE:NO																				PRECLASS:1,Scholar=1		BONUS:HP|CURRENTMAX|16
+
+
+
+###Block: Beast Men Racial Traits
+# Template Name		Size		Visible	Subrace		Natural Attacks
+Bear Racial Traits	SIZE:L	VISIBLE:NO	SUBRACE:Bear
+Cat Racial Traits				VISIBLE:NO	SUBRACE:Cat
+Dog Racial Traits				VISIBLE:NO	SUBRACE:Dog
+
+
+
+#TODO: Wild Shape templates:  Bat|Dire Bat|Rat|Dire Rat|Wolf|Dire Wolf
+
+Claws						VISIBLE:NO				NATURALATTACKS:Claw,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*2,1d6
+Fangs						VISIBLE:NO				NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4
+Horns						VISIBLE:NO				NATURALATTACKS:Gore,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4
+
+
+###Block: Import from other source
+# Template Name
+Unarmed Lethal Strike
+Combat Expertise trade off
+
+
+###Block: Optional Rules
+# Template Name		Visible	Bonus to skill
+World Law ~ Skills	VISIBLE:NO	BONUS:SKILL|TYPE.LevelMod|TL/2
+
+###Block: Magus's Assistant Occupation Support
+# Template Name	Visible	Caster level bonus						Bonus to spell cast/day																																	Add
+Magus's Assistant	VISIBLE:NO	BONUS:PCLEVEL|Apprentice|-1|PRECLASS:1,Apprentice=1	BONUS:SPELLCAST|CLASS=Apprentice;LEVEL=1|1|PRECLASS:1,Apprentice=1	BONUS:SPELLCAST|CLASS=Apprentice;LEVEL=1|-3|!PRECLASS:1,Apprentice=1	BONUS:SPELLCAST|CLASS=Apprentice;LEVEL=0|-2|!PRECLASS:1,Apprentice=1	ADD:SPELLCASTER|Apprentice
+
+#
+# End
+#

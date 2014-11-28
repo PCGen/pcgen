@@ -1,0 +1,17 @@
+# CVS $Revision: 18395 $ $Author: amaitland $ -- Sun Feb 28 11:56:12 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
+#Original Entry: Andrew Maitland
+
+STARTPACK:Wealth Roll	VISIBLE:YES	APPLY:INSTANT
+SELECT:roll("2d4")
+ABILITY:CATEGORY=Wealth|Wealth Roll ~ 2	OPTION:2
+ABILITY:CATEGORY=Wealth|Wealth Roll ~ 3	OPTION:3
+ABILITY:CATEGORY=Wealth|Wealth Roll ~ 4	OPTION:4
+ABILITY:CATEGORY=Wealth|Wealth Roll ~ 5	OPTION:5
+ABILITY:CATEGORY=Wealth|Wealth Roll ~ 6	OPTION:6
+ABILITY:CATEGORY=Wealth|Wealth Roll ~ 7	OPTION:7
+ABILITY:CATEGORY=Wealth|Wealth Roll ~ 8	OPTION:8
+
+#
+# End
+#

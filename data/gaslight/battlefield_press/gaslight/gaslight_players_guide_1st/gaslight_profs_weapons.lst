@@ -1,0 +1,85 @@
+# CVS $Revision: 18395 $ $Author: amaitland $ -- Sun Feb 28 11:56:12 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
+#Original Entry: Andrew Maitland
+
+
+# Weapon Name			Type				Nb Hands
+Pocket Deringer			TYPE:PersonalFirearm
+Remington Double Derringer	TYPE:PersonalFirearm
+Sharps Pepperbox			TYPE:PersonalFirearm
+Colt New Model Army		TYPE:PersonalFirearm
+Colt Peacemaker			TYPE:PersonalFirearm
+Colt Walker Dragoon		TYPE:PersonalFirearm
+Remington Pocket Pistol		TYPE:PersonalFirearm
+S W Schofield			TYPE:PersonalFirearm
+Volcanic Navy Pistol 1854	TYPE:PersonalFirearm
+Adams 1854 Revolver		TYPE:PersonalFirearm
+Colt Lightning			TYPE:PersonalFirearm
+Colt Thunderer			TYPE:PersonalFirearm
+Percussion Revolver 1856	TYPE:PersonalFirearm
+Webley Mark				TYPE:PersonalFirearm
+Webley RIC				TYPE:PersonalFirearm
+#Longarms (require the Personal Firearms Proficiency feat)
+#Muskets			TYPE:PersonalFirearm
+Brown Bess				TYPE:PersonalFirearm
+M 1816 Flintlock Musket		TYPE:PersonalFirearm
+M 1842 Percussion Musket	TYPE:PersonalFirearm
+#Rifles
+Henry Rifle				TYPE:PersonalFirearm
+Martini-Henry Carbine		TYPE:PersonalFirearm
+Martini-Henry Rifle		TYPE:PersonalFirearm
+Sharps Carbine			TYPE:PersonalFirearm
+Sharps Rifle			TYPE:PersonalFirearm
+Spencer Carbine			TYPE:PersonalFirearm
+Winchester Model 1873		TYPE:PersonalFirearm
+#Shotguns
+Remington Single-Barrel		TYPE:PersonalFirearm
+Winchester Lever-Action		TYPE:PersonalFirearm
+# Exotic Firearms
+#Heavy Weapons (each requires a specific Exotic Firearms Proficiency feat)
+Gatling Gun (HMG)			TYPE:ExoticFirearms
+Maxim Machine Gun			TYPE:ExoticFirearms
+
+
+# Weapon Name			Type				Nb Hands
+Shuriken				TYPE:Archaic
+Whip					TYPE:Simple
+Crossbow				TYPE:Simple
+Javelin				TYPE:Simple
+Bow					TYPE:Archaic
+
+
+#Melee
+Kukri					TYPE:Exotic
+Kama					TYPE:Exotic
+Nunchaku				TYPE:Exotic
+Chain					TYPE:Exotic
+Chain Saw				TYPE:Exotic
+Three-Section Staff		TYPE:Exotic
+Katana				TYPE:Exotic
+Hatchet				TYPE:Archaic
+Machete				TYPE:Archaic
+Straight Razor			TYPE:Archaic
+Longsword				TYPE:Archaic
+Rapier				TYPE:Archaic
+Sword Cane				TYPE:Archaic
+Fixed Bayonet			TYPE:Archaic
+Spear					TYPE:Archaic
+Brass Knuckles			TYPE:Simple
+Knife					TYPE:Simple
+Cleaver				TYPE:Simple
+Pistol Whip				TYPE:Simple
+Sap					TYPE:Simple
+Club					TYPE:Simple
+Metal Baton				TYPE:Simple
+Tonfa					TYPE:Simple
+Rifle Butt				TYPE:Simple
+Unarmed Strike			TYPE:Simple
+Quarterstaff			TYPE:Simple			HANDS:2
+
+
+Grapple
+Ray
+#
+# End
+#
