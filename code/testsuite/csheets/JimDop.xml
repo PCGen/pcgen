@@ -1476,17 +1476,6 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Dragon Traits</name>
-			<description>Dragons eat/sleep/breathe. Dragons are Immune to magic sleep effects and paralysis effects.</description>
-			<type>SPECIALQUALITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Breath Weapon</name>
 			<description>60&#39; Line of Fire 1/day 6d8 (DC 16)</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY</type>
@@ -1553,17 +1542,6 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Shapechanger Traits</name>
-			<description>A shapechanger has the supernatural ability to assume one or more alternate forms. Many magical effects allow some kind of shape shifting, and not every creature that can change shapes has the shapechanger subtype. Traits- A shapechanger possesses the following traits (unless otherwise noted in a creature&#39;s entry). Proficient with its natural weapons, with simple weapons, and with any weapons mentioned in the creature&#39;s description. Proficient with any armor mentioned in the creature&#39;s description, as well as all lighter forms. If no form of armor is mentioned, the shapechanger is not proficient with armor. A shapechanger is proficient with shields if it is proficient with any type of armor.</description>
-			<type>SPECIALQUALITY.RACIALTRAIT</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Skills</name>
 			<description>A doppelganger has a +4 racial bonus on Bluff and Disguise checks. *When using its change shape ability, a doppelganger gets an additional +10 circumstance bonus on Disguise checks. If it can read an opponent&#39;s mind, it gets a further +4 circumstance bonus on Bluff and Disguise checks.</description>
 			<type>DOPPELGANGERRACETRAIT.SPECIALQUALITY</type>
@@ -1575,6 +1553,17 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Dragon Traits</name>
+			<description>Dragons eat/sleep/breathe. Dragons are Immune to magic sleep effects and paralysis effects.</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
 		<ability_object>
 			<name>Fighter Level Advanced Feat Tracker</name>
 			<description></description>
@@ -1612,6 +1601,17 @@ BIO
 			<name>Monstrous Humanoid Proficiencies</name>
 			<description></description>
 			<type>INTERNAL.CLASSABILITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Shapechanger Traits</name>
+			<description>A shapechanger has the supernatural ability to assume one or more alternate forms. Many magical effects allow some kind of shape shifting, and not every creature that can change shapes has the shapechanger subtype. Traits- A shapechanger possesses the following traits (unless otherwise noted in a creature&#39;s entry). Proficient with its natural weapons, with simple weapons, and with any weapons mentioned in the creature&#39;s description. Proficient with any armor mentioned in the creature&#39;s description, as well as all lighter forms. If no form of armor is mentioned, the shapechanger is not proficient with armor. A shapechanger is proficient with shields if it is proficient with any type of armor.</description>
+			<type>SPECIALQUALITY.RACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
