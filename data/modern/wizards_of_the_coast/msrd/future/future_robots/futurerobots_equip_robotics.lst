@@ -182,6 +182,10 @@ Robot Feat Software (Vehicle Dodge)								TYPE:Robotic.PL6			COST:0	WT:0		SOURC
 Robot Feat Software (Vehicle Expert)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Vehicle Expert|PRERACE:1,TYPE=Robot
 Robot Feat Software (Whirlwind Attack)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Whirlwind Attack|PRERACE:1,TYPE=Robot
 
+Robot Feat Software (Weapon Finesse)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots	AUTO:FEAT|%LIST|PRERACE:1,TYPE=Robot	CHOOSE:WEAPONPROFICIENCY|Chain|PC,TYPE=Light,TYPE=Melee|PC,TYPE=Natural|Rapier
+Robot Feat Software (Weapon Focus)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots	AUTO:FEAT|%LIST|PRERACE:1,TYPE=Robot	CHOOSE:WEAPONPROFICIENCY|Grapple|PC|SPELLCASTER[Ray]
+
+
 # Future Basics Feats
 Robot Feat Software (Action Boost)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Action Boost|PRERACE:1,TYPE=Robot
 Robot Feat Software (Alien Weapons Proficiency)						TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Alien Weapons Proficiency|PRERACE:1,TYPE=Robot
