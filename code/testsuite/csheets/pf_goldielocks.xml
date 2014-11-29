@@ -1579,7 +1579,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Crush</name>
-			<description></description>
+			<description>A flying or jumping Huge or larger dragon can land on foes as a standard action, using its whole body to crush them. Crush attacks are effective only against opponents three or more size categories smaller than the dragon. A crush attack affects as many creatures as fit in the dragon&#39;s space. Creatures in the affected area must succeed on a Reflex save (DC 34) or be pinned, automatically taking bludgeoning damage during the next round unless the dragon moves off them. If the dragon chooses to maintain the pin, it must succeed at a combat maneuver check as normal. Pinned foes take damage from the crush each round if they don&#39;t escape. A crush attack deals 4d8+24.</description>
 			<type>RACEABILITY.SPECIALATTACK.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
@@ -1788,7 +1788,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Tail Sweep</name>
-			<description></description>
+			<description>This allows a Gargantuan or larger dragon to sweep with its tail as a standard action. The sweep affects a half-circle with a radius of 30 feet (or 40 feet for a Colossal dragon), extending from an intersection on the edge of the dragon&#39;s space in any direction. Creatures within the swept area are affected if they are four or more size categories smaller than the dragon. A tail sweep automatically deals 2d8+24. Affected creatures can attempt Reflex saves to take half damage (DC 34).</description>
 			<type>RACEABILITY.SPECIALATTACK.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
