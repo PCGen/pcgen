@@ -12,10 +12,10 @@
     xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 
                         http://pmd.sf.net/ruleset_xml_schema.xsd" >
 
-    <rule ref="rulesets/logging-java.xml" />
-    <rule ref="rulesets/basic.xml" />
-    <rule ref="rulesets/braces.xml" />
-    <rule ref="rulesets/codesize.xml" >
+    <rule ref="rulesets/java/logging-java.xml" />
+    <rule ref="rulesets/java/basic.xml" />
+    <rule ref="rulesets/java/braces.xml" />
+    <rule ref="rulesets/java/codesize.xml" >
      <!-- 
         <exclude name="TooManyFields" />
         <exclude name="TooManyMethods" />
