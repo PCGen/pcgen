@@ -7,7 +7,7 @@ CATEGORY=Special Ability|Domains.MOD	DEFINE:DomainTaken|0	DEFINE:ClericInquisiti
 
 
 Take Inquisition	KEY:Take Inquisition ~ Cleric	CATEGORY:Special Ability	SORTKEY:1	TYPE:AltClassInquisition.ClericInquisition		BONUS:ABILITYPOOL|Inquisition|1	PRECLASS:1,Cleric=1	BONUS:VAR|ClericDomainCount|-1	COST:0
-Take Inquisition	KEY:Take Inquisition ~ Druid	CATEGORY:Special Ability	SORTKEY:1	TYPE:DruidDomainSelection		BONUS:ABILITYPOOL|Inquisition|1	PRECLASS:1,Druid=1
+#Take Inquisition	KEY:Take Inquisition ~ Druid	CATEGORY:Special Ability	SORTKEY:1	TYPE:DruidDomainSelection		BONUS:ABILITYPOOL|Inquisition|1	PRECLASS:1,Druid=1
 
 
 
@@ -307,7 +307,7 @@ Pack Tactics		KEY:Wolf Domain ~ Pack Tactics		CATEGORY:Special Ability	TYPE:Spec
 ###Block: Inquisitor Inquisitions
 # COMMENT: Deity prerequisites not enforced for inquisitor domains,
 # COMMENT:   so they're not enforced for inquisitions, either.
-# Ability Name			Unique Key								Category of Ability		Type				Define																Auto Feat		Ability																																													Modify VAR
+# Ability Name			Unique Key					Category of Ability		Type						Define																Auto Feat		Ability																																													Modify VAR
 Anger Inquisition			KEY:Inquisition ~ Anger			CATEGORY:Special Ability	TYPE:InquisitorDomain.Inquisition	DEFINE:DomainAngerLVL|0	DEFINE:DomainAngerDC|0	DEFINE:DomainAngerTimes|0								ABILITY:Special Ability|AUTOMATIC|Anger Domain ~ Hateful Retort	ABILITY:Special Ability|AUTOMATIC|Anger Domain ~ Divine Anger|PREVARGTEQ:DomainAngerLVL,6																					BONUS:VAR|DomainAngerLVL|DomainLVL	BONUS:VAR|DomainAngerDC|10+(DomainAngerLVL/2)+WIS	BONUS:VAR|DomainAngerTimes|DomainPowerTimes
 Conversion Inquisition		KEY:Inquisition ~ Conversion		CATEGORY:Special Ability	TYPE:InquisitorDomain.Inquisition	DEFINE:DomainConversionLVL|0	DEFINE:DomainConversionDC|0	DEFINE:DomainConversionTimes|0					ABILITY:Special Ability|AUTOMATIC|Conversion Domain ~ Charm of Wisdom	ABILITY:Special Ability|AUTOMATIC|Conversion Domain ~ Swaying Word|PREVARGTEQ:DomainConversionLVL,8																		BONUS:VAR|DomainConversionLVL|DomainLVL	BONUS:VAR|DomainConversionDC|10+(DomainConversionLVL/2)+WIS	BONUS:VAR|DomainConversionTimes|DomainPowerTimes
 Fate Inquisition			KEY:Inquisition ~ Fate			CATEGORY:Special Ability	TYPE:InquisitorDomain.Inquisition	DEFINE:DomainFateLVL|0	DEFINE:DomainFateDC|0	DEFINE:DomainFateTimes|0								ABILITY:Special Ability|AUTOMATIC|Fate Domain ~ Augury	ABILITY:Special Ability|AUTOMATIC|Fate Domain ~ Agent of Fate|PREVARGTEQ:DomainFateLVL,8																						BONUS:VAR|DomainFateLVL|DomainLVL	BONUS:VAR|DomainFateDC|10+(DomainFateLVL/2)+WIS	BONUS:VAR|DomainFateTimes|DomainPowerTimes
