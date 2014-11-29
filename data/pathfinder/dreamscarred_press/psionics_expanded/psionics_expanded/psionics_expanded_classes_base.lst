@@ -73,8 +73,8 @@ CLASS:Cryptic	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Cryp
 1	BONUS:VAR|BonusPowerPoints|(CrypticPrimeStat*CrypticPL)/2|TYPE=CrypticBonusPP
 
 1	BONUS:VAR|CrypticCL|CrypticLVL	BONUS:VAR|CrypticCL|var("BL=Cryptic")															DEFINE:CrypticCL|0
-1	BONUS:VAR|CrypticPowersKnown|CrypticPowersKnownLVL	BONUS:VAR|CrypticPowersKnownLVL|CL													DEFINE:CrypticPowersKnownLVL|CL	DEFINE:CrypticPowersKnown|0
-1	BONUS:VAR|CrypticMaximumPowerLevelKnown|min(6,floor((CrypticMaximumPowerLevelKnownLVL+2)/3))	BONUS:VAR|CrypticMaximumPowerLevelKnownLVL|CL				DEFINE:CrypticMaximumPowerLevelKnownLVL|CL	DEFINE:CrypticMaximumPowerLevelKnown|0
+1	BONUS:VAR|CrypticPowersKnown|CrypticPowersKnownLVL	BONUS:VAR|CrypticPowersKnownLVL|CL													DEFINE:CrypticPowersKnownLVL|0	DEFINE:CrypticPowersKnown|0
+1	BONUS:VAR|CrypticMaximumPowerLevelKnown|min(6,floor((CrypticMaximumPowerLevelKnownLVL+2)/3))	BONUS:VAR|CrypticMaximumPowerLevelKnownLVL|CL				DEFINE:CrypticMaximumPowerLevelKnownLVL|0	DEFINE:CrypticMaximumPowerLevelKnown|0
 
 ###Block: Cryptic Powers Known
 1	KNOWN:2,1
