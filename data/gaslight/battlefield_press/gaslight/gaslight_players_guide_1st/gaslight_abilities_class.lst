@@ -3,7 +3,7 @@ SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefie
 #Original Entry: Andrew Maitland
 
 # Ability Name	Category of Ability
-Default		CATEGORY:Internal
+Default		CATEGORY:Internal	DEFINE:MaxRank|0	BONUS:VAR|MaxRank|TL+3
 
 ###Block: Automatic Proficiencies for all classes
 # Ability Name			Category of Ability		Visible	Template				Auto Weapon Prof
