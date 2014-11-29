@@ -435,3 +435,9 @@ Qlippoth ~ Cythnigot	VISIBLE:NO	SOURCEPAGE:p.309	BONUS:VAR|AcidResistanceBonus,E
 Arsinoitherium Companion Advancement	SIZE:L	VISIBLE:NO	SOURCEPAGE:p.186	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4							ABILITY:Special Ability|AUTOMATIC|Trample	NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,2d8
 Gylptodon Companion Advancement		SIZE:L	VISIBLE:NO	SOURCEPAGE:p.186	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4														NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,1d10
 Hippopotamus Companion Advancement		SIZE:L	VISIBLE:NO	SOURCEPAGE:p.157	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4	BONUS:VAR|TrampleDamageDieSize|8	ABILITY:Special Ability|AUTOMATIC|Trample	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,2d8
+
+
+###Block:
+Awakened Animal											PRERACE:1,RACETYPE=Animal,TYPE=Animal	!PRESTAT:1,INT=3	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	ADDLEVEL:Animal|2
+Awakened Vermin			DEFINESTAT:STAT|INT	BONUS:VAR|Mindless|-1	PRERACE:1,RACETYPE=Vermin,TYPE=Vermin	!PRESTAT:1,INT=3	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Vermin	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	ADDLEVEL:Vermin|2
+Awakened Tree			DEFINESTAT:STAT|INT	BONUS:VAR|Mindless|-1	PRETEXT:Inanimate Tree				!PRESTAT:1,INT=3	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Tree	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Plant

@@ -2,6 +2,19 @@
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Andrew Maitland
 
+###Block: Awakened
+STARTPACK:Awakened Animal	TYPE:Companion	VISIBLE:NO	APPLY:INSTANT
+STAT:INT=roll("3d6")+var("STAT.3.BASE")-var("STAT.3")|CHA=roll("1d3")+var("STAT.5.BASE")
+
+STARTPACK:Awakened Tree		TYPE:Companion	VISIBLE:NO	APPLY:INSTANT
+NAME:Awakened Tree
+STAT:INT=roll("3d6")|CHA=roll("3d6")|WIS=roll("3d6")
+
+STARTPACK:Awakened Vermin	TYPE:Companion	VISIBLE:NO	APPLY:INSTANT
+NAME:Awakened Vermin
+STAT:INT=roll("3d6")|CHA=roll("3d6")|WIS=roll("3d6")
+
+
 ###Block: Companion Kits
 STARTPACK:Companion ~ Ape	TYPE:Companion	VISIBLE:NO
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
