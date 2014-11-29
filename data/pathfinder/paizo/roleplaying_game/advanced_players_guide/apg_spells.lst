@@ -274,23 +274,6 @@ Borrow Fortune															CLASSES:Oracle=3										SCHOOL:Evocation									
 Divine Vessel															CLASSES:Oracle=8										SCHOOL:Transmutation					DESCRIPTOR:Chaotic|Evil|Good|Lawful				COMPS:V, S																		CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL) rounds (D)																								SOURCEPAGE:p.216	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/divineVessel.html#_divine-vessel						DESC:Change into a huge, otherworldly creature.
 Oracle's Burden															CLASSES:Oracle=2										SCHOOL:Necromancy															COMPS:V																		CASTTIME:1 standard action						RANGE:Medium				ITEM:Potion	TARGETAREA:one creature																				DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates							SPELLRES:Yes				SOURCEPAGE:p.234	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/oracleSBurden.html#_oracle's-burden					DESC:Creature is affected by negative oracle's curse effects.
 
-#Block: Domain Only Spells -------------------------------------------------------------------------------------------------------------
-# COPY being used temporarily till I can make the proper hidden spells - AM 9/21/2010
-Planar Ally.COPY=Planar Ally (Agathions Only)
-Planar Ally.COPY=Planar Ally (Archon Only)
-Planar Ally.COPY=Planar Ally (Azata Only)
-Planar Binding.COPY=Planar Binding (Daemons Only)
-Beast Shape I.COPY=Beast Shape I (Animals Only)
-Planar Binding.COPY=Planar Binding (Inevitables Only)
-Planar Binding.COPY=Planar Binding (Proteans Only)
-
-#Block: Bloodline Spells
-Elemental Aura.COPY=Elemental Aura (Cold Only)
-Meteor Swarm.COPY=Meteor Swarm (Dealing Cold Damage)
-Summon Monster III.COPY=Summon Monster III (Reptiles Only)
-Summon Monster VII.COPY=Summon Monster VII (Reptiles Only)
-Call Lightning Storm.COPY=Call Lightning Storm (Starsoul)																																																																																																																																																						DESC:Dealing Fire Damage, Damage Increased Outdoors At Night
-
 ###
 
 ###Block: Temp Mods
@@ -987,16 +970,52 @@ Summon Monster IV.MOD			CLASSES:Antipaladin=4
 
 
 ###Block: Other Misc & Domains
-
-# COPY being used temporarily till the proper hidden spells are done - drb 2011/02/04
-# Spell Name									Domains granting the spell									Source Pub Link
 Blindness/Deafness.COPY=Blindness/Deafness (Only Cause Blindness)
 Summon Monster V.COPY=Summon Monster V (Summons 1d3 Shadows)
 Planar Binding.COPY=Planar Binding (Demons Only)
 Planar Binding.COPY=Planar Binding (Devils Only)
+Planar Ally.COPY=Planar Ally (Agathions Only)
+Planar Ally.COPY=Planar Ally (Archon Only)
+Planar Ally.COPY=Planar Ally (Azata Only)
+Beast Shape I.COPY=Beast Shape I (Animals Only)
+Planar Binding.COPY=Planar Binding (Daemons Only)
+Planar Binding.COPY=Planar Binding (Inevitables Only)
+Planar Binding.COPY=Planar Binding (Proteans Only)
+Elemental Aura.COPY=Elemental Aura (Cold Only)
+Meteor Swarm.COPY=Meteor Swarm (Dealing Cold Damage)
+Summon Monster III.COPY=Summon Monster III (Reptiles Only)
+Summon Monster VII.COPY=Summon Monster VII (Reptiles Only)
+Call Lightning Storm.COPY=Call Lightning Storm (Starsoul)
+
+Planar Binding (Devils Only).MOD			CLASSES:.CLEAR
+
+
+
+
+Beast Shape I (Animals Only).MOD		CLASSES:.CLEAR
+Blindness/Deafness (Only Cause Blindness).MOD	CLASSES:.CLEAR
+Summon Monster V (Summons 1d3 Shadows).MOD	CLASSES:.CLEAR
+Planar Binding (Demons Only).MOD			CLASSES:.CLEAR
+Planar Ally (Agathions Only).MOD		CLASSES:.CLEAR
+Planar Ally (Archon Only).MOD			CLASSES:.CLEAR
+Planar Ally (Azata Only).MOD			CLASSES:.CLEAR
+Planar Binding (Daemons Only).MOD		CLASSES:.CLEAR
+Planar Binding (Inevitables Only).MOD	CLASSES:.CLEAR
+Planar Binding (Proteans Only).MOD		CLASSES:.CLEAR
+
+#Block: Bloodline Spells
+Elemental Aura (Cold Only).MOD		CLASSES:.CLEAR	DESCRIPTOR:.CLEAR|Cold
+Meteor Swarm (Dealing Cold Damage).MOD	CLASSES:.CLEAR	DESCRIPTOR:.CLEAR|Cold
+Summon Monster III (Reptiles Only).MOD	CLASSES:.CLEAR
+Summon Monster VII (Reptiles Only).MOD	CLASSES:.CLEAR
+Call Lightning Storm (Starsoul).MOD		CLASSES:.CLEAR	DESCRIPTOR:.CLEAR|Fire	DESC:.CLEAR	DESC:This spell functions like call lightning, except that each bolt deals 5d6 points of Fire damage [or 5d10 if created outdoors at night], and you may call a maximum of 15 bolts.|PRERULE:1,DisplayFullSpell
+
+
+
 
 # Subdomain Spells
 # Air (Cloud, Wind)
+# Spell Name									Domains granting the spell									Source Pub Link
 Obscuring Mist.MOD								DOMAINS:Cloud Subdomain=1
 Whispering Wind.MOD								DOMAINS:Wind Subdomain=1
 Wind Wall.MOD									DOMAINS:Cloud Subdomain,Wind Subdomain=2
