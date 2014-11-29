@@ -182,8 +182,6 @@ Robot Feat Software (Vehicle Dodge)								TYPE:Robotic.PL6			COST:0	WT:0		SOURC
 Robot Feat Software (Vehicle Expert)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Vehicle Expert|PRERACE:1,TYPE=Robot
 Robot Feat Software (Whirlwind Attack)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Whirlwind Attack|PRERACE:1,TYPE=Robot
 
-Robot Feat Software (Weapon Finesse)							TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots	AUTO:FEAT|%LIST|PRERACE:1,TYPE=Robot	CHOOSE:WEAPONPROFICIENCY|Chain|PC,TYPE=Light,TYPE=Melee|PC,TYPE=Natural|Rapier
-Robot Feat Software (Weapon Focus)								TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots	AUTO:FEAT|%LIST|PRERACE:1,TYPE=Robot	CHOOSE:WEAPONPROFICIENCY|Grapple|PC|SPELLCASTER[Ray]
 
 
 # Future Basics Feats
@@ -249,27 +247,33 @@ Robot Feat Software (Surface Vehicle Operation/Sailboat)				TYPE:Robotic.PL6			C
 Robot Feat Software (Surface Vehicle Operation/Ship)					TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Surface Vehicle Operation(Ship)|PRERACE:1,TYPE=Robot
 Robot Feat Software (Surface Vehicle Operation/Tracked)				TYPE:Robotic.PL6			COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Surface Vehicle Operation(Tracked)|PRERACE:1,TYPE=Robot
 
-Robot Feat Software (Exotic Melee Weapon Proficiency/Kukri)				TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Kukri)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Kama)				TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Kama)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Nunchaku)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Nunchaku)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Chain)				TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Chain)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Chain Saw)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Chain Saw)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Three-Section Staff)	TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Three-Section Staff)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Katana)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Katana)|PRERACE:1,TYPE=Robot
+Robot Feat Software (Exotic Melee Weapon Proficiency)					TYPE:Robotic.PL6.RobotFeatExoticMeleeWeapon	COST:0	WT:0		SOURCEPAGE:FutureRobots	MODS:REQUIRED
+Robot Feat Software (Weapon Finesse)							TYPE:Robotic.PL6.RobotFeatWeaponFinesse		COST:0	WT:0		SOURCEPAGE:FutureRobots	MODS:REQUIRED
+Robot Feat Software (Weapon Focus)								TYPE:Robotic.PL6.RobotFeatWeaponFocus		COST:0	WT:0		SOURCEPAGE:FutureRobots	MODS:REQUIRED
 
-Robot Feat Software (Exotic Melee Weapon Proficiency/Bastard Sword)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Bastard Sword)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Dire Flail)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Dire Flail)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Dwarven Urgrosh)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Dwarven Urgrosh)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Dwarven Waraxe)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Dwarven Waraxe)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Gnome Hooked Hammer)	TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Gnome Hooked Hammer)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Khopesh)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Khopesh)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Nekode)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Nekode)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Ninja-to)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Ninja-to)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Orc Double Axe)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Orc Double Axe)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Scourge)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Scourge)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Shikomi-zue)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Shikomi-zue)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/Two-Bladed Sword)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Two-Bladed Sword)|PRERACE:1,TYPE=Robot
-Robot Feat Software (Exotic Melee Weapon Proficiency/War Fan)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(War Fan)|PRERACE:1,TYPE=Robot
+
+
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Kukri)				TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Kukri)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Kama)				TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Kama)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Nunchaku)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Nunchaku)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Chain)				TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Chain)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Chain Saw)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Chain Saw)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Three-Section Staff)	TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Three-Section Staff)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Katana)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Katana)|PRERACE:1,TYPE=Robot
+
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Bastard Sword)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Bastard Sword)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Dire Flail)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Dire Flail)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Dwarven Urgrosh)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Dwarven Urgrosh)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Dwarven Waraxe)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Dwarven Waraxe)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Gnome Hooked Hammer)	TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Gnome Hooked Hammer)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Khopesh)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Khopesh)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Nekode)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Nekode)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Ninja-to)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Ninja-to)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Orc Double Axe)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Orc Double Axe)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Scourge)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Scourge)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Shikomi-zue)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Shikomi-zue)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/Two-Bladed Sword)		TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(Two-Bladed Sword)|PRERACE:1,TYPE=Robot
+# Robot Feat Software (Exotic Melee Weapon Proficiency/War Fan)			TYPE:Robotic.FeatSoftware.PL6	COST:0	WT:0		SOURCEPAGE:FutureRobots	VFEAT:Exotic Melee Weapon Proficiency(War Fan)|PRERACE:1,TYPE=Robot
 
 #TODO: Weapon Finesse and Weapon Focus can't be done without listing every single weapon prof they can be applied to, similar to the examples above but a much longer list
 
