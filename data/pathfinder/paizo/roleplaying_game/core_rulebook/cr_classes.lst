@@ -214,10 +214,10 @@ CLASS:Fighter	STARTSKILLPTS:2
 1	ABILITY:Special Ability|AUTOMATIC|Critical Mastery Qualify
 1	ABILITY:Special Ability|AUTOMATIC|Greater Penetrating Strike Qualify
 ###Block: Level progression
-2	BONUS:VAR|BraveryLVL|CL
-3	BONUS:VAR|ArmorTrainingLVL|CL
-5	BONUS:VAR|FighterWeaponTrainingLVL|CL
-1	BONUS:VAR|FighterWeaponQualifyLVL|CL
+2	BONUS:VAR|BraveryLVL|CL|TYPE=Class
+3	BONUS:VAR|ArmorTrainingLVL|CL|TYPE=Class
+5	BONUS:VAR|FighterWeaponTrainingLVL|CL|TYPE=Class
+1	BONUS:VAR|FighterWeaponQualifyLVL|CL|TYPE=Class
 ###Block:
 1	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Bonus Feats|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeats
 2	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Bravery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBravery
