@@ -71,7 +71,7 @@ Unarmed Stalking			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNo
 Unarmed Thawing			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|Deals an extra 1d6 points of damage to creatures with the cold subtype.
 Unarmed Valiant			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Valiant)
 
-
+Equipment ~ Deliquescent Gloves	CATEGORY:Internal		ASPECT:CombatBonus|+1d6 acid bonus to equipped weapon
 
 #
 # EOF
