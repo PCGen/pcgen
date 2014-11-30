@@ -1,0 +1,10 @@
+# CVS $Revision: 21789 $ $Author: amaitland $ -- Thu Feb 22 13:04:59 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+#SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+ABILITYCATEGORY:Ocher Rhomboid Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Combat																		PLURAL:Ocher Rhomboid Feats		DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:PFS Chronicle Sheets							CATEGORY:Special Ability	EDITABLE:YES	TYPE:Chronicle			DISPLAYLOCATION:Background	VISIBLE:YES	
+ABILITYCATEGORY:Chronicle_S00-01	DISPLAYNAME:PFS Chronicle Sheet 00-01 Silent Tide		CATEGORY:Special Ability	EDITABLE:YES	TYPE:Chronicle_S00-01	DISPLAYLOCATION:Background	VISIBLE:QUALIFY	
+
+# DONE
+#

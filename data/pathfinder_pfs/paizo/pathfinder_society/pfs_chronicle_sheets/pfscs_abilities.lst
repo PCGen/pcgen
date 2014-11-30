@@ -1,0 +1,274 @@
+# CVS $Revision: 17893 $ $Author: amaitland $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+PA Cost		CATEGORY:Special Ability	STACK:YES	MULT:YES	CHOOSE:STRING|3|6|9|12|15|18|21|24|27|30|33		DEFINE:TrainingPool|0	BONUS:VAR|TrainingPool|%LIST
+
+Boon									KEY:PFS Scenario 0-02 ~ Boon							CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #0-02 The Hydra's Fang Incident		COST:0	VISIBLE:YES		DESC:You have one free use of the divination spell from a Cleric of Asmodeus in Egorian, the capital of Cheliax.		SOURCELONG:PFS Scenario 0-02 The Hydra's Fang Incident
+Defender of Katheer						KEY:PFS Scenario 0-27 ~ Defender of Katheer				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #0-27 Our Lady of Silver		COST:0	VISIBLE:YES		ASPECT:SkillBonus|+1 circumstance bonus to all Diplomacy checks against humanoids from Katheer.
+Waverider's True Revenge				KEY:PFS Scenario 1-38 ~ Waverider's True Revenge		CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #1-38: No Plunder, No Pay.SpecialQuality		COST:0	VISIBLE:YES		DESC:You gain a powerful enemy. Jirandiel Waverider.	SOURCELONG:PFS Scenario #1-38 No Plunder, No Pay
+Pathfinder Killed						KEY:PFS Scneario 1-50 ~ Pathfinder Killed				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #1-50 Fortune's Blight		COST:0	VISIBLE:YES		ASPECT:SkillBonus|-1 penalty on all Charisma-based checks when dealing with other Pathfinders.
+The Favor of Cartahegn					KEY:PFS Scenario 2-01 ~ The Favor of Cartahegn			CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #2-01 The Bloodcove Disguise.SpecialQuality		COST:0	VISIBLE:YES		DESC:While in a settlement of 5,000 people or more in Garund, you may purchase equipment (but not weapons or armor) at a 10%% discount.	SOURCELONG:PFS Scenario #2-01 The Bloodcove Disguise
+Tortured by the Aspis					KEY:PFS Scenario 2-01 ~ Tortured by the Aspis			CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #2-01 The Bloodcove Disguise.SpecialQuality		COST:0	VISIBLE:YES		DESC:You lose 1 permanent point of Constitution. (This loss is not automatically applied by PCGen)	SOURCELONG:PFS Scenario #2-01 The Bloodcove Disguise
+Dragonkiller							KEY:PFS Scenario 2-17 ~ Dragonkiller					CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #2-17 Snowmask Induction.SpecialQuality		COST:0	VISIBLE:YES		DESC:You may add 1d6 extra damage against a true dragon. This damage stacks with other damage and is not multipled on a critical hit. When this boon is used, cross it off your Chronicle sheet.	SOURCELONG:PFS Scenario #2-17 Snowmask Induction
+Snowmask Induction						KEY:PFS Scenario 2-19 ~ Snowmask Induction				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #2-19 Snowmask Induction		COST:0	VISIBLE:YES		ASPECT:Ability Benefit|Permanent endure elements for cold down to 0 degrees F (PFS S02-10)																																																																																																																																																																																																																																																																						SOURCELONG:PFS Scenario #2-19 Snowmask Induction
+Spider's Captor							KEY:PFS Scenario 2-24 ~ Spider's Captor					CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #2-24 Shadow's Last Stand Part II Web of Corruption		COST:0	VISIBLE:YES		ASPECT:SkillBonus|+5 bonus to Diplomacy to influence government officials within Andoran (PFS S02-24)																																																																																																																																																																																																																																																																						SOURCELONG:PFS Scenario #2-24 Shadow's Last Stand Part II Web of Corruption
+Harvestman's Bane						KEY:PFS Scenario 3-08 ~ Harvestman's Bane				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #3-08 Among the Gods		COST:0	VISIBLE:YES		ASPECT:SkillBonus|+2 bonus to Intimidate vs. worshipers of Zyphus. (PFS S03-08)			SOURCELONG:PFS Scenario #3-08 Among the Gods
+Treachery in the Weave					KEY:PFS Scenario 3-12 ~ Treachery in the Weave			CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #3-12 The Dog Pharaoh's Tomb.SpecialQuality		COST:0	VISIBLE:YES		DESC:If your next chronicle sheet is PFS Scenarion#3-14: Wonders inthe Weave, Part II: Snakes in the Fold, you will be elligible for a special boon.			SOURCELONG:PFS Scenario #3-12 The Dog Pharaoh's Tomb
+Axe Beak Companion						KEY:PFS Scenario 3-13 ~ Axe Beak Companion				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #3-13 Defenders of Nesting Swallow.SpecialQuality	COST:0	VISIBLE:YES		DESC:If you have all three parts of the Quest for Perfection series, you may take an Axe Beak as a loyal mount or companion.	SOURCELONG:PFS Scenario #3-13 Defenders of Nesting Swallow
+Relentless Aspis Hunter					KEY:PFS Scenario 3-14 ~ Relentless Aspis Hunter			CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #3-12 The Dog Pharaoh's Tomb.SpecialQuality		COST:0	VISIBLE:YES		DESC:You recieve a +2 morale bonus on attack and damage rolls against Aspis agents inside the Hao Jin Tapestry.			SOURCELONG:PFS Scenario #3-12 Snakes in the Fold
+Raktavarna Improved Familiar			KEY:PFS Scenario 3-24 ~ Raktavarna Improved Familiar	CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #3-24 The Golden Serpent.SpecialQuality	COST:0	VISIBLE:YES		DESC:If you are a 7th level caster with lawful neutral alignment, you may take a raktavarna using the Improved Familiar feat as if the improved familiar were available as an Additional Resource.		SOURCELONG:PFS Scenario #3-24 The Golden Serpent
+Diamond of Demon Seeking				KEY:PFS Scenario 3-25 ~ Diamond of Demon Seeking		CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #3-25 Storming the Diamond Gate.Prestige Award Display.SpecialQuality			SORTKEY:PrestigeAward_2		VISIBLE:YES				DESC:Free purchase of Diamond of Demon Seeking from PFS Chronicle #3-25 																																																																																																																																																																																																																																																																																																																																																						STACK:YES	COST:16	SOURCELONG:PFS Chronicle #3-25
+Faerie Dragon Improved Familiar			KEY:PFS Scenario 4-05 ~ Faerie Dragon Improved Familiar	CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-05 The Sanos Abduction.SpecialQuality		COST:0	VISIBLE:YES		DESC:A caster of at least level 7 with an alignment within one step of chatoc good may bond with a faerie dragon using the Improved Familiar feat.		SOURCELONG:PFS Scenario #4-05 The Sanos Abduction
+Greenheart'd Blessing					KEY:PFS Scenario 4-06 ~ Greenheart'd Blessing			CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-06 The Green Market.SpecialQuality		COST:0	VISIBLE:YES		DESC:You recieve a +2 bonus on all Day Job checks.		SOURCELONG:PFS Scenario #4-06 The Green Market
+Nemesis of Aspis						KEY:PFS Scenario 4-07 ~ Nemesis of Aspis				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-07 Severing Ties.SpecialQuality		COST:0	VISIBLE:YES		DESC:You may, as an immediate action, force an enemy Aspis agent to reroll a single d20 and take the worse result. Once you use this boon, cross it off the Chronicle sheet.		SOURCELONG:PFS Scenario #4-07 Severing Ties
+Lissalan Library						KEY:PFS Scenario 4-08 ~ Lissalan Library				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-08 The Cultist's Kiss		COST:0	VISIBLE:YES		ASPECT:SkillBonus|+2 circumstance bonus to Knowledge (religion) checks regarding Lissala and her ancient cult. (PFS S04-08)																																																																																																																																																																																																																																																																							SOURCELONG:PFS Scenario #4-08 The Cultist's Kiss
+Ochre Rhomboid Ioun Stone				KEY:PFS Scenario 4-12 ~ Ochre Rhomboid Ioun Stone		CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-12 The Refuge of Time.SpecialQuality		COST:0	VISIBLE:YES		DESC:You activated the cursed ocher rhomboid ioun stone. Shift your alignment one step toward evil unless you recieve the benefits of an atonement spell.	SOURCELONG:PFS Scenario #4-12 The Refuge of Time
+Respect of the Nail						KEY:PFS Scenario 4-13 ~ Respect of the Nail				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-13 Fortress of the Nail.SpecialQuality		COST:0	VISIBLE:YES		DESC:Free purchase of one item worth up to 1,500 gp (Subtier 5-6) or 3,000 gp (Subtier 8-9) not restricted to current Fame score.	SOURCELONG:PFS Scenario #4-13 Fortress of the Nail
+Paracountess's Debt						KEY:PFS Scenario 4-13 ~ Paracountess's Debt				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-13 Fortress of the Nail.SpecialQuality		COST:0	VISIBLE:YES		DESC:You are remembered by members of Varisia's Hellknight Order of the Nail for standing up for the law, even if doing so meant opposing them.	SOURCELONG:PFS Scenario #4-13 Fortress of the Nail
+Foiled Plans							KEY:PFS Scenario 4-14 ~ Foiled Plans					CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-14 My Enemy's Enemy.SpecialQuality		COST:0	VISIBLE:YES		DESC:Spider will remember you.	SOURCELONG:PFS Scenario Scenario #4-14 My Enemy's Enemy
+Gift of the Ghael (Subtier 1-2)			KEY:PFS Scenario 4-19 ~ Gift of the Ghael (Subtier 1-2)	CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-19 The Night March of Kalkamedes.SpecialQuality	COST:0	VISIBLE:YES	DESC:You may case aid, detect thoughts, lesser restoration, or see invisibility. (Usable once only)		SOURCELONG:PFS Scenario #4-19 The Night March of Kalkamedes
+Gift of the Ghael (Subtier 4-5)			KEY:PFS Scenario 4-19 ~ Gift of the Ghael (Subtier 4-5)	CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-19 The Night March of Kalkamedes.SpecialQuality	COST:0	VISIBLE:YES	DESC:You may case continual flame, dispel magic, lesser globe of invulnerability, or restoration. (Usable once only)		SOURCELONG:PFS Scenario #4-19 The Night March of Kalkamedes
+
+CATEGORY=Special Ability|Boon ~ Triumph of the Lantern Lodge.MOD															TYPE:Boon.Scenario Boon.PFS Scenario #4-21 Way of the Kirin		VISIBLE:YES		SOURCELONG:PFS Scenario #4-21 Way of the Kirin	SOURCESHORT:PFS S4-21
+
+True Ally of the Lantern Lodge			KEY:PFS Scenario 4-21 ~ True Ally of the Lantern Lodge	CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-21 Way of the Kirin.SpecialQuality	COST:0	VISIBLE:YES	DESC:Whenever you spend 1 Prestige Point to gain a +4 bonus on any one skill check while in Tia Xia, the bonus increases to +5. If you are in Goka, the bonus instead increases to +6.	
+The Kirin's Debt Repaid					KEY:PFS Scenario 4-21 ~ The Kirin's Debt Repaid			CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-21 Way of the Kirin.SpecialQuality	COST:0	VISIBLE:YES	DESC:If you have the Debt of Kirin, you may choose one item worth 3,000 gp (Subtier 3-4) or 5,500 gp (Subtier 6-7). When you next purchase the chosen item, you do so at a 25%% discount. (usable once) 	
+Fool Me Once							KEY:PFS Scenario 4-23 ~ Fool Me Once					CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-23 Rivalry's End		COST:0	VISIBLE:YES		ASPECT:SkillBonus|+2 bonus to Sense Motive vs. Pathfinders or former Pathfinders (PFS S04-23)																																																																																																																																																																																																																																																																							SOURCELONG:PFS Scenario #4-23 Rivalry's End
+Unexpeced Prestige						KEY:PFS Scenario 4-23 ~ Unexpeced Prestige				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-23 Rivalry's End.SpecialQuality		COST:0	VISIBLE:YES			DESC:You captured or killed Grandmaster Torch in Riddleport, and though he may return one day, word of your deed has spread quickly though the PFS. The next time you would fail to gain a Prestige Point for completing a primary or secondary mission, you instead gain the Prestige Point and cross off this boon from your Chronicle sheet. 																																																																																																																																																																																																																																																																							SOURCELONG:PFS Scenario #4-23 Rivalry's End
+
+CATEGORY=Special Ability|Boon ~ Pawn of the Grandmaster.MOD																	TYPE:Boon.Scenario Boon.PFS Scenario #4-23 Rivalry's End.SpecialQuality		VISIBLE:YES		DESC:The Shadow Lodge has been officially dissolved and its former members encouraged to remain a part of the PFS. Despite the troubling circumstancecs, the recent events bring a sense of closure and encourage you to train harder, whether it be to forget past grievances or prepare yourself for revenge. You may change from Shadow Lodge to a new faction without spending Prestsige Points or loosing any faction-specific Prestige Awards. If you apply this boon before August 14, 2013, choose one ability score. As the culmination of years of service to the Shadow Lodge and Grandmaster Torch's guidance, you receive a permanent +1 bonus to that ability score. You cannot benefit from both this boon and the Triumph of the Lantern Lodge boon. If you are not a member of the Shadow Lodge faction, cross this boon off your chronicle sheet. 									SOURCELONG:PFS Scenario #4-23 Rivalry's End		SOURCESHORT:PFS S4-23
+
+Legend of Urglin						KEY:PFS Scenario 4-24 ~ Legend of Urglin				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-24 The Price of Friendship		COST:0	VISIBLE:YES			ASPECT:SkillBonus|+2 bonus on Charisma-ased skill checks with orcs in Varisia and any country that directly borders it. (PFS S4-24) 																																																																																																																																																																																																																																																																							SOURCELONG:PFS Scenario #4-24 The Price of Friendship
+Hero of the Hold						KEY:PFS Scenario 4-25 ~ Hero of the Hold				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-25 The Secret Stones Keep		COST:0	VISIBLE:YES			ASPECT:SkillBonus|+3 insight bonus on Knowledge checks pertaining to Sky Citadels and dwarven history. (PFS S4-05) 																																																																																																																																																																																																																																																																							SOURCELONG:PFS Scenario #4-25 The Secret Stones Keep
+Unexpected Discovery					KEY:PFS Scenario 4-25 ~ Unexpected Discovery			CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #4-25 The Secret Stones Keep		COST:0	VISIBLE:YES			ASPECT:SkillBonus|+4 circumstance bonus on Displomacy and Intimidate checks dealing with members of the Pathfinder Society of your level or lower. If you already have a circumstance bonus, this bonus instead increases by 2. (PFS S4-05) 																																																																																																																																																																																																																																																																							SOURCELONG:PFS Scenario #4-25 The Secret Stones Keep
+Concern for Liberty						KEY:PFS Scenario 5-03 ~ Concern for Liberty				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #5-03 The Hellknight's Feast		COST:0	VISIBLE:YES		DESC:Whenever you recieve more than one Will save to overcome an enchantment (compulsion) effect, you gain a +2 bonus on the extra Will saves. Once per scenario as an immediate action, you may extend this benefit to an adjacent ally for one round.																																																																																																																																																																																																																																																																SOURCELONG:PFS Scenario #5-03 The Hellknight's Feast
+Driven by Glory							KEY:PFS Scenario 5-03 ~ Driven by Glory					CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #5-03 The Hellknight's Feast		COST:0	VISIBLE:YES		ASPECT:SkillBonus|+2 bonus on any skill check to further the Taldor faction's goals. This boon lasts for 1 year from the date of this Chronicle sheet.																																																																																																																																																																																																																																																																SOURCELONG:PFS Scenario #5-03 The Hellknight's Feast
+Impressive Influence					KEY:PFS Scenario 5-03 ~ Impressive Influence			CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #5-03 The Hellknight's Feast		COST:0	VISIBLE:YES		DESC:You impressed one or more of the guests in attendance at the feast at Fiddlemourn Manor.																																																																																																																																																																																																																																																																SOURCELONG:PFS Scenario #5-03 The Hellknight's Feast
+Acquainted with Aslynn					KEY:PFS Scenario 5-09 ~ Acquainted with Aslynn	CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #5-09 The Traitor's Lodge.SpecialQuality	COST:0	VISIBLE:YES	DESC:Aslynn knows who you are and what you did in Thurl's laboratory.		SOURCELONG:PFS Scenario #5-09 The Traitor's Lodge
+Thurl's Bane (Grand Lodge Faction)		KEY:PFS Scenario 5-09 ~ Thurl's Bane			CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #5-09 The Traitor's Lodge.SpecialQuality	COST:0	VISIBLE:YES	DESC:As a free action, you can choose one outsider of the extraplanar subtype but no alignment subtype. You gain two of the following five benefits against that creature for 1 minute: +1 bonus to attach rolls, a bonus to damage rolls equal to one-third your character level (rounded down), a +1 dodge bonus to AC, a +1 bonus to saving throws, a +2 bonus on caster level checks to overcome the creature's resistance. WHen you use this boon, cross it off your Chronicle sheet.		SOURCELONG:PFS Scenario #5-09 The Traitor's Lodge
+Bound for Brevoy (Taldor Faction)		KEY:PFS Scenario 5-11 ~ Bound for Brevoy			CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #5-11 Library of the Lion	COST:0	VISIBLE:YES	ASPECT:SkillBonus|Bound for Brevoy: +2 bonus to Charisma-based skill checks made to influence residents of Brevoy, and you reduce the non-proficiency penalty for the Aldori dueling sword by -2. (PFS S05-11)		SOURCELONG:PFS Scenario #5-11 Library of the Lion
+Codebreaker (Grand Lodge Faction)		KEY:PFS Scenario 5-11 ~ Codebreaker					CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #5-11 Library of the Lion	COST:0	VISIBLE:YES	ASPECT:SkillBonus|Codebreaker: +2 bonus on Linguistics checks made to decipher a writing or understand a code, and you may use Linguistics in this way even untrained. (PFS S05-11)		SOURCELONG:PFS Scenario #5-11 Library of the Lion
+Expelled by the Lion Blandes			KEY:PFS Scenario 5-11 ~ Expelled by the Lion Blandes	CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #5-11 Library of the Lion.SpecialQuality	COST:0	VISIBLE:YES	DESC:You permanently lose the benefits of the Lion Blade vanity until you reach 40 or more fame and spend 4 Prestige Points to reconcile with them.		SOURCELONG:PFS Scenario #5-11 Library of the Lion
+Secrets of the Grave					KEY:PFS Scenario 5-11 ~ Secrets of the Grave		CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #5-11 Library of the Lion.SpecialQuality	COST:0	VISIBLE:YES	DESC:When you fail a saving throw a necromancy spell, or the supernatural or spell-like ability of an undead creature, you may retroactively add 1 to the result. Alernatively, when casting a necromancy spell, increase its caster level by 2. When you use either of these benefits, cross the entire boon off your Chronicle sheet.		SOURCELONG:PFS Scenario #5-11 Library of the Lion
+Light of Redemption (Silver Crusade)	KEY:PFS Scenario 5-20 ~ Light of Redemption		CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #5-20 The Sealed Gate.SpecialQuality	COST:0	VISIBLE:YES	DESC:You gain the ability to cast atonemnet as a spell-like ability with no material component cost to anyone but yourself. When you use either of these benefits, cross the entire boon off your Chronicle sheet.		SOURCELONG:PFS Scenario #5-20 The Sealed Gate
+Purification by Sword (Silver Crusade)	KEY:PFS Scenario 5-20 ~ Purification by Sword	CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #5-20 The Sealed Gate.SpecialQuality	COST:0	VISIBLE:YES	DESC:As a free action you can grant a weapon you can touch the flaming weapon property for 1 minute. When you use either of these benefits, cross the entire boon off your Chronicle sheet.		SOURCELONG:PFS Scenario #5-20 The Sealed Gate
+Return the Favor (Grand Lodge)			KEY:PFS Scenario 5-20 ~ Return the Favor		CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Scenario #5-20 The Sealed Gate.SpecialQuality	COST:0	VISIBLE:YES	DESC:You may use this boon to have your body and posessions recovered by a Pathfinder rescue team at no cost. When you use either of these benefits, cross the entire boon off your Chronicle sheet.		SOURCELONG:PFS Scenario #5-20 The Sealed Gate
+Kassen's Blessing						KEY:PFS Module Crypt of the Everflame ~ Kassen's Blessing	CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Module Crypt of the Everflame	COST:0	VISIBLE:YES	ASPECT:SaveBonus|You may reroll a single attack, saving throw, or skill check after the roll is made but before the results are revealed. (One time use, PFS Module Crypt of the Everflame)		SOURCELONG:PFS Module Crypt of the Everflame
+Pharasma's Blessing						KEY:PFS Module Gosmouth Heresy ~ Pharasma's Blessing		CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Module Gosmouth Heresy	COST:0	VISIBLE:YES	DESC:You may reroll any single attack roll targetting an undead creature or any single saving throw against an undead creature's ability or effect, always take the result of the second roll. You must make the reroll befor ethe result of the first roll is known. If Pharasma is your deity, you recieve a +4 bonus on your reroll. (One time use)		SOURCELONG:PFS Module Gosmouth Heresy
+Unidentified Ungent						KEY:PFS Module Thornkeep The Forgotten Laboratory ~ Unidentified Ungent	CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Module Thornkeep The Forgotten Laboratory	COST:0	VISIBLE:YES	ASPECT:Ability Benefit|Unidentified Ungent:Short lived mutation for 1d4+3 rounds. See chronicle for details. (PFS M Thornkeep The Forgotten Laboratory)		SOURCELONG:PFS Module Thornkeep The Forgotten Laboratory
+Noqual Ore								KEY:PFS Module Thornkeep The Enigma Vaults ~ Noqual Ore		CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Module Thornkeep The Enigma Vaults	COST:0	VISIBLE:YES	DESC:You may purchase equipment made from Noqual Ore.		SOURCELONG:PFS Module Thornkeep The Enigma Vaults
+Back to the Grave						KEY:PFS Module Risen from the Sands ~ Back to the Grave		CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Module Risen from the Sands.SpecialQuality	COST:0	VISIBLE:YES	DESC:You can use this boon as a swift action to gain +1 insight bonus on attack rolls made against undead creatures. Each time you sucessfully hit an undead creature, this onus increases by +1 (maximum +3). This boon lasts for 5 rounds. When you use this boon, cross it off your Chronicle sheet.		SOURCELONG:PFS Module Risen from the Sands
+History of the Sands					KEY:PFS Module Risen from the Sands ~ History of the Sands	CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Module Risen from the Sands.SpecialQuality	COST:0	VISIBLE:YES	ASPECT:SkillBonus|You may take 20 on any Knowldge (history or religion) as a standard action, as if you had the lore master ability of a 5th-level bard. If the check pertains to Osirion history or religion, you also gain a +5 competance bonus. (usable once, PFS Module Risen from the Sands).		SOURCELONG:PFS Module Risen from the Sands
+
+Honored by the Twilight Talons			KEY:PFS Module Broken Chains ~ Honored by the Twilight Talons	CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Module Broken Chains.SpecialQuality	COST:0	VISIBLE:YES			SOURCELONG:PFS Module Broken Chains
+
+Ascendance Day Cloak					KEY:PFS Ascendance Day ~ Ascendance Day Cloak				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Ascendance Day		COST:0	VISIBLE:YES		ASPECT:SkillBonus|+2 bonus on all saves made to resist compulsion spells, spell-like abilities and effects (One time use, PFS Acendance Day)																					SOURCELONG:PFS Ascendance Day
+Actor of the Eleven Acts				KEY:PFS Ascendance Day ~ Actor of the Eleven Acts			CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Ascendance Day		COST:0	VISIBLE:YES		ASPECT:SkillBonus|You may use a Perform (act, dance, or oratory) in place of a Will save against a spell, spell-like ability, or effect that has the evil or fear descriptor. (One time use, PFS Ascendance Day)		SOURCELONG:PFS Ascendance Day
+Honorary Ambassador (Andoran)			KEY:PFS Year of the Risen Rune ~ Honorary Ambassador		CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Year of the Risen Rune						COST:0	VISIBLE:YES		ASPECT:SkillBonus|When you fail a Diplomacy check by 7 or more to improve a creature's attitude, its attitude only decreases by one step. (PFS Year of the Risen Rune)
+Lesson Learned (Cheliax)				KEY:PFS Year of the Risen Rune ~ Lesson Learned				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Year of the Risen Rune						COST:0	VISIBLE:YES		ASPECT:SkillBonus|+2 bonus on Sense Motive checks against devils and Cheliax government officials (including Hellknights). (PFS Year of the Risen Rune)
+Heidmarch's Boon (Grand Lodge)			KEY:PFS Year of the Risen Rune ~ Heidmarch's Boon			CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Year of the Risen Rune.SpecialQuality		COST:0	VISIBLE:YES		DESC:When you purchase a vanity or a Grand Lodge faction prestige award, reduce the Prestige Point cost by 2 (minimum 1). When you use this boon, cross it off of your Chronicle sheet. (PFS Year of the Risen Rune)
+Gift of the Kirin (Lantern Lodge)		KEY:PFS Year of the Risen Rune ~ Gift of the Kirin			CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Year of the Risen Rune.SpecialQuality		COST:0	VISIBLE:YES		DESC:You may treat your Fame score as 2 points higher when purchasing any single item. When you use this boon, cross it off of your Chronicle sheet. (PFS Year of the Risen Rune)
+Curse-Breaker (Osirion)					KEY:PFS Year of the Risen Rune ~ Curse-Breaker				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Year of the Risen Rune.SpecialQuality		COST:0	VISIBLE:YES		DESC:Treat your caster level as 2 higher when casting remove curse or targetted by remove curse. These effects do not stack. (PFS Year of the Risen Rune)
+Deal with Junderhoff (Qadira)			KEY:PFS Year of the Risen Rune ~ Deal with Junderhoff		CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Year of the Risen Rune.SpecialQuality		COST:0	VISIBLE:YES		DESC:After rolling a Day Job check, you may roll a second Day Job check and earn gold from both. When you use this boon, cross it off of your Chronicle sheet. (PFS Year of the Risen Rune)
+Kingpin's Pal (Sczarni)					KEY:PFS Year of the Risen Rune ~ Kingpin's Pal				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Year of the Risen Rune						COST:0	VISIBLE:YES		ASPECT:SkillBonus|+2 bonus on Intimidate checks against ethnic Varisians and members of teh Sczarni families. (PFS Year of the Risen Rune)
+Well Informed (Shadow Lodge)			KEY:PFS Year of the Risen Rune ~ Well Informed				CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Year of the Risen Rune						COST:0	VISIBLE:YES		ASPECT:SkillBonus|+2 bonus on Intimidate checks against Pathfinders. (PFS Year of the Risen Rune)
+Slayer of Sloth (Silver Crusade)		KEY:PFS Year of the Risen Rune ~ Slayer of Sloth			CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Year of the Risen Rune.SpecialQuality		COST:0	VISIBLE:YES		DESC:You man smite evil (as the paladin class ability) using half your character level as your effective paladin level. When you use this boon, cross it off your Chronicle sheet. (PFS Year of the Risen Rune)
+Proud but Discouraged (Taldor)			KEY:PFS Year of the Risen Rune ~ Proud but Discouraged		CATEGORY:Special Ability	TYPE:Boon.Scenario Boon.PFS Year of the Risen Rune						COST:0	VISIBLE:YES		ASPECT:SkillBonus|Increase the bonus of any aid another action you recieve from any member of the Taldor faction by 2. (PFS Year of the Risen Rune)
+
+#Chronicle	KEY:Chronicle ~ Chronicle Base	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:NO
+#CATEGORY=Special Ability|Chronicle ~ Chronicle Base.COPY=Chronicle Rename	VISIBLE:YES
+
+# Explanation of tiers:
+# The GM checks the total average party level to determine the difficulty tier and in certain cases between two tiers the party can choose to play the higher or lower difficulty tier.
+# Scenarios played before 8/14/13: PC's get gold and awards based on the tier played. Thus a level 1 PC playing in a tier 4-5 scenario would get the tier 4-5 gold and rewards. Or a 4th level PC playing in a tier 1-2 scenario would get the lower tier 1-2 gold and rewards.
+# Scenarios played after 8/14/13: PC's get awards based on the difficulty tier played. PC's get gold according to the difficulty tier played if their level is the same as the tier. Otherwise they get the awards of the tier played, and the "out of tier" gold.
+# Players who played a pregen PC may apply the chronicle to a lower level PC. In that case, the PC's get 500 gp and none of the tier rewards.
+# Lastly, players can play any chronicle "normal" or "slow". Slow recieve half the gold, xp and prestige.
+
+# Subtier choices
+Subtier 1-2				KEY:Subtiers ~ Tier 1-2		TYPE:SubtierChoice.Subtier12	CATEGORY:Special Ability	DESC:You completed this adventure in tier 1-2.
+Subtier 4-5				KEY:Subtiers ~ Tier 4-5		TYPE:SubtierChoice.Subtier45	CATEGORY:Special Ability	DESC:You completed this adventure in tier 4-5.
+Pregen 500gp			KEY:Subtiers ~ Pregen		TYPE:SubtierChoice.Subtier		CATEGORY:Special Ability	DESC:You completed this adventure with a pregen and are assigning the default award of 500 gp.
+Failed					KEY:Subtiers ~ Failed		TYPE:SubtierChoice.Subtier		CATEGORY:Special Ability	DESC:You failed this adventure. You recieve no awards or gold.
+
+# Playing slow choices
+Playing slow			KEY:Playing Slow ~ Yes		TYPE:PlayingSlowChoice			CATEGORY:Special Ability	DESC:You played this adventure slow (half XP and gold).
+Playing normal			KEY:Playing Slow ~ No		TYPE:PlayingSlowChoice			CATEGORY:Special Ability	DESC:You played this adventure normal (full XP and gold).
+
+S00-01 Silent Tide										KEY:Chronicle ~ S00-01	TYPE:Chronicle	CATEGORY:Special Ability		VISIBLE:YES	COST:0
+S00-02 The Hydra's Fang Incident						KEY:Chronicle ~ S00-02	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-03 Murder on the Silken Caravan						KEY:Chronicle ~ S00-03	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-04 The Frozen Fingers of Midnight					KEY:Chronicle ~ S00-04	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-05 Mists of Mwangi									KEY:Chronicle ~ S00-05	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-06 Black Waters										KEY:Chronicle ~ S00-06	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-07 Among the Living									KEY:Chronicle ~ S00-07	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-08 Slave Pits of Absalom								KEY:Chronicle ~ S00-08	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-09 Eye of the Crocodile King (RETIRED)				KEY:Chronicle ~ S00-09	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-10 Blood at Dralkard Manor (RETIRED)					KEY:Chronicle ~ S00-10	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-11 The Third Riddle (RETIRED)						KEY:Chronicle ~ S00-11	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-12 Stay of Execution (RETIRED)						KEY:Chronicle ~ S00-12	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-13 The Prince of Augustana							KEY:Chronicle ~ S00-13	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-14 The Many Fortunes of Grandmaster Torch			KEY:Chronicle ~ S00-14	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-15 The Asmodeus Mirage (RETIRED)						KEY:Chronicle ~ S00-15	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-16 To Scale the Dragon								KEY:Chronicle ~ S00-16	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-17 Perils of the Pirate Pact							KEY:Chronicle ~ S00-17	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-18 The Trouble with Secrets (RETIRED)				KEY:Chronicle ~ S00-18	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-19 Skeleton Moon (RETIRED)							KEY:Chronicle ~ S00-19	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-20 King Xeros of Old Azlant							KEY:Chronicle ~ S00-20	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-21 The Eternal Obelisk (RETIRED)						KEY:Chronicle ~ S00-21	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-22 Fingerprints of the Fiend							KEY:Chronicle ~ S00-22	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-23 Tide of Morning									KEY:Chronicle ~ S00-23	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-24 Decline of Glory									KEY:Chronicle ~ S00-24	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-25 Hands of the Muted God (RETIRED)					KEY:Chronicle ~ S00-25	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-26 Lost at Bitter End								KEY:Chronicle ~ S00-26	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-27 Our Lady of Silver								KEY:Chronicle ~ S00-27	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S00-28 Lyrics of Extinction								KEY:Chronicle ~ S00-28	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+
+S01-29 The Devil We Know, Part I: Shipyard Rats				KEY:Chronicle ~ S01-29	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-30 The Devil We Know, Part II: Cassomir's Locker			KEY:Chronicle ~ S01-30	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-31 Sniper in the Deep										KEY:Chronicle ~ S01-31	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-32 Drow of the Darklands Pyramid								KEY:Chronicle ~ S01-32	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-33 Assault on the Kingdom of the Impossible					KEY:Chronicle ~ S01-33	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-34 Encounter at the Drowning Stones							KEY:Chronicle ~ S01-34	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-35 Voice in the Void											KEY:Chronicle ~ S01-35	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-36 Echoes of the Everwar, Part I: The Prisoner of Skull	KEY:Chronicle ~ S01-36	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-37 The Beggar's Pearl										KEY:Chronicle ~ S01-37	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-38 No Plunder, No Pay										KEY:Chronicle ~ S01-38	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-39 The Citadel of Flame										KEY:Chronicle ~ S01-39	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-40 Hall of Drunken Heroes									KEY:Chronicle ~ S01-40	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-41 The Devil We Know, Part III: Crypt of Fools				KEY:Chronicle ~ S01-41	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-42 Echoes of the Everwar, Part II: The Watcher of Ages		KEY:Chronicle ~ S01-42	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-43 The Pallid Plague											KEY:Chronicle ~ S01-43	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-44 Echoes of the Everwar, Part III: Terror at Whistledown	KEY:Chronicle ~ S01-44	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-45 Delirium's Tangle											KEY:Chronicle ~ S01-45	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-46 Eyes of the Ten, Part I: Requiem for the Red Raven		KEY:Chronicle ~ S01-46	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-47 The Darkest Vengeance										KEY:Chronicle ~ S01-47	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-48 The Devil We Know, Part IV: Rules of the Swift			KEY:Chronicle ~ S01-48	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-49 Among the Dead											KEY:Chronicle ~ S01-49	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-50 Fortune's Blight											KEY:Chronicle ~ S01-50	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-51 The City of Strangers, Part I: The Shadow Gambit		KEY:Chronicle ~ S01-51	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-52 The City of Strangers, Part II: The Twofold Demise		KEY:Chronicle ~ S01-52	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-53 Echoes of the Everwar, Part IV: The Faithless Dead		KEY:Chronicle ~ S01-53	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-54 Eyes of the Ten, Part II: The Maze of the Open Road		KEY:Chronicle ~ S01-54	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-55 The Infernal Vault										KEY:Chronicle ~ S01-55	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S01-56 The Jester's Fraud										KEY:Chronicle ~ S01-56	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+
+S02-01 Before the Dawn, Part I: The Bloodcove Disguise				KEY:Chronicle ~ S02-01	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-02 Before the Dawn, Part II: Rescue at Azlant Ridge			KEY:Chronicle ~ S02-02	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-03 The Rebel's Ransom											KEY:Chronicle ~ S02-03	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-04 Shadows Fall on Absalom										KEY:Chronicle ~ S02-04	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-05 Eyes of the Ten, Part III: Red Revolution					KEY:Chronicle ~ S02-05	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-06 The Heresy of Man, Part I: The First Heresy					KEY:Chronicle ~ S02-06	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-07 The Heresy of Man, Part II: Where Dark Things Sleep			KEY:Chronicle ~ S02-07	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-08 The Sarkorian Prophecy										KEY:Chronicle ~ S02-08	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-09 The Heresy of Man, Part III: Beneath Forgotten Sands		KEY:Chronicle ~ S02-09	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-10 Fury of the Fiend												KEY:Chronicle ~ S02-10	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-11 The Penumbral Accords											KEY:Chronicle ~ S02-11	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-12 Below the Silver Tarn											KEY:Chronicle ~ S02-12	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-13 Murder on the Throaty Mermaid									KEY:Chronicle ~ S02-13	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-14 The Chasm of Screams											KEY:Chronicle ~ S02-14	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-15 Shades of Ice, Part I: Written in Blood						KEY:Chronicle ~ S02-15	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-16 The Flesh Collector											KEY:Chronicle ~ S02-16	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-17 Shades of Ice, Part II: Exiles of Winter					KEY:Chronicle ~ S02-17	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-18 The Forbidden Furnace of Forgotten Koor						KEY:Chronicle ~ S02-18	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-19 Shades of Ice, Part III: Keep of the Huskarl King			KEY:Chronicle ~ S02-19	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-20 Wrath of the Accursed											KEY:Chronicle ~ S02-20	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-21 The Dalsine Affair											KEY:Chronicle ~ S02-21	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-22 Eyes of the Ten, Part IV: Nothing Ventured, Nothing Gained	KEY:Chronicle ~ S02-22	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-23 Shadow's Last Stand, Part I: At Shadow's Door				KEY:Chronicle ~ S02-23	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-24 Shadow's Last Stand, Part II: Web of Corruption				KEY:Chronicle ~ S02-24	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-25 You Only Die Twice											KEY:Chronicle ~ S02-25	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-26 The Mantis's Prey												KEY:Chronicle ~ S02-26	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-EX The Midnight Mauler											KEY:Chronicle ~ S02-EX	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S02-SP Year of the Shadow Lodge										KEY:Chronicle ~ S02-SP	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+
+S03-01 The Frostfur Captives												KEY:Chronicle ~ S03-01	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-02 Sewer Dragons of Absalom											KEY:Chronicle ~ S03-02	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-03 The Ghenett Manor Gauntlet										KEY:Chronicle ~ S03-03	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-04 The Kortos Envoy													KEY:Chronicle ~ S03-04	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-05 Tide of Twilight													KEY:Chronicle ~ S03-05	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-06 Song of the Sea Witch												KEY:Chronicle ~ S03-06	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-07 Echoes of the Overwatched											KEY:Chronicle ~ S03-07	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-08 Among the Gods													KEY:Chronicle ~ S03-08	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-09 The Quest for Perfection, Part I: The Edge of Heaven				KEY:Chronicle ~ S03-09	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-10 The Immortal Conundrum											KEY:Chronicle ~ S03-10	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-11 The Quest for Perfection, Part II: On Hostile Waters				KEY:Chronicle ~ S03-11	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-12 Wonders in the Weave, Part I: The Dog Pharaoh's Tomb				KEY:Chronicle ~ S03-12	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-13 The Quest for Perfection, Part III: Defenders of Nesting Swallow	KEY:Chronicle ~ S03-13	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-14 Wonders in the Weave, Part II: Snakes in the Fold				KEY:Chronicle ~ S03-14	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-15 The Haunting of Hinojai											KEY:Chronicle ~ S03-15	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-16 The Midnight Mauler												KEY:Chronicle ~ S03-16	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-17 Red Harvest														KEY:Chronicle ~ S03-17	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-18 The God's Market Gamble											KEY:Chronicle ~ S03-18	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-19 The Icebound Outpost												KEY:Chronicle ~ S03-19	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-20 The Rats of Round Mountain, Part I: The Sundered Path			KEY:Chronicle ~ S03-20	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-21 The Temple of Empyreal Enlightenment								KEY:Chronicle ~ S03-21	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-22 The Rats of Round Mountain, Part II: Pagoda of the Rat			KEY:Chronicle ~ S03-22	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-23 The Goblinblood Dead												KEY:Chronicle ~ S03-23	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-24 The Golden Serpent												KEY:Chronicle ~ S03-24	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-25 Storming the Diamond Gate											KEY:Chronicle ~ S03-25	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-26 Portal of the Sacred Rune											KEY:Chronicle ~ S02-26	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-EX The Cyphermage Dilemma												KEY:Chronicle ~ S02-EX	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S03-SP Blood Under Absalom													KEY:Chronicle ~ S02-SP	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+
+S04-01 Rise of the Goblin Guild			KEY:Chronicle ~ S04-01	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-02 In Wrath's Shadow					KEY:Chronicle ~ S04-02	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-03 The Golemworks Incident			KEY:Chronicle ~ S04-03	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-04 King of the Storval Stairs		KEY:Chronicle ~ S04-04	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-05 The Sanos Abduction				KEY:Chronicle ~ S04-05	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-06 The Green Market					KEY:Chronicle ~ S04-06	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-07 Severing Ties						KEY:Chronicle ~ S04-07	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-08 The Cultist's Kiss				KEY:Chronicle ~ S04-08	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-09 The Blakros Matrimony				KEY:Chronicle ~ S04-09	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-10 Feast of Sigils					KEY:Chronicle ~ S04-10	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-11 The Disappeared					KEY:Chronicle ~ S04-11	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-12 The Refuge of Time				KEY:Chronicle ~ S04-12	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-13 Fortress of the Nail				KEY:Chronicle ~ S04-13	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-14 My Enemy's Enemy					KEY:Chronicle ~ S04-14	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-15 The Cyphermage Dilemma			KEY:Chronicle ~ S04-15	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-16 The Fabric of Reality				KEY:Chronicle ~ S04-16	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-17 Tower of the Ironwood Watch		KEY:Chronicle ~ S04-17	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-18 The Veteran's Vault				KEY:Chronicle ~ S04-18	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-19 The Night March of Kalkamedes		KEY:Chronicle ~ S04-19	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-20 Words of the Ancients				KEY:Chronicle ~ S04-20	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-21 Way of the Kirin					KEY:Chronicle ~ S04-21	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-22 Halls of Dwarven Lore				KEY:Chronicle ~ S04-22	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-23 Rivalry's End						KEY:Chronicle ~ S04-23	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-24 The Price of Friendship			KEY:Chronicle ~ S04-24	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-25 The Secrets Stones Keep			KEY:Chronicle ~ S04-25	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-26 The Waking Rune					KEY:Chronicle ~ S04-26	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-EX Day of the Demon					KEY:Chronicle ~ S04-EX	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-SP1 Race for the Runecarved Key		KEY:Chronicle ~ S04-SP1	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-SP2 Ruins of Bonekeep - Level 1: The Silent Grave		KEY:Chronicle ~ S04-SP2	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+
+S05-01 The Glass River Rescue									KEY:Chronicle ~ S05-01	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-02 The Wardstone Patrol										KEY:Chronicle ~ S05-02	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-03 The Hellknight's Feast									KEY:Chronicle ~ S05-03	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-04 The Stolen Heir											KEY:Chronicle ~ S05-04	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-05 The Elven Entanglement									KEY:Chronicle ~ S05-05	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-06 You Have What You Hold									KEY:Chronicle ~ S05-06	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-07 Port Godless												KEY:Chronicle ~ S05-07	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-08 The Confirmation											KEY:Chronicle ~ S05-08	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-09 The Traitor's Lodge										KEY:Chronicle ~ S05-09	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-10 Where Mammoths Dare Not Tread							KEY:Chronicle ~ S05-10	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-11 Library of the Lion										KEY:Chronicle ~ S05-11	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-12 Destiny of the Sands, Part 1: A Bitter Bargain			KEY:Chronicle ~ S05-12	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-13 Weapon in the Rift										KEY:Chronicle ~ S05-13	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-14 Day of the Demon											KEY:Chronicle ~ S05-14	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-15 Destiny of the Sands, Part 2: Race to Seeker's Folly		KEY:Chronicle ~ S05-15	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-16 Destiny of the Sands, Part 3: Sanctum of the Sages		KEY:Chronicle ~ S05-16	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-17 Fate of the Fiend										KEY:Chronicle ~ S05-17	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-18 The Stranger Within										KEY:Chronicle ~ S05-18	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-19 The Horn of Aroden										KEY:Chronicle ~ S05-19	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-20 The Sealed Gate											KEY:Chronicle ~ S05-20	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-21 The Merchant's Wake										KEY:Chronicle ~ S05-21	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-22 Scars of the Third Crusade								KEY:Chronicle ~ S05-22	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-23 Cairn of Shadows											KEY:Chronicle ~ S05-23	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-24 Assault on the Wound										KEY:Chronicle ~ S05-24	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-25 Vengeance at Sundered Crag								KEY:Chronicle ~ S05-25	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-99 The Paths We Choose										KEY:Chronicle ~ S05-99	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S05-SP1 Siege of the Diamond City								KEY:Chronicle ~ S05-SP1	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+S04-SP2 Ruins of Bonekeep, Level 2: Maze to the Mind Slave		KEY:Chronicle ~ S05-SP2	TYPE:Chronicle	CATEGORY:Special Ability	VISIBLE:YES	COST:0
+
+# DONE
+#

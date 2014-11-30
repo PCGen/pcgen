@@ -1,0 +1,9 @@
+# CVS $Revision: 21789 $ $Author: amaitland $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:My Pathfinder Society Chronicle Sheets	SOURCESHORT:MPFSCS	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+Ioun Stone (Ocher Rhomboid)			OUTPUTNAME:Ioun Stone, [NAME]		TYPE:Magic.Wondrous.Ioun		COST:0		WT:0.02			SOURCEPAGE:pfs.#4-12		BONUS:ABILITYPOOL|Ocher Rhomboid Feat|1		SPROP:Cursed. Bonus Feat
+Ioun Stone (Ocher Rhomboid).MOD		TYPE:GreaterMedium	WT:0	SOURCELONG:PFS Chronicle #4-12	SOURCESHORT:PFS#4-12
+Diamond of Demon Seeking	TYPE:Magic.Wondrous	COST:6000	WT:0.02	SOURCELONG:PFS Chronicle #3-25	SOURCESHORT:PFS#3-25	DESC:When any creature of hte demon subtype comes within 30 feet of this flawless gem, it glows with a blood-red radiance as the light spell. The diamind does not reveal invisible or otherwise hidded demons, bot rather simply alerts the wisher to their presence. Spells or effects that protect a demon from dinivation or alter a demon's alignment prevent a diamond of demon seeking from detecting a demon under such and effect.
+
+# DONE
+#

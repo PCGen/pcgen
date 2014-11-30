@@ -93,3 +93,9 @@ PCC:@/pathfinder_pfs/paizo/adventure_path/curse_of_the_crimson_throne/pfs_ap9/pf
 PCC:@/pathfinder_pfs/paizo/adventure_path/legacy_of_fire/pfs_players_guide/pfs_legacy_of_fire_players_guide.pcc
 PCC:@/pathfinder_pfs/paizo/adventure_path/rise_of_the_runelords/pfs_rise_of_the_runelords_ae/pfs_rise_of_the_runelords_ae.pcc
 PCC:@/pathfinder_pfs/paizo/adventure_path/skull_and_shackles/pfs_ap55/pfs_ap55.pcc
+
+########################
+# PFS Chronicle Sheets #
+########################
+
+PCC:@/pathfinder_pfs/paizo/pathfinder_society/pfs_chronicle_sheets/pfs_chronicle_sheets.pcc
