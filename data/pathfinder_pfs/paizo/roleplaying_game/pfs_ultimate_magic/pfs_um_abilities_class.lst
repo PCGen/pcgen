@@ -5,32 +5,32 @@ SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRP
 
 
 #   Alternate class abilities: alchemical simulacrum discovery, alchemical zombie discovery, doppelganger simulacrum discovery, and greater alchemical simulacrum discovery are not legal for play.
-CATEGORY=Special Ability|Discovery ~ Alchemical Simulacrum.FORGET
-CATEGORY=Special Ability|Discovery ~ Alchemical Zombie.FORGET
-CATEGORY=Special Ability|Discovery ~ Doppelganger Simulacrum.FORGET
-CATEGORY=Special Ability|Discovery ~ Greater Alchemical Simulacrum.FORGET
+CATEGORY=Special Ability|Discovery ~ Alchemical Simulacrum.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Discovery ~ Alchemical Zombie.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Discovery ~ Doppelganger Simulacrum.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Discovery ~ Greater Alchemical Simulacrum.MOD		VISIBLE:NO	TYPE:PFSNotLegal
 
 #   Archetypes: broodmaster summoner, clone master alchemist, gravewalker witch, pack lord druid, master summoner, reincarnated druid, synthesist summoner, undead lord cleric, vivisectionist alchemist archetypes are not legal for play.
-CATEGORY=Special Ability|Summoner Archetype ~ Broodmaster.FORGET
-CATEGORY=Special Ability|Alchemist Archetype ~ Clone Master.FORGET
-CATEGORY=Special Ability|Witch Archetype ~ Gravewalker.FORGET
-CATEGORY=Special Ability|Druid Archetype ~ Pack Lord.FORGET
-CATEGORY=Special Ability|Summoner Archetype ~ Master Summoner.FORGET
-CATEGORY=Special Ability|Druid Archetype ~ Reincarnated Druid.FORGET
-CATEGORY=Special Ability|Summoner Archetype ~ Synthesist.FORGET
-CATEGORY=Special Ability|Cleric Archetype ~ Undead Lord.FORGET
-CATEGORY=Special Ability|Alchemist Archetype ~ Vivisectionist.FORGET
+CATEGORY=Archetype|Summoner Archetype ~ Broodmaster.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Archetype|Alchemist Archetype ~ Clone Master.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Archetype|Witch Archetype ~ Gravewalker.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Archetype|Druid Archetype ~ Pack Lord.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Archetype|Summoner Archetype ~ Master Summoner.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Archetype|Druid Archetype ~ Reincarnated Druid.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Archetype|Summoner Archetype ~ Synthesist.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Archetype|Cleric Archetype ~ Undead Lord.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Archetype|Alchemist Archetype ~ Vivisectionist.MOD		VISIBLE:NO	TYPE:PFSNotLegal
 
 #   Hexes: child scent hex, poison steep hex, cook people major hex, and witch's brew major hex are not legal for play.
-CATEGORY=Special Ability|Witch Hex ~ Child-Scent.FORGET
-CATEGORY=Special Ability|Witch Hex ~ Poison Steep.FORGET
-CATEGORY=Special Ability|Witch Major Hex ~ Cook People.FORGET
-CATEGORY=Special Ability|Witch Major Hex ~ Witch's Brew.FORGET
+CATEGORY=Special Ability|Witch Hex ~ Child-Scent.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Witch Hex ~ Poison Steep.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Witch Major Hex ~ Cook People.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Witch Major Hex ~ Witch's Brew.MOD		VISIBLE:NO	TYPE:PFSNotLegal
 
 # Other: No content from Chapter 2 is legal for play except new familiars;
 # Becuase Hexcrafter relies on barred abilities, it too is not legal for play.
-CATEGORY=Archetype|Magus Archetype ~ Hexcrafter.FORGET
-CATEGORY=Special Ability|Hexcrafter ~ Spells.FORGET
+CATEGORY=Archetype|Magus Archetype ~ Hexcrafter.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Hexcrafter ~ Spells.MOD		VISIBLE:NO	TYPE:PFSNotLegal
 
 #   [not implemented] Geisha bard archetype grants Spell Focus instead of Scribe Scroll.
 #   [not implemented] Geisha bard archetype grants Spell Focus instead of Scribe Scroll.

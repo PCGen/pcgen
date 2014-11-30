@@ -4,15 +4,15 @@ SOURCELONG:Faiths of Purity	SOURCESHORT:FOP	SOURCEWEB:http://paizo.com/store/gam
 
 ###Block: Minor Deities
 # Deity Name	Product Identity?	Domains											Description of Deity/Title				Deity Weapon			Align		Pantheon					Source Page
-Apsu.FORGET
-Kurgess.FORGET
-Milani.FORGET
+Apsu.MOD			!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Kurgess.MOD			!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Milani.MOD			!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
 
 ###Block: Empyreal Lords
 # Deity Name	Product Identity?	Domains									Description of Deity/Title						Deity Weapon			Align		Pantheon			Source Page
-Andoletta.FORGET
-Arshea.FORGET
-Korada.FORGET
-Ragathiel.FORGET
-Sinashakti.FORGET
-Valani.FORGET
+Andoletta.MOD			!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Arshea.MOD			!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Korada.MOD			!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Ragathiel.MOD			!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Sinashakti.MOD			!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Valani.MOD			!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal

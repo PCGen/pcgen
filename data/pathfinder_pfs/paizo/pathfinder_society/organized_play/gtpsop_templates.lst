@@ -7,10 +7,10 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 PFS Starting Gold			VISIBLE:NO		KIT:1|Starting Gold PFS
 
 ### Starting Gold
-#Starting Gold ~ CRB.FORGET
-#Starting Gold CRB ~ Random.FORGET
-#Starting Gold CRB ~ Maximum.FORGET
-#Starting Gold CRB ~ Average.FORGET
+#Starting Gold ~ CRB.MOD		VISIBLE:NO
+#Starting Gold CRB ~ Random.MOD		VISIBLE:NO
+#Starting Gold CRB ~ Maximum.MOD		VISIBLE:NO
+#Starting Gold CRB ~ Average.MOD		VISIBLE:NO
 
 ###Block:
 Race Bonus Language ~ Modern Human Language	VISIBLE:NO	LANGBONUS:TYPE=ModernHumanLanguage

@@ -3,4 +3,4 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 # ORIGINAL ENTRY: Andrew Maitland
 # ORIGINAL ENTRY DATE: Nov 25, 2012
 
-Amazing Tools of Manufacture.FORGET
+Amazing Tools of Manufacture	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal

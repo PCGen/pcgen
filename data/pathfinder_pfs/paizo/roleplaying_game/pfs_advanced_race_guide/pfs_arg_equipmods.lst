@@ -1,5 +1,5 @@
 # CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 
-Wyroot(1 Life Point).FORGET
-Wyroot(2 Life Points).FORGET
-Wyroot(3 Life Points).FORGET
+Wyroot(1 Life Point)	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Wyroot(2 Life Points)	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Wyroot(3 Life Points)	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal

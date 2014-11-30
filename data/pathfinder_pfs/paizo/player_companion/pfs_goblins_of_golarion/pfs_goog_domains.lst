@@ -7,4 +7,4 @@ SOURCELONG:Goblins of Golarion	SOURCESHORT:GOOG	SOURCEWEB:http://paizo.com/produ
 # Misc.: all goblin gods and subdomains except flotsam on pages 26-27 are legal for play;
 
 # Domain Name	Required AL		Multiple Requirements										Ability																																							Define																												Modify VAR																																											Source Page		List of Domain Spells by Level
-Flotsam Subdomain.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+Flotsam Subdomain.MOD			!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal

@@ -4,20 +4,20 @@ SOURCELONG:Faiths of Purity	SOURCESHORT:FOB	SOURCEWEB:http://paizo.com/store/gam
 
 ###Block: Minor Deities
 # Deity Name	Product Identity?	Domains											Description of Deity/Title				Deity Weapon			Align		Pantheon					Source Page
-Alseta.FORGET
-Besmara.FORGET
-Brigh.FORGET
-Groetus.FORGET
-Hanspur.FORGET
-Naderi.FORGET
-Sivanah.FORGET
+Alseta	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Besmara	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Brigh	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Groetus	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Hanspur	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Naderi	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Sivanah	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
 
 ###Block: Eldest
 # Deity Name	Product Identity?	Domains										Description of Deity/Title						Deity Weapon		Align		Pantheon		Source Page
-Count Ranalc.FORGET
-Imbrex.FORGET
-The Lantern King.FORGET
-The Lost Prince.FORGET
-Maghd.FORGET
-Ng.FORGET
-Shyka.FORGET
+Count Ranalc	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Imbrex	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+The Lantern King	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+The Lost Prince	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Maghd	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Ng	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Shyka	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal

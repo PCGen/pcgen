@@ -47,10 +47,11 @@ EQUIPMENT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_equip_m
 COMPANIONMOD:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_companionmods.lst
 RACE:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_races.lst
 RACE:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_races_companions.lst
-SPELL:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_spells.lst|(INCLUDE:Advanced Scurvy|Cloud of Seasickness)
+SPELL:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_spells.lst|(INCLUDE:Advanced Scurvy|Cloud of Seasickness|Freedom of Movement (self only))
 ABILITY:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_abilities_race.lst
 KIT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_kits_companions.lst
 KIT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_kits_races.lst
 #KIT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_kits_npcs.lst
 
 FORWARDREF:SPELL|Freedom of Movement (self only)
+SPELL:pfs_ap55_spells.lst

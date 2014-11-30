@@ -42,15 +42,27 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., whi
 # Prestige Class: Balanced Scale of Abadar
 
 !PRECAMPAIGN:1,Dark Markets - A Guide to Katapesh (Conversion)
-PCC:@/pathfinder/paizo/campaign_setting/dark_markets/dark_markets.pcc
+#PCC:@/pathfinder/paizo/campaign_setting/dark_markets/dark_markets.pcc
 
-LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_abilities_race.lst
-LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_abilitycategories.lst
-LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_equip_general.lst
-LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_equip_arms_armor.lst
-LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_equip_magic_items.lst
-LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_races.lst
-LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_spells.lst
-LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_templates.lst
+ABILITY:@/pathfinder/paizo/campaign_setting/dark_markets/dm_abilities_class.lst
+# ABILITY:dm_abilities_race.lst
+# ABILITYCATEGORY:dm_abilitycategories.lst
+CLASS:@/pathfinder/paizo/campaign_setting/dark_markets/dm_classes.lst|(INCLUDE:Balanced Scale of Abadar)
+# EQUIPMENT:dm_equip_general.lst
+# EQUIPMENT:dm_equip_arms_armor.lst
+# EQUIPMENT:dm_equip_magic_items.lst
+FEAT:@/pathfinder/paizo/campaign_setting/dark_markets/dm_feats.lst|(INCLUDE:Jackal Blood,Lucky Halfling)
+# RACE:dm_races.lst
+# SPELL:dm_spells.lst
+# TEMPLATE:dm_templates.lst
+
+#LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_abilities_race.lst
+#LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_abilitycategories.lst
+#LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_equip_general.lst
+#LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_equip_arms_armor.lst
+#LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_equip_magic_items.lst
+#LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_races.lst
+#LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_spells.lst
+#LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_templates.lst
 
 FEAT:pfs_dm_feats.lst

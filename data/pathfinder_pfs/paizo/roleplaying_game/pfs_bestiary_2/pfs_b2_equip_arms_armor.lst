@@ -2,9 +2,9 @@
 SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 
-Leprechaun Shillelagh.FORGET
-Gaff.FORGET
-Maul of the Titans.FORGET
-Rhoka Sword.FORGET
-Rock (Korred).FORGET
-Rock (Huge).FORGET
+Leprechaun Shillelagh	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Gaff	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Maul of the Titans	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Rhoka Sword	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Rock (Korred)	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Rock (Huge)	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal

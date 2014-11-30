@@ -4,5 +4,5 @@ SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinde
 # Feats: all feats on pages 24-25 except Destroyer's Blessing and Fire God's Blessing;
 
 # Feat Name				Type				Required Ability																		Restricted AL		Required Class				Required Race			Required Stat	Description																												Source Page		Benefits
-Destroyer's Blessing.FORGET
-Fire God's Blessing.FORGET
+Destroyer's Blessing.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+Fire God's Blessing.MOD		VISIBLE:NO	TYPE:PFSNotLegal

@@ -3,11 +3,11 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 # ORIGINAL ENTRY: none
 # ORIGINAL ENTRY DATE: none
 
-#CATEGORY=Special Ability|Dwarf ~ Craftsman.FORGET
-CATEGORY=Special Ability|Dwarf ~ Xenophobic.FORGET
-CATEGORY=Special Ability|Elf ~ Darkvision.FORGET
-CATEGORY=Special Ability|Half-Elf ~ Drow Blooded.FORGET
-CATEGORY=Special Ability|Half-Elf ~ Drow Magic.FORGET
-#CATEGORY=Special Ability|Halfling ~ Practicality.FORGET
-#CATEGORY=Special Ability|Human ~ Heart of the Fields.FORGET
-CATEGORY=Special Ability|Human ~ Heroic.FORGET
+#CATEGORY=Special Ability|Dwarf ~ Craftsman.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Dwarf ~ Xenophobic.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Elf ~ Darkvision.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Half-Elf ~ Drow Blooded.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Half-Elf ~ Drow Magic.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+#CATEGORY=Special Ability|Halfling ~ Practicality.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+#CATEGORY=Special Ability|Human ~ Heart of the Fields.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Human ~ Heroic.MOD		VISIBLE:NO	TYPE:PFSNotLegal

@@ -6,66 +6,66 @@ SOURCELONG:Faiths of Corruption	SOURCESHORT:FOC	SOURCEWEB:http://paizo.com/produ
 
 ###Block: Minor Deities
 # Deity Name	Product Identity?	Domains											Description of Deity/Title						Deity Weapon			Align		Pantheon					Source Page
-Achaekek.FORGET
-Dahak.FORGET
-Ghlaunder.FORGET
-Gyronna.FORGET
-Lissala.FORGET
-Ydersius.FORGET
-Zyphus.FORGET
+Achaekek	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Dahak	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Ghlaunder	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Gyronna	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Lissala	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Ydersius	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Zyphus	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
 
 ###Block: Archdevils
 # Deity Name	Product Identity?	Domains								Description of Deity/Title					Deity Weapon		Align		Pantheon			Source Page
-Baalzebul.FORGET
-Barbatos.FORGET
-Belial.FORGET
-Dispater.FORGET
-Geryon.FORGET
-Mammon.FORGET
-Mephistopheles.FORGET
-Moloch.FORGET
+Baalzebul	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Barbatos	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Belial	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Dispater	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Geryon	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Mammon	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Mephistopheles	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Moloch	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
 
 ###Block: Demon Lords
 # Deity Name	Product Identity?	Domains									Description of Deity/Title					Deity Weapon			Align		Pantheon			Source Page
-Abraxas.FORGET
-Angazhan.FORGET
-Baphomet.FORGET
-Cyth-V'sug.FORGET
-Dagon.FORGET
-Deskari.FORGET
-Gogunta.FORGET
-Kostchtchie.FORGET
-Nocticula.FORGET
-Orcus.FORGET
-Pazuzu.FORGET
-Shax.FORGET
-Socothbenoth.FORGET
-Zura.FORGET
+Abraxas	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Angazhan	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Baphomet	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Cyth-V'sug	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Dagon	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Deskari	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Gogunta	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Kostchtchie	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Nocticula	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Orcus	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Pazuzu	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Shax	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Socothbenoth	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Zura	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
 
 ###Block: Elemental Lords
 # Deity Name	Product Identity?	Domains									Description of Deity/Title	Deity Weapon		Align		Pantheon				Source Page
-Ayrzul.FORGET
-Hshurha.FORGET
-Kelizandri.FORGET
-Ymeri.FORGET
+Ayrzul	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Hshurha	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Kelizandri	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Ymeri	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
 
 ###Block: Horsemen
 # Deity Name	Product Identity?	Domains									Description of Deity/Title	Deity Weapon			Align		Pantheon		Source Page
-Apollyon.FORGET
-Charon.FORGET
-Szuriel.FORGET
-Trelmarixian.FORGET
+Apollyon	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Charon	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Szuriel	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Trelmarixian	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
 
 ###Block: Great Old Ones
 # Deity Name	Product Identity?	Domains										Deity Weapon		Align		Pantheon						Source Page
-Great Old Ones.FORGET
-Azathoth.FORGET
-Bokrug.FORGET
-Cthulhu.FORGET
-Hastur.FORGET
-Mhar.FORGET
-Nyarlathotep.FORGET
-Shub-Niggurath.FORGET
-Xhamen-Dor.FORGET
-Yog-Sothoth.FORGET
+Great Old Ones	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Azathoth	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Bokrug	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Cthulhu	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Hastur	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Mhar	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Nyarlathotep	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Shub-Niggurath	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Xhamen-Dor	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Yog-Sothoth	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
 

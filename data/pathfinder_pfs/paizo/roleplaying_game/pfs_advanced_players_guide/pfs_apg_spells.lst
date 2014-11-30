@@ -2,8 +2,8 @@
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 #Original Entry By: Andrew Maitland
 
-Heroic Fortune.FORGET
-Heroic Fortune (Mass).FORGET
-Malediction.FORGET
-Severed Fate.FORGET
-Unravel Destiny.FORGET
+Heroic Fortune	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Heroic Fortune (Mass	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Malediction	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Severed Fate	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+Unravel Destiny	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal

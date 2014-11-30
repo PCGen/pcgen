@@ -5,4 +5,4 @@ SOURCELONG:Dungeoneer's Handbook	SOURCESHORT:DH	SOURCEWEB:http://paizo.com/produ
 
 # Equipment: all equipment on pages 6-7 and 24-29 except petrified ooze are legal for play;
 
-Petrified Ooze.FORGET
+Petrified Ooze	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal

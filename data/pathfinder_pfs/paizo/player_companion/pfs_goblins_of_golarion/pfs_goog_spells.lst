@@ -6,4 +6,4 @@ SOURCELONG:Goblins of Golarion	SOURCESHORT:GOOG	SOURCEWEB:http://paizo.com/produ
 # Spells: all spells on pages 28-29 except limp lash are legal for play;
 
 # Spell Name	Type				Classes of caster					School			Descriptor			Components								Casting Time			Range			Target Area or Effect			Duration					Save Info					Spell Resistance		Source Page		Description
-Limp Lash.FORGET
+Limp Lash.MOD			!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
