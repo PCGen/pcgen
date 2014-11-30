@@ -10,11 +10,9 @@ SETTING:Pathfinder|Golarion
 SHOWINMENU:YES
 # COMMENT: No books should be allowed if this set is used. Causes issues!
 !PRECAMPAIGN:1,BOOKTYPE=MultiSet[Pathfinder Society Core Assumption]
-#!PRECAMPAIGN:1,BOOKTYPE=Campaign Setting
-
-# COMMENT: No books should be allowed if are already inluded here in some way.
-# Each section below has a !PRECAMPAIGN to block manually selection of books included in this source.
-# This allows the user to manually include only those books not specifically listed in this source.
+!PRECAMPAIGN:1,BOOKTYPE=MultiSet[Pathfinder Society Complete]
+# NOTE: To use an unconverted source, you can browse to the main Paizo Publishing source tree to select it. However, using an unconverted set may cause load errors.
+# Also, you must manually verify that the items are PFS Legal by consulting the Pathfinder Society Additional Resources Guide at Paizo.com.
 
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -51,8 +49,8 @@ DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer 
 
 !PRECAMPAIGN:1,Core Rulebook
 !PRECAMPAIGN:1,Guide To Pathfinder Society Organized Play
-PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
 PCC:@/pathfinder_pfs/paizo/pathfinder_society/organized_play/_guide_to_pathfinder_society_organized_play.pcc
+PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_core_rulebook/pfs_core_rulebook.pcc
 
 FORWARDREF:RACE|Orc
 
