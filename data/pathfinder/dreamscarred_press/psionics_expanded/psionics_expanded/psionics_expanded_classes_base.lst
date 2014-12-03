@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/05
@@ -59,7 +59,7 @@ CLASS:Cryptic	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Cryp
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticSimpleWeaponProficiency	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.CrypticLightArmorProficiency	AUTO:WEAPONPROF|Rapier|Shortbow
 
 ###Block: Cryptic Psionic Ability
-1	BONUS:VAR|IsPsionic|1																								DEFINE:IsPsionic|0												ABILITY:Special Ability|AUTOMATIC|Psionic
+1	BONUS:VAR|IsPsionic|1																								DEFINE:IsPsionic|0											ABILITY:Special Ability|AUTOMATIC|Psionic
 1	BONUS:VAR|CrypticLVL|CL																								DEFINE:CrypticLVL|0
 1	BONUS:VAR|CrypticPL|CrypticLVL	BONUS:VAR|CrypticPL|var("BL=Cryptic")															DEFINE:CrypticPL|0
 1	BONUS:VAR|CrypticPrimeStat|INT																						DEFINE:CrypticPrimeStat|0

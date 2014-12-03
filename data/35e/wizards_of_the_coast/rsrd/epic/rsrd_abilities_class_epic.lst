@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Author: Andargor <andargor@yahoo.com>
 
@@ -114,5 +114,6 @@ Safekeeping		KEY:Living Vault ~ Safekeeping		CATEGORY:Special Ability	TYPE:Speci
 
 
 ###Block:
+# Ability Name		Category of Ability		Type					Required Class				Stackable?	Multiple?	Choose							Bonus to spell known/L		Source Page
 Spell Knowledge Arcane	CATEGORY:Special Ability	TYPE:EpicSpellKnowledgeChoice	PRECLASS:1,SPELLCASTER.Arcane=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:EpicFeats
 Spell Knowledge Divine	CATEGORY:Special Ability	TYPE:EpicSpellKnowledgeChoice	PRECLASS:1,SPELLCASTER.Divine=1	STACK:YES	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Divine|0|MAXLEVEL	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:EpicFeats

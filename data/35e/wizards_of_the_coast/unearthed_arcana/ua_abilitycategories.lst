@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Sep  7 23:21:45 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 
 # Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list		Plural description for UI			Display Location
 ABILITYCATEGORY:Totem Barbarian					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF			TYPE:Totem Barbarian									PLURAL:Totem Barbarian Variants		DISPLAYLOCATION:Class Features
@@ -76,7 +76,6 @@ ABILITYCATEGORY:Fobidden Lore Modifier				VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO	
 
 ABILITYCATEGORY:Arctic Elf Craft Bonus				VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Arctic Elf Craft Bonus								PLURAL:Arctic Elf Craft Bonus			DISPLAYLOCATION:Race Traits
 
-ABILITYCATEGORY:Item Familiar Selections				VISIBLE:QUALIFY		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:ItemFamiliar											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Item Familiar Selections				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ItemFamiliar																	DISPLAYLOCATION:Misc
 
-ABILITYCATEGORY:Item Familiar Bonus to Skill			VISIBLE:QUALIFY		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:IFSkillBonus											DISPLAYLOCATION:Misc
-
+ABILITYCATEGORY:Item Familiar Bonus to Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:IFSkillBonus																	DISPLAYLOCATION:Misc

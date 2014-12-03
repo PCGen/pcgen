@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 #Original Entry: Arknight
 #     Variables - HasPsionics, ManifesterLvl
@@ -13,7 +13,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 #		available to them. The User May simply select the Use Higher Level Slot to take a power of any level lower than the max available.
 
 
-# Class Name	Hit Dice	Type				Class Type		Max Level	Base class as subclass?	Source Page				Ability																																																																	Combat bonus										Save bonus																					Modify VAR
+# Class Name	Hit Dice	Type				Class Type		Max Level	Base class as subclass?	Source Page				Ability																																																																		Combat bonus										Save bonus																					Modify VAR
 CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	CLASSTYPE:PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:PsionicClasses	ABILITY:Internal|AUTOMATIC|Psion ~ Egoist|PRESUBCLASS:1,Egoist	ABILITY:Internal|AUTOMATIC|Psion ~ Kineticist|PRESUBCLASS:1,Kineticist	ABILITY:Internal|AUTOMATIC|Psion ~ Nomad|PRESUBCLASS:1,Nomad	ABILITY:Internal|AUTOMATIC|Psion ~ Seer|PRESUBCLASS:1,Seer	ABILITY:Internal|AUTOMATIC|Psion ~ Shaper|PRESUBCLASS:1,Shaper	ABILITY:Internal|AUTOMATIC|Psion ~ Telepath|PRESUBCLASS:1,Telepath	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl
 CLASS:Psion		STARTSKILLPTS:2

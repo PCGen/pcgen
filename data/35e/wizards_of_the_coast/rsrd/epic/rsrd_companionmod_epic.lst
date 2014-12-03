@@ -1,12 +1,13 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision$ $Author$ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
 #Block: Epic Familiar Progression
 # Class of the Master	Type			Bonus Ability Pool
-FOLLOWER:FamiliarLVL=21	TYPE:Familiar	BONUS:ABILITYPOOL|Familiar Spell Choice|(11-mastervar("FamiliarLVL"))/10	
+FOLLOWER:FamiliarLVL=21	TYPE:Familiar	BONUS:ABILITYPOOL|Familiar Spell Choice|(11-mastervar("FamiliarLVL"))/10
 
 ###Block: Epic Special Mount Progression	CODE FEATURE: HD to take var / mastervar
-FOLLOWER:SpecialMountLVL=25	TYPE:Special Mount	HD:2	DEFINESTAT:MINVALUE|INT|9+((20-mastervar("SpecialMountLVL"))/5)	BONUS:COMBAT|AC|2*((20-mastervar("SpecialMountLVL"))/5)|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|(20-mastervar("SpecialMountLVL"))/5	
+# Class of the Master		Type				Hit Dice	Define Stat										Combat bonus												Stat bonus
+FOLLOWER:SpecialMountLVL=25	TYPE:Special Mount	HD:2		DEFINESTAT:MINVALUE|INT|9+((20-mastervar("SpecialMountLVL"))/5)	BONUS:COMBAT|AC|2*((20-mastervar("SpecialMountLVL"))/5)|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|(20-mastervar("SpecialMountLVL"))/5
 FOLLOWER:SpecialMountLVL=30	TYPE:Special Mount	HD:2
 FOLLOWER:SpecialMountLVL=35	TYPE:Special Mount	HD:2
 FOLLOWER:SpecialMountLVL=40	TYPE:Special Mount	HD:2
@@ -26,7 +27,8 @@ FOLLOWER:SpecialMountLVL=105	TYPE:Special Mount	HD:2
 FOLLOWER:SpecialMountLVL=110	TYPE:Special Mount	HD:2
 
 ###Block: Epic Animal Companion Progression
-FOLLOWER:AnimalCompanionLVL=23	TYPE:Animal Companion	HD:2	BONUS:STAT|STR|(20-mastervar("AnimalCompanionLVL"))/3	BONUS:STAT|DEX|(20-mastervar("AnimalCompanionLVL"))/3	BONUS:VAR|BonusTricks|(20-mastervar("AnimalCompanionLVL"))/3
+# Class of the Master			Type				Hit Dice	Stat bonus																	Modify VAR
+FOLLOWER:AnimalCompanionLVL=23	TYPE:Animal Companion	HD:2		BONUS:STAT|STR|(20-mastervar("AnimalCompanionLVL"))/3	BONUS:STAT|DEX|(20-mastervar("AnimalCompanionLVL"))/3	BONUS:VAR|BonusTricks|(20-mastervar("AnimalCompanionLVL"))/3
 FOLLOWER:AnimalCompanionLVL=26	TYPE:Animal Companion	HD:2
 FOLLOWER:AnimalCompanionLVL=29	TYPE:Animal Companion	HD:2
 FOLLOWER:AnimalCompanionLVL=32	TYPE:Animal Companion	HD:2

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jan 27 22:44:24 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Clash of Arms - Cavalry	SOURCESHORT:CoA-C	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21487&	SOURCEDATE:2007-03
 
 
@@ -26,28 +26,28 @@ Pony.COPY=Pony (Bag of Bones)
 Pony (War).COPY=Pony (War/Bag of Bones)
 
 ###Block: .MODs
-# Race Name						Monster Class Name and Starting Level	Template
-Camel (Old Nag).MOD				MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
-Dog (Riding/Old Nag).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Old Nag)
-Donkey (Old Nag).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Old Nag)
-Horse (Heavy/Old Nag).MOD			MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
-Horse (Light/Old Nag).MOD			MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
-Horse (Warhorse Heavy/Old Nag).MOD		MONSTERCLASS:Animal:3				TEMPLATE:Mount Quality (Old Nag)
-Horse (Warhorse Light/Old Nag).MOD		MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
-Mule (Old Nag).MOD				MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
-Pony (Old Nag).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Old Nag)
-Pony (War/Old Nag).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Old Nag)
+# Race Name						Modify VAR					Monster Class Name and Starting Level	Template
+Camel (Old Nag).MOD										MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
+Dog (Riding/Old Nag).MOD									MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Old Nag)
+Donkey (Old Nag).MOD										MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Old Nag)
+Horse (Heavy/Old Nag).MOD									MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
+Horse (Light/Old Nag).MOD									MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
+Horse (Warhorse Heavy/Old Nag).MOD								MONSTERCLASS:Animal:3				TEMPLATE:Mount Quality (Old Nag)
+Horse (Warhorse Light/Old Nag).MOD								MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
+Mule (Old Nag).MOD										MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Old Nag)
+Pony (Old Nag).MOD										MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Old Nag)
+Pony (War/Old Nag).MOD										MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Old Nag)
 
-Camel (Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
-Dog (Riding/Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)	BONUS:VAR|FractionalHD|1|TYPE=Race
-Donkey (Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)	BONUS:VAR|FractionalHD|1|TYPE=Race
-Horse (Heavy/Bag of Bones).MOD		MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
-Horse (Light/Bag of Bones).MOD		MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
-Horse (Warhorse Heavy/Bag of Bones).MOD	MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Bag of Bones)
-Horse (Warhorse Light/Bag of Bones).MOD	MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
-Mule (Bag of Bones).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
-Pony (Bag of Bones).MOD				MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)	BONUS:VAR|FractionalHD|1|TYPE=Race
-Pony (War/Bag of Bones).MOD			MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)	BONUS:VAR|FractionalHD|1|TYPE=Race
+Camel (Bag of Bones).MOD									MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
+Dog (Riding/Bag of Bones).MOD			BONUS:VAR|FractionalHD|1|TYPE=Race	MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
+Donkey (Bag of Bones).MOD			BONUS:VAR|FractionalHD|1|TYPE=Race	MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
+Horse (Heavy/Bag of Bones).MOD								MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
+Horse (Light/Bag of Bones).MOD								MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
+Horse (Warhorse Heavy/Bag of Bones).MOD							MONSTERCLASS:Animal:2				TEMPLATE:Mount Quality (Bag of Bones)
+Horse (Warhorse Light/Bag of Bones).MOD							MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
+Mule (Bag of Bones).MOD										MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
+Pony (Bag of Bones).MOD				BONUS:VAR|FractionalHD|1|TYPE=Race	MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
+Pony (War/Bag of Bones).MOD			BONUS:VAR|FractionalHD|1|TYPE=Race	MONSTERCLASS:Animal:1				TEMPLATE:Mount Quality (Bag of Bones)
 
 #
 # End

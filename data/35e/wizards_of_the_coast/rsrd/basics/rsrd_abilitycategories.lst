@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 
 
 
@@ -59,54 +59,54 @@ ABILITYCATEGORY:Improved Natural Attack		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:Y
 ABILITYCATEGORY:Rapid Reload				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT					ABILITYLIST:Rapid Reload			DISPLAYLOCATION:Feats
 
 ###Block: New Racial Trait Blocks
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list									Plural description for UI		Display Location
-ABILITYCATEGORY:Human Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Human Race Trait.HumanRaceTrait																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Dwarf Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dwarf Race Trait.DwarfRaceTrait																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Elf Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Elf Race Trait.ElfRaceTrait																							DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Gnome Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gnome Race Trait.GnomeRaceTrait																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Half-Elf Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Elf Race Trait.HalfElfRaceTrait																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Half-Orc Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Orc Race Trait.HalfOrcRaceTrait																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Halfling Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Halfling Race Trait.HalflingRaceTrait																						DISPLAYLOCATION:Race Traits
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list									Plural description for UI		Display Location
+ABILITYCATEGORY:Human Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Human Race Trait.HumanRaceTrait																				DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Dwarf Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dwarf Race Trait.DwarfRaceTrait																				DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Elf Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Elf Race Trait.ElfRaceTrait																					DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Gnome Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gnome Race Trait.GnomeRaceTrait																				DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Half-Elf Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Elf Race Trait.HalfElfRaceTrait																				DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Half-Orc Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Half-Orc Race Trait.HalfOrcRaceTrait																				DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Halfling Race Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Halfling Race Trait.HalflingRaceTrait																			DISPLAYLOCATION:Race Traits
 
 # Subrace Support
-ABILITYCATEGORY:Human Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:HumanSubrace.HumanSubraceDisplay																			DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Dwarf Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:DwarfSubrace																							DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Elf Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:ElfSubrace																							DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Half-Elf Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:HalfElfSubrace																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Half-Orc Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:HalfOrcSubrace																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Gnome Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GnomeSubrace																							DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Halfling Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:HalflingSubrace																						DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Human Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:HumanSubrace.HumanSubraceDisplay																				DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Dwarf Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:DwarfSubrace																								DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Elf Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:ElfSubrace																								DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Half-Elf Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:HalfElfSubrace																							DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Half-Orc Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:HalfOrcSubrace																							DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Gnome Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GnomeSubrace																								DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Halfling Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:HalflingSubrace																							DISPLAYLOCATION:Race Traits
 # Playable Races in UA
-ABILITYCATEGORY:Goblin Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GoblinSubrace																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Hobgoblin Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:HobgoblinSubrace																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Kobold Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:KoboldSubrace																						DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Orc Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:OrcSubrace																							DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Goblin Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GoblinSubrace																							DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Hobgoblin Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:HobgoblinSubrace																							DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Kobold Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:KoboldSubrace																							DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Orc Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:OrcSubrace																								DISPLAYLOCATION:Race Traits
 
 #Abilitycategory File
-ABILITYCATEGORY:Wizard Prohibited School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WizardProhibitSchool															PLURAL:Wizard Prohibited Schools	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wizard Prohibited School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WizardProhibitSchool																PLURAL:Wizard Prohibited Schools	DISPLAYLOCATION:Class Features
 
 # COMMENT: This can be used to allow Users to see Monster Traits - Requires all 'ABILITY:Special Ability|AUTOMATIC' to 'ABILITY:Racial Trait|AUTOMATIC'
-ABILITYCATEGORY:Racial Trait				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:RacialTrait																							DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Class Ability				VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ClassAbility																	PLURAL:Class Features			DISPLAYLOCATION:Class Features
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list									Plural description for UI		Display Location
-ABILITYCATEGORY:Racial Ability			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RaceAbility																	PLURAL:Racial Abilities			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Ghost Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GhostAbility																	PLURAL:Ghost Abilities			DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Racial Trait				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:RacialTrait																								DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Class Ability				VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ClassAbility																		PLURAL:Class Features			DISPLAYLOCATION:Class Features
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list									Plural description for UI		Display Location
+ABILITYCATEGORY:Racial Ability			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RaceAbility																		PLURAL:Racial Abilities			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ghost Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GhostAbility																		PLURAL:Ghost Abilities			DISPLAYLOCATION:Race Traits
 
 
-ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection																					DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Permanency Applied Effects	VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:PermanencySpell																						DISPLAYLOCATION:Misc
-ABILITYCATEGORY:Imbued Spell Like Ability		VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:ImbuedSpellLikeAbility																					DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection																						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Permanency Applied Effects	VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:PermanencySpell																							DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Imbued Spell Like Ability		VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:ImbuedSpellLikeAbility																						DISPLAYLOCATION:Misc
 
 
-ABILITYCATEGORY:All Monster Domains			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MonsterDomainGranter																					DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Drider Caster Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal										ABILITYLIST:Cleric Class|Wizard Class|Sorcerer Class										DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Drider Domain				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal										ABILITYLIST:Chaos Domain|Destruction Domain|Evil Domain|Trickery Domain							DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Lammasu Domain			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal										ABILITYLIST:Good Domain|Healing Domain|Knowledge Domain|Law Domain							DISPLAYLOCATION:Race Traits
-ABILITYCATEGORY:Titan Elder Casting Class		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal										ABILITYLIST:Cleric Class|Wizard Class												DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:All Monster Domains			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MonsterDomainGranter																						DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Drider Caster Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal											ABILITYLIST:Cleric Class|Wizard Class|Sorcerer Class										DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Drider Domain				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal											ABILITYLIST:Chaos Domain|Destruction Domain|Evil Domain|Trickery Domain							DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Lammasu Domain			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal											ABILITYLIST:Good Domain|Healing Domain|Knowledge Domain|Law Domain							DISPLAYLOCATION:Race Traits
+ABILITYCATEGORY:Titan Elder Casting Class		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal											ABILITYLIST:Cleric Class|Wizard Class												DISPLAYLOCATION:Race Traits
 
 
-ABILITYCATEGORY:Spell-Like Ability Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability								ABILITYLIST:Spell-Like Ability Selection												DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Mnemonic Enhancer Selections	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Mnemonic Enhancer Selections																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Spell-Like Ability Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Spell-Like Ability Selection												DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Mnemonic Enhancer Selections	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Mnemonic Enhancer Selections																					DISPLAYLOCATION:Class Features
 #
 # End
 #
@@ -182,7 +182,7 @@ ABILITYCATEGORY:Animated Object Move		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	
 # End
 #
 ABILITYCATEGORY:Deity Weapon Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DeityWeaponSelection							DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Fractional HD Progression		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:FractionalHD							DISPLAYLOCATION:Fraction HD
+ABILITYCATEGORY:Fractional HD Progression		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:FractionalHD									DISPLAYLOCATION:Fraction HD
 
 
 

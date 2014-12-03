@@ -1,4 +1,4 @@
-# CVS $Revision: 21419 $ $Author: evilmynex $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: 21419 $ $Author: evilmynex $ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 
 ###Block: Set up Dhampir default abilities
 # Ability Name						Category of Ability	Ability
@@ -495,10 +495,10 @@ Swarmwalking								KEY:Derghodaemon ~ Swarmwalking				CATEGORY:Special Ability	
 CATEGORY=Special Ability|Rend.COPY=Derghodaemon ~ Rend							OUTPUTNAME:Rend																																																																																																																																																																																																											ASPECT:Ability Benefit|(2 claws, %1d%2+%3 plus 2 Con damage)|RendDamageDice|RendDamageDieSize|RendBonusDamage
 
 ###Block: Daemon (Hydrodaemon) abilities
-# Ability Name							Unique Key					Output Name		Category of Ability		Type								Define					Description																																						Modify VAR							Source Page		Natural Attacks														Aspects
-Glide									KEY:Hydrodaemon ~ Glide						CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyMovement.Supernatural							DESC:A hydrodaemon can launch itself into the air and glide along for 1 minute, gaining a fly speed of 40 feet with average maneuverability.  While gliding, the hydrodaemon gains the pounce ability.														SOURCEPAGE:p.67
-Sleep Spittle							KEY:Hydrodaemon ~ Sleep Spittle				CATEGORY:Special Ability	TYPE:Supernatural						DEFINE:HydrodaemonSleepSpittleDC|0	DESC:A hydrodaemon can spit at a single target within 20 feet, making a ranged touch attack as a standard action.  A target hit by this spittle must succeed on a DC %1 Will save or fall asleep for 6 rounds.|HydrodaemonSleepSpittleDC	BONUS:VAR|HydrodaemonSleepSpittleDC|10+TL/2+CON	SOURCEPAGE:p.67	NATURALATTACKS:Sleep Spittle,Weapon.Natural.Weapon Group Natural.Ranged.Touch.Sleep,*1,0	BONUS:WEAPONPROF=Sleep Spittle|DAMAGE|-STR	
-CATEGORY=Special Ability|Rake.COPY=Hydrodaemon ~ Rake							OUTPUTNAME:Rake																																																																																						ASPECT:Ability Benefit|(2 claws +13, 1d6+4)
+# Ability Name							Unique Key					Output Name		Category of Ability		Type								Define					Description																																						Modify VAR							Weapon prof. bonus					Source Page		Natural Attacks													Aspects
+Glide									KEY:Hydrodaemon ~ Glide						CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyMovement.Supernatural							DESC:A hydrodaemon can launch itself into the air and glide along for 1 minute, gaining a fly speed of 40 feet with average maneuverability.  While gliding, the hydrodaemon gains the pounce ability.																						SOURCEPAGE:p.67
+Sleep Spittle							KEY:Hydrodaemon ~ Sleep Spittle				CATEGORY:Special Ability	TYPE:Supernatural						DEFINE:HydrodaemonSleepSpittleDC|0	DESC:A hydrodaemon can spit at a single target within 20 feet, making a ranged touch attack as a standard action.  A target hit by this spittle must succeed on a DC %1 Will save or fall asleep for 6 rounds.|HydrodaemonSleepSpittleDC	BONUS:VAR|HydrodaemonSleepSpittleDC|10+TL/2+CON	BONUS:WEAPONPROF=Sleep Spittle|DAMAGE|-STR	SOURCEPAGE:p.67	NATURALATTACKS:Sleep Spittle,Weapon.Natural.Weapon Group Natural.Ranged.Touch.Sleep,*1,0
+CATEGORY=Special Ability|Rake.COPY=Hydrodaemon ~ Rake							OUTPUTNAME:Rake																																																																																													ASPECT:Ability Benefit|(2 claws +13, 1d6+4)
 
 ###Block: Daemon (Leukodaemon) abilities
 # Ability Name	Unique Key					Category of Ability		Type						Define					Description																																																																																																																																	Ability							Modify VAR																						Source Page		Aspects

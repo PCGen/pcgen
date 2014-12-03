@@ -1,3 +1,5 @@
+# CVS $Revision: $ $Author: $ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 
 
-ABILITYCATEGORY:Addicted Friend Skill	CATEGORY:Special Ability	TYPE:AddictedFriendSkill	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Race Traits
+# Ability Category				Editable?		Change Pool?	Category of Object		Type of Object			Display Location
+ABILITYCATEGORY:Addicted Friend Skill	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AddictedFriendSkill	DISPLAYLOCATION:Race Traits

@@ -1,23 +1,23 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:45:28 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision$ $Author$ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Revised Updated Entry by: Collaborative Effort by Andrew Maitland and BD
 
 
 # COMMENT: Default is an Automatically Applied Ability, upon it all other functions of automation are possible.
-# Ability Name	Category of Ability	Define
-Default		CATEGORY:Internal		DEFINE:RaceSizeIsLong|0	DEFINE:DisableDeityNoneDomains|0
+# Ability Name			Category of Ability	Type			Required Var. value	Var. Min. Value			Define									Template			Ability																																			Modify VAR						Cost		Aspects
+Default				CATEGORY:Internal														DEFINE:RaceSizeIsLong|0	DEFINE:DisableDeityNoneDomains|0
 
-CATEGORY=Internal|Default.MOD	DEFINE:FractionalHD|0	ABILITY:Fractional HD Progression|AUTOMATIC|Fractional Hit Die|PREVARGTEQ:FractionalHD,1
-Fractional Hit Die	CATEGORY:Internal		TYPE:FractionalHD	DEFINE:FractionalHDTier|0	BONUS:VAR|FractionalHDTier|FractionalHD	ASPECT:NAME|Hit Die Fraction Removed|PREVAREQ:FractionalHDTier,0	ASPECT:NAME|Hit Die Fraction 1/2|PREVAREQ:FractionalHDTier,1	ASPECT:NAME|Hit Die Fraction 1/4|PREVAREQ:FractionalHDTier,2	ASPECT:NAME|Hit Die Fraction 1/8|PREVAREQ:FractionalHDTier,3	ABILITY:Internal|AUTOMATIC|Hitdie ~ Half|PREVAREQ:FractionalHDTier,1	ABILITY:Internal|AUTOMATIC|Hitdie ~ Quarter|PREVAREQ:FractionalHDTier,2	ABILITY:Internal|AUTOMATIC|Hitdie ~ Eighth|PREVAREQ:FractionalHDTier,3
+CATEGORY=Internal|Default.MOD																	DEFINE:FractionalHD|0											ABILITY:Fractional HD Progression|AUTOMATIC|Fractional Hit Die|PREVARGTEQ:FractionalHD,1
+Fractional Hit Die		CATEGORY:Internal		TYPE:FractionalHD										DEFINE:FractionalHDTier|0										ABILITY:Internal|AUTOMATIC|Hitdie ~ Half|PREVAREQ:FractionalHDTier,1	ABILITY:Internal|AUTOMATIC|Hitdie ~ Quarter|PREVAREQ:FractionalHDTier,2	ABILITY:Internal|AUTOMATIC|Hitdie ~ Eighth|PREVAREQ:FractionalHDTier,3	BONUS:VAR|FractionalHDTier|FractionalHD			ASPECT:NAME|Hit Die Fraction Removed|PREVAREQ:FractionalHDTier,0	ASPECT:NAME|Hit Die Fraction 1/2|PREVAREQ:FractionalHDTier,1	ASPECT:NAME|Hit Die Fraction 1/4|PREVAREQ:FractionalHDTier,2	ASPECT:NAME|Hit Die Fraction 1/8|PREVAREQ:FractionalHDTier,3
 #
-Reduce Fraction to 1/4	TYPE:FractionalHD	COST:0	CATEGORY:Internal	BONUS:VAR|FractionalHDTier|-1	PREVAREQ:FractionalHD,3
-Reduce Fraction to 1/2	TYPE:FractionalHD	COST:0	CATEGORY:Internal	BONUS:VAR|FractionalHDTier|-1	PREVARGTEQ:FractionalHD,2
-Reduce Fraction to 1/1	TYPE:FractionalHD	COST:0	CATEGORY:Internal	BONUS:VAR|FractionalHDTier|-1	PREVARGTEQ:FractionalHD,1
+Reduce Fraction to 1/4		CATEGORY:Internal		TYPE:FractionalHD	PREVAREQ:FractionalHD,3																																																								BONUS:VAR|FractionalHDTier|-1			COST:0
+Reduce Fraction to 1/2		CATEGORY:Internal		TYPE:FractionalHD					PREVARGTEQ:FractionalHD,2																																																			BONUS:VAR|FractionalHDTier|-1			COST:0
+Reduce Fraction to 1/1		CATEGORY:Internal		TYPE:FractionalHD					PREVARGTEQ:FractionalHD,1																																																			BONUS:VAR|FractionalHDTier|-1			COST:0
 #
-Hitdie ~ Full	CATEGORY:Internal					
-Hitdie ~ Half	CATEGORY:Internal	TEMPLATE:Half Hitdie	
-Hitdie ~ Quarter	CATEGORY:Internal	TEMPLATE:Quarter Hitdie	
-Hitdie ~ Eighth	CATEGORY:Internal	TEMPLATE:Eighth Hitdie
+Hitdie ~ Full			CATEGORY:Internal
+Hitdie ~ Half			CATEGORY:Internal																								TEMPLATE:Half Hitdie
+Hitdie ~ Quarter			CATEGORY:Internal																								TEMPLATE:Quarter Hitdie
+Hitdie ~ Eighth			CATEGORY:Internal																								TEMPLATE:Eighth Hitdie
 
 ###Block: Misc
 ###Block: Animal Tricks & Training Section ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -96,10 +96,12 @@ Deity Weapon Selection					CATEGORY:Special Ability	TYPE:DeityWeaponSelection			
 
 ###Block: Spell Weapons
 
+# Ability Name			Ability
 CATEGORY=Internal|Default.MOD	ABILITY:Natural Attack|AUTOMATIC|Spiritual Weapon|PRESPELL:1,Spiritual Weapon	ABILITY:Natural Attack|AUTOMATIC|Grasping Hand|PRESPELL:1,Grasping Hand
 ###Block: Spell Weapons Set up
-Spiritual Weapon	CATEGORY:Natural Attack	TYPE:NaturalAttack.Spiritual Weapon	DEFINE:SpiritualWeaponReach|0	BONUS:VAR|SpiritualWeaponReach|REACH.VAL	DEFINE:SpiritualWeaponDice|0	DEFINE:SpiritualWeaponSize|0	DEFINE:SpiritualWeaponDamageBonus|0	DEFINE:SpiritualWeaponThreatRange|0	DEFINE:SpiritualWeaponAttacks|0	BONUS:VAR|SpiritualWeaponAttacks|1	BONUS:VAR|SpiritualWeaponThreatRange|20	COST:0	ASPECT:NaturalAttackName|Spiritual Weapon|SpiritualWeaponAttacks|PREVAREQ:BiteGrade,1	ASPECT:NaturalAttackToHit|+%1|BAB+WIS	ASPECT:NaturalAttackDamage|%1d%2|SpiritualWeaponDice|SpiritualWeaponSize	ASPECT:NaturalAttackDamageBonus|%1|SpiritualWeaponDamageBonus	ASPECT:NaturalAttackReach|%1|SpiritualWeaponReach	ASPECT:NaturalAttackType|Lethal	ASPECT:NaturalAttackThreatRange|%1|SpiritualWeaponThreatRange	BONUS:VAR|SpiritualWeaponDice|1	BONUS:VAR|SpiritualWeaponSize|8	BONUS:VAR|SpiritualWeaponDamageBonus|min(ClericLVL/3,5)
-Grasping Hand	CATEGORY:Natural Attack	TYPE:NaturalAttack.Grasping Hand	DEFINE:GraspingHandReach|0	BONUS:VAR|GraspingHandReach|REACH.VAL	DEFINE:GraspingHandToHit|0	DEFINE:GraspingHandDice|0	DEFINE:GraspingHandSize|0	DEFINE:GraspingHandDamageBonus|0	DEFINE:GraspingHandThreatRange|0	DEFINE:GraspingHandAttacks|0	DEFINE:GraspingHandGrapple|0	BONUS:VAR|GraspingHandAttacks|1	BONUS:VAR|GraspingHandThreatRange|20	COST:0	ASPECT:NaturalAttackName|Spiritual Weapon|GraspingHandAttacks|PREVAREQ:BiteGrade,1	ASPECT:NaturalAttackToHit|+%1|GraspingHandToHit	ASPECT:NaturalAttackDamage|%1d%2|GraspingHandDice|GraspingHandSize	ASPECT:NaturalAttackDamageBonus|%1|GraspingHandDamageBonus	ASPECT:NaturalAttackReach|%1|GraspingHandReach	ASPECT:NaturalAttackType|Lethal	ASPECT:NaturalAttackThreatRange|%1|GraspingHandThreatRange	BONUS:VAR|GraspingHandToHit|WizardLVL+INT+9|PRECLASS:1,Wizard	BONUS:VAR|GraspingHandGrapple|WizardLVL+INT+14|PRECLASS:1,Wizard	BONUS:VAR|GraspingHandToHit|SorcererLVL+CHA+9|PRECLASS:1,Wizard	BONUS:VAR|GraspingHandGrapple|SorcererLVL+CHA+14|PRECLASS:1,Wizard	BONUS:VAR|GraspingHandDamageBonus|0	DESC:Grapple bonus +%1|GraspingHandGrapple
+# Ability Name	Category of Ability	Type						Define																																									Description							Modify VAR																																																																						Cost		Aspects
+Spiritual Weapon	CATEGORY:Natural Attack	TYPE:NaturalAttack.Spiritual Weapon	DEFINE:SpiritualWeaponReach|0	DEFINE:SpiritualWeaponDice|0	DEFINE:SpiritualWeaponSize|0	DEFINE:SpiritualWeaponDamageBonus|0	DEFINE:SpiritualWeaponThreatRange|0	DEFINE:SpiritualWeaponAttacks|0																		BONUS:VAR|SpiritualWeaponReach|REACH.VAL	BONUS:VAR|SpiritualWeaponAttacks|1	BONUS:VAR|SpiritualWeaponThreatRange|20	BONUS:VAR|SpiritualWeaponDice|1	BONUS:VAR|SpiritualWeaponSize|8	BONUS:VAR|SpiritualWeaponDamageBonus|min(ClericLVL/3,5)																														COST:0	ASPECT:NaturalAttackName|Spiritual Weapon|SpiritualWeaponAttacks|PREVAREQ:BiteGrade,1	ASPECT:NaturalAttackToHit|+%1|BAB+WIS	ASPECT:NaturalAttackDamage|%1d%2|SpiritualWeaponDice|SpiritualWeaponSize	ASPECT:NaturalAttackDamageBonus|%1|SpiritualWeaponDamageBonus	ASPECT:NaturalAttackReach|%1|SpiritualWeaponReach	ASPECT:NaturalAttackType|Lethal	ASPECT:NaturalAttackThreatRange|%1|SpiritualWeaponThreatRange
+Grasping Hand	CATEGORY:Natural Attack	TYPE:NaturalAttack.Grasping Hand	DEFINE:GraspingHandReach|0	DEFINE:GraspingHandToHit|0	DEFINE:GraspingHandDice|0	DEFINE:GraspingHandSize|0	DEFINE:GraspingHandDamageBonus|0	DEFINE:GraspingHandThreatRange|0	DEFINE:GraspingHandAttacks|0	DEFINE:GraspingHandGrapple|0	DESC:Grapple bonus +%1|GraspingHandGrapple	BONUS:VAR|GraspingHandReach|REACH.VAL	BONUS:VAR|GraspingHandAttacks|1	BONUS:VAR|GraspingHandThreatRange|20	BONUS:VAR|GraspingHandToHit|WizardLVL+INT+9|PRECLASS:1,Wizard	BONUS:VAR|GraspingHandGrapple|WizardLVL+INT+14|PRECLASS:1,Wizard	BONUS:VAR|GraspingHandToHit|SorcererLVL+CHA+9|PRECLASS:1,Wizard	BONUS:VAR|GraspingHandGrapple|SorcererLVL+CHA+14|PRECLASS:1,Wizard	BONUS:VAR|GraspingHandDamageBonus|0	COST:0	ASPECT:NaturalAttackName|Spiritual Weapon|GraspingHandAttacks|PREVAREQ:BiteGrade,1	ASPECT:NaturalAttackToHit|+%1|GraspingHandToHit	ASPECT:NaturalAttackDamage|%1d%2|GraspingHandDice|GraspingHandSize	ASPECT:NaturalAttackDamageBonus|%1|GraspingHandDamageBonus	ASPECT:NaturalAttackReach|%1|GraspingHandReach	ASPECT:NaturalAttackType|Lethal	ASPECT:NaturalAttackThreatRange|%1|GraspingHandThreatRange
 #
 #EOF
 #
