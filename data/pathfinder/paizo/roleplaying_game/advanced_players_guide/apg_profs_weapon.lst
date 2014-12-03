@@ -1,8 +1,8 @@
-# CVS $Revision: 21399 $ $Author: evilmynex $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 21399 $ $Author: evilmynex $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
-# Weapon Name			Type																Nb Hands
+# Weapon Name			Type																								Nb Hands
 Bomb					TYPE:Exotic.Ranged.Splash.Weapon Group Thrown
 # SIMPLE WEAPONS
 # -- unarmed
@@ -48,8 +48,8 @@ Mancatcher				TYPE:Exotic.Melee.Piercing.MeleePiercing.Spear.TwoHanded.Weapon Gr
 
 # -- ranged
 Boomerang				TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning.Weapon Group Thrown
-Crossbow (Double)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Weapon Group Crossbows								HANDS:2
-Lasso					TYPE:Exotic.Ranged.Lasso.Weapon Group Lasso												HANDS:2
+Crossbow (Double)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Weapon Group Crossbows												HANDS:2
+Lasso					TYPE:Exotic.Ranged.Lasso.Weapon Group Lasso																	HANDS:2
 
 ###Weapon Groups:
 Bardiche.MOD			TYPE:Axe.Polearm

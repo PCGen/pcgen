@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
@@ -204,19 +204,20 @@ Swim.MOD						BONUS:SKILL|Swim|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Swim)	BO
 Use Magic Device.MOD				BONUS:SKILL|Use Magic Device|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Use Magic Device)	BONUS:SKILL|Use Magic Device|6|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Use Magic Device)|PRESKILL:1,Use Magic Device=10
 
 ###Block: Improvisation
-Untrained Strength		SORTKEY:z	KEYSTAT:STR							PREVARGTEQ:UseUntrainedSkills,1							VISIBLE:EXPORT
-Untrained Dexterity		SORTKEY:z	KEYSTAT:DEX							PREVARGTEQ:UseUntrainedSkills,1							VISIBLE:EXPORT
-Untrained Intelligence		SORTKEY:z	KEYSTAT:INT							PREVARGTEQ:UseUntrainedSkills,1							VISIBLE:EXPORT
-Untrained Wisdom			SORTKEY:z	KEYSTAT:WIS							PREVARGTEQ:UseUntrainedSkills,1							VISIBLE:EXPORT
-Untrained Charisma		SORTKEY:z	KEYSTAT:CHA							PREVARGTEQ:UseUntrainedSkills,1							VISIBLE:EXPORT
-Knowledge (Untrained)				KEYSTAT:INT							PREVARGTEQ:UseUntrainedSkills,1							VISIBLE:EXPORT
-Profession (Untrained)				KEYSTAT:WIS							PREVARGTEQ:UseUntrainedSkills,1							VISIBLE:EXPORT
-Disable Device					KEYSTAT:DEX	KEY:Untrained ~ Disable Device	PREVARGTEQ:UseUntrainedSkills,1	!PRESKILL:1,Disable Device=1		VISIBLE:EXPORT
-Handle Animal					KEYSTAT:CHA	KEY:Untrained ~ Handle Animal		PREVARGTEQ:UseUntrainedSkills,1	!PRESKILL:1,Handle Animal=1		VISIBLE:EXPORT
-Linguistics						KEYSTAT:INT	KEY:Untrained ~ Linguistics		PREVARGTEQ:UseUntrainedSkills,1	!PRESKILL:1,Linguistics=1		VISIBLE:EXPORT
-Sleight of Hand					KEYSTAT:DEX	KEY:Untrained ~ Sleight of Hand	PREVARGTEQ:UseUntrainedSkills,1	!PRESKILL:1,Sleight of Hand=1		VISIBLE:EXPORT
-Spellcraft						KEYSTAT:INT	KEY:Untrained ~ Spellcraft		PREVARGTEQ:UseUntrainedSkills,1	!PRESKILL:1,Spellcraft=1		VISIBLE:EXPORT
-Use Magic Device					KEYSTAT:CHA	KEY:Untrained ~ Use Magic Device	PREVARGTEQ:UseUntrainedSkills,1	!PRESKILL:1,Use Magic Device=1	VISIBLE:EXPORT
+# Skill Name		SORTKEY	Unique Key					Key Stat	Visible		Prohibited Skill				Var. Min. Value
+Untrained Strength	SORTKEY:z							KEYSTAT:STR	VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
+Untrained Dexterity	SORTKEY:z							KEYSTAT:DEX	VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
+Untrained Intelligence	SORTKEY:z							KEYSTAT:INT	VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
+Untrained Wisdom		SORTKEY:z							KEYSTAT:WIS	VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
+Untrained Charisma	SORTKEY:z							KEYSTAT:CHA	VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
+Knowledge (Untrained)									KEYSTAT:INT	VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
+Profession (Untrained)									KEYSTAT:WIS	VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
+Disable Device				KEY:Untrained ~ Disable Device	KEYSTAT:DEX	VISIBLE:EXPORT	!PRESKILL:1,Disable Device=1		PREVARGTEQ:UseUntrainedSkills,1
+Handle Animal				KEY:Untrained ~ Handle Animal		KEYSTAT:CHA	VISIBLE:EXPORT	!PRESKILL:1,Handle Animal=1		PREVARGTEQ:UseUntrainedSkills,1
+Linguistics					KEY:Untrained ~ Linguistics		KEYSTAT:INT	VISIBLE:EXPORT	!PRESKILL:1,Linguistics=1		PREVARGTEQ:UseUntrainedSkills,1
+Sleight of Hand				KEY:Untrained ~ Sleight of Hand	KEYSTAT:DEX	VISIBLE:EXPORT	!PRESKILL:1,Sleight of Hand=1		PREVARGTEQ:UseUntrainedSkills,1
+Spellcraft					KEY:Untrained ~ Spellcraft		KEYSTAT:INT	VISIBLE:EXPORT	!PRESKILL:1,Spellcraft=1		PREVARGTEQ:UseUntrainedSkills,1
+Use Magic Device				KEY:Untrained ~ Use Magic Device	KEYSTAT:CHA	VISIBLE:EXPORT	!PRESKILL:1,Use Magic Device=1	PREVARGTEQ:UseUntrainedSkills,1
 
 #
 # EOF

@@ -1,8 +1,8 @@
-# CVS $Revision: 20121 $ $Author: zaister $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 20121 $ $Author: zaister $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
-# Language	Type						Required Var. value
+# Language	Type								Required Var. value
 Abyssal	TYPE:Spoken.Written.Read.Planar
 Aklo		TYPE:Spoken.Written.Read
 Aquan		TYPE:Spoken.Written.Read.Elemental
@@ -10,7 +10,7 @@ Auran		TYPE:Spoken.Written.Read.Elemental
 Celestial	TYPE:Spoken.Written.Read.Planar
 Common	TYPE:Spoken.Written.Read.ModernHumanLanguage
 Draconic	TYPE:Spoken.Written.Read
-Druidic	TYPE:Spoken.Written.Read		PREVAREQ:DruidSecretLanguage,1
+Druidic	TYPE:Spoken.Written.Read				PREVAREQ:DruidSecretLanguage,1
 Dwarven	TYPE:Spoken.Written.Read
 Elven		TYPE:Spoken.Written.Read
 Giant		TYPE:Spoken.Written.Read

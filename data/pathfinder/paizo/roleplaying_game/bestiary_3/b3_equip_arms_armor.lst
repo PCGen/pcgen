@@ -1,4 +1,4 @@
-# CVS $Revision: 21638 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 21638 $ $Author: amaitland $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 # Original Entry By: W. Robert 'Mynex' Reed III
 # Entry Date: August 2013
 SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
@@ -10,4 +10,5 @@ Binding Contract					PROFICIENCY:WEAPON|Binding Contract	TYPE:Weapon.Melee.OneHa
 Shears						PROFICIENCY:WEAPON|Scimitar		TYPE:Weapon.Melee.OneHanded.Martial.Standard.Slashing.Sword.BladeHeavy					COST:0	WT:4		PRERACE:1,Norn				CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	EQMOD:KEEN.MITHRAL_ITEM.PLUS5M.SPEED	WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.201
 
 ###BLOCK: Ranged
-Cannon						PROFICIENCY:WEAPON|Cannon	KEY:Ranged Cannon ~ Clockwork Goliath			TYPE:Weapon.Ranged.SiegeWeapon.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:0	CRITMULT:x4			DAMAGE:6d6	RANGE:100	PRERACE:1,Clockwork Goliath
+# Equipment Name	Unique Key						Required Weapon Proficiency	Type												Cost		Required Race			Crit Mult	Damage	Range
+Cannon		KEY:Ranged Cannon ~ Clockwork Goliath	PROFICIENCY:WEAPON|Cannon	TYPE:Weapon.Ranged.SiegeWeapon.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:0	PRERACE:1,Clockwork Goliath	CRITMULT:x4	DAMAGE:6d6	RANGE:100

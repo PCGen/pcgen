@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Sat Sep  6 20:29:21 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Builder templates
@@ -31,143 +31,143 @@ Wing			VISIBLE:NO	TEMPLATE:CHOOSE:Wing (Diminutive)|Wing (Tiny)|Wing (Small)|Win
 
 ###Block: These are used to grant SIZE based Natural Attacks Properly
 # Bite -  1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B/S/P Primary
-# Template Name		Visible	Required Size	Natural Attacks
-Bite (Fine)			VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base
-Bite (Diminutive)		VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base
-Bite (Tiny)			VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d3	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base
-Bite (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base
-Bite (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Bite (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
-Bite (Huge)			VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Bite (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,3d6	BONUS:VAR|PrimaryAttackDamageDice|3|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Bite (Colossal)		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6	BONUS:VAR|PrimaryAttackDamageDice|4|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+# Template Name		Visible	Required Size	Modify VAR															Natural Attacks
+Bite (Fine)			VISIBLE:NO	PRESIZEEQ:F		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1
+Bite (Diminutive)		VISIBLE:NO	PRESIZEEQ:D		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d2
+Bite (Tiny)			VISIBLE:NO	PRESIZEEQ:T		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d3
+Bite (Small)		VISIBLE:NO	PRESIZEEQ:S		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4
+Bite (Medium)		VISIBLE:NO	PRESIZEEQ:M		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
+Bite (Large)		VISIBLE:NO	PRESIZEEQ:L		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8
+Bite (Huge)			VISIBLE:NO	PRESIZEEQ:H		BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6
+Bite (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G		BONUS:VAR|PrimaryAttackDamageDice|3|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,3d6
+Bite (Colossal)		VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|PrimaryAttackDamageDice|4|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6
 # Gore - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 P Primary
-Gore (Fine)			VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base
-Gore (Diminutive)		VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base
-Gore (Tiny)			VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d3	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base
-Gore (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d4	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base
-Gore (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d6	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Gore (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d8	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
-Gore (Huge)			VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,2d6	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Gore (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,2d8	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
-Gore (Colossal)		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,4d6	BONUS:VAR|PrimaryAttackDamageDice|4|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
+Gore (Fine)			VISIBLE:NO	PRESIZEEQ:F		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base	NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1
+Gore (Diminutive)		VISIBLE:NO	PRESIZEEQ:D		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base	NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d2
+Gore (Tiny)			VISIBLE:NO	PRESIZEEQ:T		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base	NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d3
+Gore (Small)		VISIBLE:NO	PRESIZEEQ:S		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base	NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d4
+Gore (Medium)		VISIBLE:NO	PRESIZEEQ:M		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d6
+Gore (Large)		VISIBLE:NO	PRESIZEEQ:L		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d8
+Gore (Huge)			VISIBLE:NO	PRESIZEEQ:H		BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,2d6
+Gore (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G		BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,2d8
+Gore (Colossal)		VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|PrimaryAttackDamageDice|4|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Gore,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,4d6
 # Pincers - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B Secondary
-Pincers (Fine)		VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1
-Pincers (Diminutive)	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d2
-Pincers (Tiny)		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d3
-Pincers (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d4
-Pincers (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d6
-Pincers (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d8
-Pincers (Huge)		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d6
-Pincers (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d8
-Pincers (Colossal)	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,4d6
+Pincers (Fine)		VISIBLE:NO	PRESIZEEQ:F																		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1
+Pincers (Diminutive)	VISIBLE:NO	PRESIZEEQ:D																		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d2
+Pincers (Tiny)		VISIBLE:NO	PRESIZEEQ:T																		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d3
+Pincers (Small)		VISIBLE:NO	PRESIZEEQ:S																		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+Pincers (Medium)		VISIBLE:NO	PRESIZEEQ:M																		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d6
+Pincers (Large)		VISIBLE:NO	PRESIZEEQ:L																		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d8
+Pincers (Huge)		VISIBLE:NO	PRESIZEEQ:H																		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d6
+Pincers (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G																		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d8
+Pincers (Colossal)	VISIBLE:NO	PRESIZEEQ:C																		NATURALATTACKS:Pincers,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,4d6
 # Tail Slap - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B Secondary
-Tail Slap (Fine)		VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1
-Tail Slap (Diminutive)	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d2
-Tail Slap (Tiny)		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d3
-Tail Slap (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d4
-Tail Slap (Medium)	VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d6
-Tail Slap (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d8
-Tail Slap (Huge)		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d6
-Tail Slap (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d8
-Tail Slap (Colossal)	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d6
+Tail Slap (Fine)		VISIBLE:NO	PRESIZEEQ:F																		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1
+Tail Slap (Diminutive)	VISIBLE:NO	PRESIZEEQ:D																		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d2
+Tail Slap (Tiny)		VISIBLE:NO	PRESIZEEQ:T																		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d3
+Tail Slap (Small)		VISIBLE:NO	PRESIZEEQ:S																		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+Tail Slap (Medium)	VISIBLE:NO	PRESIZEEQ:M																		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d6
+Tail Slap (Large)		VISIBLE:NO	PRESIZEEQ:L																		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+Tail Slap (Huge)		VISIBLE:NO	PRESIZEEQ:H																		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+Tail Slap (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G																		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+Tail Slap (Colossal)	VISIBLE:NO	PRESIZEEQ:C																		NATURALATTACKS:Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d6
 # Claw - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S Primary
-Claw (Diminutive)		VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base
-Claw (Tiny)			VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base
-Claw (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d3	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base
-Claw (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base
-Claw (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d6	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Claw (Huge)			VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d8	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
-Claw (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d6	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Claw (Colossal)		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d8	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Claw (Diminutive)		VISIBLE:NO	PRESIZEEQ:D		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1
+Claw (Tiny)			VISIBLE:NO	PRESIZEEQ:T		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d2
+Claw (Small)		VISIBLE:NO	PRESIZEEQ:S		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d3
+Claw (Medium)		VISIBLE:NO	PRESIZEEQ:M		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
+Claw (Large)		VISIBLE:NO	PRESIZEEQ:L		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d6
+Claw (Huge)			VISIBLE:NO	PRESIZEEQ:H		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d8
+Claw (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G		BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d6
+Claw (Colossal)		VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d8
 # Slam - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B Primary
-Slam (Diminutive)		VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base
-Slam (Tiny)			VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base
-Slam (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d3	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base
-Slam (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d4	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base
-Slam (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d6	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Slam (Huge)			VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d8	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
-Slam (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,2d6	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Slam (Colossal)		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,2d8	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Slam (Diminutive)		VISIBLE:NO	PRESIZEEQ:D		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1
+Slam (Tiny)			VISIBLE:NO	PRESIZEEQ:T		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d2
+Slam (Small)		VISIBLE:NO	PRESIZEEQ:S		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d3
+Slam (Medium)		VISIBLE:NO	PRESIZEEQ:M		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d4
+Slam (Large)		VISIBLE:NO	PRESIZEEQ:L		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d6
+Slam (Huge)			VISIBLE:NO	PRESIZEEQ:H		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,1d8
+Slam (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G		BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,2d6
+Slam (Colossal)		VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*1,2d8
 #
-Slam 2 (Diminutive)	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base
-Slam 2 (Tiny)		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base
-Slam 2 (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d3	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base
-Slam 2 (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base
-Slam 2 (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d6	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Slam 2 (Huge)		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d8	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
-Slam 2 (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d6	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Slam 2 (Colossal)		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d8	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Slam 2 (Diminutive)	VISIBLE:NO	PRESIZEEQ:D		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1
+Slam 2 (Tiny)		VISIBLE:NO	PRESIZEEQ:T		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d2
+Slam 2 (Small)		VISIBLE:NO	PRESIZEEQ:S		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d3
+Slam 2 (Medium)		VISIBLE:NO	PRESIZEEQ:M		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
+Slam 2 (Large)		VISIBLE:NO	PRESIZEEQ:L		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d6
+Slam 2 (Huge)		VISIBLE:NO	PRESIZEEQ:H		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d8
+Slam 2 (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d6
+Slam 2 (Colossal)		VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Slam,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d8
 # Sting - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 P Primary
-Sting (Diminutive)	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base
-Sting (Tiny)		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base
-Sting (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d3	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base
-Sting (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d4	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base
-Sting (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d6	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Sting (Huge)		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d8	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
-Sting (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,2d6	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Sting (Colossal)		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,2d8	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Sting (Diminutive)	VISIBLE:NO	PRESIZEEQ:D		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base	NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1
+Sting (Tiny)		VISIBLE:NO	PRESIZEEQ:T		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base	NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d2
+Sting (Small)		VISIBLE:NO	PRESIZEEQ:S		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base	NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d3
+Sting (Medium)		VISIBLE:NO	PRESIZEEQ:M		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base	NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d4
+Sting (Large)		VISIBLE:NO	PRESIZEEQ:L		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d6
+Sting (Huge)		VISIBLE:NO	PRESIZEEQ:H		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,1d8
+Sting (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,2d6
+Sting (Colossal)		VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Sting,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing,*1,2d8
 # Talons - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 S Primary
-Talons (Diminutive)	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,1		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base
-Talons (Tiny)		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,1d2	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base
-Talons (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,1d3	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base
-Talons (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,1d4	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base
-Talons (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,1d6	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Talons (Huge)		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,1d8	BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
-Talons (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,2d6	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base
-Talons (Colossal)		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,2d8	BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base
+Talons (Diminutive)	VISIBLE:NO	PRESIZEEQ:D		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base	NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,1
+Talons (Tiny)		VISIBLE:NO	PRESIZEEQ:T		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base	NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,1d2
+Talons (Small)		VISIBLE:NO	PRESIZEEQ:S		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base	NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,1d3
+Talons (Medium)		VISIBLE:NO	PRESIZEEQ:M		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base	NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,1d4
+Talons (Large)		VISIBLE:NO	PRESIZEEQ:L		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,1d6
+Talons (Huge)		VISIBLE:NO	PRESIZEEQ:H		BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,1d8
+Talons (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,2d6
+Talons (Colossal)		VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Talons,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing,*2,2d8
 # Hoof - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B Secondary
-Hoof (Diminutive)		VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1
-Hoof (Tiny)			VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d2
-Hoof (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d3
-Hoof (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d4
-Hoof (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d6
-Hoof (Huge)			VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d8
-Hoof (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d6
-Hoof (Colossal)		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d8
+Hoof (Diminutive)		VISIBLE:NO	PRESIZEEQ:D																		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1
+Hoof (Tiny)			VISIBLE:NO	PRESIZEEQ:T																		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d2
+Hoof (Small)		VISIBLE:NO	PRESIZEEQ:S																		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d3
+Hoof (Medium)		VISIBLE:NO	PRESIZEEQ:M																		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+Hoof (Large)		VISIBLE:NO	PRESIZEEQ:L																		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d6
+Hoof (Huge)			VISIBLE:NO	PRESIZEEQ:H																		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d8
+Hoof (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G																		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d6
+Hoof (Colossal)		VISIBLE:NO	PRESIZEEQ:C																		NATURALATTACKS:Hoof,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d8
 # Tentacle - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B Secondary
-Tentacle (Diminutive)	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1
-Tentacle (Tiny)		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d2
-Tentacle (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d3
-Tentacle (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d4
-Tentacle (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d6
-Tentacle (Huge)		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d8
-Tentacle (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d6
-Tentacle (Colossal)	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d8
+Tentacle (Diminutive)	VISIBLE:NO	PRESIZEEQ:D																		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1
+Tentacle (Tiny)		VISIBLE:NO	PRESIZEEQ:T																		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d2
+Tentacle (Small)		VISIBLE:NO	PRESIZEEQ:S																		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d3
+Tentacle (Medium)		VISIBLE:NO	PRESIZEEQ:M																		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+Tentacle (Large)		VISIBLE:NO	PRESIZEEQ:L																		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d6
+Tentacle (Huge)		VISIBLE:NO	PRESIZEEQ:H																		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d8
+Tentacle (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G																		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d6
+Tentacle (Colossal)	VISIBLE:NO	PRESIZEEQ:C																		NATURALATTACKS:Tentacle,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d8
 # Wing - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B Secondary
-Wing (Diminutive)		VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1
-Wing (Tiny)			VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d2
-Wing (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d3
-Wing (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d4
-Wing (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d6
-Wing (Huge)			VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d8
-Wing (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d6
-Wing (Colossal)		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d8
+Wing (Diminutive)		VISIBLE:NO	PRESIZEEQ:D																		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1
+Wing (Tiny)			VISIBLE:NO	PRESIZEEQ:T																		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d2
+Wing (Small)		VISIBLE:NO	PRESIZEEQ:S																		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d3
+Wing (Medium)		VISIBLE:NO	PRESIZEEQ:M																		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+Wing (Large)		VISIBLE:NO	PRESIZEEQ:L																		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d6
+Wing (Huge)			VISIBLE:NO	PRESIZEEQ:H																		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d8
+Wing (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G																		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d6
+Wing (Colossal)		VISIBLE:NO	PRESIZEEQ:C																		NATURALATTACKS:Wing,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d8
 #Other - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S/P Secondary
 
 
 # Dragon Support Only
 #Tail Sweep			ABILITY:Internal|AUTOMATIC|Tail Sweep (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Tail Sweep (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Tail Sweep (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Tail Sweep (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Tail Sweep (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Tail Sweep (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Tail Sweep (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Tail Sweep (Colossal)|PREBASESIZEEQ:C
 #
-Tail Sweep (Diminutive)	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1
-Tail Sweep (Tiny)		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d2
-Tail Sweep (Small)	VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d3
-Tail Sweep (Medium)	VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d4
-Tail Sweep (Large)	VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d6
-Tail Sweep (Huge)		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d8
-Tail Sweep (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d6
-Tail Sweep (Colossal)	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+Tail Sweep (Diminutive)	VISIBLE:NO	PRESIZEEQ:D																		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1
+Tail Sweep (Tiny)		VISIBLE:NO	PRESIZEEQ:T																		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d2
+Tail Sweep (Small)	VISIBLE:NO	PRESIZEEQ:S																		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d3
+Tail Sweep (Medium)	VISIBLE:NO	PRESIZEEQ:M																		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+Tail Sweep (Large)	VISIBLE:NO	PRESIZEEQ:L																		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d6
+Tail Sweep (Huge)		VISIBLE:NO	PRESIZEEQ:H																		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+Tail Sweep (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G																		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+Tail Sweep (Colossal)	VISIBLE:NO	PRESIZEEQ:C																		NATURALATTACKS:Tail Sweep,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d8
 #
 #Crush					ABILITY:Internal|AUTOMATIC|Crush (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Crush (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Crush (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Crush (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Crush (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Crush (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Crush (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Crush (Colossal)|PREBASESIZEEQ:C
 #
-Crush (Diminutive)	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d3
-Crush (Tiny)		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d4
-Crush (Small)		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d6
-Crush (Medium)		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d8
-Crush (Large)		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d6
-Crush (Huge)		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d8
-Crush (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d6
-Crush (Colossal)		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d8
+Crush (Diminutive)	VISIBLE:NO	PRESIZEEQ:D																		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d3
+Crush (Tiny)		VISIBLE:NO	PRESIZEEQ:T																		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+Crush (Small)		VISIBLE:NO	PRESIZEEQ:S																		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d6
+Crush (Medium)		VISIBLE:NO	PRESIZEEQ:M																		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+Crush (Large)		VISIBLE:NO	PRESIZEEQ:L																		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+Crush (Huge)		VISIBLE:NO	PRESIZEEQ:H																		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+Crush (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G																		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d6
+Crush (Colossal)		VISIBLE:NO	PRESIZEEQ:C																		NATURALATTACKS:Crush,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d8
 
 ###Block: Sorcerer Cleric Spells, for creatures who can cast Cleric spells as Arcane Sorcerer spells
 # Template Name			Visible	List of Class Spells by Level
@@ -320,7 +320,7 @@ Advanced Creature		CR:1			VISIBLE:YES						SOURCEPAGE:p.294																	BONU
 Celestial Creature				VISIBLE:YES	DR:5/Evil|PRELEVEL:MIN=5	SOURCEPAGE:p.294	DEFINE:CelestialResistanceBonus|0																			BONUS:DR|Evil|5|PRELEVEL:MIN=11	BONUS:MISC|CR|1|PRELEVEL:MIN=5																	BONUS:VAR|CelestialResistanceBonus|5	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|CelestialResistanceBonus|TYPE=Resistance	BONUS:VAR|CelestialResistanceBonus|5|PRELEVEL:MIN=5	BONUS:VAR|CelestialResistanceBonus|5|PRELEVEL:MIN=11	BONUS:VAR|DarkvisionRange|60|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Celestial Creature ~ Smite Evil|Resistance to Acid|Resistance to Cold|Resistance to Electricity	SR:CR+5	APPLIEDNAME:Celestial
 Fiendish Creature					VISIBLE:YES	DR:5/Good|PRELEVEL:MIN=5	SOURCEPAGE:p.294	DEFINE:FiendishResistanceBonus|0																			BONUS:DR|Good|5|PRELEVEL:MIN=11	BONUS:MISC|CR|1|PRELEVEL:MIN=5																	BONUS:VAR|FiendishResistanceBonus|5	BONUS:VAR|ColdResistanceBonus,FireResistanceBonus|FiendishResistanceBonus|TYPE=Resistance	BONUS:VAR|FiendishResistanceBonus|5|PRELEVEL:MIN=5	BONUS:VAR|FiendishResistanceBonus|5|PRELEVEL:MIN=11	BONUS:VAR|DarkvisionRange|60|TYPE=Base							ABILITY:Special Ability|AUTOMATIC|Fiendish Creature ~ Smite Good|Resistance to Cold|Resistance to Fire					SR:CR+5	APPLIEDNAME:Fiendish
 Giant Creature		CR:1			VISIBLE:YES						SOURCEPAGE:p.295							PRESIZELT:C		BONUS:ABILITYPOOL|Giant Creature Option|1																																																																																																																	APPLIEDNAME:Giant
-Young Creature		CR:-1			VISIBLE:YES						SOURCEPAGE:p.295																	BONUS:COMBAT|AC|-2|TYPE=NaturalArmor.STACK													BONUS:SIZEMOD|NUMBER|-1	BONUS:STAT|DEX|4|TYPE=Size	BONUS:STAT|STR,CON|-4																																																																																APPLIEDNAME:Young		BONUS:VAR|BypassSizeMods|1|TYPE=Bypass
+Young Creature		CR:-1			VISIBLE:YES						SOURCEPAGE:p.295																	BONUS:COMBAT|AC|-2|TYPE=NaturalArmor.STACK													BONUS:SIZEMOD|NUMBER|-1	BONUS:STAT|DEX|4|TYPE=Size	BONUS:STAT|STR,CON|-4				BONUS:VAR|BypassSizeMods|1|TYPE=Bypass																																																																						APPLIEDNAME:Young
 
 ###Block: Builder Templates
 # Template Name			Visible		Adjust PC Size
@@ -438,6 +438,7 @@ Hippopotamus Companion Advancement		SIZE:L	VISIBLE:NO	SOURCEPAGE:p.157	BONUS:COM
 
 
 ###Block:
-Awakened Animal											PRERACE:1,RACETYPE=Animal,TYPE=Animal	!PRESTAT:1,INT=3	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	ADDLEVEL:Animal|2
-Awakened Vermin			DEFINESTAT:STAT|INT	BONUS:VAR|Mindless|-1	PRERACE:1,RACETYPE=Vermin,TYPE=Vermin	!PRESTAT:1,INT=3	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Vermin	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	ADDLEVEL:Vermin|2
-Awakened Tree			DEFINESTAT:STAT|INT	BONUS:VAR|Mindless|-1	PRETEXT:Inanimate Tree				!PRESTAT:1,INT=3	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Tree	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Plant
+# Template Name	Define Stat			Required Race					Prohibited Stat	Required Text		Modify VAR			Add 					Apply Kit			Bonus Languages		Subrace		Main Race Type		Add Levels
+Awakened Animal					PRERACE:1,RACETYPE=Animal,TYPE=Animal	!PRESTAT:1,INT=3									ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	ADDLEVEL:Animal|2
+Awakened Vermin	DEFINESTAT:STAT|INT	PRERACE:1,RACETYPE=Vermin,TYPE=Vermin	!PRESTAT:1,INT=3					BONUS:VAR|Mindless|-1	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Vermin	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	ADDLEVEL:Vermin|2
+Awakened Tree	DEFINESTAT:STAT|INT								!PRESTAT:1,INT=3	PRETEXT:Inanimate Tree	BONUS:VAR|Mindless|-1	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Tree	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Plant

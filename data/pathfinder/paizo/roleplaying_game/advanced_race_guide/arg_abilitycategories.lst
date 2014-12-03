@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: $ $Author: $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 #SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2012/07/28
@@ -92,8 +92,8 @@ ABILITYCATEGORY:Tengu Exotic Weapon Training Choice	VISIBLE:QUALIFY	EDITABLE:YES
 # Ability Category							Visible		Editable?		Change Pool?	Base Pool number			Category of Object		Type of Object								Display Location
 ABILITYCATEGORY:Race Builder Design					VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:Race Builder Design
 
-ABILITYCATEGORY:Race Name						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability		TYPE:RaceName							DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Languages					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability		TYPE:Language							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Name						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability	TYPE:RaceName								DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Languages					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability	TYPE:Language								DISPLAYLOCATION:Race Builder Design
 
 
 ABILITYCATEGORY:Racial Traits						VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO							CATEGORY:Racial Traits

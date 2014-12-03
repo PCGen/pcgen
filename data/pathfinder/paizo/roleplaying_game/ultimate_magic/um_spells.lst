@@ -1,4 +1,4 @@
-# CVS $Revision: 21421 $ $Author: evilmynex $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 21421 $ $Author: evilmynex $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # ORIGINAL ENTRY: Stefan Radermacher, Henk Slaaf, Douglas Limmer, Paul Shipley
 # ORIGINAL ENTRY DATE: Unknown
@@ -645,237 +645,238 @@ Refuge.MOD				DESCRIPTOR:WoodSchool
 Winds of Vengeance.MOD		DESCRIPTOR:WoodSchool
 
 ###Block: ITEM:Potion
-Acidic Spray.MOD	ITEM:Potion
-Acute Senses.MOD	ITEM:Potion
-Age Resistance.MOD	ITEM:Potion
-Age Resistance (Greater).MOD	ITEM:Potion
-Age Resistance (Lesser).MOD	ITEM:Potion
-Agonize.MOD	ITEM:Potion
-Allegro.MOD	ITEM:Potion
-Animate Dead (Lesser).MOD	ITEM:Potion
-Anthropomorphic Animal.MOD	ITEM:Potion
-Anticipate Peril.MOD	ITEM:Potion
-Arboreal Hammer.MOD	ITEM:Potion
-Arcana Theft.MOD	ITEM:Potion
-Archon's Aura.MOD	ITEM:Potion
-Arrow of Law.MOD	ITEM:Potion
-Ash Storm.MOD	ITEM:Potion
+# Spell Name				Item
+Acidic Spray.MOD				ITEM:Potion
+Acute Senses.MOD				ITEM:Potion
+Age Resistance.MOD			ITEM:Potion
+Age Resistance (Greater).MOD		ITEM:Potion
+Age Resistance (Lesser).MOD		ITEM:Potion
+Agonize.MOD					ITEM:Potion
+Allegro.MOD					ITEM:Potion
+Animate Dead (Lesser).MOD		ITEM:Potion
+Anthropomorphic Animal.MOD		ITEM:Potion
+Anticipate Peril.MOD			ITEM:Potion
+Arboreal Hammer.MOD			ITEM:Potion
+Arcana Theft.MOD				ITEM:Potion
+Archon's Aura.MOD				ITEM:Potion
+Arrow of Law.MOD				ITEM:Potion
+Ash Storm.MOD				ITEM:Potion
 Astral Projection (Lesser).MOD	ITEM:Potion
-Atavism.MOD	ITEM:Potion
-Atavism (Mass).MOD	ITEM:Potion
-Aura of Doom.MOD	ITEM:Potion
-Badger's Ferocity.MOD	ITEM:Potion
-Battlemind Link.MOD	ITEM:Potion
+Atavism.MOD					ITEM:Potion
+Atavism (Mass).MOD			ITEM:Potion
+Aura of Doom.MOD				ITEM:Potion
+Badger's Ferocity.MOD			ITEM:Potion
+Battlemind Link.MOD			ITEM:Potion
 Bestow Grace of the Champion.MOD	ITEM:Potion
-Blade of Bright Victory.MOD	ITEM:Potion
-Blade of Dark Triumph.MOD	ITEM:Potion
-Blessing of the Mole.MOD	ITEM:Potion
-Blood Crow Strike.MOD	ITEM:Potion
-Blood Mist.MOD	ITEM:Potion
-Blood Transcription.MOD	ITEM:Potion
-Boiling Blood.MOD	ITEM:Potion
-Bungle.MOD	ITEM:Potion
-Burrow.MOD	ITEM:Potion
-Burst of Nettles.MOD	ITEM:Potion
-Cackling Skull.MOD	ITEM:Potion
-Call Construct.MOD	ITEM:Potion
-Cape of Wasps.MOD	ITEM:Potion
-Caustic Eruption.MOD	ITEM:Potion
-Chord of Shards.MOD	ITEM:Potion
-Circle of Clarity.MOD	ITEM:Potion
-Cold Ice Strike.MOD	ITEM:Potion
-Compassionate Ally.MOD	ITEM:Potion
-Conjure Black Pudding.MOD	ITEM:Potion
-Contagion (Greater).MOD	ITEM:Potion
-Control Construct.MOD	ITEM:Potion
-Control Summoned Creature.MOD	ITEM:Potion
-Corrosive Consumption.MOD	ITEM:Potion
-Corrosive Touch.MOD	ITEM:Potion
-Countless Eyes.MOD	ITEM:Potion
-Create Demiplane.MOD	ITEM:Potion
+Blade of Bright Victory.MOD		ITEM:Potion
+Blade of Dark Triumph.MOD		ITEM:Potion
+Blessing of the Mole.MOD		ITEM:Potion
+Blood Crow Strike.MOD			ITEM:Potion
+Blood Mist.MOD				ITEM:Potion
+Blood Transcription.MOD			ITEM:Potion
+Boiling Blood.MOD				ITEM:Potion
+Bungle.MOD					ITEM:Potion
+Burrow.MOD					ITEM:Potion
+Burst of Nettles.MOD			ITEM:Potion
+Cackling Skull.MOD			ITEM:Potion
+Call Construct.MOD			ITEM:Potion
+Cape of Wasps.MOD				ITEM:Potion
+Caustic Eruption.MOD			ITEM:Potion
+Chord of Shards.MOD			ITEM:Potion
+Circle of Clarity.MOD			ITEM:Potion
+Cold Ice Strike.MOD			ITEM:Potion
+Compassionate Ally.MOD			ITEM:Potion
+Conjure Black Pudding.MOD		ITEM:Potion
+Contagion (Greater).MOD			ITEM:Potion
+Control Construct.MOD			ITEM:Potion
+Control Summoned Creature.MOD		ITEM:Potion
+Corrosive Consumption.MOD		ITEM:Potion
+Corrosive Touch.MOD			ITEM:Potion
+Countless Eyes.MOD			ITEM:Potion
+Create Demiplane.MOD			ITEM:Potion
 Create Demiplane (Greater).MOD	ITEM:Potion
-Create Demiplane (Lesser).MOD	ITEM:Potion
-Curse of Disgust.MOD	ITEM:Potion
-Curse of Magic Negation.MOD	ITEM:Potion
-Curse (Major).MOD	ITEM:Potion
-Cursed Earth.MOD	ITEM:Potion
-Cushioning Bands.MOD	ITEM:Potion
-Dance of a Hundred Cuts.MOD	ITEM:Potion
-Dance of a Thousand Cuts.MOD	ITEM:Potion
-Darkvision (Greater).MOD	ITEM:Potion
-Daze (Mass).MOD	ITEM:Potion
-Decompose Corpse.MOD	ITEM:Potion
-Defensive Shock.MOD	ITEM:Potion
-Delay Pain.MOD	ITEM:Potion
-Delusional Pride.MOD	ITEM:Potion
-Diagnose Disease.MOD	ITEM:Potion
-Disfiguring Touch.MOD	ITEM:Potion
-Disguise Other.MOD	ITEM:Potion
-Distracting Cacophony.MOD	ITEM:Potion
-Distressing Tone.MOD	ITEM:Potion
-Divine Pursuit.MOD	ITEM:Potion
-Dread Bolt.MOD	ITEM:Potion
-Eagle Aerie.MOD	ITEM:Potion
-Ear-Piercing Scream.MOD	ITEM:Potion
-Echolocation.MOD	ITEM:Potion
-Eldritch Fever.MOD	ITEM:Potion
-Envious Urge.MOD	ITEM:Potion
-Epidemic.MOD	ITEM:Potion
-Eruptive Pustules.MOD	ITEM:Potion
-Excruciating Deformation.MOD	ITEM:Potion
-Exquisite Accompaniment.MOD	ITEM:Potion
-False Life (Greater).MOD	ITEM:Potion
-Familiar Melding.MOD	ITEM:Potion
-Fickle Winds.MOD	ITEM:Potion
-Fleshworm Infestation.MOD	ITEM:Potion
-Forbid Action.MOD	ITEM:Potion
-Forbid Action (Greater).MOD	ITEM:Potion
-Force Hook Charge.MOD	ITEM:Potion
-Force Punch.MOD	ITEM:Potion
-Forced Quiet.MOD	ITEM:Potion
-Frigid Touch.MOD	ITEM:Potion
-Frostbite.MOD	ITEM:Potion
-Fumbletongue.MOD	ITEM:Potion
-Fungal Infestation.MOD	ITEM:Potion
-Ghostly Disguise.MOD	ITEM:Potion
-Haunting Choir.MOD	ITEM:Potion
-Haunting Mists.MOD	ITEM:Potion
-Hex Ward.MOD	ITEM:Potion
-Holy Ice.MOD	ITEM:Potion
-Holy Shield.MOD	ITEM:Potion
-Horn of Pursuit.MOD	ITEM:Potion
-Howling Agony.MOD	ITEM:Potion
-Ice Body.MOD	ITEM:Potion
-Ice Crystal Teleport.MOD	ITEM:Potion
-Icicle Dagger.MOD	ITEM:Potion
-Icy Prison.MOD	ITEM:Potion
-Icy Prison (Mass).MOD	ITEM:Potion
-Imbue with Aura.MOD	ITEM:Potion
-Interplanetary Teleport.MOD	ITEM:Potion
-Interrogation.MOD	ITEM:Potion
-Interrogation (Greater).MOD	ITEM:Potion
-Joyful Rapture.MOD	ITEM:Potion
-Ki Arrow.MOD	ITEM:Potion
-Ki Leech.MOD	ITEM:Potion
-Ki Shout.MOD	ITEM:Potion
-Know the Enemy.MOD	ITEM:Potion
-Leashed Shackles.MOD	ITEM:Potion
-Lend Judgment.MOD	ITEM:Potion
-Lend Judgment (Greater).MOD	ITEM:Potion
-Lightning Arc.MOD	ITEM:Potion
-Loathsome Veil.MOD	ITEM:Potion
-Lunar Veil.MOD	ITEM:Potion
-Mad Hallucination.MOD	ITEM:Potion
-Mad Monkeys.MOD	ITEM:Potion
-Malfunction.MOD	ITEM:Potion
-Malicious Spite.MOD	ITEM:Potion
-Marionette Possession.MOD	ITEM:Potion
-Masterwork Transformation.MOD	ITEM:Potion
-Miserable Pity.MOD	ITEM:Potion
-Monstrous Physique I.MOD	ITEM:Potion
-Monstrous Physique II.MOD	ITEM:Potion
-Monstrous Physique III.MOD	ITEM:Potion
-Monstrous Physique IV.MOD	ITEM:Potion
-Murderous Command.MOD	ITEM:Potion
-Oppressive Boredom.MOD	ITEM:Potion
-Oracle's Vessel.MOD	ITEM:Potion
-Orb of the Void.MOD	ITEM:Potion
-Overwhelming Grief.MOD	ITEM:Potion
-Overwhelming Presence.MOD	ITEM:Potion
-Pernicious Poison.MOD	ITEM:Potion
-Persuasive Goad.MOD	ITEM:Potion
-Piercing Shriek.MOD	ITEM:Potion
-Plague Carrier.MOD	ITEM:Potion
-Plague Storm.MOD	ITEM:Potion
-Play Instrument.MOD	ITEM:Potion
-Polar Midnight.MOD	ITEM:Potion
-Polypurpose Panacea.MOD	ITEM:Potion
-Possess Object.MOD	ITEM:Potion
-Prediction of Failure.MOD	ITEM:Potion
-Primal Scream.MOD	ITEM:Potion
-Protective Penumbra.MOD	ITEM:Potion
-Rain of Frogs.MOD	ITEM:Potion
-Raise Animal Companion.MOD	ITEM:Potion
-Rapid Repair.MOD	ITEM:Potion
-Ray of Sickening.MOD	ITEM:Potion
-Reckless Infatuation.MOD	ITEM:Potion
-Remove Sickness.MOD	ITEM:Potion
-Reprobation.MOD	ITEM:Potion
-Resonating Word.MOD	ITEM:Potion
-Restore Corpse.MOD	ITEM:Potion
-Restore Eidolon.MOD	ITEM:Potion
-Restore Eidolon (Lesser).MOD	ITEM:Potion
-Ride the Waves.MOD	ITEM:Potion
-Ride the Lightning.MOD	ITEM:Potion
-Sanctify Corpse.MOD	ITEM:Potion
-Sands of Time.MOD	ITEM:Potion
-Scouring Winds.MOD	ITEM:Potion
-Sculpt Simulacrum.MOD	ITEM:Potion
-Serenity.MOD	ITEM:Potion
-Shadow Step.MOD	ITEM:Potion
-Shadow Weapon.MOD	ITEM:Potion
-Shadowbard.MOD	ITEM:Potion
-Shard of Chaos.MOD	ITEM:Potion
-Share Memory.MOD	ITEM:Potion
-Silk to Steel.MOD	ITEM:Potion
-Simulacrum (Lesser).MOD	ITEM:Potion
-Skinsend.MOD	ITEM:Potion
-Smug Narcissism.MOD	ITEM:Potion
-Snapdragon Fireworks.MOD	ITEM:Potion
-Sonic Thrust.MOD	ITEM:Potion
-Soothe Construct.MOD	ITEM:Potion
-Spear of Purity.MOD	ITEM:Potion
-Spit Venom.MOD	ITEM:Potion
-Steal Voice.MOD	ITEM:Potion
-Strangling Hair.MOD	ITEM:Potion
-Summon Elder Worm.MOD	ITEM:Potion
-Summon Froghemoth.MOD	ITEM:Potion
-Summon Minor Ally.MOD	ITEM:Potion
-Summon Minor Monster.MOD	ITEM:Potion
-Surmount Affliction.MOD	ITEM:Potion
-Symbol of Healing.MOD	ITEM:Potion
-Symbol of Mirroring.MOD	ITEM:Potion
-Symbol of Revelation.MOD	ITEM:Potion
-Symbol of Scrying.MOD	ITEM:Potion
-Symbol of Sealing.MOD	ITEM:Potion
-Symbol of Slowing.MOD	ITEM:Potion
-Symbol of Strife.MOD	ITEM:Potion
-Symbol of Vulnerability.MOD	ITEM:Potion
-Tar Ball.MOD	ITEM:Potion
-Temporary Resurrection.MOD	ITEM:Potion
-Terrible Remorse.MOD	ITEM:Potion
-Touch of Slime.MOD	ITEM:Potion
-Toxic Gift.MOD	ITEM:Potion
-Transmute Blood To Acid.MOD	ITEM:Potion
-Unadulterated Loathing.MOD	ITEM:Potion
-Unbreakable Construct.MOD	ITEM:Potion
-Undead Anatomy I.MOD	ITEM:Potion
-Undead Anatomy II.MOD	ITEM:Potion
-Undead Anatomy III.MOD	ITEM:Potion
-Undead Anatomy IV.MOD	ITEM:Potion
-Unholy Ice.MOD	ITEM:Potion
-Unholy Sword.MOD	ITEM:Potion
-Unnatural Lust.MOD	ITEM:Potion
-Unprepared Combatant.MOD	ITEM:Potion
-Unshakable Chill.MOD	ITEM:Potion
-Utter Contempt.MOD	ITEM:Potion
-Vengeful Outrage.MOD	ITEM:Potion
-Vermin Shape I.MOD	ITEM:Potion
-Vermin Shape II.MOD	ITEM:Potion
-Vestment of the Champion.MOD	ITEM:Potion
-Virtuoso Performance.MOD	ITEM:Potion
-Vision of Hell.MOD	ITEM:Potion
-Vitriolic Mist.MOD	ITEM:Potion
-Vocal Alteration.MOD	ITEM:Potion
-Volcanic Storm.MOD	ITEM:Potion
-Wall of Sound.MOD	ITEM:Potion
-Wartrain Mount.MOD	ITEM:Potion
-Waves of Ecstasy.MOD	ITEM:Potion
-Web Shelter.MOD	ITEM:Potion
-Witness.MOD	ITEM:Potion
-Wooden Phalanx.MOD	ITEM:Potion
-Word of Resolve.MOD	ITEM:Potion
-Youthful Appearance.MOD	ITEM:Potion
+Create Demiplane (Lesser).MOD		ITEM:Potion
+Curse of Disgust.MOD			ITEM:Potion
+Curse of Magic Negation.MOD		ITEM:Potion
+Curse (Major).MOD				ITEM:Potion
+Cursed Earth.MOD				ITEM:Potion
+Cushioning Bands.MOD			ITEM:Potion
+Dance of a Hundred Cuts.MOD		ITEM:Potion
+Dance of a Thousand Cuts.MOD		ITEM:Potion
+Darkvision (Greater).MOD		ITEM:Potion
+Daze (Mass).MOD				ITEM:Potion
+Decompose Corpse.MOD			ITEM:Potion
+Defensive Shock.MOD			ITEM:Potion
+Delay Pain.MOD				ITEM:Potion
+Delusional Pride.MOD			ITEM:Potion
+Diagnose Disease.MOD			ITEM:Potion
+Disfiguring Touch.MOD			ITEM:Potion
+Disguise Other.MOD			ITEM:Potion
+Distracting Cacophony.MOD		ITEM:Potion
+Distressing Tone.MOD			ITEM:Potion
+Divine Pursuit.MOD			ITEM:Potion
+Dread Bolt.MOD				ITEM:Potion
+Eagle Aerie.MOD				ITEM:Potion
+Ear-Piercing Scream.MOD			ITEM:Potion
+Echolocation.MOD				ITEM:Potion
+Eldritch Fever.MOD			ITEM:Potion
+Envious Urge.MOD				ITEM:Potion
+Epidemic.MOD				ITEM:Potion
+Eruptive Pustules.MOD			ITEM:Potion
+Excruciating Deformation.MOD		ITEM:Potion
+Exquisite Accompaniment.MOD		ITEM:Potion
+False Life (Greater).MOD		ITEM:Potion
+Familiar Melding.MOD			ITEM:Potion
+Fickle Winds.MOD				ITEM:Potion
+Fleshworm Infestation.MOD		ITEM:Potion
+Forbid Action.MOD				ITEM:Potion
+Forbid Action (Greater).MOD		ITEM:Potion
+Force Hook Charge.MOD			ITEM:Potion
+Force Punch.MOD				ITEM:Potion
+Forced Quiet.MOD				ITEM:Potion
+Frigid Touch.MOD				ITEM:Potion
+Frostbite.MOD				ITEM:Potion
+Fumbletongue.MOD				ITEM:Potion
+Fungal Infestation.MOD			ITEM:Potion
+Ghostly Disguise.MOD			ITEM:Potion
+Haunting Choir.MOD			ITEM:Potion
+Haunting Mists.MOD			ITEM:Potion
+Hex Ward.MOD				ITEM:Potion
+Holy Ice.MOD				ITEM:Potion
+Holy Shield.MOD				ITEM:Potion
+Horn of Pursuit.MOD			ITEM:Potion
+Howling Agony.MOD				ITEM:Potion
+Ice Body.MOD				ITEM:Potion
+Ice Crystal Teleport.MOD		ITEM:Potion
+Icicle Dagger.MOD				ITEM:Potion
+Icy Prison.MOD				ITEM:Potion
+Icy Prison (Mass).MOD			ITEM:Potion
+Imbue with Aura.MOD			ITEM:Potion
+Interplanetary Teleport.MOD		ITEM:Potion
+Interrogation.MOD				ITEM:Potion
+Interrogation (Greater).MOD		ITEM:Potion
+Joyful Rapture.MOD			ITEM:Potion
+Ki Arrow.MOD				ITEM:Potion
+Ki Leech.MOD				ITEM:Potion
+Ki Shout.MOD				ITEM:Potion
+Know the Enemy.MOD			ITEM:Potion
+Leashed Shackles.MOD			ITEM:Potion
+Lend Judgment.MOD				ITEM:Potion
+Lend Judgment (Greater).MOD		ITEM:Potion
+Lightning Arc.MOD				ITEM:Potion
+Loathsome Veil.MOD			ITEM:Potion
+Lunar Veil.MOD				ITEM:Potion
+Mad Hallucination.MOD			ITEM:Potion
+Mad Monkeys.MOD				ITEM:Potion
+Malfunction.MOD				ITEM:Potion
+Malicious Spite.MOD			ITEM:Potion
+Marionette Possession.MOD		ITEM:Potion
+Masterwork Transformation.MOD		ITEM:Potion
+Miserable Pity.MOD			ITEM:Potion
+Monstrous Physique I.MOD		ITEM:Potion
+Monstrous Physique II.MOD		ITEM:Potion
+Monstrous Physique III.MOD		ITEM:Potion
+Monstrous Physique IV.MOD		ITEM:Potion
+Murderous Command.MOD			ITEM:Potion
+Oppressive Boredom.MOD			ITEM:Potion
+Oracle's Vessel.MOD			ITEM:Potion
+Orb of the Void.MOD			ITEM:Potion
+Overwhelming Grief.MOD			ITEM:Potion
+Overwhelming Presence.MOD		ITEM:Potion
+Pernicious Poison.MOD			ITEM:Potion
+Persuasive Goad.MOD			ITEM:Potion
+Piercing Shriek.MOD			ITEM:Potion
+Plague Carrier.MOD			ITEM:Potion
+Plague Storm.MOD				ITEM:Potion
+Play Instrument.MOD			ITEM:Potion
+Polar Midnight.MOD			ITEM:Potion
+Polypurpose Panacea.MOD			ITEM:Potion
+Possess Object.MOD			ITEM:Potion
+Prediction of Failure.MOD		ITEM:Potion
+Primal Scream.MOD				ITEM:Potion
+Protective Penumbra.MOD			ITEM:Potion
+Rain of Frogs.MOD				ITEM:Potion
+Raise Animal Companion.MOD		ITEM:Potion
+Rapid Repair.MOD				ITEM:Potion
+Ray of Sickening.MOD			ITEM:Potion
+Reckless Infatuation.MOD		ITEM:Potion
+Remove Sickness.MOD			ITEM:Potion
+Reprobation.MOD				ITEM:Potion
+Resonating Word.MOD			ITEM:Potion
+Restore Corpse.MOD			ITEM:Potion
+Restore Eidolon.MOD			ITEM:Potion
+Restore Eidolon (Lesser).MOD		ITEM:Potion
+Ride the Waves.MOD			ITEM:Potion
+Ride the Lightning.MOD			ITEM:Potion
+Sanctify Corpse.MOD			ITEM:Potion
+Sands of Time.MOD				ITEM:Potion
+Scouring Winds.MOD			ITEM:Potion
+Sculpt Simulacrum.MOD			ITEM:Potion
+Serenity.MOD				ITEM:Potion
+Shadow Step.MOD				ITEM:Potion
+Shadow Weapon.MOD				ITEM:Potion
+Shadowbard.MOD				ITEM:Potion
+Shard of Chaos.MOD			ITEM:Potion
+Share Memory.MOD				ITEM:Potion
+Silk to Steel.MOD				ITEM:Potion
+Simulacrum (Lesser).MOD			ITEM:Potion
+Skinsend.MOD				ITEM:Potion
+Smug Narcissism.MOD			ITEM:Potion
+Snapdragon Fireworks.MOD		ITEM:Potion
+Sonic Thrust.MOD				ITEM:Potion
+Soothe Construct.MOD			ITEM:Potion
+Spear of Purity.MOD			ITEM:Potion
+Spit Venom.MOD				ITEM:Potion
+Steal Voice.MOD				ITEM:Potion
+Strangling Hair.MOD			ITEM:Potion
+Summon Elder Worm.MOD			ITEM:Potion
+Summon Froghemoth.MOD			ITEM:Potion
+Summon Minor Ally.MOD			ITEM:Potion
+Summon Minor Monster.MOD		ITEM:Potion
+Surmount Affliction.MOD			ITEM:Potion
+Symbol of Healing.MOD			ITEM:Potion
+Symbol of Mirroring.MOD			ITEM:Potion
+Symbol of Revelation.MOD		ITEM:Potion
+Symbol of Scrying.MOD			ITEM:Potion
+Symbol of Sealing.MOD			ITEM:Potion
+Symbol of Slowing.MOD			ITEM:Potion
+Symbol of Strife.MOD			ITEM:Potion
+Symbol of Vulnerability.MOD		ITEM:Potion
+Tar Ball.MOD				ITEM:Potion
+Temporary Resurrection.MOD		ITEM:Potion
+Terrible Remorse.MOD			ITEM:Potion
+Touch of Slime.MOD			ITEM:Potion
+Toxic Gift.MOD				ITEM:Potion
+Transmute Blood To Acid.MOD		ITEM:Potion
+Unadulterated Loathing.MOD		ITEM:Potion
+Unbreakable Construct.MOD		ITEM:Potion
+Undead Anatomy I.MOD			ITEM:Potion
+Undead Anatomy II.MOD			ITEM:Potion
+Undead Anatomy III.MOD			ITEM:Potion
+Undead Anatomy IV.MOD			ITEM:Potion
+Unholy Ice.MOD				ITEM:Potion
+Unholy Sword.MOD				ITEM:Potion
+Unnatural Lust.MOD			ITEM:Potion
+Unprepared Combatant.MOD		ITEM:Potion
+Unshakable Chill.MOD			ITEM:Potion
+Utter Contempt.MOD			ITEM:Potion
+Vengeful Outrage.MOD			ITEM:Potion
+Vermin Shape I.MOD			ITEM:Potion
+Vermin Shape II.MOD			ITEM:Potion
+Vestment of the Champion.MOD		ITEM:Potion
+Virtuoso Performance.MOD		ITEM:Potion
+Vision of Hell.MOD			ITEM:Potion
+Vitriolic Mist.MOD			ITEM:Potion
+Vocal Alteration.MOD			ITEM:Potion
+Volcanic Storm.MOD			ITEM:Potion
+Wall of Sound.MOD				ITEM:Potion
+Wartrain Mount.MOD			ITEM:Potion
+Waves of Ecstasy.MOD			ITEM:Potion
+Web Shelter.MOD				ITEM:Potion
+Witness.MOD					ITEM:Potion
+Wooden Phalanx.MOD			ITEM:Potion
+Word of Resolve.MOD			ITEM:Potion
+Youthful Appearance.MOD			ITEM:Potion
 
 #
 # End

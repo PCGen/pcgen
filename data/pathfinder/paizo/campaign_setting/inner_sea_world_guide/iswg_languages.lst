@@ -1,8 +1,8 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 
 ###Block: Modern Human Languages
-# Language		Product Identity?	Type					Source Page
+# Language		Product Identity?	Type								Source Page
 Hallit		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage	SOURCEPAGE:p.251
 Kelish		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage	SOURCEPAGE:p.251
 Osiriani		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage	SOURCEPAGE:p.251

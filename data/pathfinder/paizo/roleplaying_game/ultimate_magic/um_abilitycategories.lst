@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 #SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # CVS $Revision: 21421 $ $Author: evilmynex $ -- Wed Sep 18 14:31:37 2013 -- reformated by prettylst.pl v1.50 (build 21406)
 
@@ -101,32 +101,32 @@ ABILITYCATEGORY:Split Slot	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALP
 ABILITYCATEGORY:Flexible Enhancement Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FlexibleEnhancementBonus	PLURAL:Flexible Enhancement Bonuses	DISPLAYLOCATION:Class Features
 
 ###Block: Wizard Elemental School Opposition Choice ability categories
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
-ABILITYCATEGORY:Metal Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetalOpposedSchool			PLURAL:Metal Opposition School Choice	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Wood Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WoodOpposedSchool			PLURAL:Wood Opposition School Choice	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Eldritch Heritage Bloodline Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EldritchHeritageSelection								DISPLAYLOCATION:Feats
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI			Display Location
+ABILITYCATEGORY:Metal Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetalOpposedSchool				PLURAL:Metal Opposition School Choice	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wood Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WoodOpposedSchool				PLURAL:Wood Opposition School Choice	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eldritch Heritage Bloodline Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EldritchHeritageSelection									DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Improved Eldritch Heritage Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ImprovedEldritchHeritageSelection								DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Greater Eldritch Heritage Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GreaterEldritchHeritageSelection								DISPLAYLOCATION:Feats
 
 #
-ABILITYCATEGORY:Black Blade Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BlackBladeChoice										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Black Blade Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BlackBladeChoice											DISPLAYLOCATION:Class Features
 
 ###Block: Crossblooded Sorcerer ability categories
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object			Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Crossblooded Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:SorcererCrossbloodline	PLURAL:Crossblooded Bloodlines		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Sorcerer		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer													DISPLAYLOCATION:Class Features
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object			Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Crossblooded Bloodline Power	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineAbility	PLURAL:Crossblooded Bloodline Powers	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Bonus Spell		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodedSpellChoice	PLURAL:Crossblooded Bonus Spells		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat		PLURAL:Crossblooded Feats			DISPLAYLOCATION:Class Features
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object			Type of Object			Plural description for UI			Display Location
+ABILITYCATEGORY:Crossblooded Bloodline			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:SorcererCrossbloodline	PLURAL:Crossblooded Bloodlines		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Crossblooded Sorcerer			VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer													DISPLAYLOCATION:Class Features
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object			Type of Object			Plural description for UI			Display Location
+ABILITYCATEGORY:Crossblooded Bloodline Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineAbility	PLURAL:Crossblooded Bloodline Powers	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Crossblooded Bonus Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodedSpellChoice	PLURAL:Crossblooded Bonus Spells		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Crossblooded Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat		PLURAL:Crossblooded Feats			DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Magus Class Feature			VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability		TYPE:MagusClassFeatures		PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Forbidden Rites Domain		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:ForbiddenRiteSDomain	PLURAL:Forbidden Rites Domains		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Magus Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability		TYPE:MagusClassFeatures		PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Forbidden Rites Domain			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:ForbiddenRiteSDomain	PLURAL:Forbidden Rites Domains		DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Inquisition				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:Inquisition			PLURAL:Inquisitions		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Domain Alternative ~ Inquisition		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:AltClassInquisition	PLURAL:Inquisitions		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Inquisition					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:Inquisition			PLURAL:Inquisitions				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Domain Alternative ~ Inquisition	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:AltClassInquisition	PLURAL:Inquisitions				DISPLAYLOCATION:Class Features
 
 #
 # End

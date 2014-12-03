@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -51,7 +51,7 @@ Righteous Might (Damage Reduction/Evil)	VISIBLE:DISPLAY	DR:0/Evil		PREABILITY:1,
 Righteous Might (Damage Reduction/Good)	VISIBLE:DISPLAY	DR:0/Good		PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy	PRESPELL:1,Righteous Might	DESC:This Template provides the Damage Reduction to a character when Righteous Might is cast.
 
 ###Block: Trained Animal
-# Template Name	Visible		Restricted Ability								Required Race			Prohibited Stat	Bonus Ability Pool
+# Template Name	Visible		Restricted Ability								Required Race			Bonus Ability Pool
 Trained Animal	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Animal Tricks and Training	PRERACE:1,RACETYPE=Animal	BONUS:ABILITYPOOL|Animal Trick|1	BONUS:ABILITYPOOL|Animal Trick|2|PRESTAT:1,INT=1	BONUS:ABILITYPOOL|Animal Trick|3|PRESTAT:1,INT=2
 
 ###Block: Inherent ability bonuses
@@ -241,15 +241,16 @@ Sickened		VISIBLE:NO	SOURCEPAGE:p.568	TEMPDESC:The character takes a -2 penalty 
 Stunned		VISIBLE:NO	SOURCEPAGE:p.568	TEMPDESC:A stunned creature drops everything held, can't take actions, takes a -2 penalty to AC, and loses its Dexterity bonus to AC (if any).																																																																									TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|AC|-max(0,DEX)
 
 ###Block: Test
-TestChoose		VISIBLE:YES	TEMPLATE:%LIST	CHOOSE:TEMPLATE|TYPE=TestChooseTemplate
+# Template Name	Size		Visible	Template		Choose						Type
+TestChoose				VISIBLE:YES	TEMPLATE:%LIST	CHOOSE:TEMPLATE|TYPE=TestChooseTemplate
 
 
-TestMedium		VISIBLE:YES	SIZE:M	TYPE:TestChooseTemplate
-TestSmall		VISIBLE:YES	SIZE:S	TYPE:TestChooseTemplate
-TestTiny		VISIBLE:YES	SIZE:T	TYPE:TestChooseTemplate
-TestLarge		VISIBLE:YES	SIZE:L	TYPE:TestChooseTemplate
-TestDiminutive	VISIBLE:YES	SIZE:D	TYPE:TestChooseTemplate
-TestHuge		VISIBLE:YES	SIZE:H	TYPE:TestChooseTemplate
+TestMedium		SIZE:M	VISIBLE:YES											TYPE:TestChooseTemplate
+TestSmall		SIZE:S	VISIBLE:YES											TYPE:TestChooseTemplate
+TestTiny		SIZE:T	VISIBLE:YES											TYPE:TestChooseTemplate
+TestLarge		SIZE:L	VISIBLE:YES											TYPE:TestChooseTemplate
+TestDiminutive	SIZE:D	VISIBLE:YES											TYPE:TestChooseTemplate
+TestHuge		SIZE:H	VISIBLE:YES											TYPE:TestChooseTemplate
 
 
 ###BLOCK: Wildshape

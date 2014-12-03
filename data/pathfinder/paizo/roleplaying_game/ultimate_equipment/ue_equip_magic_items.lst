@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 
 ###Block: Cursed Items
@@ -638,7 +638,7 @@ Apprentice's Cheating Gloves													TYPE:Magic.Wondrous.Glove.LesserMinor		
 Assisting Gloves															TYPE:Magic.Wondrous.Glove.LesserMinor																																COST:180	WT:1																								SOURCEPAGE:p.234
 Challenger's Gloves														TYPE:Magic.Wondrous.Glove.LesserMinor																																COST:2200	WT:0																								SOURCEPAGE:p.234
 Claws of the Ice Bear														TYPE:Magic.Wondrous.Glove.LesserMinor																																COST:1300	WT:1																								SOURCEPAGE:p.234																																	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=3|Spider Climb																																																																																																											BONUS:SKILL|Climb|2|TYPE=Competence
-Deliquescent Gloves														TYPE:Magic.Wondrous.Glove.LesserMedium																																COST:8000	WT:1																								SOURCEPAGE:p.234	ABILITY:Internal|AUTOMATIC|Equipment ~ Deliquescent Gloves	SPROP:Melee attacks deal 1d6 points of acid damage
+Deliquescent Gloves														TYPE:Magic.Wondrous.Glove.LesserMedium																																COST:8000	WT:1																								SOURCEPAGE:p.234						ABILITY:Internal|AUTOMATIC|Equipment ~ Deliquescent Gloves																																																																																																																																																																																																																			SPROP:Melee attacks deal 1d6 points of acid damage
 Engineer's Workgloves														TYPE:Magic.Wondrous.Glove.LesserMinor																																COST:3000	WT:0																								SOURCEPAGE:p.234
 Form-Fixing Gauntlets														TYPE:Magic.Wondrous.Glove.LesserMedium																																COST:8000	WT:0.5																							SOURCEPAGE:p.234
 Gauntlet of Rust.MOD														TYPE:LesserMedium																																				COST:11500	WT:2																								SOURCEPAGE:p.235																																	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=7|Rusting Grasp

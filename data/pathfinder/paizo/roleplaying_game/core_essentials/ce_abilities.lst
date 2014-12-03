@@ -1,12 +1,12 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 
 ###SPells Temp Spot - Move these to the originating book or set up control list
 ###Block: Spell Like Abilities - Make it easier to manage spells individually
 
 # Template for Innate SPELL-LIKE ABILITY:
-#	Spell Name			KEY:Spell Name						CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLVLx.ArcaneLVLx.DivineLVLx	DEFINE:xxx_SpellTimes|0	DEFINE:xxx_SpellLevel|0	DEFINE:xxx_SpellCasterLVL|0	DEFINE:xxx_SpellDC|0	DEFINE:xxx_SpellTimesAtWill|0		SPELLS:Innate|TIMES=xxx_SpellTimes|CASTERLEVEL=xxx_SpellCasterLVL|xxx,xxx_SpellDC|PREVAREQ:xxx_SpellTimesAtWill,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=xxx_SpellCasterLVL|xxx,xxx_SpellDC|PREVARGTEQ:xxx_SpellTimesAtWill,1		
+#	Spell Name			KEY:Spell Name						CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLVLx.ArcaneLVLx.DivineLVLx	DEFINE:xxx_SpellTimes|0	DEFINE:xxx_SpellLevel|0	DEFINE:xxx_SpellCasterLVL|0	DEFINE:xxx_SpellDC|0	DEFINE:xxx_SpellTimesAtWill|0		SPELLS:Innate|TIMES=xxx_SpellTimes|CASTERLEVEL=xxx_SpellCasterLVL|xxx,xxx_SpellDC|PREVAREQ:xxx_SpellTimesAtWill,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=xxx_SpellCasterLVL|xxx,xxx_SpellDC|PREVARGTEQ:xxx_SpellTimesAtWill,1
 # Example Spell:
-#Flare Burst	KEY:Flare Burst	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLVL1.DivineLVL1	DEFINE:Flare_Burst_SpellTimes|0	DEFINE:Flare_Burst_SpellLevel|0	DEFINE:Flare_Burst_SpellCasterLVL|0	DEFINE:Flare_Burst_SpellDC|0			SPELLS:Innate|TIMES=Flare_Burst_SpellTimes|CASTERLEVEL=TL|Flare Burst,10+TL+CHA|PREVAREQ:Flare_Burst_SpellTimesAtWill,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=Flare_Burst_SpellCasterLVL|Flare Burst,Flare_Burst_SpellDC|PREVARGTEQ:Flare_Burst_SpellTimesAtWill,1		
+#Flare Burst	KEY:Flare Burst	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLVL1.DivineLVL1	DEFINE:Flare_Burst_SpellTimes|0	DEFINE:Flare_Burst_SpellLevel|0	DEFINE:Flare_Burst_SpellCasterLVL|0	DEFINE:Flare_Burst_SpellDC|0			SPELLS:Innate|TIMES=Flare_Burst_SpellTimes|CASTERLEVEL=TL|Flare Burst,10+TL+CHA|PREVAREQ:Flare_Burst_SpellTimesAtWill,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=Flare_Burst_SpellCasterLVL|Flare Burst,Flare_Burst_SpellDC|PREVARGTEQ:Flare_Burst_SpellTimesAtWill,1
 
 
 #L0
@@ -30,6 +30,7 @@ Divine Favor	CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQua
 Suggestion		CATEGORY:Spell-Like Ability	TYPE:ClassFeatures.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:SuggestionTimes|0	DEFINE:SuggestionLVL|0		SPELLS:Innate|TIMES=SuggestionTimes|TIMEUNIT=Day|CASTERLEVEL=SuggestionLVL|Suggestion,13+CHA|PREVAREQ:DisableSpellSuggestion,0|PREVARGTEQ:SuggestionTimes,1	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Day|CASTERLEVEL=SuggestionLVL|Suggestion,13+CHA|PREVAREQ:DisableSpellSuggestion,0|PREVARLTEQ:SuggestionTimes,0
 
 ###Block:
+# Ability Name				Category of Ability		Type
 Spell-Like Ability LVL 0 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL0.SpellLikeDivineLVL0
 Spell-Like Ability LVL 1 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL1.SpellLikeDivineLVL1
 Spell-Like Ability LVL 2 ~ Divine	CATEGORY:Spell-Like Ability	TYPE:SpellLikeAbility.SpellLikeSpellLVL2.SpellLikeDivineLVL2
@@ -354,5 +355,3 @@ Disable First Level Domain Power	KEY:DisableDomainLVL1	CATEGORY:Internal		STACK:
 #	CATEGORY:Spell-Like Ability	TYPE:SpellLike	VISIBLE:YES	DEFINE:XXX_Times|0	DEFINE:XXX_LVL|0	SPELLS:Innate|TIMES=XXX_Times|TIMEUNIT=Day|CASTERLEVEL=XXX_LVL|YYY|PREVARGTEQ:XXX_Times,1|PREVAREQ:DisableSpellXXX,0	BONUS:VAR|xxx_LVL|TL|TYPE=Base	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=XXX_LVL|YYY|PREVARLTEQ:XXX_Times,0|PREVAREQ:DisableSpellXXX,0	DESC:Blank
 #	CATEGORY:Spell-Like Ability	TYPE:SpellLike	VISIBLE:YES	DEFINE:XXX_Times|0	DEFINE:XXX_LVL|0	SPELLS:Innate|TIMES=XXX_Times|TIMEUNIT=Day|CASTERLEVEL=XXX_LVL|YYY|PREVARGTEQ:XXX_Times,1|PREVAREQ:DisableSpellXXX,0	BONUS:VAR|xxx_LVL|TL|TYPE=Base	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=XXX_LVL|YYY|PREVARLTEQ:XXX_Times,0|PREVAREQ:DisableSpellXXX,0	DESC:Blank
 #	CATEGORY:Spell-Like Ability	TYPE:SpellLike	VISIBLE:YES	DEFINE:XXX_Times|0	DEFINE:XXX_LVL|0	SPELLS:Innate|TIMES=XXX_Times|TIMEUNIT=Day|CASTERLEVEL=XXX_LVL|YYY|PREVARGTEQ:XXX_Times,1|PREVAREQ:DisableSpellXXX,0	BONUS:VAR|xxx_LVL|TL|TYPE=Base	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=XXX_LVL|YYY|PREVARLTEQ:XXX_Times,0|PREVAREQ:DisableSpellXXX,0	DESC:Blank
-
-

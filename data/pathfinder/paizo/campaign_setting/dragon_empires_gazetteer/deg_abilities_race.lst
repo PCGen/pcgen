@@ -1,7 +1,7 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: $ $Author: $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
 
-# Ability Name						Unique Key							Category of Ability	Type					Description											Template					Ability																					Bonus Ability Pool
+# Ability Name						Unique Key							Category of Ability	Type					Description											Template					Ability																					Bonus Ability Pool							Modify VAR
 Dragon Empire Setting					KEY:Setting Language ~ Dragon Empire Setting	CATEGORY:Internal		TYPE:RaceLanguageSelection	DESC:Grants the race the default race language of the core supplements.
 
 

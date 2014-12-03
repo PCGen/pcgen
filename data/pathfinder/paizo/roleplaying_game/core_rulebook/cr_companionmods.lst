@@ -1,32 +1,32 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Andrew Maitland
 
 ###Block:Companion for Druid and Ranger - Paladin uses same table but has separate entry
-# Class of the Master			Type				Hit Dice	Ability																					Auto Feat			Define							Bonus Ability Pool					Combat bonus					Stat bonus			Modify VAR											Main Race Type
-FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0		BONUS:VAR|MasterLevel|1			BONUS:VAR|BonusTricks|1				RACETYPE:Animal
+# Class of the Master			Type				Hit Dice	Ability																				Define							Bonus Ability Pool					Combat bonus					Stat bonus			Modify VAR							Main Race Type
+FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training											DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
 FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Link|!PREABILITY:1,CATEGORY=Archetype,CompanionLink
 FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|!PREABILITY:1,CATEGORY=Archetype,CompanionShareSpells
-FOLLOWER:AnimalCompanionLVL=2		TYPE:Animal Companion	HD:1																																																							BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionEvasion																																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=4		TYPE:Animal Companion	HD:1																																				BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=5		TYPE:Animal Companion	HD:1																																																							BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion|!PREABILITY:1,CATEGORY=Archetype,CompanionDevotion																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=7		TYPE:Animal Companion																																																								BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=8		TYPE:Animal Companion	HD:1																																																							BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:1							BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack|!PREABILITY:1,CATEGORY=Archetype,CompanionMultiattack		
-FOLLOWER:AnimalCompanionLVL=10	TYPE:Animal Companion	HD:1																																																							BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=11	TYPE:Animal Companion																																																								BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Companion	HD:1																																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=13	TYPE:Animal Companion	HD:1																																																							BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=14	TYPE:Animal Companion	HD:1																																				BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Companion																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=16	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionImprovedEvasion																																													BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=17	TYPE:Animal Companion	HD:1																																																							BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Companion	HD:1																																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=19	TYPE:Animal Companion																																																								BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=20	TYPE:Animal Companion	HD:1																																				BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:AnimalCompanionLVL=2		TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionEvasion																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=4		TYPE:Animal Companion	HD:1																															BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:AnimalCompanionLVL=5		TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion|!PREABILITY:1,CATEGORY=Archetype,CompanionDevotion																				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=7		TYPE:Animal Companion																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:AnimalCompanionLVL=8		TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:1																															BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack|!PREABILITY:1,CATEGORY=Archetype,CompanionMultiattack
+FOLLOWER:AnimalCompanionLVL=10	TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:AnimalCompanionLVL=11	TYPE:Animal Companion																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Companion	HD:1																																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=13	TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:AnimalCompanionLVL=14	TYPE:Animal Companion	HD:1																															BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Companion																																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=16	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionImprovedEvasion																												BONUS:VAR|MasterLevel|1
+FOLLOWER:AnimalCompanionLVL=17	TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
+FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Companion	HD:1																																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=19	TYPE:Animal Companion																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:AnimalCompanionLVL=20	TYPE:Animal Companion	HD:1																															BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
 
 
@@ -54,29 +54,29 @@ FOLLOWER:AnimalCompanionLVL=20	TYPE:Animal Companion	HD:1																							
 ###CLARIFY:Does this mean Size Increase as well?
 
 ###Block:Special Mount - Same Table but slightly different animal list was warranted plus INT needs to be locked at 6
-# Class of the Master		Type				Hit Dice	Spell Res.		Ability												Auto Feat			Auto Armor Prof				Define			Define Stat				Bonus Ability Pool					Combat bonus					Stat bonus			Modify VAR			Main Race Type			Template
-FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount						AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0	DEFINESTAT:MINVALUE|INT|6																				BONUS:VAR|MasterLevel|1	RACETYPE:Animal
-FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount			ABILITY:Special Ability|AUTOMATIC|Companion ~ Link|!PREABILITY:1,CATEGORY=Archetype,CompanionLink
-FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount			ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|!PREABILITY:1,CATEGORY=Archetype,CompanionShareSpells
-FOLLOWER:SpecialMountLVL=2	TYPE:Special Mount	HD:1																																																								BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=3	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionEvasion																																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=4	TYPE:Special Mount	HD:1																																					BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	HD:1																																																								BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=6	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion|!PREABILITY:1,CATEGORY=Archetype,CompanionDevotion																															BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=7	TYPE:Special Mount																																																									BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=8	TYPE:Special Mount	HD:1																																																								BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=9	TYPE:Special Mount	HD:1																		ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack|!PREABILITY:1,CATEGORY=Archetype,CompanionMultiattack																BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=10	TYPE:Special Mount	HD:1																																																								BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount																																																									BONUS:VAR|MasterLevel|1	RACETYPE:Animal/Magical Beast	TEMPLATE:Celestial Creature
-FOLLOWER:SpecialMountLVL=12	TYPE:Special Mount	HD:1																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=13	TYPE:Special Mount	HD:1																																																								BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=14	TYPE:Special Mount	HD:1																																					BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=15	TYPE:Special Mount			SR:MasterLevel+11																																									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=16	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionImprovedEvasion																																											BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=17	TYPE:Special Mount	HD:1																																																								BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=18	TYPE:Special Mount	HD:1																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=19	TYPE:Special Mount																																																									BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount	HD:1																																					BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+# Class of the Master		Type				Hit Dice	Spell Res.		Ability																				Auto Armor Prof				Define			Define Stat				Bonus Ability Pool					Combat bonus					Stat bonus			Modify VAR			Main Race Type			Template
+FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount																											AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0	DEFINESTAT:MINVALUE|INT|6																				BONUS:VAR|MasterLevel|1	RACETYPE:Animal
+FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Companion ~ Link|!PREABILITY:1,CATEGORY=Archetype,CompanionLink
+FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|!PREABILITY:1,CATEGORY=Archetype,CompanionShareSpells
+FOLLOWER:SpecialMountLVL=2	TYPE:Special Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=3	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionEvasion																											BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=4	TYPE:Special Mount	HD:1																																									BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=6	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion|!PREABILITY:1,CATEGORY=Archetype,CompanionDevotion																											BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=7	TYPE:Special Mount																																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=8	TYPE:Special Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=9	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack|!PREABILITY:1,CATEGORY=Archetype,CompanionMultiattack																		BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=10	TYPE:Special Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount																																																													BONUS:VAR|MasterLevel|1	RACETYPE:Animal/Magical Beast	TEMPLATE:Celestial Creature
+FOLLOWER:SpecialMountLVL=12	TYPE:Special Mount	HD:1																																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=13	TYPE:Special Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=14	TYPE:Special Mount	HD:1																																									BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=15	TYPE:Special Mount			SR:MasterLevel+11																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=16	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionImprovedEvasion																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=17	TYPE:Special Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=18	TYPE:Special Mount	HD:1																																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=19	TYPE:Special Mount																																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount	HD:1																																									BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
 ###Block:Familiar - No apparent changes from RSRD
 # Class of the Master	Type			Spell Res.	Ability												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat				Combat bonus					Main Race Type
@@ -104,18 +104,18 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Raven)	KIT:1|Raven Fami
 #
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar			Type			Bonus to HP			Save bonus			Bonus to skill			Virtual Feat
-MASTERBONUSRACE:Familiar (Bat)	TYPE:Familiar									BONUS:SKILL|Fly|3|TYPE=Familiar			VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Cat)	TYPE:Familiar									BONUS:SKILL|Stealth|3|TYPE=Familiar		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Hawk)	TYPE:Familiar									BONUS:SKILL|Perception|3|TYPE=Familiar	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Lizard)	TYPE:Familiar									BONUS:SKILL|Climb|3|TYPE=Familiar		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Monkey)	TYPE:Familiar									BONUS:SKILL|Acrobatics|3|TYPE=Familiar	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Owl)	TYPE:Familiar									BONUS:SKILL|Perception|3|TYPE=Familiar	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Rat)	TYPE:Familiar					BONUS:SAVE|Fortitude|2|TYPE=Familiar						VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Raven)	TYPE:Familiar									BONUS:SKILL|Appraise|3|TYPE=Familiar		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Viper)	TYPE:Familiar									BONUS:SKILL|Bluff|3|TYPE=Familiar		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Toad)	TYPE:Familiar	BONUS:HP|CURRENTMAX|3|TYPE=Familiar										VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Weasel)	TYPE:Familiar					BONUS:SAVE|Reflex|2|TYPE=Familiar						VFEAT:Alertness
+# Race of familiar			Type			Bonus to HP					Save bonus						Bonus to skill					Virtual Feat
+MASTERBONUSRACE:Familiar (Bat)	TYPE:Familiar														BONUS:SKILL|Fly|3|TYPE=Familiar		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Cat)	TYPE:Familiar														BONUS:SKILL|Stealth|3|TYPE=Familiar		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Hawk)	TYPE:Familiar														BONUS:SKILL|Perception|3|TYPE=Familiar	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Lizard)	TYPE:Familiar														BONUS:SKILL|Climb|3|TYPE=Familiar		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Monkey)	TYPE:Familiar														BONUS:SKILL|Acrobatics|3|TYPE=Familiar	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Owl)	TYPE:Familiar														BONUS:SKILL|Perception|3|TYPE=Familiar	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Rat)	TYPE:Familiar							BONUS:SAVE|Fortitude|2|TYPE=Familiar								VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Raven)	TYPE:Familiar														BONUS:SKILL|Appraise|3|TYPE=Familiar	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Viper)	TYPE:Familiar														BONUS:SKILL|Bluff|3|TYPE=Familiar		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Toad)	TYPE:Familiar	BONUS:HP|CURRENTMAX|3|TYPE=Familiar															VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Weasel)	TYPE:Familiar							BONUS:SAVE|Reflex|2|TYPE=Familiar									VFEAT:Alertness
 #
 
 # Class of the Master		Type				Copy Masters BAB		Copy Masters Checks	HP formula based on Master
@@ -129,5 +129,5 @@ FOLLOWER:NormalFollower=1	TYPE:Follower
 #
 # End
 #
-# Race of familiar				Type			Combat bonus			Virtual Feat
+# Race of familiar				Type			Combat bonus					Virtual Feat
 MASTERBONUSRACE:Familiar (Compsognathus)	TYPE:Familiar	BONUS:COMBAT|INITIATIVE|4|TYPE=Familiar	VFEAT:Alertness

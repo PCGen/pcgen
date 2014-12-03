@@ -1,4 +1,4 @@
-# CVS $Revision: 20121 $ $Author: zaister $ -- Mon Nov 28 13:37:53 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision: 20121 $ $Author: zaister $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Andrew Maitland
 
@@ -6,7 +6,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 STARTPACK:Awakened Animal	TYPE:Companion	VISIBLE:NO	APPLY:INSTANT
 STAT:INT=roll("3d6")+var("STAT.3.BASE")-var("STAT.3")|CHA=roll("1d3")+var("STAT.5.BASE")
 
-STARTPACK:Awakened Tree		TYPE:Companion	VISIBLE:NO	APPLY:INSTANT
+STARTPACK:Awakened Tree	TYPE:Companion	VISIBLE:NO	APPLY:INSTANT
 NAME:Awakened Tree
 STAT:INT=roll("3d6")|CHA=roll("3d6")|WIS=roll("3d6")
 
