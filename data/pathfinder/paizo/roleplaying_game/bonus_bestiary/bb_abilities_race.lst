@@ -13,7 +13,7 @@ Sand Trap		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES
 
 ###Block: Ascomoid abilities
 # Ability Name	Category of Ability		Type						Visible	Define						Description																	Source Page		Benefits
-Spores		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:SporesDC|10+(HD/2)+CON|TYPE=Base		SOURCEPAGE:p.6	DESC:Once per round, as a free action, an ascomoid can release a jet of deadly spores in a 30-foot line. Upon impacting a solid surface, such as a wall or creature, the jet billows out into a cloud of spores, that fills a 10-foot-radius area. This cloud lasts for 1 round before dispersing. Any creature in the cloud inhales ascomoid poison (Save Fortitude DC %1, Frequency 1 round (7), Effect 1 Con damage, Cure 1 save). Even if the save succeeds, creatures inside the cloud are nauseated as long as they remain in the cloud. Ascomoids are immune to ascomoid spores.|SporesDC
+Spores		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:SporesDC|0		BONUS:VAR|SporesDC|10+(HD/2)+CON|TYPE=Base		SOURCEPAGE:p.6	DESC:Once per round, as a free action, an ascomoid can release a jet of deadly spores in a 30-foot line. Upon impacting a solid surface, such as a wall or creature, the jet billows out into a cloud of spores, that fills a 10-foot-radius area. This cloud lasts for 1 round before dispersing. Any creature in the cloud inhales ascomoid poison (Save Fortitude DC %1, Frequency 1 round (7), Effect 1 Con damage, Cure 1 save). Even if the save succeeds, creatures inside the cloud are nauseated as long as they remain in the cloud. Ascomoids are immune to ascomoid spores.|SporesDC
 
 ###Block: Axe Beak abilities
 # Ability Name	Category of Ability		Type						Visible	Description												Source Page		Benefits
@@ -31,7 +31,7 @@ Breath Weapon	KEY:Faerie Dragon ~ Breath Weapon	CATEGORY:Special Ability	TYPE:Sp
 
 ###Block: Dragonne abilities
 # Ability Name	Category of Ability		Type						Visible	Define						Description														Ability						Modify VAR								Source Page		Benefits
-Roar			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:RoarDC|10+(HD/2)+CON|TYPE=Base		ABILITY:Ability Focus|AUTOMATIC|Roar	BONUS:VAR|RoarDC|2|PREFEAT:1,Ability Focus (Roar)	SOURCEPAGE:p.10	DESC:A dragonne can unleash a devastating roar every 1d4 rounds as a standard action. All creatures except dragonnes within 120 feet must succed on a DC %1 Fortitude save or become fatigued. Those within 30 feet who fail their saves are also deafened for 2d4 rounds. This is a sonic effect.|RoarDC
+Roar			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:RoarDC|0	BONUS:VAR|RoarDC|10+(HD/2)+CON|TYPE=Base		ABILITY:Ability Focus|AUTOMATIC|Roar	BONUS:VAR|RoarDC|2|PREFEAT:1,Ability Focus (Roar)	SOURCEPAGE:p.10	DESC:A dragonne can unleash a devastating roar every 1d4 rounds as a standard action. All creatures except dragonnes within 120 feet must succed on a DC %1 Fortitude save or become fatigued. Those within 30 feet who fail their saves are also deafened for 2d4 rounds. This is a sonic effect.|RoarDC
 
 ###Block: Huecuva abilities
 # Ability Name	Unique Key			Category of Ability		Type							Visible	Define				Description																																			Modify VAR						Source Page
@@ -44,7 +44,7 @@ Magic Circle against Evil	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatu
 
 ###Block: Water Naga abilities
 # Ability Name	Unique Key			Category of Ability		Type						Visible	Define				Description																			Modify VAR								Source Page
-Poison		KEY:Water Naga ~ Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:WaterNagaPoisonDC|	DESC:Bite, Level 7, Save Fortitude DC %1, Frequency 1 round (10), Effect 1 Con damage, Cure 1 save.|WaterNagaPoisonDC	BONUS:VAR|WaterNagaPoisonDC|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p.14
+Poison		KEY:Water Naga ~ Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:WaterNagaPoisonDC|0	DESC:Bite, Level 7, Save Fortitude DC %1, Frequency 1 round (10), Effect 1 Con damage, Cure 1 save.|WaterNagaPoisonDC	BONUS:VAR|WaterNagaPoisonDC|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p.14
 
 ###Block: Shadow Mastiff abilities
 # Ability Name	Unique Key					Category of Ability		Type						Visible	Define		Description																													Ability					Modify VAR																				Source Page		Benefits
