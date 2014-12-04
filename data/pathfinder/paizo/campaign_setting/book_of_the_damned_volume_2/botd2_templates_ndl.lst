@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec  2 19:28:17 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+SOURCELONG:Lords of Chaos, Book of the Damned, Volume 2	SOURCESHORT:BOTD2	SOURCEWEB:http://paizo.com/products/btpy8hij?Pathfinder-Campaign-Setting-Book-of-the-Damned-Volume-2-Lords-of-Chaos	SOURCEDATE:2010-10
+# ORIGINAL ENTRY: elro the onk (Paul Shipley)
+
+# Template Name			Source Page		Required Race			Modify VAR																			Ability																																														Innate Spells
+Nascent Demon Lord Traits	SOURCEPAGE:p.37	PRERACE:1,RACESUBTYPE=Demon	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,FireResistanceBonus|30|TYPE=Resistance	BONUS:VAR|TelepathyRange|200	ABILITY:Special Ability|AUTOMATIC|Immunity to Charm|Immunity to Compulsion|Immunity to Death Effects|Immunity to Electricity|Immunity to Poison|Nascent Demon Lord ~ Aligned Strike|Nascent Demon Lord ~ Grant Spells|Resistance to Acid|Resistance to Cold|Resistance to Fire|Telepathy	SPELLS:Innate|TIMES=1|CASTERLEVEL=20|Summon Demons (Nascent Demon Lord),19+CHA

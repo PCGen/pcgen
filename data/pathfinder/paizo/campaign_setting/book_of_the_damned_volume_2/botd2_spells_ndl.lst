@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec  2 19:28:17 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+SOURCELONG:Lords of Chaos, Book of the Damned, Volume 2	SOURCESHORT:BOTD2	SOURCEWEB:http://paizo.com/products/btpy8hij?Pathfinder-Campaign-Setting-Book-of-the-Damned-Volume-2-Lords-of-Chaos	SOURCEDATE:2010-10
+# ORIGINAL ENTRY: elro the onk (Paul Shipley)
+
+# Spell Name				Output Name				Type		School			Sub-School			Descriptor		Components		Casting Time	Range		Target Area or Effect												Duration					Save Info		Spell Resistance	Source Page		Description
+Summon Demons (Nascent Demon Lord)	OUTPUTNAME:Summon Demons	TYPE:Divine	SCHOOL:Conjuration	SUBSCHOOL:Summoning	DESCRIPTOR:Evil	COMPS:V, S, DF	CASTTIME:1 round	RANGE:Close	TARGETAREA:One or more summoned demons, no two of which can be more than 30 ft. apart	DURATION:(CASTERLEVEL) rounds [D]	SAVEINFO:None	SPELLRES:No		SOURCEPAGE:p.37	DESC:Calls any demon or combination of demons whose total combined CR is 20 or lower. This ability always works, and is equivalent to a 9th-level spell.
