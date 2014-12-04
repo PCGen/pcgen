@@ -60,7 +60,7 @@ SPELL:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_spel
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_abilitycategories.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_abilities_classes.lst
 # Nascent demon lord is a straight repeat of ISWG - so only incorporate if ISWG not loaded
-LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_abilities_ndl.lst|!PRECAMPAIGN:1,Inner Sea World Guide
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_abilities_ndl.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_abilities_race.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_classes_prestige.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_deities.lst
@@ -69,10 +69,10 @@ LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_kits_race.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_races.lst
 # Nascent demon lord is a straight repeat of ISWG - so only incorporate if ISWG not loaded
-LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_spells_ndl.lst|!PRECAMPAIGN:1,Inner Sea World Guide
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_spells_ndl.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_templates.lst
 # Nascent demon lord is a straight repeat of ISWG - so only incorporate if ISWG not loaded
-LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_templates_ndl.lst|!PRECAMPAIGN:1,Inner Sea World Guide
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_templates_ndl.lst
 
 
 #
