@@ -45,6 +45,9 @@ SPELL:pfsfg_spells.lst
 FEAT:pfsfg_feats.lst
 EQUIPMOD:pfsfg_equipmods.lst
 
+ABILITYCATEGORY:pfsfg_abilitycategories_skillspecialization.lst
+ABILITY:pfsfg_abilities_skillspecialization.lst
+
 #TODO:
 #adjust advanturing kits for correct price and weight (page 47)
 #character archetypes (pages 25 to 31)
