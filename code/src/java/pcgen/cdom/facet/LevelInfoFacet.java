@@ -64,6 +64,10 @@ public class LevelInfoFacet extends AbstractListFacet<CharID, PCLevelInfo>
 	public PCLevelInfo get(CharID id, int location)
 	{
 		List<PCLevelInfo> componentSet = (List<PCLevelInfo>) getCachedSet(id);
+		if (componentSet == null || location < 0 || location >= componentSet.size())
+		{
+			return null;
+		}
 		return componentSet.get(location);
 	}
 

@@ -354,8 +354,8 @@ public class SkillRankControl
 				continue;
 			}
 			
-			double maxRanks = pc.getMaxRank(skill,
-				pc.getClassList().get(0)).doubleValue();
+			PCClass aClass = pc.getClassList().isEmpty() ? null : pc.getClassList().get(0);
+			double maxRanks = pc.getMaxRank(skill, aClass).doubleValue();
 			double rankMod = maxRanks - getTotalRank(pc, skill);
 			if (rankMod < 0)
 			{
