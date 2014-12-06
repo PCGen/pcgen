@@ -1692,35 +1692,35 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialQuality}.TYPE=SpecialQua
 </table>
 <!-- STOP Feat Table -->
 
-<!-- START PFS Chronicles Table -->
-<#if (pcvar('count("ABILITIES","CATEGORY=PFS Chronicles","TYPE=PFSChronicle","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<!-- START PFS Chronicle Table -->
+<#if (pcvar('count("ABILITIES","CATEGORY=PFS Chronicle","TYPE=PFSChronicle","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>PFS Chronicles</b></font></th>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>PFS Chronicle</b></font></th>
     </tr>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=PFS Chronicles","TYPE=PFSChronicle","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; PFSChronicle , PFSChronicle_has_next>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=PFS Chronicle","TYPE=PFSChronicle","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; PFSChronicle , PFSChronicle_has_next>
 <#if (PFSChronicle % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
      <td valign="top" width="70%" class="font8"><b>
-<#assign typeOfAbility = pcstring("ABILITYALL.PFS Chronicles.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.TYPE")?lower_case />
-<#if (pcstring("ABILITYALL.PFS Chronicles.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.HASASPECT.Name") = "Y")>
-${pcstring('ABILITYALL.PFS Chronicles.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.ASPECT.Name')}
+<#assign typeOfAbility = pcstring("ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.ASPECT.Name')}
 <@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
 <#else>
-${pcstring('ABILITYALL.PFS Chronicles.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle')}
+${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle')}
 <@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
 </#if>
 </b>
 </td>
-<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.PFS Chronicles.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.SOURCE')}]</td>
+<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.SOURCE')}]</td>
 <tr>
 <#if (PFSChronicle % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
 <td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
-${pcstring('ABILITYALL.PFS Chronicles.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.DESC')}</td>
+${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.DESC')}</td>
     </tr>
 </@loop>
    </table>
 </#if>
-<!-- STOP PFS Chronicles Table -->
+<!-- STOP PFS Chronicle Table -->
 <!-- ================================================================ -->
 
 
