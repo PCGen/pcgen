@@ -106,9 +106,10 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		Globals.getContext().commit();
 		applyAbility(pc, AbilityCategory.FEAT, reading, "Books");
 		abilities = ca.getAbilities(AbilityCategory.FEAT);
-		assertEquals("Feat list should have one entry", 1, abilities.getSize());
+		assertFalse("Feat list should not be empty", abilities.isEmpty());
 		Ability abilityFromList = (Ability) abilities.getElementAt(0);
 		assertEquals("Should have found reading", reading, abilityFromList);
+		assertEquals("Feat list should have one entry", 1, abilities.getSize());
 
 		// Now add the choice
 		finalize(abilityFromList, "Magazines", pc, AbilityCategory.FEAT);

@@ -116,6 +116,30 @@ public class MasterAvailableSpellFacet extends
 
 		return spellsInList;
 	}
+	
+	/**
+	 * Retrieve a list of any occurrence of a specific spell in the particular spell list. 
+	 * @param spellList The list to be queried
+	 * @param dsID The owning data set
+	 * @param spell The spell to be found.
+	 * @return The list of available spells.
+	 */
+	public List<AvailableSpell> getMatchingSpellsInList(
+		CDOMList<Spell> spellList, DataSetID dsID, Spell spell)
+	{
+		List<AvailableSpell> spellsInList = new ArrayList<AvailableSpell>();
+		Collection<AvailableSpell> spells = getSet(dsID);
+		for (AvailableSpell as : spells)
+		{
+			if (as.getSpelllist().equals(spellList)
+				&& as.getSpell().equals(spell))
+			{
+				spellsInList.add(as);
+			}
+		}
+
+		return spellsInList;
+	}
 
 	public void setDataSetInitializationFacet(
 		DataSetInitializationFacet datasetInitializationFacet)

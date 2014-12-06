@@ -17,13 +17,14 @@
  */
 package plugin.primitive.spell;
 
-import java.util.Collections;
-
+import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.MasterAvailableSpellFacet;
+import pcgen.cdom.helper.AvailableSpell;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.analysis.SpellLevel;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
@@ -31,6 +32,7 @@ import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
 public class ClassListToken extends AbstractRestrictedSpellPrimitive
 {
 	private CDOMSingleRef<ClassSpellList> spelllist;
+	private MasterAvailableSpellFacet masterAvailableSpellFacet;
 
 	@Override
 	public boolean initialize(LoadContext context, Class<Spell> cl,
@@ -41,6 +43,7 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 			return false;
 		}
 		spelllist = context.getReferenceContext().getCDOMReference(ClassSpellList.class, value);
+		masterAvailableSpellFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);	
 		return initialize(context, args);
 	}
 
@@ -54,9 +57,11 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
 		ClassSpellList list = spelllist.resolvesTo();
-		for (int level : SpellLevel.levelForKey(spell, Collections
-				.singletonList(list), pc))
+		DataSetID datasetID = pc.getCharID().getDatasetID();
+		
+		for (AvailableSpell availSpell : masterAvailableSpellFacet.getMatchingSpellsInList(list, datasetID, spell))
 		{
+			int level = availSpell.getLevel();
 			if ((level >= 0) && allow(pc, level, "", spell, list))
 			{
 				return true;

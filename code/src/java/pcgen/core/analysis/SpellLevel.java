@@ -62,6 +62,15 @@ public class SpellLevel
 		return list.toArray(new Integer[list.size()]);
 	}
 
+	/**
+	 * Retrieve the first level that the pc receives the spell from the specified list. Note that this only returns 
+	 * spells that the pc has available.
+	 * 
+	 * @param sp The spell to be found.
+	 * @param list The spell list (e.g. a class spell list)
+	 * @param aPC The character who must already have the spell.
+	 * @return The level of the spell, or -1 if not found.
+	 */
 	public static int getFirstLvlForKey(Spell sp, CDOMList<Spell> list,
 			PlayerCharacter aPC)
 	{
