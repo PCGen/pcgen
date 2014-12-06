@@ -149,7 +149,7 @@ public class SkillSitToken extends Token
 					{
 						double bonus = pc.getTotalBonusTo("SITUATION", sk.getKeyName()
 							+ "=" + situation);
-						if (bonus > .01)
+						if (bonus > .01 || bonus < -0.01)
 						{
 							if (i == 0)
 							{
