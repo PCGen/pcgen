@@ -1689,10 +1689,11 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialQuality}.TYPE=SpecialQua
 </table>
   </td>
  </tr>
-</table>
 <!-- STOP Feat Table -->
 
 <!-- START PFS Chronicle Table -->
+ <tr>
+  <td>
 <#if (pcvar('count("ABILITIES","CATEGORY=PFS Chronicle","TYPE=PFSChronicle","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
@@ -1703,13 +1704,13 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialQuality}.TYPE=SpecialQua
      <td valign="top" class="font8"><b>
 <#assign typeOfAbility = pcstring("ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.TYPE")?lower_case />
 <#if (pcstring("ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.HASASPECT.Name") = "Y")>
-${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.ASPECT.Name')}:
+${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.ASPECT.Name')}
 <@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
 <#else>
-${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle')}:
+${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle')}
 <@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
 </#if>
-</b>
+:</b>
 ${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.DESC')}
 <i>&#8212; [${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.SOURCE')}]</i>
     </td>
@@ -1717,7 +1718,12 @@ ${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.D
 </@loop>
    </table>
 </#if>
+  </td>
+ </tr>
 <!-- STOP PFS Chronicle Table -->
+
+</table>
+
 <!-- ================================================================ -->
 
 
