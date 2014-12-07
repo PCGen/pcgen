@@ -134,6 +134,25 @@
 \u2028	\n	# Unicode LINE SEPARATOR
 \u2029	\n	# Unicode PARAGRAPH SEPARATOR
 
+# Polish alphabet
+\u0104	&#260;	# Capital Aogon
+\u0105	&#261;	# Lowercase aogon
+\u0106	&#262;	# Capital Cacute
+\u0107	&#263;	# Lowercase Cacute
+\u0118	&#280;	# Capital Eogon
+\u0119	&#281;	# Lowercase Eogon
+\u0141	&#321;	# Capital Lstrok
+\u0142	&#322;	# Lowercase Lstrok
+\u0143	&#323;	# Capital Nacute
+\u0144	&#324;	# Lowercase Nacute
+\u015A	&#346;	# Capital Sacute
+\u015B	&#347;	# Lowercase Sacute
+\u0179	&#377;	# Capital Zacute
+\u017A	&#378;	# Lowercase Zacute
+\u017B	&#379;	# Capital Zdot
+\u017C	&#380;	# Lowercase Zdot
+
+
 #[\r\n]+$	
 ^(.*?[\r\n](.*[\r\n]?)*)$	<p>$1</p>
 (\r?\n)	</p>$1<p>
