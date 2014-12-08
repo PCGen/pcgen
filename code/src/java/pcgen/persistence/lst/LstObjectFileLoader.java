@@ -541,7 +541,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		final int nameEnd = name.indexOf(COPY_SUFFIX);
 		final String baseName = name.substring(0, nameEnd);
 		final String copyName = name.substring(nameEnd + 6);
-		T copy = getCopy(context, baseName, copyName.intern());
+		T copy = getCopy(context, baseName, copyName.intern(), me.source);
 		if (copy != null)
 		{
 			if (sepLoc != -1)
@@ -553,13 +553,35 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		}
 	}
 
+	/**
+	 * Create a copy of an object with a new name. If the base object cannot be found, an error will be reported unless
+	 * the copy has been excluded by include/exclude rules for the source.
+	 * 
+	 * @param context The current load context in whihc the new object is to be created.
+	 * @param baseName The name of the object to be copied.
+	 * @param copyName The name of the new object.
+	 * @param source The source containing the copy.
+	 * @return The new object, or null if the base object could not be found.
+	 * @throws PersistenceLayerException If an unexpected error occurs.
+	 */
 	protected T getCopy(LoadContext context, final String baseName,
-			final String copyName) throws PersistenceLayerException
+			final String copyName, CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		T object = getObjectKeyed(context, baseName);
 
 		if (object == null)
 		{
+			List<String> includeItems = source.getIncludeItems();
+			if (!includeItems.isEmpty() && !includeItems.contains(copyName))
+			{
+				return null;
+			}
+			List<String> excludeItems = source.getExcludeItems();
+			if (excludeItems.contains(copyName))
+			{
+				return null;
+			}
+			
 			String message = LanguageBundle.getFormattedString(
 				"Errors.LstFileLoader.CopyObjectNotFound", //$NON-NLS-1$
 				baseName);

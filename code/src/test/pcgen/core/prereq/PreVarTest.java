@@ -368,10 +368,10 @@ public class PreVarTest extends AbstractCharacterTestCase
 		PCClassLoader loader = new PCClassLoader();
 		try
 		{
-			SourceEntry se = new CampaignSourceEntry(new Campaign(), new URI(
+			CampaignSourceEntry se = new CampaignSourceEntry(new Campaign(), new URI(
 					"file://test"));
 			loader.completeObject(context, se, warrior);
-			PCClass notawarrior = loader.getCopy(context, "Warrior", "NotAWarrior");
+			PCClass notawarrior = loader.getCopy(context, "Warrior", "NotAWarrior", se);
 			List<SpecialAbility> sabList = notawarrior.getListFor(ListKey.SAB);
 			assertNotNull(sabList);
 			assertEquals(1, sabList.size());
