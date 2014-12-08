@@ -6,6 +6,12 @@
 # Rules for migrating characters from old data to new.
 #
 
+# Examples
+# SOURCE:JDTEST	MAXVER:6.4.00	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXDEVVER:6.1.1
+# EQUIPMENT:JDTEST	MAXVER:6.4.00	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXVER:6.4.00	MAXDEVVER:6.1.2
+# NEWCATEGORY:Spell-like Ability
+
+
 
 SOURCE:Princes of Darkness - Book of the Damned, Volume 1	MAXVER:6.6.00	NEWKEY:Princes of Darkness - Book of the Damned - Volume 1	
 SOURCE:Qadira, Gateway to the East					MAXVER:6.6.00	NEWKEY:Qadira - Gateway to the East					
@@ -100,11 +106,6 @@ ABILITY:Special Ability|Chosen Weapon ~ Kensai			MAXVER:6.4.00	NEWKEY:Kensai ~ C
 ABILITY:Special Ability|Weapon Proficiency ~ Kensai		MAXVER:6.4.00	NEWKEY:Kensai ~ Weapon Proficiency
 ABILITY:Special Ability|Weapon Focus Display ~ Kensai		MAXVER:6.4.00	NEWKEY:Kensai ~ Weapon Focus Display
 ABILITY:Special Ability|None ~ Region				MAXVER:6.4.00	NEWKEY:Region ~ None
-
-# Examples
-# SOURCE:JDTEST	MAXVER:6.4.00	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXDEVVER:6.1.1
-# EQUIPMENT:JDTEST	MAXVER:6.4.00	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXVER:6.4.00	MAXDEVVER:6.1.2
-
 
 
 ABILITY:Special Ability|Weapon and Armor Proficiency ~ Barbarian	MAXVER:6.4.00	NEWKEY:Barbarian ~ Weapon and Armor Proficiency
