@@ -29,6 +29,16 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
 
+/**
+ * The Class <code>ClassListToken</code> handles the restriction of a spell choice to a spell from a
+ * class spell list.
+ *
+ * <br/>
+ * Last Editor: $Author:  $
+ * Last Edited: $Date:  $
+ * 
+ * @version $Revision:  $
+ */
 public class ClassListToken extends AbstractRestrictedSpellPrimitive
 {
 	private CDOMSingleRef<ClassSpellList> spelllist;
@@ -59,10 +69,11 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 		ClassSpellList list = spelllist.resolvesTo();
 		DataSetID datasetID = pc.getCharID().getDatasetID();
 		
-		for (AvailableSpell availSpell : masterAvailableSpellFacet.getMatchingSpellsInList(list, datasetID, spell))
+		for (AvailableSpell availSpell : masterAvailableSpellFacet
+			.getMatchingSpellsInList(list, datasetID, spell))
 		{
 			int level = availSpell.getLevel();
-			if ((level >= 0) && allow(pc, level, "", spell, list))
+			if (level >= 0 && allow(pc, level, "", spell, list))
 			{
 				return true;
 			}
