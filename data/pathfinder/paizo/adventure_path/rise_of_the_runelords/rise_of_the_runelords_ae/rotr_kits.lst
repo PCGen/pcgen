@@ -220,7 +220,7 @@ GENDER:Female
 NAME:Lyrie Akenja
 ALIGN:CE
 LANGBONUS:Goblin|Thassilonian
-CLASS:Wizard	LEVEL:3	SUBCLASS:Wizard
+CLASS:Wizard	LEVEL:3	SUBCLASS:Universalist
 ABILITY:CATEGORY=Arcane Bond|Arcane Bond ~ Familiar
 ABILITY:CATEGORY=Favored Class|Wizard
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point

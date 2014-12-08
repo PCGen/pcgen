@@ -58,7 +58,7 @@ ABILITY:CATEGORY=Ability Bonus|+2 Intelligence
 TEMPLATE:Angvar Thestlecrit
 STAT:STR=10|DEX=14|CON=13|INT=13|WIS=12|CHA=8
 NAME:Angvar Thestlecrit
-CLASS:Wizard	LEVEL:2	SUBCLASS:Wizard
+CLASS:Wizard	LEVEL:2	SUBCLASS:Universalist
 ABILITY:CATEGORY=Favored Class|Wizard
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
