@@ -68,7 +68,7 @@ Darkcloak														TYPE:Magic.Wondrous.Cape								COST:25000	WT:1				EQMOD:
 Eagle Claw Necklace												TYPE:Magic.Wondrous.Amulet								COST:19000	WT:0				EQMOD:LEATHER		SOURCEPAGE:p.12
 Everfull Satchel													TYPE:Magic.Wondrous									COST:15000	WT:1								SOURCEPAGE:p.19
 Eyestalk Rings													TYPE:Magic.Wondrous									COST:0	WT:0								SOURCEPAGE:p.74
-Figurine of Wondrous Power (Lost Children)								TYPE:<agic.Wondrous									COST:1000	WT:0								SOURCEPAGE:p.81
+Figurine of Wondrous Power (Lost Children)								TYPE:Magic.Wondrous									COST:1000	WT:0								SOURCEPAGE:p.81
 Helm of Dominance													TYPE:Magic.Wondrous.Headgear								COST:200	WT:3								SOURCEPAGE:p.67
 Helm of the Lammasu												TYPE:Magic.Wondrous.Headgear								COST:25000	WT:3								SOURCEPAGE:p.74						SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=7|Magic Circle against Evil,15																												BONUS:COMBAT|AC|1
 Horn of the Wild													TYPE:Magic.Wondrous									COST:7000	WT:1								SOURCEPAGE:p.131
