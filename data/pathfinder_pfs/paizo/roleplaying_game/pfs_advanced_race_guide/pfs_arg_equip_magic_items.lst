@@ -1,6 +1,7 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: Andrew Maitland
 # ORIGINAL ENTRY DATE: Nov 25, 2012
 
-Amazing Tools of Manufacture	!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+# Equipment Name			Type			!PRECHARACTERTYPE
+Amazing Tools of Manufacture	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

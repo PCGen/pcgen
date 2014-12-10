@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
 SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/btpy8sa7?Pathfinder-Player-Companion-Blood-of-Angels	SOURCEDATE:2012-07
 
 # Feats: all feats on pages 24-25 are legal except Supernal Feast;
@@ -6,5 +6,5 @@ SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/b
 
 ###Block
 #Feat name			Type				Description																								Benefit																																																																																																																																																												Prerequisites																										Added levels	Added name
-# Feat Name			Type				Visible		Multiple Requirements																					Description																							Add Spell Lvl	Applied Name		Bonus Ability Pool				Modify VAR										Benefits
+# Feat Name			Type			Visible
 Supernal Feast.MOD	TYPE:PFSNotLegal	VISIBLE:NO

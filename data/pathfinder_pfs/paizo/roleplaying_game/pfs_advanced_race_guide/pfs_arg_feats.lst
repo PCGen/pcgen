@@ -1,12 +1,12 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: none
 # ORIGINAL ENTRY DATE: none
 
-Half-Drow Paragon.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+# Feat Name			Type			Visible
+Half-Drow Paragon.MOD	TYPE:PFSNotLegal	VISIBLE:NO
 Tenacious Survivor.MOD	TYPE:PFSNotLegal	VISIBLE:NO
 Blood Drinker.MOD		TYPE:PFSNotLegal	VISIBLE:NO
 Blood Feaster.MOD		TYPE:PFSNotLegal	VISIBLE:NO
 Blood Salvage.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-Diverse Palate.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-
+Diverse Palate.MOD	TYPE:PFSNotLegal	VISIBLE:NO

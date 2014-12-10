@@ -1,10 +1,11 @@
-# CVS $Revision: 21421 $ $Author: evilmynex $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
+# CVS $Revision: 21421 $ $Author: evilmynex $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
 SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # ORIGINAL ENTRY: Stefan Radermacher, Henk Slaaf, Douglas Limmer and Paul Shipley
 # ORIGINAL ENTRY DATE: Unknown
 
 #   Feats: Blighted Critical, Create Reliquary Arms and Shield, Create Sanguine Elixir are not legal for play.
-Blighted Critical.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-Blighted Critical Mastery.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-Create Reliquary Arms and Shields.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-Create Sanguine Elixir.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+# Feat Name						Type			Visible
+Blighted Critical.MOD				TYPE:PFSNotLegal	VISIBLE:NO
+Blighted Critical Mastery.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+Create Reliquary Arms and Shields.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+Create Sanguine Elixir.MOD			TYPE:PFSNotLegal	VISIBLE:NO

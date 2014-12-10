@@ -1,13 +1,14 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: none
 # ORIGINAL ENTRY DATE: none
 
 #CATEGORY=Special Ability|Dwarf ~ Craftsman.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Dwarf ~ Xenophobic.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Elf ~ Darkvision.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Half-Elf ~ Drow Blooded.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Half-Elf ~ Drow Magic.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+# Ability Name							Type			Visible
+CATEGORY=Special Ability|Dwarf ~ Xenophobic.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Elf ~ Darkvision.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Half-Elf ~ Drow Blooded.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Half-Elf ~ Drow Magic.MOD	TYPE:PFSNotLegal	VISIBLE:NO
 #CATEGORY=Special Ability|Halfling ~ Practicality.MOD		VISIBLE:NO	TYPE:PFSNotLegal
 #CATEGORY=Special Ability|Human ~ Heart of the Fields.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Human ~ Heroic.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Human ~ Heroic.MOD		TYPE:PFSNotLegal	VISIBLE:NO

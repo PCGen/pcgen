@@ -1,48 +1,48 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: $ $Author: $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
 
 # Other: No content from Chapter 2 is legal for play except new familiars;
 
 ###Block: Spellblights
 #Block: Minor Spellblights
-CATEGORY=Afflictions|Spellblight ~ Caster Blank.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Caster Croak.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Confounded Casting.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Disassociation.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Ebon Eyes.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Eldritch Ague.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Hemoculysis.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Lassitude.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Ritualistic Obsession.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Spell Addiction.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+# Ability Name									Type			Visible
+CATEGORY=Afflictions|Spellblight ~ Caster Blank.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Caster Croak.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Confounded Casting.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Disassociation.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Ebon Eyes.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Eldritch Ague.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Hemoculysis.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Lassitude.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Ritualistic Obsession.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Spell Addiction.MOD		TYPE:PFSNotLegal	VISIBLE:NO
 
 #Block: Major Spellblights
-CATEGORY=Afflictions|Spellblight ~ Eldritch Cataracts.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Nameless Dread.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Negated.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Obsessive Fixation.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Phase Blight.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Spell Burn.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Spell Sap.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Tranference Block.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Afflictions|Spellblight ~ Vertigo.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+CATEGORY=Afflictions|Spellblight ~ Eldritch Cataracts.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Nameless Dread.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Negated.MOD				TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Obsessive Fixation.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Phase Blight.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Spell Burn.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Spell Sap.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Tranference Block.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Afflictions|Spellblight ~ Vertigo.MOD				TYPE:PFSNotLegal	VISIBLE:NO
 
 ###Block: Preparation Rituals for spellbooks
-CATEGORY=Special Ability|Preparation Ritual ~ Harmful Surge.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Alchemical Protection.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Breath of the Grave.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Glittering Eyes.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Defensive Transmutation.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Eyes of Rul Thaven.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Beastly Concoction.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Rime Bite.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Sturdy Summoning.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Travel Sage.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Guardian Trick.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Shadow Knowledge.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Improved Eyes of Rul Thaven.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Revivifying Contingency.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Defensive Boon.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Spontaneous Bomb.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Preparation Ritual ~ Curse of Names.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-
-
+# Ability Name											Type			Visible
+CATEGORY=Special Ability|Preparation Ritual ~ Harmful Surge.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Alchemical Protection.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Breath of the Grave.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Glittering Eyes.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Defensive Transmutation.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Eyes of Rul Thaven.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Beastly Concoction.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Rime Bite.MOD				TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Sturdy Summoning.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Travel Sage.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Guardian Trick.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Shadow Knowledge.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Improved Eyes of Rul Thaven.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Revivifying Contingency.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Defensive Boon.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Spontaneous Bomb.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Preparation Ritual ~ Curse of Names.MOD			TYPE:PFSNotLegal	VISIBLE:NO

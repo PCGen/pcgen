@@ -1,22 +1,22 @@
-# CVS $Revision: 21684 $ $Author: spraynpray $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
-SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPSOP	SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play	SOURCEDATE:2013-08
+# CVS $Revision: 21684 $ $Author: spraynpray $ -- Wed Dec 10 01:48:21 2014 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Jeff Baril
 # Updated by: Andrew Wilson
 # Updated by: Vincent Lhote
 
-# Feat Name					Type				Description																					Source Page
+# Feat Name					Type				Visible	Clear Description	Description																					Source Page		Benefits
 Spell Focus.MOD				TYPE:FocusReplacement
 
 # Crafting and Leadership are not usable
-Brew Potion.MOD								DESC:.CLEAR		BENEFIT:.CELAR	VISIBLE:NO	DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8		TYPE:PFSNotLegal
-Craft Magic Arms and Armor.MOD				DESC:.CLEAR		BENEFIT:.CELAR	VISIBLE:NO	DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8		TYPE:PFSNotLegal
-Craft Rod.MOD								DESC:.CLEAR		BENEFIT:.CELAR	VISIBLE:NO	DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8		TYPE:PFSNotLegal
-Craft Staff.MOD								DESC:.CLEAR		BENEFIT:.CELAR	VISIBLE:NO	DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8		TYPE:PFSNotLegal
-Craft Wand.MOD								DESC:.CLEAR		BENEFIT:.CELAR	VISIBLE:NO	DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8		TYPE:PFSNotLegal
-Craft Wondrous Item.MOD						DESC:.CLEAR		BENEFIT:.CELAR	VISIBLE:NO	DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8		TYPE:PFSNotLegal
-Forge Ring.MOD								DESC:.CLEAR		BENEFIT:.CELAR	VISIBLE:NO	DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8		TYPE:PFSNotLegal
-Leadership.MOD								DESC:.CLEAR		BENEFIT:.CELAR	VISIBLE:NO	DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8		TYPE:PFSNotLegal
-Scribe Scroll.MOD							DESC:.CLEAR		BENEFIT:.CELAR	VISIBLE:NO	DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8		TYPE:PFSNotLegal
+Brew Potion.MOD				TYPE:PFSNotLegal		VISIBLE:NO	DESC:.CLEAR		DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8	BENEFIT:.CELAR
+Craft Magic Arms and Armor.MOD	TYPE:PFSNotLegal		VISIBLE:NO	DESC:.CLEAR		DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8	BENEFIT:.CELAR
+Craft Rod.MOD				TYPE:PFSNotLegal		VISIBLE:NO	DESC:.CLEAR		DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8	BENEFIT:.CELAR
+Craft Staff.MOD				TYPE:PFSNotLegal		VISIBLE:NO	DESC:.CLEAR		DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8	BENEFIT:.CELAR
+Craft Wand.MOD				TYPE:PFSNotLegal		VISIBLE:NO	DESC:.CLEAR		DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8	BENEFIT:.CELAR
+Craft Wondrous Item.MOD			TYPE:PFSNotLegal		VISIBLE:NO	DESC:.CLEAR		DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8	BENEFIT:.CELAR
+Forge Ring.MOD				TYPE:PFSNotLegal		VISIBLE:NO	DESC:.CLEAR		DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8	BENEFIT:.CELAR
+Leadership.MOD				TYPE:PFSNotLegal		VISIBLE:NO	DESC:.CLEAR		DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8	BENEFIT:.CELAR
+Scribe Scroll.MOD				TYPE:PFSNotLegal		VISIBLE:NO	DESC:.CLEAR		DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8	BENEFIT:.CELAR
 
 # TODO: move to "Advanced Player's Guide (PFS)"
 #Cooperative Crafting.MOD					DESC:.CLEAR		BENEFIT:.CELAR	VISIBLE:NO	DESC:Neither the craft feats nor the item creation section of the magic items chapter in the Core Rulebook are legal for play.	SOURCEPAGE:p.8		TYPE:PFSNotLegal
