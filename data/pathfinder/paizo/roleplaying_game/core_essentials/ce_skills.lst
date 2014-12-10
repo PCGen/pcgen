@@ -97,7 +97,7 @@ Diplomacy.MOD			SITUATION:City Officials
 Diplomacy.MOD			SITUATION:Gather Information
 Diplomacy.MOD			SITUATION:Influence Monster
 Diplomacy.MOD			SITUATION:Potentially Sexually Attracted
-Disable Device.MOD		SITUATION:Magical Traps
+Disable Device.MOD		SITUATION:Magical Traps|Traps
 Disguise.MOD			SITUATION:Appear Human
 Disguise.MOD			SITUATION:Appear as cloak
 Disguise.MOD			SITUATION:As Medium humanoid
@@ -225,6 +225,21 @@ Perception.MOD			SITUATION:Giant subtype
 Sense Motive.MOD			SITUATION:Giant subtype
 Appraise.MOD			SITUATION:Giant subtype
 Perception.MOD			SITUATION:sight-based
+
+
+Acrobatics.MOD			SITUATION:on the ground
+Intimidate.MOD			SITUATION:Demoralize
+Diplomacy.MOD			SITUATION:Dromites
+Use Magic Device.MOD		SITUATION:activate item
+Diplomacy.MOD			SITUATION:Aberrations
+Diplomacy.MOD			SITUATION:Demons
+Intimidate.MOD			SITUATION:Demons
+Spellcraft.MOD			SITUATION:Identity magic item
+Diplomacy.MOD			SITUATION:Undead
+Disable Device.MOD		SITUATION:Traps
+
+
+
 
 
 ###Block: Versatile Performance
