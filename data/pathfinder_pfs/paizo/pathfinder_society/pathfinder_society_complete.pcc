@@ -46,6 +46,7 @@ DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer 
 #######################
 
 PCC:@/pathfinder_pfs/paizo/pathfinder_society/pathfinder_society_core_assumption.pcc
+PCC:@/pathfinder_pfs/paizo/pathfinder_society/pfs_chronicle_sheets/pfs_chronicle_sheets.pcc
 
 ############################
 # PFS Additional Resources #
