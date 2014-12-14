@@ -138,7 +138,7 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
 
   <td colspan="1" class="h">${pcstring('EXP.CURRENT')}</td>
   <td colspan="1" class="h">${pcstring('RACE')}</td>
-  		<#if (pcstring("ABILITYALL.Special Ability.${ability}.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
+  		<#if (pcstring("ABILITYALL.Special Ability.0.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
 			  <td colspan="1" class="h">${pcstring('ABILITYALL.ANY.0.ASPECT=RaceName.ASPECT.RaceName')}</td>
 		<#else>
 			  <td colspan="1" class="h">${pcstring('RACE')}</td>
