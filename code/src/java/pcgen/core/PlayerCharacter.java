@@ -274,7 +274,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	// Constants for use in getBonus
 	private static String lastVariable = null;
-
+	// This marker is static so that the spells allocated to it can also be found in the cloned character.
+	private static ObjectCache grantedSpellCache = new ObjectCache();
+	
 	private CharID id;
 	private final SAtoStringProcessor SA_TO_STRING_PROC;
 	private final SAProcessor SA_PROC;
@@ -398,7 +400,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	private SpellProhibitorFacet spellProhibitorFacet = FacetLibrary.getFacet(SpellProhibitorFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
-	private ObjectCache grantedSpellCache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
 	private BonusManager bonusManager = new BonusManager(this);
 	private BonusChangeFacet bonusChangeFacet = FacetLibrary.getFacet(BonusChangeFacet.class);
@@ -10077,6 +10078,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return defaultValue;
 	}
 
+	/**
+	 * Adds to the provided list any spells that have been granted to the character's class by abilities 
+	 * through the use of SPELLKNOWN:CLASS tags.
+	 * 
+	 * @param aClass The character class owning the spell list. 
+	 * @param cSpells The list of spells to be updated.
+	 */
 	public void addBonusKnownSpellsToList(CDOMObject aClass,
 		List<CharacterSpell> cSpells)
 	{
