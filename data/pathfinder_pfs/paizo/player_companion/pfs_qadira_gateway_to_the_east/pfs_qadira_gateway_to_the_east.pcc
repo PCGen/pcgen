@@ -8,7 +8,9 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,Pathfinder Society Core Assumption,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -41,5 +43,5 @@ DESC:A hot-blooded realm of riches, slavery, and blood feuds, the desert nation 
 # Prestige Class: Daivrat;
 # Traits: all traits on pages 9, 15, 19, 23, and 25
 
-!PRECAMPAIGN:1,Qadira - Gateway to the East
+!PRECAMPAIGN:1,Pathfinder Society Complete,Qadira - Gateway to the East
 PCC:@/pathfinder/paizo/player_companion/qadira_gateway_to_the_east/qadira_gateway_to_the_east.pcc

@@ -8,7 +8,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,Pathfinder Society Core Assumption,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -41,7 +43,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Gnomes of Golarion
 # Spell: illusory poison;
 # Traits: Brastlewark Businessman, Charlatan, Collector, Excitable, Explorer, Etymologist, First Memories, Naturally Gifted, Rapscallion, Sprint, Trickster, and Zealot
 
-!PRECAMPAIGN:1,Gnomes of Golarion
+!PRECAMPAIGN:1,Pathfinder Society Complete,Gnomes of Golarion
 PCC:@/pathfinder/paizo/player_companion/gnomes_of_golarion/gnomes_of_golarion.pcc
 ABILITY:pfs_gnog_abilities_pfs.lst
 EQUIPMENT:pfs_gnog_equip_arms_armor.lst

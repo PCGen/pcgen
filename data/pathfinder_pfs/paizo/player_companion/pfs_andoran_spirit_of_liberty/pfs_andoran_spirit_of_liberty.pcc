@@ -8,7 +8,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,Pathfinder Society Core Assumption,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -42,7 +44,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Andoran Spi
 # Traits: Bellis Axe Master, Bellis Honey Harvester, Bellis Log Roller, Carpenden Lobber, Carpenden Roof Runner, Kobold's Neighbor, Oregent Desperation, Oregent Timing, Oregent Vandal, Prismati Player
 
 # TODO: This line doesn;t work
-!PRECAMPAIGN:1,Andoran - Spirit of Liberty
+!PRECAMPAIGN:1,Pathfinder Society Complete,Andoran - Spirit of Liberty
 PCC:@/pathfinder/paizo/player_companion/andoran_spirit_of_liberty/andoran_spirit_of_liberty.pcc
 
 LSTEXCLUDE:@/pathfinder/paizo/player_companion/andoran_spirit_of_liberty/asol_feats.lst

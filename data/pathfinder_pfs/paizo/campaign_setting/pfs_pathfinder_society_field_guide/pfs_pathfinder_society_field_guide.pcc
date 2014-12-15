@@ -9,7 +9,9 @@ GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
 # TODO: should depend on prestige rules in Guide to Pathfinder Society Organised Play or Faction Guide (if they are in it too)
-PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -41,5 +43,5 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 # Pathfinder Campaign Setting: Pathfinder Society Field Guide
 # All rules in this book are legal for play in Pathfinder Society Organized Play.
 
-!PRECAMPAIGN:1,Pathfinder Society Field Guide
+!PRECAMPAIGN:1,Pathfinder Society Complete,Pathfinder Society Field Guide
 PCC:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pathfinder_society_field_guide.pcc

@@ -8,7 +8,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,Pathfinder Society Core Assumption,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -41,6 +43,6 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Pirates of the Inner S
 # Spells: all spells on pages 28-29;
 # Traits: all traits on pages 5, 7, 9, 11, 13, 15, and 27
 
-!PRECAMPAIGN:1,Pirates of the Inner Sea
+!PRECAMPAIGN:1,Pathfinder Society Complete,Pirates of the Inner Sea
 PCC:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.pcc
 

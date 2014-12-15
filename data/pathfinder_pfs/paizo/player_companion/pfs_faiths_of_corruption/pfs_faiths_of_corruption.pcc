@@ -8,7 +8,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,Pathfinder Society Core Assumption,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -39,6 +41,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Faiths of C
 # Spells: all spells on pages 28-29;
 # Traits: all traits on pages 4-21
 
-!PRECAMPAIGN:1,Faiths of Corruption
+!PRECAMPAIGN:1,Pathfinder Society Complete,Faiths of Corruption
 PCC:@/pathfinder/paizo/player_companion/faiths_of_corruption/faiths_of_corruption.pcc
 DEITY:pfs_foc_deities.lst

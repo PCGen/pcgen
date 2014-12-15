@@ -8,7 +8,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -41,7 +43,7 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., whi
 # Feats: Jackal Blood, Lucky Halfling;
 # Prestige Class: Balanced Scale of Abadar
 
-!PRECAMPAIGN:1,Dark Markets - A Guide to Katapesh (Conversion)
+!PRECAMPAIGN:1,Pathfinder Society Complete,Dark Markets - A Guide to Katapesh (Conversion),PFS ~ Dark Markets - A Guide to Katapesh
 #PCC:@/pathfinder/paizo/campaign_setting/dark_markets/dark_markets.pcc
 
 ABILITY:@/pathfinder/paizo/campaign_setting/dark_markets/dm_abilities_class.lst

@@ -8,7 +8,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -37,5 +39,5 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Chronicles: Princes of Darkne
 # Pathfinder Campaign Setting: Princes of Darkness
 # Prestige Class: Diabolist; Spells: agonize, hellfire ray, malediction, vision of hell
 
-!PRECAMPAIGN:1,Princes of Darkness - Book of the Damned - Volume 1
+!PRECAMPAIGN:1,Pathfinder Society Complete,Princes of Darkness - Book of the Damned - Volume 1
 PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/book_of_the_damned_volume_1.pcc

@@ -8,7 +8,9 @@ STATUS:ALPHA
 GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:1,Pathfinder Society Core Assumption,PFS ~ Curse of the Crimson Throne Player's Guide (Conversion)
+PRECAMPAIGN:1,INCLUDES=Curse of the Crimson Throne Player's Guide (Conversion)
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -42,7 +44,7 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 3: 
 # Pathfinder Adventure Path #9: "Escape from Old Korvosa"
 # Equipment: all equipment on page 83
 
-!PRECAMPAIGN:1,Curse of the Crimson Throne - Chapter 3 - Escape from Old Korvosa (Conversion)
+!PRECAMPAIGN:1,Pathfinder Society Complete,Curse of the Crimson Throne - Chapter 3 - Escape from Old Korvosa (Conversion)
 
 EQUIPMENT:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/ap9/ap9_equip_arms_armor.lst
 WEAPONPROF:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/ap9/ap9_profs_weapon.lst

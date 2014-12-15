@@ -8,7 +8,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,Pathfinder Society Core Assumption,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -39,7 +41,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Faiths of Purity" Copy
 # Spells: all spells on pages 28-29;
 # Traits: all traits on pages 5, 7, 9, 11, 13, 15, 17, and 18-21. Note that Eye of the Father grants Appraise as a class skill, not Perform, as written.
 
-!PRECAMPAIGN:1,Faiths of Purity
+!PRECAMPAIGN:1,Pathfinder Society Complete,Faiths of Purity
 PCC:@/pathfinder/paizo/player_companion/faiths_of_purity/faiths_of_purity.pcc
 FEAT:pfs_fop_feats.lst
 DEITY:pfs_fop_deities.lst

@@ -8,8 +8,13 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Core Rules
 SETTING:Pathfinder
-!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[PFS ~ Core Rulebook]
-PRECAMPAIGN:1,Guide To Pathfinder Society Organized Play
+!PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules,[Core Rulebook]
+
+# This source cannot be loaded on its own because it is tied to Guide to Pathfinder Society Organized Play
+# It must be loaded from Pathfinder Society Core Assumption which includes both sources
+!PRECAMPAIGN:1,INCLUDES=PFS ~ Core Rulebook
+PRECAMPAIGN:1,INCLUDES=PFS ~ Core Rulebook
+
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -40,6 +45,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 #EXTRAFILE:OGL.txt
 
 # Data Files
+!PRECAMPAIGN:1,Pathfinder Society Complete,Core Rulebook
 PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
 ABILITY:pfs_cr_abilities.lst
 CLASS:pfs_cr_classes.lst

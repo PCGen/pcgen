@@ -8,9 +8,10 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:4,Pathfinder Society Core Assumption,INCLUDES=Bestiary,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Magic
-!PRECAMPAIGN:1,INCLUDES=Bonus Bestiary
+PRECAMPAIGN:3,INCLUDES=Bestiary,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Magic
+!PRECAMPAIGN:1,INCLUDES=Bonus Bestiary,Pathfinder RPG Core Supplements,Pathfinder RPG for Game Masters
 
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -77,7 +78,7 @@ COPYRIGHT:PCGen dataset conversion for "Bestiary 3" Copyright 2013, PCGen Data t
 # Feats: none of the feats are legal for play for PCs, animal companions, or familiars unless specifically granted by another legal source;
 # Other: all creatures in this book are legal for polymorph effects (including a druid's wild shape ability) within the boundaries of each spell or ability's parameters.
 
-!PRECAMPAIGN:1,Bestiary 3
+!PRECAMPAIGN:1,Pathfinder Society Complete,Bestiary 3
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary_3/bestiary_3.pcc
 
 EQUIPMENT:pfs_b3_equip_arms_armor.lst

@@ -8,7 +8,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,Pathfinder Society Core Assumption,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -41,6 +43,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Halflings of Golar
 # Prestige Class: Halfling Opportunist;
 # Traits: all traits on pages 30-31.
 
-!PRECAMPAIGN:1,Halflings of Golarion
+!PRECAMPAIGN:1,Pathfinder Society Complete,Halflings of Golarion
 PCC:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.pcc
 

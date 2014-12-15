@@ -8,7 +8,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:3,Pathfinder Society Core Assumption,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -53,7 +55,8 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Lords of Ch
 #Pathfinder Campaign Setting: Lords of Chaos
 #Spells: disfiguring touch, vermin shape I, vermin shape II
 
-!PRECAMPAIGN:1,Lords of Chaos - Book of the Damned - Volume 2
+!PRECAMPAIGN:1,Pathfinder Society Complete,Lords of Chaos - Book of the Damned - Volume 2,PFS ~ Lords of Chaos
+
 #PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/_book_of_the_damned_volume_2.pcc
 SPELL:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_spells.lst|(INCLUDE:Disfiguring Touch,Vermin Shape I,Vermin Shape II)
 

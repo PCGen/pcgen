@@ -8,7 +8,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:4,Pathfinder Society Core Assumption,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://www.paizo.com
@@ -42,7 +44,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Angels" Copyr
 # Subdomains: all subdomains on page 27 are legal;
 # Traits: all traits on pages 30-31 are legal except ethical leader. Clergy member is useable once per scenario instead of once per week. Faith healer may be used for Day Job checks.
 
-!PRECAMPAIGN:1,Blood of Angels
+!PRECAMPAIGN:1,Pathfinder Society Complete,Blood of Angels
 PCC:@/pathfinder/paizo/player_companion/blood_of_angels/blood_of_angels.pcc
 ABILITY:pfs_boa_abilities.lst
 ABILITY:pfs_boa_abilities_variant.lst

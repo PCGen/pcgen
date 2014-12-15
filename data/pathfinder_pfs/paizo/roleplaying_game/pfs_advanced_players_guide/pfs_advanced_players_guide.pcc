@@ -8,7 +8,9 @@ RANK:1
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDES=Core Rulebook
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -56,7 +58,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Player's Guide" 
 #   Equipment: All staves in Chapter 7 are not legal for play from this source. If you purchased these prior to Aug. 16, 2012, they are grandfathered into the campaign.
 #   Traits: hedge magician, natural born leader, and rich parents traits, and all of the Campaign Traits.
 #   The Master Alchemist feat may only be selected by Alchemists and Poisoners.
+
+!PRECAMPAIGN:1,Pathfinder Society Complete,Advanced Player's Guide
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
+
 ABILITY:pfs_apg_abilities.lst
 ABILITY:pfs_apg_abilities_race.lst
 ABILITY:pfs_apg_abilities_class.lst

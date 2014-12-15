@@ -7,7 +7,12 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:PFS Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+
+# This source cannot be loaded on its own because it is tied to Core Rulebook (PFS)
+# It must be loaded from Pathfinder Society Core Assumption which includes both sources
+!PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -40,6 +45,9 @@ ABILITYCATEGORY:gtpsop_abilitycategories.lst
 ABILITY:gtpsop_abilities.lst
 KIT:gtpsop_kits.lst
 TEMPLATE:gtpsop_templates.lst
+
+!PRECAMPAIGN:1,Core Rulebook
+PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_core_rulebook/pfs_core_rulebook.pcc
 
 OPTION:gameMode.Pathfinder_PFS.purchaseMethodName=High Fantasy
 OPTION:gameMode.Pathfinder_PFS.xpTableName=PFS Rules

@@ -8,7 +8,10 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:2,Pathfinder Society Core Assumption,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+!PRECAMPAIGN:1,Pathfinder RPG Core Supplements
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -82,7 +85,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Magic" Copyright
 # Other: No content from Chapter 2 is legal for play except new familiars;
 # Words of Power are also forbidden.
 
-!PRECAMPAIGN:1,Ultimate Magic
+!PRECAMPAIGN:1,Pathfinder Society Complete,Ultimate Magic
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/ultimate_magic.pcc
 
 ABILITY:pfs_um_abilities.lst

@@ -8,7 +8,9 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -41,6 +43,6 @@ COPYRIGHT:PCGen dataset conversion for "Guide to the River Kingdoms" Copyright 2
 # Spell: silverlight;
 # Other: focused performance bard alternate class ability
 
-!PRECAMPAIGN:1,Guide to the River Kingdoms
+!PRECAMPAIGN:1,Pathfinder Society Complete,Guide to the River Kingdoms
 PCC:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/guide_to_the_river_kingdoms.pcc
 
