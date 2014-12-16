@@ -4,6 +4,7 @@ SOURCELONG:Cheliax, Empire of Devils	SOURCESHORT:CEOD	SOURCEWEB:http://paizo.com
 
 # These objects are temporary stand-ins for objects that will move to the dataset for the revised book
 # "Pathfinder Campaign Setting World Guide: The Inner Sea" upon release of that dataset.
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 
 ###Block: Human Ethnicities
 # Ability Name	Product Identity?	Category of Ability	Type			Visible		Template						Auto Language	Source Page

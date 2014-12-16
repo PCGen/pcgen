@@ -6,7 +6,8 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 # Incorporated 12/04/2012 Monkeying Around (Andrew Maitland)
 # Incorporated 05/30/2013 errata (Stefan Radermacher)
 
-
+#					Ability Pool
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Favored Class|1|PREPCLEVEL:MIN=1
 
 ###Block: Favored Classes
 # Ability Name	Category of Ability		Type			Visible		Stackable?	Multiple?	Bonus Ability Pool

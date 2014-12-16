@@ -2,6 +2,8 @@
 SOURCELONG:Sargava, the Lost Colony	SOURCESHORT:STLC	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy8ey2	SOURCEDATE:2010-07
 # Original Entry by: Stefan Radermacher
 
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
+
 ###Block: Equipment Tricks
 # Ability Name	Unique Key					Category of Ability		Type					Ability
 Kaava Musk		KEY:Equipment Trick ~ Kaava Musk	CATEGORY:Special Ability	TYPE:Internal.EquipmentTrick	ABILITY:Special Ability|AUTOMATIC|Kaava Musk Trick ~ Careful Steps|PREMULT:1,[PREFEAT:1,Nimble Moves],[PRESKILL:1,Acrobatics=5]	ABILITY:Special Ability|AUTOMATIC|Kaava Musk Trick ~ Fast Flask|PREFEAT:1,Quick Draw	ABILITY:Special Ability|AUTOMATIC|Kaava Musk Trick ~ Make the Kill|PREABILITY:1,CATEGORY=Special Ability,Scent,Rage Power ~ Scent	ABILITY:Special Ability|AUTOMATIC|Kaava Musk Trick ~ Musk Blinding|PREFEAT:1,Blinding Critical	ABILITY:Special Ability|AUTOMATIC|Kaava Musk Trick ~ Musk Poison|PREABILITY:1,CATEGORY=Special Ability,Poison Use%	ABILITY:Special Ability|AUTOMATIC|Kaava Musk Trick ~ Musk Sickening|PREFEAT:1,Sickening Critical	ABILITY:Special Ability|AUTOMATIC|Kaava Musk Trick ~ Reactive Splashing|PREFEAT:1,Improved Disarm	ABILITY:Special Ability|AUTOMATIC|Kaava Musk Trick ~ Splashproof Shield|PREFEAT:1,Shield Focus	ABILITY:Special Ability|AUTOMATIC|Kaava Musk Trick ~ Stink-Fighting|PREFEAT:1,Blind-Fight

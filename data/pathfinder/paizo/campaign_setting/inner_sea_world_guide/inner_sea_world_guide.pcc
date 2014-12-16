@@ -54,7 +54,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: The Inner S
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
-BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 
 # Data files
 ABILITY:iswg_abilities.lst

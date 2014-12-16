@@ -2,6 +2,8 @@
 #Author: Gerard van Konijnenburg
 SOURCELONG:Dwarves of Golarion	SOURCESHORT:DOG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8b9j	SOURCEDATE:2009-12
 
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
+
 ###Block: Regional Affinities
 # Ability Name			Product Identity?	Category of Ability	Type		Visible		Template									Source Page
 Darklands				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Darklands)				SOURCEPAGE:p.17

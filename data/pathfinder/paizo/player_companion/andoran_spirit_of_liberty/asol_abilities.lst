@@ -3,6 +3,8 @@
 SOURCELONG:Andoran, Spirit of Liberty	SOURCESHORT:ASoL	SOURCEWEB:http://paizo.com/products/btpy8bc3?Pathfinder-Companion-Andoran-Spirit-of-Liberty	SOURCEDATE:2009-11
 # Original Entry by: J. Hunter Johnson from Bestiary 2 entry for Agathion (Avoral) by ? and Douglas Limmer
 
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
+
 ###Block: Avoral abilities
 # Ability Name	Unique Key				Category of Ability		Type							Description																														Source Page
 True Seeing		KEY:Avoral ~ True Seeing	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense	DESC:As the spell (caster level 14th), except self only, and the avoral must concentrate for 1 full round before it takes effect, and it remains as long as the avoral concentrates.	SOURCEPAGE:p.21

@@ -33,8 +33,6 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Dragon Empires Primer"
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
-
 ABILITY:dep_abilities.lst
 ABILITY:dep_abilities_class.lst
 ABILITYCATEGORY:dep_abilitycategories.lst

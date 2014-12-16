@@ -2,6 +2,8 @@
 SOURCELONG:Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/products/btpy8pg0?Pathfinder-Player-Companion-Dragon-Empires-Primer	SOURCEDATE:2012-01
 # Original Entry by: Swiftbrook, Stefan Radermacher
 
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
+
 ###Block: Human Ethnicities
 # Ability Name				Product Identity?	Category of Ability	Type				Visible		Template						Source Page
 Tian-Dan					NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Tian-Dan)		SOURCEPAGE:p.8

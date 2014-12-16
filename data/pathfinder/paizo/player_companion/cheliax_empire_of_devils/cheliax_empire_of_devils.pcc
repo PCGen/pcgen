@@ -34,8 +34,6 @@ COPYRIGHT:PCGen dataset conversion for "Cheliax, Empire of Devils" Copyright 200
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
-
 ABILITY:ceod_abilities.lst
 EQUIPMENT:ceod_equip_arms_armor.lst
 EQUIPMENT:ceod_equip_magic_items.lst

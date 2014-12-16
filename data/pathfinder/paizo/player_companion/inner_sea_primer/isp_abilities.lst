@@ -2,6 +2,8 @@
 SOURCELONG:Inner Sea Primer	SOURCESHORT:ISP	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih	SOURCEDATE:2010-11
 # Original Entry by:Stefan Radermacher
 
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
+
 ###Block: Human Ethnicities
 # Ability Name	Product Identity?	Category of Ability	Type				Visible		Template						Source Page
 Azlanti		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Azlanti)		SOURCEPAGE:p.30

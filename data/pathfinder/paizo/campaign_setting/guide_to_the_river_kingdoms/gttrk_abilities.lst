@@ -2,6 +2,8 @@
 SOURCELONG:Guide to the River Kingdoms	SOURCESHORT:GTTRK	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy87d8	SOURCEDATE:2010-03
 # Original Entry by: Stefan Radermacher
 
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
+
 ###Block: Regional Affinities
 # Ability Name							Product Identity?	Category of Ability	Type		Visible		Template										Source Page
 River Kingdoms (Artume)						NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Artume)						SOURCEPAGE:p.10
