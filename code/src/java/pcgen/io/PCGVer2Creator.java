@@ -2135,7 +2135,13 @@ public final class PCGVer2Creator implements IOConstants
 
 		for (PCClass pcClass : charDisplay.getClassSet())
 		{
-			for (CharacterSpell cSpell : charDisplay.getCharacterSpells(pcClass))
+			Collection<? extends CharacterSpell> sp = charDisplay.getCharacterSpells(pcClass);
+			List<CharacterSpell> classSpells = new ArrayList<CharacterSpell>(sp);
+			// Add in the spells granted by objects
+			thePC.addBonusKnownSpellsToList(pcClass, classSpells);
+			Collections.sort(classSpells);
+			
+			for (CharacterSpell cSpell : classSpells)
 			{
 				for (SpellInfo spellInfo : cSpell.getInfoList())
 				{

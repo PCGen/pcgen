@@ -96,6 +96,9 @@ import pcgen.core.display.DescriptionFormatting;
 import pcgen.core.display.SkillCostDisplay;
 import pcgen.core.display.TemplateModifier;
 import pcgen.core.display.VisionDisplay;
+import pcgen.core.kit.BaseKit;
+import pcgen.core.prereq.PrerequisiteUtilities;
+import pcgen.core.spell.Spell;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DeityFacade;
@@ -110,9 +113,6 @@ import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.TempBonusFacade;
 import pcgen.facade.core.TemplateFacade;
-import pcgen.core.kit.BaseKit;
-import pcgen.core.prereq.PrerequisiteUtilities;
-import pcgen.core.spell.Spell;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -1824,7 +1824,11 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			Map<Integer, Integer> spellCountMap = new TreeMap<Integer, Integer>();
 			int highestSpellLevel = -1;
-			for (CharacterSpell charSpell : charDisplay.getCharacterSpells(pcClass))
+			Collection<? extends CharacterSpell> sp = charDisplay.getCharacterSpells(pcClass);
+			List<CharacterSpell> classSpells = new ArrayList<CharacterSpell>(sp);
+			// Add in the spells granted by objects
+			pc.addBonusKnownSpellsToList(pcClass, classSpells);
+			for (CharacterSpell charSpell : classSpells)
 			{
 				for (SpellInfo spellInfo : charSpell.getInfoList())
 				{
