@@ -8,7 +8,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:3,Pathfinder Society Core Assumption,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://www.paizo.com
@@ -48,6 +50,6 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Fiends" Copyr
 # Subdomains: all subdomains on page 15 are legal;
 # Traits: all traits on pages 30-31 are legal
 
-!PRECAMPAIGN:1,Blood of Fiends
+!PRECAMPAIGN:1,Pathfinder Society Complete,Blood of Fiends
 PCC:@/pathfinder/paizo/player_companion/blood_of_fiends/blood_of_fiends.pcc
 

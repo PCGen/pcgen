@@ -8,7 +8,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,Pathfinder Society Core Assumption,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -46,6 +48,6 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Dragon Empires Primer"
 # Subdomains: Moon;
 # Traits: all traits on pages 8-21, except Chosen Child and Rebel Leader
 
-!PRECAMPAIGN:1,Dragon Empires Primer
+!PRECAMPAIGN:1,Pathfinder Society Complete,Dragon Empires Primer
 PCC:@/pathfinder/paizo/player_companion/dragon_empires_primer/dragon_empires_primer.pcc
 

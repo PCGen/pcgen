@@ -8,9 +8,10 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:1,Pathfinder Society Core Assumption
-!PRECAMPAIGN:1,INCLUDES=Bonus Bestiary
+PRECAMPAIGN:1,INCLUDES=Core Rulebook
+!PRECAMPAIGN:1,Pathfinder RPG Core Supplements,Pathfinder RPG for Game Masters
 
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -64,7 +65,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary" Copyright 2009-
 # Feats: none of the feats are legal for play for PCs, animal companions, or familiars unless specifically granted by another legal source.
 # Other: all creatures in this book are legal for polymorph effects (including a druid's wild shape ability) within the boundaries of each spell or ability's parameters.
 
-!PRECAMPAIGN:1,Bestiary
+!PRECAMPAIGN:1,Pathfinder Society Complete,Bestiary
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary/bestiary.pcc
 
 ABILITY:pfs_b1_abilities_race.lst

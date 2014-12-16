@@ -8,7 +8,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:3,Pathfinder Society Core Assumption,INCLUDES=Bestiary,INCLUDES=Ultimate Magic
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -71,7 +73,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: The Inner S
 # Races: All human ethnicities are legal except Azlanti. Humans begin play knowing all listed languages for their chosen ethnicity as racial languages;
 # Spells: all spells on pages 294-297 except interplanetary teleport, and teleport trap are legal for play.
 
-!PRECAMPAIGN:1,Inner Sea World Guide
+!PRECAMPAIGN:1,Pathfinder Society Complete,Inner Sea World Guide
 PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_guide.pcc
 
 ABILITY:pfs_iswg_abilities.lst

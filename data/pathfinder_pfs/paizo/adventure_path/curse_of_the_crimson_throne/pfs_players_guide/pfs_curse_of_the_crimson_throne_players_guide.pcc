@@ -8,7 +8,9 @@ STATUS:ALPHA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:3,Pathfinder Society Core Assumption,INCLUDES=Advanced Player's Guide,INCLUDES=Bestiary
+PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Bestiary
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -38,6 +40,9 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne Player's Gui
 
 # Curse of the Crimson Throne Player's Guide
 # Equipment: all equipment on pages 12-13 (except hide shirt); Feats: Acadamae Graduate, Crossbow Mastery
+
+!PRECAMPAIGN:1,Pathfinder Society Complete,Curse of the Crimson Throne Player's Guide (Conversion),PFS ~ Curse of the Crimson Throne Player's Guide (Conversion)
+
 EQUIPMENT:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/cotctpg_equip_arms_armor.lst|(EXCLUDE:Hide Shirt)
 WEAPONPROF:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/cotctpg_profs_weapon.lst
 FEAT:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/cotctpg_feats.lst|(INCLUDE:CATEGORY=Special Ability,Acadamae Graduate)

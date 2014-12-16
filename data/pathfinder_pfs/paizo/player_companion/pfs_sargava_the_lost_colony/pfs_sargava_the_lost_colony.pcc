@@ -8,7 +8,9 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,Pathfinder Society Core Assumption,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -40,7 +42,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Sargava, the Lost 
 # Spells: all spells on page 24;
 # Traits: all traits on page 23 except Spirit Talker
 
-!PRECAMPAIGN:1,Sargava the Lost Colony
+!PRECAMPAIGN:1,Pathfinder Society Complete,Sargava the Lost Colony
 PCC:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/sargava_the_lost_colony.pcc
 ABILITY:pfs_stlc_abilities.lst
 

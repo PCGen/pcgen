@@ -8,7 +8,9 @@ STATUS:ALPHA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:4,Pathfinder Society Core Assumption,INCLUDES=Advanced Player's Guide,INCLUDES=Bestiary,INCLUDES=Inner Sea World Guide
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Bestiary,INCLUDES=Inner Sea World Guide
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -58,7 +60,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Rise of the R
 # Equipment: boots of the mire, elixir of the peaks, fog-cutting lenses, medusa mask, robe of runes, sadist's lash, snakeskin tunic, staff of heaven and earth, staff of mithral might, talons of Leng are legal for play;
 # Spells: Blood money, covetous aura, deathwine, raiment of command, sign of wrath, swipe, and unconscious agenda are legal for play.
 
-!PRECAMPAIGN:1,Rise of the Runelords Adventure Path
+!PRECAMPAIGN:1,Pathfinder Society Complete,Rise of the Runelords Adventure Path,PFS ~ Rise of the Runelords Adventure Path
 #PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae.pcc
 
 EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Boots of the Mire)

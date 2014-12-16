@@ -6,7 +6,8 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Society Chronicle Sheets
-PRECAMPAIGN:1,Pathfinder Society Core Assumption
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 TYPE:Paizo Publishing PFS.Pathfinder Society
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -21,6 +22,7 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., whi
 COPYRIGHT:Pathfinder Society Organized Play Chronicle Sheets Boons and Equipment Copyright 2010-2014, Copyright 2011, Paizo Publishing, LLC
 COPYRIGHT:PCGen dataset conversion for "Pathfinder Society Organized Play Chronicle Sheets Boons and Equipment" Copyright 2014, PCGen Data team (Including, but not limited to Mark Means (Data), Paul Grosse (License), Andrew Maitland (Data Review))
 
+!PRECAMPAIGN:1,Pathfinder Society Complete
 
 ABILITY:pfscs_abilities.lst
 ABILITYCATEGORY:pfscs_abilitycategories.lst

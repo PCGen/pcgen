@@ -8,7 +8,9 @@ STATUS:ALPHA
 GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,Pathfinder Society Core Assumption,INCLUDES=Pirates of the Inner Sea
+PRECAMPAIGN:2,INCLUDES=Skull and Shackles Player's Guide,INCLUDES=Pirates of the Inner Sea
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -41,6 +43,8 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path #55: The Wormw
 # Familiars: all familiars listed on pages 88-89;
 # Spells: advanced scurvy, cloud of seasickness;
 # Misc: customized summon list are legal for Besmaran clerics and Besmaran familiars are legal for clerics and rangers of Besmara;
+
+!PRECAMPAIGN:1,Pathfinder Society Complete,Skull and Shackles (The Wormwood Mutiny)
 
 EQUIPMENT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_equip_arms_armor.lst|(INCLUDE:Boarding Pike of Repelling|Tidewater Cutlass|Vindictive Harpoon)
 EQUIPMENT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_equip_magic_items.lst|(INCLUDE:Besmara's Tricorne|Hospitality's Hammock|Shackles of Compliance|Steadfast Grapple)

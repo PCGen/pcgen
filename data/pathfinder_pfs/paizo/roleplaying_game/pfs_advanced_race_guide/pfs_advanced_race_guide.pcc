@@ -8,8 +8,10 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:4,Pathfinder Society Core Assumption,INCLUDES=Bestiary,INCLUDES=Bestiary 2,INCLUDES=Ultimate Combat
+PRECAMPAIGN:3,INCLUDES=Bestiary,INCLUDES=Bestiary 2,INCLUDES=Bestiary 3
+!PRECAMPAIGN:1,Pathfinder RPG Core Supplements
 
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -131,7 +133,7 @@ COPYRIGHT:Pathfinder Roleplaying Game Advanced Race Guide Copyright 2012, Paizo 
 #
 # * Items marked with * have not been removed or marked as PFSNotLegal because either they could not be found in this source, or some problem caused by doing so, or it was not simple to do.
 
-!PRECAMPAIGN:1,Advanced Race Guide
+!PRECAMPAIGN:1,Pathfinder Society Complete,Advanced Race Guide
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.pcc
 
 ABILITY:pfs_arg_abilities_race.lst

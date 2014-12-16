@@ -8,7 +8,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,Pathfinder Society Core Assumption,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
+
+PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -40,7 +42,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Dwarves of Golario
 # Traits: all traits on pages 22-23 except Blessing of the Feast, Demented Inventor, and Tribal;
 # Other: orc sorcerer bloodline on page 14
 
-!PRECAMPAIGN:1,Orcs of Golarion
+!PRECAMPAIGN:1,Pathfinder Society Complete,Orcs of Golarion
 PCC:@/pathfinder/paizo/player_companion/orcs_of_golarion/orcs_of_golarion.pcc
 ABILITY:pfs_oog_abilities_race.lst
 FEAT:pfs_oog_feats.lst
