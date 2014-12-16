@@ -125,12 +125,12 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
   <td class="topline">POINTS</td>
  </tr>
  <tr>
-	<@loop from=0 to=pcvar('COUNT[CLASSES]-1') ; class , class_has_next>
-	<#if (pcvar(pcstring('CLASS.${class}.LEVEL')) > 0) >
-	<td colspan="1" class="h">${pcstring('CLASS.${class}')}
-	</#if>
-	</@loop>
- <!-- <td colspan="1" class="h">${pcstring('CLASSLIST')}	-->
+ <!-- 	<@loop from=0 to=pcvar('COUNT[CLASSES]-1') ; class , class_has_next>>-->
+ <!-- 	<#if (pcvar(pcstring('CLASS.${class}.LEVEL')) > 0) >>-->
+ <!-- <td colspan="1" class="h">${pcstring('CLASS.${class}')}>-->
+ <!-- 	</#if>>-->
+ <!-- 	</@loop>-->
+ <td colspan="1" class="h">${pcstring('CLASSLIST')}
 	<#if (pcvar('count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
 	(${pcstring('ABILITYLIST.Archetype.TYPE=Archetype')})
 	</#if>
@@ -206,7 +206,7 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
     </table>
 	<!-- STOP Abilities Table -->
       </td>
-    <td colspan="2" valign="top">
+    <td colspan="3" valign="top">
 <#if (pcvar("UseAlternateDamage") = 0 )>
 <!-- START Hit Point Table -->
 	<table summary="Hit Point Table">
@@ -293,7 +293,8 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
        </table>
 <!-- STOP Vitality/Wound Point Table -->
 </#if>
-      <table summary="AC Table"> <!-- Armour Class Table -->
+<!-- START Armor Class Table -->
+      <table summary="AC Table">
         <tr>
           <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>AC</b></font>
             <font style="font-size:5pt" color="white"><br />Armour Class</font></td>
@@ -322,18 +323,6 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
           <td align="center" class="border9"><b>${pcstring('AC.Deflection')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Misc')}</b></td>
-          <td align="center" width="5"></td>
-          <td align="center" class="border9"><br /></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>${pcstring('SPELLFAILURE')}</b></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>${pcstring('ACCHECK')}</b></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>${pcstring('MAXDEX')}</b></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>${pcstring('SR')}</b></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>&nbsp;</b></td>
           </tr>
         <tr>
           <td align="center" width="50"></td>
@@ -360,27 +349,15 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
           <td align="center" width="25" class="font6">DEFLECTION<br />BONUS</td>
           <td align="center"></td>
           <td align="center" width="25" class="font6">MISC<br />BONUS</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">MISS<br />CHANCE</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">ARCANE<br />FAILURE</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">ARMOR<br />CHECK</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">MAX<br />DEX</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">SPELL<br />RESIST.</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">TEMP</td>
           </tr>
         </table>
 <!-- STOP AC Table -->
       </td>
     </tr>
   <tr>
-  <td valign="top">
+  <td width="20%" valign="top">
 <!-- START Initiative Table -->
-   <table width="100%" summary="Initiative Table">
+   <table summary="Initiative Table">
     <tr>
      <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>INITIATIVE</b></font><font style="font-size:5pt" color="white"><br />Modifier</font></td>
      <td align="center" class="border10"><b>${pcstring('INITIATIVEMOD')}</b></td>
@@ -400,8 +377,10 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
     </tr>
    </table>
 <!-- STOP Initiative Table -->
+  </td>
+  <td width="20%" valign="top" >
 <!-- START Base Attack Table -->
-   <table width="100%" summary="Base Attack Table">
+   <table summary="Base Attack Table">
     <tr>
      <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>BASE ATTACK</b></font><font style="font-size:5pt" color="white"><br />Bonus</font></td>
      <td align="center" width="94" class="border"><font style="font-size: small"><b>${pcstring('ATTACK.MELEE')}<br /></b></font></td>
@@ -410,69 +389,40 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
    </table>
 <!-- STOP Base Attack Table -->
   </td>
-  <td rowspan="2" valign="top" width="50%">
-<#if (pcvar("VAR.TOTALPOWERPOINTS") >= 1) >
-<!-- START PSI Power Points Table -->
-   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Power Point Table">
-    <tr>
-     <td colspan="6" bgcolor="black" align="center"><font style="font-size: small" color="white"><b>PSI POWER POINTS</b></font></td>
-    </tr>
-    <tr>
-     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Base PP</b></font></td>
-     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">${pcstring('VAR.BASEPOWERPOINTS.INTVAL')}</font></td>
-     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Bonus PP</b></font></td>
-     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">${pcstring('VAR.BONUSPOWERPOINTS.INTVAL')}</font></td>
-     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Total PP</b></font></td>
-     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">${pcstring('VAR.TOTALPOWERPOINTS.INTVAL')}</font></td>
-    </tr>
-    <tr>
-     <td>&nbsp;</td>
-    </tr>
-   </table>
-</#if>
-<!-- STOP PSI Power Points Table -->
-<!-- START Skills Table -->
-   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Skills Table">
-    <tr>
-     <td height="30" bgcolor="black"></td>
-     <td height="30" bgcolor="black" align="center"><font style="font-size: small" color="white"><b>SKILLS</b></font></td>
-     <td colspan="4" height="30" bgcolor="black" align="center"></td>
-     <td height="30" bgcolor="black" align="right" ></td>
-     <td height="30" bgcolor="black" align="center"><font style="font-size: x-small" color="white" >MAX<br />RANKS</font></td>
-     <td colspan="2" height="30"  bgcolor="white" align="center" class="skl"><b>${pcstring('MAXSKILLLEVEL')}/${pcstring('MAXCCSKILLLEVEL')}</b></td>
-    </tr>
-    <tr>
-     <td colspan="2" align="center" width="40%" class="border6">SKILL NAME</td>
-     <td align="center" width="5%" class="border6">ABILITY</td>
-     <td align="center" width="13%" colspan="1" class="border6">SKILL<br />MODIFIER</td>
-     <td align="center" width="13%" colspan="2" class="border6">ABILITY<br />MODIFIER</td>
-     <td align="center" width="13%" colspan="2" class="border6">RANKS</td>
-     <td align="center" width="13%" colspan="2" class="border6">MISC<br />MODIFIER</td>
-    </tr>
-<@loop from=0 to=pcvar('count("SKILLSIT", "VIEW=VISIBLE_EXPORT")')-1; skill , skill_has_next >
-<#if (skill % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
-     <td align="center" ><font style="font-size: x-small"><#if pcboolean("SKILL.${skill}.UNTRAINED")>&#9670;</#if></font></td>
-     <td align="left" class="font8">&nbsp;&nbsp;${pcstring('SKILL.${skill}')}</td>
-     <td align="center" class="font8">${pcstring('SKILL.${skill}.ABILITY')}</td>
-     <td align="center" class="borderbottom8" valign="bottom"><b>${pcstring('SKILL.${skill}.TOTAL')}</b></td>
-     <td align="center" valign="bottom" class="font8"><b>=</b></td>
-     <td align="center" class="borderbottom8" valign="bottom">${pcstring('SKILL.${skill}.ABMOD')}<br /></td>
-     <td align="center" valign="bottom" class="font8"><b>+</b></td>
-     <td align="center" class="borderbottom8" valign="bottom">${pcstring("SKILL.${skill}.RANK")?replace("\\.0", "", "rf")}<br /></td>
-     <td align="center" valign="bottom" class="font8"><b>+</b></td>
-     <td align="center" class="borderbottom8" valign="bottom">${pcstring('SKILL.${skill}.MISC')}<br /></td>
-    </tr>
-</@loop>
-   </table>
-   <div class="font6">&#9670; = Useable Untrained</div>
-<!-- STOP Skills Table -->
-<div class="font7">
-<@loop from=0 to=pcvar('count("ABILITIES","ASPECT=SkillBonus")-1') ; ability , ability_has_next>
-	 ${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SkillBonus.ASPECT.SkillBonus')}<br/>
-</@loop>
-</div>
+  <td width="60%" valign="top">
+<!-- START Misc Stat Table -->
+      <table summary="Misc Stat Table">
+        <tr>
+          <td align="center" class="border9"><br /></td>
+          <td align="center"></td>
+          <td align="center" class="border9"><b>${pcstring('SPELLFAILURE')}</b></td>
+          <td align="center"></td>
+          <td align="center" class="border9"><b>${pcstring('ACCHECK')}</b></td>
+          <td align="center"></td>
+          <td align="center" class="border9"><b>${pcstring('MAXDEX')}</b></td>
+          <td align="center"></td>
+          <td align="center" class="border9"><b>${pcstring('SR')}</b></td>
+          <td align="center"></td>
+          <td align="center" class="border9"><b>&nbsp;</b></td>
+          </tr>
+        <tr>
+          <td align="center" width="25" class="font6">MISS<br />CHANCE</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="font6">ARCANE<br />FAILURE</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="font6">ARMOR<br />CHECK</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="font6">MAX<br />DEX</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="font6">SPELL<br />RESIST.</td>
+          <td align="center"></td>
+          <td align="center" width="25" class="font6">TEMP</td>
+          </tr>
+        </table>
+<!-- STOP Misc Stat Table -->
   </td>
- </tr>
+  </tr>
+
  <tr>
   <td colspan="2" valign="top">
 <!-- START Saving Throws Table -->
@@ -492,10 +442,6 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
      <td align="center" width="25" class="font6">MISC</td>
      <td align="center"></td>
      <td align="center" width="25" class="font6">TEMPORARY</td>
-     <td align="left" valign="top" width="63" rowspan="4" class="border8"><div class="font6">CONDITIONAL<br />MODIFIERS</div>
-<@loop from=0 to=pcvar('count("ABILITIES","ASPECT=SaveBonus")-1') ; ability , ability_has_next>
-	 ${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus.ASPECT.SaveBonus')}
-</@loop></td>
     </tr>
 <@loop from=0 to=pcvar('COUNT[CHECKS]-1') ; checks , checks_has_next>
     <tr>
@@ -528,6 +474,15 @@ Wisdom
      <td align="center" class="tempborder"><br /></td>
     </tr>
 </@loop>
+   </table>
+   <table width="100%" summary="Saving Throws">
+     <tr>
+	   <td align="left" valign="top" class="border8"><div class="font6">CONDITIONAL MODIFIERS:</div>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SaveBonus")-1') ; ability , ability_has_next>
+	 ${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus.ASPECT.SaveBonus')} <br />
+</@loop>
+    </td>
+    </tr>
    </table>
 <!-- STOP Saving Throws Table -->
 <!-- START Melee and Range Attack Table -->
@@ -675,6 +630,15 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
     <tr><td></td></tr>
    </table>
 </#if>
+   <table width="100%" summary="Saving Throws">
+     <tr>
+	   <td align="left" valign="top" class="border8"><div class="font6">CONDITIONAL MODIFIERS:</div>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=CombatBonus")-1') ; ability , ability_has_next>
+	 ${pcstring('ABILITYALL.ANY.${ability}.ASPECT=CombatBonus.ASPECT.CombatBonus')} <br />
+</@loop>
+    </td>
+    </tr>
+   </table>
 <!-- STOP Melee and Range Attack Table -->
 
 <!-- Add Martial Arts and Natural Attack Block Here -->
@@ -697,7 +661,6 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
    </table>
    <font style="font-size:2pt"><br /></font>
 <!-- STOP Unarmed Attack Table -->
-
 
 
 
@@ -974,9 +937,78 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 </#if>
 </@loop>
 </td>
-</tr>
-</table>
 <!-- STOP Armor Table -->
+
+ <td colspan="2" valign="top">
+<#if (pcvar("VAR.TOTALPOWERPOINTS") >= 1) >
+<!-- START PSI Power Points Table -->
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Power Point Table">
+    <tr>
+     <td colspan="6" bgcolor="black" align="center"><font style="font-size: small" color="white"><b>PSI POWER POINTS</b></font></td>
+    </tr>
+    <tr>
+     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Base PP</b></font></td>
+     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">${pcstring('VAR.BASEPOWERPOINTS.INTVAL')}</font></td>
+     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Bonus PP</b></font></td>
+     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">${pcstring('VAR.BONUSPOWERPOINTS.INTVAL')}</font></td>
+     <td bgcolor="#000000"><font color="#FFFFFF" style="font-size:9pt"><b>&nbsp;Total PP</b></font></td>
+     <td bgcolor="#FFFFFF" class="border" align="center"><font style="font-size:9pt">${pcstring('VAR.TOTALPOWERPOINTS.INTVAL')}</font></td>
+    </tr>
+    <tr>
+     <td>&nbsp;</td>
+    </tr>
+   </table>
+<!-- STOP PSI Power Points Table -->
+</#if>
+<!-- START Skills Table -->
+   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Skills Table">
+    <tr>
+     <td height="30" bgcolor="black"></td>
+     <td height="30" bgcolor="black" align="center"><font style="font-size: small" color="white"><b>SKILLS</b></font></td>
+     <td colspan="4" height="30" bgcolor="black" align="center"></td>
+     <td height="30" bgcolor="black" align="right" ></td>
+     <td height="30" bgcolor="black" align="center"><font style="font-size: x-small" color="white" >MAX<br />RANKS</font></td>
+     <td colspan="2" height="30"  bgcolor="white" align="center" class="skl"><b>${pcstring('MAXSKILLLEVEL')}/${pcstring('MAXCCSKILLLEVEL')}</b></td>
+    </tr>
+    <tr>
+     <td colspan="2" align="center" width="40%" class="border6">SKILL NAME</td>
+     <td align="center" width="5%" class="border6">ABILITY</td>
+     <td align="center" width="13%" colspan="1" class="border6">SKILL<br />MODIFIER</td>
+     <td align="center" width="13%" colspan="2" class="border6">ABILITY<br />MODIFIER</td>
+     <td align="center" width="13%" colspan="2" class="border6">RANKS</td>
+     <td align="center" width="13%" colspan="2" class="border6">MISC<br />MODIFIER</td>
+    </tr>
+<@loop from=0 to=pcvar('count("SKILLSIT", "VIEW=VISIBLE_EXPORT")')-1; skill , skill_has_next >
+<#if (skill % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td align="center" ><font style="font-size: x-small"><#if pcboolean("SKILL.${skill}.UNTRAINED")>&#9670;</#if></font></td>
+     <td align="left" class="font8">&nbsp;&nbsp;${pcstring('SKILL.${skill}')}</td>
+     <td align="center" class="font8">${pcstring('SKILL.${skill}.ABILITY')}</td>
+     <td align="center" class="borderbottom8" valign="bottom"><b>${pcstring('SKILL.${skill}.TOTAL')}</b></td>
+     <td align="center" valign="bottom" class="font8"><b>=</b></td>
+     <td align="center" class="borderbottom8" valign="bottom">${pcstring('SKILL.${skill}.ABMOD')}<br /></td>
+     <td align="center" valign="bottom" class="font8"><b>+</b></td>
+     <td align="center" class="borderbottom8" valign="bottom">${pcstring("SKILL.${skill}.RANK")?replace("\\.0", "", "rf")}<br /></td>
+     <td align="center" valign="bottom" class="font8"><b>+</b></td>
+     <td align="center" class="borderbottom8" valign="bottom">${pcstring('SKILL.${skill}.MISC')}<br /></td>
+    </tr>
+</@loop>
+   </table>
+<div class="font6">&#9670; = Useable Untrained</div>
+<div class="font7"></div>
+   <table width="100%" summary="Saving Throws">
+     <tr>
+	   <td align="left" valign="top" class="border8"><div class="font6">CONDITIONAL MODIFIERS:</div>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SkillBonus")-1') ; ability , ability_has_next>
+	 ${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SkillBonus.ASPECT.SkillBonus')}<br />
+</@loop>
+    </td>
+    </tr>
+   </table>
+
+<!-- STOP Skills Table -->
+  </td>
+ </tr>
+</table>
 <hr /><center><font style="font-size: x-small">PCGen Character Template by ROG, mods/maint by Arcady, Barak &amp; Dimrill.  For suggestions please post to pcgen@yahoogroups.com with "OS Suggestion" in the subject line.</font></center>
 <!-- ================================================================ -->
 <br style="page-break-after: always" />
