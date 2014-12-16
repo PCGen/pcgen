@@ -56,43 +56,115 @@ OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
 # Tian characters receive the languages Tien and Common for free.
 
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_core_rulebook/pfs_core_rulebook.pcc
+
+########################
+# Additional Resources #
+########################
+
+# PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_advanced_class_guide/pfs_advanced_class_guide.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_advanced_players_guide/pfs_advanced_players_guide.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_advanced_race_guide/pfs_advanced_race_guide.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_bestiary/pfs_bestiary.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_bestiary_2/pfs_bestiary_2.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_bestiary_3/pfs_bestiary_3.pcc
+# PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_bestiary_4/pfs_bestiary_4.pcc
+# PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_monster_codex/pfs_monster_codex.pcc
+# PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_npc_codex/pfs_npc_codex.pcc
+# PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_campaign/pfs_ultimate_campaign.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_combat/pfs_ultimate_combat.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_equipment/pfs_ultimate_equipment.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_magic/pfs_ultimate_magic.pcc
 
-PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_book_of_the_damned_volume_1/pfs_book_of_the_damned_volume_1.pcc
-PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_book_of_the_damned_volume_2/pfs_book_of_the_damned_volume_2.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_chronicles_of_the_righteous/pfs_chronicles_of_the_righteous.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_cities_of_golarion/pfs_cities_of_golarion.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_city_of_strangers/pfs_city_of_strangers.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_classic_horrors_revisited/pfs_classic_horrors_revisited.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_classic_monsters_revisited/pfs_classic_monsters_revisited.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_classic_treasures_revisited/pfs_classic_treasures_revisited.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_dark_markets/pfs_dark_markets.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_demons_revisited/pfs_demons_revisited.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_dragon_empires_gazetteer/pfs_dragon_empires_gazetteer.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_dungeon_denizens_revisited/pfs_dungeon_denizens_revisited.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_dungeons_of_golarion/pfs_dungeons_of_golarion.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_faction_guide/pfs_faction_guide.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_giants_revisited/pfs_giants_revisited.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_gods_and_magic/pfs_gods_and_magic.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_guide_to_the_river_kingdoms/pfs_guide_to_the_river_kingdoms.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_heart_of_the_jungle/pfs_heart_of_the_jungle.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_horseman_of_the_apocalypse/pfs_horseman_of_the_apocalypse.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_bestiary/pfs_inner_sea_bestiary.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_combat/pfs_inner_sea_combat.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_gods/pfs_inner_sea_gods.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_magic/pfs_inner_sea_magic.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_world_guide/pfs_inner_sea_world_guide.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_lands_of_the_linnorm_kings/pfs_lands_of_the_linnorm_kings.pcc
+# Lorde of Chaos - book of the damned vol 2
+PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_book_of_the_damned_volume_2/pfs_book_of_the_damned_volume_2.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_lost_kingdoms/pfs_lost_kingdoms.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_magnimar_city_of_monuments/pfs_magnimar_city_of_monuments.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_mystery_monsters_revisited/pfs_mystery_monsters_revisited.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_mythical_monsters_revisited.pfs_mythical_monsters_revisited.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_occult_mysteries/pfs_occult_mysteries.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_osirion_legacy_of_pharaohs/pfs_osirion_legacy_of_pharaohs.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_pathfinder_society_field_guide/pfs_pathfinder_society_field_guide.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_paths_of_prestige/pfs_paths_of_prestige.pcc
+# Princes of Darkness - book of the damned vol 1
+PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_book_of_the_damned_volume_1/pfs_book_of_the_damned_volume_1.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_rival_guide/pfs_rival_guide.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_seekers_of_secrets/pfs_seekers_of_secrets.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_ships_of_the_inner_sea/pfs_ships_of_the_inner_sea.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_technology_guide/pfs_technology_guide.pcc
 
+#Pathfinder Character Traits Web Enhancement
+
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_advanced_class_origins/pfs_advanced_class_origins.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_adventurers_armory/pfs_adventurers_armory.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_alchemy_manual/pfs_alchemy_manual.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_andoran_spirit_of_liberty/pfs_andoran_spirit_of_liberty.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_animal_archive/pfs_animal_archive.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_bastards_of_golarion/pfs_bastards_of_golarion.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_blood_of_angels/pfs_blood_of_angels.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_blood_of_the_elements/pfs_blood_of_the_elements.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_blood_of_fiends/pfs_blood_of_fiends.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_blood_of_the_moon/pfs_blood_of_the_moon.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_blood_of_the_night/pfs_blood_of_the_night.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_champions_of_balance/pfs_champions_of_balance.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_champions_of_purity/pfs_champions_of_purity.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_cheliax_empire_of_devils/pfs_cheliax_empire_of_devils.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_demon_hunters_handbook/pfs_demon_hunters_handbook.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_dragon_empires_primer/pfs_dragon_empires_primer.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_dragonslayers_handbook/pfs_dragonslayers_handbook.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_dungeoneers_handbook/pfs_dungeoneers_handbook.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_dwarves_of_golarion/pfs_dwarves_of_golarion.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_elves_of_golarion/pfs_elves_of_golarion.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_faiths_and_philosophies/pfs_faiths_and_philosophies.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_faiths_of_balance/pfs_faiths_of_balance.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_faiths_of_corruption/pfs_faiths_of_corruption.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_faiths_of_purity/pfs_faiths_of_purity.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_gnomes_of_golarion/pfs_gnomes_of_golarion.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_goblins_of_golarion/pfs_goblins_of_golarion.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_halflings_of_golarion/pfs_halflings_of_golarion.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_harrow_handbook/pfs_harrow_handbook.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_humans_of_golarion/pfs_humans_of_golarion.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_inner_sea_primer/pfs_inner_sea_primer.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_knights_of_the_inner_sea/pfs_knights_of_the_inner_sea.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_magical_marketplace/pfs_magical_marketplace.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_orcs_of_golarion/pfs_orcs_of_golarion.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_osirion_land_of_pharaohs/pfs_osirion_land_of_pharaohs.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_pathfinder_society_primer/pfs_pathfinder_society_primer.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_people_of_the_north/pfs_people_of_the_north.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_people_of_the_river/pfs_people_of_the_river.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_people_of_the_sands/pfs_people_of_the_sands.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_people_of_the_stars/pfs_people_of_the_stars.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_pirates_of_the_inner_sea/pfs_pirates_of_the_inner_sea.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_qadira_gateway_to_the_east/pfs_qadira_gateway_to_the_east.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_quests_and_campaigns/pfs_quests_and_campaigns.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_ranged_tactics_toolbox/pfs_ranged_tactics_toolbox.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_sargava_the_lost_colony/pfs_sargava_the_lost_colony.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_second_darkness/pfs_second_darkness.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_taldor_echoes_of_glory/pfs_taldor_echoes_of_glory.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_undead_slayers_handbook/pfs_undead_slayers_handbook.pcc
+# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_varisia_birthplace_of_legends/pfs_varisia_birthplace_of_legends.pcc
 
 #PCC:@/pathfinder_pfs/paizo/adventure_path/curse_of_the_crimson_throne/pfs_players_guide/pfs_curse_of_the_crimson_throne_players_guide.pcc
 #PCC:@/pathfinder_pfs/paizo/adventure_path/curse_of_the_crimson_throne/pfs_ap9/pfs_ap9.pcc
