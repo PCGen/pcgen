@@ -1,6 +1,6 @@
 # CVS $Revision: 21684 $ $Author: spraynpray $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 CAMPAIGN:Guide To Pathfinder Society Organized Play
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Society
 RANK:9
 STATUS:RELEASE
@@ -66,6 +66,7 @@ PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_equipment/pfs_ultimate_
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_magic/pfs_ultimate_magic.pcc
 
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_book_of_the_damned_volume_1/pfs_book_of_the_damned_volume_1.pcc
+PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_book_of_the_damned_volume_2/pfs_book_of_the_damned_volume_2.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_dark_markets/pfs_dark_markets.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_dragon_empires_gazetteer/pfs_dragon_empires_gazetteer.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_guide_to_the_river_kingdoms/pfs_guide_to_the_river_kingdoms.pcc

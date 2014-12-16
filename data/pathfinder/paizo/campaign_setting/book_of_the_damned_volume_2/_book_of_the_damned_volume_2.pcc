@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Tue Dec  2 19:28:17 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 CAMPAIGN:Lords of Chaos - Book of the Damned, Volume 2
 KEY:Lords of Chaos - Book of the Damned - Volume 2
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
 RANK:2
 STATUS:BETA
