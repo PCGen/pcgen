@@ -250,9 +250,9 @@ Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Bat/Celestial),Familiar (
 Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Bat/Fiendish),Familiar (Cat/Fiendish),Familiar (Hawk/Fiendish),Familiar (Lizard/Fiendish),Familiar (Monkey/Fiendish),Familiar (Owl/Fiendish),Familiar (Rat/Fiendish),Familiar (Raven/Fiendish),Familiar (Toad/Fiendish),Familiar (Viper/Fiendish),Familiar (Weasel/Fiendish)|PREALIGN:LE,NE,CE,LN,TN,CN|PRECLASS:1,SPELLCASTER.Arcane=3|PREFEAT:1,Improved Familiar
 Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Elemental (Air/Small)),Familiar (Elemental (Earth/Small)),Familiar (Elemental (Fire/Small)),Familiar (Elemental (Water/Small)),Familiar (Stirge)|PRECLASS:1,SPELLCASTER.Arcane=5|PREFEAT:1,Improved Familiar
 Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Homunculus),Familiar (Mephit (Air)),Familiar (Mephit (Dust)),Familiar (Mephit (Earth)),Familiar (Mephit (Fire)),Familiar (Mephit (Ice)),Familiar (Mephit (Magma)),Familiar (Mephit (Ooze)),Familiar (Mephit (Salt)),Familiar (Mephit (Steam)),Familiar (Mephit (Water))|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
-Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Pseudodragon)|PREALIGN:LG,NG,CG,LN,TN,CN|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
-Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Imp)|PREALIGN:LE,NE,LN,TN|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
-Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Quasit)|PREALIGN:NE,CE,TN,CN|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Pseudodragon)|!PREALIGN:LE,NE,CE|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Imp)|!PREALIGN:LG,NG,CG,CN,CE|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Quasit)|!PREALIGN:LG,LN,LE,NG,CG|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
 
 ###Block: Monk Flurry Rules Update -
 # Feat Name					Unique Key				Visible		Define																		Description												Modify VAR																															Source Page		Benefits																																																																												Temporary Bonus
