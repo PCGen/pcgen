@@ -45,11 +45,14 @@ ext {
     		rename "(.+)-$version(.+)", '$1$2'
         }
         from('.') {
-        	include 'pcgen.sh'
         	include 'pcgen_low_mem.bat'
         	include 'plugins/**'
         	include 'logging.properties'
         	include 'svn.properties'
+        }
+        from('.') {
+        	include 'pcgen.sh'
+        	fileMode = 0755
         }
         from('code') {
         	include 'pcgen.exe'
