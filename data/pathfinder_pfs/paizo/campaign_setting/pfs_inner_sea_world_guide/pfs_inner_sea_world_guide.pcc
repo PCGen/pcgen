@@ -1,16 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Inner Sea World Guide (PFS)
 KEY:PFS ~ Inner Sea World Guide
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Campaign Setting
 RANK:2
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:3,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Bestiary,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -73,28 +71,28 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: The Inner S
 # Races: All human ethnicities are legal except Azlanti. Humans begin play knowing all listed languages for their chosen ethnicity as racial languages;
 # Spells: all spells on pages 294-297 except interplanetary teleport, and teleport trap are legal for play.
 
-!PRECAMPAIGN:1,Pathfinder Society Complete,Inner Sea World Guide
-PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_guide.pcc
+!PRECAMPAIGN:1,Inner Sea World Guide
+#PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_guide.pcc
 
-ABILITY:pfs_iswg_abilities.lst
-ABILITY:pfs_iswg_abilities_class.lst
-ABILITY:pfs_iswg_abilities_race.lst
-ABILITYCATEGORY:pfs_iswg_abilitycategories.lst
-CLASS:pfs_iswg_classes.lst
-CLASS:pfs_iswg_classes_race.lst
-COMPANIONMOD:pfs_iswg_companionmods.lst
-DEITY:pfs_iswg_deities.lst
-DOMAIN:pfs_iswg_domains.lst
-EQUIPMENT:pfs_iswg_equip_arms_armor.lst
-EQUIPMENT:pfs_iswg_equip_general.lst
-EQUIPMENT:pfs_iswg_equip_magic_items.lst
-EQUIPMOD:pfs_iswg_equipmods.lst
-FEAT:pfs_iswg_feats.lst
-KIT:pfs_iswg_kits_race.lst
-LANGUAGE:pfs_iswg_languages.lst
-RACE:pfs_iswg_races.lst
-SKILL:pfs_iswg_skills.lst
-SPELL:pfs_iswg_spells.lst
-TEMPLATE:pfs_iswg_templates.lst
-ARMORPROF:pfs_iswg_profs_armor.lst
-WEAPONPROF:pfs_iswg_profs_weapon.lst
+ABILITY:pfs_iswg_abilities.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+ABILITY:pfs_iswg_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+ABILITY:pfs_iswg_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+ABILITYCATEGORY:pfs_iswg_abilitycategories.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+CLASS:pfs_iswg_classes.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+CLASS:pfs_iswg_classes_race.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+COMPANIONMOD:pfs_iswg_companionmods.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+DEITY:pfs_iswg_deities.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+DOMAIN:pfs_iswg_domains.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+EQUIPMENT:pfs_iswg_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+EQUIPMENT:pfs_iswg_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+EQUIPMENT:pfs_iswg_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+EQUIPMOD:pfs_iswg_equipmods.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+FEAT:pfs_iswg_feats.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+KIT:pfs_iswg_kits_race.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+LANGUAGE:pfs_iswg_languages.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+RACE:pfs_iswg_races.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+SKILL:pfs_iswg_skills.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+SPELL:pfs_iswg_spells.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+TEMPLATE:pfs_iswg_templates.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+ARMORPROF:pfs_iswg_profs_armor.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+WEAPONPROF:pfs_iswg_profs_weapon.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide

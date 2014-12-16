@@ -1,17 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Ultimate Combat (PFS)
 KEY:PFS ~ Ultimate Combat
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Roleplaying Game
 RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
-!PRECAMPAIGN:1,Pathfinder RPG Core Supplements
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -67,8 +64,8 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Combat" Copyrigh
 # Spells: All spells in chapter 6 are legal for play except the following: arcane cannon, energy siege shot, greater energy siege shot, greater magic siege engine, and magic siege engine.
 # Other: Unless prompted in a scenario or granted by a Chronicle, the rules for duels, performance combat, and siege engines, and all variant rules in Chapter 5 are not used in Pathfinder Society Organized Play.
 
-!PRECAMPAIGN:1,Pathfinder Society Complete,Ultimate Combat
-PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/ultimate_combat.pcc
+!PRECAMPAIGN:1,Ultimate Combat
+#PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/ultimate_combat.pcc
 
-WEAPONPROF:pfs_uc_profs_weapon.lst
-FEAT:pfs_uc_feats.lst
+WEAPONPROF:pfs_uc_profs_weapon.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+FEAT:pfs_uc_feats.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat

@@ -1,16 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Pirates of the Inner Sea (PFS)
 KEY:PFS ~ Pirates of the Inner Sea
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -43,6 +41,6 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Pirates of the Inner S
 # Spells: all spells on pages 28-29;
 # Traits: all traits on pages 5, 7, 9, 11, 13, 15, and 27
 
-!PRECAMPAIGN:1,Pathfinder Society Complete,Pirates of the Inner Sea
-PCC:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.pcc
+!PRECAMPAIGN:1,Pirates of the Inner Sea
+#PCC:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.pcc
 

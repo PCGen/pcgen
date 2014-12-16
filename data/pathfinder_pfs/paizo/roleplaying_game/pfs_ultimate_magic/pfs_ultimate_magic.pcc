@@ -1,17 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Ultimate Magic (PFS)
 KEY:PFS ~ Ultimate Magic
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Roleplaying Game
 RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
-!PRECAMPAIGN:1,Pathfinder RPG Core Supplements
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -85,14 +82,15 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Magic" Copyright
 # Other: No content from Chapter 2 is legal for play except new familiars;
 # Words of Power are also forbidden.
 
-!PRECAMPAIGN:1,Pathfinder Society Complete,Ultimate Magic
-PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/ultimate_magic.pcc
+!PRECAMPAIGN:1,Ultimate Magic
+#PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/ultimate_magic.pcc
 
-ABILITY:pfs_um_abilities.lst
-ABILITY:pfs_um_abilities_class.lst
-EQUIPMENT:pfs_um_equip_general.lst
-FEAT:pfs_um_feats.lst
-SPELL:pfs_um_spells.lst
+ABILITY:pfs_um_abilities.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:pfs_um_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+EQUIPMENT:pfs_um_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+FEAT:pfs_um_feats.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+SPELL:pfs_um_spells.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+
 LSTEXCLUDE:@/pathfinder/paizo/roleplaying_game/ultimate_magic/um_abilities_wordsofpower.lst
 LSTEXCLUDE:@/pathfinder/paizo/roleplaying_game/ultimate_magic/um_abilitycategories_wordsofpower.lst
 LSTEXCLUDE:@/pathfinder/paizo/roleplaying_game/ultimate_magic/um_feats_wordsofpower.lst

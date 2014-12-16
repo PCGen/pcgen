@@ -1,16 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Halflings of Golarion (PFS)
 KEY:PFS ~ Halflings of Golarion
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -43,6 +41,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Halflings of Golar
 # Prestige Class: Halfling Opportunist;
 # Traits: all traits on pages 30-31.
 
-!PRECAMPAIGN:1,Pathfinder Society Complete,Halflings of Golarion
-PCC:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.pcc
+!PRECAMPAIGN:1,Halflings of Golarion
+#PCC:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.pcc
 

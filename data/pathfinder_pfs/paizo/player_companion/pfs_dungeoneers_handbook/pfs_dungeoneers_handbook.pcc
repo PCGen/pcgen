@@ -1,16 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Dungeoneer's Handbook (PFS)
 KEY:PFS ~ Dungeoneer's Handbook
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:3,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Equipment
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:4,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Equipment
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -45,7 +43,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Dungeoneer's Handbook"
 # Spells: all spells on pages 30-31.;
 # Traits: all traits on back inside cover are legal except Alien Origins and Lost Role Model.
 
-!PRECAMPAIGN:1,Pathfinder Society Complete,Dungeoneer's Handbook
-PCC:@/pathfinder/paizo/player_companion/dungeoneers_handbook/dungeoneers_handbook.pcc
-EQUIPMENT:pfs_dh_equip_general.lst
-ABILITY:pfs_dh_abilities.lst
+!PRECAMPAIGN:1,Dungeoneer's Handbook
+#PCC:@/pathfinder/paizo/player_companion/dungeoneers_handbook/dungeoneers_handbook.pcc
+EQUIPMENT:pfs_dh_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Dungeoneer's Handbook
+ABILITY:pfs_dh_abilities.lst|PRECAMPAIGN:1,INCLUDES=Dungeoneer's Handbook

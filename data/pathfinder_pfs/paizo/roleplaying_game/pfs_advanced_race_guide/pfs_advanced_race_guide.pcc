@@ -1,17 +1,15 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Advanced Race Guide (PFS)
 KEY:PFS ~ Advanced Race Guide
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Roleplaying Game
 RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:3,INCLUDES=Bestiary,INCLUDES=Bestiary 2,INCLUDES=Bestiary 3
-!PRECAMPAIGN:1,Pathfinder RPG Core Supplements
+PRECAMPAIGN:4,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Bestiary,INCLUDES=Bestiary 2,INCLUDES=Ultimate Combat
 
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -133,13 +131,13 @@ COPYRIGHT:Pathfinder Roleplaying Game Advanced Race Guide Copyright 2012, Paizo 
 #
 # * Items marked with * have not been removed or marked as PFSNotLegal because either they could not be found in this source, or some problem caused by doing so, or it was not simple to do.
 
-!PRECAMPAIGN:1,Pathfinder Society Complete,Advanced Race Guide
-PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.pcc
+!PRECAMPAIGN:1,Advanced Race Guide
+#PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.pcc
 
-ABILITY:pfs_arg_abilities_race.lst
-ABILITY:pfs_arg_abilities_class.lst
-EQUIPMENT:pfs_arg_equip_general.lst
-EQUIPMENT:pfs_arg_equip_magic_items.lst
-EQUIPMOD:pfs_arg_equipmods.lst
-FEAT:pfs_arg_feats.lst
-SPELL:pfs_arg_spells.lst
+ABILITY:pfs_arg_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+ABILITY:pfs_arg_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+EQUIPMENT:pfs_arg_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+EQUIPMENT:pfs_arg_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+EQUIPMOD:pfs_arg_equipmods.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+FEAT:pfs_arg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+SPELL:pfs_arg_spells.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide

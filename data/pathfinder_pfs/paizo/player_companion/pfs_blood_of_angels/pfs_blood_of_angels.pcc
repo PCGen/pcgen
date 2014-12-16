@@ -1,16 +1,14 @@
 # CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 CAMPAIGN:Blood of Angels (PFS)
 KEY:PFS ~ Blood of Angels
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:4,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://www.paizo.com
@@ -44,10 +42,9 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Angels" Copyr
 # Subdomains: all subdomains on page 27 are legal;
 # Traits: all traits on pages 30-31 are legal except ethical leader. Clergy member is useable once per scenario instead of once per week. Faith healer may be used for Day Job checks.
 
-!PRECAMPAIGN:1,Pathfinder Society Complete,Blood of Angels
-PCC:@/pathfinder/paizo/player_companion/blood_of_angels/blood_of_angels.pcc
-ABILITY:pfs_boa_abilities.lst
-ABILITY:pfs_boa_abilities_variant.lst
-ABILITYCATEGORY:pfs_boa_abilitycategories.lst
-FEAT:pfs_boa_feats.lst
-
+!PRECAMPAIGN:1,Blood of Angels
+#PCC:@/pathfinder/paizo/player_companion/blood_of_angels/blood_of_angels.pcc
+ABILITY:pfs_boa_abilities.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
+ABILITY:pfs_boa_abilities_variant.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
+ABILITYCATEGORY:pfs_boa_abilitycategories.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
+FEAT:pfs_boa_feats.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels

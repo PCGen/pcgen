@@ -1,16 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Faiths of Balance (PFS)
 KEY:PFS ~ Faiths of Balance
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -42,7 +40,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Faiths of B
 # Spells: all spells on pages 28-29;
 # Traits: all traits on pages 4-21
 
-!PRECAMPAIGN:1,Pathfinder Society Complete,Faiths of Balance
-PCC:@/pathfinder/paizo/player_companion/faiths_of_balance/faiths_of_balance.pcc
-DEITY:pfs_fob_deities.lst
+!PRECAMPAIGN:1,Faiths of Balance
+#PCC:@/pathfinder/paizo/player_companion/faiths_of_balance/faiths_of_balance.pcc
+DEITY:pfs_fob_deities.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Balance
 

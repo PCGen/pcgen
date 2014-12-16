@@ -1,16 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Skull and Shackles, Chapter 1 - The Wormwood Mutiny (PFS)
 KEY:PFS ~ Skull and Shackles (The Wormwood Mutiny)
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Adventure Path.Skull & Shackles
 RANK:3
 STATUS:ALPHA
 GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,INCLUDES=Skull and Shackles Player's Guide,INCLUDES=Pirates of the Inner Sea
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Pirates of the Inner Sea
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -43,8 +41,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path #55: The Wormw
 # Familiars: all familiars listed on pages 88-89;
 # Spells: advanced scurvy, cloud of seasickness;
 # Misc: customized summon list are legal for Besmaran clerics and Besmaran familiars are legal for clerics and rangers of Besmara;
-
-!PRECAMPAIGN:1,Pathfinder Society Complete,Skull and Shackles (The Wormwood Mutiny)
 
 EQUIPMENT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_equip_arms_armor.lst|(INCLUDE:Boarding Pike of Repelling|Tidewater Cutlass|Vindictive Harpoon)
 EQUIPMENT:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55_equip_magic_items.lst|(INCLUDE:Besmara's Tricorne|Hospitality's Hammock|Shackles of Compliance|Steadfast Grapple)

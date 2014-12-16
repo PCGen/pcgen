@@ -1,16 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Legacy of Fire Player's Guide (Conversion) (PFS)
 KEY:PFS ~ Legacy of Fire Player's Guide (Conversion)
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Adventure Path.Legacy of Fire
 RANK:3
 STATUS:ALPHA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -45,8 +43,6 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., whi
 # Feat: Sandwalker;
 # Traits: all traits on pages 7-9 are allowed except Duskwalker Agent
 # (Notes: Uwaga Highlander applies only to the Stealth skill and Eyes and Ears of the City applies only to the Perception skill; no campaign traits are allowed.)
-
-!PRECAMPAIGN:1,Pathfinder Society Complete,Legacy of Fire Player's Guide (Conversion),PFS ~ Legacy of Fire Player's Guide (Conversion)
 
 FEAT:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/lofpg_feats.lst|(INCLUDE:CATEGORY=Special Ability,Sandwalker)
 EQUIPMENT:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/lofpg_equip_general.lst

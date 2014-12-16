@@ -1,16 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Sargava the Lost Colony (PFS)
 KEY:PFS ~ Sargava the Lost Colony
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -42,7 +40,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Sargava, the Lost 
 # Spells: all spells on page 24;
 # Traits: all traits on page 23 except Spirit Talker
 
-!PRECAMPAIGN:1,Pathfinder Society Complete,Sargava the Lost Colony
-PCC:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/sargava_the_lost_colony.pcc
-ABILITY:pfs_stlc_abilities.lst
+!PRECAMPAIGN:1,Sargava the Lost Colony
+#PCC:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/sargava_the_lost_colony.pcc
+ABILITY:pfs_stlc_abilities.lst|PRECAMPAIGN:1,INCLUDES=Sargava the Lost Colony
 

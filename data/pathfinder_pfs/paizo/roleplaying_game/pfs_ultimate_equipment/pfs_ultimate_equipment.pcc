@@ -1,17 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Ultimate Equipment (PFS)
 KEY:PFS ~ Ultimate Equipment
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Roleplaying Game
 RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:1,INCLUDES=Ultimate Magic
-!PRECAMPAIGN:1,Pathfinder RPG Core Supplements
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Publishing LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -67,5 +64,5 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Equipment" Copyr
 #   Equipment: All items on pages 208-325, except ampoule of false blood, beneficial bandolier, bone razor, bracer's of falcon's aim, cauldron of the undead, collar of the true companion, darkskull, horn of evil, otherworldly kimono, orb of foul abaddon, quick runner's shirt, robe of the archmagi (black), stalker's mask, and talons of Leng are legal for play.
 # Nothing from Chapter 6 is legal for play unless it appears on a Chronicle sheet.
 
-!PRECAMPAIGN:1,Pathfinder Society Complete,Ultimate Equipment
-PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc
+!PRECAMPAIGN:1,Ultimate Equipment
+#PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc

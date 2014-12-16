@@ -1,16 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Rise of the Runelords Adventure Path (PFS)
 KEY:PFS ~ Rise of the Runelords Adventure Path
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Adventure Path.Rise of the Runelords
 RANK:3
 STATUS:ALPHA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Bestiary,INCLUDES=Inner Sea World Guide
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:4,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide,INCLUDES=Bestiary,INCLUDES=Inner Sea World Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -60,17 +58,17 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Rise of the R
 # Equipment: boots of the mire, elixir of the peaks, fog-cutting lenses, medusa mask, robe of runes, sadist's lash, snakeskin tunic, staff of heaven and earth, staff of mithral might, talons of Leng are legal for play;
 # Spells: Blood money, covetous aura, deathwine, raiment of command, sign of wrath, swipe, and unconscious agenda are legal for play.
 
-!PRECAMPAIGN:1,Pathfinder Society Complete,Rise of the Runelords Adventure Path,PFS ~ Rise of the Runelords Adventure Path
+!PRECAMPAIGN:1,Rise of the Runelords Adventure Path
 #PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae.pcc
 
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Boots of the Mire)
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Elixir of the Peaks)
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Fog-Cutting Lenses)
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Medusa Mask)
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Robe of Runes)
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Sadist's Lash)
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Snakeskin Tunic)
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Staff of Heaven and Earth)
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Staff of Mithral Might)
-EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Talons of Leng)
-SPELL:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_spells.lst
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Boots of the Mire)|PRECAMPAIGN:1,Rise of the Runelords Adventure Path
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Elixir of the Peaks)|PRECAMPAIGN:1,Rise of the Runelords Adventure Path
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Fog-Cutting Lenses)|PRECAMPAIGN:1,Rise of the Runelords Adventure Path
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Medusa Mask)|PRECAMPAIGN:1,Rise of the Runelords Adventure Path
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Robe of Runes)|PRECAMPAIGN:1,Rise of the Runelords Adventure Path
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Sadist's Lash)|PRECAMPAIGN:1,Rise of the Runelords Adventure Path
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Snakeskin Tunic)|PRECAMPAIGN:1,Rise of the Runelords Adventure Path
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Staff of Heaven and Earth)|PRECAMPAIGN:1,Rise of the Runelords Adventure Path
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Staff of Mithral Might)|PRECAMPAIGN:1,Rise of the Runelords Adventure Path
+EQUIPMENT:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_equip.lst|(INCLUDE:Talons of Leng)|PRECAMPAIGN:1,Rise of the Runelords Adventure Path
+SPELL:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rotr_spells.lst|PRECAMPAIGN:1,INCLUDES=Rise of the Runelords Adventure Path

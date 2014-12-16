@@ -1,16 +1,14 @@
 # CVS $Revision$ $Author$ -- Fri Nov  8 13:07:25 2013 -- reformated by prettylst.pl v1.50 (build 21703)
 CAMPAIGN:Dragon Empires Primer (PFS)
 KEY:PFS ~ Dragon Empires Primer
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -48,6 +46,6 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Dragon Empires Primer"
 # Subdomains: Moon;
 # Traits: all traits on pages 8-21, except Chosen Child and Rebel Leader
 
-!PRECAMPAIGN:1,Pathfinder Society Complete,Dragon Empires Primer
-PCC:@/pathfinder/paizo/player_companion/dragon_empires_primer/dragon_empires_primer.pcc
+!PRECAMPAIGN:1,Dragon Empires Primer
+#PCC:@/pathfinder/paizo/player_companion/dragon_empires_primer/dragon_empires_primer.pcc
 

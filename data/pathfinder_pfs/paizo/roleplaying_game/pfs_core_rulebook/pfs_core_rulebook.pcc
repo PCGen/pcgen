@@ -1,20 +1,15 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Core Rulebook (PFS)
 KEY:PFS ~ Core Rulebook
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Roleplaying Game
 RANK:0
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Core Rules
 SETTING:Pathfinder
-!PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules,[Core Rulebook]
-
-# This source cannot be loaded on its own because it is tied to Guide to Pathfinder Society Organized Play
-# It must be loaded from Pathfinder Society Core Assumption which includes both sources
-!PRECAMPAIGN:1,INCLUDES=PFS ~ Core Rulebook
-PRECAMPAIGN:1,INCLUDES=PFS ~ Core Rulebook
-
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[PFS ~ Core Rulebook]
+PRECAMPAIGN:1,Guide To Pathfinder Society Organized Play
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -45,10 +40,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 #EXTRAFILE:OGL.txt
 
 # Data Files
-!PRECAMPAIGN:1,Pathfinder Society Complete,Core Rulebook
-PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
-ABILITY:pfs_cr_abilities.lst
-CLASS:pfs_cr_classes.lst
-FEAT:pfs_cr_feats.lst
-SPELL:pfs_cr_spells.lst
+#PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
+ABILITY:pfs_cr_abilities.lst|PRECAMPAIGN:1,INCLUDES=Core Rulebook
+CLASS:pfs_cr_classes.lst|PRECAMPAIGN:1,INCLUDES=Core Rulebook
+FEAT:pfs_cr_feats.lst|PRECAMPAIGN:1,INCLUDES=Core Rulebook
+SPELL:pfs_cr_spells.lst|PRECAMPAIGN:1,INCLUDES=Core Rulebook
 

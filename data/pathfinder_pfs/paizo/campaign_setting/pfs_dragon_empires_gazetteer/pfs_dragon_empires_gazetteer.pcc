@@ -1,16 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Dragon Empires Gazetteer (PFS)
 KEY:PFS ~ Dragon Empires Gazetteer
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Campaign Setting
 RANK:2
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Inner Sea World Guide,INCLUDES=Ultimate Combat
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:3,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Inner Sea World Guide,INCLUDES=Ultimate Combat
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -48,7 +46,7 @@ DESC:It is a land where honorable samurai wage war against devious ninja. Where 
 # Languages: all languages on pages 49-51 may be learned via the Linguistics skill;
 # Races: All human ethnicities are legal, humans begin play knowing all listed languages for their chosen ethnicity as racial languages.
 
-!PRECAMPAIGN:1,Pathfinder Society Complete,Dragon Empires Gazetteer
-PCC:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/dragon_empires_gazetteer.pcc
+!PRECAMPAIGN:1,Dragon Empires Gazetteer
+#PCC:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/dragon_empires_gazetteer.pcc
 
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_spells.lst

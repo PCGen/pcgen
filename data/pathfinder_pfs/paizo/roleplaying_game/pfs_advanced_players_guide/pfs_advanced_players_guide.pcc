@@ -1,16 +1,14 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Advanced Player's Guide (PFS)
 KEY:PFS ~ Advanced Player's Guide
-GAMEMODE:Pathfinder|Pathfinder_PFS
+#GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Roleplaying Game
 STATUS:RELEASE
 RANK:1
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:1,INCLUDES=Core Rulebook
-
-PRECAMPAIGN:1,INCLUDES=Pathfinder Society Core Assumption
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -58,15 +56,12 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Player's Guide" 
 #   Equipment: All staves in Chapter 7 are not legal for play from this source. If you purchased these prior to Aug. 16, 2012, they are grandfathered into the campaign.
 #   Traits: hedge magician, natural born leader, and rich parents traits, and all of the Campaign Traits.
 #   The Master Alchemist feat may only be selected by Alchemists and Poisoners.
-
-!PRECAMPAIGN:1,Pathfinder Society Complete,Advanced Player's Guide
-PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
-
-ABILITY:pfs_apg_abilities.lst
-ABILITY:pfs_apg_abilities_race.lst
-ABILITY:pfs_apg_abilities_class.lst
-CLASS:pfs_apg_classes.lst
-EQUIPMENT:pfs_apg_equip_arms_armor.lst
-EQUIPMENT:pfs_apg_equip_magic_items.lst
-FEAT:pfs_apg_feats.lst
-SPELL:pfs_apg_spells.lst
+#PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
+ABILITY:pfs_apg_abilities.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:pfs_apg_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:pfs_apg_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+CLASS:pfs_apg_classes.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+EQUIPMENT:pfs_apg_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+EQUIPMENT:pfs_apg_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+FEAT:pfs_apg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+SPELL:pfs_apg_spells.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
