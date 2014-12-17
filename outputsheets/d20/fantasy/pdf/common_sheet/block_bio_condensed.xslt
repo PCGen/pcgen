@@ -272,6 +272,34 @@
 		</xsl:if>
 		<!-- END CHARACTER NOTES Pages -->
 	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Campaign History
+====================================
+====================================-->
+	<xsl:template match="campaign_histories" mode="bio">
+		<!-- BEGIN Campaign History Pages -->
+		<xsl:if test="count(.//campaign_history) &gt; 0">
+			<fo:page-sequence master-reference="Portrait 2 Column">
+				<xsl:call-template name="page.footer"/>
+				<fo:flow flow-name="body" font-size="8pt">
+					<xsl:for-each select="campaign_history">
+						<fo:block font-size="12pt" space-after.optimum="2mm" space-before.optimum="5mm">
+							<xsl:value-of select="campaign"/>:
+							<xsl:value-of select="adventure"/>:
+							<xsl:value-of select="party"/>:
+							<xsl:value-of select="date"/>:
+							<xsl:value-of select="xp"/>:
+							<xsl:value-of select="gm"/>:
+							<xsl:value-of select="text"/>:
+						</fo:block>
+					</xsl:for-each>
+				</fo:flow>
+			</fo:page-sequence>
+		</xsl:if>
+		<!-- END Campaign History Pages -->
+	</xsl:template>
 
 
 </xsl:stylesheet>

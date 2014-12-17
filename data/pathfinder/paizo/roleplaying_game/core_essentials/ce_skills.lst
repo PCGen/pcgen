@@ -124,6 +124,7 @@ Knowledge (Planes).MOD		SITUATION:ID monster
 Knowledge (Religion).MOD	SITUATION:ID monster
 Linguistics.MOD			SITUATION:Forgery
 Linguistics.MOD			SITUATION:Identify Forgery
+Linguistics.MOD			SITUATION:Decipher unfamiliar languages
 Perception.MOD			SITUATION:Blindsense
 Perception.MOD			SITUATION:Determine Food Spoiled
 Perception.MOD			SITUATION:Identify Potion
@@ -146,6 +147,7 @@ Sense Motive.MOD			SITUATION:Sense Enchantment
 Sense Motive.MOD			SITUATION:Social Hunch
 Sleight of Hand.MOD		SITUATION:Conceal Small Object
 Sleight of Hand.MOD		SITUATION:Conceal Weapon
+Spellcraft.MOD			SITUATION:decipher the writing on a scroll
 Spellcraft.MOD			SITUATION:Cast Defensively
 Spellcraft.MOD			SITUATION:Identify Curse or Emotion
 Spellcraft.MOD			SITUATION:Identify Enchantment
@@ -213,7 +215,6 @@ Survival.MOD			SITUATION:Tracking Undead
 Survival.MOD			SITUATION:Underground
 Survival.MOD			SITUATION:Urban
 Use Magic Device.MOD		SITUATION:Spell Trigger or Spell Completion
-
 
 
 

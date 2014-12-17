@@ -235,6 +235,19 @@
 			</note>
 		</@loop>
 		</notes>
+		<campaign_histories>
+			<@loop from=0 to=pcvar('count("CAMPAIGNHISTORY")-1') ; campaignhistory , campaignhistory_has_next>	
+			<campaign_history>
+				<campaign>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.CAMPAIGN</campaign>
+				<adventure>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.ADVENTURE</adventure>
+				<party>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.PARTY</party>
+				<date>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.DATE</date>
+				<xp>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.XP</xp>
+				<gm>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.GM</gm>
+				<text>CAMPAIGNHISTORY.VISIBLE.${campaignhistory}.TEXT</text>
+			</campaign_history>
+			</@loop>	
+		</campaign_histories>
 	</basics>
 
 	<!-- Use ASPECT.NotesSection.x and ASPECT.Notes.y	-->

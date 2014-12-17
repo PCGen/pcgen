@@ -440,6 +440,8 @@
 			<xsl:apply-templates select="spells"/>	
 			<xsl:apply-templates select="basics" mode="bio"/>
 			<xsl:apply-templates select="basics/notes" mode="bio"/>	
+			<xsl:apply-templates select="basics" mode="campaign_histories"/>
+
 		</fo:root>
 	</xsl:template>
 
