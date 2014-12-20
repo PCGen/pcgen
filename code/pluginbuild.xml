@@ -1,5 +1,6 @@
 <!--
-pluginbuild.xml - an Ant build file for the PCGEN plugins
+pluginbuild.xml - a build file for the PCGEN plugins
+Note: This is used by the gradle build.
 
 $Id$
 
