@@ -28,6 +28,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.lang.StringUtils;
 import org.jdom.Element;
 
 import pcgen.base.lang.StringUtil;
@@ -106,13 +107,22 @@ public class PcgCombatant extends Combatant
 		messageHandler = mh;
 		try
 		{
-			File pcgFile =
-					new File(combatant.getChild("PCG").getAttribute("file")
-						.getValue());
-			RequestOpenPlayerCharacterMessage msg =
-					new RequestOpenPlayerCharacterMessage(comp, pcgFile, true);
-			messageHandler.handleMessage(msg);
-			this.pc = msg.getPlayerCharacter();
+			String pcgFilename = combatant.getChild("PCG").getAttribute("file")
+				.getValue();
+			if (StringUtils.isNotBlank(pcgFilename))
+			{
+				File pcgFile =
+						new File(pcgFilename);
+				RequestOpenPlayerCharacterMessage msg =
+						new RequestOpenPlayerCharacterMessage(comp, pcgFile, true);
+				messageHandler.handleMessage(msg);
+				this.pc = msg.getPlayerCharacter();
+			}
+			if (pc == null)
+			{
+				pc = new PlayerCharacter();
+				pc.setName(combatant.getAttributeValue("name"));
+			}
 			this.display = pc.getDisplay();
 			this.init = new PcgSystemInitiative(pc);
 

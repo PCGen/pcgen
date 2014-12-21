@@ -105,7 +105,8 @@ public class PlayerCharacterOutput
 	 */
 	public String getCR()
 	{
-		float cr = display.calcCR();
+		Integer calcCR  = display.calcCR();
+		float cr = calcCR == null ? -1 : calcCR;
 		String retString = "";
 		String crAsString = Float.toString(cr);
 		String decimalPlaceValue =
