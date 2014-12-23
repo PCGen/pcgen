@@ -732,7 +732,7 @@ ${pcstring('SPELLMEM.${class}.0.${level}.${spell}.BONUSSPELL')}<i>${pcstring('TE
 <@loop from=9 to=0 step=-1; level, level_has_next >
  <#assign spelllevelcount = pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') />
  <#if (spelllevelcount = 0)>
-<!-- no memorized spells for SPELLSINBOOK.${class} ${spellbook} ${level} -->
+<!-- no memorized spells for SPELLSINBOOK.${class}.${spellbook}.${level} -->
  <#else>
 <p class="spells"><@compress single_line=true>
   <#if (level = 0)>
