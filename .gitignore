@@ -25,3 +25,8 @@ pcgen.log
 pcgen.log.*
 pcgen_low_mem.bat
 
+build/
+libs/
+code/testsuite/output/
+.gradle/
+pcgen-batch-convert.jar

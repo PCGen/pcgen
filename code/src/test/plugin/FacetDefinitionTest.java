@@ -23,6 +23,8 @@
  */
 package plugin;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
@@ -30,6 +32,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import pcgen.PCGenTestCase;
 
@@ -47,7 +51,7 @@ import pcgen.PCGenTestCase;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class FacetDefinitionTest extends PCGenTestCase
+public class FacetDefinitionTest
 {
 	/** The file in which we expect all facets to be defined. */
 	final static String appContextFile = "code/src/java/applicationContext.xml"; 
@@ -68,6 +72,7 @@ public class FacetDefinitionTest extends PCGenTestCase
 	 * Check for the presence of all 'general' facets in the spring definition.
 	 * @throws Exception 
 	 */
+	@Test
 	public void testGeneralFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet");
@@ -78,6 +83,7 @@ public class FacetDefinitionTest extends PCGenTestCase
 	 * Check for the presence of all 'analysis' facets in the spring definition.
 	 * @throws Exception 
 	 */
+	@Test
 	public void testAnalysisFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/analysis");
@@ -88,6 +94,7 @@ public class FacetDefinitionTest extends PCGenTestCase
 	 * Check for the presence of all 'event' facets in the spring definition.
 	 * @throws Exception 
 	 */
+	@Test
 	public void testEventFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/event");
@@ -98,6 +105,7 @@ public class FacetDefinitionTest extends PCGenTestCase
 	 * Check for the presence of all 'fact' facets in the spring definition.
 	 * @throws Exception 
 	 */
+	@Test
 	public void testFactFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/fact");
@@ -106,8 +114,11 @@ public class FacetDefinitionTest extends PCGenTestCase
 	
 	/**
 	 * Check for the presence of all 'filter' facets in the spring definition.
+	 * NB: These do not exist yet so the test is disabled.
 	 * @throws Exception 
 	 */
+	@Ignore
+	@Test
 	public void testFilterFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/filter");
@@ -118,6 +129,7 @@ public class FacetDefinitionTest extends PCGenTestCase
 	 * Check for the presence of all 'input' facets in the spring definition.
 	 * @throws Exception 
 	 */
+	@Test
 	public void testInputFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/input");
@@ -126,8 +138,11 @@ public class FacetDefinitionTest extends PCGenTestCase
 	
 	/**
 	 * Check for the presence of all 'link' facets in the spring definition.
+	 * NB: These do not exist yet so the test is disabled.
 	 * @throws Exception 
 	 */
+	@Ignore
+	@Test
 	public void testLinkFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/link");
@@ -136,8 +151,11 @@ public class FacetDefinitionTest extends PCGenTestCase
 	
 	/**
 	 * Check for the presence of all 'list' facets in the spring definition.
+	 * NB: These do not exist yet so the test is disabled.
 	 * @throws Exception 
 	 */
+	@Ignore
+	@Test
 	public void testListFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/list");
@@ -148,6 +166,7 @@ public class FacetDefinitionTest extends PCGenTestCase
 	 * Check for the presence of all 'model' facets in the spring definition.
 	 * @throws Exception 
 	 */
+	@Test
 	public void testModelFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/model");
@@ -156,8 +175,11 @@ public class FacetDefinitionTest extends PCGenTestCase
 	
 	/**
 	 * Check for the presence of all 'utility' facets in the spring definition.
+	 * NB: These do not exist yet so the test is disabled.
 	 * @throws Exception 
 	 */
+	@Ignore
+	@Test
 	public void testUtilityFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/utility");
