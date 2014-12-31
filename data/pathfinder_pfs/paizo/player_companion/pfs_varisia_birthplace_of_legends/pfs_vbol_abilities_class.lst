@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Mon Oct 13 21:33:18 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Varisia, Birthplace of Legend	SOURCESHORT:VBoL	SOURCEWEB:http://paizo.com/products/btpy8tim?Pathfinder-Player-Companion-Varisia-Birthplace-of-Legends	SOURCEDATE:2012-9
+# Original Entry by: John Mooney (SLoPPYALieN)
+
+###Block: Magus -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+###Block: Magus Arcana		DESC:As he gains levels, a magus masters arcane secrets that supplement his magical and martial attacks. Any magus who meets the prerequisites listed in a magus arcana's description can select that arcana. Unless specifically noted in a magus arcana's description, a magus cannot select a particular magus arcana more than once. Magus arcana that affect spells can only be used to modify spells from the magus spell list unless otherwise noted in their descriptions.																																																								SOURCEPAGE:p.53
+# Ability Name	Unique Key					Category of Ability		Type								Var. Min. Value			Description																																																																					Source Page
+CATEGORY=Special Ability|Magus Arcana ~ Elasticity.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Magus Arcana ~ Kapenia Curse.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Magus Arcana ~ Spirit Fingers.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Magus Arcana ~ Kapenia Curse.MOD	TYPE:PFSNotLegal	VISIBLE:NO

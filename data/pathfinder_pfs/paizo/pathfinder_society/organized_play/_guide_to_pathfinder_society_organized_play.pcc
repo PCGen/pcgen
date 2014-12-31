@@ -70,7 +70,7 @@ PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_bestiary_3/pfs_bestiary_3.pcc
 # PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_bestiary_4/pfs_bestiary_4.pcc
 # PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_monster_codex/pfs_monster_codex.pcc
 # PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_npc_codex/pfs_npc_codex.pcc
-# PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_campaign/pfs_ultimate_campaign.pcc
+PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_campaign/pfs_ultimate_campaign.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_combat/pfs_ultimate_combat.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_equipment/pfs_ultimate_equipment.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_magic/pfs_ultimate_magic.pcc
@@ -121,7 +121,7 @@ PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_seekers_of_secrets/pfs_seekers_o
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_adventurers_armory/pfs_adventurers_armory.pcc
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_alchemy_manual/pfs_alchemy_manual.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_andoran_spirit_of_liberty/pfs_andoran_spirit_of_liberty.pcc
-# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_animal_archive/pfs_animal_archive.pcc
+PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_animal_archive/pfs_animal_archive.pcc
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_bastards_of_golarion/pfs_bastards_of_golarion.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_blood_of_angels/pfs_blood_of_angels.pcc
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_blood_of_the_elements/pfs_blood_of_the_elements.pcc
@@ -164,7 +164,7 @@ PCC:@/pathfinder_pfs/paizo/player_companion/pfs_sargava_the_lost_colony/pfs_sarg
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_second_darkness/pfs_second_darkness.pcc
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_taldor_echoes_of_glory/pfs_taldor_echoes_of_glory.pcc
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_undead_slayers_handbook/pfs_undead_slayers_handbook.pcc
-# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_varisia_birthplace_of_legends/pfs_varisia_birthplace_of_legends.pcc
+PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_varisia_birthplace_of_legends/pfs_varisia_birthplace_of_legends.pcc
 
 #PCC:@/pathfinder_pfs/paizo/adventure_path/curse_of_the_crimson_throne/pfs_players_guide/pfs_curse_of_the_crimson_throne_players_guide.pcc
 #PCC:@/pathfinder_pfs/paizo/adventure_path/curse_of_the_crimson_throne/pfs_ap9/pfs_ap9.pcc

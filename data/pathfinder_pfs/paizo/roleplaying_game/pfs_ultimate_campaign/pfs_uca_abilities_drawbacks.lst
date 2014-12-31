@@ -1,0 +1,32 @@
+# CVS $Revision: 20472 $ $Author: zaister $ -- Fri Jul 12 11:09:20 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Ultimate Campaign	SOURCESHORT:UCA	SOURCEWEB:http://paizo.com/products/btpy8x64?Pathfinder-Roleplaying-Game-Ultimate-Campaign	SOURCEDATE:2013-05
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 12 July 2013
+
+###Block: Modify default ability
+# Ability Name			Bonus to Ability Pool
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Traits|1|PRECHARACTERTYPE:1,PC|PREABILITY:1,CATEGORY=Special Ability,TYPE.Drawback
+
+###Block: Drawbacks
+# Ability Name	Unique Key				Category of Ability		Type			Multiple Requirements																			Description																			Cost		Source Page		Description of the Benefits
+CATEGORY=Special Ability|Attached ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Avarice ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Dependent ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Doubt ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Family Ties ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Headstrong ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Hedonistic ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Lovesick ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Meticulous ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Paranoid ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Power-Hungry ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Pride ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Provincial ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Sentimental ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Vain ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Xenophobic ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Zealous ~ Drawback.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+
+#
+# End
+#
