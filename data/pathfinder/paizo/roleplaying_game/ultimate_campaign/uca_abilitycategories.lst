@@ -1,0 +1,8 @@
+# CVS $Revision: 20472 $ $Author: zaister $ -- Fri Jul 12 10:35:33 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+#SOURCELONG:Ultimate Campaign	SOURCESHORT:UCA	SOURCEWEB:http://paizo.com/products/btpy8x64?Pathfinder-Roleplaying-Game-Ultimate-Campaign	SOURCEDATE:2012-08
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 12 July 2013
+
+###Block: Character Traits
+# Ability Category		Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Drawbacks	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Drawback	PLURAL:Drawbacks			DISPLAYLOCATION:Traits
