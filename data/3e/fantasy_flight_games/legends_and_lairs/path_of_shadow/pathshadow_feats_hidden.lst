@@ -42,7 +42,7 @@ Close Call						TYPE:ChanceSpecialAbilities	VISIBLE:NO																										
 One More Time					TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:One More Time (Su)																													SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 Random Action					TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:Random Action (Sp)		SPELLS:Class|TIMES=1|Random Action																						SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 Acolyte of Chance Lightning Reflexes A	TYPE:ChanceSpecialAbilities	VISIBLE:NO	PREFEAT:1,Lightning Reflexes						!PRESA:1,Lightning Reflexes	SAB:Lightning Reflexes (Ex)																			BONUS:SAVE|Reflex|2						SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
-Acolyte of Chance Lightning Reflexes B	TYPE:ChanceSpecialAbilities	VISIBLE:NO						!PREFEAT:1,Lightning Reflexes	!PRESA:1,Lightning Reflexes	SAB:Lightning Reflexes (Ex)														ADD:FEAT|Lightning Reflexes										SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
+Acolyte of Chance Lightning Reflexes B	TYPE:ChanceSpecialAbilities	VISIBLE:NO						!PREFEAT:1,Lightning Reflexes	!PRESA:1,Lightning Reflexes	SAB:Lightning Reflexes (Ex)														AUTO:FEAT|Lightning Reflexes										SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 Dumb Luck						TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:Dumb Luck (Ex)																													SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 Vitality of Chance				TYPE:ChanceSpecialAbilities	VISIBLE:NO																SAB:Vitality of Chance (Ex)																							BONUS:VAR|VitalityChance|1	SOURCEPAGE:Chap.1, Acolyte of Chance, Aura of Chance Abilities
 

@@ -115,7 +115,7 @@ CLASS:Ring Sage	PRESKILL:2,Knowledge (Arcana)=10,Spellcraft=10	PRESPELLTYPE:1,Ar
 CLASS:Ring Sage	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
 1	SAB:Extra Ring		BONUS:SLOTS|RING|1	ADD:SPELLCASTER|ANY
 2	SAB:Discern Ring						ADD:SPELLCASTER|ANY
-3	SAB:Imbue Ring I						ADD:SPELLCASTER|ANY	ADD:FEAT|Forge Ring
+3	SAB:Imbue Ring I						ADD:SPELLCASTER|ANY	AUTO:FEAT|Forge Ring
 4	SAB:Skilled Creator					ADD:SPELLCASTER|ANY
 5	SAB:Imbue Ring II		BONUS:SLOTS|RING|1	ADD:SPELLCASTER|ANY
 6	SAB:Augment Ring Power					ADD:SPELLCASTER|ANY

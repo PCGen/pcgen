@@ -180,7 +180,7 @@ CLASS:Warrior Arcanist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Int
 5																									AUTO:FEAT|Regenerative Strike
 6								BONUS:VAR|IgnoreArmorBonus|10	BONUS:VAR|MaxSpellChanneling|1
 8								BONUS:VAR|IgnoreArmorBonus|10
-9																			ADD:FEAT|TYPE=Fighter
+9																			BONUS:ABILITYPOOL|Fighter Feat|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Whisper Adept	HD:8		TYPE:PC.Prestige	ABB:whs		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2

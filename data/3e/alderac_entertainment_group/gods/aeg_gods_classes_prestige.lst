@@ -27,10 +27,10 @@ CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Animal Empathy|Balance|Climb|Concentra
 2	SAB:Read Spirit
 3	SAB:Shared Life
 4	SAB:Improved Augury
-5																ADD:FEAT|TYPE=Metamagic
+5																BONUS:ABILITYPOOL|Metamagic|1
 6	SAB:Rain Dance
 7	SAB:Become Totem								BONUS:VAR|BecomeTotemTimes|1
-8																ADD:FEAT|TYPE=Metamagic
+8																BONUS:ABILITYPOOL|Metamagic|1
 9											BONUS:VAR|BecomeTotemTimes|1
 10	SAB:Shape of the Beast
 
@@ -287,7 +287,7 @@ CLASS:The Broken	STARTSKILLPTS:3	CSKILL:Alchemy|Bluff|Concentration|Diplomacy|In
 #1:REPEATLEVEL:1	BONUS:STAT|WIS|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[!PRECLASS:1,Bard=1,Sorcerer=1]
 #1:REPEATLEVEL:1	BONUS:STAT|CHA|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[PRECLASS:1,Bard=1,Sorcerer=1]
 #1:REPEATLEVEL:1	BONUS:STAT|CHA|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[PRECLASS:1,Bard=1,Sorcerer=1]
-2:REPEATLEVEL:2|MAX=8				ADD:FEAT|TYPE=Metamagic
+2:REPEATLEVEL:2|MAX=8				BONUS:ABILITYPOOL|Metamagic|1
 ###Block: Normal Progression
 1	SAB:No Pain	SAB:The Wasting
 3	SAB:Unnatural Drives
@@ -344,7 +344,7 @@ CLASS:Black Nail	STARTSKILLPTS:2	CSKILL:Balance|Climb|Intimidate|Intuit Directio
 1	SAB:Thick Hide				BONUS:COMBAT|AC|1|TYPE=NaturalArmor
 2							BONUS:COMBAT|AC|1|TYPE=NaturalArmor
 3	SAB:Battle Cry|Formation Fighting	BONUS:COMBAT|AC|1|TYPE=NaturalArmor
-4							BONUS:COMBAT|AC|1|TYPE=NaturalArmor	ADD:FEAT|TYPE=Fighter
+4							BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:ABILITYPOOL|Fighter Feat|1
 5	SAB:Great Leadership			BONUS:COMBAT|AC|1|TYPE=NaturalArmor
 
 #Class:Chaos Crusader
@@ -487,12 +487,12 @@ CLASS:Vendaks Chosen	STARTSKILLPTS:2	CSKILL:Alchemy|Climb|Concentration|TYPE=Cra
 ###Block: Class Features
 ###Block: Normal Progression
 1	SAB:Ancestral Knowledge		BONUS:VAR|AncestralKnowledge|2
-2	SAB:Blessing of Vendak												ADD:FEAT|TYPE=Fighter
+2	SAB:Blessing of Vendak												BONUS:ABILITYPOOL|Fighter Feat|1
 3	SAB:Improved Regeneration
 4	SAB:Song of Vendak		BONUS:VAR|AncestralKnowledge|2
-5	SAB:Growth				BONUS:VAR|GrowthBonus|1							ADD:FEAT|TYPE=Fighter
+5	SAB:Growth				BONUS:VAR|GrowthBonus|1							BONUS:ABILITYPOOL|Fighter Feat|1
 6	SAB:Bounty of Vendak
-7						BONUS:VAR|AncestralKnowledge|2					ADD:FEAT|TYPE=Fighter
+7						BONUS:VAR|AncestralKnowledge|2					BONUS:ABILITYPOOL|Fighter Feat|1
 8	SAB:Greater Regeneration
 9	SAB:Voice of Vendak
 10						BONUS:VAR|AncestralKnowledge|2	BONUS:VAR|GrowthBonus|1

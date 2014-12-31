@@ -203,14 +203,14 @@ CLASS:Claw of the Hunt	STARTSKILLPTS:4	CSKILL:Balance|Climb|Control Shape|Hide|I
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1																											BONUS:VAR|SneakAttackDice|1					ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+1																											BONUS:VAR|SneakAttackDice|1					BONUS:ABILITYPOOL|Fighter Feat|1,TYPE=Mhuinntir	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2	SAB:Hunter's Claws +%|HunterClaw	BONUS:COMBAT|DAMAGE.Natural|HunterClaw|TYPE=Enhancement	BONUS:COMBAT|TOHIT.Natural|HunterClaw|TYPE=Enhancement	BONUS:VAR|HunterClaw|CL/2	DEFINE:HunterClaw|0
 3	SAB:Defensive Shift
-4																																				ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir
+4																																				BONUS:ABILITYPOOL|Fighter Feat|1,TYPE=Mhuinntir
 5																											BONUS:VAR|SneakAttackDice|1
-7																																				ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir
+7																																				BONUS:ABILITYPOOL|Fighter Feat|1,TYPE=Mhuinntir
 9																											BONUS:VAR|SneakAttackDice|1
-10																																				ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir
+10																																				BONUS:ABILITYPOOL|Fighter Feat|1,TYPE=Mhuinntir
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Niomus Windweaver	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
@@ -265,7 +265,7 @@ CLASS:Quissian Blademaster	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TY
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Precise Strike %/day|PreciseStrike	BONUS:VAR|PreciseStrike|1	DEFINE:PreciseStrike|0
-2																	ADD:FEAT|TYPE=Fighter
+2																	BONUS:ABILITYPOOL|Fighter Feat|1
 3	SAB:Mind Over Body
 4								BONUS:VAR|PreciseStrike|1
 5	SAB:Self Healing
