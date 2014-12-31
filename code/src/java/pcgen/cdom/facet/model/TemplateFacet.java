@@ -21,18 +21,21 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.PCTemplate;
+import pcgen.output.publish.OutputDB;
 
 /**
  * TemplateFacet is a Facet that tracks all PCTemplates that have been granted
  * to a Player Character.
  */
 public class TemplateFacet extends AbstractSourcedListFacet<CharID, PCTemplate>
-		implements DataFacetChangeListener<CharID, PCTemplate>
+		implements DataFacetChangeListener<CharID, PCTemplate>,
+		SetFacet<CharID, PCTemplate>
 {
 	/**
 	 * Adds the active PCTemplate to this facet.
@@ -86,4 +89,8 @@ public class TemplateFacet extends AbstractSourcedListFacet<CharID, PCTemplate>
 		return new LinkedHashMap<PCTemplate, Set<Object>>();
 	}
 
+	public void init()
+	{
+		OutputDB.register("templates", this);
+	}
 }

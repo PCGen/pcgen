@@ -117,7 +117,7 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFi
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
 	{
 		return pcs.getCollection(pc, new AddFilterConverter<WeaponProf, R>(c, this));
 	}

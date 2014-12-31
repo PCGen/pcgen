@@ -103,7 +103,7 @@ public class PantheonToken implements PrimitiveToken<Deity>, PrimitiveFilter<Dei
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Deity, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Deity, R> c)
 	{
 		return c.convert(allDeities, this);
 	}

@@ -83,14 +83,16 @@ import pcgen.io.exporttoken.WeaponhToken;
 import pcgen.io.freemarker.EquipSetLoopDirective;
 import pcgen.io.freemarker.LoopDirective;
 import pcgen.io.freemarker.PCBooleanFunction;
+import pcgen.io.freemarker.PCHasVarFunction;
 import pcgen.io.freemarker.PCStringDirective;
 import pcgen.io.freemarker.PCVarFunction;
-import pcgen.io.freemarker.PCHasVarFunction;
+import pcgen.output.publish.OutputDB;
 import pcgen.system.PluginLoader;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 import freemarker.template.Configuration;
+import freemarker.template.ObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.Version;
@@ -125,7 +127,7 @@ public final class ExportHandler
 	 * ExportEngine describes a possible templating engine to be used to 
 	 * process a character and a template to produce the character output.
 	 */
-	private enum ExportEngine { PCGEN, FREEMARKER};
+	private enum ExportEngine { PCGEN, FREEMARKER}
 	
 	// Processing state variables
 
@@ -331,15 +333,13 @@ public final class ExportHandler
 			cfg.setSharedVariable("pchasvar", new PCHasVarFunction(aPC, this));
 			cfg.setSharedVariable("loop", new LoopDirective());
 			cfg.setSharedVariable("equipsetloop", new EquipSetLoopDirective(aPC));
-			
-			// data-model
-			Map<String, Object> input = new HashMap<String, Object>();
-//			input.put("pc", aPC);
-//			input.put("exportHandler", this);
-//			input.put("gameModeVarCountMap", gameModeVarCountMap);
-//			input.put("pathIgnoreLen", dataPathLen + 1);
-			input.put("gamemodename", SettingsHandler.getGame().getName());
 
+			// data-model
+			Map<String, Object> pc = OutputDB.buildDataModel(aPC.getCharID());
+			Map<String, Object> input = new HashMap<String, Object>();
+			input.put("pc", ObjectWrapper.DEFAULT_WRAPPER.wrap(pc));
+			input.put("gamemodename", SettingsHandler.getGame().getName());
+			
 			// Process the template
 			template.process(input, outputWriter);
 		}
@@ -369,8 +369,7 @@ public final class ExportHandler
 			}
 		}
 	}
-	
-	
+
 	/**
 	 * A helper method to prepare the template for exporting
 	 * 

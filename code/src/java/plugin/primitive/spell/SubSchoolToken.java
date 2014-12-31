@@ -104,7 +104,7 @@ public class SubSchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Sp
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
 			Converter<Spell, R> c)
 	{
 		return c.convert(allSpells, this);

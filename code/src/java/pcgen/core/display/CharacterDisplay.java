@@ -132,7 +132,7 @@ import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.cdom.facet.model.WeaponProfFacet;
+import pcgen.cdom.facet.model.WeaponProfModelFacet;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -251,7 +251,7 @@ public class CharacterDisplay
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
 	private SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
-	private WeaponProfFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
+	private WeaponProfModelFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfModelFacet.class);
 	private FaceFacet faceFacet = FacetLibrary.getFacet(FaceFacet.class);
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
@@ -690,7 +690,7 @@ public class CharacterDisplay
 	 */
 	public Set<PCClass> getClassSet()
 	{
-		return classFacet.getClassSet(id);
+		return classFacet.getSet(id);
 	}
 
 	public String getSubClassName(PCClass cl)
@@ -756,7 +756,7 @@ public class CharacterDisplay
 
 	public SortedSet<WeaponProf> getSortedWeaponProfs()
 	{
-		return Collections.unmodifiableSortedSet(new TreeSet<WeaponProf>(weaponProfFacet.getProfs(id)));
+		return Collections.unmodifiableSortedSet(new TreeSet<WeaponProf>(weaponProfFacet.getSet(id)));
 	}
 
 	public String getSize()
@@ -1382,7 +1382,7 @@ public class CharacterDisplay
 
 	public SizeAdjustment getSizeAdjustment()
 	{
-		return sizeFacet.getSizeAdjustment(id);
+		return sizeFacet.get(id);
 	}
 
 	/**
@@ -1801,7 +1801,7 @@ public class CharacterDisplay
 
 	public Collection<WeaponProf> getWeaponProfSet()
 	{
-		return weaponProfFacet.getProfs(id);
+		return weaponProfFacet.getSet(id);
 	}
 
 	public List<? extends SpecialAbility> getUserSpecialAbilityList(CDOMObject source)

@@ -21,13 +21,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.primitive.CompoundAndPrimitive;
 import pcgen.cdom.primitive.CompoundOrPrimitive;
 import pcgen.cdom.primitive.NegatingPrimitive;
+import pcgen.cdom.primitive.ObjectContainerPrimitive;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.SelectionCreator;
@@ -52,18 +55,6 @@ public final class ChoiceSetLoadUtilities
 	public static <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(
 			LoadContext context, SelectionCreator<T> sc, String joinedOr)
 	{
-		/*
-		 * TODO Need to check why this was in CDOM branch - does it work without
-		 * it? - it should!
-		 */
-		// if (joinedOr.equals(Constants.LST_ANY) ||
-		// joinedOr.equals(Constants.LST_ALL))
-		// {
-		// /*
-		// * TODO Categorized items break here :(
-		// */
-		// return new AnyChoiceSet<T>(poClass);
-		// }
 		List<PrimitiveCollection<T>> orList = new ArrayList<PrimitiveCollection<T>>();
 		for (ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|'); pipe
 				.hasNext();)
@@ -291,8 +282,12 @@ public final class ChoiceSetLoadUtilities
 		{
 			return null;
 		}
-		PrimitiveCollection<T> prim = getTokenPrimitive(context, sc
-				.getReferenceClass(), pi);
+		Class<T> refClass = sc.getReferenceClass(); //check against reference class of GroupDefinition
+		PrimitiveCollection<T> prim = getTokenPrimitive(context, refClass, pi);
+		if (prim == null)
+		{
+			prim = getDynamicGroup(context, pi, refClass);
+		}
 		if (prim == null)
 		{
 			return getTraditionalPrimitive(sc, pi);
@@ -300,6 +295,19 @@ public final class ChoiceSetLoadUtilities
 		return prim;
 	}
 
+	private static <T extends Loadable> PrimitiveCollection<T> getDynamicGroup(
+		LoadContext context, PrimitiveInfo pi, Class<T> refClass)
+	{
+		GroupDefinition<?> fgd = TokenLibrary.getGroup(refClass, pi.tokKey);
+		if (fgd == null)
+		{
+			return null;
+		}
+		ObjectContainer<T> p =
+				(ObjectContainer<T>) fgd.getPrimitive(context, pi.tokValue);
+		return new ObjectContainerPrimitive<T>(p);
+	}
+	
 	public static <T> PrimitiveCollection<T> getTokenPrimitive(
 			LoadContext context, Class<T> cl, PrimitiveInfo pi)
 	{

@@ -117,7 +117,7 @@ public class WieldCategoryToken implements PrimitiveToken<Equipment>, PrimitiveF
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
 			Converter<Equipment, R> c)
 	{
 		return c.convert(allEquipment, this);

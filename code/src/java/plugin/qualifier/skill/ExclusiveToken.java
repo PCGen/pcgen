@@ -129,7 +129,7 @@ public class ExclusiveToken implements QualifierToken<Skill>, PrimitiveFilter<Sk
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Skill, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Skill, R> c)
 	{
 		Converter<Skill, R> conv = new AddFilterConverter<Skill, R>(c, this);
 		conv = negated ? new NegateFilterConverter<Skill, R>(conv) : conv;

@@ -32,5 +32,7 @@ code/testsuite/output/
 pcgen-batch-convert.jar
 /.metadata
 /Trunk.bat
-/.settings/gradle
 /target/
+/.settings/
+/variable_report.csv
+/variable_report.html

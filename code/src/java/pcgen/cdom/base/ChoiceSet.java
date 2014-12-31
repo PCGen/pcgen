@@ -152,7 +152,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 *         PlayerCharacter.
 	 */
 	@Override
-	public Collection<T> getSet(PlayerCharacter pc)
+	public Collection<? extends T> getSet(PlayerCharacter pc)
 	{
 		return pcs.getSet(pc);
 	}

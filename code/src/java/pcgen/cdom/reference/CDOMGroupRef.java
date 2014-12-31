@@ -18,8 +18,8 @@
  */
 package pcgen.cdom.reference;
 
+import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ObjectContainer;
 
 /**
  * A CDOMGroupRef is a CDOMReference which is intended to contain more than one

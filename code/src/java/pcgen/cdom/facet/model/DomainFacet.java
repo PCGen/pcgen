@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.base.SetFacet;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.meta.CorePerspective;
@@ -24,6 +26,7 @@ import pcgen.cdom.meta.CorePerspectiveDB;
 import pcgen.cdom.meta.FacetBehavior;
 import pcgen.cdom.meta.PerspectiveLocation;
 import pcgen.core.Domain;
+import pcgen.output.publish.OutputDB;
 
 /**
  * DomainFacet is a Facet that tracks the Domains possessed by a Player
@@ -31,11 +34,12 @@ import pcgen.core.Domain;
  */
 public class DomainFacet extends
 		AbstractSingleSourceListFacet<Domain, ClassSource> implements
-		PerspectiveLocation
+		PerspectiveLocation, SetFacet<CharID, Domain>
 {
 	public void init()
 	{
 		CorePerspectiveDB.register(CorePerspective.DOMAIN, FacetBehavior.MODEL, this);
+		OutputDB.register("domains", this);
 	}
 
 	@Override

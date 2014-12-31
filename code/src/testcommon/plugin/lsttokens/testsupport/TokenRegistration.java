@@ -35,6 +35,8 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.rules.persistence.token.QualifierToken;
+import pcgen.rules.types.FormatManager;
+import pcgen.rules.types.FormatManagerLibrary;
 
 public class TokenRegistration
 {
@@ -98,6 +100,7 @@ public class TokenRegistration
 		tokenSet.clear();
 		ppiSet.clear();
 		PreParserFactory.clear();
+		FormatManagerLibrary.reset();
 	}
 
 	public static Set<String> pwSet = new HashSet<String>();
@@ -111,6 +114,11 @@ public class TokenRegistration
 			PrerequisiteWriterFactory.register(writer);
 			pwSet.add(s);
 		}
+	}
+
+	public static void register(FormatManager<?> manager)
+	{
+		FormatManagerLibrary.addFormatManager(manager);
 	}
 
 	public static void register(Class<? extends BonusObj> cl)

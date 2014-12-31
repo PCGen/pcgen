@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.model;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.WeaponProfFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.WeaponProf;

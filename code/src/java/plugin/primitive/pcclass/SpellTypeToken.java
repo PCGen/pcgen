@@ -100,7 +100,7 @@ public class SpellTypeToken implements PrimitiveToken<PCClass>, PrimitiveFilter<
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
 			Converter<PCClass, R> c)
 	{
 		return c.convert(allClasses, this);

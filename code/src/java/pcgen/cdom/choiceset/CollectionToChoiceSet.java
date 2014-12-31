@@ -58,7 +58,7 @@ public class CollectionToChoiceSet<T> implements PrimitiveChoiceSet<T>
 	}
 
 	@Override
-	public Collection<T> getSet(PlayerCharacter pc)
+	public Collection<? extends T> getSet(PlayerCharacter pc)
 	{
 		return primitive.getCollection(pc, new DereferencingConverter<T>(pc));
 	}
