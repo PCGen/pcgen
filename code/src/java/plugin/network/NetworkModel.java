@@ -28,7 +28,6 @@ import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
 import gmgen.util.LogReceiver;
 import gmgen.util.LogUtilities;
-import gmgen.util.MiscUtilities;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

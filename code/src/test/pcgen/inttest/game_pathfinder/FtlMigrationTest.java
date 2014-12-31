@@ -22,9 +22,8 @@
  */
 package pcgen.inttest.game_pathfinder;
 
-import static org.junit.Assert.fail;
-import static org.custommonkey.xmlunit.XMLAssert.assertXMLEqual;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.io.BufferedReader;
 import java.io.File;

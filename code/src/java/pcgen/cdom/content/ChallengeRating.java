@@ -17,8 +17,6 @@
  */
 package pcgen.cdom.content;
 
-import java.util.Map;
-
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.FormulaFactory;
