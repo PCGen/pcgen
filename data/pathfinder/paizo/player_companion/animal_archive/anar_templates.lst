@@ -1,0 +1,28 @@
+
+
+
+Body Type	TEMPLATE:CHOOSE:TYPE=BodyTypeByRace	ABILITY:EqSlot|AUTOMATIC|EQSlot Tracker
+#
+Body Type ~ Avian					TYPE:BodyTypeByRace			ABILITY:EqSlot|AUTOMATIC|Armor|Belt|Chest|Eyes|Headband|Neck|Ring|Wrist								
+Body Type ~ Biped (claws/paws)		TYPE:BodyTypeByRace			ABILITY:EqSlot|AUTOMATIC|Armor|Belt|Chest|Eyes|Headband|Neck|Ring|Shoulders|Wrist						
+Body Type ~ Biped (hands)			TYPE:BodyTypeByRace			ABILITY:EqSlot|AUTOMATIC|TYPE=Eqslot													
+Body Type ~ Piscine				TYPE:BodyTypeByRace			ABILITY:EqSlot|AUTOMATIC|Belt|Chest|Eyes											
+Body Type ~ Quadruped (claws/paws)		TYPE:BodyTypeByRace			ABILITY:EqSlot|AUTOMATIC|Armor|Belt|Chest|Eyes|Headband|Neck|Shoulders|Wrist					
+Body Type ~ Quadruped/Hexapod (feet)	TYPE:BodyTypeByRace			ABILITY:EqSlot|AUTOMATIC|Armor|Belt|Chest|Eyes|Headband|Neck|Shoulders|Wrist					
+Body Type ~ Quadruped (hooves)		TYPE:BodyTypeByRace			ABILITY:EqSlot|AUTOMATIC|Armor|Belt|Chest|Eyes|Feet|Head|Headband|Neck|Shoulders|Wrist	
+Body Type ~ Quadruped (squat-body)		TYPE:BodyTypeByRace			ABILITY:EqSlot|AUTOMATIC|Armor|Eyes|Headband|Neck|Shoulders|Wrist									
+Body Type ~ Saurian				TYPE:BodyTypeByRace			ABILITY:EqSlot|AUTOMATIC|Armor|Belt|Chest|Eyes|Headband|Neck								
+Body Type ~ Serpentine				TYPE:BodyTypeByRace			ABILITY:EqSlot|AUTOMATIC|Belt|Eyes|Headband												
+Body Type ~ Verminous				TYPE:BodyTypeByRace			ABILITY:EqSlot|AUTOMATIC|Belt|Eyes														
+Body Type ~ Not Determined			TYPE:BodyTypeByRace			ABILITY:EqSlot|AUTOMATIC|TYPE=Eqslot
+
+
+
+
+
+
+
+
+
+
+

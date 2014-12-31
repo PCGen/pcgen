@@ -1,0 +1,106 @@
+# $Revision$ $Author$
+SOURCELONG:Pathfinder Player Companion Animal Archive	SOURCESHORT:AnAr	SOURCEWEB:http://paizo.com/products/btpy8tdj?Pathfinder-Player-Companion-Animal-Archive	SOURCEDATE:2013-03
+
+###Block: Animal Tricks ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Ability Name	Unique Key					Category of Ability		Type			Sourcepage		Description																																			Source Page		Description of the Benefits
+Aid			KEY:Animal Trick ~ Aid			CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.8	DESC:The animal can use the aid another action to aid a specific ally in combat by attacking a specific foe the ally is fighting.	
+Bombard		KEY:Animal Trick ~ Bombard		CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.8	DESC:A flying animal can deliver projectiles on command, attempting to drop a specified item that it can carry on a designated point or opponent, using its base attack bonus to determine its attack roll.
+Break Out		KEY:Animal Trick ~ Break Out		CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.8	DESC:On command, the animal attempts to break or gnaw through any bars or bindings restricting itself, its handler, or a person indicated by the handler. If not effective on its own, this trick can grant the target character a +4 circumstance bonus on Escape Artist checks. The animal can also take certain basic actions like lifting a latch or bringing its master an unattended key.
+Bury			KEY:Animal Trick ~ Bury			CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.8	DESC:An animal with this trick can be instructed to bury an object in its possession.
+Deliver		KEY:Animal Trick ~ Deliver		CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.8	DESC:The animal takes an object to a place or person you indicate.
+Detect		KEY:Animal Trick ~ Detect		CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.8	DESC:The animal is trained to seek out the smells of explosives and poisons, unusual noises or echoes, air currents, and other common elements signifying potential dangers or secret passages.
+Entertain		KEY:Animal Trick ~ Entertain		CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.8	DESC:The animal can dance, sing, or perform some other impressive and enjoyable trick to entertain those around it. At the command of its owner, the animal can make a Perform check (or a Charisma check if it has no ranks in Perform) to show off its talent.
+Exclusive		KEY:Animal Trick ~ Exclusive		CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.9	DESC:The animal takes directions only from the handler who taught it this trick.
+Flank			KEY:Animal Trick ~ FLank		CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.9	DESC:You can instruct an animal to attack a foe you point to and always attempt to be adjacent to (and threatening) that foe.
+Flee			KEY:Animal Trick ~ Flee			CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.9	DESC:The animal attempts to run away or hide as best it can, returning only when its handler commands it to do so.
+Get Help		KEY:Animal Trick ~ Get Help		CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.9	DESC:With this trick, a trainer can designate a number of creatures up to the animal's Intelligence score as "help." When the command is given, the animal attempts to find one of those people and bring her back to the handler, even if that means journeying a long distance to the last place it encountered the target creature.
+Hunt			KEY:Animal Trick ~ Hunt			CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.9	DESC:This trick allows an animal to use its natural stalking or foraging instincts to find food and return it to the animal's handler.
+Maneuver		KEY:Animal Trick ~ Maneuver		CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.9	DESC:The animal is trained to use a specific combat maneuver on command.
+Menace		KEY:Animal Trick ~ Menace		CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.9	DESC:A menacing animal attempts to keep a creature you indicate from moving.
+Serve			KEY:Animal Trick ~ Serve		CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.9	DESC:An animal with this trick willingly takes orders from a creature you designate.
+Sneak			KEY:Animal Trick ~ Sneak		CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.9	DESC:The animal can be ordered to make Stealth checks in order to stay hidden and to continue using Stealth even when circumstances or its natural instincts would normally cause it to abandon secrecy.
+Throw Rider		KEY:Animal Trick ~ Throw Rider	CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.9	DESC:The animal can attempt to fling a creature riding it to the ground. Treat this as a trip combat maneuver that applies to all creatures riding the animal, and that does not provoke attacks of opportunity.
+Watch			KEY:Animal Trick ~ Watch		CATEGORY:Special Ability	TYPE:AnimalTrick	SOURCEPAGE:p.9	DESC:The animal can be commanded to keep watch over a particular area, such as a campsite, and raise an alarm if it notices any sizable or dangerous creature entering the area.
+
+###Block: Animal Training ----------------------------------------------------------------------------------------------------------------------------------------------------------
+Trained for Air Support		SORTKEY:1 Animal Trained for Air Support	KEY:Animal Training ~ Air Support	CATEGORY:Special Ability	TYPE:AnimalTrick.AnimalTraining.General.SpecialQuality	!PREABILITY:1,CATEGORY=Special Ability,TYPE.AnimalTraining	ABILITY:Animal Trick|AUTOMATIC|Animal Trick ~ Attack|Animal Trick ~ Bombard|Animal Trick ~ Deliver							COST:3	SOURCEPAGE:p.9	DESC:An animal trained in air support knows the attack, bombard, and deliver tricks.
+Burglar				SORTKEY:1 Animal Trained for Burglar	KEY:Animal Training ~ Burglar		CATEGORY:Special Ability	TYPE:AnimalTrick.AnimalTraining.General.SpecialQuality	!PREABILITY:1,CATEGORY=Special Ability,TYPE.AnimalTraining	ABILITY:Animal Trick|AUTOMATIC|Animal Trick ~ Come|Animal Trick ~ Fetch|Animal Trick ~ Maneuver|Animal Trick ~ Seek|Animal Trick ~ Sneak	COST:5	SOURCEPAGE:p.9	DESC:An animal trained as a burglar knows the come, fetch, maneuver (steal), seek, and sneak tricks. You can order it to steal a specific item you point out.
+Liberator				SORTKEY:1 Animal Trained for Liberator	KEY:Animal Training ~ Liberator	CATEGORY:Special Ability	TYPE:AnimalTrick.AnimalTraining.General.SpecialQuality	!PREABILITY:1,CATEGORY=Special Ability,TYPE.AnimalTraining	ABILITY:Animal Trick|AUTOMATIC|Animal Trick ~ Break Out|Animal Trick ~ Flee|Animal Trick ~ Get Help							COST:3	SOURCEPAGE:p.9	DESC:An animal trained in liberating knows the break out, flee, and get help tricks.
+Servant				SORTKEY:1 Animal Trained for Servant	KEY:Animal Training ~ Servant		CATEGORY:Special Ability	TYPE:AnimalTrick.AnimalTraining.General.SpecialQuality	!PREABILITY:1,CATEGORY=Special Ability,TYPE.AnimalTraining	ABILITY:Animal Trick|AUTOMATIC|Animal Trick ~ Deliver|Animal Trick ~ Exclusive|Animal Trick ~ Serve							COST:3	SOURCEPAGE:p.9	DESC:An animal trained as a servant knows the deliver, exclusive, and serve tricks.
+
+###Block: Companion Support
+
+Companion Advancement (Llama)				KEY:Companion Advancement ~ Llama				CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Llama)																																				BONUS:SIZEMOD|NUMBER|1
+# +6 STR, +8 is Size to Large, -2 bonused to offset Size
+Companion Advancement (Moose)				KEY:Companion Advancement ~ Moose				CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Moose)																																				BONUS:SIZEMOD|NUMBER|1	ABILITY:Special Ability|AUTOMATIC|Powerful Charge	BONUS:STAT|STR|-2
+Companion Advancement (Panda)				KEY:Companion Advancement ~ Panda				CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Panda)																																				BONUS:SIZEMOD|NUMBER|1	ABILITY:Special Ability|AUTOMATIC|Panda ~ Powerful Bite	
+Companion Advancement (Walrus)			KEY:Companion Advancement ~ Walrus				CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Walrus)																																				BONUS:SIZEMOD|NUMBER|1	ABILITY:Special Ability|AUTOMATIC|Walrus ~ Fatal Gore
+
+
+Race Traits ~ Companion (Llama)		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Bite
+Race Traits ~ Llama				CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Bite		ABILITY:Special Ability|AUTOMATIC|Llama ~ Spit
+
+Race Traits ~ Moose				CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Gore|Hoof	ABILITY:Special Ability|AUTOMATIC|Scent|Powerful Charge
+Race Traits ~ Companion (Moose)		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Gore|Hoof
+
+Race Traits ~ Panda				CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Bite|Claw	ABILITY:Special Ability|AUTOMATIC|Panda ~ Powerful Bite
+Race Traits ~ Companion (Panda)		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Bite|Claw
+
+Race Traits ~ Walrus				CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Gore	ABILITY:Special Ability|AUTOMATIC|Walrus ~ Fatal Gore|Hold Breath
+Race Traits ~ Companion (Walrus)		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Gore	ABILITY:Special Ability|AUTOMATIC|Hold Breath
+
+
+Spit			KEY:Llama ~ Spit				SOURCEPAGE:p.28	TYPE:Extraordinary.SpecialAttack	CATEGORY:Special Ability	DESC:Once per hour, a llama can regurgitate the contents of its stomach, spitting the foul material at a single target within 10 feet. The target must succeed at a DC 12 Fortitude save or be sickened for 1d4 rounds. The save DC is Constitution-based.
+Powerful Bite	KEY:Panda ~ Powerful Bite		SOURCEPAGE:p.29	TYPE:Extraordinary.SpecialQuality	CATEGORY:Special Ability	DESC:A panda applies twice its Strength bonus to bite damage.	BONUS:WEAPONPROF=Bite|DAMAGE|STR*2
+Fatal Gore		KEY:Walrus ~ Fatal Gore			SOURCEPAGE:p.29	TYPE:Extraordinary.SpecialQuality	CATEGORY:Special Ability	DESC:A walrus threatens a critical hit with gore attacks on a roll of 19 or 20.	BONUS:WEAPONPROF=Gore|CRITRANGE|1
+Natural Diver	KEY:Armadillo ~ Natural Diver		SOURCEPAGE:p.30	TYPE:Extraordinary.SpecialQuality	CATEGORY:Special Ability	DESC:Armadillos can hold their breath underwater for up to 6 minutes. Their dense armor naturally causes them to sink; they can inflate their stomachs to counter this, accounting for their racial bonus on Swim checks.
+Protective Ball	KEY:Armadillo ~ Protective Ball	SOURCEPAGE:p.30	TYPE:Extraordinary.SpecialQuality	CATEGORY:Special Ability	DESC:Some armadillos can roll up into a ball, increasing their natural armor bonus to +3 but decreasing their speed to 0.
+
+Platypus ~ Electrolocation	SOURCEPAGE:p.30	TYPE:Extraordinary.SpecialQuality	CATEGORY:Special Ability	DESC:See text
+Platypus ~ Poison			SOURCEPAGE:p.30	TYPE:Extraordinary.SpecialQuality	CATEGORY:Special Ability	DESC:See text
+Platypus ~ Semiaquatic		SOURCEPAGE:p.30	TYPE:Extraordinary.SpecialQuality	CATEGORY:Special Ability	DESC:See text
+
+###Block: From B3
+Race Traits ~ Skunk					CATEGORY:Internal																																																																																																																																																ABILITY:Special Ability|AUTOMATIC|TYPE=SkunkRacialAbility
+#
+Musk						KEY:Skunk ~ Musk						CATEGORY:Special Ability	TYPE:SkunkRacialAbility.SpecialQuality.Extraordinary																																																																																																																																																																																																																																					DESC:Up to twice per day, a skunk can spray a stream of noxious musk at a single target within 10 feet as a standard action. With a successful ranged touch attack, the creature struck by this spray must make a DC 11 Fortitude save or be nauseated for 1d4 rounds and then sickened for 1d4 minutes by the horrific stench. A successful save reduces the effect to only 1d4 rounds of being sickened. A creature cannot use the scent ability as long as it is affected by this musk. The save DC is Constitution-based, and includes a +2 racial bonus.																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																															SOURCEPAGE:p.247
+
+
+###Block: EqSlots for Companions
+Armor		TYPE:EqSlot	CATEGORY:EqSlot
+Belt		TYPE:EqSlot	CATEGORY:EqSlot
+Body		TYPE:EqSlot	CATEGORY:EqSlot
+Chest		TYPE:EqSlot	CATEGORY:EqSlot
+Eyes		TYPE:EqSlot	CATEGORY:EqSlot
+Feet		TYPE:EqSlot	CATEGORY:EqSlot
+Hands		TYPE:EqSlot	CATEGORY:EqSlot
+Head		TYPE:EqSlot	CATEGORY:EqSlot
+Headband	TYPE:EqSlot	CATEGORY:EqSlot
+Neck		TYPE:EqSlot	CATEGORY:EqSlot
+Ring		TYPE:EqSlot	CATEGORY:EqSlot
+Shield	TYPE:EqSlot	CATEGORY:EqSlot
+Shoulders	TYPE:EqSlot	CATEGORY:EqSlot
+Wrist		TYPE:EqSlot	CATEGORY:EqSlot
+Torso		TYPE:EqSlot	CATEGORY:EqSlot
+Weapon	TYPE:EqSlot	CATEGORY:EqSlot
+
+###Block: Companion Slot Support
+EQSlot Tracker	CATEGORY:EqSlot
+#
+CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Armor|-1|!PREABILITY:1,CATEGORY=EqSlot,Armor			
+CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Belt|-1|!PREABILITY:1,CATEGORY=EqSlot,Belt		
+CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Body|-1|!PREABILITY:1,CATEGORY=EqSlot,Body		
+CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Chest|-1|!PREABILITY:1,CATEGORY=EqSlot,Chest		
+CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Eyes|-1|!PREABILITY:1,CATEGORY=EqSlot,Eyes		
+CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Feet|-2|!PREABILITY:1,CATEGORY=EqSlot,Feet		
+CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Hands|-2|!PREABILITY:1,CATEGORY=EqSlot,Hands		
+CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Head|-1|!PREABILITY:1,CATEGORY=EqSlot,Head		
+CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Headband|-1|!PREABILITY:1,CATEGORY=EqSlot,Headband	
+CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Neck|-1|!PREABILITY:1,CATEGORY=EqSlot,Neck		
+CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Ring|-2|!PREABILITY:1,CATEGORY=EqSlot,Ring		
+CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Shield|-1|!PREABILITY:1,CATEGORY=EqSlot,Shield	
+CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Shoulders|-1|!PREABILITY:1,CATEGORY=EqSlot,Shoulders	
+CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Wrist|-2|!PREABILITY:1,CATEGORY=EqSlot,Wrist		
+
+#	BONUS:SLOTS|Torso|-1|!PREABILITY:1,CATEGORY=EqSlot,Torso		
+#	BONUS:SLOTS|Weapon|-1|!PREABILITY:1,CATEGORY=EqSlot,Weapon	
