@@ -71,8 +71,12 @@ public class SituationToken extends AbstractTokenWithSeparator<Skill> implements
 			}
 			else
 			{
-				context.getObjectContext().addToList(skill, ListKey.SITUATION,
-					tokString);
+				// ignore duplicate situations
+				if (!skill.getSafeListFor(ListKey.SITUATION).contains(tokString))
+				{
+					context.getObjectContext().addToList(skill, ListKey.SITUATION,
+							tokString);
+				}
 			}
 			first = false;
 		}
