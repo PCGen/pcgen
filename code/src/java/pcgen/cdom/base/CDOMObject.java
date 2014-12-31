@@ -24,6 +24,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -331,6 +332,20 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		return listChar != null && listChar.containsListFor(key) ? listChar.getListFor(key)
 				: new ArrayList<T>();
+	}
+	
+	public final <T extends Comparable<T>> List<T> getUniqueListFor(ListKey<T> key)
+	{
+		if (listChar == null)
+		{
+			return new ArrayList<T>();
+		}
+		List<T> list = listChar.getListFor(key);
+		if (list == null)
+		{
+			return new ArrayList<T>();
+		}
+		return new ArrayList<T>(new LinkedHashSet<T>(list));
 	}
 	
 	public final String getListAsString(ListKey<?> key)

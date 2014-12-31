@@ -905,7 +905,7 @@ public abstract class JepCountType
 				{
 					count++; //For the skill
 					for (String situation : sk
-						.getSafeListFor(ListKey.SITUATION))
+						.getUniqueListFor(ListKey.SITUATION))
 					{
 						double bonus =
 								pc.getTotalBonusTo("SITUATION", sk.getKeyName()
