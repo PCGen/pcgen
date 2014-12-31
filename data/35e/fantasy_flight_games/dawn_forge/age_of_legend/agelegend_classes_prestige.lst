@@ -341,7 +341,7 @@ CLASS:Bravo		STARTSKILLPTS:2	CSKILL:Bluff|Climb|Escape Artist|Handle Animal|Inti
 7	SAB:Improved Delayed Strike
 8	SAB:Improved Deadly Throw
 9						BONUS:ABILITYPOOL|Bravo Feat|1
-10	SAB:Street Lord									ADD:FEAT|Leadership
+10	SAB:Street Lord									AUTO:FEAT|Leadership
 #PRE Weapon Focus should be for a Light or OneHanded melee weapon....
 #WEAPONPROF Martial.Melee AND Light....+ choices for two more OneHanded
 #Savvy Defense....

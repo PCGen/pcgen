@@ -28,10 +28,10 @@ CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Diplomacy|Balance|Climb|Concentration|
 2	SAB:Read Spirit
 3	SAB:Shared Life
 4	SAB:Improved Augury
-5																ADD:FEAT|TYPE=Metamagic
+5																BONUS:ABILITYPOOL|Metamagic Choice|1
 6	SAB:Rain Dance
 7	SAB:Become Totem								BONUS:VAR|BecomeTotemTimes|1
-8																ADD:FEAT|TYPE=Metamagic
+8																BONUS:ABILITYPOOL|Metamagic Choice|1
 9											BONUS:VAR|BecomeTotemTimes|1
 10	SAB:Shape of the Beast
 
@@ -51,7 +51,7 @@ CLASS:Hunter	STARTSKILLPTS:4	CSKILL:Climb|Hide|Jump|Listen|Move Silently|Search|
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
 1										AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Progression
-1:REPEATLEVEL:3													ADD:FEAT|Far Shot,Point Blank Shot,Precise Shot,Shot on the Run
+1:REPEATLEVEL:3													BONUS:ABILITYPOOL|Hunter Feat|1
 2			SAB:Crack Shot		BONUS:VAR|CrackShotMult|1
 3			SAB:Vital Shot		BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
 5							BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
@@ -123,7 +123,7 @@ CLASS:Spider Warrior	STARTSKILLPTS:2	CSKILL:Diplomacy|Balance|Climb|Handle Anima
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
 1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Progression
-1:REPEATLEVEL:2											ADD:FEAT|Alertness,Far Shot,Improved Initiative,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Trample
+1:REPEATLEVEL:2											BONUS:ABILITYPOOL|Spider Warrior Feat|1
 2			SAB:Spider Mount
 3			SAB:Immunity to Webs
 4			SAB:Summon Spiders	BONUS:VAR|SummonSpidersTimes|1
@@ -286,7 +286,7 @@ CLASS:The Broken	STARTSKILLPTS:3	CSKILL:Alchemy|Bluff|Concentration|Diplomacy|In
 #1:REPEATLEVEL:1	BONUS:STAT|WIS|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[!PRECLASS:1,Bard=1,Sorcerer=1]
 #1:REPEATLEVEL:1	BONUS:STAT|CHA|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[PRECLASS:1,Bard=1,Sorcerer=1]
 #1:REPEATLEVEL:1	BONUS:STAT|CHA|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[PRECLASS:1,Bard=1,Sorcerer=1]
-2:REPEATLEVEL:2|MAX=8				ADD:FEAT|TYPE=Metamagic
+2:REPEATLEVEL:2|MAX=8				BONUS:ABILITYPOOL|Metamagic Choice|1
 ###Block: Normal Progression
 1	SAB:No Pain	SAB:The Wasting
 2

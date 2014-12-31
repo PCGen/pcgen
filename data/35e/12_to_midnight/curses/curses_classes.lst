@@ -33,7 +33,6 @@ CLASS:Evil Eye	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|
 ###Block: Level Progression
 1	BONUS:VAR|ExpandedAwarenessProgression,EvilEyeProgression,WarlockSuperstitionProgression|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Evil Eye ~ Curses|Expanded Awareness|Warlock Superstition
 2																	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Expanded Awareness ~ Darkvision|Expanded Awareness ~ Enhanced Darkvision
-###COMMENT: Can't tell why an ADD:FEAT was used here, no choices pop up as far as I can tell. ADD:FEAT|Expanded Awareness ~ Enhanced Darkvision	ADD:FEAT|Expanded Awareness ~ Darkvision
 3																	ADD:SPELLCASTER|ANY
 4																	ADD:SPELLCASTER|ANY																			TEMPLATE:Evil Eye Subtype
 5																	ADD:SPELLCASTER|ANY

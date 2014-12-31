@@ -197,13 +197,13 @@ CLASS:Fighter.MOD	CSKILL:Examine Martial Technique
 # Class Name	Class Skill
 CLASS:Monk.MOD	CSKILL:TYPE=Arcana|TYPE=Religion|Examine Martial Technique
 SUBCLASS:Order of Althares			COST:0																											PREREGION:Altheria
-SUBCLASSLEVEL:1													ABILITY:Special Ability|AUTOMATIC|.CLEAR.Monk Weapon Proficiencies														CSKILL:Craft (Alchemy)	CCSKILL:TYPE=Perform	ADD:FEAT|Improved Grapple,Stunning Fist																	TEMPLATE:OrderofAltharesFavClass	VFEAT:Exotic Weapon Proficiency(Flintlock (Pistol))|Exotic Weapon Proficiency(Flintlock (Rifle))|Martial Weapon Proficiency(Warhammer)								AUTO:WEAPONPROF|Dagger|Handaxe|Javelin|Quarterstaff|Unarmed Strike
-SUBCLASSLEVEL:2																																														ADD:FEAT|Combat Firing,Combat Reflexes
-SUBCLASSLEVEL:6																																														ADD:FEAT|Improved Disarm,Martial Weapon Technique (Flintlock (Pistol)),Martial Weapon Technique (Warhammer)
+SUBCLASSLEVEL:1													ABILITY:Special Ability|AUTOMATIC|.CLEAR.Monk Weapon Proficiencies														CSKILL:Craft (Alchemy)	CCSKILL:TYPE=Perform	BONUS:ABILITYPOOL|Order of Althares Feat 1|1																	TEMPLATE:OrderofAltharesFavClass	VFEAT:Exotic Weapon Proficiency(Flintlock (Pistol))|Exotic Weapon Proficiency(Flintlock (Rifle))|Martial Weapon Proficiency(Warhammer)								AUTO:WEAPONPROF|Dagger|Handaxe|Javelin|Quarterstaff|Unarmed Strike
+SUBCLASSLEVEL:2																																														BONUS:ABILITYPOOL|Order of Althares Feat 2|1	
+SUBCLASSLEVEL:6																																														BONUS:ABILITYPOOL|Order of Althares Feat 3|1	
 SUBCLASS:Order of the Blade			COST:0	TEMPLATE:OrderofBladeFavClass
-SUBCLASSLEVEL:1													ABILITY:Special Ability|AUTOMATIC|.CLEAR.All Automatic Proficiencies|.CLEAR.Monk Weapon Proficiencies																	ADD:FEAT|Weapon Focus (Longsword),Stunning Fist																						VFEAT:Martial Weapon Proficiency(Longsword)																							AUTO:WEAPONPROF|Unarmed Strike
-SUBCLASSLEVEL:2																																														ADD:FEAT|Combat Reflexes,Greater Weapon Focus (Longsword)
-SUBCLASSLEVEL:6																																														ADD:FEAT|Improved Disarm,Martial Weapon Technique (Longsword)
+SUBCLASSLEVEL:1													ABILITY:Special Ability|AUTOMATIC|.CLEAR.All Automatic Proficiencies|.CLEAR.Monk Weapon Proficiencies																	BONUS:ABILITYPOOL|Order of the Blade Feat 1|1																							VFEAT:Martial Weapon Proficiency(Longsword)																							AUTO:WEAPONPROF|Unarmed Strike
+SUBCLASSLEVEL:2																																														BONUS:ABILITYPOOL|Order of the Blade Feat 2|1	
+SUBCLASSLEVEL:6																																														BONUS:ABILITYPOOL|Order of the Blade Feat 3|1	
 SUBCLASS:Order of the Bronze Sepulcher	COST:0	TEMPLATE:OrderBronzeSepulcherFavClass
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|Brothers of the Crypt
 SUBCLASS:Comtemplation of the Elements	COST:0	TEMPLATE:ContElementsFavClass																			PRERACE:1,Elorii
@@ -217,7 +217,7 @@ SUBCLASSLEVEL:3																																																																	
 SUBCLASS:Order of the Irridescent Scale	COST:0	TEMPLATE:IrridScaleFavClass						PREMULT:3,[PRERACE:1,Ss'ressen],[PRETEMPLATE:1,Black Talon],[PREGENDER:MALE]
 # 2006-06-03 errata - issue with stacking of My Body bonuses and Ssethregore book prestige class - note in case that book ever gets coded
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|My Body My Soul	ABILITY:Special Ability|AUTOMATIC|.CLEAR.All Automatic Proficiencies|.CLEAR.Monk Weapon Proficiencies									ADD:ABILITY|Special Ability|NORMAL|Dragon's Hide Feat,Monk ~ Stunning Fist																																															AUTO:WEAPONPROF|Unarmed Strike
-SUBCLASSLEVEL:2																																														ADD:FEAT|Combat Reflexes,Tail Attack
+SUBCLASSLEVEL:2																																														BONUS:ABILITYPOOL|Order of the Irridescent Scale Feat|1
 SUBCLASSLEVEL:6																																														ADD:ABILITY|Special Ability|NORMAL|Avalanche Feat,Improved Trip
 SUBCLASS:Order of the Iron Soul		COST:0
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|Iron Soul
@@ -285,7 +285,7 @@ CLASS:Rogue.MOD	CSKILL:Black Market|TYPE=Local|Research
 CLASS:Sorcerer.MOD	PREMULT:1,[PREMULT:2,[PREGENDER:M],[PRERACE:1,Ss'ressen]],[!PRERACE:1,Ss'ressen]	!PRERACE:2,Half-Hobgoblin,Human
 # Class Name		Class Skill
 CLASS:Sorcerer.MOD	CSKILL:TYPE=Arcana
-1	ADD:FEAT|Eschew Materials	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Sorcerer ~ Familiar	ABILITY:Special Ability|VIRTUAL|Summon Arcanis Familiar
+1	AUTO:FEAT|Eschew Materials	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Sorcerer ~ Familiar	ABILITY:Special Ability|VIRTUAL|Summon Arcanis Familiar
 
 # Class Name	Clear Bonus Languages
 CLASS:Wizard.MOD	LANGBONUS:.CLEAR

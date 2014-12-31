@@ -4,3 +4,6 @@
 # Ability Category						Visible		Editable?		Category of Object		Type of Object			Display Location
 ABILITYCATEGORY:Ironborn Secondary Ability Choice	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:IronbornSecondaryAbility	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Ironborn Primary Ability Choice		VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:IronbornPrimaryAbility	DISPLAYLOCATION:Racial Abilities
+
+
+ABILITYCATEGORY:Arcane Battle Feat				VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:FEAT	TYPE:ArcaneBattle		DISPLAYLOCATION:Feats				

@@ -184,8 +184,6 @@ CLASS:Aceldamist	HD:6		TYPE:PC.Prestige	ABB:Aceld		MAXLEVEL:10	SOURCEPAGE:p.54	B
 CLASS:Aceldamist	PRECHECKBASE:1,Fortitude=4	PREFEAT:3,Combat Casting,Dodge,Improved Initiative	PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Heavy],[PREFEAT:1,Armor Proficiency (Heavy)]	PRESKILL:3,Concentration=6,Knowledge (Arcana)=6,Spellcraft=6	PRESPELLCAST:MEMORIZE=N	PRESPELLTYPE:1,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aceldamist	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Intimidate|Knowledge (Arcana)|Scry|Spellcraft
-###Aceldamist Hidden Feats
-#ADD:FEAT(Ancestral Lore,Armored Casting,Blood Magic,Fellblade Magic,Signature Metaspell,Signature Spell Focus,Signature Spell Immunity,Signature Spell Penetration)1
 1	BONUS:ABILITYPOOL|Aceldamist Feat|1
 2	BONUS:ABILITYPOOL|Aceldamist Feat|1	ADD:SPELLCASTER|Arcane
 3	BONUS:ABILITYPOOL|Aceldamist Feat|1

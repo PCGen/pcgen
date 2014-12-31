@@ -9,7 +9,7 @@ CLASS:Patrician	HD:6		TYPE:Base.PC	ABB:Pat		MAXLEVEL:20	SOURCELONG:Player's Guid
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Patrician	STARTSKILLPTS:6	CSKILL:Appraise|Black Market|Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Ride|Research|Sense Motive|Speak Language
 # Abilities with choosers commented and replaced by temp feats
-1																									ADD:FEAT|TYPE=Gentry	ADD:ABILITY|Special Ability|VIRTUAL|Estate				ABILITY:Special Ability|VIRTUAL|Educated		AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
+1																									BONUS:ABILITYPOOL|Patrician Feat|1	ADD:ABILITY|Special Ability|VIRTUAL|Estate				ABILITY:Special Ability|VIRTUAL|Educated		AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
 # skilled didn't pop second time
 2:REPEATLEVEL:4																							ADD:ABILITY|Special Ability|VIRTUAL|Eyes and Ears	ADD:CLASSSKILLS|CROSSCLASSSKILLS	ABILITY:Special Ability|VIRTUAL|Skilled
 3																																								ABILITY:Special Ability|VIRTUAL|Coordinate

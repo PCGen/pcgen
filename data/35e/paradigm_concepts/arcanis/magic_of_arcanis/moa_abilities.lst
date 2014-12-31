@@ -11,7 +11,7 @@ Dedication Output Choice	OUTPUTNAME:Dedication				CATEGORY:Special Ability	TYPE:
 Craft Clockwork Companion								CATEGORY:Special Ability	TYPE:SpecialQuality																																																																						FOLLOWERS:Clockwork Companion|1	COMPANIONLIST:Clockwork Companion|RACETYPE=Clockwork Construct
 #Trapfinding								CATEGORY:Special Ability
 #Exploit Flaw										CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality	DEFINE:ExploitFlawBonus|0																																																									BONUS:VAR|ExploitFlawBonus|2
-Master Craftsman										CATEGORY:Special Ability																																														ADD:FEAT|Master Craftsman
+Master Craftsman										CATEGORY:Special Ability																																														BONUS:ABILITYPOOL|Master Craftsman|1
 Forge Gears and Magic		OUTPUTNAME:Forge, Gears, and Magic		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Eschew Requirements		OUTPUTNAME:Eschew Spell Requirements	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
@@ -673,8 +673,8 @@ Spell Thief																																		CATEGORY:Special Ability	TYPE:Speci
 Reform Magic																																	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Experienced Caster																																CATEGORY:Special Ability	TYPE:SpecialQuality																	AUTO:FEAT|Experienced Caster
 #Ordainer Feat Choices
-Spell Focus																																		CATEGORY:Special Ability	TYPE:OrdainerFeat																							ADD:FEAT|Spell Focus
-Greater Spell Focus																																CATEGORY:Special Ability	TYPE:OrdainerFeat				PREVARGTEQ:OrdainerFeatLvl,1															ADD:FEAT|Greater Spell Focus
+Spell Focus																																		CATEGORY:Special Ability	TYPE:OrdainerFeat																							BONUS:ABILITYPOOL|Spell Focus|1
+Greater Spell Focus																																CATEGORY:Special Ability	TYPE:OrdainerFeat				PREVARGTEQ:OrdainerFeatLvl,1															BONUS:ABILITYPOOL|Greater Spell Focus|1
 
 ###Block: Shard Shaper ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name			Output Name																			Category of Ability		Type				Define					Description
@@ -707,7 +707,7 @@ School Access - Necromancy				CATEGORY:Special Ability	TYPE:SpecialQuality.WineD
 School Access - Divination				CATEGORY:Special Ability	TYPE:SpecialQuality.WineDrinkerSchool
 School Access - Transmutation				CATEGORY:Special Ability	TYPE:SpecialQuality.WineDrinkerSchool
 #
-Wine Drinker Martial Weapon Proficiency Choice	CATEGORY:Special Ability	TYPE:WineDrinkerFeat																												ADD:FEAT|Martial Weapon Proficiency
+Wine Drinker Martial Weapon Proficiency Choice	CATEGORY:Special Ability	TYPE:WineDrinkerFeat																												BONUS:ABILITYPOOL|Martial Weapon Proficiency|1
 
 ###Block: Bio-Construct -----------------------------------------------------------------------------------------------------------------------------------
 # Ability Name			Output Name			Category of Ability		Type						Ability													Bonus to HP			Save bonus				Vision

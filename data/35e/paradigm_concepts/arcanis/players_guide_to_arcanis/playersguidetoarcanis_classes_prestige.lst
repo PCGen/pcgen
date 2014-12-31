@@ -63,7 +63,7 @@ CLASS:Battlemage of the Coryani Legions	STARTSKILLPTS:2	CSKILL:Concentration|TYP
 3:REPEATLEVEL:4																							ABILITY:Special Ability|AUTOMATIC|Spell Mast Ability|PRESPELLCAST:MEMORIZE=Y	ABILITY:Special Ability|AUTOMATIC|Spontaneous Caster Spell|PRESPELLCAST:MEMORIZE=N
 4																									ABILITY:Special Ability|AUTOMATIC|Improved Armored Casting
 5																									ABILITY:Special Ability|AUTOMATIC|Stable Casting
-5:REPEATLEVEL:4														ADD:FEAT|TYPE=Fighter,TYPE=Metamagic,TYPE=Military
+5:REPEATLEVEL:4														BONUS:ABILITYPOOL|Battlemage of the Coryani Legions Feat|1
 6:REPEATLEVEL:2									BONUS:VAR|BattleSpellTimes|1										ABILITY:Special Ability|AUTOMATIC|Battle Spell	ABILITY:Special Ability|AUTOMATIC|Spontaneous Caster Spell|PRESPELLCAST:MEMORIZE=N
 
 ##############################################################################################################################################################################################################################################################################################################################################
@@ -349,14 +349,14 @@ CLASS:Milandisian Canton	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:Cantn		MAXLEVE
 CLASS:Milandisian Canton	PREFEAT:1,Conscript	PREREGION:Milandir	PRESKILL:1,TYPE.Craft=5,TYPE.Profession=5	PRETOTALAB:2	PREVARGTEQ:(STAT.3.BASEMOD)+(STAT.4.BASEMOD)+(STAT.5.BASEMOD),0
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Milandisian Canton	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Heal|Jump|TYPE=History|TYPE=Nobility|TYPE=Profession|Survival|Swim
-1											ADD:FEAT|Combat Reflexes,Great Fortitude,Iron Will,Lightning Reflexes,Rapid Reload,Weapon Focus(Crossbow (Heavy)),Weapon Focus(Halberd),TYPE=Military	ABILITY:Special Ability|AUTOMATIC|Defensive Line
+1											BONUS:ABILITYPOOL|Milandisian Canton Feat|1	ABILITY:Special Ability|AUTOMATIC|Defensive Line
 1:REPEATLEVEL:4					BONUS:VAR|LineBonus|1
 2																																				ABILITY:Special Ability|AUTOMATIC|Always Set
 3																																				ABILITY:Special Ability|AUTOMATIC|Line Defense
-4											ADD:FEAT|Combat Reflexes,Great Fortitude,Iron Will,Lightning Reflexes,Rapid Reload,Weapon Focus(Crossbow (Heavy)),Weapon Focus(Halberd),TYPE=Military
+4											BONUS:ABILITYPOOL|Milandisian Canton Feat|1
 6																																				ABILITY:Special Ability|AUTOMATIC|Counter Charge
 7			SAB:Line Attack (Ex)																														ABILITY:Special Ability|AUTOMATIC|Line Attack
-8											ADD:FEAT|Combat Reflexes,Great Fortitude,Iron Will,Lightning Reflexes,Rapid Reload,Weapon Focus(Crossbow (Heavy)),Weapon Focus(Halberd),TYPE=Military
+8											BONUS:ABILITYPOOL|Milandisian Canton Feat|1
 10																																				ABILITY:Special Ability|AUTOMATIC|Rapid Set
 
 ##############################################################################################################################################################################################################################################################################################################################################
@@ -414,7 +414,7 @@ CLASS:Onaran Templar	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:Aid|Bear's Endur
 5					CAST:0,2,1,1
 6																																																																						SPELLLEVEL:CLASS|Onaran Templar=4|Beltine's Blessed Strike,Death Ward,Divine Smite,Restoration,Sword of Faith
 6					CAST:0,2,2,1,0
-7					CAST:0,3,2,1,1													ADD:FEAT|Weapon Specialization
+7					CAST:0,3,2,1,1													BONUS:ABILITYPOOL|Weapon Specialization|1
 8					CAST:0,3,3,2,2
 9					CAST:0,4,3,2,2																			ABILITY:Special Ability|AUTOMATIC|Zealot
 10					CAST:0,4,4,2,2																			ABILITY:Special Ability|AUTOMATIC|Voice of the Gods
@@ -547,7 +547,7 @@ CLASS:Spellcaller	PREMULT:2,[PRESPELLCAST:MEMORIZE=N],[PRESPELLTYPE:1,Arcane=3]	
 CLASS:Spellcaller	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Search|Spellcraft
 1					BONUS:ABILITYPOOL|Flexible Known Slot|9	BONUS:ABILITYPOOL|Spell Studies|9					ABILITY:Special Ability|AUTOMATIC|Flexible Spell Slot|Multiple Spontaneous Adjustment|Spell Studies
 1:REPEATLEVEL:1																ADD:SPELLCASTER|Arcane
-2:REPEATLEVEL:2|SKIP=0|MAX=4														ADD:FEAT|TYPE=Metamagic
+2:REPEATLEVEL:2|SKIP=0|MAX=4														BONUS:ABILITYPOOL|Metamagic|1
 6																						ABILITY:Special Ability|AUTOMATIC|Spell Mimic
 8																						ABILITY:Special Ability|AUTOMATIC|Metamagic Casting
 10																						ABILITY:Special Ability|AUTOMATIC|Metamagic Mastery

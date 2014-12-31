@@ -18,7 +18,7 @@ CLASS:Force Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
 19												ADD:SPELLCASTER|Sorcerer
 20			BONUS:PCLEVEL|Sorcerer|(((classlevel()-15)/5)*3)-1
 
-54:REPEATLEVEL:5										ADD:FEAT|Improved Spell Capacity
+54:REPEATLEVEL:5										BONUS:ABILITYPOOL|Improved Spell Capacity|1
 
 
 # Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Combat bonus							Save bonus
@@ -41,7 +41,7 @@ CLASS:Prismatic Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
 73			BONUS:PCLEVEL|Sorcerer|3
 78			BONUS:PCLEVEL|Sorcerer|3
 
-53:REPEATLEVEL:5						ADD:FEAT|Improved Spell Capacity
+53:REPEATLEVEL:5						BONUS:ABILITYPOOL|Improved Spell Capacity|1
 
 
 
@@ -64,8 +64,8 @@ CLASS:Black Dragon.MOD
 
 40:REPEATLEVEL:6									BONUS:STAT|INT|2|TYPE=Racial.STACK	BONUS:STAT|WIS|2|TYPE=Racial.STACK	BONUS:STAT|CHA|2|TYPE=Racial.STACK
 
-49:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
-54:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
+49:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
+54:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
 
 ###
 ###Block: Epic Progression - Blue Dragon
@@ -81,8 +81,8 @@ CLASS:Blue Dragon.MOD
 
 45:REPEATLEVEL:6									BONUS:STAT|INT|2|TYPE=Racial.STACK	BONUS:STAT|WIS|2|TYPE=Racial.STACK	BONUS:STAT|CHA|2|TYPE=Racial.STACK
 
-48:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
-53:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
+48:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
+53:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
 
 ###
 ###Block: Epic Progression - Green Dragon
@@ -98,8 +98,8 @@ CLASS:Green Dragon.MOD
 
 44:REPEATLEVEL:6									BONUS:STAT|INT|2|TYPE=Racial.STACK	BONUS:STAT|WIS|2|TYPE=Racial.STACK	BONUS:STAT|CHA|2|TYPE=Racial.STACK
 
-47:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
-52:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
+47:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
+52:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
 
 ###
 ###Block: Epic Progression - Red Dragon
@@ -115,8 +115,8 @@ CLASS:Red Dragon.MOD
 
 46:REPEATLEVEL:6									BONUS:STAT|INT|2|TYPE=Racial.STACK	BONUS:STAT|WIS|2|TYPE=Racial.STACK	BONUS:STAT|CHA|2|TYPE=Racial.STACK
 
-46:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
-51:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
+46:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
+51:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
 
 ###
 ###Block: Epic Progression - White Dragon
@@ -132,8 +132,8 @@ CLASS:White Dragon.MOD
 
 42:REPEATLEVEL:6									BONUS:STAT|INT|2|TYPE=Racial.STACK	BONUS:STAT|WIS|2|TYPE=Racial.STACK	BONUS:STAT|CHA|2|TYPE=Racial.STACK
 
-51:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
-56:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
+51:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
+56:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
 
 
 ###
@@ -155,8 +155,8 @@ CLASS:Brass Dragon.MOD
 
 40:REPEATLEVEL:6									BONUS:STAT|INT|2|TYPE=Racial.STACK	BONUS:STAT|WIS|2|TYPE=Racial.STACK	BONUS:STAT|CHA|2|TYPE=Racial.STACK
 
-43:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
-48:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
+43:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
+48:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
 
 ###
 ###Block: Epic Progression - Bronze Dragon
@@ -172,8 +172,8 @@ CLASS:Bronze Dragon.MOD
 
 42:REPEATLEVEL:6									BONUS:STAT|INT|2|TYPE=Racial.STACK	BONUS:STAT|WIS|2|TYPE=Racial.STACK	BONUS:STAT|CHA|2|TYPE=Racial.STACK
 
-45:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
-50:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
+45:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
+50:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
 
 ###
 ###Block: Epic Progression - Copper Dragon
@@ -189,8 +189,8 @@ CLASS:Copper Dragon.MOD
 
 41:REPEATLEVEL:6									BONUS:STAT|INT|2|TYPE=Racial.STACK	BONUS:STAT|WIS|2|TYPE=Racial.STACK	BONUS:STAT|CHA|2|TYPE=Racial.STACK
 
-44:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
-49:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
+44:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
+49:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
 
 ###
 ###Block: Epic Progression - Gold Dragon
@@ -206,8 +206,8 @@ CLASS:Gold Dragon.MOD
 
 47:REPEATLEVEL:6									BONUS:STAT|INT|2|TYPE=Racial.STACK	BONUS:STAT|WIS|2|TYPE=Racial.STACK	BONUS:STAT|CHA|2|TYPE=Racial.STACK
 
-47:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
-52:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
+47:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
+52:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
 
 ###
 ###Block: Epic Progression - Silver Dragon
@@ -223,8 +223,8 @@ CLASS:Silver Dragon.MOD
 
 46:REPEATLEVEL:6									BONUS:STAT|INT|2|TYPE=Racial.STACK	BONUS:STAT|WIS|2|TYPE=Racial.STACK	BONUS:STAT|CHA|2|TYPE=Racial.STACK
 
-46:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
-51:REPEATLEVEL:9																															ADD:FEAT|Improved Spell Capacity
+46:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
+51:REPEATLEVEL:9																															BONUS:ABILITYPOOL|Improved Spell Capacity|1
 
 #
 # End
