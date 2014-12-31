@@ -170,7 +170,7 @@ public class ChallengeRatingFacet
 		Integer crMod = new Integer(0);
 		int crModPriority = 0;
 		
-		for (PCClass pcClass : classFacet.getClassSet(id))
+		for (PCClass pcClass : classFacet.getSet(id))
 		{
 			cr += calcClassCR(id, pcClass);
 			int crmp = getClassCRModPriority(pcClass);
@@ -207,7 +207,7 @@ public class ChallengeRatingFacet
 		}
 		
 		// Calculate and add the CR from the PC Classes
-		for (PCClass pcClass : classFacet.getClassSet(id))
+		for (PCClass pcClass : classFacet.getSet(id))
 		{
 			Integer levels = calcClassCR(id, pcClass);
 			if (levels == null)

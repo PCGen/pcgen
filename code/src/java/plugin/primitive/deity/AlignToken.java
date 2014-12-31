@@ -103,7 +103,7 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Deity, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Deity, R> c)
 	{
 		return c.convert(allDeities, this);
 	}

@@ -17,15 +17,17 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.meta.CorePerspective;
-import pcgen.cdom.meta.FacetBehavior;
 import pcgen.cdom.meta.CorePerspectiveDB;
+import pcgen.cdom.meta.FacetBehavior;
 import pcgen.cdom.meta.PerspectiveLocation;
 import pcgen.core.Language;
+import pcgen.output.publish.OutputDB;
 
 /**
  * LanguageFacet is a Facet that tracks the Languages that have been granted to
@@ -33,8 +35,9 @@ import pcgen.core.Language;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class LanguageFacet extends AbstractSourcedListFacet<CharID, Language> implements
-		DataFacetChangeListener<CharID, Language>, PerspectiveLocation
+public class LanguageFacet extends AbstractSourcedListFacet<CharID, Language>
+		implements DataFacetChangeListener<CharID, Language>,
+		PerspectiveLocation, SetFacet<CharID, Language>
 {
 
 	/**
@@ -82,6 +85,7 @@ public class LanguageFacet extends AbstractSourcedListFacet<CharID, Language> im
 	public void init()
 	{
 		CorePerspectiveDB.register(CorePerspective.LANGUAGE, FacetBehavior.MODEL, this);
+		OutputDB.register("languages", this);
 	}
 
 	@Override

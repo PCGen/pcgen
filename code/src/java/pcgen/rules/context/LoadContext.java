@@ -131,4 +131,6 @@ public interface LoadContext
 	public void addWriteMessage(String string);
 
 	public int getWriteMessageCount();
+
+	public void loadLocalToken(Object token);
 }

@@ -17,9 +17,11 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.PCStat;
+import pcgen.output.publish.OutputDB;
 
 /**
  * StatFacet is a Facet that tracks the PCStat objects that have been granted to
@@ -27,6 +29,11 @@ import pcgen.core.PCStat;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class StatFacet extends AbstractListFacet<CharID, PCStat>
+public class StatFacet extends AbstractListFacet<CharID, PCStat> implements
+		SetFacet<CharID, PCStat>
 {
+	public void init()
+	{
+		OutputDB.register("stats", this);
+	}
 }

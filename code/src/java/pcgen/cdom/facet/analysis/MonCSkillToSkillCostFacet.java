@@ -45,7 +45,7 @@ public class MonCSkillToSkillCostFacet extends
 		SkillCost cost = SkillCost.CLASS;
 		Skill sk = dfce.getCDOMObject();
 		Object source = dfce.getSource();
-		for (PCClass cl : classFacet.getClassSet(id))
+		for (PCClass cl : classFacet.getSet(id))
 		{
 			if (cl.isMonster())
 			{
@@ -60,7 +60,7 @@ public class MonCSkillToSkillCostFacet extends
 		SkillCost cost = SkillCost.CLASS;
 		Skill sk = dfce.getCDOMObject();
 		Object source = dfce.getSource();
-		for (PCClass cl : classFacet.getClassSet(id))
+		for (PCClass cl : classFacet.getSet(id))
 		{
 			if (cl.isMonster())
 			{

@@ -85,7 +85,7 @@ public class HitPointFacet extends
 		if (!pc.isImporting())
 		{
 			boolean first = true;
-			for (PCClass pcClass : classFacet.getClassSet(id))
+			for (PCClass pcClass : classFacet.getSet(id))
 			{
 				//
 				// Recalculate HPs in case HD have changed.

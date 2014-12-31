@@ -107,9 +107,9 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 *         contains.
 	 */
 	@Override
-	public Collection<T> getSet(PlayerCharacter pc)
+	public Collection<? extends T> getSet(PlayerCharacter pc)
 	{
-		Collection<T> returnSet = null;
+		Collection<? extends T> returnSet = null;
 		for (PrimitiveChoiceSet<T> cs : pcsSet)
 		{
 			if (returnSet == null)

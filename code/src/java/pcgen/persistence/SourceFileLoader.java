@@ -39,6 +39,9 @@ import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.ContentDefinition;
+import pcgen.cdom.content.fact.FactDefinition;
+import pcgen.cdom.content.factset.FactSetDefinition;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
@@ -70,13 +73,13 @@ import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.EqModAttachment;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.util.DefaultListFacade;
-import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.io.PCGFile;
 import pcgen.persistence.lst.AbilityCategoryLoader;
 import pcgen.persistence.lst.AbilityLoader;
@@ -93,6 +96,7 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.LoadValidator;
 import pcgen.rules.context.ReferenceContextUtilities;
+import pcgen.rules.persistence.CDOMControlLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -128,6 +132,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private final List<CampaignSourceEntry> weaponProfFileList = new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> armorProfFileList = new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> shieldProfFileList = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> dataDefFileList = new ArrayList<CampaignSourceEntry>();
+
 	/*
 	 * Loaders
 	 */
@@ -150,6 +156,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private GenericLoader<ShieldProf> sProfLoader = new GenericLoader<ShieldProf>(ShieldProf.class);
 	private GenericLoader<Deity> deityLoader = new GenericLoader<Deity>(Deity.class);
 	private GenericLoader<Domain> domainLoader = new GenericLoader<Domain>(Domain.class);
+	private CDOMControlLoader dataControlLoader = new CDOMControlLoader();
+
 	/*
 	 * Other properties
 	 */
@@ -202,6 +210,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		wProfLoader.addObserver(this);
 		aProfLoader.addObserver(this);
 		sProfLoader.addObserver(this);
+		dataControlLoader.addObserver(this);
 	}
 
 	@Override
@@ -295,6 +304,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		count += weaponProfFileList.size();
 		count += armorProfFileList.size();
 		count += shieldProfFileList.size();
+		count += dataDefFileList.size();
 
 		return count;
 	}
@@ -557,6 +567,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		setMaximum(countTotalFilesToLoad());
 
 		// Load using the new LstFileLoaders
+		dataControlLoader.loadLstFiles(context, dataDefFileList);
+		processFactDefinitions(context);
 
 		// load ability categories first as they used to only be at the game mode
 		abilityCategoryLoader.loadLstFiles(context, abilityCategoryFileList);
@@ -634,6 +646,24 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		 * resolved.
 		 */
 		System.gc();
+	}
+
+	public static void processFactDefinitions(LoadContext context)
+	{
+		Collection<? extends ContentDefinition> defs =
+				context.getReferenceContext().getConstructedCDOMObjects(
+					FactDefinition.class);
+		for (ContentDefinition<?, ?> fd : defs)
+		{
+			fd.activate(context);
+		}
+		defs =
+				context.getReferenceContext().getConstructedCDOMObjects(
+					FactSetDefinition.class);
+		for (ContentDefinition<?, ?> fd : defs)
+		{
+			fd.activate(context);
+		}
 	}
 
 	private void finishLoad(final List<Campaign> aSelectedCampaignsList,
@@ -961,6 +991,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			addQualifiedSources(equipmodFileList, campaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));
 			addQualifiedSources(kitFileList, campaign.getSafeListFor(ListKey.FILE_KIT));
 			addQualifiedSources(bioSetFileList, campaign.getSafeListFor(ListKey.FILE_BIO_SET));
+			addQualifiedSources(dataDefFileList, campaign.getSafeListFor(ListKey.FILE_DATACTRL));
 			loadedSet.add(campaign);
 
 			if (PCGenSettings.OPTIONS_CONTEXT.initBoolean(
@@ -1074,6 +1105,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		stripLstExcludes(equipmodFileList);
 		stripLstExcludes(kitFileList);
 		stripLstExcludes(bioSetFileList);
+		stripLstExcludes(dataDefFileList);
 	}
 
 	private void stripLstExcludes(List<CampaignSourceEntry> list)

@@ -96,7 +96,7 @@ public class UseUntrainedToken implements PrimitiveToken<Skill>,
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
 		Converter<Skill, R> c)
 	{
 		return c.convert(allSkills, this);

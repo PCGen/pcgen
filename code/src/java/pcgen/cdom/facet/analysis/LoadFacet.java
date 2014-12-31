@@ -142,7 +142,7 @@ public class LoadFacet
 	 */
 	private double getLoadMultForSize(CharID id)
 	{
-		SizeAdjustment sadj = sizeFacet.getSizeAdjustment(id);
+		SizeAdjustment sadj = sizeFacet.get(id);
 		double mult =
 				SettingsHandler.getGame().getLoadInfo().getSizeAdjustment(sadj)
 					.doubleValue();

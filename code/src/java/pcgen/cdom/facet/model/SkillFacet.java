@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeEvent;
 import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeListener;
@@ -28,29 +29,33 @@ import pcgen.cdom.facet.event.AssociationChangeListener;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.Skill;
+import pcgen.output.publish.OutputDB;
 
 /**
  * SkillFacet is a Facet that tracks the Skills possessed by a Player Character.
  */
 public class SkillFacet extends AbstractSourcedListFacet<CharID, Skill> implements
 		SkillRankChangeListener, DataFacetChangeListener<CharID, Skill>,
-		AssociationChangeListener
+		AssociationChangeListener, SetFacet<CharID, Skill>
 {
 
 	private TotalSkillRankFacet totalSkillRankFacet;
 
 	private UsableSkillsFacet usableSkillsFacet;
 
+	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Skill> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, Skill> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
+	@Override
 	public void rankChanged(SkillRankChangeEvent lce)
 	{
 		CharID id = lce.getCharID();
@@ -79,6 +84,7 @@ public class SkillFacet extends AbstractSourcedListFacet<CharID, Skill> implemen
 	{
 		totalSkillRankFacet.addAssociationChangeListener(this);
 		usableSkillsFacet.addDataFacetChangeListener(this);
+		OutputDB.register("skills", this);
 	}
 
 	@Override

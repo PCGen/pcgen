@@ -41,14 +41,21 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
+import pcgen.base.util.Indirect;
+import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.content.fact.FactDefinition;
+import pcgen.cdom.content.factset.FactSetDefinition;
 import pcgen.cdom.enumeration.AspectName;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -114,11 +121,13 @@ import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.TempBonusFacade;
 import pcgen.facade.core.TemplateFacade;
 import pcgen.gui2.util.HtmlInfoBuilder;
+import pcgen.rules.context.LoadContext;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
+import pcgen.util.enumeration.View;
 
 /**
  * The Class <code>Gui2InfoFactory</code> provides character related information 
@@ -210,6 +219,8 @@ public class Gui2InfoFactory implements InfoFactory
 				infoText.appendI18nElement("in_irInfoType", race.getType()); //$NON-NLS-1$
 			}
 
+			appendFacts(infoText, race);
+
 			String bString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 			race.getPrerequisiteList(), false);
 			if (bString.length() > 0)
@@ -296,6 +307,8 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendSpacer();
 			b.appendI18nElement("in_clInfoHD", "d" + hitDie.getDie()); //$NON-NLS-1$  //$NON-NLS-2$
 		}
+
+		appendFacts(b, aClass);
 
 		if (SettingsHandler.getGame().getTabShown(Tab.SPELLS))
 		{
@@ -394,6 +407,8 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendLineBreak();
 		}
 
+		appendFacts(infoText, skill);
+
 		String aString = SkillInfoUtilities.getKeyStatFromStats(pc, skill);
 		if (aString.length() != 0)
 		{
@@ -490,6 +505,8 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.append(LanguageBundle.getString("Ability.Info.Stacks")); //$NON-NLS-1$
 		}
 
+		appendFacts(infoText, ability);
+
 		final String cString =
 				PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 					ability.getPrerequisiteList(), false);
@@ -567,6 +584,8 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText
 				.appendI18nFormattedElement(
 					"in_InfoDescription", DescriptionFormatting.piWrapDesc(aDeity, pc.getDescription(aDeity), false)); //$NON-NLS-1$
+			
+			appendFacts(infoText, aDeity);
 
 			aString = getPantheons(aDeity);
 			if (aString != null)
@@ -645,6 +664,8 @@ public class Gui2InfoFactory implements InfoFactory
 		if (aDomain != null)
 		{
 			infoText.appendTitleElement(OutputNameFormatting.piString(aDomain, false));
+
+			appendFacts(infoText, aDomain);
 
 			String aString = pc.getDescription(aDomain);
 			if (aString.length() != 0)
@@ -745,6 +766,8 @@ public class Gui2InfoFactory implements InfoFactory
 		b.appendI18nElement("in_igInfoLabelTextType", //$NON-NLS-1$
 			StringUtil.join(equip.getTrueTypeList(true), ". "));
 
+		appendFacts(b, equip);
+		
 		//
 		// Should only be meaningful for weapons, but if included on some other piece of
 		// equipment, show it anyway
@@ -1137,6 +1160,8 @@ public class Gui2InfoFactory implements InfoFactory
 		infoText.appendTitleElement(OutputNameFormatting.piString(template,
 			false));
 
+		appendFacts(infoText, template);
+
 		RaceType rt = template.get(ObjectKey.RACETYPE);
 		if (rt != null)
 		{
@@ -1201,6 +1226,8 @@ public class Gui2InfoFactory implements InfoFactory
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
 		infoText.appendTitleElement(OutputNameFormatting.piString(kit, false));
+
+		appendFacts(infoText, kit);
 
 		String aString =
 				PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
@@ -1712,6 +1739,9 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		b.appendLineBreak();
 
+		appendFacts(b, aSpell);
+		b.appendLineBreak();
+
 		b.appendI18nElement("in_spellComponents",
 			aSpell.getListAsString(ListKey.COMPONENTS));
 		b.appendLineBreak();
@@ -2018,6 +2048,7 @@ public class Gui2InfoFactory implements InfoFactory
 	 * @param deityFacade The deity to be output.
 	 * @return The comma separated list of weapons.
 	 */
+	@Override
 	public String getFavoredWeapons(DeityFacade deityFacade)
 	{
 		if (deityFacade == null || !(deityFacade instanceof Deity))
@@ -2128,4 +2159,77 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		return null;
 	}
+
+	private void appendFacts(HtmlInfoBuilder infoText, CDOMObject cdo)
+	{
+		Class<? extends CDOMObject> cl = cdo.getClass();
+		LoadContext context = Globals.getContext();
+		Collection<FactDefinition> defs =
+				context.getReferenceContext().getConstructedCDOMObjects(
+					FactDefinition.class);
+		for (FactDefinition<?, ?> def : defs)
+		{
+			if (cl.equals(def.getUsableLocation()))
+			{
+				if (def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY))
+				{
+					FactKey<?> fk = def.getFactKey();
+					Indirect<?> fact = cdo.get(fk);
+					if (fact != null)
+					{
+						infoText.appendSpacer();
+						infoText.append("<b>");
+						infoText.append(fk.toString());
+						infoText.append(":</b>&nbsp;");
+						infoText.append(fact.getUnconverted());
+					}
+				}
+			}
+		}
+		Collection<FactSetDefinition> setdefs =
+				context.getReferenceContext().getConstructedCDOMObjects(
+					FactSetDefinition.class);
+		for (FactSetDefinition<?, ?> def : setdefs)
+		{
+			if (cl.equals(def.getUsableLocation()))
+			{
+				if (def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY))
+				{
+					FactSetKey<?> fk = def.getFactSetKey();
+					String s = getSetString(cdo, fk);
+					if (s != null)
+					{
+						infoText.appendSpacer();
+						infoText.append("<b>");
+						infoText.append(fk.toString());
+						infoText.append(":</b>&nbsp;");
+						infoText.append(s);
+					}
+				}
+			}
+		}
+		
+	}
+
+	private <T> String getSetString(CDOMObject cdo, FactSetKey<T> fk)
+	{
+		List<ObjectContainer<T>> set = cdo.getSetFor(fk);
+		if (set == null)
+		{
+			return null;
+		}
+		StringBuilder sb = new StringBuilder();
+		boolean first = true;
+		for (ObjectContainer<T> oc : set)
+		{
+			if (!first)
+			{
+				sb.append(Constants.COMMA);
+			}
+			sb.append(oc.getLSTformat(false));
+			first = false;
+		}
+		return sb.toString();
+	}
+
 }

@@ -31,13 +31,16 @@ import java.util.TreeMap;
 
 import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.base.lang.UnreachableError;
+import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMap;
 import pcgen.cdom.base.Loadable;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.CDOMSubToken;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.util.Logging;
 
 public final class TokenFamily implements Comparable<TokenFamily>
 {
@@ -61,8 +64,8 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	private final DoubleKeyMap<Class<?>, String, CDOMToken<?>> tokenMap =
 			new DoubleKeyMap<Class<?>, String, CDOMToken<?>>();
 
-	private final TripleKeyMap<Class<?>, String, String, CDOMSubToken<?>> subTokenMap =
-			new TripleKeyMap<Class<?>, String, String, CDOMSubToken<?>>();
+	private final TripleKeyMap<Class<?>, String, String, CDOMSecondaryToken<?>> subTokenMap =
+			new TripleKeyMap<Class<?>, String, String, CDOMSecondaryToken<?>>(HashMap.class, CaseInsensitiveMap.class, CaseInsensitiveMap.class);
 
 	private final Map<CaseInsensitiveString, PrerequisiteParserInterface> preTokenMap =
 			new HashMap<CaseInsensitiveString, PrerequisiteParserInterface>();
@@ -78,6 +81,11 @@ public final class TokenFamily implements Comparable<TokenFamily>
 
 	public <T> CDOMToken<T> putToken(CDOMToken<T> tok)
 	{
+		if (tok.getTokenClass() == null)
+		{
+			Logging.errorPrint("Cannot load token "
+				+ tok.getClass().getSimpleName() + " with no token class");
+		}
 		return (CDOMToken<T>) tokenMap.put(tok.getTokenClass(), tok
 				.getTokenName(), tok);
 	}
@@ -92,9 +100,9 @@ public final class TokenFamily implements Comparable<TokenFamily>
 		return tokenMap.values(cl);
 	}
 
-	public <U, T extends CDOMSubToken<U>> CDOMSubToken<U> putSubToken(T tok)
+	public <U, T extends CDOMSecondaryToken<U>> CDOMSecondaryToken<U> putSubToken(T tok)
 	{
-		return (CDOMSubToken<U>) subTokenMap.put(tok.getTokenClass(), tok
+		return (CDOMSecondaryToken<U>) subTokenMap.put(tok.getTokenClass(), tok
 				.getParentToken(), tok.getTokenName(), tok);
 	}
 
@@ -104,7 +112,7 @@ public final class TokenFamily implements Comparable<TokenFamily>
 		return (CDOMSubToken<T>) subTokenMap.get(cl, token, key);
 	}
 
-	public Set<CDOMSubToken<?>> getSubTokens(Class<?> cl, String token)
+	public Set<CDOMSecondaryToken<?>> getSubTokens(Class<?> cl, String token)
 	{
 		return subTokenMap.values(cl, token);
 	}

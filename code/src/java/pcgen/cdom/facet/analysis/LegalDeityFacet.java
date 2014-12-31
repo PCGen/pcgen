@@ -73,7 +73,7 @@ public class LegalDeityFacet
 		else
 		{
 			result = false;
-			CLASS: for (PCClass aClass : classFacet.getClassSet(id))
+			CLASS: for (PCClass aClass : classFacet.getSet(id))
 			{
 				List<CDOMReference<Deity>> deityList = aClass
 						.getListFor(ListKey.DEITY);

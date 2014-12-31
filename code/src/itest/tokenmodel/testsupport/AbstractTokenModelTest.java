@@ -44,7 +44,7 @@ import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.cdom.facet.model.WeaponProfFacet;
+import pcgen.cdom.facet.model.WeaponProfModelFacet;
 import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -184,7 +184,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected StatFacet statFacet;
 	protected TemplateFacet templateConsolidationFacet;
 	protected TemplateInputFacet templateInputFacet;
-	protected WeaponProfFacet weaponProfFacet;
+	protected WeaponProfModelFacet weaponProfModelFacet;
 
 	protected void setUpContext() throws PersistenceLayerException
 	{
@@ -222,7 +222,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		statFacet = FacetLibrary.getFacet(StatFacet.class);
 		templateInputFacet = FacetLibrary.getFacet(TemplateInputFacet.class);
 		templateConsolidationFacet = FacetLibrary.getFacet(TemplateFacet.class);
-		weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
+		weaponProfModelFacet = FacetLibrary.getFacet(WeaponProfModelFacet.class);
 
 		Globals.createEmptyRace();
 		Globals.setUseGUI(false);

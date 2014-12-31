@@ -22,6 +22,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 
+import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -140,8 +141,9 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 			Converter<WeaponProf, R> c)
 	{
 		Set<R> returnSet = new HashSet<R>();
-		Collection<CDOMReference<WeaponProf>> intermediate = pcs.getCollection(pc, this);
-		for (CDOMReference<WeaponProf> ref : intermediate)
+		Collection<? extends ObjectContainer<WeaponProf>> intermediate =
+				pcs.getCollection(pc, this);
+		for (ObjectContainer<WeaponProf> ref : intermediate)
 		{
 			returnSet.addAll(c.convert(ref));
 		}
@@ -150,7 +152,7 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 
 	@Override
 	public Collection<CDOMReference<WeaponProf>> convert(
-			CDOMReference<Equipment> orig)
+			ObjectContainer<Equipment> orig)
 	{
 		Set<CDOMReference<WeaponProf>> refSet = new HashSet<CDOMReference<WeaponProf>>();
 		for (Equipment e : orig.getContainedObjects())
@@ -169,7 +171,7 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 
 	@Override
 	public Collection<CDOMReference<WeaponProf>> convert(
-			CDOMReference<Equipment> orig, PrimitiveFilter<Equipment> lim)
+			ObjectContainer<Equipment> orig, PrimitiveFilter<Equipment> lim)
 	{
 		throw new UnsupportedOperationException(
 				"Only EquipmentToken should call itself as a Converter");
