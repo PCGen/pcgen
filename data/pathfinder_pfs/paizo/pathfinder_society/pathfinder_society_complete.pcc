@@ -62,6 +62,7 @@ PCC:@/pathfinder/paizo/roleplaying_game/bestiary_3/bestiary_3.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/ultimate_combat.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/ultimate_magic.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
 
 PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/book_of_the_damned_volume_1.pcc
 PCC:@/pathfinder/paizo/campaign_setting/dark_markets/dark_markets.pcc
@@ -72,6 +73,7 @@ PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_gu
 PCC:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pathfinder_society_field_guide.pcc
 PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.pcc
 
+PCC:@/pathfinder/paizo/player_companion/animal_archive/_animal_archive.pcc
 PCC:@/pathfinder/paizo/player_companion/andoran_spirit_of_liberty/andoran_spirit_of_liberty.pcc
 PCC:@/pathfinder/paizo/player_companion/blood_of_angels/blood_of_angels.pcc
 PCC:@/pathfinder/paizo/player_companion/blood_of_fiends/blood_of_fiends.pcc
@@ -90,6 +92,7 @@ PCC:@/pathfinder/paizo/player_companion/orcs_of_golarion/orcs_of_golarion.pcc
 PCC:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.pcc
 PCC:@/pathfinder/paizo/player_companion/qadira_gateway_to_the_east/qadira_gateway_to_the_east.pcc
 PCC:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/sargava_the_lost_colony.pcc
+PCC:@/pathfinder/paizo/player_companion/varisia_birthplace_of_legends/_varisia_birthplace_of_legends.pcc
 
 #PCC:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/curse_of_the_crimson_throne_players_guide.pcc
 #PCC:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/ap9/ap9.pcc
