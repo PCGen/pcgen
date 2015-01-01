@@ -47,13 +47,13 @@ CLASS:Artificer	STARTSKILLPTS:8	CSKILL:Alchemy|Concentration|TYPE=Craft|Diplomac
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Sabotage (Ex)	SAB:Steamcraft Creations (Ex)																		AUTO:FEAT|Feral Child
-2																				ADD:FEAT|Artificer Skill Focus
-5	SAB:Master Craftsman +%|MasterCraftsman		BONUS:VAR|MasterCraftsman|(CL-2)/3	DEFINE:MasterCraftsman|0	ADD:FEAT|Artificer Steamcraft Focus
-8																				ADD:FEAT|Artificer Skill Focus
-12																				ADD:FEAT|Artificer Steamcraft Focus
-14																				ADD:FEAT|Artificer Skill Focus
-19																				ADD:FEAT|Artificer Steamcraft Focus
-20																				ADD:FEAT|Artificer Skill Focus
+2																				BONUS:ABILITYPOOL|Artificer Skill Focus|1
+5	SAB:Master Craftsman +%|MasterCraftsman		BONUS:VAR|MasterCraftsman|(CL-2)/3	DEFINE:MasterCraftsman|0	BONUS:ABILITYPOOL|Artificer Steamcraft Focus|1
+8																				BONUS:ABILITYPOOL|Artificer Skill Focus|1
+12																				BONUS:ABILITYPOOL|Artificer Steamcraft Focus|1
+14																				BONUS:ABILITYPOOL|Artificer Skill Focus|1
+19																				BONUS:ABILITYPOOL|Artificer Steamcraft Focus|1
+20																				BONUS:ABILITYPOOL|Artificer Skill Focus|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
@@ -67,19 +67,19 @@ CLASS:Musketeer	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Cr
 2																					AUTO:FEAT|Reload on the Run
 3	SAB:Avoid Fire +% (Ex)|AvoidFire			BONUS:VAR|AvoidFire|1	DEFINE:AvoidFire|0
 4	SAB: Move and I'll Shoot (Ex)
-5																	ADD:FEAT|TYPE=Musketeer
+5																	BONUS:ABILITYPOOL|Musketeer Feat|1
 6									BONUS:VAR|AvoidFire|1
 7	SAB:Take Cover (Ex)
-8																	ADD:FEAT|TYPE=Musketeer
+8																	BONUS:ABILITYPOOL|Musketeer Feat|1
 10	SAB:Crack Shot (Ex)					BONUS:VAR|AvoidFire|1
-11																	ADD:FEAT|TYPE=Musketeer
+11																	BONUS:ABILITYPOOL|Musketeer Feat|1
 13	SAB:Deadly Aim (%d6 Bonus Damage)(Ex)|DeadlyAim	BONUS:VAR|DeadlyAim|1	DEFINE:DeadlyAim|0
-14																	ADD:FEAT|TYPE=Musketeer
+14																	BONUS:ABILITYPOOL|Musketeer Feat|1
 15									BONUS:VAR|AvoidFire|1
 16									BONUS:VAR|DeadlyAim|1
-17																	ADD:FEAT|TYPE=Musketeer
+17																	BONUS:ABILITYPOOL|Musketeer Feat|1
 19									BONUS:VAR|DeadlyAim|1
-20																	ADD:FEAT|TYPE=Musketeer
+20																	BONUS:ABILITYPOOL|Musketeer Feat|1
 
 #
 # end

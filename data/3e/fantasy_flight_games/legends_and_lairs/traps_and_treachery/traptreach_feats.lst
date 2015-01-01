@@ -22,11 +22,3 @@ Shadow (TT)				TYPE:General																																																					
 Signature Skill			TYPE:General																																																													DESC:One of your Cross-Class Skills is now considered a Class Skill.																														MULT:YES	CHOOSE:SKILL|CROSSCLASS																								CSKILL:LIST	SOURCEPAGE:p.38
 Stealth				TYPE:General																																																													DESC:+2 on Hide and Move Silently																																										BONUS:SKILL|Hide,Move Silently|2																				SOURCEPAGE:p.39
 
-### Discreet Companion Abilities
-
-Talkingtouch			TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY	PRECLASS:1,Discreet Companion=1																																													SAB:Talkingtouch																																																																											SOURCEPAGE:p.22
-Truthtouch				TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY	PRECLASS:1,Discreet Companion=1																							PRESKILL:1,Sense Motive=4																		SAB:Truthtouch																																																																											SOURCEPAGE:p.22
-Paintouch				TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY	PRECLASS:1,Discreet Companion=1																																	PRESTAT:1,DEX=15										SAB:Paintouch																																																																											SOURCEPAGE:p.22
-Magekiss				TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY	PRECLASS:1,Discreet Companion=1																																													SAB:Magekiss																																																																											SOURCEPAGE:p.22
-Siren's Song			TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY	PRECLASS:1,Discreet Companion=1																																													SAB:Siren's Song																																																																											SOURCEPAGE:p.23
-Caress of the Lost Hour		TYPE:DiscreetCompanionAbility	VISIBLE:DISPLAY	PRECLASS:1,Discreet Companion=1																			PRESA:1,Charmtouch											PRESTAT:2,DEX=15,CHA=15									SAB:Caress of the Lost Hour																																																																									SOURCEPAGE:p.23

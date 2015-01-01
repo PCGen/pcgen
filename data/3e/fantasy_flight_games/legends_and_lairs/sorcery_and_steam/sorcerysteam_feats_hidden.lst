@@ -3,9 +3,6 @@ SOURCELONG:Fantasy Flight Games - Sorcery and Steam	SOURCESHORT:SAS	SOURCEWEB:ht
 # Original Entry by: Eddy Anthony
 
 # Feat Name				Type				Visible	Required Feat				Special ABility				Description		Multiple?	Choose																																																				Bonus DC				Bonus to skill		Source Page
-Artificer Skill Focus		TYPE:General		VISIBLE:NO							SAB:Skill Focus (%CHOICE)		DESC:See Text	MULT:YES	CHOOSE:SKILL|Alchemy|Concentration|Diplomacy|Disable Device|Drive|Heal|Intimidate|Knowledge (Architecture and Engineering)|Knowledge (Clockworks)|Knowledge (Engine Programming)|Knowledge (Firearms)|Knowledge (Steamcraft)|Listen|Munitions|Open Lock|Ride|Search|TYPE=Craft|TYPE=Profession|Use Rope|Use Steamcraft Device						BONUS:SKILL|LIST|2	SOURCEPAGE:p.53
-Artificer Steamcraft Focus	TYPE:SteamcraftFocus	VISIBLE:NO							SAB:Steamcraft Focus (%CHOICE)				MULT:YES	CHOOSE:STRING|Armor|General|Vehicles|Weapons
-Musketeer Skill Focus		TYPE:General		VISIBLE:NO							SAB:Skill Focus (%CHOICE)		DESC:See Text	MULT:YES	CHOOSE:SKILL|Balance|Bluff|Climb|Concentration|Diplomacy|Disable Device|Escape Artist|Gather Information|Intimidate|Jump|Munitions|Ride|Sense Motive|Spot|Swim|Tumble|TYPE=Craft|TYPE=Profession|Use Rope|Use Steamcraft Device																					BONUS:SKILL|LIST|2	SOURCEPAGE:p.47
 Hypnotist DC Bonus		TYPE:General		VISIBLE:NO	PREFEAT:1,Spell Focus (Enchantment)							DESC:See Text																																																								BONUS:DC|SCHOOL.Enchantment|2
 Reference Material		TYPE:Detective		VISIBLE:NO							SAB:Reference Material (%CHOICE)	DESC:See Text	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge																																																						BONUS:SKILL|LIST|2	SOURCEPAGE:p.59
 

@@ -97,14 +97,14 @@ CLASS:Eldritch Warrior	STARTSKILLPTS:2	CSKILL:Alchemy|Climb|Concentration|TYPE=C
 # Class Name		Spell Type		Caster level
 CLASS:Eldritch Warrior	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Eldritch Warrior|CL
 1	SAB:Ritual of Potency
-2	SAB:Enrune Armor		ADD:FEAT|Ambidexterity,Cleave,Dodge,Exotic Weapon Proficiency,Expertise,Far Shot,Great Cleave,Improved Bull Rush,Improved Critical,Improved Disarm,Improved Initiative,Improved Trip,Improved Two-Weapon Fighting,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Power Attack,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Sunder,Trample,Two-Weapon Fighting,Weapon Finesse,Weapon Focus,Whirlwind Attack
+2	SAB:Enrune Armor		BONUS:ABILITYPOOL|Eldritch Warrior Feat|1
 3	SAB:Infuse with Power
 4	SAB:Ritual of Potency
 5	SAB:Enrune Weapon
-6					ADD:FEAT|Ambidexterity,Cleave,Dodge,Exotic Weapon Proficiency,Expertise,Far Shot,Great Cleave,Improved Bull Rush,Improved Critical,Improved Disarm,Improved Initiative,Improved Trip,Improved Two-Weapon Fighting,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Power Attack,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Sunder,Trample,Two-Weapon Fighting,Weapon Finesse,Weapon Focus,Whirlwind Attack
+6					BONUS:ABILITYPOOL|Eldritch Warrior Feat|1
 7	SAB:Ritual of Potency
 8	SAB:Enrune Flesh
-9					ADD:FEAT|Ambidexterity,Cleave,Dodge,Exotic Weapon Proficiency,Expertise,Far Shot,Great Cleave,Improved Bull Rush,Improved Critical,Improved Disarm,Improved Initiative,Improved Trip,Improved Two-Weapon Fighting,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Power Attack,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Spring Attack,Sunder,Trample,Two-Weapon Fighting,Weapon Finesse,Weapon Focus,Whirlwind Attack
+9					BONUS:ABILITYPOOL|Eldritch Warrior Feat|1
 10	SAB:Ritual of Potency
 
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus

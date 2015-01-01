@@ -23,6 +23,8 @@ COPYRIGHT:PCGen dataset conversion for the School of Evocation Copyright 2003, P
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+ABILITYCATEGORY:soe_abilitycategories.lst
+ABILITY:soe_abilities.lst
 
 CLASS:schoolevocation_classes.lst
 FEAT:schoolevocation_feats.lst

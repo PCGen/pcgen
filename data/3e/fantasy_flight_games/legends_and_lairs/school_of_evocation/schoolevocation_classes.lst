@@ -15,11 +15,11 @@ CLASS:Devoted Evoker	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYP
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Spell Scoll Prohibited													Caster level				Use Spell List
 CLASS:Devoted Evoker	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Illusion,Necromancy,Transmutation	BONUS:CASTERLEVEL|Devoted Evoker|CL	SPELLLIST:1|Wizard
 ###Block: Proficiencies
-1	AUTO:FEAT|Devoted Evoker Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Devoted Evoker Weapon Proficiencies
 ###Block: Evocation DC bonus
 1	BONUS:DC|SCHOOL.Evocation|EvocationFocus	DEFINE:EvocationFocus|0
 ###Block: Normal Level Progression
-1	CAST:4,2				SAB:Devotion																		ADD:FEAT|TYPE=EvocationMastery
+1	CAST:4,2				SAB:Devotion																		BONUS:ABILITYPOOL|Devoted Evoker|1
 2	CAST:5,3				SAB:Augment evocation (% levels)|AugmentEvocation	BONUS:VAR|AugmentEvocation|CL/4+1	DEFINE:AugmentEvocation|0
 3	CAST:5,3,2				SAB:Evocation focus (+%)|EvocationFocus			BONUS:VAR|EvocationFocus|CL/6+1
 4	CAST:5,4,3
@@ -28,7 +28,7 @@ CLASS:Devoted Evoker	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLB
 7	CAST:5,5,4,3,2
 8	CAST:5,5,4,4,3
 9	CAST:5,5,5,4,3,2
-10	CAST:5,5,5,4,4,3																							ADD:FEAT|TYPE=EvocationMastery
+10	CAST:5,5,5,4,4,3																							BONUS:ABILITYPOOL|Devoted Evoker|1
 11	CAST:5,5,5,5,4,3,2
 12	CAST:5,5,5,5,4,4,3
 13	CAST:5,5,5,5,5,4,3,2
@@ -38,7 +38,7 @@ CLASS:Devoted Evoker	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLB
 17	CAST:5,5,5,5,5,5,5,4,3,2
 18	CAST:5,5,5,5,5,5,5,4,4,3
 19	CAST:5,5,5,5,5,5,5,5,4,4
-20	CAST:5,5,5,5,5,5,5,5,5,5																					ADD:FEAT|TYPE=EvocationMastery
+20	CAST:5,5,5,5,5,5,5,5,5,5																					BONUS:ABILITYPOOL|Devoted Evoker|1
 
 
 #
@@ -107,10 +107,10 @@ CLASS:Maestro of Dissonance	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE
 2																													ADD:SPELLCASTER|ANY
 3				SAB:Amplify Sounds (+%)|AmplifySounds	BONUS:VAR|AmplifySounds|CL/3									DEFINE:AmplifySounds|0		ADD:SPELLCASTER|ANY
 4											BONUS:VAR|MaestroBlindsight|15													ADD:SPELLCASTER|ANY
-5																													ADD:SPELLCASTER|ANY	ADD:FEAT|Spell Mastery,TYPE=ItemCreation,TYPE=Metamagic
+5																													ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Maestro of Dissonance Feat|1
 6																													ADD:SPELLCASTER|ANY
 7											BONUS:VAR|MaestroBlindsight|15													ADD:SPELLCASTER|ANY
-8																													ADD:SPELLCASTER|ANY	ADD:FEAT|Spell Mastery,TYPE=ItemCreation,TYPE=Metamagic
+8																													ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Maestro of Dissonance Feat|1
 9																													ADD:SPELLCASTER|ANY
 10				SAB:Deafening Cry					BONUS:VAR|MaestroBlindsight|15													ADD:SPELLCASTER|ANY
 
@@ -123,7 +123,7 @@ CLASS:Order of Akmon	HD:4		TYPE:PC.Prestige	ABB:Akm		MAXLEVEL:10	SOURCEPAGE:p.15
 CLASS:Order of Akmon	PREFEAT:3,Combat Casting,Spell Focus (Evocation),Still Spell	PRESKILL:3,Concentration=8,Knowledge (Arcana)=8,Intimidate=4	PRESPELL:1,Wind Wall	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Order of Akmon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|Listen|Perform|TYPE=Profession|Scry|Speak Language|Spellcraft
-1	AUTO:FEAT|Order of Akmon Weapon Proficiencies|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Order of Akmon Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1	SAB:Hammer of Force (0-level and 1st level)|PREVARLT:CL,3											ADD:SPELLCASTER|ANY
 2	SAB:Irresistible Force (+%)|IrresistibleForce			BONUS:VAR|IrresistibleForce|1	DEFINE:IrresistibleForce|0	ADD:SPELLCASTER|ANY

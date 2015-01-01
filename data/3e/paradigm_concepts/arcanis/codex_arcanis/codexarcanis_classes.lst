@@ -178,9 +178,9 @@ CLASS:Blackchanter	PREALIGN:LG,LN,LE,NG,TN,NE	PRESKILL:5,Concentration=4,Knowled
 CLASS:Blackchanter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Gather Information|Jump|TYPE=Knowledge|Perform|TYPE=Profession|Ride|Scry|Speak Language|Spellcraft|Swim|Tumble
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Blackchanter	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Blackchanter|CL
-1									ADD:SPELLCASTER|ANY	ADD:FEAT|Skill Focus(Knowledge (Nobility and Royalty)),Skill Focus(Knowledge (Thanatology)),Skill Focus(Knowledge (Undead))
+1									ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Blackchanter Feat|1
 2	SAB:Requiem (Ex)						ADD:SPELLCASTER|ANY
-3									ADD:SPELLCASTER|ANY	ADD:FEAT|Skill Focus(Knowledge (Nobility and Royalty)),Skill Focus(Knowledge (Thanatology)),Skill Focus(Knowledge (Undead))
+3									ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Blackchanter Feat|1
 4	SAB:Elemental Savant: Positive Energy (Sp)	ADD:SPELLCASTER|ANY
 5	SAB:Danse Macabre (Sp)					ADD:SPELLCASTER|ANY
 
