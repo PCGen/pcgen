@@ -24,8 +24,6 @@ package gmgen.pluginmgr.messages;
 
 import java.awt.Component;
 
-import javax.swing.JPanel;
-
 import pcgen.pluginmgr.PCGenMessage;
 
 /**

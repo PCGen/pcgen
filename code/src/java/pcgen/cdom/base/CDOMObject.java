@@ -24,6 +24,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -322,15 +323,85 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		listChar.addAllToListFor(key, elementCollection);
 	}
 
+	/**
+	 * Returns a copy of the list of objects stored in this CDOMObject for the
+	 * given ListKey.
+	 * 
+	 * No order is guaranteed, and the returned List may contain duplicates.
+	 * There is no guarantee that duplicate items are sequential items in the
+	 * returned List.
+	 * 
+	 * This method is value-semantic in that no changes are made to the key
+	 * passed into the method and ownership of the returned List is transferred
+	 * to the class calling this method.
+	 * 
+	 * @param key
+	 *            The ListKey for which a copy of the list should be returned.
+	 * @return A copy of the List contained in this CDOMObject for the given
+	 *         key; null if the given key is not a ListKey in this CDOMObject.
+	 */
 	public final <T> List<T> getListFor(ListKey<T> key)
 	{
 		return listChar == null ? null : listChar.getListFor(key);
 	}
 
+	/**
+	 * Returns a non-null copy of the list of objects stored in this CDOMObject
+	 * for the given ListKey.
+	 * 
+	 * No order is guaranteed, and the returned List may contain duplicates.
+	 * There is no guarantee that duplicate items are sequential items in the
+	 * returned List.
+	 * 
+	 * This method is value-semantic in that no changes are made to the key
+	 * passed into the method and ownership of the returned List is transferred
+	 * to the class calling this method.
+	 * 
+	 * @param key
+	 *            The ListKey for which a copy of the list should be returned.
+	 * @return A copy of the List contained in this CDOMObject for the given
+	 *         key.
+	 */
 	public final <T> List<T> getSafeListFor(ListKey<T> key)
 	{
 		return listChar != null && listChar.containsListFor(key) ? listChar.getListFor(key)
 				: new ArrayList<T>();
+	}
+	
+	/**
+	 * Returns a non-null Set of the objects stored in this CDOMObject for the
+	 * given ListKey. The List is converted to a Set to ensure that each entry
+	 * in the List is only occurs once.
+	 * 
+	 * This is used because the loading system cannot guarantee "Set" behavior
+	 * (cannot guarantee uniqueness), and a specific infrastructure for a Set
+	 * (vs a List) is considered overkill for the few use cases that require it.
+	 * 
+	 * No order of the objects is guaranteed.
+	 * 
+	 * This method is value-semantic in that no changes are made to the key
+	 * passed into the method and ownership of the returned Set is transferred
+	 * to the class calling this method.
+	 * 
+	 * @param key
+	 *            The ListKey for which a Set of the objects stored in this
+	 *            CDOMObject for the given ListKey should be returned.
+	 * @return A Set of objects in the List contained in this CDOMObject for the
+	 *         given key.
+	 */
+	public final <T extends Comparable<T>> Set<T> getUniqueListFor(
+		ListKey<T> key)
+	{
+		if (listChar == null)
+		{
+			return new HashSet<T>();
+		}
+		List<T> list = listChar.getListFor(key);
+		if (list == null)
+		{
+			return new HashSet<T>();
+		}
+		return new LinkedHashSet<T>(list);
 	}
 	
 	public final String getListAsString(ListKey<?> key)

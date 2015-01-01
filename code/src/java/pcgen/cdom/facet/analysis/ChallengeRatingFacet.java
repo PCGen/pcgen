@@ -20,8 +20,6 @@ package pcgen.cdom.facet.analysis;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.math.Fraction;
-
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;

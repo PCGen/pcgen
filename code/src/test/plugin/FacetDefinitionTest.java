@@ -35,8 +35,6 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import pcgen.PCGenTestCase;
-
 /**
  * <code>FacetDefinitionTest</code> verifies that all facets are registered in the 
  * applicationContext.xml file. As a result this unit test is a bit different in 
