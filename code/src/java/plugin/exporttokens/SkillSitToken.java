@@ -137,7 +137,9 @@ public class SkillSitToken extends Token
 					return sk;
 				}
 				i--; //wasn't the base skill
-				List<String> situations = sk.getUniqueListFor(ListKey.SITUATION);
+				List<String> situations =
+						new ArrayList<String>(
+							sk.getUniqueListFor(ListKey.SITUATION));
 				if (situations != null)
 				{
 					int numSits = situations.size();
