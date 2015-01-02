@@ -10,10 +10,10 @@ Hide Shirt															PROFICIENCY:ARMOR|Hide Shirt							TYPE:Armor.Light.Arm
 Klar (as a Shield)																		PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Light.Standard												COST:12	WT:6				ACCHECK:-1																						SOURCEPAGE:p.14	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
 
 ###BLOCK: Weapon
-Starknife									PROFICIENCY:WEAPON|Starknife													TYPE:Weapon.Resizable.Melee.Martial.Standard.Piercing								COST:24	WT:3							CRITMULT:x3	CRITRANGE:1	DAMAGE:1d4	EQMOD:STEEL			WIELD:Light					RANGE:20	SIZE:M	SOURCEPAGE:p.14
-Klar (as a Weapon)				OUTPUTNAME:Klar	PROFICIENCY:WEAPON|Klar														TYPE:Weapon.Resizable.Melee.Martial.Standard.Slashing								COST:0	WT:0							CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:STEEL			WIELD:Light							SIZE:M	SOURCEPAGE:p.14
-Earth Breaker								PROFICIENCY:WEAPON|Earth Breaker												TYPE:Weapon.Resizable.Melee.Martial.Standard.Bludgeoning							COST:40	WT:14							CRITMULT:x3	CRITRANGE:1	DAMAGE:2d6	EQMOD:STEEL			WIELD:TwoHanded						SIZE:M	SOURCEPAGE:p.14
-Scarf (Bladed)								PROFICIENCY:WEAPON|Scarf (Bladed)												TYPE:Weapon.Resizable.Melee.Exotic.Standard.Reach.Finesseable.Slashing					COST:12	WT:2							CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:CLOTH.DISARM.TRIP	WIELD:TwoHanded						SIZE:M	SOURCEPAGE:p.14
+Starknife									PROFICIENCY:WEAPON|Starknife													TYPE:Weapon.Resizable.Melee.Light.Martial.Standard.Piercing							COST:24	WT:3							CRITMULT:x3	CRITRANGE:1	DAMAGE:1d4	EQMOD:STEEL			WIELD:Light					RANGE:20	SIZE:M	SOURCEPAGE:p.14
+Klar (as a Weapon)				OUTPUTNAME:Klar	PROFICIENCY:WEAPON|Klar														TYPE:Weapon.Resizable.Melee.Light.Martial.Standard.Slashing							COST:0	WT:0							CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:STEEL			WIELD:Light							SIZE:M	SOURCEPAGE:p.14
+Earth Breaker								PROFICIENCY:WEAPON|Earth Breaker												TYPE:Weapon.Resizable.Melee.TwoHanded.Martial.Standard.Bludgeoning					COST:40	WT:14							CRITMULT:x3	CRITRANGE:1	DAMAGE:2d6	EQMOD:STEEL			WIELD:TwoHanded						SIZE:M	SOURCEPAGE:p.14
+Scarf (Bladed)								PROFICIENCY:WEAPON|Scarf (Bladed)												TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Standard.Reach.Finesseable.Slashing			COST:12	WT:2							CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:CLOTH.DISARM.TRIP	WIELD:TwoHanded						SIZE:M	SOURCEPAGE:p.14
 Totem Spear									PROFICIENCY:WEAPON|Totem Spear												TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Reach.Standard.Piercing.Spear				COST:25	WT:6		SLOTS:2				CRITMULT:x3	CRITRANGE:1	DAMAGE:1d10	EQMOD:STEEL			WIELD:TwoHanded				RANGE:10	SIZE:M	SOURCEPAGE:p.14
 Shoanti Bola								PROFICIENCY:WEAPON|Shoanti Bola												TYPE:Weapon.Resizable.Ranged.Exotic.Standard.Bludgeoning.Piercing.Thrown				COST:15	WT:2							CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:LEATHER.TRIP							RANGE:10	SIZE:M	SOURCEPAGE:p.14
 
