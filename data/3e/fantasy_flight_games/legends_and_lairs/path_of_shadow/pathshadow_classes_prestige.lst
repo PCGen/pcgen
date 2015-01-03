@@ -391,12 +391,12 @@ CLASS:White Rose	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher 
 1	AUTO:FEAT|White Rose Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1							ADD:FEAT|TYPE=WhiteRoseSpecialAbilities
+1							BONUS:ABILITYPOOL|White Rose Special Ability|1
 2	BONUS:VAR|SneakAttackDice|(CL+2)/4								ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-3							ADD:FEAT|TYPE=WhiteRoseSpecialAbilities
-5							ADD:FEAT|TYPE=WhiteRoseSpecialAbilities
-7							ADD:FEAT|TYPE=WhiteRoseSpecialAbilities
-9							ADD:FEAT|TYPE=WhiteRoseSpecialAbilities
+3							BONUS:ABILITYPOOL|White Rose Special Ability|1
+5							BONUS:ABILITYPOOL|White Rose Special Ability|1
+7							BONUS:ABILITYPOOL|White Rose Special Ability|1
+9							BONUS:ABILITYPOOL|White Rose Special Ability|1
 
 # zzz Windrider
 

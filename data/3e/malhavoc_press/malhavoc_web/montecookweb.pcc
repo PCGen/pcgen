@@ -29,6 +29,7 @@ COPYRIGHT:PCGen dataset conversion for Malhavoc Press Web Enhancements Copyright
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:Permission.txt
 ABILITY:montecookwebclassfeats.lst
+ABILITYCATEGORY:mcw_abilitycategories.lst
 
 CLASS:montecookwebclasses.lst
 FEAT:montecookwebfeats.lst

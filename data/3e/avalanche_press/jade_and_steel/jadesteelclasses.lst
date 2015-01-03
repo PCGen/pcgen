@@ -99,10 +99,10 @@ CLASS:Sword Saint	PREFEAT:4,Weapon Specialization,Expertise,Quick Draw,Spring At
 CLASS:Sword Saint	STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Knowledge (Religion)|Tumble
 1																								ABILITY:Special Ability|AUTOMATIC|Flurry of Blows
 2																								ABILITY:Special Ability|AUTOMATIC|Still Mind
-3												ADD:FEAT|Deflect Arrows
+3												AUTO:FEAT|Deflect Arrows
 4					BONUS:COMBAT|TOHIT|2|TYPE=Enhancement	ADD:ABILITY|2|Special Ability|NORMAL|Superior Weapon Focus
 5	SAB:Leap of The Clouds
-6												ADD:FEAT|Lightning Reflexes
+6												AUTO:FEAT|Lightning Reflexes
 7					BONUS:COMBAT|DAMAGE|2|TYPE=Enhancement	ADD:ABILITY|2|Special Ability|NORMAL|Superior Weapon Specialization
 8	SAB:Perfect Balance
 9																								ABILITY:Special Ability|AUTOMATIC|Wholeness of Body

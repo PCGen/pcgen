@@ -9,10 +9,10 @@ CLASS:Discreet Companion	HD:4		TYPE:PC.Prestige	ABB:DCO		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Discreet Companion	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:2,Alertness,Skill Focus (Gather Information)	PRESKILL:1,Bluff=6	PRESKILL:1,Diplomacy=8	PRESKILL:1,Gather Information=10	PRESKILL:1,Profession (Escort)=5,Profession (Courtesan)=5,Profession (Prostitute)=5	PRESKILL:2,Innuendo=4,Perform=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Discreet Companion	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery|Gather Information|Innuendo|Intimidate|Listen|Mimic Voice|Perform|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Urban Lore
-1	SAB:Secret %|Secret	BONUS:VAR|Secret|(CL+2)/3	DEFINE:Secret|0	ADD:FEAT|TYPE=DiscreetCompanionAbility
+1	SAB:Secret %|Secret	BONUS:VAR|Secret|(CL+2)/3	DEFINE:Secret|0	BONUS:ABILITYPOOL|Discreet Companion|1
 2	SAB:Resist Charm
-5													ADD:FEAT|TYPE=DiscreetCompanionAbility
-10	SAB:Charmtouch										ADD:FEAT|TYPE=DiscreetCompanionAbility
+5													BONUS:ABILITYPOOL|Discreet Companion|1
+10	SAB:Charmtouch										BONUS:ABILITYPOOL|Discreet Companion|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus											Save bonus
 CLASS:Guildmaster	HD:6		TYPE:PC.Prestige	ABB:fg2		MAXLEVEL:10	SOURCEPAGE:p.23-26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
@@ -21,7 +21,7 @@ CLASS:Guildmaster	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Leadership,Skill Focus (I
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guildmaster	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Urban Lore|Use Rope
 ###Block: Proficiencies
-1	AUTO:FEAT|Guildmaster Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Guildmaster Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Favor %|Favor	SAB:Guild Hall	BONUS:VAR|Favor|CL/5+1			DEFINE:Favor|0		ADD:CLASSSKILLS|2|TYPE=Knowledge
@@ -90,4 +90,4 @@ CLASS:Thug		STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Disgu
 
 # Class Name	Class Skill
 CLASS:Ranger.MOD	CSKILL:Urban Lore
-1	ADD:FEAT|Shadow (TT),Track	AUTO:FEAT|.CLEAR.Track	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+1	BONUS:ABILITYPOOL|TT Ranger Choice|1	AUTO:FEAT|.CLEAR.Track	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency

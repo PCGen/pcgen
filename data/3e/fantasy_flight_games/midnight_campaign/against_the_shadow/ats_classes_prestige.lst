@@ -75,10 +75,10 @@ CLASS:Bane of Legates	STARTSKILLPTS:4	CSKILL:Alchemy|Animal Empathy|Bluff|Concen
 1:REPEATLEVEL:1						ADD:FEAT|Improved Spellcasting
 1			BONUS:VAR|SpellEnergy|CL
 1			BONUS:VAR|IzradorSR|10+CL								AUTO:FEAT|Resist Izrador's Will
-2:REPEATLEVEL:5						ADD:FEAT|TYPE=ItemCreation,TYPE=Metamagic
+2:REPEATLEVEL:5						BONUS:ABILITYPOOL|Bane of Legates Feat|1
 3															AUTO:FEAT|See Astirax
 4															AUTO:FEAT|Counter Izrador's Will
-5:REPEATLEVEL:4						ADD:FEAT|TYPE=Spellcasting
+5:REPEATLEVEL:4						BONUS:ABILITYPOOL|Spellcasting|1
 6															AUTO:FEAT|Bind Astirax
 8															AUTO:FEAT|Conceal Magic
 10															AUTO:FEAT|Sundered Spirit
@@ -143,10 +143,10 @@ CLASS:Sarcosan Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle A
 1																																																																AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 1			BONUS:VAR|HorseLordLvl|CL																																																									AUTO:FEAT|Horse Lord
 1			BONUS:VAR|SarSMLevel|CL																																																										AUTO:FEAT|Sarcosan Mount
-2:REPEATLEVEL:3						ADD:FEAT|Mounted Maneuver
-3:REPEATLEVEL:3						ADD:FEAT|Mounted Archery,Sarcosan Pureblood,Skill Focus (Ride),Trample,Weapon Focus (Cedeku),Weapon Focus (Scimitar),Weapon Focus (Shortbow),Weapon Specialization (Cedeku),Weapon Specialization (Scimitar),Weapon Specialization (Shortbow)
+2:REPEATLEVEL:3						BONUS:ABILITYPOOL|Mounted Maneuver|1
+3:REPEATLEVEL:3				BONUS:ABILITYPOOL|Sarcosan Knight Feat|1		
 4																																																																AUTO:FEAT|Spur On
-7								ADD:FEAT|Devastating Attack
+7								BONUS:ABILITYPOOL|Devastating Attack|1
 10																																																																AUTO:FEAT|Sweeping Strike
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
@@ -180,7 +180,7 @@ CLASS:Warrior Arcanist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Int
 5																									AUTO:FEAT|Regenerative Strike
 6								BONUS:VAR|IgnoreArmorBonus|10	BONUS:VAR|MaxSpellChanneling|1
 8								BONUS:VAR|IgnoreArmorBonus|10
-9																			ADD:FEAT|TYPE=Fighter
+9																			BONUS:ABILITYPOOL|Fighter Feat|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Whisper Adept	HD:8		TYPE:PC.Prestige	ABB:whs		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
@@ -208,7 +208,7 @@ CLASS:Wogren Rider	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE=Craft|Handle
 1																																																									AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1			BONUS:VAR|WogrenRiderLvl|CL																																																		AUTO:FEAT|Wogren Mount
 1																																																									AUTO:FEAT|Coordinated Attack
-2:REPEATLEVEL:2						ADD:FEAT|Improved Mounted Archery,Improved Mounted Combat,Improved Ride By Attack,Improved Spirited Charge,Improved Trample,Mounted Archery,Mounted Combat,Ride-By Attack,Spirited Charge,Trample
+2:REPEATLEVEL:2					BONUS:ABILITYPOOL|Wogren Rider Feat|1	
 3																																																									AUTO:FEAT|Speed Mount
 5																																																									AUTO:FEAT|Mounted Hide
 7																																																									AUTO:FEAT|Wogren Dodge

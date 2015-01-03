@@ -32,6 +32,7 @@ INFOTEXT:This set uses Spells from the Book of Eldritch Might which should be lo
 
 
 # Missing Monsters
+ABILITYCATEGORY:em2_abilitycategories.lst
 
 CLASS:eldritch2classes.lst
 DEITY:eldritch2deities.lst

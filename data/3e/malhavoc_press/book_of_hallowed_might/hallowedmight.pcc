@@ -23,7 +23,7 @@ INFOTEXT:Spell names and other proper names from The Book of Hallowed Might are 
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
-
+ABILITYCATEGORY:bohm_abilitycategories.lst
 ABILITY:hallowedmight_feats_hidden.lst
 
 DOMAIN:hallowedmight_domains.lst

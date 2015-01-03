@@ -78,15 +78,15 @@ CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE=Cr
 1	SAB:Delver Notebook	SAB:Traps						ADD:FEAT|Exotic Weapon Proficiency,Martial Weapon Proficiency
 2																																																		ABILITY:Special Ability|VIRTUAL|Evasion
 3							BONUS:VAR|UncannyDodge|1																																							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
-7												ADD:FEAT|Alertness,Combat Reflexes,Dodge,Expertise,Improved Disarm,Improved Initiative,Improved Trip,Iron Will,Lightning Reflexes,Mobility,Quick Draw,Run,Skill Focus,Spring Attack,Weapon Finesse,Weapon Focus,Whirlwind Attack
+7												BONUS:ABILITYPOOL|Delver Feat|1
 6							BONUS:VAR|UncannyDodge|1
-10												ADD:FEAT|Alertness,Combat Reflexes,Dodge,Expertise,Improved Disarm,Improved Initiative,Improved Trip,Iron Will,Lightning Reflexes,Mobility,Quick Draw,Run,Skill Focus,Spring Attack,Weapon Finesse,Weapon Focus,Whirlwind Attack
+10												BONUS:ABILITYPOOL|Delver Feat|1
 11							BONUS:VAR|UncannyDodge|1
-13												ADD:FEAT|Alertness,Combat Reflexes,Dodge,Expertise,Improved Disarm,Improved Initiative,Improved Trip,Iron Will,Lightning Reflexes,Mobility,Quick Draw,Run,Skill Focus,Spring Attack,Weapon Finesse,Weapon Focus,Whirlwind Attack
+13												BONUS:ABILITYPOOL|Delver Feat|1
 14							BONUS:VAR|UncannyDodge|1
-16												ADD:FEAT|Alertness,Combat Reflexes,Dodge,Expertise,Improved Disarm,Improved Initiative,Improved Trip,Iron Will,Lightning Reflexes,Mobility,Quick Draw,Run,Skill Focus,Spring Attack,Weapon Finesse,Weapon Focus,Whirlwind Attack
+16												BONUS:ABILITYPOOL|Delver Feat|1
 17							BONUS:VAR|UncannyDodge|1
-19												ADD:FEAT|Alertness,Combat Reflexes,Dodge,Expertise,Improved Disarm,Improved Initiative,Improved Trip,Iron Will,Lightning Reflexes,Mobility,Quick Draw,Run,Skill Focus,Spring Attack,Weapon Finesse,Weapon Focus,Whirlwind Attack
+19												BONUS:ABILITYPOOL|Delver Feat|1
 20							BONUS:VAR|UncannyDodge|1
 
 

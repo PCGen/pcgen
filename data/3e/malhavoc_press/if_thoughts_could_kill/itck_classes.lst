@@ -144,14 +144,14 @@ CLASS:Slayer ITCK	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal E
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression
 1	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|EnemySense|30*CL	BONUS:VAR|EnemySense|60	DEFINE:EnemySense|0	ADD:SPELLCASTER|Psionic										ABILITY:Special Ability|AUTOMATIC|Favored Enemy ~ Slayer ITCK	ABILITY:Special Ability|AUTOMATIC|Mortal Enemy Sense ~ Slayer ITCK
-2																											ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
-3	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic	ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
+2																											BONUS:ABILITYPOOL|Slayer ITCK Feat|1
+3	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Slayer ITCK Feat|1
 4																																								ABILITY:Special Ability|AUTOMATIC|Lucid Buffer ~ Slayer ITCK
-5	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic	ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
+5	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Slayer ITCK Feat|1
 6																																								ABILITY:Special Ability|AUTOMATIC|Cerebral Blind ~ Slayer ITCK
-7	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic	ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
+7	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Slayer ITCK Feat|1
 8																																								ABILITY:Special Ability|AUTOMATIC|Breach Power Resistance ~ Slayer ITCK
-9	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic	ADD:FEAT|TYPE=General,TYPE=Metapsionic,TYPE=Psionic
+9	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal														ADD:SPELLCASTER|Psionic	BONUS:ABILITYPOOL|Slayer ITCK Feat|1
 10																																								ABILITY:Special Ability|AUTOMATIC|Blast Feedback ~ Slayer ITCK
 
 # Class Name		Output Name			Hit Dice	Type					Max Level	Source Page		Combat bonus											Save bonus

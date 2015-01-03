@@ -38,16 +38,16 @@ CLASS:Arcane Performer	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Cli
 ###Block: Musical Prodigy
 1	SAB:Musical Prodigy (+% DC of Bardic music and supernatural musical abilities)|MusicalProdigyDC	BONUS:VAR|MusicalProdigyDC|1	DEFINE:MusicalProdigyDC|0	AUTO:FEAT|Musical Prodigy
 ###Block: Normal Level Progression
-1																ADD:SPELLCASTER|ANY	ADD:FEAT|Song Power I
+1																ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Song Power|1
 2	SAB:Masterful Performance (Ex)										ADD:SPELLCASTER|ANY
 3	SAB:Tools of the Trade (Ex)											ADD:SPELLCASTER|ANY
-4																ADD:SPELLCASTER|ANY	ADD:FEAT|Song Power II
+4																ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Song Power|1
 5																ADD:SPELLCASTER|ANY
-6																ADD:SPELLCASTER|ANY	ADD:FEAT|Song Power III
+6																ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Song Power|1
 7																ADD:SPELLCASTER|ANY
-8																ADD:SPELLCASTER|ANY	ADD:FEAT|Song Power IV
+8																ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Song Power|1
 9	SAB:Musical Genius (Ex)			BONUS:SKILL|Perform|5	BONUS:VAR|MusicalProdigyDC|2	ADD:SPELLCASTER|ANY
-10	SAB:Song Power Master (Ex)											ADD:SPELLCASTER|ANY	ADD:FEAT|Song Power V
+10	SAB:Song Power Master (Ex)											ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Song Power|1
 ###Block: Bard Spells Known
 10	BONUS:DC|CLASS.Bard|2	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|1|PRESTAT:1,CHA=24
 10					BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|1|PRESTAT:1,CHA=14	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|1|PRESTAT:1,CHA=26
@@ -68,15 +68,15 @@ CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Handle Animal|Intimi
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Stubborn Resolve (Ex)
-2						ADD:FEAT|TYPE=Brawler
+2						BONUS:ABILITYPOOL|Brawler Feat|1
 3	SAB:Feinting Maneuver (Ex)
-4						ADD:FEAT|TYPE=Brawler
+4						BONUS:ABILITYPOOL|Brawler Feat|1
 5	SAB:Grappler (Ex)
-6						ADD:FEAT|TYPE=Brawler
+6						BONUS:ABILITYPOOL|Brawler Feat|1
 7	SAB:Defensive Stand (Ex)
-8						ADD:FEAT|TYPE=Brawler
+8						BONUS:ABILITYPOOL|Brawler Feat|1
 9	SAB:Eyes of the Champion (Ex)
-10	SAB:Final Attack (Ex)		ADD:FEAT|TYPE=Brawler
+10	SAB:Final Attack (Ex)		BONUS:ABILITYPOOL|Brawler Feat|1
 
 # Demolitionist -------------------------------------------------------------------------------
 
@@ -109,16 +109,16 @@ CLASS:Detective	STARTSKILLPTS:8	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher S
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1																										ADD:FEAT|Reference Material
+1																										BONUS:ABILITYPOOL|Reference Material|1
 2	SAB:Eye for Clues (Ex)					BONUS:SKILL|Spot|4|TYPE=Competence
 3	SAB:Second Thought %/day (Ex)|SecondThought									BONUS:VAR|SecondThought|1	DEFINE:SecondThought|0
-4																										ADD:FEAT|Reference Material
+4																										BONUS:ABILITYPOOL|Reference Material|1
 5	SAB:Experienced Detective (Ex)			BONUS:SKILL|Sense Motive,Spot|2|TYPE=Competence
 6																	BONUS:VAR|SecondThought|1
-7																										ADD:FEAT|Reference Material
+7																										BONUS:ABILITYPOOL|Reference Material|1
 8	SAB:Understanding the Criminal Mind (Ex)
 9																	BONUS:VAR|SecondThought|1
-10	SAB:Master Detective (Ex)																					ADD:FEAT|Reference Material
+10	SAB:Master Detective (Ex)																					BONUS:ABILITYPOOL|Reference Material|1
 
 # Game Hunter ---------------------------------------------------------------------------------
 
@@ -131,14 +131,14 @@ CLASS:Game Hunter	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE=Craft|Handle 
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
-1																																			ADD:FEAT|TYPE=GameHunterFavored
+1																																			BONUS:ABILITYPOOL|Game Hunter|1
 2	SAB:Scentless
 3	SAB:Steady Aim +% (Ex)|SteadyAim	SAB:Ranged Sneak Attack (%d6)(Ex)|SteadyAim												BONUS:VAR|SteadyAim|CL/3	DEFINE:SteadyAim|0
 4	SAB:Survivor (Ex)												BONUS:SKILL|Intuit Direction,Wilderness Lore|2|TYPE=Competence
-5																																			ADD:FEAT|TYPE=GameHunterFavored
+5																																			BONUS:ABILITYPOOL|Game Hunter|1
 7	SAB:Silent Hunter (Ex)											BONUS:SKILL|Hide,Move Silently|2|TYPE=Competence
 8	SAB:Outdoorsman (Ex)											BONUS:SKILL|Climb,Swim|2|TYPE=Competence
-10	SAB:Death Attack (Ex)																															ADD:FEAT|TYPE=GameHunterFavored
+10	SAB:Death Attack (Ex)																															BONUS:ABILITYPOOL|Game Hunter|1
 
 # Gun Glyph ----------------------------------------------------------------------------
 
@@ -171,16 +171,16 @@ CLASS:Hypnotist	PREFEAT:1,Hypnotist	PRESKILL:3,Bluff=5,Concentration=5,Spellcraf
 CLASS:Hypnotist	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|TYPE=Knowledge|Perform|TYPE=Profession|Sense Motive|Spellcraft
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1																													ADD:SPELLCASTER|ANY	ADD:FEAT|Hypnotist DC Bonus,Spell Focus(Enchantment)
+1																													ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Hypnotist|1
 2	SAB:Focused Mind +% (Ex)|FocusedMind				BONUS:SAVE|Will|FocusedMind|TYPE=Insight	BONUS:VAR|FocusedMind|CL/2		DEFINE:FocusedMind|0
 #2	AUTO:FEAT|Master Hypnotist	Not sure but I would think they left this out
-3																													ADD:SPELLCASTER|ANY	ADD:FEAT|Master of Enchantment I
+3																													ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Master of Enchantment|1
 4																																										AUTO:FEAT|Ultimate Hypnotist
-5																													ADD:SPELLCASTER|ANY	ADD:FEAT|Master of Enchantment II
+5																													ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Master of Enchantment|1
 6
-7																													ADD:SPELLCASTER|ANY	ADD:FEAT|Master of Enchantment III
+7																													ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Master of Enchantment|1
 8
-9																													ADD:SPELLCASTER|ANY	ADD:FEAT|Master of Enchantment IV
+9																													ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Master of Enchantment|1
 10	SAB:Master of Domination %/day (Sp)|MasterofDomination								BONUS:VAR|MasterofDomination|INT/2	DEFINE:MasterofDomination|0
 
 # Noble Bodyguard ----------------------------------------------------------------------------
@@ -272,15 +272,15 @@ CLASS:Steamcraft Mage	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TY
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1	SAB:Advanced Craftsman (Ex)	ADD:SPELLCASTER|Arcane
-2						ADD:SPELLCASTER|Arcane	ADD:FEAT|Brew Injection,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Industrial Know-How,Industrial Master,Maximize Spell,Mechanical Aptitude,Quicken Spell,TYPE=ItemCreation
+2						ADD:SPELLCASTER|Arcane	BONUS:ABILITYPOOL|Steamcraft Mage Feat|1
 3	SAB:Spell Infusion I (Su)	ADD:SPELLCASTER|Arcane
 4						ADD:SPELLCASTER|Arcane
 5	SAB:Expert Craftsman (Ex)	ADD:SPELLCASTER|Arcane
-6	SAB:Spell Infusion II (Su)	ADD:SPELLCASTER|Arcane	ADD:FEAT|Brew Injection,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Industrial Know-How,Industrial Master,Maximize Spell,Mechanical Aptitude,Quicken Spell,TYPE=ItemCreation
+6	SAB:Spell Infusion II (Su)	ADD:SPELLCASTER|Arcane	BONUS:ABILITYPOOL|Steamcraft Mage Feat|1
 7						ADD:SPELLCASTER|Arcane
 8	SAB:Machine Mind (Su)		ADD:SPELLCASTER|Arcane
 9	SAB:Spell Infusion III (Su)	ADD:SPELLCASTER|Arcane
-10	SAB:Master Craftsman (Ex)	ADD:SPELLCASTER|Arcane	ADD:FEAT|Brew Injection,Empower Spell,Enlarge Spell,Extend Spell,Heighten Spell,Industrial Know-How,Industrial Master,Maximize Spell,Mechanical Aptitude,Quicken Spell,TYPE=ItemCreation
+10	SAB:Master Craftsman (Ex)	ADD:SPELLCASTER|Arcane	BONUS:ABILITYPOOL|Steamcraft Mage Feat|1
 
 # Street Runner ----------------------------------------------------------------------------
 
@@ -315,10 +315,10 @@ CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Handle 
 1																									AUTO:FEAT|Weapon Focus(Club)
 2	SAB:Crowd Control (Ex)
 4	SAB:Mounted Watchman (Ex)										BONUS:SKILL|Ride|4|TYPE=Competence
-5																					ADD:FEAT|TYPE=Watchman
+5																					BONUS:ABILITYPOOL|Watchman|1
 6	SAB:Renewed Vitality (Ex)		BONUS:HP|CURRENTMAX|5	BONUS:SAVE|Fortitude|1
 8	SAB:Presence of Authority (Ex)																			AUTO:FEAT|Leadership
-10	SAB:Veteran Watchman (Ex)																ADD:FEAT|TYPE=Watchman
+10	SAB:Veteran Watchman (Ex)																BONUS:ABILITYPOOL|Watchman|1
 
 #
 # end

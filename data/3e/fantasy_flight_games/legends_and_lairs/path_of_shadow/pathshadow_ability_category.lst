@@ -13,3 +13,11 @@ ABILITYCATEGORY:Questioner Feat			VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:FEAT			T
 ABILITYCATEGORY:Questioner Special Ability	VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:QuestionerChoice			DISPLAYLOCATION:Class Abilities
 
 ABILITYCATEGORY:Sailmaster Skill Mastery		VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:SailmasterSkillMastery		DISPLAYLOCATION:Class Abilities
+
+
+
+ABILITYCATEGORY:White Rose Special Ability	VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Delver Feat				VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:FEAT	DISPLAYLOCATION:Feats	ABILITYLIST:Alertness|Combat Reflexes|Dodge|Expertise|Improved Disarm|Improved Initiative|Improved Trip|Iron Will|Lightning Reflexes|Mobility|Quick Draw|Run|Skill Focus|Spring Attack|Weapon Finesse|Weapon Focus|Whirlwind Attack
+
+

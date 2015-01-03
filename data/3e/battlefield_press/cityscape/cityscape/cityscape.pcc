@@ -1,5 +1,6 @@
 # CVS $Revision$ $Author$ -- Fri Aug  2 15:58:40 2002 -- reformated by prettylst.pl v1.17 (build 171)
 CAMPAIGN:Cityscape
+KEY:BPI - Cityscape
 GAMEMODE:3e
 RANK:2
 GENRE:Planar
@@ -8,10 +9,10 @@ SETTING:Cityscape
 TYPE:Battlefield Press.Sourcebook
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Battlefield Press
-PUBNAMESHORT:Battlefield
+PUBNAMESHORT:BPI
 PUBNAMEWEB:http://battlefieldpress.com
 SOURCELONG:Battlefield Press - Cityscape
-SOURCESHORT:Cityscape
+SOURCESHORT:CiSc
 SOURCEWEB:http://battlefieldpress.com
 SOURCEDATE:2002-11
 ISOGL:YES
@@ -49,6 +50,7 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=29150&it=1?affili
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+ABILITYCATEGORY:c_abilitycategories.lst
 
 SKILL:cityscapeskills.lst
 FEAT:cityscapefeats.lst

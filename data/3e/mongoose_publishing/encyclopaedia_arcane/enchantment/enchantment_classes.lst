@@ -9,7 +9,7 @@ CLASS:Empath	PREFEAT:1,Spell Focus (Enchantment)	PRESKILL:4,Bluff=5,Diplomacy=5,
 CLASS:Empath	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|TYPE=Knowledge|TYPE=Profession|Sense Motive|Spellcraft
 1	SAB:Striking Appearance +%|StrikingAppearance	SAB:Detect Emotion	BONUS:VAR|StrikingAppearance|1	DEFINE:StrikingAppearance|0	ADD:SPELLCASTER|Arcane
 2	SAB:Calm/Enrage																					ADD:SPELLCASTER|Arcane
-3																								ADD:FEAT|Spell Mastery,TYPE=Enchantment,TYPE=Metamagic
+3																								BONUS:ABILITYPOOL|Empath Feat Choice|1
 4													BONUS:VAR|StrikingAppearance|1						ADD:SPELLCASTER|Arcane
 5	SAB:Aura of Empathy (% Targets)|AuraEmpathyTargets										DEFINE:AuraEmpathyTargets|0	ADD:SPELLCASTER|Arcane
 6	SAB:Emotional Mastery	SAB:Bolster III

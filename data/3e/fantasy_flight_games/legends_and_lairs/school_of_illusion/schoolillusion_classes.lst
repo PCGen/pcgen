@@ -19,7 +19,7 @@ CLASS:Devoted Illusionist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			S
 ###Block: Illusion DC bonus
 1	BONUS:DC|SCHOOL.Illusion|IllusionFocus	DEFINE:IllusionFocus|0
 ###Block: Normal Level Progression
-1	CAST:4,2				SAB:Devotion																	ADD:FEAT|TYPE=IllusionMastery
+1	CAST:4,2				SAB:Devotion																	BONUS:ABILITYPOOL|Devoted Illusionist|1
 2	CAST:5,3				SAB:Augment illusion (% levels)|AugmentIllusion	BONUS:VAR|AugmentIllusion|CL/4+1	DEFINE:AugmentIllusion|0
 3	CAST:5,3,2				SAB:Illusion focus (+%)|IllusionFocus		BONUS:VAR|IllusionFocus|CL/6+1
 4	CAST:5,4,3
@@ -28,7 +28,7 @@ CLASS:Devoted Illusionist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			S
 7	CAST:5,5,4,3,2
 8	CAST:5,5,4,4,3
 9	CAST:5,5,5,4,3,2
-10	CAST:5,5,5,4,4,3																						ADD:FEAT|TYPE=IllusionMastery
+10	CAST:5,5,5,4,4,3																						BONUS:ABILITYPOOL|Devoted Illusionist|1
 11	CAST:5,5,5,5,4,3,2
 12	CAST:5,5,5,5,4,4,3
 13	CAST:5,5,5,5,5,4,3,2
@@ -38,7 +38,7 @@ CLASS:Devoted Illusionist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			S
 17	CAST:5,5,5,5,5,5,5,4,3,2
 18	CAST:5,5,5,5,5,5,5,4,4,3
 19	CAST:5,5,5,5,5,5,5,5,4,4
-20	CAST:5,5,5,5,5,5,5,5,5,5																				ADD:FEAT|TYPE=IllusionMastery
+20	CAST:5,5,5,5,5,5,5,5,5,5																				BONUS:ABILITYPOOL|Devoted Illusionist|1
 
 
 #
@@ -123,16 +123,16 @@ CLASS:Master of the Ruse	HD:4		TYPE:PC.Prestige	ABB:MRus		MAXLEVEL:10	SOURCEPAGE
 CLASS:Master of the Ruse	PREALIGN:CG,CN,CE	PREFEAT:3,Enlarge Spell,Extend Spell,Spell Focus (Illusion)	PRESKILL:4,Bluff=8,Disguise=8,Hide=8,Spellcraft=8	PRESPELL:1,Displacement	PRESPELLTYPE:2,Arcane=3	PRETEXT:See text
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Master of the Ruse	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Disguise|Diplomacy|Escape Artist|Forgery|Gather Information|Hide|Intimidate|TYPE=Knowledge|Listen|Move Silently|Perform|TYPE=Profession|Scry|Sense Motive|Spellcraft|Spot|Tumble
-1															ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=MasterRuseSpecialAbilities
+1															ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Master of the Ruse|1
 2															ADD:SPELLCASTER|ANY
 3	SAB:Fool Me (one failure for -%)|FoolMe	BONUS:VAR|FoolMe|-2	DEFINE:FoolMe|0	ADD:SPELLCASTER|ANY
-4															ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=MasterRuseSpecialAbilities
+4															ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Master of the Ruse|1
 5															ADD:SPELLCASTER|ANY
 6								BONUS:VAR|FoolMe|-2				ADD:SPELLCASTER|ANY
-7															ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=MasterRuseSpecialAbilities
+7															ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Master of the Ruse|1
 8	SAB:Shadow Duplicate											ADD:SPELLCASTER|ANY
 9															ADD:SPELLCASTER|ANY
-10	SAB:Unassailable Ruse											ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=MasterRuseSpecialAbilities
+10	SAB:Unassailable Ruse											ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Master of the Ruse|1
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
@@ -141,15 +141,15 @@ CLASS:Mind Master	HD:4		TYPE:PC.Prestige	ABB:Mind		MAXLEVEL:10	SOURCEPAGE:p.17	B
 CLASS:Mind Master	PREFEAT:1,Spell Focus (Illusion)	PRESKILL:3,Concentration=8,Knowledge (Arcana)=8,Spellcraft=8	PRESPELL:1,Lure	PRESPELLTYPE:2,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mind Master	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|TYPE=Knowledge|TYPE=Profession|Scry|Speak Language|Spellcraft
-1						ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=MindMasterHue
+1						ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Mind Master|1
 2	SAB:Mnemonic Device		ADD:SPELLCASTER|ANY
-3						ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=MindMasterHue
+3						ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Mind Master|1
 4	SAB:Finger Snap			ADD:SPELLCASTER|ANY
-5						ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=MindMasterHue
+5						ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Mind Master|1
 6	SAB:Hypnotic Pattern		ADD:SPELLCASTER|ANY
-7						ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=MindMasterHue
+7						ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Mind Master|1
 8	SAB:Pattern Barrier		ADD:SPELLCASTER|ANY
-9						ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=MindMasterHue
+9						ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Mind Master|1
 10	SAB:Convincing Illusions	ADD:SPELLCASTER|ANY
 
 
@@ -196,15 +196,15 @@ CLASS:Unseen Master	PRESKILL:2,Hide=8,Spellcraft=8	PRESPELL:1,Selective Invisibi
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Unseen Master	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Hide|TYPE=Knowledge|Move Silently|TYPE=Profession|Sense Motive|Spellcraft
 1	SAB:Unseen Mastery (+% to hit)|UnseenMastery		BONUS:VAR|UnseenMastery|(CL+3)/4+2	DEFINE:UnseenMastery|0	ADD:SPELLCASTER|ANY
-2																				ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=UnseenMasterSpecialAbility
+2																				ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Unseen Master|1
 3	SAB:Unseen Mastery (60% miss chance)|PREVARLT:CL,7											ADD:SPELLCASTER|ANY
-4																				ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=UnseenMasterSpecialAbility
+4																				ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Unseen Master|1
 5																				ADD:SPELLCASTER|ANY
-6																				ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=UnseenMasterSpecialAbility
+6																				ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Unseen Master|1
 7	SAB:Unseen Mastery (75% miss chance)													ADD:SPELLCASTER|ANY
-8																				ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=UnseenMasterSpecialAbility
+8																				ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Unseen Master|1
 9																				ADD:SPELLCASTER|ANY
-10																				ADD:SPELLCASTER|ANY	ADD:FEAT|TYPE=UnseenMasterSpecialAbility
+10																				ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Unseen Master|1
 
 #
 # end
