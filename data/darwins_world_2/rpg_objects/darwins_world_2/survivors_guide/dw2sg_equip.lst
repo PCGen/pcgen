@@ -1,0 +1,217 @@
+# CVS $Revision: 25130 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
+
+# MSRD Equipment in CP cost
+# Equipment Name				Cost
+Aluminum Travel Case (10 lb).MOD	COST:30
+Aluminum Travel Case (40 lb).MOD	COST:40
+Aluminum Travel Case (75 lb).MOD	COST:50
+Briefcase.MOD				COST:20
+Contractor's Field Bag.MOD		COST:25
+Day Pack.MOD				COST:20
+Handbag.MOD					COST:10
+Range Pack (Standard).MOD		COST:35
+Range Pack (Oversized).MOD		COST:40
+Patrol Box.MOD				COST:30
+
+###Block:Clothing
+# Equipment Name				Type						Contains					Cost		Weight	Source Page		Special Property
+Ghillie Suit.MOD																COST:40
+Outerwear (Coat).MOD															COST:30
+Outerwear (Fatigue Jacket).MOD													COST:35
+Outerwear (Overcoat).MOD														COST:30
+Outerwear (Parka).MOD															COST:30
+Photojournalist's Vest.MOD														COST:30
+Windbreaker.MOD																COST:30
+Technician's Coveralls			TYPE:Goods.Clothing									COST:50	WT:3		SOURCEPAGE:p.134	SPROP:Blocks out Radiation (Mild)
+Tool Belt.MOD																COST:30
+Web Belt					TYPE:Goods.Clothing.Belt.Container	CONTAINS:7|Any=6|PistolHolster=1	COST:50	WT:2		SOURCEPAGE:p.134
+
+###Block: Computers and Consumer Electronics
+# Equipment Name				Output Name						Type							Cost		Weight	Source Page
+Camera (Disposable).MOD																	COST:50
+Camera (35mm).MOD																		COST:100
+Camera (Digital).MOD																	COST:1000
+Camera (Film).MOD																		COST:10	WT:0
+Computer (Desktop).MOD																	COST:1500
+PDA.MOD																			COST:1500
+Computer (Notebook).MOD																	COST:2000
+Digital Audio Recorder.MOD																COST:1000
+Identity Card											TYPE:Goods.Electronic.IdentityCard		COST:0			SOURCEPAGE:p.135
+Induction Transformer										TYPE:Goods.Electronic				COST:30000	WT:0.5	SOURCEPAGE:p.135
+Language Translator										TYPE:Goods.Electronic				COST:2600	WT:1		SOURCEPAGE:p.135
+Memory Chips (Android) Type A		OUTPUTNAME:Memory Chips (A), Android	TYPE:Goods.Electronic				COST:18000			SOURCEPAGE:p.135
+Memory Chips (Android) Type B		OUTPUTNAME:Memory Chips (B), Android	TYPE:Goods.Electronic				COST:36000			SOURCEPAGE:p.135
+Memory Chips (Android) Type C		OUTPUTNAME:Memory Chips (C), Android	TYPE:Goods.Electronic				COST:54000			SOURCEPAGE:p.135
+Optic Scanner											TYPE:Goods.Electronic				COST:1000	WT:3		SOURCEPAGE:p.135
+Portable Video Camera.MOD																COST:500
+Power Source (Harmonic Cell)		OUTPUTNAME:[NAME]					TYPE:Goods.Electronic.PowerSource.PwrHarm	COST:20000	WT:1		SOURCEPAGE:p.135
+Power Source (Minifusion Cell)	OUTPUTNAME:[NAME]					TYPE:Goods.Electronic.PowerSource.PwrMini	COST:2000	WT:0.5	SOURCEPAGE:p.135
+Power Source (Plutonium Chip)		OUTPUTNAME:[NAME]					TYPE:Goods.Electronic.PowerSource.PwrPlut	COST:4000	WT:1		SOURCEPAGE:p.135
+Power Source (Power Backpack)		OUTPUTNAME:[NAME]					TYPE:Goods.Electronic.PowerSource.PwrBack	COST:2000	WT:4		SOURCEPAGE:p.135
+Power Source (Power Beltpack)		OUTPUTNAME:[NAME]					TYPE:Goods.Electronic.PowerSource.PwrBelt	COST:1000	WT:2		SOURCEPAGE:p.135
+Power Source (Power Cell)		OUTPUTNAME:[NAME]					TYPE:Goods.Electronic.PowerSource.PwrCell	COST:50	WT:0.5	SOURCEPAGE:p.135
+Power Source (Power Clip)		OUTPUTNAME:[NAME]					TYPE:Goods.Electronic.PowerSource.PwrClip	COST:400	WT:1		SOURCEPAGE:p.135
+Power Source (Power Pack)		OUTPUTNAME:[NAME]					TYPE:Goods.Electronic.PowerSource.PwrPack	COST:200	WT:3		SOURCEPAGE:p.135
+Printer.MOD																			COST:400
+Scanner.MOD																			COST:400
+Walkie-Talkie (Basic).MOD																COST:100
+Walkie-Talkie (Professional).MOD															COST:500
+
+###Block: Hazard Detection Equipment
+# Equipment Name	Type			Cost		Weight	Source Page		Special Property
+Chemical Sensor	TYPE:Goods.Tools	COST:750	WT:1		SOURCEPAGE:p.140	SPROP:Range of 50'
+Geiger Counter	TYPE:Goods.Tools	COST:750	WT:3		SOURCEPAGE:p.140	SPROP:Range of 75'
+Rad Tab		TYPE:Goods.Tools	COST:75			SOURCEPAGE:p.140
+Ion Bonding Tape	TYPE:Goods.Tools	COST:100	WT:12		SOURCEPAGE:p.140	SPROP:2000' of tape
+
+###Block: Medical
+# Equipment Name				Type					Contains			Cost		Weight	Source Page		Bonus to skill						Special Property
+Antitox					TYPE:Goods.Medical.Drug						COST:375			SOURCEPAGE:p.151									SPROP:Incompatibility (DC:20)
+Diagnostic Scanner			TYPE:Goods.Medical						COST:5000	WT:0.5	SOURCEPAGE:p.151	BONUS:SKILL|Treat Injury|10|TYPE=Competence
+Filter Dose					TYPE:Goods.Medical.Drug						COST:400			SOURCEPAGE:p.151									SPROP:Incompatibility (DC:30)
+First Aid Kit.MOD													COST:300
+Healing Pack				TYPE:Goods.Medical						COST:25000	WT:1		SOURCEPAGE:p.152
+Hemochem					TYPE:Goods.Medical.Drug						COST:300			SOURCEPAGE:p.152									SPROP:Incompatibility (DC:10)
+Hercurin					TYPE:Goods.Medical.Drug						COST:300			SOURCEPAGE:p.152									SPROP:Incompatibility (DC:30)
+Juju Kit					TYPE:Goods.Medical						COST:200	WT:6		SOURCEPAGE:p.152
+K-O Shot					TYPE:Goods.Medical.Drug						COST:250			SOURCEPAGE:p.152									SPROP:Incompatibility (DC:10)
+Medi-Spray (Wound Healing)		TYPE:Goods.Medical						COST:1000	WT:0.5	SOURCEPAGE:p.152									SPROP:Incompatibility (DC:12)
+Medi-Spray (Spore Neutralization)	TYPE:Goods.Medical						COST:1000	WT:0.5	SOURCEPAGE:p.152									SPROP:Incompatibility (DC:12)
+Medical Kit.MOD													COST:900
+Pharmacist Kit.MOD												COST:900
+Pocket Nurse				TYPE:Goods.Medical.Container	CONTAINS:UNLIM|Drug=3	COST:3000	WT:2		SOURCEPAGE:p.152
+Proton Energy Pill			TYPE:Goods.Medical.Drug						COST:250			SOURCEPAGE:p.152									SPROP:Incompatibility (DC:35)
+Rad-Purge Shot				TYPE:Goods.Medical.Drug						COST:100			SOURCEPAGE:p.153									SPROP:Incompatibility (DC:22)
+Ready Syringe				TYPE:Goods.Medical.Container	CONTAINS:UNLIM|Drug=1	COST:50			SOURCEPAGE:p.153
+Regen Tank					TYPE:Goods.Medical						COST:100000	WT:2000	SOURCEPAGE:p.153
+Stimshot A					TYPE:Goods.Medical.Drug						COST:500			SOURCEPAGE:p.153									SPROP:Incompatibility (DC:15)
+Stimshot B					TYPE:Goods.Medical.Drug						COST:1000			SOURCEPAGE:p.153									SPROP:Incompatibility (DC:18)
+Superegen					TYPE:Goods.Medical.Drug						COST:200			SOURCEPAGE:p.153									SPROP:Incompatibility (DC:25)
+Sustainer Shot				TYPE:Goods.Medical.Drug						COST:300			SOURCEPAGE:p.153									SPROP:Incompatibility (DC:10)
+Tailored Narcotics			TYPE:Goods.Medical.Drug						COST:25			SOURCEPAGE:p.153									SPROP:Incompatibility (DC:--)
+Truth Serum					TYPE:Goods.Medical.Drug						COST:100			SOURCEPAGE:p.153									SPROP:Incompatibility (DC:25)
+UV Sterilizer				TYPE:Goods.Medical						COST:1000	WT:2		SOURCEPAGE:p.153
+
+###Block: Professional Equipment
+# Equipment Name				Output Name				Type			Cost		Weight	Source Page
+Animatron (Construction)		OUTPUTNAME:Animatron, [NAME]	TYPE:Goods.Tools	COST:20000	WT:1000	SOURCEPAGE:p.139
+Animatron (Digger)			OUTPUTNAME:Animatron, [NAME]	TYPE:Goods.Tools	COST:26000	WT:2000	SOURCEPAGE:p.139
+Animatron (Task)				OUTPUTNAME:Animatron, [NAME]	TYPE:Goods.Tools	COST:9500	WT:200	SOURCEPAGE:p.139
+Astronaut Pen									TYPE:Goods.Tools	COST:50			SOURCEPAGE:p.139
+Books											TYPE:Goods.Tools	COST:500	WT:2		SOURCEPAGE:p.139
+Boron Solution Spray								TYPE:Goods.Tools	COST:500	WT:3		SOURCEPAGE:p.139
+Bolt Cutter.MOD												COST:20
+Caltrops (25).MOD												COST:30
+Chemical Kit.MOD												COST:500
+Corium Lantern									TYPE:Goods.Tools	COST:90	WT:2		SOURCEPAGE:p.139
+Demolitions Kit.MOD											COST:400
+Disguise Kit.MOD												COST:200
+Duct Tape.MOD												COST:20
+Electronic Skeleton Key								TYPE:Goods.Tools	COST:5000	WT:2		SOURCEPAGE:p.139
+Electrical Tool Kit (Basic).MOD									COST:500
+Electrical Tool Kit (Deluxe).MOD									COST:700
+Forgery Kit.MOD												COST:400
+Handcuffs (Steel).MOD											COST:20
+Handcuffs (Zip-Tie/25).MOD										COST:10
+Instrument (Keyboard).MOD										COST:400
+Instrument (Percussion).MOD										COST:400
+Instrument (Stringed).MOD										COST:400
+Instrument (Wind).MOD											COST:400
+Lockpick Set.MOD												COST:200
+Lock Release Gun.MOD											COST:300
+Mechanical Tool Kit (Basic).MOD									COST:500
+Mechanical Tool Kit (Deluxe).MOD									COST:700
+Multipurpose Tool.MOD											COST:75
+Search-and-Rescue Kit.MOD										COST:250
+Spike Strip.MOD												COST:300
+Surgery Kit.MOD												COST:900
+
+###Block: Surveillance Gear
+# Equipment Name			Type					Cost		Weight	Source Page
+Impulse Detector			TYPE:Goods.Tools.Surveillance	COST:3000	WT:3		SOURCEPAGE:p.137
+Metal Detector.MOD							COST:200
+Motion Detector			TYPE:Goods.Tools.Surveillance	COST:1000	WT:4		SOURCEPAGE:p.137
+Night Vision Goggles.MOD						COST:2000
+Portable Detection Radar	TYPE:Goods.Tools.Surveillance	COST:10000	WT:5		SOURCEPAGE:p.137
+X-Ray Goggles			TYPE:Goods.Tools.Surveillance	COST:15000	WT:3		SOURCEPAGE:p.137
+
+###Block: Survival Gear
+# Equipment Name				Type				Cost		Weight	Source Page		Special Property
+Advanced Breathing Apparatus		TYPE:Goods.General	COST:1000	WT:8		SOURCEPAGE:p.141	SPROP:Provides Immumity to Inhaled Poisons, Diseases
+Autograpnel					TYPE:Goods.General	COST:250	WT:6		SOURCEPAGE:p.141
+Backpack.MOD								COST:35
+Binoculars (Standard).MOD						COST:50
+Binoculars (Rangefinding).MOD						COST:150
+Binoculars (Electro-Optical).MOD					COST:500
+Chemical Light Stick.MOD						COST:2
+Chemical Light Sticks (5).MOD						COST:10
+Climbing Gear.MOD								COST:100
+Compass.MOD									COST:50
+Cigarette Lighter				TYPE:Goods.General	COST:40			SOURCEPAGE:p.141
+Cyborg Sustenance Tube			TYPE:Goods.General	COST:50	WT:1		SOURCEPAGE:p.141
+Dehydrated Pills				TYPE:Goods.General	COST:20			SOURCEPAGE:p.141
+Emergency Raft				TYPE:Goods.General	COST:150	WT:2		SOURCEPAGE:p.141
+Firestarter Cube				TYPE:Goods.General	COST:25			SOURCEPAGE:p.141
+Fire Extinguisher.MOD							COST:35
+Flash Goggles.MOD								COST:75
+Flashlight (Penlight).MOD						COST:20
+Flashlight (Standard).MOD						COST:50
+Flashlight (Battery Flood).MOD					COST:500
+Gas Mask.MOD								COST:100
+Gravity Boots				TYPE:Goods.General	COST:10000	WT:2		SOURCEPAGE:p.141
+Halazone Tablets				TYPE:Goods.General	COST:50			SOURCEPAGE:p.141
+HEVE Candy					TYPE:Goods.General	COST:20			SOURCEPAGE:p.141
+Instant Pillow				TYPE:Goods.General	COST:50			SOURCEPAGE:p.141
+Light Rod					TYPE:Goods.General	COST:15			SOURCEPAGE:p.141
+Magnesium Firestarter			TYPE:Goods.General	COST:150			SOURCEPAGE:p.141
+Map (Road Atlas).MOD							COST:200
+Map (Tactical Map).MOD							COST:400
+Mesh Vest.MOD								COST:70
+Portable Petrol Power Generator	TYPE:Goods.General	COST:2000	WT:100	SOURCEPAGE:p.200
+Portable Stove.MOD							COST:125
+Potassium Iodide Tablets		TYPE:Goods.General	COST:100			SOURCEPAGE:p.200
+Power Bar					TYPE:Goods.General	COST:10			SOURCEPAGE:p.200
+Ready Meal					TYPE:Goods.General	COST:20	WT:1		SOURCEPAGE:p.200
+Rope (150 ft.).MOD							COST:30
+Salt Pills					TYPE:Goods.General	COST:20			SOURCEPAGE:p.200
+Sleeping Bag.MOD								COST:30
+Soup Mix					TYPE:Goods.General	COST:5			SOURCEPAGE:p.200
+Survival Kit				TYPE:Goods.General	COST:1200	WT:4		SOURCEPAGE:p.200
+Synthihol					TYPE:Goods.General	COST:20	WT:0.5	SOURCEPAGE:p.200
+Tent (2-Person Dome).MOD						COST:100
+Tent (4-Person Dome).MOD						COST:150
+Tent (8-Person Dome).MOD						COST:250
+Trail Rations (12).MOD							COST:40
+Water						TYPE:Goods.General	COST:10	WT:4		SOURCEPAGE:p.200	SPROP:1 Day (1/2 Gallon)
+Water Purifier				TYPE:Goods.General	COST:2000	WT:2		SOURCEPAGE:p.200
+
+###Block: Weapon Accessories
+# Equipment Name				Type				Cost
+Box Magazine.MOD								COST:25
+Detonator (Blasting cap).MOD						COST:30
+Detonator (Radio Controlled).MOD					COST:100
+Detonator (Timed).MOD							COST:150
+Detonator (Wired).MOD							COST:75
+Holster (Hip).MOD				TYPE:PistolHolster	COST:20
+Holster (Concealed carry).MOD		TYPE:PistolHolster	COST:30
+
+###Block: Military Hardware
+# Equipment Name			Output Name				Type					Contains					Cost		Weight	Source Page		Damage Reduction	Combat bonus				Bonus DR						Special ABility
+Animatron (Weapon)		OUTPUTNAME:Animatron, [NAME]	TYPE:Goods.Military								COST:13000	WT:300	SOURCEPAGE:p.145
+Auto-Mortar Platform							TYPE:Goods.Military								COST:22000	WT:300	SOURCEPAGE:p.145
+Bollix Pack									TYPE:Goods.Military								COST:5000	WT:1		SOURCEPAGE:p.145
+Control Rod									TYPE:Goods.Military								COST:500	WT:2		SOURCEPAGE:p.145
+Energy Shield (Type A)							TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:5000	WT:0.5	SOURCEPAGE:p.145	DR:1/Energy								BONUS:DR|Energy|4|TYPE=EnergyShield
+Energy Shield (Type B)							TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:15000	WT:0.5	SOURCEPAGE:p.145	DR:1/Energy								BONUS:DR|Energy|9|TYPE=EnergyShield
+Energy Shield (Type C)							TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:30000	WT:0.5	SOURCEPAGE:p.145	DR:1/Energy								BONUS:DR|Energy|14|TYPE=EnergyShield
+Force Field Belt								TYPE:Goods.Military.Container	CONTAINS:1|PwrPlut=1			COST:50000	WT:2		SOURCEPAGE:p.145	DR:1/-		BONUS:COMBAT|AC|4|TYPE=Deflection	BONUS:DR|-|19|TYPE=EnergyShield		SAB:Resistance to Energy (all) 20
+Jetpack									TYPE:Goods.Military								COST:2000	WT:25		SOURCEPAGE:p.145
+Magnetic Shield (Type A)						TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:5000	WT:0.5	SOURCEPAGE:p.145	DR:1/Kinetic							BONUS:DR|Kinetic|4|TYPE=EnergyShield
+Magnetic Shield (Type B)						TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:15000	WT:0.5	SOURCEPAGE:p.145	DR:1/Kinetic							BONUS:DR|Kinetic|9|TYPE=EnergyShield
+Magnetic Shield (Type C)						TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:30000	WT:0.5	SOURCEPAGE:p.145	DR:1/Kinetic							BONUS:DR|Kinetic|14|TYPE=EnergyShield
+Neural Control Pod							TYPE:Goods.Military								COST:18000	WT:4		SOURCEPAGE:p.145
+Obedience Collar								TYPE:Goods.Military								COST:1000	WT:1		SOURCEPAGE:p.145
+Pain Collar									TYPE:Goods.Military								COST:1000	WT:1		SOURCEPAGE:p.145
+Power Fist									TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:5000	WT:8		SOURCEPAGE:p.145
+Stealth Pack								TYPE:Goods.Military.Container	CONTAINS:1|PwrBack=1|PwrBelt=1	COST:30000	WT:3		SOURCEPAGE:p.145

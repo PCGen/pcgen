@@ -1,0 +1,40 @@
+# CVS $Revision: 25130 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
+
+#	DW2 & MSRD
+#	Explosives
+# Equipment Name				Output Name				Type						Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page		Special Property
+40mm Fragmentation Grenade (6).MOD												COST:600
+#Single Grenade for use as Ammo in M79 Grenade launcher
+40mm Fragmentation Grenade.MOD												COST:100
+Anti-Tank Grenade									TYPE:Explosive.Piercing.Grenade	COST:600	WT:2		CRITMULT:-	CRITRANGE:0	DAMAGE:8d6	RANGE:10	SIZE:S	SOURCEPAGE:p.169	SPROP:Burst Radius 5', Ref Save (DC:15), 8d6 Piercing Damage + See Text
+Blood Agent Grenade								TYPE:Explosive.Grenade			COST:900	WT:2		CRITMULT:-	CRITRANGE:0	DAMAGE:0	RANGE:10	SIZE:S	SOURCEPAGE:p.169	SPROP:see text for burst radius, Ref Save (DC:12), Fort Save (DC:25) or 2d6 Acid Damage
+Concussion Grenade								TYPE:Explosive.Concussion.Grenade	COST:150	WT:1		CRITMULT:-	CRITRANGE:0	DAMAGE:3d6	RANGE:10	SIZE:T	SOURCEPAGE:p.169	SPROP:Burst Radius 20', Ref Save (DC:15), 3d6 Concussion Damage + See Text
+C4/Semtex.MOD															COST:150
+Det Cord.MOD															COST:50
+Dynamite.MOD															COST:50
+Fragmentation Grenade.MOD							TYPE:Grenade				COST:150
+Energy Grenade									TYPE:Explosive.Energy.Grenade		COST:900	WT:2		CRITMULT:-	CRITRANGE:0	DAMAGE:6d6	RANGE:10	SIZE:S	SOURCEPAGE:p.169	SPROP:Burst Radius 20', Ref Save (DC:15), 6d6 Energy Damage
+White Phosphorus Grenade.MOD							TYPE:Grenade				COST:200
+Glitter Grenade									TYPE:Explosive.Grenade			COST:200	WT:1		CRITMULT:-	CRITRANGE:0	DAMAGE:0	RANGE:10	SIZE:T	SOURCEPAGE:p.169	SPROP:see text for burst radius, Ref Save (DC:12), Anti-Laser Cloud
+Mine (Standard)				OUTPUTNAME:Mine			TYPE:Explosive.Slashing.Mine		COST:500	WT:5		CRITMULT:-	CRITRANGE:0	DAMAGE:4d6	RANGE:10	SIZE:S	SOURCEPAGE:p.169	SPROP:Trap; Burst Radius 20', 4d6 Slashing Damage; Disable Device (DC:16) to Disarm
+Mine (Anti-Tank)				OUTPUTNAME:Mine, Anti-tank	TYPE:Explosive.Piercing.Mine		COST:500	WT:5		CRITMULT:-	CRITRANGE:0	DAMAGE:8d6	RANGE:10	SIZE:S	SOURCEPAGE:p.169	SPROP:Trap; Burst Radius 5', Ref Save (DC:15), 8d6 Piercing Damage + See Text; Disable Device (DC:16) to Disarm
+Negation Grenade									TYPE:Explosive.Special.Grenade	COST:900	WT:2		CRITMULT:-	CRITRANGE:0	DAMAGE:0	RANGE:10	SIZE:S	SOURCEPAGE:p.169	SPROP:Burst Radius 20', Ref Save (DC:18), See Text
+Nerve Gas Grenade									TYPE:Explosive.Grenade			COST:900	WT:2		CRITMULT:-	CRITRANGE:0	DAMAGE:0	RANGE:10	SIZE:S	SOURCEPAGE:p.169	SPROP:see text for burst radius, Ref Save (DC:12), Nerve Gas (Fort Save (DC:22) or 1d6/2d6 Con)
+Photon Grenade									TYPE:Explosive.Special.Grenade	COST:900	WT:1		CRITMULT:-	CRITRANGE:0	DAMAGE:0	RANGE:10	SIZE:T	SOURCEPAGE:p.169	SPROP:Burst Radius 30', Ref Save (DC:18), See Text
+Plasma Grenade									TYPE:Explosive.Fire.Energy.Grenade	COST:1000	WT:2		CRITMULT:-	CRITRANGE:0	DAMAGE:8d6	RANGE:10	SIZE:S	SOURCEPAGE:p.169	SPROP:Burst Radius 20', Ref Save (DC:18), 8d6 Fire and Energy Damage
+Radiation Grenade									TYPE:Explosive.Special.Grenade	COST:1000	WT:2		CRITMULT:-	CRITRANGE:0	DAMAGE:0	RANGE:10	SIZE:S	SOURCEPAGE:p.169	SPROP:see text for burst radius, Ref Save (DC:12), See Text
+Satchel Charge A									TYPE:Explosive.Fire.Piercing		COST:300	WT:2		CRITMULT:-	CRITRANGE:0	DAMAGE:6d6	RANGE:10	SIZE:T	SOURCEPAGE:p.169	SPROP:Burst Radius 10', Ref Save (DC:15), 6d6 (1/2 Fire,1/2 Piercing)
+Satchel Charge B									TYPE:Explosive.Fire.Piercing		COST:750	WT:4		CRITMULT:-	CRITRANGE:0	DAMAGE:8d6	RANGE:10	SIZE:S	SOURCEPAGE:p.169	SPROP:Burst Radius 20', Ref Save (DC:15), 8d6 (1/2 Fire,1/2 Piercing)
+Satchel Charge C									TYPE:Explosive.Fire.Piercing		COST:1500	WT:8		CRITMULT:-	CRITRANGE:0	DAMAGE:10d6			SIZE:M	SOURCEPAGE:p.169	SPROP:Burst Radius 30', Ref Save (DC:15), 10d6 (1/2 Fire,1/2 Piercing)
+Shock Grenade									TYPE:Explosive.Electricity.Grenade	COST:200	WT:2		CRITMULT:-	CRITRANGE:0	DAMAGE:4d6	RANGE:10	SIZE:S	SOURCEPAGE:p.169	SPROP:Burst Radius 20', Ref Save (DC:18), 4d6 Electrical Damage + See Text
+Smoke Grenade.MOD									TYPE:Grenade				COST:50
+Stun Grenade									TYPE:Explosive.Electricity.Grenade	COST:50	WT:1		CRITMULT:-	CRITRANGE:0	DAMAGE:2d6	RANGE:10	SIZE:S	SOURCEPAGE:p.169	SPROP:Burst Radius 10', Ref Save (DC:15), 2d6 Electrical Damage + Fort Save (DC:15) or Paralyzed (1d6 rnds)
+Tear Gas Grenade.MOD								TYPE:Grenade				COST:100
+Thermite Grenade.MOD								TYPE:Grenade				COST:300
+
+#	DW2 & MSRD
+#	Splash Weapons
+# Equipment Name				Output Name				Type						Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page		Special Property
+Acid (mild).MOD															COST:50
+Molotov cocktail.MOD														COST:15

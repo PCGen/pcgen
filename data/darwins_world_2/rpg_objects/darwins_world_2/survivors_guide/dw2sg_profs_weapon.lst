@@ -1,0 +1,110 @@
+# CVS $Revision: 17892 $ $Author: amaitland $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
+
+# Weapon Name		Type					Nb Hands
+Black Powder Pistol	TYPE:PersonalFirearm
+Dart Pistol			TYPE:PersonalFirearm
+FA Casull			TYPE:PersonalFirearm
+GSh-18			TYPE:PersonalFirearm
+MP-443 Grach		TYPE:PersonalFirearm
+PSM				TYPE:PersonalFirearm
+Zip Gun			TYPE:PersonalFirearm
+
+Sa-23				TYPE:PersonalFirearm
+Calico M100			TYPE:PersonalFirearm
+
+Bizon				TYPE:PersonalFirearm		HANDS:2
+Calico Liberty 50		TYPE:PersonalFirearm		HANDS:2
+Colt 635			TYPE:PersonalFirearm		HANDS:2
+FN-P90			TYPE:PersonalFirearm		HANDS:2
+Ruger MP-9			TYPE:PersonalFirearm		HANDS:2
+
+AR-7 Explorer		TYPE:PersonalFirearm		HANDS:2
+Black Powder Rifle	TYPE:PersonalFirearm		HANDS:2
+Dart Rifle			TYPE:PersonalFirearm		HANDS:2
+Pipe Rifle			TYPE:PersonalFirearm		HANDS:2
+
+AN-94				TYPE:PersonalFirearm		HANDS:2
+Bushmaster M-17S		TYPE:PersonalFirearm		HANDS:2
+F2000				TYPE:PersonalFirearm		HANDS:2
+HK G-11			TYPE:PersonalFirearm		HANDS:2
+OC-14 Groza			TYPE:PersonalFirearm		HANDS:2
+QBZ-95			TYPE:PersonalFirearm		HANDS:2
+Steyr ACR			TYPE:PersonalFirearm		HANDS:2
+
+Steyr IWS-2000		TYPE:PersonalFirearm		HANDS:2
+VSS Vintorez		TYPE:PersonalFirearm		HANDS:2
+
+HK CAWS			TYPE:PersonalFirearm		HANDS:2
+Jackhammer Mk3A1		TYPE:PersonalFirearm		HANDS:2
+Remington Roomsweeper	TYPE:PersonalFirearm		HANDS:2
+Valtro PM-5-350		TYPE:PersonalFirearm		HANDS:2
+
+# Futuristic Firearms
+Laser Pistol		TYPE:FuturisticFirearm
+Dazzle Rifle		TYPE:FuturisticFirearm		HANDS:2
+Infra-red Rifle		TYPE:FuturisticFirearm		HANDS:2
+Laser Rifle			TYPE:FuturisticFirearm		HANDS:2
+Pulse Laser Rifle		TYPE:FuturisticFirearm		HANDS:2
+X-Laser			TYPE:FuturisticFirearm		HANDS:2
+Laser Anti-tank Rifle	TYPE:FuturisticFirearm.Exotic
+Laser Cannon		TYPE:FuturisticFirearm.Exotic
+
+Maser Pistol		TYPE:FuturisticFirearm
+Maser Rifle			TYPE:FuturisticFirearm		HANDS:2
+
+Blaster			TYPE:FuturisticFirearm
+Plasma Pistol		TYPE:FuturisticFirearm
+EMP Rifle			TYPE:FuturisticFirearm		HANDS:2
+HPM Rifle			TYPE:FuturisticFirearm		HANDS:2
+
+Gauss Pistol		TYPE:FuturisticFirearm
+Gauss Submachinegun	TYPE:FuturisticFirearm
+
+Electro-saw thrower	TYPE:FuturisticFirearm		HANDS:2
+Gauss Automatic Rifle	TYPE:FuturisticFirearm		HANDS:2
+Gauss Rifle			TYPE:FuturisticFirearm		HANDS:2
+
+Gauss Anti-tank Rifle	TYPE:FuturisticFirearm.Exotic
+Gauss Cannon		TYPE:FuturisticFirearm.Exotic
+
+Atom Gun			TYPE:FuturisticFirearm		HANDS:2
+Ion Ray			TYPE:FuturisticFirearm		HANDS:2
+Meson Cannon		TYPE:FuturisticFirearm		HANDS:2
+
+Flame Pistol		TYPE:PersonalFirearm
+Hand Stunner		TYPE:PersonalFirearm
+Stun Pistol			TYPE:PersonalFirearm
+
+Ramjet Rifle		TYPE:FuturisticFirearm		HANDS:2
+Sonic Rifle			TYPE:FuturisticFirearm		HANDS:2
+UH Radiation Rifle	TYPE:FuturisticFirearm		HANDS:2
+
+#Ranged
+Repeating Crossbow	TYPE:Exotic				HANDS:2
+Sling				TYPE:Archaic
+Slingshot			TYPE:Simple
+Speargun			TYPE:Simple
+
+#Melee
+Dagger (Punching)		TYPE:Simple
+Gauntlet			TYPE:Simple
+Ketch-All Pole		TYPE:Simple
+#Quarterstaff		TYPE:Simple			HANDS:2
+Shock Gloves		TYPE:Simple
+Stun Baton			TYPE:Simple
+Battleaxe			TYPE:Archaic
+Energy Pike			TYPE:Archaic			HANDS:2
+Falchion			TYPE:Archaic
+Flail				TYPE:Archaic
+Greataxe			TYPE:Archaic			HANDS:2
+Greatclub			TYPE:Archaic			HANDS:2
+#Greatsword			TYPE:Archaic			HANDS:2
+Plasma Sword		TYPE:Archaic
+Power Sword			TYPE:Archaic
+Pick				TYPE:Archaic
+Pickaxe			TYPE:Archaic
+
+Chainsword			TYPE:Exotic
+Flail (Dire)		TYPE:Exotic				HANDS:2
+Warp-Field Sword		TYPE:Exotic

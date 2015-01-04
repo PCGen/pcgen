@@ -1,0 +1,132 @@
+# CVS $Revision: 25523 $ $Author: amaitland $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# Original Entry by: Arknight
+#
+# Ability Categories
+#
+
+###Block: Ability Categories
+
+# Master Categories
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Background		VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background
+ABILITYCATEGORY:Mutation		VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Mutation
+ABILITYCATEGORY:Defect			VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Defect
+
+# Child Categories
+ABILITYCATEGORY:Starting Background	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background	TYPE:Background	PLURAL:Backgrounds		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Mutations		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Mutation		TYPE:Mutation	PLURAL:Mutations			DISPLAYLOCATION:Mutations & Defects
+ABILITYCATEGORY:Defects			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Defect		TYPE:Defect		PLURAL:Defects			DISPLAYLOCATION:Mutations & Defects
+
+###Block:  Core Class Talent Pools
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object															Plural description for UI				Display Location
+ABILITYCATEGORY:PA Hero Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:PAHeroTalent															PLURAL:PA Hero Talents					DISPLAYLOCATION:Class Abilities
+
+# Core Class Bonus Feat Pools
+ABILITYCATEGORY:PA Hero Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:PAHero																PLURAL:PA Hero Feats					DISPLAYLOCATION:Feats
+
+# Class Ability Pools
+ABILITYCATEGORY:Scholar Ancient Secret				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:AncientSecret														PLURAL:Scholar Ancient Secrets			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Survivalist Region					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:SurvivalistRegion														PLURAL:Survivalist Regions				DISPLAYLOCATION:Class Abilities
+
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object															Plural description for UI				Display Location
+ABILITYCATEGORY:Caravan Guard Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Caravan_Guard_Skills													PLURAL:Caravan Guard Occupation Skills		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Corium Prospector Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Corium_Prospector_Skills													PLURAL:Corium Prospector Occupation Skills	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Craftsman Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Craftsman_Skills														PLURAL:Craftsman Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Demagogue Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Demagogue_Skills														PLURAL:Demagogue Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Furniture Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Furniture_Skills														PLURAL:Furniture Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Guide Occupation Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Guide_Skills															PLURAL:Guide Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Healer Occupation Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Healer_Skills														PLURAL:Healer Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Herdsman Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Herdsman_Skills														PLURAL:Herdsman Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Merchant Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Merchant_Skills														PLURAL:Merchant Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Military Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Military_Skills														PLURAL:Military Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Predator Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Predator_Skills														PLURAL:Predator Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Repairman Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Repairman_Skills														PLURAL:Repairman Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Slave Occupation Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Slave_Skills															PLURAL:Slave Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Slaver Occupation Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Slaver_Skills														PLURAL:Slaver Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Wanderer Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Wanderer_Skills														PLURAL:Wanderer Occupation Skills			DISPLAYLOCATION:Background
+
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object															Plural description for UI				Display Location
+ABILITYCATEGORY:Slave Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Slave																PLURAL:Slave Feats					DISPLAYLOCATION:Feats
+
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object															Plural description for UI				Display Location
+ABILITYCATEGORY:Feral Background Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Feral_Skills															PLURAL:Feral Background Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Tribal Background Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Tribal_Skills														PLURAL:Tribal Background Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Ritual Preservationist Background Skills	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Ritual_Preservationist_Skills												PLURAL:Ritual Preservationist Background Skills	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Resentful Background Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Resentful_Skills														PLURAL:Resentful Background Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Radical Background Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Radical_Skills														PLURAL:Radical Background Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Degenerate Background Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Degenerate_Skills														PLURAL:Degenerate Background Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Resurrector Background Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Resurrector_Skills														PLURAL:Resurrector Background Skills		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Visionary Reinventor Background Skills	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Visionary_Reinventor_Skills												PLURAL:Visionary Reinventor Background Skills	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Guardian Background Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Guardian_Skills														PLURAL:Guardian Background Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Hedonist Background Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Hedonist_Skills														PLURAL:Hedonist Background Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Advanced Background Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Advanced_Skills														PLURAL:Advanced Background Skills			DISPLAYLOCATION:Background
+
+# Background Bonus Feat Pools
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object															Plural description for UI				Display Location
+ABILITYCATEGORY:Feral Background Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Feral																PLURAL:Feral Background Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Tribal Background Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Tribal																PLURAL:Tribal Background Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Resentful Background Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Resentful															PLURAL:Resentful Background Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Radical Background Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Radical															PLURAL:Radical Background Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Hedonist Background Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Hedonist															PLURAL:Hedonist Background Feats			DISPLAYLOCATION:Feats
+
+# Advanced Class Bonus Feat Pools
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object															Plural description for UI				Display Location
+ABILITYCATEGORY:Barbarian Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Barbarian															PLURAL:Barbarian Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Demagogue Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Demagogue															PLURAL:Demagogue Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Guardian Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Guardian															PLURAL:Guardian Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Juju Doctor Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:JujuDoc															PLURAL:Juju Doctor Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psionic Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Psionic															PLURAL:Psionic Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psionic Neural Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:NeuralFeat															PLURAL:Psionic Neural Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Raider Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Raider																PLURAL:Raider Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Road Warrior Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:RdWarrior															PLURAL:Road Warrior Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Scav Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Scav																PLURAL:Scav Feats						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Scholar Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Scholar															PLURAL:Scholar Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Skulk Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Skulk																PLURAL:Skulk Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Sister of the Desert Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SisOTD																PLURAL:Sister of the Desert Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Survivalist Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Survivalist															PLURAL:Survivalist Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Symbiote Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Symbiote															PLURAL:Symbiote Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Tinker Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Tinker																PLURAL:Tinker Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Trader Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Trader																PLURAL:Trader Feats					DISPLAYLOCATION:Feats
+
+# Epic Class Talent Pools
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI	Display where?
+
+ABILITYCATEGORY:Mech Mastercraft					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:MechMastercraft														PLURAL:Mech Mastercraft					DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Medicine Man Drugs					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:MedicineManDrugs														PLURAL:Medicine Man Drugs				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Medicine Man Minor Miracle			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:MedicineManMinorMiracle													PLURAL:Medicine Man Minor Miracles			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Medicine Man Ancient Med Tech			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:AncientMedTech														PLURAL:Medicine Man Ancient Med Tech		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Scientist Smart Weapon				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:ScientistTalent														PLURAL:Scientist Smart Weapons			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Warrior Monk Superior Ability			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:WMSuperior															PLURAL:Warior Monk Talents				DISPLAYLOCATION:Class Abilities
+
+# Epic Class Bonus Feat Pools
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object															Plural description for UI				Display Location
+ABILITYCATEGORY:Champion Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Champion															PLURAL:Champion Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Mech Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Mech																PLURAL:Mech Feats						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Mutant Hunter Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MutantHunter															PLURAL:Mutant Hunter Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Scientist Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Scientist															PLURAL:Scientist Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Tech Looter Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:TechLooter															PLURAL:Tech Looter Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Warrior Monk Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:WarriorMonk.Barbarian.Guardian.Gunslinger.MartialArtist.Raider.RdWarrior.Survivalist.SisOTD	PLURAL:Warrior Monk Feats				DISPLAYLOCATION:Feats
+
+# Creature Type Proficiency Bonus Feat Pools
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object															Plural description for UI				Display Location
+ABILITYCATEGORY:Aberration Proficiency				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:AberrationProficiency													PLURAL:Aberration Proficiencies			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Fey Proficiency					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:FeyProficiency														PLURAL:Fey Proficiencies				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Giant Proficiency					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:GiantProficiency														PLURAL:Giant Proficiencies				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Humanoid Proficiency				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:HumanoidProficiency													PLURAL:Humanoid Proficiencies				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Monstrous Humanoid Proficiency			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MonstrousHumanoidProficiency												PLURAL:Monstrous Humanoid Proficiencies		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Outsider Proficiency				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OutsiderProficiency													PLURAL:Outsider Proficiencies				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Undead Proficiency					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:UndeadProficiency														PLURAL:Undead Proficiencies				DISPLAYLOCATION:Feats
+
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object															Plural description for UI				Display Location
+ABILITYCATEGORY:Strong Plus Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:StrongPlus															PLURAL:Strong Plus Talents				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Fast Plus Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:FastPlus															PLURAL:Fast Plus Talents				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Tough Plus Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:ToughPlus.EnergyResistance												PLURAL:Tough Plus Talents				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Smart Plus Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:SmartPlus															PLURAL:Smart Plus Talents				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Dedicated Plus Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:DedicatedPlus														PLURAL:Dedicated Plus Talents				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Charismatic Plus Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:CharismaticPlus														PLURAL:Charismatic Plus Talents			DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Fractional HD Progression		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:FractionalHD							DISPLAYLOCATION:Fraction HD
+
+#
+# End
+#
