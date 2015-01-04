@@ -73,9 +73,9 @@ CLASS:Barbarian	STARTSKILLPTS:3	CSKILL:Balance|Climb|Handle Animal|Hide|Intimida
 ###Block: Rage variables
 1	BONUS:ABILITYPOOL|Barbarian Feat|(CL/3)
 ###Block:
-1	BONUS:VAR|BarbRageTimesLVL|cl("Barbarian")	DEFINE:BarbRageTimesLVL|0
-1	BONUS:VAR|BarbRagePowerLVL|cl("Barbarian")	DEFINE:BarbRagePowerLVL|0
-1	BONUS:VAR|RageTimes|1					DEFINE:RageTimes|0
+1	BONUS:VAR|BarbRageTimesLVL|CL	DEFINE:BarbRageTimesLVL|0
+1	BONUS:VAR|BarbRagePowerLVL|CL	DEFINE:BarbRagePowerLVL|0
+1	BONUS:VAR|RageTimes|1		DEFINE:RageTimes|0
 4	BONUS:VAR|RageTimes|1
 7	BONUS:VAR|RageTimes|1
 10	BONUS:VAR|RageTimes|1
@@ -295,7 +295,7 @@ CLASS:Trader	STARTSKILLPTS:7	CSKILL:Bluff|Drive|Diplomacy|Forgery|Gather Informa
 8	ABILITY:Trader Class Feature|AUTOMATIC|Trader ~ Leadership
 10	ABILITY:Trader Class Feature|AUTOMATIC|Trader ~ Professional Courtesy
 
-###Block: Epic
+###Block: Epic - Not converted to abilities yet.
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Combat bonus							Save bonus																						Modify VAR
 CLASS:Champion	HD:12		TYPE:Base.Epic	ABB:Chm		MAXLEVEL:10	SOURCEPAGE:p.44	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|1+((CL+1)/2)	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)
 # Class Name	Required Feat			Req. Special Ability	Required Skill						PRETOTALAB

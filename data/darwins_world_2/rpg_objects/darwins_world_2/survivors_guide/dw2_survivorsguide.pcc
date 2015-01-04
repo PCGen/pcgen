@@ -86,13 +86,8 @@ CLASS:dw2sg_classes.lst
 COMPANIONMOD:dw2sg_companionmods.lst
 
 EQUIPMENT:dw2sg_equip.lst
-EQUIPMENT:dw2sg_equip_armorshields.lst
+EQUIPMENT:dw2sg_equip_arms_armor.lst
 EQUIPMENT:dw2sg_equip_vehicles.lst
-EQUIPMENT:dw2sg_equip_weap.lst
-EQUIPMENT:dw2sg_equip_weap_melee.lst
-EQUIPMENT:dw2sg_equip_weap_ranged.lst
-EQUIPMENT:dw2sg_equip_weap_ranged_firearms.lst
-EQUIPMENT:dw2sg_equip_weap_ammo.lst
 EQUIPMOD:dw2sg_equipmods.lst
 
 FEAT:dw2sg_feats.lst
@@ -101,7 +96,7 @@ FEAT:dw2sg_feats_hidden.lst
 LANGUAGE:dw2sg_languages.lst
 KIT:dw2sg_kits.lst
 ARMORPROF:dw2sg_profs_armor.lst
-WEAPONPROF:dw2sg_weaponprofs.lst
+WEAPONPROF:dw2sg_profs_weapon.lst
 
 RACE:dw2sg_races.lst
 SKILL:dw2sg_skills.lst
