@@ -270,6 +270,53 @@ Spell Resistance		KEY:Svirfneblin ~ Spell Resistance		CATEGORY:Special Ability	T
 Svirfneblin Magic		KEY:Svirfneblin ~ Svirfneblin Magic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.MagicalTrait.Standard	TYPE:SvirfneblinRacialTrait.SvirfneblinRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Svirfneblin ~ Svirfneblin Magic],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinMagic]							SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Nondetection	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Blindness/Deafness|Blur|Disguise Self	DESC:+1 untyped bonus to DC of Illusion spells.  SLAs: constant - Nondetection, 1/day - Blindness/Deafness, Blur, Disguise Self.  Save is Cha-based.																									BONUS:DC|SCHOOL.Illusion|1																																					SOURCEPAGE:p.261
 Stonecunning		KEY:Svirfneblin ~ Stonecunning		CATEGORY:Special Ability	TYPE:SvirfneblinRacialTrait.SvirfneblinRacialDefault													PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Svirfneblin ~ Stonecunning],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinStonecunning]																														DESC:Svirfneblin receive a +2 bonus on Perception checks to potentially notice unusual stonework, such as traps and hidden doors located in stone walls or floors. They receive a check to notice such features whenever they pass within 10 feet of them, whether or not they are actively looking.																																										SOURCEPAGE:p.261
 
+###Block: Race Traits
+Race Traits ~ Aboleth			CATEGORY:Internal			
+Race Traits ~ Barghest (Greater)	CATEGORY:Internal	
+Race Traits ~ Cockatrice		CATEGORY:Internal			
+Race Traits ~ Cyclops (Great)		CATEGORY:Internal		
+Race Traits ~ Demon (Marilith)	CATEGORY:Internal		
+Race Traits ~ Demon (Nalfeshnee)	CATEGORY:Internal	
+Race Traits ~ Demon (Vrock)		CATEGORY:Internal		
+Race Traits ~ Devil (Bone)		CATEGORY:Internal		
+Race Traits ~ Devil (Ice)		CATEGORY:Internal			
+Race Traits ~ Dragon (Black)		CATEGORY:Internal		
+Race Traits ~ Dragon (Blue)		CATEGORY:Internal		
+Race Traits ~ Dragon (Green)		CATEGORY:Internal		
+Race Traits ~ Dragon (Red)		CATEGORY:Internal		
+Race Traits ~ Dragon (White)		CATEGORY:Internal		
+Race Traits ~ Elemental (Air)		CATEGORY:Internal		
+Race Traits ~ Elemental (Earth)	CATEGORY:Internal		
+Race Traits ~ Elemental (Fire)	CATEGORY:Internal		
+Race Traits ~ Elemental (Water)	CATEGORY:Internal		
+Race Traits ~ Ettin			CATEGORY:Internal				
+Race Traits ~ Gargoyle			CATEGORY:Internal			
+Race Traits ~ Giant (Fire)		CATEGORY:Internal		
+Race Traits ~ Giant (Hill)		CATEGORY:Internal		
+Race Traits ~ Golem (Flesh)		CATEGORY:Internal		
+Race Traits ~ Griffon			CATEGORY:Internal			
+Race Traits ~ Hell Hound		CATEGORY:Internal			
+Race Traits ~ Hydra			CATEGORY:Internal				
+Race Traits ~ Lamia			CATEGORY:Internal				
+Race Traits ~ Lich			CATEGORY:Internal				
+Race Traits ~ Manticore			CATEGORY:Internal			
+Race Traits ~ Medusa			CATEGORY:Internal			
+Race Traits ~ Minotaur			CATEGORY:Internal			
+Race Traits ~ Mummy			CATEGORY:Internal				
+Race Traits ~ Ogre			CATEGORY:Internal				
+Race Traits ~ Owlbear			CATEGORY:Internal			
+Race Traits ~ Phoenix			CATEGORY:Internal			
+Race Traits ~ Rakasha			CATEGORY:Internal			
+Race Traits ~ Skeleton			CATEGORY:Internal			
+Race Traits ~ Sphinx			CATEGORY:Internal			
+Race Traits ~ Treant			CATEGORY:Internal			
+Race Traits ~ Troll			CATEGORY:Internal				
+Race Traits ~ Vampire			CATEGORY:Internal			
+Race Traits ~ Worg			CATEGORY:Internal				
+Race Traits ~ Worg (Winter Wolf)	CATEGORY:Internal	
+Race Traits ~ Wyvern			CATEGORY:Internal			
+
+
 ###Block: Aboleth abilities
 # Ability Name	Unique Key				Category of Ability		Type							Define			Description																																																																																												Ability							Modify VAR																		Source Page		Aspects
 Mucus Cloud		KEY:Aboleth ~ Mucus Cloud	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Aura	DEFINE:MucusCloudDC|0	DESC:While underwater, an aboleth exudes a cloud of transparent slime. All creatures adjacent to an aboleth must succeed on a DC %1 Fortitude save each round or lose the ability to breathe air (but gain the ability to breathe water) for 3 hours. Renewed contact with an aboleth's mucus cloud and failing another save extends the effect for another 3 hours.|MucusCloudDC																																ABILITY:Ability Focus|AUTOMATIC|Mucus Cloud	BONUS:VAR|MucusCloudDC|10+(HD/2)+CON|TYPE=Base	BONUS:VAR|MucusCloudDC|2|PREFEAT:1,Ability Focus (Mucus Cloud)	SOURCEPAGE:p.8	ASPECT:Ability Benefit|(5 ft., DC %1)|MucusCloudDC
@@ -282,6 +329,7 @@ Slaying Arrow				KEY:Solar ~ Slaying Arrow	CATEGORY:Special Ability	TYPE:Special
 Stun						KEY:Angel ~ Stun			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:StunDC|0	DESC:DC %1|StunDC																		ABILITY:Ability Focus|AUTOMATIC|Stun	BONUS:VAR|StunDC|10+(HD/2)+CON|TYPE=Base	BONUS:VAR|StunDC|2|PREFEAT:1,Ability Focus (Stun)
 +4 Deflection bonus to AC vs. Evil	KEY:Angel Deflection		CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC																																																SOURCEPAGE:p.11
 +4 Resistance to Saves vs. Evil	KEY:Angel Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality																																																	SOURCEPAGE:p.11	ASPECT:SaveBonus|+4 vs. Evil
+
 
 ###Block: Animated Object Abilities
 # Ability Name				Unique Key						Category of Ability		Type							Visible		Required Ability									Restricted Ability																					Required Movement Rate	Define										Description																				Stackable?	Multiple?	Choose		Clone Movement			Ability									Bonus Ability Pool								Combat bonus						Misc bonus																							Add to base move			Modify VAR										Cost		Source Page		Aspects
