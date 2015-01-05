@@ -761,7 +761,7 @@ Traps			KEY:Ettercap ~ Traps		CATEGORY:Special Ability	TYPE:SpecialAttack.Extrao
 
 ###Block: Ettin Abilities
 # Ability Name			Unique Key						Category of Ability		Type						Description																																Combat bonus									Source Page
-Superior Two-Weapon Fighting	KEY:Ettin ~ Superior Two-Weapon Fighting	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:An ettin fights with a flail or javelin in each hand. Because each of its two heads controls an arm, the ettin does not take a penalty on attack or damage rolls for attacking with two weapons.	BONUS:COMBAT|TOHIT-PRIMARY|4	BONUS:COMBAT|TOHIT-SECONDARY|8	SOURCEPAGE:p.130
+Superior Two-Weapon Fighting	KEY:Ettin ~ Superior Two-Weapon Fighting	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:An ettin fights with a flail or javelin in each hand. Because each of its two heads controls an arm, the ettin does not take a penalty on attack or damage rolls for attacking with two weapons.	BONUS:COMBAT|TOHIT-PRIMARY|4	BONUS:COMBAT|TOHIT-SECONDARY|8	BONUS:COMBAT|SECONDARYATTACKS|1	BONUS:COMBAT|DAMAGEMULT:0|0.5*(STR>=0)	SOURCEPAGE:p.130
 
 ###Block: Flytrap (Giant) Abilities
 # Ability Name	Unique Key				Category of Ability		Type						Description																																																																																																																																																					Source Page
