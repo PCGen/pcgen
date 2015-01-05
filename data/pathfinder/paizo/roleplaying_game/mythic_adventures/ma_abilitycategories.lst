@@ -1,0 +1,19 @@
+# CVS $Revision: $ $Author: $ -- Sat Jun 21 01:05:38 2014 -- reformated by prettylst.pl v1.50 (build 19967)
+
+# Ability Category				Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Mythic Tier			VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MythicTier		PLURAL:Mythic Tiers		DISPLAYLOCATION:Mythic Abilities
+ABILITYCATEGORY:Mythic Path			VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MythicPath		PLURAL:Mythic Paths		DISPLAYLOCATION:Mythic Abilities
+ABILITYCATEGORY:Mythic Feat			VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Feat			TYPE:MythicFeat		PLURAL:Mythic Feats		DISPLAYLOCATION:Mythic Abilities
+ABILITYCATEGORY:Mythic Ability		VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MythicAbility	PLURAL:Mythic Abilities		DISPLAYLOCATION:Mythic Abilities
+ABILITYCATEGORY:Mythic Path Ability		VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MythicPathAbility	PLURAL:Mythic Path Abilities	DISPLAYLOCATION:Mythic Abilities
+ABILITYCATEGORY:Mythic Path Feature		VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MythicPathFeature	PLURAL:Mythic Path Features	DISPLAYLOCATION:Mythic Abilities
+ABILITYCATEGORY:Mythic Ability Bonus	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MythicAbilityBonus	PLURAL:Mythic Ability Bonus	DISPLAYLOCATION:Mythic Abilities
+
+
+ABILITYCATEGORY:Mythic Spell			VISIBLE:NO	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Mythic Spell		
+ABILITYCATEGORY:Mythic Spells			VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Mythic Spell		TYPE:MythicSpellList	PLURAL:Mythic Spells		DISPLAYLOCATION:Mythic Abilities
+
+# Allows Player to select whether to use Mythic or Standard Version
+ABILITYCATEGORY:Race Version			VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:RaceVersion							DISPLAYLOCATION:Race Traits
+
+ABILITYCATEGORY:Mythic Aspect of the Beast Selection	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MythicAspectsOfTheBeast							DISPLAYLOCATION:Feats
