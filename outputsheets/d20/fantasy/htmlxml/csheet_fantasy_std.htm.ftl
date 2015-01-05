@@ -544,11 +544,11 @@ Wisdom
      <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="border10"><b>${pcstring('VAR.CMB_STAT.INTVAL.SIGN')}</b></td>
      <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_SizeMod.INTVAL.SIGN')}<br /></b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CM_SizeMod.INTVAL.SIGN')}<br /></b></td>
      <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="border10 epic"><b>+0<br /></b></td>
      <td align="center" class="font7 epic"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB-ATTACK.MELEE.BASE-VAR.CMB_STAT-VAR.CMB_SizeMod.INTVAL.SIGN')}<br /></b></td>
+     <td align="center" class="border10"><b>${pcstring('VAR.CMB-ATTACK.MELEE.BASE-VAR.CMB_STAT-VAR.CM_SizeMod.INTVAL.SIGN')}<br /></b></td>
      <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="tempborder"><br /></td>
     </tr>
