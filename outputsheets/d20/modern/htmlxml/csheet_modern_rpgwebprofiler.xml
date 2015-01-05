@@ -138,21 +138,21 @@
 |ENDIF|
     <node name="MaxRank">|MAXSKILLLEVEL|</node>
     <node name="MaxRankCC">|MAXCCSKILLLEVEL|</node>
-|FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
+|FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")},1,0|
 |IIF(%skill<9)|
-    <node name="Skill0|%skill+1.INTVAL|">|SKILL.%skill|</node>
-    <node name="Skill0|%skill+1.INTVAL|Ability">|SKILL.%skill.ABILITY|</node>
-    <node name="Skill0|%skill+1.INTVAL|Total">|SKILL.%skill.TOTAL|</node>
-    <node name="Skill0|%skill+1.INTVAL|Mod">|SKILL.%skill.ABMOD|</node>
-    <node name="Skill0|%skill+1.INTVAL|Rank">|SKILL.%skill.RANK|</node>
-    <node name="Skill0|%skill+1.INTVAL|Misc">|SKILL.%skill.MISC|</node>
+    <node name="Skill0|%skill+1.INTVAL|">|SKILLSIT.%skill|</node>
+    <node name="Skill0|%skill+1.INTVAL|Ability">|SKILLSIT.%skill.ABILITY|</node>
+    <node name="Skill0|%skill+1.INTVAL|Total">|SKILLSIT.%skill.TOTAL|</node>
+    <node name="Skill0|%skill+1.INTVAL|Mod">|SKILLSIT.%skill.ABMOD|</node>
+    <node name="Skill0|%skill+1.INTVAL|Rank">|SKILLSIT.%skill.RANK|</node>
+    <node name="Skill0|%skill+1.INTVAL|Misc">|SKILLSIT.%skill.MISC|</node>
 |ELSE|
-    <node name="Skill|%skill+1.INTVAL|">|SKILL.%skill|</node>
-    <node name="Skill|%skill+1.INTVAL|Ability">|SKILL.%skill.ABILITY|</node>
-    <node name="Skill|%skill+1.INTVAL|Total">|SKILL.%skill.TOTAL|</node>
-    <node name="Skill|%skill+1.INTVAL|Mod">|SKILL.%skill.ABMOD|</node>
-    <node name="Skill|%skill+1.INTVAL|Rank">|SKILL.%skill.RANK|</node>
-    <node name="Skill|%skill+1.INTVAL|Misc">|SKILL.%skill.MISC|</node>
+    <node name="Skill|%skill+1.INTVAL|">|SKILLSIT.%skill|</node>
+    <node name="Skill|%skill+1.INTVAL|Ability">|SKILLSIT.%skill.ABILITY|</node>
+    <node name="Skill|%skill+1.INTVAL|Total">|SKILLSIT.%skill.TOTAL|</node>
+    <node name="Skill|%skill+1.INTVAL|Mod">|SKILLSIT.%skill.ABMOD|</node>
+    <node name="Skill|%skill+1.INTVAL|Rank">|SKILLSIT.%skill.RANK|</node>
+    <node name="Skill|%skill+1.INTVAL|Misc">|SKILLSIT.%skill.MISC|</node>
 |ENDIF|
 |ENDFOR|
 |FOR,%equip,0,COUNT[EQUIPMENT]-1,1,0|

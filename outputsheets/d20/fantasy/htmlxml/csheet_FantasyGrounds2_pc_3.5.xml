@@ -236,45 +236,45 @@
     <senses type="string">|VISION|</senses>
     <size type="string">|SIZELONG|</size>
     <skilllist fgapi="CC.PG.SKILLLIST">
-|FOR,%skillno,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
+|FOR,%skillno,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")},1,0|
       <id-0000|(%skillno+1).INTVAL|>
-|IIF(SKILL.%skillno.NAME:Swim)|
+|IIF(SKILLSIT.%skillno.NAME:Swim)|
         <armorcheckmultiplier type="number">2</armorcheckmultiplier>
 |ELSE|
-|IIF(SKILL.%skillno.NAME:Balance.OR.SKILL.%skillno.NAME:Climb.OR.SKILL.%skillno.NAME:Escape Artist.OR.SKILL.%skillno.NAME:Hide.OR.SKILL.%skillno.NAME:Jump.OR.SKILL.%skillno.NAME:Move Silently.OR.SKILL.%skillno.NAME:Sleight of Hand.OR.SKILL.%skillno.NAME:Tumble)|
+|IIF(SKILLSIT.%skillno.NAME:Balance.OR.SKILLSIT.%skillno.NAME:Climb.OR.SKILLSIT.%skillno.SKILLSIT:Escape Artist.OR.SKILLSIT.%skillno.NAME:Hide.OR.SKILLSIT.%skillno.NAME:Jump.OR.SKILLSIT.%skillno.NAME:Move Silently.OR.SKILLSIT.%skillno.NAME:Sleight of Hand.OR.SKILLSIT.%skillno.NAME:Tumble)|
         <armorcheckmultiplier type="number">1</armorcheckmultiplier>
 |ELSE|
         <armorcheckmultiplier type="number">0</armorcheckmultiplier>
 |ENDIF|
 |ENDIF|
 
-        <label type="string">|SKILL.%skillno|</label>
+        <label type="string">|SKILLSIT.%skillno|</label>
         <halfranks type="number">0</halfranks>
-        <misc type="number">|SKILL.%skillno.MISC.INTVAL|</misc>
-        <name type="string">|SKILL.%skillno|</name>
+        <misc type="number">|SKILLSIT.%skillno.MISC.INTVAL|</misc>
+        <name type="string">|SKILLSIT.%skillno|</name>
         <plannedhalfranks type="number">0</plannedhalfranks>
         <plannedranks type="number">0</plannedranks>
-        <ranks type="number">|SKILL.%skillno.RANK.INTVAL|</ranks>
-|IIF(SKILL.%skillno.ABILITY:STR)|
+        <ranks type="number">|SKILLSIT.%skillno.RANK.INTVAL|</ranks>
+|IIF(SKILLSIT.%skillno.ABILITY:STR)|
         <statname type="string">strength</statname>
 |ENDIF|
-|IIF(SKILL.%skillno.ABILITY:DEX)|
+|IIF(SKILLSIT.%skillno.ABILITY:DEX)|
         <statname type="string">dexterity</statname>
 |ENDIF|
-|IIF(SKILL.%skillno.ABILITY:CON)|
+|IIF(SKILLSIT.%skillno.ABILITY:CON)|
         <statname type="string">constitution</statname>
 |ENDIF|
-|IIF(SKILL.%skillno.ABILITY:INT)|
+|IIF(SKILLSIT.%skillno.ABILITY:INT)|
         <statname type="string">intelligence</statname>
 |ENDIF|
-|IIF(SKILL.%skillno.ABILITY:WIS)|
+|IIF(SKILLSIT.%skillno.ABILITY:WIS)|
         <statname type="string">wisdom</statname>
 |ENDIF|
-|IIF(SKILL.%skillno.ABILITY:CHA)|
+|IIF(SKILLSIT.%skillno.ABILITY:CHA)|
         <statname type="string">charisma</statname>
 |ENDIF|
-        <description type="string">|SKILL.%skillno.EXPLAIN_LONG|</description>
-        <total type="number">|SKILL.%skillno.TOTAL.INTVAL|</total>
+        <description type="string">|SKILLSIT.%skillno.EXPLAIN_LONG|</description>
+        <total type="number">|SKILLSIT.%skillno.TOTAL.INTVAL|</total>
       </id-0000|(%skillno+1).INTVAL|>
 |ENDFOR|
     </skilllist>

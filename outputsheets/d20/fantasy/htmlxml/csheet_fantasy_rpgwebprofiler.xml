@@ -169,22 +169,22 @@
     <node name="Armor2Spell">|ARMOR.SHIELD.EQUIPPED.0.SPELLFAIL|</node>
     <node name="MaxRank">|MAXSKILLLEVEL|</node>
     <node name="MaxRankCC">|MAXCCSKILLLEVEL|</node>
-|FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
+|FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")},1,0|
 |IIF(%skill<9)|
-    <node name="Skill0|%skill+1.INTVAL|">|SKILL.%skill|</node>
-    <node name="Skill0|%skill+1.INTVAL|Ab">|SKILL.%skill.ABILITY|</node>
-    <node name="Skill0|%skill+1.INTVAL|Mod">|SKILL.%skill.TOTAL|</node>
-    <node name="Skill0|%skill+1.INTVAL|AbMod">|SKILL.%skill.ABMOD|</node>
-    <node name="Skill0|%skill+1.INTVAL|Rank">|SKILL.%skill.RANK|</node>
-    <node name="Skill0|%skill+1.INTVAL|MiscMod">|SKILL.%skill.MISC|</node>
+    <node name="Skill0|%skill+1.INTVAL|">|SKILLSIT.%skill|</node>
+    <node name="Skill0|%skill+1.INTVAL|Ab">|SKILLSIT.%skill.ABILITY|</node>
+    <node name="Skill0|%skill+1.INTVAL|Mod">|SKILLSIT.%skill.TOTAL|</node>
+    <node name="Skill0|%skill+1.INTVAL|AbMod">|SKILLSIT.%skill.ABMOD|</node>
+    <node name="Skill0|%skill+1.INTVAL|Rank">|SKILLSIT.%skill.RANK|</node>
+    <node name="Skill0|%skill+1.INTVAL|MiscMod">|SKILLSIT.%skill.MISC|</node>
     <node name="Skill0|%skill+1.INTVAL|CheckPen"></node>
 |ELSE|
-    <node name="Skill|%skill+1.INTVAL|">|SKILL.%skill|</node>
-    <node name="Skill|%skill+1.INTVAL|Ab">|SKILL.%skill.ABILITY|</node>
-    <node name="Skill|%skill+1.INTVAL|Mod">|SKILL.%skill.TOTAL|</node>
-    <node name="Skill|%skill+1.INTVAL|AbMod">|SKILL.%skill.ABMOD|</node>
-    <node name="Skill|%skill+1.INTVAL|Rank">|SKILL.%skill.RANK|</node>
-    <node name="Skill|%skill+1.INTVAL|MiscMod">|SKILL.%skill.MISC|</node>
+    <node name="Skill|%skill+1.INTVAL|">|SKILLSIT.%skill|</node>
+    <node name="Skill|%skill+1.INTVAL|Ab">|SKILLSIT.%skill.ABILITY|</node>
+    <node name="Skill|%skill+1.INTVAL|Mod">|SKILLSIT.%skill.TOTAL|</node>
+    <node name="Skill|%skill+1.INTVAL|AbMod">|SKILLSIT.%skill.ABMOD|</node>
+    <node name="Skill|%skill+1.INTVAL|Rank">|SKILLSIT.%skill.RANK|</node>
+    <node name="Skill|%skill+1.INTVAL|MiscMod">|SKILLSIT.%skill.MISC|</node>
     <node name="Skill|%skill+1.INTVAL|CheckPen"></node>
 |ENDIF|
 |ENDFOR|
