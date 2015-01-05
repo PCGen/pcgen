@@ -978,18 +978,18 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
      <td align="center" width="13%" colspan="2" class="border6">RANKS</td>
      <td align="center" width="13%" colspan="2" class="border6">MISC<br />MODIFIER</td>
     </tr>
-<@loop from=0 to=pcvar('count("SKILLSIT", "VIEW=VISIBLE_EXPORT")')-1; skill , skill_has_next >
+<@loop from=0 to=pcvar('count("SKILLSIT", "VIEW=VISIBLE_EXPORT")'); skill , skill_has_next >
 <#if (skill % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
-     <td align="center" ><font style="font-size: x-small"><#if pcboolean("SKILL.${skill}.UNTRAINED")>&#9670;</#if></font></td>
-     <td align="left" class="font8">&nbsp;&nbsp;${pcstring('SKILL.${skill}')}</td>
-     <td align="center" class="font8">${pcstring('SKILL.${skill}.ABILITY')}</td>
-     <td align="center" class="borderbottom8" valign="bottom"><b>${pcstring('SKILL.${skill}.TOTAL')}</b></td>
+     <td align="center" ><font style="font-size: x-small"><#if pcboolean('SKILLSIT.${skill}.UNTRAINED')>&#9670;</#if></font></td>
+     <td align="left" class="font8">&nbsp;&nbsp;${pcstring('SKILLSIT.${skill}')}</td>
+     <td align="center" class="font8">${pcstring('SKILLSIT.${skill}.ABILITY')}</td>
+     <td align="center" class="borderbottom8" valign="bottom"><b>${pcstring('SKILLSIT.${skill}.TOTAL')}</b></td>
      <td align="center" valign="bottom" class="font8"><b>=</b></td>
-     <td align="center" class="borderbottom8" valign="bottom">${pcstring('SKILL.${skill}.ABMOD')}<br /></td>
+     <td align="center" class="borderbottom8" valign="bottom">${pcstring('SKILLSIT.${skill}.ABMOD')}<br /></td>
      <td align="center" valign="bottom" class="font8"><b>+</b></td>
-     <td align="center" class="borderbottom8" valign="bottom">${pcstring("SKILL.${skill}.RANK")?replace("\\.0", "", "rf")}<br /></td>
+     <td align="center" class="borderbottom8" valign="bottom">${pcstring('SKILLSIT.${skill}.RANK')?replace("\\.0", "", "rf")}<br /></td>
      <td align="center" valign="bottom" class="font8"><b>+</b></td>
-     <td align="center" class="borderbottom8" valign="bottom">${pcstring('SKILL.${skill}.MISC')}<br /></td>
+     <td align="center" class="borderbottom8" valign="bottom">${pcstring('SKILLSIT.${skill}.MISC')}<br /></td>
     </tr>
 </@loop>
    </table>
