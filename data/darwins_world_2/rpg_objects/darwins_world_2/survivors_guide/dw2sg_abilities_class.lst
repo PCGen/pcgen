@@ -2,6 +2,10 @@
 #Waytraveler
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
+###Block:
+Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttackDice|SneakAttackDie	DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0	DESC:+%1d%2|SneakAttackDice|SneakAttackDie	BONUS:VAR|SneakAttackDie|6	SOURCEPAGE:ClassesII	ASPECT:Ability Benefit|+%1d%2|SneakAttackDice|SneakAttackDie
+
+
 ###Block: PA Hero Talents
 # Ability Name		Category of Ability	Type						Visible	Required Ability																										Required Feat					Required Skill					Required Template		Description																	Stackable?	Multiple?	Choose			Combat bonus			Bonus to skill										Modify VAR												Weapon prof. bonus				Source Page
 Technologist		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Technologist																													BONUS:SKILL|Knowledge (Technology)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p.14

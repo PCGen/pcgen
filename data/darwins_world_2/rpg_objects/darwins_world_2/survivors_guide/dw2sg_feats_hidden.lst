@@ -6,8 +6,8 @@ SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_
 #Hidden Feats for Additional Limb Development
 # Feat Name		Type					Visible	Required Ability									Restricted Ability							Special ABility															Define				Stackable?	Multiple?	Choose					Combat bonus		Add to base move						Bonus to skill					Bonus to nb of slots	Modify VAR				Source Page
 #replaced with mutation - this did not work right
-#Extra Arm Feat	TYPE:MutantAbility.ExtraArm		VISIBLE:NO	PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Arm)											SAB:Extra Arm (x%) (+% additional attacks during full attack)|AdditionalLimbArm|AdditionalLimbArm	DEFINE:AdditionalLimbArm|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:COMBAT|ATTACKS|1																BONUS:SLOTS|GLOVE|1	BONUS:VAR|AdditionalLimbArm|1	SOURCEPAGE:p. 77
-#Extra Leg Feat	TYPE:MutantAbility.Limb		VISIBLE:NO	PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Leg)											SAB:Extra Leg (x%) (+5' to Base Speed, +2 to Balance each)|AdditionalLimbLeg					DEFINE:AdditionalLimbLeg|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:MOVEADD|TYPE.Walk|(5*AdditionalLimbLeg)	BONUS:SKILL|Balance|(2*AdditionalLimbLeg)					BONUS:VAR|AdditionalLimbLeg|1	SOURCEPAGE:p. 77
+Extra Arm Feat	TYPE:MutantAbility.ExtraArm		VISIBLE:NO	PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Arm)											SAB:Extra Arm (x%) (+% additional attacks during full attack)|AdditionalLimbArm|AdditionalLimbArm	DEFINE:AdditionalLimbArm|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:COMBAT|ATTACKS|1																BONUS:SLOTS|GLOVE|1	BONUS:VAR|AdditionalLimbArm|1	SOURCEPAGE:p. 77
+Extra Leg Feat	TYPE:MutantAbility.Limb		VISIBLE:NO	PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Leg)											SAB:Extra Leg (x%) (+5' to Base Speed, +2 to Balance each)|AdditionalLimbLeg					DEFINE:AdditionalLimbLeg|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:MOVEADD|TYPE.Walk|(5*AdditionalLimbLeg)	BONUS:SKILL|Balance|(2*AdditionalLimbLeg)					BONUS:VAR|AdditionalLimbLeg|1	SOURCEPAGE:p. 77
 
 #Hidden Feats for Diurnal/Nocturnal
 #Changed with mutation - original code did not work right
