@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Mar  4 11:52:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision: 25034 $ $Author: amaitland $ -- Tue Mar  4 11:52:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 CAMPAIGN:Darwin's World 2nd Edition - Survivors Guide
 RANK:1
 GAMEMODE:Darwins_World_2
@@ -78,45 +78,29 @@ WEAPONPROF:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_
 
 ###DW2 Specific/Modified files
 ABILITYCATEGORY:dw2sg_ability_categories.lst
-
-ABILITY:dw2sg_abilities_backgrounds.lst
-ABILITY:dw2sg_abilities_occupations.lst
-ABILITY:dw2sg_abilities_defects.lst
-ABILITY:dw2sg_abilities_mutations.lst
-ABILITY:dw2sg_abilities_talents.lst
-
-RACE:dw2sg_races_human.lst
+ABILITY:dw2sg_abilities_class.lst
+ABILITY:dw2sg_abilities_race.lst
 
 CLASS:dw2sg_classes.lst
-CLASS:dw2sg_classes_npc.lst
-CLASS:dw2sg_classes_advanced.lst
-CLASS:dw2sg_classes_epic.lst
-
-SKILL:dw2sg_skills.lst
-
-FEAT:dw2sg_feats.lst
-FEAT:dw2sg_feats_mutations.lst
-FEAT:dw2sg_feats_hidden.lst
-
-LANGUAGE:dw2sg_languages.lst
-
-TEMPLATE:dw2sg_templates.lst
 
 COMPANIONMOD:dw2sg_companionmods.lst
 
-KIT:dw2sg_kits.lst
-
 EQUIPMENT:dw2sg_equip.lst
-EQUIPMENT:dw2sg_equip_armorshields.lst
+EQUIPMENT:dw2sg_equip_arms_armor.lst
 EQUIPMENT:dw2sg_equip_vehicles.lst
-EQUIPMENT:dw2sg_equip_weap.lst
-EQUIPMENT:dw2sg_equip_weap_melee.lst
-EQUIPMENT:dw2sg_equip_weap_ranged.lst
-EQUIPMENT:dw2sg_equip_weap_ranged_firearms.lst
-EQUIPMENT:dw2sg_equip_weap_ammo.lst
 EQUIPMOD:dw2sg_equipmods.lst
 
-WEAPONPROF:dw2sg_weaponprofs.lst
+FEAT:dw2sg_feats.lst
+FEAT:dw2sg_feats_hidden.lst
+
+LANGUAGE:dw2sg_languages.lst
+KIT:dw2sg_kits.lst
+ARMORPROF:dw2sg_profs_armor.lst
+WEAPONPROF:dw2sg_profs_weapon.lst
+
+RACE:dw2sg_races.lst
+SKILL:dw2sg_skills.lst
+TEMPLATE:dw2sg_templates.lst
 
 #Hiding Equipment Types that control EQMODS
 HIDETYPE:EQUIP|SpecialSuppressor
@@ -129,7 +113,7 @@ COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
 
 # Suppress forward references
-FORWARDREF:RACE|Bat,Cat,Cynemie,Desert Horse,Ferret,Fraxx Steed,Grunt,Hawk,Lurking Panther,Owl,Rad Wolf,Rat,Ravening Hound,Snake (Tiny/Viper),Snoffle Hog,Toad,Two Headed Mutant Bear
+FORWARDREF:RACE|Bat,Cat,Cynemie,Desert Horse,Ferret,Fraxx Steed,Gront,Hawk,Lurking Panther,Owl,Rad Wolf,Rat,Ravening Hound,Snake (Tiny/Viper),Snoffle Hog,Toad,Two Headed Mutant Bear
 FORWARDREF:SKILL|Profession
 FORWARDREF:ARMORPROF|Chainmail Shirt,Concealable Vest,Forced Entry Unit,Leather Armor,Leather Jacket,Light Undercover Shirt,Light-Duty Vest,Plate Mail,Pull-up Pouch Vest,Special Response Vest,Tactical Vest,Undercover Vest
 FORWARDREF:SHIELDPROF|Shield

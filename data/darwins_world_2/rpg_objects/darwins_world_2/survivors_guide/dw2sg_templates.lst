@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: 25521 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 ###Block: Background and Occupation
@@ -25,18 +25,36 @@ Background (Hedonist)			VISIBLE:NO	BONUS:ABILITYPOOL|Hedonist Background Skills|
 Background (Advanced)			VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1	BONUS:ABILITYPOOL|Advanced Background Skills|1																AUTO:LANG|Ancient		KIT:1|Equipment_ArtifactOfAncientsIII
 
 ###Block: Mutant
-# Template Name		Visible	Template							Special ABility						Define						Bonus Ability Pool							Modify VAR							Subrace
-Mutant			VISIBLE:YES	TEMPLATE:Mutant Definitions|Mutant Specials																																		SUBRACE:Mutant
-Mutant Definitions	VISIBLE:NO																	DEFINE:isMutant|0	DEFINE:MedIncomp|0	BONUS:ABILITYPOOL|Mutations|3	BONUS:ABILITYPOOL|Defects|3	BONUS:VAR|MedIncomp|15	BONUS:VAR|isMutant|1
-Mutant Specials		VISIBLE:NO									SAB:Medical Incompatibility (DC:%)|MedIncomp
+# Template Name		Visible	Template							Special ABility						Define						Bonus to Ability Pool							Modify VAR							Subrace
+#Replaced with templates for three different mutation levels
+#Mutant			VISIBLE:YES	TEMPLATE:Mutant Definitions|Mutant Specials																																		SUBRACE:Mutant
+#Mutant Definitions	VISIBLE:NO																	DEFINE:isMutant|0	DEFINE:MedIncomp|0	BONUS:ABILITYPOOL|Mutations|3	BONUS:ABILITYPOOL|Defects|3	BONUS:VAR|MedIncomp|15	BONUS:VAR|isMutant|1
+#Mutant Specials		VISIBLE:NO									SAB:Medical Incompatibility (DC:%)|MedIncomp
+Mutant1			VISIBLE:YES	TEMPLATE:Mutant1 Definitions|Mutant1 Specials																																		SUBRACE:Mutant
+Mutant1 Definitions	VISIBLE:NO																	DEFINE:isMutant|0	DEFINE:MedIncomp|0	BONUS:ABILITYPOOL|Mutations|1	BONUS:ABILITYPOOL|Defects|1	BONUS:VAR|MedIncomp|15	BONUS:VAR|isMutant|1
+Mutant1 Specials		VISIBLE:NO									SAB:Medical Incompatibility (DC:%)|MedIncomp
+Mutant2			VISIBLE:YES	TEMPLATE:Mutant2 Definitions|Mutant2 Specials																																		SUBRACE:Mutant
+Mutant2 Definitions	VISIBLE:NO																	DEFINE:isMutant|0	DEFINE:MedIncomp|0	BONUS:ABILITYPOOL|Mutations|2	BONUS:ABILITYPOOL|Defects|2	BONUS:VAR|MedIncomp|15	BONUS:VAR|isMutant|1
+Mutant2 Specials		VISIBLE:NO									SAB:Medical Incompatibility (DC:%)|MedIncomp
+Mutant3			VISIBLE:YES	TEMPLATE:Mutant3 Definitions|Mutant3 Specials																																		SUBRACE:Mutant
+Mutant3 Definitions	VISIBLE:NO																	DEFINE:isMutant|0	DEFINE:MedIncomp|0	BONUS:ABILITYPOOL|Mutations|3	BONUS:ABILITYPOOL|Defects|3	BONUS:VAR|MedIncomp|15	BONUS:VAR|isMutant|1
+Mutant3 Specials		VISIBLE:NO									SAB:Medical Incompatibility (DC:%)|MedIncomp
 
 ###Block: Templates to handle specific Mutations and Defects
 # Template Name					Visible	Stat bonus																								Weapon prof. bonus														Move		Natural Attacks
 Aberrant Horn Development Template		VISIBLE:NO																										BONUS:WEAPONPROF=Gore|DAMAGESIZE|AberrantHornDevelopment										NATURALATTACKS:Gore,Weapon.Natural.Melee.Piercing.Bludgeoning,*1,1d4
+Additional Arm Template 1				VISIBLE:NO	HANDS:3
+Additional Arm Template 2				VISIBLE:NO	HANDS:4
+Additional Arm Template 3				VISIBLE:NO	HANDS:5
 Claws Template					VISIBLE:NO																										BONUS:WEAPONPROF=Claw|DAMAGESIZE|ClawsMut													NATURALATTACKS:Claw,Weapon.Natural.Melee.Slashing,*1,1d4
 Complete Wing Development Template		VISIBLE:NO																																											MOVE:Fly,0
 Gigantism Penalty Template			VISIBLE:NO	BONUS:STAT|DEX|-1|TYPE=GigantismPenalty	BONUS:STAT|STR|-8|TYPE=SizeOffset	BONUS:STAT|CON|-4|TYPE=SizeOffset	BONUS:STAT|DEX|2|TYPE=SizeOffset
 Serrated Dental Development Template	VISIBLE:NO																										BONUS:WEAPONPROF=Bite|DAMAGESIZE|SerratedDentalDevelopment	BONUS:WEAPONPROF=Bite|CRITRANGEADD|1			NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing.Slashing,*1,1d4
+Claws Skill Fix Template					VISIBLE:NO	BONUS:SKILL|Climb|1
+Hemihypertrophy Skill Fix Template					VISIBLE:NO	BONUS:SKILL|Balance,Climb,Jump,Swim|-1
+Multiple Eyes Skill Fix Template					VISIBLE:NO	BONUS:SKILL|Spot|-1
+Neural Mutation Telepathy Skill Fix Template	VISIBLE:NO	BONUS:SKILL|Bluff,Diplomacy,Gather Information,Intimidate,Sense Motive|1
+Terminal Leg Developemnt Skill Fix Template	VISIBLE:NO	BONUS:SKILL|Balance,Climb,Jump,Swim|-6
 
 ###Block: Nonexistant Scores
 # Template Name	Visible	Define Stat
