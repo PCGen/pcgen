@@ -280,6 +280,9 @@ Spark			KEY:Arcane Talent ~ Spark			CATEGORY:Internal		TYPE:ArcaneTalentSelectio
 # Ability Name	Category of Ability		Type								Visible	Define							Innate Spells																																							Description	Modify VAR
 Spark			CATEGORY:Spell-Like Ability	TYPE:ClassAbility.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:Spark_Times|0	DEFINE:Spark_LVL|0	SPELLS:Innate|TIMES=Spark_Times|TIMEUNIT=Day|CASTERLEVEL=Spark_LVL|Spark|PREVARGTEQ:Spark_Times,1|PREVAREQ:DisableSpellSpark,0	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=Spark_LVL|Spark|PREVARLTEQ:Spark_Times,0|PREVAREQ:DisableSpellSpark,0	DESC:Blank	BONUS:VAR|Spark_LVL|TL|TYPE=Base
 
+###BLOCK: GM AWARD
++1 Trait	TYPE:GM_Award.SpecialQuality	CATEGORY:Special Ability	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Trait		ABILITY:Special Ability|VIRTUAL|%LIST	SORTKEY:Z_Award	COST:0	DESC:GM awarded PC with +1 Trait.
+
 #
 # End
 #
