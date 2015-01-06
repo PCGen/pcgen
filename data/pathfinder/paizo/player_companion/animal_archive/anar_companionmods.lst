@@ -1,8 +1,8 @@
 
 
 ###Block: Note repeats WILL cause stacking issue! Using TYPE to prevent this issue.
-MASTERBONUSRACE:Familiar (Armadillo)	TYPE:Familiar	BONUS:COMBAT|AC|ArmadilloACBonus|TYPE=NaturalArmor.STACK	DEFINE:ArmadilloACBonus|0	BONUS:VAR|ArmadilloACBonus|1|TYPE=Familiar	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Platypus)		TYPE:Familiar	BONUS:SKILL|Swim|3|TYPE=Familiar																		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Rabbit)		TYPE:Familiar	BONUS:COMBAT|INITIATIVE|4|TYPE=Familiar																	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Skunk)		TYPE:Familiar	BONUS:SAVE|Fortitude|2|TYPE=Familiar																	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Squirrel)		TYPE:Familiar	BONUS:SKILL|Sleight of Hand|3|TYPE=Familiar																VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Armadillo)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Armadillo)	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Platypus)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Platypus)	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Rabbit)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rabbit)	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Skunk)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Skunk)	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Squirrel)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Squirrel)	VFEAT:Alertness

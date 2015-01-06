@@ -104,3 +104,10 @@ CATEGORY=EqSlot|EQSlot Tracker.MOD	BONUS:SLOTS|Wrist|-2|!PREABILITY:1,CATEGORY=E
 
 #	BONUS:SLOTS|Torso|-1|!PREABILITY:1,CATEGORY=EqSlot,Torso		
 #	BONUS:SLOTS|Weapon|-1|!PREABILITY:1,CATEGORY=EqSlot,Weapon	
+
+###Block:
+Familiar (Armadillo)	CATEGORY:Internal	BONUS:COMBAT|AC|ArmadilloACBonus|TYPE=NaturalArmor.STACK	DEFINE:ArmadilloACBonus|0	BONUS:VAR|ArmadilloACBonus|1|TYPE=Familiar	
+Familiar (Platypus)	CATEGORY:Internal	BONUS:SKILL|Swim|3|TYPE=Familiar																	
+Familiar (Rabbit)		CATEGORY:Internal	BONUS:COMBAT|INITIATIVE|4|TYPE=Familiar																
+Familiar (Skunk)		CATEGORY:Internal	BONUS:SAVE|Fortitude|2|TYPE=Familiar																
+Familiar (Squirrel)	CATEGORY:Internal	BONUS:SKILL|Sleight of Hand|3|TYPE=Familiar															

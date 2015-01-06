@@ -9,3 +9,7 @@ Marsh Move				KEY:Companion Toad ~ Marsh Move		CATEGORY:Special Ability	TYPE:Com
 
 #
 Companion Advancement ~ Toad								CATEGORY:Special Ability																																																								BONUS:SIZEMOD|NUMBER|1
+
+###Block:
+Familiar (Pigeon Toad)		CATEGORY:Internal	BONUS:SKILL|Sense Motive|3	
+Familiar (Purple Peeper)	CATEGORY:Internal			BONUS:SAVE|Will|2		

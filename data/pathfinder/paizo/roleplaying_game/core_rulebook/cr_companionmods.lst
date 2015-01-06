@@ -71,7 +71,7 @@ FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount																																		
 FOLLOWER:SpecialMountLVL=12	TYPE:Special Mount	HD:1																																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:SpecialMountLVL=13	TYPE:Special Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
 FOLLOWER:SpecialMountLVL=14	TYPE:Special Mount	HD:1																																									BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
-FOLLOWER:SpecialMountLVL=15	TYPE:Special Mount			SR:MasterLevel+11																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:SpecialMountLVL=15	TYPE:Special Mount			SR:mastervar("SpecialMountLVL")+5																																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:SpecialMountLVL=16	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionImprovedEvasion																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:SpecialMountLVL=17	TYPE:Special Mount	HD:1																																																												BONUS:VAR|MasterLevel|1
 FOLLOWER:SpecialMountLVL=18	TYPE:Special Mount	HD:1																																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
@@ -80,23 +80,22 @@ FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount	HD:1																													
 
 ###Block:Familiar - No apparent changes from RSRD
 # Class of the Master	Type			Spell Res.	Ability												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat				Combat bonus					Main Race Type
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|Improved Evasion																		DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast
-FOLLOWER:FamiliarLVL=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Deliver Touch Spells																				DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FamiliarLVL=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Master																				DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FamiliarLVL=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Animals of Its Kind																		DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|Improved Evasion																		DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast
+FOLLOWER:FamiliarLVL=3	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Deliver Touch Spells																				DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=5	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Master																				DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=7	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Animals of Its Kind																		DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:FamiliarLVL=9	TYPE:Familiar																																	DEFINESTAT:MINVALUE|INT|10	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-# Locking INT to 10 makes it a non-ability.
-FOLLOWER:FamiliarLVL=11	TYPE:Familiar	SR:16		ABILITY:Special Ability|AUTOMATIC|Familiar ~ Spell Resistance																				DEFINESTAT:MINVALUE|INT|11	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FamiliarLVL=12	TYPE:Familiar	SR:17
-FOLLOWER:FamiliarLVL=13	TYPE:Familiar	SR:18		ABILITY:Special Ability|AUTOMATIC|Familiar ~ Scry on Familiar																				DEFINESTAT:MINVALUE|INT|12	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FamiliarLVL=14	TYPE:Familiar	SR:19
-FOLLOWER:FamiliarLVL=15	TYPE:Familiar	SR:20																																DEFINESTAT:MINVALUE|INT|13	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FamiliarLVL=16	TYPE:Familiar	SR:21
-FOLLOWER:FamiliarLVL=17	TYPE:Familiar	SR:22																																DEFINESTAT:MINVALUE|INT|14	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FamiliarLVL=18	TYPE:Familiar	SR:23
-FOLLOWER:FamiliarLVL=19	TYPE:Familiar	SR:24																																DEFINESTAT:MINVALUE|INT|15	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FamiliarLVL=20	TYPE:Familiar	SR:25
+FOLLOWER:FamiliarLVL=11	TYPE:Familiar	SR:mastervar("FamiliarLVL")+5	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Spell Resistance																				DEFINESTAT:MINVALUE|INT|11	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=12	TYPE:Familiar	
+FOLLOWER:FamiliarLVL=13	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Scry on Familiar																				DEFINESTAT:MINVALUE|INT|12	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=14	TYPE:Familiar	
+FOLLOWER:FamiliarLVL=15	TYPE:Familiar																																	DEFINESTAT:MINVALUE|INT|13	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=16	TYPE:Familiar	
+FOLLOWER:FamiliarLVL=17	TYPE:Familiar																																	DEFINESTAT:MINVALUE|INT|14	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=18	TYPE:Familiar	
+FOLLOWER:FamiliarLVL=19	TYPE:Familiar																																	DEFINESTAT:MINVALUE|INT|15	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=20	TYPE:Familiar	
 
 ###Block: Specific Familiars
 # Class of the Master	Type			Required Race			Apply Kit
@@ -105,17 +104,17 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Raven)	KIT:1|Raven Fami
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar			Type			Bonus to HP					Save bonus						Bonus to skill					Virtual Feat
-MASTERBONUSRACE:Familiar (Bat)	TYPE:Familiar														BONUS:SKILL|Fly|3|TYPE=Familiar		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Cat)	TYPE:Familiar														BONUS:SKILL|Stealth|3|TYPE=Familiar		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Hawk)	TYPE:Familiar														BONUS:SKILL|Perception|3|TYPE=Familiar	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Lizard)	TYPE:Familiar														BONUS:SKILL|Climb|3|TYPE=Familiar		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Monkey)	TYPE:Familiar														BONUS:SKILL|Acrobatics|3|TYPE=Familiar	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Owl)	TYPE:Familiar														BONUS:SKILL|Perception|3|TYPE=Familiar	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Rat)	TYPE:Familiar							BONUS:SAVE|Fortitude|2|TYPE=Familiar								VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Raven)	TYPE:Familiar														BONUS:SKILL|Appraise|3|TYPE=Familiar	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Viper)	TYPE:Familiar														BONUS:SKILL|Bluff|3|TYPE=Familiar		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Toad)	TYPE:Familiar	BONUS:HP|CURRENTMAX|3|TYPE=Familiar															VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Weasel)	TYPE:Familiar							BONUS:SAVE|Reflex|2|TYPE=Familiar									VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Bat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bat)		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Cat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Cat)		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Hawk)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Hawk)	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Lizard)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Lizard)	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Monkey)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Monkey)	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Owl)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Owl)		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Rat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rat)		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Raven)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Raven)	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Viper)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Viper)	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Toad)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Toad)	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Weasel)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Weasel)	VFEAT:Alertness
 #
 
 # Class of the Master		Type				Copy Masters BAB		Copy Masters Checks	HP formula based on Master
@@ -130,4 +129,4 @@ FOLLOWER:NormalFollower=1	TYPE:Follower
 # End
 #
 # Race of familiar				Type			Combat bonus					Virtual Feat
-MASTERBONUSRACE:Familiar (Compsognathus)	TYPE:Familiar	BONUS:COMBAT|INITIATIVE|4|TYPE=Familiar	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Compsognathus)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Compsognathus)	VFEAT:Alertness

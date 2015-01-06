@@ -304,3 +304,18 @@ Weapon Finesse				KEY:Animal Companion Feat ~ Weapon Finesse					CATEGORY:Specia
 Weapon Focus				KEY:Animal Companion Feat ~ Weapon Focus						CATEGORY:Special Ability	TYPE:AnimalCompanionFeat																										PREVARGTEQ:(CL=Companion),3																																																																																																																																																									MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC											AUTO:FEAT|Weapon Focus (%LIST)
 Add Normal Feat				KEY:Animal Companion Feat ~ Feat					SORTKEY:1	CATEGORY:Special Ability	TYPE:AnimalCompanionFeat																										PREVARGTEQ:INTSCORE,3									DESC:For Companions with Intelligence of 3+, you may select any regular feat (Will open the Normal Feats).																																																																																																																														STACK:YES	MULT:YES	CHOOSE:NOCHOICE																				BONUS:ABILITYPOOL|FEAT|1
 GM Granted Animal Companion Feat	KEY:Animal Companion Feat ~ GM Feat					SORTKEY:1	CATEGORY:Special Ability	TYPE:AnimalCompanionFeat																																						DESC:GM Granted Feats, that are not included in the official list.																																																																																																																																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE																				BONUS:ABILITYPOOL|FEAT|1
+
+###Block:
+Familiar (Bat)			CATEGORY:Internal												BONUS:SKILL|Fly|3|TYPE=Familiar			
+Familiar (Cat)			CATEGORY:Internal												BONUS:SKILL|Stealth|3|TYPE=Familiar			
+Familiar (Hawk)			CATEGORY:Internal												BONUS:SKILL|Perception|3|TYPE=Familiar	
+Familiar (Lizard)			CATEGORY:Internal												BONUS:SKILL|Climb|3|TYPE=Familiar		
+Familiar (Monkey)			CATEGORY:Internal												BONUS:SKILL|Acrobatics|3|TYPE=Familiar	
+Familiar (Owl)			CATEGORY:Internal												BONUS:SKILL|Perception|3|TYPE=Familiar		
+Familiar (Rat)			CATEGORY:Internal					BONUS:SAVE|Fortitude|2|TYPE=Familiar									
+Familiar (Raven)			CATEGORY:Internal												BONUS:SKILL|Appraise|3|TYPE=Familiar	
+Familiar (Viper)			CATEGORY:Internal												BONUS:SKILL|Bluff|3|TYPE=Familiar		
+Familiar (Toad)			CATEGORY:Internal	BONUS:HP|CURRENTMAX|3|TYPE=Familiar														
+Familiar (Weasel)			CATEGORY:Internal					BONUS:SAVE|Reflex|2|TYPE=Familiar									
+
+Familiar (Compsognathus)	CATEGORY:Internal	BONUS:COMBAT|INITIATIVE|4|TYPE=Familiar
