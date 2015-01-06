@@ -54,3 +54,10 @@ Gnoll Killer							KEY:Gnoll Killer_Trait									CATEGORY:Special Ability	TYPE:
 Missionary								KEY:Missionary_Trait									CATEGORY:Special Ability	TYPE:Trait.CampaignTrait																							PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Missionary_Trait],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CampaignTrait]																	DESC:You've spent much of the last several years serving your faith, and the conviction and dedication to your church has impressed many.																																																														MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Bluff|Diplomacy|Intimidate|Knowledge (Religion)|Sense Motive|TYPE=Perform																									BONUS:SKILL|LIST|1|TYPE=Trait																																									CSKILL:LIST				SOURCEPAGE:p.10
 Finding Haleen							KEY:Finding Haleen_Trait								CATEGORY:Special Ability	TYPE:Trait.CampaignTrait																							PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Finding Haleen_Trait],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CampaignTrait]																	DESC:You never knew your parents--perhaps they died when you were a child, or maybe you were taken from them and raised elsewhere as a slave. You owe your sanity and your life to a woman named Haleen.																																																																						TEMPLATE:Finding Haleen																																																																							SOURCEPAGE:p.11
 #TODO: Finding Haleen - can't find a way to grant extra skill point to favored class
+
+###Block:
+Familiar (Fennec (Brushtail))		CATEGORY:Internal	BONUS:SKILL|Perception|3	
+Familiar (Bustard)			CATEGORY:Internal	BONUS:SKILL|Perception|3	
+Familiar (Jerboa)				CATEGORY:Internal	BONUS:SKILL|Acrobatics|3	
+Familiar (Scorpion (Lashtail))	CATEGORY:Internal	BONUS:SKILL|Survival|3		
+Familiar (Solifugid)			CATEGORY:Internal	BONUS:SKILL|Bluff|3		

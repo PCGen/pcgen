@@ -256,3 +256,19 @@ Fused Eidolon Stats Dex		CATEGORY:Internal		TYPE:FusedEidolonStats														
 Fused Eidolon Stats Con		CATEGORY:Internal		TYPE:FusedEidolonStats																			CHOOSE:NUMBER|MIN=1|MAX=40|TITLE=Constitution Score of Eidolon																																																																								TEMPBONUS:PC|VAR|EidolonStatCON|%CHOICE
 
 Fused Eidolon Stats ~ Active	CATEGORY:Internal						DEFINESTAT:LOCK|STR|EidolonStatSTR	DEFINESTAT:LOCK|DEX|EidolonStatDEX	DEFINESTAT:LOCK|CON|EidolonStatCON
+
+
+###Block: Familiar Bonuses granted to Master
+Familiar (Blue-Ringed Octopus)		CATEGORY:Internal															BONUS:SKILL|Swim|3|TYPE=Familiar								
+Familiar (Donkey Rat)				CATEGORY:Internal								BONUS:SAVE|Fortitude|2|TYPE=Familiar															
+Familiar (Fox)					CATEGORY:Internal								BONUS:SAVE|Reflex|2|TYPE=Familiar															
+Familiar (Goat)					CATEGORY:Internal															BONUS:SKILL|Survival|3|TYPE=Familiar								
+Familiar (Scorpion (Greensting))		CATEGORY:Internal	BONUS:COMBAT|INITIATIVE|2|TYPE=Familiar																						
+Familiar (Hedgehog)				CATEGORY:Internal								BONUS:SAVE|Will|2|TYPE=Familiar															
+Familiar (Centipede (House))			CATEGORY:Internal															BONUS:SKILL|Stealth|3|TYPE=Familiar									
+Familiar (Crab (Giant King))			CATEGORY:Internal																						BONUS:VAR|CMB_Grapple|2|TYPE=Familiar	
+Familiar (Pig)					CATEGORY:Internal															BONUS:SKILL|Diplomacy|3|TYPE=Familiar								
+Familiar (Spider (Scarlet))			CATEGORY:Internal															BONUS:SKILL|Climb|3|TYPE=Familiar									
+Familiar (Thrush)					CATEGORY:Internal															BONUS:SKILL|Diplomacy|3|TYPE=Familiar								
+Familiar (Turtle)					CATEGORY:Internal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK																						
+

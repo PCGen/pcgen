@@ -12,6 +12,14 @@ Restless Wayfarer				KEY:Trait ~ Restless Wayfarer				CATEGORY:Special Ability	T
 Vigilante Witch Hunter			KEY:Trait ~ Vigilante Witch Hunter			CATEGORY:Special Ability	TYPE:Trait.CampaignTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Vigilante Witch Hunter],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CampaignTrait]		DESC:You don't trust witches. They deal with otherworldly beings, consort with beasts, and brew vile poisons in their cauldrons. As a child, perhaps you barely escaped some horrid fate at the hands of an evil witch, or maybe a loved one was stolen from you by a witch's charms. Perhaps you wanted to be a witch yourself, but the local witch refused to take you on as an apprentice. Whatever the reason, you now hate witches, and have dedicated your life to ferreting them out and exposing their wickedness for all to see. You know that the North is full of winter witches, and should you ever find yourself there, you'll relish bringing your justice to them as well. You gain a +1 trait bonus on Sense Motive checks, and Sense Motive is a class skill for you. In addition, you begin the campaign with 1d4 hex nails.																																																																					BONUS:SKILL|Sense Motive|1|TYPE=Trait															CSKILL:Sense Motive	KIT:1|Vigilante Witch Hunter	SOURCEPAGE:p.5
 Warded against Witchery			KEY:Trait ~ Warded against Witchery			CATEGORY:Special Ability	TYPE:Trait.CampaignTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Warded against Witchery],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CampaignTrait]		DESC:Sometime in your youth, you encountered a location, object, or being steeped in the power of evil witchcraft. Whether you were the victim of this force, were a conduit for it, or merely witnessed its effects, the event changed your life. You have tried to put the strange incident behind you and forget it, but nebulous premonitions of danger and eerie feelings of deja vu have dogged your steps ever since. For some inexplicable reason, you feel drawn to the lands of the North, though you fear another encounter with the evil witchcraft that touched you once before. Whether through your purity, the blessing of goodly spirits, an innate determination, or an intuitive and inexplicable familiarity with the ways of black magic, you have acquired a resilience against the power of the dark arts. You gain a +1 trait bonus on saving throws against the spells, spell-like abilities, and supernatural abilities of evil arcane spellcasters, and a +1 trait bonus on Spellcraft checks to identify spells cast by evil arcane spellcasters.																																																														SOURCEPAGE:p.5	ASPECT:SaveBonus|+1 trait bonus vs. spells, spell-like abilities, and supernatural abilities of evil arcane spellcasters
 
-#
-# End
-#
+###Block:
+Familiar (Arctic Fox)	CATEGORY:Internal							BONUS:SAVE|Reflex|2
+Familiar (Arctic Hare)	CATEGORY:Internal		BONUS:COMBAT|INITIATIVE|4
+Familiar (Arctic Tern)	CATEGORY:Internal											BONUS:SKILL|Fly|3
+Familiar (Ermine)		CATEGORY:Internal								BONUS:SAVE|Reflex|2
+Familiar (Lemming)	CATEGORY:Internal								BONUS:SAVE|Fortitude|2
+Familiar (Ptarmigan)	CATEGORY:Internal											BONUS:SKILL|Stealth|3
+Familiar (Puffin)		CATEGORY:Internal												BONUS:SKILL|Swim|3
+Familiar (Snowy Owl)	CATEGORY:Internal															BONUS:SITUATION|Perception=sight-based|3
+
+# END

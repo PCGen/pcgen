@@ -171,3 +171,12 @@ Breath Weapon ~ Line of Electricity		KEY:Evolution_Breath_Weap_Line_Electricity	
 Extra Line of Electricity			KEY:Evolution_Extra_BW_Line_Electricity				CATEGORY:Special Ability	TYPE:EvolutionChoice													PREABILITY:1,CATEGORY=Special Ability,Evolution_Breath_Weap_Line_Electricity																																																																																																																																																																																																																																																	STACK:YES	MULT:YES	CHOOSE:NUMCHOICES=2|NOCHOICE																																																																																																																																																																																																																											BONUS:VAR|BreathWeaponLineElectricityTimes|1
 
 Block Share Spells Archetypes			KEY:Companion ~ Block Share Spells Archetypes			CATEGORY:Archetype		TYPE:CompanionShareSpells									VISIBLE:NO
+
+
+###Block: Familiar Bonuses granted to Master
+Familiar (Centipede (House))		CATEGORY:Internal														BONUS:SKILL|Stealth|3|TYPE=Familiar								
+Familiar (Crab (Giant King))		CATEGORY:Internal																				BONUS:VAR|CMB_Grapple|2|TYPE=Familiar	
+Familiar (Fox)				CATEGORY:Internal								BONUS:SAVE|Reflex|2|TYPE=Familiar														
+Familiar (Octopus)			CATEGORY:Internal														BONUS:SKILL|Swim|3|TYPE=Familiar							
+Familiar (Scorpion (Greensting))	CATEGORY:Internal	BONUS:COMBAT|INITIATIVE|2|TYPE=Familiar																				
+Familiar (Spider (Scarlet))		CATEGORY:Internal														BONUS:SKILL|Climb|3|TYPE=Familiar								

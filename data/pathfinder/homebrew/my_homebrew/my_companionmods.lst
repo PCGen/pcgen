@@ -21,7 +21,11 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #
 #####2nd Example
 
-#MASTERBONUSRACE:Bat		TYPE:Familiar		BONUS:SKILL|Listen|3		VFEAT:Alertness
+#MASTERBONUSRACE:Bat		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bat)			VFEAT:Alertness
+
+
+# This would go in your Ability File - Note we use the naming to prevent stacking. Newest File wins.
+#Familiar (Bat)	CATEGORY:Internal	BONUS:SKILL|Listen|3
 
 #####
 #These files specify the bonuses that "enhanced companions", such as familiars and a Paladin's special mount, receive from

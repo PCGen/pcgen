@@ -28,3 +28,15 @@ Keelhaul				KEY:Kelpie's Wrath ~ Keelhaul			CATEGORY:Special Ability	TYPE:Specia
 Rush					KEY:Kelpie's Wrath ~ Rush			CATEGORY:Special Ability	TYPE:Extraordinary																																																											DESC:Once per minute for 1 round, the herald can move at a swim speed of 150 feet, even downward.
 Fighter Training			KEY:Kelpie's Wrath ~ Fighter Training	CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality																																																									DESC:The herald counts its Hit Dice as fighter levels for the purpose of qualifying for feats and other abilities.																																																																																																																																																																																																																																							SOURCEPAGE:p.86
 Summon Draugr			KEY:Kelpie's Wrath ~ Summon Draugr		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																																																										DESC:level 7, 11-20 draugr [Bestiary 2] 100%%																																																																																																																																																																																																																																																			SOURCEPAGE:p.86
+
+###Block:
+Familiar (Mongoose)	CATEGORY:Internal									BONUS:SAVE|Fortitude|2						
+Familiar (Osprey)		CATEGORY:Internal												BONUS:SKILL|Survival|3		
+Familiar (Parrot)		CATEGORY:Internal												BONUS:SKILL|Linguistics|3	
+Familiar (Toucan)		CATEGORY:Internal												BONUS:SKILL|Diplomacy|3		
+Familiar (Sea krait)	CATEGORY:Internal								BONUS:SAVE|Fortitude|2							
+Familiar (Snail kite)	CATEGORY:Internal												BONUS:SKILL|Fly|3			
+Familiar (Dodo)		CATEGORY:Internal	BONUS:COMBAT|INITIATIVE|4												
+Familiar (Dwarf Caiman)	CATEGORY:Internal												BONUS:SKILL|Stealth|3		
+Familiar (Giant Isopod)	CATEGORY:Internal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK										
+Familiar (Seal)		CATEGORY:Internal												BONUS:SKILL|Swim|3		

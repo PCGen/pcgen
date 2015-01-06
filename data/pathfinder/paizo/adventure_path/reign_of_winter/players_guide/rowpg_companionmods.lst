@@ -4,12 +4,12 @@ SOURCELONG:Reign of Winter Player's Guide	SOURCESHORT:ROWPG	SOURCEWEB:http://pai
 
 
 
-# Race of familiar		Type			Combat bonus			Save bonus			Bonus to skill		Bonus to Situation
-MASTERBONUSRACE:Arctic Fox	TYPE:Familiar						BONUS:SAVE|Reflex|2
-MASTERBONUSRACE:Arctic Hare	TYPE:Familiar	BONUS:COMBAT|INITIATIVE|4
-MASTERBONUSRACE:Arctic Tern	TYPE:Familiar										BONUS:SKILL|Fly|3
-MASTERBONUSRACE:Ermine		TYPE:Familiar						BONUS:SAVE|Reflex|2
-MASTERBONUSRACE:Lemming		TYPE:Familiar						BONUS:SAVE|Fortitude|2
-MASTERBONUSRACE:Ptarmigan	TYPE:Familiar										BONUS:SKILL|Stealth|3
-MASTERBONUSRACE:Puffin		TYPE:Familiar										BONUS:SKILL|Swim|3
-MASTERBONUSRACE:Snowy Owl	TYPE:Familiar														BONUS:SITUATION|Perception=sight-based|3
+# Race of familiar		Type			
+MASTERBONUSRACE:Arctic Fox	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Arctic Fox)	
+MASTERBONUSRACE:Arctic Hare	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Arctic Hare)	
+MASTERBONUSRACE:Arctic Tern	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Arctic Tern)	
+MASTERBONUSRACE:Ermine		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Ermine)		
+MASTERBONUSRACE:Lemming		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Lemming)		
+MASTERBONUSRACE:Ptarmigan	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Ptarmigan)	
+MASTERBONUSRACE:Puffin		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Puffin)		
+MASTERBONUSRACE:Snowy Owl	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Snowy Owl)	

@@ -2,5 +2,5 @@
 
 
 # Race of familiar		Save bonus		Bonus to skill
-MASTERBONUSRACE:Pigeon Toad				BONUS:SKILL|Sense Motive|3
-MASTERBONUSRACE:Purple Peeper	BONUS:SAVE|Will|2
+MASTERBONUSRACE:Pigeon Toad	ABILITY:Internal|AUTOMATIC|Familiar (Pigeon Toad)			
+MASTERBONUSRACE:Purple Peeper	ABILITY:Internal|AUTOMATIC|Familiar (Purple Peeper)			
