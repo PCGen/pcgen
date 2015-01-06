@@ -263,7 +263,7 @@ Familiar (Blue-Ringed Octopus)		CATEGORY:Internal															BONUS:SKILL|Swim
 Familiar (Donkey Rat)				CATEGORY:Internal								BONUS:SAVE|Fortitude|2|TYPE=Familiar															
 Familiar (Fox)					CATEGORY:Internal								BONUS:SAVE|Reflex|2|TYPE=Familiar															
 Familiar (Goat)					CATEGORY:Internal															BONUS:SKILL|Survival|3|TYPE=Familiar								
-Familiar (Scorpion (Greensting))		CATEGORY:Internal	BONUS:COMBAT|INITIATIVE|2|TYPE=Familiar																						
+Familiar (Scorpion (Greensting))		CATEGORY:Internal	BONUS:COMBAT|INITIATIVE|4|TYPE=Familiar																						
 Familiar (Hedgehog)				CATEGORY:Internal								BONUS:SAVE|Will|2|TYPE=Familiar															
 Familiar (Centipede (House))			CATEGORY:Internal															BONUS:SKILL|Stealth|3|TYPE=Familiar									
 Familiar (Crab (Giant King))			CATEGORY:Internal																						BONUS:VAR|CMB_Grapple|2|TYPE=Familiar	
