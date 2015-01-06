@@ -46,3 +46,6 @@ PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/ultimate_combat.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/ultimate_magic.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc
+# Using new file style
+PCC:@/pathfinder/paizo/roleplaying_game/mythic_adventures/_mythic_adventures.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
