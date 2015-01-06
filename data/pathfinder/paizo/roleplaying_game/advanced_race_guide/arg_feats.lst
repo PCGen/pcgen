@@ -176,7 +176,7 @@ Life's Blood			TYPE:General																PRERACE:1,Samsaran,RACESUBTYPE=Samsar
 
 ##Block: Strix Feats
 # Feat Name				Type			Required Ability								Required Feat			Required Race						Required Skill		Required Stat	Var. Must Be Lower	Define			Description																	Stackable?	Multiple?	Choose		Ability									Add to base move			Modify VAR						Source Page		Benefits
-Stretched Wings			TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Strix ~ Wingclipped	PREFEAT:1,Skill Focus (Fly)	PRERACE:1,Strix,RACESUBTYPE=Strix							PRESTAT:1,STR=13									DESC:You strengthen your crippled wings.																													BONUS:MOVEADD|TYPE.Fly|40	BONUS:VAR|Maneuverability|1			SOURCEPAGE:p.201	BENEFIT:Your strix racial fly speed increases to 60 feet (average). You ignore the wing-clipped trait's Fly check requirement to fly upward.
+Stretched Wings			TYPE:General	PREABILITY:1,CATEGORY=Special Ability,Strix ~ Wing-Clipped	PREFEAT:1,Skill Focus (Fly)	PRERACE:1,Strix,RACESUBTYPE=Strix							PRESTAT:1,STR=13									DESC:You strengthen your crippled wings.																													BONUS:MOVEADD|TYPE.Fly|40	BONUS:VAR|Maneuverability|1			SOURCEPAGE:p.201	BENEFIT:Your strix racial fly speed increases to 60 feet (average). You ignore the wing-clipped trait's Fly check requirement to fly upward.
 
 ##Block: Sulis Feats
 # Feat Name				Type			Required Ability								Required Feat			Required Race						Required Skill		Required Stat	Var. Must Be Lower	Define			Description																	Stackable?	Multiple?	Choose		Ability									Add to base move			Modify VAR						Source Page		Benefits
