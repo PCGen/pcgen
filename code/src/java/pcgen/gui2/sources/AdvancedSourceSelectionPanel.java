@@ -25,6 +25,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -77,6 +78,7 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Comparators;
 import pcgen.util.Logging;
 
 /**
@@ -264,6 +266,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 					if (name.equals(camp.toString()))
 					{
 						selectedCampaigns.addElement(camp);
+						break;
 					}
 				}
 			}
@@ -297,7 +300,9 @@ class AdvancedSourceSelectionPanel extends JPanel
 				gameModeList.setSelectedItem(gmdf);
 			}
 		}
-		selectedCampaigns.setContents(ListFacades.wrap(sources.getCampaigns()));
+		List<CampaignFacade> wrap = new ArrayList<CampaignFacade>(ListFacades.wrap(sources.getCampaigns()));
+		Collections.sort(wrap, Comparators.toStringIgnoreCaseCollator());
+		selectedCampaigns.setContents(wrap);
 	}
 	
 	private void setSelectedGameMode(GameModeDisplayFacade elementAt)
