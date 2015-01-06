@@ -30,6 +30,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.ArrayUtils;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.GameModeDisplay;
@@ -120,7 +121,18 @@ public class FacadeFactory
 				{
 					campaignListMap.put(gameModeFacade, new DefaultListFacade<CampaignFacade>());
 				}
-				campaignListMap.get(gameModeFacade).addElement(campaign);
+				DefaultListFacade<CampaignFacade> campaignList = campaignListMap.get(gameModeFacade);
+				if (campaignList.containsElement(campaign))
+				{
+					String sourceUri = ((CDOMObject) campaign).getSourceURI().toString();
+					Logging.errorPrint("Campaign " + sourceUri
+						+ " lists GAMEMODE:" + gameModeFacade
+						+ " multiple times.");
+				}
+				else
+				{
+					campaignList.addElement(campaign);
+				}
 			}
 			if (campaign.showInMenu() && !gameModeList.isEmpty())
 			{
