@@ -68,9 +68,9 @@ BIO
 		</skin>
 		<cr>5</cr>
 		<face>
-		<face>5 ft. by 5 ft.</face>
-			<short>5 ft. x 5 ft.</short>
-			<squares>1 x 1</squares>
+		<face>5 ft.</face>
+			<short>5 ft.</short>
+			<squares>1</squares>
 		</face>
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
@@ -3124,7 +3124,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Lay on Hands</name>
-			<description>You can heal wounds (your own or those of others) by touch. Each day you can use this ability 5 times per day. With one use of this ability, you can heal 3d6 hit points of damage. Using this ability is a standard action, unless you target yourself, in which case it is a swift action. Despite the name of this ability, you only need one free hand to use this ability. Alternatively, you can use this healing power to deal damage to undead creatures, dealing 3d6 points of damage. Using Lay in Hands in this way requires a melee touch attack and doesn&#39;t provide an attack of opportunity. Undead to not receive a saving throw against this damage.</description>
+			<description>You can heal wounds (your own or those of others) by touch. Each day you can use this ability 5 times per day. With one use of this ability, you can heal 3d6 hit points of damage. Using this ability is a standard action, unless you target yourself, in which case it is a swift action. Despite the name of this ability, you only need one free hand to use this ability. Alternatively, you can use this healing power to deal damage to undead creatures, dealing 3d6 points of damage. Using Lay on Hands in this way requires a melee touch attack and doesn&#39;t provide an attack of opportunity. Undead do not receive a saving throw against this damage.</description>
 			<type>PALADINCLASSFEATURES.SPECIALQUALITY.SUPERNATURAL.LAYONHANDS.LAY ON HANDS</type>
 			<associated></associated>
 			<count>0</count>
