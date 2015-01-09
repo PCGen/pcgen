@@ -2297,7 +2297,17 @@ public final class PCGVer2Creator implements IOConstants
 				@Override
 				public int compare(Map.Entry<BonusObj, BonusManager.TempBonusInfo>  a, Map.Entry<BonusObj, BonusManager.TempBonusInfo>  b)
 				{
-					return  a.getKey().getBonusName().compareTo(b.getKey().getBonusName());
+					BonusObj keyA = a.getKey();
+					BonusObj keyB = b.getKey();
+					if (!keyA.getBonusName().equals(keyB.getBonusName()))
+					{
+						return  keyA.getBonusName().compareTo(keyB.getBonusName());
+					}
+					if (!keyA.getBonusInfo().equals(keyB.getBonusInfo()))
+					{
+						return  keyA.getBonusInfo().compareTo(keyB.getBonusInfo());
+					}
+					return keyA.getPCCText().compareTo(keyB.getPCCText());
 				}
 		});
 		sortedbonus.addAll(thePC.getTempBonusMap().entrySet());
