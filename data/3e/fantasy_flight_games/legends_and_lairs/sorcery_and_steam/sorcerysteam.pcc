@@ -25,6 +25,7 @@ COPYRIGHT:PCGen dataset conversion for Fantasy Flight Games Sorcery and Steam Co
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:readme.txt
 ABILITYCATEGORY:ss_abilitycategories.lst
+ABILITY:ss_abilities.lst
 
 CLASS:sorcerysteam_classes_base.lst
 CLASS:sorcerysteam_classes_prestige.lst
