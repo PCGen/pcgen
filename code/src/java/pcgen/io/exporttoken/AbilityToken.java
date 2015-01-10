@@ -585,6 +585,11 @@ public class AbilityToken extends Token
 						SourceFormat.getFormattedString(aAbility, Globals
 							.getSourceDisplay(), true);
 			}
+			else if (tokenSource.endsWith(".SOURCESHORT"))
+			{
+				retString =
+						SourceFormat.formatShort(aAbility, 8);
+			}
 			else if (tokenSource.endsWith(".ASPECT"))
 			{
 				retString = getAspectString(pc, abilities);
