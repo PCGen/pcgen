@@ -510,8 +510,6 @@ CLASS:Wizard	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wiz		MAXLEVEL:20	ALLOWBASECLASS
 CLASS:Wizard	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type
 CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
-#	KNOWNSPELLS:LEVEL=0		
-#	Need some way to remove cantrips known
 #
 SUBCLASS:Abjurer		COST:0	CHOICE:SCHOOL|Abjuration
 SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Abjuration School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
@@ -538,6 +536,7 @@ SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABIL
 1	AUTO:FEAT|Scribe Scroll|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardScribeScroll
 ###Block:
 #1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
+1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane School
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneBond
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Cantrips|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardCantrips
 5	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Bonus Feats|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeats
