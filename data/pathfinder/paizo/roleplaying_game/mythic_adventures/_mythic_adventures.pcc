@@ -54,7 +54,7 @@ TEMPLATE:ma_templates.lst
 #WEAPONPROF:ma_weaponprofs.lst
 
 
-EQUIPMOD:@/data/pathfinder/paizo/roleplaying_game/ultimate_equipment/ue_equipmods.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ue_equipmods.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
 
 #
 # End
