@@ -24,6 +24,7 @@ COPYRIGHT:&copy 2002 Fan Community Council
 #EXTRAFILE:Magical_Items.pdf
 
 # Equipment
+ABILITYCATEGORY:nmt_abilitycategories.lst
 EQUIPMOD:magical_treasures_equipmod_magic.lst
 
 EQUIPMENT:magical_treasures_equip_armorshieldsspecific.lst
