@@ -55,6 +55,7 @@ TEMPLATE:ma_templates.lst
 
 
 EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ue_equipmods.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+ABILITY:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ue_abilities.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
 
 #
 # End
