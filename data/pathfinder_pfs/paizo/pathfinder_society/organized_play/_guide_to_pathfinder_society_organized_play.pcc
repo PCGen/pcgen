@@ -58,6 +58,13 @@ OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_core_rulebook/pfs_core_rulebook.pcc
 
 ########################
+# Blocked Resources    #
+########################
+
+# These are Paizo sources that are in PCGen, but not in Additional Resoures
+!PRECAMPAIGN:1,INCLUDES=Mythic Adventures
+
+########################
 # Additional Resources #
 ########################
 
