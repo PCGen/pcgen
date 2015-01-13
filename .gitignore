@@ -33,3 +33,4 @@ pcgen-batch-convert.jar
 /.metadata
 /Trunk.bat
 /.settings/gradle
+/target/
