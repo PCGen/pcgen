@@ -72,7 +72,7 @@ Ranger			KEY:Magical Knack ~ Ranger		CATEGORY:Special Ability	BONUS:CASTERLEVEL|
 # APG
 Alchemist			KEY:Magical Knack ~ Alchemist		CATEGORY:Special Ability	BONUS:CASTERLEVEL|Alchemist|min(2,(TL-(var("CL=Alchemist")+var("BL=Alchemist"))))
 Inquisitor			KEY:Magical Knack ~ Inquisitor	CATEGORY:Special Ability	BONUS:CASTERLEVEL|Inquisitor|min(2,(TL-(var("CL=Inquisitor")+var("BL=Inquisitor"))))
-Witch				KEY:Magical Knack ~ Witch		CATEGORY:Special Ability	BONUS:CASTERLEVEL|Witch	|min(2,(TL-(var("CL=Witch")+var("BL=Witch"))))
+Witch				KEY:Magical Knack ~ Witch		CATEGORY:Special Ability	BONUS:CASTERLEVEL|Witch|min(2,(TL-(var("CL=Witch")+var("BL=Witch"))))
 Oracle			KEY:Magical Knack ~ Oracle		CATEGORY:Special Ability	BONUS:CASTERLEVEL|Oracle|min(2,(TL-(var("CL=Oracle")+var("BL=Oracle"))))
 # UM
 Magus				KEY:Magical Knack ~ Magus		CATEGORY:Special Ability	BONUS:CASTERLEVEL|Magus|min(2,(TL-(var("CL=Magus")+var("BL=Magus"))))
