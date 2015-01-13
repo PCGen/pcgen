@@ -99,7 +99,7 @@ PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_dragon_empires_gazetteer/pfs_dra
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_guide_to_the_river_kingdoms/pfs_guide_to_the_river_kingdoms.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_heart_of_the_jungle/pfs_heart_of_the_jungle.pcc
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_horseman_of_the_apocalypse/pfs_horseman_of_the_apocalypse.pcc
-# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_bestiary/pfs_inner_sea_bestiary.pcc
+PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_bestiary/pfs_inner_sea_bestiary.pcc
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_combat/pfs_inner_sea_combat.pcc
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_gods/pfs_inner_sea_gods.pcc
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_magic/pfs_inner_sea_magic.pcc
