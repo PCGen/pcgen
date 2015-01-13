@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Inner Sea Bestiary (PFS)
 KEY:PFS ~ Inner Sea Bestiary
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
 RANK:3
 STATUS:BETA
