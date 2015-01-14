@@ -40,10 +40,15 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Equipment" Copyr
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-LSTEXCLUDE:isb_abilities_race.lst
-LSTEXCLUDE:isb_abilitycategories.lst
-LSTEXCLUDE:isb_kits_race.lst
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+# Pathfinder Campaign Setting: Inner Sea Bestiary
+# All languages found in this book are available for a character to learn with the linguistics skill.
+
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/isb_abilities_race.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/isb_abilitycategories.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/isb_kits_race.lst
 # LANGUAGE:isb_languages.lst
-LSTEXCLUDE:isb_skills.lst
-LSTEXCLUDE:isb_races.lst
-LSTEXCLUDE:isb_templates.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/isb_skills.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/isb_races.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/isb_templates.lst
