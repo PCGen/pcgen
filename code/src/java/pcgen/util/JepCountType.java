@@ -910,7 +910,7 @@ public abstract class JepCountType
 						double bonus =
 								pc.getTotalBonusTo("SITUATION", sk.getKeyName()
 									+ "=" + situation);
-						if (bonus > .01)
+						if (bonus > .01 || bonus < -0.01)
 						{
 							count++;
 						}
