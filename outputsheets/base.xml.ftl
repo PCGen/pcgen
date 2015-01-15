@@ -396,7 +396,7 @@
 			<max_class_skill_level>${pcstring('MAXSKILLLEVEL')}</max_class_skill_level>
 		</#if>
 		<max_cross_class_skill_level>${pcstring('MAXCCSKILLLEVEL')}</max_cross_class_skill_level>
-	<@loop from=0 to=pcvar('count("SKILLSIT", "VIEW=VISIBLE_EXPORT")') ; skill ,skill_has_next>
+	<@loop from=0 to=pcvar('count("SKILLSIT", "VIEW=VISIBLE_EXPORT")')-1 ; skill ,skill_has_next>
 		<skill>
 			<name>${pcstring('SKILLSIT.${skill}')}</name>
 			<ranks>${pcstring('SKILLSIT.${skill}.RANK')}</ranks>
