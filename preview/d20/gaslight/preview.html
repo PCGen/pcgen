@@ -271,16 +271,16 @@
 									</tr>
 |FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
 |OIF(EVEN:%skill,<tr class="even">,<tr class="odd">)|
-										<td width="3%" class="center font7">|OIF(SKILL%skill.UNTRAINED,&#9670;,)|</td>
-										<td class="left font9">&nbsp;&nbsp;|SKILL.%skill|</td>
-										<td class="center font9">|SKILL.%skill.ABILITY|</td>
-										<td class="center bottom color_hilite"><a href="" onClick="roll(1,20,|SKILL.%skill.TOTAL|,'|SKILL.%skill.NAME| Check\n')" title="Click to roll skill check">|SKILL.%skill.TOTAL|</a></td>
+										<td width="3%" class="center font7">|OIF(SKILLSIT.%skill.UNTRAINED,&#9670;,)|</td>
+										<td class="left font9">&nbsp;&nbsp;|SKILLSIT.%skill|</td>
+										<td class="center font9">|SKILLSIT.%skill.ABILITY|</td>
+										<td class="center bottom color_hilite"><a href="" onClick="roll(1,20,|SKILLSIT.%skill.TOTAL|,'|SKILLSIT.%skill.NAME| Check\n')" title="Click to roll skill check">|SKILLSIT.%skill.TOTAL|</a></td>
 										<td class="center bottom font9"><b>=</b></td>
-										<td class="center bottom">|SKILL.%skill.ABMOD|<br /></td>
+										<td class="center bottom">|SKILLSIT.%skill.ABMOD|<br /></td>
 										<td class="center bottom font9"><b>+</b></td>
-										<td class="center bottom">|TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK| <br /></td>
+										<td class="center bottom">|TEXT.REPLACEFIRST{\.0,}.SKILLSIT.%skill.RANK| <br /></td>
 										<td class="center bottom font9"><b>+</b></td>
-										<td class="center bottom">|SKILL.%skill.MISC|<br /></td>
+										<td class="center bottom">|SKILLSIT.%skill.MISC|<br /></td>
 									</tr>
 |ENDFOR|
 								</table>

@@ -912,7 +912,7 @@ ${pcstring("FEATALL.VISIBLE.${feat}")}<#t>
 <p>
 <b>Skills</b>
 <@compress single_line=true>
-<@loop from=0 to=pcvar('count("SKILLSIT","NONDEFAULT")') ; skill, skill_has_next >
+<@loop from=0 to=pcvar('count("SKILLSIT","NONDEFAULT")')-1 ; skill, skill_has_next >
 ${pcstring('SKILLSIT.${skill}.NONDEFAULT')}${' '}<#t>
 ${pcstring('SKILLSIT.${skill}.NONDEFAULT.TOTAL.INTVAL.SIGN')}${' '}<#t>
 <#if (skill_has_next)>

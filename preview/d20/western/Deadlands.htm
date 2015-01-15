@@ -1251,16 +1251,16 @@ Immune
     </tr>
 |FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
 |OIF(EVEN:%skill,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-		 <td align="center" class="skill" width="5%" height="15">|OIF(SKILL%skill.UNTRAINED,&#9670;,)|</td>
-		 <td align="left" class="skill">|SKILL.%skill|</td>
-		 <td align="center" class="skill">|SKILL.%skill.ABILITY|</td>
-		 <td align="center" class="skillValue"><b>|SKILL.%skill.TOTAL|</b></td>
+		 <td align="center" class="skill" width="5%" height="15">|OIF(SKILLSIT.%skill.UNTRAINED,&#9670;,)|</td>
+		 <td align="left" class="skill">|SKILLSIT.%skill|</td>
+		 <td align="center" class="skill">|SKILLSIT.%skill.ABILITY|</td>
+		 <td align="center" class="skillValue"><b>|SKILLSIT.%skill.TOTAL|</b></td>
 		 <td align="center" class="sign">=</td>
-		 <td align="center" class="skillValue">|SKILL.%skill.ABMOD|</td>
+		 <td align="center" class="skillValue">|SKILLSIT.%skill.ABMOD|</td>
 		 <td align="center" class="sign">+</td>
-		 <td align="center" class="skillValue" >|TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK|</td>
+		 <td align="center" class="skillValue" >|TEXT.REPLACEFIRST{\.0,}.SKILLSIT.%skill.RANK|</td>
 		 <td align="center" class="sign">+</td>
-		 <td align="center" class="skillValue">|SKILL.%skill.MISC|</td>
+		 <td align="center" class="skillValue">|SKILLSIT.%skill.MISC|</td>
     </tr>
 |ENDFOR|
 </table>

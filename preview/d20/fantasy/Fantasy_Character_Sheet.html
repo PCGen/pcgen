@@ -1734,24 +1734,24 @@ img {
 |FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
 				<tr valign="middle">
                 <td class="skills" |OIF(EVEN:%skill,background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
-|IIF(SKILL.%skill.RANK==0)|
-			      <div align="left"><i>|SKILL.%skill|</i></div></td>
+|IIF(SKILLSIT.%skill.RANK==0)|
+			      <div align="left"><i>|SKILLSIT.%skill|</i></div></td>
 |ELSE|
-			      <div align="left"><b>|SKILL.%skill|</b></div></td>
+			      <div align="left"><b>|SKILLSIT.%skill|</b></div></td>
 |ENDIF|                  
                 <td class="skills" |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
                   <div align="center">
-                      |SKILL.%skill.ABILITY|
+                      |SKILLSIT.%skill.ABILITY|
                     </div></td>
                   
                 <td  |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
                   <div align="center">
-				  	<a href="" onClick="roll(1,20,|SKILL.%skill.TOTAL|,'|SKILL.%skill| Check\n')">
+				  	<a href="" onClick="roll(1,20,|SKILLSIT.%skill.TOTAL|,'|SKILLSIT.%skill| Check\n')">
 						<img src="preview/d20/fantasy/images/gold/die_small.png" width="15" height="16"></a></div></td>
                   
                 <td  class="skills" background="preview/d20/fantasy/images/gold/gold_tile_white.png">
                   <div align="center">
-                      |SKILL.%skill.TOTAL|
+                      |SKILLSIT.%skill.TOTAL|
                     </div></td>
                   
                 <td  class="skills" |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
@@ -1761,7 +1761,7 @@ img {
                   
                 <td  class="skills" |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
                   <div align="center">
-                      |SKILL.%skill.ABMOD|
+                      |SKILLSIT.%skill.ABMOD|
                     </div></td>
                   
                 <td  class="skills" |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
@@ -1771,9 +1771,9 @@ img {
                   
                 <td  class="skills" |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
                   <div align="center">
-|IIF(SKILL.%skill.RANK==0)|
+|IIF(SKILLSIT.%skill.RANK==0)|
 |ELSE|
-                      |TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK| 
+                      |TEXT.REPLACEFIRST{\.0,}.SKILLSIT.%skill.RANK| 
 |ENDIF|
                     </div></td>
                   
@@ -1784,7 +1784,7 @@ img {
                   
                 <td  class="skills" |OIF(EVEN:%skill, background="preview/d20/fantasy/images/gold/gold_tile_light.png",)|> 
                   <div align="center">
-                      |SKILL.%skill.MISC|
+                      |SKILLSIT.%skill.MISC|
                     </div></td>
                 </tr>
 |ENDFOR|
