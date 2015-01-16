@@ -18,38 +18,29 @@ ABILITYCATEGORY:Favored Class		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIO
 ABILITYCATEGORY:Favored Class Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredClassBonus	PLURAL:Favored Class Bonuses	DISPLAYLOCATION:Class Features
 
 
-###Block: NEW (Class Feature)
-# Ability Category				Visible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Barbarian Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BarbarianClassFeatures	PLURAL:Barbarian Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Bard Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BardClassFeatures		PLURAL:Bard Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Cleric Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ClericClassFeatures	PLURAL:Cleric Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Druid Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DruidClassFeatures		PLURAL:Druid Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Fighter Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:FighterClassFeatures	PLURAL:Fighter Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Monk Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MonkClassFeatures		PLURAL:Monk Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Paladin Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PaladinClassFeatures	PLURAL:Paladin Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Ranger Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:RangerClassFeatures	PLURAL:Ranger Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Rogue Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:RogueClassFeatures		PLURAL:Rogue Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Sorcerer Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SorcererClassFeatures	PLURAL:Sorcerer Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Wizard Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassFeatures	PLURAL:Wizard Class Features		DISPLAYLOCATION:Class Features
-
-
-###Block: OLD Base Class Feature Display
-# COMMENT: PHASE THIS OUT!
-# Ability Category				Visible		Editable?	Change Pool?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Barbarian Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BarbarianClassAbility	PLURAL:Barbarian Class Abilities	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Bard Class Ability		VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BardClassAbilities		PLURAL:Bard Class Abilities		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Cleric Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ClericClassAbilities	PLURAL:Cleric Class Abilities		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Druid Class Ability		VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DruidClassAbilities	PLURAL:Druid Class Abilities		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Fighter Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:FighterClassAbilities	PLURAL:Fighter Class Abilities	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Monk Class Ability		VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MonkClassAbilities		PLURAL:Monk Class Abilities		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Paladin Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PaladinClassAbilities	PLURAL:Paladin Class Abilities	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Ranger Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:RangerClassAbilities	PLURAL:Ranger Class Abilities		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Rogue Class Ability		VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:RogueClassAbilities	PLURAL:Rogue Class Abilities		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Sorcerer Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:SorcererClassAbilities	PLURAL:Sorcerer Class Abilities	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Wizard Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WizardClassAbilities	PLURAL:Wizard Class Abilities		DISPLAYLOCATION:Class Features
-
-# Prestige Classes still need to be done.
-#ABILITYCATEGORY:Barbarian Class Feature	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:BarbarianClassFeatures	PLURAL:Barbarian Class Features	DISPLAYLOCATION:Class Features
+###Block: Class Feature
+# Base Classes
+# Ability Category						Visible		Editable?		Change Pool?	Category of Object		Type of Object											Plural description for UI				Display Location
+ABILITYCATEGORY:Barbarian Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Barbarian Class Feature.BarbarianClassFeatures					PLURAL:Barbarian Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bard Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Bard Class Feature.BardClassFeatures							PLURAL:Bard Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cleric Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Cleric Class Feature.ClericClassFeatures						PLURAL:Cleric Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Druid Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Druid Class Feature.DruidClassFeatures						PLURAL:Druid Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Fighter Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Fighter Class Feature.FighterClassFeatures						PLURAL:Fighter Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Monk Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Monk Class Feature.MonkClassFeatures							PLURAL:Monk Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Paladin Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Paladin Class Feature.PaladinClassFeatures						PLURAL:Paladin Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ranger Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Ranger Class Feature.RangerClassFeatures						PLURAL:Ranger Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Rogue Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Rogue Class Feature.RogueClassFeatures						PLURAL:Rogue Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sorcerer Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Sorcerer Class Feature.SorcererClassFeatures					PLURAL:Sorcerer Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wizard Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Wizard Class Feature.WizardClassFeatures						PLURAL:Wizard Class Features				DISPLAYLOCATION:Class Features
+# Prestige Classes
+ABILITYCATEGORY:Assassin Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Assassin Class Feature.AssassinClassFeatures					PLURAL:Assassin Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dragon Disciple Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Dragon Disciple Class Feature.Dragon DiscipleClassFeatures			PLURAL:Dragon Disciple Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Duelist Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Duelist Class Feature.DuelistClassFeatures						PLURAL:Duelist Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eldritch Knight Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Eldritch Knight Class Feature.Eldritch KnightClassFeatures			PLURAL:Eldritch Knight Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Loremaster Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Loremaster Class Feature.LoremasterClassFeatures					PLURAL:Loremaster Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Mystic Theurge Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Mystic Theurge Class Feature.Mystic TheurgeClassFeatures			PLURAL:Mystic Theurge Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Pathfinder Chronicler Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Pathfinder Chronicler Class Feature.Pathfinder ChroniclerClassFeatures	PLURAL:Pathfinder Chronicler Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Shadowdancer Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Shadowdancer Class Feature.ShadowdancerClassFeatures				PLURAL:Shadowdancer Class Features			DISPLAYLOCATION:Class Features
 
 ###Block: Character Traits
 # Ability Category		Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI		Display Location
@@ -72,7 +63,6 @@ ABILITYCATEGORY:Ranger Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACT
 ABILITYCATEGORY:Rogue Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:RogueArchetype	PLURAL:Rogue Archetypes		DISPLAYLOCATION:Archetype
 ABILITYCATEGORY:Sorcerer Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:SorcererArchetype	PLURAL:Sorcerer Archetypes	DISPLAYLOCATION:Archetype
 ABILITYCATEGORY:Wizard Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:WizardArchetype	PLURAL:Wizard Archetypes	DISPLAYLOCATION:Archetype
-
 
 
 ###Block: Racial Traits Categories
@@ -223,24 +213,6 @@ ABILITYCATEGORY:Background					VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALP
 ABILITYCATEGORY:Human Ethnicity				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background		TYPE:HumanEthnicity												PLURAL:Human Ethnicities				DISPLAYLOCATION:Background
 ABILITYCATEGORY:Region of Origin				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background		TYPE:Region														PLURAL:Regions of Origin				DISPLAYLOCATION:Background
 
-
-
 ABILITYCATEGORY:Headband of Intellect Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HeadbandSkill																				DISPLAYLOCATION:Misc
-
-
-
-
-
-
-
-
-ABILITYCATEGORY:Assassin Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AssassinClassFeatures											PLURAL:Assassin Class Features			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Dragon Disciple Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Dragon DiscipleClassFeatures										PLURAL:Dragon Disciple Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Duelist Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:DuelistClassFeatures											PLURAL:Duelist Class Features				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Eldritch Knight Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Eldritch KnightClassFeatures										PLURAL:Eldritch Knight Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Loremaster Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:LoremasterClassFeatures											PLURAL:Loremaster Class Features			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Mystic Theurge Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Mystic TheurgeClassFeatures										PLURAL:Mystic Theurge Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Pathfinder Chronicler Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Pathfinder ChroniclerClassFeatures									PLURAL:Pathfinder Chronicler Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Shadowdancer Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ShadowdancerClassFeatures										PLURAL:Shadowdancer Class Features			DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Intelligence-Based Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:IntBaseSkill																					DISPLAYLOCATION:Class Features
