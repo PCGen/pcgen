@@ -127,7 +127,8 @@ CLASS:Golden Muse	STARTSKILLPTS:2	CSKILL:Diplomacy|Heal|Knowledge (Religion)|Sen
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus
 CLASS:Grim Repear	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.88	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")-1/2+1
 # Class Name	Restricted AL		Required Feat					Required Race	Req. Spell Type		Required Text																					PRETOTALAB
-CLASS:Grim Repear	!PREALIGN:LE,NE,CE	PREFEAT:2,Deathbane Touch,Death Drain	PRERACE:1,Obitu	PRESPELLTYPE:1,Divine=1	PRETEXT:Spells: Ability to cast 1st level divine spells.	PRETEXT:Special: Favored Enemy (undead) class feature or Turn Undead feat.	PRETOTALAB:5
+CLASS:Grim Repear	!PREALIGN:LE,NE,CE	PREFEAT:2,Deathbane Touch,Death Drain	PRERACE:1,Obitu		PRETEXT:Spells: Ability to cast 1st level divine spells.	PRETEXT:Special: Favored Enemy (undead) class feature or Turn Undead feat.	PRETOTALAB:5
+# PRESPELLTYPE:1,Divine=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Grim Repear	STARTSKILLPTS:4	CSKILL:Heal|Intimidate|Knowledge (Religion)|Perception|Sense Motive|Survival
 1	ABILITY:Grim Repear Class Feature|AUTOMATIC|Grim Repear ~ Weapon and Armor Proficiency
@@ -162,7 +163,8 @@ CLASS:Lightseeker	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Climb|Escape Artist
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus
 CLASS:Pharaoh	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.92	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+1/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")-1/2+1
 # Class Name	Required Feat		Required Race	Required Skill								Req. Spell Type		Required Text
-CLASS:Pharaoh	PREFEAT:1,Leadership	PRERACE:1,Anumus	PRESKILL:2,Knowledge (Religion)=5,Knowledge (History)=5	PRESPELLTYPE:1,Divine=2	PRETEXT:Spells: Ability to cast 2nd level divine spells.
+CLASS:Pharaoh	PREFEAT:1,Leadership	PRERACE:1,Anumus	PRESKILL:2,Knowledge (Religion)=5,Knowledge (History)=5		PRETEXT:Spells: Ability to cast 2nd level divine spells.
+# PRESPELLTYPE:1,Divine=2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pharaoh	STARTSKILLPTS:4	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|TYPE=Knowledge|Linguistics|Perception|Spellcraft|Use Magic Device
 1	ABILITY:Pharaoh Class Feature|AUTOMATIC|Pharaoh ~ Weapon and Armor Proficiency
