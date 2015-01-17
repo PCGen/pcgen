@@ -27,7 +27,7 @@ import java.net.URI;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
-import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.persistence.lst.URIFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -63,8 +63,8 @@ public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
-		URI uri = new CampaignSourceEntry.URIFactory(eq.getSourceURI(), value).getURI();
-		if (uri == CampaignSourceEntry.FAILED_URI)
+		URI uri = new URIFactory(eq.getSourceURI(), value).getURI();
+		if (uri == URIFactory.FAILED_URI)
 		{
 			return new ParseResult.Fail(getTokenName() + " must be a valid URI.", context);
 		}

@@ -25,17 +25,12 @@
  */
 package pcgen.persistence.lst;
 
-import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.Constants;
@@ -45,8 +40,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.system.ConfigurationSettings;
-import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
@@ -55,27 +48,11 @@ import pcgen.util.Logging;
  */
 public class CampaignSourceEntry implements SourceEntry
 {
-	public static final URI FAILED_URI;
-
-	static
-	{
-		try
-		{
-			FAILED_URI = new URI("file:/FAIL");
-		}
-		catch (URISyntaxException e)
-		{
-			throw new UnreachableError(e);
-		}
-	}
 	private Campaign campaign = null;
 	private List<String> excludeItems = new ArrayList<String>();
 	private List<String> includeItems = new ArrayList<String>();
 	private List<Prerequisite> prerequisites = new ArrayList<Prerequisite>();
-	private URI uri = null;
-	private URI writeURI = null;
-	private URIFactory uriFac = null;
-	private String stringForm = null;
+	private URIEntry uri = null;
 
 	/**
 	 * CampaignSourceEntry constructor.
@@ -97,65 +74,22 @@ public class CampaignSourceEntry implements SourceEntry
 			throw new IllegalArgumentException("lstLoc can't be null");
 		}
 		this.campaign = campaign;
-		this.uri = lstLoc;
+		this.uri = new URIEntry(campaign.getDisplayName(), lstLoc);
 	}
 
-	public CampaignSourceEntry(Campaign campaign, URIFactory fac)
+	public CampaignSourceEntry(Campaign campaign, URIEntry entry)
 	{
 		super();
 		if (campaign == null)
 		{
 			throw new IllegalArgumentException("campaign can't be null");
 		}
-		if (fac == null)
+		if (entry == null)
 		{
 			throw new IllegalArgumentException("URI Factory can't be null");
 		}
 		this.campaign = campaign;
-		this.uriFac = fac;
-	}
-
-	public static class URIFactory
-	{
-		private final URI u;
-		private final String s;
-
-		public URIFactory(URI source, String value)
-		{
-			if (source == null)
-			{
-				throw new IllegalArgumentException("URI cannot be null");
-			}
-			if (value == null || value.length() == 0)
-			{
-				throw new IllegalArgumentException("URI cannot be null");
-			}
-			u = source;
-			s = value;
-		}
-
-		public URI getURI()
-		{
-			URI uri = getNonNormalizedPathURI(u, s);
-			return uri.normalize();
-		}
-		
-        @Override
-		public int hashCode()
-		{
-			return s.hashCode();
-		}
-		
-        @Override
-		public boolean equals(Object o)
-		{
-			if (o instanceof URIFactory)
-			{
-				URIFactory other = (URIFactory) o;
-				return s.equals(other.s) && u.equals(other.u);
-			}
-			return false;
-		}
+		this.uri = entry;
 	}
 
 	/**
@@ -188,15 +122,11 @@ public class CampaignSourceEntry implements SourceEntry
     @Override
 	public URI getURI()
 	{
-		if (uri == null)
-		{
-			uri = uriFac.getURI();
-		}
-		return uri;
+		return uri.getURI();
 	}
 
 	/**
-	 * This method gets a list of the items containined in the given source
+	 * This method gets a list of the items contained in the given source
 	 * file to include in getting saved in memory.  All other objects
 	 * in the file are to be excluded.
 	 * @return List of String names of objects to include
@@ -224,21 +154,7 @@ public class CampaignSourceEntry implements SourceEntry
 			return false;
 		}
 		CampaignSourceEntry other = (CampaignSourceEntry) arg0;
-		if (this.uriFac == null)
-		{
-			if (other.uriFac != null || !getURI().equals(other.getURI()))
-			{
-				return false;
-			}
-		}
-		else
-		{
-			if (!uriFac.equals(other.uriFac))
-			{
-				return false;
-			}
-		}
-		return excludeItems.equals(other.excludeItems)
+		return uri.equals(other.uri) && excludeItems.equals(other.excludeItems)
 			&& includeItems.equals(other.includeItems);
 	}
 
@@ -248,7 +164,7 @@ public class CampaignSourceEntry implements SourceEntry
 	@Override
 	public int hashCode()
 	{
-		return this.getURIIdentifier().hashCode();
+		return this.uri.getLSTformat().hashCode();
 	}
 
 	/**
@@ -257,161 +173,12 @@ public class CampaignSourceEntry implements SourceEntry
 	@Override
 	public String toString()
 	{
-		if (stringForm == null)
-		{
-			StringBuilder sBuff = new StringBuilder();
-			sBuff.append("Campaign: ");
-			sBuff.append(campaign.getDisplayName());
-			sBuff.append("; SourceFile: ");
-			sBuff.append(getURI());
-
-			stringForm = sBuff.toString();
-		}
-
-		return stringForm;
-	}
-
-	/**
-	 * This method converts the provided filePath to either a URL
-	 * or absolute path as appropriate.
-	 *
-	 * @param pccPath  URL where the Campaign that contained the source was at
-	 * @param basePath String path that is to be converted
-	 * @return String containing the converted absolute path or URL
-	 *         (as appropriate)
-	 */
-	private static URI getNonNormalizedPathURI(URI pccPath, String basePath)
-	{
-		if (basePath.length() <= 0)
-		{
-			Logging.errorPrint("Empty Path to LST file in " + pccPath);
-			return FAILED_URI;
-		}
-
-		/*
-		 * Figure out where the PCC file came from that we're processing, so
-		 * that we can prepend its path onto any LST file references (or PCC
-		 * refs, for that matter) that are relative. If the source line in
-		 * question already has path info, then don't bother
-		 */
-		if (basePath.charAt(0) == '@')
-		{
-			String pathNoLeader =
-					trimLeadingFileSeparator(basePath.substring(1));
-			String path = CoreUtility.fixFilenamePath(pathNoLeader);
-			return new File(ConfigurationSettings.getPccFilesDir(), path)
-				.toURI();
-		}
-		else if (basePath.charAt(0) == '&')
-		{
-			String pathNoLeader =
-					trimLeadingFileSeparator(basePath.substring(1));
-			String path = CoreUtility.fixFilenamePath(pathNoLeader);
-			return new File(PCGenSettings.getVendorDataDir(), path)
-				.toURI();
-		}
-		else if (basePath.charAt(0) == '$')
-		{
-			String pathNoLeader =
-					trimLeadingFileSeparator(basePath.substring(1));
-			String path = CoreUtility.fixFilenamePath(pathNoLeader);
-			return new File(PCGenSettings.getHomebrewDataDir(), path)
-				.toURI();
-		}
-		else if (basePath.charAt(0) == '*')
-		{
-			String pathNoLeader =
-					trimLeadingFileSeparator(basePath.substring(1));
-			String path = CoreUtility.fixFilenamePath(pathNoLeader);
-			File pccFile =
-					new File(PCGenSettings.getHomebrewDataDir(), path);
-			if (pccFile.exists())
-			{
-				return pccFile.toURI();
-			}
-			pccFile =
-					new File(PCGenSettings.getVendorDataDir(), path);
-			if (pccFile.exists())
-			{
-				return pccFile.toURI();
-			}
-			return new File(ConfigurationSettings.getPccFilesDir(), path)
-				.toURI();
-		}
-		/*
-		 * If the line doesn't use "@", "&", or "$" then it's a relative path
-		 * 
-		 * 1) If the path starts with '/data', assume it means the PCGen
-		 * data dir 2) Otherwise, assume that the path is relative to the
-		 * current PCC file URL
-		 */
-		String pathNoLeader = trimLeadingFileSeparator(basePath);
-
-		if (pathNoLeader.startsWith("data"))
-		{
-			// substring 5 to eliminate the separator after data
-			String path =
-					CoreUtility.fixFilenamePath(pathNoLeader.substring(5));
-			return new File(ConfigurationSettings.getPccFilesDir(), path)
-				.toURI();
-		}
-		else
-		{
-			if (basePath.indexOf(':') > 0)
-			{
-				try
-				{
-					// if it's a URL, then we are all done, just return a URI
-					URL url = new URL(basePath);
-					return new URI(url.getProtocol(), url.getHost(), url
-						.getPath(), null);
-				}
-				catch (URISyntaxException e)
-				{
-					//Something broke, so wasn't a URL
-				}
-				catch (MalformedURLException e)
-				{
-					//Protocol was unknown, so wasn't a URL
-				}
-			}
-
-			String path = pccPath.getPath();
-			// URLs always use forward slash; take off the file name
-			try
-			{
-				return new URI(pccPath.getScheme(), null, (path.substring(0,
-					path.lastIndexOf('/') + 1) + basePath.replace('\\', '/')),
-					null);
-			}
-			catch (URISyntaxException e)
-			{
-				Logging.errorPrint("GPURI failed to convert "
-					+ path.substring(0, path.lastIndexOf('/') + 1) + basePath
-					+ " to a URI: " + e.getLocalizedMessage());
-			}
-		}
-		return FAILED_URI;
-	}
-
-	/**
-	 * This method trims the leading file separator or URL separator from the
-	 * front of a string.
-	 *
-	 * @param basePath String containing the base path to trim
-	 * @return String containing the trimmed path String
-	 */
-	private static String trimLeadingFileSeparator(String basePath)
-	{
-		String pathNoLeader = basePath;
-
-		if (pathNoLeader.startsWith("/")
-			|| pathNoLeader.startsWith(File.separator))
-		{
-			pathNoLeader = pathNoLeader.substring(1);
-		}
-
-		return pathNoLeader;
+		StringBuilder sBuff = new StringBuilder();
+		sBuff.append("Campaign: ");
+		sBuff.append(campaign.getDisplayName());
+		sBuff.append("; SourceFile: ");
+		sBuff.append(getURI());
+		return sBuff.toString();
 	}
 
 	public static CampaignSourceEntry getNewCSE(Campaign campaign2,
@@ -437,15 +204,17 @@ public class CampaignSourceEntry implements SourceEntry
 				Logging.errorPrint("Invalid Campaign File, cannot start with (:" + value);
 				return null;
 			}
-			cse =
-					new CampaignSourceEntry(campaign2, new URIFactory(
-						sourceUri, value));
+			URIEntry uri =
+					URIEntry.getURIEntry(campaign2.getDisplayName(), sourceUri,
+						value);
+			cse = new CampaignSourceEntry(campaign2, uri);
 		}
 		else
 		{
-			cse =
-					new CampaignSourceEntry(campaign2, new URIFactory(
-						sourceUri, value.substring(0, pipePos)));
+			URIEntry uri =
+					URIEntry.getURIEntry(campaign2.getDisplayName(), sourceUri,
+						value.substring(0, pipePos));
+			cse = new CampaignSourceEntry(campaign2, uri);
 
 			// Get the include/exclude item string
 			String inExString = value.substring(pipePos + 1);
@@ -567,7 +336,7 @@ public class CampaignSourceEntry implements SourceEntry
 					tagList.add(currentTag);
 					currentTag = "";
 				}
-		}
+			}
 			else if (token.equals("|"))
 			{
 				if (bracketLevel > 0)
@@ -637,16 +406,6 @@ public class CampaignSourceEntry implements SourceEntry
 		}
 	}
 
-	public URI getWriteURI()
-	{
-		return writeURI;
-	}
-
-	public void setWriteURI(URI writeURI)
-	{
-		this.writeURI = writeURI;
-	}
-
 	/**
 	 * Split an include or exclude string accounting for the possible presence 
 	 * of a leading category.
@@ -688,7 +447,7 @@ public class CampaignSourceEntry implements SourceEntry
 		if (hasKeyOnly && hasCategory)
 		{
 			Logging.log(Logging.LST_ERROR, "Invalid "
-				+ inExString.substring(0, 7) + " value on " + getURIIdentifier() + " in "
+				+ inExString.substring(0, 7) + " value on " + uri.getLSTformat() + " in "
 				+ campaign.getDisplayName()
 				+ ". Abilities must always have categories (e.g. "
 				+ inExString.substring(0, 8)
@@ -701,22 +460,10 @@ public class CampaignSourceEntry implements SourceEntry
 		return catKeyList;
 	}
 
-	private String getURIIdentifier()
-	{
-		if (uriFac == null)
-		{
-			return uri.toString();
-		}
-		else
-		{
-			return uriFac.s;
-		}
-	}
-
 	public String getLSTformat()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append(getURIIdentifier());
+		sb.append(uri.getLSTformat());
 		if (!includeItems.isEmpty())
 		{
 			sb.append(Constants.PIPE);
@@ -770,13 +517,7 @@ public class CampaignSourceEntry implements SourceEntry
 
 	public CampaignSourceEntry getRelatedTarget(String fileName)
 	{
-		if (uriFac == null)
-		{
-			throw new IllegalStateException(
-					"getRelatedTarget can only be called on a CampaignSourceEntry that uses a URI Factory");
-		}
-		return new CampaignSourceEntry(campaign, new URIFactory(uriFac.u,
-				fileName));
+		return new CampaignSourceEntry(campaign, uri.getRelatedTarget(fileName));
 	}
 
 	public List<Prerequisite> getPrerequisites()
