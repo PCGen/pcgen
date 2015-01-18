@@ -86,7 +86,7 @@ public class CampaignSourceEntry implements SourceEntry
 		}
 		if (entry == null)
 		{
-			throw new IllegalArgumentException("URI Factory can't be null");
+			throw new IllegalArgumentException("URIEntry can't be null");
 		}
 		this.campaign = campaign;
 		this.uri = entry;

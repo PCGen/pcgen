@@ -286,13 +286,6 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 
 	}
 
-    @Override
-	public void unloadLstFiles(LoadContext lc,
-			Collection<CampaignSourceEntry> files)
-	{
-		throw new UnsupportedOperationException("Unload not supported");
-	}
-
 	public String unparseObject(LoadContext lc, CampaignSourceEntry cse, T obj)
 	{
 		String unparse = StringUtil.join(lc.unparse(obj), "\t");

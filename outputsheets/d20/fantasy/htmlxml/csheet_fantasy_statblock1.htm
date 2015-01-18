@@ -172,7 +172,7 @@ Spell Resistance |SR|,
 |FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
 |SKILLSIT.%skill| |SKILLSIT.%skill.TOTAL|,
 |ENDFOR|
-|FOR,%skill,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")},${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")},1,0|
+|FOR,%skill,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
 |SKILLSIT.%skill| |SKILLSIT.%skill.TOTAL|
 |ENDFOR|
 </td>

@@ -33,7 +33,4 @@ public interface CDOMLoader<T>
 	public void loadLstFiles(LoadContext context,
 			Collection<CampaignSourceEntry> sources);
 
-	public void unloadLstFiles(LoadContext lc,
-			Collection<CampaignSourceEntry> languageFiles);
-
 }

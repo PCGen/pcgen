@@ -398,16 +398,16 @@
     </tr>
 |FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
 |OIF(EVEN:%skill,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-     <td align="center"><font style="font-size: 7pt">|OIF(SKILL%skill.UNTRAINED,&#9670;,)|</font></td>
-     <td align="left" class="font8">&nbsp;&nbsp;|SKILL.%skill|</td>
-     <td align="center" class="font7">|SKILL.%skill.ABILITY|</td>
-     <td align="center" class="borderbottom8" valign="bottom"><b>|SKILL.%skill.TOTAL|</b></td>
+     <td align="center"><font style="font-size: 7pt">|OIF(SKILLSIT.%skill.UNTRAINED,&#9670;,)|</font></td>
+     <td align="left" class="font8">&nbsp;&nbsp;|SKILLSIT.%skill|</td>
+     <td align="center" class="font7">|SKILLSIT.%skill.ABILITY|</td>
+     <td align="center" class="borderbottom8" valign="bottom"><b>|SKILLSIT.%skill.TOTAL|</b></td>
      <td align="center" valign="bottom" class="font8"><b>=</b></td>
-     <td align="center" class="borderbottom8" valign="bottom">|SKILL.%skill.ABMOD|<br /></td>
+     <td align="center" class="borderbottom8" valign="bottom">|SKILLSIT.%skill.ABMOD|<br /></td>
      <td align="center" valign="bottom" class="font8"><b>+</b></td>
-     <td align="center" class="borderbottom8" valign="bottom">|TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK| <br /></td>
+     <td align="center" class="borderbottom8" valign="bottom">|TEXT.REPLACEFIRST{\.0,}.SKILLSIT.%skill.RANK| <br /></td>
      <td align="center" valign="bottom" class="font8"><b>+</b></td>
-     <td align="center" class="borderbottom8" valign="bottom">|SKILL.%skill.MISC|<br /></td>
+     <td align="center" class="borderbottom8" valign="bottom">|SKILLSIT.%skill.MISC|<br /></td>
     </tr>
 |ENDFOR|
    </table>

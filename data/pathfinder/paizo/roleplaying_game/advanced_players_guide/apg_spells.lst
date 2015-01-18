@@ -284,6 +284,10 @@ Weapon of Awe.MOD		TEMPBONUS:EQ|Weapon|WEAPON|DAMAGE|2|TYPE=Sacred
 Wrathful Mantle.MOD	TEMPBONUS:ANYPC|SAVE|ALL|1|TYPE=Resistance
 Gravity Bow.MOD		TEMPBONUS:EQ|Weapon,Ranged|WEAPON|DAMAGESIZE|1|TYPE=Temporary
 
+Threefold Aspect (Young Adult)	TEMPBONUS:ANYPC|STAT|DEX,CON|2|TYPE=Enhancement	TEMPBONUS:PC|STAT|WIS|-2		PRESPELL:1,Threefold Aspect
+Threefold Aspect (Adulthood)		TEMPBONUS:ANYPC|STAT|WIS,INT|2|TYPE=Enhancement	TEMPBONUS:PC|STAT|DEX|-2		PRESPELL:1,Threefold Aspect
+Threefold Aspect (Elderly)		TEMPBONUS:ANYPC|STAT|WIS,INT|4|TYPE=Enhancement	TEMPBONUS:PC|STAT|STR,DEX|-2		PRESPELL:1,Threefold Aspect
+
 ###BLOCK: .Mod Spells
 #Inquisitor Spells
 # Spell Name				Classes of caster

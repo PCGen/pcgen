@@ -18,7 +18,6 @@
 package pcgen.rules.persistence;
 
 import java.net.URI;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,11 +25,10 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Kit;
 import pcgen.core.kit.BaseKit;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-public class CDOMKitLoader implements CDOMLoader<Kit>
+public class CDOMKitLoader
 {
 	private final Map<String, CDOMSubLineLoader<? extends BaseKit>> loadMap =
 			new HashMap<String, CDOMSubLineLoader<? extends BaseKit>>();
@@ -83,21 +81,6 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 		return true;
 	}
 
-	@Override
-	public boolean parseLine(LoadContext context, Kit obj, String val,
-			URI source) throws PersistenceLayerException
-	{
-		//TODO shell
-		return false;
-	}
-
-	@Override
-	public void loadLstFiles(LoadContext context,
-			Collection<CampaignSourceEntry> sources)
-	{
-		throw new IllegalStateException("Can't do this yet");
-	}
-
 	private <CC extends BaseKit> boolean subParse(LoadContext context, Kit kit,
 			CDOMSubLineLoader<CC> loader, String line)
 			throws PersistenceLayerException
@@ -121,12 +104,5 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 	public Class<Kit> getTargetClass()
 	{
 		return targetClass;
-	}
-
-	@Override
-	public void unloadLstFiles(LoadContext lc,
-			Collection<CampaignSourceEntry> files)
-	{
-		throw new UnsupportedOperationException("Unload not supported");
 	}
 }
