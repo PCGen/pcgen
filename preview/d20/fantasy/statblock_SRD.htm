@@ -340,15 +340,15 @@ Str |STAT.0|, Dex |STAT.1|, Con |STAT.2|, Int |STAT.3|, Wis |STAT.4|, Cha |STAT.
 |FOR.0,COUNT[SKILLSIT],100,\SKILL.%.NAME\ \SKILL.%.TOTAL.INTVAL.SIGN\;       , , ,0| 
 -->
 |FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
-|IIF(SKILL.%skill.TYPE:SkillUse)|
+|IIF(SKILLSIT.%skill.TYPE:SkillUse)|
 |ELSE|
-|IIF(VAR.IF(var("SKILL.%skill.RANK")==0;1;0):1)|
-|IIF(VAR.IF(var("SKILL.%skill.TOTAL")==0;1;0):1)|
+|IIF(VAR.IF(var("SKILLSIT.%skill.RANK")==0;1;0):1)|
+|IIF(VAR.IF(var("SKILLSIT.%skill.TOTAL")==0;1;0):1)|
 |ELSE|
-<font color="#FF6600">|SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN|; </font>
+<font color="#FF6600">|SKILLSIT.%skill| |SKILLSIT.%skill.TOTAL.INTVAL.SIGN|; </font>
 |ENDIF|
 |ELSE|
-|SKILL.%skill| |SKILL.%skill.TOTAL.INTVAL.SIGN|; 
+|SKILLSIT.%skill| |SKILLSIT.%skill.TOTAL.INTVAL.SIGN|; 
 |ENDIF|
 |ENDIF|
 |ENDFOR|

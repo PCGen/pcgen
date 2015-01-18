@@ -1,13 +1,12 @@
 # CVS $Revision: 20739 $ $Author: zaister $
 CAMPAIGN:Ultimate Campaign
 GAMEMODE:Pathfinder
-TYPE:Paizo Publishing.Pathfinder Roleplaying Game
+TYPE:Paizo Publishing.Pathfinder RPG
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder RPG
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo

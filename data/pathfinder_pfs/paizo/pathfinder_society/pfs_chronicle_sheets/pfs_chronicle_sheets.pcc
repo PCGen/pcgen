@@ -6,7 +6,9 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Society Chronicle Sheets
-PRECAMPAIGN:1,Guide To Pathfinder Society Organized Play
+PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+!PRECAMPAIGN:1,Pathfinder Society Core Assumption
+!PRECAMPAIGN:1,Pathfinder Society Complete
 TYPE:Paizo Publishing.Pathfinder Society
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
