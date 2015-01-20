@@ -15,14 +15,13 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.choose;
+package plugin.lsttokens.deprecated;
 
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedChooseInformation;
 import pcgen.cdom.base.ChooseDriver;
-import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Chooser;
 import pcgen.cdom.base.Constants;
@@ -44,7 +43,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * New chooser plugin, handles feats.
  */
-public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
+public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, Chooser<Ability>
 {
 
@@ -110,8 +109,9 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 			return cpr;
 		}
 		PrimitiveChoiceSet<Ability> pcs = new CollectionToChoiceSet<Ability>(coll);
+		//Tricky for compatibility...
 		CategorizedChooseInformation<Ability> tc =
-				new CategorizedChooseInformation<Ability>(getTokenName(),
+				new CategorizedChooseInformation<Ability>("ABILITY",
 					AbilityCategory.FEAT, pcs, Ability.class);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
@@ -122,39 +122,8 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		ChooseInformation<?> tc = context.getObjectContext().getObject(cdo,
-				ObjectKey.CHOOSE_INFO);
-		if (tc == null)
-		{
-			return null;
-		}
-		if (!tc.getName().equals(getTokenName()))
-		{
-			// Don't unparse anything that isn't owned by this SecondaryToken
-			/*
-			 * TODO Either this really needs to be a check against the subtoken
-			 * (which thus needs to be stored in the ChooseInfo) or there needs
-			 * to be a loadtime check that no more than once CHOOSE subtoken
-			 * uses the same AssociationListKey... :P
-			 */
-			return null;
-		}
-		if (!tc.getGroupingState().isValid())
-		{
-			context.addWriteMessage("Invalid combination of objects"
-					+ " was used in: " + getParentToken() + Constants.COLON
-					+ getTokenName());
-			return null;
-		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(tc.getLSTformat());
-		String title = tc.getTitle();
-		if (!title.equals(getDefaultTitle()))
-		{
-			sb.append("|TITLE=");
-			sb.append(title);
-		}
-		return new String[] { sb.toString() };
+		//Nothing here anymore
+		return null;
 	}
 
 	@Override

@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.lsttokens.template;
+package plugin.lsttokens.deprecated;
 
 import java.math.BigDecimal;
 import java.util.Collection;
@@ -44,6 +44,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -56,9 +57,9 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Class deals with FEAT Token
  */
-public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
+public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		CDOMPrimaryToken<PCTemplate>, PersistentChoiceActor<CNAbilitySelection>,
-		DeferredToken<PCTemplate>
+		DeferredToken<PCTemplate>, DeprecatedToken
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -253,5 +254,11 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 			tc.setChoiceActor(this);
 		}
 		return true;
+	}
+
+	@Override
+	public String getMessage(CDOMObject obj, String value)
+	{
+		return "Feat-based tokens have been deprecated - use ABILITY based functions";
 	}
 }

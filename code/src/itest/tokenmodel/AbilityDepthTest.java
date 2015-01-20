@@ -34,10 +34,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.AbilityLst;
-import plugin.lsttokens.VFeatLst;
 import plugin.lsttokens.add.AbilityToken;
-import plugin.lsttokens.add.FeatToken;
-import plugin.lsttokens.add.VFeatToken;
+import plugin.lsttokens.deprecated.VFeatLst;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import tokenmodel.testsupport.AssocCheck;
@@ -53,10 +51,8 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 	private static final VFeatLst VFEAT_TOKEN = new VFeatLst();
 
 	//Registration required locally
-	private static final VFeatToken ADD_VFEAT_TOKEN = new VFeatToken();
 	private static final AbilityLst ABILITY_LST = new AbilityLst();
 	private static final AbilityToken ADD_ABILITY_TOKEN = new AbilityToken();
-	private static final FeatToken ADD_FEAT_TOKEN = new FeatToken();
 
 	private final CDOMToken<? super Ability> firstToken;
 	private final String firstPrefix;
@@ -80,7 +76,6 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 	protected void setUpContext() throws PersistenceLayerException
 	{
 		super.setUpContext();
-		TokenRegistration.register(ADD_VFEAT_TOKEN);
 		TokenRegistration.register(ABILITY_LST);
 	}
 
@@ -186,12 +181,11 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 			.size();
 	}
 
-	static CDOMToken[] tokens = {VFEAT_TOKEN, ADD_VFEAT_TOKEN, ABILITY_LST,
-		ADD_ABILITY_TOKEN, ADD_ABILITY_TOKEN, ADD_FEAT_TOKEN};
-	static String[] prefix = {"", "STACKS,", "FEAT|VIRTUAL|",
-		"FEAT|NORMAL|STACKS,", "FEAT|VIRTUAL|STACKS,", "STACKS,"};
-	static CDOMToken[] targetProhibited = {ADD_VFEAT_TOKEN, ADD_ABILITY_TOKEN,
-		ADD_FEAT_TOKEN};
+	static CDOMToken[] tokens = {ABILITY_LST,
+		ADD_ABILITY_TOKEN, ADD_ABILITY_TOKEN};
+	static String[] prefix = {"FEAT|VIRTUAL|",
+		"FEAT|NORMAL|STACKS,", "FEAT|VIRTUAL|STACKS,"};
+	static CDOMToken[] targetProhibited = {ADD_ABILITY_TOKEN};
 
 	@Override
 	public CDOMToken<?> getToken()

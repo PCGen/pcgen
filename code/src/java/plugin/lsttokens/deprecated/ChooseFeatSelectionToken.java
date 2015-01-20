@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.choose;
+package plugin.lsttokens.deprecated;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,6 @@ import java.util.List;
 import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseDriver;
-import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Chooser;
 import pcgen.cdom.base.Constants;
@@ -46,7 +45,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * New chooser plugin, handles feat selection.
  */
-public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
+public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMSecondaryToken<CDOMObject>,
 		Chooser<AbilitySelection>
 {
@@ -112,9 +111,10 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		PrimitiveChoiceSet<AbilitySelection> pcs =
 				new CollectionToAbilitySelection(AbilityCategory.FEAT, prim);
+		//be tricky for compatibility
 		BasicChooseInformation<AbilitySelection> tc =
 				new BasicChooseInformation<AbilitySelection>(
-					getTokenName(), pcs);
+					"ABILITYSELECTION", pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -129,39 +129,8 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		ChooseInformation<?> tc =
-				context.getObjectContext()
-					.getObject(cdo, ObjectKey.CHOOSE_INFO);
-		if (tc == null)
-		{
-			return null;
-		}
-		if (!tc.getName().equals(getTokenName()))
-		{
-			// Don't unparse anything that isn't owned by this SecondaryToken
-			/*
-			 * TODO Either this really needs to be a check against the subtoken
-			 * (which thus needs to be stored in the ChooseInfo) or there needs
-			 * to be a loadtime check that no more than once CHOOSE subtoken
-			 * uses the same AssociationListKey... :P
-			 */
-			return null;
-		}
-		if (!tc.getGroupingState().isValid())
-		{
-			context.addWriteMessage("Invalid combination of objects"
-				+ " was used in: " + getParentToken() + Constants.COLON + getTokenName());
-			return null;
-		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(tc.getLSTformat());
-		String title = tc.getTitle();
-		if (!title.equals(getDefaultTitle()))
-		{
-			sb.append("|TITLE=");
-			sb.append(title);
-		}
-		return new String[]{sb.toString()};
+		//Nothing here anymore - defer to ABILITYSELECTION
+		return null;
 	}
 
 	@Override
