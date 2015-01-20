@@ -38,7 +38,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
 import pcgen.core.Race;
@@ -161,14 +160,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				Category<?> cat = ((CategorizedCDOMReference<?>) ref)
 						.getCDOMCategory();
-				if (AbilityCategory.FEAT.equals(cat))
-				{
-					mapKey = "FEAT";
-				}
-				else
-				{
-					mapKey += '=' + cat.toString();
-				}
+				mapKey += '=' + cat.toString();
 			}
 			map.addToListFor(mapKey, ref.getLSTformat(false));
 		}

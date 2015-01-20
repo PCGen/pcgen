@@ -60,7 +60,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
     @Override
 	public String[] kindsHandled()
 	{
-		return new String[]{"ability"};
+		return new String[]{"ability", "feat"};
 	}
 
 	/**
@@ -81,11 +81,24 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 	                          boolean invertResult,
 	                          boolean overrideQualify) throws PersistenceLayerException
 	{
+		if ("feat".equalsIgnoreCase(kind))
+		{
+			Logging.deprecationPrint("PREFEAT has been deprecated, please use PREABILITY");
+		}
+		boolean extract = "ability".equalsIgnoreCase(kind);
+		kind = "ability";
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setOriginalCheckmult(formula.indexOf(",CHECKMULT,") != -1);
 
-		// Extract category
-		extractCategory(prereq);
+		if (extract)
+		{
+			// Extract category
+			extractCategory(prereq);
+		}
+		else
+		{
+			setCategory(prereq, "FEAT");
+		}
 		
 		//
 		// Negate the feat names wrapped in []'s. Then need to bump up the required number of matches
@@ -102,6 +115,15 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 		prereq.setOverrideQualify(overrideQualify);
 		
 		return prereq;
+	}
+
+	private void setCategory(Prerequisite prereq, String string)
+	{
+		prereq.setCategoryName(string);
+		for (Prerequisite element : prereq.getPrerequisites())
+		{
+			setCategory(element, string);
+		}
 	}
 
 	/**

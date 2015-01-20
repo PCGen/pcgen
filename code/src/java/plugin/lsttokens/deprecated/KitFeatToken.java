@@ -23,11 +23,12 @@
  * Last Edited: $Date$
  */
 
-package plugin.lsttokens.kit.ability;
+package plugin.lsttokens.deprecated;
 
 import java.util.Collection;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -35,6 +36,7 @@ import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.kit.KitAbilities;
+import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -44,8 +46,8 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * FEAT Token for KitAbilities
  */
-public class FeatToken extends AbstractTokenWithSeparator<KitAbilities>
-		implements CDOMPrimaryToken<KitAbilities>
+public class KitFeatToken extends AbstractTokenWithSeparator<KitAbilities>
+		implements CDOMPrimaryToken<KitAbilities>, DeprecatedToken
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -114,5 +116,11 @@ public class FeatToken extends AbstractTokenWithSeparator<KitAbilities>
 		}
 		return new String[]{ReferenceUtilities.joinLstFormat(ref,
 			Constants.PIPE)};
+	}
+
+	@Override
+	public String getMessage(CDOMObject obj, String value)
+	{
+		return "Feat-based tokens have been deprecated - use ABILITY based functions";
 	}
 }
