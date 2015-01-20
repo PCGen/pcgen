@@ -178,5 +178,5 @@ Familiar (Centipede (House))		CATEGORY:Internal														BONUS:SKILL|Stealth
 Familiar (Crab (Giant King))		CATEGORY:Internal																				BONUS:VAR|CMB_Grapple|2|TYPE=Familiar	
 Familiar (Fox)				CATEGORY:Internal								BONUS:SAVE|Reflex|2|TYPE=Familiar														
 Familiar (Octopus)			CATEGORY:Internal														BONUS:SKILL|Swim|3|TYPE=Familiar							
-Familiar (Scorpion (Greensting))	CATEGORY:Internal	BONUS:COMBAT|INITIATIVE|2|TYPE=Familiar																				
+Familiar (Scorpion (Greensting))	CATEGORY:Internal	BONUS:COMBAT|INITIATIVE|4|TYPE=Familiar																				
 Familiar (Spider (Scarlet))		CATEGORY:Internal														BONUS:SKILL|Climb|3|TYPE=Familiar								
