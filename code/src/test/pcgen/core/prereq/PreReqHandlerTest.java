@@ -94,7 +94,7 @@ public class PreReqHandlerTest extends PCGenTestCase
 		final String htmlString = PrereqHandler.toHtmlString(list);
 		System.out.println(htmlString);
 		assertEquals(
-			"at least 15 ranks in Spellcraft and at least 1 Arcane spell of level 8 and at least 2 feat(s) of type Metamagic and at least 2 feat(s) of type ItemCreation and at least 20 of ( at least 1 ranks in TYPE.Knowledge )",
+			"at least 15 ranks in Spellcraft and at least 1 Arcane spell of level 8 and at least 2 FEAT(s) of type Metamagic and at least 2 FEAT(s) of type ItemCreation and at least 20 of ( at least 1 ranks in TYPE.Knowledge )",
 			htmlString);
 		EnUsLocaleDependentTestCase.after();
 	}

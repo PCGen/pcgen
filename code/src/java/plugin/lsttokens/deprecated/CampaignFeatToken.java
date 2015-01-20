@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.campaign;
+package plugin.lsttokens.deprecated;
 
 import java.util.Collection;
 import java.util.Set;
@@ -29,11 +29,12 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 /**
  * Class deals with FEAT Token
  */
-public class FeatToken extends AbstractTokenWithSeparator<Campaign> implements
+public class CampaignFeatToken extends AbstractTokenWithSeparator<Campaign> implements
 		CDOMPrimaryToken<Campaign>
 {
 
@@ -53,6 +54,8 @@ public class FeatToken extends AbstractTokenWithSeparator<Campaign> implements
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		Campaign campaign, String value)
 	{
+		Logging.deprecationPrint("FEAT has been deprecated, use ABILITY: "
+			+ "and put CATEGORY: entries in the LST file");
 		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
 		if (cse == null)
 		{

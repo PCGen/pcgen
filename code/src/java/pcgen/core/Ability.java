@@ -24,15 +24,12 @@ import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.list.AbilityList;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.AbilityFacade;
@@ -48,15 +45,6 @@ import pcgen.system.PCGenSettings;
 @SuppressWarnings("serial")
 public final class Ability extends PObject implements CategorizedCDOMObject<Ability>, AbilityFacade
 {
-	public static final CDOMReference<AbilityList> FEATLIST;
-
-	static
-	{
-		AbilityList wpl = new AbilityList();
-		wpl.setName("*Feats");
-		FEATLIST = CDOMDirectSingleRef.getRef(wpl);
-	}
-
 	/**
 	 * Get the category of this ability
 	 *
