@@ -17,9 +17,6 @@
  */
 package plugin.lsttokens.testsupport;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -27,7 +24,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
@@ -36,8 +32,8 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
-import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 {
@@ -290,44 +286,6 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 
 	}
 
-    @Override
-	public void unloadLstFiles(LoadContext lc,
-			Collection<CampaignSourceEntry> files)
-	{
-		for (CampaignSourceEntry cse : files)
-		{
-			lc.setExtractURI(cse.getURI());
-			URI writeURI = cse.getWriteURI();
-			File f = new File(writeURI);
-			ensureCreated(f.getParentFile());
-			try
-			{
-				PrintWriter pw = new PrintWriter(f);
-				Collection<T> objects = lc.getReferenceContext()
-						.getConstructedCDOMObjects(targetClass);
-				Set<String> set = new TreeSet<String>();
-				for (T obj : objects)
-				{
-					String s = unparseObject(lc, cse, obj);
-					if (s != null)
-					{
-						set.add(s);
-					}
-				}
-				for (String s : set)
-				{
-					pw.println(s);
-				}
-				pw.close();
-			}
-			catch (IOException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
-
 	public String unparseObject(LoadContext lc, CampaignSourceEntry cse, T obj)
 	{
 		String unparse = StringUtil.join(lc.unparse(obj), "\t");
@@ -344,18 +302,5 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 			return obj.getKeyName() + ".MOD\t" + unparse;
 		}
 		return null;
-	}
-
-	private boolean ensureCreated(File rec)
-	{
-		if (!rec.exists())
-		{
-			if (!ensureCreated(rec.getParentFile()))
-			{
-				return false;
-			}
-			return rec.mkdir();
-		}
-		return true;
 	}
 }

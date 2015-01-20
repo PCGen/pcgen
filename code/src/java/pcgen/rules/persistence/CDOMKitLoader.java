@@ -17,28 +17,18 @@
  */
 package pcgen.rules.persistence;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URI;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.TreeSet;
 
-import pcgen.base.lang.StringUtil;
-import pcgen.base.util.HashMapToList;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Kit;
 import pcgen.core.kit.BaseKit;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-public class CDOMKitLoader implements CDOMLoader<Kit>
+public class CDOMKitLoader
 {
 	private final Map<String, CDOMSubLineLoader<? extends BaseKit>> loadMap =
 			new HashMap<String, CDOMSubLineLoader<? extends BaseKit>>();
@@ -91,26 +81,6 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 		return true;
 	}
 
-	@Override
-	public boolean parseLine(LoadContext context, Kit obj, String val,
-			URI source) throws PersistenceLayerException
-	{
-		//TODO shell
-		return false;
-	}
-
-	@Override
-	public void loadLstFiles(LoadContext context,
-			Collection<CampaignSourceEntry> sources)
-	{
-		throw new IllegalStateException("Can't do this yet");
-	}
-
-//	public void loadLstFile(LoadContext context, URI uri)
-//	{
-//		throw new IllegalStateException("Can't do this yet");
-//	}
-
 	private <CC extends BaseKit> boolean subParse(LoadContext context, Kit kit,
 			CDOMSubLineLoader<CC> loader, String line)
 			throws PersistenceLayerException
@@ -134,93 +104,5 @@ public class CDOMKitLoader implements CDOMLoader<Kit>
 	public Class<Kit> getTargetClass()
 	{
 		return targetClass;
-	}
-
-	@Override
-	public void unloadLstFiles(LoadContext lc,
-			Collection<CampaignSourceEntry> files)
-	{
-		HashMapToList<Class<?>, CDOMSubLineLoader<?>> loaderMap =
-				new HashMapToList<Class<?>, CDOMSubLineLoader<?>>();
-		for (CDOMSubLineLoader<?> loader : loadMap.values())
-		{
-			loaderMap.addToListFor(loader.getLoadedClass(), loader);
-		}
-		for (CampaignSourceEntry cse : files)
-		{
-			lc.setExtractURI(cse.getURI());
-			URI writeURI = cse.getWriteURI();
-			File f = new File(writeURI);
-			ensureCreated(f.getParentFile());
-			try
-			{
-				TreeSet<String> set = new TreeSet<String>();
-				for (Kit k : lc.getReferenceContext().getConstructedCDOMObjects(Kit.class))
-				{
-					if (cse.getURI().equals(k.getSourceURI()))
-					{
-						StringBuilder sb = new StringBuilder();
-						String[] unparse = lc.unparseSubtoken(k, "*KITTOKEN");
-						sb.append("STARTPACK:");
-						sb.append(k.getDisplayName());
-						if (unparse != null)
-						{
-							sb.append('\t').append(
-									StringUtil.join(unparse, "\t"));
-						}
-						sb.append('\n');
-
-						Changes<BaseKit> changes = lc.getObjectContext()
-								.getListChanges(k, ListKey.KIT_TASKS);
-						Collection<BaseKit> tasks = changes.getAdded();
-						if (tasks == null)
-						{
-							continue;
-						}
-						for (BaseKit kt : tasks)
-						{
-							List<CDOMSubLineLoader<?>> loaders = loaderMap
-									.getListFor(kt.getClass());
-							for (CDOMSubLineLoader loader : loaders)
-							{
-								processTask(lc, kt, loader, sb);
-							}
-						}
-						sb.append('\n');
-						set.add(sb.toString());
-					}
-				}
-				PrintWriter pw = new PrintWriter(f);
-				pw.println("#~PARAGRAPH");
-				for (String s : set)
-				{
-					pw.print(s);
-				}
-				pw.close();
-			}
-			catch (IOException e)
-			{
-				Logging.errorPrint("Exception in Load: ", e);
-			}
-		}
-	}
-
-	private <T extends BaseKit> void processTask(LoadContext lc, T kt,
-			CDOMSubLineLoader<T> loader, StringBuilder pw)
-	{
-		loader.unloadObject(lc, kt, pw);
-	}
-
-	private boolean ensureCreated(File rec)
-	{
-		if (!rec.exists())
-		{
-			if (!ensureCreated(rec.getParentFile()))
-			{
-				return false;
-			}
-			return rec.mkdir();
-		}
-		return true;
 	}
 }
