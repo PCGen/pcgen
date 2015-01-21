@@ -42,6 +42,11 @@ public class PCMaxLevelTermEvaluator extends BasePCTermEvaluator implements
 			return 0.0f;
 		}
 		PCClass aClass = pc.getClassKeyed(classKey);
+		if (aClass == null)
+		{
+			//PC Doesn't have class
+			return 0.0f;
+		}
 		int level =
 				pc.getSpellSupport(aClass).getMaxSpellLevelForClassLevel(
 					pc.getDisplay().getLevel(aClass));
