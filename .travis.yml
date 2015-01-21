@@ -4,3 +4,6 @@ language: java
 jdk:
   - oraclejdk7
 script: ./gradlew test datatest pfinttest
+
+before_install:
+ - chmod +x gradlew
