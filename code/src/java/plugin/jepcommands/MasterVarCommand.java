@@ -36,7 +36,9 @@ public class MasterVarCommand extends PCGenCommand
 	/** Constructor */
 	public MasterVarCommand()
 	{
-		numberOfParameters = 1;
+		//We say variable here and enforce below like our other JEP commands
+		//Not sure why exactly, but not messing with the black box
+		numberOfParameters = -1;
 	}
 
 	/**
