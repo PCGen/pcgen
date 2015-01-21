@@ -1,0 +1,6 @@
+# Run a short(ish) test run on travis-ci after each commit
+
+language: java
+jdk:
+  - oraclejdk7
+script: ./gradlew test datatest pfinttest
