@@ -36,8 +36,7 @@ public class BonusSpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 {
 
 	static BonusspellstatToken token = new BonusspellstatToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
 	private PCStat ps;
 
 	@Override

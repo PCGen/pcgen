@@ -41,8 +41,7 @@ public class RemoveFeatIntegrationTest extends
 
 	static FeatToken ft = new FeatToken();
 	static RemoveLst token = new RemoveLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

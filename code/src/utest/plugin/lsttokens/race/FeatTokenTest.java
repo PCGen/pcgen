@@ -44,7 +44,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 public class FeatTokenTest extends AbstractListKeyTokenTestCase<Race, Ability>
 {
 	static FeatToken token = new FeatToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
 
 	PreClassParser preclass = new PreClassParser();
 	PreClassWriter preclasswriter = new PreClassWriter();

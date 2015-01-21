@@ -40,8 +40,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 {
 
 	static ClassesToken token = new ClassesToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>(
-			Spell.class);
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();

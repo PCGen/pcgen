@@ -35,8 +35,7 @@ public class ChoiceIntegrationTest extends
 {
 
 	static ChoiceToken token = new ChoiceToken();
-	static CDOMTokenLoader<SubClass> loader = new CDOMTokenLoader<SubClass>(
-			SubClass.class);
+	static CDOMTokenLoader<SubClass> loader = new CDOMTokenLoader<SubClass>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

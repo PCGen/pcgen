@@ -28,8 +28,7 @@ public class CRFormulaTokenTest extends AbstractFormulaTokenTestCase<PCClass>
 {
 
 	static CrformulaToken token = new CrformulaToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

@@ -46,7 +46,7 @@ public class ChooseLangautoTokenTest extends
 	static ChooseLst token = new ChooseLst();
 	static ChooseLangautoToken subtoken = new ChooseLangautoToken();
 	static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>(CDOMObject.class);
+			new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public char getJoinCharacter()

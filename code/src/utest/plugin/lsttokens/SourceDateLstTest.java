@@ -34,8 +34,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class SourceDateLstTest extends AbstractGlobalTokenTestCase {
 
 	static SourcedateLst token = new SourcedateLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
 
 	public ObjectKey<Date> getKey() {
 		return ObjectKey.SOURCE_DATE;

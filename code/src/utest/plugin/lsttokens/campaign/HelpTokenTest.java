@@ -28,8 +28,7 @@ public class HelpTokenTest extends AbstractStringTokenTestCase<Campaign>
 {
 
 	static HelpToken token = new HelpToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>(
-			Campaign.class);
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()

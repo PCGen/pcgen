@@ -30,8 +30,7 @@ public class RankTokenTest extends AbstractIntegerTokenTestCase<Campaign>
 {
 
 	static RankToken token = new RankToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>(
-			Campaign.class);
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()

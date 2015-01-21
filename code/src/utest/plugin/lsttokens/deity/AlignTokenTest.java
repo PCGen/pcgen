@@ -35,8 +35,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class AlignTokenTest extends AbstractTokenTestCase<Deity>
 {
 	static AlignToken token = new AlignToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>(
-			Deity.class);
+	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>();
 	private PCAlignment lg;
 
 	@Override

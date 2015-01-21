@@ -47,8 +47,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	protected PCClassLevel secondaryProf2;
 	protected PCClassLevel primaryProf3;
 	protected PCClassLevel secondaryProf3;
-	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<PCClassLevel>(
-			PCClassLevel.class);
+	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<PCClassLevel>();
 
 	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;

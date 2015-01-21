@@ -37,8 +37,7 @@ public class LangTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static LangToken subtoken = new LangToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<Race> getCDOMClass()

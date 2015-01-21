@@ -28,8 +28,7 @@ public class AppearanceTokenTest extends AbstractStringTokenTestCase<Deity>
 {
 
 	static AppearanceToken token = new AppearanceToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>(
-			Deity.class);
+	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

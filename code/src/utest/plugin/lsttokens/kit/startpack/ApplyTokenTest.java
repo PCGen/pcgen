@@ -34,8 +34,7 @@ public class ApplyTokenTest extends AbstractTokenTestCase<Kit>
 
 	static ApplyToken token = new ApplyToken();
 
-	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<Kit>(
-			Kit.class);
+	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<Kit>();
 
 	@Override
 	public Class<Kit> getCDOMClass()

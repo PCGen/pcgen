@@ -49,8 +49,7 @@ public class AspectTokenTest extends AbstractTokenTestCase<Ability>
 	static AspectToken token = new AspectToken();
 	
 	/** The token loader. */
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>(
-			Ability.class);
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

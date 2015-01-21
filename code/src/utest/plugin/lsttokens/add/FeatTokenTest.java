@@ -55,8 +55,7 @@ public class FeatTokenTest extends
 	private static final Nature NATURE = Nature.NORMAL;
 	static AddLst token = new AddLst();
 	static FeatToken subtoken = new FeatToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

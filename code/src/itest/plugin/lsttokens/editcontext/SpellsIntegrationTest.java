@@ -43,8 +43,7 @@ public class SpellsIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	static SpellsLst token = new SpellsLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	PreClassParser preclass = new PreClassParser();
 	PreClassWriter preclasswriter = new PreClassWriter();

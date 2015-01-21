@@ -34,8 +34,7 @@ public class FollowersIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	static FollowersLst token = new FollowersLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

@@ -34,8 +34,7 @@ public class DeityWeapTokenTest extends
 		AbstractListTokenTestCase<Deity, WeaponProf>
 {
 	static DeityweapToken token = new DeityweapToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>(
-			Deity.class);
+	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>();
 
 	@Override
 	public char getJoinCharacter()

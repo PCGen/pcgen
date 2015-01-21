@@ -30,8 +30,7 @@ public class RemovableTokenTest extends AbstractYesNoTokenTestCase<PCTemplate>
 {
 
 	static RemovableToken token = new RemovableToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

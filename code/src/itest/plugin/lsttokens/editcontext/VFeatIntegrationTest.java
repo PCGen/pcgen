@@ -35,8 +35,7 @@ public class VFeatIntegrationTest extends
 {
 
 	static VFeatLst token = new VFeatLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<Domain> getCDOMClass()

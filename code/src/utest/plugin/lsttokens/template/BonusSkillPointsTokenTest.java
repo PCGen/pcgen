@@ -29,8 +29,7 @@ public class BonusSkillPointsTokenTest extends
 {
 
 	static BonusskillpointsToken token = new BonusskillpointsToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

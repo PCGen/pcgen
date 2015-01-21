@@ -29,8 +29,7 @@ public class RateOfFireIntegrationTest extends
 {
 
 	static RateoffireToken token = new RateoffireToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

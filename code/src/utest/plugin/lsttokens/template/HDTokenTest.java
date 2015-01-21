@@ -41,8 +41,7 @@ public class HDTokenTest extends AbstractTokenTestCase<PCTemplate>
 {
 
 	static HdToken token = new HdToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
 
 	@Override
 	@Before

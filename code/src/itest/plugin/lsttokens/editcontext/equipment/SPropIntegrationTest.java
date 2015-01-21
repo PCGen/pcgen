@@ -28,8 +28,7 @@ public class SPropIntegrationTest extends
 		AbstractTextPropertyIntegrationTestCase<Equipment>
 {
 	static SpropToken token = new SpropToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

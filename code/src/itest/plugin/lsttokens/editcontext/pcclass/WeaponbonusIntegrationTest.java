@@ -36,8 +36,7 @@ public class WeaponbonusIntegrationTest extends
 {
 
 	static WeaponbonusToken token = new WeaponbonusToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
 
 	@Override
 	@Before

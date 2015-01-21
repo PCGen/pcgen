@@ -34,8 +34,7 @@ public class RegionIntegrationTest extends
 {
 
 	static RegionToken token = new RegionToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

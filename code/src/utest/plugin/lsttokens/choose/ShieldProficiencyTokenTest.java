@@ -43,8 +43,7 @@ public class ShieldProficiencyTokenTest extends
 {
 	static ChooseLst token = new ChooseLst();
 	static ShieldProficiencyToken subtoken = new ShieldProficiencyToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<Race> getCDOMClass()

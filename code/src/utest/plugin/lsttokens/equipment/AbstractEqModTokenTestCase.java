@@ -30,8 +30,7 @@ public abstract class AbstractEqModTokenTestCase extends
 		AbstractListTokenTestCase<Equipment, EquipmentModifier>
 {
 
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

@@ -29,8 +29,7 @@ public class SelectTokenTest extends AbstractGlobalFormulaTokenTestCase
 {
 
 	static SelectLst token = new SelectLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

@@ -29,7 +29,7 @@ public class LegsIntegrationTest extends
 {
 
 	static LegsToken token = new LegsToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
 
 	@Override
 	public Class<Race> getCDOMClass()

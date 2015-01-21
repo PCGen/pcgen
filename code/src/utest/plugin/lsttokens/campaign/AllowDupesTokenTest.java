@@ -31,8 +31,7 @@ public class AllowDupesTokenTest extends AbstractTokenTestCase<Campaign>
 {
 
 	static CDOMPrimaryToken<Campaign> token = new AllowDupesToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>(
-			Campaign.class);
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
 
 	@Override
 	public CDOMLoader<Campaign> getLoader()

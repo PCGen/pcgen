@@ -31,8 +31,7 @@ public class SabIntegrationTest extends
 {
 
 	static SabLst token = new SabLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

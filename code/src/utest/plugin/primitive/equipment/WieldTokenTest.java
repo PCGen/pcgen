@@ -37,8 +37,7 @@ public class WieldTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static EquipmentToken subtoken = new EquipmentToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	private static final WieldCategoryToken WIELD_PRIMITIVE = new WieldCategoryToken();
 

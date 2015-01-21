@@ -29,8 +29,7 @@ public class ProhibitcostIntegrationTest extends
 {
 
 	static ProhibitcostToken token = new ProhibitcostToken();
-	static CDOMTokenLoader<SubClass> loader = new CDOMTokenLoader<SubClass>(
-			SubClass.class);
+	static CDOMTokenLoader<SubClass> loader = new CDOMTokenLoader<SubClass>();
 
 	@Override
 	public Class<SubClass> getCDOMClass()

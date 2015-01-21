@@ -37,8 +37,7 @@ public class SizeTokenTest extends AbstractTokenTestCase<Equipment>
 {
 
 	static SizeToken token = new SizeToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 	private SizeAdjustment ps;
 
 	@Override

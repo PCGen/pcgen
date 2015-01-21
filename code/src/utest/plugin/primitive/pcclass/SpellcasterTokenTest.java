@@ -37,8 +37,7 @@ public class SpellcasterTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static ClassToken subtoken = new ClassToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	private static final SpellcasterToken SPELLCASTER_PRIMITIVE = new SpellcasterToken();
 

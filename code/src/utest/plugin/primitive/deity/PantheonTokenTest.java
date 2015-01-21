@@ -37,8 +37,7 @@ public class PantheonTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static DeityToken subtoken = new DeityToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	private static final PantheonToken PANTHEON_TOKEN = new PantheonToken();
 

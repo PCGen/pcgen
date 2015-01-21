@@ -28,8 +28,7 @@ public class WorshippersTokenTest extends AbstractStringTokenTestCase<Deity>
 {
 
 	static WorshippersToken token = new WorshippersToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>(
-			Deity.class);
+	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

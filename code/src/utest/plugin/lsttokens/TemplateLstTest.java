@@ -68,8 +68,7 @@ public class TemplateLstTest extends
 	}
 
 	static CDOMPrimaryToken<CDOMObject> token = new TemplateLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()

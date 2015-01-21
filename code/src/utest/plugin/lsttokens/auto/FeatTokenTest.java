@@ -74,8 +74,7 @@ public class FeatTokenTest extends
 
 	static AutoLst token = new AutoLst();
 	static FeatToken subtoken = new FeatToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	protected Ability construct(LoadContext loadContext, String one)

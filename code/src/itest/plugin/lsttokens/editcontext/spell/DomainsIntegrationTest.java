@@ -40,8 +40,7 @@ public class DomainsIntegrationTest extends AbstractIntegrationTestCase<Spell>
 {
 
 	static DomainsToken token = new DomainsToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>(
-			Spell.class);
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();

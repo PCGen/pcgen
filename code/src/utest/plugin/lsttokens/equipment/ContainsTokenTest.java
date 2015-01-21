@@ -31,8 +31,7 @@ public class ContainsTokenTest extends AbstractTokenTestCase<Equipment>
 {
 
 	static ContainsToken token = new ContainsToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

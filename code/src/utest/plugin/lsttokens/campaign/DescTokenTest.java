@@ -31,8 +31,7 @@ public class DescTokenTest extends AbstractStringTokenTestCase<Campaign>
 {
 
 	static DescToken token = new DescToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>(
-			Campaign.class);
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()

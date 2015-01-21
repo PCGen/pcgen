@@ -53,8 +53,7 @@ public class UmultLstTest extends AbstractGlobalIntegerTokenTestCase
 	}
 
 	static CDOMPrimaryToken<CDOMObject> token = new UmultLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()

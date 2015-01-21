@@ -47,8 +47,7 @@ public class DomainsTokenTest extends
 		AbstractListContextTokenTestCase<Deity, Domain>
 {
 	static DomainsToken token = new DomainsToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>(
-			Deity.class);
+	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>();
 
 	@Override
 	@Before

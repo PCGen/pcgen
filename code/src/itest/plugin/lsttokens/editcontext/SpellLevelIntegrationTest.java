@@ -44,8 +44,7 @@ public class SpellLevelIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	static SpelllevelLst token = new SpelllevelLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	PreClassParser preclass = new PreClassParser();
 	PreClassWriter preclasswriter = new PreClassWriter();

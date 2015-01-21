@@ -29,8 +29,7 @@ public class XtraFeatsTokenTest extends AbstractIntegerTokenTestCase<PCClass>
 {
 
 	static XtrafeatsToken token = new XtrafeatsToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

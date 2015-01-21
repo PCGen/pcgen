@@ -38,8 +38,7 @@ public class DeityTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static DeityToken subtoken = new DeityToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<Race> getCDOMClass()

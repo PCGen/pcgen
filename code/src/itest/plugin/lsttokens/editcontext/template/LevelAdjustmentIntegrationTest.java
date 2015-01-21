@@ -29,8 +29,7 @@ public class LevelAdjustmentIntegrationTest extends
 {
 
 	static LeveladjustmentToken token = new LeveladjustmentToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

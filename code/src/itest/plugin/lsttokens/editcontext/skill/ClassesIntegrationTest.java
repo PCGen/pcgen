@@ -39,8 +39,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 {
 
 	static ClassesToken token = new ClassesToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>(
-			Skill.class);
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
 
 	private static boolean classSetUpFired = false;
 

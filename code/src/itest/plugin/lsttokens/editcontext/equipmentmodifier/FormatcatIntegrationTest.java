@@ -33,8 +33,7 @@ public class FormatcatIntegrationTest extends
 {
 
 	static FormatcatToken token = new FormatcatToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>(
-			EquipmentModifier.class);
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

@@ -29,8 +29,7 @@ public class LevelAdjustmentTokenTest extends
 {
 
 	static LeveladjustmentToken token = new LeveladjustmentToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(
-			Race.class);
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
 
 	@Override
 	public Class<Race> getCDOMClass()

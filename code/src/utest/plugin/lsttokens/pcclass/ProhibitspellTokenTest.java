@@ -42,8 +42,7 @@ public class ProhibitspellTokenTest extends AbstractTokenTestCase<PCClass>
 {
 
 	static ProhibitspellToken token = new ProhibitspellToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
 
 	PreClassParser preclass = new PreClassParser();
 	PreClassWriter preclasswriter = new PreClassWriter();

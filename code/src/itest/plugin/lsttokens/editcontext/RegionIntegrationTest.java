@@ -33,8 +33,7 @@ public class RegionIntegrationTest extends
 {
 
 	static RegionLst token = new RegionLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
