@@ -38,8 +38,7 @@ public class ClassTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static ClassToken subtoken = new ClassToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<Race> getCDOMClass()

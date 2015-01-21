@@ -38,7 +38,7 @@ public class NoChoiceTokenTest extends AbstractTokenTestCase<CDOMObject>
 	static ChooseLst token = new ChooseLst();
 	static NoChoiceToken subtoken = new NoChoiceToken();
 	static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>(CDOMObject.class);
+			new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

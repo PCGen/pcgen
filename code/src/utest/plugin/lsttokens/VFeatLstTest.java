@@ -89,8 +89,7 @@ public class VFeatLstTest extends AbstractGlobalListTokenTestCase<Ability>
 	}
 
 	static CDOMPrimaryToken<CDOMObject> token = new VFeatLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()

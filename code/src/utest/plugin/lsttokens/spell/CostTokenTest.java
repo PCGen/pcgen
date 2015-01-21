@@ -29,8 +29,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class CostTokenTest extends AbstractBigDecimalTokenTestCase<Spell>
 {
 	static CostToken token = new CostToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>(
-			Spell.class);
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

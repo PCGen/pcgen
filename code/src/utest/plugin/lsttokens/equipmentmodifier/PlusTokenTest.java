@@ -31,8 +31,7 @@ public class PlusTokenTest extends
 {
 
 	static PlusToken token = new PlusToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>(
-			EquipmentModifier.class);
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

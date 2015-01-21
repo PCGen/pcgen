@@ -54,8 +54,7 @@ public class FeatTokenTest extends
 
 	static RemoveLst token = new RemoveLst();
 	static FeatToken subtoken = new FeatToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public String getAllString()

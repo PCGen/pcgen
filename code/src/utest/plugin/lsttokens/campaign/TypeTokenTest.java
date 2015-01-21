@@ -31,8 +31,7 @@ public class TypeTokenTest extends AbstractTokenTestCase<Campaign>
 {
 
 	static TypeToken token = new TypeToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>(
-			Campaign.class);
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()

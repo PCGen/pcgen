@@ -30,7 +30,7 @@ public class LegsTokenTest extends AbstractIntegerTokenTestCase<Race>
 {
 
 	static LegsToken token = new LegsToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
 
 	@Override
 	public Class<Race> getCDOMClass()

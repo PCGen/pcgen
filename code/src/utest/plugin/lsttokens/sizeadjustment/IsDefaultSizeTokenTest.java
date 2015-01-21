@@ -31,8 +31,7 @@ public class IsDefaultSizeTokenTest extends
 {
 
 	static IsdefaultsizeToken token = new IsdefaultsizeToken();
-	static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<SizeAdjustment>(
-			SizeAdjustment.class);
+	static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<SizeAdjustment>();
 
 	@Override
 	public Class<SizeAdjustment> getCDOMClass()

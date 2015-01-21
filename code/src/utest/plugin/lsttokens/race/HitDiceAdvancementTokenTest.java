@@ -33,7 +33,7 @@ public class HitDiceAdvancementTokenTest extends AbstractTokenTestCase<Race>
 {
 
 	static HitdiceadvancementToken token = new HitdiceadvancementToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
 
 	@Override
 	public Class<Race> getCDOMClass()

@@ -29,8 +29,7 @@ public class SymbolIntegrationTest extends
 {
 
 	static SymbolToken token = new SymbolToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>(
-			Deity.class);
+	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

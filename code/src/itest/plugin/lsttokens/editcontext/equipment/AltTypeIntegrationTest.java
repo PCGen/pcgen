@@ -34,8 +34,7 @@ public class AltTypeIntegrationTest extends
 {
 
 	static AlttypeToken token = new AlttypeToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

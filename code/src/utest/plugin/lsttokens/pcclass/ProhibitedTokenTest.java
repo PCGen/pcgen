@@ -39,8 +39,7 @@ public class ProhibitedTokenTest extends AbstractTokenTestCase<PCClass>
 {
 
 	static ProhibitedToken token = new ProhibitedToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
 
 	PreClassParser preclass = new PreClassParser();
 	PreClassWriter preclasswriter = new PreClassWriter();

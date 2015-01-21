@@ -35,8 +35,7 @@ public class KnownSpellsIntegrationTest extends
 {
 
 	static KnownspellsToken token = new KnownspellsToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

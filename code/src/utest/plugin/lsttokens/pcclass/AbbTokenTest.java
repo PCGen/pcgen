@@ -32,8 +32,7 @@ public class AbbTokenTest extends AbstractTokenTestCase<PCClass>
 {
 	static AbbToken token = new AbbToken();
 
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

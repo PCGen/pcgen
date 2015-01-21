@@ -45,8 +45,7 @@ public class FeatTokenTest extends
 		AbstractListContextTokenTestCase<Domain, Ability>
 {
 	static FeatToken token = new FeatToken();
-	static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<Domain>(
-			Domain.class);
+	static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<Domain>();
 
 	PreClassParser preclass = new PreClassParser();
 	PreClassWriter preclasswriter = new PreClassWriter();

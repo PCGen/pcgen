@@ -29,8 +29,7 @@ public class AddSpellLevelIntegrationTest extends
 {
 
 	static AddspelllevelToken token = new AddspelllevelToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>(
-			Ability.class);
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

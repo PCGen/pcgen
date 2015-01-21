@@ -46,7 +46,7 @@ public class HDIntegrationTest extends
 
 	static HdToken token = new HdToken();
 	static CDOMTokenLoader<PCTemplate> loader =
-			new CDOMTokenLoader<PCTemplate>(PCTemplate.class);
+			new CDOMTokenLoader<PCTemplate>();
 
 	private static boolean classSetUpFired = false;
 

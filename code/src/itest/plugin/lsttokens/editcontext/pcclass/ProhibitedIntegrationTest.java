@@ -29,8 +29,7 @@ public class ProhibitedIntegrationTest extends
 {
 
 	static ProhibitedToken token = new ProhibitedToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

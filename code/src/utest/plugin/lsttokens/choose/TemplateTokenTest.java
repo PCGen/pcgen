@@ -36,8 +36,7 @@ public class TemplateTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static TemplateToken subtoken = new TemplateToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

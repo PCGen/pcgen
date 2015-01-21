@@ -35,8 +35,7 @@ public class IsMonsterIntegrationTest extends
 {
 
 	static IsmonsterToken token = new IsmonsterToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

@@ -35,8 +35,7 @@ public class SrIntegrationTest extends
 {
 
 	static SrLst token = new SrLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

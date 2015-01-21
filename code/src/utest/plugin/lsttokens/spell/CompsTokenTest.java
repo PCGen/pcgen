@@ -30,8 +30,7 @@ public class CompsTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {
 
 	static CompsToken token = new CompsToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>(
-			Spell.class);
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

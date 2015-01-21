@@ -44,8 +44,7 @@ public class RanksQualifierTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static SkillToken subtoken = new SkillToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 	private Skill s1, s2, s3;
 	private PCClass cl1;
 

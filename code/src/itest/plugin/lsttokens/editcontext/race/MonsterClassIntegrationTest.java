@@ -33,8 +33,7 @@ public class MonsterClassIntegrationTest extends
 {
 
 	static MonsterclassToken token = new MonsterclassToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(
-			Race.class);
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
 
 	@Override
 	public Class<Race> getCDOMClass()

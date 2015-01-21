@@ -29,8 +29,7 @@ public class StartSkillPtsTokenTest extends
 {
 
 	static StartskillptsToken token = new StartskillptsToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

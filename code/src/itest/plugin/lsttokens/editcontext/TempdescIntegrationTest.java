@@ -30,8 +30,7 @@ public class TempdescIntegrationTest extends
 {
 
 	static TempdescLst token = new TempdescLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

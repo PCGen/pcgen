@@ -34,8 +34,7 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 {
 
 	static CopyrightToken token = new CopyrightToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>(
-			Campaign.class);
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()

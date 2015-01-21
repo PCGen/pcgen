@@ -36,8 +36,7 @@ public class KeystatTokenTest extends AbstractTokenTestCase<Skill>
 {
 
 	static KeystatToken token = new KeystatToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>(
-			Skill.class);
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
 	private PCStat ps;
 
 	@Override

@@ -31,8 +31,7 @@ public class ReplacesTokenTest extends
 		AbstractTypeSafeListTestCase<EquipmentModifier, CDOMSingleRef<EquipmentModifier>>
 {
 	static ReplacesToken token = new ReplacesToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>(
-			EquipmentModifier.class);
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

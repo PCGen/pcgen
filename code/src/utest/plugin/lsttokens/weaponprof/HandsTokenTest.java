@@ -31,8 +31,7 @@ public class HandsTokenTest extends AbstractIntegerTokenTestCase<WeaponProf>
 {
 
 	static HandsToken token = new HandsToken();
-	static CDOMTokenLoader<WeaponProf> loader = new CDOMTokenLoader<WeaponProf>(
-			WeaponProf.class);
+	static CDOMTokenLoader<WeaponProf> loader = new CDOMTokenLoader<WeaponProf>();
 
 	@Override
 	public Class<WeaponProf> getCDOMClass()

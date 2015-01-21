@@ -32,8 +32,7 @@ public class ChargesTokenTest extends AbstractTokenTestCase<EquipmentModifier>
 {
 
 	static ChargesToken token = new ChargesToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>(
-			EquipmentModifier.class);
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

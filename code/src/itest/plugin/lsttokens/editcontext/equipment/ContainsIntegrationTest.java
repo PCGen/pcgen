@@ -33,8 +33,7 @@ public class ContainsIntegrationTest extends
 {
 
 	static ContainsToken token = new ContainsToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

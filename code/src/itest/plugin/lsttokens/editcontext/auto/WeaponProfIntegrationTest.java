@@ -39,8 +39,7 @@ public class WeaponProfIntegrationTest extends
 
 	static WeaponProfToken ft = new WeaponProfToken();
 	static AutoLst token = new AutoLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

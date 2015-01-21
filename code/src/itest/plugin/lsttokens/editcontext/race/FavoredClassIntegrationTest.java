@@ -33,7 +33,7 @@ public class FavoredClassIntegrationTest extends
 {
 
 	static FavclassToken token = new FavclassToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
 
 	@Override
 	public Class<Race> getCDOMClass()

@@ -32,7 +32,7 @@ public class SpellTypeTokenTest extends AbstractStringTokenTestCase<PCClass>
 
 	static SpelltypeToken token = new SpelltypeToken();
 	static CDOMTokenLoader<PCClass> loader =
-			new CDOMTokenLoader<PCClass>(PCClass.class);
+			new CDOMTokenLoader<PCClass>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

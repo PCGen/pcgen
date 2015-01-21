@@ -40,7 +40,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 {
 	static AutoLst token = new AutoLst();
 	static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>(CDOMObject.class);
+			new CDOMTokenLoader<CDOMObject>();
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 

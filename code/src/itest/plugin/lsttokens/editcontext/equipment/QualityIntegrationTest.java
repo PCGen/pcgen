@@ -32,8 +32,7 @@ public class QualityIntegrationTest extends
 		AbstractIntegrationTestCase<Equipment>
 {
 	static QualityToken token = new QualityToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

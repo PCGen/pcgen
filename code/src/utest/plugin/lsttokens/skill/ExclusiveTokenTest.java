@@ -28,8 +28,7 @@ public class ExclusiveTokenTest extends AbstractYesNoTokenTestCase<Skill>
 {
 
 	static ExclusiveToken token = new ExclusiveToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>(
-			Skill.class);
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
 
 	@Override
 	public Class<Skill> getCDOMClass()

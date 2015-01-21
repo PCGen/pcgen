@@ -37,8 +37,7 @@ public class BonusSpellStatIntegrationTest extends
 {
 
 	static BonusspellstatToken token = new BonusspellstatToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
 
 	@Override
 	@Before

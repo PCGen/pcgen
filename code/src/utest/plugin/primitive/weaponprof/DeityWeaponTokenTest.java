@@ -37,8 +37,7 @@ public class DeityWeaponTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static WeaponProficiencyToken subtoken = new WeaponProficiencyToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 	private static final DeityWeaponToken DEITYWEAPON_TOKEN = new DeityWeaponToken();
 
 	public DeityWeaponTokenTest()

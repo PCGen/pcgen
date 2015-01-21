@@ -38,8 +38,7 @@ public class EquipmentTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static EquipmentToken subtoken = new EquipmentToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<Race> getCDOMClass()

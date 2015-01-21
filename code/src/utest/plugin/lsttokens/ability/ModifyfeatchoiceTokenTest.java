@@ -55,8 +55,7 @@ public class ModifyfeatchoiceTokenTest extends
 {
 	static ModifyfeatchoiceToken token = new ModifyfeatchoiceToken();
 
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>(
-			Ability.class);
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
 
 	PreClassParser preclass = new PreClassParser();
 

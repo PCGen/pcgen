@@ -39,8 +39,7 @@ public class ChooseLangautoIntegrationTest extends
 
 	static ChooseLangautoToken ft = new ChooseLangautoToken();
 	static ChooseLst token = new ChooseLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

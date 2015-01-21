@@ -35,8 +35,7 @@ public class StatIntegrationTest extends
 {
 
 	static StatToken token = new StatToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>(
-			Spell.class);
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
 
 	@Override
 	protected String getFirstConstant()
