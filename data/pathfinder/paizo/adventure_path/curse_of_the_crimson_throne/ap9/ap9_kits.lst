@@ -11,23 +11,23 @@ SKILL:Climb		RANK:34
 SKILL:Acrobatics	RANK:34
 SKILL:Perception	RANK:34
 SKILL:Stealth	RANK:34
-FEAT:Awesome Blow
-FEAT:Combat Reflexes
-FEAT:Hover
-FEAT:Improved Bull Rush
-FEAT:Improved Critical(Claws)
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Sting)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Wingover
-FEAT:Flyby Attack
-FEAT:Weapon Focus (Claws)
-FEAT:Weapon Focus (Bite)
-FEAT:Weapon Focus (Sting)
-FEAT:Snatch
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical(Claws)
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Sting)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Wingover
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claws)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Sting)
+ABILITY:CATEGORY=FEAT|Snatch
 
 
 STARTPACK:Beatific One Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beatific One]
@@ -48,12 +48,12 @@ SKILL:Survival			RANK:11
 ABILITY:CATEGORY=Monk Bonus Feat|Deflect Arrows
 ABILITY:CATEGORY=Monk Bonus Feat|Improved Disarm
 ABILITY:CATEGORY=Monk Bonus Feat|Improved Grapple
-FEAT:Dodge
-FEAT:Mobility
-FEAT:Snatch Arrows
-FEAT:Spring Attack
-FEAT:Great Fortitude
-FEAT:Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Snatch Arrows
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Combat Reflexes
 GEAR:Temple Sword		SIZE:PC	LOCATION:Primary Hand
 GEAR:Spear			SIZE:PC	LOCATION:Equipped
 GEAR:Kukri			SIZE:PC	LOCATION:Equipped
@@ -72,15 +72,15 @@ ALIGN:LE
 RACE:Rakshasa Maharajah	!PRERACE:1,%
 NAME:Rakshasa Maharajah
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
-FEAT:Combat Casting
-FEAT:Eschew Materials
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Maximize Spell
-FEAT:Quicken Spell
-FEAT:Widen Spell
-FEAT:Still Spell
-FEAT:Spell Penetration
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Eschew Materials
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Widen Spell
+ABILITY:CATEGORY=FEAT|Still Spell
+ABILITY:CATEGORY=FEAT|Spell Penetration
 SKILL:Appraise			RANK:18
 SKILL:Bluff				RANK:18
 SKILL:Diplomacy			RANK:18
@@ -103,11 +103,11 @@ ALIGN:TN
 RACE:Sikari Macaque Swarm	!PRERACE:1,%
 NAME:Sikari Macaque Swarm
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=11
-FEAT:Nimble Moves
-FEAT:Alertness
-FEAT:Lightning Reflexes
-FEAT:Weapon Finesse
-FEAT:Combat Reflexes
+ABILITY:CATEGORY=FEAT|Nimble Moves
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Combat Reflexes
 SKILL:Acrobatics		RANK:2
 SKILL:Escape Artist	RANK:6
 SKILL:Perception		RANK:2

@@ -15,7 +15,7 @@ CLASS:Adept		STARTSKILLPTS:5	CSKILL:Concentration|Craft (Chemical)|Craft (Pharma
 # Class Name	Spell Stat		Spell Type		Memorize	Spellbook		Caster level			Use Spell List
 CLASS:Adept		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLBOOK:NO	BONUS:CASTERLEVEL|Adept|CL	SPELLLIST:1|Mage
 ###Block: Standard
-1	CAST:5,3		KNOWN:4,2						BONUS:MISC|SPELLFAILURE|20|PREEQUIP:2,TYPE=Armor,TYPE=Light	BONUS:MISC|SPELLFAILURE|30|PREEQUIP:2,TYPE=Armor,TYPE=Medium	BONUS:MISC|SPELLFAILURE|40|PREEQUIP:2,TYPE=Armor,TYPE=Heavy	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Light)],[PREEQUIP:2,TYPE=Armor,TYPE=Light]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Medium)],[PREEQUIP:2,TYPE=Armor,TYPE=Medium]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Heavy)],[PREEQUIP:2,TYPE=Armor,TYPE=Heavy]	ADD:FEAT|Arcane Skills
+1	CAST:5,3		KNOWN:4,2						BONUS:MISC|SPELLFAILURE|20|PREEQUIP:2,TYPE=Armor,TYPE=Light	BONUS:MISC|SPELLFAILURE|30|PREEQUIP:2,TYPE=Armor,TYPE=Medium	BONUS:MISC|SPELLFAILURE|40|PREEQUIP:2,TYPE=Armor,TYPE=Heavy	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Light)],[PREEQUIP:2,TYPE=Armor,TYPE=Light]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Medium)],[PREEQUIP:2,TYPE=Armor,TYPE=Medium]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Heavy)],[PREEQUIP:2,TYPE=Armor,TYPE=Heavy]	ADD:FEAT|Arcane Skills
 2	CAST:6,4		KNOWN:5,2		SAB:Scribe Tattoo
 3	CAST:6,5		KNOWN:5,3																																																																																														ADD:FEAT|TYPE=Adept
 4	CAST:6,6,3		KNOWN:6,3,1		SAB:Combat Casting
@@ -29,7 +29,7 @@ CLASS:Adept		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLBOOK:NO	BONUS:CASTE
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus																					Modify VAR
 CLASS:Arcane Scholar	HD:6		TYPE:PC.Advanced	ABB:ArSc		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat			Required Skill													Required Stat
-CLASS:Arcane Scholar	PREFEAT:2,Educated,Studious	PRESKILL:4,Decipher Script=6,Knowledge (Arcane Lore)=6,Knowledge (History)=6,Research=6	PRESTAT:1,INT=13
+CLASS:Arcane Scholar	PREABILITY:2,CATEGORY=FEAT,Educated,Studious	PRESKILL:4,Decipher Script=6,Knowledge (Arcane Lore)=6,Knowledge (History)=6,Research=6	PRESTAT:1,INT=13
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Scholar	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Visual Art)|Craft (Writing)|Decipher Script|Gather Information|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|READ/WRITE LANGUAGE|Research|Sense Motive|SPEAK LANGUAGE|Spellcraft
 1	SAB:Detect Magic																					ADD:FEAT|Arcane Skills
@@ -46,7 +46,7 @@ CLASS:Arcane Scholar	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Visual Art)|Cra
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
 CLASS:Bounty Hunter	HD:8		TYPE:PC.Advanced	ABB:BHntr		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat						Required Skill											PRETOTALAB
-CLASS:Bounty Hunter	PREFEAT:2,Track,Personal Firearms Proficiency	PRESKILL:5,Investigate=6,Sense Motive=6,Spot=6,Survival=6,Treat Injury=6	PRETOTALAB:2
+CLASS:Bounty Hunter	PREABILITY:2,CATEGORY=FEAT,Track,Personal Firearms Proficiency	PRESKILL:5,Investigate=6,Sense Motive=6,Spot=6,Survival=6,Treat Injury=6	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bounty Hunter	STARTSKILLPTS:5	CSKILL:Bluff|Disable Device|Drive|Gather Information|Hide|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Profession|READ/WRITE LANGUAGE|Research|Search|Sense Motive|SPEAK LANGUAGE|Spot|Survival|Treat Injury
 1	SAB:Target Bonus +%|Trgt_Bns											BONUS:VAR|Trgt_Bns|1	DEFINE:Trgt_Bns|0
@@ -97,7 +97,7 @@ CLASS:Criminologist	STARTSKILLPTS:9	CSKILL:Computer Use|Craft (Chemical)|Craft (
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus																														Modify VAR
 CLASS:Dead Shot	HD:8		TYPE:PC.Advanced	ABB:DdSht		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat							Required Skill				PRETOTALAB
-CLASS:Dead Shot	PREFEAT:2,Personal Firearms Proficiency,Far Shot	PRESKILL:2,Concentration=6,Spot=6	PRETOTALAB:2
+CLASS:Dead Shot	PREABILITY:2,CATEGORY=FEAT,Personal Firearms Proficiency,Far Shot	PRESKILL:2,Concentration=6,Spot=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dead Shot	STARTSKILLPTS:3	CSKILL:Climb|Concentration|Disguise|Gather Information|Hide|Investigate|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Profession|Spot|Survival
 1	SAB:Dead Aim
@@ -114,13 +114,13 @@ CLASS:Dead Shot	STARTSKILLPTS:3	CSKILL:Climb|Concentration|Disguise|Gather Infor
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
 CLASS:Enforcer	HD:12		TYPE:PC.Advanced	ABB:Enfrc		MAXLEVEL:10	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat	Required Skill		PRETOTALAB
-CLASS:Enforcer	PREFEAT:1,Brawl	PRESKILL:1,Intimidate=3	PRETOTALAB:3
+CLASS:Enforcer	PREABILITY:1,CATEGORY=FEAT,Brawl	PRESKILL:1,Intimidate=3	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Enforcer	STARTSKILLPTS:3	CSKILL:Climb|Concentration|Drive|Gamble|Gather Information|Hide|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Profession|SPEAK LANGUAGE|Sense Motive|Search
 1	SAB:Sucker Punch
 2	SAB:Lose It %/day|LOSE_IT										BONUS:VAR|LOSE_IT|1	DEFINE:LOSE_IT|0
 3																						ADD:FEAT|TYPE=Enforcer
-4																										VFEAT:Combat Martial Arts
+4																										ABILITY:FEAT|VIRTUAL|Combat Martial Arts
 5															BONUS:VAR|LOSE_IT|1
 6																						ADD:FEAT|TYPE=Enforcer
 7	SAB:Street Cred			BONUS:SKILL|Intimidate|Var.Reputation|TYPE=Class
@@ -131,7 +131,7 @@ CLASS:Enforcer	STARTSKILLPTS:3	CSKILL:Climb|Concentration|Drive|Gamble|Gather In
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
 CLASS:Fixer		HD:6		TYPE:PC.Advanced	ABB:Fxr		MAXLEVEL:10	SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat	Required Skill
-CLASS:Fixer		PREFEAT:1,Favor	PRESKILL:3,Diplomacy=6,Gather Information=6,Knowledge (Current Events)=6
+CLASS:Fixer		PREABILITY:1,CATEGORY=FEAT,Favor	PRESKILL:3,Diplomacy=6,Gather Information=6,Knowledge (Current Events)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fixer		STARTSKILLPTS:7	CSKILL:Bluff|Diplomacy|Forgery|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Listen|Profession|READ/WRITE LANGUAGE|Repair|Research|Sense Motive|SPEAK LANGUAGE
 1	SAB:Word on the Street
@@ -148,10 +148,10 @@ CLASS:Fixer		STARTSKILLPTS:7	CSKILL:Bluff|Diplomacy|Forgery|Knowledge (Art)|Know
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Save bonus																														Modify VAR
 CLASS:Gentle Warrior	HD:8		TYPE:PC.Advanced	ABB:GntlW		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat										Required Skill		Var. Min. Value
-CLASS:Gentle Warrior	PREFEAT:3,Combat Expertise,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Balance=6	PREVARGTEQ:ClassDefense,4
+CLASS:Gentle Warrior	PREABILITY:3,CATEGORY=FEAT,Combat Expertise,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Balance=6	PREVARGTEQ:ClassDefense,4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Gentle Warrior	STARTSKILLPTS:3	CSKILL:Balance|Climb|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Move Silently|Perform (Dance)|Profession|READ/WRITE LANGUAGE|Spot|Tumble
-1					ADD:FEAT|Uncanny Dodge X1,Uncanny Dodge X2	VFEAT:Unarmed Weapon Finesse
+1					ADD:FEAT|Uncanny Dodge X1,Uncanny Dodge X2	ABILITY:FEAT|VIRTUAL|Unarmed Weapon Finesse
 2	SAB:Improved Grapple
 3					ADD:FEAT|TYPE=GentleWarrior
 4					ADD:FEAT|Uncanny Dodge X2
@@ -165,7 +165,7 @@ CLASS:Gentle Warrior	STARTSKILLPTS:3	CSKILL:Balance|Climb|Diplomacy|Escape Artis
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus																													Modify VAR
 CLASS:Hacker	HD:6		TYPE:PC.Advanced	ABB:Hckr		MAXLEVEL:10	SOURCEPAGE:p.33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat		Required Skill
-CLASS:Hacker	PREFEAT:1,Gearhead	PRESKILL:5,Computer Use=6,Craft (Electronic)=6,Knowledge (Technology)=6,Disable Device=3,Repair=3
+CLASS:Hacker	PREABILITY:1,CATEGORY=FEAT,Gearhead	PRESKILL:5,Computer Use=6,Craft (Electronic)=6,Knowledge (Technology)=6,Disable Device=3,Repair=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hacker	STARTSKILLPTS:7	CSKILL:Bluff|Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Writing)|Decipher Script|Diplomacy|Disable Device|Forgery|Gamble|Gather Information|Intimidate|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Technology)|Profession|READ/WRITE LANGUAGE|Repair|Research|Search|SPEAK LANGUAGE
 1	SAB:Online Presence
@@ -199,7 +199,7 @@ CLASS:Opinion Maker	STARTSKILLPTS:5	CSKILL:Bluff|Craft (Writing)|Diplomacy|Disgu
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
 CLASS:Profiler	HD:6		TYPE:PC.Advanced	ABB:Prfl		MAXLEVEL:10	SOURCEPAGE:p.37	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat		Required Skill
-CLASS:Profiler	PREFEAT:1,Attentive	PRESKILL:3,Knowledge (Behavioral Sciences)=6,Sense Motive=6,Gather Information=3
+CLASS:Profiler	PREABILITY:1,CATEGORY=FEAT,Attentive	PRESKILL:3,Knowledge (Behavioral Sciences)=6,Sense Motive=6,Gather Information=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Profiler	STARTSKILLPTS:7	CSKILL:Craft (Visual Art)|Craft (Writing)|Decipher Script|Diplomacy|Disguise|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|READ/WRITE LANGUAGE|Research|Sense Motive|SPEAK LANGUAGE|Spot
 1	SAB:Profile
@@ -222,7 +222,7 @@ CLASS:Survivalist	STARTSKILLPTS:5	CSKILL:Balance|Climb|Craft (Structural)|Handle
 1	SAB:Athletic		BONUS:SKILL|Climb,Swim|2
 2										ADD:FEAT|Naturalist
 3										ADD:FEAT|TYPE=Survivalist
-4															VFEAT:Endurance
+4															ABILITY:FEAT|VIRTUAL|Endurance
 5										ADD:FEAT|Naturalist
 6										ADD:FEAT|TYPE=Survivalist
 7	SAB:Orienteering
@@ -233,7 +233,7 @@ CLASS:Survivalist	STARTSKILLPTS:5	CSKILL:Balance|Climb|Craft (Structural)|Handle
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Save bonus																														Modify VAR
 CLASS:Transporter	HD:8		TYPE:PC.Advanced	ABB:Trnsp		MAXLEVEL:10	SOURCEPAGE:p.40	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Check Base	Required Feat			Required Skill
-CLASS:Transporter	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Vehicle Expert	PRESKILL:1,Drive=6
+CLASS:Transporter	PRECHECKBASE:1,Reflex=2	PREABILITY:1,CATEGORY=FEAT,Vehicle Expert	PRESKILL:1,Drive=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Transporter	STARTSKILLPTS:5	CSKILL:Balance|Concentration|Craft (Electronic)|Craft (Mechanical)|Disable Device|Drive|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Listen|Navigate|Profession|Pilot|READ/WRITE LANGUAGE|Repair|SPEAK LANGUAGE|Tumble
 1								ADD:FEAT|Uncanny Dodge X1,Uncanny Dodge X2
@@ -266,7 +266,7 @@ CLASS:Commander	STARTSKILLPTS:5	CSKILL:Bluff|Craft (Writing)|Diplomacy|Gather In
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus																														Modify VAR
 CLASS:Dark Sage	HD:6		TYPE:PC.Prestige	ABB:DkSg		MAXLEVEL:5	SOURCEPAGE:p.44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+4)/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL)/3	BONUS:VAR|Action|CL*7
 # Class Name	Required Feat					Required Skill										Required Stat
-CLASS:Dark Sage	PREFEAT:3,Arcane Skills,Educated,Studious	PRESKILL:3,Decipher Script=13,Knowledge (Arcane Lore)=13,Research=13	PRESTAT:1,INT=13
+CLASS:Dark Sage	PREABILITY:3,CATEGORY=FEAT,Arcane Skills,Educated,Studious	PRESKILL:3,Decipher Script=13,Knowledge (Arcane Lore)=13,Research=13	PRESTAT:1,INT=13
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dark Sage	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Visual Art)|Craft (Writing)|Decipher Script|Gather Information|Investigate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|READ/WRITE LANGUAGE|Research|Sense Motive|SPEAK LANGUAGE|Spellcraft
 1						BONUS:MISC|SR|CL	ADD:FEAT|Master of Incantations	ADD:FEAT|Class Ability Magic Defense
@@ -278,7 +278,7 @@ CLASS:Dark Sage	STARTSKILLPTS:7	CSKILL:Concentration|Craft (Visual Art)|Craft (W
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus																							Modify VAR
 CLASS:Martial Arts Master	HD:8		TYPE:PC.Prestige	ABB:MAM		MAXLEVEL:5	SOURCEPAGE:p.45	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+4)/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:VAR|ClassDefense|(CL+1.5)*2/3	BONUS:VAR|Reputation|(CL)/5	BONUS:VAR|Action|CL*7
 # Class Name			Required Feat										Required Skill			PRETOTALAB		Var. Min. Value
-CLASS:Martial Arts Master	PREFEAT:3,Combat Expertise,Combat Martial Arts,Defensive Martial Arts	PRESKILL:2,Balance=12,Jump=6	PRETOTALAB:6	PREVARGTEQ:ClassDefense,7
+CLASS:Martial Arts Master	PREABILITY:3,CATEGORY=FEAT,Combat Expertise,Combat Martial Arts,Defensive Martial Arts	PRESKILL:2,Balance=12,Jump=6	PRETOTALAB:6	PREVARGTEQ:ClassDefense,7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Martial Arts Master	STARTSKILLPTS:3	CSKILL:Balance|Climb|Diplomacy|Escape Artist|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Move Silently|Perform (Dance)|Profession|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Spot|Tumble
 1	SAB:Focus Ki|PREVARLT:CL,3
@@ -290,7 +290,7 @@ CLASS:Martial Arts Master	STARTSKILLPTS:3	CSKILL:Balance|Climb|Diplomacy|Escape 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus																					Modify VAR
 CLASS:Master Tinkerer	HD:6		TYPE:PC.Prestige	ABB:MTnkr		MAXLEVEL:5	SOURCEPAGE:p.46	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+4)/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*7
 # Class Name		Required Feat			Multiple Requirements
-CLASS:Master Tinkerer	PREFEAT:2,Cautious,Gearhead	PREMULT:2,[PRESKILL:2,Computer Use=14,Disable Device=14],[PRESKILL:1,Craft (Electronic)=14,Craft (Mechanical)=14]
+CLASS:Master Tinkerer	PREABILITY:2,CATEGORY=FEAT,Cautious,Gearhead	PREMULT:2,[PRESKILL:2,Computer Use=14,Disable Device=14],[PRESKILL:1,Craft (Electronic)=14,Craft (Mechanical)=14]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Tinkerer	STARTSKILLPTS:7	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Craft (Structural)|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Profession|READ/WRITE LANGUAGE|Repair|Research|SPEAK LANGUAGE|Spot
 1	SAB:Build Small Robot																									ADD:ABILITY|Special Ability|NORMAL|Electronic Mastercraft,Mechanical Mastercraft	QUALIFY:ABILITY=Special Ability|Electronic Mastercraft|Mechanical Mastercraft

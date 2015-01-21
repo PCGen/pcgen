@@ -10,7 +10,7 @@ STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Hide			RANK:1
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Lava Child Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lava Child]
 ALIGN:TN
@@ -19,8 +19,8 @@ NAME:Lava Child
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:7
 SKILL:Spot		RANK:7
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Leech (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leech (Giant)]
 ALIGN:TN
@@ -44,7 +44,7 @@ SKILL:Search			RANK:2
 SKILL:Sense Motive		RANK:2
 SKILL:Sleight of Hand		RANK:4
 SKILL:Spot				RANK:3
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Dagger	SIZE:S	LOCATION:Primary Hand
 
 
@@ -60,10 +60,10 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Hide		RANK:5
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 
 STARTPACK:Lurker Above Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lurker Above]
 RACE:Lurker Above	!PRERACE:1,%

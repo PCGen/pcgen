@@ -36,7 +36,7 @@ ABILITY:enchantment_abilities_class.lst
 ABILITYCATEGORY:enchantment_abilitycategories.lst
 
 CLASS:enchantment_classes.lst
-FEAT:enchantment_feats.lst
+ABILITY:enchantment_feats.lst
 SPELL:enchantment_spells.lst
 TEMPLATE:enchantment_templates.lst
 

@@ -37,7 +37,7 @@ URL:RPG Now|http://enworld.rpgnow.com/product_info.php?products_id=2554&it=1|Buy
 ABILITYCATEGORY:eomr_abilitycategories.lst
 ABILITY:eomr_abilities.lst
 CLASS:eomr_class_core.lst
-FEAT:eomr_feats.lst
+ABILITY:eomr_feats.lst
 SKILL:eomr_skills.lst
 
 SPELL:eomr_spells.lst

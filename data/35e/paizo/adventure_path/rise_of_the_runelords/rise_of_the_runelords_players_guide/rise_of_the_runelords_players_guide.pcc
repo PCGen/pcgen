@@ -43,7 +43,7 @@ DEITY:rrpg_deities.lst
 EQUIPMENT:rrpg_equip_armorshields.lst
 EQUIPMENT:rrpg_equip.lst
 EQUIPMENT:rrpg_equip_weap_melee.lst
-FEAT:rrpg_feats.lst
+ABILITY:rrpg_feats.lst
 KIT:rrpg_kits_races_animals.lst
 KIT:rrpg_kits_races.lst
 LANGUAGE:rrpg_languages.lst

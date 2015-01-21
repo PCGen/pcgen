@@ -14,13 +14,13 @@ SKILL:Sense Motive	RANK:19
 SKILL:Use Magic Device	RANK:19
 SKILL:Diplomacy		RANK:17
 SKILL:Concentration	RANK:20
-FEAT:Alertness
-FEAT:Empower Spell
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Force Very Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Very Young)]	SORTKEY:Dragon (Force 02)
@@ -35,15 +35,15 @@ SKILL:Sense Motive	RANK:28
 SKILL:Spot			RANK:28
 SKILL:Use Magic Device	RANK:28
 SKILL:Diplomacy		RANK:26
-FEAT:Alertness
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Force Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Young)]	SORTKEY:Dragon (Force 03)
@@ -58,17 +58,17 @@ SKILL:Sense Motive	RANK:33
 SKILL:Spot			RANK:33
 SKILL:Use Magic Device	RANK:33
 SKILL:Diplomacy		RANK:31
-FEAT:Alertness
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Force Juvenile) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Juvenile)]	SORTKEY:Dragon (Force 04)
@@ -83,18 +83,18 @@ SKILL:Sense Motive	RANK:38
 SKILL:Spot			RANK:38
 SKILL:Use Magic Device	RANK:38
 SKILL:Diplomacy		RANK:36
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Force Young Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Young Adult)]	SORTKEY:Dragon (Force 05)
@@ -109,20 +109,20 @@ SKILL:Sense Motive	RANK:43
 SKILL:Spot			RANK:43
 SKILL:Use Magic Device	RANK:43
 SKILL:Diplomacy		RANK:41
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Force Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Adult)]	SORTKEY:Dragon (Force 06)
@@ -149,22 +149,22 @@ SKILL:Search			RANK:48
 SKILL:Sense Motive		RANK:48
 SKILL:Spot				RANK:48
 SKILL:Use Magic Device		RANK:48
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Force Mature Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Mature Adult)]	SORTKEY:Dragon (Force 07)
@@ -191,23 +191,23 @@ SKILL:Open Lock			RANK:9
 SKILL:Spellcraft			RANK:9
 SKILL:Survival			RANK:9
 SKILL:Tumble			RANK:9
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Critical(Bite)
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Force Old) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Old)]	SORTKEY:Dragon (Force 08)
@@ -234,25 +234,25 @@ SKILL:Open Lock			RANK:14
 SKILL:Spellcraft			RANK:14
 SKILL:Survival			RANK:14
 SKILL:Tumble			RANK:14
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Hover
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Claw)
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Force Very Old) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Very Old)]	SORTKEY:Dragon (Force 09)
@@ -280,27 +280,27 @@ SKILL:Move Silently		RANK:20
 SKILL:Open Lock			RANK:20
 SKILL:Spellcraft			RANK:20
 SKILL:Survival			RANK:20
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Hover
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Claw)
-FEAT:Improved Critical(Wing)
-FEAT:Improved Initiative
-FEAT:Improved Spell Capacity
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical(Wing)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Spell Capacity
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Force Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Ancient)]	SORTKEY:Dragon (Force 10)
@@ -328,28 +328,28 @@ SKILL:Search			RANK:68
 SKILL:Sense Motive		RANK:68
 SKILL:Spot				RANK:68
 SKILL:Use Magic Device		RANK:68
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Hover
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Claw)
-FEAT:Improved Critical(Wing)
-FEAT:Improved Initiative
-FEAT:Improved Spell Capacity
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Spell Knowledge
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical(Wing)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Spell Capacity
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Spell Knowledge
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Force Wyrm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Wyrm)]	SORTKEY:Dragon (Force 11)
@@ -377,28 +377,28 @@ SKILL:Sense Motive		RANK:73
 SKILL:Spot				RANK:73
 SKILL:Use Magic Device		RANK:73
 SKILL:Jump				RANK:20
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Hover
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Claw)
-FEAT:Improved Critical(Wing)
-FEAT:Improved Initiative
-FEAT:Improved Spell Capacity
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Spell Knowledge
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical(Wing)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Spell Capacity
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Spell Knowledge
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Force Great Wyrm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Great Wyrm)]	SORTKEY:Dragon (Force 12)
@@ -426,28 +426,28 @@ SKILL:Search			RANK:78
 SKILL:Sense Motive		RANK:78
 SKILL:Spot				RANK:78
 SKILL:Use Magic Device		RANK:78
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Hover
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Claw)
-FEAT:Improved Critical(Wing)
-FEAT:Improved Initiative
-FEAT:Improved Spell Capacity
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Spell Knowledge
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical(Wing)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Spell Capacity
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Spell Knowledge
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Sample Dragon (Force Adult)	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Adult)]
@@ -477,23 +477,23 @@ SKILL:Search						RANK:44
 SKILL:Sense Motive					RANK:36
 SKILL:Spellcraft						RANK:48
 SKILL:Spot							RANK:48
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Claw)
-FEAT:Improved Critical(Wing)
-FEAT:Improved Critical(Tail Slap)
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Spell Knowledge
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical(Wing)
+ABILITY:CATEGORY=FEAT|Improved Critical(Tail Slap)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Spell Knowledge
 #(Sorcerer 5,Sorcerer 6)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark|Dancing Lights|Detect Magic|Flare|Ghost Sound|Light|Mending|Open/Close|Read Magic|Disguise Self|Comprehend Languages|Detect Secret Doors|Magic Missile|True Strike|Bull's Strength|Cat's Grace|Darkness|Locate Object|Mirror Image|Clairaudience/Clairvoyance|Fireball|Haste|Lightning Bolt|Charm Monster|Invisibility (Greater)|Scrying|Stoneskin|Contact Other Plane|Dream|Hold Monster|Teleport|Analyze Dweomer|Dispel Magic (Greater)|True Seeing|Forcecage|Spell Turning|Summon Monster VII|Polymorph Any Object|Protection from Spells|Time Stop
 GEAR:Crystal Ball (True Seeing)			LOCATION:Not Carried
@@ -513,14 +513,14 @@ SKILL:Diplomacy		RANK:23
 SKILL:Listen		RANK:26
 SKILL:Search		RANK:26
 SKILL:Spot			RANK:26
-FEAT:Alertness
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Prismatic Very Young)	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Very Young)]	SORTKEY:Dragon (Prismatic 02) Default
@@ -535,16 +535,16 @@ SKILL:Search		RANK:31
 SKILL:Sense Motive	RANK:31
 SKILL:Spot			RANK:31
 SKILL:Use Magic Device	RANK:31
-FEAT:Alertness
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Prismatic Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Young)]	SORTKEY:Dragon (Prismatic 03)
@@ -559,18 +559,18 @@ SKILL:Search		RANK:36
 SKILL:Sense Motive	RANK:36
 SKILL:Spot			RANK:36
 SKILL:Use Magic Device	RANK:36
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Prismatic Juvenile) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Juvenile)]	SORTKEY:Dragon (Prismatic 04)
@@ -585,19 +585,19 @@ SKILL:Search		RANK:41
 SKILL:Sense Motive	RANK:41
 SKILL:Spot			RANK:41
 SKILL:Use Magic Device	RANK:41
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Prismatic Young Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Young Adult)]	SORTKEY:Dragon (Prismatic 05)
@@ -624,21 +624,21 @@ SKILL:Open Lock			RANK:2
 SKILL:Spellcraft			RANK:2
 SKILL:Survival			RANK:2
 SKILL:Tumble			RANK:2
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Prismatic Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Adult)]	SORTKEY:Dragon (Prismatic 06)
@@ -665,23 +665,23 @@ SKILL:Sense Motive		RANK:51
 SKILL:Spot				RANK:51
 SKILL:Use Magic Device		RANK:51
 SKILL:Diplomacy			RANK:47
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Critical(Bite)
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Prismatic Mature Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Mature Adult)]	SORTKEY:Dragon (Prismatic 07)
@@ -708,24 +708,24 @@ SKILL:Sense Motive		RANK:56
 SKILL:Spot				RANK:56
 SKILL:Use Magic Device		RANK:56
 SKILL:Intimidate			RANK:54
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Claw)
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Prismatic Old) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Old)]	SORTKEY:Dragon (Prismatic 08)
@@ -753,26 +753,26 @@ SKILL:Open Lock			RANK:17
 SKILL:Spellcraft			RANK:17
 SKILL:Survival			RANK:17
 SKILL:Tumble			RANK:15
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Hover
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Claw)
-FEAT:Improved Critical(Wing)
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical(Wing)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Prismatic Very Old) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Very Old)]	SORTKEY:Dragon (Prismatic 09)
@@ -800,28 +800,28 @@ SKILL:Open Lock			RANK:23
 SKILL:Spellcraft			RANK:23
 SKILL:Survival			RANK:23
 SKILL:Diplomacy			RANK:62
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Hover
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Claw)
-FEAT:Improved Critical(Wing)
-FEAT:Improved Initiative
-FEAT:Improved Spell Capacity
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Spell Knowledge
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical(Wing)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Spell Capacity
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Spell Knowledge
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Prismatic Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Ancient)]	SORTKEY:Dragon (Prismatic 10)
@@ -849,28 +849,28 @@ SKILL:Spellcraft			RANK:30
 SKILL:Survival			RANK:30
 SKILL:Jump				RANK:16
 SKILL:Hide				RANK:14
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Hover
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Claw)
-FEAT:Improved Critical(Wing)
-FEAT:Improved Initiative
-FEAT:Improved Spell Capacity
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Spell Knowledge
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical(Wing)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Spell Capacity
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Spell Knowledge
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Prismatic Wyrm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Wyrm)]	SORTKEY:Dragon (Prismatic 11)
@@ -898,28 +898,28 @@ SKILL:Search			RANK:76
 SKILL:Sense Motive		RANK:76
 SKILL:Spot				RANK:76
 SKILL:Use Magic Device		RANK:76
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Hover
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Claw)
-FEAT:Improved Critical(Wing)
-FEAT:Improved Initiative
-FEAT:Improved Spell Capacity
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Spell Knowledge
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical(Wing)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Spell Capacity
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Spell Knowledge
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Dragon (Prismatic Great Wyrm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Great Wyrm)]	SORTKEY:Dragon (Prismatic 12)
@@ -947,28 +947,28 @@ SKILL:Open Lock			RANK:41
 SKILL:Spellcraft			RANK:41
 SKILL:Survival			RANK:41
 SKILL:Intimidate			RANK:79
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Empower Spell
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Hover
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Claw)
-FEAT:Improved Critical(Wing)
-FEAT:Improved Initiative
-FEAT:Improved Spell Capacity
-FEAT:Improved Sunder
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Spell Knowledge
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical(Wing)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Spell Capacity
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Spell Knowledge
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Sample Dragon (Prismatic Old)	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Prismatic Old)]
@@ -1007,26 +1007,26 @@ SKILL:Spot							RANK:61
 SKILL:Survival						RANK:61
 SKILL:Tumble						RANK:61
 SKILL:Use Magic Device					RANK:61
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Cleave
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Improved Critical(Bite)
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Improved Spell Capacity
-FEAT:Improved Spell Capacity
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability
-FEAT:Snatch
-FEAT:Spell Knowledge
-FEAT:Spell Knowledge
-FEAT:Spell Knowledge
-FEAT:Spell Knowledge
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Tail Slap)
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Improved Spell Capacity
+ABILITY:CATEGORY=FEAT|Improved Spell Capacity
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Spell Knowledge
+ABILITY:CATEGORY=FEAT|Spell Knowledge
+ABILITY:CATEGORY=FEAT|Spell Knowledge
+ABILITY:CATEGORY=FEAT|Spell Knowledge
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail Slap)
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights|Daze|Detect Magic|Ghost Sound|Light|Prestidigitation|Ray of Frost|Read Magic|Resistance|Enlarge Person|Mage Armor|Magic Missile|Shield|True Strike|Unseen Servant|Alter Self|Blur|Darkness|Detect Thoughts|Levitate|Blink|Fireball|Magic Weapon (Greater)|Haste|Tongues|Wind Wall|Confusion|Polymorph|Scrying|Stoneskin|Baleful Polymorph|Dismissal|Fabricate|Passwall|Wall of Force|Antimagic Field|Dispel Magic (Greater)|True Seeing|Forcecage|Sequester|Spell Turning|Teleport (Greater)|Planar Binding (Greater)|Charm Monster (Mass)|Symbol of Death|Temporal Stasis|Dominate Monster|Gate|Imprisonment|Time Stop|Wish
 GEAR:Staff (Cosmos)				LOCATION:Equipped

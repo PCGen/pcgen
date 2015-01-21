@@ -19,11 +19,11 @@ SKILL:Ride			RANK:1
 SKILL:Sense Motive	RANK:9
 SKILL:Spellcraft		RANK:6
 SKILL:Stealth		RANK:9
-FEAT:Dodge
-FEAT:Empower Spell-Like Ability ~ Spell (Magic Missile)
-FEAT:Flyby Attack
-FEAT:Weapon Finesse
-FEAT:Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Empower Spell-Like Ability ~ Spell (Magic Missile)
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 #
 # End
 #

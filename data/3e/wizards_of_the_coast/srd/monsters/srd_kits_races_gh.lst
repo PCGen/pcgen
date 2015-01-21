@@ -9,10 +9,10 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Hide		RANK:7
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
-FEAT:Multiattack
-FEAT:Weapon Finesse (Claw)
-FEAT:Weapon Finesse (Bite)
-FEAT:Weapon Finesse (Gore)
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Claw)
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Gore)
 
 STARTPACK:Genie (Janni) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Janni)]
 RACE:Genie (Janni)	!PRERACE:1,%
@@ -26,10 +26,10 @@ SKILL:Escape Artist	RANK:4
 SKILL:Move Silently	RANK:4
 SKILL:Ride			RANK:4
 SKILL:Sense Motive	RANK:4
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
 
 STARTPACK:Genie (Djinni) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Djinni)]
 RACE:Genie (Djinni)	!PRERACE:1,%
@@ -44,10 +44,10 @@ SKILL:Sense Motive	RANK:7
 SKILL:Spellcraft		RANK:7
 SKILL:Spot			RANK:7
 SKILL:Move Silently	RANK:5
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Genie (Djinni Noble) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Djinni Noble)]
 RACE:Genie (Djinni Noble)	!PRERACE:1,%
@@ -62,10 +62,10 @@ SKILL:Sense Motive	RANK:10
 SKILL:Spellcraft		RANK:10
 SKILL:Spot			RANK:10
 SKILL:Move Silently	RANK:8
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Genie (Efreeti) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genie (Efreeti)]
 RACE:Genie (Efreeti)	!PRERACE:1,%
@@ -81,10 +81,10 @@ SKILL:Spellcraft		RANK:10
 SKILL:Spot			RANK:10
 SKILL:Intimidate		RANK:9
 SKILL:Sense Motive	RANK:9
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Ghoul Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghoul]
 RACE:Ghoul	!PRERACE:1,%
@@ -100,8 +100,8 @@ SKILL:Move Silently	RANK:5
 SKILL:Search		RANK:5
 SKILL:Spot			RANK:5
 SKILL:Intuit Direction	RANK:1
-FEAT:Multiattack
-FEAT:Weapon Finesse (Bite)
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Bite)
 
 STARTPACK:Ghoul (Lacedon) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghoul (Lacedon)]
 RACE:Ghoul (Lacedon)	!PRERACE:1,%
@@ -117,8 +117,8 @@ SKILL:Move Silently	RANK:5
 SKILL:Search		RANK:5
 SKILL:Spot			RANK:5
 SKILL:Intuit Direction	RANK:1
-FEAT:Multiattack
-FEAT:Weapon Finesse (Bite)
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Bite)
 
 STARTPACK:Ghast Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghast]
 RACE:Ghast	!PRERACE:1,%
@@ -134,8 +134,8 @@ SKILL:Hide			RANK:6
 SKILL:Listen		RANK:6
 SKILL:Spot			RANK:6
 SKILL:Intuit Direction	RANK:1
-FEAT:Multiattack
-FEAT:Weapon Finesse (Bite)
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Bite)
 
 STARTPACK:Giant (Hill) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Hill)]
 RACE:Giant (Hill)	!PRERACE:1,%
@@ -144,9 +144,9 @@ STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Climb	RANK:2
 SKILL:Jump	RANK:2
 SKILL:Spot	RANK:4
-FEAT:Cleave
-FEAT:Power Attack
-FEAT:Weapon Focus (Greatclub)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Greatclub)
 
 STARTPACK:Giant (Stone) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Stone)]
 RACE:Giant (Stone)	!PRERACE:1,%
@@ -156,10 +156,10 @@ SKILL:Climb	RANK:2
 SKILL:Hide	RANK:2
 SKILL:Jump	RANK:2
 SKILL:Spot	RANK:3
-FEAT:Combat Reflexes
-FEAT:Point Blank Shot
-FEAT:Power Attack
-FEAT:Precise Shot
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Point Blank Shot
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Precise Shot
 
 STARTPACK:Giant (Frost) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Frost)]
 RACE:Giant (Frost)	!PRERACE:1,%
@@ -168,10 +168,10 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Climb	RANK:4
 SKILL:Jump	RANK:4
 SKILL:Spot	RANK:6
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Power Attack
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
 
 STARTPACK:Giant (Fire) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Fire)]
 RACE:Giant (Fire)	!PRERACE:1,%
@@ -180,10 +180,10 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Climb	RANK:4
 SKILL:Jump	RANK:4
 SKILL:Spot	RANK:7
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Power Attack
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
 
 STARTPACK:Giant (Cloud) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Cloud)]
 RACE:Giant (Cloud)	!PRERACE:1,%
@@ -193,10 +193,10 @@ SKILL:Climb		RANK:4
 SKILL:Jump		RANK:4
 SKILL:Listen	RANK:7
 SKILL:Spot		RANK:7
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Giant (Storm) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Storm)]
 RACE:Giant (Storm)	!PRERACE:1,%
@@ -207,11 +207,11 @@ SKILL:Jump			RANK:4
 SKILL:Concentration	RANK:6
 SKILL:Perform		RANK:5
 SKILL:Spot			RANK:5
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Great Cleave
-FEAT:Power Attack
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
 
 STARTPACK:Giant Eagle Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant Eagle]
 RACE:Giant Eagle	!PRERACE:1,%
@@ -222,7 +222,7 @@ SKILL:Listen			RANK:1
 SKILL:Sense Motive		RANK:6
 SKILL:Wilderness Lore		RANK:6
 SKILL:Spot				RANK:7
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Giant Owl Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant Owl]
 RACE:Giant Owl	!PRERACE:1,%
@@ -232,7 +232,7 @@ SKILL:Knowledge (Nature)	RANK:6
 SKILL:Move Silently		RANK:6
 SKILL:Spot				RANK:6
 SKILL:Listen			RANK:4
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Gibbering Mouther Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gibbering Mouther]
 RACE:Gibbering Mouther	!PRERACE:1,%
@@ -240,7 +240,7 @@ NAME:Gibbering Mouther
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:7
 SKILL:Spot		RANK:7
-FEAT:Weapon Finesse (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Bite)
 
 STARTPACK:Girallon Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Girallon]
 RACE:Girallon	!PRERACE:1,%
@@ -256,7 +256,7 @@ NAME:Gnoll
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Gnome (Svirfneblin) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnome (Svirfneblin)]
 RACE:Gnome (Svirfneblin)	!PRERACE:1,%
@@ -266,7 +266,7 @@ STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 CLASS:Warrior	LEVEL:1
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Weapon Focus(Sword (Short))
+ABILITY:CATEGORY=FEAT|Weapon Focus(Sword (Short))
 GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Small/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Sword (Short)		SIZE:PC	LOCATION:Primary Hand
@@ -280,7 +280,7 @@ STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 CLASS:Warrior	LEVEL:1
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Weapon Focus(Sword (Short))
+ABILITY:CATEGORY=FEAT|Weapon Focus(Sword (Short))
 GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Small/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Sword (Short)		SIZE:PC	LOCATION:Primary Hand
@@ -322,8 +322,8 @@ ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Gray Render Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gray Render]
 RACE:Gray Render	!PRERACE:1,%
@@ -339,7 +339,7 @@ STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 SKILL:Hide		RANK:2
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Griffon Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Griffon]
 RACE:Griffon	!PRERACE:1,%
@@ -359,7 +359,7 @@ SKILL:Hide		RANK:5
 SKILL:Listen	RANK:5
 SKILL:Search	RANK:5
 SKILL:Spot		RANK:2
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Hag (Sea) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Sea)]
 RACE:Hag (Sea)	!PRERACE:1,%
@@ -369,7 +369,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Hide		RANK:6
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Hag (Annis) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Annis)]
 RACE:Hag (Annis)	!PRERACE:1,%
@@ -380,9 +380,9 @@ SKILL:Concentration	RANK:6
 SKILL:Hide			RANK:10
 SKILL:Listen		RANK:8
 SKILL:Spot			RANK:8
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Casting
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Casting
 
 STARTPACK:Hag (Green) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Green)]
 RACE:Hag (Green)	!PRERACE:1,%
@@ -393,10 +393,10 @@ SKILL:Concentration	RANK:8
 SKILL:Listen		RANK:8
 SKILL:Spot			RANK:8
 SKILL:Hide			RANK:10
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Casting
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Great Fortitude
 
 STARTPACK:Halfling (Tallfellow) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Halfling (Tallfellow)]
 RACE:Halfling (Tallfellow)	!PRERACE:1,%
@@ -407,7 +407,7 @@ CLASS:Warrior	LEVEL:1
 SKILL:Hide			RANK:1
 SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:2
-FEAT:Weapon Focus(Longsword)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longsword)
 GEAR:Studded Leather	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword		SIZE:PC	LOCATION:Both Hands
 GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
@@ -421,7 +421,7 @@ CLASS:Warrior	LEVEL:1
 SKILL:Hide			RANK:1
 SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:2
-FEAT:Weapon Focus(Longsword)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longsword)
 GEAR:Studded Leather	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword		SIZE:PC	LOCATION:Both Hands
 GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
@@ -434,8 +434,8 @@ SKILL:Bluff		RANK:6
 SKILL:Spot		RANK:6
 SKILL:Listen	RANK:7
 SKILL:Perform	RANK:7
-FEAT:Dodge
-FEAT:Flyby Attack
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
 
 STARTPACK:Hell Hound Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hell Hound]
 RACE:Hell Hound	!PRERACE:1,%
@@ -446,8 +446,8 @@ SKILL:Hide			RANK:5
 SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:7
 SKILL:Spot			RANK:7
-FEAT:Improved Initiative
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:Hippogriff Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hippogriff]
 RACE:Hippogriff	!PRERACE:1,%
@@ -478,8 +478,8 @@ SKILL:Hide			RANK:9
 SKILL:Listen		RANK:7
 SKILL:Spot			RANK:7
 SKILL:Search		RANK:3
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Hydra (Five Standard) Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Five Standard)]
 RACE:Hydra (Five Standard)	!PRERACE:1,%

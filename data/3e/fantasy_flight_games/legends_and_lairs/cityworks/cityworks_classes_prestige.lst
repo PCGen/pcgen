@@ -6,7 +6,7 @@ SOURCELONG:Fantasy Flight Games - City Works	SOURCESHORT:CW	SOURCEWEB:http://www
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Kingpin	HD:6		TYPE:PC.Prestige	ABB:Kpn		MAXLEVEL:10	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name	Required Feat		Required Skill					Required Text	PRETOTALAB
-CLASS:Kingpin	PREFEAT:1,Leadership	PRESKILL:2,Diplomacy=13,Intimidate=13	PRETEXT:Special	PRETOTALAB:7
+CLASS:Kingpin	PREABILITY:1,CATEGORY=FEAT,Leadership	PRESKILL:2,Diplomacy=13,Intimidate=13	PRETEXT:Special	PRETOTALAB:7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Kingpin	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Move Silently|Open Lock|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Tumble|Use Rope
 1	SAB:Friends in Low Places	SAB:Gang Boss
@@ -27,7 +27,7 @@ CLASS:Speaker of the City	HD:8		TYPE:PC.Prestige	ABB:SpC		MAXLEVEL:10	SOURCEPAGE
 CLASS:Speaker of the City	PRESKILL:2,Hide=4,Scry=8	PRESPELLTYPE:1,Divine=3	PRETEXT:Special
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Speaker of the City	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentration|TYPE=Craft|Gather Information|Handle Animal|Hide|TYPE=Knowledge|Pick Pocket|Scry|Sense Motive|Spellcraft|Wilderness Lore
-1	SAB:Spirit of the City (Social Insight)					ADD:SPELLCASTER|Divine	AUTO:FEAT|Speaker of the City in an urban setting|SpeakerSpells
+1	SAB:Spirit of the City (Social Insight)					ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Speaker of the City in an urban setting	ABILITY:Feat|AUTOMATIC|SpeakerSpells
 2												ADD:SPELLCASTER|Divine
 3	SAB:Spirit of the City (City Sense)						ADD:SPELLCASTER|Divine
 4												ADD:SPELLCASTER|Divine
@@ -44,14 +44,14 @@ CLASS:Speaker of the City	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentrat
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Street Stalker	HD:10		TYPE:PC.Prestige	ABB:StS		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat				Multiple Requirements									PRETOTALAB
-CLASS:Street Stalker	PREFEAT:2,Blind-Fight,Power Attack	PREMULT:2,[PRESKILL:1,Hide=4,Sense Motive=4],[PRESKILL:1,Intimidate=8]	PRETOTALAB:5
+CLASS:Street Stalker	PREABILITY:2,CATEGORY=FEAT,Blind-Fight,Power Attack	PREMULT:2,[PRESKILL:1,Hide=4,Sense Motive=4],[PRESKILL:1,Intimidate=8]	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Street Stalker	STARTSKILLPTS:8	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Tumble|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 ###Block: Sneak Attack stacking Variables
 1	BONUS:VAR|SneakAttackDice|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Normal progression
-1	SAB:Urban Predetor (Stealth)			AUTO:FEAT|Street Stalker in an urban setting
+1	SAB:Urban Predetor (Stealth)			ABILITY:FEAT|AUTOMATIC|Street Stalker in an urban setting
 2	SAB:Urban Predetor (Show of Strength)
 4	SAB:Urban Predetor (Stunt Attack)
 6	SAB:Urban Predetor (Urban Disguise)

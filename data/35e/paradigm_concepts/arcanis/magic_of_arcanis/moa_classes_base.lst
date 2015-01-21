@@ -16,7 +16,7 @@ CLASS:Altherian Artificer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Deciph
 # Class Name			Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Altherian Artificer	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Altherian Artificer|CL
 ###Block Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|Scimitar|Altherian Flintlock (Pistol)|Altherian Flintlock (Rifle)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|Scimitar|Altherian Flintlock (Pistol)|Altherian Flintlock (Rifle)
 ###Block: Abilities
 1													ABILITY:Special Ability|AUTOMATIC|Altherian Craftsman|Sharp Intellect
 2								BONUS:VAR|DedicationBonus|2	ABILITY:Special Ability|AUTOMATIC|Dedication
@@ -68,7 +68,7 @@ CLASS:Hedge Mage	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:Hedge Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Hedge Mage|CL
 #
-1	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Simple Weapon Proficiency
 ###Block: Level Progression
 1									ABILITY:Special Ability|AUTOMATIC|Aura of Faith|Hedge Mage's Education
 2									ABILITY:Special Ability|AUTOMATIC|Intution|Wizard ~ Familiar
@@ -154,7 +154,7 @@ CLASS:Spellblade	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|E
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
 CLASS:Spellblade	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Spellblade|CL
 ###Block: Proficiencies
-1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 ###Block: Level Progression
 2	BONUS:ABILITYPOOL|Spellblade Feat|CL+1/3
 5								ABILITY:Special Ability|AUTOMATIC|Wizard ~ Familiar
@@ -191,7 +191,7 @@ CLASS:Suromar	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Climb|Concentration|TY
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
 CLASS:Suromar	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Suromar|CL
 ###Block: Proficiencies
-1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 ###Block: Level Progression
 1	ABILITY:Special Ability|AUTOMATIC|Rogue Special Ability ~ Slippery Mind
 2	ABILITY:Special Ability|AUTOMATIC|Iron Will
@@ -234,7 +234,7 @@ CLASS:Warder	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Hide|Int
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
 CLASS:Warder	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Warder|CL
 ###Block: Proficiencies
-1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 ###Block: Level Progression
 1	BONUS:ABILITYPOOL|Homeland Defense Choice|CL/5+1	ABILITY:Special Ability|AUTOMATIC|Homeland Defense|Track
 ###Block: Homeland Defense Bonuses

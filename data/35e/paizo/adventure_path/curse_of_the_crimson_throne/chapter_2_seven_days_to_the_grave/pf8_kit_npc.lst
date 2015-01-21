@@ -31,10 +31,10 @@ SKILL:Move Silently		RANK:4
 SKILL:Profession (Perfumer)	RANK:9
 SKILL:Spot				RANK:4
 SKILL:Use Magic Device		RANK:9
-FEAT:Dodge
-FEAT:Mobility
-FEAT:Weapon Finesse
-FEAT:Skill Focus(Use Magic Device)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Skill Focus(Use Magic Device)
 GEAR:Wand					LOCATION:Equipped		EQMOD:SPL_CHRG|SPELLNAME[Charm Person]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
 GEAR:Poison (Giant wasp poison)	LOCATION:Equipped
 GEAR:Wand					LOCATION:Equipped		EQMOD:SPL_CHRG|SPELLNAME[Remove Disease] CASTER[Cleric] SPELLTYPE[Divine] SPELLLEVEL[3] CASTERLEVEL[5] CHARGES[7]
@@ -50,9 +50,9 @@ CLASS:Fighter	LEVEL:3
 STAT:STR=15|DEX=13|CON=14|INT=10|WIS=8|CHA=12
 SKILL:Intimidate	RANK:6
 SKILL:Spot		RANK:3
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Diehard
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Diehard
 ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Sap)
 GEAR:Chainmail						LOCATION:Equipped
 GEAR:Sap							LOCATION:Primary Hand	EQMOD:MWORKW
@@ -76,9 +76,9 @@ SKILL:Hide			RANK:5
 SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:2
-FEAT:Alertness
-FEAT:Lightning Reflexes
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Rapier)
 ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Rapier)
 ABILITY:CATEGORY=Fighter Feat|Improved Initiative
@@ -100,9 +100,9 @@ SKILL:Concentration		RANK:5
 SKILL:Handle Animal		RANK:1
 SKILL:Knowledge (Nature)	RANK:5
 SKILL:Listen			RANK:4
-FEAT:Alertness
-FEAT:Great Fortitude
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Bracers of Armor +2	LOCATION:Equipped
 GEAR:Shortspear			LOCATION:Primary Hand	EQMOD:PLUS1W
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Barkskin|Bull's Strength|Charm Animal|Cure Light Wounds|Cure Moderate Wounds|Detect Magic|Detect Poison|Faerie Fire|Flare|Magic Fang (Greater)|Read Magic|Resist Energy|Resistance|Speak with Animals
@@ -133,9 +133,9 @@ SKILL:Perform (Comedy)		RANK:4
 SKILL:Sleight of Hand		RANK:3
 SKILL:Spot				RANK:2
 SKILL:Tumble			RANK:7
-FEAT:Improved Initiative
-FEAT:Point Blank Shot
-FEAT:Precise Shot
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Point Blank Shot
+ABILITY:CATEGORY=FEAT|Precise Shot
 GEAR:Potion (Invisibility)	QTY:3		LOCATION:Pouch (Belt)
 GEAR:Potion (Remove Disease)	QTY:2		LOCATION:Pouch (Belt)
 GEAR:Wand						LOCATION:Pouch (Belt)	EQMOD:SPL_CHRG|SPELLNAME[Cat's Grace]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[11]
@@ -164,8 +164,8 @@ STAT:STR=14|DEX=12|CON=15|INT=10|WIS=8|CHA=13
 SKILL:Climb		RANK:5
 SKILL:Intimidate	RANK:5
 SKILL:Jump		RANK:5
-FEAT:Iron Will
-FEAT:Point Blank Shot
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Point Blank Shot
 ABILITY:CATEGORY=Fighter Feat|Quick Draw
 ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Longsword)
 GEAR:Full Plate			LOCATION:Equipped		EQMOD:MWORKA
@@ -192,8 +192,8 @@ SKILL:Listen			RANK:5
 SKILL:Move Silently		RANK:5
 SKILL:Sense Motive		RANK:5
 SKILL:Spot				RANK:5
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Leather			LOCATION:Equipped
 GEAR:Healer's Kit			LOCATION:Equipped
 GEAR:Club				LOCATION:Both Hands	EQMOD:MWORKW
@@ -239,11 +239,11 @@ SKILL:Perform (Oratory)		RANK:10
 SKILL:Heal				RANK:9
 SKILL:Knowledge (Nature)	RANK:5
 SKILL:Knowledge (Religion)	RANK:8
-FEAT:Combat Expertise
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Quick Draw
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Quick Draw
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Potion (Remove Disease)		LOCATION:Equipped
 GEAR:Rapier					LOCATION:Primary Hand	EQMOD:PLUS1W.BANE_M|Humanoids (human)
 GEAR:Mithral Shirt			LOCATION:Equipped		EQMOD:PLUS1A.MITHRAL_ARMR_LT
@@ -265,10 +265,10 @@ SKILL:Knowledge (The Planes)	RANK:11
 SKILL:Listen			RANK:2
 SKILL:Spellcraft			RANK:11
 SKILL:Spot				RANK:2
-FEAT:Craft Wondrous Item
-FEAT:Spell Focus(Necromancy)
-FEAT:Greater Spell Focus(Necromancy)
-FEAT:Craft Construct
+ABILITY:CATEGORY=FEAT|Craft Wondrous Item
+ABILITY:CATEGORY=FEAT|Spell Focus(Necromancy)
+ABILITY:CATEGORY=FEAT|Greater Spell Focus(Necromancy)
+ABILITY:CATEGORY=FEAT|Craft Construct
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Acid Splash|Animate Dead|Charm Person|Chill Touch|Detect Magic|Detect Thoughts|Dimension Door|Dispel Magic|Enervation|False Life|Ghoul Touch|Grease|Hold Person|Ice Storm|Light|Lightning Bolt|Mage Armor|Ray of Enfeeblement|Ray of Exhaustion|Ray of Frost|Scorching Ray|Shield|Spectral Hand|Touch of Fatigue|Vampiric Touch
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Acid Splash|Animate Dead|Charm Person|Chill Touch|Detect Magic|Detect Thoughts|Dimension Door|Dispel Magic|Enervation|False Life|Ghoul Touch|Grease|Hold Person|Ice Storm|Light|Lightning Bolt|Mage Armor|Ray of Enfeeblement|Ray of Exhaustion|Ray of Frost|Scorching Ray|Shield|Spectral Hand|Touch of Fatigue|Vampiric Touch
 GEAR:Wand				LOCATION:Equipped		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[43]
@@ -292,8 +292,8 @@ SKILL:Concentration		RANK:5
 SKILL:Heal				RANK:5
 SKILL:Knowledge (Religion)	RANK:5
 SKILL:Spellcraft			RANK:5
-FEAT:Combat Casting
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=Turn Undead|Rebuke Undead
 GEAR:Scythe					LOCATION:Both Hands	EQMOD:MWORKW
 GEAR:Potion (Cure Moderate Wounds)	LOCATION:Equipped
@@ -315,11 +315,11 @@ STAT:STR=12|DEX=8|CON=18|INT=10|WIS=17|CHA=13
 SKILL:Concentration		RANK:12
 SKILL:Knowledge (Religion)	RANK:12
 SKILL:Spellcraft			RANK:12
-FEAT:Combat Casting
-FEAT:Craft Magic Arms and Armor
-FEAT:Craft Wondrous Item
-FEAT:Extend Spell
-FEAT:Spell Focus(Necromancy)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Craft Magic Arms and Armor
+ABILITY:CATEGORY=FEAT|Craft Wondrous Item
+ABILITY:CATEGORY=FEAT|Extend Spell
+ABILITY:CATEGORY=FEAT|Spell Focus(Necromancy)
 ABILITY:CATEGORY=Turn Undead|Rebuke Undead
 GEAR:Scythe				LOCATION:Both Hands	EQMOD:PLUS1W.VICIOUS
 GEAR:Breastplate			LOCATION:Equipped		EQMOD:PLUS1A

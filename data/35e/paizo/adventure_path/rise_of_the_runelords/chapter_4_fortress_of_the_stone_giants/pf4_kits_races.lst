@@ -11,11 +11,11 @@ NAME:Deathweb
 ALIGN:TN
 SKILL:Listen		RANK:15
 SKILL:Move Silently	RANK:15
-FEAT:Power Attack
-FEAT:Multiattack
-FEAT:Improved Bull Rush
-FEAT:Cleave
-FEAT:Awesome Blow
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Awesome Blow
 STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
 ## Deathweb Notes: The To-Hit for the Claw attacks is 1 to high.
 #STARTPACK:	Redcap
@@ -32,9 +32,9 @@ SKILL:Listen			RANK:11
 SKILL:Move Silently		RANK:11
 SKILL:Spot				RANK:11
 SKILL:Tumble			RANK:11
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Weapon Focus (Scythe)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Scythe)
 STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
 GEAR:Scythe	SIZE:M	LOCATION:Both Hands	EQMOD:STEEL
 ## Redcap Notes: Both Scythe and Kick To-Hits are off. The first is 3 points to low while the
@@ -58,10 +58,10 @@ SKILL:Search			RANK:13
 SKILL:Spot				RANK:13
 SKILL:Survival			RANK:13
 SKILL:Tumble			RANK:13
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Track
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Track
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
 
 #STARTPACK: Tiaga Giant
@@ -74,11 +74,11 @@ SKILL:Knowledge (Religion)	RANK:7
 SKILL:Move Silently		RANK:7
 SKILL:Spot				RANK:10
 SKILL:Survival			RANK:17
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Track
-FEAT:Cleave
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Track
+ABILITY:CATEGORY=FEAT|Cleave
 STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
 GEAR:Greatclub	SIZE:H	LOCATION:Both Hands
 GEAR:Javelin	SIZE:H	LOCATION:Carried
@@ -101,10 +101,10 @@ SKILL:Listen				RANK:14
 SKILL:Move Silently			RANK:14
 SKILL:Sense Motive			RANK:14
 SKILL:Spot					RANK:14
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Quicken Spell Like Ability(Produce Flame)
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Quicken Spell Like Ability(Produce Flame)
 STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
 
 #STARTPACK: Shining Child of Thassilon
@@ -122,13 +122,13 @@ SKILL:Listen			RANK:21
 SKILL:Search			RANK:21
 SKILL:Spot				RANK:21
 SKILL:Use Magic Device		RANK:21
-FEAT:Ability Focus(Aura of Blinding Light)
-FEAT:Dodge
-FEAT:Lightning Reflexes
-FEAT:Mobility
-FEAT:Quicken Spell Like Ability(Teleport (Greater))
-FEAT:Spring Attack
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Ability Focus(Aura of Blinding Light)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Quicken Spell Like Ability(Teleport (Greater))
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
 ## Shining Child Notes: Ability Focus doesn't seem to be working properly.
 ## It appears on the OS as Ability Focus (Aura of Blinding Light) as it

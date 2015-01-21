@@ -18,7 +18,7 @@ CLASS:Minotaur	PRERACE:1,Minotaur (Variant)
 # Class Name	Skill Pts/Lvl
 CLASS:Minotaur	STARTSKILLPTS:2
 ###Block: Proficiencies
-1	AUTO:FEAT|Martial Weapon Proficiency (Greataxe)|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency (Greataxe)|Simple Weapon Proficiency
 ###Block: Progression
 1															BONUS:VAR|ScentRange|((CL+2)/3)*10
 2					BONUS:STAT|STR|2|TYPE=Racial
@@ -53,14 +53,14 @@ CLASS:Bull Lord	PRECLASS:1,Minotaur=8
 CLASS:Bull Lord	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Listen|Search|Spot|Survival|Swim
 ###Block: Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial
-1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Progression
 1	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|INT|2	BONUS:STAT|CHA|2									TEMPLATE:Bull Lord
-2																										AUTO:FEAT|Great Fortitude
+2																										ABILITY:FEAT|AUTOMATIC|Great Fortitude
 3						BONUS:STAT|STR|2
 4						BONUS:STAT|CON|2				ABILITY:Special Ability|AUTOMATIC|Pounce
 6						BONUS:STAT|STR|2				ABILITY:Special Ability|AUTOMATIC|Onslaught
-7																										AUTO:FEAT|Improved Bull Rush
+7																										ABILITY:FEAT|AUTOMATIC|Improved Bull Rush
 8						BONUS:STAT|STR|2
 9												ABILITY:Special Ability|AUTOMATIC|Freedom		TEMPLATE:Minotaur Favored Class
 ###Block: Natural Armor
@@ -95,7 +95,7 @@ CLASS:Minotrice	PRERACE:1,Minotrice
 CLASS:Minotrice	STARTSKILLPTS:2
 
 ###Block: Proficiencies
-1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Simple Weapon Proficiency
 ###Block: Progression
 1							BONUS:VAR|ScentRange|((CL+1)/2)*10
 2	BONUS:STAT|STR|2	BONUS:STAT|DEX|2
@@ -138,7 +138,7 @@ CLASS:Minotrice Maze Mage	STARTSKILLPTS:2
 CLASS:Minotrice Maze Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Minotrice Maze Mage|floor(CL+1/2)	SPELLLIST:1|Druid
 
 ###Block: Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Simple Weapon Proficiency
 ###Block: Progression
 1	CAST:3,1								BONUS:VAR|ScentRange|((CL+2)/3)*10
 2	CAST:3,1		BONUS:STAT|STR|2	BONUS:STAT|DEX|2

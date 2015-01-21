@@ -9,10 +9,10 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Iron Will
-FEAT:Skill Focus (Listen)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Listen)
 
 STARTPACK:Abomination (Tigrilla) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Tigrilla)]
 RACE:Abomination (Tigrilla)	!PRERACE:1,%
@@ -42,10 +42,10 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Great Fortitude
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Dire Goat Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Goat]
 RACE:Dire Goat	!PRERACE:1,%
@@ -54,8 +54,8 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:2
-FEAT:Alertness
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
 
 STARTPACK:Dire Hippopotamus Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Hippopotamus]
 RACE:Dire Hippopotamus	!PRERACE:1,%
@@ -64,11 +64,11 @@ ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:8
 SKILL:Spot		RANK:8
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Great Fortitude
-FEAT:Toughness
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 STARTPACK:Dire Porcupine Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Porcupine]
 RACE:Dire Porcupine	!PRERACE:1,%
@@ -77,7 +77,7 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Hide		RANK:2
 SKILL:Listen	RANK:1
-FEAT:Weapon Focus (Quills)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Quills)
 
 STARTPACK:Dire Ram Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Ram]
 RACE:Dire Ram	!PRERACE:1,%
@@ -86,8 +86,8 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:4
-FEAT:Alertness
-FEAT:Endurance
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Endurance
 
 STARTPACK:Foo Dog Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Foo Dog]
 RACE:Foo Dog	!PRERACE:1,%
@@ -98,9 +98,9 @@ SKILL:Jump		RANK:4
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
 SKILL:Survival	RANK:4
-FEAT:Alertness
-FEAT:Power Attack
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 STARTPACK:Sample Skeleton Warrior	TYPE:NPC	VISIBLE:YES	EQUIPBUY:0
 NAME:Skeleton Warrior
@@ -113,18 +113,18 @@ SKILL:Intimidate	RANK:8
 SKILL:Jump		RANK:7
 SKILL:Ride		RANK:9
 SKILL:Swim		RANK:1
-FEAT:Alertness
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Sword (Bastard))
 ABILITY:CATEGORY=Fighter Feat|Power Attack
-FEAT:Run
+ABILITY:CATEGORY=FEAT|Run
 ABILITY:CATEGORY=Fighter Feat|Weapon Specialization (Sword (Bastard))
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Track
 ABILITY:CATEGORY=Fighter Feat|Cleave
 ABILITY:CATEGORY=Fighter Feat|Great Cleave
-FEAT:Blind-Fight
+ABILITY:CATEGORY=FEAT|Blind-Fight
 ABILITY:CATEGORY=Fighter Feat|Quick Draw
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=Fighter Feat|Improved Sunder
 GEAR:Sword (Bastard)		SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS2W
 GEAR:Full Plate			SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS2A
@@ -139,8 +139,8 @@ ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Alertness
-FEAT:Weapon Focus (Morningstar)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Morningstar)
 
 STARTPACK:Spectral Troll Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spectral Troll]
 RACE:Spectral Troll	!PRERACE:1,%
@@ -149,6 +149,6 @@ ALIGN:CE
 STAT:STR=11|DEX=10|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:5
-FEAT:Alertness
-FEAT:Iron Will
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Track

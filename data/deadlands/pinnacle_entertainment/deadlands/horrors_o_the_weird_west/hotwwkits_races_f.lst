@@ -11,7 +11,7 @@ SKILL:Hide			RANK:5
 SKILL:Tumble		RANK:5
 SKILL:Listen		RANK:7
 SKILL:Spot			RANK:7
-FEAT:Blind-Fight
+ABILITY:CATEGORY=FEAT|Blind-Fight
 
 STARTPACK:Default Frankenstein's Monster	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frankenstein's Monster]
 RACE:Frankenstein's Monster	!PRERACE:1,%

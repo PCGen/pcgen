@@ -25,7 +25,7 @@ COPYRIGHT:PCGen dataset conversion for Spells and Spellcraft Copyright 2003-2005
 
 
 SPELL:spellsspellcraft_spells.lst
-FEAT:spellsspellcraft_feats.lst
+ABILITY:spellsspellcraft_feats.lst
 EQUIPMENT:spellsspellcraft_equip_wondrousitems.lst
 EQUIPMENT:spellsspellcraft_equip_weap_melee.lst
 EQUIPMENT:spellsspellcraft_equip_rodsstaffswands.lst

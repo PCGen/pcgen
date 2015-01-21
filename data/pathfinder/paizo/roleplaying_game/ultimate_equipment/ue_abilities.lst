@@ -5,7 +5,7 @@ SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products
 # ORIGINAL ENTRY DATE: 13 May 2013
 
 # Ability Name			Define				Modify VAR
-CATEGORY=Internal|Default.MOD	DEFINE:KatanaExoticUse|0	BONUS:VAR|KatanaExoticUse|1|PREFEAT:1,Exotic Weapon Proficiency (Katana)
+CATEGORY=Internal|Default.MOD	DEFINE:KatanaExoticUse|0	BONUS:VAR|KatanaExoticUse|1|PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Katana)
 
 ###Block:
 # Ability Name			Category of Ability	Define					Move				Ability														Combat bonus

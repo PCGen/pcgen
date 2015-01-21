@@ -40,6 +40,6 @@ ABILITY:gttrk_abilities.lst
 DEITY:gttrk_deities.lst
 EQUIPMENT:gttrk_equip_general.lst
 EQUIPMENT:gttrk_equip_magic_items.lst
-FEAT:gttrk_feats.lst
+ABILITY:gttrk_feats.lst
 SPELL:gttrk_spells.lst
 TEMPLATE:gttrk_templates.lst

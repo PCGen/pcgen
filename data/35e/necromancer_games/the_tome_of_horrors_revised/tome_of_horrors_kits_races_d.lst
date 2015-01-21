@@ -18,11 +18,11 @@ SKILL:Search			RANK:12
 SKILL:Sense Motive		RANK:15
 SKILL:Spot				RANK:15
 SKILL:Survival			RANK:13
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Power Attack
-FEAT:Weapon Focus (Longsword)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS1W
 
 STARTPACK:Daemon (Charon) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Charon)]
@@ -49,18 +49,18 @@ SKILL:Sense Motive		RANK:35
 SKILL:Spellcraft			RANK:8
 SKILL:Spot				RANK:20
 SKILL:Survival			RANK:15
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Improved Critical (Quarterstaff)
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Negotiator
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability(Suggestion)
-FEAT:Skill Focus (Intimidate)
-FEAT:Weapon Focus (Quarterstaff)
-FEAT:Superior Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Critical (Quarterstaff)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Negotiator
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability(Suggestion)
+ABILITY:CATEGORY=FEAT|Skill Focus (Intimidate)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Quarterstaff)
+ABILITY:CATEGORY=FEAT|Superior Initiative
 GEAR:Quarterstaff	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W
 
 STARTPACK:Daemon (Charonadaemon) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Charonadaemon)]
@@ -79,10 +79,10 @@ SKILL:Search			RANK:10
 SKILL:Sense Motive		RANK:13
 SKILL:Spot				RANK:10
 SKILL:Survival			RANK:13
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Negotiator
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Negotiator
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Quarterstaff	SIZE:PC	LOCATION:Both Hands
 
 STARTPACK:Daemon (Derghodaemon) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Derghodaemon)]
@@ -97,10 +97,10 @@ SKILL:Move Silently	RANK:13
 SKILL:Search		RANK:9
 SKILL:Sense Motive	RANK:13
 SKILL:Spot			RANK:13
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Multiweapon Fighting
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Multiweapon Fighting
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Longsword	QTY:3	SIZE:PC	LOCATION:Carried
 
 STARTPACK:Daemon (Hydrodaemon) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Hydrodaemon)]
@@ -115,9 +115,9 @@ SKILL:Move Silently	RANK:10
 SKILL:Search		RANK:10
 SKILL:Spot			RANK:10
 SKILL:Swim			RANK:10
-FEAT:Cleave
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Daemon (The Oinodaemon) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (The Oinodaemon)]
 ALIGN:NE
@@ -144,23 +144,23 @@ SKILL:Spellcraft			RANK:52
 SKILL:Spot				RANK:40
 SKILL:Survival			RANK:43
 SKILL:Use Magic Device		RANK:11
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Craft Staff
-FEAT:Empower Spell
-FEAT:Extend Spell
-FEAT:Great Cleave
-FEAT:Improved Initiative
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Quicken Spell
-FEAT:Quicken Spell-Like Ability(Wall of Fire)
-FEAT:Silent Spell
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Craft Staff
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Extend Spell
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability(Wall of Fire)
+ABILITY:CATEGORY=FEAT|Silent Spell
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 ABILITY:CATEGORY=Epic Spellcasting Type|Epic Spellcaster (Divine/WIS Spellstat)
-FEAT:Intensify Spell
-FEAT:Spellcasting Harrier
+ABILITY:CATEGORY=FEAT|Intensify Spell
+ABILITY:CATEGORY=FEAT|Spellcasting Harrier
 DEITY:None	DOMAIN:Death (NSA)|Destruction (NSA)|Evil (NSA)
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Inflict Light Wounds|Death Knell|Contagion|Unholy Blight|Inflict Light Wounds (Mass)|Create Undead|Disintegrate|Earthquake|Implosion
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water|Inflict Minor Wounds=3|Light|Read Magic|Resistance|Bane|Comprehend Languages|Curse Water|Doom|Inflict Light Wounds=2|Protection from Good|Sanctuary|Darkness|Enthrall|Inflict Moderate Wounds=3|Shatter|Sound Burst|Bestow Curse|Blindness/Deafness|Contagion=2|Inflict Serious Wounds=2|Invisibility Purge|Death Ward|Dimensional Anchor|Discern Lies|Divine Power|Giant Vermin|Inflict Critical Wounds|Poison|Break Enchantment|Dispel Good|Insect Plague|Scrying|Slay Living=2|Symbol of Pain|Blade Barrier|Forbiddance|Harm=2|Word of Recall|Blasphemy|Inflict Serious Wounds (Mass)=3|Symbol of Weakness|Antimagic Field|Inflict Critical Wounds (Mass)=2|Symbol of Death|Unholy Aura|Astral Projection|Energy Drain=3|Storm of Vengeance
@@ -183,10 +183,10 @@ SKILL:Sense Motive		RANK:6
 SKILL:Spot				RANK:13
 SKILL:Survival			RANK:13
 SKILL:Swim				RANK:13
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 
 STARTPACK:Dakon Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dakon]
 ALIGN:LN
@@ -197,7 +197,7 @@ SKILL:Climb			RANK:1
 SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Dark Creeper Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dark Creeper]
 ALIGN:CN
@@ -209,7 +209,7 @@ SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Sleight of Hand	RANK:1
 SKILL:Spot			RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
 
 STARTPACK:Dark Stalker Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dark Stalker]
@@ -222,7 +222,7 @@ SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Sleight of Hand	RANK:2
 SKILL:Spot			RANK:2
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 
 STARTPACK:Darnoc Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Darnoc]
@@ -235,9 +235,9 @@ SKILL:Intimidate	RANK:11
 SKILL:Listen	RANK:11
 SKILL:Search	RANK:11
 SKILL:Spot		RANK:11
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Death Dog Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Death Dog]
 ALIGN:NE
@@ -248,7 +248,7 @@ SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:1
 SKILL:Survival		RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Death Worm Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Death Worm]
 ALIGN:TN
@@ -258,9 +258,9 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
 SKILL:Hide		RANK:2
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Toughness
 
 STARTPACK:Decapus Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Decapus]
 ALIGN:CE
@@ -271,8 +271,8 @@ SKILL:Climb			RANK:3
 SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:4
-FEAT:Alertness
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Demiurge Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demiurge]
 ALIGN:CE
@@ -285,9 +285,9 @@ SKILL:Listen		RANK:11
 SKILL:Search		RANK:11
 SKILL:Sense Motive	RANK:11
 SKILL:Spot			RANK:11
-FEAT:Alertness
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Demodand (Shaggy) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demodand (Shaggy)]
 ALIGN:CE
@@ -310,12 +310,12 @@ SKILL:Sense Motive		RANK:15
 SKILL:Spellcraft			RANK:13
 SKILL:Spot				RANK:15
 SKILL:Survival			RANK:10
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Morningstar	SIZE:PC	LOCATION:Primary Hand
 
 STARTPACK:Demodand (Slime) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demodand (Slime)]
@@ -337,11 +337,11 @@ SKILL:Sense Motive		RANK:10
 SKILL:Spellcraft			RANK:12
 SKILL:Spot				RANK:8
 SKILL:Survival			RANK:12
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Demodand (Tarry) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demodand (Tarry)]
 ALIGN:CE
@@ -361,10 +361,10 @@ SKILL:Search			RANK:8
 SKILL:Sense Motive		RANK:11
 SKILL:Spot				RANK:13
 SKILL:Survival			RANK:11
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 
 
 STARTPACK:Demonic Knight Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demonic Knight]
@@ -384,10 +384,10 @@ SKILL:Move Silently		RANK:12
 SKILL:Search			RANK:12
 SKILL:Spellcraft			RANK:12
 SKILL:Spot				RANK:12
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Power Attack
-FEAT:Weapon Focus (Longsword)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS1W.CHAOS_M
 GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped
 
@@ -401,9 +401,9 @@ SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:2
 SKILL:Survival		RANK:2
-FEAT:Alertness
-FEAT:Track
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Track
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 STARTPACK:Diger Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Diger]
 ALIGN:TN
@@ -420,7 +420,7 @@ SKILL:Climb		RANK:1
 SKILL:Hide		RANK:1
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
-FEAT:Blind-Fight
+ABILITY:CATEGORY=FEAT|Blind-Fight
 
 STARTPACK:Disenchanter Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Disenchanter]
 ALIGN:TN
@@ -429,8 +429,8 @@ NAME:Disenchanter
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
-FEAT:Iron Will
-FEAT:Weapon Focus (Snout)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Weapon Focus (Snout)
 
 STARTPACK:Common Dracolisk	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
 ALIGN:TN
@@ -443,10 +443,10 @@ SKILL:Listen		RANK:8
 SKILL:Move Silently	RANK:8
 SKILL:Search		RANK:8
 SKILL:Spot			RANK:8
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Dracolisk (Black) Default	TYPE:DefaultMonster.Dragon	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dracolisk%]
 RACE:Dracolisk (Black)	!PRERACE:1,%
@@ -597,7 +597,7 @@ SKILL:Listen	RANK:5
 SKILL:Search	RANK:4
 SKILL:Spot		RANK:5
 SKILL:Swim		RANK:5
-FEAT:Hover
+ABILITY:CATEGORY=FEAT|Hover
 
 STARTPACK:Dragon Horse Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon Horse]
 ALIGN:NG
@@ -610,9 +610,9 @@ SKILL:Listen			RANK:8
 SKILL:Sense Motive		RANK:8
 SKILL:Spot				RANK:8
 SKILL:Survival			RANK:11
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
 
 STARTPACK:Dragonfish Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonfish]
 ALIGN:NG
@@ -622,7 +622,7 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Hide		RANK:1
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Dragonfly (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonfly (Giant)]
 ALIGN:TN
@@ -637,9 +637,9 @@ NAME:Dragonnel
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:6
-FEAT:Alertness
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Drake (Fire) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Fire)]
 ALIGN:TN
@@ -649,8 +649,8 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:7
 SKILL:Spot		RANK:7
 SKILL:Hide		RANK:7
-FEAT:Flyby Attack
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 STARTPACK:Drake (Ice) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Ice)]
 ALIGN:CE
@@ -661,8 +661,8 @@ SKILL:Bluff			RANK:6
 SKILL:Escape Artist	RANK:6
 SKILL:Listen		RANK:6
 SKILL:Spot			RANK:6
-FEAT:Flyby Attack
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 STARTPACK:Drake (Salt) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drake (Salt)]
 ALIGN:TN
@@ -672,10 +672,10 @@ STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Hide		RANK:14
 SKILL:Listen	RANK:12
 SKILL:Spot		RANK:12
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Draug Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Draug]
 ALIGN:TN
@@ -692,9 +692,9 @@ SKILL:Move Silently		RANK:5
 SKILL:Spot				RANK:2
 SKILL:Survival			RANK:5
 SKILL:Use Rope			RANK:5
-FEAT:Alertness
-FEAT:Great Fortitude
-FEAT:Weapon Focus (Cutlass)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Weapon Focus (Cutlass)
 GEAR:Cutlass	SIZE:PC	LOCATION:Primary Hand
 
 STARTPACK:Drelb Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drelb]
@@ -711,8 +711,8 @@ SKILL:Search			RANK:8
 SKILL:Sense Motive		RANK:8
 SKILL:Spot				RANK:8
 SKILL:Survival			RANK:8
-FEAT:Blind-Fight
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Dust Digger Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dust Digger]
 ALIGN:TN
@@ -722,5 +722,5 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Hide		RANK:2
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Alertness
-FEAT:Skill Focus (Hide)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Skill Focus (Hide)

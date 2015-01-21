@@ -27,7 +27,7 @@ ABILITY:tt_abilities.lst
 
 SKILL:traptreach_skills.lst
 CLASS:traptreach_classes.lst
-FEAT:traptreach_feats.lst
+ABILITY:traptreach_feats.lst
 
 SPELL:traptreach_spells.lst
 DOMAIN:traptreach_domains.lst

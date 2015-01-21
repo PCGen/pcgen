@@ -9,8 +9,8 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Dodge
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Quasi Elemental (Lightning/Medium) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quasi Elemental (Lightning/Medium)]
 RACE:Quasi Elemental (Lightning/Medium)	!PRERACE:1,%
@@ -19,9 +19,9 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Quasi Elemental (Lightning/Large) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quasi Elemental (Lightning/Large)]
 RACE:Quasi Elemental (Lightning/Large)	!PRERACE:1,%
@@ -30,10 +30,10 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Quickling Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quickling]
 RACE:Quickling	!PRERACE:1,%
@@ -50,7 +50,7 @@ SKILL:Move Silently	RANK:4
 SKILL:Search		RANK:3
 SKILL:Spot			RANK:4
 SKILL:Survival		RANK:3
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge
 GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
 
 STARTPACK:Quickwood Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quickwood]
@@ -63,9 +63,9 @@ SKILL:Listen		RANK:7
 SKILL:Move Silently	RANK:4
 SKILL:Search		RANK:5
 SKILL:Spot			RANK:7
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Weapon Focus (Root)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus (Root)
 
 STARTPACK:Rat (Brain) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat (Brain)]
 RACE:Rat (Brain)	!PRERACE:1,%
@@ -79,7 +79,7 @@ SKILL:Move Silently	RANK:4
 SKILL:Search		RANK:2
 SKILL:Sense Motive	RANK:3
 SKILL:Spot			RANK:2
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Rat (Ethereal) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat (Ethereal)]
 RACE:Rat (Ethereal)	!PRERACE:1,%
@@ -88,7 +88,7 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:2
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Rat (Shadow/Common) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat (Shadow/Common)]
 RACE:Rat (Shadow/Common)	!PRERACE:1,%
@@ -97,7 +97,7 @@ ALIGN:TN
 STAT:STR=10|DEX=11|INT=10|WIS=10|CHA=10
 SKILL:Balance	RANK:1
 SKILL:Climb		RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Rat (Shadow/Dire) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat (Shadow/Dire)]
 RACE:Rat (Shadow/Dire)	!PRERACE:1,%
@@ -106,7 +106,7 @@ ALIGN:TN
 STAT:STR=10|DEX=11|INT=11|WIS=10|CHA=10
 SKILL:Balance	RANK:1
 SKILL:Climb		RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Rock Reptile Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rock Reptile]
 RACE:Rock Reptile	!PRERACE:1,%
@@ -117,5 +117,5 @@ SKILL:Hide			RANK:2
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:2
-FEAT:Alertness
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Track

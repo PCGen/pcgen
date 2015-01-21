@@ -37,5 +37,5 @@ INFOTEXT:Requires the Blood and Secrets dataset
 CLASS:moderndispatch075_classes.lst
 EQUIPMENT:moderndispatch075_equip.lst
 EQUIPMENT:moderndispatch075_equip_armorshields.lst
-FEAT:moderndispatch075_feats_hidden.lst
+ABILITY:moderndispatch075_feats_hidden.lst
 TEMPLATE:moderndispatch075_templates.lst

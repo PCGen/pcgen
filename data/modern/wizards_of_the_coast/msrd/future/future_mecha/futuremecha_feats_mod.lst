@@ -2,28 +2,28 @@
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 # Feat Name					Type
-Advanced Combat Martial Arts.MOD	TYPE:MechaJockey
-Burst Fire.MOD				TYPE:MechaJockey
-Cleave.MOD					TYPE:MechaJockey
-Combat Expertise.MOD			TYPE:MechaJockey
-Dead Aim.MOD				TYPE:MechaJockey
-Dodge.MOD					TYPE:MechaJockey
-Double Tap.MOD				TYPE:MechaJockey
-Far Shot.MOD				TYPE:MechaJockey
-Force Stop.MOD				TYPE:MechaJockey
-Gearhead.MOD				TYPE:MechaJockey
-Great Cleave.MOD				TYPE:MechaJockey
-Improved Bull Rush.MOD			TYPE:MechaJockey
-Improved Disarm.MOD			TYPE:MechaJockey
-Improved Trip.MOD				TYPE:MechaJockey
-Mobility.MOD				TYPE:MechaJockey
-Personal Firearms Proficiency.MOD	TYPE:MechaJockey
-Point Blank Shot.MOD			TYPE:MechaJockey
-Power Attack.MOD				TYPE:MechaJockey
-Precise Shot.MOD				TYPE:MechaJockey
-Shot on the Run.MOD			TYPE:MechaJockey
-Spring Attack.MOD				TYPE:MechaJockey
-Strafe.MOD					TYPE:MechaJockey
-Sunder.MOD					TYPE:MechaJockey
-Weapon Focus.MOD				TYPE:MechaJockey
-Whirlwind Attack.MOD			TYPE:MechaJockey
+CATEGORY=FEAT|Advanced Combat Martial Arts.MOD	TYPE:MechaJockey
+CATEGORY=FEAT|Burst Fire.MOD				TYPE:MechaJockey
+CATEGORY=FEAT|Cleave.MOD					TYPE:MechaJockey
+CATEGORY=FEAT|Combat Expertise.MOD			TYPE:MechaJockey
+CATEGORY=FEAT|Dead Aim.MOD				TYPE:MechaJockey
+CATEGORY=FEAT|Dodge.MOD					TYPE:MechaJockey
+CATEGORY=FEAT|Double Tap.MOD				TYPE:MechaJockey
+CATEGORY=FEAT|Far Shot.MOD				TYPE:MechaJockey
+CATEGORY=FEAT|Force Stop.MOD				TYPE:MechaJockey
+CATEGORY=FEAT|Gearhead.MOD				TYPE:MechaJockey
+CATEGORY=FEAT|Great Cleave.MOD				TYPE:MechaJockey
+CATEGORY=FEAT|Improved Bull Rush.MOD			TYPE:MechaJockey
+CATEGORY=FEAT|Improved Disarm.MOD			TYPE:MechaJockey
+CATEGORY=FEAT|Improved Trip.MOD				TYPE:MechaJockey
+CATEGORY=FEAT|Mobility.MOD				TYPE:MechaJockey
+CATEGORY=FEAT|Personal Firearms Proficiency.MOD	TYPE:MechaJockey
+CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:MechaJockey
+CATEGORY=FEAT|Power Attack.MOD				TYPE:MechaJockey
+CATEGORY=FEAT|Precise Shot.MOD				TYPE:MechaJockey
+CATEGORY=FEAT|Shot on the Run.MOD			TYPE:MechaJockey
+CATEGORY=FEAT|Spring Attack.MOD				TYPE:MechaJockey
+CATEGORY=FEAT|Strafe.MOD					TYPE:MechaJockey
+CATEGORY=FEAT|Sunder.MOD					TYPE:MechaJockey
+CATEGORY=FEAT|Weapon Focus.MOD				TYPE:MechaJockey
+CATEGORY=FEAT|Whirlwind Attack.MOD			TYPE:MechaJockey

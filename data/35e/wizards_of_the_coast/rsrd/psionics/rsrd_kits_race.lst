@@ -9,7 +9,7 @@ RACE:Dromite	!PRERACE:1,%
 CLASS:Warrior	LEVEL:1
 SKILL:Climb	RANK:4
 SKILL:Spot	RANK:2
-FEAT:Weapon Focus(Longsword)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longsword)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
@@ -29,7 +29,7 @@ RACE:Elan	!PRERACE:1,%
 CLASS:Warrior	LEVEL:1
 SKILL:Climb	RANK:4
 SKILL:Jump	RANK:4
-FEAT:Weapon Focus(Warhammer)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Warhammer)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Warhammer			SIZE:PC	LOCATION:Primary Hand
@@ -43,7 +43,7 @@ RACE:Half-Giant	!PRERACE:1,%
 CLASS:Warrior	LEVEL:1
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Weapon Focus(Greatsword)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Greatsword)
 GEAR:Scale Mail	SIZE:PC	LOCATION:Equipped
 GEAR:Greatsword	SIZE:L	LOCATION:Both Hands
 GEAR:Javelin	SIZE:L	LOCATION:Carried
@@ -56,7 +56,7 @@ RACE:Maenad	!PRERACE:1,%
 CLASS:Warrior	LEVEL:1
 SKILL:Climb	RANK:4
 SKILL:Jump	RANK:4
-FEAT:Weapon Focus(Longsword)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longsword)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
@@ -71,7 +71,7 @@ RACE:Xeph	!PRERACE:1,%
 CLASS:Warrior	LEVEL:1
 SKILL:Climb	RANK:4
 SKILL:Jump	RANK:4
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Rapier				SIZE:PC	LOCATION:Primary Hand
@@ -130,9 +130,9 @@ SKILL:Concentration	RANK:11
 SKILL:Listen		RANK:11
 SKILL:Spot			RANK:11
 SKILL:TYPE=Knowledge	RANK:11
-FEAT:Alertness
-FEAT:Combat Manifestation
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Manifestation
+ABILITY:CATEGORY=FEAT|Iron Will
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 
 STARTPACK:Blue Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blue]
@@ -146,7 +146,7 @@ SKILL:Concentration	RANK:4
 SKILL:Hide			RANK:2
 SKILL:Psicraft		RANK:4
 SKILL:Spot			RANK:2
-FEAT:Psionic Body
+ABILITY:CATEGORY=FEAT|Psionic Body
 GEAR:Quarterstaff		SIZE:PC	LOCATION:Both Hands
 GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
 SPELLS:SPELLBOOK=Known Spells|CLASS=Psion|Inertial Armor|Mind Thrust|Charm (Psionic)
@@ -158,7 +158,7 @@ ALIGN:TN
 SKILL:Hide			RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Listen		RANK:2
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 STAT:CON=11|CHA=11|STR=10|DEX=10|INT=10|WIS=10
 
 STARTPACK:Caller in Darkness Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Caller in Darkness]
@@ -173,10 +173,10 @@ SKILL:Search			RANK:10
 SKILL:Sense Motive		RANK:10
 SKILL:Listen			RANK:12
 SKILL:Spot				RANK:12
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Cerebrilith Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cerebrilith]
@@ -195,10 +195,10 @@ SKILL:Move Silently		RANK:10
 SKILL:Search			RANK:10
 SKILL:Sense Motive		RANK:10
 SKILL:Spot				RANK:10
-FEAT:Power Attack
-FEAT:Psionic Fist
-FEAT:Psionic Meditation
-FEAT:Unavoidable Strike
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Psionic Fist
+ABILITY:CATEGORY=FEAT|Psionic Meditation
+ABILITY:CATEGORY=FEAT|Unavoidable Strike
 STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
 
 STARTPACK:Couatl (Psionic) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Couatl (Psionic)]
@@ -216,10 +216,10 @@ SKILL:Spellcraft		RANK:12
 SKILL:Spot			RANK:12
 SKILL:Tumble		RANK:12
 SKILL:Use Magic Device	RANK:12
-FEAT:Dodge
-FEAT:Empower Spell
-FEAT:Hover
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Crysmal Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crysmal]
 RACE:Crysmal	!PRERACE:1,%
@@ -227,9 +227,9 @@ NAME:Crysmal
 SKILL:Appraise	RANK:3
 SKILL:Climb		RANK:3
 SKILL:Jump		RANK:3
-FEAT:Alertness
-FEAT:Great Fortitude
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Folugub Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Folugub]
@@ -239,8 +239,8 @@ ALIGN:TN
 SKILL:Move Silently	RANK:1
 SKILL:Listen		RANK:3
 SKILL:Spot			RANK:3
-FEAT:Alertness
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:DEX=11|CON=11|WIS=11|CHA=11|STR=10|INT=10
 
 STARTPACK:Gray Glutton Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gray Glutton]
@@ -250,10 +250,10 @@ ALIGN:TN
 SKILL:Spot		RANK:1
 SKILL:Jump		RANK:2
 SKILL:Listen	RANK:5
-FEAT:Closed Mind
-FEAT:Hostile Mind
-FEAT:Iron Will
-FEAT:Psionic Hole
+ABILITY:CATEGORY=FEAT|Closed Mind
+ABILITY:CATEGORY=FEAT|Hostile Mind
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Psionic Hole
 STAT:STR=11|DEX=11|CON=11|WIS=11|INT=10|CHA=10
 
 STARTPACK:Intellect Devourer Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Intellect Devourer]
@@ -265,9 +265,9 @@ SKILL:Concentration	RANK:9
 SKILL:Bluff			RANK:5
 SKILL:Hide			RANK:5
 SKILL:Listen		RANK:5
-FEAT:Combat Manifestation
-FEAT:Toughness
-FEAT:Up the Walls
+ABILITY:CATEGORY=FEAT|Combat Manifestation
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Up the Walls
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 STARTPACK:Neothelid Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neothelid]
@@ -279,15 +279,15 @@ SKILL:Knowledge (Psionics)	RANK:28
 SKILL:Listen			RANK:28
 SKILL:Spot				RANK:28
 SKILL:Psicraft			RANK:26
-FEAT:Cleave
-FEAT:Improved Critical(Tentacle Rake)
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Psionic Endowment
-FEAT:Psionic Fist
-FEAT:Psionic Meditation
-FEAT:Speed of Thought
-FEAT:Wild Talent
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical(Tentacle Rake)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Psionic Endowment
+ABILITY:CATEGORY=FEAT|Psionic Fist
+ABILITY:CATEGORY=FEAT|Psionic Meditation
+ABILITY:CATEGORY=FEAT|Speed of Thought
+ABILITY:CATEGORY=FEAT|Wild Talent
 STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10
 
 
@@ -300,9 +300,9 @@ ALIGN:CE
 SKILL:Listen		RANK:6
 SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
-FEAT:Alertness
-FEAT:Great Fortitude
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Psion Killer Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psion Killer]
@@ -318,7 +318,7 @@ SKILL:Hide			RANK:4
 SKILL:Listen		RANK:4
 SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:4
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Puppeteer (Flesh Harrower) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer (Flesh Harrower)]
@@ -329,8 +329,8 @@ SKILL:Hide			RANK:3
 SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
-FEAT:Alertness
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will
 STAT:DEX=11|CON=11|INT=11|STR=10|WIS=10|CHA=10
 
 STARTPACK:Temporal Filcher Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Temporal Filcher]
@@ -339,9 +339,9 @@ NAME:Temporal Filcher
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
 SKILL:Tumble	RANK:3
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
 
 STARTPACK:Thought Eater Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Eater]
@@ -350,8 +350,8 @@ NAME:Thought Eater
 SKILL:Hide		RANK:2
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:CON=11|INT=11|STR=10|DEX=10|WIS=10|CHA=10
 
 STARTPACK:Thought Slayer Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Slayer]
@@ -361,11 +361,11 @@ SKILL:Climb		RANK:4
 SKILL:Jump		RANK:4
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:5
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Great Fortitude
-FEAT:Power Attack
-FEAT:Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
 STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
 
 STARTPACK:Udoroot Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot]
@@ -373,8 +373,8 @@ RACE:Udoroot	!PRERACE:1,%
 NAME:Udoroot
 ALIGN:TN
 SKILL:Listen	RANK:9
-FEAT:Iron Will
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:WIS=11|STR=10|DEX=10|CON=10|INT=10|CHA=10
 
 STARTPACK:Unbodied Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unbodied]
@@ -387,7 +387,7 @@ SKILL:Intimidate		RANK:4
 SKILL:Listen		RANK:4
 SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:4
-FEAT:Overchannel
-FEAT:Wild Talent
+ABILITY:CATEGORY=FEAT|Overchannel
+ABILITY:CATEGORY=FEAT|Wild Talent
 STAT:DEX=11|INT=11|CHA=11|STR=10|CON=10|WIS=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Psion|Detect Psionics|Empty Mind|Mind Thrust|Charm (Psionic)|Brain Lock|Cloud Mind|Energy Push|Read Thoughts

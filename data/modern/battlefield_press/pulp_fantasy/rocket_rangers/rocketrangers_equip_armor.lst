@@ -4,4 +4,4 @@ SOURCELONG:Rocket Rangers - King of the Rocket Men	SOURCESHORT:RocketRngr	SOURCE
 
 ###Block:Vegan Technology
 # Equipment Name	Required Armor Proficiency	Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus
-Space Suit		PROFICIENCY:ARMOR|Space Suit	TYPE:Armor.Light.Suit.Impromptu.Vegan	COST:0	WT:6		ACCHECK:0		MAXDEX:5		SOURCEPAGE:p.15	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|TYPE=Armor.STACK|PREFEAT:1,Armor Proficiency (Light)
+Space Suit		PROFICIENCY:ARMOR|Space Suit	TYPE:Armor.Light.Suit.Impromptu.Vegan	COST:0	WT:6		ACCHECK:0		MAXDEX:5		SOURCEPAGE:p.15	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|TYPE=Armor.STACK|PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Light)

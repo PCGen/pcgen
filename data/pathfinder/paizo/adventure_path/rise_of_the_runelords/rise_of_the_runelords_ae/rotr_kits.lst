@@ -15,7 +15,7 @@ SKILL:Perception		RANK:1
 SKILL:Perform (Sing)	RANK:1
 SKILL:Linguistics		RANK:1	SELECTION:Common
 SKILL:Stealth		RANK:1
-FEAT:Combat Reflexes
+ABILITY:CATEGORY=FEAT|Combat Reflexes
 GEAR:Potion of Cure Light Wounds					LOCATION:Carried
 GEAR:Studded Leather					SIZE:S	LOCATION:Equipped
 GEAR:Whip							SIZE:S	LOCATION:Primary Hand
@@ -38,7 +38,7 @@ SKILL:Perception		RANK:1
 SKILL:Ride			RANK:1
 SKILL:Stealth		RANK:1
 SKILL:Survival		RANK:1
-FEAT:Mounted Combat
+ABILITY:CATEGORY=FEAT|Mounted Combat
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Animal
 GEAR:Studded Leather			SIZE:S	LOCATION:Equipped
 GEAR:Horsechopper						LOCATION:Both Hands	EQMOD:MWORKW.STEEL
@@ -74,8 +74,8 @@ SKILL:Disguise				RANK:1
 SKILL:Intimidate				RANK:2
 SKILL:Perception				RANK:1
 SKILL:Stealth				RANK:1
-FEAT:Dodge
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 #ABILITY:CATEGORY=Monk Bonus Feat|Stunning Fist
 ABILITY:CATEGORY=Monk Bonus Feat|Monk Bonus Feat ~ Deflect Arrows
 ABILITY:CATEGORY=Favored Class|Monk
@@ -99,7 +99,7 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 STAT:STR=17|DEX=9|CON=16|INT=3|WIS=8|CHA=12
 SKILL:Intimidate	RANK:2
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=Fighter Bonus Feat|Improved Initiative
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
 TEMPLATE:Waters of Lamashtu (Koruvus's Mutation)
@@ -123,8 +123,8 @@ STAT:STR=10|DEX=10|CON=14|INT=8|WIS=15|CHA=14
 SKILL:Handle Animal		RANK:4
 SKILL:Knowledge (Nature)	RANK:4
 SKILL:Survival			RANK:4
-FEAT:Brew Potion
-FEAT:Combat Casting
+ABILITY:CATEGORY=FEAT|Brew Potion
+ABILITY:CATEGORY=FEAT|Combat Casting
 GEAR:Potion of Cure Light Wounds	QTY:2			LOCATION:Carried
 GEAR:Wand								LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Produce Flame]CASTER[Druid]SPELLTYPE[Divine]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[34]
 GEAR:Leather					SIZE:S	LOCATION:Equipped		EQMOD:PLUS1A.LEATHER
@@ -149,8 +149,8 @@ SKILL:Handle Animal	RANK:2
 SKILL:Intimidate		RANK:1
 SKILL:Ride			RANK:4
 SKILL:Stealth		RANK:1
-FEAT:Weapon Focus (Dogslicer)
-FEAT:Weapon Specialization (Dogslicer)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Dogslicer)
+ABILITY:CATEGORY=FEAT|Weapon Specialization (Dogslicer)
 ABILITY:CATEGORY=Fighter Bonus Feat|Mounted Combat
 ABILITY:CATEGORY=Fighter Bonus Feat|Ride-By Attack
 ABILITY:CATEGORY=Fighter Bonus Feat|Spirited Charge
@@ -172,8 +172,8 @@ SKILL:Intimidate	RANK:1
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:4
 SKILL:Survival	RANK:2
-FEAT:Point-Blank Shot
-FEAT:Weapon Focus (Longbow)
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Weapon Focus (Longbow)
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Humanoid (Elf)
 GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
 GEAR:Studded Leather					LOCATION:Equipped
@@ -198,9 +198,9 @@ SKILL:Climb		RANK:1
 SKILL:Intimidate	RANK:1
 SKILL:Linguistics	RANK:1	SELECTION:Goblin
 SKILL:Swim		RANK:1
-FEAT:Weapon Focus (Sword (Bastard))
-FEAT:Athletic
-FEAT:Blind-Fight
+ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Bastard))
+ABILITY:CATEGORY=FEAT|Athletic
+ABILITY:CATEGORY=FEAT|Blind-Fight
 ABILITY:CATEGORY=Fighter Bonus Feat|Exotic Weapon Proficiency(Sword (Bastard))
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
 GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
@@ -232,9 +232,9 @@ SKILL:Knowledge (Engineering)	RANK:3
 SKILL:Knowledge (Local)		RANK:3
 SKILL:Spellcraft			RANK:3
 SKILL:Stealth			RANK:3
-FEAT:Mobility
-FEAT:Dodge
-FEAT:Spell Focus (Evocation)
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Spell Focus (Evocation)
 GEAR:Wand						LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
 GEAR:Potion of Cure Light Wounds		LOCATION:Carried
 GEAR:Scroll (Sleep)				LOCATION:Carried
@@ -327,9 +327,9 @@ DEITY:Lamashtu	DOMAIN:Evil|Strength
 SKILL:Intimidate			RANK:1
 SKILL:Knowledge (Religion)	RANK:3
 SKILL:Linguistics			RANK:1	FREE:YES	SELECTION:Goblin
-FEAT:Weapon Focus (Sword (Bastard))
-FEAT:Lamashtu's Mark
-FEAT:Dazzling Display
+ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Bastard))
+ABILITY:CATEGORY=FEAT|Lamashtu's Mark
+ABILITY:CATEGORY=FEAT|Dazzling Display
 ABILITY:CATEGORY=Fighter Bonus Feat|Exotic Weapon Proficiency (Sword (Bastard))
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
 ABILITY:CATEGORY=Channel Energy|Cleric ~ Channel Negative Energy
@@ -373,8 +373,8 @@ SKILL:Sense Motive		RANK:10
 SKILL:Stealth			RANK:10
 SKILL:Survival			RANK:6
 SKILL:Linguistics			RANK:2	SELECTION:Common,Giant
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Improved Natural Attack(Bite)
-FEAT:Power Attack
-FEAT:Improved Natural Armor
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Natural Attack(Bite)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Improved Natural Armor

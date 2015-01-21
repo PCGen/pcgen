@@ -28,5 +28,5 @@ URL:WEBSITE|http://www.alderac.com/|Visit Alderac Entertainment Group
 ABILITY:empire_abilities.lst
 ABILITYCATEGORY:empire_ability_categories.lst
 CLASS:empire_classes.lst
-FEAT:empire_feats.lst
+ABILITY:empire_feats.lst
 SKILL:empire_skills.lst

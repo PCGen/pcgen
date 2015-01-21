@@ -59,7 +59,7 @@ ABILITY:botd2_abilities_race.lst
 CLASS:botd2_classes_prestige.lst
 DEITY:botd2_deities.lst
 EQUIPMENT:botd2_equip.lst
-FEAT:botd2_feats.lst
+ABILITY:botd2_feats.lst
 KIT:botd2_kits_race.lst
 RACE:botd2_races.lst
 SPELL:botd2_spells.lst

@@ -7,9 +7,9 @@ NAME:Elemental (Air/Small)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
 
 STARTPACK:Elemental (Air/Medium) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Medium)]
 RACE:Elemental (Air/Medium)	!PRERACE:1,%
@@ -17,9 +17,9 @@ NAME:Elemental (Air/Medium)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
 
 STARTPACK:Elemental (Air/Large) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Large)]
 RACE:Elemental (Air/Large)	!PRERACE:1,%
@@ -27,10 +27,10 @@ NAME:Elemental (Air/Large)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:10
 SKILL:Spot		RANK:10
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Weapon Finesse (Slam)
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Elemental (Air/Huge) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Huge)]
 RACE:Elemental (Air/Huge)	!PRERACE:1,%
@@ -38,11 +38,11 @@ NAME:Elemental (Air/Huge)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:14
 SKILL:Spot		RANK:14
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Weapon Finesse (Slam)
-FEAT:Dodge
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 
 STARTPACK:Elemental (Air/Greater) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Greater)]
 RACE:Elemental (Air/Greater)	!PRERACE:1,%
@@ -50,12 +50,12 @@ NAME:Elemental (Air/Greater)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:19
 SKILL:Spot		RANK:19
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Weapon Finesse (Slam)
-FEAT:Dodge
-FEAT:Mobility
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
 
 STARTPACK:Elemental (Air/Elder) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Elder)]
 RACE:Elemental (Air/Elder)	!PRERACE:1,%
@@ -63,13 +63,13 @@ NAME:Elemental (Air/Elder)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:22
 SKILL:Spot		RANK:22
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Weapon Finesse (Slam)
-FEAT:Dodge
-FEAT:Mobility
-FEAT:Spring Attack
-FEAT:Combat Reflexes
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Combat Reflexes
 
 STARTPACK:Elemental (Earth/Small) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Small)]
 RACE:Elemental (Earth/Small)	!PRERACE:1,%
@@ -77,7 +77,7 @@ NAME:Elemental (Earth/Small)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Elemental (Earth/Medium) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Medium)]
 RACE:Elemental (Earth/Medium)	!PRERACE:1,%
@@ -85,7 +85,7 @@ NAME:Elemental (Earth/Medium)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Elemental (Earth/Large) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Large)]
 RACE:Elemental (Earth/Large)	!PRERACE:1,%
@@ -93,8 +93,8 @@ NAME:Elemental (Earth/Large)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:10
 SKILL:Spot		RANK:10
-FEAT:Power Attack
-FEAT:Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
 
 STARTPACK:Elemental (Earth/Huge) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Huge)]
 RACE:Elemental (Earth/Huge)	!PRERACE:1,%
@@ -102,9 +102,9 @@ NAME:Elemental (Earth/Huge)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:14
 SKILL:Spot		RANK:14
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Great Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
 
 STARTPACK:Elemental (Earth/Greater) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Greater)]
 RACE:Elemental (Earth/Greater)	!PRERACE:1,%
@@ -112,10 +112,10 @@ NAME:Elemental (Earth/Greater)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:19
 SKILL:Spot		RANK:19
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Sunder
 
 STARTPACK:Elemental (Earth/Elder) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Elder)]
 RACE:Elemental (Earth/Elder)	!PRERACE:1,%
@@ -123,11 +123,11 @@ NAME:Elemental (Earth/Elder)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:22
 SKILL:Spot		RANK:22
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Sunder
-FEAT:Improved Critical (Slam)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Sunder
+ABILITY:CATEGORY=FEAT|Improved Critical (Slam)
 
 STARTPACK:Elemental (Fire/Small) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Small)]
 RACE:Elemental (Fire/Small)	!PRERACE:1,%
@@ -135,8 +135,8 @@ NAME:Elemental (Fire/Small)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
-FEAT:Improved Initiative
-FEAT:Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
 
 STARTPACK:Elemental (Fire/Medium) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Medium)]
 RACE:Elemental (Fire/Medium)	!PRERACE:1,%
@@ -144,8 +144,8 @@ NAME:Elemental (Fire/Medium)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Improved Initiative
-FEAT:Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
 
 STARTPACK:Elemental (Fire/Large) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Large)]
 RACE:Elemental (Fire/Large)	!PRERACE:1,%
@@ -153,9 +153,9 @@ NAME:Elemental (Fire/Large)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:10
 SKILL:Spot		RANK:10
-FEAT:Improved Initiative
-FEAT:Weapon Finesse (Slam)
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Elemental (Fire/Huge) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Huge)]
 RACE:Elemental (Fire/Huge)	!PRERACE:1,%
@@ -163,10 +163,10 @@ NAME:Elemental (Fire/Huge)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:14
 SKILL:Spot		RANK:14
-FEAT:Improved Initiative
-FEAT:Weapon Finesse (Slam)
-FEAT:Dodge
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 
 STARTPACK:Elemental (Fire/Greater) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Greater)]
 RACE:Elemental (Fire/Greater)	!PRERACE:1,%
@@ -174,11 +174,11 @@ NAME:Elemental (Fire/Greater)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:19
 SKILL:Spot		RANK:19
-FEAT:Improved Initiative
-FEAT:Weapon Finesse (Slam)
-FEAT:Dodge
-FEAT:Mobility
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
 
 STARTPACK:Elemental (Fire/Elder) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Elder)]
 RACE:Elemental (Fire/Elder)	!PRERACE:1,%
@@ -186,12 +186,12 @@ NAME:Elemental (Fire/Elder)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:22
 SKILL:Spot		RANK:22
-FEAT:Improved Initiative
-FEAT:Weapon Finesse (Slam)
-FEAT:Dodge
-FEAT:Mobility
-FEAT:Spring Attack
-FEAT:Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Combat Reflexes
 
 STARTPACK:Elemental (Water/Small) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Small)]
 RACE:Elemental (Water/Small)	!PRERACE:1,%
@@ -199,7 +199,7 @@ NAME:Elemental (Water/Small)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Elemental (Water/Medium) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Medium)]
 RACE:Elemental (Water/Medium)	!PRERACE:1,%
@@ -207,7 +207,7 @@ NAME:Elemental (Water/Medium)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Elemental (Water/Large) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Large)]
 RACE:Elemental (Water/Large)	!PRERACE:1,%
@@ -215,8 +215,8 @@ NAME:Elemental (Water/Large)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:10
 SKILL:Spot		RANK:10
-FEAT:Power Attack
-FEAT:Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
 
 STARTPACK:Elemental (Water/Huge) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Huge)]
 RACE:Elemental (Water/Huge)	!PRERACE:1,%
@@ -224,9 +224,9 @@ NAME:Elemental (Water/Huge)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:14
 SKILL:Spot		RANK:14
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Great Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
 
 STARTPACK:Elemental (Water/Greater) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Greater)]
 RACE:Elemental (Water/Greater)	!PRERACE:1,%
@@ -234,10 +234,10 @@ NAME:Elemental (Water/Greater)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:19
 SKILL:Spot		RANK:19
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Sunder
 
 STARTPACK:Elemental (Water/Elder) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Elder)]
 RACE:Elemental (Water/Elder)	!PRERACE:1,%
@@ -245,11 +245,11 @@ NAME:Elemental (Water/Elder)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:22
 SKILL:Spot		RANK:22
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Sunder
-FEAT:Improved Critical (Slam)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Sunder
+ABILITY:CATEGORY=FEAT|Improved Critical (Slam)
 
 STARTPACK:Elf (Aquatic) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf (Aquatic)]
 RACE:Elf (Aquatic)	!PRERACE:1,%
@@ -260,7 +260,7 @@ CLASS:Warrior	LEVEL:1
 SKILL:Hide		RANK:2
 SKILL:Listen	RANK:1
 SKILL:Search	RANK:1
-FEAT:Weapon Focus(Longbow)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longbow)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Small/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
@@ -275,7 +275,7 @@ CLASS:Warrior	LEVEL:1
 SKILL:Hide		RANK:2
 SKILL:Listen	RANK:1
 SKILL:Search	RANK:1
-FEAT:Weapon Focus(Longbow)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longbow)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Small/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
@@ -290,7 +290,7 @@ CLASS:Warrior	LEVEL:1
 SKILL:Hide		RANK:2
 SKILL:Listen	RANK:1
 SKILL:Search	RANK:1
-FEAT:Weapon Focus(Longbow)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longbow)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Small/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
@@ -305,7 +305,7 @@ CLASS:Warrior	LEVEL:1
 SKILL:Hide		RANK:2
 SKILL:Listen	RANK:1
 SKILL:Search	RANK:1
-FEAT:Weapon Focus(Longbow)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longbow)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Small/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
@@ -320,7 +320,7 @@ CLASS:Warrior	LEVEL:1
 SKILL:Hide		RANK:2
 SKILL:Listen	RANK:1
 SKILL:Search	RANK:1
-FEAT:Weapon Focus(Longbow)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longbow)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Small/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
@@ -333,7 +333,7 @@ STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Listen	RANK:7
 SKILL:Spot		RANK:7
 SKILL:Pick Pocket	RANK:8
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Ethereal Marauder Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ethereal Marauder]
 RACE:Ethereal Marauder	!PRERACE:1,%
@@ -343,7 +343,7 @@ STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:5
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Ettercap Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ettercap]
 RACE:Ettercap	!PRERACE:1,%
@@ -351,7 +351,7 @@ NAME:Ettercap
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:8
 SKILL:Spot		RANK:8
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Ettin Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ettin]
 RACE:Ettin	!PRERACE:1,%
@@ -359,9 +359,9 @@ NAME:Ettin
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Formian (Worker) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Worker)]
 RACE:Formian (Worker)	!PRERACE:1,%
@@ -380,8 +380,8 @@ SKILL:Hide			RANK:7
 SKILL:Move Silently	RANK:7
 SKILL:Listen		RANK:6
 SKILL:Spot			RANK:5
-FEAT:Dodge
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Formian (Taskmaster) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Taskmaster)]
 RACE:Formian (Taskmaster)	!PRERACE:1,%
@@ -395,8 +395,8 @@ SKILL:Move Silently	RANK:9
 SKILL:Sense Motive	RANK:9
 SKILL:Spot			RANK:9
 SKILL:Search		RANK:6
-FEAT:Improved Initiative
-FEAT:Spell Like Ability Focus(Enchantment)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Spell Like Ability Focus(Enchantment)
 
 STARTPACK:Formian (Myrmarch) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Myrmarch)]
 RACE:Formian (Myrmarch)	!PRERACE:1,%
@@ -411,10 +411,10 @@ SKILL:Listen		RANK:15
 SKILL:Move Silently	RANK:15
 SKILL:Sense Motive	RANK:15
 SKILL:Spot			RANK:15
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Formian (Queen) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Formian (Queen)]
 RACE:Formian (Queen)	!PRERACE:1,%
@@ -430,11 +430,11 @@ SKILL:Scry			RANK:23
 SKILL:Sense Motive	RANK:23
 SKILL:Spellcraft		RANK:23
 SKILL:Spot			RANK:23
-FEAT:Alertness
-FEAT:Great Fortitude
-FEAT:Iron Will
-FEAT:Spell Focus(Enchantment)
-FEAT:Quicken Spell
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Spell Focus(Enchantment)
+ABILITY:CATEGORY=FEAT|Quicken Spell
 
 STARTPACK:Frost Worm Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frost Worm]
 RACE:Frost Worm	!PRERACE:1,%

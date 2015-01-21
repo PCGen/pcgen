@@ -34,7 +34,7 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1903980496?ie=UTF8&tag=httppcgen
 
 
 #CLASS:../enchantment_classes.lst
-FEAT:../enchantment_feats.lst
+ABILITY:../enchantment_feats.lst
 SPELL:../enchantment_spells.lst
 TEMPLATE:../enchantment_templates.lst
 

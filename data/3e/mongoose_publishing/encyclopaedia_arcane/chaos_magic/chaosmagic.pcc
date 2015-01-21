@@ -35,4 +35,4 @@ ABILITY:chaosmagic_abilities_class.lst
 
 CLASS:chaosmagic_classes.lst
 SKILL:chaosmagic_skills.lst
-FEAT:chaosmagic_feats.lst
+ABILITY:chaosmagic_feats.lst

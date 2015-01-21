@@ -39,6 +39,6 @@ ABILITY:gnog_abilities.lst
 ABILITY:gnog_abilities_pfs.lst
 DEITY:gnog_deities.lst
 EQUIPMENT:gnog_equip_arms_armor.lst
-FEAT:gnog_feats.lst
+ABILITY:gnog_feats.lst
 SPELL:gnog_spells.lst
 WEAPONPROF:gnog_profs_weapon.lst

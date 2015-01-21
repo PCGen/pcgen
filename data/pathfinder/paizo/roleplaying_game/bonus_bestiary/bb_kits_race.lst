@@ -10,8 +10,8 @@ SKILL:Fly		RANK:4
 SKILL:Intimidate	RANK:4
 SKILL:Perception	RANK:4
 SKILL:Stealth	RANK:4
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 
 STARTPACK:Ant Lion (Giant) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ant Lion (Giant)]	SOURCEPAGE:p.5
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
@@ -37,8 +37,8 @@ RACE:Axe Beak	!PRERACE:1,%
 NAME:Axe Beak
 ALIGN:TN
 SKILL:Perception	RANK:3
-FEAT:Run
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 STARTPACK:Caryatid Column Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Caryatid Column]	SOURCEPAGE:p.8
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
@@ -61,8 +61,8 @@ SKILL:Sense Motive	RANK:3
 SKILL:Stealth		RANK:3
 SKILL:Swim			RANK:3
 SKILL:Use Magic Device	RANK:3
-FEAT:Acrobatic
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Acrobatic
+ABILITY:CATEGORY=FEAT|Dodge
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights|Flare|Ghost Sound|Grease|Mage Hand|Open/Close|Silent Image|Sleep
 
 STARTPACK:Dragonne Default	TYPE:Default Monster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonne]	SOURCEPAGE:p.10
@@ -72,11 +72,11 @@ NAME:Dragonne
 ALIGN:TN
 SKILL:Fly		RANK:5
 SKILL:Perception	RANK:4
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Hag (Annis) Default	TYPE:Default Monster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hag (Annis)]	SOURCEPAGE:p.11
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
@@ -88,10 +88,10 @@ SKILL:Diplomacy	RANK:7
 SKILL:Intimidate	RANK:7
 SKILL:Perception	RANK:7
 SKILL:Stealth	RANK:7
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Great Fortitude
-FEAT:Intimidating Prowess
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Intimidating Prowess
 
 STARTPACK:Huecuva Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Huecuva]	SOURCEPAGE:p.12
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
@@ -100,8 +100,8 @@ NAME:Huecuva
 ALIGN:CE
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:2
-FEAT:Improved Initiative
-FEAT:Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 
 STARTPACK:Lammasu Default	TYPE:Default Monster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lammasu]	SOURCEPAGE:p.13
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
@@ -113,11 +113,11 @@ SKILL:Fly				RANK:9
 SKILL:Knowledge (Arcana)	RANK:9
 SKILL:Perception			RANK:9
 SKILL:Sense Motive		RANK:9
-FEAT:Blind-Fight
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bear's Endurance|Bless|Cure Light Wounds=2|Cure Serious Wounds|Detect Magic|Detect Evil|Detect Poison|Divine Favor|Guidance|Holy Smite|Prayer|Resist Energy|Restoration (Lesser)|Searing Light|Shield Other|Stabilize
 
 STARTPACK:Naga (Water) Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Water)]	SOURCEPAGE:p.14
@@ -131,10 +131,10 @@ SKILL:Perception		RANK:0
 SKILL:Spellcraft		RANK:0
 SKILL:Stealth		RANK:0
 SKILL:Swim			RANK:0
-FEAT:Combat Casting
-FEAT:Lightning Reflexes
-FEAT:Skill Focus (Perception)
-FEAT:Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Arrow|Acid Splash|Daze|Detect Magic|Expeditious Retreat|Invisibility|Light|Mage Hand|Magic Missile|Mirror Image|Obscuring Mist|Open/Close|Protection from Energy|Read Magic|Shield|Suggestion|True Strike
 
 STARTPACK:Nixie Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nixie]	SOURCEPAGE:p.15
@@ -151,7 +151,7 @@ SKILL:Perform (Sing)	RANK:1
 SKILL:Sense Motive	RANK:1
 SKILL:Stealth		RANK:2
 SKILL:Swim			RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
 
@@ -163,6 +163,6 @@ ALIGN:NE
 SKILL:Perception	RANK:6
 SKILL:Stealth	RANK:6
 SKILL:Survival	RANK:6
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack

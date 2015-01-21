@@ -40,5 +40,5 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne Player's Gui
 # Equipment: all equipment on pages 12-13 (except hide shirt); Feats: Acadamae Graduate, Crossbow Mastery
 EQUIPMENT:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/cotctpg_equip_arms_armor.lst|(EXCLUDE:Hide Shirt)
 WEAPONPROF:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/cotctpg_profs_weapon.lst
-FEAT:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/cotctpg_feats.lst|(INCLUDE:CATEGORY=Special Ability,Acadamae Graduate)
+ABILITY:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/cotctpg_feats.lst|(INCLUDE:CATEGORY=Special Ability,Acadamae Graduate)
 # Note: The Crossbow Mastery feat is included in APG

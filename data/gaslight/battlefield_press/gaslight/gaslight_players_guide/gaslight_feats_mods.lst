@@ -180,7 +180,7 @@ Sideways Trip.MOD																												SOURCEPAGE:p.186
 Silhouette.MOD																												SOURCEPAGE:p.186
 Silent Spell.MOD																												SOURCEPAGE:p.186
 Simple Weapons Proficiency.MOD																									SOURCEPAGE:p.186
-Spiritual Heritage.MOD				TYPE:Initial																					SOURCEPAGE:p.187
+Spiritual Heritage.MOD				CATEGORY:FEAT	TYPE:Initial																					SOURCEPAGE:p.187
 #Skill Focus.MOD								SOURCEPAGE:p.187
 Skip Shot.MOD																												SOURCEPAGE:p.187
 Spell Penetration.MOD																											SOURCEPAGE:p.187
@@ -217,116 +217,116 @@ Windfall.MOD																												SOURCEPAGE:p.191
 #Block: Class Bonus Feats:
 
 #Acolyte
-#Acolyte ~ Skill Focus (Handle Animal)	TYPE:Acolyte	AUTO:FEAT|Skill Focus(Handle Animal)
-Archaic Weapons Proficiency.MOD		TYPE:Acolyte
-Armor Proficiency (Light).MOD			TYPE:Acolyte
-Armor Proficiency (Medium).MOD		TYPE:Acolyte
-Combat Expertise.MOD				TYPE:Acolyte
-Defensive Martial Arts.MOD			TYPE:Acolyte
-Dodge.MOD						TYPE:Acolyte
-Frightful Presence.MOD				TYPE:Acolyte
-Improved Initiative.MOD				TYPE:Acolyte
-Iron Will.MOD					TYPE:Acolyte
-#Medical Expert.MOD				TYPE:Acolyte
-Personal Firearms Proficiency.MOD		TYPE:Acolyte
-Skill Focus.MOD					TYPE:Acolyte
-Skill Focus +2 to Two Skills.MOD		TYPE:Acolyte
+#Acolyte ~ Skill Focus (Handle Animal)	CATEGORY:FEAT	TYPE:Acolyte	ABILITY:FEAT|AUTOMATIC|Skill Focus(Handle Animal)
+Archaic Weapons Proficiency.MOD		CATEGORY:FEAT	TYPE:Acolyte
+Armor Proficiency (Light).MOD			CATEGORY:FEAT	TYPE:Acolyte
+Armor Proficiency (Medium).MOD		CATEGORY:FEAT	TYPE:Acolyte
+Combat Expertise.MOD				CATEGORY:FEAT	TYPE:Acolyte
+Defensive Martial Arts.MOD			CATEGORY:FEAT	TYPE:Acolyte
+Dodge.MOD						CATEGORY:FEAT	TYPE:Acolyte
+Frightful Presence.MOD				CATEGORY:FEAT	TYPE:Acolyte
+Improved Initiative.MOD				CATEGORY:FEAT	TYPE:Acolyte
+Iron Will.MOD					CATEGORY:FEAT	TYPE:Acolyte
+#Medical Expert.MOD				CATEGORY:FEAT	TYPE:Acolyte
+Personal Firearms Proficiency.MOD		CATEGORY:FEAT	TYPE:Acolyte
+Skill Focus.MOD					CATEGORY:FEAT	TYPE:Acolyte
+Skill Focus +2 to Two Skills.MOD		CATEGORY:FEAT	TYPE:Acolyte
 
 # Everyman
-Agile Riposte.MOD					TYPE:Everyman
-Dodge.MOD						TYPE:Everyman
-Frightful Presence.MOD				TYPE:Everyman
-Improved Initiative.MOD				TYPE:Everyman
-Iron Will.MOD					TYPE:Everyman
-Lightning Reflexes.MOD				TYPE:Everyman
-Low Profile.MOD					TYPE:Everyman
-Point Blank Shot.MOD				TYPE:Everyman
-Renown.MOD						TYPE:Everyman
-Skill Focus.MOD					TYPE:Everyman
-Skill Focus +2 to Two Skills.MOD		TYPE:Everyman
-Windfall.MOD					TYPE:Everyman
+Agile Riposte.MOD					CATEGORY:FEAT	TYPE:Everyman
+Dodge.MOD						CATEGORY:FEAT	TYPE:Everyman
+Frightful Presence.MOD				CATEGORY:FEAT	TYPE:Everyman
+Improved Initiative.MOD				CATEGORY:FEAT	TYPE:Everyman
+Iron Will.MOD					CATEGORY:FEAT	TYPE:Everyman
+Lightning Reflexes.MOD				CATEGORY:FEAT	TYPE:Everyman
+Low Profile.MOD					CATEGORY:FEAT	TYPE:Everyman
+Point Blank Shot.MOD				CATEGORY:FEAT	TYPE:Everyman
+Renown.MOD						CATEGORY:FEAT	TYPE:Everyman
+Skill Focus.MOD					CATEGORY:FEAT	TYPE:Everyman
+Skill Focus +2 to Two Skills.MOD		CATEGORY:FEAT	TYPE:Everyman
+Windfall.MOD					CATEGORY:FEAT	TYPE:Everyman
 
 # Investigator
-Armor Proficiency (Light).MOD			TYPE:Investigator
-Armor Proficiency (Medium).MOD		TYPE:Investigator
-Brawl.MOD						TYPE:Investigator
-Defensive Martial Arts.MOD			TYPE:Investigator
-Dodge.MOD						TYPE:Investigator
-Double Tap.MOD					TYPE:Investigator
-Improved Initiative.MOD				TYPE:Investigator
-Knockout Punch.MOD				TYPE:Investigator
-Personal Firearms Proficiency.MOD		TYPE:Investigator
-Point Blank Shot.MOD				TYPE:Investigator
-Skill Focus ~ Investigator Knowledge	TYPE:Investigator	PRECLASS:1,Investigator=1	STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2	BONUS:SKILL|LIST|2
+Armor Proficiency (Light).MOD			CATEGORY:FEAT	TYPE:Investigator
+Armor Proficiency (Medium).MOD		CATEGORY:FEAT	TYPE:Investigator
+Brawl.MOD						CATEGORY:FEAT	TYPE:Investigator
+Defensive Martial Arts.MOD			CATEGORY:FEAT	TYPE:Investigator
+Dodge.MOD						CATEGORY:FEAT	TYPE:Investigator
+Double Tap.MOD					CATEGORY:FEAT	TYPE:Investigator
+Improved Initiative.MOD				CATEGORY:FEAT	TYPE:Investigator
+Knockout Punch.MOD				CATEGORY:FEAT	TYPE:Investigator
+Personal Firearms Proficiency.MOD		CATEGORY:FEAT	TYPE:Investigator
+Point Blank Shot.MOD				CATEGORY:FEAT	TYPE:Investigator
+Skill Focus ~ Investigator Knowledge	CATEGORY:FEAT	TYPE:Investigator	PRECLASS:1,Investigator=1	STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2	BONUS:SKILL|LIST|2
 
 #Scholar
-Combat Expertise.MOD				TYPE:Scholar
-Heroic Surge.MOD					TYPE:Scholar
-Improved Disarm.MOD				TYPE:Scholar
-Improved Initiative.MOD				TYPE:Scholar
-Improved Trip.MOD					TYPE:Scholar
-Iron Will.MOD					TYPE:Scholar
-Lightning Reflexes.MOD				TYPE:Scholar
-#Meticulous.MOD					TYPE:Scholar
-Skill Focus.MOD					TYPE:Scholar
-Skill Focus +2 to Two Skills.MOD		TYPE:Scholar
-#Vehicle Expert.MOD				TYPE:Scholar
-Weapon Focus.MOD					TYPE:Scholar
+Combat Expertise.MOD				CATEGORY:FEAT	TYPE:Scholar
+Heroic Surge.MOD					CATEGORY:FEAT	TYPE:Scholar
+Improved Disarm.MOD				CATEGORY:FEAT	TYPE:Scholar
+Improved Initiative.MOD				CATEGORY:FEAT	TYPE:Scholar
+Improved Trip.MOD					CATEGORY:FEAT	TYPE:Scholar
+Iron Will.MOD					CATEGORY:FEAT	TYPE:Scholar
+Lightning Reflexes.MOD				CATEGORY:FEAT	TYPE:Scholar
+#Meticulous.MOD					CATEGORY:FEAT	TYPE:Scholar
+Skill Focus.MOD					CATEGORY:FEAT	TYPE:Scholar
+Skill Focus +2 to Two Skills.MOD		CATEGORY:FEAT	TYPE:Scholar
+#Vehicle Expert.MOD				CATEGORY:FEAT	TYPE:Scholar
+Weapon Focus.MOD					CATEGORY:FEAT	TYPE:Scholar
 
 ###Block: Occupation Feat Choices
 
 # Bureaucrat
 # Feat Name											Type					Visible		Stackable?	Multiple?	Choose				Selections	Auto Feat																		Bonus to skill
-Skill Focus.MOD										TYPE:Bureaucrat
-Skill Focus +2 to Two Skills.MOD							TYPE:Bureaucrat
-Renown.MOD											TYPE:Bureaucrat
+Skill Focus.MOD										CATEGORY:FEAT	TYPE:Bureaucrat
+Skill Focus +2 to Two Skills.MOD							CATEGORY:FEAT	TYPE:Bureaucrat
+Renown.MOD											CATEGORY:FEAT	TYPE:Bureaucrat
 
 # Circus Performer
-Skill Focus.MOD										TYPE:Circus_Performer
-Skill Focus +2 to Two Skills.MOD							TYPE:Circus_Performer
-Archaic Weapons Proficiency.MOD							TYPE:Circus_Performer
+Skill Focus.MOD										CATEGORY:FEAT	TYPE:Circus_Performer
+Skill Focus +2 to Two Skills.MOD							CATEGORY:FEAT	TYPE:Circus_Performer
+Archaic Weapons Proficiency.MOD							CATEGORY:FEAT	TYPE:Circus_Performer
 
 # Craftsperson
-Skill Focus.MOD										TYPE:Craftperson
-Skill Focus +2 to Two Skills.MOD							TYPE:Craftperson
+Skill Focus.MOD										CATEGORY:FEAT	TYPE:Craftperson
+Skill Focus +2 to Two Skills.MOD							CATEGORY:FEAT	TYPE:Craftperson
 
 # Heir
-Heir ~ Skill Focus									TYPE:Heir							STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2																				BONUS:SKILL|%LIST|2|TYPE=SkillFocus
+Heir ~ Skill Focus									CATEGORY:FEAT	TYPE:Heir							STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2																				BONUS:SKILL|%LIST|2|TYPE=SkillFocus
 
 
 # Escape Artist
-Escape Artist ~ Skill Focus (Deception)						TYPE:Escape_Artist		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus (Deception)
-Escape Artist ~ Skill Focus +2 to Escape Artist and Sleight of Hand	TYPE:Escape_Artist		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills (Escape Artist)|Skill Focus +2 to Two Skills(Sleight of Hand)
+Escape Artist ~ Skill Focus (Deception)						CATEGORY:FEAT	TYPE:Escape_Artist		VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus (Deception)
+Escape Artist ~ Skill Focus +2 to Escape Artist and Sleight of Hand	CATEGORY:FEAT	TYPE:Escape_Artist		VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus +2 to Two Skills (Escape Artist)|Skill Focus +2 to Two Skills(Sleight of Hand)
 
 # Fortune Teller
-Fortune Teller ~ Skill Focus (Deception)						TYPE:Fortuneteller		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Deception)
-Fortune Teller ~ Skill Focus (Sense Motive)					TYPE:Fortuneteller		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Sense Motive)
-Renown.MOD											TYPE:Fortuneteller
+Fortune Teller ~ Skill Focus (Deception)						CATEGORY:FEAT	TYPE:Fortuneteller		VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus(Deception)
+Fortune Teller ~ Skill Focus (Sense Motive)					CATEGORY:FEAT	TYPE:Fortuneteller		VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus(Sense Motive)
+Renown.MOD											CATEGORY:FEAT	TYPE:Fortuneteller
 
 # Hunter
-Skill Focus (Survival)									TYPE:Hunter				VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Survival)
-Skill Focus (Stealth)									TYPE:Hunter				VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Stealth)
-Far Shot.MOD										TYPE:Hunter
-Point Blank Shot.MOD									TYPE:Hunter
+Skill Focus (Survival)									CATEGORY:FEAT	TYPE:Hunter				VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus(Survival)
+Skill Focus (Stealth)									CATEGORY:FEAT	TYPE:Hunter				VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus(Stealth)
+Far Shot.MOD										CATEGORY:FEAT	TYPE:Hunter
+Point Blank Shot.MOD									CATEGORY:FEAT	TYPE:Hunter
 
 # Psychic Investigator
-Psychic Investigator ~ Skill Focus (Sense Motive and Investigate)		TYPE:Psychic_Investigator	VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Investigate)|Skill Focus +2 to Two Skills(Sense Motive)
-Psychic Investigator ~ Skill Focus (Decipher Script and Research)		TYPE:Psychic_Investigator	VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Decipher Script)|Skill Focus +2 to Two Skills(Research)
+Psychic Investigator ~ Skill Focus (Sense Motive and Investigate)		CATEGORY:FEAT	TYPE:Psychic_Investigator	VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus +2 to Two Skills(Investigate)|Skill Focus +2 to Two Skills(Sense Motive)
+Psychic Investigator ~ Skill Focus (Decipher Script and Research)		CATEGORY:FEAT	TYPE:Psychic_Investigator	VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus +2 to Two Skills(Decipher Script)|Skill Focus +2 to Two Skills(Research)
 
 # Politician
-Renown.MOD											TYPE:Politician
-Politician ~ Skill Focus (Diplomacy)						TYPE:Politician			VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Persuasion (Diplomacy))
-Politician ~ Skill Focus (Gather Information)					TYPE:Politician			VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Gather Information)
-Windfall.MOD										TYPE:Politician
+Renown.MOD											CATEGORY:FEAT	TYPE:Politician
+Politician ~ Skill Focus (Diplomacy)						CATEGORY:FEAT	TYPE:Politician			VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus(Persuasion (Diplomacy))
+Politician ~ Skill Focus (Gather Information)					CATEGORY:FEAT	TYPE:Politician			VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus(Gather Information)
+Windfall.MOD										CATEGORY:FEAT	TYPE:Politician
 
 # Stage Magician
-Stage Magician ~ Skill Focus (Deception)						TYPE:Stage_Magician		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Deception)
-Stage Magician ~ Skill Focus (Sleight of Hand)					TYPE:Stage_Magician		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Sleight of Hand)
+Stage Magician ~ Skill Focus (Deception)						CATEGORY:FEAT	TYPE:Stage_Magician		VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus(Deception)
+Stage Magician ~ Skill Focus (Sleight of Hand)					CATEGORY:FEAT	TYPE:Stage_Magician		VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus(Sleight of Hand)
 
 # World Traveler
-Renown.MOD											TYPE:World_Traveler
-Skill Focus ~ any two Knowledge skills						TYPE:World_Traveler					STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2																				BONUS:SKILL|%LIST|2|TYPE=SkillFocus
-Skill Focus ~ Investigate and Sense Motive					TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Investigate)|Skill Focus +2 to Two Skills(Sense Motive)
-Skill Focus ~ Gamble and Intimidate							TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Gamble)|Skill Focus +2 to Two Skills(Persuasion (Intimidate))
-Skill Focus ~ Survival									TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Survival)
-Skill Focus ~ +2 to Two Skills Diplomacy and Gather Information		TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills (Gather Information)|Skill Focus +2 to Two Skills(Persuasion (Diplomacy))
+Renown.MOD											CATEGORY:FEAT	TYPE:World_Traveler
+Skill Focus ~ any two Knowledge skills						CATEGORY:FEAT	TYPE:World_Traveler					STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2																				BONUS:SKILL|%LIST|2|TYPE=SkillFocus
+Skill Focus ~ Investigate and Sense Motive					CATEGORY:FEAT	TYPE:World_Traveler		VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus +2 to Two Skills(Investigate)|Skill Focus +2 to Two Skills(Sense Motive)
+Skill Focus ~ Gamble and Intimidate							CATEGORY:FEAT	TYPE:World_Traveler		VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus +2 to Two Skills(Gamble)|Skill Focus +2 to Two Skills(Persuasion (Intimidate))
+Skill Focus ~ Survival									CATEGORY:FEAT	TYPE:World_Traveler		VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus(Survival)
+Skill Focus ~ +2 to Two Skills Diplomacy and Gather Information		CATEGORY:FEAT	TYPE:World_Traveler		VISIBLE:DISPLAY												ABILITY:FEAT|AUTOMATIC|Skill Focus +2 to Two Skills (Gather Information)|Skill Focus +2 to Two Skills(Persuasion (Diplomacy))

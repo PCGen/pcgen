@@ -30,6 +30,5 @@ ABILITYCATEGORY:planarmagic_abilitycategories.lst
 
 ABILITY:planarmagic_abilities.lst
 CLASS:planarmagic_classes.lst
-FEAT:planarmagic_feats.lst
-FEAT:planarmagic_feats_hidden.lst
+ABILITY:planarmagic_feats.lst
 SPELL:planarmagic_spells.lst

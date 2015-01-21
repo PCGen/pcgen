@@ -5,7 +5,6 @@ SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames
 
 # Template Name						Source Page		Visible?		Removable?		Special Ability			Bonus
 #Vision of Glory Bonus					SOURCEPAGE:p.60	VISIBLE:NO		REMOVABLE:YES						FAVOREDCLASS:Disciple
-#Can't add template from feat:(
 
 ###Block: Region Templates
 # Template Name						Visible	Source Page		Removable?
@@ -30,7 +29,4 @@ Region (Kingsmarch)					VISIBLE:YES	SOURCEPAGE:p.105	REMOVABLE:YES
 Region (Emerlyn)						VISIBLE:YES	SOURCEPAGE:p.105	REMOVABLE:YES
 Region (Valhedar)						VISIBLE:YES	SOURCEPAGE:p.105	REMOVABLE:YES
 
-
-
-###Block: Types templates
-# Template Name	Visible	Source Page				Special Ability																																																														Define							Bonus to HP												Modify VAR								Removable?		Type
+# END

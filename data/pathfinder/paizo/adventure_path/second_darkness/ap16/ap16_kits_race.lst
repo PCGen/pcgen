@@ -8,14 +8,14 @@ RACE:Deep Crow	!PRERACE:1,%
 NAME:Deep Crow
 SKILL:Perception	RANK:4
 SKILL:Stealth	RANK:12
-FEAT:Acrobatic
-FEAT:Alertness
-FEAT:Combat Reflexes
-FEAT:Flyby Attack
-FEAT:Lunge
-FEAT:Multiattack
-FEAT:Improved Initiative
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Acrobatic
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Lunge
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 
 
@@ -31,12 +31,12 @@ SKILL:Perception				RANK:12
 SKILL:Sense Motive			RANK:12
 SKILL:Stealth				RANK:12
 SKILL:Swim					RANK:12
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
 
@@ -47,12 +47,12 @@ NAME:Ghonhatine
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
 SKILL:Survival	RANK:6
-FEAT:Awesome Blow
-FEAT:Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Sunder
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
 
@@ -63,11 +63,11 @@ NAME:Irnakurse
 SKILL:Acrobatics	RANK:5
 SKILL:Climb		RANK:5
 SKILL:Perception	RANK:10
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Stand Still
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Stand Still
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 
@@ -81,9 +81,9 @@ SKILL:Fly			RANK:9
 SKILL:Sense Motive	RANK:9
 SKILL:Perception		RANK:9
 SKILL:Stealth		RANK:9
-FEAT:Blind-Fight
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10

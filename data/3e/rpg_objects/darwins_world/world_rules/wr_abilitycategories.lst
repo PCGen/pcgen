@@ -1,6 +1,6 @@
 # CVS $Revision: 24815 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
-# Original Entry by: Tir Gwaith, Eddy Anthony
+# Original Entry by: Tir Gwaith| Eddy Anthony
 #
 # Ability Categories
 #
@@ -41,6 +41,29 @@ ABILITYCATEGORY:Special Mount Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO			
 
 
 ABILITYCATEGORY:Deity Weapon Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DeityWeaponSelection									DISPLAYLOCATION:Class Abilities
+
+
+ABILITYCATEGORY:Feel for Weapon					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT	DISPLAYLOCATION:Feats	ABILITYLIST:Feel for Weapon
+ABILITYCATEGORY:Weapon Specialization	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT	DISPLAYLOCATION:Feats	ABILITYLIST:Weapon Specialization
+
+
+ABILITYCATEGORY:Foundationist Paladin Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT	DISPLAYLOCATION:Feats	ABILITYLIST:Ambidexterity|Blind-Fight|Combat Reflexes|Dodge|Far Shot|Improved Critical|Improved Initiative|Mobility|Mounted Archery|Mounted Combat|Point Blank Shot|Precise Shot|Quick Draw|Rapid Shot|Ride-By Attack|Shot on the Run|Spirited Charge|Spring Attack|Trample|Weapon Focus
+
+ABILITYCATEGORY:Trader Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT	DISPLAYLOCATION:Feats	ABILITYLIST:Liked by All|Silver Tongue|Vulture	
+ABILITYCATEGORY:Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT	DISPLAYLOCATION:Feats	ABILITYLIST:Primitive Craft Skill Bonus|Skill Focus Advanced
+
+ABILITYCATEGORY:Guardian Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT	DISPLAYLOCATION:Feats	ABILITYLIST:Feel for Weapon|Gladiator|Greater Rip A Clip|Rip A Clip|Room-Broom	TYPE:Fighter
+ABILITYCATEGORY:Raider Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT	DISPLAYLOCATION:Feats	ABILITYLIST:Alertness|Combat Reflexes|Dodge|Endurance|Exotic Weapon Proficiency|Far Shot|Feel for Weapon|Gladiator|Greater Rip A Clip|Marauder|Mobility|Point Blank Shot|Rip A Clip|Room-Broom|Run|Spring Attack|Track
+
+
+ABILITYCATEGORY:Raider Skill		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT	DISPLAYLOCATION:Feats	ABILITYLIST:Primitive Raider Craft Class Skill|Primitive Raider Mechanics Bonus|Skill Focus Advanced
+ABILITYCATEGORY:Guardian Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT	DISPLAYLOCATION:Feats	ABILITYLIST:Primitive Craft Class Skill|Skill Focus Advanced
+
+
+
+ABILITYCATEGORY:Craft Class Skills		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	DISPLAYLOCATION:Feats	ABILITYLIST:Craft Class Skills
+ABILITYCATEGORY:Knowledge Class Skills	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	DISPLAYLOCATION:Feats	ABILITYLIST:Knowledge Class Skills
+
 
 #
 # End

@@ -93,7 +93,7 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 SKILL:Acrobatics	RANK:12
 SKILL:Climb		RANK:12
 SKILL:Perception	RANK:5
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Familiar ~ Sprite	TYPE:Improved Familiar	VISIBLE:NO	SOURCEPAGE:p.256
@@ -104,7 +104,7 @@ SKILL:Fly			RANK:21
 SKILL:Perception		RANK:6
 SKILL:Sense Motive	RANK:2
 SKILL:Stealth		RANK:19
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 GEAR:Sword (Short)	LOCATION:Equipped
 GEAR:Shortbow		LOCATION:Carried
 
@@ -120,8 +120,8 @@ SKILL:Perception		RANK:9
 SKILL:Sense Motive	RANK:9
 SKILL:Stealth		RANK:17
 SKILL:Swim			RANK:6
-FEAT:Alertness
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Familiar ~ Spirit Oni	TYPE:Improved Familiar	VISIBLE:NO	SOURCEPAGE:p.209
@@ -135,8 +135,8 @@ SKILL:Perception			RANK:7
 SKILL:Sense Motive		RANK:7
 SKILL:Spellcraft			RANK:4
 SKILL:Stealth			RANK:17
-FEAT:Improved Initiative
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Familiar ~ Augur	TYPE:Improved Familiar	VISIBLE:NO	SOURCEPAGE:p.170-171
@@ -150,8 +150,8 @@ SKILL:Perception		RANK:7
 SKILL:Sense Motive	RANK:7
 SKILL:Sleight of Hand	RANK:9
 SKILL:Stealth		RANK:17
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 
 
 STARTPACK:Familiar ~ Faerie Dragon	TYPE:Improved Familiar	VISIBLE:NO	SOURCEPAGE:p.91
@@ -166,8 +166,8 @@ SKILL:Sense Motive	RANK:8
 SKILL:Stealth		RANK:17
 SKILL:Swim			RANK:13
 SKILL:Use Magic Device	RANK:9
-FEAT:Acrobatic
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Acrobatic
+ABILITY:CATEGORY=FEAT|Dodge
 
 
 STARTPACK:Familiar ~ Doru	TYPE:Improved Familiar	VISIBLE:NO	SOURCEPAGE:p.86
@@ -180,8 +180,8 @@ SKILL:Knowledge (Planes)	RANK:6
 SKILL:Perception			RANK:7
 SKILL:Spellcraft			RANK:6
 SKILL:Stealth			RANK:17
-FEAT:Weapon Finesse
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 
 STARTPACK:Familiar ~ Carbuncle	TYPE:Improved Familiar	VISIBLE:NO	SOURCEPAGE:p.44
@@ -189,7 +189,7 @@ ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Stealth	RANK:10
 SKILL:Survival	RANK:2
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
 
 
 STARTPACK:Familiar ~ Harbinger Archon	TYPE:Improved Familiar	VISIBLE:NO	SOURCEPAGE:p.18
@@ -202,8 +202,8 @@ SKILL:Knowledge (Planes)	RANK:6
 SKILL:Knowledge (Religion)	RANK:6
 SKILL:Perception			RANK:7
 SKILL:Sense Motive		RANK:7
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 
 STARTPACK:Familiar ~ Flying Squirrel	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:112
@@ -212,8 +212,8 @@ STAT:DEX=11|STR=11|CON=10|INT=11|WIS=10|CHA=10
 SKILL:Acrobatics	RANK:8
 SKILL:Climb		RANK:10
 SKILL:Fly		RANK:4
-FEAT:Acrobatic
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Acrobatic
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Familiar ~ Fox	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:112
@@ -223,7 +223,7 @@ SKILL:Acrobatics	RANK:2
 SKILL:Perception	RANK:8
 SKILL:Stealth	RANK:10
 SKILL:Survival	RANK:1
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 
 STARTPACK:Familiar ~ Goat	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:112
@@ -232,7 +232,7 @@ STAT:DEX=10|STR=11|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Acrobatics	RANK:1
 SKILL:Climb		RANK:5
 SKILL:Survival	RANK:0
-FEAT:Nimble Moves
+ABILITY:CATEGORY=FEAT|Nimble Moves
 
 
 STARTPACK:Familiar ~ Otter	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:113
@@ -240,14 +240,14 @@ ALIGN:TN
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Escape Artist	RANK:4
 SKILL:Swim			RANK:10
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Familiar ~ Pig	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:113
 ALIGN:TN
 STAT:DEX=11|STR=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:5
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Great Fortitude
 
 
 STARTPACK:Familiar ~ Raccoon	TYPE:Familiar	VISIBLE:NO	SOURCEPAGE:113
@@ -255,4 +255,4 @@ ALIGN:TN
 STAT:DEX=10|STR=11|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Climb			RANK:7
 SKILL:Sleight of Hand	RANK:3
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse

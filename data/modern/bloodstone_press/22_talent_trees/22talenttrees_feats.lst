@@ -3,4 +3,4 @@ SOURCELONG:22 Talent Trees	SOURCESHORT:22TT	SOURCEWEB:http://www.bloodstone-pres
 # Original Entry by: Paul W. King
 
 # Feat Name			Type			Required Feat	Required Skill			Description											Source Page
-Transplant Surgery	TYPE:General	PREFEAT:1,Surgery	PRESKILL:1,Treat Injury=4	DESC:Use this feat to save a life via transplants and transfusions	SOURCEPAGE:p.14
+Transplant Surgery	CATEGORY:FEAT	TYPE:General	PREABILITY:1,CATEGORY=FEAT,Surgery	PRESKILL:1,Treat Injury=4	DESC:Use this feat to save a life via transplants and transfusions	SOURCEPAGE:p.14

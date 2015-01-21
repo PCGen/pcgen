@@ -58,8 +58,8 @@ SKILL:Spot			RANK:5
 SKILL:Wilderness Lore	RANK:5
 SKILL:Intimidate		RANK:6
 SKILL:Ridicule		RANK:6
-FEAT:Exotic Weapon Proficiency(Cavalry Saber)
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency(Cavalry Saber)
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:Hellfish Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hellfish]
 RACE:Hellfish	!PRERACE:1,%
@@ -82,8 +82,8 @@ SKILL:Listen		RANK:8
 SKILL:Spot			RANK:8
 SKILL:Swim			RANK:8
 SKILL:Wilderness Lore	RANK:8
-FEAT:Multiattack
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:Humbug Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Humbug]
 RACE:Humbug	!PRERACE:1,%

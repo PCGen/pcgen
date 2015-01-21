@@ -74,11 +74,11 @@ Improved Vessel III		CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.
 Improved Vessel IV		CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.ImprovedVessel					!PREABILITY:1,CATEGORY=Special Ability,TYPE.ImprovedVessel		PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),4	SAB:Improved Vessel 4/day (Su)
 Improved Vessel V			CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.ImprovedVessel					!PREABILITY:1,CATEGORY=Special Ability,TYPE.ImprovedVessel		PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),5	SAB:Improved Vessel 5/day (Su)
 
-Evolution I				CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.Evolution						!PREABILITY:1,CATEGORY=Special Ability,TYPE.Evolution			PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),1																																				ADD:FEAT|Melee Bonus,Ranged Bonus,Skill Bonus,TYPE=SaveBonus
-Evolution II			CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.Evolution						!PREABILITY:1,CATEGORY=Special Ability,TYPE.Evolution			PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),2																																				ADD:FEAT|2|Melee Bonus,Ranged Bonus,Skill Bonus,TYPE=SaveBonus
-Evolution III			CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.Evolution						!PREABILITY:1,CATEGORY=Special Ability,TYPE.Evolution			PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),3																																				ADD:FEAT|3|Melee Bonus,Ranged Bonus,Skill Bonus,TYPE=SaveBonus
-Evolution IV			CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.Evolution						!PREABILITY:1,CATEGORY=Special Ability,TYPE.Evolution			PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),4																																				ADD:FEAT|4|Melee Bonus,Ranged Bonus,Skill Bonus,TYPE=SaveBonus
-Evolution V				CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.Evolution						!PREABILITY:1,CATEGORY=Special Ability,TYPE.Evolution			PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),5																																				ADD:FEAT|5|Melee Bonus,Ranged Bonus,Skill Bonus,TYPE=SaveBonus
+Evolution I				CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.Evolution						!PREABILITY:1,CATEGORY=Special Ability,TYPE.Evolution			PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),1																																				BONUS:ABILITYPOOL|Evolution|1
+Evolution II			CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.Evolution						!PREABILITY:1,CATEGORY=Special Ability,TYPE.Evolution			PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),2																																				BONUS:ABILITYPOOL|Evolution|2
+Evolution III			CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.Evolution						!PREABILITY:1,CATEGORY=Special Ability,TYPE.Evolution			PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),3																																				BONUS:ABILITYPOOL|Evolution|3
+Evolution IV			CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.Evolution						!PREABILITY:1,CATEGORY=Special Ability,TYPE.Evolution			PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),4																																				BONUS:ABILITYPOOL|Evolution|4
+Evolution V				CATEGORY:Special Ability	TYPE:AvatarOfTheWitchQueenAbility.Evolution						!PREABILITY:1,CATEGORY=Special Ability,TYPE.Evolution			PREVAREQ:var("classlevel()=Avatar of the Witch Queen"),5																																				BONUS:ABILITYPOOL|Evolution|5
 
 Skill Bonus				CATEGORY:Special Ability	TYPE:Special																																											MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom																					BONUS:SKILL|LIST|2
 ### TODO: Couldn't get this to work.
@@ -304,7 +304,7 @@ Ghost Sight											CATEGORY:Special Ability	TYPE:SpecialAbility.Supernatural	
 ### TODO: Reduces spell damage by 1.  Stacks with greater spell talisman
 Spirit Mastery										CATEGORY:Special Ability	TYPE:SpecialAbility.Supernatural						SAB:Spirit Mastery (Su)
 Extended Concoction									CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Extended Concoction (Ex)
-Concoction Mastery									CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Concoction Mastery (Ex) [%CHOICE]																																																																																																																																																																								STACK:NO	MULT:YES	CHOOSE:FEATSELECTION|TYPE=ConcoctionMastery|TITLE=Add a Feat		AUTO:FEAT|%LIST
+Concoction Mastery									CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Concoction Mastery (Ex) [%CHOICE]																																																																																																																																																																								STACK:NO	MULT:YES	CHOOSE:FEATSELECTION|TYPE=ConcoctionMastery|TITLE=Add a Feat		ABILITY:FEAT|AUTOMATIC|%LIST
 Efficient Harvest										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Efficient Harvest (Ex)
 Enhanced Concoction									CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Enhanced Concoction (Ex)
 Pure Harvest										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Pure Harvest (Ex)
@@ -313,7 +313,7 @@ Constant Harvest										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordi
 Master Herbalist										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Master Herbalist (Ex)
 Spontaneous Concoction									CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Spontaneous Concoction (Ex)
 Horse Lord											CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Horse Lord (Ex)																																																																																																																																				DEFINE:HorseLordLvl|0																																																																																							TEMPDESC:Bonus when dealing with horses																		TEMPBONUS:PC|SKILL|Handle Animal,Ride|HorseLordLvl|TYPE=Circumstance
-Mounted Maneuver										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Mounted Maneuver (Ex) [%CHOICE]																																																																																																																																																																									STACK:NO	MULT:YES	CHOOSE:FEATSELECTION|TYPE=MountedManeuver|TITLE=Add a Feat			AUTO:FEAT|%LIST
+Mounted Maneuver										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Mounted Maneuver (Ex) [%CHOICE]																																																																																																																																																																									STACK:NO	MULT:YES	CHOOSE:FEATSELECTION|TYPE=MountedManeuver|TITLE=Add a Feat			ABILITY:FEAT|AUTOMATIC|%LIST
 Deft Dodging										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary.MountedManeuver																																																																																																																																																																																																																																				TEMPDESC:Bonus to AC for both Sarcosan knight and mount if they do nothing but move during the round.								TEMPBONUS:ANYPC|COMBAT|AC|4
 Dismounting Cut										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary.MountedManeuver	
 ### TODO: Should add a temp bonus for this
@@ -322,7 +322,7 @@ Hit and Run											CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary
 Wheel About											CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary.MountedManeuver	
 ### TODO: Should probably have a temp bonus
 Spur On											CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Spur On (Ex)
-Devastating Attack									CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Devastating Attack (Ex)																																																																																																																																																																																													ADD:FEAT|Devastating Mounted Assault
+Devastating Attack									CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Devastating Attack (Ex)																																																																																																																																																																																													ABILITY:FEAT|AUTOMATIC|Devastating Mounted Assault
 Sweeping Strike										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Sweeping Strike (Ex)
 Smuggler's Trade										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Smuggler's Trade +% (Ex)|SmugglingBonus																																																																																																																																DEFINE:SmugglingBonus|0																																																																																							TEMPDESC:Bonus on skills when involved in smuggling operations.														TEMPBONUS:PC|SKILL|Bluff,Disguise,Forgery,Gather Information|SmugglingBonus
 Dominant Will										CATEGORY:Special Ability	TYPE:SpecialAbility.Extraordinary						SAB:Dominant Will +% (Ex)|DominantWillBonus																																																																																																																																DEFINE:DominantWillBonus|0																																																																																						TEMPDESC:Bonus against magical detection, compulsion spells, lie detection spells, and any effects that would cause him to betray his cause.	TEMPBONUS:PC|SAVE|Will|DominantWillBonus
@@ -369,17 +369,17 @@ Poultice Mastery	CATEGORY:Special Ability	TYPE:ConcoctionMastery				SAB:Poultice
 ###Block: Mods
 
 # Feat Name						Type						Visible	Prohibited Feat			Special ABility												Define
-CATEGORY=Special Ability|Magecraft (Charismatic).MOD											!PREFEAT:1,Untapped Potential
-CATEGORY=Special Ability|Magecraft (Hermetic).MOD											!PREFEAT:1,Untapped Potential
-CATEGORY=Special Ability|Magecraft (Spiritual).MOD											!PREFEAT:1,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Abjuration).MOD											!PREFEAT:1,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Lesser Conjuration).MOD									!PREFEAT:1,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Divination).MOD											!PREFEAT:1,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Enchantment).MOD										!PREFEAT:1,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Lesser Evocation).MOD										!PREFEAT:1,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Illusion).MOD											!PREFEAT:1,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Necromancy).MOD											!PREFEAT:1,Untapped Potential
-CATEGORY=Special Ability|Spellcasting (Transmutation).MOD										!PREFEAT:1,Untapped Potential
+CATEGORY=Special Ability|Magecraft (Charismatic).MOD											!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Special Ability|Magecraft (Hermetic).MOD											!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Special Ability|Magecraft (Spiritual).MOD											!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Special Ability|Spellcasting (Abjuration).MOD											!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Special Ability|Spellcasting (Lesser Conjuration).MOD									!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Special Ability|Spellcasting (Divination).MOD											!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Special Ability|Spellcasting (Enchantment).MOD										!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Special Ability|Spellcasting (Lesser Evocation).MOD										!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Special Ability|Spellcasting (Illusion).MOD											!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Special Ability|Spellcasting (Necromancy).MOD											!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
+CATEGORY=Special Ability|Spellcasting (Transmutation).MOD										!PREABILITY:1,CATEGORY=FEAT,Untapped Potential
 
 Metamagic Aura					CATEGORY:Special Ability	TYPE:SpecialAbility.Supernatural							SAB:Metamagic Aura %/day (Su) [Max Level: %]|MetamagicAuraTimes|MetamagicAuraMaxLvl	DEFINE:MetamagicAuraTimes|0	DEFINE:MetamagicAuraMaxLvl|0
 Metamagic Aura Enlarge				CATEGORY:Special Ability	TYPE:MetamagicAura									SAB:Metamagic Aura: Enlarge Spell

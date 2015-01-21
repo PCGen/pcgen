@@ -22,10 +22,10 @@ SKILL:Sense Motive	RANK:13
 SKILL:Bluff			RANK:13
 SKILL:Diplomacy		RANK:4
 SKILL:TYPE=Knowledge	RANK:13
-FEAT:Head Squish
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Head Squish
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Demon (Slasher) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Slasher)]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -48,8 +48,8 @@ SKILL:Concentration	RANK:11
 SKILL:Sense Motive	RANK:11
 SKILL:Ride			RANK:11
 SKILL:Diplomacy		RANK:4
-FEAT:Alertness
-FEAT:Catch Phrase
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Catch Phrase
 #Combat Casting does not exist in Modern
 #FEAT:Combat Casting
 
@@ -60,8 +60,8 @@ NAME:Lurker
 SKILL:Hide		RANK:3
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Multiattack
-FEAT:Toughness(+3 HP)
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Toughness(+3 HP)
 
 STARTPACK:Sentinel Sphere Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sentinel Sphere]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
@@ -79,10 +79,10 @@ SKILL:Listen		RANK:8
 SKILL:Search		RANK:8
 SKILL:Sense Motive	RANK:6
 SKILL:Spot			RANK:8
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Thin Stranger Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
@@ -96,4 +96,4 @@ SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:6
 SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:4
-FEAT:Heroic Surge
+ABILITY:CATEGORY=FEAT|Heroic Surge

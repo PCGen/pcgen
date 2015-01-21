@@ -4,6 +4,6 @@ SOURCELONG:Modern System - Gangland	SOURCESHORT:Gangland	SOURCEWEB:http://www.rp
 
 ###Block: hidden feats
 # Feat Name	Type			Visible	Special ABility				Define
-Blood Money	TYPE:ClassFeature	VISIBLE:NO	SAB:Blood Money +%|BloodMoney		DEFINE:BloodMoney|0
-Dirty Deeds	TYPE:ClassFeature	VISIBLE:NO	SAB:Dirty Deeds +%d6|DirtyDeeds	DEFINE:DirtyDeeds|0
-Vigilante	TYPE:ClassFeature	VISIBLE:NO	SAB:Vigilante +%|VigilanteBonus	DEFINE:VigilanteBonus|0
+Blood Money	CATEGORY:FEAT	TYPE:ClassFeature	VISIBLE:NO	SAB:Blood Money +%|BloodMoney		DEFINE:BloodMoney|0
+Dirty Deeds	CATEGORY:FEAT	TYPE:ClassFeature	VISIBLE:NO	SAB:Dirty Deeds +%d6|DirtyDeeds	DEFINE:DirtyDeeds|0
+Vigilante	CATEGORY:FEAT	TYPE:ClassFeature	VISIBLE:NO	SAB:Vigilante +%|VigilanteBonus	DEFINE:VigilanteBonus|0

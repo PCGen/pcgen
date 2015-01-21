@@ -10,10 +10,10 @@ SKILL:Listen		RANK:10
 SKILL:Move Silently	RANK:14
 SKILL:Spot			RANK:10
 SKILL:Swim			RANK:4
-FEAT:Improved Initiative
-FEAT:Inertial Armor
-FEAT:Alertness
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Inertial Armor
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=10|DEX=10|CHA=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Mind Grub Collective Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mind Grub Collective]
@@ -28,7 +28,7 @@ SKILL:Listen		RANK:6
 SKILL:Move Silently	RANK:8
 SKILL:Spot			RANK:8
 SKILL:Sense Motive	RANK:8	FREE:YES
-FEAT:Combat Manifestation
-FEAT:Improved Initiative
-FEAT:Weapon Finesse(Slam)
+ABILITY:CATEGORY=FEAT|Combat Manifestation
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse(Slam)
 STAT:STR=10|DEX=10|CHA=11|CON=10|INT=11|WIS=11

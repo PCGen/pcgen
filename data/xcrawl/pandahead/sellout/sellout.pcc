@@ -33,7 +33,7 @@ EQUIPMENT:sellout_equip_weap_ammo.lst
 EQUIPMENT:sellout_equip_weap_melee.lst
 EQUIPMENT:sellout_equip_weap_ranged.lst
 EQUIPMOD:sellout_equip_mods_mundane.lst
-FEAT:sellout_feats.lst
+ABILITY:sellout_feats.lst
 RACE:sellout_races.lst
 SKILL:sellout_skills.lst
 TEMPLATE:sellout_templates.lst

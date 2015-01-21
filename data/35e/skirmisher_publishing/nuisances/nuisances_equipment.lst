@@ -54,7 +54,7 @@ Wand of Defects							TYPE:Magic.Wondrous						COST:21000	WT:0.5			SOURCEPAGE:p.
 
 ###Block: Weapons
 # Equipment Name		Output Name				Required Weapon Proficiency			Type												Alt Type						Cost		Weight	Slot Needed	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier		Alt EQModifier	Wield Category	Requires Modification?	Range		Size		Source Page		Virtual Feat
-Cane of the Mac Daddy						PROFICIENCY:WEAPON|Club				TYPE:Weapon.Melee.Ranged.Thrown.Simple.Bludgeoning.Club.Magic.Wondrous								COST:2000	WT:2				CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6				EQMOD:PLUS1W.WOOD				WIELD:OneHanded	MODS:NO			RANGE:10	SIZE:M	SOURCEPAGE:p.82	VFEAT:Pimp Slap|PRESKILL:1,Profession (Pimp)=4
+Cane of the Mac Daddy						PROFICIENCY:WEAPON|Club				TYPE:Weapon.Melee.Ranged.Thrown.Simple.Bludgeoning.Club.Magic.Wondrous								COST:2000	WT:2				CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6				EQMOD:PLUS1W.WOOD				WIELD:OneHanded	MODS:NO			RANGE:10	SIZE:M	SOURCEPAGE:p.82	ABILITY:FEAT|VIRTUAL|Pimp Slap|PRESKILL:1,Profession (Pimp)=4
 Urkrutch (Dire Dwarven)	OUTPUTNAME:Urgrosh, Dwarven	PROFICIENCY:WEAPON|Urgrosh (Dwarven)	TYPE:Weapon.Melee.Exotic.Double.Standard.Dwarven.Slashing.Axe		ALTTYPE:Weapon.Melee.Exotic.Piercing	COST:50	WT:12		SLOTS:2	CRITMULT:x3	CRITRANGE:1	ALTCRITMULT:x3	ALTCRITRANGE:1	DAMAGE:1d8	ALTDAMAGE:1d6	EQMOD:STEEL		ALTEQMOD:STEEL	WIELD:TwoHanded							SIZE:M
 
 #

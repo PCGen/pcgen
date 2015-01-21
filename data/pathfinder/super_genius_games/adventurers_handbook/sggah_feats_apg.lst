@@ -5,21 +5,21 @@ SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCE
 #Block: .MODs for Magister bonus feats
 #APG
 # Feat Name			Type
-Arcane Blast.MOD		TYPE:Magister
-Arcane Shield.MOD		TYPE:Magister
-Arcane Talent.MOD		TYPE:Magister
+CATEGORY=FEAT|Arcane Blast.MOD		TYPE:Magister
+CATEGORY=FEAT|Arcane Shield.MOD		TYPE:Magister
+CATEGORY=FEAT|Arcane Talent.MOD		TYPE:Magister
 
 #Block: .MODs for MagisterMetamagic
 #APG
-Bouncing Spell.MOD	TYPE:MagisterMetamagic
-Disruptive Spell.MOD	TYPE:MagisterMetamagic
-Ectoplasmic Spell.MOD	TYPE:MagisterMetamagic
-Elemental Spell.MOD	TYPE:MagisterMetamagic
-Focused Spell.MOD		TYPE:MagisterMetamagic
-Intensified Spell.MOD	TYPE:MagisterMetamagic
-Lingering Spell.MOD	TYPE:MagisterMetamagic
-Merciful Spell.MOD	TYPE:MagisterMetamagic
-Selective Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Bouncing Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Disruptive Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Ectoplasmic Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Elemental Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Focused Spell.MOD		TYPE:MagisterMetamagic
+CATEGORY=FEAT|Intensified Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Lingering Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Merciful Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Selective Spell.MOD	TYPE:MagisterMetamagic
 
 #
 # End

@@ -5,12 +5,12 @@ STARTPACK:Grimorden Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBU
 RACE:Grimorden	!PRERACE:1,%
 NAME:Grimorden
 ALIGN:CE
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Selchie Default	TYPE:DefaultMonster.Shapechanger	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Selchie]
 RACE:Selchie	!PRERACE:1,%
 NAME:Selchie
-FEAT:Alertness
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge

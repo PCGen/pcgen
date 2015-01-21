@@ -35,8 +35,7 @@ ABILITYCATEGORY:rar_abilitycategories.lst
 
 CLASS:relicsrituals_classes.lst
 DOMAIN:relicsrituals_domains.lst
-FEAT:relicsrituals_feats.lst
-FEAT:relicsrituals_feats_hidden.lst
+ABILITY:relicsrituals_feats.lst
 SKILL:relicsrituals_skills.lst
 SPELL:relicsrituals_spells.lst
 TEMPLATE:relicsrituals_templates.lst

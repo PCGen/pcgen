@@ -41,7 +41,7 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 4: Endless Nigh
 ABILITY:ap16_abilities_race.lst
 EQUIPMENT:ap16_equip_general.lst
 EQUIPMENT:ap16_equip_magic_items.lst
-FEAT:ap16_feats.lst
+ABILITY:ap16_feats.lst
 KIT:ap16_kits_race.lst
 RACE:ap16_races.lst
 SPELL:ap16_spells.lst

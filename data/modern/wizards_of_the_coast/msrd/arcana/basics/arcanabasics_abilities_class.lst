@@ -94,7 +94,7 @@ Touche		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Touch
 
 ###Block:Techno Mage ---------------------------------------------------------------------------------------------------------------------------------
 # Ability Name			Category of Ability		Type								Visible	Special ABility					Multiple?	Choose							Selections	Misc bonus
-Arcane Skills			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility				VISIBLE:NO	SAB:Arcane Skills																	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Light)],[PREEQUIP:2,TYPE=Armor,TYPE=Light]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Medium)],[PREEQUIP:2,TYPE=Armor,TYPE=Medium]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREFEAT:1,Armor Proficiency (Heavy)],[PREEQUIP:2,TYPE=Armor,TYPE=Heavy]
+Arcane Skills			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility				VISIBLE:NO	SAB:Arcane Skills																	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Light)],[PREEQUIP:2,TYPE=Armor,TYPE=Light]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Medium)],[PREEQUIP:2,TYPE=Armor,TYPE=Medium]	BONUS:MISC|SPELLFAILURE|-10|PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Heavy)],[PREEQUIP:2,TYPE=Armor,TYPE=Heavy]
 Machine Empathy			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility				VISIBLE:NO	SAB:Machine Empathy
 Program Spell			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility				VISIBLE:NO	SAB:Program Spell
 Create Homunculus			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility				VISIBLE:NO	SAB:Create Homunculus

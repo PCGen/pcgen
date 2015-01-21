@@ -9,12 +9,12 @@ NAME:Deep Crow
 SKILL:Listen		RANK:6
 SKILL:Move Silently	RANK:7
 SKILL:Spot			RANK:6
-FEAT:Alertness
-FEAT:Combat Reflexes
-FEAT:Flyby Attack
-FEAT:Multiattack
-FEAT:Improved Initiative
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 
 
@@ -32,11 +32,11 @@ SKILL:Search				RANK:15
 SKILL:Sense Motive			RANK:15
 SKILL:Spot					RANK:15
 SKILL:Tumble				RANK:15
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
 
@@ -48,11 +48,11 @@ SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
 SKILL:Survival	RANK:7
 SKILL:Survival	RANK:1	FREE:YES
-FEAT:Awesome Blow
-FEAT:Cleave
-FEAT:Improved Bull Rush
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
 
@@ -62,9 +62,9 @@ RACE:Irnakurse	!PRERACE:1,%
 NAME:Irnakurse
 SKILL:Listen	RANK:7
 SKILL:Spot		RANK:6
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 
@@ -77,10 +77,10 @@ SKILL:TYPE.Knowledge	RANK:6	COUNT:2
 SKILL:Listen		RANK:12
 SKILL:Sense Motive	RANK:12
 SKILL:Spot			RANK:12
-FEAT:Blind-Fight
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 
 #

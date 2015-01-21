@@ -39,7 +39,7 @@ ABILITY:lofpg_abilities.lst
 COMPANIONMOD:lofpg_companionmods.lst
 DEITY:lofpg_deities.lst
 EQUIPMENT:lofpg_equipment.lst
-FEAT:lofpg_feats.lst
+ABILITY:lofpg_feats.lst
 KIT:lofpg_kits.lst
 RACE:lofpg_races.lst
 SHIELDPROF:lofpg_prof_shield.lst

@@ -4,12 +4,11 @@ SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:
 
 
 # Feat Name				Type
-Far Shot.MOD			TYPE:LongbowFeat
-Improved Critical.MOD		TYPE:LongbowFeat
-Improved Precise Shot.MOD	TYPE:LongbowFeat
-Manyshot.MOD			TYPE:LongbowFeat
-Precise Shot.MOD			TYPE:LongbowFeat
-Rapid Shot.MOD			TYPE:LongbowFeat
-Shot on the Run.MOD		TYPE:LongbowFeat
-
-Exotic Weapon Proficiency.MOD	TYPE:WildHunter
+CATEGORY=FEAT|Far Shot.MOD			TYPE:LongbowFeat
+CATEGORY=FEAT|Improved Critical.MOD		TYPE:LongbowFeat
+CATEGORY=FEAT|Improved Precise Shot.MOD	TYPE:LongbowFeat
+CATEGORY=FEAT|Manyshot.MOD			TYPE:LongbowFeat
+CATEGORY=FEAT|Precise Shot.MOD			TYPE:LongbowFeat
+CATEGORY=FEAT|Rapid Shot.MOD			TYPE:LongbowFeat
+CATEGORY=FEAT|Shot on the Run.MOD		TYPE:LongbowFeat
+CATEGORY=FEAT|Exotic Weapon Proficiency.MOD	TYPE:WildHunter

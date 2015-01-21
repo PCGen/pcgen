@@ -15,8 +15,8 @@ SKILL:Listen			RANK:12
 SKILL:Sense Motive		RANK:10
 SKILL:Spot				RANK:10
 SKILL:Survival			RANK:12
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 
 
 #Clockwork Beetle - tiny vermin
@@ -24,7 +24,7 @@ STARTPACK:Clockwork Beetle Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQ
 RACE:Clockwork Beetle	!PRERACE:1,%
 NAME:Clockwork Beetle
 ALIGN:TN
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 SKILL:Jump	RANK:8	FREE:YES
 SKILL:Climb	RANK:6	FREE:YES
 STAT:WIS=10|CHA=10|STR=10|DEX=10|CON=10|INT=10
@@ -38,8 +38,8 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 ALIGN:TN
 SKILL:Spot	RANK:9	FREE:YES
 ABILITY:CATEGORY=Special Ability|Evasion
-FEAT:Weapon Finesse
-FEAT:Improved Initiative	FREE:YES
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Improved Initiative	FREE:YES
 
 
 STARTPACK:Chovoo Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chovoo%]
@@ -53,7 +53,7 @@ SKILL:Listen		RANK:6	FREE:YES
 SKILL:Move Silently	RANK:7	FREE:YES
 SKILL:Search		RANK:10	FREE:YES
 SKILL:Spot			RANK:7	FREE:YES
-FEAT:Blind-Fight
+ABILITY:CATEGORY=FEAT|Blind-Fight
 
 
 #Corpse-Eater Lily
@@ -63,7 +63,7 @@ NAME:Corpse-Eater Lily
 STAT:STR=10|DEX=10|CON=12|INT=10|WIS=11|CHA=10
 ALIGN:TN
 SKILL:Move Silently	RANK:2
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 #Fleshcutter Ant (Worker)
 STARTPACK:Fleshcutter Ant (Worker) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fleshcutter Ant (Worker)]
@@ -75,8 +75,8 @@ SKILL:Climb			RANK:7
 SKILL:Listen		RANK:5	FREE:YES
 SKILL:Move Silently	RANK:2	FREE:YES
 SKILL:Spot			RANK:5	FREE:YES
-FEAT:Weapon Focus(Bite)
-FEAT:Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
 
 
 #Fleshcutter Ant (Soldier)
@@ -89,8 +89,8 @@ SKILL:Climb			RANK:7
 SKILL:Listen		RANK:5	FREE:YES
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:5	FREE:YES
-FEAT:Weapon Focus(Bite)
-FEAT:Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
 
 
 #Fleshcutter Ant (Queen)
@@ -103,8 +103,8 @@ SKILL:Climb			RANK:6	FREE:YES
 SKILL:Listen		RANK:6
 SKILL:Move Silently	RANK:4	FREE:YES
 SKILL:Spot			RANK:6	FREE:YES
-FEAT:Weapon Focus(Bite)
-FEAT:Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
 
 #Fleshcutter Ant (Swarm)
 STARTPACK:Fleshcutter Ant (Swarm) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fleshcutter Ant (Swarm)]
@@ -115,8 +115,8 @@ ALIGN:TN
 SKILL:Climb		RANK:10	FREE:YES
 SKILL:Listen	RANK:16	FREE:YES
 SKILL:Spot		RANK:16	FREE:YES
-FEAT:Weapon Focus(Bite)
-FEAT:Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
 #Unusual Case - NEEDS Chimp decision on Ranks and the Race entry itself
 #Supposed to be a swarm of the Drones - do we use the Drone Stats?
 
@@ -148,10 +148,10 @@ SKILL:Listen		RANK:7
 SKILL:Move Silently	RANK:7	FREE:YES
 SKILL:Search		RANK:11	FREE:YES
 SKILL:Spot			RANK:5	FREE:YES
-FEAT:Alertness
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Improved Initiative	FREE:YES
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative	FREE:YES
 #Imp. Init listed in the Init area but not in feats.
 
 #Reef Razor
@@ -162,7 +162,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 ALIGN:TN
 SKILL:Jump	RANK:10	FREE:YES
 SKILL:Swim	RANK:6	FREE:YES
-#FEAT:Scent (No such feat, perhaps this is really an SQ?)
+#ABILITY:CATEGORY=FEAT|Scent (No such feat, perhaps this is really an SQ?)
 
 #Sleeper Bat
 STARTPACK:Sleeper Bat Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sleeper Bat]
@@ -173,7 +173,7 @@ ALIGN:TN
 SKILL:Listen		RANK:8	FREE:YES
 SKILL:Move Silently	RANK:5	FREE:YES
 SKILL:Spot			RANK:8	FREE:YES
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 #Vine Constrictor
 STARTPACK:Vine Constrictor Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vine Constrictor]
@@ -187,7 +187,7 @@ SKILL:Hide			RANK:20	FREE:YES
 SKILL:Listen		RANK:9	FREE:YES
 SKILL:Move Silently	RANK:7	FREE:YES
 SKILL:Spot			RANK:11
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 #
 ## EOF

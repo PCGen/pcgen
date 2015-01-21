@@ -13,7 +13,7 @@ CLASS:Rune-Priest.MOD	CSKILL:.CLEAR.Scry
 
 
 # Class Name				Required Feat		Required Language	Required Skill		Req. Spell Type
-CLASS:Rock-Warden.MOD PRE:.CLEAR	PREFEAT:1,Blind-Fight	PRELANG:1,Terran	PRESKILL:1,Survival=8	PRESPELLTYPE:1,Divine=2
+CLASS:Rock-Warden.MOD PRE:.CLEAR	PREABILITY:1,CATEGORY=FEAT,Blind-Fight	PRELANG:1,Terran	PRESKILL:1,Survival=8	PRESPELLTYPE:1,Divine=2
 # Class Name		Class Skill
 CLASS:Rock-Warden.MOD	CSKILL:Survival
 
@@ -22,15 +22,15 @@ CLASS:Stoneheart Ascetic.MOD	CSKILL:Survival
 1	BONUS:VAR|StunningFistMonkLVL|CL	ABILITY:Special Ability|VIRTUAL|.CLEAR.Stunning Attack
 
 # Class Name			Required Ability							Required Feat						Required Skill								Required Text									PRETOTALAB
-CLASS:Paragon.MOD PRE:.CLEAR	PREABILITY:1,CATEGORY=Special Ability,Lay on Hands	PREFEAT:2,Improved Sunder,Weapon Specialization	PRESKILL:2,Craft (Armorsmithing)=8,Knowledge (Dwarves)=6	PRETEXT:Weapon Specialization must be deities favored weapon	PRETOTALAB:5
+CLASS:Paragon.MOD PRE:.CLEAR	PREABILITY:1,CATEGORY=Special Ability,Lay on Hands	PREABILITY:2,CATEGORY=FEAT,Improved Sunder,Weapon Specialization	PRESKILL:2,Craft (Armorsmithing)=8,Knowledge (Dwarves)=6	PRETEXT:Weapon Specialization must be deities favored weapon	PRETOTALAB:5
 
 # Class Name				Required Feat							Required Skill							Required Text				PRETOTALAB
-CLASS:Slayer ~ HoHFD.MOD PRE:.CLEAR	PREFEAT:3,Track,Weapon Focus,Weapon Specialization	PRESKILL:3,Knowledge (Dwarves)=8,Spot=8,Survival=8	PRETEXT:Must have a favored enemy	PRETOTALAB:5
+CLASS:Slayer ~ HoHFD.MOD PRE:.CLEAR	PREABILITY:3,CATEGORY=FEAT,Track,Weapon Focus,Weapon Specialization	PRESKILL:3,Knowledge (Dwarves)=8,Spot=8,Survival=8	PRETEXT:Must have a favored enemy	PRETOTALAB:5
 # Class Name			Class Skill
 CLASS:Slayer ~ HoHFD.MOD	CSKILL:Survival
 
 # Class Name				Required Feat								Required Race				Required Skill												PRETOTALAB
-CLASS:Tunnel-Fighter.MOD PRE:.CLEAR	PREFEAT:3,Alertness,Improved Initiative,Point Blank Shot	PRERACE:1,Dwarf,Gnome,Kobold,Goblin	PRESKILL:6,Craft (Trapmaking)=6,Hide=6,Survival=6,Move Silently=6,Spot=6,Tumble=6	PRETOTALAB:5
+CLASS:Tunnel-Fighter.MOD PRE:.CLEAR	PREABILITY:3,CATEGORY=FEAT,Alertness,Improved Initiative,Point Blank Shot	PRERACE:1,Dwarf,Gnome,Kobold,Goblin	PRESKILL:6,Craft (Trapmaking)=6,Hide=6,Survival=6,Move Silently=6,Spot=6,Tumble=6	PRETOTALAB:5
 # Class Name			Class Skill
 CLASS:Tunnel-Fighter.MOD	CSKILL:Survival
 2	BONUS:VAR|UncannyDodgeLevel|1	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Uncanny Dodge	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base

@@ -12,11 +12,11 @@ SKILL:Bluff		RANK:9
 SKILL:Disguise	RANK:9
 SKILL:Perception	RANK:9
 SKILL:Stealth	RANK:9
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Skill Focus (Stealth)
-FEAT:Toughness
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 GEAR:Leather	LOCATION:Armor
 
 #

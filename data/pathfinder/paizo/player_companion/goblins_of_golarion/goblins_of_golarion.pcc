@@ -41,7 +41,7 @@ DEITY:goog_deities.lst
 DOMAIN:goog_domains.lst
 EQUIPMENT:goog_equip_general.lst
 EQUIPMENT:goog_equip_magic_items.lst
-FEAT:goog_feats.lst
+ABILITY:goog_feats.lst
 SPELL:goog_spells.lst
 
 

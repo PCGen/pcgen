@@ -9,8 +9,8 @@ CLASS:Archon	STARTSKILLPTS:2	CSKILL:Appraise|Climb|TYPE=Craft|Fly|Handle Animal|
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level
 CLASS:Archon	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Archon|CL
 ###Block:Proficiencies
-1	BONUS:ABILITYPOOL|Archon Weapon Proficiency|2	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1																				AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency
+1	BONUS:ABILITYPOOL|Archon Weapon Proficiency|2	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1																				ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Shield Proficiency
 ###Block:Basic Class Abilities
 1	ABILITY:Special Ability|AUTOMATIC|Armored Casting ~ Archon|Cantrips ~ Archon
 ###Block:Level progression
@@ -56,8 +56,8 @@ CLASS:Death Mage	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Fly|Intimidate
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level				Bonus Specialty spells
 CLASS:Death Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Death Mage|CL	BONUS:SPECIALTYSPELLKNOWN|CLASS=Death Mage;LEVEL=1|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DeathMageDomain	BONUS:SPECIALTYSPELLKNOWN|CLASS=Death Mage;LEVEL=2|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DeathMageDomain	BONUS:SPECIALTYSPELLKNOWN|CLASS=Death Mage;LEVEL=3|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DeathMageDomain	BONUS:SPECIALTYSPELLKNOWN|CLASS=Death Mage;LEVEL=4|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DeathMageDomain	BONUS:SPECIALTYSPELLKNOWN|CLASS=Death Mage;LEVEL=5|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DeathMageDomain	BONUS:SPECIALTYSPELLKNOWN|CLASS=Death Mage;LEVEL=6|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DeathMageDomain	BONUS:SPECIALTYSPELLKNOWN|CLASS=Death Mage;LEVEL=7|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DeathMageDomain	BONUS:SPECIALTYSPELLKNOWN|CLASS=Death Mage;LEVEL=8|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DeathMageDomain	BONUS:SPECIALTYSPELLKNOWN|CLASS=Death Mage;LEVEL=9|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DeathMageDomain
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency					AUTO:WEAPONPROF|Falchion|Flail|Kama|Net|Nunchaku|Scimitar|Scythe
-1												AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency					AUTO:WEAPONPROF|Falchion|Flail|Kama|Net|Nunchaku|Scimitar|Scythe
+1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Shield Proficiency
 ###Block:Basic Class Abilities
 1	ABILITY:Special Ability|AUTOMATIC|Armored Casting ~ Death Mage|Cantrips ~ Death Mage
 ###Block:Domain hack to get around DOMAIN being illegal in abilities lst
@@ -103,7 +103,7 @@ CLASS:Magister	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Fly|Knowledge (A
 CLASS:Magister	SPELLSTAT:WIS	SPELLTYPE:Arcane|PREABILITY:1,CATEGORY=Special Ability,Arcane Magister	SPELLTYPE:Divine|PREABILITY:1,CATEGORY=Special Ability,Divine Magister	MEMORIZE:NO	BONUS:CASTERLEVEL|Magister|CL
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Magister Weapon Proficiency
-1																AUTO:FEAT|Armor Proficiency (Light)
+1																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block:Basic Class Abilities
 1	BONUS:ABILITYPOOL|Magister Power Source|1	ABILITY:Special Ability|AUTOMATIC|Armored Casting ~ Magister|Bonus Feats ~ Magister|Cantrips/Orisons ~ Magister|Feat Access Tracker ~ Magister|Spells ~ Magister
 ###Block:Level progression

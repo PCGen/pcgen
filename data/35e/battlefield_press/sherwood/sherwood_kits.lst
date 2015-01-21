@@ -21,12 +21,12 @@ SKILL:Listen			RANK:13
 SKILL:Search			RANK:16
 SKILL:Sense Motive		RANK:7
 SKILL:Spot				RANK:16
-FEAT:Alertness
-FEAT:Ability Focus(Breath Weapon)
-FEAT:Hover
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Snatch
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Ability Focus(Breath Weapon)
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Snatch
 
 
 STARTPACK:Gargoyle (Sherwood) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle_Sherwood]
@@ -37,9 +37,9 @@ ALIGN:CE
 SKILL:Hide		RANK:5
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
-FEAT:Flyby Attack
-FEAT:Multiattack
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Toughness
 
 
 STARTPACK:Selkie Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Selkie]
@@ -52,7 +52,7 @@ SKILL:Bluff		RANK:1
 SKILL:Diplomacy	RANK:1
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 
 STARTPACK:Changeling (Young Child) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Changeling (Young Child)]
@@ -63,7 +63,7 @@ SKILL:Bluff			RANK:4
 SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 
 STARTPACK:Grogach Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grogach]
@@ -80,7 +80,7 @@ SKILL:Move Silently	RANK:4
 SKILL:Search		RANK:4
 SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:4
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 GEAR:Dagger	SIZE:PC	LOCATION:Both Hands
 
 
@@ -103,10 +103,10 @@ SKILL:Search			RANK:2
 SKILL:Sense Motive		RANK:4
 SKILL:Sleight of Hand		RANK:4
 SKILL:Spot				RANK:4
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Dagger	SIZE:PC	LOCATION:Both Hands
 
 
@@ -122,8 +122,8 @@ SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:5
 SKILL:Search		RANK:7
 SKILL:Spot			RANK:3
-FEAT:Alertness
-FEAT:Improved Natural Attack(Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Natural Attack(Bite)
 
 STARTPACK:Banshee Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Banshee]
 RACE:Banshee	!PRERACE:1,%
@@ -137,8 +137,8 @@ SKILL:Listen		RANK:8
 SKILL:Sense Motive	RANK:6
 SKILL:Search		RANK:8
 SKILL:Spot			RANK:8
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
 
 
 STARTPACK:Ghost Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghost]
@@ -150,8 +150,8 @@ SKILL:Hide		RANK:6
 SKILL:Listen	RANK:4
 SKILL:Search	RANK:6
 SKILL:Spot		RANK:4
-FEAT:Alertness
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
 
 
 #

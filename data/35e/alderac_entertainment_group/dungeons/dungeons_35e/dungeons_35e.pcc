@@ -30,15 +30,14 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1887953272?ie=UTF8&tag=httppcgen
 
 
 CLASS:dungeonsclasses_35e.lst
-FEAT:dungeonsfeats_35e.lst
+ABILITY:dungeonsfeats_35e.lst
 
 ABILITY:../dungeons_abilities_class.lst
 ABILITYCATEGORY:../dungeons_abilitycategories.lst
 CLASS:../dungeonsclasses.lst
-FEAT:../dungeonsclassfeats.lst
 EQUIPMENT:../dungeonsequip.lst
 EQUIPMENT:../dungeonsequipwondrousitems.lst
-FEAT:../dungeonsfeats.lst
+ABILITY:../dungeonsfeats.lst
 SKILL:../dungeonsskills.lst
 SPELL:../dungeonsspells.lst
 WEAPONPROF:../d_profs_weapon.lst

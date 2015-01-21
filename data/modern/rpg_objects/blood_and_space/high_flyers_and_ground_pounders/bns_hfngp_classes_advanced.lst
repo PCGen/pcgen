@@ -17,7 +17,7 @@ CLASS:Operations Expert	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|C
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																														Modify VAR
 CLASS:Starship Gunner	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat				Required Skill				PRETOTALAB
-CLASS:Starship Gunner	PREFEAT:2,Starship Gunnery,Teamwork	PRESKILL:1,Knowledge (Tactics)=3	PRETOTALAB:3
+CLASS:Starship Gunner	PREABILITY:2,CATEGORY=FEAT,Starship Gunnery,Teamwork	PRESKILL:1,Knowledge (Tactics)=3	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Starship Gunner	STARTSKILLPTS:2	CSKILL:Computer Use|Demolitions|Disable Device|Intimidate|Knowledge (Current Events)|Knowledge (History)|Knowledge (Tactics)|Pilot|Repair|Spot
 1	SAB:Weapon Focus (all starship weapons)				BONUS:COMBAT|TOHIT.Starship|1
@@ -34,7 +34,7 @@ CLASS:Starship Gunner	STARTSKILLPTS:2	CSKILL:Computer Use|Demolitions|Disable De
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus								Save bonus																						Modify VAR
 CLASS:Starship Marine	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat							Required Skill				PRETOTALAB
-CLASS:Starship Marine	PREFEAT:2,Personal Firearms Proficiency,Teamwork	PRESKILL:2,Intimidate=3,Survival=3	PRETOTALAB:2
+CLASS:Starship Marine	PREABILITY:2,CATEGORY=FEAT,Personal Firearms Proficiency,Teamwork	PRESKILL:2,Intimidate=3,Survival=3	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Starship Marine	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|Gamble|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Tactics)|Navigate|Repair|Spot|Survival|Tumble
 1	SAB:Beachhead +%|Beachhead							BONUS:VAR|Beachhead|1	DEFINE:Beachhead|0
@@ -51,7 +51,7 @@ CLASS:Starship Marine	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolition
 # Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																						Modify VAR
 CLASS:Starship Navigator	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.7	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name			Required Feat				Required Skill
-CLASS:Starship Navigator	PREFEAT:2,Spacer,Improved Slingshot	PRESKILL:2,Computer Use=6,Navigate=6
+CLASS:Starship Navigator	PREABILITY:2,CATEGORY=FEAT,Spacer,Improved Slingshot	PRESKILL:2,Computer Use=6,Navigate=6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Starship Navigator	STARTSKILLPTS:6	CSKILL:Computer Use|Concentration|Knowledge (Current Events)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Tactics)|Knowledge (Technology)|Navigate|Pilot|Repair|Search|Spot
 1	SAB:Slingshot +%|Slingshot	BONUS:VAR|Slingshot|(CL/5)+1	DEFINE:Slingshot|0

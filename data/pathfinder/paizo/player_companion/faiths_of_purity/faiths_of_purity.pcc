@@ -36,5 +36,5 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Faiths of Purity" Copy
 # Data files
 ABILITY:fop_abilities.lst
 DEITY:fop_deities.lst
-FEAT:fop_feats.lst
+ABILITY:fop_feats.lst
 SPELL:fop_spells.lst

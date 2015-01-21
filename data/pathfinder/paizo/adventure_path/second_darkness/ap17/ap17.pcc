@@ -39,7 +39,7 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness, Chapter 5: A Memory of 
 ABILITY:ap17_abilities_race.lst
 EQUIPMENT:ap17_equip_arms_armor.lst
 EQUIPMENT:ap17_equip_magic_items.lst
-FEAT:ap17_feats.lst
+ABILITY:ap17_feats.lst
 KIT:ap17_kits_race.lst
 RACE:ap17_races.lst
 SPELL:ap17_spells.lst

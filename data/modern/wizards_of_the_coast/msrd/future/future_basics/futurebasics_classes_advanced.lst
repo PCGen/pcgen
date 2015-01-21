@@ -21,7 +21,7 @@ CLASS:Ambassador	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Gather Info
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus								Save bonus																					Modify VAR
 CLASS:Dogfighter	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+1)/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Check Base	Required Feat					Required Skill
-CLASS:Dogfighter	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Starship Operation (Ultralight)	PRESKILL:1,Pilot=6
+CLASS:Dogfighter	PRECHECKBASE:1,Reflex=2	PREABILITY:1,CATEGORY=FEAT,Starship Operation (Ultralight)	PRESKILL:1,Pilot=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dogfighter	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Craft (Electronic)|Craft (Mechanical)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Navigate|Pilot|Profession|Repair
 1	BONUS:ABILITYPOOL|Dogfighter Feat|1
@@ -36,7 +36,7 @@ CLASS:Dogfighter	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Craft (Electronic)|Cr
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus								Save bonus																															Modify VAR
 CLASS:Dreadnought	HD:12		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*6
 # Class Name	Multiple Requirements																					Required Skill
-CLASS:Dreadnought	PREMULT:2,[PREFEAT:1,Improved Damage Threshold],[PREABILITY:2,CATEGORY=Talent,TYPE=DamageReduction,TYPE=EnergyResistance,TYPE=Unbreakable]	PRESKILL:1,Intimidate=6
+CLASS:Dreadnought	PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Improved Damage Threshold],[PREABILITY:2,CATEGORY=Talent,TYPE=DamageReduction,TYPE=EnergyResistance,TYPE=Unbreakable]	PRESKILL:1,Intimidate=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dreadnought	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Intimidate|Jump|Profession|Survival|Swim|Tumble
 1								BONUS:MISC|ACHECK|2																							ABILITY:Special Ability|AUTOMATIC|Fearless|Stability|Unhindered
@@ -71,7 +71,7 @@ CLASS:Explorer	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:Future
 CLASS:Explorer	PREMULT:2,[PRESKILL:3,Knowledge (Earth and Life Sciences)=6,Survival=6,Search=4],[PRESKILL:1,Knowledge (History)=4,Knowledge (Physical Sciences)=4,Knowledge (Theology and Philosophy)=4]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Decipher Script|Disable Device|Drive|Gather Information|Handle Animal|Investigate|Jump|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Theology and Philosophy)|Listen|Navigate|Pilot|Read/Write Language|Research|Ride|Search|Sense Motive|SPEAK LANGUAGE|Spot|Survival|Swim|Treat Injury
-1							BONUS:VAR|ExplorerLore|CL+INT	ABILITY:Special Ability|AUTOMATIC|Explorer Lore|Survivalist		AUTO:FEAT|Guide|Track
+1							BONUS:VAR|ExplorerLore|CL+INT	ABILITY:Special Ability|AUTOMATIC|Explorer Lore|Survivalist		ABILITY:FEAT|AUTOMATIC|Guide|Track
 2												ABILITY:Special Ability|AUTOMATIC|Resolve|Skilled Researcher
 3	BONUS:ABILITYPOOL|Explorer Feat|1
 4							BONUS:VAR|TrapSense|(CL-1)/3	ABILITY:Special Ability|AUTOMATIC|Trap Sense
@@ -83,7 +83,7 @@ CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Decipher Script|Disabl
 # Class Name		Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus							Save bonus																					Modify VAR
 CLASS:Field Officer	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat					Required Skill						PRETOTALAB
-CLASS:Field Officer	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Diplomacy=6,Knowledge (Tactics)=6	PRETOTALAB:2
+CLASS:Field Officer	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency	PRESKILL:2,Diplomacy=6,Knowledge (Tactics)=6	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Field Officer	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (History)|Knowledge (Physical Sciences)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Read/Write Language|Sense Motive|SPEAK LANGUAGE
 1								ABILITY:Special Ability|AUTOMATIC|Leadership
@@ -100,7 +100,7 @@ CLASS:Field Officer	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Gather I
 # Class Name		Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus							Save bonus																						Modify VAR
 CLASS:Helix Warrior	HD:10		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat		Required Skill				PRETOTALAB
-CLASS:Helix Warrior	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Tactics)=3	PRETOTALAB:3
+CLASS:Helix Warrior	PREABILITY:1,CATEGORY=FEAT,Endurance	PRESKILL:1,Knowledge (Tactics)=3	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Helix Warrior	STARTSKILLPTS:2	CSKILL:Balance|Climb|Computer Use|Demolitions|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|Navigate|Spot|Survival|Swim|Tumble
 1																	ABILITY:Special Ability|AUTOMATIC|Haul|Light Sleeper|Survivor
@@ -151,7 +151,7 @@ CLASS:Technosavant	HD:6		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:Fu
 CLASS:Technosavant	PREMULT:2,[PRESKILL:3,Computer Use=6,Disable Device=6,Knowledge (Technology)=6],[PRESKILL:1,Craft (Electronic)=6,Craft (Mechanical)=6]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Technosavant	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mechanical)|Demolitions|Disable Device|Drive|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Pilot|Profession|Read/Write Language|Repair|Research|SPEAK LANGUAGE|Spot
-1														ABILITY:Special Ability|AUTOMATIC|Technocrat					AUTO:FEAT|Salvage
+1														ABILITY:Special Ability|AUTOMATIC|Technocrat					ABILITY:FEAT|AUTOMATIC|Salvage
 2														ABILITY:Special Ability|AUTOMATIC|Robomancer|Technophile
 3	BONUS:ABILITYPOOL|Technosavant Feat|1
 4														ABILITY:Special Ability|AUTOMATIC|Cybermancer|Skilled Salvager
@@ -165,10 +165,10 @@ CLASS:Technosavant	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft 
 # Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Combat bonus							Save bonus																					Modify VAR
 CLASS:Tracer	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:FutureAdvancedClasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+3)*2/5	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat	Multiple Requirements																	PRETOTALAB
-CLASS:Tracer	PREFEAT:1,Track	PREMULT:2,[PRESKILL:2,Investigate=6,Survival=6],[PRESKILL:1,Knowledge (Behavioral Sciences)=6,Knowledge (Streetwise)=6]	PRETOTALAB:2
+CLASS:Tracer	PREABILITY:1,CATEGORY=FEAT,Track	PREMULT:2,[PRESKILL:2,Investigate=6,Survival=6],[PRESKILL:1,Knowledge (Behavioral Sciences)=6,Knowledge (Streetwise)=6]	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tracer	STARTSKILLPTS:4	CSKILL:Climb|Computer Use|Disable Device|Disguise|Drive|Gather Information|Hide|Investigate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Pilot|Research|Search|Sense Motive|Spot|Survival|Swim
-1																				ABILITY:Special Ability|AUTOMATIC|Target Species	AUTO:FEAT|Urban Tracking
+1																				ABILITY:Special Ability|AUTOMATIC|Target Species	ABILITY:FEAT|AUTOMATIC|Urban Tracking
 2							BONUS:VAR|SwiftStrike|(CL+1)/3								ABILITY:Special Ability|AUTOMATIC|Swift Strike
 3	BONUS:ABILITYPOOL|Tracer Feat|1
 4														DEFINE:UncannyStealthChargeQual|0	ABILITY:Special Ability|AUTOMATIC|Uncanny Stealth

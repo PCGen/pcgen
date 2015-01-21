@@ -13,8 +13,8 @@ CLASS:Elemental Mage (Earth)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=C
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Elemental Mage (Earth)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|Elemental Mage (Earth)|CL
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Level progression
 1	CAST:1	BONUS:VAR|ELEMAGELEVEL|0	BONUS:VAR|SPELLCASTINBONUS|CL	BONUS:VAR|QUICKREFERENCE|40+(CL*10)+(INT*10)	BONUS:VAR|INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	DEFINE:ELEMAGELEVEL|0	DEFINE:SPELLCASTINBONUS|0	DEFINE:QUICKREFERENCE|0	DEFINE:INTIMATEKNOWLEDGE|0	ADD:LANGUAGE|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
 2	CAST:2
@@ -44,8 +44,8 @@ CLASS:Elemental Mage (Air)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Cra
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Elemental Mage (Air)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|Elemental Mage (Air)|CL
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Level progression
 1	CAST:1	BONUS:VAR|ELEMAGELEVEL|0	BONUS:VAR|SPELLCASTINBONUS|CL	BONUS:VAR|QUICKREFERENCE|40+(CL*10)+(INT*10)	BONUS:VAR|INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	DEFINE:ELEMAGELEVEL|0	DEFINE:SPELLCASTINBONUS|0	DEFINE:QUICKREFERENCE|0	DEFINE:INTIMATEKNOWLEDGE|0	ADD:LANGUAGE|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
 2	CAST:2
@@ -75,8 +75,8 @@ CLASS:Elemental Mage (Fire)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Cr
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Elemental Mage (Fire)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|Elemental Mage (Fire)|CL
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Level progression
 1	CAST:1	BONUS:VAR|ELEMAGELEVEL|0	BONUS:VAR|SPELLCASTINBONUS|CL	BONUS:VAR|QUICKREFERENCE|40+(CL*10)+(INT*10)	BONUS:VAR|INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	DEFINE:ELEMAGELEVEL|0	DEFINE:SPELLCASTINBONUS|0	DEFINE:QUICKREFERENCE|0	DEFINE:INTIMATEKNOWLEDGE|0	ADD:LANGUAGE|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
 2	CAST:2
@@ -106,8 +106,8 @@ CLASS:Elemental Mage (Water)	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=C
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Elemental Mage (Water)	SPELLSTAT:INT	SPELLTYPE:EleMage	BONUS:CASTERLEVEL|Elemental Mage (Water)|CL
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Level progression
 1	CAST:1	BONUS:VAR|ELEMAGELEVEL|CL	BONUS:VAR|SPELLCASTINBONUS|CL	BONUS:VAR|QUICKREFERENCE|40+(CL*10)+(INT*10)	BONUS:VAR|INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	DEFINE:ELEMAGELEVEL|0	DEFINE:SPELLCASTINBONUS|0	DEFINE:QUICKREFERENCE|0	DEFINE:INTIMATEKNOWLEDGE|0	ADD:LANGUAGE|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
 2	CAST:2
@@ -137,8 +137,8 @@ CLASS:Void Mage	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Kno
 # Class Name	Spell Stat		Spell Type			Caster level
 CLASS:Void Mage	SPELLSTAT:INT	SPELLTYPE:EleVoidMage	BONUS:CASTERLEVEL|Void Mage|CL
 ###Block:Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Level progression
 1	CAST:1	SAB:Tainted by Void	BONUS:VAR|ELEMAGELEVEL|CL	BONUS:VAR|SPELLCASTINBONUS|CL	BONUS:VAR|QUICKREFERENCE|40+(CL*10)+(INT*10)	BONUS:VAR|INTIMATEKNOWLEDGE|20+(CL*5)+(INT*10)	DEFINE:ELEMAGELEVEL|0	DEFINE:SPELLCASTINBONUS|0	DEFINE:QUICKREFERENCE|0	DEFINE:INTIMATEKNOWLEDGE|0	ADD:LANGUAGE|Dunkrass,Elder Speak,Fae,Fringrese,Karna,Naru,Naru-Toma,Pharn'lan,Sanki,Tirniv,Tomagai,Twithil
 2	CAST:2

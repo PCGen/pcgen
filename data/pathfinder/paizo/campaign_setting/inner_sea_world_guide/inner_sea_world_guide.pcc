@@ -69,7 +69,7 @@ EQUIPMENT:iswg_equip_arms_armor.lst
 EQUIPMENT:iswg_equip_general.lst
 EQUIPMENT:iswg_equip_magic_items.lst
 EQUIPMOD:iswg_equipmods.lst
-FEAT:iswg_feats.lst
+ABILITY:iswg_feats.lst
 KIT:iswg_kits_race.lst
 LANGUAGE:iswg_languages.lst
 RACE:iswg_races.lst

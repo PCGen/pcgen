@@ -36,7 +36,7 @@ ABILITYCATEGORY:pf8_ability_category.lst
 ABILITY:pf8_ability.lst
 CLASS:pf8_class.lst
 EQUIPMENT:pf8_equipment.lst
-FEAT:pf8_feat.lst
+ABILITY:pf8_feat.lst
 KIT:pf8_kit_monster.lst
 KIT:pf8_kit_npc.lst
 RACE:pf8_race.lst

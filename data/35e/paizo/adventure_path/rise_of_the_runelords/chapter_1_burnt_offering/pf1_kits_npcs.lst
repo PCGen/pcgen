@@ -12,7 +12,7 @@ SKILL:Jump			RANK:4
 SKILL:Listen		RANK:4
 SKILL:Perform (Sing)	RANK:4
 SKILL:Tumble		RANK:4
-FEAT:Combat Reflexes
+ABILITY:CATEGORY=FEAT|Combat Reflexes
 GEAR:Potion (Cure Light Wounds)					LOCATION:Carried
 GEAR:Studded Leather					SIZE:S	LOCATION:Equipped
 GEAR:Whip							SIZE:S	LOCATION:Primary Hand
@@ -33,7 +33,7 @@ SKILL:Listen		RANK:4
 SKILL:Ride			RANK:4
 SKILL:Spot			RANK:4
 SKILL:Survival		RANK:4
-FEAT:Mounted Combat
+ABILITY:CATEGORY=FEAT|Mounted Combat
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Animal)
 GEAR:Studded Leather			SIZE:S	LOCATION:Equipped
 GEAR:Horsechopper						LOCATION:Both Hands	EQMOD:MWORKW.STEEL
@@ -62,8 +62,8 @@ CLASS:Monk	LEVEL:2
 SKILL:Tumble				RANK:2
 SKILL:Bluff					RANK:1
 SKILL:Disable Device			RANK:1
-FEAT:Dodge
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 ABILITY:CATEGORY=Monk Feat|Stunning Fist
 ABILITY:CATEGORY=Monk Feat|Deflect Arrows
 GEAR:Potion (Cure Light Wounds)	LOCATION:Equipped
@@ -81,7 +81,7 @@ ALIGN:CE
 CLASS:Fighter	LEVEL:2
 STAT:STR=17|DEX=11|CON=16|INT=3|WIS=8|CHA=12
 SKILL:Intimidate	RANK:5
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=Fighter Feat|Improved Initiative
 ABILITY:CATEGORY=Fighter Feat|Toughness
 TEMPLATE:Waters of Lamashtu (Koruvus's Mutation)
@@ -99,8 +99,8 @@ STAT:STR=10|DEX=12|CON=14|INT=8|WIS=15|CHA=14
 SKILL:Handle Animal		RANK:7
 SKILL:Knowledge (Nature)	RANK:7
 SKILL:Survival			RANK:7
-FEAT:Brew Potion
-FEAT:Combat Casting
+ABILITY:CATEGORY=FEAT|Brew Potion
+ABILITY:CATEGORY=FEAT|Combat Casting
 GEAR:Potion (Cure Light Wounds)	QTY:2			LOCATION:Carried
 GEAR:Wand								LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Produce Flame]CASTER[Druid]SPELLTYPE[Divine]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[34]
 GEAR:Leather					SIZE:S	LOCATION:Equipped		EQMOD:PLUS1A.LEATHER
@@ -119,8 +119,8 @@ STAT:STR=14|DEX=12|CON=14|INT=10|WIS=8|CHA=15
 SKILL:Handle Animal	RANK:5
 SKILL:Intimidate		RANK:4
 SKILL:Ride			RANK:5
-FEAT:Weapon Focus(Dogslicer)
-FEAT:Weapon Specialization(Dogslicer)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Dogslicer)
+ABILITY:CATEGORY=FEAT|Weapon Specialization(Dogslicer)
 ABILITY:CATEGORY=Fighter Feat|Mounted Combat
 ABILITY:CATEGORY=Fighter Feat|Ride-By Attack
 ABILITY:CATEGORY=Fighter Feat|Spirited Charge
@@ -139,8 +139,8 @@ STAT:STR=13|DEX=14|CON=16|INT=8|WIS=12|CHA=10
 SKILL:Hide			RANK:7
 SKILL:Move Silently	RANK:5
 SKILL:Survival		RANK:5
-FEAT:Point Blank Shot
-FEAT:Weapon Focus(Longbow)
+ABILITY:CATEGORY=FEAT|Point Blank Shot
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longbow)
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Elf))
 GEAR:Potion (Cure Moderate Wounds)			LOCATION:Carried
 GEAR:Studded Leather					LOCATION:Equipped
@@ -160,9 +160,9 @@ SKILL:Climb			RANK:6
 SKILL:Intimidate		RANK:6
 SKILL:Speak Language	RANK:1	SELECTION:Goblin
 SKILL:Swim			RANK:4
-FEAT:Weapon Focus(Sword (Bastard))
-FEAT:Athletic
-FEAT:Blind-Fight
+ABILITY:CATEGORY=FEAT|Weapon Focus(Sword (Bastard))
+ABILITY:CATEGORY=FEAT|Athletic
+ABILITY:CATEGORY=FEAT|Blind-Fight
 ABILITY:CATEGORY=Fighter Feat|Exotic Weapon Proficiency(Sword (Bastard))
 ABILITY:CATEGORY=Fighter Feat|Power Attack
 GEAR:Potion (Cure Moderate Wounds)			LOCATION:Carried
@@ -188,9 +188,9 @@ SKILL:Knowledge (Arcana)	RANK:6
 SKILL:Knowledge (Local)		RANK:6
 SKILL:Move Silently		RANK:3
 SKILL:Spellcraft			RANK:6
-FEAT:Mobility
-FEAT:Dodge
-FEAT:Spell Focus(Evocation)
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Spell Focus(Evocation)
 GEAR:Wand						LOCATION:Equipped	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
 GEAR:Potion (Cure Light Wounds)		LOCATION:Equipped
 GEAR:Scroll (Sleep)				LOCATION:Equipped
@@ -279,8 +279,8 @@ DEITY:Lamashtu	DOMAIN:Evil|Strength
 SKILL:Concentration		RANK:3
 SKILL:Knowledge (Religion)	RANK:3
 SKILL:Speak Language		RANK:1	FREE:YES	SELECTION:Goblin
-FEAT:Weapon Focus(Sword (Bastard))
-FEAT:Lamashtu's Mark
+ABILITY:CATEGORY=FEAT|Weapon Focus(Sword (Bastard))
+ABILITY:CATEGORY=FEAT|Lamashtu's Mark
 ABILITY:CATEGORY=Fighter Feat|Exotic Weapon Proficiency(Sword (Bastard))
 ABILITY:CATEGORY=Fighter Feat|Power Attack
 ABILITY:CATEGORY=Turn Undead|Rebuke Undead
@@ -325,7 +325,7 @@ SKILL:Sense Motive		RANK:13
 SKILL:Spot				RANK:13
 SKILL:Tumble			RANK:13
 SKILL:Speak Language		RANK:2	FREE:YES	SELECTION:Common,Giant
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Improved Natural Attack(Bite)
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Natural Attack(Bite)
+ABILITY:CATEGORY=FEAT|Power Attack

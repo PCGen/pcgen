@@ -17,9 +17,9 @@ CLASS:Paladin (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 1	SPELLLEVEL:CLASS|Paladin (BoHM)=3|Cure Moderate Wounds,Discern Lies,Dispel Magic,Greater Magic Weapon,Heal Mount,Magic Circle against Evil,Prayer
 1	SPELLLEVEL:CLASS|Paladin (BoHM)=4|Cure Serious Wounds,Death Ward,Dispel Evil,Freedom of Movement,Holy Sword,Neutralize Poison,Remove Blindness/Deafness
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Turn Undead stuff
 3	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|AllowImprovedTurning|1	DEFINE:AllowImprovedTurning|0	ABILITY:Special Ability|AUTOMATIC|Basic Turning|Turn Undead
 3	BONUS:VAR|TurnLevelBase|CL-2|TYPE=Level.REPLACE	BONUS:VAR|AllowExtraTurning|1	DEFINE:AllowExtraTurning|0
@@ -54,9 +54,9 @@ CLASS:Ranger (BoHM)	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TY
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels			Caster level
 CLASS:Ranger (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Ranger (BoHM)|CL
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Ranger (BoHM)=1|Alarm,Animal Friendship,Burning Brand,Delay Poison,Detect Animals or Plants,Detect Snares and Pits,Entangle,Magic Fang,Pass without Trace,Read Magic,Resist Elements,Speak with Animals,Summon Nature's Ally I
 1	SPELLLEVEL:CLASS|Ranger (BoHM)=2|Animal Messenger,Blight Enemy,Cure Light Wounds,Detect Chaos,Detect Evil,Detect Good,Detect Law,Hold Animal,Protection from Elements,Sleep,Snare,Speak with Plants,Summon Nature's Ally II,Wild Stealth
@@ -65,29 +65,29 @@ CLASS:Ranger (BoHM)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|L
 ###Block: Favored Enemy
 1	BONUS:ABILITYPOOL|Favored Enemy|var("RangerFavoredEnemyLVL")/5+1	BONUS:VAR|RangerFavoredEnemyLVL|CL	DEFINE:RangerFavoredEnemyLVL|0
 ###Block: Normal level progression
-1																																																																				AUTO:FEAT|Track
-4	CAST:0,0		ADD:FEAT|Alertness,Ambidexterity,Blind-Fight,Dodge,Endurance,Expertise,Far Shot,Favored Enemy Critical Strike,Favored Enemy Strike,Improved Disarm,Improved Trip,Improved Two-Weapon Fighting,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Skill Focus,Spirited Charge,Spring Attack,Trample,Two-Weapon Fighting
+1																																																																				ABILITY:FEAT|AUTOMATIC|Track
+4	CAST:0,0		BONUS:ABILITYPOOL|Ranger HM Feat|1
 5	CAST:0,0
 6	CAST:0,1
 7	CAST:0,1,0
-8	CAST:0,1,0		ADD:FEAT|Alertness,Ambidexterity,Blind-Fight,Dodge,Endurance,Expertise,Far Shot,Favored Enemy Critical Strike,Favored Enemy Strike,Improved Disarm,Improved Trip,Improved Two-Weapon Fighting,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Skill Focus,Spirited Charge,Spring Attack,Trample,Two-Weapon Fighting
+8	CAST:0,1,0		BONUS:ABILITYPOOL|Ranger HM Feat|1
 9	CAST:0,1,1
 10	CAST:0,1,1,0
 11	CAST:0,2,1,0
-12	CAST:0,2,1,1	ADD:FEAT|Alertness,Ambidexterity,Blind-Fight,Dodge,Endurance,Expertise,Far Shot,Favored Enemy Critical Strike,Favored Enemy Strike,Improved Disarm,Improved Trip,Improved Two-Weapon Fighting,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Skill Focus,Spirited Charge,Spring Attack,Trample,Two-Weapon Fighting
+12	CAST:0,2,1,1	BONUS:ABILITYPOOL|Ranger HM Feat|1
 13	CAST:0,2,1,1,0
 14	CAST:0,2,2,1,0
 15	CAST:0,2,2,1,1
-16	CAST:0,3,2,2,1	ADD:FEAT|Alertness,Ambidexterity,Blind-Fight,Dodge,Endurance,Expertise,Far Shot,Favored Enemy Critical Strike,Favored Enemy Strike,Improved Disarm,Improved Trip,Improved Two-Weapon Fighting,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Skill Focus,Spirited Charge,Spring Attack,Trample,Two-Weapon Fighting
+16	CAST:0,3,2,2,1	BONUS:ABILITYPOOL|Ranger HM Feat|1
 17	CAST:0,3,3,2,1
 18	CAST:0,3,3,2,2
 19	CAST:0,3,3,3,2
-20	CAST:0,4,3,3,3	ADD:FEAT|Alertness,Ambidexterity,Blind-Fight,Dodge,Endurance,Expertise,Far Shot,Favored Enemy Critical Strike,Favored Enemy Strike,Improved Disarm,Improved Trip,Improved Two-Weapon Fighting,Mobility,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Quick Draw,Rapid Shot,Ride-By Attack,Shot on the Run,Skill Focus,Spirited Charge,Spring Attack,Trample,Two-Weapon Fighting
+20	CAST:0,4,3,3,3	BONUS:ABILITYPOOL|Ranger HM Feat|1
 
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus								Save bonus
 CLASS:Blessed Prelate	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	ABB:BPr		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Feat								Required Skill
-CLASS:Blessed Prelate	PREALIGN:LG,NG,CG	PREFEAT:3,Devout Faith,Vow of Obedience,Vow of Stability	PRESKILL:1,Knowledge (Religion)=5
+CLASS:Blessed Prelate	PREALIGN:LG,NG,CG	PREABILITY:3,CATEGORY=FEAT,Devout Faith,Vow of Obedience,Vow of Stability	PRESKILL:1,Knowledge (Religion)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Blessed Prelate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Scry|Sense Motive|Spellcraft
 1																							ADD:SPELLCASTER|ANY	BONUS:ABILITYPOOL|Blessed Prelate Feat|1
@@ -104,7 +104,7 @@ CLASS:Blessed Prelate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|
 # Class Name		Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
 CLASS:Hallowed Mage	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:HMa		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Feat					Required Skill								Req. Spell Type
-CLASS:Hallowed Mage	PREALIGN:LG,NG,CG	PREFEAT:2,Devout Faith,Vow of Obedience	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Religion)=8	PRESPELLTYPE:1,Arcane=3	PRESPELLTYPE:1,Divine=3
+CLASS:Hallowed Mage	PREALIGN:LG,NG,CG	PREABILITY:2,CATEGORY=FEAT,Devout Faith,Vow of Obedience	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Religion)=8	PRESPELLTYPE:1,Arcane=3	PRESPELLTYPE:1,Divine=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Hallowed Mage	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Heal|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
@@ -131,13 +131,13 @@ CLASS:Hallowed Mage	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=4|LEVEL=5|L
 # Class Name			Product Identity?	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
 CLASS:Knight of the Pale	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:KoP		MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL			Required Feat		Required Skill				PRETOTALAB
-CLASS:Knight of the Pale	PREALIGN:LG,LN,NG,TN	PREFEAT:1,Devout Faith	PRESKILL:1,Knowledge (Religion)=4	PRETOTALAB:7
+CLASS:Knight of the Pale	PREALIGN:LG,LN,NG,TN	PREABILITY:1,CATEGORY=FEAT,Devout Faith	PRESKILL:1,Knowledge (Religion)=4	PRETOTALAB:7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Pale	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Knowledge (Arcana)|Knowledge (Religion)|Listen|TYPE=Profession|Sense Motive|Spot
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency
-1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Normal Level Progression
 1	SAB:Suite of St Chausle
 3	SAB:Suite of St Gustav

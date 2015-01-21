@@ -8,7 +8,7 @@ RACE:Darklands Sentinel	!PRERACE:1,%
 NAME:Darklands Sentinel
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -18,8 +18,8 @@ RACE:Fungal Crawler	!PRERACE:1,%
 NAME:Fungal Crawler
 SKILL:Balance	RANK:3
 SKILL:Listen	RANK:4
-FEAT:Alertness
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Multiattack
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 
@@ -44,8 +44,8 @@ NAME:Swamp Barracuda
 SKILL:Hide		RANK:2
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:3
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 
 #

@@ -18,9 +18,9 @@ SKILL:Search			RANK:9
 SKILL:Sense Motive		RANK:9
 SKILL:Spellcraft			RANK:9
 SKILL:Spot				RANK:9
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Thaerestian Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thaerestian]
 RACE:Thaerestian	!PRERACE:1,%
@@ -41,10 +41,10 @@ SKILL:Search			RANK:13
 SKILL:Sense Motive		RANK:13
 SKILL:Spellcraft			RANK:13
 SKILL:Spot				RANK:13
-FEAT:Alertness
-FEAT:Iron Will
-FEAT:Improved Initiative
-FEAT:Spell Penetration
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Spell Penetration
 
 STARTPACK:Default Demon (D'Stradi Abductor)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (D'Stradi Abductor)]
 RACE:Demon (D'Stradi Abductor)	!PRERACE:1,%
@@ -59,9 +59,9 @@ SKILL:Intimidate		RANK:10
 SKILL:Listen		RANK:10
 SKILL:Move Silently	RANK:10
 SKILL:Spot			RANK:10
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Default Demon (D'Stradi Dancer)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (D'Stradi Dancer)]
 RACE:Demon (D'Stradi Dancer)	!PRERACE:1,%
@@ -77,10 +77,10 @@ SKILL:TYPE.Perform	RANK:11
 SKILL:Search		RANK:11
 SKILL:Spot			RANK:11
 SKILL:Tumble		RANK:11
-FEAT:Alertness
-FEAT:Combat Expertise
-FEAT:Combat Reflexes
-FEAT:Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 
 STARTPACK:Default Demon (D'Stradi Annihilator)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (D'Stradi Annihilator)]
 RACE:Demon (D'Stradi Annihilator)	!PRERACE:1,%
@@ -95,11 +95,11 @@ SKILL:Listen			RANK:16
 SKILL:Search			RANK:16
 SKILL:Spot				RANK:16
 SKILL:Survival			RANK:16
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Eye Golem Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eye Golem]
 RACE:Eye Golem	!PRERACE:1,%
@@ -108,8 +108,8 @@ ALIGN:TN
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:10
 SKILL:Spot		RANK:10
-FEAT:Alertness
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 
 STARTPACK:Kallendine Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kallendine]
 RACE:Kallendine	!PRERACE:1,%
@@ -117,12 +117,12 @@ NAME:Kallendine
 STAT:DEX=11|CON=11|INT=11|WIS=11|STR=10|CHA=10
 SKILL:Listen	RANK:11
 SKILL:Spot		RANK:11
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Improved Bull Rush
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Sohr Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sohr]
 RACE:Sohr	!PRERACE:1,%
@@ -131,11 +131,11 @@ ALIGN:TN
 STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
 SKILL:Spot		RANK:9
 SKILL:Listen	RANK:10
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Battle Sohr Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Battle Sohr]
 RACE:Battle Sohr	!PRERACE:1,%
@@ -144,10 +144,10 @@ ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Alertness
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Default T'Kraam (the Thunderkin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,T'Kraam (the Thunderkin)]
 RACE:T'Kraam (the Thunderkin)	!PRERACE:1,%
@@ -158,9 +158,9 @@ SKILL:Hide		RANK:6
 SKILL:Spot		RANK:6
 SKILL:Tumble	RANK:6
 SKILL:Listen	RANK:7
-FEAT:Alertness
-FEAT:Great Fortitude
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Unholy Riven Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unholy Riven]
 RACE:Unholy Riven	!PRERACE:1,%
@@ -173,11 +173,11 @@ SKILL:Listen	RANK:15
 SKILL:Search	RANK:15
 SKILL:Spellcraft	RANK:15
 SKILL:Spot		RANK:15
-FEAT:Alertness
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Great Fortitude
-FEAT:Lightning Reflexes
-FEAT:Mobility
-FEAT:Power Attack
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Spring Attack

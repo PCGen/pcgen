@@ -42,7 +42,7 @@ Third Eye Gather Lesser					TYPE:Psionic.Universal.Eyegear	COST:2500	SOURCEPAGE:
 Third Eye of Low-Light Vision				TYPE:Psionic.Universal.Eyegear	COST:12000	SOURCEPAGE:p.62				VISION:Low-Light Vision
 Torc of the Berserker					TYPE:Psionic.Universal.Amulet		COST:45400	SOURCEPAGE:p.62								BONUS:COMBAT|AC|-1											BONUS:SAVE|Will|1|TYPE=Resistance										BONUS:STAT|STR,CON|2|TYPE=Enhancement
 Torc of the Berserker Greater				TYPE:Psionic.Universal.Amulet		COST:120750	SOURCEPAGE:p.62								BONUS:COMBAT|AC|-2											BONUS:SAVE|Will|2|TYPE=Resistance										BONUS:STAT|STR,CON|4|TYPE=Enhancement
-Torc of the Berserker Lesser				TYPE:Psionic.Universal.Amulet		COST:12400	SOURCEPAGE:p.63	VFEAT:Diehard					BONUS:COMBAT|AC|-4											BONUS:SAVE|Will|4|TYPE=Resistance										BONUS:STAT|STR,CON|6|TYPE=Enhancement	SAB:Immune to fear
+Torc of the Berserker Lesser				TYPE:Psionic.Universal.Amulet		COST:12400	SOURCEPAGE:p.63	ABILITY:FEAT|VIRTUAL|Diehard					BONUS:COMBAT|AC|-4											BONUS:SAVE|Will|4|TYPE=Resistance										BONUS:STAT|STR,CON|6|TYPE=Enhancement	SAB:Immune to fear
 Wailing Stone of Lost Souls				TYPE:Psionic.Universal			COST:8500	SOURCEPAGE:p.63
 #COMMENT: Charged Item with uses... not sure if we should implement or leave as is.
 

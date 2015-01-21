@@ -33,7 +33,7 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1903980585?ie=UTF8&tag=httppcgen
 #EXTRAFILE:OGL.txt
 
 CLASS:assassinclasses.lst
-FEAT:assassin_feats_hidden.lst
+ABILITY:assassin_feats_hidden.lst
 
 EQUIPMENT:assassinpotionspoisons.lst
 EQUIPMENT:assassinequip.lst

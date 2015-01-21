@@ -7,14 +7,14 @@ ALIGN:TN
 RACE:Doorway Guardian	!PRERACE:1,%
 NAME:Doorway Guardian
 STAT:DEX=10|CON=11|INT=10|WIS=10|CHA=10
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Iron Will
-FEAT:Skill Focus (Listen)
-FEAT:Skill Focus (Sense Motive)
-FEAT:Skill Focus (Spot)			FREE:YES
-FEAT:Skill Focus (Wilderness Lore)	FREE:YES
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Listen)
+ABILITY:CATEGORY=FEAT|Skill Focus (Sense Motive)
+ABILITY:CATEGORY=FEAT|Skill Focus (Spot)			FREE:YES
+ABILITY:CATEGORY=FEAT|Skill Focus (Wilderness Lore)	FREE:YES
 #Skills: Bluff +8, Decipher Script +7, Diplomacy +11, Escape Artist +9, Innuendo +12
 SKILL:Bluff				RANK:3
 SKILL:Decipher Script		RANK:7
@@ -41,9 +41,9 @@ ALIGN:CG
 
 STARTPACK:Faerie Dragon Default	TYPE:Creature	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Faerie Dragon]
 RACE:Faerie Dragon	!PRERACE:1,%
-FEAT:Alertness			FREE:YES
-FEAT:Dodge				FREE:YES
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness			FREE:YES
+ABILITY:CATEGORY=FEAT|Dodge				FREE:YES
+ABILITY:CATEGORY=FEAT|Improved Initiative
 #Skills: Bluff +7, Escape Artist +8, Hide +12, Intuit Direction+3, Listen +5, Move Silently +8, Search +3, Sense Motive +5, Spot +5
 SKILL:Bluff			RANK:0
 SKILL:Escape Artist	RANK:0
@@ -63,7 +63,7 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 #Abilities: Str 20, Dex 17, Con 19, Int 6, Wis 17, Cha 10
 ALIGN:LG|NG|CG
 RACE:Fey Steed	!PRERACE:1,%
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 #Skills: Listen +9, Spot +9
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
@@ -76,11 +76,11 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=11
 #Abilities: Str 27, Dex 11, Con 21 Int 10, Wis 15, Cha 13
 #Skills: Intimidate +12, Listen +15, Move Silently +9, Spot +15
 RACE:Jabberwock (Greater)	!PRERACE:1,%
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Improved Critical
-FEAT:Multiattack		FREE:YES
-FEAT:Power Attack		FREE:YES
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical
+ABILITY:CATEGORY=FEAT|Multiattack		FREE:YES
+ABILITY:CATEGORY=FEAT|Power Attack		FREE:YES
 SKILL:Intimidate		RANK:11
 SKILL:Listen		RANK:11
 SKILL:Move Silently	RANK:9
@@ -93,9 +93,9 @@ RACE:Jabberwock (Lesser)	!PRERACE:1,%
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 #Str 19, Dex 13, Con 17, Int 6, Wis 12, Cha 9
 #Skills:Intimidate +8, Listen +13, Move Silently +9, Spot +13
-FEAT:Alertness
-FEAT:Flyby Attack
-FEAT:Multiattack	FREE:YES
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Multiattack	FREE:YES
 SKILL:Intimidate		RANK:8
 SKILL:Listen		RANK:10
 SKILL:Move Silently	RANK:8
@@ -107,9 +107,9 @@ STARTPACK:Faun (Lesser Satyr) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRE
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 #Str 9, Dex 13, Con 10,Int 12, Wis 15, Cha 14
 RACE:Faun (Lesser Satyr)	!PRERACE:1,%
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Mobility	FREE:YES
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility	FREE:YES
 #Hide +12, Jump +8, Listen +12,Move Silently +15, Spot +15
 # COMMENT: Ranks max 9, can't achieve what the publisher listed.
 SKILL:Hide			RANK:9
@@ -123,10 +123,10 @@ STARTPACK:Korred (Greater Satyr) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 #Str 19, Dex 14, Con 16,Int 8, Wis 10, Cha 11
 RACE:Korred (Greater Satyr)	!PRERACE:1,%
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Mobility		FREE:YES
-FEAT:Spring Attack	FREE:YES
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility		FREE:YES
+ABILITY:CATEGORY=FEAT|Spring Attack	FREE:YES
 #Hide +9, Listen +10, Move Silently +10, Spot +12
 SKILL:Hide			RANK:4
 SKILL:Listen		RANK:6

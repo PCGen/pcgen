@@ -58,7 +58,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Rise of the R
 ABILITY:rotr_abilities.lst
 EQUIPMENT:rotr_equip.lst
 EQUIPMOD:rotr_equipmods.lst
-FEAT:rotr_feats.lst
+ABILITY:rotr_feats.lst
 KIT:rotr_kits.lst
 RACE:rotr_races.lst
 SKILL:rotr_skills.lst

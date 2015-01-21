@@ -34,7 +34,7 @@ ABILITY:ua_abilities_class.lst
 ABILITY:ua_abilities_race.lst
 ABILITYCATEGORY:ua_abilitycategories.lst
 CLASS:ua_classes.lst
-FEAT:ua_feats.lst
+ABILITY:ua_feats.lst
 SKILL:ua_skills.lst
 SPELL:ua_spells.lst
 TEMPLATE:ua_templates.lst

@@ -16,4 +16,4 @@ Wyvern Hide			PROFICIENCY:ARMOR|Chainmail	TYPE:Armor.Medium.ArmorProfMedium.Suit
 
 ###Block: Weapons
 # Equipment Name	Required Weapon Proficiency	Type										Cost		Weight	Crit Mult	Crit Range	Damage	Modifier				Wield Category	Size		Source Page		Virtual Feat	Special Property
-The Brazen Claw	PROFICIENCY:WEAPON|Scimitar	TYPE:Weapon.Resizable.Melee.Martial.Specific.Slashing.Sword	COST:15	WT:4		CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	EQMOD:PLUS2W.STEEL.VICIOUS	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.17	VFEAT:Cleave	SPROP:If a gnoll wields the brazen claw, he takes no damage from the sword's vicious ability.
+The Brazen Claw	PROFICIENCY:WEAPON|Scimitar	TYPE:Weapon.Resizable.Melee.Martial.Specific.Slashing.Sword	COST:15	WT:4		CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	EQMOD:PLUS2W.STEEL.VICIOUS	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.17	ABILITY:FEAT|VIRTUAL|Cleave	SPROP:If a gnoll wields the brazen claw, he takes no damage from the sword's vicious ability.

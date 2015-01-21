@@ -53,8 +53,8 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=29150&it=1?affili
 ABILITYCATEGORY:c_abilitycategories.lst
 
 SKILL:cityscapeskills.lst
-FEAT:cityscapefeats.lst
-FEAT:cityscapeclassfeats.lst
+ABILITY:cityscapefeats.lst
+ABILITY:cityscapeclassfeats.lst
 RACE:cityscaperaces.lst
 LANGUAGE:cityscapelanguages.lst
 CLASS:cityscapeclasses.lst
@@ -72,5 +72,5 @@ BIOSET:cityscapebiosettings.lst
 # Imports
 SKILL:@/3e/fantasy_flight_games/dragonstar/starfarers_handbook/starfarershb_skills.lst|(INCLUDE:Cryptography|Navigate)
 SPELL:@/3e/fantasy_flight_games/dragonstar/starfarers_handbook/starfarershb_spells.lst
-FEAT:@/3e/fantasy_flight_games/dragonstar/starfarers_handbook/starfarershb_feats.lst|(INCLUDE:CATEGORY=FEAT,Born Spacer,Hacker,High-G Tolerance,Gunner's Eye,Low-G Tolerance,Remote Operation,Space Jockey,Zero-G Tolerance)
-FEAT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Advanced Two-Weapon Fighting,Attentive,Builder,Confident,Creative,Dead Aim,Exotic Melee Weapon Proficiency,Focused,Frightful Presence,Meticulous,Nimble,Quick Reload,Renown,Skip Shot,Stealthy,Studious,Unbalance Opponent)
+ABILITY:@/3e/fantasy_flight_games/dragonstar/starfarers_handbook/starfarershb_feats.lst|(INCLUDE:CATEGORY=FEAT,Born Spacer,Hacker,High-G Tolerance,Gunner's Eye,Low-G Tolerance,Remote Operation,Space Jockey,Zero-G Tolerance)
+ABILITY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Advanced Two-Weapon Fighting,Attentive,Builder,Confident,Creative,Dead Aim,Exotic Melee Weapon Proficiency,Focused,Frightful Presence,Meticulous,Nimble,Quick Reload,Renown,Skip Shot,Stealthy,Studious,Unbalance Opponent)

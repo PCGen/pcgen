@@ -3,9 +3,9 @@ SOURCELONG:Pathfinder Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.c
 
 
 # Ability Name						Unique Key					Category of Ability		Type						Visible		Restricted Ability								Var. Min. Value			Description																									Virtual Feat		Modify VAR																			Source Page		Benefits
-Point Blank Shot												CATEGORY:Special Ability	TYPE:AltMonkBonusFeat			VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Grapple		PREVARGTEQ:MonkBonusFeatLVL,1																											VFEAT:Point Blank Shot
-Stunning Fist						KEY:Stunning Fist ~ Bonus		CATEGORY:Special Ability	TYPE:AltMonkBonusFeat			VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Deflect Arrows			PREVARGTEQ:MonkBonusFeatLVL,2																											VFEAT:Stunning Fist
-Rapid Shot													CATEGORY:Special Ability	TYPE:AltMonkBonusFeat			VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Trip			PREVARGTEQ:MonkBonusFeatLVL,6																											VFEAT:Rapid Shot
+Point Blank Shot												CATEGORY:Special Ability	TYPE:AltMonkBonusFeat			VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Grapple		PREVARGTEQ:MonkBonusFeatLVL,1																											ABILITY:FEAT|VIRTUAL|Point Blank Shot
+Stunning Fist						KEY:Stunning Fist ~ Bonus		CATEGORY:Special Ability	TYPE:AltMonkBonusFeat			VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Deflect Arrows			PREVARGTEQ:MonkBonusFeatLVL,2																											ABILITY:FEAT|VIRTUAL|Stunning Fist
+Rapid Shot													CATEGORY:Special Ability	TYPE:AltMonkBonusFeat			VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Trip			PREVARGTEQ:MonkBonusFeatLVL,6																											ABILITY:FEAT|VIRTUAL|Rapid Shot
 CATEGORY=Special Ability|Improved Grapple.MOD												TYPE:AltMonkBonusFeat						!PREABILITY:1,CATEGORY=Special Ability,Point Blank Shot
 CATEGORY=Special Ability|Deflect Arrows.MOD												TYPE:AltMonkBonusFeat						!PREABILITY:1,CATEGORY=Special Ability,Stunning Fist ~ Bonus
 CATEGORY=Special Ability|Improved Trip.MOD												TYPE:AltMonkBonusFeat						!PREABILITY:1,CATEGORY=Special Ability,Rapid Shot
@@ -27,18 +27,18 @@ Lay of the Exalted Dead						CATEGORY:Special Ability	TYPE:SpecialQuality.Supern
 
 ###Block: Monk Bonus Feats
 # Ability Name						Category of Ability		Type				Visible		Restricted Ability															Required Text							Var. Min. Value			Virtual Feat
-Hamatulatsu							CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Deflect Arrows,Combat Reflexes																PREVARGTEQ:MonkBonusFeatLVL,2	VFEAT:Combat Reflexes
+Hamatulatsu							CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Deflect Arrows,Combat Reflexes																PREVARGTEQ:MonkBonusFeatLVL,2	ABILITY:FEAT|VIRTUAL|Combat Reflexes
 CATEGORY=Special Ability|Combat Reflexes.MOD													!PREABILITY:1,CATEGORY=Special Ability,Hamatulatsu
 CATEGORY=Special Ability|Deflect Arrows.MOD													!PREABILITY:1,CATEGORY=Special Ability,Hamatulatsu
-Blade Binder						CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Disarm,Improved Trip,Secret of Steel-Shattering Spirit										PREVARGTEQ:MonkBonusFeatLVL,6	VFEAT:Blade Binder
-Secret of Steel-Shattering Spirit			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Trip,Improved Disarm,Blade Binder					PRETEXT:trained at one of the Houses of Perfection	PREVARGTEQ:MonkBonusFeatLVL,6	VFEAT:Secret of Steel-Shattering Spirit
+Blade Binder						CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Disarm,Improved Trip,Secret of Steel-Shattering Spirit										PREVARGTEQ:MonkBonusFeatLVL,6	ABILITY:FEAT|VIRTUAL|Blade Binder
+Secret of Steel-Shattering Spirit			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Improved Trip,Improved Disarm,Blade Binder					PRETEXT:trained at one of the Houses of Perfection	PREVARGTEQ:MonkBonusFeatLVL,6	ABILITY:FEAT|VIRTUAL|Secret of Steel-Shattering Spirit
 CATEGORY=Special Ability|Improved Disarm.MOD													!PREABILITY:1,CATEGORY=Special Ability,Blade Binder,Secret of Steel-Shattering Spirit
 CATEGORY=Special Ability|Improved Trip.MOD													!PREABILITY:1,CATEGORY=Special Ability,Blade Binder,Secret of Steel-Shattering Spirit
 
 ###Block: Alternate Ranger Combat Styles
 # Ability Name								Unique Key										Category of Ability		Type							Visible	Restricted Ability								Required Template						Virtual Feat
-Archery Combat Style ~ Parting Shot Pathfinder Variant	KEY:Archery Combat Style ~ Parting Shot Pathfinder varient		CATEGORY:Special Ability	TYPE:SpecialQuality.RangerCombatStyle	VISIBLE:YES	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle	PRETEMPLATE:1,Regional Affinity (Nirmathas)	VFEAT:Rapid Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Parting Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Improved Precise Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
-Archery Combat Style ~ Crossbow Mastery Pathfinder Variant	KEY:Archery Combat Style ~ Crossbow Mastery Pathfinder varient	CATEGORY:Special Ability	TYPE:SpecialQuality.RangerCombatStyle	VISIBLE:YES	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle									VFEAT:Rapid Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Crossbow Mastery|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Improved Precise Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
+Archery Combat Style ~ Parting Shot Pathfinder Variant	KEY:Archery Combat Style ~ Parting Shot Pathfinder varient		CATEGORY:Special Ability	TYPE:SpecialQuality.RangerCombatStyle	VISIBLE:YES	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle	PRETEMPLATE:1,Regional Affinity (Nirmathas)	ABILITY:FEAT|VIRTUAL|Rapid Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	ABILITY:FEAT|VIRTUAL|Parting Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	ABILITY:FEAT|VIRTUAL|Improved Precise Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
+Archery Combat Style ~ Crossbow Mastery Pathfinder Variant	KEY:Archery Combat Style ~ Crossbow Mastery Pathfinder varient	CATEGORY:Special Ability	TYPE:SpecialQuality.RangerCombatStyle	VISIBLE:YES	!PREABILITY:1,CATEGORY=Special Ability,TYPE=RangerCombatStyle									ABILITY:FEAT|VIRTUAL|Rapid Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	ABILITY:FEAT|VIRTUAL|Crossbow Mastery|PREMULT:2,[PREVARGTEQ:RangerCombatTree,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	ABILITY:FEAT|VIRTUAL|Improved Precise Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTree,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]
 
 #
 # End

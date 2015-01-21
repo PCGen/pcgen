@@ -11,6 +11,6 @@ ALIGN:TN
 SKILL:Climb		RANK:3
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Improved Initiative
-FEAT:Improved Natural Attack(Bite)
-FEAT:Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Natural Attack(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)

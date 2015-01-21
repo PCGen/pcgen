@@ -14,7 +14,7 @@ Lucid Dreamer (Wonderseekers Faction)	KEY:Lucid Dreamer ~ Wonderseekers				CATEG
 #Divine Deception // In Faction Guide //
 
 ####Block: Basic Traits: Wonderseekers Faction
-Master of Wonders														CATEGORY:FEAT			TYPE:General.Faction								PREABILITY:1,CATEGORY=Background,Wonderseekers Faction	PREFEAT:1,Iron Will																																		PRERACE:1,Gnome,RACESUBTYPE=Gnome	DESC:When you activate a rod of wonder, roll d%% to determine what effect the rod would create. If you desire to do so, you can roll d%% again and use this second result. You can only use this ability once per round.																																								SOURCEPAGE:p.13
+Master of Wonders														CATEGORY:FEAT			TYPE:General.Faction								PREABILITY:1,CATEGORY=Background,Wonderseekers Faction	PREABILITY:1,CATEGORY=FEAT,Iron Will																																		PRERACE:1,Gnome,RACESUBTYPE=Gnome	DESC:When you activate a rod of wonder, roll d%% to determine what effect the rod would create. If you desire to do so, you can roll d%% again and use this second result. You can only use this ability once per round.																																								SOURCEPAGE:p.13
 
 
 ##

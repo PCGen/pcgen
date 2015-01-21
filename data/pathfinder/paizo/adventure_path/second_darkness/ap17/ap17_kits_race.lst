@@ -8,13 +8,13 @@ ALIGN:CE
 RACE:Banshee	!PRERACE:1,%
 NAME:Banshee
 SKILL:Perception	RANK:14
-FEAT:Alertness
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 
 ###MISSING GREATER BANSHEE
@@ -25,9 +25,9 @@ RACE:Leucrotta	!PRERACE:1,%
 NAME:Leucrotta
 SKILL:Bluff		RANK:6
 SKILL:Stealth	RANK:6
-FEAT:Improved Initiative
-FEAT:Skill Focus(Bluff)
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus(Bluff)
+ABILITY:CATEGORY=FEAT|Stealthy
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 
 ###MISSING CROCOTTA
@@ -37,9 +37,9 @@ ALIGN:CE
 RACE:Mandragora	!PRERACE:1,%
 NAME:Mandragora
 SKILL:Stealth	RANK:5
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 
 ###MISSING MANDRAGO FAMILIAR
@@ -61,13 +61,13 @@ SKILL:Perform (Dance)		RANK:5
 SKILL:Sense Motive		RANK:14
 SKILL:Spellcraft			RANK:7
 SKILL:Stealth			RANK:14
-FEAT:Combat Reflexes
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 
@@ -86,22 +86,22 @@ SKILL:Spellcraft			RANK:31
 SKILL:Stealth			RANK:31
 SKILL:Survival			RANK:31
 SKILL:Swim				RANK:31
-FEAT:Alertness
-FEAT:Awesome Blow
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Improved Bull Rush
-FEAT:Improved Critical(Battleaxe)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability ~ Spell (Dispel Magic (Greater))
-FEAT:Spell Stowaway(Time Stop)
-FEAT:Weapon Focus(Battleaxe)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical(Battleaxe)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Dispel Magic (Greater))
+ABILITY:CATEGORY=FEAT|Spell Stowaway(Time Stop)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Battleaxe)
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 GEAR:Blackaxe	LOCATION:Both Hands
 

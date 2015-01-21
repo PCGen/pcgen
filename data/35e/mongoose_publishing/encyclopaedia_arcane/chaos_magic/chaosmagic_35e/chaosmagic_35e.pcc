@@ -34,6 +34,6 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1903980100?ie=UTF8&tag=httppcgen
 ABILITY:../chaosmagic_abilities_class.lst
 CLASS:../chaosmagic_classes.lst
 SKILL:../chaosmagic_skills.lst
-FEAT:../chaosmagic_feats.lst
+ABILITY:../chaosmagic_feats.lst
 
 CLASS:chaosmagic_classes_35e.lst

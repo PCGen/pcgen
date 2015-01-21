@@ -30,9 +30,9 @@ SKILL:Hide		RANK:3
 SKILL:Intimidate	RANK:6
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Great Fortitude
 
 STARTPACK:Fire Lizard Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Lizard]
 ALIGN:TN
@@ -41,10 +41,10 @@ NAME:Fire Lizard
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:7
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Fire Nymph Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Nymph]
 ALIGN:CN
@@ -62,7 +62,7 @@ SKILL:Listen			RANK:5
 SKILL:Move Silently		RANK:5
 SKILL:Spot				RANK:5
 SKILL:Survival			RANK:5
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Fire Snake Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Snake]
 ALIGN:TN
@@ -74,7 +74,7 @@ SKILL:Climb		RANK:3
 SKILL:Hide		RANK:3
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Firefiend Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Firefiend]
 ALIGN:CE
@@ -83,9 +83,9 @@ NAME:Firefiend
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:3
-FEAT:Multiweapon Fighting
-FEAT:Power Attack
-FEAT:Weapon Focus (Longsword)
+ABILITY:CATEGORY=FEAT|Multiweapon Fighting
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
 GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand
 GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand 2
@@ -97,8 +97,8 @@ NAME:Flail Snail
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=10
 SKILL:Hide		RANK:4
 SKILL:Listen	RANK:3
-FEAT:Alertness
-FEAT:Weapon Focus (Tentacle Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Tentacle Slam)
 
 STARTPACK:Flind Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flind]
 ALIGN:LE
@@ -107,7 +107,7 @@ NAME:Flind
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Flindbar			SIZE:PC	LOCATION:Primary Hand
 GEAR:Club				SIZE:PC	LOCATION:Carried
 GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
@@ -120,7 +120,7 @@ NAME:Floating Eye
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Flumph Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flumph]
 ALIGN:LG
@@ -132,7 +132,7 @@ SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Search		RANK:2
 SKILL:Spot			RANK:2
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Fly (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fly (Giant)]
 ALIGN:TN
@@ -151,8 +151,8 @@ SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:4
 SKILL:Sense Motive	RANK:3
 SKILL:Spot			RANK:3
-FEAT:Alertness
-FEAT:Weapon Focus (Lightning Bolt)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Lightning Bolt)
 
 STARTPACK:Forester's Bane Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Forester's Bane]
 ALIGN:TN
@@ -194,9 +194,9 @@ SKILL:Listen		RANK:9
 SKILL:Move Silently	RANK:9
 SKILL:Search		RANK:9
 SKILL:Spot			RANK:9
-FEAT:Alertness
-FEAT:Power Attack
-FEAT:Weapon Focus (Tongue)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Tongue)
 
 STARTPACK:Frog (Monstrous/Poisonous) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frog (Monstrous/Poisonous)]
 ALIGN:TN
@@ -215,12 +215,12 @@ SKILL:Hide		RANK:2
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
 SKILL:Swim		RANK:5
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Skill Focus (Hide)
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Hide)
+ABILITY:CATEGORY=FEAT|Toughness
 
 STARTPACK:Frost Man Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Frost Man]
 ALIGN:LE
@@ -232,8 +232,8 @@ SKILL:Move Silently	RANK:2
 SKILL:Listen		RANK:3
 SKILL:Spot			RANK:3
 SKILL:Survival		RANK:3
-FEAT:Alertness
-FEAT:Blind-Fight
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
 GEAR:Leather	SIZE:PC	LOCATION:Equipped
 GEAR:Morningstar	SIZE:PC	LOCATION:Primary Hand
 GEAR:Longbow	SIZE:PC	LOCATION:Carried

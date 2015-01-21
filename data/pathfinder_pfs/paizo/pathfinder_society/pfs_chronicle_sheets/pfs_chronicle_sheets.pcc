@@ -35,7 +35,7 @@ ABILITYCATEGORY:pfscs_abilitycategories.lst
 # EQUIPMENT:pfscs_equip_general.lst
 EQUIPMENT:pfscs_equip.lst
 EQUIPMOD:pfscs_equipmods.lst
-# FEAT:pfscs_feats.lst
+# ABILITY:pfscs_feats.lst
 # KIT:pfscs_kits.lst
 # LANGUAGE:pfscs_languages.lst
 # RACE:pfscs_races.lst

@@ -31,9 +31,9 @@ CATEGORY=Special Ability|Crossbloodline ~ Orc.MOD													TYPE:SpellBurning 
 
 ###Block: New crossbloodline bonus feats
 # Ability Name		Unique Key				Category of Ability			Type				Required Ability										Required Feat		Required Stat	PRETOTALAB		Auto Feat
-Intimidating Prowess	KEY:Intimidating Prowess	CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat	PREABILITY:1,CATEGORY=Special Ability,TYPE.FeatIntimidatingProwess											AUTO:FEAT|Intimidating Prowess
-Improved Overrun		KEY:Improved Overrun		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat	PREABILITY:1,CATEGORY=Special Ability,TYPE.FeatImprovedOverrun		PREFEAT:1,Power Attack	PRESTAT:1,STR=13	PRETOTALAB:1	AUTO:FEAT|Improved Overrun
-Widen Spell			KEY:Widen Spell			CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat	PREABILITY:1,CATEGORY=Special Ability,TYPE.FeatWidenSpell													AUTO:FEAT|Widen Spell
+Intimidating Prowess	KEY:Intimidating Prowess	CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat	PREABILITY:1,CATEGORY=Special Ability,TYPE.FeatIntimidatingProwess											ABILITY:FEAT|AUTOMATIC|Intimidating Prowess
+Improved Overrun		KEY:Improved Overrun		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat	PREABILITY:1,CATEGORY=Special Ability,TYPE.FeatImprovedOverrun		PREABILITY:1,CATEGORY=FEAT,Power Attack	PRESTAT:1,STR=13	PRETOTALAB:1	ABILITY:FEAT|AUTOMATIC|Improved Overrun
+Widen Spell			KEY:Widen Spell			CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat	PREABILITY:1,CATEGORY=Special Ability,TYPE.FeatWidenSpell													ABILITY:FEAT|AUTOMATIC|Widen Spell
 
 ###Block: New crossbloodline bonus spells
 # Ability Name		Unique Key							Category of Ability			Type					Required Ability										Required Class		List of Known Class Spells by Level

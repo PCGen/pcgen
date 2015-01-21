@@ -70,7 +70,7 @@ COMPANIONMOD:../eclipse_companionmods.lst
 
 EQUIPMENT:../eclipse_equip.lst
 
-FEAT:../eclipse_feats.lst
+ABILITY:../eclipse_feats.lst
 
 KIT:../eclipse_kits.lst
 

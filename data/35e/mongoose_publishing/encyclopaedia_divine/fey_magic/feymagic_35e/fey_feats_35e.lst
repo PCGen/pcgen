@@ -3,4 +3,4 @@ SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fe
 
 
 # Feat Name		Clear Prereq.	Required Skill
-Forge Bond.MOD	PRE:.CLEAR		PRESKILL:1,Knowledge (Reverie)=4
+CATEGORY=FEAT|Forge Bond.MOD	PRE:.CLEAR		PRESKILL:1,Knowledge (Reverie)=4

@@ -3,7 +3,7 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 # Original entry for Astral Contruct templates by: Ian
 
 # Template Name		Unique Key						Visible	Add to magical move							Favored Class
-PP >= 1			KEY:Psionic Power Points greater than one			BONUS:POSTMOVEADD|TYPE=Walk|10|PREFEAT:1,Speed of Thought
+PP >= 1			KEY:Psionic Power Points greater than one			BONUS:POSTMOVEADD|TYPE=Walk|10|PREABILITY:1,CATEGORY=FEAT,Speed of Thought
 
 ### Race templates
 # Template Name		Unique Key						Visible	Add to magical move							Favored Class

@@ -37,7 +37,7 @@ COPYRIGHT:PCGen dataset conversion for "Cheliax, Empire of Devils" Copyright 200
 ABILITY:ceod_abilities.lst
 EQUIPMENT:ceod_equip_arms_armor.lst
 EQUIPMENT:ceod_equip_magic_items.lst
-FEAT:ceod_feats.lst
+ABILITY:ceod_feats.lst
 LANGUAGE:ceod_languages.lst
 RACE:ceod_races.lst
 SPELL:ceod_spells.lst

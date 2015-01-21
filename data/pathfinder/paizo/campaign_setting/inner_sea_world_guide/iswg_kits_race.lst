@@ -8,7 +8,7 @@ NAME:Donkey Rat
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Stealth	RANK:1
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 ABILITY:CATEGORY=Region of Origin|Cheliax
 
 STARTPACK:Spider (Drain) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Drain)]	SOURCEPAGE:p.254
@@ -25,7 +25,7 @@ NAME:Firefoot Fennec
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:1
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 ABILITY:CATEGORY=Region of Origin|Andoran
 
 STARTPACK:Gecko (Giant) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gecko (Giant)]	SOURCEPAGE:p.254
@@ -36,8 +36,8 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Climb		RANK:1
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Great Fortitude
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 ABILITY:CATEGORY=Region of Origin|Region ~ Unknown
 
 STARTPACK:Shark (Jigsaw) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark (Jigsaw)]	SOURCEPAGE:p.255
@@ -46,8 +46,8 @@ NAME:Jigsaw Shark
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Perception	RANK:4
-FEAT:Great Fortitude
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=Region of Origin|Region ~ Unknown
 
 STARTPACK:Boar (Sargavan) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boar (Sargavan)]	SOURCEPAGE:p.255
@@ -56,7 +56,7 @@ NAME:Sargavan Boar
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:2
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Toughness
 ABILITY:CATEGORY=Region of Origin|Sargava
 
 STARTPACK:Herd Animal (Storval Aurochs) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Herd Animal (Storval Aurochs)]	SOURCEPAGE:p.255
@@ -65,8 +65,8 @@ NAME:Storval Aurochs
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:3
-FEAT:Endurance
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 ABILITY:CATEGORY=Region of Origin|Varisia
 
 STARTPACK:Aluum Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aluum]	SOURCEPAGE:p.306
@@ -86,14 +86,14 @@ ABILITY:CATEGORY=Region of Origin|Region ~ Unknown
 SKILL:Intimidate		RANK:15
 SKILL:Perception		RANK:15
 SKILL:Use Magic Device	RANK:15
-FEAT:Critical Focus
-FEAT:Double Slice
-FEAT:Great Fortitude
-FEAT:Improved Critical (Longsword)
-FEAT:Improved Initiative
-FEAT:Staggering Critical
-FEAT:Two-Weapon Fighting
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Double Slice
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Critical (Longsword)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Staggering Critical
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Vital Strike
 GEAR:Longsword	SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS1W
 GEAR:Longsword	SIZE:L	LOCATION:Secondary Hand	EQMOD:PLUS1W
 
@@ -106,8 +106,8 @@ ABILITY:CATEGORY=Region of Origin|Mwangi Expanse
 SKILL:Climb		RANK:1
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Point-blank Shot
-FEAT:Precise Shot
+ABILITY:CATEGORY=FEAT|Point-blank Shot
+ABILITY:CATEGORY=FEAT|Precise Shot
 GEAR:Club		SIZE:S	LOCATION:Both Hands
 GEAR:Rock (Small)	SIZE:S	LOCATION:Carried
 
@@ -121,12 +121,12 @@ ALIGN:NE
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 ABILITY:CATEGORY=Region of Origin|Region ~ Unknown
 LANGBONUS:Abyssal|Common|Infernal|Necril
-FEAT:Ability Focus (Disease)
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Ability Focus (Disease)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
 SKILL:Acrobatics			RANK:11
 SKILL:Bluff				RANK:11
 SKILL:Fly				RANK:11
@@ -149,7 +149,7 @@ ABILITY:CATEGORY=Region of Origin|Absalom
 CLASS:Warrior	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Warrior
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 SKILL:Swim	RANK:1
 GEAR:Trident			SIZE:M	LOCATION:Both Hands
 GEAR:Crossbow (Light)		SIZE:M	LOCATION:Carried
@@ -161,12 +161,12 @@ NAME:Sandpoint Devil
 ALIGN:NE
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 ABILITY:CATEGORY=Region of Origin|Varisia
-FEAT:Dodge
-FEAT:Hover
-FEAT:Improved Vital Strike
-FEAT:Mobility
-FEAT:Spring Attack
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
 SKILL:Fly				RANK:12
 SKILL:Intimidate			RANK:6
 SKILL:Knowledge (Geography)	RANK:6
@@ -180,14 +180,14 @@ NAME:Spine Dragon
 ALIGN:CN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 ABILITY:CATEGORY=Region of Origin|Numeria
-FEAT:Awesome Blow
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Improved Bull Rush
-FEAT:Point-blank Shot
-FEAT:Power Attack
-FEAT:Precise Shot
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Point-blank Shot
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Precise Shot
+ABILITY:CATEGORY=FEAT|Vital Strike
 SKILL:Appraise			RANK:16
 SKILL:Bluff				RANK:16
 SKILL:Fly				RANK:16
@@ -207,7 +207,7 @@ ABILITY:CATEGORY=Region of Origin|Cheliax
 CLASS:Warrior	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Warrior
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Fly)
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 SKILL:Linguistics	RANK:1	SELECTION:Common
 GEAR:Spear	SIZE:M	LOCATION:Both Hands
 
@@ -217,20 +217,20 @@ NAME:Treerazer
 ALIGN:CE
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 ABILITY:CATEGORY=Region of Origin|Kyonin
-FEAT:Awesome Blow
-FEAT:Combat Reflexes
-FEAT:Critical Focus
-FEAT:Flyby Attack
-FEAT:Greater Vital Strike
-FEAT:Improved Bull Rush
-FEAT:Improved Critical (Greataxe)
-FEAT:Improved Initiative
-FEAT:Improved Vital Strike
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability ~ Spell (Dispel Magic (Greater))
-FEAT:Staggering Critical
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Greater Vital Strike
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Greataxe)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Dispel Magic (Greater))
+ABILITY:CATEGORY=FEAT|Staggering Critical
+ABILITY:CATEGORY=FEAT|Vital Strike
 SKILL:Acrobatics			RANK:28
 SKILL:Fly				RANK:28
 SKILL:Intimidate			RANK:28

@@ -32,7 +32,7 @@ ABILITYCATEGORY:itck_abilitycategories.lst
 
 BIOSET:itck_biosettings.lst
 CLASS:itck_classes.lst
-FEAT:itck_feats.lst
+ABILITY:itck_feats.lst
 SPELL:itck_powers.lst
 TEMPLATE:itck_templates.lst
 RACE:itck_races.lst

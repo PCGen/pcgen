@@ -2,7 +2,7 @@
 SOURCELONG:Curse of the Crimson Thrown: Seven Days to the Grave	SOURCESHORT:CotCT:SDttG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinder/v5748btpy82qy	SOURCEDATE:2008-04
 
 # Feat Name		Type
-Skill Focus.MOD	TYPE:NosferatuSkillFocus
+CATEGORY=FEAT|Skill Focus.MOD	TYPE:NosferatuSkillFocus
 
 #
 # End

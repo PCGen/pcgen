@@ -43,7 +43,7 @@ EQUIPMENT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_equip_magic_items.lst
 
 EQUIPMOD:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_equipmods.lst
 
-FEAT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_feats.lst
+ABILITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_feats.lst
 
 KIT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_kits_companion.lst
 #|(INCLUDE:Bat Default|Cat Default|Hawk Default|Lizard Default|Owl Default|Rat Default|Raven Default|Snake (Viper/Tiny) Default|Toad Default|Weasel Default|Dog (Riding) Default|Donkey Default|Horse (Heavy) Default|Horse (Light) Default|Horse (Warhorse Heavy) Default|Horse (Warhorse Light) Default|Mule Default|Pony Default|Pony (War) Default|Shark (Large) Default|Bat Familiar|Cat Familiar|Hawk Familiar|Lizard Familiar|Owl Familiar|Rat Familiar|Raven Familiar|Snake (Viper/Tiny) Familiar|Toad Familiar|Weasel Familiar)
@@ -97,8 +97,8 @@ CLASS:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_classes_prestige_epic.lst
 
 COMPANIONMOD:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_companionmod_epic.lst
 
-FEAT:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_feats_epic.lst
-FEAT:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_feats_monster_epic.lst
+ABILITY:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_feats_epic.lst
+ABILITY:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_feats_monster_epic.lst
 
 KIT:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_kits_epic_races.lst
 KIT:@/35e/wizards_of_the_coast/rsrd/epic/rsrd_kits_epic_races_dragons.lst

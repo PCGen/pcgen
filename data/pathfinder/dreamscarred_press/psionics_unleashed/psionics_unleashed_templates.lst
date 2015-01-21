@@ -22,8 +22,8 @@ Xeph			VISIBLE:NO	SOURCEPAGE:p.17	RACESUBTYPE:Xeph
 ###BLOCK: Determines whether a Soulknife gets Wild Talent or Psionic Talent
 # Template Name			Visible	Template						Required Var. value	Var. Min. Value		Auto Feat
 Wild Talent Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Is Psionic|Is Not Psionic
-Is Psionic				VISIBLE:NO												PREVARGTEQ:IsPsionic,1	AUTO:FEAT|Psionic Talent
-Is Not Psionic			VISIBLE:NO								PREVAREQ:IsPsionic,0					AUTO:FEAT|Wild Talent
+Is Psionic				VISIBLE:NO												PREVARGTEQ:IsPsionic,1	ABILITY:FEAT|AUTOMATIC|Psionic Talent
+Is Not Psionic			VISIBLE:NO								PREVAREQ:IsPsionic,0					ABILITY:FEAT|AUTOMATIC|Wild Talent
 
 ###BLOCK: Natural attack templates for use with abilities and powers
 # Template Name	Visible		Natural Attacks

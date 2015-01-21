@@ -15,7 +15,7 @@ CLASS:The Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather
 1																																				AUTO:WEAPONPROF|Katana|Wakizashi|TYPE=Bow
 1								AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
 1																								AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)|Tower Shield
-1																AUTO:FEAT|Exotic Weapon Proficiency (Katana)
+1																ABILITY:FEAT|AUTOMATIC|Exotic Weapon Proficiency (Katana)
 2	BONUS:ABILITYPOOL|Samurai Feat|1
 6	BONUS:ABILITYPOOL|Samurai Feat|1
 10	BONUS:ABILITYPOOL|Samurai Feat|1
@@ -28,8 +28,8 @@ CLASS:The Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather
 8	BONUS:ABILITYPOOL|Sword School Feat|1
 12	BONUS:ABILITYPOOL|Sword School Feat|1
 #
-12																AUTO:FEAT|Improved Two-Weapon Fighting
-14																AUTO:FEAT|Daisho Fighting
+12																ABILITY:FEAT|AUTOMATIC|Improved Two-Weapon Fighting
+14																ABILITY:FEAT|AUTOMATIC|Daisho Fighting
 
 
 
@@ -40,7 +40,7 @@ CLASS:The Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather
 # Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Bodyguard	HD:10		MAXLEVEL:5	SOURCEPAGE:p.14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Feat						PRETOTALAB
-CLASS:Bodyguard	PREALIGN:LG,LN,LE	PREFEAT:2,Great Fortitude,Improved Initiative	PRETOTALAB:10
+CLASS:Bodyguard	PREALIGN:LG,LN,LE	PREABILITY:2,CATEGORY=FEAT,Great Fortitude,Improved Initiative	PRETOTALAB:10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bodyguard	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|Sense Motive|Swim
 1	ABILITY:Class Ability|AUTOMATIC|Sworn Charge ~ Bodyguard
@@ -54,7 +54,7 @@ CLASS:Bodyguard	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|
 # Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Delegate	HD:8		MAXLEVEL:5	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Feat			Required Skill		PRETOTALAB
-CLASS:Delegate	PREALIGN:LG,LN,LE	PREFEAT:1,Socially Graceful	PRESKILL:1,Diplomacy=10	PRETOTALAB:5
+CLASS:Delegate	PREALIGN:LG,LN,LE	PREABILITY:1,CATEGORY=FEAT,Socially Graceful	PRESKILL:1,Diplomacy=10	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Delegate	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Innuendo|Intimidate|Listen|Read Lips|Sense Motive|Speak Language
 1	ABILITY:Class Ability|AUTOMATIC|Social Authority ~ Delegate
@@ -68,7 +68,7 @@ CLASS:Delegate	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Innuendo|
 # Class Name			Hit Dice	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Information Broker	HD:10		MAXLEVEL:5	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL		Required Feat		Required Skill
-CLASS:Information Broker	PREALIGN:LG,LN,LE	PREFEAT:1,Informants	PRESKILL:1,Gather Information=10
+CLASS:Information Broker	PREALIGN:LG,LN,LE	PREABILITY:1,CATEGORY=FEAT,Informants	PRESKILL:1,Gather Information=10
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Information Broker	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Forgery|Innuendo|Intimidate|Listen|Read Lips|Sense Motive|Speak Language
 1	ABILITY:Class Ability|AUTOMATIC|Extended Network ~ Information Broker
@@ -82,7 +82,7 @@ CLASS:Information Broker	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Forgery
 # Class Name	Hit Dice	Max Level	Source Page		Save bonus
 CLASS:Overseer	HD:10		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Feat		PRETOTALAB
-CLASS:Overseer	PREALIGN:LG,LN,LE	PREFEAT:1,Leadership	PRETOTALAB:10
+CLASS:Overseer	PREALIGN:LG,LN,LE	PREABILITY:1,CATEGORY=FEAT,Leadership	PRETOTALAB:10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Overseer	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Innuendo|Intimidate|Jump|Ride|Sense Motive|Swim
 ###Block:
@@ -100,7 +100,7 @@ CLASS:Overseer	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather In
 # Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Paragon	HD:10		MAXLEVEL:5	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Feat										Required Skill		Required Text		PRETOTALAB
-CLASS:Paragon	PREALIGN:LG,LN,LE	PREFEAT:3,Mounted Combat,Weapon Focus (Longbow),Weapon Focus (Katana)	PRESKILL:1,Riding=12	PRETEXT:Honour 15+	PRETOTALAB:15
+CLASS:Paragon	PREALIGN:LG,LN,LE	PREABILITY:3,CATEGORY=FEAT,Mounted Combat,Weapon Focus (Longbow),Weapon Focus (Katana)	PRESKILL:1,Riding=12	PRETEXT:Honour 15+	PRETOTALAB:15
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Innuendo|Intimidate|Jump|Ride|Sense Motive|Swim
 1	ABILITY:Class Ability|AUTOMATIC|Bladeless Duel ~ Paragon

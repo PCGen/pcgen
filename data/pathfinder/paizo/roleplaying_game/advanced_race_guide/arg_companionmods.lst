@@ -13,8 +13,8 @@ FOLLOWER:ExoticPetLVL=9	TYPE:Exotic Pet																															DEFINESTAT
 # Locking INT to 10 makes it a non-ability.
 
 # Race of familiar			Type			Bonus to skill			Virtual Feat
-MASTERBONUSRACE:Familiar (Monkey)	TYPE:Exotic Pet	BONUS:SKILL|Acrobatics|3	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Parrot)	TYPE:Exotic Pet	BONUS:SKILL|Appraise|3		VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Monkey)	TYPE:Exotic Pet	BONUS:SKILL|Acrobatics|3	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Parrot)	TYPE:Exotic Pet	BONUS:SKILL|Appraise|3		ABILITY:FEAT|VIRTUAL|Alertness
 
 # Class of the Master	Type			Required Race			Apply Kit
 FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	PRERACE:1,Familiar (Parrot)	KIT:1|Raven Familiar Language
@@ -29,7 +29,7 @@ FOLLOWER:PlantCompanionLVL=5	TYPE:Plant Companion	HD:1																										
 FOLLOWER:PlantCompanionLVL=6	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:PlantCompanionLVL=7	TYPE:Plant Companion																																																								BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=8	TYPE:Plant Companion	HD:1																																																							BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=9	TYPE:Plant Companion	HD:1																								AUTO:FEAT|Multiattack	DEFINE:Multiattack|0					BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|Multiattack|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=9	TYPE:Plant Companion	HD:1																								ABILITY:FEAT|AUTOMATIC|Multiattack	DEFINE:Multiattack|0					BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|Multiattack|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:PlantCompanionLVL=10	TYPE:Plant Companion	HD:1																																																							BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=11	TYPE:Plant Companion																																																								BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=12	TYPE:Plant Companion	HD:1																																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
@@ -50,17 +50,17 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Parrot)	KIT:1|Raven Fam
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar			Type				Bonus to HP			Save bonus			Bonus to skill			Virtual Feat
-MASTERBONUSRACE:Familiar (Bat)	TYPE:Demonic Familiar									BONUS:SKILL|Fly|3			VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Cat)	TYPE:Demonic Familiar									BONUS:SKILL|Stealth|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Hawk)	TYPE:Demonic Familiar									BONUS:SKILL|Perception|3	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Lizard)	TYPE:Demonic Familiar									BONUS:SKILL|Climb|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Monkey)	TYPE:Demonic Familiar									BONUS:SKILL|Acrobatics|3	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Owl)	TYPE:Demonic Familiar									BONUS:SKILL|Perception|3	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Rat)	TYPE:Demonic Familiar					BONUS:SAVE|Fortitude|2						VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Raven)	TYPE:Demonic Familiar									BONUS:SKILL|Appraise|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Viper)	TYPE:Demonic Familiar									BONUS:SKILL|Bluff|3		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Toad)	TYPE:Demonic Familiar	BONUS:HP|CURRENTMAX|3										VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Weasel)	TYPE:Demonic Familiar					BONUS:SAVE|Reflex|2						VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Bat)	TYPE:Demonic Familiar									BONUS:SKILL|Fly|3			ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Cat)	TYPE:Demonic Familiar									BONUS:SKILL|Stealth|3		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Hawk)	TYPE:Demonic Familiar									BONUS:SKILL|Perception|3	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Lizard)	TYPE:Demonic Familiar									BONUS:SKILL|Climb|3		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Monkey)	TYPE:Demonic Familiar									BONUS:SKILL|Acrobatics|3	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Owl)	TYPE:Demonic Familiar									BONUS:SKILL|Perception|3	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Rat)	TYPE:Demonic Familiar					BONUS:SAVE|Fortitude|2						ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Raven)	TYPE:Demonic Familiar									BONUS:SKILL|Appraise|3		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Viper)	TYPE:Demonic Familiar									BONUS:SKILL|Bluff|3		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Toad)	TYPE:Demonic Familiar	BONUS:HP|CURRENTMAX|3										ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Weasel)	TYPE:Demonic Familiar					BONUS:SAVE|Reflex|2						ABILITY:FEAT|VIRTUAL|Alertness
 #
 
 ###Block Base Eidolon modded for Shaitan Binder
@@ -74,7 +74,7 @@ FOLLOWER:ShaitanBinderEidolonLVL=5	TYPE:Shaitan Binder Eidolon	HD:1													
 FOLLOWER:ShaitanBinderEidolonLVL=6	TYPE:Shaitan Binder Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																												BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
 FOLLOWER:ShaitanBinderEidolonLVL=7	TYPE:Shaitan Binder Eidolon	HD:1																																							BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:ShaitanBinderEidolonLVL=8	TYPE:Shaitan Binder Eidolon																																								BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
-FOLLOWER:ShaitanBinderEidolonLVL=9	TYPE:Shaitan Binder Eidolon	HD:1																							AUTO:FEAT|Multiattack													BONUS:ABILITYPOOL|Eidolon Evolution|2																					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:ShaitanBinderEidolonLVL=9	TYPE:Shaitan Binder Eidolon	HD:1																							ABILITY:FEAT|AUTOMATIC|Multiattack													BONUS:ABILITYPOOL|Eidolon Evolution|2																					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
 FOLLOWER:ShaitanBinderEidolonLVL=10	TYPE:Shaitan Binder Eidolon	HD:1																																							BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:ShaitanBinderEidolonLVL=11	TYPE:Shaitan Binder Eidolon	HD:1																																							BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
 FOLLOWER:ShaitanBinderEidolonLVL=12	TYPE:Shaitan Binder Eidolon																																								BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1

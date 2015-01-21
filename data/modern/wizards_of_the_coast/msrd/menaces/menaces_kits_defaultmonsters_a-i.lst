@@ -16,7 +16,7 @@ SKILL:Hide			RANK:8
 SKILL:Listen		RANK:6
 SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Acid Rainer (Advanced) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Acid Rainer (Advanced)]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -26,10 +26,10 @@ SKILL:Hide			RANK:15
 SKILL:Listen		RANK:12
 SKILL:Move Silently	RANK:12
 SKILL:Spot			RANK:12
-FEAT:Combat Reflexes
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Stealthy
 
 STARTPACK:Alien Probe Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Alien Probe]
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=10
@@ -98,8 +98,8 @@ SKILL:Hide			RANK:5
 SKILL:Listen		RANK:8
 SKILL:Move Silently	RANK:9
 SKILL:Spot			RANK:8
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Bodak (Advanced) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bodak (Advanced)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
@@ -109,8 +109,8 @@ SKILL:Hide			RANK:11
 SKILL:Listen		RANK:10
 SKILL:Move Silently	RANK:11
 SKILL:Spot			RANK:10
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Cat Folk Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cat Folk]
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
@@ -122,8 +122,8 @@ SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
 SKILL:Tumble	RANK:4
 ABILITY:CATEGORY=Monstrous Humanoid Proficiency|Simple Weapons Proficiency
-FEAT:Improved Initiative
-FEAT:Personal Firearms Proficiency
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Personal Firearms Proficiency
 GEAR:Glock 17 (9mm autoloader)	LOCATION:Primary Hand
 GEAR:Bullet (9mm/50)			LOCATION:Carried
 GEAR:Holster (Concealed carry)	LOCATION:Carried
@@ -137,8 +137,8 @@ SKILL:Hide		RANK:5
 SKILL:Intimidate	RANK:5
 SKILL:Listen	RANK:8
 SKILL:Spot		RANK:8
-FEAT:Lightning Reflexes
-FEAT:Weapon Focus (Incorporeal Touch)
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Focus (Incorporeal Touch)
 
 STARTPACK:Charred One (Advanced) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Charred One (Advanced)]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -148,9 +148,9 @@ SKILL:Hide		RANK:9
 SKILL:Intimidate	RANK:9
 SKILL:Listen	RANK:10
 SKILL:Spot		RANK:10
-FEAT:Lightning Reflexes
-FEAT:Weapon Focus (Incorporeal Touch)
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Focus (Incorporeal Touch)
+ABILITY:CATEGORY=FEAT|Iron Will
 
 STARTPACK:Chemical Golem Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chemical Golem]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
@@ -171,7 +171,7 @@ SKILL:Jump			RANK:1
 SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
-FEAT:Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
 
 STARTPACK:Crawfordsville Monster Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crawfordsville Monster]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
@@ -196,8 +196,8 @@ SKILL:Bluff			RANK:8
 SKILL:Listen		RANK:8
 SKILL:Sense Motive	RANK:8
 SKILL:Spot			RANK:8
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Demonic Machine (Advanced) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demonic Machine (Advanced)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
@@ -207,8 +207,8 @@ SKILL:Bluff			RANK:14
 SKILL:Listen		RANK:14
 SKILL:Sense Motive	RANK:14
 SKILL:Spot			RANK:14
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Dimensional Horror Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dimensional Horror]
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
@@ -220,8 +220,8 @@ SKILL:Search		RANK:6
 SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:9
 SKILL:Survival		RANK:9
-FEAT:Multiattack
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:Dimensional Horror (Advanced) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dimensional Horror (Advanced)]
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
@@ -233,10 +233,10 @@ SKILL:Search		RANK:16
 SKILL:Sense Motive	RANK:14
 SKILL:Spot			RANK:17
 SKILL:Survival		RANK:17
-FEAT:Multiattack
-FEAT:Track
-FEAT:Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Track
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Dinosaur (Plesiosaur) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Plesiosaur)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
@@ -273,8 +273,8 @@ SKILL:Listen			RANK:7
 SKILL:Move Silently		RANK:6
 SKILL:Spot				RANK:7
 ABILITY:CATEGORY=Undead Proficiency|Simple Weapons Proficiency
-FEAT:Stealthy
-FEAT:Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Stealthy
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 GEAR:Tattered clothing					LOCATION:Torso
 GEAR:Collection of scalps teeth and thighbones	LOCATION:Carried
 
@@ -317,8 +317,8 @@ SKILL:Intimidate			RANK:6
 SKILL:Investigate			RANK:6
 SKILL:Research			RANK:6
 SKILL:Search			RANK:2
-FEAT:Archaic Weapons Proficiency
-FEAT:Personal Firearms Proficiency
+ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency
+ABILITY:CATEGORY=FEAT|Personal Firearms Proficiency
 GEAR:Flame Sword	LOCATION:Both Hands
 
 STARTPACK:Etoile Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Etoile]
@@ -331,10 +331,10 @@ SKILL:Craft (Mechanical)	RANK:6
 SKILL:Demolitions			RANK:2
 SKILL:Disable Device		RANK:6
 SKILL:Treat Injury		RANK:6
-FEAT:Cautious
-FEAT:Gearhead
-FEAT:Surgery
-FEAT:Weapon Finesse (Pincer)
+ABILITY:CATEGORY=FEAT|Cautious
+ABILITY:CATEGORY=FEAT|Gearhead
+ABILITY:CATEGORY=FEAT|Surgery
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Pincer)
 
 STARTPACK:Fiend (Fleshraker (Knife Fiend)) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Fleshraker (Knife Fiend))]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -351,9 +351,9 @@ SKILL:Listen					RANK:4
 SKILL:Move Silently				RANK:4
 SKILL:Spot						RANK:4
 ABILITY:CATEGORY=Outsider Proficiency|Archaic Weapons Proficiency
-FEAT:Weapon Focus (Knife)
-FEAT:Weapon Finesse (Knife)
-FEAT:Simple Weapons Proficiency
+ABILITY:CATEGORY=FEAT|Weapon Focus (Knife)
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Knife)
+ABILITY:CATEGORY=FEAT|Simple Weapons Proficiency
 GEAR:Leather Jacket				LOCATION:Armor
 GEAR:Clothing Outfit (Casual)			LOCATION:Torso
 GEAR:Knife						LOCATION:Primary Hand
@@ -371,7 +371,7 @@ SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:6
 SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:4
-FEAT:Heroic Surge
+ABILITY:CATEGORY=FEAT|Heroic Surge
 GEAR:Longsword	LOCATION:Primary Hand
 
 STARTPACK:Fiend (Jumping Jack (Blood Fiend)) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Jumping Jack (Blood Fiend))]
@@ -381,7 +381,7 @@ NAME:Jumping Jack (blood fiend)
 SKILL:Intimidate	RANK:3
 SKILL:Tumble	RANK:1
 SKILL:Jump		RANK:5
-FEAT:Acrobatic
+ABILITY:CATEGORY=FEAT|Acrobatic
 
 STARTPACK:Fiend (Kwevencha (Spider Fiend)) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Kwevencha (Spider Fiend))]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
@@ -395,8 +395,8 @@ SKILL:Jump			RANK:3
 SKILL:Listen		RANK:7
 SKILL:Move Silently	RANK:7
 SKILL:Spot			RANK:7
-FEAT:Improved Damage Threshold
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Iron Will
 
 STARTPACK:Fiend (Murdergaunt (Whistling Fiend)) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Murdergaunt (Whisper Fiend))]
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
@@ -411,9 +411,9 @@ SKILL:Listen		RANK:7
 SKILL:Move Silently	RANK:9
 SKILL:Spot			RANK:7
 SKILL:Tumble		RANK:9
-FEAT:Agile Riposte
-FEAT:Dodge
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Agile Riposte
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Stealthy
 
 STARTPACK:Fiend (Stygilor (Tumor Fiend)) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiend (Stygilor (Tumor Fiend))]
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
@@ -425,8 +425,8 @@ SKILL:TYPE=Knowledge	RANK:9
 SKILL:Listen		RANK:9
 SKILL:Sense Motive	RANK:9
 SKILL:Spot			RANK:9
-FEAT:Frightful Presence
-FEAT:Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Frightful Presence
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
 
 STARTPACK:Fire Wisp Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Wisp]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -441,7 +441,7 @@ RACE:Fire Wisp (Advanced)	!PRERACE:1,%
 NAME:Advanced Fire Wisp
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
-FEAT:Heroic Surge
+ABILITY:CATEGORY=FEAT|Heroic Surge
 
 STARTPACK:Grimlock Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grimlock]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -453,7 +453,7 @@ SKILL:Listen	RANK:5
 SKILL:Search	RANK:5
 SKILL:Survival	RANK:3
 ABILITY:CATEGORY=Monstrous Humanoid Proficiency|Archaic Weapons Proficiency
-FEAT:Brawl
+ABILITY:CATEGORY=FEAT|Brawl
 GEAR:Spear	LOCATION:Both Hands
 
 STARTPACK:Harpy Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harpy]
@@ -466,8 +466,8 @@ SKILL:Perform (Act)	RANK:2
 SKILL:Perform (Sing)	RANK:2
 SKILL:Spot			RANK:6
 ABILITY:CATEGORY=Monstrous Humanoid Proficiency|Simple Weapons Proficiency
-FEAT:Flyby Attack
-FEAT:Personal Firearms Proficiency
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Personal Firearms Proficiency
 GEAR:Leather Jacket				LOCATION:Armor
 GEAR:S and W M29 (.44 magnum revolver)	LOCATION:Primary Hand
 GEAR:Bullet (.44/50)				LOCATION:Carried
@@ -504,5 +504,5 @@ SKILL:Jump			RANK:8
 SKILL:Listen		RANK:5
 SKILL:Perform (Act)	RANK:6
 SKILL:Spot			RANK:6
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative

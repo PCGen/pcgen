@@ -13,8 +13,8 @@ SKILL:Knowledge (Religion)	RANK:4
 SKILL:Perception			RANK:4
 SKILL:Sense Motive		RANK:4
 SKILL:Use Magic Device		RANK:4
-FEAT:Deceitful
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Deceitful
+ABILITY:CATEGORY=FEAT|Great Fortitude
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
 
@@ -30,9 +30,9 @@ SKILL:Knowledge (Planes)	RANK:6
 SKILL:Perception			RANK:6
 SKILL:Sense Motive		RANK:6
 SKILL:Stealth			RANK:6
-FEAT:Combat Casting
-FEAT:Improved Initiative
-FEAT:Weapon Focus (Longsword)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:FLAME
 
@@ -50,14 +50,14 @@ SKILL:Knowledge (Religion)	RANK:15
 SKILL:Perception			RANK:15
 SKILL:Sense Motive		RANK:15
 SKILL:Stealth			RANK:15
-FEAT:Bleeding Critical
-FEAT:Combat Reflexes
-FEAT:Critical Focus
-FEAT:Improved Critical (Scimitar)
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Bleeding Critical
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Improved Critical (Scimitar)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 GEAR:Scimitar	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS1W.WOUND
 
@@ -76,15 +76,15 @@ SKILL:Sense Motive		RANK:18
 SKILL:Spellcraft			RANK:18
 SKILL:Stealth			RANK:18
 SKILL:Swim				RANK:18
-FEAT:Awesome Blow
-FEAT:Greater Vital Strike
-FEAT:Improved Bull Rush
-FEAT:Improved Iron Will
-FEAT:Improved Vital Strike
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability ~ Spell (Enervation)
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Greater Vital Strike
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Enervation)
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 GEAR:Breastplate	SIZE:PC	LOCATION:Equipped		EQMOD:PLUS2A
 GEAR:Ranseur	SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS1W.UNHOLY

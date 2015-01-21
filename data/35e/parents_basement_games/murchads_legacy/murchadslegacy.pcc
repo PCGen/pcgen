@@ -37,7 +37,7 @@ DEITY:murchadslegacy_deities.lst
 DOMAIN:murchadslegacy_domains.lst
 EQUIPMENT:murchadslegacy_equip.lst
 EQUIPMENT:murchadslegacy_equip_magicitems.lst
-FEAT:murchadslegacy_feats.lst
+ABILITY:murchadslegacy_feats.lst
 LANGUAGE:murchadslegacy_languages.lst
 RACE:murchadslegacy_races.lst
 SKILL:murchadslegacy_skills.lst

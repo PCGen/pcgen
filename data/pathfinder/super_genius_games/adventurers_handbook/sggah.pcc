@@ -56,10 +56,10 @@ COMPANIONMOD:sggah_companion_mods.lst
 DOMAIN:sggah_domains.lst
 EQUIPMENT:sggah_equip.lst
 EQUIPMOD:sggah_equipmods.lst
-FEAT:sggah_feats.lst
-FEAT:sggah_feats_pfcr.lst
-FEAT:sggah_feats_apg.lst|PRECAMPAIGN:1,Advanced Player's Guide
-FEAT:sggah_feats_um.lst|PRECAMPAIGN:1,Ultimate Magic
+ABILITY:sggah_feats.lst
+ABILITY:sggah_feats_pfcr.lst
+ABILITY:sggah_feats_apg.lst|PRECAMPAIGN:1,Advanced Player's Guide
+ABILITY:sggah_feats_um.lst|PRECAMPAIGN:1,Ultimate Magic
 KIT:sggah_kits_companions.lst
 LANGUAGE:sggah_languages.lst
 SKILL:sggah_skills_conditional.lst

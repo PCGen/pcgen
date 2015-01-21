@@ -5,13 +5,13 @@ SOURCELONG:Modern Dispatch #90 - The Watchers	SOURCESHORT:MD90-TW	SOURCEWEB:http
 
 ###Block: Watcher abilities
 # Feat Name					Type				Visible	Special ABility																	Define				Modify VAR
-Watcher Acid Resistance			TYPE:WatcherResistance	VISIBLE:NO	SAB:Acid Resistance %|WatcherResistance	SAB:+6 bonus to saves vs. Acid|PRECLASS:1,The Watcher=3			DEFINE:WatcherResistance|0	BONUS:VAR|WatcherResistance|5	BONUS:VAR|WatcherResistance|5|PRECLASS:1,The Watcher=3
-Watcher Cold Resistance			TYPE:WatcherResistance	VISIBLE:NO	SAB:Cold Resistance %|WatcherResistance	SAB:+6 bonus to saves vs. Cold|PRECLASS:1,The Watcher=3			DEFINE:WatcherResistance|0	BONUS:VAR|WatcherResistance|5	BONUS:VAR|WatcherResistance|5|PRECLASS:1,The Watcher=3
-Watcher Electricity Resistance	TYPE:WatcherResistance	VISIBLE:NO	SAB:Electricity Resistance %|WatcherResistance	SAB:+6 bonus to saves vs. Electricity|PRECLASS:1,The Watcher=3	DEFINE:WatcherResistance|0	BONUS:VAR|WatcherResistance|5	BONUS:VAR|WatcherResistance|5|PRECLASS:1,The Watcher=3
-Watcher Fire Resistance			TYPE:WatcherResistance	VISIBLE:NO	SAB:Fire Resistance %|WatcherResistance	SAB:+6 bonus to saves vs. Fire|PRECLASS:1,The Watcher=3			DEFINE:WatcherResistance|0	BONUS:VAR|WatcherResistance|5	BONUS:VAR|WatcherResistance|5|PRECLASS:1,The Watcher=3
+Watcher Acid Resistance			CATEGORY:FEAT	TYPE:WatcherResistance	VISIBLE:NO	SAB:Acid Resistance %|WatcherResistance	SAB:+6 bonus to saves vs. Acid|PRECLASS:1,The Watcher=3			DEFINE:WatcherResistance|0	BONUS:VAR|WatcherResistance|5	BONUS:VAR|WatcherResistance|5|PRECLASS:1,The Watcher=3
+Watcher Cold Resistance			CATEGORY:FEAT	TYPE:WatcherResistance	VISIBLE:NO	SAB:Cold Resistance %|WatcherResistance	SAB:+6 bonus to saves vs. Cold|PRECLASS:1,The Watcher=3			DEFINE:WatcherResistance|0	BONUS:VAR|WatcherResistance|5	BONUS:VAR|WatcherResistance|5|PRECLASS:1,The Watcher=3
+Watcher Electricity Resistance	CATEGORY:FEAT	TYPE:WatcherResistance	VISIBLE:NO	SAB:Electricity Resistance %|WatcherResistance	SAB:+6 bonus to saves vs. Electricity|PRECLASS:1,The Watcher=3	DEFINE:WatcherResistance|0	BONUS:VAR|WatcherResistance|5	BONUS:VAR|WatcherResistance|5|PRECLASS:1,The Watcher=3
+Watcher Fire Resistance			CATEGORY:FEAT	TYPE:WatcherResistance	VISIBLE:NO	SAB:Fire Resistance %|WatcherResistance	SAB:+6 bonus to saves vs. Fire|PRECLASS:1,The Watcher=3			DEFINE:WatcherResistance|0	BONUS:VAR|WatcherResistance|5	BONUS:VAR|WatcherResistance|5|PRECLASS:1,The Watcher=3
 
 ###Block: Nephilim abilities
 # Feat Name		Type				Visible	Stat bonus
-Nephilim INT Add	TYPE:NephilimStatAdd	VISIBLE:NO	BONUS:STAT|INT|2|TYPE=Racial
-Nephilim WIS Add	TYPE:NephilimStatAdd	VISIBLE:NO	BONUS:STAT|WIS|2|TYPE=Racial
-Nephilim CHA Add	TYPE:NephilimStatAdd	VISIBLE:NO	BONUS:STAT|CHA|2|TYPE=Racial
+Nephilim INT Add	CATEGORY:FEAT	TYPE:NephilimStatAdd	VISIBLE:NO	BONUS:STAT|INT|2|TYPE=Racial
+Nephilim WIS Add	CATEGORY:FEAT	TYPE:NephilimStatAdd	VISIBLE:NO	BONUS:STAT|WIS|2|TYPE=Racial
+Nephilim CHA Add	CATEGORY:FEAT	TYPE:NephilimStatAdd	VISIBLE:NO	BONUS:STAT|CHA|2|TYPE=Racial

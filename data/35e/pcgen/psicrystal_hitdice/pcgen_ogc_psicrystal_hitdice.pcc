@@ -32,7 +32,7 @@ ABILITYCATEGORY:pcgen_ogc_abilitycategories.lst
 CLASS:pcgen_ogc_classes_psicrystals.lst
 COMPANIONMOD:pcgen_ogc_companionmods_psicrystals.lst
 RACE:pcgen_ogc_races_psicrystals.lst
-FEAT:pcgen_ocg_feats_hidden_psicrystal.lst
+ABILITY:pcgen_ocg_feats_hidden_psicrystal.lst
 TEMPLATE:pcgen_ogc_templates_psicrystals.lst
 
 #

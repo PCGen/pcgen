@@ -33,7 +33,7 @@ ZohlUNahks Blood			TYPE:Magic.Potion.Consumable	COST:2500	WT:0		SOURCEPAGE:p.106
 ###Block: Rings
 # Equipment Name		Type			Cost		Weight	Modifier			Source Page		Virtual Feat	Innate Spells																											Combat bonus				Bonus to skill
 Ring of Shadow Walking	TYPE:Magic.Ring	COST:117600	WT:0		EQMOD:RING			SOURCEPAGE:p.28
-Ring of Sundering		TYPE:Magic.Ring	COST:3500	WT:0		EQMOD:ADAMANT_WONDROUS	SOURCEPAGE:p.96	VFEAT:Sunder																																				BONUS:SKILL|Intimidate|2|TYPE=Competance|PRERACE:1,Minotaur
+Ring of Sundering		TYPE:Magic.Ring	COST:3500	WT:0		EQMOD:ADAMANT_WONDROUS	SOURCEPAGE:p.96	ABILITY:FEAT|VIRTUAL|Sunder																																				BONUS:SKILL|Intimidate|2|TYPE=Competance|PRERACE:1,Minotaur
 Ring of the Land		TYPE:Magic.Ring	COST:12000	WT:0		EQMOD:RING			SOURCEPAGE:p.131				SPELLS:Magic Item|TIMES=3|CASTERLEVEL=15|Commune,17	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=15|Insect Plague,17	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20	BONUS:COMBAT|AC|3|TYPE=NaturalArmor
 Ring of Weathercraft	TYPE:Magic.Ring	COST:90000	WT:0		EQMOD:RING			SOURCEPAGE:p.43				SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20
 

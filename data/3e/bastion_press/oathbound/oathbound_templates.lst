@@ -17,7 +17,7 @@ Arrival Gift (Charm)					VISIBLE:YES				SOURCEPAGE:p.20																									
 Arrival Gift (Connected)				VISIBLE:YES				SOURCEPAGE:p.20
 Arrival Gift (Empathy)					VISIBLE:YES				SOURCEPAGE:p.20
 Arrival Gift (Efficient)				VISIBLE:YES				SOURCEPAGE:p.20	SAB:Efficient (Ex) % days|EfficientDuration				DEFINE:EfficientDuration|0																																											BONUS:VAR|EfficientDuration|CONSCORE
-Arrival Gift (Focused)					VISIBLE:YES				SOURCEPAGE:p.20																																																																																																			ADD:FEAT|Focused
+Arrival Gift (Focused)					VISIBLE:YES				SOURCEPAGE:p.20																																																																																																			BONUS:ABILITYPOOL|Focused|1
 Arrival Gift (Funny)					VISIBLE:YES				SOURCEPAGE:p.20
 Arrival Gift (Good looking)				VISIBLE:YES				SOURCEPAGE:p.20																																																		BONUS:STAT|CHA|1
 Arrival Gift (Healthy)					VISIBLE:YES				SOURCEPAGE:p.20
@@ -32,13 +32,13 @@ Arrival Gift (Quiet)					VISIBLE:YES				SOURCEPAGE:p.20																									
 Arrival Gift (Resilient)				VISIBLE:YES	DR:1/-		SOURCEPAGE:p.20
 Arrival Gift (Shapechanger)				VISIBLE:YES				SOURCEPAGE:p.21	SAB:Shapechanger (Su) %/day|ShapechangerUsage				DEFINE:ShapechangerUsage|0																																											BONUS:VAR|ShapechangerUsage|(TL/5)
 Arrival Gift (Sneaky)					VISIBLE:YES				SOURCEPAGE:p.21	SAB:+2 luck bonus vs magical detection																															BONUS:SKILL|Hide,Move Silently|2|TYPE=Competence
-Arrival Gift (Talented)					VISIBLE:YES				SOURCEPAGE:p.21																																																																																																			ADD:FEAT|Talented ~ Gift
+Arrival Gift (Talented)					VISIBLE:YES				SOURCEPAGE:p.21																																																																																																			BONUS:ABILITYPOOL|Talented ~ Gift|1
 Arrival Gift (Telepathic)				VISIBLE:YES				SOURCEPAGE:p.21	SAB:Telepathic (Su)
 Arrival Gift (Thick Skin)				VISIBLE:YES				SOURCEPAGE:p.21																									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
 Arrival Gift (Understanding 1/3)			VISIBLE:YES				SOURCEPAGE:p.21																																																																								CHOOSE:LANGAUTO|Asherake|Ceptu|Chromithian|Deep Fey|Dover|Faust|Frey|Ith'n Ya'roo|Knuk|Kraggon|Lunar|Makkru|Nightling|Picker|Silver|Trusk|Urgoda|Valco|Vogel
 Arrival Gift (Understanding 2/3)			VISIBLE:YES				SOURCEPAGE:p.21																																																																								CHOOSE:LANGAUTO|Asherake|Ceptu|Chromithian|Deep Fey|Dover|Faust|Frey|Ith'n Ya'roo|Knuk|Kraggon|Lunar|Makkru|Nightling|Picker|Silver|Trusk|Urgoda|Valco|Vogel
 Arrival Gift (Understanding 3/3)			VISIBLE:YES				SOURCEPAGE:p.21																																																																								CHOOSE:LANGAUTO|Asherake|Ceptu|Chromithian|Deep Fey|Dover|Faust|Frey|Ith'n Ya'roo|Knuk|Kraggon|Lunar|Makkru|Nightling|Picker|Silver|Trusk|Urgoda|Valco|Vogel
-Arrival Gift (Valiant)					VISIBLE:YES				SOURCEPAGE:p.21																					PREFEAT:1,Leadership
+Arrival Gift (Valiant)					VISIBLE:YES				SOURCEPAGE:p.21																					PREABILITY:1,CATEGORY=FEAT,Leadership
 Arrival Gift (Wild Talent)				VISIBLE:YES				SOURCEPAGE:p.21	SAB:Wild Talent (Su) %/day|WildTalentUsage				DEFINE:WildTalentUsage|0																																											BONUS:VAR|WildTalentUsage|(1+(TL/5))
 Arrival Gift (Willful)					VISIBLE:YES				SOURCEPAGE:p.21																																BONUS:SAVE|Will|2|TYPE=Competence
 Arrival Gift (Youthful)					VISIBLE:YES				SOURCEPAGE:p.21																																																		BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|CON|1

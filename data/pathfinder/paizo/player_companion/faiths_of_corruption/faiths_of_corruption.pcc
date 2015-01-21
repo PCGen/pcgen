@@ -36,7 +36,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Faiths of C
 # Data files
 ABILITY:foc_abilities.lst
 DEITY:foc_deities.lst
-FEAT:foc_feats.lst
+ABILITY:foc_feats.lst
 SKILL:foc_skills.lst
 SPELL:foc_spells.lst
 

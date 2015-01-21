@@ -9,11 +9,11 @@ SKILL:Move Silently	RANK:17
 SKILL:Listen		RANK:17
 SKILL:Spot			RANK:5
 SKILL:Spot			RANK:12	FREE:YES
-FEAT:Improved Initiative
-FEAT:Improved Natural Attack(Slam)
-FEAT:Lightning Reflexes
-FEAT:Multiattack
-FEAT:Alertness				FREE:YES
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Natural Attack(Slam)
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Alertness				FREE:YES
 STAT:STR=10|DEX=10|CHA=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Mind Grub Collective Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mind Grub Collective]
@@ -28,7 +28,7 @@ SKILL:Concentration	RANK:10
 SKILL:Diplomacy		RANK:4
 SKILL:Sense Motive	RANK:4
 SKILL:Intimidate		RANK:6
-FEAT:Combat Manifestation
-FEAT:Improved Initiative
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Combat Manifestation
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=10|CHA=10|CON=10|INT=10|WIS=10

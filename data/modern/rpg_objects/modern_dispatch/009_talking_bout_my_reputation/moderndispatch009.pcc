@@ -29,4 +29,4 @@ INFOTEXT:Load this with Modern Dispatch #2 - Investigating NPCs
 #EXTRAFILE:OGL.txt
 
 CLASS:moderndispatch009_classes.lst
-FEAT:moderndispatch009_feats.lst
+ABILITY:moderndispatch009_feats.lst

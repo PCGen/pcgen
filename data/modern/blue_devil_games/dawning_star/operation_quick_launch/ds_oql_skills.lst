@@ -3,7 +3,7 @@ SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http
 
 # Skill Name		Key Stat	Untrained?		Type					Source Page		Bonus to skill
 Barter			KEYSTAT:CHA				TYPE:Charisma			SOURCEPAGE:p.42
-Craft (Tribal)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.39	BONUS:SKILL|Craft (Tribal)|-4	BONUS:SKILL|Craft (Tribal)|2|PREFEAT:1,Builder
+Craft (Tribal)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.39	BONUS:SKILL|Craft (Tribal)|-4	BONUS:SKILL|Craft (Tribal)|2|PREABILITY:1,CATEGORY=FEAT,Builder
 Knowledge (Local)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.40
 Knowledge (Species)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.41
 Perform (Oratory)		KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma.Perform		SOURCEPAGE:p.69

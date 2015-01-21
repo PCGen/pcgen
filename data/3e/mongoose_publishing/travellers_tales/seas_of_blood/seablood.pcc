@@ -43,7 +43,7 @@ EQUIPMENT:seabloodequipwondrousitems.lst
 EQUIPMENT:seabloodequipweapmelee.lst
 EQUIPMENT:seabloodequipweapranged.lst
 EQUIPMENT:seabloodequipweapammo.lst
-FEAT:seabloodfeats.lst
+ABILITY:seabloodfeats.lst
 SKILL:seabloodskills.lst
 SPELL:seabloodspells.lst
 WEAPONPROF:seabloodweapprofs.lst

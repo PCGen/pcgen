@@ -34,8 +34,8 @@ EQUIPMENT:tome_of_horrors_equip_weap_melee.lst
 EQUIPMENT:tome_of_horrors_equip_weap_ranged.lst
 EQUIPMENT:tome_of_horrors_equip_wondrousitems.lst
 EQUIPMOD:tome_of_horrors_equipmods_enhancing.lst
-FEAT:tome_of_horrors_feats_hidden.lst
-FEAT:tome_of_horrors_feats_psionic_hidden.lst
+ABILITY:tome_of_horrors_feats_hidden.lst
+ABILITY:tome_of_horrors_feats_psionic_hidden.lst
 KIT:tome_of_horrors_kits_races_a.lst
 KIT:tome_of_horrors_kits_races_b.lst
 KIT:tome_of_horrors_kits_races_c.lst

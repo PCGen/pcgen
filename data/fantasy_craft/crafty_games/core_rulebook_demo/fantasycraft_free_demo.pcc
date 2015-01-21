@@ -82,7 +82,7 @@ EQUIPMENT:fc_free_demo_equip_weapons.lst
 
 EQUIPMOD:fc_free_demo_equipmods_base.lst
 
-FEAT:fc_free_demo_feats.lst
+ABILITY:fc_free_demo_feats.lst
 
 KIT:fc_free_demo_kits.lst
 KIT:fc_free_demo_kits_npc.lst

@@ -17,7 +17,7 @@ Hunter's Gift	TYPE:Armor.Light.Suit.Specific	COST:27000	WT:20		ACCHECK:-2		EQMOD
 
 ###BLOCK: Ring
 # Equipment Name			Type			Cost		Source Page		Virtual Feat
-Ring of Projectile Command	TYPE:Magic.Ring	COST:23000	SOURCEPAGE:34	VFEAT:Deflect Arrows
+Ring of Projectile Command	TYPE:Magic.Ring	COST:23000	SOURCEPAGE:34	ABILITY:FEAT|VIRTUAL|Deflect Arrows
 
 ###BLOCK: Rod
 # Equipment Name		Output Name				Required Weapon Proficiency	Type																	Contains			Cost		Weight	Slot Needed	Base Item for EQMOD		Crit Mult	Crit Range	Damage	Modifier				Requires Modification?	Range		Source Page		Ability										Innate Spells																							Modify VAR			Weapon prop. bonus

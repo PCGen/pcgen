@@ -21,7 +21,7 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #
 #####2nd Example
 
-#MASTERBONUSRACE:Bat		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bat)			VFEAT:Alertness
+#MASTERBONUSRACE:Bat		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bat)			ABILITY:FEAT|VIRTUAL|Alertness
 
 
 # This would go in your Ability File - Note we use the naming to prevent stacking. Newest File wins.

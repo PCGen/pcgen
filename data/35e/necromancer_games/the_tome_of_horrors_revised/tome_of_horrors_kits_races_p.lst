@@ -15,8 +15,8 @@ SKILL:Move Silently		RANK:3
 SKILL:Profession (Miner)	RANK:7
 SKILL:Spot				RANK:7
 SKILL:Survival			RANK:3
-FEAT:Alertness
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Pick (Heavy)	SIZE:PC	LOCATION:Primary Hand
 
 STARTPACK:Phantom Stalker Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phantom Stalker]
@@ -26,9 +26,9 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:5
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Phycomid Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phycomid]
 RACE:Phycomid	!PRERACE:1,%
@@ -43,7 +43,7 @@ ALIGN:LE
 STAT:DEX=11|INT=11|WIS=10|CHA=10
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:2
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Protector Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Protector]
 RACE:Protector	!PRERACE:1,%
@@ -63,9 +63,9 @@ SKILL:Spellcraft			RANK:10
 SKILL:Spot				RANK:10
 SKILL:Search			RANK:10
 SKILL:Survival			RANK:10
-FEAT:Combat Expertise
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
 DEITY:None	DOMAIN:Protection|Law
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Chaos|Shield Other|Protection from Energy|Order's Wrath
@@ -100,5 +100,5 @@ ALIGN:NE
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:4
-FEAT:Alertness
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will

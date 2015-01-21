@@ -28,7 +28,7 @@ INFOTEXT:Requires the use of Blood and Guts: Modern Military
 #EXTRAFILE:OGL.txt
 
 CLASS:waronterror_class.lst
-FEAT:waronterror_feats.lst
+ABILITY:waronterror_feats.lst
 ABILITY:waronterror_abilities.lst
-FEAT:waronterror_feats_mod.lst
+ABILITY:waronterror_feats_mod.lst
 ABILITY:waronterror_abilities_mod.lst

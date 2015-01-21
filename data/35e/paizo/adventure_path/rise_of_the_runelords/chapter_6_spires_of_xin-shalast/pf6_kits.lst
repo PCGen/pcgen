@@ -34,10 +34,10 @@ SKILL:Climb	RANK:2
 SKILL:Hide	RANK:0
 SKILL:Jump	RANK:2
 SKILL:Spot	RANK:0
-FEAT:Improved Critical(Dagger)
-FEAT:Multiattack
-FEAT:Quick Draw
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Improved Critical(Dagger)
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Quick Draw
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 #GEAR:Shadow Essence (10 doses)	SIZE:PC	LOCATION:Equipped (what's this?)
 GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS1W
 
@@ -53,10 +53,10 @@ ALIGN:CE
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
 #Skills Spot +19
 SKILL:Spot	RANK:14
-FEAT:Alertness
-FEAT:Altitude Affinity
-FEAT:Endurance
-FEAT:Point Blank Shot
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Altitude Affinity
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Point Blank Shot
 #GEAR:Shadow Essence (10 doses)	SIZE:PC	LOCATION:Equipped (what's this?)
 GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS1W
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
@@ -86,12 +86,12 @@ SKILL:Knowledge (Arcana)	RANK:5
 SKILL:Listen			RANK:10
 SKILL:Move Silently		RANK:5
 SKILL:Spot				RANK:10
-FEAT:Altitude Affinity
-FEAT:Dodge
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Multiattack
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Altitude Affinity
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Spring Attack
 GEAR:Breastplate	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA
 GEAR:Greatsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW
 
@@ -103,14 +103,14 @@ ALIGN:CE
 #hp 262 (21d10+147)
 #Str 30, Dex 13, Con 25, Int 13, Wis 10, Cha 13
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
-FEAT:Altitude Affinity
-FEAT:Diehard
-FEAT:Dodge
-FEAT:Endurance
-FEAT:Great Fortitude
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Altitude Affinity
+ABILITY:CATEGORY=FEAT|Diehard
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
 #Skills Climb +28, Hide +3, Intimidate +12, Listen +10, Spot +16, Use Magic Device +11
 SKILL:Climb			RANK:0
 SKILL:Hide			RANK:0
@@ -134,13 +134,13 @@ SKILL:Climb		RANK:0
 SKILL:Jump		RANK:0
 SKILL:Listen	RANK:0
 SKILL:Spot		RANK:0
-FEAT:Altitude Affinity
-FEAT:Awesome Blow
-FEAT:Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Critical (great sword)
-FEAT:Power Attack
-FEAT:Quick Draw
+ABILITY:CATEGORY=FEAT|Altitude Affinity
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (great sword)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quick Draw
 
 #Wendigo	CR:17
 STARTPACK:Wendigo Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wendigo]
@@ -150,13 +150,13 @@ ALIGN:CE
 #hp 279 (18d8+198); regeneration 15 (fire)
 #Str 29, Dex 19, Con 33, Int 16, Wis 20, Cha 24
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
-FEAT:Ability Focus(Howl)
-FEAT:Ability Focus(Dream Haunting)
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Multiattack
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Ability Focus(Howl)
+ABILITY:CATEGORY=FEAT|Ability Focus(Dream Haunting)
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Track
 #Skills Hide +23, Knowledge (geography) +24, Knowledge (nature)+24, Knowledge (religion) +24,
 #Knowledge (the planes) +24,Listen +26, Move Silently +27, Search +24, Spot +26, Survival+26, Tumble +25
 SKILL:Hide				RANK:0
@@ -181,19 +181,19 @@ CLASS:Expert	LEVEL:14
 TEMPLATE:Ghost
 SKILL:Climb	RANK:41
 SKILL:Jump	RANK:41
-FEAT:Blind-Fight
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Weapon Focus(Spinning Blade)
-FEAT:Improved Critical(Spinning Blade)
-FEAT:Devastating Critical(Spinning Blade)
-FEAT:Overwhelming Critical(Spinning Blade)
-FEAT:Epic Weapon Focus(Spinning Blade)
-FEAT:Improved Bull Rush
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Epic Toughness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Weapon Focus(Spinning Blade)
+ABILITY:CATEGORY=FEAT|Improved Critical(Spinning Blade)
+ABILITY:CATEGORY=FEAT|Devastating Critical(Spinning Blade)
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Spinning Blade)
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Spinning Blade)
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Epic Toughness
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 

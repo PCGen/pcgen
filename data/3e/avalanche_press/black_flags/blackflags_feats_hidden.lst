@@ -3,5 +3,5 @@ SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean	SOURCESHORT:B
 # Original Entry by: Tir Gwaith
 
 # Feat Name				Type			Visible	Auto Weapon Prof
-Noble Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Rapier|Dagger
-Captain Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Sword
+Noble Weapon Proficiencies	CATEGORY:FEAT	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Rapier|Dagger
+Captain Weapon Proficiencies	CATEGORY:FEAT	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Sword

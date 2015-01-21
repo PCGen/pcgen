@@ -38,8 +38,8 @@ ABILITY:neiyar_abilities.lst
 ABILITYCATEGORY:neiyar_ability_categories.lst
 CLASS:neiyar_classes.lst
 DEITY:neiyar_deities.lst
-FEAT:neiyar_feats.lst
-FEAT:neiyar_feats_flaws.lst
+ABILITY:neiyar_feats.lst
+ABILITY:neiyar_feats_flaws.lst
 LANGUAGE:neiyar_languages.lst
 EQUIPMENT:neiyar_equip_magic_items.lst
 EQUIPMOD:neiyar_eqmods.lst

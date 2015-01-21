@@ -21,8 +21,8 @@ SKILL:Perception		RANK:1
 SKILL:Sleight of Hand	RANK:1
 SKILL:Stealth		RANK:1
 SKILL:Swim			RANK:1
-FEAT:Improved Initiative
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Stealthy
 GEAR:Leather					LOCATION:Equipped
 GEAR:Rapier						LOCATION:Primary Hand
 GEAR:Dagger			QTY:4			LOCATION:Carried
@@ -42,8 +42,8 @@ ABILITY:CATEGORY=Favored Class|Warrior
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Intimidate	RANK:1
 SKILL:Swim		RANK:1
-FEAT:Improved Unarmed Strike
-FEAT:Weapon Focus (Sword (Short))
+ABILITY:CATEGORY=FEAT|Improved Unarmed Strike
+ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Short))
 STAT:STR=11|DEX=11|CON=12|INT=9|WIS=10|CHA=8
 GEAR:Studded Leather				LOCATION:Equipped
 GEAR:Sword (Short)				LOCATION:Primary Hand
@@ -69,8 +69,8 @@ SKILL:Diplomacy			RANK:2
 SKILL:Knowledge (Arcana)	RANK:1
 SKILL:Knowledge (Local)		RANK:2
 SKILL:Spellcraft			RANK:2
-FEAT:Combat Casting
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Pouch (Belt)						LOCATION:Carried
 GEAR:Coin (Gold Piece)			QTY:33	LOCATION:Pouch (Belt)
 GEAR:Wand of Shocking Grasp				LOCATION:Carried
@@ -118,8 +118,8 @@ SKILL:Sense Motive	RANK:1
 SKILL:Sleight of Hand	RANK:1
 SKILL:Stealth		RANK:1
 SKILL:Use Magic Device	RANK:1
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Leather				LOCATION:Equipped		EQMOD:MWORKA
 GEAR:Rapier					LOCATION:Primary Hand
 GEAR:Crossbow (Light)			LOCATION:Carried
@@ -159,9 +159,9 @@ SKILL:Knowledge (Local)		RANK:4
 SKILL:Profession (Gambler)	RANK:4
 SKILL:Sense Motive		RANK:4
 SKILL:Sleight of Hand		RANK:4
-FEAT:Skill Focus (Bluff)
-FEAT:Two-Weapon Fighting
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Skill Focus (Bluff)
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Leather					LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Rapier						LOCATION:Primary Hand	EQMOD:PLUS1W
 GEAR:Key Stump					LOCATION:Secondary Hand
@@ -193,8 +193,8 @@ SKILL:Diplomacy			RANK:3
 SKILL:Knowledge (Arcana)	RANK:3
 SKILL:Perception			RANK:3
 SKILL:Spellcraft			RANK:3
-FEAT:Alertness
-FEAT:Spell Focus (Transmutation)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Spell Focus (Transmutation)
 #FEAT:Varisian Tattoo (Transmutation)
 GEAR:Bracers of Armor +1	LOCATION:Equipped
 GEAR:Dagger				LOCATION:Primary Hand	EQMOD:MWORKW
@@ -253,9 +253,9 @@ SKILL:Climb			RANK:1
 SKILL:Disguise		RANK:1
 SKILL:Escape Artist	RANK:1
 SKILL:Acrobatics		RANK:1
-FEAT:Martial Weapon Proficiency (Scimitar)
-FEAT:Deceitful
-FEAT:Persuasive
+ABILITY:CATEGORY=FEAT|Martial Weapon Proficiency (Scimitar)
+ABILITY:CATEGORY=FEAT|Deceitful
+ABILITY:CATEGORY=FEAT|Persuasive
 GEAR:Studded Leather					LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Scimitar						LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Crossbow (Light)					LOCATION:Carried
@@ -280,9 +280,9 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Intimidate	RANK:3
 SKILL:Acrobatics	RANK:3
-FEAT:Alertness
-FEAT:Great Fortitude
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
 GEAR:Banded Mail			LOCATION:Equipped
@@ -306,8 +306,8 @@ SKILL:Acrobatics	RANK:3
 SKILL:Climb		RANK:3
 SKILL:Intimidate	RANK:3
 SKILL:Perception	RANK:3
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=Monk Bonus Feat|Combat Reflexes
 #ABILITY:CATEGORY=Monk Bonus Feat|Stunning Fist
 GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
@@ -326,7 +326,7 @@ CLASS:Fighter	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Fighter
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Intimidate	RANK:1
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
 GEAR:Chainmail					LOCATION:Equipped
 GEAR:Shield (Heavy/Steel)			LOCATION:Equipped
@@ -357,8 +357,8 @@ SKILL:Knowledge (Nature)	RANK:4
 SKILL:Perception			RANK:4
 SKILL:Stealth			RANK:4
 SKILL:Survival			RANK:4
-FEAT:Point-Blank Shot
-FEAT:Precise Shot
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Precise Shot
 ABILITY:CATEGORY=Ranger Bonus Feat|Ranger Bonus Feat ~ Rapid Shot
 GEAR:Leather						LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Longbow (Composite)				LOCATION:Both Hands	EQMOD:BOWSTR|+2.PLUS1W
@@ -394,8 +394,8 @@ SKILL:Perception		RANK:1
 SKILL:Sleight of Hand	RANK:1
 SKILL:Stealth		RANK:1
 SKILL:Swim			RANK:1
-FEAT:Alertness
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Stealthy
 GEAR:Chain Shirt				LOCATION:Equipped
 GEAR:Dagger					LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Shortbow				LOCATION:Carried
@@ -424,8 +424,8 @@ SKILL:Perception			RANK:2
 SKILL:Ride				RANK:2
 SKILL:Stealth			RANK:2
 SKILL:Survival			RANK:2
-FEAT:Skill Focus (Handle Animal)
-FEAT:Animal Affinity
+ABILITY:CATEGORY=FEAT|Skill Focus (Handle Animal)
+ABILITY:CATEGORY=FEAT|Animal Affinity
 ABILITY:CATEGORY=Ranger Bonus Feat|Ranger Bonus Feat ~ Two-Weapon Fighting
 GEAR:Chain Shirt					LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Battleaxe					LOCATION:Primary Hand	EQMOD:MWORKW
@@ -452,9 +452,9 @@ SKILL:Craft (Alchemy)	RANK:5
 SKILL:Intimidate		RANK:5
 SKILL:Survival		RANK:4
 SKILL:Linguistics		RANK:1	SELECTION:Draconic
-FEAT:Diehard
-FEAT:Endurance
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Diehard
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=Fighter Bonus Feat|Dodge
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Crossbow (Hand))
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization (Crossbow (Hand))
@@ -493,9 +493,9 @@ SKILL:Stealth		RANK:4
 SKILL:Knowledge (Local)	RANK:4
 SKILL:Sleight of Hand	RANK:4
 SKILL:Perception		RANK:4
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Leather						LOCATION:Equipped
 GEAR:Dagger							LOCATION:Primary Hand	EQMOD:PLUS1W
 GEAR:Thunderstone				QTY:4		LOCATION:Carried
@@ -518,7 +518,7 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Intimidate	RANK:2
 SKILL:Climb		RANK:2
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Morningstar)
 GEAR:Studded Leather			LOCATION:Equipped

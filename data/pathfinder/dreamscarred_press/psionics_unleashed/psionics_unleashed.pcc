@@ -45,7 +45,7 @@ COMPANIONMOD:psionics_unleashed_companionmods.lst
 EQUIPMENT:psionics_unleashed_equipment.lst
 EQUIPMOD:psionics_unleashed_equipmods.lst
 
-FEAT:psionics_unleashed_feats.lst
+ABILITY:psionics_unleashed_feats.lst
 
 KIT:psionics_unleashed_kits_pc_races.lst
 KIT:psionics_unleashed_kits_monsters.lst

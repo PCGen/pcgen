@@ -27,7 +27,7 @@ COPYRIGHT:PCGen dataset conversion for Touched by the Gods Copyright 2003, PCGen
 CLASS:touchedgodsclasses.lst
 DEITY:touchedgodsdeities.lst
 DOMAIN:touchedgodsdomains.lst
-FEAT:touchedgodsfeats.lst
+ABILITY:touchedgodsfeats.lst
 SKILL:touchedgodsskills.lst
 SPELL:touchedgodsspells.lst
 EQUIPMENT:touchedgodsequipwondrousitems.lst

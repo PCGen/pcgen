@@ -43,7 +43,7 @@ ABILITYCATEGORY:spycraft_abilitycategory.lst
 #BIOSET:spycraft_biosettings.lst
 CLASS:spycraft_classes.lst
 RACE:spycraft_departments.lst
-FEAT:spycraft_feats.lst
+ABILITY:spycraft_feats.lst
 #FEAT:spycraft_feats_hidden.lst
 # COMMENT: Moved to Abilities_Class
 LANGUAGE:spycraft_languages.lst

@@ -12,8 +12,8 @@ SKILL:Jump			RANK:3
 SKILL:Move Silently	RANK:3
 SKILL:Listen		RANK:5
 SKILL:Spot			RANK:5
-FEAT:Alertness
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Horngill Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Horngill]
 RACE:Horngill	!PRERACE:1,%
@@ -24,8 +24,8 @@ SKILL:Hide			RANK:6
 SKILL:Listen		RANK:3
 SKILL:Spot			RANK:3
 SKILL:Move Silently	RANK:1
-FEAT:Alertness
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Jaggon Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jaggon]
 RACE:Jaggon	!PRERACE:1,%
@@ -35,8 +35,8 @@ SKILL:Jump			RANK:3
 SKILL:Listen		RANK:7
 SKILL:Spot			RANK:7
 SKILL:Move Silently	RANK:9
-FEAT:Alertness
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Kith Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kith]
 RACE:Kith	!PRERACE:1,%
@@ -63,11 +63,11 @@ SKILL:Listen			RANK:10
 SKILL:Search			RANK:10
 SKILL:Spot				RANK:10
 SKILL:Open Lock			RANK:5
-FEAT:Alertness
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Expertise
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Expertise
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Ort Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ort]
 RACE:Ort	!PRERACE:1,%
@@ -97,25 +97,25 @@ SKILL:Knowledge (Arcana)	RANK:20
 SKILL:Read Lips			RANK:1
 SKILL:Search			RANK:1
 SKILL:Spellcraft			RANK:10
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Evolve
-FEAT:Expertise
-FEAT:Great Cleave
-FEAT:Mobility
-FEAT:Spring Attack
-FEAT:Whirlwind Attack
-FEAT:Improved Critical (Claw)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Spell Penetration
-FEAT:Track
-FEAT:Weapon Finesse (Claw)
-FEAT:Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Evolve
+ABILITY:CATEGORY=FEAT|Expertise
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Whirlwind Attack
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Spell Penetration
+ABILITY:CATEGORY=FEAT|Track
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 
 STARTPACK:Quillion Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Quillion]
 RACE:Quillion	!PRERACE:1,%
@@ -126,9 +126,9 @@ SKILL:Spot			RANK:3
 SKILL:Listen		RANK:4
 SKILL:Jump			RANK:1
 SKILL:Move Silently	RANK:2
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 
 STARTPACK:Rozian Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rozian]
 RACE:Rozian	!PRERACE:1,%
@@ -148,9 +148,9 @@ SKILL:Move Silently	RANK:6
 SKILL:Jump			RANK:2
 SKILL:Spot			RANK:2
 SKILL:Listen		RANK:3
-FEAT:Alertness
-FEAT:Combat Reflexes
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Swarm Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm]
 RACE:Swarm	!PRERACE:1,%

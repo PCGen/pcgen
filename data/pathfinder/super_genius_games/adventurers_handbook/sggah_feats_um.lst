@@ -5,10 +5,10 @@ SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCE
 #Block: .MODs for MagisterMetamagic
 #UM
 # Feat Name			Type
-Flaring Spell.MOD		TYPE:MagisterMetamagic
-Piercing Spell.MOD	TYPE:MagisterMetamagic
-Rime Spell.MOD		TYPE:MagisterMetamagic
-Toppling Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Flaring Spell.MOD		TYPE:MagisterMetamagic
+CATEGORY=FEAT|Piercing Spell.MOD	TYPE:MagisterMetamagic
+CATEGORY=FEAT|Rime Spell.MOD		TYPE:MagisterMetamagic
+CATEGORY=FEAT|Toppling Spell.MOD	TYPE:MagisterMetamagic
 
 #
 # End

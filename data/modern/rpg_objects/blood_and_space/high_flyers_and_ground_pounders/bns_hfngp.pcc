@@ -27,6 +27,6 @@ INFOTEXT:This dataset requires the use of the MSRD Future dataset
 #EXTRAFILE:OGL.txt
 
 CLASS:bns_hfngp_classes_advanced.lst
-FEAT:bns_hfngp_feats.lst
-FEAT:bns_hfngp_feats_advanced_training.lst
-FEAT:bns_hfngp_feats_mod.lst
+ABILITY:bns_hfngp_feats.lst
+ABILITY:bns_hfngp_feats_advanced_training.lst
+ABILITY:bns_hfngp_feats_mod.lst

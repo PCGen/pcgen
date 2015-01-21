@@ -11,8 +11,8 @@ SKILL:Listen		RANK:6
 SKILL:Perform		RANK:6
 SKILL:Spot			RANK:6
 SKILL:Move Silently	RANK:10
-FEAT:Blind-Fight
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Terrantula Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Terrantula]
 RACE:Terrantula	!PRERACE:1,%
@@ -47,7 +47,7 @@ SKILL:Open Lock		RANK:4
 SKILL:Pick Pocket		RANK:4
 SKILL:Listen		RANK:5
 SKILL:Spot			RANK:5
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Tommyknocker Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tommyknocker]
 RACE:Tommyknocker	!PRERACE:1,%
@@ -60,8 +60,8 @@ SKILL:Move Silently		RANK:8
 SKILL:Profession (Miner)	RANK:8
 SKILL:Spot				RANK:8
 SKILL:Hide				RANK:7
-FEAT:Power Attack
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:Tunnel Critter Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tunnel Critter]
 RACE:Tunnel Critter	!PRERACE:1,%
@@ -86,5 +86,5 @@ SKILL:Move Silently		RANK:6
 SKILL:Spot				RANK:6
 SKILL:Wilderness Lore		RANK:6
 SKILL:Intimidate			RANK:7
-FEAT:Multiattack
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Track

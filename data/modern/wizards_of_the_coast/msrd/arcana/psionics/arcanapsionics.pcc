@@ -26,7 +26,7 @@ ABILITY:arcanapsionics_abilities_class.lst
 ABILITY:arcanapsionics_abilities.lst
 ABILITYCATEGORY:arcanapsionics_ability_categories.lst
 CLASS:arcanapsionics_classes_advanced.lst
-FEAT:arcanapsionics_feats.lst
+ABILITY:arcanapsionics_feats.lst
 SPELL:arcanapsionics_powers.lst
 
 #

@@ -67,8 +67,8 @@ ABILITY:sherwood_ability_class.lst
 CLASS:sherwood_class.lst
 COMPANIONMOD:sherwood_companionmod.lst
 EQUIPMENT:sherwood_equip.lst
-FEAT:sherwood_feats.lst
-FEAT:sherwood_feats_mods.lst
+ABILITY:sherwood_feats.lst
+ABILITY:sherwood_feats_mods.lst
 KIT:sherwood_kits.lst
 LANGUAGE:sherwood_languages.lst
 SKILL:sherwood_skills.lst

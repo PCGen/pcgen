@@ -51,7 +51,7 @@ Profession (Fortune-teller)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	S
 
 ###Block: Skill Focus implementation
 # Skill Name				Bonus to skill
-Profession (Fortune-teller).MOD	BONUS:SKILL|Profession (Fortune-teller)|3|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Profession (Fortune-teller))	BONUS:SKILL|Profession (Fortune-teller)|6|TYPE=SkillFocus|PREFEAT:1,Skill Focus (Profession (Fortune-teller))|PRESKILL:1,Profession (Fortune-teller)=10
+Profession (Fortune-teller).MOD	BONUS:SKILL|Profession (Fortune-teller)|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Fortune-teller))	BONUS:SKILL|Profession (Fortune-teller)|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Fortune-teller))|PRESKILL:1,Profession (Fortune-teller)=10
 
 
 Craft (Clockwork)				KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Craft.Base					PREVARLT:AnimalCompanionSkill,1	SOURCEPAGE:p.54	SOURCELONG:Bestiary 3	SOURCESHORT:B3					BONUS:SKILL|Craft (Clockwork)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Clockwork)|PRESKILL:1,Craft (Clockwork)=1

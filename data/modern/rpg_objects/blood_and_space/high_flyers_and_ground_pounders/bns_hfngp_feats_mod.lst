@@ -2,27 +2,27 @@
 SOURCELONG:Blood and Space - High Flyers and Ground Pounders	SOURCESHORT:BnS-HFnGP	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=56	SOURCEDATE:2004-01
 
 # Feat Name					Type
-Advanced Firearms Proficiency.MOD	TYPE:StarshipGunner
-Armor Proficiency (Heavy).MOD		TYPE:StarshipMarine
-Armor Proficiency (Light).MOD		TYPE:OperationsExpert.StarshipGunner.StarshipMarine.StarshipNavigator
-Armor Proficiency (Medium).MOD	TYPE:OperationsExpert.StarshipGunner.StarshipMarine.StarshipNavigator
-Armor Proficiency (Powered).MOD	TYPE:StarshipMarine
-Burst Fire.MOD				TYPE:StarshipGunner.StarshipMarine
-Builder.MOD					TYPE:OperationsExpert
-Cover Fire.MOD				TYPE:StarshipMarine
-Dead Aim.MOD				TYPE:StarshipGunner.StarshipNavigator
-Dodge.MOD					TYPE:StarshipMarine
-Double Tap.MOD				TYPE:StarshipGunner
-Educated.MOD				TYPE:OperationsExpert
-Far Shot.MOD				TYPE:StarshipNavigator
-Gearhead.MOD				TYPE:OperationsExpert.StarshipNavigator
-Mastercrafter.MOD				TYPE:OperationsExpert
-Mobility.MOD				TYPE:StarshipMarine
-Personal Firearms Proficiency.MOD	TYPE:OperationsExpert.StarshipGunner.StarshipNavigator
-Point Blank Shot.MOD			TYPE:StarshipGunner
-Precise Shot.MOD				TYPE:StarshipGunner
-Quick Draw.MOD				TYPE:StarshipGunner
-Spring Attack.MOD				TYPE:StarshipMarine
-Starship Gunnery.MOD			TYPE:StarshipNavigator
-Starship Operation.MOD			TYPE:StarshipNavigator
-Zero G Training.MOD			TYPE:OperationsExpert
+CATEGORY=FEAT|Advanced Firearms Proficiency.MOD	TYPE:StarshipGunner
+CATEGORY=FEAT|Armor Proficiency (Heavy).MOD		TYPE:StarshipMarine
+CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:OperationsExpert.StarshipGunner.StarshipMarine.StarshipNavigator
+CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:OperationsExpert.StarshipGunner.StarshipMarine.StarshipNavigator
+CATEGORY=FEAT|Armor Proficiency (Powered).MOD	TYPE:StarshipMarine
+CATEGORY=FEAT|Burst Fire.MOD				TYPE:StarshipGunner.StarshipMarine
+CATEGORY=FEAT|Builder.MOD					TYPE:OperationsExpert
+CATEGORY=FEAT|Cover Fire.MOD				TYPE:StarshipMarine
+CATEGORY=FEAT|Dead Aim.MOD				TYPE:StarshipGunner.StarshipNavigator
+CATEGORY=FEAT|Dodge.MOD					TYPE:StarshipMarine
+CATEGORY=FEAT|Double Tap.MOD				TYPE:StarshipGunner
+CATEGORY=FEAT|Educated.MOD				TYPE:OperationsExpert
+CATEGORY=FEAT|Far Shot.MOD				TYPE:StarshipNavigator
+CATEGORY=FEAT|Gearhead.MOD				TYPE:OperationsExpert.StarshipNavigator
+CATEGORY=FEAT|Mastercrafter.MOD				TYPE:OperationsExpert
+CATEGORY=FEAT|Mobility.MOD				TYPE:StarshipMarine
+CATEGORY=FEAT|Personal Firearms Proficiency.MOD	TYPE:OperationsExpert.StarshipGunner.StarshipNavigator
+CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:StarshipGunner
+CATEGORY=FEAT|Precise Shot.MOD				TYPE:StarshipGunner
+CATEGORY=FEAT|Quick Draw.MOD				TYPE:StarshipGunner
+CATEGORY=FEAT|Spring Attack.MOD				TYPE:StarshipMarine
+CATEGORY=FEAT|Starship Gunnery.MOD			TYPE:StarshipNavigator
+CATEGORY=FEAT|Starship Operation.MOD			TYPE:StarshipNavigator
+CATEGORY=FEAT|Zero G Training.MOD			TYPE:OperationsExpert

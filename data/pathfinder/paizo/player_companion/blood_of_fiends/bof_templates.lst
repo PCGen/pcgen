@@ -5,7 +5,7 @@ SOURCELONG:Blood of Fiends	SOURCESHORT:BOF	SOURCEWEB:http://paizo.com/products/b
 
 ###Block: Template to activate bardic masterpieces
 # Template Name				Visible	Ability
-Masterpiece Activation Tiefling	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Dance of Kindled Desires|PREMULT:1,[PRESPELL:1,Masterpiece (Dance of Kindled Desires)],[PREFEAT:1,Masterpiece (Dance of Kindled Desires)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Melody of Frightful Death|PREMULT:1,[PRESPELL:1,Masterpiece (Melody of Frightful Death)],[PREFEAT:1,Masterpiece (Melody of Frightful Death)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Rheumy Refrain|PREMULT:1,[PRESPELL:1,Masterpiece (Rheumy Refrain)],[PREFEAT:1,Masterpiece (Rheumy Refrain)]
+Masterpiece Activation Tiefling	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Dance of Kindled Desires|PREMULT:1,[PRESPELL:1,Masterpiece (Dance of Kindled Desires)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Dance of Kindled Desires)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Melody of Frightful Death|PREMULT:1,[PRESPELL:1,Masterpiece (Melody of Frightful Death)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Melody of Frightful Death)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Rheumy Refrain|PREMULT:1,[PRESPELL:1,Masterpiece (Rheumy Refrain)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Rheumy Refrain)]
 
 
 ###Block: Subrace

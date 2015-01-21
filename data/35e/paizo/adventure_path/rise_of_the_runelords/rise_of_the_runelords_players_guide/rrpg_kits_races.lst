@@ -12,7 +12,7 @@ SKILL:Hide			RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Listen		RANK:1
 SKILL:Spot			RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 GEAR:Leather			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Wood)	SIZE:PC	LOCATION:Equipped
 GEAR:Dogslicer			SIZE:PC	LOCATION:Primary Hand

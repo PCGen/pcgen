@@ -7,7 +7,7 @@ NAME:Joaquin Murieta
 ALIGN:CE
 SKILL:Hide			RANK:6
 SKILL:Move Silently	RANK:6
-FEAT:Ambidexterity
-FEAT:Dead Eye
-FEAT:Point Blank Shot
-FEAT:Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Ambidexterity
+ABILITY:CATEGORY=FEAT|Dead Eye
+ABILITY:CATEGORY=FEAT|Point Blank Shot
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting

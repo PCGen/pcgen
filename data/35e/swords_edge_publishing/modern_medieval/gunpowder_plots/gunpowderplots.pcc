@@ -28,5 +28,5 @@ COPYRIGHT:PCGen dataset conversion for Gunpowder Plots Copyright 2006, PCGen Dat
 
 EQUIPMENT:gunpowderplots_equip.lst
 EQUIPMENT:gunpowderplots_equip_weap_ranged.lst
-FEAT:gunpowderplots_feat.lst
+ABILITY:gunpowderplots_feat.lst
 WEAPONPROF:gunpowderplots_weaponprof.lst

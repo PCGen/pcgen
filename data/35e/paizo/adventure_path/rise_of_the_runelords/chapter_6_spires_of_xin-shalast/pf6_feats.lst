@@ -3,4 +3,4 @@ SOURCELONG:Rise of the Runelords - Chapter 6: Spires of Xin-Shalast	SOURCESHORT:
 
 ###FEAT
 # Feat Name		Type			Required Feat		Required Stat	Description
-Altitude Affinity	TYPE:General	PREFEAT:1,Endurance	PRESTAT:1,CON=19	DESC:Through means both mundane and magical, you have hardened your body to the rigors of surviving at altitudes where the thin air is not conducive to normal life.
+Altitude Affinity	CATEGORY:FEAT	TYPE:General	PREABILITY:1,CATEGORY=FEAT,Endurance	PRESTAT:1,CON=19	DESC:Through means both mundane and magical, you have hardened your body to the rigors of surviving at altitudes where the thin air is not conducive to normal life.

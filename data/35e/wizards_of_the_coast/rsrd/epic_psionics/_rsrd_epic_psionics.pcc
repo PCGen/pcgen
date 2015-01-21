@@ -28,7 +28,7 @@ INFOTEXT:RSRD Epic Psionics options. Requires the RSRD Basics and RSRD Psionics 
 # Epic
 ABILITY:rsrd_abilities_companions_psionic.lst
 ABILITYCATEGORY:rsrd_ability_categories_epic_psionic.lst
-FEAT:rsrd_feats_psionic_epic.lst
+ABILITY:rsrd_feats_psionic_epic.lst
 CLASS:rsrd_classes_psionic_epic.lst
 CLASS:rsrd_classes_psionic_prestige_epic.lst
 

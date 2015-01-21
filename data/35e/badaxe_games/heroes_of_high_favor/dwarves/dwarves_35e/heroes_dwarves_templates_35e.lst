@@ -3,8 +3,8 @@ SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badax
 # Original Entry by: Andrew Maitland
 
 # Template Name		Clear Prereq.	Required Feat													Required Skill
-Single Weapon Style.MOD	PRE:.CLEAR		PREFEAT:4,Combat Expertise,Lightning Reflexes,Weapon Finesse,Weapon Focus			PRESKILL:2,Balance=4,Concentration=4
-Two-Weapon Style.MOD	PRE:.CLEAR		PREFEAT:4,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus,Weapon Finesse
+Single Weapon Style.MOD	PRE:.CLEAR		PREABILITY:4,CATEGORY=FEAT,Combat Expertise,Lightning Reflexes,Weapon Finesse,Weapon Focus			PRESKILL:2,Balance=4,Concentration=4
+Two-Weapon Style.MOD	PRE:.CLEAR		PREABILITY:4,CATEGORY=FEAT,Two-Weapon Fighting,Improved Two-Weapon Fighting,Weapon Focus,Weapon Finesse
 
 #
 # End

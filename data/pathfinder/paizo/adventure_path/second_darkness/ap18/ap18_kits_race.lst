@@ -17,11 +17,11 @@ SKILL:Intimidate			RANK:6
 SKILL:Knowledge (Religion)	RANK:6
 SKILL:Perception			RANK:9
 SKILL:Stealth			RANK:9
-FEAT:Combat Reflexes
-FEAT:Diehard
-FEAT:Endurance
-FEAT:Great Fortitude
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Diehard
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
 ###MISSING CHARDA BLACKTONGUE
@@ -43,15 +43,15 @@ SKILL:Sense Motive		RANK:17
 SKILL:Spellcraft			RANK:17
 SKILL:Stealth			RANK:17
 SKILL:Use Magic Device		RANK:17
-FEAT:Alertness
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Power Attack
-FEAT:Lightning Reflexes
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Spring Attack
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 
 
