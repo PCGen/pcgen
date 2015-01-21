@@ -38,7 +38,7 @@ SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Search		RANK:1
 SKILL:Sense Motive	RANK:1
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Hangin' Judge Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hangin' Judge]	SOURCEPAGE:p.184
 RACE:Hangin' Judge	!PRERACE:1,%
@@ -49,10 +49,10 @@ SKILL:Intimidate	RANK:14
 SKILL:Listen	RANK:8
 SKILL:Search	RANK:4
 SKILL:Spot		RANK:4
-FEAT:Point Blank Shot
-FEAT:Two-Weapon Fighting
-FEAT:Rapid Shot
-FEAT:Far Shot
+ABILITY:CATEGORY=FEAT|Point Blank Shot
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Rapid Shot
+ABILITY:CATEGORY=FEAT|Far Shot
 
 STARTPACK:Los Diablos Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Los Diablos]	SOURCEPAGE:p.186
 RACE:Los Diablos	!PRERACE:1,%
@@ -62,7 +62,7 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Hide		RANK:11
 SKILL:Intimidate	RANK:10
 SKILL:Listen	RANK:8
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Maze Dragon Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Maze Dragon]	SOURCEPAGE:p.187
 RACE:Maze Dragon	!PRERACE:1,%
@@ -75,10 +75,10 @@ SKILL:Search		RANK:15
 SKILL:Intuit Direction	RANK:9
 SKILL:Listen		RANK:17
 SKILL:Spot			RANK:17
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Prairie Tick Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prairie Tick]	SOURCEPAGE:p.187
 RACE:Prairie Tick	!PRERACE:1,%
@@ -95,7 +95,7 @@ NAME:Rattler
 ALIGN:LE
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:17
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Tumblebleed Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tumblebleed]	SOURCEPAGE:p.189
 RACE:Tumblebleed	!PRERACE:1,%
@@ -122,8 +122,8 @@ SKILL:Search		RANK:2
 SKILL:Hide			RANK:9
 SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:6
-FEAT:Firearms Proficiency (Pistol)
-FEAT:Simple Weapon Proficiency
+ABILITY:CATEGORY=FEAT|Firearms Proficiency (Pistol)
+ABILITY:CATEGORY=FEAT|Simple Weapon Proficiency
 
 STARTPACK:Walkin' Dead (Veteran) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Walkin' Dead (Veteran)]	SOURCEPAGE:p.191
 RACE:Walkin' Dead (Veteran)	!PRERACE:1,%
@@ -136,8 +136,8 @@ SKILL:Search		RANK:2
 SKILL:Hide			RANK:9
 SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:6
-FEAT:Firearms Proficiency (Pistol)
-FEAT:Simple Weapon Proficiency
+ABILITY:CATEGORY=FEAT|Firearms Proficiency (Pistol)
+ABILITY:CATEGORY=FEAT|Simple Weapon Proficiency
 
 STARTPACK:Wall Crawler Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wall Crawler]	SOURCEPAGE:p.191
 RACE:Wall Crawler	!PRERACE:1,%
@@ -158,10 +158,10 @@ SKILL:Hide			RANK:6
 SKILL:Intimidate		RANK:5
 SKILL:Listen		RANK:5
 SKILL:Wilderness Lore	RANK:3
-FEAT:Simple Weapon Proficiency
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Simple Weapon Proficiency
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Wendigo (Flying) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wendigo (Flying)]	SOURCEPAGE:p.193
 RACE:Wendigo (Flying)	!PRERACE:1,%
@@ -174,10 +174,10 @@ SKILL:Hide			RANK:6
 SKILL:Intimidate		RANK:5
 SKILL:Listen		RANK:5
 SKILL:Wilderness Lore	RANK:3
-FEAT:Simple Weapon Proficiency
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Simple Weapon Proficiency
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Wendigo (White) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wendigo (White)]	SOURCEPAGE:p.193
 RACE:Wendigo (White)	!PRERACE:1,%
@@ -190,10 +190,10 @@ SKILL:Hide			RANK:6
 SKILL:Intimidate		RANK:5
 SKILL:Listen		RANK:5
 SKILL:Wilderness Lore	RANK:3
-FEAT:Simple Weapon Proficiency
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Simple Weapon Proficiency
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 
 # Alignment Kits:

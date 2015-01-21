@@ -94,4 +94,4 @@ Soul Brazier				NAMEISPI:YES										TYPE:Magic.Wondrous		COST:19200	WT:15		SOU
 Spectral Yoke				NAMEISPI:YES										TYPE:Magic.Wondrous		COST:66000	WT:30		SOURCEPAGE:p.196
 Spider Webs					NAMEISPI:YES										TYPE:Magic.Wondrous		COST:500	WT:0		SOURCEPAGE:p.196-197
 Star Gazer					NAMEISPI:YES										TYPE:Magic.Wondrous		COST:50500	WT:1		SOURCEPAGE:p.197																																	BONUS:SKILL|Knowledge (Astrology)|10
-Mask (Vengaurak)				NAMEISPI:YES	OUTPUTNAME:[NAME] Mask						TYPE:Magic.Wondrous		COST:87000	WT:10		SOURCEPAGE:p.197		VFEAT:Blind-Fight																							BONUS:COMBAT|AC|4|TYPE=Deflection
+Mask (Vengaurak)				NAMEISPI:YES	OUTPUTNAME:[NAME] Mask						TYPE:Magic.Wondrous		COST:87000	WT:10		SOURCEPAGE:p.197		ABILITY:FEAT|VIRTUAL|Blind-Fight																							BONUS:COMBAT|AC|4|TYPE=Deflection

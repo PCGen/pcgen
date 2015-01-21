@@ -47,7 +47,7 @@ ABILITYCATEGORY:ce_abilitycategories.lst
 CLASS:ce_classes_race.lst
 EQUIPMENT:ce_equip_arms_armor.lst
 EQUIPMENT:ce_equip_general.lst
-FEAT:ce_feats.lst
+ABILITY:ce_feats.lst
 LANGUAGE:ce_languages.lst
 SKILL:ce_skills.lst
 SPELL:ce_spells.lst

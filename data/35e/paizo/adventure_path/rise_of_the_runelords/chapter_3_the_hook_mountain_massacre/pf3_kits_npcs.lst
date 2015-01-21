@@ -13,10 +13,10 @@ CLASS:Fighter	LEVEL:5
 SKILL:Climb		RANK:10
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
-FEAT:Great Fortitude
-FEAT:Improved Critical(Ogre Hook)
-FEAT:Power Attack
-FEAT:Weapon Focus(Ogre Hook)
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Critical(Ogre Hook)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Ogre Hook)
 ABILITY:CATEGORY=Fighter Feat|Cleave
 ABILITY:CATEGORY=Fighter Feat|Improved Bull Rush
 ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Ogre Hook)
@@ -74,10 +74,10 @@ CLASS:Fighter	LEVEL:6
 SKILL:Handle Animal	RANK:9
 SKILL:Intimidate		RANK:9
 SKILL:Survival		RANK:4
-FEAT:Improved Initiative
-FEAT:Great Fortitude
-FEAT:Skill Focus(Survival)
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Skill Focus(Survival)
+ABILITY:CATEGORY=FEAT|Track
 ABILITY:CATEGORY=Fighter Feat|Cleave
 ABILITY:CATEGORY=Fighter Feat|Power Attack
 ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Longspear)
@@ -104,10 +104,10 @@ SKILL:Spot			RANK:7
 SKILL:Hide			RANK:7
 SKILL:Jump			RANK:7
 SKILL:Climb			RANK:10
-FEAT:Cleave
-FEAT:Dodge
-FEAT:Iron Will
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=Fighter Feat|Power Attack
 ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Ogre Hook)
 GEAR:Ogre Hook				LOCATION:Both Hands	EQMOD:PLUS1W
@@ -130,10 +130,10 @@ CLASS:Wizard	LEVEL:8	SUBCLASS:Necromancer
 SKILL:Concentration		RANK:11
 SKILL:Knowledge (Arcana)	RANK:11
 SKILL:Spellcraft			RANK:11
-FEAT:Craft Wand
-FEAT:Craft Wondrous Item
-FEAT:Greater Spell Focus(Necromancy)
-FEAT:Spell Focus(Necromancy)
+ABILITY:CATEGORY=FEAT|Craft Wand
+ABILITY:CATEGORY=FEAT|Craft Wondrous Item
+ABILITY:CATEGORY=FEAT|Greater Spell Focus(Necromancy)
+ABILITY:CATEGORY=FEAT|Spell Focus(Necromancy)
 ABILITY:CATEGORY=Wizard Feat|Brew Potion
 GEAR:Quarterstaff							LOCATION:Both Hands	EQMOD:MWORKW
 GEAR:Amulet of Health +2					LOCATION:Equipped
@@ -157,10 +157,10 @@ ABILITY:CATEGORY=Ogrekin Advantageous Deformity|Vestigal Twin
 ABILITY:CATEGORY=Ogrekin Disadvantageous Deformity|Speech Impediment
 CLASS:Barbarian	LEVEL:1
 CLASS:Rogue		LEVEL:5
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Skill Focus(Craft (Trapmaking))
-FEAT:Weapon Focus(Ogre Hook)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus(Craft (Trapmaking))
+ABILITY:CATEGORY=FEAT|Weapon Focus(Ogre Hook)
 SKILL:Handle Animal		RANK:4
 SKILL:Climb				RANK:3
 SKILL:Craft (Trapmaking)	RANK:9
@@ -257,11 +257,11 @@ SKILL:Search		RANK:10
 SKILL:Spot			RANK:10
 ABILITY:CATEGORY=Ranger Combat Style|Two-Weapon Fighting Combat Style
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Giant)
-FEAT:Persuasive
-FEAT:Track
-FEAT:Two-Weapon Defense
-FEAT:Two-Weapon Fighting
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Persuasive
+ABILITY:CATEGORY=FEAT|Track
+ABILITY:CATEGORY=FEAT|Two-Weapon Defense
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Unarmed Strike	LOCATION:Equipped
 
 
@@ -276,10 +276,10 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 SKILL:Climb		RANK:8
 SKILL:Climb		RANK:2	FREE:YES
-FEAT:Great Fortitude
-FEAT:Improved Critical(Ogre Hook)
-FEAT:Power Attack
-FEAT:Weapon Focus(Ogre Hook)
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Critical(Ogre Hook)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Ogre Hook)
 ABILITY:CATEGORY=Fighter Feat|Cleave
 ABILITY:CATEGORY=Fighter Feat|Improved Bull Rush
 ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Ogre Hook)
@@ -301,10 +301,10 @@ SKILL:Spot		RANK:2
 SKILL:Climb		RANK:3
 SKILL:Listen	RANK:9
 SKILL:Intimidate	RANK:7
-FEAT:Improved Bull Rush
-FEAT:Improved Critical(Ogre Hook)
-FEAT:Power Attack
-FEAT:Weapon Focus(Ogre Hook)
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical(Ogre Hook)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Ogre Hook)
 GEAR:Ogre Hook					SIZE:L	LOCATION:Both Hands	EQMOD:PLUS1W.BANE_M|Humanoids (human)
 GEAR:Potion (Cure Serious Wounds)	QTY:2			LOCATION:Carried
 GEAR:Bracers of Armor +2					LOCATION:Equipped
@@ -321,11 +321,11 @@ CLASS:Sorcerer	LEVEL:9
 SKILL:Listen		RANK:4
 SKILL:Spot			RANK:3
 SKILL:Concentration	RANK:9
-FEAT:Eschew Materials
-FEAT:Extend Spell
-FEAT:Greater Spell Focus(Enchantment)
-FEAT:Iron Will
-FEAT:Spell Focus(Enchantment)
+ABILITY:CATEGORY=FEAT|Eschew Materials
+ABILITY:CATEGORY=FEAT|Extend Spell
+ABILITY:CATEGORY=FEAT|Greater Spell Focus(Enchantment)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Spell Focus(Enchantment)
 GEAR:Dagger					SIZE:L	LOCATION:Primary Hand
 GEAR:Cloak of Charisma +2				LOCATION:Equipped
 GEAR:Amulet of Natural Armor +2			LOCATION:Equipped
@@ -342,11 +342,11 @@ NAME:Lucrecia
 ALIGN:CE
 STAT:STR=8|DEX=15|CON=12|INT=14|WIS=10|CHA=13
 CLASS:Rogue	LEVEL:2
-FEAT:Combat Expertise
-FEAT:Improved Feint
-FEAT:Improved Two-Weapon Fighting
-FEAT:Two-Weapon Fighting
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Improved Feint
+ABILITY:CATEGORY=FEAT|Improved Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 SKILL:Concentration		RANK:15
 SKILL:Knowledge (Arcana)	RANK:15
 SKILL:Spellcraft			RANK:15
@@ -370,10 +370,10 @@ NAME:Grazuul
 ALIGN:CE
 STAT:STR=16|DEX=14|CON=12|INT=8|WIS=13|CHA=12
 CLASS:Fighter	LEVEL:5
-FEAT:Combat Reflexes
-FEAT:Improved Bull Rush
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=Fighter Feat|Improved Critical(Claw)
 ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Claw)
 ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Claw)
@@ -391,11 +391,11 @@ ALIGN:CN
 STAT:STR=10|DEX=14|CON=10|INT=12|WIS=14|CHA=16
 TEMPLATE:Ghost (Myriana)
 CLASS:Nymph	LEVEL:6
-FEAT:Ability Focus(Blinding Beauty)
-FEAT:Combat Casting
-FEAT:Eschew Materials
-FEAT:Spell Focus(Evocation)
-FEAT:Greater Spell Focus(Evocation)
+ABILITY:CATEGORY=FEAT|Ability Focus(Blinding Beauty)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Eschew Materials
+ABILITY:CATEGORY=FEAT|Spell Focus(Evocation)
+ABILITY:CATEGORY=FEAT|Greater Spell Focus(Evocation)
 SKILL:Concentration	RANK:6
 SKILL:Diplomacy		RANK:15
 SKILL:Heal			RANK:15
@@ -418,14 +418,14 @@ TEMPLATE:Barl Breakbones Skills
 TEMPLATE:Barl Breakbones Magic Buffs
 CLASS:Wizard	LEVEL:7	SUBCLASS:Necromancer
 #Prohibited Schools abjuration, enchantment
-FEAT:Combat Casting
-FEAT:Greater Spell Focus(Necromancy)
-FEAT:Improved Bull Rush
-FEAT:Improved Critical(Earth Breaker)
-FEAT:Eschew Materials
-FEAT:Power Attack
-FEAT:Spell Focus(Necromancy)
-FEAT:Weapon Focus(Earth Breaker)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Greater Spell Focus(Necromancy)
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical(Earth Breaker)
+ABILITY:CATEGORY=FEAT|Eschew Materials
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Spell Focus(Necromancy)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Earth Breaker)
 ABILITY:CATEGORY=Wizard Feat|Spell Mastery(Fly,Mage Armor,Magic Missile)
 SKILL:Climb				RANK:20
 SKILL:Hide				RANK:17

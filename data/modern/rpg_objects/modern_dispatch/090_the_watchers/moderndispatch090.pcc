@@ -29,6 +29,6 @@ INFOTEXT:This dataset requires the use of the MSRD Future dataset
 ABILITY:moderndispatch090_abilities_occupations.lst
 ABILITYCATEGORY:moderndispatch090_ability_categories.lst
 CLASS:moderndispatch090_class.lst
-FEAT:moderndispatch090_feats.lst
-FEAT:moderndispatch090_feats_hidden.lst
-FEAT:moderndispatch090_feats_mod.lst
+ABILITY:moderndispatch090_feats.lst
+ABILITY:moderndispatch090_feats_hidden.lst
+ABILITY:moderndispatch090_feats_mod.lst

@@ -33,5 +33,5 @@ EQUIPMENT:fge-1-1_equip_weap_ammo.lst
 EQUIPMENT:fge-1-1_equip_weap_melee.lst
 EQUIPMENT:fge-1-1_equip_weap_ranged.lst
 EQUIPMENT:fge-1-1_equip.lst
-FEAT:fge-1-1_feats.lst
+ABILITY:fge-1-1_feats.lst
 WEAPONPROF:fge-1-1_weaponprofs.lst

@@ -68,7 +68,7 @@ CLASS:um_classes.lst
 EQUIPMENT:um_equip_arms_armor.lst
 EQUIPMENT:um_equip_general.lst
 DOMAIN:um_domains.lst
-FEAT:um_feats.lst
+ABILITY:um_feats.lst
 KIT:um_kits.lst
 SPELL:um_spells.lst
 TEMPLATE:um_templates.lst
@@ -88,5 +88,5 @@ RACE:um_races_companion.lst
 # Words of Power System
 ABILITY:um_abilities_wordsofpower.lst|PRERULE:1,WORDSOFPOWER
 ABILITYCATEGORY:um_abilitycategories_wordsofpower.lst|PRERULE:1,WORDSOFPOWER
-FEAT:um_feats_wordsofpower.lst|PRERULE:1,WORDSOFPOWER
+ABILITY:um_feats_wordsofpower.lst|PRERULE:1,WORDSOFPOWER
 SPELL:um_spells_wordsofpower.lst|PRERULE:1,WORDSOFPOWER

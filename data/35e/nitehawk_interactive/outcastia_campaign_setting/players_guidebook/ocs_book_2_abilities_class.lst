@@ -94,7 +94,7 @@ Navitus Flemen / Mend Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQ
 Navitus Flemen / Sense Discipline Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenSense																							SOURCEPAGE:p.61
 Navitus Flemen / Control Discipline  Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality.NavitusFlemenMastery			PREABILITY:3,CATEGORY=Special Ability,TYPE.MavitusFlemenControl																							SOURCEPAGE:p.61
 #
-Mystic Knight Martial Weapon Choice			CATEGORY:Special Ability																					MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Martial,TYPE=Sword]			AUTO:FEAT|Mystic Knight Martial Weapon Choice (%LIST)
+Mystic Knight Martial Weapon Choice			CATEGORY:Special Ability																					MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Martial,TYPE=Sword]			ABILITY:FEAT|AUTOMATIC|Mystic Knight Martial Weapon Choice (%LIST)
 Mystic Knight Weapon Focus				CATEGORY:Special Ability																					MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Mystic Knight Martial Weapon Choice
 Mystic Knight Skill Focus				CATEGORY:Special Ability																					MULT:YES	CHOOSE:SKILL|CLASS
 ###
@@ -121,7 +121,7 @@ Superior Spell Knowledge	KEY:Superior Spell Knowledge ~ Utter Master	CATEGORY:Sp
 
 ### ~ Murmur
 Competence				KEY:Competence ~ Murmur					CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurCompetenceTimes|0		DESC:%1/day|MurmurCompetenceTimes							SOURCEPAGE:p.71
-Improved Feint			KEY:Improved Feint ~ Murmur				CATEGORY:Special Ability	TYPE:SpecialQuality																	AUTO:FEAT|Improved Feint	SOURCEPAGE:p.71
+Improved Feint			KEY:Improved Feint ~ Murmur				CATEGORY:Special Ability	TYPE:SpecialQuality																	ABILITY:FEAT|AUTOMATIC|Improved Feint	SOURCEPAGE:p.71
 Spells				KEY:Spells ~ Murmur					CATEGORY:Special Ability	TYPE:SpecialQuality																						SOURCEPAGE:p.71
 Tactical Attack			KEY:Tactical Attack ~ Murmur				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurTacticalAttackBonus|0		DESC: +%1d6|MurmurTacticalAttackBonus						SOURCEPAGE:p.71
 Advantageous Step			KEY:Advantageous Step ~ Murmur			CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:MurmurAdvantageousStepTimes|0	DESC: %1/day|MurmurAdvantageousStepTimes						SOURCEPAGE:p.71

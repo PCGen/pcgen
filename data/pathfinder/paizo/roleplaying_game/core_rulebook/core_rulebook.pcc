@@ -53,7 +53,7 @@ EQUIPMENT:cr_equip_arms_armor.lst
 EQUIPMENT:cr_equip_general.lst
 EQUIPMENT:cr_equip_magic_items.lst
 EQUIPMOD:cr_equipmods.lst
-FEAT:cr_feats.lst
+ABILITY:cr_feats.lst
 KIT:cr_kits.lst
 LANGUAGE:cr_languages.lst
 RACE:cr_races.lst

@@ -14,8 +14,8 @@ ImprovedArcaneKnack								CATEGORY:Special Ability	TYPE:SpellTag				VISIBLE:NO	
 KnowledgeofPastRpt								CATEGORY:Special Ability	TYPE:FeatTag				VISIBLE:NO																																																																																																		MULT:YES	CHOOSE:SKILL|ALL																																																																																																																																																																																																																																																		CSKILL:LIST				SOURCEPAGE:p.153
 
 # Restless Wanderer Feat
-RW Class Skill				OUTPUTNAME:Restless Wanderer	CATEGORY:Special Ability	TYPE:Internal.RestlessWanderer	VISIBLE:NO											PREFEAT:1,Restless Wanderer																																																	DESC:For members of some races, there is no land in which they are welcomed or readily accepted.																		MULT:YES	CHOOSE:NUMCHOICES=3|SKILL|CROSSCLASS																																																																																																																																																																																																																																																CCSKILL:LIST	SOURCEPAGE:p.157
-RW Favored Class				OUTPUTNAME:Restless Wanderer	CATEGORY:Special Ability	TYPE:Internal.RestlessWanderer	VISIBLE:NO											PREFEAT:1,Restless Wanderer																																																	DESC:For members of some races, there is no land in which they are welcomed or readily accepted. Additional Favored Class: %1|CHOICE												MULT:YES	CHOOSE:NUMCHOICES=1|USERINPUT|TITLE=Additional Favored Class	SELECT:1																																																																																																																																																																																																																																													SOURCEPAGE:p.157
+RW Class Skill				OUTPUTNAME:Restless Wanderer	CATEGORY:Special Ability	TYPE:Internal.RestlessWanderer	VISIBLE:NO											PREABILITY:1,CATEGORY=FEAT,Restless Wanderer																																																	DESC:For members of some races, there is no land in which they are welcomed or readily accepted.																		MULT:YES	CHOOSE:NUMCHOICES=3|SKILL|CROSSCLASS																																																																																																																																																																																																																																																CCSKILL:LIST	SOURCEPAGE:p.157
+RW Favored Class				OUTPUTNAME:Restless Wanderer	CATEGORY:Special Ability	TYPE:Internal.RestlessWanderer	VISIBLE:NO											PREABILITY:1,CATEGORY=FEAT,Restless Wanderer																																																	DESC:For members of some races, there is no land in which they are welcomed or readily accepted. Additional Favored Class: %1|CHOICE												MULT:YES	CHOOSE:NUMCHOICES=1|USERINPUT|TITLE=Additional Favored Class	SELECT:1																																																																																																																																																																																																																																													SOURCEPAGE:p.157
 
 ## Domain
 ArtificerSkills									CATEGORY:Special Ability	TYPE:DomainFeat				VISIBLE:NO																																																																DESC:You gain a bonus of +2 on any three Craft skills.																																																																								BONUS:SKILL|TYPE=Craft|2|TYPE.Competence																																																																																																																																																																																																						SOURCEPAGE:p.253													SPELLLEVEL:DOMAIN|Artificer=1|Hardness|Artificer=2|Identify|Artificer=3|Stone Shape|Artificer=4|Minor Creation|Artificer=5|Major Creation|Artificer=6|Reanimate Construct|Artificer=7|Presence of Master Smiths|Artificer=8|Polymorph Any Object|Artificer=9|Miracle
@@ -119,10 +119,10 @@ Favored Enemy Spell Focus (Vermin)				CATEGORY:Special Ability	TYPE:SpellFavored
 
 
 
-Monk ~ Stunning Fist						CATEGORY:Special Ability																				AUTO:FEAT|Stunning Fist
-Improved Trip							CATEGORY:Special Ability																				AUTO:FEAT|Improved Trip
-Deflect Arrows							CATEGORY:Special Ability																				AUTO:FEAT|Deflect Arrows
-Combat Reflexes							CATEGORY:Special Ability																				AUTO:FEAT|Combat Reflexes
+Monk ~ Stunning Fist						CATEGORY:Special Ability																				ABILITY:FEAT|AUTOMATIC|Stunning Fist
+Improved Trip							CATEGORY:Special Ability																				ABILITY:FEAT|AUTOMATIC|Improved Trip
+Deflect Arrows							CATEGORY:Special Ability																				ABILITY:FEAT|AUTOMATIC|Deflect Arrows
+Combat Reflexes							CATEGORY:Special Ability																				ABILITY:FEAT|AUTOMATIC|Combat Reflexes
 
 
 

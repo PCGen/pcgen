@@ -13,9 +13,9 @@ SKILL:Balance		RANK:4
 SKILL:Escape Artist	RANK:4
 SKILL:Jump			RANK:4
 SKILL:Tumble		RANK:4
-FEAT:Improved Initiative
-FEAT:Dodge				PRERACE:1,Human	PRESTAT:1,DEX=13
-FEAT:Expertise			PRERACE:1,Human	PRESTAT:1,INT=13
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge				PRERACE:1,Human	PRESTAT:1,DEX=13
+ABILITY:CATEGORY=FEAT|Expertise			PRERACE:1,Human	PRESTAT:1,INT=13
 
 
 STARTPACK:Assassin Starting Package	TYPE:StartingKit	PRECLASS:1,Assassin (CW)=1	SOURCEPAGE:p.21
@@ -28,8 +28,8 @@ SKILL:Bluff			RANK:4
 SKILL:Disguise		RANK:4
 SKILL:Hide			RANK:4
 SKILL:Move Silently	RANK:4
-FEAT:Exotic Weapon Proficiency(Kukri)
-FEAT:Improved Initiative			PRERACE:1,Human
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency(Kukri)
+ABILITY:CATEGORY=FEAT|Improved Initiative			PRERACE:1,Human
 GEAR:Kukri
 
 
@@ -40,10 +40,10 @@ GEAR:Net
 GEAR:Javelin		QTY:3
 SKILL:Heal		RANK:4
 SKILL:Intimidate	RANK:4
-FEAT:Combat Reflexes					PRESTAT:1,DEX=12
-FEAT:Weapon Focus(Chain (Spiked))
-FEAT:Exotic Weapon Proficiency(Net)
-FEAT:Exotic Weapon Proficiency(Chain (Spiked))
+ABILITY:CATEGORY=FEAT|Combat Reflexes					PRESTAT:1,DEX=12
+ABILITY:CATEGORY=FEAT|Weapon Focus(Chain (Spiked))
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency(Net)
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency(Chain (Spiked))
 
 #
 # end

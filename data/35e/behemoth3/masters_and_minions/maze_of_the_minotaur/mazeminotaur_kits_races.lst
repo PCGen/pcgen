@@ -12,10 +12,10 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 SKILL:Search	RANK:3
 SKILL:Survival	RANK:5
-FEAT:Awesome Blow
-FEAT:Improved Critical (Greataxe)
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Improved Critical (Greataxe)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Greataxe	SIZE:PC	LOCATION:Both Hands
 GEAR:Chain Shirt	SIZE:PC	LOCATION:Equipped
 
@@ -30,9 +30,9 @@ SKILL:Survival	RANK:3
 SKILL:Listen	RANK:1
 SKILL:Search	RANK:1
 SKILL:Spot		RANK:1
-FEAT:Great Fortitude
-FEAT:Power Attack
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Greataxe	SIZE:PC	LOCATION:Both Hands
 
 
@@ -47,8 +47,8 @@ SKILL:Search		RANK:2
 SKILL:Survival		RANK:2
 SKILL:Listen		RANK:1
 SKILL:Spot			RANK:1
-FEAT:Great Fortitude
-FEAT:Skill Focus (Survival)
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Skill Focus (Survival)
 GEAR:Leather			SIZE:PC	LOCATION:Equipped
 GEAR:Javelin			SIZE:PC	LOCATION:Carried
 GEAR:Shortbow (Composite)	SIZE:PC	LOCATION:Carried
@@ -65,9 +65,9 @@ SKILL:Spot			RANK:2
 SKILL:Search		RANK:4
 SKILL:Spellcraft		RANK:4
 SKILL:Survival		RANK:1
-FEAT:Brew Potion
-FEAT:Combat Casting
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Brew Potion
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Great Fortitude
 GEAR:Leather	SIZE:PC	LOCATION:Equipped
 
 
@@ -79,5 +79,5 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 SKILL:Search	RANK:2
 SKILL:Search	RANK:3	FREE:YES
-FEAT:Great Fortitude
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Toughness

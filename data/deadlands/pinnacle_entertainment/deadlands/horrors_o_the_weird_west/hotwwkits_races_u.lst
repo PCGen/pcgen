@@ -10,6 +10,6 @@ SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
 SKILL:Listen		RANK:7
 SKILL:Swim			RANK:8
-FEAT:Cleave
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack

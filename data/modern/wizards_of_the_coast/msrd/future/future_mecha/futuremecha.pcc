@@ -34,7 +34,7 @@ CLASS:futuremecha_classes_advanced.lst
 EQUIPMENT:futuremecha_equip_mecha.lst
 EQUIPMENT:futuremecha_equip_weap.lst
 EQUIPMOD:futuremecha_equipmods.lst
-FEAT:futuremecha_feats.lst
-FEAT:futuremecha_feats_mod.lst
+ABILITY:futuremecha_feats.lst
+ABILITY:futuremecha_feats_mod.lst
 WEAPONPROF:futuremecha_weapon_proficiency.lst
 TEMPLATE:futuremecha_templates.lst

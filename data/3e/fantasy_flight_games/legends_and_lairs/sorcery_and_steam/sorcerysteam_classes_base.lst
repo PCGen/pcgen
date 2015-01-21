@@ -7,9 +7,9 @@ CLASS:Animal Lord	HD:10		TYPE:Base.PC	ABB:AnL		MAXLEVEL:20	SOURCEPAGE:p.37	BONUS
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE=Craft|Escape Artist|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Ride|Spot|Swim|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 ###Block: Animal Lord Skill....
-1	BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill1,1						DEFINE:AnimalLordSkill1|0	ADD:FEAT|TYPE=HomeEnvironment
+1	BONUS:SKILLPOOL|NUMBER|2|PREVAREQ:AnimalLordSkill1,1						DEFINE:AnimalLordSkill1|0	BONUS:ABILITYPOOL|HomeEnvironment|1
 1										BONUS:VAR|ALSkillBonus|CL	DEFINE:ALSkillBonus|0
 1															DEFINE:AnimalLordSkill5|0
 1															DEFINE:AnimalLordSkill9|0
@@ -23,19 +23,19 @@ CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE=Craft
 1										BONUS:VAR|AnimalCompanionLVL|CL						ABILITY:Special Ability|AUTOMATIC|Animal Companion
 1	SAB:Master of the Wild (%/day)(Ex)|MasteroftheWild	BONUS:VAR|MasterOfTheWild|(CL+5)/6	DEFINE:MasterOfTheWild|0
 ###Block: Normal Level Progression
-1						ADD:FEAT|TYPE=AnimalLordAbility	ADD:FEAT|TYPE=AnimalLordTotem									AUTO:FEAT|Feral Child
-2																									AUTO:FEAT|Track
+1						BONUS:ABILITYPOOL|Animal Lord Ability|1	BONUS:ABILITYPOOL|Animal Lord Totem|1									ABILITY:FEAT|AUTOMATIC|Feral Child
+2																									ABILITY:FEAT|AUTOMATIC|Track
 3																	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
-4																									AUTO:FEAT|Feral Athleticism
-5						ADD:FEAT|TYPE=AnimalLordAbility
+4																									ABILITY:FEAT|AUTOMATIC|Feral Athleticism
+5						BONUS:ABILITYPOOL|Animal Lord Ability|1
 6	BONUS:VAR|UncannyDodge|1
-8																									AUTO:FEAT|Feral Voice
-9						ADD:FEAT|TYPE=AnimalLordAbility
+8																									ABILITY:FEAT|AUTOMATIC|Feral Voice
+9						BONUS:ABILITYPOOL|Animal Lord Ability|1
 11	BONUS:VAR|UncannyDodge|1
-12																									AUTO:FEAT|Feral Senses
-13						ADD:FEAT|TYPE=AnimalLordAbility
+12																									ABILITY:FEAT|AUTOMATIC|Feral Senses
+13						BONUS:ABILITYPOOL|Animal Lord Ability|1
 16	BONUS:VAR|UncannyDodge|1
-17						ADD:FEAT|TYPE=AnimalLordAbility
+17						BONUS:ABILITYPOOL|Animal Lord Ability|1
 20	BONUS:VAR|UncannyDodge|1
 
 
@@ -43,10 +43,10 @@ CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Animal Empathy|Balance|Climb|TYPE=Craft
 CLASS:Artificer	HD:6		TYPE:Base.PC	ABB:Art		MAXLEVEL:20	SOURCEPAGE:p.41	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Artificer	STARTSKILLPTS:8	CSKILL:Alchemy|Concentration|TYPE=Craft|Diplomacy|Disable Device|Drive|Heal|Intimidate|Listen|Munitions|Open Lock|TYPE=Profession|Ride|Search|TYPE=Tech|Use Rope|Use Steamcraft Device
-1	AUTO:FEAT|Simple Weapon Proficiency
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Sabotage (Ex)	SAB:Steamcraft Creations (Ex)																		AUTO:FEAT|Feral Child
+1	SAB:Sabotage (Ex)	SAB:Steamcraft Creations (Ex)																		ABILITY:FEAT|AUTOMATIC|Feral Child
 2																				BONUS:ABILITYPOOL|Artificer Skill Focus|1
 5	SAB:Master Craftsman +%|MasterCraftsman		BONUS:VAR|MasterCraftsman|(CL-2)/3	DEFINE:MasterCraftsman|0	BONUS:ABILITYPOOL|Artificer Steamcraft Focus|1
 8																				BONUS:ABILITYPOOL|Artificer Skill Focus|1
@@ -60,11 +60,11 @@ CLASS:Artificer	STARTSKILLPTS:8	CSKILL:Alchemy|Concentration|TYPE=Craft|Diplomac
 CLASS:Musketeer	HD:8		TYPE:Base.PC	ABB:Msk		MAXLEVEL:20	SOURCEPAGE:p.44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Musketeer	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Disable Device|Escape Artist|Gather Information|Intimidate|Jump|Munitions|TYPE=Profession|Ride|Sense Motive|Spot|Swim|Tumble|Use Rope|Use Steamcraft Device
-1	AUTO:FEAT|Musketeer Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Musketeer Weapon Proficiencies
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1																					AUTO:FEAT|Combat Reload|Rapid Reload (Firearms)
-2																					AUTO:FEAT|Reload on the Run
+1																					ABILITY:FEAT|AUTOMATIC|Combat Reload|Rapid Reload (Firearms)
+2																					ABILITY:FEAT|AUTOMATIC|Reload on the Run
 3	SAB:Avoid Fire +% (Ex)|AvoidFire			BONUS:VAR|AvoidFire|1	DEFINE:AvoidFire|0
 4	SAB: Move and I'll Shoot (Ex)
 5																	BONUS:ABILITYPOOL|Musketeer Feat|1

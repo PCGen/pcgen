@@ -52,7 +52,7 @@ EQUIPMENT:@/3e/wizards_of_the_coast/srd/basics/srd_equip.lst
 EQUIPMOD:@/3e/wizards_of_the_coast/srd/basics/srd_equipmods_magic.lst
 EQUIPMOD:@/3e/wizards_of_the_coast/srd/basics/srd_equipmods_mundane.lst
 
-FEAT:@/3e/wizards_of_the_coast/srd/basics/srd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Flyby Attack,Hover,Improved Control Shape,Multidexterity,Multiweapon Fighting,Multiattack,Quicken Spell-Like Ability,Snatch,Spell-Like Ability Focus,Unearthly Beauty,Wingover)
+ABILITY:@/3e/wizards_of_the_coast/srd/basics/srd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Flyby Attack,Hover,Improved Control Shape,Multidexterity,Multiweapon Fighting,Multiattack,Quicken Spell-Like Ability,Snatch,Spell-Like Ability Focus,Unearthly Beauty,Wingover)
 
 KIT:@/3e/wizards_of_the_coast/srd/basics/srd_kits_races__animals.lst|(INCLUDE:Default Bat|Default Cat|Default Hawk|Default Lizard|Default Owl|Default Rat|Default Raven|Default Snake (Tiny Viper)|Default Toad|Default Weasel|Default Dog (Riding)|Default Donkey|Default Horse (Heavy)|Default Horse (Light)|Default Horse (Heavy War)|Default Horse (Light War)|Default Mule|Default Pony|Default Pony (War))
 KIT:@/3e/wizards_of_the_coast/srd/basics/srd_kits_races__base.lst

@@ -34,7 +34,7 @@ URL:Amazon.com|http://www.amazon.com/gp/product/0971439249?ie=UTF8&tag=httppcgen
 
 EQUIPMENT:alchemyherbalistequipwondrousitems.lst
 EQUIPMENT:alchemyherbalistequipherbs.lst
-FEAT:alchemyherbalistfeats.lst
+ABILITY:alchemyherbalistfeats.lst
 CLASS:alchemyherbalistclasses.lst
 SKILL:alchemyherbalistskills.lst
 SPELL:alchemyherbalistspells.lst

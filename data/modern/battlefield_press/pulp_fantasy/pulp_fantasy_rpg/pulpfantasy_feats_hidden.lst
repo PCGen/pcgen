@@ -39,21 +39,21 @@ Category(Weird Science)			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (We
 
 ###Block: Categories for Talk a Good Game Talent
 # Feat Name					Type					Visible	Required Feat						Special ABility						Source Page
-Category (Art)				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Art)				SAB:Talk a Good Game (Art)				SOURCEPAGE:p.22
-Category (Behavioral sciences)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Behavioral sciences)		SAB:Talk a Good Game (Behavioral Sciences)	SOURCEPAGE:p.22
-Category (Business)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Business)				SAB:Talk a Good Game (Business)			SOURCEPAGE:p.22
-Category (Civics)				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Civics)				SAB:Talk a Good Game (Civics)				SOURCEPAGE:p.22
-Category (Current events)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Current events)			SAB:Talk a Good Game (Current Events)		SOURCEPAGE:p.22
-Category (Earth and life sciences)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Earth and life sciences)	SAB:Talk a Good Game (Earth and Life Sciences)	SOURCEPAGE:p.22
-Category (Hidden lore)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Hidden lore)			SAB:Talk a Good Game (Hidden Lore)			SOURCEPAGE:p.22
-Category (History)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (History)				SAB:Talk a Good Game (History)			SOURCEPAGE:p.22
-Category (Military Science)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Military Science)		SAB:Talk a Good Game (Military Science)		SOURCEPAGE:p.22
-Category (Physical sciences)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Physical sciences)		SAB:Talk a Good Game (Physical Sciences)		SOURCEPAGE:p.22
-Category (Popular culture)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Popular culture)		SAB:Talk a Good Game (Popular Culture)		SOURCEPAGE:p.22
-Category (Streetwise)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Streetwise)			SAB:Talk a Good Game (Streetwise)			SOURCEPAGE:p.22
-Category (Technology)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Technology)			SAB:Talk a Good Game (Technology)			SOURCEPAGE:p.22
-Category (Theology and philosophy)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Theology and philosophy)	SAB:Talk a Good Game (Theology and Philosophy)	SOURCEPAGE:p.22
-Category (Weird Science)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category (Weird Science)			SAB:Talk a Good Game (Weird Science)		SOURCEPAGE:p.22
+Category (Art)				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (Art)				SAB:Talk a Good Game (Art)				SOURCEPAGE:p.22
+Category (Behavioral sciences)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (Behavioral sciences)		SAB:Talk a Good Game (Behavioral Sciences)	SOURCEPAGE:p.22
+Category (Business)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (Business)				SAB:Talk a Good Game (Business)			SOURCEPAGE:p.22
+Category (Civics)				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (Civics)				SAB:Talk a Good Game (Civics)				SOURCEPAGE:p.22
+Category (Current events)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (Current events)			SAB:Talk a Good Game (Current Events)		SOURCEPAGE:p.22
+Category (Earth and life sciences)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (Earth and life sciences)	SAB:Talk a Good Game (Earth and Life Sciences)	SOURCEPAGE:p.22
+Category (Hidden lore)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (Hidden lore)			SAB:Talk a Good Game (Hidden Lore)			SOURCEPAGE:p.22
+Category (History)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (History)				SAB:Talk a Good Game (History)			SOURCEPAGE:p.22
+Category (Military Science)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (Military Science)		SAB:Talk a Good Game (Military Science)		SOURCEPAGE:p.22
+Category (Physical sciences)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (Physical sciences)		SAB:Talk a Good Game (Physical Sciences)		SOURCEPAGE:p.22
+Category (Popular culture)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (Popular culture)		SAB:Talk a Good Game (Popular Culture)		SOURCEPAGE:p.22
+Category (Streetwise)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (Streetwise)			SAB:Talk a Good Game (Streetwise)			SOURCEPAGE:p.22
+Category (Technology)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (Technology)			SAB:Talk a Good Game (Technology)			SOURCEPAGE:p.22
+Category (Theology and philosophy)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (Theology and philosophy)	SAB:Talk a Good Game (Theology and Philosophy)	SOURCEPAGE:p.22
+Category (Weird Science)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Category (Weird Science)			SAB:Talk a Good Game (Weird Science)		SOURCEPAGE:p.22
 
 ###Block: Fast Learner Level Selections
 # Feat Name				Type				Visible	Multiple Requirements							Bonus to skill point for a level
@@ -235,7 +235,7 @@ Resolve		TYPE:ExplorerAbility	VISIBLE:NO				SAB:Resolve																									
 Skilled Searcher	TYPE:ExplorerAbility	VISIBLE:NO				SAB:Skilled Searcher (+%)|SkilledSearcherBonus															DEFINE:SkilledSearcherBonus|0								BONUS:VAR|SkilledSearcherBonus|var("CL=Explorer")/2	SOURCEPAGE:p.106
 Trap Sense		TYPE:ExplorerAbility	VISIBLE:NO				SAB:Trap Sense (+%)|TrapSense																		DEFINE:TrapSense|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|TrapSense|1						SOURCEPAGE:p.106
 Extra Step		TYPE:ExplorerAbility	VISIBLE:NO				SAB:Extra Step|PREVAREQ:var("COUNT[FEATNAME=Extra Step]"),1	SAB:Extra Step (Free)|PREVARGT:var("COUNT[FEATNAME=Extra Step]"),1						STACK:YES	MULT:YES	CHOOSE:NOCHOICE										SOURCEPAGE:p.106
-Improved Evasion	TYPE:ExplorerAbility	VISIBLE:NO	PREFEAT:1,Evasion	SAB:Improved Evasion																																								SOURCEPAGE:p.106
+Improved Evasion	TYPE:ExplorerAbility	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Evasion	SAB:Improved Evasion																																								SOURCEPAGE:p.106
 
 ###Block:G-man Class Abilities
 # Feat Name				Type				Visible	Special ABility						Multiple?	Choose									Add 																									Source Page
@@ -260,7 +260,7 @@ Crippling Strike		TYPE:GangsterAbility	VISIBLE:NO	SAB:Crippling Strike										
 ###Block:Mystery Man Class Abilities
 # Feat Name				Type				Visible	Special ABility																														Define					Stackable?	Multiple?	Choose													Combat bonus																																																																			Bonus to skill			Modify VAR									Source Page
 Charming				TYPE:MysteryManAbility	VISIBLE:NO	SAB:Charming																																																																																																																											BONUS:SKILL|TYPE=Charisma|2											SOURCEPAGE:p.106
-Two Fisted Action			TYPE:MysteryManAbility	VISIBLE:NO	SAB:Two Fisted Action Chosen weapon (%CHOICE)																																	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|EQUIPMENT[TYPE=Melee]|EQUIPMENT[TYPE=Ranged]	BONUS:COMBAT|TOHIT-PRIMARY|6|PREMULT:2,[PREEQUIPTWOWEAPON:2,%LIST],[!PREFEAT:1,Two-Weapon Fighting]	BONUS:COMBAT|TOHIT-SECONDARY|10|PREMULT:2,[PREEQUIPTWOWEAPON:2,%LIST],[!PREFEAT:1,Two-Weapon Fighting]	BONUS:COMBAT|TOHIT-PRIMARY|4|PREMULT:2,[PREEQUIPTWOWEAPON:2,%LIST],[PREFEAT:1,Two-Weapon Fighting]	BONUS:COMBAT|TOHIT-SECONDARY|4|PREMULT:2,[PREEQUIPTWOWEAPON:2,%LIST],[PREFEAT:1,Two-Weapon Fighting]																SOURCEPAGE:p.106
+Two Fisted Action			TYPE:MysteryManAbility	VISIBLE:NO	SAB:Two Fisted Action Chosen weapon (%CHOICE)																																	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|EQUIPMENT[TYPE=Melee]|EQUIPMENT[TYPE=Ranged]	BONUS:COMBAT|TOHIT-PRIMARY|6|PREMULT:2,[PREEQUIPTWOWEAPON:2,%LIST],[!PREABILITY:1,CATEGORY=FEAT,Two-Weapon Fighting]	BONUS:COMBAT|TOHIT-SECONDARY|10|PREMULT:2,[PREEQUIPTWOWEAPON:2,%LIST],[!PREABILITY:1,CATEGORY=FEAT,Two-Weapon Fighting]	BONUS:COMBAT|TOHIT-PRIMARY|4|PREMULT:2,[PREEQUIPTWOWEAPON:2,%LIST],[PREABILITY:1,CATEGORY=FEAT,Two-Weapon Fighting]	BONUS:COMBAT|TOHIT-SECONDARY|4|PREMULT:2,[PREEQUIPTWOWEAPON:2,%LIST],[PREABILITY:1,CATEGORY=FEAT,Two-Weapon Fighting]																SOURCEPAGE:p.106
 Over Sight				TYPE:MysteryManAbility	VISIBLE:NO	SAB:Over Sight																																																																																																																																										SOURCEPAGE:p.106
 Art of Evasion			TYPE:MysteryManAbility	VISIBLE:NO	SAB:Art of Evasion																																																																																																																																									SOURCEPAGE:p.106
 Improved Investigation		TYPE:MysteryManAbility	VISIBLE:NO	SAB:Improved Investigation																																																																																																																																								SOURCEPAGE:p.107
@@ -330,7 +330,7 @@ Self Deception	TYPE:SpyAbility	VISIBLE:NO	SAB:Self Deception																				
 # Feat Name						Type					Visible	Special ABility										Define				Stackable?	Multiple?	Choose		Add 				Bonus to skill			Modify VAR											Source Page		Temporary Bonus
 Jury Rig						TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Jury Rig +%|JuryRigValue								DEFINE:JuryRigValue|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|JuryRigValue|2								SOURCEPAGE:p.123
 Weird Scientist Gadget Creation		TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Weird Science Gadget Creation (% Invention Levels)|InventionLevels	DEFINE:InventionLevels|0																	BONUS:VAR|InventionLevels|var("CL=Weird Inventor")+2+max(0,INTSCORE-12)	SOURCEPAGE:p.123
-Academic Mastery					TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Academic Mastery x%|var("COUNT[FEATNAME=Academic Mastery]")							STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ADD:FEAT|Skill Focus																		SOURCEPAGE:p.123
+Academic Mastery					TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Academic Mastery x%|var("COUNT[FEATNAME=Academic Mastery]")							STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Skill Focus|1																		SOURCEPAGE:p.123
 Improve Craft - Weird Inventor		TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Improve Craft																										BONUS:SKILL|TYPE.Craft|INT													SOURCEPAGE:p.123
 Material Substitution				TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Material Substitution																																									SOURCEPAGE:p.123
 Jinx							TYPE:WeirdInventorAbility	VISIBLE:NO	SAB:Jinx																																												SOURCEPAGE:p.123

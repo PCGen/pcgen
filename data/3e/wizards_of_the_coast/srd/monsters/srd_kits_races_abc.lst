@@ -10,9 +10,9 @@ SKILL:Concentration		RANK:11
 SKILL:Listen			RANK:11
 SKILL:Spot				RANK:11
 SKILL:Knowledge (Underdark)	RANK:5
-FEAT:Alertness
-FEAT:Combat Casting
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Iron Will
 
 STARTPACK:Achaierai Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Achaierai]
 RACE:Achaierai	!PRERACE:1,%
@@ -25,8 +25,8 @@ SKILL:Listen		RANK:9
 SKILL:Move Silently	RANK:9
 SKILL:Sense Motive	RANK:9
 SKILL:Spot			RANK:9
-FEAT:Dodge
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 
 STARTPACK:Allip Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Allip]
 RACE:Allip	!PRERACE:1,%
@@ -39,7 +39,7 @@ SKILL:Listen		RANK:7
 SKILL:Search		RANK:7
 SKILL:Spot			RANK:7
 SKILL:Intuit Direction	RANK:4
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Animated Object (Tiny) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animated Object (Tiny)]
 RACE:Animated Object (Tiny)	!PRERACE:1,%
@@ -100,9 +100,9 @@ SKILL:Concentration	RANK:6
 SKILL:Craft (Weaving)	RANK:6
 SKILL:Escape Artist	RANK:6
 SKILL:Jump			RANK:6
-FEAT:Weapon Finesse (Bite)
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Arrowhawk (Juvenile) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Arrowhawk (Juvenile)]
 RACE:Arrowhawk (Juvenile)	!PRERACE:1,%
@@ -114,7 +114,7 @@ SKILL:Listen		RANK:6
 SKILL:Sense Motive	RANK:6
 SKILL:Spot			RANK:6
 SKILL:Search		RANK:7
-FEAT:Weapon Finesse (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Bite)
 
 STARTPACK:Arrowhawk (Adult) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Arrowhawk (Adult)]
 RACE:Arrowhawk (Adult)	!PRERACE:1,%
@@ -127,8 +127,8 @@ SKILL:Search		RANK:10
 SKILL:Sense Motive	RANK:10
 SKILL:Spot			RANK:10
 SKILL:Intuit Direction	RANK:6
-FEAT:Weapon Finesse (Bite)
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Bite)
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Arrowhawk (Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Arrowhawk (Elder)]
 RACE:Arrowhawk (Elder)	!PRERACE:1,%
@@ -142,8 +142,8 @@ SKILL:Sense Motive			RANK:18
 SKILL:Spot					RANK:18
 SKILL:Intuit Direction			RANK:15
 SKILL:Knowledge (Plane of Air)	RANK:15
-FEAT:Weapon Finesse (Bite)
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Bite)
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Assassin Vine Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Assassin Vine]
 RACE:Assassin Vine	!PRERACE:1,%
@@ -160,9 +160,9 @@ SKILL:Climb		RANK:8
 SKILL:Jump		RANK:8
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Multiattack
-FEAT:Multidexterity
-FEAT:Multiweapon Fighting
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Multidexterity
+ABILITY:CATEGORY=FEAT|Multiweapon Fighting
 
 STARTPACK:Azer Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Azer]
 RACE:Azer	!PRERACE:1,%
@@ -174,7 +174,7 @@ SKILL:Craft (Blacksmithing)	RANK:5
 SKILL:Listen			RANK:3
 SKILL:Search			RANK:3
 SKILL:Spot				RANK:4
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Barghest Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barghest]
 RACE:Barghest	!PRERACE:1,%
@@ -187,17 +187,17 @@ SKILL:Intimidate	RANK:9
 SKILL:Jump		RANK:9
 SKILL:Listen	RANK:9
 SKILL:Spot		RANK:9
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Barghest (Greater) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barghest (Greater)]
 RACE:Barghest (Greater)	!PRERACE:1,%
 NAME:Barghest (Greater)
 ALIGN:LE
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Basilisk Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Basilisk]
 RACE:Basilisk	!PRERACE:1,%
@@ -206,8 +206,8 @@ ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
-FEAT:Alertness
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
 
 STARTPACK:Behir Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Behir]
 RACE:Behir	!PRERACE:1,%
@@ -217,8 +217,8 @@ STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Climb	RANK:12
 SKILL:Hide	RANK:4
 SKILL:Spot	RANK:5
-FEAT:Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Belker Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Belker]
 RACE:Belker	!PRERACE:1,%
@@ -228,8 +228,8 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen		RANK:9
 SKILL:Spot			RANK:9
 SKILL:Move Silently	RANK:4
-FEAT:Multiattack
-FEAT:Weapon Finesse (Wing)
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Wing)
 
 STARTPACK:Blink Dog Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blink Dog]
 RACE:Blink Dog	!PRERACE:1,%
@@ -240,7 +240,7 @@ SKILL:Hide			RANK:5
 SKILL:Sense Motive	RANK:5
 SKILL:Listen		RANK:7
 SKILL:Spot			RANK:7
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
 
 STARTPACK:Bodak Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bodak]
 RACE:Bodak	!PRERACE:1,%
@@ -250,9 +250,9 @@ STAT:STR=11|DEX=11|INT=10|WIS=10|CHA=10
 SKILL:Listen		RANK:10
 SKILL:Move Silently	RANK:12
 SKILL:Spot			RANK:12
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Weapon Focus(Slam)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus(Slam)
 
 STARTPACK:Bugbear Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]
 RACE:Bugbear	!PRERACE:1,%
@@ -264,7 +264,7 @@ SKILL:Hide			RANK:2
 SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Bulette Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bulette]
 RACE:Bulette	!PRERACE:1,%
@@ -279,7 +279,7 @@ RACE:Celestial (Lantern Archon)	!PRERACE:1,%
 NAME:Celestial (Lantern Archon)
 ALIGN:LG
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Celestial (Hound Archon) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Hound Archon)]
 RACE:Celestial (Hound Archon)	!PRERACE:1,%
@@ -293,8 +293,8 @@ SKILL:Listen		RANK:7
 SKILL:Move Silently	RANK:7
 SKILL:Sense Motive	RANK:7
 SKILL:Spot			RANK:6
-FEAT:Improved Initiative
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:Celestial (Avoral) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Avoral)]
 RACE:Celestial (Avoral)	!PRERACE:1,%
@@ -309,8 +309,8 @@ SKILL:Move Silently	RANK:7
 SKILL:Sense Motive	RANK:7
 SKILL:Spellcraft		RANK:7
 SKILL:Spot			RANK:7
-FEAT:Improved Initiative
-FEAT:Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Flyby Attack
 
 STARTPACK:Celestial (Ghaele) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Ghaele)]
 RACE:Celestial (Ghaele)	!PRERACE:1,%
@@ -325,9 +325,9 @@ SKILL:Listen		RANK:10
 SKILL:Move Silently	RANK:10
 SKILL:Sense Motive	RANK:10
 SKILL:Spot			RANK:10
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Celestial (Trumpet Archon) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Trumpet Archon)]
 RACE:Celestial (Trumpet Archon)	!PRERACE:1,%
@@ -342,10 +342,10 @@ SKILL:Listen		RANK:12
 SKILL:Move Silently	RANK:12
 SKILL:Sense Motive	RANK:12
 SKILL:Spot			RANK:12
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Celestial (Astral Deva) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Astral Deva)]
 RACE:Celestial (Astral Deva)	!PRERACE:1,%
@@ -359,10 +359,10 @@ SKILL:Listen		RANK:15
 SKILL:Move Silently	RANK:15
 SKILL:Sense Motive	RANK:15
 SKILL:Spot			RANK:15
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Celestial (Planetar) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Planetar)]
 RACE:Celestial (Planetar)	!PRERACE:1,%
@@ -374,10 +374,10 @@ SKILL:Escape Artist	RANK:16
 SKILL:Move Silently	RANK:13
 SKILL:Sense Motive	RANK:13
 SKILL:Search		RANK:13
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Celestial (Solar) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Celestial (Solar)]
 RACE:Celestial (Solar)	!PRERACE:1,%
@@ -393,12 +393,12 @@ SKILL:Sense Motive	RANK:25
 SKILL:Spot			RANK:25
 SKILL:Search		RANK:24
 SKILL:Spellcraft		RANK:13
-FEAT:Cleave
-FEAT:Dodge
-FEAT:Great Cleave
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Centaur Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Centaur]
 RACE:Centaur	!PRERACE:1,%
@@ -410,7 +410,7 @@ SKILL:Wilderness Lore	RANK:4
 SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
-FEAT:Weapon Focus (Hoof)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Hoof)
 
 STARTPACK:Chaos Beast Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chaos Beast]
 RACE:Chaos Beast	!PRERACE:1,%
@@ -424,9 +424,9 @@ SKILL:Listen		RANK:9
 SKILL:Spot			RANK:9
 SKILL:Tumble		RANK:9
 SKILL:Jump			RANK:8
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
 
 STARTPACK:Chimera Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chimera]
 RACE:Chimera	!PRERACE:1,%
@@ -436,8 +436,8 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Hide		RANK:7
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Alertness
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Choker Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Choker]
 RACE:Choker	!PRERACE:1,%
@@ -447,7 +447,7 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Climb			RANK:5
 SKILL:Hide			RANK:3
 SKILL:Move Silently	RANK:4
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Chuul Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chuul]
 RACE:Chuul	!PRERACE:1,%
@@ -458,8 +458,8 @@ SKILL:Hide		RANK:10
 SKILL:Jump		RANK:6
 SKILL:Listen	RANK:9
 SKILL:Spot		RANK:9
-FEAT:Improved Initiative
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Cloaker Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cloaker]
 RACE:Cloaker	!PRERACE:1,%
@@ -470,16 +470,16 @@ SKILL:Hide			RANK:13
 SKILL:Listen		RANK:9
 SKILL:Move Silently	RANK:9
 SKILL:Spot			RANK:9
-FEAT:Improved Initiative
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Cockatrice Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cockatrice]
 RACE:Cockatrice	!PRERACE:1,%
 NAME:Cockatrice
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=11
-FEAT:Alertness
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Couatl Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Couatl]
 RACE:Couatl	!PRERACE:1,%
@@ -496,6 +496,6 @@ SKILL:Tumble			RANK:12
 SKILL:Knowledge (Arcana)	RANK:5
 SKILL:Knowledge (History)	RANK:5
 SKILL:Knowledge (Nature)	RANK:5
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Still Spell
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Still Spell

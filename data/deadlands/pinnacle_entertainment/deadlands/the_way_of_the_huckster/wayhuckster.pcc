@@ -31,10 +31,11 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=1137&it=1?affilia
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:WayoftheHucksterMagicItemPrices.txt
+ABILITYCATEGORY:woth_abilitycategories.lst
 
 CLASS:wayhuckster_classes.lst
 EQUIPMENT:wayhuckster_equip_weap_ranged.lst
 EQUIPMENT:wayhuckster_equip_wondrousitems.lst
-FEAT:wayhuckster_feats.lst
-FEAT:wayhuckster_feats_hidden.lst
+ABILITY:wayhuckster_feats.lst
+ABILITY:wayhuckster_feats_hidden.lst
 SPELL:wayhuckster_spells.lst

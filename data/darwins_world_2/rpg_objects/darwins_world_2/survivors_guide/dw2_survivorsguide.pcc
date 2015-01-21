@@ -64,8 +64,8 @@ EQUIPMENT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_e
 
 EQUIPMOD:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_equipmods.lst
 
-FEAT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_feats.lst
-FEAT:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Action Boost,Armor Proficiency (Powered),Charismatic Plus,Dedicated Plus,Fast Plus,Nerve Pinch,Smart Plus,Strong Plus,Tough Plus)
+ABILITY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_feats.lst
+ABILITY:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Action Boost,Armor Proficiency (Powered),Charismatic Plus,Dedicated Plus,Fast Plus,Nerve Pinch,Smart Plus,Strong Plus,Tough Plus)
 #FEAT:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_feats_hidden_mod.lst
 
 SKILL:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_skills.lst
@@ -91,8 +91,7 @@ EQUIPMENT:dw2sg_equip_arms_armor.lst
 EQUIPMENT:dw2sg_equip_vehicles.lst
 EQUIPMOD:dw2sg_equipmods.lst
 
-FEAT:dw2sg_feats.lst
-FEAT:dw2sg_feats_hidden.lst
+ABILITY:dw2sg_feats.lst
 
 LANGUAGE:dw2sg_languages.lst
 KIT:dw2sg_kits.lst

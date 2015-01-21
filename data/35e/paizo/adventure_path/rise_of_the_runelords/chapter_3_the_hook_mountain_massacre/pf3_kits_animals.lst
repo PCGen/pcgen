@@ -13,5 +13,5 @@ SKILL:Climb			RANK:1
 SKILL:Hide			RANK:1
 SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:4
-FEAT:Combat Reflexes
-FEAT:Improved Natural Attack(Bite)
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Natural Attack(Bite)

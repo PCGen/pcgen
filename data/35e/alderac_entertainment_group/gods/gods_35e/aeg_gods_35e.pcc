@@ -47,7 +47,7 @@ CLASS:aeg_gods_classes_prestige_35e.lst
 DEITY:aeg_gods_deities_35e.lst
 DOMAIN:aeg_gods_domains_35e.lst
 EQUIPMENT:aeg_gods_equip_magic_35e.lst
-FEAT:aeg_gods_feats_35e.lst
+ABILITY:aeg_gods_feats_35e.lst
 
 EQUIPMOD:@/3e/wizards_of_the_coast/srd/basics/srd_equipmods_magic.lst|(INCLUDE:RING|ADAMANT_WONDROUS)
 

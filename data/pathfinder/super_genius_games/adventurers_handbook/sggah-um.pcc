@@ -43,7 +43,7 @@ COPYRIGHT:PCGen dataset conversion for the "Adventurer's Handbook: Genius Guide 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
-FEAT:sggah_feats_um.lst
+ABILITY:sggah_feats_um.lst
 
 #
 # End

@@ -52,7 +52,7 @@ EQUIPMENT:@/3e/wizards_of_the_coast/srd/basics/srd_equip.lst
 EQUIPMOD:@/3e/wizards_of_the_coast/srd/basics/srd_equipmods_magic.lst
 EQUIPMOD:@/3e/wizards_of_the_coast/srd/basics/srd_equipmods_mundane.lst
 
-FEAT:@/3e/wizards_of_the_coast/srd/basics/srd_feats.lst
+ABILITY:@/3e/wizards_of_the_coast/srd/basics/srd_feats.lst
 
 KIT:@/3e/wizards_of_the_coast/srd/basics/srd_kits_races__animals.lst
 KIT:@/3e/wizards_of_the_coast/srd/basics/srd_kits_races__base.lst
@@ -106,7 +106,7 @@ ABILITY:@/3e/wizards_of_the_coast/srd/monsters/srd_abilities_mods.lst
 CLASS:@/3e/wizards_of_the_coast/srd/monsters/srd_classes_creature_specific.lst
 CLASS:@/3e/wizards_of_the_coast/srd/monsters/srd_classes_dragon.lst
 
-FEAT:@/3e/wizards_of_the_coast/srd/basics/srd_feats_monster.lst
+ABILITY:@/3e/wizards_of_the_coast/srd/basics/srd_feats_monster.lst
 
 KIT:@/3e/wizards_of_the_coast/srd/monsters/srd_kits_races__dragons.lst
 KIT:@/3e/wizards_of_the_coast/srd/monsters/srd_kits_races__vermin.lst

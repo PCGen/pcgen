@@ -39,9 +39,7 @@ EQUIPMENT:ats_equip_weap_ammo.lst
 EQUIPMENT:ats_equip_weap_melee.lst
 EQUIPMENT:ats_equip_weap_ranged.lst
 EQUIPMOD:ats_equipmods_mundane.lst
-FEAT:ats_feats.lst
-FEAT:ats_feats_hidden.lst
-FEAT:ats_feats_legendary.lst
+ABILITY:ats_feats.lst
 SKILL:ats_skills.lst
 SPELL:ats_spells.lst
 SPELL:ats_spells_hidden.lst

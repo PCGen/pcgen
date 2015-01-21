@@ -12,7 +12,7 @@ STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 SKILL:Appraise	RANK:2	FREE:YES
-FEAT:Weapon Focus(Waraxe (Dwarven))
+ABILITY:CATEGORY=FEAT|Weapon Focus(Waraxe (Dwarven))
 GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand
@@ -30,7 +30,7 @@ SKILL:Hide		RANK:2
 SKILL:Listen	RANK:1
 SKILL:Search	RANK:1
 SKILL:Spot		RANK:1	FREE:YES
-FEAT:Weapon Focus(Longbow)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longbow)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
@@ -45,7 +45,7 @@ ALIGN:NG
 CLASS:Warrior	LEVEL:1
 SKILL:Hide	RANK:2
 SKILL:Spot	RANK:2
-FEAT:Weapon Focus(Crossbow (Light))
+ABILITY:CATEGORY=FEAT|Weapon Focus(Crossbow (Light))
 GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand
@@ -61,7 +61,7 @@ SKILL:Hide		RANK:1
 SKILL:Jump		RANK:2
 SKILL:Listen	RANK:2
 SKILL:Climb		RANK:2	FREE:YES
-FEAT:Weapon Focus(Longsword)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longsword)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary Hand

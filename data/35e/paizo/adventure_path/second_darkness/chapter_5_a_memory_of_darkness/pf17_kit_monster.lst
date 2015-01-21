@@ -8,11 +8,11 @@ ALIGN:CE
 RACE:Banshee	!PRERACE:1,%
 NAME:Banshee
 SKILL:Listen	RANK:17
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 
 
@@ -23,9 +23,9 @@ NAME:Leucrotta
 SKILL:Bluff			RANK:9
 SKILL:Hide			RANK:9
 SKILL:Move Silently	RANK:8	FREE:YES
-FEAT:Improved Initiative
-FEAT:Skill Focus(Bluff)
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus(Bluff)
+ABILITY:CATEGORY=FEAT|Stealthy
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 
 
@@ -35,8 +35,8 @@ RACE:Mandragora	!PRERACE:1,%
 NAME:Mandragora
 SKILL:Hide			RANK:0
 SKILL:Move Silently	RANK:0
-FEAT:Lightning Reflexes
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 
 
@@ -62,11 +62,11 @@ SKILL:Perform (Dance)		RANK:5
 SKILL:Sense Motive		RANK:17
 SKILL:Spellcraft			RANK:10
 SKILL:Spot				RANK:17
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 
@@ -87,17 +87,17 @@ SKILL:Spellcraft			RANK:34
 SKILL:Spot				RANK:34
 SKILL:Survival			RANK:34
 SKILL:Swim				RANK:34
-FEAT:Awesome Blow
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Improved Bull Rush
-FEAT:Improved Critical(Battleaxe)
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Quicken Spell Like Ability(Dispel Magic (Greater))
-FEAT:Spell Stowaway(Time Stop)
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical(Battleaxe)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell Like Ability(Dispel Magic (Greater))
+ABILITY:CATEGORY=FEAT|Spell Stowaway(Time Stop)
+ABILITY:CATEGORY=FEAT|Track
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 GEAR:Blackaxe	LOCATION:Both Hands
 

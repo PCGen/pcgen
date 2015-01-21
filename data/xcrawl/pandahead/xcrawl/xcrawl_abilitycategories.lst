@@ -3,3 +3,7 @@
 
 # Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Specific choices list		Display Location
 ABILITYCATEGORY:Therefore I Am	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		ABILITYLIST:Therefore I Am	DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Athlete Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:FEAT	DISPLAYLOCATION:Feats	TYPE:Athlete
+
+

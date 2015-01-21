@@ -40,9 +40,9 @@ EQUIPMENT:../quintfighterequipweapblackpowder.lst
 EQUIPMENT:../quintfighterequipweapranged.lst
 EQUIPMENT:../quintfighterequipweapmelee.lst
 EQUIPMENT:../quintfighterequip.lst
-FEAT:../quintfighterfeats.lst
+ABILITY:../quintfighterfeats.lst
 SKILL:../quintfighterskills.lst
 WEAPONPROF:../quintfighterweapprofs.lst
 
 CLASS:quintfighterclasses_35e.lst
-FEAT:quintfighterfeats_35e.lst
+ABILITY:quintfighterfeats_35e.lst

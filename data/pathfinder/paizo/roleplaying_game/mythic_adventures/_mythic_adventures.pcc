@@ -40,7 +40,7 @@ ABILITY:ma_abilities.lst
 ABILITYCATEGORY:ma_abilitycategories.lst
 EQUIPMENT:ma_equip.lst
 EQUIPMOD:ma_equipmods.lst
-FEAT:ma_feats.lst
+ABILITY:ma_feats.lst
 SPELL:ma_spells.lst
 TEMPLATE:ma_templates.lst
 #CLASS:ma_classes_base.lst

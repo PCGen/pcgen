@@ -214,10 +214,10 @@ Low-Light Vision										KEY:Low Light ~ Cavern Elf		CATEGORY:Special Ability	T
 
 ###Block: Cavern Elf Weapon Prof Choices
 # Ability Name	Unique Key				Category of Ability		Type											Restricted Ability								Auto Feat
-Light Pick		KEY:Martial WP ~ Light Pick	CATEGORY:Special Ability	TYPE:SpecialQuality.ElvenMartialProficiency.CavernElfWPChoice	!PREABILITY:1,CATEGORY=Special Ability,Martial WP ~ Heavy Pick	AUTO:FEAT|Martial Weapon Proficiency (Pick (Light))
-Heavy Pick		KEY:Martial WP ~ Heavy Pick	CATEGORY:Special Ability	TYPE:SpecialQuality.ElvenMartialProficiency.CavernElfWPChoice	!PREABILITY:1,CATEGORY=Special Ability,Martial WP ~ Light Pick	AUTO:FEAT|Martial Weapon Proficiency (Pick (Heavy))
-Longbow		KEY:Martial WP ~ Longbow	CATEGORY:Special Ability	TYPE:SpecialQuality.ElvenMartialProficiency.CavernElfWPChoice	!PREABILITY:1,CATEGORY=Special Ability,Martial WP ~ Shortbow	AUTO:FEAT|Martial Weapon Proficiency (Longbow)
-Shortbow		KEY:Martial WP ~ Shortbow	CATEGORY:Special Ability	TYPE:SpecialQuality.ElvenMartialProficiency.CavernElfWPChoice	!PREABILITY:1,CATEGORY=Special Ability,Martial WP ~ Longbow		AUTO:FEAT|Martial Weapon Proficiency (Shortbow)
+Light Pick		KEY:Martial WP ~ Light Pick	CATEGORY:Special Ability	TYPE:SpecialQuality.ElvenMartialProficiency.CavernElfWPChoice	!PREABILITY:1,CATEGORY=Special Ability,Martial WP ~ Heavy Pick	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency (Pick (Light))
+Heavy Pick		KEY:Martial WP ~ Heavy Pick	CATEGORY:Special Ability	TYPE:SpecialQuality.ElvenMartialProficiency.CavernElfWPChoice	!PREABILITY:1,CATEGORY=Special Ability,Martial WP ~ Light Pick	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency (Pick (Heavy))
+Longbow		KEY:Martial WP ~ Longbow	CATEGORY:Special Ability	TYPE:SpecialQuality.ElvenMartialProficiency.CavernElfWPChoice	!PREABILITY:1,CATEGORY=Special Ability,Martial WP ~ Shortbow	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency (Longbow)
+Shortbow		KEY:Martial WP ~ Shortbow	CATEGORY:Special Ability	TYPE:SpecialQuality.ElvenMartialProficiency.CavernElfWPChoice	!PREABILITY:1,CATEGORY=Special Ability,Martial WP ~ Longbow		ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency (Shortbow)
 
 
 ###Block: Draconic Elf

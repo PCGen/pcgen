@@ -18,6 +18,6 @@ SKILL:Intimidate		RANK:9
 SKILL:Listen		RANK:11
 SKILL:Sense Motive	RANK:9
 SKILL:Spot			RANK:11
-FEAT:Alertness
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack

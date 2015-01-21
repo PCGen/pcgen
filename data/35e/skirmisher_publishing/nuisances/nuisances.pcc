@@ -35,7 +35,7 @@ ABILITYCATEGORY:nuisances_ability_categories.lst
 CLASS:nuisances_class.lst
 EQUIPMENT:nuisances_equipment.lst
 EQUIPMOD:nuisances_equipmod.lst
-FEAT:nuisances_feats.lst
+ABILITY:nuisances_feats.lst
 ABILITY:nuisances_feats_defects.lst
 KIT:nuisances_kits_monsters.lst
 RACE:nuisances_races.lst

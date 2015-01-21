@@ -16,9 +16,9 @@ SKILL:Escape Artist	RANK:2
 SKILL:Perception		RANK:1
 SKILL:Stealth		RANK:1
 SKILL:Swim			RANK:1
-FEAT:Cleave
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=11|CON=10|WIS=10|INT=11|CHA=10
 
 ###Missing GUTAKI VARIANT OF DEVILFISH
@@ -29,8 +29,8 @@ RACE:Doll (Soulbound)	!PRERACE:1,%
 NAME:Doll, Soulbound
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
-FEAT:Improved Initiative
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=11|DEX=10|CON=10|WIS=10|INT=11|CHA=11
 GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
 
@@ -54,8 +54,8 @@ SKILL:Escape Artist	RANK:3
 SKILL:Linguistics		RANK:3
 SKILL:Perception		RANK:3
 SKILL:Stealth		RANK:3
-FEAT:Alertness
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=11|DEX=10|CON=11|WIS=10|INT=10|CHA=11
 
 
@@ -64,5 +64,5 @@ ALIGN:CN
 RACE:Reefclaw	!PRERACE:1,%
 NAME:Reefclaw
 SKILL:Swim	RANK:2
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:STR=10|DEX=11|CON=10|WIS=10|INT=11|CHA=11

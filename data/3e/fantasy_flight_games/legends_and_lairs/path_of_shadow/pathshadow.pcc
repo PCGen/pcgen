@@ -41,10 +41,10 @@ ABILITYCATEGORY:pathshadow_ability_category.lst
 CLASS:pathshadow_classes_core.lst
 CLASS:pathshadow_classes_prestige.lst
 CLASS:pathshadow_classes_legendary.lst
-FEAT:pathshadow_feats.lst
-FEAT:pathshadow_feats_mod.lst
-FEAT:pathshadow_feats_hidden.lst
-FEAT:pathshadow_feats_hidden_legendary.lst
+ABILITY:pathshadow_feats.lst
+ABILITY:pathshadow_feats_mod.lst
+ABILITY:pathshadow_feats_hidden.lst
+ABILITY:pathshadow_feats_hidden_legendary.lst
 EQUIPMENT:pathshadow_equip.lst
 EQUIPMENT:pathshadow_equip_weap_melee.lst
 SKILL:pathshadow_skills.lst

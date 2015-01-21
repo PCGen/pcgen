@@ -71,7 +71,7 @@ RACE:Brain Mole	!PRERACE:1,%
 NAME:Brain Mole
 ALIGN:TN
 SKILL:Stealth	RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 STAT:CON=11|CHA=11|STR=10|DEX=10|INT=10|WIS=10
 
 STARTPACK:Caller in Darkness Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Caller in Darkness]
@@ -84,12 +84,12 @@ SKILL:Intimidate			RANK:11
 SKILL:Knowledge (Psionics)	RANK:11
 SKILL:Sense Motive		RANK:11
 SKILL:Stealth			RANK:11
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Autonomous
-FEAT:Iron Will
-FEAT:Ability Focus (Unnatural Aura)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Autonomous
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Ability Focus (Unnatural Aura)
 STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Cerebrilith Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cerebrilith]
@@ -104,12 +104,12 @@ SKILL:Knowledge (Arcana)	RANK:9
 SKILL:Knowledge (Psionics)	RANK:9
 SKILL:Knowledge (Planes)	RANK:9
 SKILL:Sense Motive		RANK:9
-FEAT:Wild Talent
-FEAT:Power Attack
-FEAT:Psionic Fist
-FEAT:Psionic Meditation
-FEAT:Greater Psionic Fist
-FEAT:Unavoidable Strike
+ABILITY:CATEGORY=FEAT|Wild Talent
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Psionic Fist
+ABILITY:CATEGORY=FEAT|Psionic Meditation
+ABILITY:CATEGORY=FEAT|Greater Psionic Fist
+ABILITY:CATEGORY=FEAT|Unavoidable Strike
 STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
 
 STARTPACK:Crysmal Default ~ Psionic	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crysmal ~ Psionic]
@@ -121,9 +121,9 @@ SKILL:Appraise	RANK:6
 SKILL:Climb		RANK:6
 SKILL:Acrobatics	RANK:6
 SKILL:Perception	RANK:6
-FEAT:Alertness
-FEAT:Great Fortitude
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Folugub Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Folugub]
@@ -131,8 +131,8 @@ RACE:Folugub	!PRERACE:1,%
 NAME:Folugub
 ALIGN:TN
 SKILL:Perception	RANK:4
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:DEX=11|CON=11|WIS=11|CHA=11|STR=10|INT=10
 
 STARTPACK:Gray Glutton Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gray Glutton]
@@ -140,11 +140,11 @@ RACE:Gray Glutton	!PRERACE:1,%
 NAME:Gray Glutton
 ALIGN:TN
 SKILL:Survival	RANK:9
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Iron Will
-FEAT:Step Up
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Step Up
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=11|DEX=11|CON=11|WIS=11|INT=10|CHA=10
 
 STARTPACK:Intellect Devourer ~ Psionic Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Intellect Devourer ~ Psionic]
@@ -156,10 +156,10 @@ SKILL:Autohypnosis	RANK:6
 SKILL:Bluff			RANK:6
 SKILL:Perform (Act)	RANK:6
 SKILL:Perception		RANK:6
-FEAT:Wild Talent
-FEAT:Combat Manifestation
-FEAT:Toughness
-FEAT:Up the Walls
+ABILITY:CATEGORY=FEAT|Wild Talent
+ABILITY:CATEGORY=FEAT|Combat Manifestation
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Up the Walls
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 STARTPACK:Phrenic Scourge Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phrenic Scourge]
@@ -175,10 +175,10 @@ SKILL:Perception			RANK:8
 SKILL:Stealth			RANK:8
 SKILL:Sense Motive		RANK:5
 SKILL:Spellcraft			RANK:8
-FEAT:Ability Focus (Implant)
-FEAT:Ability Focus (Sap Will)
-FEAT:Weapon Finesse
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Ability Focus (Implant)
+ABILITY:CATEGORY=FEAT|Ability Focus (Sap Will)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Alertness
 ALIGN:LE
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 
@@ -190,9 +190,9 @@ SKILL:Perception	RANK:6
 SKILL:Stealth	RANK:6
 SKILL:Climb		RANK:6
 SKILL:Swim		RANK:6
-FEAT:Alertness
-FEAT:Great Fortitude
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:STR=11|CON=11|DEX=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Psion-Killer Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psion-Killer]
@@ -210,7 +210,7 @@ SKILL:Stealth		RANK:1
 SKILL:Perception		RANK:1
 SKILL:Sense Motive	RANK:1
 SKILL:Bluff			RANK:1
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Puppeteer (Flesh Harrower) Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Puppeteer (Flesh Harrower)]
@@ -219,8 +219,8 @@ NAME:Puppeteer (Flesh Harrower)
 ALIGN:TN
 SKILL:Stealth	RANK:3
 SKILL:Perception	RANK:3
-FEAT:Alertness
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will
 STAT:DEX=11|CON=11|INT=11|STR=10|WIS=10|CHA=10
 
 STARTPACK:Temporal Filcher Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Temporal Filcher]
@@ -229,10 +229,10 @@ NAME:Temporal Filcher
 ALIGN:NE
 SKILL:Acrobatics	RANK:8
 SKILL:Perception	RANK:8
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
 STAT:STR=11|DEX=11|INT=11|CON=10|WIS=10|CHA=10
 
 STARTPACK:Thought Eater Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Eater]
@@ -241,8 +241,8 @@ NAME:Thought Eater
 ALIGN:TN
 SKILL:Stealth	RANK:3
 SKILL:Perception	RANK:3
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:CON=11|INT=11|STR=10|DEX=10|WIS=10|CHA=10
 
 STARTPACK:Thought Slayer Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thought Slayer]
@@ -251,13 +251,13 @@ NAME:Thought Slayer
 ALIGN:CN
 SKILL:Climb		RANK:14
 SKILL:Perception	RANK:14
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Great Fortitude
-FEAT:Power Attack
-FEAT:Weapon Focus(Bite)
-FEAT:Great Cleave
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
 
 STARTPACK:Udoroot Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Udoroot]
@@ -265,9 +265,9 @@ RACE:Udoroot	!PRERACE:1,%
 NAME:Udoroot
 ALIGN:TN
 SKILL:Perception	RANK:6
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Great Fortitude
 STAT:WIS=11|STR=10|DEX=10|CON=10|INT=10|CHA=10
 
 STARTPACK:Unbodied Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Unbodied]
@@ -282,8 +282,8 @@ SKILL:Perception			RANK:4
 SKILL:Sense Motive		RANK:4
 SKILL:Spellcraft			RANK:4
 SKILL:Knowledge (Psionics)	RANK:4
-FEAT:Overchannel
-FEAT:Wild Talent
+ABILITY:CATEGORY=FEAT|Overchannel
+ABILITY:CATEGORY=FEAT|Wild Talent
 STAT:DEX=11|INT=11|CHA=11|STR=10|CON=10|WIS=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Unbodied Monstrous Humanoid|Detect Psionics|Empty Mind|Mind Thrust|Empathic Connection|Far Hand|Brain Lock|Cloud Mind|Energy Push|Read Thoughts
 #This doesn't actually give these spells to the creature.  I'm guessing it's due to the "Unbodied Monstrous Humanoid" class, which isn't a listed spellcasting class for the given spells.

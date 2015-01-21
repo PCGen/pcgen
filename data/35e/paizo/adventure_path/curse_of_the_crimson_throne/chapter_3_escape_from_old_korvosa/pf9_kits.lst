@@ -12,18 +12,18 @@ SKILL:Listen		RANK:37
 SKILL:Move Silently	RANK:37
 SKILL:Spot			RANK:37
 SKILL:Tumble		RANK:37
-FEAT:Awesome Blow
-FEAT:Combat Reflexes
-FEAT:Hover
-FEAT:Improved Bull Rush
-FEAT:Improved Critical(Claw)
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Sting)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Sting)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 
@@ -48,10 +48,10 @@ SKILL:Tumble			RANK:14
 ABILITY:CATEGORY=Monk Feat|Deflect Arrows
 ABILITY:CATEGORY=Monk Feat|Improved Disarm
 ABILITY:CATEGORY=Monk Feat|Improved Grapple
-FEAT:Dodge
-FEAT:Mobility
-FEAT:Snatch Arrows
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Snatch Arrows
+ABILITY:CATEGORY=FEAT|Spring Attack
 GEAR:Temple Sword		SIZE:PC	LOCATION:Primary Hand
 GEAR:Spear			SIZE:PC	LOCATION:Equipped
 GEAR:Kukri			SIZE:PC	LOCATION:Equipped
@@ -70,13 +70,13 @@ ALIGN:LE
 RACE:Rakshasa Maharajah	!PRERACE:1,%
 NAME:Rakshasa Maharajah
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
-FEAT:Combat Casting
-FEAT:Eschew Materials
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Maximize Spell
-FEAT:Quicken Spell
-FEAT:Widen Spell
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Eschew Materials
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Widen Spell
 SKILL:Appraise					RANK:21
 SKILL:Bluff						RANK:21
 SKILL:Concentration				RANK:21
@@ -101,10 +101,10 @@ ALIGN:TN
 RACE:Sikari Macaque Swarm	!PRERACE:1,%
 NAME:Sikari Macaque Swarm
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=11
-FEAT:Agile
-FEAT:Alertness
-FEAT:Lightning Reflexes
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Agile
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 SKILL:Escape Artist	RANK:4
 SKILL:Listen		RANK:4
 SKILL:Spot			RANK:5

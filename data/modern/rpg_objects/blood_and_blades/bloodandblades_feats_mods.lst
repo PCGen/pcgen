@@ -3,53 +3,53 @@ SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodB
 #Original entry by: Frank Kliewe
 
 # Feat Name					Type
-Acrobatic.MOD				TYPE:Mundane
-Advanced Firearms Proficiency.MOD	TYPE:BountyHunterBNB
-Alertness.MOD				TYPE:Mundane.ProfilerBNB
-Animal Affinity.MOD			TYPE:Mundane
-Armor Proficiency (Light).MOD		TYPE:BountyHunterBNB
-Armor Proficiency (Medium).MOD	TYPE:BountyHunterBNB
-Athletic.MOD				TYPE:Mundane
-Attentive.MOD				TYPE:Mundane
-Brawl.MOD					TYPE:BountyHunterBNB.Stalker.MentalPatient
-Builder.MOD					TYPE:Mundane
-Cautious.MOD				TYPE:Mundane
-Cleave.MOD					TYPE:Stalker
-Combat Expertise.MOD			TYPE:Stalker
-Combat Reflexes.MOD			TYPE:Stalker
-Confident.MOD				TYPE:Mundane.ProfilerBNB
-Creative.MOD				TYPE:Mundane
-Deceptive.MOD				TYPE:Mundane.ProfilerBNB.OrganizedKiller
-Defensive Martial Arts.MOD		TYPE:BountyHunterBNB
-Dodge.MOD					TYPE:BountyHunterBNB.Stalker
-Double Tap.MOD				TYPE:BountyHunterBNB
-Educated.MOD				TYPE:BountyHunterBNB.Mundane.ProfilerBNB
-Elusive Target.MOD			TYPE:Stalker
-Endurance.MOD				TYPE:Stalker
-Focused.MOD					TYPE:Mundane
-Frightful Presence.MOD			TYPE:Stalker
-Gearhead.MOD				TYPE:Mundane
-Great Cleave.MOD				TYPE:Stalker
-Guide.MOD					TYPE:Mundane
-Improved Bull Rush.MOD			TYPE:Stalker
-Iron Will.MOD				TYPE:ProfilerBNB
-Knockout Punch.MOD			TYPE:BountyHunterBNB.Stalker
-Low Profile.MOD				TYPE:Mundane.ProfilerBNB
-Medical Expert.MOD			TYPE:Mundane
-Meticulous.MOD				TYPE:Mundane
-Mobility.MOD				TYPE:Stalker
-Nimble.MOD					TYPE:Mundane
-Personal Firearms Proficiency.MOD	TYPE:BountyHunterBNB.ProfilerBNB
-Point Blank Shot.MOD			TYPE:BountyHunterBNB
-Power Attack.MOD				TYPE:Stalker
-Renown.MOD					TYPE:ProfilerBNB
-Run.MOD					TYPE:Stalker
-Spring Attack.MOD				TYPE:Stalker
-Stealthy.MOD				TYPE:Mundane.DisorganizedKiller.MentalPatient
-Streetfighting.MOD			TYPE:Stalker
-Studious.MOD				TYPE:Mundane.ProfilerBNB
-Sunder.MOD					TYPE:Stalker
-Toughness.MOD				TYPE:Stalker
-Trustworthy.MOD				TYPE:Mundane.ProfilerBNB
-Vehicle Expert.MOD			TYPE:Mundane
-Whirlwind Attack.MOD			TYPE:Stalker
+CATEGORY=FEAT|Acrobatic.MOD				TYPE:Mundane
+CATEGORY=FEAT|Advanced Firearms Proficiency.MOD	TYPE:BountyHunterBNB
+CATEGORY=FEAT|Alertness.MOD				TYPE:Mundane.ProfilerBNB
+CATEGORY=FEAT|Animal Affinity.MOD			TYPE:Mundane
+CATEGORY=FEAT|Armor Proficiency (Light).MOD		TYPE:BountyHunterBNB
+CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:BountyHunterBNB
+CATEGORY=FEAT|Athletic.MOD				TYPE:Mundane
+CATEGORY=FEAT|Attentive.MOD				TYPE:Mundane
+CATEGORY=FEAT|Brawl.MOD					TYPE:BountyHunterBNB.Stalker.MentalPatient
+CATEGORY=FEAT|Builder.MOD					TYPE:Mundane
+CATEGORY=FEAT|Cautious.MOD				TYPE:Mundane
+CATEGORY=FEAT|Cleave.MOD					TYPE:Stalker
+CATEGORY=FEAT|Combat Expertise.MOD			TYPE:Stalker
+CATEGORY=FEAT|Combat Reflexes.MOD			TYPE:Stalker
+CATEGORY=FEAT|Confident.MOD				TYPE:Mundane.ProfilerBNB
+CATEGORY=FEAT|Creative.MOD				TYPE:Mundane
+CATEGORY=FEAT|Deceptive.MOD				TYPE:Mundane.ProfilerBNB.OrganizedKiller
+CATEGORY=FEAT|Defensive Martial Arts.MOD		TYPE:BountyHunterBNB
+CATEGORY=FEAT|Dodge.MOD					TYPE:BountyHunterBNB.Stalker
+CATEGORY=FEAT|Double Tap.MOD				TYPE:BountyHunterBNB
+CATEGORY=FEAT|Educated.MOD				TYPE:BountyHunterBNB.Mundane.ProfilerBNB
+CATEGORY=FEAT|Elusive Target.MOD			TYPE:Stalker
+CATEGORY=FEAT|Endurance.MOD				TYPE:Stalker
+CATEGORY=FEAT|Focused.MOD					TYPE:Mundane
+CATEGORY=FEAT|Frightful Presence.MOD			TYPE:Stalker
+CATEGORY=FEAT|Gearhead.MOD				TYPE:Mundane
+CATEGORY=FEAT|Great Cleave.MOD				TYPE:Stalker
+CATEGORY=FEAT|Guide.MOD					TYPE:Mundane
+CATEGORY=FEAT|Improved Bull Rush.MOD			TYPE:Stalker
+CATEGORY=FEAT|Iron Will.MOD				TYPE:ProfilerBNB
+CATEGORY=FEAT|Knockout Punch.MOD			TYPE:BountyHunterBNB.Stalker
+CATEGORY=FEAT|Low Profile.MOD				TYPE:Mundane.ProfilerBNB
+CATEGORY=FEAT|Medical Expert.MOD			TYPE:Mundane
+CATEGORY=FEAT|Meticulous.MOD				TYPE:Mundane
+CATEGORY=FEAT|Mobility.MOD				TYPE:Stalker
+CATEGORY=FEAT|Nimble.MOD					TYPE:Mundane
+CATEGORY=FEAT|Personal Firearms Proficiency.MOD	TYPE:BountyHunterBNB.ProfilerBNB
+CATEGORY=FEAT|Point Blank Shot.MOD			TYPE:BountyHunterBNB
+CATEGORY=FEAT|Power Attack.MOD				TYPE:Stalker
+CATEGORY=FEAT|Renown.MOD					TYPE:ProfilerBNB
+CATEGORY=FEAT|Run.MOD					TYPE:Stalker
+CATEGORY=FEAT|Spring Attack.MOD				TYPE:Stalker
+CATEGORY=FEAT|Stealthy.MOD				TYPE:Mundane.DisorganizedKiller.MentalPatient
+CATEGORY=FEAT|Streetfighting.MOD			TYPE:Stalker
+CATEGORY=FEAT|Studious.MOD				TYPE:Mundane.ProfilerBNB
+CATEGORY=FEAT|Sunder.MOD					TYPE:Stalker
+CATEGORY=FEAT|Toughness.MOD				TYPE:Stalker
+CATEGORY=FEAT|Trustworthy.MOD				TYPE:Mundane.ProfilerBNB
+CATEGORY=FEAT|Vehicle Expert.MOD			TYPE:Mundane
+CATEGORY=FEAT|Whirlwind Attack.MOD			TYPE:Stalker

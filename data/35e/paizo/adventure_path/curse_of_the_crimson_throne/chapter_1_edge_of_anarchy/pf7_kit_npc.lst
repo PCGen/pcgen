@@ -26,8 +26,8 @@ SKILL:Forgery		RANK:5
 SKILL:Search		RANK:5
 SKILL:Spellcraft		RANK:5
 SKILL:Use Magic Device	RANK:5
-FEAT:Point Blank Shot
-FEAT:Skill Focus(Use Magic Device)
+ABILITY:CATEGORY=FEAT|Point Blank Shot
+ABILITY:CATEGORY=FEAT|Skill Focus(Use Magic Device)
 GEAR:Dagger					LOCATION:Primary Hand
 GEAR:Wand					LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Acid Splash]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[28]
 GEAR:Thunderstone				LOCATION:Carried
@@ -62,8 +62,8 @@ SKILL:Climb			RANK:4
 SKILL:Escape Artist	RANK:4
 SKILL:Sleight of Hand	RANK:4
 SKILL:Tumble		RANK:4
-FEAT:Agile
-FEAT:Skill Focus(Sleight of Hand)
+ABILITY:CATEGORY=FEAT|Agile
+ABILITY:CATEGORY=FEAT|Skill Focus(Sleight of Hand)
 GEAR:Dagger	SIZE:S	LOCATION:Primary Hand
 
 
@@ -81,7 +81,7 @@ SKILL:Intimidate		RANK:4
 SKILL:Knowledge (Local)	RANK:4
 SKILL:Move Silently	RANK:3
 SKILL:Sleight of Hand	RANK:3
-FEAT:Martial Weapon Proficiency(Kukri)
+ABILITY:CATEGORY=FEAT|Martial Weapon Proficiency(Kukri)
 GEAR:Kukri			SIZE:S	LOCATION:Primary Hand
 GEAR:Sap			SIZE:S	LOCATION:Secondary Hand
 GEAR:Studded Leather	SIZE:S	LOCATION:Equipped
@@ -95,7 +95,7 @@ ALIGN:CE
 CLASS:Fighter	LEVEL:1
 STAT:STR=15|DEX=13|CON=14|INT=8|WIS=12|CHA=10
 SKILL:Intimidate	RANK:4
-FEAT:Weapon Focus(Flail)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Flail)
 GEAR:Studded Leather		LOCATION:Equipped
 GEAR:Shield (Light/Wood)	LOCATION:Equipped
 GEAR:Flail				LOCATION:Primary Hand
@@ -128,10 +128,10 @@ SKILL:Knowledge (Local)	RANK:9
 SKILL:Open Lock		RANK:9
 SKILL:Sleight of Hand	RANK:9
 SKILL:Spot			RANK:6
-FEAT:Combat Expertise
-FEAT:Improved Initiative
-FEAT:Skill Focus(Bluff)
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus(Bluff)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Dagger				LOCATION:Carried		EQMOD:MWORKW
 GEAR:Crossbow (Hand)		LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Bolts (Crossbow/10)	LOCATION:Carried
@@ -146,8 +146,8 @@ STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 SKILL:Handle Animal	RANK:5
 SKILL:Intimidate		RANK:5
 SKILL:Ride			RANK:5
-FEAT:Improved Initiative
-FEAT:Weapon Focus(Longsword)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longsword)
 GEAR:Longsword					LOCATION:Primary Hand
 GEAR:Crossbow (Light)				LOCATION:Carried
 GEAR:Bolts (Crossbow/10)			LOCATION:Carried
@@ -165,9 +165,9 @@ STAT:STR=15|DEX=14|CON=12|INT=10|WIS=8|CHA=13
 SKILL:Handle Animal	RANK:6
 SKILL:Intimidate		RANK:6
 SKILL:Ride			RANK:6
-FEAT:Iron Will
-FEAT:Quick Draw
-FEAT:Weapon Focus(Longbow)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Quick Draw
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longbow)
 ABILITY:CATEGORY=Fighter Feat|Point Blank Shot
 ABILITY:CATEGORY=Fighter Feat|Precise Shot
 GEAR:Chainmail						LOCATION:Equipped			EQMOD:MWORKA
@@ -193,9 +193,9 @@ SKILL:Knowledge (Local)	RANK:7
 SKILL:Sense Motive	RANK:7
 SKILL:Sleight of Hand	RANK:7
 SKILL:Spot			RANK:7
-FEAT:Two-Weapon Fighting
-FEAT:Two-Weapon Defense
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Two-Weapon Defense
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Potion (Cure Moderate Wounds)			LOCATION:Carried
 GEAR:Potion (Invisibility)				LOCATION:Carried
 GEAR:Poison (Medium spider venom)			LOCATION:Carried
@@ -219,9 +219,9 @@ SKILL:Jump			RANK:7
 SKILL:Knowledge (Local)	RANK:7
 SKILL:Perform (Comedy)	RANK:7
 SKILL:Tumble		RANK:7
-FEAT:Acrobatic
-FEAT:Shingle Runner
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Acrobatic
+ABILITY:CATEGORY=FEAT|Shingle Runner
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Potion (Cat's Grace)		LOCATION:Carried
 GEAR:Potion (Jump)			LOCATION:Carried
 GEAR:Potion (Shield of Faith +3)	LOCATION:Carried
@@ -239,7 +239,7 @@ TEMPLATE:Cabbagehead Ogrekin
 CLASS:Fighter	LEVEL:2
 STAT:STR=15|DEX=13|CON=14|INT=10|WIS=8|CHA=10
 SKILL:Swim	RANK:5
-FEAT:Weapon Focus(Unarmed Strike)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Unarmed Strike)
 ABILITY:CATEGORY=Fighter Feat|Improved Initiative
 ABILITY:CATEGORY=Fighter Feat|Improved Unarmed Strike
 GEAR:Studded Leather			LOCATION:Equipped	EQMOD:PLUS1A
@@ -259,9 +259,9 @@ SKILL:Move Silently		RANK:3
 SKILL:Concentration		RANK:5
 SKILL:Knowledge (Arcana)	RANK:5
 SKILL:Spellcraft			RANK:5
-FEAT:Combat Casting
-FEAT:Craft Wand
-FEAT:Spell Focus(Necromancy)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Craft Wand
+ABILITY:CATEGORY=FEAT|Spell Focus(Necromancy)
 ABILITY:CATEGORY=Wizard Feat|Extend Spell
 GEAR:Ring of Protection +1				LOCATION:Equipped
 GEAR:Robe of Bones					LOCATION:Equipped

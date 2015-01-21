@@ -31,9 +31,9 @@ ABILITY:modernmagicvol1_abilities.lst
 ABILITYCATEGORY:modernmagicvol1_abilitycategories.lst
 CLASS:modernmagicvol1_class.lst
 EQUIPMENT:modernmagicvol1_equipment.lst
-FEAT:modernmagicvol1_feats.lst
-FEAT:modernmagicvol1_feats_hidden.lst
-FEAT:modernmagicvol1_feats_mod.lst
+ABILITY:modernmagicvol1_feats.lst
+ABILITY:modernmagicvol1_feats_hidden.lst
+ABILITY:modernmagicvol1_feats_mod.lst
 KIT:modernmagicvol1_kits_defaultmonster.lst
 RACE:modernmagicvol1_race.lst
 SPELL:modernmagicvol1_spells.lst
@@ -41,8 +41,8 @@ SPELL:modernmagicvol1_spells.lst
 ###referenced spell from MSRD Arcana used in equiment
 #SPELL:@/modern/wizards_of_the_coast/msrd/arcana/basics/arcanabasics_spells.lst|(INCLUDE:Machine Invisibility|Daylight)
 
-FEAT:@/3e/wizards_of_the_coast/srd/basics/srd_feats.lst|(INCLUDE:CATEGORY=FEAT,Brew Potion,Scribe Scroll)
-FEAT:@/modern/the_game_mechanics/modern_players_companion/mpc_feats.lst|(INCLUDE:CATEGORY=FEAT,Magic Defense,Improved Magic Defense,Greater Magic Defense)
+ABILITY:@/3e/wizards_of_the_coast/srd/basics/srd_feats.lst|(INCLUDE:CATEGORY=FEAT,Brew Potion,Scribe Scroll)
+ABILITY:@/modern/the_game_mechanics/modern_players_companion/mpc_feats.lst|(INCLUDE:CATEGORY=FEAT,Magic Defense,Improved Magic Defense,Greater Magic Defense)
 
 #
 # End

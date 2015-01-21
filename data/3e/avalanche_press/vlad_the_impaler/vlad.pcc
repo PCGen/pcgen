@@ -27,7 +27,7 @@ ABILITY:vlad_abilities_class.lst
 ABILITYCATEGORY:vlad_ability_category.lst
 
 CLASS:vlad_classes.lst
-FEAT:vlad_feats.lst
+ABILITY:vlad_feats.lst
 EQUIPMENT:vlad_weapons.lst
 WEAPONPROF:vlad_weaponprofs.lst
 KIT:vlad_kits.lst

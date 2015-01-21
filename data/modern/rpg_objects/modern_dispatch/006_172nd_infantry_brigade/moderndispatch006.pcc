@@ -27,4 +27,4 @@ INFOTEXT:To be used with Blood and Guts: Modern Military
 #EXTRAFILE:OGL.txt
 
 CLASS:moderndispatch006_classes.lst
-FEAT:moderndispatch006_feats.lst
+ABILITY:moderndispatch006_feats.lst

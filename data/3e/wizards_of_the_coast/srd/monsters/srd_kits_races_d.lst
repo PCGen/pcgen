@@ -9,7 +9,7 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Hide		RANK:4
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:2
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Delver Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Delver]
 RACE:Delver	!PRERACE:1,%
@@ -20,17 +20,17 @@ SKILL:Knowledge (Geology)	RANK:7
 SKILL:Listen			RANK:9
 SKILL:Spot				RANK:9
 SKILL:Move Silently		RANK:18
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Demon (Dretch) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Dretch)]
 RACE:Demon (Dretch)	!PRERACE:1,%
 NAME:Demon (Dretch)
 ALIGN:CE
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Demon (Quasit) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Quasit)]
 RACE:Demon (Quasit)	!PRERACE:1,%
@@ -43,8 +43,8 @@ SKILL:Listen		RANK:5
 SKILL:Spot			RANK:5
 SKILL:Search		RANK:4
 SKILL:Spellcraft		RANK:4
-FEAT:Weapon Finesse (Bite)
-FEAT:Weapon Finesse (Claw)
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Claw)
 
 STARTPACK:Demon (Succubus) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Succubus)]
 RACE:Demon (Succubus)	!PRERACE:1,%
@@ -61,8 +61,8 @@ SKILL:Move Silently	RANK:6
 SKILL:Ride			RANK:6
 SKILL:Search		RANK:6
 SKILL:Spot			RANK:6
-FEAT:Dodge
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 
 STARTPACK:Demon (Bebilith) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Bebilith)]
 RACE:Demon (Bebilith)	!PRERACE:1,%
@@ -77,10 +77,10 @@ SKILL:Move Silently	RANK:14
 SKILL:Search		RANK:14
 SKILL:Sense Motive	RANK:14
 SKILL:Spot			RANK:14
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Demon (Retriever) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Retriever)]
 RACE:Demon (Retriever)	!PRERACE:1,%
@@ -101,9 +101,9 @@ SKILL:Sense Motive	RANK:11
 SKILL:Listen		RANK:3
 SKILL:Spellcraft		RANK:10
 SKILL:Spot			RANK:2
-FEAT:Cleave
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Demon (Hezrou) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Hezrou)]
 RACE:Demon (Hezrou)	!PRERACE:1,%
@@ -116,9 +116,9 @@ SKILL:Move Silently	RANK:12
 SKILL:Search		RANK:12
 SKILL:Spellcraft		RANK:12
 SKILL:Spot			RANK:12
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Demon (Glabrezu) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Glabrezu)]
 RACE:Demon (Glabrezu)	!PRERACE:1,%
@@ -135,9 +135,9 @@ SKILL:Search		RANK:10
 SKILL:Sense Motive	RANK:10
 SKILL:Spellcraft		RANK:10
 SKILL:Spot			RANK:10
-FEAT:Cleave
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Demon (Nalfeshnee) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Nalfeshnee)]
 RACE:Demon (Nalfeshnee)	!PRERACE:1,%
@@ -155,9 +155,9 @@ SKILL:Listen		RANK:12
 SKILL:Spot			RANK:12
 SKILL:Scry			RANK:13
 SKILL:Sense Motive	RANK:13
-FEAT:Cleave
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Demon (Marilith) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Marilith)]
 RACE:Demon (Marilith)	!PRERACE:1,%
@@ -174,9 +174,9 @@ SKILL:Spellcraft		RANK:10
 SKILL:Hide			RANK:12
 SKILL:Listen		RANK:12
 SKILL:Spot			RANK:12
-FEAT:Cleave
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Demon (Balor) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Balor)]
 RACE:Demon (Balor)	!PRERACE:1,%
@@ -194,10 +194,10 @@ SKILL:Hide			RANK:16
 SKILL:Scry			RANK:16
 SKILL:Spellcraft		RANK:16
 SKILL:Spot			RANK:16
-FEAT:Ambidexterity
-FEAT:Cleave
-FEAT:Improved Initiative
-FEAT:Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Ambidexterity
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 
 STARTPACK:Devil (Lemure) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Lemure)]
 RACE:Devil (Lemure)	!PRERACE:1,%
@@ -216,7 +216,7 @@ SKILL:Listen		RANK:4
 SKILL:Spot			RANK:4
 SKILL:Search		RANK:5
 SKILL:Spellcraft		RANK:5
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Devil (Osyluth) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Osyluth)]
 RACE:Devil (Osyluth)	!PRERACE:1,%
@@ -230,8 +230,8 @@ SKILL:Listen		RANK:7
 SKILL:Move Silently	RANK:8
 SKILL:Sense Motive	RANK:8
 SKILL:Spot			RANK:8
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Devil (Kyton) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Kyton)]
 RACE:Devil (Kyton)	!PRERACE:1,%
@@ -243,9 +243,9 @@ SKILL:Escape Artist		RANK:11
 SKILL:Listen			RANK:11
 SKILL:Spot				RANK:11
 SKILL:Craft (Blacksmithing)	RANK:4
-FEAT:Alertness
-FEAT:Improved Critical (Chain Rake)
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Critical (Chain Rake)
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Devil (Hellcat) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Hellcat)]
 RACE:Devil (Hellcat)	!PRERACE:1,%
@@ -258,8 +258,8 @@ SKILL:Listen		RANK:10
 SKILL:Move Silently	RANK:10
 SKILL:Spot			RANK:10
 SKILL:Swim			RANK:6
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Devil (Barbazu) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Barbazu)]
 RACE:Devil (Barbazu)	!PRERACE:1,%
@@ -272,8 +272,8 @@ SKILL:Listen		RANK:6
 SKILL:Move Silently	RANK:6
 SKILL:Sense Motive	RANK:6
 SKILL:Spot			RANK:6
-FEAT:Cleave
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Devil (Erinyes) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Erinyes)]
 RACE:Devil (Erinyes)	!PRERACE:1,%
@@ -288,8 +288,8 @@ SKILL:Spot			RANK:8
 SKILL:Disguise		RANK:6
 SKILL:Escape Artist	RANK:7
 SKILL:Search		RANK:7
-FEAT:Dodge
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 
 STARTPACK:Devil (Hamatula) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Hamatula)]
 RACE:Devil (Hamatula)	!PRERACE:1,%
@@ -303,9 +303,9 @@ SKILL:Search		RANK:12
 SKILL:Listen		RANK:11
 SKILL:Sense Motive	RANK:11
 SKILL:Spot			RANK:11
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Devil (Cornugon) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Cornugon)]
 RACE:Devil (Cornugon)	!PRERACE:1,%
@@ -321,9 +321,9 @@ SKILL:Spot			RANK:12
 SKILL:Climb			RANK:11
 SKILL:Hide			RANK:10
 SKILL:Move Silently	RANK:13
-FEAT:Cleave
-FEAT:Power Attack
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
 
 STARTPACK:Devil (Gelugon) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Gelugon)]
 RACE:Devil (Gelugon)	!PRERACE:1,%
@@ -342,10 +342,10 @@ SKILL:Sense Motive		RANK:14
 SKILL:Spellcraft			RANK:14
 SKILL:Spot				RANK:14
 SKILL:Move Silently		RANK:15
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Dodge
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Devil (Pit Fiend) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Pit Fiend)]
 RACE:Devil (Pit Fiend)	!PRERACE:1,%
@@ -364,10 +364,10 @@ SKILL:Move Silently		RANK:16
 SKILL:Search			RANK:16
 SKILL:Spellcraft			RANK:16
 SKILL:Spot				RANK:16
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Destrachan Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Destrachan]
 RACE:Destrachan	!PRERACE:1,%
@@ -377,8 +377,8 @@ SKILL:Hide			RANK:10
 SKILL:Intuit Direction	RANK:6
 SKILL:Listen		RANK:11
 SKILL:Move Silently	RANK:9
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Devourer Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devourer]
 RACE:Devourer	!PRERACE:1,%
@@ -391,12 +391,12 @@ SKILL:Jump			RANK:12
 SKILL:Listen		RANK:12
 SKILL:Move Silently	RANK:12
 SKILL:Spot			RANK:12
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Casting
-FEAT:Expertise
-FEAT:Improved Initiative
-FEAT:Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Expertise
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 
 STARTPACK:Digester Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Digester]
 RACE:Digester	!PRERACE:1,%
@@ -407,8 +407,8 @@ SKILL:Hide		RANK:5
 SKILL:Jump		RANK:4
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Dinosaur (Deinonychus) Default	TYPE:DefaultMonster.Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Deinonychus)]
 RACE:Dinosaur (Deinonychus)	!PRERACE:1,%
@@ -573,8 +573,8 @@ SKILL:Disguise		RANK:7
 SKILL:Listen		RANK:7
 SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:4
-FEAT:Alertness
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Dragon Turtle Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon Turtle]
 RACE:Dragon Turtle	!PRERACE:1,%
@@ -586,10 +586,10 @@ SKILL:Listen		RANK:15
 SKILL:Search		RANK:15
 SKILL:Spot			RANK:15
 SKILL:Intuit Direction	RANK:9
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Dragonne Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragonne]
 RACE:Dragonne	!PRERACE:1,%
@@ -597,8 +597,8 @@ NAME:Dragonne
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:9
 SKILL:Spot		RANK:10
-FEAT:Blind-Fight
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Drider (Cleric) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Cleric)]
 RACE:Drider (Cleric)	!PRERACE:1,%
@@ -612,9 +612,9 @@ SKILL:Listen		RANK:6
 SKILL:Spot			RANK:6
 SKILL:Move Silently	RANK:1
 SKILL:Spellcraft		RANK:8
-FEAT:Ambidexterity
-FEAT:Combat Casting
-FEAT:Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Ambidexterity
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 ABILITY:CATEGORY=Turn Undead|Rebuke Undead
 
 STARTPACK:Drider (Wizard) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Wizard)]
@@ -629,9 +629,9 @@ SKILL:Listen		RANK:6
 SKILL:Spot			RANK:6
 SKILL:Move Silently	RANK:1
 SKILL:Spellcraft		RANK:8
-FEAT:Ambidexterity
-FEAT:Combat Casting
-FEAT:Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Ambidexterity
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 
 STARTPACK:Drider (Sorcerer) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Sorcerer)]
 RACE:Drider (Sorcerer)	!PRERACE:1,%
@@ -645,9 +645,9 @@ SKILL:Listen		RANK:6
 SKILL:Spot			RANK:6
 SKILL:Move Silently	RANK:1
 SKILL:Spellcraft		RANK:8
-FEAT:Ambidexterity
-FEAT:Combat Casting
-FEAT:Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Ambidexterity
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 
 STARTPACK:Dryad Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dryad]
 RACE:Dryad	!PRERACE:1,%
@@ -662,9 +662,9 @@ SKILL:Move Silently	RANK:5
 SKILL:Sense Motive	RANK:5
 SKILL:Spot			RANK:5
 SKILL:Wilderness Lore	RANK:5
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Dwarf (Deep) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf (Deep)]
 ALIGN:TN
@@ -675,7 +675,7 @@ CLASS:Warrior	LEVEL:1
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 SKILL:Appraise	RANK:2	FREE:YES
-FEAT:Exotic Weapon Proficiency(Waraxe (Dwarven))
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency(Waraxe (Dwarven))
 GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Large/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand
@@ -690,7 +690,7 @@ CLASS:Warrior	LEVEL:1
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 SKILL:Appraise	RANK:2	FREE:YES
-FEAT:Exotic Weapon Proficiency(Waraxe (Dwarven))
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency(Waraxe (Dwarven))
 GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Large/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand
@@ -705,7 +705,7 @@ CLASS:Warrior	LEVEL:1
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 SKILL:Appraise	RANK:2	FREE:YES
-FEAT:Exotic Weapon Proficiency(Waraxe (Dwarven))
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency(Waraxe (Dwarven))
 GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Large/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand
@@ -719,7 +719,7 @@ CLASS:Warrior	LEVEL:1
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 SKILL:Appraise	RANK:2	FREE:YES
-FEAT:Exotic Weapon Proficiency(Waraxe (Dwarven))
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency(Waraxe (Dwarven))
 GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Large/Metal)	SIZE:PC	LOCATION:Equipped
 GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand

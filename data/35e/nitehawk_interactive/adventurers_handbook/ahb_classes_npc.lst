@@ -8,11 +8,11 @@ CLASS:Exile		HD:8		TYPE:Base.NPC	ABB:Exile		MAXLEVEL:20	SOURCEPAGE:p.138	BONUS:C
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Exile		STARTSKILLPTS:2	CSKILL:Bluff|Hide|Intimidate|TYPE=Knowledge|Jump|Listen|Move Silently|TYPE=Perform|Sense Motive|Speak Language|Spot|Swim
 ###Block:Proficiencies
-1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1										AUTO:FEAT|Shield Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Level Progression
-1	AUTO:FEAT|Run
+1	ABILITY:FEAT|AUTOMATIC|Run
 
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus																																				Save bonus
@@ -20,14 +20,14 @@ CLASS:Ruffian	HD:6		TYPE:Base.NPC	MAXLEVEL:20	SOURCEPAGE:p.139	BONUS:COMBAT|BASE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ruffian	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Gather Information|Hide|Intimidate|Knowledge (Local)|Jump|Listen|Sleight of Hand|Spot|Use Rope
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1												AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Level Progression
-1														AUTO:FEAT|Toughness
-7														AUTO:FEAT|Toughness
+1														ABILITY:FEAT|AUTOMATIC|Toughness
+7														ABILITY:FEAT|AUTOMATIC|Toughness
 10	BONUS:VAR|Reputation|CL/5-1	ABILITY:Special Ability|AUTOMATIC|Reputation
-14														AUTO:FEAT|Toughness
-20														AUTO:FEAT|Toughness
+14														ABILITY:FEAT|AUTOMATIC|Toughness
+20														ABILITY:FEAT|AUTOMATIC|Toughness
 
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus

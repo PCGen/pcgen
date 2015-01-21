@@ -35,7 +35,7 @@ ABILITY:boa_abilities_variant.lst
 ABILITYCATEGORY:boa_abilitycategories.lst
 CLASS:boa_classes.lst
 DOMAIN:boa_domains.lst
-FEAT:boa_feats.lst
+ABILITY:boa_feats.lst
 RACE:boa_races.lst
 SKILL:boa_skills.lst
 SPELL:boa_spells.lst

@@ -2,5 +2,5 @@
 SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53	SOURCEDATE:2004-01
 
 # Feat Name		Type			Visible	Special ABility							Define								Modify VAR
-Inflict Wounds	TYPE:ClassAbility	VISIBLE:NO	SAB:Inflict Wounds +%d8|InflictWounds			DEFINE:InflictWounds|0
-Sneak Attack	TYPE:Special	VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttackDice|SneakAttackDie	DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0	BONUS:VAR|SneakAttackDie|6
+Inflict Wounds	CATEGORY:FEAT	TYPE:ClassAbility	VISIBLE:NO	SAB:Inflict Wounds +%d8|InflictWounds			DEFINE:InflictWounds|0
+Sneak Attack	CATEGORY:FEAT	TYPE:Special	VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttackDice|SneakAttackDie	DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0	BONUS:VAR|SneakAttackDie|6

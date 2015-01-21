@@ -17,12 +17,12 @@ Tribal		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILI
 # Feat Name					Type						Visible		Required Feat			Prohibited Feat					Add									Modify VAR							Source Page
 # Ability Name	Category of Ability		Type				Visible		Restricted Ability							Required Feat			Bonus Ability Pool						Modify VAR							Source Page
 Bohemian		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Bohemian							BONUS:ABILITYPOOL|Bohemian Occupation Skills|4		BONUS:VAR|Reputation|1					SOURCEPAGE:p.7
-Bureaucrat		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Bureaucrat		PREFEAT:1,TYPE.Bureaucrat	BONUS:ABILITYPOOL|Bureaucrat Occupation Skills|2	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7
-Craftsperson	CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Craftsperson	PREFEAT:1,TYPE.Craftsperson	BONUS:ABILITYPOOL|Craftsperson Occupation Skills|2	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7
+Bureaucrat		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Bureaucrat		PREABILITY:1,CATEGORY=FEAT,TYPE.Bureaucrat	BONUS:ABILITYPOOL|Bureaucrat Occupation Skills|2	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7
+Craftsperson	CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Craftsperson	PREABILITY:1,CATEGORY=FEAT,TYPE.Craftsperson	BONUS:ABILITYPOOL|Craftsperson Occupation Skills|2	BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7
 Domestic		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Domestic							BONUS:ABILITYPOOL|Domestic Occupation Skills|3		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.7
-Educator		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Educator		PREFEAT:1,TYPE.Educator		BONUS:ABILITYPOOL|Educator Occupation Skills|2		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7
-Politico		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Politico		PREFEAT:1,TYPE.Politico		BONUS:ABILITYPOOL|Politico Occupation Skills|2		BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p.8
-Tribal		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Tribal		PREFEAT:1,TYPE.Tribal		BONUS:ABILITYPOOL|Tribal Occupation Skills|3		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.8
+Educator		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Educator		PREABILITY:1,CATEGORY=FEAT,TYPE.Educator		BONUS:ABILITYPOOL|Educator Occupation Skills|2		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.7
+Politico		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Politico		PREABILITY:1,CATEGORY=FEAT,TYPE.Politico		BONUS:ABILITYPOOL|Politico Occupation Skills|2		BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p.8
+Tribal		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Tribal		PREABILITY:1,CATEGORY=FEAT,TYPE.Tribal		BONUS:ABILITYPOOL|Tribal Occupation Skills|3		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.8
 
 ###Block: skill choices
 # Feat Name								Type

@@ -9,7 +9,7 @@ NAME:Akata
 SKILL:Balance	RANK:2
 SKILL:Tumble	RANK:3
 SKILL:Tumble	RANK:2	FREE:YES
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 
 
@@ -20,11 +20,11 @@ NAME:Moonflower
 SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:4
-FEAT:Blind-Fight
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Power Attack
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Stealthy
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 
 
@@ -38,9 +38,9 @@ SKILL:Knowledge (History)	RANK:6
 SKILL:Listen			RANK:11
 SKILL:Perform (Sing)		RANK:11
 SKILL:Spot				RANK:11
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
@@ -67,12 +67,12 @@ SKILL:Sense Motive		RANK:20
 SKILL:Sleight of Hand		RANK:10
 SKILL:Spot				RANK:20
 SKILL:Tumble			RANK:20
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
 GEAR:Tyranny's Foil	LOCATION:Both Hands
 
@@ -91,10 +91,10 @@ SKILL:Knowledge (Geography)	RANK:5
 SKILL:Knowledge (The Planes)	RANK:5
 SKILL:Sense Motive		RANK:6
 SKILL:Spot				RANK:7
-FEAT:Great Fortitude
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Negotiator
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Negotiator
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 GEAR:Ranseur	LOCATION:Both Hands	EQMOD:MWORKW
 

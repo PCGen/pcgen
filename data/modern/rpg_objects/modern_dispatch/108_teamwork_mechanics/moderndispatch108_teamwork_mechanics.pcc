@@ -24,7 +24,7 @@ COPYRIGHT:PCGen dataset conversion for Modern Dispatch #108 Copyright 2007, PCge
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-FEAT:moderndispatch108_teamwork_mechanics_feats.lst
+ABILITY:moderndispatch108_teamwork_mechanics_feats.lst
 
 #
 # End

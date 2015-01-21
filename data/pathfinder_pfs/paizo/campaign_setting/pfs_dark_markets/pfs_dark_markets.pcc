@@ -46,7 +46,7 @@ PRECAMPAIGN:1,Dark Markets - A Guide to Katapesh - Conversion
 #CLASS:@/pathfinder/paizo/campaign_setting/dark_markets/dm_classes.lst|(INCLUDE:Balanced Scale of Abadar)|PRECAMPAIGN:1,Dark Markets - A Guide to Katapesh (Conversion)
 #FEAT:@/pathfinder/paizo/campaign_setting/dark_markets/dm_feats.lst|(INCLUDE:Jackal Blood,Lucky Halfling)|PRECAMPAIGN:1,Dark Markets - A Guide to Katapesh (Conversion)
 
-FEAT:pfs_dm_feats.lst|PRECAMPAIGN:1,INCLUDES=Dark Markets - A Guide to Katapesh - Conversion
+ABILITY:pfs_dm_feats.lst|PRECAMPAIGN:1,INCLUDES=Dark Markets - A Guide to Katapesh - Conversion
 TEMPLATE:pfs_dm_templates.lst|PRECAMPAIGN:1,INCLUDES=Dark Markets - A Guide to Katapesh - Conversion
 
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dark_markets/dm_abilities_race.lst

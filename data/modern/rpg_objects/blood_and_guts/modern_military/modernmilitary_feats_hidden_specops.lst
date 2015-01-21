@@ -4,20 +4,20 @@ SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://
 
 ###Block: Mental Toughness
 # Feat Name		Type							Visible	Required Feat			Special ABility																																			Define		Modify VAR						Source Page
-Cat Nap		TYPE:MentalToughness.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Mental Toughness	SAB:Cat Nap - Instead of -10 on Listen checks while sleeping, the character has a penalty of % to Listen while sleeping|CatNap|PREVARLT:Catnap,0	SAB:Cat Nap - No penalty to Listen while sleeping|PREVARGTEQ:Catnap,0	DEFINE:CatNap|0	BONUS:VAR|CatNap|min(0,(SpecOpsLVL-10))	SOURCEPAGE:p.9
-Mental Toughness	TYPE:MentalToughness.SpecOpsTraining	VISIBLE:NO						SAB:+% to any saving throw to resist fatigue, hunger, torture, brainwashing, fear, combat fatigue and intimidation|SpecOpsLVL																											SOURCEPAGE:p.8
+Cat Nap		CATEGORY:FEAT	TYPE:MentalToughness.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Mental Toughness	SAB:Cat Nap - Instead of -10 on Listen checks while sleeping, the character has a penalty of % to Listen while sleeping|CatNap|PREVARLT:Catnap,0	SAB:Cat Nap - No penalty to Listen while sleeping|PREVARGTEQ:Catnap,0	DEFINE:CatNap|0	BONUS:VAR|CatNap|min(0,(SpecOpsLVL-10))	SOURCEPAGE:p.9
+Mental Toughness	CATEGORY:FEAT	TYPE:MentalToughness.SpecOpsTraining	VISIBLE:NO						SAB:+% to any saving throw to resist fatigue, hunger, torture, brainwashing, fear, combat fatigue and intimidation|SpecOpsLVL																											SOURCEPAGE:p.8
 
 ###Block:Silent Kill
 # Feat Name		Type						Visible	Required Feat			Ability							Modify VAR				Source Page
-Silent Kill 1	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Commando Training	ABILITY:Special Ability|AUTOMATIC|Sneak Attack						SOURCEPAGE:p.9
-Silent Kill 2	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 1										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
-Silent Kill 3	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 2										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
-Silent Kill 4	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 3										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
+Silent Kill 1	CATEGORY:FEAT	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Commando Training	ABILITY:Special Ability|AUTOMATIC|Sneak Attack						SOURCEPAGE:p.9
+Silent Kill 2	CATEGORY:FEAT	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Silent Kill 1										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
+Silent Kill 3	CATEGORY:FEAT	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Silent Kill 2										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
+Silent Kill 4	CATEGORY:FEAT	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Silent Kill 3										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
 
 ###Block: Strategy
 # Feat Name				Type							Visible	Required Feat						Required Skill				Special ABility			Bonus to skill				Source Page
-Ambush				TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Prepare												SAB:Ambush										SOURCEPAGE:p.9
-Improvise				TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SAB:Improvise									SOURCEPAGE:p.9
-Long Range Reconnaissance	TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SAB:Long Range Reconnaissance	BONUS:SKILL|Spot|SpecOpsLVL		SOURCEPAGE:p.9
-Prepare				TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SAB:Prepare				BONUS:SKILL|Knowledge (Tactics)|2	SOURCEPAGE:p.9
-Psychological Warfare		TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Improvise											SAB:Psychological Warfare							SOURCEPAGE:p.9
+Ambush				CATEGORY:FEAT	TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Prepare												SAB:Ambush										SOURCEPAGE:p.9
+Improvise				CATEGORY:FEAT	TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SAB:Improvise									SOURCEPAGE:p.9
+Long Range Reconnaissance	CATEGORY:FEAT	TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SAB:Long Range Reconnaissance	BONUS:SKILL|Spot|SpecOpsLVL		SOURCEPAGE:p.9
+Prepare				CATEGORY:FEAT	TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,NCO School,Officer Candidate School	PRESKILL:1,Knowledge (Tactics)=5	SAB:Prepare				BONUS:SKILL|Knowledge (Tactics)|2	SOURCEPAGE:p.9
+Psychological Warfare		CATEGORY:FEAT	TYPE:SpecOpsStrategy.SpecOpsTraining	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Improvise											SAB:Psychological Warfare							SOURCEPAGE:p.9

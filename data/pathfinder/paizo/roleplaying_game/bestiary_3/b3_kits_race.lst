@@ -13,8 +13,8 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 #SKILL:Perception	RANK:4
 #SKILL:Stealth	RANK:4
 #SKILL:Swim		RANK:4
-FEAT:Deadly Aim
-FEAT:Weapon Focus (Spear)
+ABILITY:CATEGORY=FEAT|Deadly Aim
+ABILITY:CATEGORY=FEAT|Weapon Focus (Spear)
 GEAR:Spear	QTY:1	LOCATION:Equipped
 GEAR:Spear	QTY:2	LOCATION:Carried
 ABILITY:CATEGORY=Traits|Trait ~ No Traits
@@ -27,8 +27,8 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 #SKILL:Craft (Cloth)	RANK:2
 #SKILL:Craft (Traps)	RANK:1
 #SKILL:Stealth		RANK:1
-FEAT:Agile Maneuvers
-FEAT:Combat Reflexes
+ABILITY:CATEGORY=FEAT|Agile Maneuvers
+ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Adlet Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Adlet],[!PRERACE:1,%]	SOURCEPAGE:p.9
@@ -43,14 +43,14 @@ STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 #SKILL:Stealth		RANK:5
 #SKILL:Survival		RANK:10
 #SKILL:Swim			RANK:5
-FEAT:Diehard
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Run
-FEAT:Self-Sufficient
-FEAT:Weapon Focus(Spear)
+ABILITY:CATEGORY=FEAT|Diehard
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Self-Sufficient
+ABILITY:CATEGORY=FEAT|Weapon Focus(Spear)
 GEAR:Spear	LOCATION:Equipped	EQMOD:PLUS1W
 ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
@@ -61,10 +61,10 @@ NAME:Ahuizotl
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 #SKILL:Stealth	RANK:4
 #SKILL:Swim		RANK:4
-FEAT:Blinding Critical
-FEAT:Combat Reflexes
-FEAT:Improved Critical (Claw)
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Blinding Critical
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 
@@ -76,15 +76,15 @@ STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 #SKILL:Acrobatics	RANK:3
 #SKILL:Perception	RANK:2
 #SKILL:Stealth	RANK:13
-FEAT:Dodge
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Improved Vital Strike
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Skill Focus (Stealth)
-FEAT:Vital Strike
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Vital Strike
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Allip Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Allip],[!PRERACE:1,%]	SOURCEPAGE:p.12

@@ -22,7 +22,7 @@ ALIGN:LE
 SKILL:Hide			RANK:5
 SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:5
-FEAT:Exotic Weapon Proficiency(Rifle Bayonet)
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency(Rifle Bayonet)
 
 STARTPACK:Blob Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blob]
 RACE:Blob	!PRERACE:1,%
@@ -55,8 +55,8 @@ SKILL:Use Rope		RANK:5
 SKILL:Hide			RANK:6
 SKILL:Intimidate		RANK:6
 SKILL:Move Silently	RANK:6
-FEAT:Dodge
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 
 STARTPACK:Bone Fiend Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bone Fiend]
 RACE:Bone Fiend	!PRERACE:1,%
@@ -70,8 +70,8 @@ SKILL:Move Silently	RANK:7
 SKILL:Spot			RANK:7
 SKILL:Jump			RANK:8
 SKILL:Hide			RANK:8
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Braincrawler Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Braincrawler]
 RACE:Braincrawler	!PRERACE:1,%

@@ -29,11 +29,12 @@ LICENSE:FILE=data\3e\bastion_press\oathbound\oathboundpermission.htm
 #EXTRAFILE:oathboundpermission.htm
 #EXTRAFILE:UPDATE.txt
 #EXTRAFILE:UPDATE2003-11-09-ruemere.TXT
+ABILITYCATEGORY:ob_abilitycategories.lst
+ABILITY:oathbound_feats_hidden.lst
 
 SKILL:oathbound_skills.lst
-FEAT:oathbound_feats.lst
-FEAT:oathbound_feats_30.lst
-FEAT:oathbound_feats_hidden.lst
+ABILITY:oathbound_feats.lst
+ABILITY:oathbound_feats_30.lst
 CLASS:oathbound_classes.lst
 SPELL:oathbound_spells.lst
 

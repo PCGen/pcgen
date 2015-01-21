@@ -28,7 +28,7 @@ ABILITY:hallowedmight_feats_hidden.lst
 
 DOMAIN:hallowedmight_domains.lst
 SPELL:hallowedmight_spells.lst
-FEAT:hallowedmight_feats.lst
+ABILITY:hallowedmight_feats.lst
 TEMPLATE:hallowedmight_templates.lst
 CLASS:hallowedmight_classes.lst
 EQUIPMOD:hallowedmight_equipmods.lst

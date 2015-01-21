@@ -7,7 +7,7 @@ CLASS:Airborne Legionnaire	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BON
 CLASS:Airborne Legionnaire	PREMULT:1,[PRESKILL:1,Ride=4],[PRESKILL:2,Pilot=4,Handle Animal=4]	PRESTAT:1,DEX=13	PRETOTALAB:8
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Airborne Legionnaire	STARTSKILLPTS:4	CSKILL:Balance|Climb|Listen|Jump|Spot|Navigate|Tumble|Ride|Handle Animal|Bluff|Concentration|Profession|Survival
-1	SAB:Share Spells									VFEAT:Flyby Attack
+1	SAB:Share Spells									ABILITY:FEAT|VIRTUAL|Flyby Attack
 2	SAB:Aerial Defense
 3						ADD:FEAT|TYPE=AirborneLegionnaire
 4	SAB:Evasive Action

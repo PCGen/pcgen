@@ -1,5 +1,15 @@
 # CVS $Revision: 24815 $ $Author: amaitland $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 
+
+# Original Entry by: Tir Gwaith
+
+# Feat Name					Type			Visible	Multiple?	Choose				Class Skill
+All Exotic Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO
+Craft Class Skills			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft		CSKILL:LIST
+Knowledge Class Skills			CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	CSKILL:LIST
+
+
+
 # Ability Name							Category of Ability	Define																Auto Equip							Ability														Modify VAR
 Default								CATEGORY:Internal
 

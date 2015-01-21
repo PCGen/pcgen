@@ -32,7 +32,7 @@ ABILITY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_abi
 ABILITY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_abilities_racial.lst
 ABILITYCATEGORY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_ability_categories_core.lst
 TEMPLATE:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_templates.lst
-FEAT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_feats.lst
+ABILITY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_feats.lst
 RACE:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_races_animals.lst
 SKILL:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_skills.lst
 CLASS:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_classes_pc.lst
@@ -40,6 +40,7 @@ CLASS:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_class
 EQUIPMOD:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_equipmods.lst|(EXCLUDE:AUTOFIRE|BURSTFIRE|DBLTAP|UPGRADE|ILLUMINATOR|LSR_SIGHT|SCP_ELE_OP|SPEED_LD|SPPRSS_PIS|SPPRSS_RFL)
 
 # Sidewinder data
+ABILITY:sr_feats_hidden.lst
 
 ABILITY:sr_abilities_occupations.lst
 ABILITYCATEGORY:sr_ability_categories.lst
@@ -54,8 +55,8 @@ EQUIPMENT:sr_equip_conveyance.lst
 EQUIPMENT:sr_equip_services.lst
 EQUIPMENT:sr_equip.lst
 EQUIPMOD:sr_equipmods.lst
-FEAT:sr_feats.lst
-FEAT:sr_feats_hidden.lst
+ABILITY:sr_feats.lst
+ABILITY:sr_feats_hidden.lst
 RACE:sr_races.lst
 WEAPONPROF:sr_weaponprofs.lst
 ARMORPROF:sr_profs_armor.lst

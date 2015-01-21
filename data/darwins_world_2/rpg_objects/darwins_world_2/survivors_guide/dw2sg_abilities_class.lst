@@ -3,15 +3,15 @@
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 ###Block:
-Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttackDice|SneakAttackDie	DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0	DESC:+%1d%2|SneakAttackDice|SneakAttackDie	BONUS:VAR|SneakAttackDie|6	SOURCEPAGE:ClassesII	ASPECT:Ability Benefit|+%1d%2|SneakAttackDice|SneakAttackDie
+Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialAttack	SAB:Sneak Attack +%d%|SneakAttackDice|SneakAttackDie	DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0	DESC:+%1d%2|SneakAttackDice|SneakAttackDie	BONUS:VAR|SneakAttackDie|6	SOURCEPAGE:ClassesII	ASPECT:Ability Benefit|+%1d%2|SneakAttackDice|SneakAttackDie
 
 ###Block: PA Hero Talents
 # Ability Name		Category of Ability	Type						Visible	Required Ability																										Required Feat					Required Skill					Required Template		Description																	Stackable?	Multiple?	Choose			Combat bonus			Bonus to skill										Modify VAR												Weapon prof. bonus				Source Page
-Technologist		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Technologist																													BONUS:SKILL|Knowledge (Technology)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p.14
-Computer Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Computer Lore																												BONUS:SKILL|Computer Use|var("CL=Post Apocalyptic Hero")																							SOURCEPAGE:p.14
-Medical Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Medical Lore																													BONUS:SKILL|Treat Injury|var("CL=Post Apocalyptic Hero")																							SOURCEPAGE:p.14
-Historian			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Post-Apocalyptic Technology												DESC:Historian																													BONUS:SKILL|Knowledge (Ancient Lore)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p.14
-Craft Lore			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREFEAT:1,Advanced Technology														DESC:Craft Lore (%1)|%CHOICE														STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft						BONUS:SKILL|LIST|var("CL=Post Apocalyptic Hero")																								SOURCEPAGE:p.14
+Technologist		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREABILITY:1,CATEGORY=FEAT,Post-Apocalyptic Technology												DESC:Technologist																													BONUS:SKILL|Knowledge (Technology)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p.14
+Computer Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREABILITY:1,CATEGORY=FEAT,Post-Apocalyptic Technology												DESC:Computer Lore																												BONUS:SKILL|Computer Use|var("CL=Post Apocalyptic Hero")																							SOURCEPAGE:p.14
+Medical Lore		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREABILITY:1,CATEGORY=FEAT,Post-Apocalyptic Technology												DESC:Medical Lore																													BONUS:SKILL|Treat Injury|var("CL=Post Apocalyptic Hero")																							SOURCEPAGE:p.14
+Historian			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREABILITY:1,CATEGORY=FEAT,Post-Apocalyptic Technology												DESC:Historian																													BONUS:SKILL|Knowledge (Ancient Lore)|var("CL=Post Apocalyptic Hero")																					SOURCEPAGE:p.14
+Craft Lore			CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Ancient	VISIBLE:YES																													PREABILITY:1,CATEGORY=FEAT,Advanced Technology														DESC:Craft Lore (%1)|%CHOICE														STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft						BONUS:SKILL|LIST|var("CL=Post Apocalyptic Hero")																								SOURCEPAGE:p.14
 
 Mutation Knowledge	CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES																																				PRESKILL:1,Knowledge (Mutant Lore)=1					DESC:Mutation Knowledge																																																												SOURCEPAGE:p.14
 Mutant Weapon		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Mutant	VISIBLE:YES	PREABILITY:1,CATEGORY=Talent,Mutation Knowledge																																			PRETEMPLATE:1,Mutant1,Mutant2,Mutant3	DESC:Mutant Weapon 																																																					BONUS:WEAPONPROF=TYPE.Natural|TOHIT|1	SOURCEPAGE:p.14
@@ -30,8 +30,8 @@ Survival Sense		CATEGORY:Talent		TYPE:Talent.PAHeroTalent.Survival	VISIBLE:YES	P
 # Ability Name			Output Name		Category of Ability	Type							Visible	Description						Multiple?	Choose																												Auto Feat		Ability								Bonus to skill rank
 Ancient Knowledge						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Knowledge (%1)|%CHOICE		MULT:YES	STACK:YES	CHOOSE:SKILL|TYPE=Knowledge																																			BONUS:SKILLRANK|%LIST|4
 Ancient Craft						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Craft (%1)|%CHOICE		MULT:YES	CHOOSE:SKILL|TYPE=Craft																																						BONUS:SKILLRANK|%LIST|4
-Ancient Technology					CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Technology (%1)|%CHOICE	MULT:YES	CHOOSE:FEATSELECTION|Advanced Technology|TYPE=TechCraft|TITLE=Add a Feat																	AUTO:FEAT|%LIST
-Ancient Vehicles						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Vehicle (%1)|%CHOICE		MULT:YES	CHOOSE:FEATSELECTION|Aircraft Operation|Armor Proficiency (Powered)|Surface Vehicle Operation|Vehicle Expert|Ancient Vehicles (Pilot)|Ancient Vehicles (Drive)|TITLE=Add a Feat	AUTO:FEAT|%LIST
+Ancient Technology					CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Technology (%1)|%CHOICE	MULT:YES	CHOOSE:FEATSELECTION|Advanced Technology|TYPE=TechCraft|TITLE=Add a Feat																	ABILITY:FEAT|AUTOMATIC|%LIST
+Ancient Vehicles						CATEGORY:Talent		TYPE:Talent.ScholarTalent.AncientSecret	VISIBLE:YES	DESC:Ancient Vehicle (%1)|%CHOICE		MULT:YES	CHOOSE:FEATSELECTION|Aircraft Operation|Armor Proficiency (Powered)|Surface Vehicle Operation|Vehicle Expert|Ancient Vehicles (Pilot)|Ancient Vehicles (Drive)|TITLE=Add a Feat	ABILITY:FEAT|AUTOMATIC|%LIST
 
 Ancient Vehicles (Pilot)				CATEGORY:FEAT									VISIBLE:NO																																										ABILITY:Talent|AUTOMATIC|Ancient Vehicles (Pilot)
 Ancient Vehicles (Drive)				CATEGORY:FEAT									VISIBLE:NO																																										ABILITY:Talent|AUTOMATIC|Ancient Vehicles (Drive)
@@ -69,9 +69,9 @@ Mechanical Mastercraft	CATEGORY:Talent		TYPE:Talent.MechTalent.MechMastercraft	V
 
 ###Block: Medicine Man
 # Ability Name			Category of Ability	Type									Visible	Required Feat						Prohibited Feat						Req. Special Ability					Prohibite Special Ability				Description								Virtual Feat					Add 				Source Page
-Advanced Pharmaceuticals	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManDrugs		VISIBLE:YES									!PREFEAT:1,Advanced Pharmaceutical Discipline																	DESC:Ancient Drugs						VFEAT:Advanced Pharmaceutical Discipline					SOURCEPAGE:p.48
-JuJu Doctor Feat I		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManDrugs		VISIBLE:YES	PREFEAT:1,Advanced Pharmaceutical Discipline																									DESC:Ancient Drugs													ADD:FEAT|TYPE=JujuDoc	SOURCEPAGE:p.48
-JuJu Doctor Feat II		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManMinorMiracle	VISIBLE:YES																	PRESA:1,Juju Miracle,Minor Medical Miracle																									ADD:FEAT|TYPE=JujuDoc	SOURCEPAGE:p.49
+Advanced Pharmaceuticals	CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManDrugs		VISIBLE:YES									!PREABILITY:1,CATEGORY=FEAT,Advanced Pharmaceutical Discipline																	DESC:Ancient Drugs						ABILITY:FEAT|VIRTUAL|Advanced Pharmaceutical Discipline					SOURCEPAGE:p.48
+JuJu Doctor Feat I		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManDrugs		VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Advanced Pharmaceutical Discipline																									DESC:Ancient Drugs													BONUS:ABILITYPOOL|Juju Doctor Feat|1	SOURCEPAGE:p.48
+JuJu Doctor Feat II		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManMinorMiracle	VISIBLE:YES																	PRESA:1,Juju Miracle,Minor Medical Miracle																									BONUS:ABILITYPOOL|Juju Doctor Feat|1	SOURCEPAGE:p.49
 Minor Medical Miracle		CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManMinorMiracle	VISIBLE:YES																									!PRESA:2,Juju Miracle,Minor Medical Miracle	DESC:Minor Medical Miracle																SOURCEPAGE:p.49
 Medical Miracle			CATEGORY:Talent		TYPE:Talent.MedicineManTalent.MedicineManMiracle	VISIBLE:YES																																	DESC:Medical Miracle																SOURCEPAGE:p.49
 MedTech (Cloning)			CATEGORY:Talent		TYPE:Talent.MedicineManTalent.AncientMedTech		VISIBLE:YES																																	DESC:Ancient Medical Technology (Cloning)														SOURCEPAGE:p.49
@@ -84,9 +84,9 @@ Smart Weapon	CATEGORY:Talent		TYPE:Talent.ScientistTalent	VISIBLE:YES	SAB:Smart 
 
 ###Block: Warrior Monk
 # Ability Name				Category of Ability	Type				Visible	Required Ability								Required Feat		Description								Stackable?	Multiple?	Choose								Weapon prof. bonus			Source Page
-Superior Weapon Focus			CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES											PREFEAT:1,Weapon Focus	DESC:Superior Weapon Focus (%1)|%CHOICE			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus		BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.58
+Superior Weapon Focus			CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES											PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Focus (%1)|%CHOICE			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus		BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.58
 Superior Combat Reflexes		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES															DESC:Superior Combat Reflexes																								SOURCEPAGE:p.58
-Superior Weapon Specialization	CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES																   PREFEAT:1,Weapon Focus	DESC:Superior Weapon Specialization (%1)|%CHOICE	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus				BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.58
+Superior Weapon Specialization	CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES																   PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:Superior Weapon Specialization (%1)|%CHOICE	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus				BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.58
 Superior Combat Expertise		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES															DESC:Superior Combat Expertise																							SOURCEPAGE:p.58
 
 ###Block: Companion support
@@ -179,7 +179,49 @@ Money Talks				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader
 Going Once Going Twice		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature			KEY:Trader ~ Going Once Going Twice					ASPECT:NAME|Going Once, Going Twice
 Read the Signs			CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature			KEY:Trader ~ Read the Signs					
 Sucker Born Every Minute	CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature			KEY:Trader ~ Sucker Born Every Minute				
-Leadership				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature			KEY:Trader ~ Leadership																			AUTO:FEAT|Leadership
+Leadership				CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature			KEY:Trader ~ Leadership																			ABILITY:FEAT|AUTOMATIC|Leadership
 Professional Courtesy		CATEGORY:Special Ability	TYPE:SpecialQuality.Class Feature.Trader Class Feature			KEY:Trader ~ Professional Courtesy				
 
 
+
+
+
+###Block: Mutations
+#Hidden Feats for Additional Limb Development
+# Feat Name		Type					Visible	Required Ability									Restricted Ability							Special ABility															Define				Stackable?	Multiple?	Choose					Combat bonus		Add to base move						Bonus to skill					Bonus to nb of slots	Modify VAR				Source Page
+#replaced with mutation - this did not work right
+Extra Arm Feat	CATEGORY:Special Ability	TYPE:MutantAbility.ExtraArm		PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Arm)											SAB:Extra Arm (x%) (+% additional attacks during full attack)|AdditionalLimbArm|AdditionalLimbArm	DEFINE:AdditionalLimbArm|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:COMBAT|ATTACKS|1																BONUS:SLOTS|GLOVE|1	BONUS:VAR|AdditionalLimbArm|1	SOURCEPAGE:p. 77
+Extra Leg Feat	CATEGORY:Special Ability	TYPE:MutantAbility.Limb		PREABILITY:1,CATEGORY=Mutation,Additional Limb Development (Leg)											SAB:Extra Leg (x%) (+5' to Base Speed, +2 to Balance each)|AdditionalLimbLeg					DEFINE:AdditionalLimbLeg|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:MOVEADD|TYPE.Walk|(5*AdditionalLimbLeg)	BONUS:SKILL|Balance|(2*AdditionalLimbLeg)					BONUS:VAR|AdditionalLimbLeg|1	SOURCEPAGE:p. 77
+
+#Hidden Feats for Diurnal/Nocturnal
+#Changed with mutation - original code did not work right
+#Diurnal		CATEGORY:Special Ability	TYPE:MutantAbility.DiNoc												!PREABILITY:1,CATEGORY=Mutation,Diurnal/Nocturnal (Night)	SAB:+% to %CHOICE during Daytime hours (6am to 6pm)|dayBonus							DEFINE:dayBonus|0			STACK:YES	MULT:YES	CHOOSE:STRING|Dexterity|Strength																								BONUS:VAR|dayBonus|2
+#Nocturnal		CATEGORY:Special Ability	TYPE:MutantAbility.DiNoc												!PREABILITY:1,CATEGORY=Mutation,Diurnal/Nocturnal (Day)	SAB:+% to %CHOICE during Nighttime hours (6pm to 6am)|nightBonus							DEFINE:nightBonus|0		STACK:YES	MULT:YES	CHOOSE:STRING|Dexterity|Strength																								BONUS:VAR|nightBonus|2
+Diurnal		CATEGORY:Special Ability	TYPE:MutantAbility.DiNoc				SAB:+% to chosen ability during Daytime hours (6am to 6pm)|dayBonus			STACK:YES	MULT:NO		DEFINE:dayBonus|0		BONUS:VAR|dayBonus|((2*count("ABILITIES","CATEGORY=Mutation","NAME=Diurnal/Nocturnal (DEX)"))+(2*count("ABILITIES","CATEGORY=Mutation","NAME=Diurnal/Nocturnal (STR)")))
+Nocturnal		CATEGORY:Special Ability	TYPE:MutantAbility.DiNoc				SAB:+% to chosen ability during Nighttime hours (6pm to 6am)|nightBonus			STACK:YES	MULT:NO		DEFINE:nightBonus|0		BONUS:VAR|nightBonus|((2*count("ABILITIES","CATEGORY=Mutation","NAME=Diurnal/Nocturnal (DEX)"))+(2*count("ABILITIES","CATEGORY=Mutation","NAME=Diurnal/Nocturnal (STR)")))
+
+###Block: Barbarian Rage
+# Feat Name	Type			Visible	Special ABility																																			Define																										Modify VAR																																		Temporary Bonus
+Rage		CATEGORY:Special Ability	TYPE:Special	SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, Will +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageMorale|RageACPenalty|(RageConBonus/2)*(TL+HD)|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|0	BONUS:VAR|RageBonus|4	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	TEMPBONUS:PC|SAVE|Will|RageMorale	TEMPBONUS:PC|COMBAT|AC|-1*RageACPenalty	TEMPBONUS:PC|STAT|CON|RageConBonus	TEMPBONUS:PC|STAT|STR|RageStrBonus	TEMPBONUS:PC|VAR|RageDuration|-(RageConBonus/2)	TEMPBONUS:PC|VAR|Enraged|1
+
+###Block: Sneak Attack
+# Feat Name		Type			Visible	Special ABility							Define								Description				Modify VAR				Source Page
+Sneak Attack	CATEGORY:Special Ability	TYPE:Special	SAB:Sneak Attack +%d%|SneakAttackDice|SneakAttackDie	DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0	DESC:Class Special Ability	BONUS:VAR|SneakAttackDie|6	SOURCEPAGE:p.29
+
+###Block: Skill Mastery
+# Feat Name		Type			Visible	Special ABility			Multiple?	Choose			Selections
+Skill Mastery	CATEGORY:Special Ability	TYPE:Special	SAB:Skill Mastery (%CHOICE)	MULT:YES	CHOOSE:SKILL|CLASS	SELECT:3+INT
+
+###Block: Evasion/Improved Evasion
+# Feat Name		Type							Visible	Required Feat	Special ABility						Define					Modify VAR																													Source Page
+Evasion		CATEGORY:Special Ability	TYPE:Special.Extraordinary						SAB:Evasion (Ex)|EvasionUsable			DEFINE:EvasionUsable|0			BONUS:VAR|EvasionUsable|1|PREVAREQ:var("COUNT[FEATNAME=Improved Evasion.ALL]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0
+Improved Evasion	CATEGORY:Special Ability	TYPE:Special.Extraordinary.RogueAbilities	PREABILITY:1,CATEGORY=FEAT,Evasion	SAB:Improved Evasion (Ex)|ImprovedEvasionUsable	DEFINE:ImprovedEvasionUsable|0	BONUS:VAR|ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0								SOURCEPAGE:ClassesII
+
+###Block: Warrior Monk
+# Feat Name		Type							Visible	Required Feat	Special ABility						Define					Modify VAR																													Source Page
+Weapon Specialization		CATEGORY:Special Ability	TYPE:WarriorMonk	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	DESC:See Text.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats.rtf
+Greater Weapon Specialization	CATEGORY:Special Ability	TYPE:WarriorMonk	PREABILITY:2,CATEGORY=FEAT,Weapon Focus,Weapon Specialization	PREVARGTEQ:GreatWeapSpecQualify,1	DESC:See Text.	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:Feats
+
+#
+# EoF
+#

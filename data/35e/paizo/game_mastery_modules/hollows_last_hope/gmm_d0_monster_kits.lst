@@ -13,8 +13,8 @@ SKILL:Hide			RANK:5
 SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:6
-FEAT:Alertness
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 
 ##
 ## Ulizmila's Cauldron Default Kit

@@ -29,7 +29,7 @@ EQUIPMENT:my_equip_arms_armor.lst
 EQUIPMENT:my_equip_general.lst
 EQUIPMENT:my_equip_magic_items.lst
 EQUIPMOD:my_equipmods.lst
-FEAT:my_feats.lst
+ABILITY:my_feats.lst
 KIT:my_kits.lst
 LANGUAGE:my_languages.lst
 RACE:my_races.lst

@@ -8,9 +8,9 @@ SUBSTITUTIONCLASS:Bard - Specialized Training Pathfinder Varient
 ###Block: Specialized Training Pathfinder Varient
 SUBSTITUTIONLEVEL:1	BONUS:ABILITYPOOL|Bard Specialized Training|1
 ###Block: Proficiencies
-SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Bard Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-SUBSTITUTIONLEVEL:1																AUTO:FEAT|Armor Proficiency (Light)
-SUBSTITUTIONLEVEL:1																AUTO:FEAT|Shield Proficiency
+SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Bard Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+SUBSTITUTIONLEVEL:1																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+SUBSTITUTIONLEVEL:1																ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Bardic abilities level definitions.
 SUBSTITUTIONLEVEL:1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl
 SUBSTITUTIONLEVEL:1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL	BONUS:VAR|InspireDurationBase|5	ABILITY:Special Ability|AUTOMATIC|Bardic Music
@@ -32,9 +32,9 @@ SUBSTITUTIONCLASS:Cleric - Holy Warrior Pathfinder Varient
 ###Block: Holy Warrior Pathfinder Varient
 SUBSTITUTIONLEVEL:1	BONUS:DOMAIN|NUMBER|-2	ABILITY:Special Ability|AUTOMATIC|Holy Warrior ~ Cleric	TEMPLATE:Holy Warrior Hit Dice
 ###Block: Proficiencies
-SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-SUBSTITUTIONLEVEL:1												AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-SUBSTITUTIONLEVEL:1												AUTO:FEAT|Shield Proficiency
+SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+SUBSTITUTIONLEVEL:1												ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+SUBSTITUTIONLEVEL:1												ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Turn Undead stuff
 SUBSTITUTIONLEVEL:1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 ###Block: Spontaneous casting
@@ -62,9 +62,9 @@ SUBSTITUTIONCLASS:Skilled Fighter - Pathfinder Varient
 ###Block: Skilled Fighter - Pathfinder Varient
 SUBSTITUTIONLEVEL:1	BONUS:SKILLPOINTS|NUMBER|2	TEMPLATE:Skilled Fighter
 ###Block:Proficiencies
-SUBSTITUTIONLEVEL:1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
-SUBSTITUTIONLEVEL:1										AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-SUBSTITUTIONLEVEL:1										AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+SUBSTITUTIONLEVEL:1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+SUBSTITUTIONLEVEL:1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+SUBSTITUTIONLEVEL:1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency
 ###Block: Advanced Weapon Feat qualifications
 SUBSTITUTIONLEVEL:1	BONUS:VAR|FighterLVL|CL	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
 SUBSTITUTIONLEVEL:1					ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify
@@ -88,7 +88,7 @@ SUBSTITUTIONLEVEL:1	BONUS:VAR|MonkMoveLVL|CL								ABILITY:Special Ability|AUTO
 SUBSTITUTIONLEVEL:1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL,StunningFistMonkLVL|MonkLVL	ABILITY:Special Ability|AUTOMATIC|Flurry of Blows	ABILITY:Special Ability|VIRTUAL|Greater Flurry of Blows|PREVARGTEQ:GreaterFlurry,1	DEFINE:MonkLVL|0
 SUBSTITUTIONLEVEL:1	BONUS:VAR|MonkBonusFeatLVL|CL																															DEFINE:MonkBonusFeatLVL|0
 ###Block: Level progression
-SUBSTITUTIONLEVEL:1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6	UMULT:2	AUTO:FEAT|Improved Unarmed Strike
+SUBSTITUTIONLEVEL:1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6	UMULT:2	ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
 
 
 # Class Name
@@ -104,15 +104,15 @@ SUBSTITUTIONCLASS:Ranger - Enhanced Companion Pathfinder Varient
 ###Block: Enhanced Companion Pathfinder Varient
 SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Enhanced Companion ~ Ranger|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
-SUBSTITUTIONLEVEL:1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency
-SUBSTITUTIONLEVEL:1										AUTO:FEAT|Armor Proficiency (Light)
-SUBSTITUTIONLEVEL:1										AUTO:FEAT|Shield Proficiency
+SUBSTITUTIONLEVEL:1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+SUBSTITUTIONLEVEL:1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+SUBSTITUTIONLEVEL:1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Favored Enemy level stacking
 SUBSTITUTIONLEVEL:1	BONUS:VAR|RangerFavoredEnemyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Basic Favored Enemy|Ranger Favored Enemy
 ###Block: Combat Trees
 SUBSTITUTIONLEVEL:1	BONUS:VAR|RangerCombatTreeLVL|CL	ABILITY:Special Ability|AUTOMATIC|Ranger Combat Tree
 ###Block: Level progression
-SUBSTITUTIONLEVEL:1	BONUS:VAR|WildEmpathy|CL	AUTO:FEAT|Track
+SUBSTITUTIONLEVEL:1	BONUS:VAR|WildEmpathy|CL	ABILITY:FEAT|AUTOMATIC|Track
 
 
 # Class Name
@@ -121,7 +121,7 @@ SUBSTITUTIONCLASS:Sorcerer - Hidden Reserve Pathfinder Varient
 ###Block: Hidden Reserve Pathfinder Varient
 SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Hidden Reserve ~ Sorcerer
 ###Block:Proficiencies
-SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 ###Block: Level progression
 SUBSTITUTIONLEVEL:1	CAST:5,3	KNOWN:4,2
 

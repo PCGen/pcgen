@@ -32,7 +32,7 @@ COMPANIONMOD:winterelves_companionmods.lst
 DOMAIN:winterelves_domains.lst
 EQUIPMENT:winterelves_equip.lst
 EQUIPMOD:winterelves_equipmods.lst
-FEAT:winterelves_feats.lst
+ABILITY:winterelves_feats.lst
 RACE:winterelves_race.lst
 SPELL:winterelves_spells.lst
 WEAPONPROF:winterelves_weaponprofs.lst

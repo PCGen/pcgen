@@ -5,7 +5,7 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 # Class Name		Hit Dice	Type			Class Type		Max Level	Source Page				Combat bonus								Save bonus																					Modify VAR
 CLASS:Psionic Agent	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaPsionics	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4
 # Class Name		Required Feat		Required Skill				PRETOTALAB
-CLASS:Psionic Agent	PREFEAT:1,Wild Talent	PRESKILL:2,Hide=6,Move Silently=6	PRETOTALAB:2
+CLASS:Psionic Agent	PREABILITY:1,CATEGORY=FEAT,Wild Talent	PRESKILL:2,Hide=6,Move Silently=6	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psionic Agent	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|Drive|Escape Artist|Hide|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|SPEAK LANGUAGE|Spot|Tumble
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
@@ -23,7 +23,7 @@ CLASS:Psionic Agent	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 5	KNOWN:3,3,1									BONUS:VAR|PowerPoints|3					ABILITY:Special Ability|AUTOMATIC|Charged Shot
 6	KNOWN:3,3,2									BONUS:VAR|PowerPoints|3
 7	KNOWN:3,3,2,1								BONUS:VAR|PowerPoints|5					ABILITY:Special Ability|AUTOMATIC|Combat Manifestation
-8	KNOWN:3,3,3,1								BONUS:VAR|PowerPoints|5															AUTO:FEAT|Power Penetration
+8	KNOWN:3,3,3,1								BONUS:VAR|PowerPoints|5															ABILITY:FEAT|AUTOMATIC|Power Penetration
 9	KNOWN:3,3,3,2								BONUS:VAR|PowerPoints|5
 10	KNOWN:3,3,3,2,1								BONUS:VAR|PowerPoints|7					ABILITY:Special Ability|AUTOMATIC|Deadly Aim
 

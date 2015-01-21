@@ -4,7 +4,7 @@ SOURCELONG:Modern Dispatch #90 - The Watchers	SOURCESHORT:MD90-TW	SOURCEWEB:http
 #Original entry by Paul W. King
 
 # Feat Name		Type
-Alertness.MOD	TYPE:Watcher
-Confident.MOD	TYPE:Watcher
-Focused.MOD		TYPE:Watcher
-Trustworthy.MOD	TYPE:Watcher
+CATEGORY=FEAT|Alertness.MOD	TYPE:Watcher
+CATEGORY=FEAT|Confident.MOD	TYPE:Watcher
+CATEGORY=FEAT|Focused.MOD		TYPE:Watcher
+CATEGORY=FEAT|Trustworthy.MOD	TYPE:Watcher

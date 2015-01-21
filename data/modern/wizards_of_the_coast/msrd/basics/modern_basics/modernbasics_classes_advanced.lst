@@ -7,7 +7,7 @@ SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus								Save bonus																															Modify VAR
 CLASS:Soldier	HD:10		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Sol		MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat					Required Skill				PRETOTALAB
-CLASS:Soldier	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=3	PRETOTALAB:3
+CLASS:Soldier	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=3	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Tactics)|Listen|Navigate|Profession|Read/Write Language|SPEAK LANGUAGE|Spot|Survival|Swim
 1	BONUS:ABILITYPOOL|Weapon Focus|1
@@ -24,7 +24,7 @@ CLASS:Soldier	STARTSKILLPTS:4	CSKILL:Demolitions|Drive|Intimidate|Jump|Knowledge
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Define				Combat bonus							Save bonus																																								Modify VAR
 CLASS:Martial Artist	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Mart		MAXLEVEL:10	DEFINE:MartialArtistLVL|0	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC"))	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6	BONUS:VAR|MartialArtistLVL|CL
 # Class Name		Required Feat							Required Skill	PRETOTALAB
-CLASS:Martial Artist	PREFEAT:2,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Jump=3	PRETOTALAB:3
+CLASS:Martial Artist	PREABILITY:2,CATEGORY=FEAT,Combat Martial Arts,Defensive Martial Arts	PRESKILL:1,Jump=3	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Martial Artist	STARTSKILLPTS:2	CSKILL:Balance|Climb|Escape Artist|Hide|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Move Silently|Perform (Dance)|Profession|Read/Write Language|SPEAK LANGUAGE|Spot|Tumble
 ###Block: Unarmed Damage
@@ -53,7 +53,7 @@ CLASS:Martial Artist	STARTSKILLPTS:2	CSKILL:Balance|Climb|Escape Artist|Hide|Int
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus								Save bonus																															Modify VAR
 CLASS:Gunslinger	HD:10		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Guns		MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat					Required Skill					PRETOTALAB
-CLASS:Gunslinger	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Sleight of Hand=6,Tumble=6	PRETOTALAB:2
+CLASS:Gunslinger	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency	PRESKILL:2,Sleight of Hand=6,Tumble=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Bluff|Demolitions|Drive|Escape Artist|Gamble|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Move Silently|Profession|Read/Write Language|Ride|Sleight of Hand|SPEAK LANGUAGE|Spot|Survival|Tumble
 1								ABILITY:Special Ability|AUTOMATIC|Close Combat Shot
@@ -87,7 +87,7 @@ CLASS:Infiltrator	STARTSKILLPTS:6	CSKILL:Balance|Climb|Disguise|Disable Device|E
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus							Save bonus																														Modify VAR
 CLASS:Daredevil	HD:10		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Dare		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|((CL+1)*2)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat		Required Skill				PRETOTALAB
-CLASS:Daredevil	PREFEAT:1,Endurance	PRESKILL:2,Concentration=6,Drive=6	PRETOTALAB:2
+CLASS:Daredevil	PREABILITY:1,CATEGORY=FEAT,Endurance	PRESKILL:2,Concentration=6,Drive=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Daredevil	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Demolitions|Drive|Escape Artist|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Perform (Act)|Pilot|Profession|Read/Write Language|Ride|SPEAK LANGUAGE|Spot|Swim|Tumble
 1												ABILITY:Special Ability|AUTOMATIC|Fearless
@@ -104,7 +104,7 @@ CLASS:Daredevil	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Demolitions|D
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus								Save bonus																															Modify VAR
 CLASS:Bodyguard	HD:12		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Body		MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat					Required Skill					PRETOTALAB
-CLASS:Bodyguard	PREFEAT:1,Personal Firearms Proficiency	PRESKILL:2,Concentration=6,Intimidate=6	PRETOTALAB:2
+CLASS:Bodyguard	PREABILITY:1,CATEGORY=FEAT,Personal Firearms Proficiency	PRESKILL:2,Concentration=6,Intimidate=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bodyguard	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Drive|Forgery|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Profession|Read/Write Language|Search|Sense Motive|SPEAK LANGUAGE|Spot
 1											ABILITY:Special Ability|AUTOMATIC|Harm's Way
@@ -156,7 +156,7 @@ CLASS:Techie	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (Mecha
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus			Save bonus																															Modify VAR
 CLASS:Field Medic	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Fiel		MAXLEVEL:10	BONUS:COMBAT|BASEAB|CL/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat	Required Skill				PRETOTALAB
-CLASS:Field Medic	PREFEAT:1,Surgery	PRESKILL:2,Treat Injury=6,Spot=6	PRETOTALAB:2
+CLASS:Field Medic	PREABILITY:1,CATEGORY=FEAT,Surgery	PRESKILL:2,Treat Injury=6,Spot=6	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Field Medic	STARTSKILLPTS:4	CSKILL:Computer Use|Concentration|Craft (Pharmaceutical)|Diplomacy|Drive|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (Earth and Life Sciences)|Knowledge (Popular Culture)|Knowledge (Technology)|Listen|Pilot|Profession|Read/Write Language|Research|SPEAK LANGUAGE|Spot|Treat Injury
 1								BONUS:VAR|MedicalSpec|1		ABILITY:Special Ability|AUTOMATIC|Medical Specialist
@@ -190,7 +190,7 @@ CLASS:Investigator	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Disable Device|Driv
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus							Save bonus																															Modify VAR
 CLASS:Personality	HD:6		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Pers		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/3+2	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat	Required Skill
-CLASS:Personality	PREFEAT:1,Renown	PRESKILL:2,Diplomacy=6,TYPE.Perform=6
+CLASS:Personality	PREABILITY:1,CATEGORY=FEAT,Renown	PRESKILL:2,Diplomacy=6,TYPE.Perform=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Personality	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing)|Diplomacy|Knowledge (Art)|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Perform (Act)|Perform (Dance)|Perform (Sing)|Perform (Stand-Up)|Profession|Read/Write Language|SPEAK LANGUAGE
 1																	ABILITY:Special Ability|AUTOMATIC|Unlimited Access
@@ -207,7 +207,7 @@ CLASS:Personality	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Visual Art)|Craft (Writing
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Combat bonus								Save bonus																														Modify VAR
 CLASS:Negotiator	HD:8		TYPE:Advanced.PC	CLASSTYPE:PC	ABB:Nego		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat		Required Skill
-CLASS:Negotiator	PREFEAT:1,Alertness	PRESKILL:2,Diplomacy=6,Bluff=6
+CLASS:Negotiator	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:2,Diplomacy=6,Bluff=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Negotiator	STARTSKILLPTS:4	CSKILL:Bluff|Computer Use|Diplomacy|Drive|Gamble|Gather Information|Intimidate|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Profession|Read/Write Language|Sense Motive|SPEAK LANGUAGE|Spot
 1											ABILITY:Special Ability|AUTOMATIC|Conceal Motive

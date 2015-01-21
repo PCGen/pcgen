@@ -48,7 +48,7 @@ Yumibukuro													TYPE:Accessories				COST:20																				SOURCEPAGE
 
 
 # Weapons
-Katana			PROFICIENCY:WEAPON|Katana						TYPE:Weapon.Melee.Slashing.Exotic			WT:6					CRITMULT:x2	CRITRANGE:2	DAMAGE:1d10	WIELD:TwoHanded				SIZE:M																								BONUS:WEAPON|WIELDCATEGORY|-1|PREFEAT:1,Exotic Weapon Proficiency (Katana)
+Katana			PROFICIENCY:WEAPON|Katana						TYPE:Weapon.Melee.Slashing.Exotic			WT:6					CRITMULT:x2	CRITRANGE:2	DAMAGE:1d10	WIELD:TwoHanded				SIZE:M																								BONUS:WEAPON|WIELDCATEGORY|-1|PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Katana)
 Wakizashi			PROFICIENCY:WEAPON|Wakizashi						TYPE:Weapon.Melee.Slashing		COST:100	WT:3					CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	WIELD:OneHanded				SIZE:S
 
 # Armors - This is a Piece Meal operation, will take some consideration to implement correctly.

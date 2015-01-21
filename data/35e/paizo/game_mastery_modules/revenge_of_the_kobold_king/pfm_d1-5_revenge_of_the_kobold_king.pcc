@@ -37,7 +37,7 @@ DESC:It should have been the end. When the bloodthirsty adventurers burst into h
 ABILITY:pfm_d1-5_racial_abilities.lst
 EQUIPMENT:pfm_d1-5_equipment_magic.lst
 EQUIPMENT:pfm_d1-5_equipment_weapons.lst
-FEAT:pfm_d1-5_feats.lst
+ABILITY:pfm_d1-5_feats.lst
 KIT:pfm_d1-5_monster_kits.lst
 #KIT:pfm_d1-5_npc_kits.lst
 RACE:pfm_d1-5_race.lst

@@ -11,7 +11,7 @@ FOLLOWER:ImpCompLevel=5		TYPE:Imp Companion	HD:1																																
 FOLLOWER:ImpCompLevel=6		TYPE:Imp Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1
 FOLLOWER:ImpCompLevel=7		TYPE:Imp Companion																																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:ImpCompLevel=8		TYPE:Imp Companion	HD:1																																																												BONUS:VAR|MasterLevel|1
-FOLLOWER:ImpCompLevel=9		TYPE:Imp Companion	HD:1																												AUTO:FEAT|Multiattack										BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1
+FOLLOWER:ImpCompLevel=9		TYPE:Imp Companion	HD:1																												ABILITY:FEAT|AUTOMATIC|Multiattack										BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1
 FOLLOWER:ImpCompLevel=10	TYPE:Imp Companion	HD:1																																																												BONUS:VAR|MasterLevel|1
 FOLLOWER:ImpCompLevel=11	TYPE:Imp Companion																																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:ImpCompLevel=12	TYPE:Imp Companion	HD:1																																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|ImpCompBonusTricks|1

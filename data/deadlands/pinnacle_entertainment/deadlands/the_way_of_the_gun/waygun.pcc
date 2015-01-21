@@ -32,11 +32,13 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=1136&it=1?affilia
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:WayoftheGunMagicItemPrices.txt
 
+ABILITYCATEGORY:wotg_abilitycategories.lst
+
 CLASS:waygunclasses.lst
 EQUIPMENT:waygunequip.lst
 EQUIPMENT:waygunequipweapammo.lst
 EQUIPMENT:waygunequipweapranged.lst
 EQUIPMENT:waygunequipwondrousitems.lst
-FEAT:waygunfeats.lst
+ABILITY:waygunfeats.lst
 WEAPONPROF:waygunweapprofs.lst
 EQUIPMOD:waygunequipmods.lst

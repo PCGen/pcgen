@@ -43,7 +43,7 @@ CLASS:pf2_classes_monsters_specific.lst
 COMPANIONMOD:pf2_companionmods.lst
 DEITY:pf2_deities.lst
 EQUIPMENT:pf2_equip_wondrousitems.lst
-FEAT:pf2_feats.lst
+ABILITY:pf2_feats.lst
 KIT:pf2_kits_races.lst
 RACE:pf2_races.lst
 SPELL:pf2_spells.lst

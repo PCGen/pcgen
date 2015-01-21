@@ -42,7 +42,7 @@ CLASS:ap8_classes.lst
 EQUIPMENT:ap8_equip_arms_armor.lst
 EQUIPMENT:ap8_equip_general.lst
 EQUIPMENT:ap8_equip_magic_items.lst
-FEAT:ap8_feats.lst
+ABILITY:ap8_feats.lst
 KIT:ap8_kits.lst
 KIT:ap8_kits_race.lst
 RACE:ap8_races.lst

@@ -2,4 +2,4 @@
 
 
 # Weapon Name	Required Feat
-Firearms.MOD	PREFEAT:1,Gunsmithing
+Firearms.MOD	PREABILITY:1,CATEGORY=FEAT,Gunsmithing

@@ -7,7 +7,7 @@ SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts
 Amulet of Independent Anatomy										TYPE:Magic.Wondrous.Amulet
 Crown of Eyes												TYPE:Magic.Wondrous.Crown.Headgear.Artifact												BONUS:COMBAT|AC|5|TYPE=Insight																															BONUS:STAT|INT,CHA|6|TYPE=Enhancement
 Crown of Shadows												TYPE:Magic.Wondrous.Crown.Headgear														BONUS:COMBAT|AC|5|TYPE=Deflection	BONUS:SAVE|ALL|5|TYPE=Resistance	BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|2|TYPE=Luck					BONUS:STAT|INT,WIS,CHA|6|TYPE=Enhancement
-Glory														TYPE:Magic.Wondrous.Cape				VFEAT:Diehard|Endurance|Leadership|Strength of the Coryani Heart							BONUS:SAVE|ALL|5|TYPE=Resistance
+Glory														TYPE:Magic.Wondrous.Cape				ABILITY:FEAT|VIRTUAL|Diehard|Endurance|Leadership|Strength of the Coryani Heart							BONUS:SAVE|ALL|5|TYPE=Resistance
 Hand of Dark Glory											TYPE:Magic.Wondrous.Amulet																																															BONUS:SLOTS|RING|2
 Kroneu's Hourglass											TYPE:Magic.Wondrous
 Moon Cauldron												TYPE:Magic.Wondrous.Caldron

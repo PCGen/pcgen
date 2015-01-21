@@ -25,5 +25,5 @@ COPYRIGHT:PCGen dataset conversion for Jade and Steel Copyright 2003, PCGen Data
 ABILITY:jadesteelabilities.lst
 CLASS:jadesteelclasses.lst
 EQUIPMENT:jadesteelequipweapmelee.lst
-FEAT:jadesteelfeats.lst
+ABILITY:jadesteelfeats.lst
 SKILL:jadesteelskills.lst

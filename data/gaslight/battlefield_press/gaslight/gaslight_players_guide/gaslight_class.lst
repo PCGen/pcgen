@@ -13,7 +13,7 @@ CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Starting Level
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapons Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapons Proficiency
 ###Block: Turning
 2	BONUS:ABILITYPOOL|Undead Turning|1	BONUS:VAR|TurnTimesBase|3+CHA	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	ABILITY:Special Ability|AUTOMATIC|Basic Turning
 ###Block: Class progression
@@ -60,10 +60,10 @@ CLASS:Apprentice	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Aprentice|CL
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapons Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapons Proficiency
 ###Block: Class progression
 1	BONUS:ABILITYPOOL|Apprentice Talent|(CL+1)/2						ABILITY:Special Ability|AUTOMATIC|Summon Familiar
-2									BONUS:VAR|ClassDefense|1										AUTO:FEAT|Scribe Scroll
+2									BONUS:VAR|ClassDefense|1										ABILITY:FEAT|AUTOMATIC|Scribe Scroll
 3									BONUS:VAR|Reputation|1
 4	BONUS:ABILITYPOOL|Apprentice Feat|(CL-2)/2
 5									BONUS:VAR|Reputation|1
@@ -103,7 +103,7 @@ CLASS:Everyman	STARTSKILLPTS:5
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapons Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Simple Weapons Proficiency
 ###Block: Class progression
 1	BONUS:ABILITYPOOL|Everyman Talent|CL+1/2	BONUS:ABILITYPOOL|Everyman Class Skills|10
 2	BONUS:ABILITYPOOL|Everyman Feat|CL/2
@@ -122,7 +122,7 @@ CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Athletics|Concentration|TYPE=Craft|Handle 
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Personal Firearms Proficiency|Simple Weapons Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Personal Firearms Proficiency|Simple Weapons Proficiency
 ###Block: Class progression
 1	BONUS:ABILITYPOOL|Explorer Talent|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Pathfinder
 2	BONUS:ABILITYPOOL|Favored Terrain|1
@@ -140,7 +140,7 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Deception|Demolitions|Escape Artist|Gamb
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Personal Firearms Proficiency|Simple Weapons Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Proficiency|Simple Weapons Proficiency
 ###Block: Class progression
 1	BONUS:ABILITYPOOL|Gunslinger Talent|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Close Combat Shot
 2	BONUS:ABILITYPOOL|Gunslinger Weapon Focus|1
@@ -160,7 +160,7 @@ CLASS:Investigator	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Deception|Disable Device|Fo
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapons Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapons Proficiency
 ###Block: Class progression
 1	BONUS:ABILITYPOOL|Investigator Talent|(CL+1)/2	BONUS:COMBAT|BASEAB|1|TYPE=Base.REPLACE	BONUS:VAR|LogicalInvestigatorBonus|CL/2
 2																							ABILITY:Special Ability|AUTOMATIC|Eye for Detail
@@ -182,7 +182,7 @@ CLASS:Martial Artist	STARTSKILLPTS:6	CSKILL:Acrobatics|Athletics|Escape Artist|A
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapons Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapons Proficiency
 ###Block: Class progression
 1	BONUS:ABILITYPOOL|Martial Artist Talent|(CL+1)/2	BONUS:VAR|LivingWeaponProgression|1			ABILITY:Special Ability|AUTOMATIC|Living Weapon
 2										BONUS:VAR|FastMovementProgression|(CL+2)/4	ABILITY:Special Ability|AUTOMATIC|Fast Movement
@@ -199,7 +199,7 @@ CLASS:Officer	STARTSKILLPTS:4	CSKILL:Demolitions|Athletics|Knowledge (Current Ev
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Archaic Weapons Proficiency|Personal Firearms Proficiency|Simple Weapons Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Archaic Weapons Proficiency|Personal Firearms Proficiency|Simple Weapons Proficiency
 ###Block: Class progression
 1	BONUS:ABILITYPOOL|Officer Talent|1
 2	BONUS:ABILITYPOOL|Officer Feat|1
@@ -222,7 +222,7 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Acrobatics|Deception|Athletics|Craft (Mechan
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapons Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapons Proficiency
 ###Block: Class progression
 1	BONUS:ABILITYPOOL|Rogue Talent|(CL+1)/2	BONUS:SKILL|Disable Device,Notice (Locate Traps)|CL/2						ABILITY:Special Ability|AUTOMATIC|Trapfinding
 2																						ABILITY:Special Ability|AUTOMATIC|Evasion
@@ -240,7 +240,7 @@ CLASS:Scholar	STARTSKILLPTS:6	CSKILL:Craft (Chemical)|Craft (Expression)|Craft (
 ###Block: Background
 1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Personal Firearms Proficiency|Simple Weapons Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Personal Firearms Proficiency|Simple Weapons Proficiency
 ###Block: Class progression
 1	BONUS:ABILITYPOOL|Scholar Talent|(CL+1)/2	BONUS:ABILITYPOOL|Educated|1
 2	BONUS:ABILITYPOOL|Scholar Feat|1

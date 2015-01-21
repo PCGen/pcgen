@@ -22,11 +22,12 @@ COPYRIGHT:PCGen dataset conversion for Black Flags: Piracy in the Caribbean Copy
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+ABILITYCATEGORY:bf_abilitycategories.lst
 
 CLASS:blackflags_classes.lst
 SKILL:blackflags_skills.lst
-FEAT:blackflags_feats.lst
-FEAT:blackflags_feats_hidden.lst
+ABILITY:blackflags_feats.lst
+ABILITY:blackflags_feats_hidden.lst
 
 # I get the feeling this was originally coded to handle a specific campaign setting, that would be better off in an ALTPCC... - Tir Gwaith
 

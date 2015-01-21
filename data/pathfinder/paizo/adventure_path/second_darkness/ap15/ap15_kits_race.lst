@@ -10,11 +10,11 @@ SKILL:Acrobatics	RANK:10
 SKILL:Climb		RANK:10
 SKILL:Perception	RANK:10
 SKILL:Stealth	RANK:10
-FEAT:Improved Initiative
-FEAT:Stealthy
-FEAT:Toughness
-FEAT:Weapon Finesse
-FEAT:Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Stealthy
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 
 ###MISSING VARIANTS - ACID, FREEZING, LIGHTNING SHADOWS
@@ -36,10 +36,10 @@ SKILL:Fly		RANK:7
 SKILL:Perception	RANK:7
 SKILL:Stealth	RANK:7
 SKILL:Swim		RANK:7
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 
 ###MISSING VARIANTS
@@ -53,11 +53,11 @@ SKILL:Fly				RANK:6
 SKILL:Knowledge (History)	RANK:6
 SKILL:Perception			RANK:9
 SKILL:Stealth			RANK:9
-FEAT:Great Fortitude
-FEAT:Improved Two-Weapon Fighting
-FEAT:Iron Will
-FEAT:Two-Weapon Fighting
-FEAT:Weapon Focus(Scimitar)
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Weapon Focus(Scimitar)
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 GEAR:Scimitar	LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Scimitar	LOCATION:Secondary Hand	EQMOD:MWORKW

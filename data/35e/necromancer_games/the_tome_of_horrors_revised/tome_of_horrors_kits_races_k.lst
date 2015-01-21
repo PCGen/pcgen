@@ -9,8 +9,8 @@ SKILL:Hide			RANK:1
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:2
-FEAT:Alertness
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Kamadan Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kamadan]
 RACE:Kamadan	!PRERACE:1,%
@@ -30,7 +30,7 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Hide			RANK:1
 SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:1
-FEAT:Skill Focus (Hide)
+ABILITY:CATEGORY=FEAT|Skill Focus (Hide)
 
 STARTPACK:Kech Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kech]
 ALIGN:NE
@@ -42,8 +42,8 @@ SKILL:Hide			RANK:2
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:8
 SKILL:Spot			RANK:2
-FEAT:Dodge
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 
 STARTPACK:Kelp Devil Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kelp Devil]
 ALIGN:NE
@@ -53,9 +53,9 @@ STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Hide		RANK:5
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
 
 STARTPACK:Kelpie Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kelpie]
 ALIGN:NE
@@ -66,8 +66,8 @@ SKILL:Bluff		RANK:2
 SKILL:Hide		RANK:2
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Khargra Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Khargra]
 ALIGN:TN
@@ -80,9 +80,9 @@ SKILL:Move Silently	RANK:9
 SKILL:Search		RANK:9
 SKILL:Spot			RANK:9
 SKILL:Survival		RANK:9
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Killmoulis Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Killmoulis]
 ALIGN:CN
@@ -96,7 +96,7 @@ SKILL:Listen						RANK:3
 SKILL:Move Silently					RANK:2
 SKILL:Profession (Farmer)|Profession (Miller)	RANK:2
 SKILL:Spot							RANK:3
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge
 GEAR:Dagger	SIZE:PC	LOCATION:Primary Hand
 
 STARTPACK:Korred Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Korred]
@@ -111,9 +111,9 @@ SKILL:Move Silently	RANK:9
 SKILL:Perform (Dance)	RANK:9
 SKILL:Search		RANK:9
 SKILL:Spot			RANK:9
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 GEAR:Korred Shears	SIZE:PC	LOCATION:Primary Hand
 GEAR:Club			SIZE:PC	LOCATION:Carried
 GEAR:Rock			SIZE:L	LOCATION:Carried

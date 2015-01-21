@@ -1,8 +1,8 @@
 
 
 ###Block: Note repeats WILL cause stacking issue! Using TYPE to prevent this issue.
-MASTERBONUSRACE:Familiar (Armadillo)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Armadillo)	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Platypus)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Platypus)	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Rabbit)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rabbit)	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Skunk)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Skunk)	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Squirrel)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Squirrel)	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Armadillo)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Armadillo)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Platypus)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Platypus)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Rabbit)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rabbit)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Skunk)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Skunk)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Squirrel)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Squirrel)	ABILITY:FEAT|VIRTUAL|Alertness

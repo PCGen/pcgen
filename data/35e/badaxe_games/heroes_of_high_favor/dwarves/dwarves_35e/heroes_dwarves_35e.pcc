@@ -33,13 +33,13 @@ ABILITY:../heroes_dwarves_abilities_classes.lst
 ABILITYCATEGORY:../heroes_dwarves_ability_category.lst
 CLASS:../heroes_dwarves_classes.lst
 EQUIPMOD:../heroes_dwarves_equipmods.lst
-FEAT:../heroes_dwarves_feats.lst
+ABILITY:../heroes_dwarves_feats.lst
 RACE:../heroes_dwarves_races.lst
 SKILL:../heroes_dwarves_skills.lst
 TEMPLATE:../heroes_dwarves_templates.lst
 
 CLASS:heroes_dwarves_classes_35e.lst
-FEAT:heroes_dwarves_feats_35e.lst
+ABILITY:heroes_dwarves_feats_35e.lst
 TEMPLATE:heroes_dwarves_templates_35e.lst
 
 FORWARDREF:SPELL|Endurance,Greater Command,Greater Magic Weapon,Healing Circle

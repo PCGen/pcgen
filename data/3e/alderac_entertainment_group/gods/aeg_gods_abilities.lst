@@ -61,7 +61,7 @@ Totem (Camel)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	S
 Totem (Cat)		CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Cat's Paw (Ex)
 Totem (Cheetah)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Sprint (Ex)
 Totem (Crocodile)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Crocodile Hide (Ex)
-Totem (Dog)		CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Bloodhound (Ex)					VFEAT:Track
+Totem (Dog)		CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Bloodhound (Ex)					ABILITY:FEAT|VIRTUAL|Track
 Totem (Eagle)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Eagle Sight (Ex)
 Totem (Hawk)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Hawk Eyes (Ex)
 Totem (Horse)	CATEGORY:Special Ability	TYPE:BarbarianTotemSelection	VISIBLE:NO	SAB:Union (Ex)

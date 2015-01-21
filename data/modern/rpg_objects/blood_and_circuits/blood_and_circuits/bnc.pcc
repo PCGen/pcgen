@@ -35,10 +35,10 @@ EQUIPMENT:bnc_equipment_armor.lst
 EQUIPMENT:bnc_equipment_computers.lst
 EQUIPMENT:bnc_equipment_vehicle.lst
 EQUIPMENT:bnc_equipment_weapons.lst
-FEAT:bnc_feats.lst
-FEAT:bnc_feats_mod.lst
+ABILITY:bnc_feats.lst
+ABILITY:bnc_feats_mod.lst
 WEAPONPROF:bnc_weapon_proficiency.lst
 ARMORPROF:bnc_proficiency_armor.lst
 
 #Referencing Armor Proficiency (Powered) from MSRD Future
-FEAT:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Armor Proficiency (Powered))
+ABILITY:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Armor Proficiency (Powered))

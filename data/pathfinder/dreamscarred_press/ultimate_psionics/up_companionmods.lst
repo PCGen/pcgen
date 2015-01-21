@@ -115,7 +115,7 @@ FOLLOWER:PsiCrystalLVL=20	TYPE:Psicrystal	SR:25
 
 ###Block:Psicrystal Bonuses to Master
 # Race of familiar		Type			Virtual Feat
-MASTERBONUSRACE:Psicrystal	TYPE:Psicrystal	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal	TYPE:Psicrystal	ABILITY:FEAT|VIRTUAL|Alertness
 
 
 ###Block: Scaled Rider Ophiduan Psychic Warrior archetype abilities for Karaan mount

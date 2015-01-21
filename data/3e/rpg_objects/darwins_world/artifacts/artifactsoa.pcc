@@ -33,6 +33,6 @@ EQUIPMENT:artifactsoaequiparmorshields.lst
 EQUIPMENT:artifactsoaequipweapammo.lst
 EQUIPMENT:artifactsoaequipweapmelee.lst
 EQUIPMENT:artifactsoaequipweapranged.lst
-FEAT:artifactsoafeats.lst
+ABILITY:artifactsoafeats.lst
 WEAPONPROF:artifactsoaweapprofs.lst
 ARMORPROF:artifactsoaprofsarmor.lst

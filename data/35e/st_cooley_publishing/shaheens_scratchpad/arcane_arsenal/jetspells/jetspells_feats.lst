@@ -3,4 +3,4 @@ SOURCELONG:Arcane Arsenal - Jet Spells	SOURCESHORT:JetSpells	SOURCEWEB:http://ww
 # Original Entry by: Tir Gwaith
 
 # Feat Name		Type			Description													Add Spell Lvl	Source Page
-Enduring Ray	TYPE:Metamagic	DESC:You have the ability to transform a Ray into a Jet spell of the same type.	ADDSPELLLEVEL:2	SOURCEPAGE:p.2
+Enduring Ray	CATEGORY:FEAT	TYPE:Metamagic	DESC:You have the ability to transform a Ray into a Jet spell of the same type.	ADDSPELLLEVEL:2	SOURCEPAGE:p.2

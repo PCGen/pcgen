@@ -36,7 +36,7 @@ DESC:The heroes return to Korvosa to find their home city in a stranglehold of m
 
 ABILITY:pf12_ability.lst
 EQUIPMENT:pf12_equipment.lst
-FEAT:pf12_feat.lst
+ABILITY:pf12_feat.lst
 KIT:pf12_kit_monsters.lst
 RACE:pf12_race.lst
 SKILL:pf12_skills.lst

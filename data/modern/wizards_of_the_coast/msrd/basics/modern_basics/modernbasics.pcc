@@ -45,7 +45,7 @@ EQUIPMENT:modernbasics_equip_weap_ranged_firearms.lst
 EQUIPMENT:modernbasics_equip_weap_vehicles.lst
 EQUIPMOD:modernbasics_equipmods.lst
 
-FEAT:modernbasics_feats.lst
+ABILITY:modernbasics_feats.lst
 
 KIT:modernbasics_kits_defaultmonsters_animals.lst
 LANGUAGE:modernbasics_languages.lst

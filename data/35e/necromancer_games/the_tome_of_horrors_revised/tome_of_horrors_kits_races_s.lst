@@ -9,8 +9,8 @@ ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:4
-FEAT:Alertness
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Sandman Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sandman]
 RACE:Sandman	!PRERACE:1,%
@@ -21,8 +21,8 @@ SKILL:Hide			RANK:3
 SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:4
-FEAT:Alertness
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 
 STARTPACK:Scarecrow Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scarecrow]
 RACE:Scarecrow	!PRERACE:1,%
@@ -38,8 +38,8 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:2
-FEAT:Alertness
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Scythe Tree Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Scythe Tree]
 RACE:Scythe Tree	!PRERACE:1,%
@@ -49,9 +49,9 @@ STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Hide		RANK:9
 SKILL:Listen	RANK:9
 SKILL:Spot		RANK:9
-FEAT:Alertness
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Shadow (Lesser) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow (Lesser)]
 RACE:Shadow (Lesser)	!PRERACE:1,%
@@ -62,7 +62,7 @@ SKILL:Hide		RANK:1
 SKILL:Listen	RANK:1
 SKILL:Search	RANK:1
 SKILL:Spot		RANK:1
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Shedu Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shedu]
 RACE:Shedu	!PRERACE:1,%
@@ -77,10 +77,10 @@ SKILL:Listen			RANK:7
 SKILL:Sense Motive		RANK:7
 SKILL:Spot				RANK:7
 SKILL:Survival			RANK:8
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Shedu (Greater) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shedu (Greater)]
 RACE:Shedu (Greater)	!PRERACE:1,%
@@ -95,11 +95,11 @@ SKILL:Listen			RANK:13
 SKILL:Sense Motive		RANK:11
 SKILL:Spot				RANK:13
 SKILL:Survival			RANK:15
-FEAT:Combat Casting
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 DEITY:None	DOMAIN:Good|Healing
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Evil|Cure Moderate Wounds|Cure Serious Wounds|Holy Smite|Dispel Evil
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water|Guidance=2|Read Magic|Resistance|Virtue
@@ -123,7 +123,7 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Hide			RANK:5
 SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:1
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 
 STARTPACK:Skull Spider Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skull Spider]
@@ -141,8 +141,8 @@ SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:6
 SKILL:Search		RANK:6
 SKILL:Spot			RANK:5
-FEAT:Alertness
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Slaad Lord (Lord of Entropy) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slaad Lord (Lord of Entropy)]
 RACE:Slaad Lord (Lord of Entropy)	!PRERACE:1,%
@@ -169,22 +169,22 @@ SKILL:Spellcraft			RANK:51
 SKILL:Spot				RANK:51
 SKILL:Survival			RANK:43
 SKILL:Use Magic Device		RANK:22
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Casting
-FEAT:Dodge
-FEAT:Great Cleave
-FEAT:Improved Critical (Scythe)
-FEAT:Improved Disarm
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Lightning Reflexes
-FEAT:Mobility
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability(Fireball)
-FEAT:Track
-FEAT:Weapon Focus (Scythe)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical (Scythe)
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability(Fireball)
+ABILITY:CATEGORY=FEAT|Track
+ABILITY:CATEGORY=FEAT|Weapon Focus (Scythe)
 GEAR:Scythe	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS5W.CHAOS_M
 
 STARTPACK:Ryssk	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Ancient)]
@@ -202,17 +202,17 @@ SKILL:Search			RANK:34
 SKILL:Sense Motive		RANK:34
 SKILL:Spot				RANK:34
 SKILL:Use Magic Device		RANK:29
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Maximize Spell
-FEAT:Snatch
-FEAT:Weapon Focus (Bite)
-FEAT:Weapon Focus (Claw)
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Wingover
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights|Daze|Disrupt Undead|Flare|Light|Open/Close|Prestidigitation|Ray of Frost|Read Magic
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Animate Rope|Burning Hands|Magic Missile|Obscuring Mist|True Strike
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Blur|Daylight|Detect Thoughts|See Invisibility|Web
@@ -245,20 +245,20 @@ SKILL:Sense Motive		RANK:33
 SKILL:Spellcraft			RANK:43
 SKILL:Spot				RANK:43
 SKILL:Survival			RANK:32
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Disarm
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Mobility
-FEAT:Power Attack
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 
 STARTPACK:Slime Crawler Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slime Crawler]
 RACE:Slime Crawler	!PRERACE:1,%
@@ -268,7 +268,7 @@ STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
 SKILL:Climb		RANK:2
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Slithering Tracker Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slithering Tracker]
 RACE:Slithering Tracker	!PRERACE:1,%
@@ -280,8 +280,8 @@ SKILL:Hide			RANK:8
 SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
-FEAT:Alertness
-FEAT:Skill Focus (Move Silently)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Skill Focus (Move Silently)
 
 STARTPACK:Slug (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slug (Giant)]
 RACE:Slug (Giant)	!PRERACE:1,%
@@ -304,10 +304,10 @@ SKILL:Move Silently		RANK:13
 SKILL:Search			RANK:13
 SKILL:Spot				RANK:13
 SKILL:Survival			RANK:13
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Soul Nibbler Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Soul Nibbler]
 RACE:Soul Nibbler	!PRERACE:1,%
@@ -317,7 +317,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Climb			RANK:1
 SKILL:Hide			RANK:1
 SKILL:Move Silently	RANK:2
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Spriggan Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spriggan]
 RACE:Spriggan	!PRERACE:1,%
@@ -333,8 +333,8 @@ SKILL:Open Lock		RANK:2
 SKILL:Sleight of Hand	RANK:2
 SKILL:Search		RANK:1
 SKILL:Spot			RANK:2
-FEAT:Combat Reflexes
-FEAT:Weapon Focus (Sword (Short))
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Short))
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Halberd		SIZE:PC	LOCATION:Carried
 GEAR:Chain Shirt		SIZE:PC	LOCATION:Equipped
@@ -354,7 +354,7 @@ SKILL:TYPE=Perform	RANK:4
 SKILL:Search		RANK:1
 SKILL:Sense Motive	RANK:1
 SKILL:Spot			RANK:2
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Shortbow		SIZE:PC	LOCATION:Carried
 
@@ -373,7 +373,7 @@ SKILL:TYPE=Perform	RANK:4
 SKILL:Search		RANK:1
 SKILL:Sense Motive	RANK:1
 SKILL:Spot			RANK:2
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
 
@@ -387,11 +387,11 @@ SKILL:Hide			RANK:4
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:2
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:Stegocentipede Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Stegocentipede]
 RACE:Stegocentipede	!PRERACE:1,%
@@ -406,8 +406,8 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Alertness
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
 
 STARTPACK:Stone Roper Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Stone Roper]
 RACE:Stone Roper	!PRERACE:1,%
@@ -418,9 +418,9 @@ SKILL:Climb		RANK:5
 SKILL:Hide		RANK:9
 SKILL:Listen	RANK:7
 SKILL:Spot		RANK:7
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Weapon Focus (Strand)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus (Strand)
 
 STARTPACK:Stormwarden Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Stormwarden]
 RACE:Stormwarden	!PRERACE:1,%
@@ -431,8 +431,8 @@ SKILL:Concentration	RANK:6
 SKILL:TYPE=Knowledge	RANK:6
 SKILL:Listen		RANK:6
 SKILL:Spot			RANK:6
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
 GEAR:Longbow	SIZE:PC	LOCATION:Carried
 GEAR:Leather	SIZE:PC	LOCATION:Equipped
@@ -444,8 +444,8 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:3
-FEAT:Power Attack
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 
 STARTPACK:Stunjelly Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Stunjelly]
 RACE:Stunjelly	!PRERACE:1,%
@@ -460,8 +460,8 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:4
-FEAT:Alertness
-FEAT:Weapon Focus (Feathers)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Feathers)
 
 STARTPACK:Swarm (Scarlet Spider) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swarm (Scarlet Spider)]
 RACE:Swarm (Scarlet Spider)	!PRERACE:1,%

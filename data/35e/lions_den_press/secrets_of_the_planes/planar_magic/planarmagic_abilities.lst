@@ -11,3 +11,19 @@ CATEGORY=Special Ability|Planar Turning.MOD																		ASPECT:TurnType|Tur
 
 # Planar Mage
 Well Learned						KEY:Well Learned ~ Planar Mage	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
+
+
+###Block: Planar Attunement
+# Feat Name							Type					Required AL				Add
+Elemental Air	CATEGORY:Special Ability	TYPE:Special.PlanarAttunement						ADD:SPELLCASTER|Elemental Air
+Elemental Earth	CATEGORY:Special Ability	TYPE:Special.PlanarAttunement						ADD:SPELLCASTER|Elemental Earth
+Elemental Fire	CATEGORY:Special Ability	TYPE:Special.PlanarAttunement						ADD:SPELLCASTER|Elemental Fire
+Elemental Water	CATEGORY:Special Ability	TYPE:Special.PlanarAttunement						ADD:SPELLCASTER|Elemental Water
+Ethereal		CATEGORY:Special Ability	TYPE:Special.PlanarAttunement						ADD:SPELLCASTER|Ethereal
+Negative Plane	CATEGORY:Special Ability	TYPE:Special.PlanarAttunement						ADD:SPELLCASTER|Negative Plane
+Positive Plane	CATEGORY:Special Ability	TYPE:Special.PlanarAttunement						ADD:SPELLCASTER|Positive Plane
+Plane of Shadow	CATEGORY:Special Ability	TYPE:Special.PlanarAttunement						ADD:SPELLCASTER|Plane of Shadow
+Lower Planes	CATEGORY:Special Ability	TYPE:Special.PlanarAttunement	PREALIGN:LN,LE,TN,NE,CN,CE	ADD:SPELLCASTER|Lower Planes
+Planes of Discord	CATEGORY:Special Ability	TYPE:Special.PlanarAttunement	PREALIGN:NG,TN,NE,NG,CN,CE	ADD:SPELLCASTER|Planes of Discord
+Planes of Order	CATEGORY:Special Ability	TYPE:Special.PlanarAttunement	PREALIGN:LG,LN,LE,NG,TN,NE	ADD:SPELLCASTER|Planes of Order
+Upper Planes	CATEGORY:Special Ability	TYPE:Special.PlanarAttunement	PREALIGN:LG,LN,NG,TN,CG,CN	ADD:SPELLCASTER|Upper Planes

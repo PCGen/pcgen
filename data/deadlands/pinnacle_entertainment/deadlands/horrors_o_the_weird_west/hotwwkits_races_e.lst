@@ -12,15 +12,15 @@ SKILL:Listen		RANK:7
 SKILL:Spot			RANK:7
 SKILL:Move Silently	RANK:3
 SKILL:Swim			RANK:0
-FEAT:Dodge
-FEAT:Multiattack
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:El Diablo Rojo Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,El Diablo Rojo]
 RACE:El Diablo Rojo	!PRERACE:1,%
 NAME:El Diablo Rojo
 ALIGN:NE
-FEAT:Armor Proficiency (Light)
-FEAT:Maximize Spell
-FEAT:Quicken Spell
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Track

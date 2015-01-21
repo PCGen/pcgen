@@ -39,7 +39,7 @@ Sterner Stuff				KEY:Sterner Stuff								CATEGORY:Special Ability	TYPE:SpecialQ
 
 
 #Block: Goblin ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Ambush Basics														CATEGORY:Special Ability	TYPE:SpecialQuality																																																																							VFEAT:Ambush Basics
+Ambush Basics														CATEGORY:Special Ability	TYPE:SpecialQuality																																																																							ABILITY:FEAT|VIRTUAL|Ambush Basics
 Tenacious Spirit				KEY:Tenacious Spirit							CATEGORY:Special Ability	TYPE:SpecialQuality
 
 

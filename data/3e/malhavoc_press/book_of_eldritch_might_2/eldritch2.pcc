@@ -41,5 +41,5 @@ EQUIPMOD:eldritch2equipmods.lst
 EQUIPMENT:eldritch2equiprings.lst
 EQUIPMENT:eldritch2equiprodstaffwands.lst
 EQUIPMENT:eldritch2equipwondrousitems.lst
-FEAT:eldritch2feats.lst
+ABILITY:eldritch2feats.lst
 SPELL:eldritch2spells.lst

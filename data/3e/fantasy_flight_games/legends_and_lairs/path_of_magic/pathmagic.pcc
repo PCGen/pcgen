@@ -28,7 +28,7 @@ ABILITY:pathmagic_abilities_class.lst
 CLASS:pathmagic_classes_prestige.lst
 CLASS:pathmagic_classes_legendary.lst
 CLASS:pathmagic_classes_variant.lst
-FEAT:pathmagic_feats.lst
+ABILITY:pathmagic_feats.lst
 SKILL:pathmagic_skills.lst
 SPELL:pathmagic_spells.lst
 TEMPLATE:pathmagic_templates.lst

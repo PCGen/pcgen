@@ -41,7 +41,7 @@ EQUIPMENT:rsrd_equip_magic_items.lst
 
 EQUIPMOD:rsrd_equipmods.lst
 
-FEAT:rsrd_feats.lst
+ABILITY:rsrd_feats.lst
 
 KIT:rsrd_kits.lst
 KIT:rsrd_kits_companion.lst

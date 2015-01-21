@@ -48,7 +48,7 @@ EQUIPMENT:apg_equip_arms_armor.lst
 EQUIPMENT:apg_equip_general.lst
 EQUIPMENT:apg_equip_magic_items.lst
 EQUIPMOD:apg_equipmods.lst
-FEAT:apg_feats.lst
+ABILITY:apg_feats.lst
 KIT:apg_kits.lst
 SPELL:apg_spells.lst
 TEMPLATE:apg_templates.lst

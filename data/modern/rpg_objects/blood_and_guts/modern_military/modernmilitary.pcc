@@ -43,15 +43,15 @@ EQUIPMENT:modernmilitary_equip_weap_indirectfire.lst
 EQUIPMENT:modernmilitary_equip_weap_vehicle.lst
 WEAPONPROF:modernmilitary_weaponprofs.lst
 
-FEAT:modernmilitary_feats.lst
-FEAT:modernmilitary_feats_advancedtraining.lst
-FEAT:modernmilitary_feats_eliteunits.lst
-FEAT:modernmilitary_feats_hidden.lst
-FEAT:modernmilitary_feats_mod.lst
-FEAT:modernmilitary_feats_hidden_specops.lst
+ABILITY:modernmilitary_feats.lst
+ABILITY:modernmilitary_feats_advancedtraining.lst
+ABILITY:modernmilitary_feats_eliteunits.lst
+ABILITY:modernmilitary_feats_hidden.lst
+ABILITY:modernmilitary_feats_mod.lst
+ABILITY:modernmilitary_feats_hidden_specops.lst
 
 SKILL:modernmilitary_skills.lst
 SKILL:modernmilitary_skills_mod.lst
 
 #Included from Blood and Secrets
-FEAT:@/modern/rpg_objects/modern_system/blood_and_secrets/blood_and_secrets_feat.lst|(INCLUDE:Cover Fire,Enemy,Fast Track,Tactician,Teamwork)
+ABILITY:@/modern/rpg_objects/modern_system/blood_and_secrets/blood_and_secrets_feat.lst|(INCLUDE:Cover Fire,Enemy,Fast Track,Tactician,Teamwork)

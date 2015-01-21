@@ -41,6 +41,6 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 6: 
 ABILITY:ap12_abilities_race.lst
 EQUIPMENT:ap12_equip_arms_armor.lst
 EQUIPMENT:ap12_equip_magic_items.lst
-FEAT:ap12_feats.lst
+ABILITY:ap12_feats.lst
 KIT:ap12_kits_race.lst
 RACE:ap12_races.lst

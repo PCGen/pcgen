@@ -44,7 +44,7 @@ CLASS:qgtte_classes_race.lst
 DEITY:qgtte_deities.lst
 EQUIPMENT:qgtte_equip_magic_items.lst
 EQUIPMOD:qgtte_equipmods.lst
-FEAT:qgtte_feats.lst
+ABILITY:qgtte_feats.lst
 KIT:qgtte_kits_race.lst
 LANGUAGE:qgtte_languages.lst
 RACE:qgtte_races.lst

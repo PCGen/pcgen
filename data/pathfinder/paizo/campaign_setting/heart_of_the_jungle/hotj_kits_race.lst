@@ -11,12 +11,12 @@ SKILL:Intimidate	RANK:9
 SKILL:Perception	RANK:6
 SKILL:Stealth	RANK:6
 SKILL:Survival	RANK:9
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Iron Will
-FEAT:Multiweapon Fighting
-FEAT:Power Attack
-FEAT:Weapon Focus (Axe (Throwing))
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiweapon Fighting
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Axe (Throwing))
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 ABILITY:CATEGORY=Angazhani Martial Weapon Proficiency|Martial Weapon Proficiency (Axe (Throwing))
 GEAR:Hide				SIZE:L	LOCATION:Equipped			EQMOD:MWORKA
@@ -46,10 +46,10 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Intimidate	RANK:4
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:1
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 STARTPACK:Treant (Tobongo) Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Treant (Tobongo)],[!PRERACE:1,%]	SOURCEPAGE:p.266
 ALIGN:NG
@@ -62,12 +62,12 @@ SKILL:Knowledge (Nature)	RANK:12
 SKILL:Perception			RANK:4
 SKILL:Sense Motive		RANK:4
 SKILL:Stealth			RANK:2
-FEAT:Alertness
-FEAT:Improved Critical (Slam)
-FEAT:Improved Natural Attack (Slam)
-FEAT:Improved Sunder
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Critical (Slam)
+ABILITY:CATEGORY=FEAT|Improved Natural Attack (Slam)
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 GEAR:Rock (Large)	LOCATION:Carried

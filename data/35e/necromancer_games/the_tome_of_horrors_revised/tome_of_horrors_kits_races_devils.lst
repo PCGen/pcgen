@@ -28,16 +28,16 @@ SKILL:Sense Motive		RANK:21
 SKILL:Spellcraft			RANK:21
 SKILL:Spot				RANK:25
 SKILL:Survival			RANK:25
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Critical (Mace (Heavy))
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability(Fireball)
-FEAT:Weapon Focus (Mace (Heavy))
-FEAT:Blinding Speed
-FEAT:Overwhelming Critical (Mace (Heavy))
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical (Mace (Heavy))
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability(Fireball)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Mace (Heavy))
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Overwhelming Critical (Mace (Heavy))
 GEAR:Mace (Heavy)	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS4W.LAW_M.THNDR_M
 
 STARTPACK:Devil (Baaphel) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Baaphel)]
@@ -62,13 +62,13 @@ SKILL:Sense Motive		RANK:21
 SKILL:Spellcraft			RANK:18
 SKILL:Spot				RANK:23
 SKILL:Survival			RANK:23
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Power Attack
-FEAT:Weapon Focus (Scythe)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Scythe)
 GEAR:Chainmail	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS3A
 GEAR:Scythe		SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS3W.LAW_M.KEEN
 
@@ -97,14 +97,14 @@ SKILL:Spellcraft			RANK:23
 SKILL:Spot				RANK:22
 SKILL:Survival			RANK:18
 SKILL:Use Rope			RANK:15
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Critical (Morningstar)
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Weapon Focus (Morningstar)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical (Morningstar)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Morningstar)
 GEAR:Chainmail	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA.PLUS3A
 GEAR:Morningstar	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKA.PLUS4W.UNHLY_M.TELE
 
@@ -131,19 +131,19 @@ SKILL:Sense Motive		RANK:28
 SKILL:Spellcraft			RANK:38
 SKILL:Spot				RANK:38
 SKILL:Survival			RANK:38
-FEAT:Cleave
-FEAT:Combat Casting
-FEAT:Improved Critical (Tail Sting)
-FEAT:Improved Initiative
-FEAT:Maximize Spell
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability(Ice Storm)
-FEAT:Weapon Focus (Claw)
-FEAT:Weapon Focus (Tail String)
-FEAT:Enhance Spell
-FEAT:Epic Spellcasting
-FEAT:Improved Combat Casting
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Improved Critical (Tail Sting)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability(Ice Storm)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Tail String)
+ABILITY:CATEGORY=FEAT|Enhance Spell
+ABILITY:CATEGORY=FEAT|Epic Spellcasting
+ABILITY:CATEGORY=FEAT|Improved Combat Casting
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark|Daze|Detect Poison|Detect Magic|Flare|Ghost Sound|Mending|Open/Close|Read Magic
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Burning Hands|Color Spray|Hold Portal|Shocking Grasp|Ventriloquism
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Blur|Continual Flame|Darkness|Hypnotic Pattern|Misdirection
@@ -171,12 +171,12 @@ SKILL:Search		RANK:19
 SKILL:Sense Motive	RANK:19
 SKILL:Spot			RANK:19
 SKILL:Survival		RANK:19
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Devil (Gorson) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Gorson)]
 ALIGN:LE
@@ -201,15 +201,15 @@ SKILL:Spellcraft			RANK:18
 SKILL:Spot				RANK:21
 SKILL:Survival			RANK:23
 SKILL:Use Rope			RANK:16
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Overrun
-FEAT:Improved Critical (Battleaxe)
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Power Attack
-FEAT:Weapon Focus (Battleaxe)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Improved Critical (Battleaxe)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Battleaxe)
 GEAR:Battleaxe	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS3W.WOUND
 
 STARTPACK:Devil (Hutijin) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Hutijin)]
@@ -238,13 +238,13 @@ SKILL:Spellcraft			RANK:21
 SKILL:Spot				RANK:21
 SKILL:Survival			RANK:7
 SKILL:Tumble			RANK:21
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Weapon Focus (Trident)
-FEAT:Improved Critical (Trident)
-FEAT:Greater Weapon Focus (Trident)
-FEAT:Improved Initiative
-FEAT:Quicken Spell-Like Ability(Fireball)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Weapon Focus (Trident)
+ABILITY:CATEGORY=FEAT|Improved Critical (Trident)
+ABILITY:CATEGORY=FEAT|Greater Weapon Focus (Trident)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability(Fireball)
 GEAR:Trident		SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS4W.FLM_BR_M.UNHLY_M
 GEAR:Net of Snaring	SIZE:PC	LOCATION:Carried
 
@@ -270,24 +270,24 @@ SKILL:Sense Motive		RANK:54
 SKILL:Spellcraft			RANK:54
 SKILL:Spot				RANK:54
 SKILL:Survival			RANK:54
-FEAT:Cleave
-FEAT:Combat Casting
-FEAT:Craft Rod
-FEAT:Craft Wondrous Item
-FEAT:Empower Spell
-FEAT:Extend Spell
-FEAT:Improved Initiative
-FEAT:Maximize Spell
-FEAT:Power Attack
-FEAT:Quicken Spell
-FEAT:Scribe Scroll
-FEAT:Silent Spell
-FEAT:Toughness
-FEAT:Track
-FEAT:Blinding Speed
-FEAT:Enhance Spell
-FEAT:Epic Spellcasting
-FEAT:Improved Combat Casting
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Craft Rod
+ABILITY:CATEGORY=FEAT|Craft Wondrous Item
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Extend Spell
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Scribe Scroll
+ABILITY:CATEGORY=FEAT|Silent Spell
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Track
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Enhance Spell
+ABILITY:CATEGORY=FEAT|Epic Spellcasting
+ABILITY:CATEGORY=FEAT|Improved Combat Casting
 GEAR:Rod of Infernus	LOCATION:Carried
 DEITY:None	DOMAIN:Evil (NSA)|Law (NSA)|War (NSA)
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash|Arcane Mark|Daze|Dancing Lights|Ghost Sound|Ray of Frost|Read Magic|Resistance|Touch of Fatigue
@@ -336,18 +336,18 @@ SKILL:Sense Motive		RANK:20
 SKILL:Spellcraft			RANK:37
 SKILL:Spot				RANK:37
 SKILL:Survival			RANK:10
-FEAT:Cleave
-FEAT:Combat Casting
-FEAT:Great Cleave
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Maximize Spell
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Quicken Spell
-FEAT:Weapon Focus (Whip)
-FEAT:Epic Toughness
-FEAT:Improved Combat Casting
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Weapon Focus (Whip)
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Improved Combat Casting
 DEITY:None	DOMAIN:Evil (NSA)|Law (NSA)|Strength (NSA)
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Chaos|Desecrate|Magic Circle against Chaos|Spell Immunity|Dispel Good|Create Undead|Dictum|Shield of Law|Crushing Hand
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Create Water|Inflict Minor Wounds=3|Light|Read Magic
@@ -391,13 +391,13 @@ SKILL:Sleight of Hand		RANK:18
 SKILL:Spellcraft			RANK:22
 SKILL:Spot				RANK:21
 SKILL:Survival			RANK:19
-FEAT:Combat Casting
-FEAT:Combat Expertise
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Negotiator
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability(Confusion)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Negotiator
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability(Confusion)
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.ALCHM.WOUND
 
 STARTPACK:Devil (Tormentor) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Tormentor)]
@@ -417,8 +417,8 @@ SKILL:Search			RANK:11
 SKILL:Sense Motive		RANK:9
 SKILL:Spot				RANK:9
 SKILL:Survival			RANK:11
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Track
 GEAR:Battleaxe		SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS1W.GHOST_M
 GEAR:Soulcatcher Net	SIZE:PC	LOCATION:Carried

@@ -35,8 +35,7 @@ ABILITYCATEGORY:dungeons_abilitycategories.lst
 CLASS:dungeonsclasses.lst
 EQUIPMENT:dungeonsequip.lst
 EQUIPMENT:dungeonsequipwondrousitems.lst
-FEAT:dungeonsfeats.lst
-FEAT:dungeonsclassfeats.lst
+ABILITY:dungeonsfeats.lst
 SKILL:dungeonsskills.lst
 SPELL:dungeonsspells.lst
 # Missing Prof Musket and Pistol, no equipment either...

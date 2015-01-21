@@ -10,9 +10,9 @@ SKILL:Listen		RANK:5
 SKILL:Spot			RANK:5
 SKILL:Move Silently	RANK:6
 SKILL:Wilderness Lore	RANK:6
-FEAT:Dodge
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Demon Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon]
 RACE:Demon	!PRERACE:1,%
@@ -26,9 +26,9 @@ SKILL:Move Silently		RANK:11
 SKILL:Sense Motive		RANK:11
 SKILL:Spot				RANK:11
 SKILL:Ridicule			RANK:12
-FEAT:Dodge
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Devil Ray Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil Ray]
 RACE:Devil Ray	!PRERACE:1,%
@@ -48,7 +48,7 @@ SKILL:Hide			RANK:7
 SKILL:Move Silently	RANK:7
 SKILL:Search		RANK:7
 SKILL:Spot			RANK:5
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Default Dr. Victor Frankenstein	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dr. Victor Frankenstein]
 RACE:Dr. Victor Frankenstein	!PRERACE:1,%
@@ -81,4 +81,4 @@ SKILL:Hide			RANK:4
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:5
 SKILL:Spot			RANK:5
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge

@@ -10,7 +10,7 @@ SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:5
 SKILL:Swim			RANK:4
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Patchwork Monster (Man)(Disease) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Patchwork Monster (Man)(Disease)]
 RACE:Patchwork Monster (Man)(Disease)	!PRERACE:1,%
@@ -21,7 +21,7 @@ SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:5
 SKILL:Swim			RANK:4
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Patchwork Monster (Man)(Disease/Enhancements) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Patchwork Monster (Man)(Disease/Enhancements)]
 RACE:Patchwork Monster (Man)(Disease/Enhancements)	!PRERACE:1,%
@@ -32,7 +32,7 @@ SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:5
 SKILL:Swim			RANK:4
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Patchwork Monster (Man)(Enhancements) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Patchwork Monster (Man)(Enhancements)]
 RACE:Patchwork Monster (Man)(Enhancements)	!PRERACE:1,%
@@ -43,7 +43,7 @@ SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:5
 SKILL:Swim			RANK:4
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Patchwork Monster (Wasp) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Patchwork Monster (Wasp)]
 RACE:Patchwork Monster (Wasp)	!PRERACE:1,%
@@ -53,7 +53,7 @@ SKILL:Hide			RANK:3
 SKILL:Listen		RANK:6
 SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:10
-FEAT:Flyby Attack
+ABILITY:CATEGORY=FEAT|Flyby Attack
 
 STARTPACK:Piasa Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Piasa]
 RACE:Piasa	!PRERACE:1,%
@@ -109,11 +109,11 @@ SKILL:Spot				RANK:6
 SKILL:Wilderness Lore		RANK:6
 SKILL:Pick Pocket			RANK:8
 SKILL:Sleight o' Hand		RANK:8
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Power Attack
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
 
 STARTPACK:Poison Woman (Spellcaster) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Poison Woman (Spellcaster)]
 RACE:Poison Woman (Spellcaster)	!PRERACE:1,%
@@ -130,11 +130,11 @@ SKILL:Spot				RANK:6
 SKILL:Wilderness Lore		RANK:6
 SKILL:Pick Pocket			RANK:8
 SKILL:Sleight o' Hand		RANK:8
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Power Attack
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
 
 STARTPACK:Pox Walker Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pox Walker]
 RACE:Pox Walker	!PRERACE:1,%
@@ -144,10 +144,10 @@ SKILL:Hide			RANK:5
 SKILL:Move Silently	RANK:5
 SKILL:Ride			RANK:5
 SKILL:Knowledge (Local)	RANK:6
-FEAT:Dead Eye
-FEAT:Mounted Combat
-FEAT:Power Attack
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Dead Eye
+ABILITY:CATEGORY=FEAT|Mounted Combat
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:Prairie Tick (Hatchling) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prairie Tick (Hatchling)]
 RACE:Prairie Tick (Hatchling)	!PRERACE:1,%

@@ -42,7 +42,7 @@ CLASS:sdpg_classes.lst
 EQUIPMENT:sdpg_equip_arms_armor.lst
 EQUIPMENT:sdpg_equip_general.lst
 EQUIPMENT:sdpg_equip_magic_items.lst
-FEAT:sdpg_feats.lst
+ABILITY:sdpg_feats.lst
 LANGUAGE:sdpg_languages.lst
 SPELL:sdpg_spells.lst
 TEMPLATE:sdpg_templates.lst

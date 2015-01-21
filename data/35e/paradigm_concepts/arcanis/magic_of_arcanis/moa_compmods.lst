@@ -7,7 +7,7 @@ FOLLOWER:AltherianCompanion=3		TYPE:Clockwork Companion																DEFINE:Co
 FOLLOWER:AltherianCompanion=3		TYPE:Clockwork Companion																												BONUS:STAT|INT|1	BONUS:VAR|ConstructCompanionUpgrades|1
 FOLLOWER:AltherianCompanion=4		TYPE:Clockwork Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Evasion													BONUS:COMBAT|AC|2|TYPE=NaturalArmor
 FOLLOWER:AltherianCompanion=6		TYPE:Clockwork Companion	HD:2																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor				BONUS:VAR|ConstructCompanionUpgrades|1
-FOLLOWER:AltherianCompanion=9		TYPE:Clockwork Companion	HD:2											AUTO:FEAT|Multiattack							BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|INT|1
+FOLLOWER:AltherianCompanion=9		TYPE:Clockwork Companion	HD:2											ABILITY:FEAT|AUTOMATIC|Multiattack							BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|INT|1
 FOLLOWER:AltherianCompanion=12	TYPE:Clockwork Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Instant Inspection											BONUS:COMBAT|AC|2|TYPE=NaturalArmor				BONUS:VAR|ConstructCompanionUpgrades|1
 FOLLOWER:AltherianCompanion=15	TYPE:Clockwork Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Improved Evasion											BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|INT|1
 FOLLOWER:AltherianCompanion=18	TYPE:Clockwork Companion	HD:2																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|INT|1	BONUS:VAR|ConstructCompanionUpgrades|1

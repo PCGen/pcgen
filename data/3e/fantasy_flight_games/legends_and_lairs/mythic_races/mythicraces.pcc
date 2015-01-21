@@ -22,6 +22,7 @@ COPYRIGHT:PCGen dataset conversion for Mythic Races Copyright 2001-2003, PCgen D
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+ABILITYCATEGORY:mr_abilitycategories.lst
 
 BIOSET:mythicracesbiosettings.lst
 CLASS:mythicracesclasses.lst
@@ -30,8 +31,8 @@ DOMAIN:mythicracesdomains.lst
 EQUIPMENT:mythicracesequipweapammo.lst
 EQUIPMENT:mythicracesequipweapmelee.lst
 EQUIPMENT:mythicracesequipweapranged.lst
-FEAT:mythicracesfeats.lst
-FEAT:mythicraces_feats_hidden.lst
+ABILITY:mythicracesfeats.lst
+ABILITY:mythicraces_feats_hidden.lst
 LANGUAGE:mythicraceslanguages.lst
 RACE:mythicracesraces.lst
 SKILL:mythicracesskills.lst

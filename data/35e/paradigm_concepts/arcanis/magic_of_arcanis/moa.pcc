@@ -75,8 +75,8 @@ EQUIPMENT:moa_equip_shields.lst
 EQUIPMENT:moa_equip_weapons.lst
 EQUIPMENT:moa_equipment.lst
 
-FEAT:moa_feats.lst
-FEAT:moa_feats_mod.lst
+ABILITY:moa_feats.lst
+ABILITY:moa_feats_mod.lst
 
 KIT:moa_kits.lst
 SHIELDPROF:moa_profs_shields.lst

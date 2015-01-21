@@ -26,9 +26,9 @@ COPYRIGHT:PCGen dataset conversion for Dragonstar: Starfarer's Handbook Copyrigh
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-#ABILITY:starfarershb_abilities_mod.lst
+ABILITY:starfarershb_feats_hidden.lst
+ABILITYCATEGORY:shb_abilitycategories.lst
 
-#ABILITYCATEGORY:starfarershb_ability_category.lst
 BIOSET:starfarershb_biosettings.lst
 
 CLASS:starfarershb_classes_mods.lst
@@ -45,8 +45,7 @@ EQUIPMENT:starfarershb_equip_weap_ammo.lst
 EQUIPMENT:starfarershb_equip_mech.lst
 
 
-FEAT:starfarershb_feats.lst
-FEAT:starfarershb_feats_hidden.lst
+ABILITY:starfarershb_feats.lst
 
 LANGUAGE:starfarershb_languages.lst
 ARMORPROF:starfarershb_profs_armor.lst

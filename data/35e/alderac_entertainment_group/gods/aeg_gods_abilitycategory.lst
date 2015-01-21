@@ -10,8 +10,8 @@ ABILITYCATEGORY:Hunter Humanoid Favored Enemy	VISIBLE:QUALIFY	EDITABLE:YES	EDITP
 ABILITYCATEGORY:Barbarian Totem Selection		VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:BarbarianTotemSelection												DISPLAYLOCATION:Class Abilities
 
 
-Hunter Feat			ADD:FEAT|Far Shot,Point Blank Shot,Precise Shot,Shot on the Run
-Spider Warrior Feat	ADD:FEAT|Alertness,Far Shot,Improved Initiative,Mounted Archery,Mounted Combat,Point Blank Shot,Precise Shot,Rapid Shot,Ride-By Attack,Shot on the Run,Spirited Charge,Trample
+ABILITYCATEGORY:Hunter Feat		CATEGORY:FEAT	VISIBLE:QUALIFY	DISPLAYLOCATION:Feats	EDITABLE:YES	EDITPOOL:NO	ABILITYLIST:Far Shot|Point Blank Shot|Precise Shot|Shot on the Run
+ABILITYCATEGORY:Spider Warrior Feat	CATEGORY:FEAT	VISIBLE:QUALIFY	DISPLAYLOCATION:Feats	EDITABLE:YES	EDITPOOL:NO	ABILITYLIST:Alertness|Far Shot|Improved Initiative|Mounted Archery|Mounted Combat|Point Blank Shot|Precise Shot|Rapid Shot|Ride-By Attack|Shot on the Run|Spirited Charge|Trample
 
 
 

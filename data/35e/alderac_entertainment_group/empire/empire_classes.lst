@@ -12,10 +12,10 @@ CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Ga
 ###Block:Proficiencies
 1																																AUTO:WEAPONPROF|TYPE=Martial
 1																																AUTO:WEAPONPROF|TYPE=Simple
-1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|Tower Shield Proficiency
 ###Progression
-1																	AUTO:FEAT|Iron Will
+1																	ABILITY:FEAT|AUTOMATIC|Iron Will
 1	BONUS:ABILITYPOOL|Realm Feat|CL/5+1
 2							ABILITY:Special Ability|AUTOMATIC|Strength of Will ~ Noble
 3							ABILITY:Special Ability|AUTOMATIC|Canny Administrator
@@ -35,7 +35,7 @@ CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Ga
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Combat bonus										Save bonus
 CLASS:Hero of the People	HD:6		TYPE:PC.Prestige	ABB:HoP		MAXLEVEL:5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required Feat							Required Skill
-CLASS:Hero of the People	PREFEAT:3,Heroic Leader,Inspiring Leader,Leadership	PRESKILL:1,TYPE.Perform=13	PRESKILL:1,Diplomacy=13
+CLASS:Hero of the People	PREABILITY:3,CATEGORY=FEAT,Heroic Leader,Inspiring Leader,Leadership	PRESKILL:1,TYPE.Perform=13	PRESKILL:1,Diplomacy=13
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Hero of the People	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Listen|TYPE=Perform|Search|Sense Motive|Spot
 1	ABILITY:Special Ability|AUTOMATIC|Will of the People
@@ -53,7 +53,7 @@ CLASS:Hero of the People	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Informati
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Combat bonus										Save bonus
 CLASS:Political Mastermind	HD:6		TYPE:PC.Prestige	ABB:PMM		MAXLEVEL:5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required Feat					Required Skill																		Required Stat
-CLASS:Political Mastermind	PREFEAT:2,Clever Businessman,Leadership	PRESKILL:1,Diplomacy=13	PRESKILL:1,Gather Information=13	PRESKILL:1,Intimidate=13	PRESKILL:1,Sense Motive=13	PRESTAT:1,CHA=16
+CLASS:Political Mastermind	PREABILITY:2,CATEGORY=FEAT,Clever Businessman,Leadership	PRESKILL:1,Diplomacy=13	PRESKILL:1,Gather Information=13	PRESKILL:1,Intimidate=13	PRESKILL:1,Sense Motive=13	PRESTAT:1,CHA=16
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Political Mastermind	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Forgery|Gather Information|Intimidate|Listen|TYPE=Perform|Search|Sense Motive|Speak Language
 1											ABILITY:Special Ability|AUTOMATIC|Friends in high places

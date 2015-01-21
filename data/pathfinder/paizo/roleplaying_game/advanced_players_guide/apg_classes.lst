@@ -551,7 +551,7 @@ CLASS:Battle Herald	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Ani
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Holy Vindicator	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:HV		MAXLEVEL:10	SOURCEPAGE:p.263	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2
 # Class Name		Required Ability								Required Feat						Required Skill				Req. Spell Type		PRETOTALAB
-CLASS:Holy Vindicator	PREABILITY:1,CATEGORY=Special Ability,TYPE.Channel Energy	PREFEAT:1,Alignment Channel,Elemental Channel	PRESKILL:1,Knowledge (Religion)=5	PRETEXT:PRESPELLTYPE:1,Divine=1	PRETOTALAB:5
+CLASS:Holy Vindicator	PREABILITY:1,CATEGORY=Special Ability,TYPE.Channel Energy	PREABILITY:1,CATEGORY=FEAT,Alignment Channel,Elemental Channel	PRESKILL:1,Knowledge (Religion)=5	PRETEXT:PRESPELLTYPE:1,Divine=1	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Holy Vindicator	STARTSKILLPTS:2	CSKILL:Climb|Heal|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Ride|Sense Motive|Spellcraft|Swim
 ###Block:  Weapon/Armor Proficiencies
@@ -561,7 +561,7 @@ CLASS:Holy Vindicator	STARTSKILLPTS:2	CSKILL:Climb|Heal|Intimidate|Knowledge (Pl
 2	BONUS:VAR|StigmataLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Stigmata
 3	BONUS:VAR|Faith HealingLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Faith Healing
 4									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Divine Wrath
-5													ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Bloodfire|Holy Vindicator ~ Channel Smite			AUTO:FEAT|Channel Smite
+5													ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Bloodfire|Holy Vindicator ~ Channel Smite			ABILITY:FEAT|AUTOMATIC|Channel Smite
 6									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Versatile Channel
 7									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Divine Judgment
 8									ADD:SPELLCASTER|Divine
@@ -573,7 +573,7 @@ CLASS:Holy Vindicator	STARTSKILLPTS:2	CSKILL:Climb|Heal|Intimidate|Knowledge (Pl
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Horizon Walker	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:HW		MAXLEVEL:10	SOURCEPAGE:p.265	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3
 # Class Name		Required Feat		Required Skill
-CLASS:Horizon Walker	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Geography)=6
+CLASS:Horizon Walker	PREABILITY:1,CATEGORY=FEAT,Endurance	PRESKILL:1,Knowledge (Geography)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Horizon Walker	STARTSKILLPTS:6	CSKILL:Climb|Diplomacy|Handle Animal|Knowledge (Geography)|Knowledge (Nature)|Knowledge (Planes)|Linguistics|Perception|Stealth|Survival|Swim
 
@@ -606,7 +606,7 @@ CLASS:Master Chymist	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Intim
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Combat bonus											Save bonus																						Modify VAR
 CLASS:Master Spy	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:MS		MAXLEVEL:10	SOURCEPAGE:p.270	DEFINE:MasterSpyLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|MasterSpyLVL|CL	BONUS:VAR|DeathAttackDC,DeathAttackDuration|MasterSpyLVL
 # Class Name	Required Feat			Required Skill
-CLASS:Master Spy	PREFEAT:2,Deceitful,Iron Will	PRESKILL:4,Bluff=7,Disguise=7,Perception=5,Sense Motive=5
+CLASS:Master Spy	PREABILITY:2,CATEGORY=FEAT,Deceitful,Iron Will	PRESKILL:4,Bluff=7,Disguise=7,Perception=5,Sense Motive=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Master Spy	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Use Magic Device
 ##Block: Normal Level Progression
@@ -669,7 +669,7 @@ CLASS:Rage Prophet	STARTSKILLPTS:4	CSKILL:Climb|Heal|Intimidate|Knowledge (Histo
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define				Combat bonus										Save bonus																							Modify VAR
 CLASS:Stalwart Defender	HD:12		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:SD		MAXLEVEL:10	SOURCEPAGE:p.277	DEFINE:StalwartDefenderLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|StalwartDefenderLVL|CL
 # Class Name		Required Feat													PRETOTALAB
-CLASS:Stalwart Defender	PREFEAT:5,Dodge,Endurance,Toughness,Armor Proficiency (Light),Armor Proficiency (Medium)	PRETOTALAB:7
+CLASS:Stalwart Defender	PREABILITY:5,CATEGORY=FEAT,Dodge,Endurance,Toughness,Armor Proficiency (Light),Armor Proficiency (Medium)	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Stalwart Defender	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Perception|Sense Motive
 ##Block: Normal Level Progression

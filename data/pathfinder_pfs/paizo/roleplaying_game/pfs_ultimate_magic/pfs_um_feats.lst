@@ -4,8 +4,8 @@ SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRP
 # ORIGINAL ENTRY DATE: Unknown
 
 #   Feats: Blighted Critical, Create Reliquary Arms and Shield, Create Sanguine Elixir are not legal for play.
-# Feat Name						Type			Visible
-Blighted Critical.MOD				TYPE:PFSNotLegal	VISIBLE:NO
-Blighted Critical Mastery.MOD			TYPE:PFSNotLegal	VISIBLE:NO
-Create Reliquary Arms and Shields.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-Create Sanguine Elixir.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+# Feat Name								Type			Visible
+CATEGORY=Feat|Blighted Critical.MOD				TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Feat|Blighted Critical Mastery.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Feat|Create Reliquary Arms and Shields.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Feat|Create Sanguine Elixir.MOD			TYPE:PFSNotLegal	VISIBLE:NO

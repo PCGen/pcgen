@@ -25,5 +25,5 @@ COPYRIGHT:PCGen dataset conversion for Modern Dispatch #2 Copyright 2006, PCGen 
 #EXTRAFILE:OGL.txt
 
 EQUIPMENT:moderndispatch002_equip.lst
-FEAT:moderndispatch002_feats.lst
+ABILITY:moderndispatch002_feats.lst
 TEMPLATE:moderndispatch002_templates.lst

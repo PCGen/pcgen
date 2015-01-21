@@ -7,6 +7,6 @@ CLASS:Air Elemental Companion	OUTPUTNAME:Outsider	HD:10		TYPE:Monster.Companion	
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Air Elemental Companion	STARTSKILLPTS:1	CSKILL:Acrobatics|Escape Artist|Fly|Knowledge (Planes)|Perception|Stealth
 ###Block: Level Advancement
-1	BONUS:SKILLPOINTS|NUMBER|-3|PRELEVELMAX:1	AUTO:FEAT|CMB Output
+1	BONUS:SKILLPOINTS|NUMBER|-3|PRELEVELMAX:1	ABILITY:FEAT|AUTOMATIC|CMB Output
 
 #EOF

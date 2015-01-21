@@ -2,15 +2,15 @@
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
 
 # Feat Name		Type			Visible	Bonus to skill
-Racial Craft	TYPE:Special	VISIBLE:NO	BONUS:SKILL|TYPE.Craft|2
-Artistic Craft	TYPE:Special	VISIBLE:NO	BONUS:SKILL|TYPE.Art|2
+Racial Craft	CATEGORY:Special Ability	TYPE:Special		BONUS:SKILL|TYPE.Craft|2
+Artistic Craft	CATEGORY:Special Ability	TYPE:Special		BONUS:SKILL|TYPE.Art|2
 
 
 ###Block: Proficiencies
 # Feat Name				Type			Visible	Auto Weapon Prof
-Animan Atavist Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Longspear|Shortspear|Sling|Longbow|Shortbow|Halfspear|Axe (Throwing)|Sap|Greatclub
+Animan Atavist Proficiencies	CATEGORY:Special Ability	TYPE:Special	AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Longspear|Shortspear|Sling|Longbow|Shortbow|Halfspear|Axe (Throwing)|Sap|Greatclub
 
 ###Block: Soulless Resistance and Immunity
 # Feat Name			Type			Visible	Special ABility			Stackable?	Multiple?	Choose
-Soulless Resistance	TYPE:Special	VISIBLE:NO	SAB:Resistance 20/%CHOISE	STACK:NO	MULT:YES	CHOOSE:STRING|Acid|Cold|Fire
-Soulless Immunity		TYPE:Special	VISIBLE:NO	SAB:Immunity 20/%CHOISE		STACK:NO	MULT:YES	CHOOSE:STRING|Electricity|Fire|Poison
+Soulless Resistance	CATEGORY:Special Ability	TYPE:Special		SAB:Resistance 20/%CHOISE	STACK:NO	MULT:YES	CHOOSE:STRING|Acid|Cold|Fire
+Soulless Immunity		CATEGORY:Special Ability	TYPE:Special		SAB:Immunity 20/%CHOISE		STACK:NO	MULT:YES	CHOOSE:STRING|Electricity|Fire|Poison

@@ -3,7 +3,7 @@ SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegameme
 #Original Entry by: Frank Kliewe
 
 # Modifier Name	Unique Key			Type		Cost		Visible		Type granted		Source Page		Required Type	Bonus Equip Mods		Bonus Weapon Mods											Special Property
-Clothyard Shaft	KEY:CLOTHYRD_SHAFT	TYPE:Weapon			VISIBLE:NO						SOURCEPAGE:p.11	PRETYPE:1,Ranged					BONUS:EQMWEAPON|RANGEADD|20|PREFEAT:1,3rd Degree Mastery - Clothyard Shaft
+Clothyard Shaft	KEY:CLOTHYRD_SHAFT	TYPE:Weapon			VISIBLE:NO						SOURCEPAGE:p.11	PRETYPE:1,Ranged					BONUS:EQMWEAPON|RANGEADD|20|PREABILITY:1,CATEGORY=FEAT,3rd Degree Mastery - Clothyard Shaft
 Shield Spikes	KEY:SPIKE_S			TYPE:Shield	COST:1	VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:p.38	PRETYPE:1,Shield	BONUS:EQM|WEIGHTADD|2	BONUS:EQMWEAPON|DAMAGESIZE|1									SPROP:Spiked
 
 ###Block:Arrows

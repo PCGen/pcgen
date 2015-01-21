@@ -5,7 +5,7 @@ SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:ht
 # Class Name		Product Identity?	Hit Dice	Type			Source Page		Combat bonus										Save bonus
 CLASS:Colorless Adept	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat										Required Skill				Req. Spell Type
-CLASS:Colorless Adept	PREFEAT:1,Sequester Power	PREFEAT:2,TYPE=Psionic,TYPE=Metapsionic	PRESKILL:1,Knowledge (Psionics)=8	PRESPELLTYPE:1,Psionic=2
+CLASS:Colorless Adept	PREABILITY:1,CATEGORY=FEAT,Sequester Power	PREABILITY:2,CATEGORY=FEAT,TYPE=Psionic,TYPE=Metapsionic	PRESKILL:1,Knowledge (Psionics)=8	PRESPELLTYPE:1,Psionic=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Colorless Adept	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Profession|Psicraft|Remote View|Speak Language|Spot|Stabilize Self
 ###Block: Level Progression
@@ -26,28 +26,21 @@ CLASS:Psion ITCK	OUTPUTNAME:Psion	HD:4		TYPE:PC.Base	ALLOWBASECLASS:NO		SOURCEPA
 CLASS:Psion ITCK	STARTSKILLPTS:4
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psion ITCK	SPELLSTAT:OTHER	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion ITCK|CL
-###COMMENT: CHOICE is invalid, COST:0 replaced CHOICE tag. Commented out the CHOICE tag. - AM
 SUBCLASS:Seer ITCK	OUTPUTNAME:Seer		COST:0	SPELLSTAT:WIS	CSKILL:Concentration|Gather Information|Intuit Direction|Knowledge (Psionics)|Listen|Psicraft|Remote View|Sense Motive|Spot
-#SUBCLASS:Seer	CHOICE:SCHOOL|Clairsentience
-SUBCLASSLEVEL:1	ADD:FEAT|2|Metacreativity Subdiscipline,Psychokinesis Subdiscipline,Psychometabolism Subdiscipline,Psychoportation Subdiscipline,Telepathy Subdiscipline
+SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Subdiscipline|2
 SUBCLASS:Shaper ITCK	OUTPUTNAME:Shaper		COST:0	SPELLSTAT:INT	CSKILL:Alchemy|Appraise|Concentration|TYPE=Craft|Disguise|Knowledge (Psionics)|Perform|Psicraft|Remote View
-#SUBCLASS:Shaper	CHOICE:SCHOOL|Metacreativity
-SUBCLASSLEVEL:1	ADD:FEAT|2|Clairsentience Subdiscipline,Psychokinesis Subdiscipline,Psychometabolism Subdiscipline,Psychoportation Subdiscipline,Telepathy Subdiscipline
+SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Subdiscipline|2
 SUBCLASS:Savant ITCK	OUTPUTNAME:Savant		COST:0	SPELLSTAT:CON	CSKILL:Autohypnosis|Concentration|Disable Device|Knowledge (Psionics)|Open Lock|Pick Pocket|Psicraft|Remote View|Search
-#SUBCLASS:Savant	CHOICE:SCHOOL|Psychokinesis
-SUBCLASSLEVEL:1	ADD:FEAT|2|Clairsentience Subdiscipline,Metacreativity Subdiscipline,Psychometabolism Subdiscipline,Psychoportation Subdiscipline,Telepathy Subdiscipline
+SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Subdiscipline|2
 SUBCLASS:Egoist ITCK	OUTPUTNAME:Egoist		COST:0	SPELLSTAT:STR	CSKILL:Autohypnosis|Balance|Climb|Concentration|Jump|Knowledge (Psionics)|Psicraft|Stabilize Self|Swim
-#SUBCLASS:Egoist	CHOICE:SCHOOL|Psychometabolism
-SUBCLASSLEVEL:1	ADD:FEAT|2|Clairsentience Subdiscipline,Metacreativity Subdiscipline,Psychokinesis Subdiscipline,Psychoportation Subdiscipline,Telepathy Subdiscipline
+SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Subdiscipline|2
 SUBCLASS:Nomad ITCK	OUTPUTNAME:Nomad		COST:0	SPELLSTAT:DEX	CSKILL:Climb|Concentration|Escape Artist|Intuit Direction|Jump|Knowledge (Psionics)|Psicraft|Remote View|Ride|Swim|Use Rope
-#SUBCLASS:Nomad	CHOICE:SCHOOL|Psychoportation
-SUBCLASSLEVEL:1	ADD:FEAT|2|Clairsentience Subdiscipline,Metacreativity Subdiscipline,Psychokinesis Subdiscipline,Psychometabolism Subdiscipline,Telepathy Subdiscipline
+SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Subdiscipline|2
 SUBCLASS:Telepath ITCK	OUTPUTNAME:Telepath	COST:0	SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Psionics)|Psicraft|Remote View|Sense Motive
-#SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy
-SUBCLASSLEVEL:1	ADD:FEAT|2|Clairsentience Subdiscipline,Metacreativity Subdiscipline,Psychokinesis Subdiscipline,Psychometabolism Subdiscipline,Psychoportation Subdiscipline
+SUBCLASSLEVEL:1	BONUS:ABILITYPOOL|Subdiscipline|2
 
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-# AUTO:FEAT|PsionicClass qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
+# ABILITY:FEAT|AUTOMATIC|PsionicClass qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
 # due to the use of "BL=Psion" (which provides the bonus caster levels applied to Psion) there are no
 # variables that need to be set or modified by PrC's to calculate correct points, it's all done here.
 # Use ADD:SPELLCASTER(Psionic) in PrC's that add to manifester level.
@@ -67,7 +60,7 @@ SUBCLASSLEVEL:1	ADD:FEAT|2|Clairsentience Subdiscipline,Metacreativity Subdiscip
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-7)/4))*2+13|PREVARGTEQ:PsionMLITCK,13	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-8)/4))*2+15|PREVARGTEQ:PsionMLITCK,15
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-9)/4))*2+17|PREVARGTEQ:PsionMLITCK,17	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-10)/4))*2+19|PREVARGTEQ:PsionMLITCK,19
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 ###Block: Level progression
 1																			BONUS:VAR|PsionFreePowers|CL+var("BL=Psion ITCK")+3	DEFINE:PsionFreePowers|0	ABILITY:Special Ability|AUTOMATIC|Psion 0 level powers ~ Psion ITCK	ABILITY:Special Ability|AUTOMATIC|Psicrystal
 1	KNOWN:3,1				SPECIALTYKNOWN:1,1			BONUS:ABILITYPOOL|Psionic Combat Mode|5
@@ -96,7 +89,7 @@ SUBCLASSLEVEL:1	ADD:FEAT|2|Clairsentience Subdiscipline,Metacreativity Subdiscip
 # Class Name		Output Name			Hit Dice	Type					Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Metamind ITCK	OUTPUTNAME:Metamind	HD:4		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat			Required Skill						Req. Spell Type
-CLASS:Metamind ITCK	PREFEAT:1,Inner Strength	PRESKILL:2,Psicraft=6,Knowledge (Psionics)=6	PRESPELLTYPE:1,Psionic=2	PRESPELLTYPE:2,Psionic=0
+CLASS:Metamind ITCK	PREABILITY:1,CATEGORY=FEAT,Inner Strength	PRESKILL:2,Psicraft=6,Knowledge (Psionics)=6	PRESPELLTYPE:1,Psionic=2	PRESPELLTYPE:2,Psionic=0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Metamind ITCK	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowledge (Psionics)|Psicraft|Remote View
 ###Block: Level progression
@@ -135,13 +128,13 @@ CLASS:Pyrokineticist ITCK	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craf
 # Class Name	Output Name		Hit Dice	Type					Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Slayer ITCK	OUTPUTNAME:Slayer	HD:10		TYPE:PC.Psionic.Prestige	MAXLEVEL:10	SOURCEPAGE:p.60	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat	Required Skill									Required Text																		PRETOTALAB		Var. Min. Value
-CLASS:Slayer ITCK	PREFEAT:1,Track	PRESKILL:2,Knowledge (Mortal Enemy Lore)=1,Wilderness Lore=4	PRETEXT:Must have killed a Mortal Enemy, either individually or as part of a group comprising no more than six members	PRETOTALAB:3	PREVARGTEQ:BasePowerPoints,3
+CLASS:Slayer ITCK	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:2,Knowledge (Mortal Enemy Lore)=1,Wilderness Lore=4	PRETEXT:Must have killed a Mortal Enemy, either individually or as part of a group comprising no more than six members	PRETOTALAB:3	PREVARGTEQ:BasePowerPoints,3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slayer ITCK	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal Enemy Lore)|Listen|Psicraft|Sense Motive|Spot|Wilderness Lore
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Level progression
 1	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|EnemySense|30*CL	BONUS:VAR|EnemySense|60	DEFINE:EnemySense|0	ADD:SPELLCASTER|Psionic										ABILITY:Special Ability|AUTOMATIC|Favored Enemy ~ Slayer ITCK	ABILITY:Special Ability|AUTOMATIC|Mortal Enemy Sense ~ Slayer ITCK
 2																											BONUS:ABILITYPOOL|Slayer ITCK Feat|1
@@ -164,8 +157,8 @@ CLASS:Soulknife ITCK	STARTSKILLPTS:4	CSKILL:Autohypnosis|Concentration|Hide|Know
 1	BONUS:VAR|MindBladeSneakAttack|(CL+1)/2	BONUS:VAR|MindBladeEnchantment|CL/2	BONUS:VAR|MindBladeAllowed|1	BONUS:VAR|SneakAttackDie|6	DEFINE:MindBladeAllowed|0	DEFINE:MindBladeEnchantment|0	DEFINE:MindBladeSneakAttack|0	DEFINE:SneakAttackDie|0	ABILITY:Special Ability|AUTOMATIC|Mind-blade sneak attack ~ Soulknife ITCK											AUTO:EQUIP|Mind Blade
 2	BONUS:VAR|MindBladeRange|30																			DEFINE:MindBladeRange|0																ABILITY:Special Ability|AUTOMATIC|Throw Mind-Blade ~ Soulknife ITCK	ABILITY:Special Ability|AUTOMATIC|Mind-Blade ~ Soulknife ITCK
 ###Block: Proficiencies
-1	AUTO:FEAT|Soulknife ITCK Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|Soulknife ITCK Weapon Proficiencies
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Level progression
 2	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal													ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Imbed Power ~ Soulknife ITCK
 4	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal													ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Imbed Psionic Attack ~ Soulknife ITCK

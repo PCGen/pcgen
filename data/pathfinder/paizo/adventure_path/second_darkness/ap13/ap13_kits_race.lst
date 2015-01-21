@@ -8,7 +8,7 @@ RACE:Darklands Sentinel	!PRERACE:1,%
 NAME:Darklands Sentinel
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -18,8 +18,8 @@ RACE:Fungal Crawler	!PRERACE:1,%
 NAME:Fungal Crawler
 SKILL:Acrobatics	RANK:2
 SKILL:Perception	RANK:2
-FEAT:Alertness
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Multiattack
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 ###MISSING VARIANT FUNGAL FLYER
@@ -45,6 +45,6 @@ RACE:Swamp Barracuda	!PRERACE:1,%
 NAME:Swamp Barracuda
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:2
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10

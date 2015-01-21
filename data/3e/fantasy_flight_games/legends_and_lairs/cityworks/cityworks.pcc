@@ -22,11 +22,12 @@ COPYRIGHT:PCGen dataset conversion for Cityworks Copyright 2003-2005, PCGen Data
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+ABILITYCATEGORY:cityworks_abilitycategories.lst
 
 CLASS:cityworks_classes.lst
 CLASS:cityworks_classes_prestige.lst
-FEAT:cityworks_feats.lst
-FEAT:cityworks_feats_hidden.lst
+ABILITY:cityworks_feats.lst
+ABILITY:cityworks_feats_hidden.lst
 SPELL:cityworks_spells.lst
 KIT:cityworks_kits_starting.lst
 EQUIPMENT:cityworks_equip_potionsscrolls.lst

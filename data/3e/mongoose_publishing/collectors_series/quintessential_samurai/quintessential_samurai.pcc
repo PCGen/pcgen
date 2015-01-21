@@ -33,6 +33,6 @@ ABILITYCATEGORY:mpgqs_abilitycategories.lst
 CLASS:mpgqs_classes.lst
 EQUIPMENT:mpgqs_equip.lst
 EQUIPMOD:mpgqs_equipmods.lst
-FEAT:mpgqs_feats.lst
+ABILITY:mpgqs_feats.lst
 WEAPONPROF:mpgqs_profs_weapon.lst
 ARMORPROF:mpgqs_profs_armor.lst

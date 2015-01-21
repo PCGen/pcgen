@@ -69,7 +69,7 @@ EQUIPMENT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_equip_arms_and_armor.lst
 EQUIPMENT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_equip_magic_items.lst
 EQUIPMENT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_equip_general.lst
 EQUIPMOD:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_equipmods.lst
-FEAT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_feats.lst
+ABILITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_feats.lst
 KIT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_kits.lst
 LANGUAGE:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_languages.lst|(EXCLUDE:Draconic|Gnome|Halfling|Elven)
 ARMORPROF:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_profs_armor.lst
@@ -106,7 +106,7 @@ COMPANIONMOD:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_companionmods.lst
 EQUIPMENT:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_equip.lst
 EQUIPMOD:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_equipmods.lst
 #FEAT:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_feats_psionic_hidden.lst
-FEAT:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Speed of Thought,Psychic Inquisitor)
+ABILITY:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Speed of Thought,Psychic Inquisitor)
 #SPELL:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_powers.lst
 RACE:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_races.lst
 SKILL:@/35e/wizards_of_the_coast/rsrd/psionics/rsrd_skills.lst
@@ -145,8 +145,8 @@ EQUIPMENT:playersguidetoarcanis_equip.lst
 EQUIPMENT:playersguidetoarcanis_mod_equip.lst
 EQUIPMOD:playersguidetoarcanis_equip_mods.lst
 
-FEAT:playersguidetoarcanis_feats.lst
-FEAT:playersguidetoarcanis_mod_feats.lst
+ABILITY:playersguidetoarcanis_feats.lst
+ABILITY:playersguidetoarcanis_mod_feats.lst
 
 KIT:playersguidetoarcanis_kits.lst
 LANGUAGE:playersguidetoarcanis_language.lst

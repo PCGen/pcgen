@@ -20,7 +20,7 @@ CLASS:Chameleon	SPELLSTAT:INT	SPELLTYPE:Arcane	PROHIBITED:Conjuration,Evocation,
 1	SAB:Quick Change (% disguises)|Disguises	BONUS:SKILL|Disguise|(CL+1)/2|TYPE=Competence	BONUS:VAR|Disguises|(CL+10)/5		DEFINE:Disguises|0
 ###Block: Weapon and Armor proficiencies
 1							AUTO:WEAPONPROF|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	WEAPONBONUS:Crossbow (Hand)|Crossbow (Light)
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal progression
 1	CAST:2
 2	CAST:3,0															ABILITY:Special Ability|AUTOMATIC|Evasion
@@ -53,8 +53,8 @@ CLASS:Con Artist	HD:6		TYPE:Base.PC	ABB:Con		MAXLEVEL:20	SOURCEPAGE:Chap.3, Con 
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Con Artist	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Use Magic Device
 ###Block: Weapon and Armor proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal progression
 1	SAB:Deceptive Oration (%/day)|DeceptiveOration	SAB:Second Attempt																							BONUS:VAR|DeceptiveOration|CL	DEFINE:DeceptiveOration|0
 3	SAB:Assess Mark (gullibility)
@@ -72,10 +72,10 @@ CLASS:Delver	HD:6		TYPE:Base.PC	ABB:Delv		MAXLEVEL:20	SOURCEPAGE:Chap.3, Delver	
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Delver	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Escape Artist|Gather Information|Hide|Innuendo|Intuit Direction|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Weapon and Armor proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Normal progression
-1	SAB:Delver Notebook	SAB:Traps						ADD:FEAT|Exotic Weapon Proficiency,Martial Weapon Proficiency
+1	SAB:Delver Notebook	SAB:Traps						BONUS:ABILITYPOOL|Delver Proficiency|1
 2																																																		ABILITY:Special Ability|VIRTUAL|Evasion
 3							BONUS:VAR|UncannyDodge|1																																							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 7												BONUS:ABILITYPOOL|Delver Feat|1
@@ -107,7 +107,7 @@ CLASS:Psychic Thief	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 1	SPELLLEVEL:CLASS|Psychic Thief=5|Adapt Body,Clairtangency,Mind Probe,Sending,Sense Psionics,Teleport
 1	SPELLLEVEL:CLASS|Psychic Thief=6|Aura Alteration,Ethereal Jaunt,Retrieve,Suspend Life,True Seeing
 ###Block: Weapon and Armor Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)	AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M
 ###Block: sneak attack
 1	BONUS:VAR|SneakAttackDice|(CL+3)/4	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Manifester stuff

@@ -39,7 +39,7 @@ TEMPLATE:@/modern/wizards_of_the_coast/msrd/basics/modern_creatures/moderncreatu
 
 #DW2 Specific/Modified files
 ABILITY:dw2tte_abilities_backgrounds.lst
-FEAT:dw2tte_feats_hidden.lst
+ABILITY:dw2tte_feats_hidden.lst
 RACE:dw2tte_races_creatures_a_l.lst
 RACE:dw2tte_races_creatures_m_z.lst
 KIT:dw2tte_kits_creatures_a_l.lst

@@ -41,8 +41,8 @@ CLASS:mpc_classes.lst
 EQUIPMENT:mpc_equip.lst
 EQUIPMENT:mpc_equip_FX.lst
 EQUIPMOD:mpc_equipmod.lst
-FEAT:mpc_feats.lst
-FEAT:mpc_feats_hidden.lst
+ABILITY:mpc_feats.lst
+ABILITY:mpc_feats_hidden.lst
 KIT:mpc_kits_equipmentpackages.lst
 LANGUAGE:mpc_languages.lst
 TEMPLATE:mpc_templates.lst
