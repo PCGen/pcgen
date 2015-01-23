@@ -15,4 +15,4 @@ CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Carbuncle|PRECLASS:1,
 CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Archon (Harbinger)|PRECLASS:1,Wizard=7|PREALIGN:LG
 
 
-CATEGORY=Special Ability|Arcane Bond ~ Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Flying Squirrel)|Familiar (Fox)|Familiar (Goat)|Familiar (Otter)|Familiar (Pig)|Familiar (Raccoon)		
+CATEGORY=Special Ability|Arcane Bond ~ Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Flying Squirrel),Familiar (Fox),Familiar (Goat),Familiar (Otter),Familiar (Pig),Familiar (Raccoon)
