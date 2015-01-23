@@ -18,7 +18,7 @@
 package tokenmodel;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.facet.model.WeaponProfFacet;
+import pcgen.cdom.facet.model.WeaponProfModelFacet;
 import pcgen.core.WeaponProf;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -52,9 +52,9 @@ public class AutoWeaponProfTest extends
 	}
 
 	@Override
-	protected WeaponProfFacet getTargetFacet()
+	protected WeaponProfModelFacet getTargetFacet()
 	{
-		return weaponProfFacet;
+		return weaponProfModelFacet;
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class AutoWeaponProfTest extends
 	@Override
 	protected int getCount()
 	{
-		return getTargetFacet().getProfs(id).size();
+		return getTargetFacet().getSet(id).size();
 	}
 
 	@Override

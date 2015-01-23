@@ -54,24 +54,26 @@ public class GlobalToSkillCostFacet extends
 		SkillCost cost = dfce.getScope();
 		Skill sk = dfce.getCDOMObject();
 		Object source = dfce.getSource();
-		for (PCClass cl : classFacet.getClassSet(id))
+		for (PCClass cl : classFacet.getSet(id))
 		{
 			add(id, cl, cost, sk, source);
 		}
 	}
 
+	@Override
 	public void dataRemoved(ScopeFacetChangeEvent<CharID, SkillCost, Skill> dfce)
 	{
 		CharID id = dfce.getCharID();
 		SkillCost cost = dfce.getScope();
 		Skill sk = dfce.getCDOMObject();
 		Object source = dfce.getSource();
-		for (PCClass cl : classFacet.getClassSet(id))
+		for (PCClass cl : classFacet.getSet(id))
 		{
 			remove(id, cl, cost, sk, source);
 		}
 	}
 
+	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, PCClass> dfce)
 	{
 		CharID id = dfce.getCharID();

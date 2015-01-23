@@ -23,7 +23,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
-import pcgen.cdom.base.ObjectContainer;
+import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.primitive.PrimitiveUtilities;

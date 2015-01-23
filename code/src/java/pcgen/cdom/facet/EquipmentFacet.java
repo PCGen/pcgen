@@ -17,11 +17,13 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.Equipment;
+import pcgen.output.publish.OutputDB;
 
 /**
  * EquipmentFacet is a Facet that tracks the Equipment possessed by a Player
@@ -32,7 +34,8 @@ import pcgen.core.Equipment;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class EquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
-		implements DataFacetChangeListener<CharID, Equipment>
+		implements DataFacetChangeListener<CharID, Equipment>,
+		SetFacet<CharID, Equipment>
 {
 	/**
 	 * Adds all of the Equipment that is possessed by a Player Character.
@@ -73,4 +76,8 @@ public class EquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
+	public void init()
+	{
+		OutputDB.register("equipment.all", this);
+	}
 }

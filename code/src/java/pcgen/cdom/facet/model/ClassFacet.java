@@ -27,6 +27,7 @@ import java.util.Set;
 
 import javax.swing.event.EventListenerList;
 
+import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -34,6 +35,7 @@ import pcgen.cdom.facet.base.AbstractDataFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
+import pcgen.output.publish.OutputDB;
 
 /**
  * ClassFacet is a Facet that tracks the PCClass objects possessed by a Player
@@ -41,7 +43,8 @@ import pcgen.core.PCClass;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ClassFacet extends AbstractDataFacet<CharID, PCClass>
+public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
+		SetFacet<CharID, PCClass>
 {
 	private final ClassLevelChangeSupport support =
 			new ClassLevelChangeSupport();
@@ -249,7 +252,8 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass>
 	 * @return A non-null Set of PCClass objects in this ClassFacet for the
 	 *         Player Character represented by the given CharID
 	 */
-	public Set<PCClass> getClassSet(CharID id)
+	@Override
+	public Set<PCClass> getSet(CharID id)
 	{
 		ClassInfo info = getClassInfo(id);
 		if (info == null)
@@ -269,6 +273,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass>
 	 * @return The count of PCClass objects in this ClassFacet for the Player
 	 *         Character represented by the given CharID
 	 */
+	@Override
 	public int getCount(CharID id)
 	{
 		ClassInfo info = getClassInfo(id);
@@ -874,5 +879,10 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass>
 			}
 		}
 
+	}
+
+	public void init()
+	{
+		OutputDB.register("classes", this);
 	}
 }

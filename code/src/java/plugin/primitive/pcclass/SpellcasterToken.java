@@ -93,7 +93,7 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>, PrimitiveFilte
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
 			Converter<PCClass, R> c)
 	{
 		return c.convert(allClasses, this);

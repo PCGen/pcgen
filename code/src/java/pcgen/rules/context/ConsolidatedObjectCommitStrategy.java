@@ -23,8 +23,12 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.util.Indirect;
+import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -99,6 +103,18 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 	}
 
 	@Override
+	public <T> Indirect<T> getFact(CDOMObject cdo, FactKey<T> ik)
+	{
+		return cdo.get(ik);
+	}
+
+	@Override
+	public <T> Changes<ObjectContainer<T>> getSetChanges(CDOMObject cdo, FactSetKey<T> lk)
+	{
+		return new CollectionChanges<ObjectContainer<T>>(cdo.getSetFor(lk), null, false);
+	}
+
+	@Override
 	public <T> Changes<T> getListChanges(CDOMObject cdo, ListKey<T> lk)
 	{
 		return new CollectionChanges<T>(cdo.getListFor(lk), null, false);
@@ -118,6 +134,18 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 
 	@Override
 	public void remove(CDOMObject cdo, ObjectKey<?> sk)
+	{
+		cdo.remove(sk);
+	}
+
+	@Override
+	public <T> void put(CDOMObject cdo, FactKey<T> sk, Indirect<T> s)
+	{
+		cdo.put(sk, s);
+	}
+
+	@Override
+	public void remove(CDOMObject cdo, FactKey<?> sk)
 	{
 		cdo.remove(sk);
 	}
@@ -162,6 +190,30 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 	public <T> void removeFromList(CDOMObject cdo, ListKey<T> lk, T val)
 	{
 		cdo.removeFromListFor(lk, val);
+	}
+
+	@Override
+	public boolean containsSetFor(CDOMObject cdo, FactSetKey<?> key)
+	{
+		return cdo.containsSetFor(key);
+	}
+
+	@Override
+	public <T> void addToSet(CDOMObject cdo, FactSetKey<T> key, ObjectContainer<T> value)
+	{
+		cdo.addToSetFor(key, value);
+	}
+
+	@Override
+	public void removeSet(CDOMObject cdo, FactSetKey<?> lk)
+	{
+		cdo.removeSetFor(lk);
+	}
+
+	@Override
+	public <T> void removeFromSet(CDOMObject cdo, FactSetKey<T> lk, ObjectContainer<T> val)
+	{
+		cdo.removeFromSetFor(lk, val);
 	}
 
 	@Override
@@ -230,6 +282,18 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 
 	@Override
 	public boolean wasRemoved(CDOMObject cdo, ObjectKey<?> ok)
+	{
+		return false;
+	}
+
+	@Override
+	public boolean wasRemoved(CDOMObject cdo, FactKey<?> ok)
+	{
+		return false;
+	}
+
+	@Override
+	public boolean wasRemoved(CDOMObject cdo, FactSetKey<?> ok)
 	{
 		return false;
 	}

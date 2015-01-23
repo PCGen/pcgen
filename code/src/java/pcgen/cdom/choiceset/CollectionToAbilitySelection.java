@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.Stack;
 
+import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
@@ -84,7 +85,7 @@ public class CollectionToAbilitySelection implements
 	@Override
 	public Collection<AbilitySelection> getSet(PlayerCharacter pc)
 	{
-		Collection<AbilityWithChoice> aColl =
+		Collection<? extends AbilityWithChoice> aColl =
 				collection.getCollection(pc, new ExpandingConverter(pc));
 		Set<AbilitySelection> returnSet = new HashSet<AbilitySelection>();
 		for (AbilityWithChoice a : aColl)
@@ -266,7 +267,7 @@ public class CollectionToAbilitySelection implements
 		}
 
 		@Override
-		public Collection<AbilityWithChoice> convert(CDOMReference<Ability> ref)
+		public Collection<AbilityWithChoice> convert(ObjectContainer<Ability> ref)
 		{
 			Set<AbilityWithChoice> returnSet = new HashSet<AbilityWithChoice>();
 			for (Ability a : ref.getContainedObjects())
@@ -276,15 +277,20 @@ public class CollectionToAbilitySelection implements
 			return returnSet;
 		}
 
-		private void processAbility(CDOMReference<Ability> ref,
+		private void processAbility(ObjectContainer<Ability> ref,
 			Set<AbilityWithChoice> returnSet, Ability a)
 		{
-			returnSet.add(new AbilityWithChoice(a, ref.getChoice()));
+			String choice = null;
+			if (ref instanceof CDOMReference)
+			{
+				choice = ((CDOMReference<?>) ref).getChoice();
+			}
+			returnSet.add(new AbilityWithChoice(a, choice));
 		}
 
 		@Override
 		public Collection<AbilityWithChoice> convert(
-			CDOMReference<Ability> ref, PrimitiveFilter<Ability> lim)
+			ObjectContainer<Ability> ref, PrimitiveFilter<Ability> lim)
 		{
 			Set<AbilityWithChoice> returnSet = new HashSet<AbilityWithChoice>();
 			for (Ability a : ref.getContainedObjects())

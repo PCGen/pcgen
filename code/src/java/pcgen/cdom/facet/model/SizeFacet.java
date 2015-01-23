@@ -21,6 +21,7 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -40,6 +41,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.SizeUtilities;
+import pcgen.output.publish.OutputDB;
 
 /**
  * SizeFacet tracks the SizeAdjustment for a Player Character.
@@ -48,7 +50,7 @@ import pcgen.core.analysis.SizeUtilities;
  */
 public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> implements
 		DataFacetChangeListener<CharID, CDOMObject>, LevelChangeListener,
-		BonusChangeListener
+		BonusChangeListener, ItemFacet<CharID, SizeAdjustment>
 {
 	private static final Class<SizeAdjustment> SIZEADJUSTMENT_CLASS = SizeAdjustment.class;
 
@@ -209,7 +211,8 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 	 * @return The SizeAdjustment active for the Player Character identified by
 	 *         the given CharID
 	 */
-	public SizeAdjustment getSizeAdjustment(CharID id)
+	@Override
+	public SizeAdjustment get(CharID id)
 	{
 		SizeFacetInfo info = getInfo(id);
 		return info == null ? SizeUtilities.getDefaultSizeAdjustment()
@@ -228,7 +231,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 	 */
 	public String getSizeAbb(CharID id)
 	{
-		return getSizeAdjustment(id).getAbbreviation();
+		return get(id).getAbbreviation();
 	}
 
 	/**
@@ -420,6 +423,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 	public void init()
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
+		OutputDB.register("sizeadjustment", this);
 	}
 
 	/**

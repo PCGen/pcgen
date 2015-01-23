@@ -86,7 +86,7 @@ public class DomainSpellsFacet extends
 	//FUTURE Won't need this if classes aren't cloned...
 	private PCClass getClassKeyed(CharID id, String classKey)
 	{
-		for (PCClass aClass : classFacet.getClassSet(id))
+		for (PCClass aClass : classFacet.getSet(id))
 		{
 			if (aClass.getKeyName().equalsIgnoreCase(classKey))
 			{

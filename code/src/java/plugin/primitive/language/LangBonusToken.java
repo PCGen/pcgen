@@ -85,7 +85,7 @@ public class LangBonusToken implements PrimitiveToken<Language>, PrimitiveFilter
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Language, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Language, R> c)
 	{
 		return c.convert(allLanguages, this);
 	}

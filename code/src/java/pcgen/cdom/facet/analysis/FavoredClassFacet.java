@@ -116,7 +116,7 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<CharID, PCClass>
 		boolean isAny = hasAnyFavoredClassFacet.contains(id, Boolean.TRUE);
 		for (PCClass cl : aList)
 		{
-			for (PCClass pcClass : classFacet.getClassSet(id))
+			for (PCClass pcClass : classFacet.getSet(id))
 			{
 				if (isAny)
 				{
