@@ -4,7 +4,7 @@ SOURCELONG:Atlas Games - Penumbra - Touched by the Gods	SOURCESHORT:TouchbtG	SOU
 # Skill Name				Key Stat	Untrained?		Type					Required Feat			Source Page
 Craft (Clockwork)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft							SOURCEPAGE:p.
 Craft (Jeweler)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Art						SOURCEPAGE:p.
-Divine Sight				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom				PREFEAT:1,Divine Perception	SOURCEPAGE:p.
+Divine Sight				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom				PREABILITY:1,CATEGORY=FEAT,Divine Perception	SOURCEPAGE:p.
 Knowledge (Golems and Artifacts)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge						SOURCEPAGE:p.
 Knowledge (Philosophy)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge						SOURCEPAGE:p.
 Knowledge (Trade Routes)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge						SOURCEPAGE:p.

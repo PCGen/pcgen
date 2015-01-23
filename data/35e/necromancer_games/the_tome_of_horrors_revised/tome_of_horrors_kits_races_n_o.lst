@@ -28,8 +28,8 @@ SKILL:Move Silently			RANK:3
 SKILL:Sense Motive			RANK:3
 SKILL:Spot					RANK:6
 SKILL:Swim					RANK:6
-FEAT:Great Fortitude
-FEAT:Weapon Focus (Poison Spittle)
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Weapon Focus (Poison Spittle)
 
 STARTPACK:Nilbog Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nilbog]
 RACE:Nilbog	!PRERACE:1,%
@@ -40,7 +40,7 @@ CLASS:Warrior	LEVEL:1
 SKILL:Listen	RANK:1
 SKILL:Ride		RANK:1
 SKILL:Spot		RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Obsidian Minotaur Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Obsidian Minotaur]
 RACE:Obsidian Minotaur	!PRERACE:1,%
@@ -56,7 +56,7 @@ STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
 SKILL:Climb		RANK:3
-FEAT:Weapon Focus (Greatsword)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Greatsword)
 GEAR:Hide		SIZE:PC	LOCATION:Equipped
 GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands
 GEAR:Longspear	SIZE:PC	LOCATION:Carried
@@ -77,9 +77,9 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:5
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Iron Will
 
 STARTPACK:Ooze (Crystal) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Crystal)]
 RACE:Ooze (Crystal)	!PRERACE:1,%
@@ -118,8 +118,8 @@ ALIGN:LE
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Alertness
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Toughness
 GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped
 GEAR:Greataxe	SIZE:PC	LOCATION:Both Hands
 GEAR:Javelin	SIZE:PC	LOCATION:Carried

@@ -36,5 +36,5 @@ EQUIPMENT:demonology_equip_rings.lst
 EQUIPMENT:demonology_equip_rodsstaffswands.lst
 EQUIPMENT:demonology_equip_weap_melee_specific.lst
 EQUIPMENT:demonology_equip_wondrousitems.lst
-FEAT:demonology_feats.lst
+ABILITY:demonology_feats.lst
 SKILL:demonology_skills.lst

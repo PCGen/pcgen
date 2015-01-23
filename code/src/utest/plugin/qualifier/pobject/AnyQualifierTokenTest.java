@@ -43,8 +43,7 @@ public class AnyQualifierTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static RaceToken subtoken = new RaceToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 	private Race s1, s2, s3;
 
 	private static final plugin.qualifier.pobject.AnyToken ANY_TOKEN = new plugin.qualifier.pobject.AnyToken();

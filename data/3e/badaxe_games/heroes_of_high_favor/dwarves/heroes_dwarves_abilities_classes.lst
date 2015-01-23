@@ -60,14 +60,14 @@ Spell Absorption		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
 
 ###Block:Stoneheart Ascetic Bonus Feats ----------------------------------------
 # Ability Name		Unique Key						Category of Ability		Type					Visible		Virtual Feat			Ability
-Deflect Arrows		KEY:Stoneheart Ascetic Deflect Arrows	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Deflect Arrows
-Dodge											CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Dodge
+Deflect Arrows		KEY:Stoneheart Ascetic Deflect Arrows	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Deflect Arrows
+Dodge											CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Dodge
 Improved Grab		KEY:Stoneheart Ascetic Improved Grab	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY						ABILITY:Special Ability|VIRTUAL|Improved Grab
-Improved Bull Rush								CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Improved Bull Rush
-Improved Disarm		KEY:Stoneheart Ascetic Improved Disarm	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Improved Disarm
-Improved Trip		KEY:Stoneheart Ascetic Improved Trip	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Improved Trip
-Power Attack									CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Power Attack
-Toughness										CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	VFEAT:Toughness
+Improved Bull Rush								CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Improved Bull Rush
+Improved Disarm		KEY:Stoneheart Ascetic Improved Disarm	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Improved Disarm
+Improved Trip		KEY:Stoneheart Ascetic Improved Trip	CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Improved Trip
+Power Attack									CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Power Attack
+Toughness										CATEGORY:Special Ability	TYPE:StoneheartAsceticBonus	VISIBLE:DISPLAY	ABILITY:FEAT|VIRTUAL|Toughness
 
 ###Block: Aceldamist Hidden Class Feats
 # Feat Name						Type			Visible	Special ABility							Description					Stackable?	Multiple?	Choose													Misc bonus				Source Page

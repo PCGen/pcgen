@@ -46,7 +46,7 @@ ABILITYCATEGORY:vbol_abilitycategories.lst
 # CLASS:vbol_classes.lst
 EQUIPMENT:vbol_equip_arms_armor.lst
 EQUIPMENT:vbol_equip_general.lst
-FEAT:vbol_feats.lst
+ABILITY:vbol_feats.lst
 KIT:vbol_kits.lst
 SKILL:vbol_skills.lst
 

@@ -18,10 +18,10 @@ SKILL:Listen			RANK:7
 SKILL:Sense Motive		RANK:7
 SKILL:Spot				RANK:6
 SKILL:Wilderness Lore		RANK:7
-FEAT:Cleave
-FEAT:Great Fortitude
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 
 ###Block: Dark Woodsman --------------------------------------------------
 STARTPACK:Dark Woodsman	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dark Woodsman],[!PRERACE:1,%]
@@ -30,7 +30,7 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Hide			RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Wilderness Lore	RANK:4
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Track
 GEAR:Greataxe	SIZE:PC	LOCATION:Primary Hand
 
 ###Block: The Flood Brute-------------------------------
@@ -42,9 +42,9 @@ SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:6
 SKILL:Hide			RANK:9
 SKILL:Spot			RANK:8
-FEAT:Cleave
-FEAT:Improved Bull Rush
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Power Attack
 
 ###Block: Greenfeeder-------------------------------
 STARTPACK:Greenfeeder	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Greenfeeder],[!PRERACE:1,%]
@@ -68,9 +68,9 @@ SKILL:Knowledge (Nature)	RANK:6
 SKILL:Listen			RANK:6
 SKILL:Move Silently		RANK:6
 SKILL:Wilderness Lore		RANK:2
-FEAT:Cleave
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 
 
 ###Block: Horned Man-------------------------------
@@ -85,9 +85,9 @@ SKILL:Move Silently	RANK:3
 SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:8
 SKILL:Wilderness Lore	RANK:8
-FEAT:Power Attack
-FEAT:Track
-FEAT:Weapon Focus (Shortspear)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Track
+ABILITY:CATEGORY=FEAT|Weapon Focus (Shortspear)
 GEAR:Shortspear	SIZE:PC	LOCATION:Primary Hand
 ALIGN:TN
 
@@ -100,7 +100,7 @@ SKILL:Hide			RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
 SKILL:Wilderness Lore	RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 GEAR:Studded Leather	SIZE:PC	LOCATION:Equipped
 GEAR:Flail (Light)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Javelin		SIZE:PC	LOCATION:Carried
@@ -114,8 +114,8 @@ SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:4
 SKILL:Hide			RANK:9
 SKILL:Spot			RANK:5
-FEAT:Improved Initiative
-FEAT:Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 
 ###Block: Ubi-------------------------------
 STARTPACK:Ubi	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ubi],[!PRERACE:1,%]
@@ -134,7 +134,7 @@ SKILL:Sense Motive	RANK:2
 SKILL:Spot			RANK:3
 SKILL:Use Magic Device	RANK:3
 SKILL:Use Rope		RANK:5
-FEAT:Exotic Weapon Proficiency (Crossbow (Hand))
+ABILITY:CATEGORY=FEAT|Exotic Weapon Proficiency (Crossbow (Hand))
 GEAR:Dagger			SIZE:PC	LOCATION:Primary Hand
 GEAR:Crossbow (Hand)	SIZE:PC	LOCATION:Carried
 # NO way to just choose a Craft Skill and then a Second One without the possibility of overlap; corner case
@@ -153,8 +153,8 @@ SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:3
 SKILL:Swim			RANK:6
-FEAT:Blind-Fight
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 ###Block: Bloodfrog-------------------------------
 STARTPACK:Bloodfrog	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bloodfrog],[!PRERACE:1,%]
@@ -165,7 +165,7 @@ SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:2
 SKILL:Hide			RANK:4
 SKILL:Spot			RANK:4
-FEAT:Weapon Finesse (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Bite)
 ALIGN:TN
 
 
@@ -180,8 +180,8 @@ SKILL:Listen		RANK:6
 SKILL:Sense Motive	RANK:7
 SKILL:Spot			RANK:6
 SKILL:Wilderness Lore	RANK:7
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 ###Block: Maakantu-------------------------------
 STARTPACK:Maakantu	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Maakantu],[!PRERACE:1,%]
@@ -197,10 +197,10 @@ SKILL:Spellcraft			RANK:14
 SKILL:Spot				RANK:12
 SKILL:Swim				RANK:8
 SKILL:Wilderness Lore		RANK:13
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
 
 ###Block: Spindleshank-------------------------------
 STARTPACK:Spindleshank	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Spindleshank],[!PRERACE:1,%]
@@ -209,7 +209,7 @@ STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 SKILL:Jump			RANK:2
 SKILL:Spot			RANK:3
 SKILL:Wilderness Lore	RANK:5
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Trident	SIZE:PC	LOCATION:Primary Hand
 GEAR:Sling		SIZE:PC	LOCATION:Carried
 
@@ -227,7 +227,7 @@ SKILL:Listen			RANK:3
 SKILL:Move Silently		RANK:3
 SKILL:Spot				RANK:3
 SKILL:Wilderness Lore		RANK:3
-FEAT:Weapon Finesse (Claws)
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Claws)
 
 ###Block: Treell-------------------------------
 STARTPACK:Treell	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Treell],[!PRERACE:1,%]
@@ -240,9 +240,9 @@ SKILL:Move Silently	RANK:8
 SKILL:Sense Motive	RANK:8
 SKILL:Spot			RANK:8
 SKILL:Wilderness Lore	RANK:8
-FEAT:Alertness
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 
 
 ###Block: Verdant Guardian-------------------------------
@@ -258,8 +258,8 @@ SKILL:Listen			RANK:9
 SKILL:Move Silently		RANK:9
 SKILL:Spot				RANK:5
 SKILL:Wilderness Lore		RANK:6
-FEAT:Improved Initiative
-FEAT:Point Blank Shot
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Point Blank Shot
 GEAR:Whip	SIZE:PC	LOCATION:Primary Hand
 
 ###Block: Arborgeist-------------------------------
@@ -275,14 +275,14 @@ SKILL:Search		RANK:10
 SKILL:Sense Motive	RANK:10
 SKILL:Spot			RANK:10
 SKILL:Wilderness Lore	RANK:10
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Track
-FEAT:Improved Critical (Incorporeal Touch)	FREE:YES
-FEAT:Weapon Focus (Incorporeal Touch)		FREE:YES
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Track
+ABILITY:CATEGORY=FEAT|Improved Critical (Incorporeal Touch)	FREE:YES
+ABILITY:CATEGORY=FEAT|Weapon Focus (Incorporeal Touch)		FREE:YES
 
 ###Block: Autumnal Mourners-------------------------------
 STARTPACK:Autumnal Mourners	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Autumnal Mourners],[!PRERACE:1,%]
@@ -295,7 +295,7 @@ SKILL:Listen			RANK:2
 SKILL:Knowledge (Religion)	RANK:6
 SKILL:Move Silently		RANK:4
 SKILL:Perform			RANK:4
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 ABILITY:CATEGORY=Perform Skill Choice|Perform (Dirge)
 
 ###Block: Bedwen------------------------------------
@@ -307,13 +307,13 @@ SKILL:Knowledge (Arcana)	RANK:5
 SKILL:Listen			RANK:5
 SKILL:Sense Motive		RANK:5
 SKILL:Spellcraft			RANK:5
-FEAT:Flyby Attack
+ABILITY:CATEGORY=FEAT|Flyby Attack
 
 ###Block: Bracken Corpse ------------------------------------
 STARTPACK:Bracken Corpse	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bracken Corpse],[!PRERACE:1,%]
 RACE:Bracken Corpse	!PRERACE:1,%
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Toughness
 
 ###Block: Elderwitch------------------------------------
 STARTPACK:Elderwitch	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Elderwitch],[!PRERACE:1,%]
@@ -325,9 +325,9 @@ SKILL:Knowledge (Arcana)	RANK:11
 SKILL:Listen			RANK:7
 SKILL:Spellcraft			RANK:8
 SKILL:Spot				RANK:7
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Toughness
 
 ###Block: Fierling------------------------------------
 STARTPACK:Fierling	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Fierling],[!PRERACE:1,%]
@@ -339,8 +339,8 @@ SKILL:Intimidate		RANK:9
 SKILL:Listen		RANK:9
 SKILL:Move Silently	RANK:9
 SKILL:Spot			RANK:9
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 
 ###Block: Lostling------------------------------------
 STARTPACK:Lostling	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lostling],[!PRERACE:1,%]
@@ -351,13 +351,13 @@ SKILL:Bluff		RANK:14
 SKILL:Listen	RANK:23
 SKILL:Search	RANK:20
 SKILL:Spot		RANK:23
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Expertise
-FEAT:Improved Initiative
-FEAT:Mobility			FREE:YES
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Expertise
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility			FREE:YES
 
 ###Block: Magpine------------------------------------
 STARTPACK:Magpine	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Magpine],[!PRERACE:1,%]
@@ -371,8 +371,8 @@ SKILL:Listen		RANK:4
 SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:4
 SKILL:Wilderness Lore	RANK:4
-FEAT:Improved Initiative
-FEAT:Weapon Focus (Rapier)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus (Rapier)
 
 ###Block: Onnen------------------------------------
 STARTPACK:Onnen	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Onnen],[!PRERACE:1,%]
@@ -384,7 +384,7 @@ SKILL:Hide			RANK:4
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:4
-FEAT:Weapon Finesse (Claws)
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Claws)
 
 ###Block: Unfamiliar------------------------------------
 STARTPACK:Unfamiliar	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Unfamiliar],[!PRERACE:1,%]
@@ -409,10 +409,10 @@ SKILL:Spot				RANK:9	FREE:YES
 SKILL:Swim				RANK:9	FREE:YES
 SKILL:Use Magic Device		RANK:7
 SKILL:Wilderness Lore		RANK:9	FREE:YES
-FEAT:Dodge		FREE:YES
-FEAT:Mobility	FREE:YES
-FEAT:Multiattack
-FEAT:Track		FREE:YES
+ABILITY:CATEGORY=FEAT|Dodge		FREE:YES
+ABILITY:CATEGORY=FEAT|Mobility	FREE:YES
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Track		FREE:YES
 
 ###Block: Uragh Dhu------------------------------------
 STARTPACK:Uragh Dhu	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Uragh Dhu],[!PRERACE:1,%]
@@ -423,9 +423,9 @@ SKILL:Listen			RANK:11
 SKILL:Move Silently		RANK:11
 SKILL:Hide				RANK:9
 SKILL:Spot				RANK:7
-FEAT:Expertise
-FEAT:Improved Trip
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Expertise
+ABILITY:CATEGORY=FEAT|Improved Trip
+ABILITY:CATEGORY=FEAT|Power Attack
 
 ###Block: Blightsower------------------------------------
 STARTPACK:Blightsower	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Blightsower],[!PRERACE:1,%]
@@ -441,9 +441,9 @@ SKILL:Profession (Farmer)	RANK:6
 SKILL:Search			RANK:5
 SKILL:Spot				RANK:3
 SKILL:Wilderness Lore		RANK:5
-FEAT:Combat Reflexes
-FEAT:Power Attack
-FEAT:Toughness		FREE:YES
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Toughness		FREE:YES
 
 ###Block: Grass Cloaker------------------------------------
 STARTPACK:Grass Cloaker	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Grass Cloaker],[!PRERACE:1,%]
@@ -454,8 +454,8 @@ SKILL:Hide			RANK:7
 SKILL:Listen		RANK:6
 SKILL:Move Silently	RANK:7
 SKILL:Spot			RANK:7
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 ###Block: Grimdeath Vulture------------------------------------
 STARTPACK:Grimdeath Vulture	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Grimdeath Vulture],[!PRERACE:1,%]
@@ -466,8 +466,8 @@ SKILL:Hide			RANK:4
 SKILL:Listen		RANK:4
 SKILL:Spot			RANK:3
 SKILL:Wilderness Lore	RANK:3
-FEAT:Dodge
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Multiattack
 
 ###Block: Liger------------------------------------
 STARTPACK:Liger	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Liger],[!PRERACE:1,%]
@@ -486,9 +486,9 @@ SKILL:Hide			RANK:5
 SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:5
-FEAT:Cleave
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 
 ###Block: Plain Strider------------------------------------
 STARTPACK:Plain Strider	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Plain Strider],[!PRERACE:1,%]
@@ -499,7 +499,7 @@ SKILL:Hide			RANK:4
 SKILL:Listen		RANK:8
 SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:8
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Multiattack
 
 ###Block: Rognak Burrower------------------------------------
 STARTPACK:Rognak Burrower	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Rognak Burrower],[!PRERACE:1,%]
@@ -508,8 +508,8 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Climb		RANK:10
 SKILL:Balance	RANK:9
 SKILL:Hide		RANK:13
-FEAT:Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 ###Block: Vermilion Hound------------------------------------
 STARTPACK:Vermilion Hound	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Vermilion Hound],[!PRERACE:1,%]
@@ -520,7 +520,7 @@ SKILL:Intuit Direction	RANK:3
 SKILL:Listen		RANK:3
 SKILL:Spot			RANK:4
 SKILL:Sense Motive	RANK:1
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 ###Block: Zephtaur------------------------------------
 STARTPACK:Zephtaur	TYPE:Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Zephtaur],[!PRERACE:1,%]
@@ -535,11 +535,11 @@ SKILL:Perform			RANK:3
 SKILL:Spot				RANK:4
 SKILL:Wilderness Lore		RANK:6
 #
-FEAT:Cleave				FREE:YES
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Power Attack			FREE:YES
+ABILITY:CATEGORY=FEAT|Cleave				FREE:YES
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack			FREE:YES
 GEAR:Shield (Large/Wood)		SIZE:PC	LOCATION:Equipped
 GEAR:Shortspear				SIZE:PC	LOCATION:Primary Hand
 GEAR:Longbow (+4 Mighty/Composite)	SIZE:PC	LOCATION:Equipped

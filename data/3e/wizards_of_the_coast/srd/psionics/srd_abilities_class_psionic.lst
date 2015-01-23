@@ -24,8 +24,8 @@ Inner Strength Points		CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO					
 Speed of Thought Movement	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO																		DEFINE:SOTMOVEBONUS|0																																							SOURCEPAGE:srdpsionicfeats	TEMPBONUS:PC|VAR|SOTMOVEBONUS|10*(var("COUNT[FEATNAME=Speed of Thought]"))
 
 # These feats support the Talented feat, the user must decide which class the free powers are applied to
-Psychic Warrior Free Powers	CATEGORY:Special Ability	TYPE:Internal.TalentedFreePowers	VISIBLE:NO	!PREABILITY:1,CATEGORY=Special Ability,Psion Free Powers			PRECLASS:1,Psychic Warrior=1											BONUS:VAR|PsyWarFreePowers|3|PREFEAT:1,Talented
-Psion Free Powers			CATEGORY:Special Ability	TYPE:Internal.TalentedFreePowers	VISIBLE:NO	!PREABILITY:1,CATEGORY=Special Ability,Psychic Warrior Free Powers	PRECLASS:1,Psion=1												BONUS:VAR|PsionFreePowers|3|PREFEAT:1,Talented
+Psychic Warrior Free Powers	CATEGORY:Special Ability	TYPE:Internal.TalentedFreePowers	VISIBLE:NO	!PREABILITY:1,CATEGORY=Special Ability,Psion Free Powers			PRECLASS:1,Psychic Warrior=1											BONUS:VAR|PsyWarFreePowers|3|PREABILITY:1,CATEGORY=FEAT,Talented
+Psion Free Powers			CATEGORY:Special Ability	TYPE:Internal.TalentedFreePowers	VISIBLE:NO	!PREABILITY:1,CATEGORY=Special Ability,Psychic Warrior Free Powers	PRECLASS:1,Psion=1												BONUS:VAR|PsionFreePowers|3|PREABILITY:1,CATEGORY=FEAT,Talented
 
 ###Block: Psionic Free Powers
 # Ability Name			Output Name			Category of Ability		Type				Visible	Define				Description

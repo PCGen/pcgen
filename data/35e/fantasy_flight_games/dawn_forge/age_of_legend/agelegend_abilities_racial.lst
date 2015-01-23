@@ -220,11 +220,11 @@ Visions of the Spirit	CATEGORY:Special Ability	TYPE:DawnElfRacialTransformation.
 Rites of Blood		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Rites of Darkness														PRESPELLTYPE:1,Divine=3							SOURCEPAGE:p.28
 Rites of Darkness		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																																		SOURCEPAGE:p.28
 Rites of Fury		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES											PREALIGN:LE,NE,CE																					SOURCEPAGE:p.28
-Rites of the Hunt		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES														PREFEAT:1,Still Spell,Silent Spell					PRESPELLTYPE:1,Divine=2							SOURCEPAGE:p.28
+Rites of the Hunt		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES														PREABILITY:1,CATEGORY=FEAT,Still Spell,Silent Spell					PRESPELLTYPE:1,Divine=2							SOURCEPAGE:p.28
 Songs of Mending		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.SpellLike		VISIBLE:YES																												SPELLS:Innate|TIMES=ATWILL|Mending	SOURCEPAGE:p.28
 Songs of Making		CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Songs of Mending																								SOURCEPAGE:p.28
-Songs of Bladecrafting	CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Songs of Mending				PREFEAT:1,Craft Magic Arms and Armor	PRELEVEL:MIN=8											SOURCEPAGE:p.28
-Songs of Armorcrafting	CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Songs of Mending				PREFEAT:1,Craft Magic Arms and Armor	PRELEVEL:MIN=6											SOURCEPAGE:p.28
+Songs of Bladecrafting	CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Songs of Mending				PREABILITY:1,CATEGORY=FEAT,Craft Magic Arms and Armor	PRELEVEL:MIN=8											SOURCEPAGE:p.28
+Songs of Armorcrafting	CATEGORY:Special Ability	TYPE:NightElfRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Songs of Mending				PREABILITY:1,CATEGORY=FEAT,Craft Magic Arms and Armor	PRELEVEL:MIN=6											SOURCEPAGE:p.28
 
 ###Block: Night Elf Racial Transformations
 # Ability Name		Category of Ability		Type											Visible	Required Ability								Required Vision			Source Page
@@ -371,7 +371,7 @@ Ironclad		CATEGORY:Special Ability	TYPE:TruebornRacialTalent.SpecialQuality.Extr
 
 ###Block:Trueborn Racial Transformations
 # Ability Name		Unique Key				Category of Ability		Type											Visible	Required Feat	PRETOTALAB		Innate Spells				Ability									Bonus Ability Pool					Source Page
-Defending Soldier							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES	PREFEAT:1,Dodge																												SOURCEPAGE:p.107
+Defending Soldier							CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Extraordinary	VISIBLE:YES	PREABILITY:1,CATEGORY=FEAT,Dodge																												SOURCEPAGE:p.107
 Strength of Conquest						CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.Supernatural	VISIBLE:YES																															SOURCEPAGE:p.107
 Holy Light								CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality.SpellLike		VISIBLE:YES							SPELLS:Innate|TIMES=ATWILL|Light																			SOURCEPAGE:p.107
 Divine Health		KEY:Trueborn Divine Health	CATEGORY:Special Ability	TYPE:TruebornRacialTransformation.SpecialQuality			VISIBLE:YES													ABILITY:Special Ability|AUTOMATIC|Paladin ~ Divine Health									SOURCEPAGE:p.107
@@ -489,7 +489,7 @@ Combat Maneuvers		CATEGORY:Special Ability	TYPE:TieflingRacialTalent						VISIBL
 Fiendish Frenzy		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES																PRELEVEL:MIN=6																													ABILITY:Special Ability|AUTOMATIC|Rage									BONUS:VAR|RageTimes|1			SOURCEPAGE:p.93
 Martial Training		CATEGORY:Special Ability	TYPE:TieflingRacialTalent						VISIBLE:DISPLAY																																							STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:ABILITYPOOL|Tiefling Martial Training|1							SOURCEPAGE:p.94
 Trip and Stab		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Whip Fighting									PRESTAT:1,DEX=13																																															SOURCEPAGE:p.94
-Whip Fighting		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES											PREFEAT:1,Weapon Focus (Whip)				PRESTAT:1,DEX=13																																															SOURCEPAGE:p.94
+Whip Fighting		CATEGORY:Special Ability	TYPE:TieflingRacialTalent.SpecialQuality.Extraordinary	VISIBLE:YES											PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Whip)				PRESTAT:1,DEX=13																																															SOURCEPAGE:p.94
 
 ###Block: Tiefling Racial Transformations
 # Ability Name	Output Name		Category of Ability		Type											Visible	Required Ability							Required Template				Description	Move		Combat bonus			Bonus to skill													Bonus to nb of slots	Source Page

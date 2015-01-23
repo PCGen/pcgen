@@ -37,8 +37,7 @@ public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 {
 
 	static SpellstatToken token = new SpellstatToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
 	private PCStat ps;
 
 	@Override

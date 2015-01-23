@@ -10,8 +10,8 @@ RACE:Eagle (Altai White-Shoulders)	!PRERACE:1,%
 #Skills and Feats: Listen +2, Spot +16,
 #Listen WIS+2
 SKILL:Spot	RANK:6
-FEAT:Improved Natural Attack (Talons)
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Improved Natural Attack (Talons)
+ABILITY:CATEGORY=FEAT|Multiattack
 
 
 STARTPACK:Eagle (Hovd Yellow)	TYPE:Eagle Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eagle (Hovd Yellow)]
@@ -21,8 +21,8 @@ RACE:Eagle (Hovd Yellow)	!PRERACE:1,%
 #Str 10, Dex 15, Con 12, Int 2, Wis 18, Cha 6; Skills and Feats: Listen+6, Spot +20,
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:6
-FEAT:Alertness
-FEAT:Flyby Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Flyby Attack
 
 
 STARTPACK:Eagle (Valley Black)	TYPE:Eagle Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eagle (Valley Black)]
@@ -31,8 +31,8 @@ RACE:Eagle (Valley Black)	!PRERACE:1,%
 ALIGN:TN
 #Str 10, Dex 19, Con 12, Int 2, Wis 14, Cha 6; Skills and Feats: Listen+2, Spot +16,
 SKILL:Spot	RANK:6
-FEAT:Weapon Finesse
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Wingover
 
 
 STARTPACK:Eagle (Cross)	TYPE:Eagle Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eagle (Cross)]
@@ -42,8 +42,8 @@ ALIGN:TN
 #Str 14, Dex 13, Con 18, Int 2, Wis 14, Cha 6; Skills and Feats:	3 ANimal Lvs. 4+2= 6
 #Listen+2, Spot +16, 6 SP
 SKILL:Spot	RANK:6
-FEAT:Endurance
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Great Fortitude
 
 
 ###Block: Ymandragoran Thrall ------------------------------------------------------------------------------------------------------------
@@ -57,8 +57,8 @@ RACE:Ymandragoran Thrall (Lesser)	!PRERACE:1,%
 SKILL:Intimidate	RANK:6
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Alertness
-FEAT:Skill Focus (Intimidate)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Skill Focus (Intimidate)
 #3x4@1st =12 +3 each level = 18
 GEAR:Flesh Shield	SIZE:PC	LOCATION:Equipped
 GEAR:Flesh Sword	SIZE:PC	LOCATION:Primary
@@ -73,9 +73,9 @@ RACE:Ymandragoran Thrall	!PRERACE:1,%
 SKILL:Intimidate	RANK:9
 SKILL:Listen	RANK:9
 SKILL:Spot		RANK:9
-FEAT:Alertness
-FEAT:Skill Focus (Intimidate)
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Skill Focus (Intimidate)
+ABILITY:CATEGORY=FEAT|Power Attack
 #3x4@1st =12 +3 each level	TOTAL:16	5*3=15 =27
 GEAR:Flesh Shield	SIZE:PC	LOCATION:Equipped
 GEAR:Flesh Sword	SIZE:PC	LOCATION:Primary
@@ -89,10 +89,10 @@ RACE:Ymandragoran Thrall (Greater)	!PRERACE:1,%
 SKILL:Intimidate	RANK:12
 SKILL:Listen	RANK:12
 SKILL:Spot		RANK:12
-FEAT:Alertness
-FEAT:Skill Focus (Intimidate)
-FEAT:Power Attack
-FEAT:Cleave
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Skill Focus (Intimidate)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
 GEAR:Flesh Shield	SIZE:PC	LOCATION:Equipped
 GEAR:Flesh Sword	SIZE:PC	LOCATION:Primary
 
@@ -107,17 +107,17 @@ STARTPACK:Myrantian Assassin-Golem	TYPE:Default	VISIBLE:NO	EQUIPBUY:0
 #	Abilities: Str 17, Dex 24, Con , Int 18, Wis 10, Cha 11
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 #Skills: Balance +14, Climb +10, Escape Artist +20, Hide +20, Jump +10, Listen +7, Move Silently +20, Open Lock +14, Spot +7, Tumble +20
-FEAT:Combat Expertise
-FEAT:Combat Reflexes
-FEAT:Deflect Arrows
-FEAT:Dodge
-FEAT:Improved Disarm
-FEAT:Improved Initiative
-FEAT:Improved Trip
-FEAT:Mobility
-FEAT:Weapon Finesse
-FEAT:Weapon Focus (Rapier-Arms)
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Deflect Arrows
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Trip
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus (Rapier-Arms)
+ABILITY:CATEGORY=FEAT|Spring Attack
 
 STARTPACK:Sarishan Guardian	TYPE:Default	VISIBLE:NO	EQUIPBUY:0
 #Abilities: Str 22, Dex 16, Con -, Int -, Wis 10, Cha 1

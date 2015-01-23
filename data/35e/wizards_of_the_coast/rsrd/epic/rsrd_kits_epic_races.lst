@@ -8,19 +8,19 @@ NAME:Abomination (Anaxim)
 ALIGN:LN
 SKILL:Climb	RANK:41
 SKILL:Jump	RANK:41
-FEAT:Blind-Fight
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Weapon Focus(Spinning Blade)
-FEAT:Improved Critical(Spinning Blade)
-FEAT:Devastating Critical(Spinning Blade)
-FEAT:Overwhelming Critical(Spinning Blade)
-FEAT:Epic Weapon Focus(Spinning Blade)
-FEAT:Improved Bull Rush
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Epic Toughness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Weapon Focus(Spinning Blade)
+ABILITY:CATEGORY=FEAT|Improved Critical(Spinning Blade)
+ABILITY:CATEGORY=FEAT|Devastating Critical(Spinning Blade)
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Spinning Blade)
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Spinning Blade)
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Epic Toughness
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Abomination (Atropal) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Atropal)]
@@ -42,29 +42,29 @@ SKILL:Jump				RANK:3
 SKILL:Intimidate			RANK:69
 SKILL:Spellcraft			RANK:66
 SKILL:Spellcraft			RANK:3	FREE:YES
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Expertise
-FEAT:Devastating Critical(Touch)
-FEAT:Dodge
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Critical(Eye Ray)
-FEAT:Improved Critical(Touch)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Mobility
-FEAT:Overwhelming Critical(Touch)
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability
-FEAT:Run
-FEAT:Spring Attack
-FEAT:Undead Mastery
-FEAT:Weapon Focus(Eye Ray)
-FEAT:Weapon Focus(Touch)
-FEAT:Whirlwind Attack
-FEAT:Zone of Animation
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Devastating Critical(Touch)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical(Eye Ray)
+ABILITY:CATEGORY=FEAT|Improved Critical(Touch)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Touch)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Undead Mastery
+ABILITY:CATEGORY=FEAT|Weapon Focus(Eye Ray)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Touch)
+ABILITY:CATEGORY=FEAT|Whirlwind Attack
+ABILITY:CATEGORY=FEAT|Zone of Animation
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Abomination (Chichimec) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Chichimec)]
@@ -80,15 +80,15 @@ SKILL:Move Silently		RANK:30
 SKILL:Search			RANK:30
 SKILL:Sense Motive		RANK:30
 SKILL:Spot				RANK:30
-FEAT:Alertness
-FEAT:Blinding Speed
-FEAT:Dodge
-FEAT:Epic Toughness
-FEAT:Flyby Attack
-FEAT:Improved Bull Rush
-FEAT:Mobility
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Abomination (Dream Larva) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Dream Larva)]
@@ -106,20 +106,20 @@ SKILL:Search			RANK:43
 SKILL:Sense Motive		RANK:43
 SKILL:Spot				RANK:43
 SKILL:Hide				RANK:43
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Epic Toughness
-FEAT:Epic Weapon Focus(Claw)
-FEAT:Epic Weapon Focus(Pincer)
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Improved Sunder
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Gore)
-FEAT:Weapon Focus(Pincer)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Pincer)
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Gore)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Pincer)
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Abomination (Hecatoncheires) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Hecatoncheires)]
@@ -136,23 +136,23 @@ SKILL:Spot				RANK:55
 SKILL:Survival			RANK:55
 SKILL:Knowledge (History)	RANK:27
 SKILL:Knowledge (History)	RANK:6	FREE:YES
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Weapon Focus(Boulder)
-FEAT:Epic Weapon Focus(Greatsword)
-FEAT:Great Cleave
-FEAT:Improved Critical(Boulder)
-FEAT:Improved Critical(Greatsword)
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Multiweapon Fighting
-FEAT:Multiweapon Rend
-FEAT:Power Attack
-FEAT:Superior Initiative
-FEAT:Weapon Focus(Boulder)
-FEAT:Weapon Focus(Greatsword)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Boulder)
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Greatsword)
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical(Boulder)
+ABILITY:CATEGORY=FEAT|Improved Critical(Greatsword)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Multiweapon Fighting
+ABILITY:CATEGORY=FEAT|Multiweapon Rend
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus(Boulder)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Greatsword)
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 GEAR:Half-Plate	SIZE:PC	LOCATION:Equipped			EQMOD:MWORKA.PLUS5A
 GEAR:Greatsword	SIZE:PC	LOCATION:Primary Hand
@@ -275,20 +275,20 @@ SKILL:Balance			RANK:39
 SKILL:Diplomacy			RANK:39
 SKILL:Spellcraft			RANK:39
 SKILL:Hide				RANK:43
-FEAT:Alertness
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Cleave
-FEAT:Epic Toughness
-FEAT:Epic Weapon Focus(Bite)
-FEAT:Epic Weapon Focus(Claw)
-FEAT:Great Cleave
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Power Attack
-FEAT:Tenacious Magic(Blur)
-FEAT:Tenacious Magic(Invisibility (Greater))
-FEAT:Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Tenacious Magic(Blur)
+ABILITY:CATEGORY=FEAT|Tenacious Magic(Invisibility (Greater))
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
 STAT:STR=11|DEX=11|CHA=11|CON=10|INT=10|WIS=10
 
 STARTPACK:Abomination (Phaethon) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Phaethon)]
@@ -306,27 +306,27 @@ SKILL:Move Silently		RANK:65
 SKILL:Search			RANK:65
 SKILL:Spot				RANK:46
 SKILL:Spot				RANK:19	FREE:YES
-FEAT:Alertness
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Cleave
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Weapon Focus(Pseudopod Slam)
-FEAT:Epic Will
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Superior Initiative
-FEAT:Weapon Focus(Pseudopod Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Pseudopod Slam)
+ABILITY:CATEGORY=FEAT|Epic Will
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus(Pseudopod Slam)
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Abomination (Phane) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Phane)]
@@ -348,18 +348,18 @@ SKILL:Tumble			RANK:39
 SKILL:Balance			RANK:37
 SKILL:Diplomacy			RANK:37
 SKILL:Spellcraft			RANK:37
-FEAT:Alertness
-FEAT:Blinding Speed
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Epic Toughness
-FEAT:Epic Will
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Spell Stowaway(Time Stop)
-FEAT:Weapon Focus(Incorporeal Touch)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Will
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Spell Stowaway(Time Stop)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Incorporeal Touch)
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Abomination (Xixecal) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abomination (Xixecal)]
@@ -376,28 +376,28 @@ SKILL:Knowledge (The Planes)	RANK:75
 SKILL:Search			RANK:75
 SKILL:Spot				RANK:75
 SKILL:Spellcraft			RANK:73
-FEAT:Alertness
-FEAT:Blinding Speed
-FEAT:Cleave
-FEAT:Devastating Critical(Claw)
-FEAT:Dodge
-FEAT:Epic Toughness
-FEAT:Epic Weapon Focus(Bite)
-FEAT:Epic Weapon Focus(Claw)
-FEAT:Epic Weapon Focus(Stamp)
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Improved Critical(Claw)
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Overwhelming Critical(Claw)
-FEAT:Power Attack
-FEAT:Spell Stowaway(Invisibility (Greater))
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
-FEAT:Weapon Focus(Stamp)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Devastating Critical(Claw)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Stamp)
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Claw)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Spell Stowaway(Invisibility (Greater))
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Stamp)
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Behemoth (Eagle) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Behemoth (Eagle)]
@@ -416,14 +416,14 @@ SKILL:Sense Motive		RANK:24
 SKILL:Spot				RANK:24
 SKILL:Survival			RANK:24
 SKILL:Jump				RANK:2
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Skill Focus(Spot)
-FEAT:Superior Initiative
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus(Spot)
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=11|CON=11|INT=11|WIS=11|DEX=10|CHA=10
 
 STARTPACK:Behemoth (Gorilla) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Behemoth (Gorilla)]
@@ -436,14 +436,14 @@ SKILL:Intimidate		RANK:24
 SKILL:Move Silently	RANK:24
 SKILL:Spot			RANK:24
 SKILL:Jump			RANK:12
-FEAT:Dodge
-FEAT:Endurance
-FEAT:Epic Toughness
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Power Attack
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Spring Attack
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Brachyurus Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Brachyurus]
@@ -455,19 +455,19 @@ SKILL:Listen		RANK:41
 SKILL:Move Silently	RANK:41
 SKILL:Spot			RANK:41
 SKILL:Survival		RANK:41
-FEAT:Alertness
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Great Fortitude
-FEAT:Improved Bull Rush
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Claw)
-FEAT:Improved Initiative
-FEAT:Improved Trip
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Trip
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
 STAT:CON=11|CHA=11|STR=10|DEX=10|INT=10|WIS=10
 
 STARTPACK:Colossus (Flesh) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Colossus (Flesh)]
@@ -496,21 +496,21 @@ SKILL:Knowledge (Arcana)	RANK:20
 SKILL:Knowledge (Religion)	RANK:20
 SKILL:Knowledge (The Planes)	RANK:20
 SKILL:Spellcraft			RANK:20
-FEAT:Automatic Quicken Spell
-FEAT:Blinding Speed
-FEAT:Brew Potion
-FEAT:Combat Casting
-FEAT:Craft Wondrous Item
-FEAT:Enlarge Spell
-FEAT:Heighten Spell
-FEAT:Improved Initiative
-FEAT:Improved Spell Capacity(10th)
-FEAT:Lightning Reflexes
-FEAT:Maximize Spell
-FEAT:Quicken Spell
-FEAT:Scribe Scroll
-FEAT:Spell Penetration
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Automatic Quicken Spell
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Brew Potion
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Craft Wondrous Item
+ABILITY:CATEGORY=FEAT|Enlarge Spell
+ABILITY:CATEGORY=FEAT|Heighten Spell
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Spell Capacity(10th)
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Scribe Scroll
+ABILITY:CATEGORY=FEAT|Spell Penetration
+ABILITY:CATEGORY=FEAT|Toughness
 STAT:INT=11|STR=10|DEX=10|CON=10|WIS=10|CHA=10
 GEAR:Bracers of Armor +8	LOCATION:Equipped
 GEAR:Ring of Protection +2	LOCATION:Equipped
@@ -555,28 +555,28 @@ NAME:Elemental (Air Primal)
 SKILL:Listen	RANK:45
 SKILL:Spot		RANK:22
 SKILL:Spot		RANK:32	FREE:YES
-FEAT:Alertness
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Epic Prowess
-FEAT:Epic Prowess
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Will
-FEAT:Flyby Attack
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Mobility
-FEAT:Spring Attack
-FEAT:Superior Initiative
-FEAT:Weapon Finesse
-FEAT:Weapon Focus(Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Epic Prowess
+ABILITY:CATEGORY=FEAT|Epic Prowess
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Will
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus(Slam)
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
 STARTPACK:Elemental (Earth Primal) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth Primal)]
@@ -585,28 +585,28 @@ NAME:Elemental (Earth Primal)
 SKILL:Spot		RANK:45
 SKILL:Listen	RANK:22
 SKILL:Listen	RANK:32	FREE:YES
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Devastating Critical(Slam)
-FEAT:Epic Prowess
-FEAT:Epic Prowess
-FEAT:Epic Prowess
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Will
-FEAT:Great Cleave
-FEAT:Improved Critical(Slam)
-FEAT:Improved Sunder
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Overwhelming Critical(Slam)
-FEAT:Power Attack
-FEAT:Weapon Focus(Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Devastating Critical(Slam)
+ABILITY:CATEGORY=FEAT|Epic Prowess
+ABILITY:CATEGORY=FEAT|Epic Prowess
+ABILITY:CATEGORY=FEAT|Epic Prowess
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Will
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical(Slam)
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Slam)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Slam)
 STAT:STR=11|CON=11|WIS=11|CHA=11|DEX=10|INT=10
 
 STARTPACK:Elemental (Fire Primal) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire Primal)]
@@ -615,28 +615,28 @@ NAME:Elemental (Fire Primal)
 SKILL:Listen	RANK:45
 SKILL:Spot		RANK:22
 SKILL:Spot		RANK:32	FREE:YES
-FEAT:Alertness
-FEAT:Blinding Speed
-FEAT:Combat Reflexes
-FEAT:Dire Charge
-FEAT:Dodge
-FEAT:Epic Prowess
-FEAT:Epic Prowess
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Will
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Mobility
-FEAT:Power Attack
-FEAT:Spring Attack
-FEAT:Superior Initiative
-FEAT:Weapon Finesse
-FEAT:Weapon Focus(Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dire Charge
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Epic Prowess
+ABILITY:CATEGORY=FEAT|Epic Prowess
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Will
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus(Slam)
 STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10
 
 STARTPACK:Elemental (Water Primal) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water Primal)]
@@ -646,28 +646,28 @@ SKILL:Swim		RANK:3
 SKILL:Spot		RANK:45
 SKILL:Listen	RANK:22
 SKILL:Listen	RANK:32	FREE:YES
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Devastating Critical(Slam)
-FEAT:Dodge
-FEAT:Epic Prowess
-FEAT:Epic Prowess
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Will
-FEAT:Great Cleave
-FEAT:Improved Critical(Slam)
-FEAT:Improved Sunder
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Overwhelming Critical(Slam)
-FEAT:Power Attack
-FEAT:Weapon Focus(Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Devastating Critical(Slam)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Epic Prowess
+ABILITY:CATEGORY=FEAT|Epic Prowess
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Will
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical(Slam)
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Slam)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Slam)
 STAT:CON=11|WIS=11|CHA=11|STR=10|DEX=10|INT=10
 
 STARTPACK:Genius Loci Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Genius Loci]
@@ -687,16 +687,16 @@ SKILL:Escape Artist		RANK:30
 SKILL:Hide				RANK:30
 SKILL:Listen			RANK:30
 SKILL:Spot				RANK:26
-FEAT:Epic Fortitude
-FEAT:Flyby Attack
-FEAT:Improved Critical(Bite)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Polyglot
-FEAT:Superior Initiative
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Eye Ray)
+ABILITY:CATEGORY=FEAT|Epic Fortitude
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Polyglot
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Eye Ray)
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Gloom Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gloom]
@@ -712,15 +712,15 @@ SKILL:Survival		RANK:28
 SKILL:Intimidate		RANK:24
 SKILL:Jump			RANK:26
 SKILL:Tumble		RANK:26
-FEAT:Dodge
-FEAT:Improved Critical(Dagger)
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Sneak Attack of Opportunity
-FEAT:Spring Attack
-FEAT:Superior Initiative
-FEAT:Weapon Finesse
-FEAT:Weapon Focus(Dagger)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Critical(Dagger)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Sneak Attack of Opportunity
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus(Dagger)
 STAT:CON=11|WIS=11|STR=10|DEX=10|INT=10|CHA=10
 
 STARTPACK:Golem (Adamantine) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Adamantine)]
@@ -753,13 +753,13 @@ SKILL:Search			RANK:23
 SKILL:Spellcraft			RANK:23
 SKILL:Spot				RANK:23
 SKILL:Sense Motive		RANK:14
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Lightning Reflexes
-FEAT:Mobility
-FEAT:Multiattack
-FEAT:Quicken Spell
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=11|INT=11|WIS=11|DEX=10|CON=10|CHA=10
 
 STARTPACK:Hagunemnon Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hagunemnon]
@@ -775,21 +775,21 @@ SKILL:Bluff			RANK:47
 SKILL:Disguise		RANK:47
 SKILL:Listen		RANK:47
 SKILL:Spot			RANK:47
-FEAT:Alertness
-FEAT:Blinding Speed
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Devastating Critical(Slam)
-FEAT:Endurance
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Multiattack
-FEAT:Overwhelming Critical(Slam)
-FEAT:Power Attack
-FEAT:Weapon Focus(Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Devastating Critical(Slam)
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Slam)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Slam)
 STAT:STR=11|DEX=11|CON=11|WIS=11|INT=10|CHA=10
 
 STARTPACK:Hoary Hunter Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hoary Hunter]
@@ -808,22 +808,22 @@ SKILL:Sense Motive		RANK:49
 SKILL:Spot				RANK:49
 SKILL:Survival			RANK:49
 SKILL:Knowledge (Nature)	RANK:47
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Dire Charge
-FEAT:Epic Weapon Focus(Longsword)
-FEAT:Great Cleave
-FEAT:Improved Critical(Longsword)
-FEAT:Improved Initiative
-FEAT:Mounted Combat
-FEAT:Overwhelming Critical(Longsword)
-FEAT:Power Attack
-FEAT:Ride-By Attack
-FEAT:Spirited Charge
-FEAT:Superior Initiative
-FEAT:Track
-FEAT:Trample
-FEAT:Weapon Focus(Longsword)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Dire Charge
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Longsword)
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical(Longsword)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mounted Combat
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Longsword)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Ride-By Attack
+ABILITY:CATEGORY=FEAT|Spirited Charge
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Track
+ABILITY:CATEGORY=FEAT|Trample
+ABILITY:CATEGORY=FEAT|Weapon Focus(Longsword)
 GEAR:Longsword	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS_6_WEAP
 
 STARTPACK:Hoary Hunter (Hoary Steed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hoary Hunter (Hoary Steed)]
@@ -832,11 +832,11 @@ NAME:Hoary Hunter (Hoary Steed)
 ALIGN:NE
 SKILL:Spot		RANK:10
 SKILL:Listen	RANK:5
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
 STAT:CON=11|WIS=11|STR=10|DEX=10|INT=10|CHA=10
 
 STARTPACK:Hunefer Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hunefer]
@@ -851,23 +851,23 @@ SKILL:Sense Motive		RANK:53
 SKILL:Spellcraft			RANK:53
 SKILL:Spot				RANK:53
 SKILL:Concentration		RANK:66
-FEAT:Cleave
-FEAT:Combat Expertise
-FEAT:Combat Reflexes
-FEAT:Devastating Critical(Slam)
-FEAT:Dodge
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Improved Critical(Slam)
-FEAT:Improved Disarm
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Mobility
-FEAT:Overwhelming Critical(Slam)
-FEAT:Power Attack
-FEAT:Spell Stowaway(Teleport (Greater))
-FEAT:Toughness
-FEAT:Weapon Focus(Slam)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Devastating Critical(Slam)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Critical(Slam)
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Slam)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Spell Stowaway(Teleport (Greater))
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Focus(Slam)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Lavawight Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lavawight]
@@ -877,17 +877,17 @@ SKILL:Listen			RANK:35
 SKILL:Search			RANK:35
 SKILL:Spot				RANK:35
 SKILL:Knowledge (Religion)	RANK:33
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Cleave
-FEAT:Epic Weapon Focus(Claw)
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Improved Critical(Claw)
-FEAT:Improved Initiative
-FEAT:Overwhelming Critical(Claw)
-FEAT:Power Attack
-FEAT:Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Claw)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Legendary Animal (Legendary Bear) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Legendary Bear)]
@@ -897,13 +897,13 @@ ALIGN:TN
 SKILL:Listen	RANK:9
 SKILL:Spot		RANK:9
 SKILL:Swim		RANK:5
-FEAT:Alertness
-FEAT:Athletic
-FEAT:Endurance
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Run
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Athletic
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:Legendary Animal (Legendary Tiger) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Legendary Tiger)]
 RACE:Legendary Animal (Legendary Tiger)	!PRERACE:1,%
@@ -914,15 +914,15 @@ SKILL:Spot			RANK:8
 SKILL:Move Silently	RANK:3
 SKILL:Swim			RANK:3
 SKILL:Hide			RANK:7
-FEAT:Alertness
-FEAT:Athletic
-FEAT:Endurance
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Run
-FEAT:Toughness
-FEAT:Toughness
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Athletic
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:Leshay Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leshay]
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=11|CHA=11
@@ -942,23 +942,23 @@ SKILL:Listen			RANK:51
 SKILL:Spot				RANK:51
 SKILL:Knowledge (Local)		RANK:48
 SKILL:Knowledge (Nature)	RANK:48
-FEAT:Blind-Fight
-FEAT:Blinding Speed
-FEAT:Cleave
-FEAT:Combat Expertise
-FEAT:Dodge
-FEAT:Improved Critical(Leshay Weapon)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Polyglot
-FEAT:Power Attack
-FEAT:Quick Draw
-FEAT:Spell Stowaway(Heal)
-FEAT:Spring Attack
-FEAT:Weapon Finesse
-FEAT:Weapon Focus(Leshay Weapon)
-FEAT:Whirlwind Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Critical(Leshay Weapon)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Polyglot
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quick Draw
+ABILITY:CATEGORY=FEAT|Spell Stowaway(Heal)
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus(Leshay Weapon)
+ABILITY:CATEGORY=FEAT|Whirlwind Attack
 GEAR:Leshay Weapon	LOCATION:Primary Hand
 
 STARTPACK:Living Vault Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Living Vault]
@@ -984,9 +984,9 @@ SKILL:Listen			RANK:10
 SKILL:Sense Motive		RANK:10
 SKILL:Sleight of Hand		RANK:10
 SKILL:Profession (Bookkeeper)	RANK:10
-FEAT:Combat Expertise
-FEAT:Improved Disarm
-FEAT:Improved Feint
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Improved Feint
 GEAR:Falchion	LOCATION:Both Hands	EQMOD:MWORKW
 
 STARTPACK:Mu Spore Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mu Spore]
@@ -1001,18 +1001,18 @@ SKILL:Diplomacy			RANK:2
 SKILL:Gather Information	RANK:2
 SKILL:Intimidate			RANK:2
 SKILL:Hide				RANK:38
-FEAT:Cleave
-FEAT:Epic Reflexes
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Great Cleave
-FEAT:Improved Critical(Bite)
-FEAT:Improved Critical(Tendril)
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Superior Initiative
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Epic Reflexes
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical(Tendril)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Superior Initiative
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Neh Thalggu Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neh Thalggu]
@@ -1025,17 +1025,17 @@ SKILL:Move Silently		RANK:35
 SKILL:Search			RANK:35
 SKILL:Spellcraft			RANK:31
 SKILL:Hide				RANK:35
-FEAT:Blind-Fight
-FEAT:Combat Expertise
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Eschew Materials
-FEAT:Improved Initiative
-FEAT:Maximize Spell
-FEAT:Mobility
-FEAT:Power Attack
-FEAT:Spring Attack
-FEAT:Superior Initiative
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Eschew Materials
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Superior Initiative
 STAT:DEX=11|CHA=11|STR=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Prismasaurus Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Prismasaurus]
@@ -1044,27 +1044,27 @@ NAME:Prismasaurus
 ALIGN:TN
 SKILL:Spot		RANK:32
 SKILL:Listen	RANK:31
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Devastating Critical(Bite)
-FEAT:Dodge
-FEAT:Endurance
-FEAT:Epic Endurance
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Weapon Focus(Bite)
-FEAT:Epic Weapon Focus(Tail)
-FEAT:Great Cleave
-FEAT:Improved Critical(Bite)
-FEAT:Improved Initiative
-FEAT:Overwhelming Critical(Bite)
-FEAT:Power Attack
-FEAT:Superior Initiative
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Tail)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Devastating Critical(Bite)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Epic Endurance
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Tail)
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Bite)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Tail)
 STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10
 
 STARTPACK:Pseudonatural Troll Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pseudonatural Troll]
@@ -1077,9 +1077,9 @@ SKILL:Jump			RANK:9
 SKILL:Listen		RANK:9
 SKILL:Move Silently	RANK:9
 SKILL:Spot			RANK:9
-FEAT:Alertness
-FEAT:Iron Will
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Track
 STAT:STR=11|CON=11|WIS=11|DEX=10|INT=10|CHA=10
 
 STARTPACK:Ruin Swarm Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ruin Swarm]
@@ -1099,20 +1099,20 @@ SKILL:Sense Motive	RANK:38
 SKILL:Diplomacy		RANK:34
 SKILL:Listen		RANK:36
 SKILL:Spot			RANK:36
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Blinding Speed
-FEAT:Combat Expertise
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Great Fortitude
-FEAT:Improved Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Spellcasting Harrier
-FEAT:Superior Initiative
-FEAT:Spring Attack		FREE:YES
-FEAT:Whirlwind Attack		FREE:YES
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spellcasting Harrier
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Spring Attack		FREE:YES
+ABILITY:CATEGORY=FEAT|Whirlwind Attack		FREE:YES
 STAT:DEX=11|INT=11|WIS=11|CHA=11|STR=10|CON=10
 
 STARTPACK:Shape of Fire Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shape of Fire]
@@ -1126,20 +1126,20 @@ SKILL:Sense Motive	RANK:38
 SKILL:Diplomacy		RANK:36
 SKILL:Listen		RANK:36
 SKILL:Spot			RANK:36
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Blinding Speed
-FEAT:Combat Expertise
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Great Fortitude
-FEAT:Improved Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Spellcasting Harrier
-FEAT:Spring Attack
-FEAT:Superior Initiative	FREE:YES
-FEAT:Whirlwind Attack		FREE:YES
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spellcasting Harrier
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Superior Initiative	FREE:YES
+ABILITY:CATEGORY=FEAT|Whirlwind Attack		FREE:YES
 STAT:DEX=11|INT=11|WIS=11|CHA=11|STR=10|CON=10
 
 STARTPACK:Sirrush Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sirrush]
@@ -1152,20 +1152,20 @@ SKILL:Move Silently	RANK:43
 SKILL:Spot			RANK:43
 SKILL:Survival		RANK:43
 SKILL:Hide			RANK:43
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Critical(Claw)
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Overwhelming Critical(Claw)
-FEAT:Power Attack
-FEAT:Superior Initiative
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Claw)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
 STAT:INT=11|STR=10|DEX=10|CON=10|WIS=10|CHA=10
 
 STARTPACK:Sirrush (Three Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sirrush (Three Headed)]
@@ -1181,22 +1181,22 @@ SKILL:Move Silently	RANK:48
 SKILL:Search		RANK:48
 SKILL:Spot			RANK:48
 SKILL:Survival		RANK:48
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Blinding Speed
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Critical(Claw)
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Overwhelming Critical(Claw)
-FEAT:Power Attack
-FEAT:Superior Initiative
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Claw)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
 STAT:STR=11|DEX=11|CON=11|WIS=11|CHA=11|INT=10
 
 STARTPACK:Tayellah Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tayellah]
@@ -1207,18 +1207,18 @@ SKILL:Hide			RANK:37
 SKILL:Listen		RANK:37
 SKILL:Move Silently	RANK:37
 SKILL:Spot			RANK:37
-FEAT:Combat Reflexes
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Weapon Focus(Bite)
-FEAT:Epic Weapon Focus(Claw)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Superior Initiative
-FEAT:Track
-FEAT:Weapon Finesse
-FEAT:Weapon Focus(Bite)
-FEAT:Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Track
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus(Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
 STAT:CHA=11|STR=10|DEX=10|CON=10|INT=10|WIS=10
 
 STARTPACK:Thorciasid Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thorciasid]
@@ -1234,16 +1234,16 @@ SKILL:Spot			RANK:32
 SKILL:Diplomacy		RANK:24
 SKILL:Intimidate		RANK:24
 SKILL:Survival		RANK:16
-FEAT:Blinding Speed
-FEAT:Combat Expertise
-FEAT:Dodge
-FEAT:Improved Disarm
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Spring Attack
-FEAT:Superior Initiative
-FEAT:Weapon Finesse
-FEAT:Weapon Focus(Forelimb)
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus(Forelimb)
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 
 STARTPACK:Titan (Elder) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Titan (Elder)]
@@ -1260,30 +1260,30 @@ SKILL:Spot				RANK:73
 SKILL:Gather Information	RANK:73
 SKILL:Spellcraft			RANK:73
 SKILL:Intimidate			RANK:48
-FEAT:Automatic Silent Spell
-FEAT:Automatic Silent Spell
-FEAT:Automatic Silent Spell
-FEAT:Automatic Still Spell
-FEAT:Automatic Still Spell
-FEAT:Automatic Still Spell
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Expertise
-FEAT:Devastating Critical(Warhammer)
-FEAT:Epic Spellcasting
-FEAT:Epic Weapon Focus(Javelin)
-FEAT:Epic Weapon Focus(Warhammer)
-FEAT:Great Cleave
-FEAT:Improved Critical(Javelin)
-FEAT:Improved Critical(Warhammer)
-FEAT:Improved Sunder
-FEAT:Overwhelming Critical(Warhammer)
-FEAT:Polyglot
-FEAT:Power Attack
-FEAT:Silent Spell
-FEAT:Still Spell
-FEAT:Weapon Focus(Javelin)
-FEAT:Weapon Focus(Warhammer)
+ABILITY:CATEGORY=FEAT|Automatic Silent Spell
+ABILITY:CATEGORY=FEAT|Automatic Silent Spell
+ABILITY:CATEGORY=FEAT|Automatic Silent Spell
+ABILITY:CATEGORY=FEAT|Automatic Still Spell
+ABILITY:CATEGORY=FEAT|Automatic Still Spell
+ABILITY:CATEGORY=FEAT|Automatic Still Spell
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Devastating Critical(Warhammer)
+ABILITY:CATEGORY=FEAT|Epic Spellcasting
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Javelin)
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Warhammer)
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical(Javelin)
+ABILITY:CATEGORY=FEAT|Improved Critical(Warhammer)
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Warhammer)
+ABILITY:CATEGORY=FEAT|Polyglot
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Silent Spell
+ABILITY:CATEGORY=FEAT|Still Spell
+ABILITY:CATEGORY=FEAT|Weapon Focus(Javelin)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Warhammer)
 STAT:STR=11|CON=11|INT=11|WIS=11|DEX=10|CHA=10
 GEAR:Warhammer	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS5W
 GEAR:Javelin	SIZE:PC	LOCATION:Carried		EQMOD:MWORKW.PLUS5W
@@ -1300,23 +1300,23 @@ SKILL:Sense Motive	RANK:45
 SKILL:Diplomacy		RANK:43
 SKILL:Hide			RANK:5
 SKILL:TYPE=Knowledge	RANK:53
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Epic Endurance
-FEAT:Epic Reflexes
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Weapon Focus(Slam)
-FEAT:Epic Will
-FEAT:Great Fortitude
-FEAT:Improved Critical(Slam)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Weapon Focus(Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Epic Endurance
+ABILITY:CATEGORY=FEAT|Epic Reflexes
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Slam)
+ABILITY:CATEGORY=FEAT|Epic Will
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Critical(Slam)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Slam)
 STAT:INT=11|WIS=11|CHA=11|STR=10|DEX=10|CON=10
 
 STARTPACK:Umbral Blot Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Umbral Blot]
@@ -1329,26 +1329,26 @@ SKILL:Listen		RANK:30
 SKILL:Spot			RANK:30
 SKILL:Survival		RANK:30
 SKILL:Hide			RANK:40
-FEAT:Alertness
-FEAT:Combat Reflexes
-FEAT:Epic Prowess
-FEAT:Epic Prowess
-FEAT:Epic Prowess
-FEAT:Epic Skill Focus(Listen)
-FEAT:Epic Skill Focus(Hide)
-FEAT:Epic Skill Focus(Sense Motive)
-FEAT:Epic Skill Focus(Spot)
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Epic Toughness
-FEAT:Improved Initiative
-FEAT:Skill Focus(Sense Motive)
-FEAT:Skill Focus(Survival)
-FEAT:Stealthy
-FEAT:Superior Initiative
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Epic Prowess
+ABILITY:CATEGORY=FEAT|Epic Prowess
+ABILITY:CATEGORY=FEAT|Epic Prowess
+ABILITY:CATEGORY=FEAT|Epic Skill Focus(Listen)
+ABILITY:CATEGORY=FEAT|Epic Skill Focus(Hide)
+ABILITY:CATEGORY=FEAT|Epic Skill Focus(Sense Motive)
+ABILITY:CATEGORY=FEAT|Epic Skill Focus(Spot)
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Epic Toughness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus(Sense Motive)
+ABILITY:CATEGORY=FEAT|Skill Focus(Survival)
+ABILITY:CATEGORY=FEAT|Stealthy
+ABILITY:CATEGORY=FEAT|Superior Initiative
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:Uvuudaum Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Uvuudaum]
 RACE:Uvuudaum	!PRERACE:1,%
@@ -1376,19 +1376,19 @@ SKILL:Search			RANK:41
 SKILL:Sense Motive		RANK:41
 SKILL:Spot				RANK:41
 SKILL:Swim				RANK:41
-FEAT:Cleave
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Epic Reflexes
-FEAT:Great Cleave
-FEAT:Improved Combat Reflexes
-FEAT:Improved Critical(Head Spike)
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Spell Stowaway(Time Stop)
-FEAT:Tenacious Magic(Displacement)
-FEAT:Tenacious Magic(Haste)
-FEAT:Tenacious Magic(Stoneskin)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Epic Reflexes
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Critical(Head Spike)
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Spell Stowaway(Time Stop)
+ABILITY:CATEGORY=FEAT|Tenacious Magic(Displacement)
+ABILITY:CATEGORY=FEAT|Tenacious Magic(Haste)
+ABILITY:CATEGORY=FEAT|Tenacious Magic(Stoneskin)
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Vermiurge Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vermiurge]
@@ -1402,21 +1402,21 @@ SKILL:Listen			RANK:30
 SKILL:Move Silently		RANK:26
 SKILL:Spot				RANK:30
 SKILL:Knowledge (Nature)	RANK:32
-FEAT:Alertness
-FEAT:Blinding Speed
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Improved Bull Rush
-FEAT:Improved Critical(Pincer)
-FEAT:Improved Critical(Sting)
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Weapon Focus(Pincer)
-FEAT:Weapon Focus(Sting)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical(Pincer)
+ABILITY:CATEGORY=FEAT|Improved Critical(Sting)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Pincer)
+ABILITY:CATEGORY=FEAT|Weapon Focus(Sting)
 
 STARTPACK:Winterwight Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Winterwight]
 RACE:Winterwight	!PRERACE:1,%
@@ -1426,15 +1426,15 @@ SKILL:Intimidate			RANK:35
 SKILL:Knowledge (Religion)	RANK:35
 SKILL:Listen			RANK:35
 SKILL:Spot				RANK:35
-FEAT:Blinding Speed
-FEAT:Cleave
-FEAT:Epic Fortitude
-FEAT:Epic Weapon Focus(Claw)
-FEAT:Improved Critical(Claw)
-FEAT:Improved Initiative
-FEAT:Overwhelming Critical(Claw)
-FEAT:Power Attack
-FEAT:Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Blinding Speed
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Epic Fortitude
+ABILITY:CATEGORY=FEAT|Epic Weapon Focus(Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical(Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Overwhelming Critical(Claw)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus(Claw)
 STAT:DEX=11|STR=10|CON=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Worm That Walks Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Worm That Walks]
@@ -1449,20 +1449,20 @@ SKILL:Knowledge (Local)		RANK:23
 SKILL:Knowledge (Nature)	RANK:23
 SKILL:Knowledge (Religion)	RANK:23
 SKILL:Move Silently		RANK:2
-FEAT:Brew Potion
-FEAT:Combat Casting
-FEAT:Craft Staff
-FEAT:Craft Wondrous Item
-FEAT:Heighten Spell
-FEAT:Improved Initiative
-FEAT:Improved Spell Capacity(10th)
-FEAT:Improved Spell Capacity(11th)
-FEAT:Lightning Reflexes
-FEAT:Maximize Spell
-FEAT:Quicken Spell
-FEAT:Scribe Scroll
-FEAT:Spell Penetration
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Brew Potion
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Craft Staff
+ABILITY:CATEGORY=FEAT|Craft Wondrous Item
+ABILITY:CATEGORY=FEAT|Heighten Spell
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Spell Capacity(10th)
+ABILITY:CATEGORY=FEAT|Improved Spell Capacity(11th)
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Scribe Scroll
+ABILITY:CATEGORY=FEAT|Spell Penetration
+ABILITY:CATEGORY=FEAT|Toughness
 GEAR:Amulet of Natural Armor +2	LOCATION:EQUIPPED
 GEAR:Bracers of Armor +8		LOCATION:EQUIPPED
 GEAR:Ring of Protection +3		LOCATION:EQUIPPED

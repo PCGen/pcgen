@@ -41,7 +41,7 @@ EQUIPMENT:dragonsequipweapmelee.lst
 EQUIPMENT:dragonsequipweapmeleespecific.lst
 EQUIPMENT:dragonsequipweapammospecific.lst
 EQUIPMOD:dragonsequipmods.lst
-FEAT:dragonsfeats.lst
+ABILITY:dragonsfeats.lst
 SKILL:dragonsskills.lst
 SPELL:dragonsspells.lst
 WEAPONPROF:dragonsweapprofs.lst

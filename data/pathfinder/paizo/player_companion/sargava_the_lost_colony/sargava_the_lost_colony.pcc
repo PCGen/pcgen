@@ -39,7 +39,7 @@ DEITY:stlc_deities.lst
 EQUIPMENT:stlc_equip_arms_armor.lst
 EQUIPMENT:stlc_equip_general.lst
 EQUIPMENT:stlc_equip_magic_items.lst
-FEAT:stlc_feats.lst
+ABILITY:stlc_feats.lst
 LANGUAGE:stlc_languages.lst
 RACE:stlc_races.lst
 SPELL:stlc_spells.lst

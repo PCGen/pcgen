@@ -2,4 +2,4 @@
 SOURCELONG:Quests	SOURCESHORT:Quests	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup	SOURCEDATE:2005-01
 
 # Feat Name	Type			Required Skill				Stackable?	Multiple?	Choose		Source Page
-Quest		TYPE:General	PRESKILL:1,Knowledge (Local)=8	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.5
+Quest		CATEGORY:FEAT	TYPE:General	PRESKILL:1,Knowledge (Local)=8	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.5

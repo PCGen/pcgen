@@ -37,7 +37,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Dwarves of Golario
 ABILITY:dog_abilities.lst
 DEITY:dog_deities.lst
 EQUIPMENT:dog_equip_arms_armor.lst
-FEAT:dog_feats.lst
+ABILITY:dog_feats.lst
 SPELL:dog_spells.lst
 TEMPLATE:dog_templates.lst
 

@@ -12,7 +12,7 @@ SKILL:Intimidate		RANK:8
 SKILL:Listen		RANK:9
 SKILL:Spot			RANK:9
 SKILL:Wilderness Lore	RANK:9
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Mourning Mist Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mourning Mist]
 RACE:Mourning Mist	!PRERACE:1,%
@@ -21,7 +21,7 @@ ALIGN:CN
 SKILL:Hide			RANK:6
 SKILL:Move Silently	RANK:7
 SKILL:Spot			RANK:8
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Mummy (Aztec) with Jade stone Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy (Aztec) with Jade stone]
 RACE:Mummy (Aztec) with Jade stone	!PRERACE:1,%
@@ -33,8 +33,8 @@ SKILL:Move Silently		RANK:5
 SKILL:Knowledge (History)	RANK:6
 SKILL:Listen			RANK:4
 SKILL:Spot				RANK:4
-FEAT:Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Mummy (Aztec) without Jade stone Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy (Aztec) without Jade stone]
 RACE:Mummy (Aztec) without Jade stone	!PRERACE:1,%
@@ -46,8 +46,8 @@ SKILL:Move Silently		RANK:5
 SKILL:Knowledge (History)	RANK:6
 SKILL:Listen			RANK:4
 SKILL:Spot				RANK:4
-FEAT:Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Mummy (Egyptian) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy (Egyptian)]
 RACE:Mummy (Egyptian)	!PRERACE:1,%
@@ -60,5 +60,5 @@ SKILL:Intimidate			RANK:3
 SKILL:Knowledge (History)	RANK:6
 SKILL:Listen			RANK:4
 SKILL:Spot				RANK:4
-FEAT:Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack

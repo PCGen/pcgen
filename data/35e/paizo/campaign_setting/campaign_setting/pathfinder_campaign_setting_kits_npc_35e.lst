@@ -37,10 +37,10 @@ SKILL:Use Magic Device		RANK:7
 SKILL:Use Magic Device		RANK:3	FREE:YES
 SKILL:Tumble			RANK:1	FREE:YES
 SKILL:Speak Language		RANK:1	FREE:YES	SELECTION:Tien
-FEAT:Improved Grapple
-FEAT:Improved Natural Attack (Unarmed Strike)
-FEAT:One Finger
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Improved Grapple
+ABILITY:CATEGORY=FEAT|Improved Natural Attack (Unarmed Strike)
+ABILITY:CATEGORY=FEAT|One Finger
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 ABILITY:CATEGORY=Monk Feat|Deflect Arrows
 ABILITY:CATEGORY=Monk Feat|Stunning Fist
 LANGBONUS:Gnome|Kelish
@@ -127,10 +127,10 @@ SKILL:Gather Information			RANK:1	FREE:YES
 SKILL:Knowledge (Nobility and Royalty)	RANK:1	FREE:YES
 SKILL:Sleight of Hand				RANK:3	FREE:YES
 SKILL:Tumble					RANK:3	FREE:YES
-FEAT:Point Blank Shot
-FEAT:Improved Critical (Crossbow (Light))
-FEAT:Precise Shot
-FEAT:Veiled Vileness
+ABILITY:CATEGORY=FEAT|Point Blank Shot
+ABILITY:CATEGORY=FEAT|Improved Critical (Crossbow (Light))
+ABILITY:CATEGORY=FEAT|Precise Shot
+ABILITY:CATEGORY=FEAT|Veiled Vileness
 GEAR:Studded Leather					LOCATION:Equipped			EQMOD:PLUS3A
 GEAR:Buckler						LOCATION:Equipped			EQMOD:PLUS1S
 GEAR:Gloves of Dexterity +2				LOCATION:Equipped
@@ -163,8 +163,8 @@ SKILL:Craft (Armorsmithing)	RANK:3
 SKILL:Craft (Weaponsmithing)	RANK:3
 SKILL:Intimidate			RANK:5
 SKILL:Ride				RANK:2
-FEAT:Great Fortitude
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=Fighter Feat|Power Attack
 ABILITY:CATEGORY=Fighter Feat|Weapon Focus (Warhammer)
 ABILITY:CATEGORY=Fighter Feat|Weapon Specialization (Warhammer)
@@ -201,11 +201,11 @@ SKILL:Knowledge (Geography)			RANK:1
 SKILL:Knowledge (Nature)			RANK:3
 SKILL:Spot						RANK:4
 SKILL:Survival					RANK:5
-FEAT:Combat Expertise
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Spirit Strike
-FEAT:Weapon Focus (Battleaxe)
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Spirit Strike
+ABILITY:CATEGORY=FEAT|Weapon Focus (Battleaxe)
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Giant)
 GEAR:Hammer of Thunderbolts		LOCATION:Primary Hand
 GEAR:Full Plate				LOCATION:Equipped		EQMOD:PLUS1A.SPIKE_A

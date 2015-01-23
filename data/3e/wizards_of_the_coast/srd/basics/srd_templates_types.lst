@@ -21,7 +21,7 @@ Vermin		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview	DEFINESTAT:NONSTAT|INT								
 #
 Mindless		VISIBLE:NO							DEFINESTAT:NONSTAT|INT
 
-Familiar				SOURCEPAGE:srdNPCsFamMntsComps					BONUS:COMBAT|AC|((TL+1)/2).INTVAL|TYPE=NaturalArmor.STACK															BONUS:STAT|INT|6	ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells																				AUTO:FEAT|Alertness					REMOVABLE:YES
+Familiar				SOURCEPAGE:srdNPCsFamMntsComps					BONUS:COMBAT|AC|((TL+1)/2).INTVAL|TYPE=NaturalArmor.STACK															BONUS:STAT|INT|6	ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells																				ABILITY:FEAT|AUTOMATIC|Alertness					REMOVABLE:YES
 
 ###Block: For races which only have one gender - Satyr, Succubi, Dryads, and so on.
 # Template Name	Visible	Lock Gender Selection
@@ -39,7 +39,7 @@ Monk Outsider	OUTPUTNAME:Outsider	VISIBLE:EXPORT	DR:20/+1		SOURCEPAGE:srdbasicch
 
 ###Block: Temporary Bonus Templates
 # Template Name			Visible	Source Page					Temporary effect description											Temporary Bonus
-Familiar within arms reach	VISIBLE:NO	SOURCEPAGE:srdNPCsFamMntsComps	TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat	TEMPBONUS:ANYPC|SKILL|Listen,Spot|2|TYPE=Familiar|!PREFEAT:1,Alertness|PREABILITY:1,CATEGORY=Special Ability,Summon Familiar
+Familiar within arms reach	VISIBLE:NO	SOURCEPAGE:srdNPCsFamMntsComps	TEMPDESC:While a familiar is within arm's reach, the master gains the Alertness feat	TEMPBONUS:ANYPC|SKILL|Listen,Spot|2|TYPE=Familiar|!PREABILITY:1,CATEGORY=FEAT,Alertness|PREABILITY:1,CATEGORY=Special Ability,Summon Familiar
 
 ###Block: Timeless Body For Druid and Monk
 # Template Name			Visible		Template																		Minimum Age			Maximum Age			Required Class			Multiple Requirements						Stat bonus

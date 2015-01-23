@@ -42,7 +42,7 @@ EQUIPMENT:pf10_equip_weap_melee.lst
 EQUIPMENT:pf10_equip_wondrousitems.lst
 EQUIPMENT:pf10_equip_mundane.lst
 EQUIPMOD:pf10_equipmods_enhancing.lst
-FEAT:pf10_feats.lst
+ABILITY:pf10_feats.lst
 KIT:pf10_kits_races_monsters.lst
 KIT:pf10_kits_npcs.lst
 RACE:pf10_races_monsters.lst

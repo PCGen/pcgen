@@ -40,7 +40,7 @@ ABILITY:dh_abilities_class.lst
 COMPANIONMOD:dh_companionmods.lst
 EQUIPMENT:dh_equip_general.lst
 EQUIPMENT:dh_equip_magic_items.lst
-FEAT:dh_feats.lst
+ABILITY:dh_feats.lst
 SPELL:dh_spells.lst
 KIT:dh_kits.lst
 SKILL:dh_skills.lst

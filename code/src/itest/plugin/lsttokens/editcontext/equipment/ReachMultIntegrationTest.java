@@ -29,8 +29,7 @@ public class ReachMultIntegrationTest extends
 {
 
 	static ReachMultToken token = new ReachMultToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

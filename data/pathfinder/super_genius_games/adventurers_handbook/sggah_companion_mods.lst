@@ -12,7 +12,7 @@ FOLLOWER:UBLevel=5	TYPE:Unbreathing Companion	HD:1																														
 FOLLOWER:UBLevel=6	TYPE:Unbreathing Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:UBLevel=7	TYPE:Unbreathing Companion																																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:UBLevel=8	TYPE:Unbreathing Companion	HD:1																																																												BONUS:VAR|MasterLevel|1
-FOLLOWER:UBLevel=9	TYPE:Unbreathing Companion	HD:1																								AUTO:FEAT|Multiattack														BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:UBLevel=9	TYPE:Unbreathing Companion	HD:1																								ABILITY:FEAT|AUTOMATIC|Multiattack														BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:UBLevel=10	TYPE:Unbreathing Companion	HD:1																																																												BONUS:VAR|MasterLevel|1
 FOLLOWER:UBLevel=11	TYPE:Unbreathing Companion																																																													BONUS:VAR|MasterLevel|1
 FOLLOWER:UBLevel=12	TYPE:Unbreathing Companion	HD:1																																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1

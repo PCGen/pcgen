@@ -8,11 +8,11 @@ NAME:War Pig
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Weapon Focus(Gore)
-FEAT:Improved Natural Attack(Gore)
-FEAT:Iron Will
-FEAT:Endurance
-FEAT:Improved Initiative
-FEAT:Toughness
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Weapon Focus(Gore)
+ABILITY:CATEGORY=FEAT|Improved Natural Attack(Gore)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Alertness
 GEAR:Barding (Full Plate)	SIZE:PC	LOCATION:Equipped	EQMOD:SPIKE_A

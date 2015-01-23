@@ -34,8 +34,7 @@ public class TemplateIntegrationTest extends
 {
 
 	static TemplateLst token = new TemplateLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

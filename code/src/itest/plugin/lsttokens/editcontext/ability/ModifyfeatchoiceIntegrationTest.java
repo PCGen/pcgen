@@ -37,7 +37,7 @@ public class ModifyfeatchoiceIntegrationTest extends
 {
 
 	static ModifyfeatchoiceToken token = new ModifyfeatchoiceToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>(Ability.class);
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

@@ -3,13 +3,13 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 
 ###Block: Robot torso
 # Equipment Name					Type					Contains			Cost		Required Race			Maximum Size	Requires Modification?	Source Page			Virtual Feat				Vision			Damage Reduction	Combat bonus					Add to magical move																	Bonus to skill						Stat bonus					Special Property
-Robot Chassis (Tiny)				TYPE:RoboticChassis						COST:500									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Tiny)
-Robot Chassis (Small)				TYPE:RoboticChassis						COST:1000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Small)
-Robot Chassis (Medium)				TYPE:RoboticChassis						COST:2000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Medium)
-Robot Chassis (Large)				TYPE:RoboticChassis						COST:4000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Large)
-Robot Chassis (Huge)				TYPE:RoboticChassis						COST:8000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Huge)
-Robot Chassis (Gargantuan)			TYPE:RoboticChassis						COST:16000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Gargantuan)
-Robot Chassis (Colossal)			TYPE:RoboticChassis						COST:32000									MODS:YES			SOURCEPAGE:p.116		VFEAT:Mech Chassis (Colossal)
+Robot Chassis (Tiny)				TYPE:RoboticChassis						COST:500									MODS:YES			SOURCEPAGE:p.116		ABILITY:FEAT|VIRTUAL|Mech Chassis (Tiny)
+Robot Chassis (Small)				TYPE:RoboticChassis						COST:1000									MODS:YES			SOURCEPAGE:p.116		ABILITY:FEAT|VIRTUAL|Mech Chassis (Small)
+Robot Chassis (Medium)				TYPE:RoboticChassis						COST:2000									MODS:YES			SOURCEPAGE:p.116		ABILITY:FEAT|VIRTUAL|Mech Chassis (Medium)
+Robot Chassis (Large)				TYPE:RoboticChassis						COST:4000									MODS:YES			SOURCEPAGE:p.116		ABILITY:FEAT|VIRTUAL|Mech Chassis (Large)
+Robot Chassis (Huge)				TYPE:RoboticChassis						COST:8000									MODS:YES			SOURCEPAGE:p.116		ABILITY:FEAT|VIRTUAL|Mech Chassis (Huge)
+Robot Chassis (Gargantuan)			TYPE:RoboticChassis						COST:16000									MODS:YES			SOURCEPAGE:p.116		ABILITY:FEAT|VIRTUAL|Mech Chassis (Gargantuan)
+Robot Chassis (Colossal)			TYPE:RoboticChassis						COST:32000									MODS:YES			SOURCEPAGE:p.116		ABILITY:FEAT|VIRTUAL|Mech Chassis (Colossal)
 Debt on Chassis body				TYPE:RoboticChassis						COST:-2000													SOURCEPAGE:p.116
 ### Blah
 RU_Vision_360					TYPE:RoboticUpgrade						COST:300	PRERACE:1,Robot%,Soulmech								SOURCEPAGE:p.118-122							VISION:360-Degree																																BONUS:SKILL|Spot|2|TYPE=Circumstance

@@ -3,4 +3,4 @@ SOURCELONG:50 New Ways to Blow Things Up - Starlanko the Magnificent's Big Book 
 # Original Entry by: Tir Gwaith
 
 # Feat Name				Req. Spellbook	Description											Source Page
-Scribe Generic Spellbook	PRESPELLBOOK:YES	DESC:Spells you copy into a spellbook are far easier to comprehend.	SOURCEPAGE:p.41
+Scribe Generic Spellbook	CATEGORY:FEAT	TYPE:General	PRESPELLBOOK:YES	DESC:Spells you copy into a spellbook are far easier to comprehend.	SOURCEPAGE:p.41

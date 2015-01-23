@@ -32,8 +32,7 @@ public class DeityWeapIntegrationTest extends
 {
 
 	static DeityweapToken token = new DeityweapToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>(
-			Deity.class);
+	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

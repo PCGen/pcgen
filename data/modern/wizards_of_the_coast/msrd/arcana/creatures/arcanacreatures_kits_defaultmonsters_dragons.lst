@@ -16,8 +16,8 @@ SKILL:Listen			RANK:7
 SKILL:Search			RANK:7
 SKILL:Sense Motive		RANK:7
 SKILL:Spot				RANK:7
-FEAT:Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Dragon (Black Wyrmling) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Wyrmling)]
 RACE:Dragon (Black Wyrmling)	!PRERACE:1,%
@@ -79,9 +79,9 @@ SKILL:Listen			RANK:8
 SKILL:Search			RANK:8
 SKILL:Sense Motive		RANK:8
 SKILL:Spot				RANK:8
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Dragon (Black Very Young Dragon) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Very Young Dragon)]
 RACE:Dragon (Black Very Young Dragon)	!PRERACE:1,%
@@ -144,10 +144,10 @@ SKILL:Listen			RANK:9
 SKILL:Search			RANK:9
 SKILL:Sense Motive		RANK:9
 SKILL:Spot				RANK:9
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Improved Damage Threshold
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Power Attack
 SPELLS:Mage Hand|Read Magic|Resistance|Ray of Fatigue|Sleep
 
 STARTPACK:Dragon (Black Young Dragon) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Young Dragon)]
@@ -212,10 +212,10 @@ SKILL:Listen			RANK:10
 SKILL:Search			RANK:10
 SKILL:Sense Motive		RANK:10
 SKILL:Spot				RANK:10
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Improved Damage Threshold
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Power Attack
 SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Ray of Fatigue|Sleep
 
 STARTPACK:Dragon (Black Juvenile Dragon) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Juvenile Dragon)]
@@ -280,11 +280,11 @@ SKILL:Listen			RANK:11
 SKILL:Search			RANK:11
 SKILL:Sense Motive		RANK:11
 SKILL:Spot				RANK:11
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Power Attack
 SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Ray of Fatigue|Sleep|Enhance Ability|Web
 
 STARTPACK:Dragon (Black Young Adult Dragon) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Young Adult Dragon)]
@@ -350,12 +350,12 @@ SKILL:Listen				RANK:12
 SKILL:Search				RANK:12
 SKILL:Sense Motive			RANK:12
 SKILL:Spot					RANK:12
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Power Attack
 SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Enhance Ability|Spider Climb|Web
 
 STARTPACK:Dragon (Black Adult Dragon) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Adult Dragon)]
@@ -421,13 +421,13 @@ SKILL:Listen				RANK:13
 SKILL:Search				RANK:13
 SKILL:Sense Motive			RANK:13
 SKILL:Spot					RANK:13
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold
-FEAT:Power Attack
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
 SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Enhance Ability|Spider Climb|Web|Dispel Magic|Haste
 
 STARTPACK:Dragon (Black Mature Adult Dragon) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Mature Adult Dragon)]
@@ -493,13 +493,13 @@ SKILL:Listen				RANK:14
 SKILL:Search				RANK:14
 SKILL:Sense Motive			RANK:14
 SKILL:Spot					RANK:14
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold
-FEAT:Power Attack
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
 SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste
 
 STARTPACK:Dragon (Black Old Dragon) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Old Dragon)]
@@ -565,14 +565,14 @@ SKILL:Listen				RANK:15
 SKILL:Search				RANK:15
 SKILL:Sense Motive			RANK:15
 SKILL:Spot					RANK:15
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
 SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste|Stoneskin|Wall of Ice
 
 STARTPACK:Dragon (Black Very Old Dragon) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Very Old Dragon)]
@@ -638,15 +638,15 @@ SKILL:Listen				RANK:16
 SKILL:Search				RANK:16
 SKILL:Sense Motive			RANK:16
 SKILL:Spot					RANK:16
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
 SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste|Slow|Ice Storm|Stoneskin|Wall of Fire
 
 STARTPACK:Dragon (Black Ancient Dragon) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Ancient Dragon)]
@@ -712,16 +712,16 @@ SKILL:Listen				RANK:17
 SKILL:Search				RANK:17
 SKILL:Sense Motive			RANK:17
 SKILL:Spot					RANK:17
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Renown
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Renown
+ABILITY:CATEGORY=FEAT|Sunder
 SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste|Slow|Ice Storm|Stoneskin|Wall of Fire|Hold Monster|Wall of Force
 
 STARTPACK:Dragon (Black King/Queen Dragon) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black King/Queen Dragon)]
@@ -787,16 +787,16 @@ SKILL:Listen				RANK:18
 SKILL:Search				RANK:18
 SKILL:Sense Motive			RANK:18
 SKILL:Spot					RANK:18
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Damage Threshold
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Renown
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Renown
+ABILITY:CATEGORY=FEAT|Sunder
 SPELLS:Mage Hand|Message|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Fatigue|Ray of Fatigue|Shield|True Strike|Arcane Lock|Enhance Ability|Enhance Ability|Resist Energy|Spider Climb|Web|Dispel Magic|Displacement|Haste|Slow|Dimension Door|Ice Storm|Stoneskin|Wall of Fire|Cone of Cold|Hold Monster|Wall of Force
 
 STARTPACK:Dragon (Black Emperor/Empress Dragon) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Emperor/Empress Dragon)]

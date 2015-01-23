@@ -11,7 +11,7 @@ SKILL:Hide			RANK:3
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:2
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Javelin		SIZE:PC	LOCATION:Carried
 
@@ -24,8 +24,8 @@ SKILL:Climb			RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Listen		RANK:1
 SKILL:Spot			RANK:1
-FEAT:Alertness
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Multiattack
 GEAR:Shortspear	SIZE:PC	LOCATION:Carried
 
 STARTPACK:Tenebrous Worm Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tenebrous Worm]
@@ -37,10 +37,10 @@ SKILL:Hide			RANK:13
 SKILL:Listen		RANK:13
 SKILL:Move Silently	RANK:13
 SKILL:Spot			RANK:13
-FEAT:Alertness
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 STARTPACK:Tentamort Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tentamort]
 RACE:Tentamort	!PRERACE:1,%
@@ -50,8 +50,8 @@ STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=10
 SKILL:Climb			RANK:1
 SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:5
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 
 STARTPACK:Thorny Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thorny]
 RACE:Thorny	!PRERACE:1,%
@@ -62,8 +62,8 @@ SKILL:Hide			RANK:1
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:2
-FEAT:Alertness
-FEAT:Combat Reflexes
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
 
 STARTPACK:Thunder Beast Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thunder Beast]
 RACE:Thunder Beast	!PRERACE:1,%
@@ -72,8 +72,8 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:5
-FEAT:Alertness
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Tick (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tick (Giant)]
 RACE:Tick (Giant)	!PRERACE:1,%
@@ -90,9 +90,9 @@ SKILL:Bluff		RANK:2
 SKILL:Disguise	RANK:3
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Skill Focus (Disguise)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Skill Focus (Disguise)
 
 STARTPACK:Trapper Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Trapper]
 RACE:Trapper	!PRERACE:1,%
@@ -103,11 +103,11 @@ SKILL:Hide			RANK:7
 SKILL:Listen		RANK:15
 SKILL:Move Silently	RANK:15
 SKILL:Spot			RANK:15
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Improved Initiative
-FEAT:Skill Focus (Hide)
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Hide)
+ABILITY:CATEGORY=FEAT|Toughness
 
 STARTPACK:Tri Flower Frond Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tri Flower Frond]
 RACE:Tri Flower Frond	!PRERACE:1,%
@@ -122,8 +122,8 @@ ALIGN:CE
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:4
-FEAT:Alertness
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Troll (Ice) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Ice)]
 RACE:Troll (Ice)	!PRERACE:1,%
@@ -132,7 +132,7 @@ ALIGN:CE
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=10
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:3
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Troll (Rock) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Rock)]
 RACE:Troll (Rock)	!PRERACE:1,%
@@ -141,9 +141,9 @@ ALIGN:CE
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:5
-FEAT:Alertness
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Troll (Swamp) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Swamp)]
 RACE:Troll (Swamp)	!PRERACE:1,%
@@ -155,8 +155,8 @@ SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:1
 SKILL:Survival		RANK:1
-FEAT:Alertness
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will
 
 STARTPACK:Troll (Two Headed) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Two Headed)]
 RACE:Troll (Two Headed)	!PRERACE:1,%
@@ -166,10 +166,10 @@ STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Listen	RANK:4
 SKILL:Search	RANK:5
 SKILL:Spot		RANK:4
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand
 GEAR:Longsword	SIZE:PC	LOCATION:Secondary Hand
 
@@ -187,7 +187,7 @@ SKILL:Listen		RANK:1
 SKILL:Search		RANK:1
 SKILL:Spot			RANK:1
 SKILL:Swim			RANK:2
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Shortspear	SIZE:PC	LOCATION:Primary Hand
 
 STARTPACK:Tsathar (Tsathar Scourge) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tsathar (Tsathar Scourge)]
@@ -204,7 +204,7 @@ SKILL:Listen		RANK:2
 SKILL:Search		RANK:2
 SKILL:Spot			RANK:2
 SKILL:Swim			RANK:2
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Shortspear	SIZE:PC	LOCATION:Primary Hand
 
 STARTPACK:Tunnel Worm Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tunnel Worm]
@@ -214,7 +214,7 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Alertness
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)

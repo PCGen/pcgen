@@ -8,10 +8,10 @@ NAME:Decapussywhipper
 SKILL:Bluff				RANK:13
 SKILL:Intimidate			RANK:11
 SKILL:Profession (Courtesan)	RANK:13
-FEAT:Extend Spell
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Pimp Slap
+ABILITY:CATEGORY=FEAT|Extend Spell
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Pimp Slap
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Persistent Image|Hallucinatory Terrain|Rainbow Pattern|Displacement|Hold Person|Major Image|Blur|Hypnotic Pattern|Phantom Trap|Misdirection|Touch of Idiocy|Charm Person|Color Spray|Disguise Self|Magic Aura|Ventriloquism|Daze|Detect Magic|Ghost Sound|Mage Hand|Open/Close|Read Magic|Resistance|Touch of Fatigue
 
@@ -23,11 +23,11 @@ NAME:Dwarf (Dire)
 SKILL:Appraise	RANK:2
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
-FEAT:Weapon Focus(Urgrosh (Dwarven))
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Improved Bull Rush
-FEAT:Great Cleave
+ABILITY:CATEGORY=FEAT|Weapon Focus(Urgrosh (Dwarven))
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Great Cleave
 STAT:STR=15|DEX=10|CON=12|INT=10|WIS=9|CHA=8
 GEAR:Splint Mail			SIZE:L	LOCATION:Equipped
 GEAR:Urkrutch (Dire Dwarven)	SIZE:L	LOCATION:Both Hands
@@ -45,8 +45,8 @@ SKILL:TYPE=Perform		RANK:9
 SKILL:Profession (Courtesan)	RANK:8
 SKILL:Sense Motive		RANK:9
 SKILL:Use Magic Device		RANK:9
-FEAT:Skill Focus(Profession (Courtesan))
-FEAT:Weapon Focus(Dagger)
+ABILITY:CATEGORY=FEAT|Skill Focus(Profession (Courtesan))
+ABILITY:CATEGORY=FEAT|Weapon Focus(Dagger)
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 GEAR:Dagger	LOCATION:Primary Hand	EQMOD:PLUS2W
 
@@ -58,7 +58,7 @@ NAME:Wild Hairy Haggis
 SKILL:Balance	RANK:1
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
-FEAT:Lucky
+ABILITY:CATEGORY=FEAT|Lucky
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=11
 
 
@@ -69,8 +69,8 @@ NAME:Humming Rat
 SKILL:Listen		RANK:2
 SKILL:Spot			RANK:2
 SKILL:Knowledge (Music)	RANK:4
-FEAT:Alertness
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -91,13 +91,13 @@ SKILL:Sense Motive		RANK:20
 SKILL:Spellcraft			RANK:13
 SKILL:Spot				RANK:20
 SKILL:Use Magic Device		RANK:15
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Lucky
-FEAT:Lucky
-FEAT:Multiattack
-FEAT:Persuasive
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Lucky
+ABILITY:CATEGORY=FEAT|Lucky
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Persuasive
+ABILITY:CATEGORY=FEAT|Wingover
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -108,7 +108,7 @@ NAME:Orc, Little
 CLASS:Warrior	LEVEL:1
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 GEAR:Shield (Light/Wood)	SIZE:PC	LOCATION:Equipped
 GEAR:Falchion			SIZE:PC	LOCATION:Primary Hand
@@ -121,14 +121,14 @@ NAME:Polychromatimorph
 SKILL:Climb	RANK:7
 SKILL:Jump	RANK:9
 SKILL:Swim	RANK:7
-FEAT:Athletic
-FEAT:Great Fortitude
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Skill Focus(Climb)
-FEAT:Skill Focus(Jump)
-FEAT:Skill Focus(Swim)
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Athletic
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Skill Focus(Climb)
+ABILITY:CATEGORY=FEAT|Skill Focus(Jump)
+ABILITY:CATEGORY=FEAT|Skill Focus(Swim)
+ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
 
 #

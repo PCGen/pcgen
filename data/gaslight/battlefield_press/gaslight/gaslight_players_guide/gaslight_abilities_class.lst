@@ -59,9 +59,9 @@ Summon Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:
 ###Block: Apprentice Talents
 # Armored Spellcasting Talent Tree
 # Ability Name			Category of Ability		Type					Visible		Required Ability												Required Class				Required Feat													Required Skill			Define					Description																										Ability								Bonus DC			Modify VAR					Source Page		Aspects
-Light Armored Spellcasting	CATEGORY:Talent			TYPE:Talent.ApprenticeTalent																		PRECLASS:1,SPELLCASTER.Arcane=1	PREFEAT:1,Armor Proficiency (Light)																					DESC:You may cast arcane spells while wearing light armor and suffer only half the normal percent failure chance for casting arcane spells while wearing armor.																				SOURCEPAGE:p.83
-Medium Armored Spellcasting	CATEGORY:Talent			TYPE:Talent.ApprenticeTalent				PREABILITY:1,CATEGORY=Talent,Light Armored Spellcasting					PRECLASS:1,SPELLCASTER.Arcane=1	PREFEAT:2,Armor Proficiency (Light),Armor Proficiency (Medium)																DESC:You may cast arcane spells while wearing medium armor and suffer only half the normal percent failure chance for casting arcane spells while wearing armor.																				SOURCEPAGE:p.83
-Heavy Armored Spellcasting	CATEGORY:Talent			TYPE:Talent.ApprenticeTalent				PREABILITY:2,CATEGORY=Talent,Light Armored Spellcasting,Medium Armored Spellcasting	PRECLASS:1,SPELLCASTER.Arcane=1	PREFEAT:2,Armor Proficiency (Light),Armor Proficiency (Medium),Armor Proficiency (Heavy)												DESC:You may cast arcane spells while wearing heavy armor and suffer only half the normal percent failure chance for casting arcane spells while wearing armor.																				SOURCEPAGE:p.83
+Light Armored Spellcasting	CATEGORY:Talent			TYPE:Talent.ApprenticeTalent																		PRECLASS:1,SPELLCASTER.Arcane=1	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Light)																					DESC:You may cast arcane spells while wearing light armor and suffer only half the normal percent failure chance for casting arcane spells while wearing armor.																				SOURCEPAGE:p.83
+Medium Armored Spellcasting	CATEGORY:Talent			TYPE:Talent.ApprenticeTalent				PREABILITY:1,CATEGORY=Talent,Light Armored Spellcasting					PRECLASS:1,SPELLCASTER.Arcane=1	PREABILITY:2,CATEGORY=FEAT,Armor Proficiency (Light),Armor Proficiency (Medium)																DESC:You may cast arcane spells while wearing medium armor and suffer only half the normal percent failure chance for casting arcane spells while wearing armor.																				SOURCEPAGE:p.83
+Heavy Armored Spellcasting	CATEGORY:Talent			TYPE:Talent.ApprenticeTalent				PREABILITY:2,CATEGORY=Talent,Light Armored Spellcasting,Medium Armored Spellcasting	PRECLASS:1,SPELLCASTER.Arcane=1	PREABILITY:2,CATEGORY=FEAT,Armor Proficiency (Light),Armor Proficiency (Medium),Armor Proficiency (Heavy)												DESC:You may cast arcane spells while wearing heavy armor and suffer only half the normal percent failure chance for casting arcane spells while wearing armor.																				SOURCEPAGE:p.83
 
 # Defensive Barrier
 Defensive Barrier 1		CATEGORY:Talent			TYPE:Talent.ApprenticeTalent	VISIBLE:DISPLAY																																									DEFINE:DefensiveBarrierBonus|0	DESC:The apprentice gains a +5 defensive barrier.																			ABILITY:Special Ability|AUTOMATIC|Defensive Barrier					BONUS:VAR|DefensiveBarrierBonus|5	SOURCEPAGE:p.83
@@ -175,9 +175,9 @@ Shoot from the Hip	CATEGORY:Talent		TYPE:Talent.QuickDrawTalent.GunslingerTalent
 Twitch			CATEGORY:Talent		TYPE:Talent.QuickDrawTalent.GunslingerTalent		PREABILITY:1,CATEGORY=Talent,Improved Quick Draw,Shoot from the Hip
 
 # Trick Shooting Talent Tree
-Improved Skip Shot	CATEGORY:Talent		TYPE:Talent.TrickShootingTalent.GunslingerTalent														PREFEAT:1,Skip Shot
+Improved Skip Shot	CATEGORY:Talent		TYPE:Talent.TrickShootingTalent.GunslingerTalent														PREABILITY:1,CATEGORY=FEAT,Skip Shot
 Exact Shot			CATEGORY:Talent		TYPE:Talent.TrickShootingTalent.GunslingerTalent
-Between the Eyes		CATEGORY:Talent		TYPE:Talent.TrickShootingTalent.GunslingerTalent														PREFEAT:1,Precise Shot
+Between the Eyes		CATEGORY:Talent		TYPE:Talent.TrickShootingTalent.GunslingerTalent														PREABILITY:1,CATEGORY=FEAT,Precise Shot
 
 #Gamblers Luck Talent Tree
 Professional Gambler	CATEGORY:Talent		TYPE:Talent.GunslingerTalent
@@ -262,11 +262,11 @@ Improved Fancy Footwork	CATEGORY:Talent		TYPE:Talent.MartialArtistTalent	PREABIL
 Celeritous Skulking	CATEGORY:Talent		TYPE:Talent.MartialArtistTalent	PREABILITY:1,CATEGORY=Talent,Evasion,Uncanny Dodge 1,Uncanny Dodge 2,Defensive Roll,Opportunist	PREABILITY:2,CATEGORY=Talent,Slippery,Fancy Footwork,Catlike Reflexes,Improved Fancy Footwork																										SOURCEPAGE:p.
 
 # Unarmed Prodigy Talent Tree
-Exotic Arms			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																		PREFEAT:1,Combat Martial Arts,Defensive Martial Arts																SOURCEPAGE:p.
-Jump Kick			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																		PREFEAT:1,Combat Martial Arts					PRESKILL:1,Athletics=2												SOURCEPAGE:p.
-Roundhouse Kick		CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																		PREFEAT:1,Combat Martial Arts									PRETOTALAB:1									SOURCEPAGE:p.
+Exotic Arms			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																		PREABILITY:1,CATEGORY=FEAT,Combat Martial Arts,Defensive Martial Arts																SOURCEPAGE:p.
+Jump Kick			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																		PREABILITY:1,CATEGORY=FEAT,Combat Martial Arts					PRESKILL:1,Athletics=2												SOURCEPAGE:p.
+Roundhouse Kick		CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																		PREABILITY:1,CATEGORY=FEAT,Combat Martial Arts									PRETOTALAB:1									SOURCEPAGE:p.
 Flying Kick			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																															PRETOTALAB:5									SOURCEPAGE:p.
-Flurry of Blows		CATEGORY:Talent		TYPE:Talent.MartialArtistTalent	PREABILITY:2,CATEGORY=Talent,Slippery,Fancy Footwork,Catlike Reflexes,Improved Fancy Footwork,Celeritous Skulking,Exotic Arms,Jump Kick,Roundhouse Kick,Flying Kick						PREFEAT:1,Combat Martial Arts,Brawl																			SOURCEPAGE:p.
+Flurry of Blows		CATEGORY:Talent		TYPE:Talent.MartialArtistTalent	PREABILITY:2,CATEGORY=Talent,Slippery,Fancy Footwork,Catlike Reflexes,Improved Fancy Footwork,Celeritous Skulking,Exotic Arms,Jump Kick,Roundhouse Kick,Flying Kick						PREABILITY:1,CATEGORY=FEAT,Combat Martial Arts,Brawl																			SOURCEPAGE:p.
 
 
 ###Block:   Officer class abilities   ==========================================

@@ -28,7 +28,7 @@ INFOTEXT:This dataset requires the use of the MSRD Future dataset
 #EXTRAFILE:OGL.txt
 
 CLASS:starshipconstruction_classes_advanced.lst
-FEAT:starshipconstruction_feats_mods.lst
+ABILITY:starshipconstruction_feats_mods.lst
 
 EQUIPMENT:starshipconstruction_starships.lst
 EQUIPMENT:starshipconstruction_equip_weap_ranged_starships.lst

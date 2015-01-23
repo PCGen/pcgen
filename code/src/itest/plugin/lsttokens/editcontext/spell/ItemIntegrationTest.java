@@ -33,8 +33,7 @@ public class ItemIntegrationTest extends
 {
 
 	static ItemToken token = new ItemToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>(
-			Spell.class);
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

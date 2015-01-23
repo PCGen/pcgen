@@ -32,8 +32,7 @@ public class SrLstTest extends AbstractGlobalFormulaTokenTestCase
 {
 
 	static SrLst token = new SrLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

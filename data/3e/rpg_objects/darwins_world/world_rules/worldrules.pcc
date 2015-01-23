@@ -50,7 +50,7 @@ ABILITYCATEGORY:wr_abilitycategories.lst
 ABILITY:wr_abilities_srd.lst
 EQUIPMENT:wr_equip_srd.lst
 EQUIPMOD:wr_equipmods.lst
-FEAT:wr_feats_srd.lst
+ABILITY:wr_feats_srd.lst
 ARMORPROF:wr_profs_armor.lst
 SHIELDPROF:wr_profs_shield.lst
 SKILL:wr_skills_srd.lst
@@ -65,8 +65,7 @@ EQUIPMENT:worldrulesequipcoins.lst
 EQUIPMENT:worldrulesequipweapammo.lst
 EQUIPMENT:worldrulesequipweapmelee.lst
 EQUIPMENT:worldrulesequipweapranged.lst
-FEAT:worldrulesfeats.lst
-FEAT:worldrules_feats_hidden.lst
+ABILITY:worldrulesfeats.lst
 LANGUAGE:worldruleslanguage.lst
 RACE:worldrulesraces.lst
 SKILL:worldrulesskills.lst

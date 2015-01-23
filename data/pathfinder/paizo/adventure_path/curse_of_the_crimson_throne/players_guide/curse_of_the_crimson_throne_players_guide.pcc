@@ -41,7 +41,7 @@ ABILITY:cotctpg_abilities.lst
 ABILITYCATEGORY:cotctpg_abilitycategories.lst
 EQUIPMENT:cotctpg_equip_arms_armor.lst
 EQUIPMENT:cotctpg_equip_general.lst
-FEAT:cotctpg_feats.lst
+ABILITY:cotctpg_feats.lst
 KIT:cotctpg_kits_companion.lst
 RACE:cotctpg_races_companion.lst
 ARMORPROF:cotctpg_profs_armor.lst

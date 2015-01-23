@@ -50,7 +50,7 @@ DOMAIN:faeries_domains.lst
 
 EQUIPMENT:faeries_equipment.lst
 EQUIPMOD:faeries_equipmods.lst
-FEAT:faeries_feats.lst
+ABILITY:faeries_feats.lst
 
 KIT:faeries_kits.lst
 

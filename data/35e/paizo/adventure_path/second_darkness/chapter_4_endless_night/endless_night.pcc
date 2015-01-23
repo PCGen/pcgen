@@ -37,7 +37,7 @@ DESC:The Underworld Awaits! Far below the world of light, a cavity of unspeakabl
 
 ABILITY:pf16_abilities.lst
 EQUIPMENT:pf16_equipment.lst
-FEAT:pf16_feat.lst
+ABILITY:pf16_feat.lst
 KIT:pf16_kits.lst
 RACE:pf16_race.lst
 SPELL:pf16_spells.lst

@@ -26,7 +26,7 @@ ABILITY:arcanearcher_abilities.lst
 CLASS:arcanearcher_classes_base.lst
 CLASS:arcanearcher_classes_prestige.lst
 EQUIPMENT:arcanearcher_equip.lst
-FEAT:arcanearcher_feats.lst
-FEAT:arcanearcher_feats_schools.lst
+ABILITY:arcanearcher_feats.lst
+ABILITY:arcanearcher_feats_schools.lst
 SKILL:arcanearcher_skills.lst
 SPELL:arcanearcher_spells.lst

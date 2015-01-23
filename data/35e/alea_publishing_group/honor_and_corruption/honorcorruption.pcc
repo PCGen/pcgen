@@ -33,7 +33,7 @@ ABILITY:honorcorruption_abilities_template.lst
 ABILITYCATEGORY:honorcorruption_abilitycategories.lst
 
 
-FEAT:honorcorruption_feats.lst
+ABILITY:honorcorruption_feats.lst
 RACE:honorcorruption_races.lst
 
 TEMPLATE:honorcorruption_templates.lst

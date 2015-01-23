@@ -25,7 +25,7 @@ COPYRIGHT:PCGen dataset conversion for Fantasy Flight Games Seafarer's Handbook 
 #EXTRAFILE:OGL.txt
 
 CLASS:seafarers_classes_prestige.lst
-FEAT:seafarers_feats.lst
+ABILITY:seafarers_feats.lst
 SKILL:seafarers_skills.lst
 RACE:seafarers_races.lst
 RACE:seafarers_races_monsters.lst

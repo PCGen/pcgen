@@ -39,8 +39,7 @@ public class FeatTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static DeityToken subtoken = new DeityToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	private static final FeatToken FEAT_TOKEN = new FeatToken();
 

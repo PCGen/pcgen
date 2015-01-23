@@ -17,10 +17,10 @@ SKILL:Listen			RANK:8
 SKILL:Spot				RANK:8
 SKILL:Knowledge (Religion)	RANK:2
 SKILL:Knowledge (Religion)	RANK:1	FREE:YES
-FEAT:Diehard
-FEAT:Endurance
-FEAT:Great Fortitude
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Diehard
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
 
@@ -38,10 +38,10 @@ SKILL:Profession (Miner)				RANK:12
 SKILL:Search						RANK:12
 SKILL:Sense Motive					RANK:12
 SKILL:Spot							RANK:12
-FEAT:Combat Casting
-FEAT:Improved Bull Rush
-FEAT:Power Attack
-FEAT:Quicken Spell Like Ability(Glitterdust)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell Like Ability(Glitterdust)
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=11
 
 
@@ -65,12 +65,12 @@ SKILL:Sense Motive		RANK:20
 SKILL:Spellcraft			RANK:20
 SKILL:Spot				RANK:20
 SKILL:Tumble			RANK:20
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Lightning Reflexes
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Spring Attack
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 
 #

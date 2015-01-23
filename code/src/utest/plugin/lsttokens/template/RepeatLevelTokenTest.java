@@ -39,8 +39,7 @@ import plugin.pretokens.writer.PreLevelWriter;
 public class RepeatLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 {
 	static RepeatlevelToken token = new RepeatlevelToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
 
 	@Override
 	@Before

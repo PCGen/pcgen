@@ -48,7 +48,7 @@ ABILITY:hotj_abilities_companion.lst
 ABILITY:hotj_abilities_race.lst
 ABILITYCATEGORY:hotj_abilitycategories.lst
 EQUIPMENT:hotj_equip_general.lst
-FEAT:hotj_feats.lst
+ABILITY:hotj_feats.lst
 KIT:hotj_kits_companion.lst
 KIT:hotj_kits_race.lst
 LANGUAGE:hotj_languages.lst

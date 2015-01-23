@@ -5,64 +5,64 @@ SOURCELONG:MPG - Quintessential Samurai	SOURCESHORT:mpgqs
 
 
 # Feat Name					Type				Required Feat							Required Skill				Required Stat		Required Text																				PRETOTALAB		Description																																																								Stackable?	Multiple?	Choose		Bonus Ability Pool				Source Page
-Ancestral Katana				TYPE:Samurai																																											PRETOTALAB:4	DESC:Your katana has been handed down for generations, travelling through the hands of one samurai after another, all striving to honour the family name. Though you may not have known it at the time you began your career, taking this feat awakens the ancestors within the blade, allowing you to enhance the weapon as you gain experience.															SOURCEPAGE:p.28
-Daisho Fighting				TYPE:Samurai		PREFEAT:2,Ambidexterity,Improved Two-Weapon Fighting																																				DESC:With a Katana in your right hand and a wakizashi in your other, you are able to attack more effectively or defend yourself more efficiently than if you were wielding but a single weapon.																																								SOURCEPAGE:p.28
-Deadly Draw					TYPE:Samurai		PREFEAT:1,Quick Draw																																						PRETOTALAB:7	DESC:You have mastered the art of iaido and are able to execute a powerful slicing attack as you remove your katana from its scabbard.																																																	SOURCEPAGE:p.29
-Dead Shot					TYPE:Samurai		PREFEAT:1,Blind-Fight																																						PRETOTALAB:9	DESC:You are a master bowman and are able to pierce the concealment that protects your targets.																																																								SOURCEPAGE:p.29
-Flanking Horse				TYPE:Samurai.Fighter	PREFEAT:1,Mounted Combat					PRESKILL:1,Ride=10																													PRETOTALAB:6	DESC:You are so well-trained in fighting from your horse that you are able to effectively flank a target while mounted - without the need for an ally on the target's opposite side.																																									SOURCEPAGE:p.29
-Grateful Leader				TYPE:General																					PRETEXT:Samurai must be involved in the successful completion of a particular mission for a noble or other important personage.																																																																											SOURCEPAGE:p.30
-Improved Horse Shield			TYPE:Samurai.Fighter	PREFEAT:1,Mounted Combat					PRESKILL:1,Ride=10																																																																																																							SOURCEPAGE:p.30
-Improved Mounted Archery		TYPE:Samurai		PREFEAT:1,Mounted Archery																																					PRETOTALAB:10																																																																								SOURCEPAGE:p.31
-Informants					TYPE:General											PRESKILL:1,Gather Information=5																																																																																																					SOURCEPAGE:p.31
-Inner Calm					TYPE:General																																																																																																																					SOURCEPAGE:p.31
+Ancestral Katana				CATEGORY:FEAT	TYPE:Samurai																																											PRETOTALAB:4	DESC:Your katana has been handed down for generations, travelling through the hands of one samurai after another, all striving to honour the family name. Though you may not have known it at the time you began your career, taking this feat awakens the ancestors within the blade, allowing you to enhance the weapon as you gain experience.															SOURCEPAGE:p.28
+Daisho Fighting				CATEGORY:FEAT	TYPE:Samurai		PREABILITY:2,CATEGORY=FEAT,Ambidexterity,Improved Two-Weapon Fighting																																				DESC:With a Katana in your right hand and a wakizashi in your other, you are able to attack more effectively or defend yourself more efficiently than if you were wielding but a single weapon.																																								SOURCEPAGE:p.28
+Deadly Draw					CATEGORY:FEAT	TYPE:Samurai		PREABILITY:1,CATEGORY=FEAT,Quick Draw																																						PRETOTALAB:7	DESC:You have mastered the art of iaido and are able to execute a powerful slicing attack as you remove your katana from its scabbard.																																																	SOURCEPAGE:p.29
+Dead Shot					CATEGORY:FEAT	TYPE:Samurai		PREABILITY:1,CATEGORY=FEAT,Blind-Fight																																						PRETOTALAB:9	DESC:You are a master bowman and are able to pierce the concealment that protects your targets.																																																								SOURCEPAGE:p.29
+Flanking Horse				CATEGORY:FEAT	TYPE:Samurai.Fighter	PREABILITY:1,CATEGORY=FEAT,Mounted Combat					PRESKILL:1,Ride=10																													PRETOTALAB:6	DESC:You are so well-trained in fighting from your horse that you are able to effectively flank a target while mounted - without the need for an ally on the target's opposite side.																																									SOURCEPAGE:p.29
+Grateful Leader				CATEGORY:FEAT	TYPE:General																					PRETEXT:Samurai must be involved in the successful completion of a particular mission for a noble or other important personage.																																																																											SOURCEPAGE:p.30
+Improved Horse Shield			CATEGORY:FEAT	TYPE:Samurai.Fighter	PREABILITY:1,CATEGORY=FEAT,Mounted Combat					PRESKILL:1,Ride=10																																																																																																							SOURCEPAGE:p.30
+Improved Mounted Archery		CATEGORY:FEAT	TYPE:Samurai		PREABILITY:1,CATEGORY=FEAT,Mounted Archery																																					PRETOTALAB:10																																																																								SOURCEPAGE:p.31
+Informants					CATEGORY:FEAT	TYPE:General											PRESKILL:1,Gather Information=5																																																																																																					SOURCEPAGE:p.31
+Inner Calm					CATEGORY:FEAT	TYPE:General																																																																																																																					SOURCEPAGE:p.31
 
-Ki Activation				TYPE:Samurai											PRESKILL:1,Heal=5																																																																																																								SOURCEPAGE:p.32
-Ki Capture					TYPE:Samurai		PREFEAT:1,Ki Channel																																																																																																																SOURCEPAGE:p.32
-Ki Channel					TYPE:Samurai																	PRESTAT:1,WIS=13																																																																																																		SOURCEPAGE:p.32
-Ki Harness					TYPE:Samurai		PREFEAT:1,Ki Channel																																																																																																																SOURCEPAGE:p.32
-Ki Healing					TYPE:Samurai		PREFEAT:1,Ki Channel																																																																																																																SOURCEPAGE:p.33
-Ki Reservoir				TYPE:Samurai		PREFEAT:1,Ki Harness																																																																																																																SOURCEPAGE:p.33
-Ki Survival					TYPE:Samurai		PREFEAT:1,Ki Activation																																																																																																																SOURCEPAGE:p.33
-Noble Birth					TYPE:General																																																																																																																					SOURCEPAGE:p.33
-Lightning Mount				TYPE:Samurai		PREFEAT:1,Mounted Combat																																																																																																															SOURCEPAGE:p.33
-Retainers					TYPE:Samurai		PREFEAT:1,Noble Birth,Grateful Leader																																																																																																													SOURCEPAGE:p.33
-Socially Graceful				TYPE:General																	PRESTAT:2,WIS=11,CHA=12																																																																																																	SOURCEPAGE:p.34
-Stamp						TYPE:Samurai.Fighter	PREFEAT:1,Mounted Combat																																																																																																															SOURCEPAGE:p.34
-Still Thought				TYPE:Samurai		PREFEAT:1,Inner Calm																																																																																																																SOURCEPAGE:p.34
+Ki Activation				CATEGORY:FEAT	TYPE:Samurai											PRESKILL:1,Heal=5																																																																																																								SOURCEPAGE:p.32
+Ki Capture					CATEGORY:FEAT	TYPE:Samurai		PREABILITY:1,CATEGORY=FEAT,Ki Channel																																																																																																																SOURCEPAGE:p.32
+Ki Channel					CATEGORY:FEAT	TYPE:Samurai																	PRESTAT:1,WIS=13																																																																																																		SOURCEPAGE:p.32
+Ki Harness					CATEGORY:FEAT	TYPE:Samurai		PREABILITY:1,CATEGORY=FEAT,Ki Channel																																																																																																																SOURCEPAGE:p.32
+Ki Healing					CATEGORY:FEAT	TYPE:Samurai		PREABILITY:1,CATEGORY=FEAT,Ki Channel																																																																																																																SOURCEPAGE:p.33
+Ki Reservoir				CATEGORY:FEAT	TYPE:Samurai		PREABILITY:1,CATEGORY=FEAT,Ki Harness																																																																																																																SOURCEPAGE:p.33
+Ki Survival					CATEGORY:FEAT	TYPE:Samurai		PREABILITY:1,CATEGORY=FEAT,Ki Activation																																																																																																																SOURCEPAGE:p.33
+Noble Birth					CATEGORY:FEAT	TYPE:General																																																																																																																					SOURCEPAGE:p.33
+Lightning Mount				CATEGORY:FEAT	TYPE:Samurai		PREABILITY:1,CATEGORY=FEAT,Mounted Combat																																																																																																															SOURCEPAGE:p.33
+Retainers					CATEGORY:FEAT	TYPE:Samurai		PREABILITY:1,CATEGORY=FEAT,Noble Birth,Grateful Leader																																																																																																													SOURCEPAGE:p.33
+Socially Graceful				CATEGORY:FEAT	TYPE:General																	PRESTAT:2,WIS=11,CHA=12																																																																																																	SOURCEPAGE:p.34
+Stamp						CATEGORY:FEAT	TYPE:Samurai.Fighter	PREABILITY:1,CATEGORY=FEAT,Mounted Combat																																																																																																															SOURCEPAGE:p.34
+Still Thought				CATEGORY:FEAT	TYPE:Samurai		PREABILITY:1,CATEGORY=FEAT,Inner Calm																																																																																																																SOURCEPAGE:p.34
 #
-Sword School First Tier			TYPE:Samurai.Fighter																																																																																																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Sword School Tier I|1	SOURCEPAGE:p.34
-Sword School Second Tier		TYPE:Samurai.Fighter																																																																																																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Sword School Tier II|1	SOURCEPAGE:p.34
-Sword School Third Tier			TYPE:Samurai.Fighter																																																																																																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Sword School Tier III|1	SOURCEPAGE:p.35
-Sword School Forth Tier			TYPE:Samurai.Fighter																																																																																																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Sword School Tier IV|1	SOURCEPAGE:p.35
+Sword School First Tier			CATEGORY:FEAT	TYPE:Samurai.Fighter																																																																																																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Sword School Tier I|1	SOURCEPAGE:p.34
+Sword School Second Tier		CATEGORY:FEAT	TYPE:Samurai.Fighter																																																																																																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Sword School Tier II|1	SOURCEPAGE:p.34
+Sword School Third Tier			CATEGORY:FEAT	TYPE:Samurai.Fighter																																																																																																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Sword School Tier III|1	SOURCEPAGE:p.35
+Sword School Forth Tier			CATEGORY:FEAT	TYPE:Samurai.Fighter																																																																																																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Sword School Tier IV|1	SOURCEPAGE:p.35
 #
-Undying Defence				TYPE:Samurai		PREFEAT:1,Iron Will																PRETEXT:Honour 10+																																																																																													SOURCEPAGE:p.35
-Venomous Tongue				TYPE:General																																																																																																																					SOURCEPAGE:p.35
+Undying Defence				CATEGORY:FEAT	TYPE:Samurai		PREABILITY:1,CATEGORY=FEAT,Iron Will																PRETEXT:Honour 10+																																																																																													SOURCEPAGE:p.35
+Venomous Tongue				CATEGORY:FEAT	TYPE:General																																																																																																																					SOURCEPAGE:p.35
 
 
 # Mods Block:
-Ambidexterity.MOD				TYPE:SamuraiFeat
-Alertness.MOD				TYPE:SamuraiFeat
-Cleave.MOD					TYPE:SamuraiFeat
-Combat Reflexes.MOD			TYPE:SamuraiFeat
-Dodge.MOD					TYPE:SamuraiFeat
-Expertise.MOD				TYPE:SamuraiFeat
-Great Cleave.MOD				TYPE:SamuraiFeat
-Improved Critical.MOD			TYPE:SamuraiFeat
-Improved Initiative.MOD			TYPE:SamuraiFeat
-Improved Two-Weapon Fighting.MOD	TYPE:SamuraiFeat
-Inner Calm.MOD				TYPE:SamuraiFeat
-Iron Will.MOD				TYPE:SamuraiFeat
-Ki Activation.MOD				TYPE:SamuraiFeat
-Ki Capture.MOD				TYPE:SamuraiFeat
-Ki Channel.MOD				TYPE:SamuraiFeat
-Leadership.MOD				TYPE:SamuraiFeat
-Lightning Reflexes.MOD			TYPE:SamuraiFeat
-Mobility.MOD				TYPE:SamuraiFeat
-Power Attack.MOD				TYPE:SamuraiFeat
-Quick Draw.MOD				TYPE:SamuraiFeat
-Spring Attack.MOD				TYPE:SamuraiFeat
-Sunder.MOD					TYPE:SamuraiFeat
-Two-Weapon Fighting.MOD			TYPE:SamuraiFeat
-Weapon Finesse.MOD			TYPE:SamuraiFeat
-Weapon Focus.MOD				TYPE:SamuraiFeat
-Whirlwind Attack.MOD			TYPE:SamuraiFeat
+CATEGORY=FEAT|Ambidexterity.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Alertness.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Cleave.MOD					TYPE:SamuraiFeat
+CATEGORY=FEAT|Combat Reflexes.MOD			TYPE:SamuraiFeat
+CATEGORY=FEAT|Dodge.MOD					TYPE:SamuraiFeat
+CATEGORY=FEAT|Expertise.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Great Cleave.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Improved Critical.MOD			TYPE:SamuraiFeat
+CATEGORY=FEAT|Improved Initiative.MOD			TYPE:SamuraiFeat
+CATEGORY=FEAT|Improved Two-Weapon Fighting.MOD	TYPE:SamuraiFeat
+CATEGORY=FEAT|Inner Calm.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Iron Will.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Ki Activation.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Ki Capture.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Ki Channel.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Leadership.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Lightning Reflexes.MOD			TYPE:SamuraiFeat
+CATEGORY=FEAT|Mobility.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Power Attack.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Quick Draw.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Spring Attack.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Sunder.MOD					TYPE:SamuraiFeat
+CATEGORY=FEAT|Two-Weapon Fighting.MOD			TYPE:SamuraiFeat
+CATEGORY=FEAT|Weapon Finesse.MOD			TYPE:SamuraiFeat
+CATEGORY=FEAT|Weapon Focus.MOD				TYPE:SamuraiFeat
+CATEGORY=FEAT|Whirlwind Attack.MOD			TYPE:SamuraiFeat

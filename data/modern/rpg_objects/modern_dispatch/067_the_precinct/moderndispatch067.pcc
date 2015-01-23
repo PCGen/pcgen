@@ -25,4 +25,4 @@ COPYRIGHT:PCGen dataset conversion for Modern Dispatch #67 Copyright 2005-2006, 
 #EXTRAFILE:OGL.txt
 
 CLASS:moderndispatch067_classes.lst
-FEAT:moderndispatch067_feats_mod.lst
+ABILITY:moderndispatch067_feats_mod.lst

@@ -32,7 +32,7 @@ ABILITYCATEGORY:ironmight_abilitycategories.lst
 
 BIOSET:ironmight_biosettings.lst
 EQUIPMENT:ironmight_equip.lst
-FEAT:ironmight_feats.lst
+ABILITY:ironmight_feats.lst
 SKILL:ironmight_skills.lst
 RACE:ironmight_races.lst
 TEMPLATE:ironmight_templates.lst

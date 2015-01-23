@@ -52,7 +52,7 @@ Divine Focus Elemental	CATEGORY:Special Ability	TYPE:ShaperDivineFocus	VISIBLE:D
 Divine Focus Nature	CATEGORY:Special Ability	TYPE:ShaperDivineFocus	VISIBLE:DISPLAY	SAB:Nature (Domains:Animal, Healing, Plant)	SAB:Animals and plants cannot attack you|PRECLASS:1,Shaper (DF)=10																																															BONUS:SKILL|Handle Animal,Heal,Survival|2
 Divine Focus Power	CATEGORY:Special Ability	TYPE:ShaperDivineFocus	VISIBLE:DISPLAY	SAB:Power (Domains:Destruction, Strength, War)														SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper (DF)")+var("BL=Shaper (DF)")|Harm,16+CHA|PRECLASS:1,Shaper (DF)=10							BONUS:ABILITYPOOL|Martial Weapon Proficiency|1
 Divine Focus Shadow	CATEGORY:Special Ability	TYPE:ShaperDivineFocus	VISIBLE:DISPLAY	SAB:Shadow (Domains:Luck, Magic, Trickery)	SAB:You can choose to re-roll any dice roll once per day				SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper (DF)")+var("BL=Shaper (DF)")|Spell Immunity,14+CHA|PRECLASS:1,Shaper (DF)=10
-Divine Focus Vitality	CATEGORY:Special Ability	TYPE:ShaperDivineFocus	VISIBLE:DISPLAY	SAB:Vitality (Domains:Death, Life, Knowledge)														SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper (DF)")+var("BL=Shaper (DF)")|Divine Power,14+CHA|PRECLASS:1,Shaper (DF)=10	VFEAT:Endurance|Toughness
+Divine Focus Vitality	CATEGORY:Special Ability	TYPE:ShaperDivineFocus	VISIBLE:DISPLAY	SAB:Vitality (Domains:Death, Life, Knowledge)														SPELLS:Innate|TIMES=1|CASTERLEVEL=var("CL=Shaper (DF)")+var("BL=Shaper (DF)")|Divine Power,14+CHA|PRECLASS:1,Shaper (DF)=10	ABILITY:FEAT|VIRTUAL|Endurance|Toughness
 #TODO: elemental resistance chooser
 
 ###Block: Shapers Specialties

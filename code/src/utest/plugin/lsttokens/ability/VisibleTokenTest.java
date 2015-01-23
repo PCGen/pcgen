@@ -34,8 +34,7 @@ public class VisibleTokenTest extends AbstractTokenTestCase<Ability>
 
 	static VisibleToken token = new VisibleToken();
 
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>(
-			Ability.class);
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

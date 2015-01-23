@@ -26,5 +26,5 @@ COPYRIGHT:PCGen dataset conversion for Modern Principles Copyright 2006. PCGen D
 #EXTRAFILE:OGL.txt
 
 EQUIPMENT:modernprinciples_equip.lst
-FEAT:modernprinciples_feats.lst
+ABILITY:modernprinciples_feats.lst
 SKILL:modernprinciples_skills.lst

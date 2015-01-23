@@ -4,27 +4,27 @@ SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:200
 
 ###Block: Hidden Equipment Abilities - These abilities implement the abipities granted by magical equipment.
 # Feat Name			Type				Visible	Natural Attacks
-Tooth of Steel		TYPE:WeaponAbility	VISIBLE:NO	NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6
+Tooth of Steel		CATEGORY:FEAT	TYPE:WeaponAbility	VISIBLE:NO	NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6
 
 
 #Modify Feats
-Point Blank Shot.MOD	TYPE:Hunter
-Far Shot.MOD		TYPE:Hunter
-Precise Shot.MOD		TYPE:Hunter
-Shot on the Run.MOD	TYPE:Hunter
+CATEGORY=FEAT|Point Blank Shot.MOD		TYPE:Hunter
+CATEGORY=FEAT|Far Shot.MOD			TYPE:Hunter
+CATEGORY=FEAT|Precise Shot.MOD		TYPE:Hunter
+CATEGORY=FEAT|Shot on the Run.MOD		TYPE:Hunter
 
-Alertness.MOD		TYPE:SpiderWarrior
-Improved Initiative.MOD	TYPE:SpiderWarrior
-Mounted Combat.MOD	TYPE:SpiderWarrior
-Mounted Archery.MOD	TYPE:SpiderWarrior
-Trample.MOD			TYPE:SpiderWarrior
-Ride-By Attack.MOD	TYPE:SpiderWarrior
-Spirited Charge.MOD	TYPE:SpiderWarrior
-Point Blank Shot.MOD	TYPE:SpiderWarrior
-Far Shot.MOD		TYPE:SpiderWarrior
-Precise Shot.MOD		TYPE:SpiderWarrior
-Rapid Shot.MOD		TYPE:SpiderWarrior
-Shot on the Run.MOD	TYPE:SpiderWarrior
+CATEGORY=FEAT|Alertness.MOD			TYPE:SpiderWarrior
+CATEGORY=FEAT|Improved Initiative.MOD	TYPE:SpiderWarrior
+CATEGORY=FEAT|Mounted Combat.MOD		TYPE:SpiderWarrior
+CATEGORY=FEAT|Mounted Archery.MOD		TYPE:SpiderWarrior
+CATEGORY=FEAT|Trample.MOD			TYPE:SpiderWarrior
+CATEGORY=FEAT|Ride-By Attack.MOD		TYPE:SpiderWarrior
+CATEGORY=FEAT|Spirited Charge.MOD		TYPE:SpiderWarrior
+CATEGORY=FEAT|Point Blank Shot.MOD		TYPE:SpiderWarrior
+CATEGORY=FEAT|Far Shot.MOD			TYPE:SpiderWarrior
+CATEGORY=FEAT|Precise Shot.MOD		TYPE:SpiderWarrior
+CATEGORY=FEAT|Rapid Shot.MOD			TYPE:SpiderWarrior
+CATEGORY=FEAT|Shot on the Run.MOD		TYPE:SpiderWarrior
 #
 # End
 #

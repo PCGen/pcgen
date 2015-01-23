@@ -27,7 +27,7 @@ COPYRIGHT:PCGen dataset conversion for Modern Dispatch #1 Copyright 2006, PCGen 
 EQUIPMENT:moderndispatch001_equip_armor.lst
 EQUIPMENT:moderndispatch001_equip_weap_ranged_firearms.lst
 EQUIPMOD:moderndispatch001_equipmods.lst
-FEAT:moderndispatch001_feats.lst
+ABILITY:moderndispatch001_feats.lst
 
 # Reference for .MOD/.COPY
 EQUIPMENT:@/modern/wizards_of_the_coast/msrd/arcana/basics/arcanabasics_equip_armorshields.lst|(INCLUDE:Padded Armor|Studded Leather Armor|Hide Armor|Scale Mail|Breastplate|Splint Mail|Banded Mail|Half Plate)

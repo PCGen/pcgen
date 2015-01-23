@@ -38,8 +38,7 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new ServesAsToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>(
-			Skill.class);
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
 
 	@Override
 	@Before

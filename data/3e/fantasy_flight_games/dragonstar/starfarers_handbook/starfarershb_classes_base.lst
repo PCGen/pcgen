@@ -15,36 +15,36 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 CLASS:Pilot		HD:6		TYPE:Base.PC	ABB:Plt		MAXLEVEL:20	SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Freefall|Intuit Direction|Jump|Navigate|Pilot|TYPE=Profession|Repair|Spot|Swim|Use Device|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1																	AUTO:FEAT|Technical Proficiency
-1																	AUTO:FEAT|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (HighTechLight)
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
+1																	ABILITY:FEAT|AUTOMATIC|Technical Proficiency
+1																	ABILITY:FEAT|AUTOMATIC|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency
+1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)
 ###Block: Normal Level Progression
-1	SAB:Speed Demon																		ADD:FEAT|TYPE=Pilot
+1	SAB:Speed Demon																		BONUS:ABILITYPOOL|Pilot Feat|1
 2	SAB:Dogfighter +%|Dogfighter					BONUS:VAR|Dogfighter|(CL+5)/7		DEFINE:Dogfighter|0
 3	SAB:Defensive Maneuvering +%|DefensiveManeuvering	BONUS:VAR|DefensiveManeuvering|CL/3	DEFINE:DefensiveManeuvering|0
 4	SAB:Pilot Evasion
-5	SAB:Gunners Instinct +%|GunnersInstinct			BONUS:VAR|GunnersInstinct|CL/5	DEFINE:GunnersInstinct|0	ADD:FEAT|TYPE=Pilot
-9																					ADD:FEAT|TYPE=Pilot
-13																					ADD:FEAT|TYPE=Pilot
-17																					ADD:FEAT|TYPE=Pilot
+5	SAB:Gunners Instinct +%|GunnersInstinct			BONUS:VAR|GunnersInstinct|CL/5	DEFINE:GunnersInstinct|0	BONUS:ABILITYPOOL|Pilot Feat|1
+9																					BONUS:ABILITYPOOL|Pilot Feat|1
+13																					BONUS:ABILITYPOOL|Pilot Feat|1
+17																					BONUS:ABILITYPOOL|Pilot Feat|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus							Save bonus
 CLASS:Mechanist	HD:6		TYPE:Base.PC	ABB:Mech		MAXLEVEL:20	SOURCEPAGE:p.52	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mechanist	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE=Craft|Cryptography|Demolitions|Disable Device|Freefall|TYPE=Knowledge|Open Lock|Pilot|TYPE=Profession|Repair|Research|Search|Use Device
-1	AUTO:FEAT|Technical Proficiency
-1	AUTO:FEAT|HighTechSimple Weapon Proficiency
-1	AUTO:FEAT|Armor Proficiency (HighTechLight)
+1	ABILITY:FEAT|AUTOMATIC|Technical Proficiency
+1	ABILITY:FEAT|AUTOMATIC|HighTechSimple Weapon Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (HighTechLight)
 ###Block: Normal Level Progression
-1	SAB:Jury-rig	SAB:Guerilla Repair	SAB:Minor Upgrade	SAB:Traps	ADD:FEAT|TYPE=Mechanist
-2	SAB:Sabotage										ADD:FEAT|TYPE=MechTech
+1	SAB:Jury-rig	SAB:Guerilla Repair	SAB:Minor Upgrade	SAB:Traps	BONUS:ABILITYPOOL|Mechanist Feat|1
+2	SAB:Sabotage										BONUS:ABILITYPOOL|Mech Tech|1
 5	SAB:Moderate Upgrade
-6													ADD:FEAT|TYPE=MechTech	ADD:FEAT|TYPE=Mechanist
-10	SAB:Major Upgrade										ADD:FEAT|TYPE=MechTech
-11													ADD:FEAT|TYPE=Mechanist
-14													ADD:FEAT|TYPE=MechTech
+6													BONUS:ABILITYPOOL|Mech Tech|1	BONUS:ABILITYPOOL|Mechanist Feat|1
+10	SAB:Major Upgrade										BONUS:ABILITYPOOL|Mech Tech|1
+11													BONUS:ABILITYPOOL|Mechanist Feat|1
+14													BONUS:ABILITYPOOL|Mech Tech|1
 15	SAB:Extraordinary Upgrade
-16													ADD:FEAT|TYPE=Mechanist
-18													ADD:FEAT|TYPE=MechTech
+16													BONUS:ABILITYPOOL|Mechanist Feat|1
+18													BONUS:ABILITYPOOL|Mech Tech|1
 20	SAB:Masterful Upgrade

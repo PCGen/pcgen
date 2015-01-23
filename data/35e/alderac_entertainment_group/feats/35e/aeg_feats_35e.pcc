@@ -95,14 +95,14 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1887953736?ie=UTF8&tag=httppcgen
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-FEAT:aeg_feats_35e_feats_background.lst
-FEAT:aeg_feats_35e_feats_infernal.lst
-FEAT:aeg_feats_35e_feats_magic.lst
-FEAT:aeg_feats_35e_feats_quest.lst
-FEAT:aeg_feats_35e_feats_general.lst
+ABILITY:aeg_feats_35e_feats_background.lst
+ABILITY:aeg_feats_35e_feats_infernal.lst
+ABILITY:aeg_feats_35e_feats_magic.lst
+ABILITY:aeg_feats_35e_feats_quest.lst
+ABILITY:aeg_feats_35e_feats_general.lst
 
 ###COMMENT:"The Fun Feats"
-FEAT:aeg_feats_35e_feats_appendix.lst
+ABILITY:aeg_feats_35e_feats_appendix.lst
 
 TEMPLATE:aeg_feats_35e_template_hidden.lst
 SKILL:aeg_feats_35e_skills.lst

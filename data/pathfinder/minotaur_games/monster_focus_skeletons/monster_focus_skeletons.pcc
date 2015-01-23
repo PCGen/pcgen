@@ -41,7 +41,7 @@ COPYRIGHT:PCGen dataset conversion for "Monster Focus: Skeletons", Copyright 201
 ABILITY:mfs_abilities.lst
 ABILITYCATEGORY:mfs_abilitycategories.lst
 EQUIPMENT:mfs_equip.lst
-FEAT:mfs_feats.lst
+ABILITY:mfs_feats.lst
 SPELL:mfs_spells.lst
 TEMPLATE:mfs_templates.lst
 

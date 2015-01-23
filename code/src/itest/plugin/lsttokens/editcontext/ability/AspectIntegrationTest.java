@@ -32,8 +32,7 @@ public class AspectIntegrationTest extends
 		AbstractIntegrationTestCase<Ability>
 {
 	static AspectToken token = new AspectToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>(
-			Ability.class);
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

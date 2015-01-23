@@ -20,10 +20,10 @@ SKILL:Listen		RANK:9
 SKILL:Search		RANK:7
 SKILL:Sense Motive	RANK:9
 SKILL:Spot			RANK:9
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Big Cat Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Big Cat]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -50,10 +50,10 @@ SKILL:Listen		RANK:11
 SKILL:Move Silently	RANK:11
 SKILL:Spot			RANK:9
 ABILITY:CATEGORY=Monstrous Humanoid Proficiency|Simple Weapons Proficiency
-FEAT:Personal Firearms Proficiency
-FEAT:Advanced Firearms Proficiency
-FEAT:Burst Fire
-FEAT:Quick Draw
+ABILITY:CATEGORY=FEAT|Personal Firearms Proficiency
+ABILITY:CATEGORY=FEAT|Advanced Firearms Proficiency
+ABILITY:CATEGORY=FEAT|Burst Fire
+ABILITY:CATEGORY=FEAT|Quick Draw
 GEAR:Knife						LOCATION:Carried
 GEAR:MAC Ingram M10 (.45 machine pistol)	LOCATION:Primary Hand	EQMOD:SPPRSS_PIS
 GEAR:Leather Jacket				LOCATION:DEFAULT
@@ -71,10 +71,10 @@ SKILL:Move Silently				RANK:14
 SKILL:Sense Motive				RANK:14
 SKILL:Spot						RANK:14
 ABILITY:CATEGORY=Outsider Proficiency|Simple Weapons Proficiency
-FEAT:Archaic Weapons Proficiency
-FEAT:Cleave
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Greatsword	LOCATION:Both Hands	EQMOD:PLUS3W
 
 STARTPACK:Demonic Auto Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demonic Auto]
@@ -88,10 +88,10 @@ SKILL:Navigate		RANK:18
 SKILL:Repair		RANK:10
 SKILL:Sense Motive	RANK:18
 SKILL:Spot			RANK:18
-FEAT:Drive-By Attack
-FEAT:Force Stop
-FEAT:Vehicle Dodge
-FEAT:Vehicle Expert
+ABILITY:CATEGORY=FEAT|Drive-By Attack
+ABILITY:CATEGORY=FEAT|Force Stop
+ABILITY:CATEGORY=FEAT|Vehicle Dodge
+ABILITY:CATEGORY=FEAT|Vehicle Expert
 
 STARTPACK:Demonic Auto (Advanced - Semi Truck) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demonic Auto (Advanced - Semi Truck)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
@@ -105,13 +105,13 @@ SKILL:Navigate		RANK:25
 SKILL:Repair		RANK:25
 SKILL:Sense Motive	RANK:25
 SKILL:Spot			RANK:29
-FEAT:Drive-By Attack
-FEAT:Force Stop
-FEAT:Vehicle Dodge
-FEAT:Vehicle Expert
-FEAT:Great Fortitude
-FEAT:Iron Will
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Drive-By Attack
+ABILITY:CATEGORY=FEAT|Force Stop
+ABILITY:CATEGORY=FEAT|Vehicle Dodge
+ABILITY:CATEGORY=FEAT|Vehicle Expert
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 GEAR:Demonic Auto Body	LOCATION:DEFAULT	EQMOD:CPNT_FLAME
 
 STARTPACK:Donkey Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Donkey]
@@ -134,8 +134,8 @@ SKILL:Escape Artist				RANK:7
 SKILL:Ride						RANK:2
 SKILL:Handle Animal				RANK:7
 SKILL:Knowledge (Earth and Life Sciences)	RANK:9
-FEAT:Great Fortitude
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Eagle Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eagle]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
@@ -159,9 +159,9 @@ SKILL:Sense Motive	RANK:9
 SKILL:Spellcraft		RANK:8
 SKILL:Spot			RANK:10
 ABILITY:CATEGORY=Outsider Proficiency|Archaic Weapons Proficiency
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Elephant Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elephant]
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -203,9 +203,9 @@ SKILL:Repair			RANK:2
 SKILL:Spot				RANK:4
 SKILL:Tumble			RANK:4
 ABILITY:CATEGORY=Fey Proficiency|Simple Weapons Proficiency
-FEAT:Alertness
-FEAT:Builder
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Builder
+ABILITY:CATEGORY=FEAT|Stealthy
 
 STARTPACK:Grendlespawn Hunter Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grendlespawn Hunter]
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
@@ -214,9 +214,9 @@ NAME:Grendlespawn Hunter
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
 SKILL:Survival	RANK:4
-FEAT:Combat Reflexes
-FEAT:Multiattack
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:Grendlespawn Queen Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grendlespawn Queen]
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
@@ -225,11 +225,11 @@ NAME:Grendlespawn Queen
 SKILL:Intimidate	RANK:12
 SKILL:Listen	RANK:13
 SKILL:Spot		RANK:13
-FEAT:Blind-Fight
-FEAT:Combat Expertise
-FEAT:Frightful Presence
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Frightful Presence
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Homunculus (Biochemical) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Homunculus (Biochemical)]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
@@ -322,7 +322,7 @@ NAME:Otyugh
 SKILL:Hide		RANK:8
 SKILL:Listen	RANK:6
 SKILL:Spot		RANK:6
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Otyugh (Advanced) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Otyugh (Advanced)]
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
@@ -331,8 +331,8 @@ NAME:Advanced Otyugh
 SKILL:Hide		RANK:8
 SKILL:Listen	RANK:12
 SKILL:Spot		RANK:12
-FEAT:Alertness
-FEAT:Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
 
 STARTPACK:Sraosha (Platonic of Contract Enforcement) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sraosha (Platonic of Contract Enforcement)]
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
@@ -350,10 +350,10 @@ SKILL:Search			RANK:18
 SKILL:Sense Motive		RANK:18
 SKILL:Spot				RANK:18
 ABILITY:CATEGORY=Outsider Proficiency|Simple Weapons Proficiency
-FEAT:Advanced Firearms Proficiency
-FEAT:Burst Fire
-FEAT:Combat Martial Arts
-FEAT:Personal Firearms Proficiency
+ABILITY:CATEGORY=FEAT|Advanced Firearms Proficiency
+ABILITY:CATEGORY=FEAT|Burst Fire
+ABILITY:CATEGORY=FEAT|Combat Martial Arts
+ABILITY:CATEGORY=FEAT|Personal Firearms Proficiency
 GEAR:Longsword				LOCATION:Not Carried	EQMOD:PLUS3W
 GEAR:M16A2 (5.56mm assault rifle)	LOCATION:Not Carried	EQMOD:PLUS3W
 GEAR:Ring (Protection +2)		LOCATION:DEFAULT
@@ -405,10 +405,10 @@ SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:3
 SKILL:Swim			RANK:4
 ABILITY:CATEGORY=Aberration Proficiency|Simple Weapons Proficiency
-FEAT:Archaic Weapons Proficiency
-FEAT:Alertness
-FEAT:Deceptive
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Deceptive
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Sidhe (Dreamghast) Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sidhe (Dreamghast)]
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
@@ -419,10 +419,10 @@ SKILL:Intimidate		RANK:13
 SKILL:Listen		RANK:12
 SKILL:Spot			RANK:13
 ABILITY:CATEGORY=Fey Proficiency|Simple Weapons Proficiency
-FEAT:Archaic Weapons Proficiency	FREE:YES
-FEAT:Combat Reflexes
-FEAT:Improved Damage Threshold
-FEAT:Multiweapon Fighting
+ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency	FREE:YES
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Multiweapon Fighting
 GEAR:Machete	QTY:4	LOCATION:Carried
 
 STARTPACK:Sidhe (Faun) Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sidhe (Faun)]
@@ -436,9 +436,9 @@ SKILL:Disguise																										RANK:10
 SKILL:Perform (Sing)																									RANK:8
 SKILL:Perform (Act)|Perform (Dance)|Perform (Keyboards)|Perform (Percussion Instruments)|Perform (Stand-Up)|Perform (Stringed Instruments)|Perform (Wind Instruments)	RANK:8
 ABILITY:CATEGORY=Fey Proficiency|Simple Weapons Proficiency
-FEAT:Archaic Weapons Proficiency	FREE:YES
-FEAT:Personal Firearms Proficiency
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency	FREE:YES
+ABILITY:CATEGORY=FEAT|Personal Firearms Proficiency
+ABILITY:CATEGORY=FEAT|Great Fortitude
 GEAR:Colt Python (.357 revolver)		LOCATION:Primary Hand
 GEAR:Bullet (.357)			QTY:6	LOCATION:Carried
 GEAR:Sword Cane					LOCATION:Carried
@@ -465,7 +465,7 @@ SKILL:Listen		RANK:4
 SKILL:Search		RANK:4
 SKILL:Sense Motive	RANK:4
 SKILL:Spot			RANK:4
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Spirit (Frightful ~ Apparition) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spirit (Frightful ~ Appartion)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
@@ -479,7 +479,7 @@ SKILL:Listen		RANK:5
 SKILL:Search		RANK:5
 SKILL:Sense Motive	RANK:5
 SKILL:Spot			RANK:5
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Spirit (Groaning ~ Banshee) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spirit (Groaning ~ Banshee)]
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
@@ -493,7 +493,7 @@ SKILL:Listen		RANK:6
 SKILL:Search		RANK:5
 SKILL:Sense Motive	RANK:5
 SKILL:Spot			RANK:6
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Spirit (Possessing ~ Haunt) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spirit (Possessing ~ Haunt)]
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
@@ -507,8 +507,8 @@ SKILL:Listen		RANK:7
 SKILL:Search		RANK:7
 SKILL:Sense Motive	RANK:6
 SKILL:Spot			RANK:7
-FEAT:Improved Initiative
-FEAT:Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Combat Reflexes
 
 STARTPACK:Spirit (Weakening ~ Fetch) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spirit (Weakening ~ Fetch)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
@@ -522,7 +522,7 @@ SKILL:Listen		RANK:6
 SKILL:Search		RANK:6
 SKILL:Sense Motive	RANK:6
 SKILL:Spot			RANK:6
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Squid Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Squid]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
@@ -588,11 +588,11 @@ NAME:Chemical Toxyderm
 SKILL:Listen	RANK:27
 SKILL:Spot		RANK:27
 SKILL:Swim		RANK:4
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Lightning Reflexes
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Toxyderm (Chemical/Advanced) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxyderm (Chemical/Advanced)]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -601,21 +601,21 @@ NAME:Advanced Chemical Toxyderm
 SKILL:Listen	RANK:54
 SKILL:Spot		RANK:54
 SKILL:Swim		RANK:26
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Improved Bull Rush
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Sunder
-FEAT:Toughness
-FEAT:Toughness
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 
 STARTPACK:Toxyderm (Garbage) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxyderm (Garbage)]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -624,10 +624,10 @@ NAME:Garbage Toxyderm
 SKILL:Listen	RANK:21
 SKILL:Spot		RANK:21
 SKILL:Swim		RANK:4
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Power Attack
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
 
 STARTPACK:Toxyderm (Garbage/Advanced) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxyderm (Garbage/Advanced)]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
@@ -636,16 +636,16 @@ NAME:Advanced Garbage Toxyderm
 SKILL:Listen	RANK:37
 SKILL:Spot		RANK:37
 SKILL:Swim		RANK:20
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Improved Bull Rush
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Sunder
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
 
 STARTPACK:Toxyderm (Nuclear) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxyderm (Nuclear)]
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
@@ -654,14 +654,14 @@ NAME:Nuclear Toxyderm
 SKILL:Listen	RANK:33
 SKILL:Spot		RANK:33
 SKILL:Swim		RANK:18
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Improved Bull Rush
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 
 STARTPACK:Toxyderm (Nuclear/Advanced) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toxyderm (Nuclear/Advanced)]
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
@@ -670,29 +670,29 @@ NAME:Advanced Nuclear Toxyderm
 SKILL:Listen	RANK:73
 SKILL:Spot		RANK:73
 SKILL:Swim		RANK:58
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Improved Bull Rush
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Sunder
-FEAT:Toughness
-FEAT:Toughness
-FEAT:Toughness
-FEAT:Toughness
-FEAT:Toughness
-FEAT:Toughness
-FEAT:Toughness
-FEAT:Toughness
-FEAT:Toughness
-FEAT:Toughness
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Sunder
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 
 STARTPACK:Urban Wendigo Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Urban Wendigo]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -706,8 +706,8 @@ SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
 SKILL:Survival	RANK:2
 ABILITY:CATEGORY=Giant Proficiency|Simple Weapons Proficiency
-FEAT:Dodge
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 
 STARTPACK:Vivilor (1st-Level) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vivilor (1st-Level)]
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
@@ -716,7 +716,7 @@ NAME:1st-level Vivilor
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
 ABILITY:CATEGORY=Outsider Proficiency|Archaic Weapons Proficiency
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Vivilor (2nd-Level) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vivilor (2nd-Level)]
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
@@ -727,7 +727,7 @@ SKILL:Jump		RANK:4
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
 ABILITY:CATEGORY=Outsider Proficiency|Archaic Weapons Proficiency
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Vivilor (3rd-Level) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vivilor (3rd-Level)]
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
@@ -738,7 +738,7 @@ SKILL:Jump		RANK:6
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
 ABILITY:CATEGORY=Outsider Proficiency|Archaic Weapons Proficiency
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Vivilor (4th-Level) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vivilor (4th-Level)]
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
@@ -749,8 +749,8 @@ SKILL:Jump		RANK:8
 SKILL:Listen	RANK:9
 SKILL:Spot		RANK:9
 ABILITY:CATEGORY=Outsider Proficiency|Archaic Weapons Proficiency
-FEAT:Alertness
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will
 
 STARTPACK:Vivilor (5th-Level) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vivilor (5th-Level)]
 STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
@@ -761,8 +761,8 @@ SKILL:Jump		RANK:11
 SKILL:Listen	RANK:12
 SKILL:Spot		RANK:12
 ABILITY:CATEGORY=Outsider Proficiency|Archaic Weapons Proficiency
-FEAT:Alertness
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will
 
 STARTPACK:Vrock Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vrock]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -778,8 +778,8 @@ SKILL:Spellcraft		RANK:10
 SKILL:Spot			RANK:2
 SKILL:Concentration	RANK:14
 ABILITY:CATEGORY=Outsider Proficiency|Archaic Weapons Proficiency
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Vrock Lord Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vrock Lord]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -798,9 +798,9 @@ SKILL:Spellcraft		RANK:24
 SKILL:Spot			RANK:16
 SKILL:Tumble		RANK:24
 ABILITY:CATEGORY=Outsider Proficiency|Archaic Weapons Proficiency
-FEAT:Cleave
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Drow (Dark Elf/Shadowkind) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drow (Dark Elf)]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
@@ -811,7 +811,7 @@ SKILL:Craft (Chemical)	RANK:2
 SKILL:Hide			RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Search		RANK:1
-FEAT:Personal Firearms Proficiency
+ABILITY:CATEGORY=FEAT|Personal Firearms Proficiency
 GEAR:Machete				LOCATION:Primary Hand
 GEAR:Shuriken			QTY:6	LOCATION:Carried
 GEAR:Clothing Outfit (Casual)		LOCATION:DEFAULT
@@ -828,8 +828,8 @@ SKILL:Repair			RANK:1
 SKILL:Spot				RANK:2
 SKILL:Craft (Mechanical)	RANK:3
 SKILL:Craft (Structural)	RANK:2
-FEAT:Simple Weapons Proficiency	FREE:YES
-FEAT:Builder
+ABILITY:CATEGORY=FEAT|Simple Weapons Proficiency	FREE:YES
+ABILITY:CATEGORY=FEAT|Builder
 GEAR:Pickaxe			LOCATION:Both Hands
 GEAR:Clothing Outfit (Casual)	LOCATION:DEFAULT
 GEAR:Cell Phone			LOCATION:Carried
@@ -843,7 +843,7 @@ CLASS:Humanoid	LEVEL:1
 SKILL:Hide			RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Survival		RANK:2
-FEAT:Point Blank Shot
+ABILITY:CATEGORY=FEAT|Point Blank Shot
 GEAR:Sword Cane			LOCATION:Primary Hand
 GEAR:Clothing Outfit (Casual)	LOCATION:DEFAULT
 GEAR:Compound Bow			LOCATION:Carried
@@ -858,7 +858,7 @@ SKILL:Craft (Pharmaceutical)	RANK:1
 SKILL:Knowledge (Technology)	RANK:1
 SKILL:Listen			RANK:1
 SKILL:Spot				RANK:1
-FEAT:Simple Weapons Proficiency
+ABILITY:CATEGORY=FEAT|Simple Weapons Proficiency
 GEAR:Stun gun			LOCATION:Primary Hand
 GEAR:Clothing Outfit (Casual)	LOCATION:DEFAULT
 GEAR:Pepper Spray			LOCATION:Carried
@@ -875,7 +875,7 @@ SKILL:Bluff			RANK:1
 SKILL:Diplomacy		RANK:2
 SKILL:TYPE=Knowledge	RANK:1
 SKILL:Sleight of Hand	RANK:2
-FEAT:Simple Weapons Proficiency
+ABILITY:CATEGORY=FEAT|Simple Weapons Proficiency
 GEAR:Slingshot			LOCATION:Primary Hand
 GEAR:Clothing Outfit (Casual)	LOCATION:DEFAULT
 GEAR:Knife				LOCATION:Carried
@@ -889,7 +889,7 @@ NAME:Orc
 CLASS:Humanoid	LEVEL:1
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:2
-FEAT:Simple Weapons Proficiency
+ABILITY:CATEGORY=FEAT|Simple Weapons Proficiency
 GEAR:Greataxe			LOCATION:Both Hands
 GEAR:Scale Mail			LOCATION:DEFAULT
 GEAR:Clothing Outfit (Casual)	LOCATION:DEFAULT

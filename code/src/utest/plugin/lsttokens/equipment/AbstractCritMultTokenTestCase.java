@@ -32,8 +32,7 @@ public abstract class AbstractCritMultTokenTestCase extends
 		AbstractTokenTestCase<Equipment>
 {
 
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

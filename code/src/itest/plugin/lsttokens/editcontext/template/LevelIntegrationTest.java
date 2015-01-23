@@ -46,7 +46,7 @@ public class LevelIntegrationTest extends
 
 	static LevelToken token = new LevelToken();
 	static CDOMTokenLoader<PCTemplate> loader =
-			new CDOMTokenLoader<PCTemplate>(PCTemplate.class);
+			new CDOMTokenLoader<PCTemplate>();
 
 	private static boolean classSetUpFired = false;
 

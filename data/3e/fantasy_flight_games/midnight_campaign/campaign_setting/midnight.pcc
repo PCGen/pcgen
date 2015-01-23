@@ -42,8 +42,8 @@ EQUIPMENT:midnight_equip_weap_melee.lst
 EQUIPMENT:midnight_equip_magic_items.lst
 EQUIPMOD:midnight_equipmods.lst
 WEAPONPROF:midnight_weaponprofs.lst
-FEAT:midnight_feats.lst
-FEAT:midnight_feats_hidden.lst
+ABILITY:midnight_feats.lst
+ABILITY:midnight_feats_hidden.lst
 LANGUAGE:midnight_languages.lst
 RACE:midnight_races.lst
 RACE:midnight_races_monsters.lst

@@ -28,8 +28,8 @@ DEITY:codexarcanis_deities.lst
 DOMAIN:codexarcanis_domains.lst
 EQUIPMENT:codexarcanis_equip.lst
 EQUIPMOD:codexarcanis_equipmods.lst
-FEAT:codexarcanis_feats.lst
-FEAT:codexarcanis_feats_val.lst
+ABILITY:codexarcanis_feats.lst
+ABILITY:codexarcanis_feats_val.lst
 LANGUAGE:codexarcanis_language.lst
 RACE:codexarcanis_races.lst
 SKILL:codexarcanis_skills.lst

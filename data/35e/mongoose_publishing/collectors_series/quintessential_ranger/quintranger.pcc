@@ -43,8 +43,8 @@ COMPANIONMOD:quintranger_companionmods.lst
 EQUIPMOD:quintranger_eqmods.lst
 EQUIPMENT:quintranger_equip.lst
 
-FEAT:quintranger_feats.lst
-FEAT:quintranger_feat_mods.lst
+ABILITY:quintranger_feats.lst
+ABILITY:quintranger_feat_mods.lst
 
 KIT:quintranger_kits_animals.lst
 

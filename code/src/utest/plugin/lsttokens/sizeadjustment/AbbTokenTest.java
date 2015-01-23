@@ -32,8 +32,7 @@ public class AbbTokenTest extends AbstractTokenTestCase<SizeAdjustment>
 {
 	static AbbToken token = new AbbToken();
 
-	static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<SizeAdjustment>(
-			SizeAdjustment.class);
+	static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<SizeAdjustment>();
 
 	@Override
 	public Class<SizeAdjustment> getCDOMClass()

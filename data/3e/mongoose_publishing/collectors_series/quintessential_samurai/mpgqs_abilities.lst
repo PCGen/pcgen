@@ -18,40 +18,40 @@ Untouchable		CATEGORY:Special Ability	TYPE:ConceptSamurai.SpecialQuality	SOURCEP
 ###Block: Class
 # Sword School "Abilities"
 # Ability Name		Category of Ability		Type							Required Feat			Required Stat	Description									Source Page
-Cleaving Thunder I	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack		PREFEAT:1,Power Attack					DESC:Gain listed Techniques of the school for Tier I.		SOURCEPAGE:p.34
-Dazzling Cascade I	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack		PREFEAT:1,Improved Initiative				DESC:Gain listed Techniques of the school for Tier I.		SOURCEPAGE:p.34
-Parting Waves I		CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack		PREFEAT:1,Dodge						DESC:Gain listed Techniques of the school for Tier I.		SOURCEPAGE:p.34
-Returning Fortunes I	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack		PREFEAT:1,Quick Draw					DESC:Gain listed Techniques of the school for Tier I.		SOURCEPAGE:p.34
-Striking Spirit I		CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack		PREFEAT:1,Alertness					DESC:Gain listed Techniques of the school for Tier I.		SOURCEPAGE:p.34
+Cleaving Thunder I	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack		PREABILITY:1,CATEGORY=FEAT,Power Attack					DESC:Gain listed Techniques of the school for Tier I.		SOURCEPAGE:p.34
+Dazzling Cascade I	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack		PREABILITY:1,CATEGORY=FEAT,Improved Initiative				DESC:Gain listed Techniques of the school for Tier I.		SOURCEPAGE:p.34
+Parting Waves I		CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack		PREABILITY:1,CATEGORY=FEAT,Dodge						DESC:Gain listed Techniques of the school for Tier I.		SOURCEPAGE:p.34
+Returning Fortunes I	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack		PREABILITY:1,CATEGORY=FEAT,Quick Draw					DESC:Gain listed Techniques of the school for Tier I.		SOURCEPAGE:p.34
+Striking Spirit I		CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack		PREABILITY:1,CATEGORY=FEAT,Alertness					DESC:Gain listed Techniques of the school for Tier I.		SOURCEPAGE:p.34
 Trampling Dragon I	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack							PRESTAT:1,CHA=13	DESC:Gain listed Techniques of the school for Tier I.		SOURCEPAGE:p.34
-Unwavering Strike I	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack		PREFEAT:1,Weapon Finesse				DESC:Gain listed Techniques of the school for Tier I.		SOURCEPAGE:p.34
+Unwavering Strike I	CATEGORY:Special Ability	TYPE:SwordSchoolFeatI.SpecialAttack		PREABILITY:1,CATEGORY=FEAT,Weapon Finesse				DESC:Gain listed Techniques of the school for Tier I.		SOURCEPAGE:p.34
 
 # Second Tier
-Cleaving Thunder II	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	PREFEAT:1,Cleave						DESC:Gain listed Techniques of the school for Tier II.	SOURCEPAGE:p.34
-Dazzling Cascade II	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	PREFEAT:1,Combat Reflexes				DESC:Gain listed Techniques of the school for Tier II.	SOURCEPAGE:p.34
-Parting Waves II		CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	PREFEAT:1,Mobility					DESC:Gain listed Techniques of the school for Tier II.	SOURCEPAGE:p.34
-Returning Fortunes II	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	PREFEAT:1,Improved Initiative				DESC:Gain listed Techniques of the school for Tier II.	SOURCEPAGE:p.34
-Striking Spirit II	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	PREFEAT:1,Ki Activation					DESC:Gain listed Techniques of the school for Tier II.	SOURCEPAGE:p.34
-Trampling Dragon II	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	PREFEAT:1,Iron Will					DESC:Gain listed Techniques of the school for Tier II.	SOURCEPAGE:p.34
-Unwavering Strike II	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	PREFEAT:1,Weapon Focus					DESC:Gain listed Techniques of the school for Tier II.	SOURCEPAGE:p.34
+Cleaving Thunder II	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Cleave						DESC:Gain listed Techniques of the school for Tier II.	SOURCEPAGE:p.34
+Dazzling Cascade II	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Combat Reflexes				DESC:Gain listed Techniques of the school for Tier II.	SOURCEPAGE:p.34
+Parting Waves II		CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Mobility					DESC:Gain listed Techniques of the school for Tier II.	SOURCEPAGE:p.34
+Returning Fortunes II	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Improved Initiative				DESC:Gain listed Techniques of the school for Tier II.	SOURCEPAGE:p.34
+Striking Spirit II	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Ki Activation					DESC:Gain listed Techniques of the school for Tier II.	SOURCEPAGE:p.34
+Trampling Dragon II	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Iron Will					DESC:Gain listed Techniques of the school for Tier II.	SOURCEPAGE:p.34
+Unwavering Strike II	CATEGORY:Special Ability	TYPE:SwordSchoolFeatII.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Weapon Focus					DESC:Gain listed Techniques of the school for Tier II.	SOURCEPAGE:p.34
 
 # Third Tier
-Cleaving Thunder III	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	PREFEAT:1,Sunder						DESC:Gain listed Techniques of the school for Tier III.	SOURCEPAGE:p.35
-Dazzling Cascade III	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	PREFEAT:1,Lightning Reflexes				DESC:Gain listed Techniques of the school for Tier III.	SOURCEPAGE:p.35
-Parting Waves III		CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	PREFEAT:1,Spring Attack					DESC:Gain listed Techniques of the school for Tier III.	SOURCEPAGE:p.35
-Returning Fortunes III	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	PREFEAT:1,Combat Reflexes				DESC:Gain listed Techniques of the school for Tier III.	SOURCEPAGE:p.35
-Striking Spirit III	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	PREFEAT:1,Ki Channel					DESC:Gain listed Techniques of the school for Tier III.	SOURCEPAGE:p.35
-Trampling Dragon III	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	PREFEAT:1,Leadership					DESC:Gain listed Techniques of the school for Tier III.	SOURCEPAGE:p.35
-Unwavering Strike III	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	PREFEAT:1,Expertise					DESC:Gain listed Techniques of the school for Tier III.	SOURCEPAGE:p.35
+Cleaving Thunder III	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Sunder						DESC:Gain listed Techniques of the school for Tier III.	SOURCEPAGE:p.35
+Dazzling Cascade III	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Lightning Reflexes				DESC:Gain listed Techniques of the school for Tier III.	SOURCEPAGE:p.35
+Parting Waves III		CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Spring Attack					DESC:Gain listed Techniques of the school for Tier III.	SOURCEPAGE:p.35
+Returning Fortunes III	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Combat Reflexes				DESC:Gain listed Techniques of the school for Tier III.	SOURCEPAGE:p.35
+Striking Spirit III	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Ki Channel					DESC:Gain listed Techniques of the school for Tier III.	SOURCEPAGE:p.35
+Trampling Dragon III	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Leadership					DESC:Gain listed Techniques of the school for Tier III.	SOURCEPAGE:p.35
+Unwavering Strike III	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIII.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Expertise					DESC:Gain listed Techniques of the school for Tier III.	SOURCEPAGE:p.35
 
 # Forth Tier
-Cleaving Thunder IV	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	PREFEAT:1,Great Cleave					DESC:Gain listed Techniques of the school for Tier IV.	SOURCEPAGE:p.35
-Dazzling Cascade IV	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	PREFEAT:1,Expertise					DESC:Gain listed Techniques of the school for Tier IV.	SOURCEPAGE:p.35
-Parting Waves IV		CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	PREFEAT:1,Whirlwind Attack				DESC:Gain listed Techniques of the school for Tier IV.	SOURCEPAGE:p.35
-Returning Fortunes IV	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	PREFEAT:1,Expertise					DESC:Gain listed Techniques of the school for Tier IV.	SOURCEPAGE:p.35
-Striking Spirit IV	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	PREFEAT:1,Ki Capture					DESC:Gain listed Techniques of the school for Tier IV.	SOURCEPAGE:p.35
-Trampling Dragon IV	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	PREFEAT:1,Inner Calm					DESC:Gain listed Techniques of the school for Tier IV.	SOURCEPAGE:p.35
-Unwavering Strike IV	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	PREFEAT:1,Improved Critical				DESC:Gain listed Techniques of the school for Tier IV.	SOURCEPAGE:p.35
+Cleaving Thunder IV	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Great Cleave					DESC:Gain listed Techniques of the school for Tier IV.	SOURCEPAGE:p.35
+Dazzling Cascade IV	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Expertise					DESC:Gain listed Techniques of the school for Tier IV.	SOURCEPAGE:p.35
+Parting Waves IV		CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Whirlwind Attack				DESC:Gain listed Techniques of the school for Tier IV.	SOURCEPAGE:p.35
+Returning Fortunes IV	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Expertise					DESC:Gain listed Techniques of the school for Tier IV.	SOURCEPAGE:p.35
+Striking Spirit IV	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Ki Capture					DESC:Gain listed Techniques of the school for Tier IV.	SOURCEPAGE:p.35
+Trampling Dragon IV	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Inner Calm					DESC:Gain listed Techniques of the school for Tier IV.	SOURCEPAGE:p.35
+Unwavering Strike IV	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAttack	PREABILITY:1,CATEGORY=FEAT,Improved Critical				DESC:Gain listed Techniques of the school for Tier IV.	SOURCEPAGE:p.35
 
 
 ###Block: Prestige Classes
@@ -60,7 +60,7 @@ Unwavering Strike IV	CATEGORY:Special Ability	TYPE:SwordSchoolFeatIV.SpecialAtta
 Sworn Charge		KEY:Sworn Charge ~ Bodyguard			CATEGORY:Special Ability	TYPE:SpecialQuality																									SOURCEPAGE:p.14
 Reflexive Defence		KEY:Reflexive Defence ~ Bodyguard		CATEGORY:Special Ability	TYPE:SpecialQuality																									SOURCEPAGE:p.15
 Screen Defence		KEY:Screen Defence ~ Bodyguard		CATEGORY:Special Ability	TYPE:SpecialQuality																									SOURCEPAGE:p.15
-Undying Defence		KEY:Undying Defence ~ Bodyguard		CATEGORY:Special Ability	TYPE:SpecialQuality	AUTO:FEAT|Undying Defence																				SOURCEPAGE:p.15
+Undying Defence		KEY:Undying Defence ~ Bodyguard		CATEGORY:Special Ability	TYPE:SpecialQuality	ABILITY:FEAT|AUTOMATIC|Undying Defence																				SOURCEPAGE:p.15
 Acceptance of Pain	KEY:Acceptance of Pain ~ Bodyguard		CATEGORY:Special Ability	TYPE:SpecialQuality																									SOURCEPAGE:p.15
 
 # Delegate
@@ -94,7 +94,7 @@ Sword Saint			KEY:Sword Saint ~ Paragon			CATEGORY:Special Ability	TYPE:SpecialQ
 
 # Protector
 Detect Interloper		KEY:Detect Interloper ~ Protector		CATEGORY:Special Ability	TYPE:SpecialQuality																									SOURCEPAGE:p.23
-Track				KEY:Track ~ Protector				CATEGORY:Special Ability	TYPE:SpecialQuality	AUTO:FEAT|Track																						SOURCEPAGE:p.23
+Track				KEY:Track ~ Protector				CATEGORY:Special Ability	TYPE:SpecialQuality	ABILITY:FEAT|AUTOMATIC|Track																						SOURCEPAGE:p.23
 Intercept			KEY:Intercept ~ Protector			CATEGORY:Special Ability	TYPE:SpecialQuality																									SOURCEPAGE:p.23
 Brush Shot			KEY:Brush Shot ~ Protector			CATEGORY:Special Ability	TYPE:SpecialQuality																									SOURCEPAGE:p.24
 Ki Arrows			KEY:Ki Arrows ~ Protector			CATEGORY:Special Ability	TYPE:SpecialQuality																									SOURCEPAGE:p.24

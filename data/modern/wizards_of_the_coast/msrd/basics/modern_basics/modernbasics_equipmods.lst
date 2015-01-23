@@ -53,7 +53,7 @@ Wood				KEY:WOOD		NAMEOPT:NORMAL				TYPE:BaseMaterial.Mundane.Ammunition.Armor.S
 
 #Add Type							KEY:ADD_TYPE	TYPE:ALL			COST:0											NAMEOPT:NONAME		SOURCEPAGE:																																																									CHOOSE:Select desired TYPE(s)|TYPE=ALL
 
-Autofire			KEY:AUTOFIRE							TYPE:Automatic														VISIBLE:QUALIFY				REPLACES:DBLTAP	SOURCEPAGE:msrdequipmentweaponsandarmor																									BONUS:WEAPON|TOHIT|-4	BONUS:WEAPON|TOHIT|4|PREFEAT:1,Advanced Firearms Proficiency	SPROP:Adds 2 dice to damage.
+Autofire			KEY:AUTOFIRE							TYPE:Automatic														VISIBLE:QUALIFY				REPLACES:DBLTAP	SOURCEPAGE:msrdequipmentweaponsandarmor																									BONUS:WEAPON|TOHIT|-4	BONUS:WEAPON|TOHIT|4|PREABILITY:1,CATEGORY=FEAT,Advanced Firearms Proficiency	SPROP:Adds 2 dice to damage.
 Burst fire			KEY:BURSTFIRE							TYPE:Automatic														VISIBLE:QUALIFY							SOURCEPAGE:msrdequipmentweaponsandarmor	PRETYPE:1,EQMOD=AUTOFIRE																				BONUS:WEAPON|TOHIT|-4
 Double Tap fire		KEY:DBLTAP								TYPE:Semiauto														VISIBLE:QUALIFY				REPLACES:AUTOFIRE	SOURCEPAGE:msrdequipmentweaponsandarmor																									BONUS:WEAPON|TOHIT|-2												SPROP:Adds 1 die to damage.
 

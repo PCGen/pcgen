@@ -19,7 +19,7 @@ SUBCLASS:Nomad	COST:0	SPELLSTAT:DEX	CSKILL:Climb|Concentration|Escape Artist|Int
 #SUBCLASS:Nomad	CHOICE:SCHOOL|Psychoportation
 SUBCLASS:Telepath	COST:0	SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Concentration|Diplomacy|Gather Information|Knowledge (Psionics)|Psicraft|Remote View|Sense Motive
 #SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy
-# AUTO:FEAT|PsionicClass qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
+# ABILITY:FEAT|AUTOMATIC|PsionicClass qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
 # due to the use of "BL=Psion" (which provides the bonus caster levels applied to Psion) there are no
 # variables that need to be set or modified by PrC's to calculate correct points, it's all done here.
 # Use ADD:SPELLCASTER(Psionic) in PrC's that add to manifester level.
@@ -40,7 +40,7 @@ SUBCLASS:Telepath	COST:0	SPELLSTAT:CHA	CSKILL:Animal Empathy|Bluff|Concentration
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-7)/4))*2+13|PREVARGTEQ:PsionML,13	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-8)/4))*2+15|PREVARGTEQ:PsionML,15
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-9)/4))*2+17|PREVARGTEQ:PsionML,17	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-10)/4))*2+19|PREVARGTEQ:PsionML,19
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 ###Block: Powers per day
 1	BONUS:VAR|PsionFreePowers|classlevel("APPLIEDAS=NONEPIC")+var("BL=Psion")+3	ABILITY:Special Ability|AUTOMATIC|Psicrystal|PsionBasePowers
 ###Block: Level progression
@@ -80,9 +80,9 @@ CLASS:Psychic Warrior	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTER
 1	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:PsychicWarriorML,13	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:PsychicWarriorML,14	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:PsychicWarriorML,15	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsychicWarriorML,16
 1	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsychicWarriorML,17	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsychicWarriorML,18	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsychicWarriorML,19	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsychicWarriorML,20
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Powers per day
 1	BONUS:VAR|PsyWarFreePowers|classlevel("APPLIEDAS=NONEPIC")+var("BL=Psychic Warrior")+2	ABILITY:Special Ability|AUTOMATIC|PsychicWarriorBasePowers
 ###Block: Level progression
@@ -110,7 +110,7 @@ CLASS:Psychic Warrior	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTER
 # Class Name	Hit Dice	Type					Class Type			Max Level	Base class as subclass?	Source Page				Combat bonus										Save bonus																													Modify VAR
 CLASS:Metamind	HD:4		TYPE:PC.Psionic.Prestige	CLASSTYPE:Prestige	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:srdpsionicclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=Special Ability,Psicrystal
 # Class Name	Required Feat			Required Skill						Req. Spell Type
-CLASS:Metamind	PREFEAT:1,Inner Strength	PRESKILL:2,Psicraft=6,Knowledge (Psionics)=6	PRESPELLTYPE:1,Psionic=2	PRESPELLTYPE:2,Psionic=0
+CLASS:Metamind	PREABILITY:1,CATEGORY=FEAT,Inner Strength	PRESKILL:2,Psicraft=6,Knowledge (Psionics)=6	PRESPELLTYPE:1,Psionic=2	PRESPELLTYPE:2,Psionic=0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Metamind	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Knowledge (Psionics)|Psicraft|Remote View
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level								Use Spell List
@@ -188,7 +188,7 @@ SUBCLASS:Pyrokineticist(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[
 # Class Name	Hit Dice	Type					Class Type			Max Level	Source Page				Combat bonus										Save bonus
 CLASS:Slayer	HD:10		TYPE:PC.Psionic.Prestige	CLASSTYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:srdpsionicclasses	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat	Required Skill									Required Text																		PRETOTALAB		Var. Min. Value
-CLASS:Slayer	PREFEAT:1,Track	PRESKILL:2,Knowledge (Mortal Enemy Lore)=1,Wilderness Lore=4	PRETEXT:Must have killed a Mortal Enemy, either individually or as part of a group comprising no more than six members	PRETOTALAB:3	PREVARGTEQ:BasePowerPoints,3
+CLASS:Slayer	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:2,Knowledge (Mortal Enemy Lore)=1,Wilderness Lore=4	PRETEXT:Must have killed a Mortal Enemy, either individually or as part of a group comprising no more than six members	PRETOTALAB:3	PREVARGTEQ:BasePowerPoints,3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal Enemy Lore)|Listen|Psicraft|Sense Motive|Spot|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level								Use Spell List
@@ -206,9 +206,9 @@ CLASS:Slayer	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Sla
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-7)/4))*2+13|PREVARGTEQ:SlayerML,13	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-8)/4))*2+15|PREVARGTEQ:SlayerML,15
 1	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-9)/4))*2+17|PREVARGTEQ:SlayerML,17	BONUS:VAR|BonusPowerPoints|(floor((BASESPELLSTAT-10)/4))*2+19|PREVARGTEQ:SlayerML,19
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Level progression
 1				BONUS:ABILITYPOOL|Psionic Combat Mode|2							ABILITY:Special Ability|AUTOMATIC|Favored Enemy (Mortal Enemy)|Mortal Enemy Sense
 2																	ABILITY:Special Ability|AUTOMATIC|Brain Nausea
@@ -251,7 +251,7 @@ SUBCLASS:Soulknife(Cha)	CHOICE:SCHOOL|Telepathy			SPELLSTAT:CHA	PREMULT:1,[PRESU
 1	BONUS:VAR|MindBladeSneakAttack|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:VAR|MindBladeEnchantment|classlevel("APPLIEDAS=NONEPIC")/2	ABILITY:Special Ability|AUTOMATIC|Mind-Blade|Mind-Blade Sneak Attack	AUTO:EQUIP|Mind Blade
 2	BONUS:VAR|MindBladeRange|30																			ABILITY:Special Ability|AUTOMATIC|Throw Mind-Blade
 ###Block:Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Level progression
 1				BONUS:ABILITYPOOL|Psionic Combat Mode|2
 2																							ABILITY:Special Ability|AUTOMATIC|Imbed Power

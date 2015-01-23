@@ -331,11 +331,6 @@ public class CampaignSourceEntry implements SourceEntry
 					bracketLevel--;
 				}
 				currentTag += token;
-				if (bracketLevel == 0)
-				{
-					tagList.add(currentTag);
-					currentTag = "";
-				}
 			}
 			else if (token.equals("|"))
 			{
@@ -343,16 +338,22 @@ public class CampaignSourceEntry implements SourceEntry
 				{
 					currentTag += token;
 				}
-			}
-			else if (bracketLevel > 0)
-			{
-				currentTag += token;
+				else if (currentTag.length() > 0)
+				{
+					tagList.add(currentTag);
+					currentTag = "";
+				}
 			}
 			else
 			{
-				tagList.add(token);
+				currentTag += token;
 			}
 		}
+		if (currentTag.length() > 0)
+		{
+			tagList.add(currentTag);
+		}
+
 
 		// Check for a bracket mismatch
 		if (bracketLevel > 0)

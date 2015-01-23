@@ -104,17 +104,17 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Raven)	KIT:1|Raven Fami
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar			Type			Bonus to HP					Save bonus						Bonus to skill					Virtual Feat
-MASTERBONUSRACE:Familiar (Bat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bat)		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Cat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Cat)		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Hawk)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Hawk)	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Lizard)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Lizard)	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Monkey)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Monkey)	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Owl)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Owl)		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Rat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rat)		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Raven)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Raven)	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Viper)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Viper)	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Toad)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Toad)	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Weasel)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Weasel)	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Bat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bat)		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Cat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Cat)		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Hawk)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Hawk)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Lizard)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Lizard)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Monkey)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Monkey)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Owl)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Owl)		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Rat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rat)		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Raven)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Raven)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Viper)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Viper)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Toad)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Toad)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Weasel)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Weasel)	ABILITY:FEAT|VIRTUAL|Alertness
 #
 
 # Class of the Master		Type				Copy Masters BAB		Copy Masters Checks	HP formula based on Master
@@ -129,4 +129,4 @@ FOLLOWER:NormalFollower=1	TYPE:Follower
 # End
 #
 # Race of familiar				Type			Combat bonus					Virtual Feat
-MASTERBONUSRACE:Familiar (Compsognathus)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Compsognathus)	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Compsognathus)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Compsognathus)	ABILITY:FEAT|VIRTUAL|Alertness

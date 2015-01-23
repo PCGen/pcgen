@@ -37,8 +37,7 @@ public class NaturalAttacksIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	static NaturalattacksLst token = new NaturalattacksLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	@Before

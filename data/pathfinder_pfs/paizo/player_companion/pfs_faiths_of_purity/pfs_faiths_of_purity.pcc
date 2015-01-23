@@ -41,7 +41,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Faiths of Purity" Copy
 
 !PRECAMPAIGN:1,Faiths of Purity
 #PCC:@/pathfinder/paizo/player_companion/faiths_of_purity/faiths_of_purity.pcc
-FEAT:pfs_fop_feats.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Purity
+ABILITY:pfs_fop_feats.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Purity
 DEITY:pfs_fop_deities.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Purity
 ABILITY:pfs_fop_abilities.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Purity
 

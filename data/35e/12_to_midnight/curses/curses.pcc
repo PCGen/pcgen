@@ -35,7 +35,7 @@ ABILITYCATEGORY:curses_abilitycategories.lst
 CLASS:curses_classes.lst
 #FEAT:curses_feats_hidden.lst
 #Leaving Hidden Feat for homebrews
-FEAT:curses_feats.lst
+ABILITY:curses_feats.lst
 SKILL:curses_skills.lst
 SPELL:curses_spells.lst
 TEMPLATE:curses_templates.lst

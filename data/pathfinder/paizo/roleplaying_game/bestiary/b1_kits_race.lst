@@ -16,7 +16,7 @@ LANGBONUS:Draconic
 SKILL:Diplomacy			RANK:1
 SKILL:Heal				RANK:1
 SKILL:Knowledge (Religion)	RANK:1
-FEAT:Turn Undead
+ABILITY:CATEGORY=FEAT|Turn Undead
 STAT:STR=8|DEX=10|CON=14|INT=13|WIS=15|CHA=12
 GEAR:Scale Mail				LOCATION:Equipped
 GEAR:Mace (Heavy)				LOCATION:Primary Hand
@@ -41,10 +41,10 @@ SKILL:TYPE.Knowledge	RANK:8
 SKILL:Perception		RANK:8
 SKILL:Spellcraft		RANK:8
 SKILL:Swim			RANK:8
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Weapon Focus (Tentacle)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Focus (Tentacle)
 
 
 STARTPACK:Angel (Astral Deva) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Astral Deva)]	SOURCEPAGE:p.10
@@ -64,14 +64,14 @@ SKILL:Perception			RANK:15
 SKILL:Sense Motive		RANK:15
 SKILL:Stealth			RANK:13
 SKILL:Stealth			RANK:2	FREE:YES
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Toughness
-FEAT:Weapon Focus (Warhammer)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Warhammer)
 GEAR:Warhammer	SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS2W.DISRPT
 
 
@@ -91,15 +91,15 @@ SKILL:Knowledge (Religion)	RANK:17
 SKILL:Perception			RANK:17
 SKILL:Sense Motive		RANK:17
 SKILL:Stealth			RANK:17
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 GEAR:Greatsword	SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS3W.HOLY
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Earthquake
@@ -160,17 +160,17 @@ SKILL:Sense Motive		RANK:22
 SKILL:Spellcraft			RANK:22
 SKILL:Stealth			RANK:22
 SKILL:Survival			RANK:22
-FEAT:Cleave
-FEAT:Deadly Aim
-FEAT:Dodge
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Mobility
-FEAT:Power Attack
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Deadly Aim
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 GEAR:Full Plate			SIZE:L	LOCATION:Equipped		EQMOD:PLUS5A
 GEAR:Greatsword			SIZE:L	LOCATION:Both Hands	EQMOD:PLUS5W.DANCE
@@ -240,8 +240,8 @@ RACE:Ankheg	!PRERACE:1,%
 NAME:Ankheg
 SKILL:Climb		RANK:2
 SKILL:Perception	RANK:1
-FEAT:Skill Focus (Perception)
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -292,8 +292,8 @@ STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Acrobatics	RANK:1
 SKILL:Climb		RANK:1
 SKILL:Perception	RANK:1
-FEAT:Great Fortitude
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 
 STARTPACK:Ape (Dire) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ape (Dire)]	SOURCEPAGE:p.17
@@ -305,8 +305,8 @@ SKILL:Acrobatics	RANK:1
 SKILL:Climb		RANK:1
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Iron Will
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 
 STARTPACK:Archon (Hound) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Hound)],[!PRERACE:1,%]	SOURCEPAGE:p.19
@@ -319,9 +319,9 @@ SKILL:Perception		RANK:6
 SKILL:Sense Motive	RANK:6
 SKILL:Stealth		RANK:6
 SKILL:Survival		RANK:6
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 GEAR:Greatsword	LOCATION:Both Hands	EQMOD:MWORKW
 
@@ -335,7 +335,7 @@ SKILL:Fly				RANK:1
 SKILL:Knowledge (Planes)	RANK:2
 SKILL:Perception			RANK:1
 SKILL:Sense Motive		RANK:2
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
 
@@ -352,13 +352,13 @@ SKILL:Perception				RANK:14
 SKILL:Perform (Wind Instruments)	RANK:14
 SKILL:Sense Motive			RANK:14
 SKILL:Stealth				RANK:14
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Persuasive
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Persuasive
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Greatsword	LOCATION:Both Hands	EQMOD:PLUS4W
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Serious Wounds (Mass)
@@ -414,10 +414,10 @@ SKILL:Perception		RANK:7
 SKILL:Ride			RANK:7
 SKILL:Sense Motive	RANK:7
 SKILL:Stealth		RANK:7
-FEAT:Blind-Fight
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 GEAR:Scimitar			LOCATION:Primary Hand	EQMOD:PLUS1W
 GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:PLUS1W.BOWSTR|+5
@@ -436,13 +436,13 @@ SKILL:Knowledge (Planes)	RANK:13
 SKILL:Perception			RANK:13
 SKILL:Sense Motive		RANK:13
 SKILL:Stealth			RANK:13
-FEAT:Combat Casting
-FEAT:Combat Expertise
-FEAT:Dodge
-FEAT:Improved Disarm
-FEAT:Improved Initiative
-FEAT:Improved Trip
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Trip
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 GEAR:Greatsword	LOCATION:Both Hands	EQMOD:PLUS2W.HOLY
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Holy Word
@@ -489,10 +489,10 @@ SKILL:Perception				RANK:7
 SKILL:Perform (String Instruments)	RANK:7
 SKILL:Sense Motive			RANK:7
 SKILL:Survival				RANK:7
-FEAT:Combat Casting
-FEAT:Hover
-FEAT:Iron Will
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Longsword				SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS1W
 GEAR:Musical Instrument (Harp)	SIZE:PC	LOCATION:Carried		EQMOD:MWORKT
@@ -526,9 +526,9 @@ SKILL:Perception		RANK:6
 SKILL:Sense Motive	RANK:6
 SKILL:Stealth		RANK:6
 SKILL:Survival		RANK:6
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Great Fortitude
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -546,11 +546,11 @@ SKILL:Sense Motive	RANK:9
 SKILL:Stealth		RANK:9
 SKILL:Survival		RANK:9
 SKILL:Swim			RANK:9
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Great Fortitude
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -567,10 +567,10 @@ RACE:Basilisk	!PRERACE:1,%
 NAME:Basilisk
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:4
-FEAT:Blind-Fight
-FEAT:Great Fortitude
-FEAT:Iron Will
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
 
@@ -582,8 +582,8 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Fly		RANK:2
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Alertness
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Stealthy
 
 
 STARTPACK:Bat Swarm Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bat Swarm]	SOURCEPAGE:p.30
@@ -592,8 +592,8 @@ NAME:Bat Swarm
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:3
-FEAT:Lightning Reflexes
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 
 STARTPACK:Bear (Grizzly) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bear (Grizzly)],[!PRERACE:1,%]	SOURCEPAGE:p.31
@@ -603,9 +603,9 @@ NAME:Grizzly Bear
 SKILL:Perception	RANK:2
 SKILL:Survival	RANK:1
 SKILL:Swim		RANK:2
-FEAT:Endurance
-FEAT:Run
-FEAT:Skill Focus (Survival)
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Survival)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -615,11 +615,11 @@ RACE:Bear (Dire)	!PRERACE:1,%
 NAME:Dire Bear
 SKILL:Perception	RANK:5
 SKILL:Swim		RANK:5
-FEAT:Endurance
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Run
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -633,12 +633,12 @@ SKILL:Perception		RANK:12
 SKILL:Sense Motive	RANK:12
 SKILL:Stealth		RANK:12
 SKILL:Survival		RANK:12
-FEAT:Cleave
-FEAT:Improved Critical (Claw)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 
 
@@ -662,11 +662,11 @@ RACE:Behir	!PRERACE:1,%
 NAME:Behir
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:9
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Power Attack
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 
 
@@ -682,7 +682,7 @@ ALIGN:TN
 RACE:Boar	!PRERACE:1,%
 NAME:Boar
 SKILL:Perception	RANK:2
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -691,9 +691,9 @@ ALIGN:TN
 RACE:Boar (Dire)	!PRERACE:1,%
 NAME:Dire Boar
 SKILL:Perception	RANK:5
-FEAT:Improved Initiative
-FEAT:Skill Focus (Perception)
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -702,8 +702,8 @@ ALIGN:CE
 RACE:Boggard	!PRERACE:1,%
 NAME:Boggard
 SKILL:Acrobatics	RANK:3
-FEAT:Toughness
-FEAT:Weapon Focus (Morningstar)
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Morningstar)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 GEAR:Leather	LOCATION:Equipped
 GEAR:Morningstar	LOCATION:Both Hands
@@ -716,8 +716,8 @@ NAME:Bugbear
 SKILL:Intimidate	RANK:1
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:3
-FEAT:Intimidating Prowess
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Intimidating Prowess
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Morningstar				LOCATION:Primary Hand
 GEAR:Javelin			QTY:3	LOCATION:Carried
@@ -731,10 +731,10 @@ RACE:Bulette	!PRERACE:1,%
 NAME:Bulette
 SKILL:Acrobatics	RANK:4
 SKILL:Perception	RANK:4
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
 
@@ -745,8 +745,8 @@ NAME:Cheetah
 SKILL:Acrobatics	RANK:1
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Improved Initiative
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -757,8 +757,8 @@ NAME:Leopard
 SKILL:Acrobatics	RANK:1
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Skill Focus (Stealth)
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -778,8 +778,8 @@ SKILL:Intimidate			RANK:2
 SKILL:Knowledge (Nature)	RANK:4
 SKILL:Perception			RANK:2
 SKILL:Survival			RANK:4
-FEAT:Improved Initiative
-FEAT:Run
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Run
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 GEAR:Breastplate			SIZE:L	LOCATION:Equipped
 GEAR:Shield (Heavy/Steel)	SIZE:L	LOCATION:Equipped
@@ -850,11 +850,11 @@ NAME:Chimera
 SKILL:Fly		RANK:4
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:4
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Skill Focus (Perception)
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -864,8 +864,8 @@ RACE:Choker	!PRERACE:1,%
 NAME:Choker
 SKILL:Climb		RANK:2
 SKILL:Stealth	RANK:1
-FEAT:Improved Initiative
-FEAT:Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
 
@@ -878,11 +878,11 @@ SKILL:Perception			RANK:10
 SKILL:Sense Motive		RANK:5
 SKILL:Stealth			RANK:7
 SKILL:Swim				RANK:10
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 
 
@@ -896,9 +896,9 @@ SKILL:Knowledge (Religion)	RANK:6
 SKILL:Perception			RANK:6
 SKILL:Sense Motive		RANK:6
 SKILL:Stealth			RANK:6
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -908,9 +908,9 @@ RACE:Cockatrice	!PRERACE:1,%
 NAME:Cockatrice
 SKILL:Fly		RANK:2
 SKILL:Perception	RANK:3
-FEAT:Dodge
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -929,12 +929,12 @@ SKILL:Sense Motive		RANK:6
 SKILL:Spellcraft			RANK:12
 SKILL:Survival			RANK:12
 SKILL:Use Magic Device		RANK:12
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Empower Spell
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Empower Spell
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Monster
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Freedom of Movement
@@ -1016,8 +1016,8 @@ RACE:Crocodile	!PRERACE:1,%
 NAME:Crocodile
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:2
-FEAT:Skill Focus (Perception)
-FEAT:Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -1027,12 +1027,12 @@ RACE:Crocodile (Dire)	!PRERACE:1,%
 NAME:Dire Crocodile
 SKILL:Perception	RANK:6
 SKILL:Stealth	RANK:6
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Run
-FEAT:Skill Focus (Perception)
-FEAT:Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -1044,11 +1044,11 @@ SKILL:Intimidate			RANK:7
 SKILL:Profession (Soothsayer)	RANK:6
 SKILL:Sense Motive		RANK:2
 SKILL:Survival			RANK:2
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 GEAR:Hide			SIZE:L	LOCATION:Equipped
 GEAR:Greataxe		SIZE:L	LOCATION:Both Hands
@@ -1061,8 +1061,8 @@ NAME:Dark Creeper
 SKILL:Climb			RANK:1
 SKILL:Sleight of Hand	RANK:1
 SKILL:Stealth		RANK:1
-FEAT:Skill Focus (Sleight of Hand)
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Skill Focus (Sleight of Hand)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 GEAR:Rag Armor (Dark Creeper)				LOCATION:Equipped
 GEAR:Dagger					SIZE:S	LOCATION:Primary Hand
@@ -1076,9 +1076,9 @@ NAME:Dark Stalker
 SKILL:Climb			RANK:1
 SKILL:Perception		RANK:4
 SKILL:Sleight of Hand	RANK:1
-FEAT:Double Slice
-FEAT:Two-Weapon Fighting
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Double Slice
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 GEAR:Leather				LOCATION:Equipped
 GEAR:Sword (Short)			LOCATION:Primary Hand
@@ -1091,7 +1091,7 @@ ALIGN:TN
 RACE:Darkmantle	!PRERACE:1,%
 NAME:Darkmantle
 SKILL:Fly	RANK:2
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
 
@@ -1107,10 +1107,10 @@ SKILL:Perception		RANK:7
 SKILL:Sense Motive	RANK:7
 SKILL:Sleight of Hand	RANK:7
 SKILL:Stealth		RANK:7
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 GEAR:Longspear	LOCATION:Both Hands
 
@@ -1132,16 +1132,16 @@ SKILL:Perception			RANK:20
 SKILL:Sense Motive		RANK:20
 SKILL:Stealth			RANK:20
 SKILL:Use Magic Device		RANK:20
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Greater Two-Weapon Fighting
-FEAT:Improved Initiative
-FEAT:Improved Two-Weapon Fighting
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability ~ Spell (Telekinesis)
-FEAT:Two-Weapon Fighting
-FEAT:Weapon Focus (Longsword)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Greater Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Telekinesis)
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 GEAR:Longsword	SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS1W.VORPAL.UNHOLY
 GEAR:Whip		SIZE:L	LOCATION:Secondary Hand	EQMOD:PLUS1W.VORPAL.FLAME
@@ -1154,7 +1154,7 @@ NAME:Dretch
 SKILL:Escape Artist	RANK:2
 SKILL:Perception		RANK:2
 SKILL:Stealth		RANK:2
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 
 
@@ -1171,12 +1171,12 @@ SKILL:Perception			RANK:12
 SKILL:Sense Motive		RANK:12
 SKILL:Stealth			RANK:12
 SKILL:Use Magic Device		RANK:12
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Critical (Pincer)
-FEAT:Persuasive
-FEAT:Power Attack
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical (Pincer)
+ABILITY:CATEGORY=FEAT|Persuasive
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -1192,11 +1192,11 @@ SKILL:Perception			RANK:10
 SKILL:Spellcraft			RANK:10
 SKILL:Stealth			RANK:10
 SKILL:Swim				RANK:10
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -1214,14 +1214,14 @@ SKILL:Perception			RANK:16
 SKILL:Sense Motive		RANK:16
 SKILL:Stealth			RANK:16
 SKILL:Use Magic Device		RANK:16
-FEAT:Bleeding Critical
-FEAT:Combat Expertise
-FEAT:Combat Reflexes
-FEAT:Critical Focus
-FEAT:Improved Critical (Longsword)
-FEAT:Improved Disarm
-FEAT:Power Attack
-FEAT:Weapon Focus (Longsword)
+ABILITY:CATEGORY=FEAT|Bleeding Critical
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Improved Critical (Longsword)
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 GEAR:Longsword		SIZE:L	LOCATION:Primary Hand
 GEAR:Longsword	QTY:5	SIZE:L	LOCATION:Carried
@@ -1239,11 +1239,11 @@ SKILL:Perception			RANK:9
 SKILL:Sense Motive		RANK:9
 SKILL:Stealth			RANK:9
 SKILL:Survival			RANK:9
-FEAT:Cleave
-FEAT:Combat Expertise
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 
 
@@ -1263,13 +1263,13 @@ SKILL:Sense Motive		RANK:14
 SKILL:Spellcraft			RANK:14
 SKILL:Stealth			RANK:14
 SKILL:Use Magic Device		RANK:14
-FEAT:Awesome Blow
-FEAT:Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 
 
@@ -1283,8 +1283,8 @@ SKILL:Intimidate			RANK:3
 SKILL:Knowledge (Planes)	RANK:3
 SKILL:Perception			RANK:3
 SKILL:Stealth			RANK:3
-FEAT:Improved Initiative
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 
 
@@ -1300,10 +1300,10 @@ SKILL:Knowledge (Planes)	RANK:6
 SKILL:Perception			RANK:7
 SKILL:Sense Motive		RANK:7
 SKILL:Stealth			RANK:7
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 
 
@@ -1322,10 +1322,10 @@ SKILL:Knowledge (Local)	RANK:8
 SKILL:Perception		RANK:8
 SKILL:Sense Motive	RANK:8
 SKILL:Stealth		RANK:8
-FEAT:Agile Maneuvers
-FEAT:Combat Reflexes
-FEAT:Iron Will
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Agile Maneuvers
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 
 
@@ -1341,11 +1341,11 @@ SKILL:Sense Motive		RANK:9
 SKILL:Spellcraft			RANK:9
 SKILL:Stealth			RANK:9
 SKILL:Survival			RANK:9
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -1355,8 +1355,8 @@ RACE:Derro	!PRERACE:1,%
 NAME:Derro
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
-FEAT:Improved Initiative
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 GEAR:Leather						SIZE:S	LOCATION:Equipped
 GEAR:Sword (Short)					SIZE:S	LOCATION:Both Hands
@@ -1379,12 +1379,12 @@ SKILL:Sense Motive		RANK:12
 SKILL:Spellcraft			RANK:8
 SKILL:Stealth			RANK:4
 SKILL:Survival			RANK:12
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Improved Critical (Claw)
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
 
@@ -1397,9 +1397,9 @@ SKILL:Intimidate		RANK:4
 SKILL:Perception		RANK:6
 SKILL:Sense Motive	RANK:2
 SKILL:Stealth		RANK:6
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Weapon Focus (Glaive)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Glaive)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 GEAR:Glaive	SIZE:M	LOCATION:Both Hands
 
@@ -1417,11 +1417,11 @@ SKILL:Perception			RANK:10
 SKILL:Sense Motive		RANK:10
 SKILL:Spellcraft			RANK:10
 SKILL:Stealth			RANK:10
-FEAT:Alertness
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Quicken Spell-Like Ability ~ Spell (Invisibility)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Invisibility)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
 
@@ -1440,11 +1440,11 @@ SKILL:Knowledge (Religion)	RANK:6
 SKILL:Perception			RANK:9
 SKILL:Sense Motive		RANK:3
 SKILL:Stealth			RANK:6
-FEAT:Combat Reflexes
-FEAT:Point-Blank Shot
-FEAT:Precise Shot
-FEAT:Rapid Shot
-FEAT:Shot on the Run
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Precise Shot
+ABILITY:CATEGORY=FEAT|Rapid Shot
+ABILITY:CATEGORY=FEAT|Shot on the Run
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Longsword			LOCATION:Both Hands	EQMOD:PLUS1W
 GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:PLUS1W.FLAME.BOWSTR|+5
@@ -1464,14 +1464,14 @@ SKILL:Perception			RANK:15
 SKILL:Sense Motive		RANK:12
 SKILL:Spellcraft			RANK:15
 SKILL:Stealth			RANK:15
-FEAT:Improved Bull Rush
-FEAT:Improved Sunder
-FEAT:Improved Vital Strike
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Vital Strike
-FEAT:Weapon Focus (Chain (Spiked))
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
+ABILITY:CATEGORY=FEAT|Weapon Focus (Chain (Spiked))
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 GEAR:Chain (Spiked)	SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS1W.UNHOLY
 
@@ -1494,13 +1494,13 @@ SKILL:Sense Motive		RANK:14
 SKILL:Spellcraft			RANK:14
 SKILL:Stealth			RANK:14
 SKILL:Survival			RANK:14
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Weapon Focus (Spear)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Spear)
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 GEAR:Spear	SIZE:L	LOCATION:Both Hands	EQMOD:PLUS1W.FROST
 
@@ -1516,8 +1516,8 @@ SKILL:Knowledge (Arcana)	RANK:3
 SKILL:Knowledge (Planes)	RANK:3
 SKILL:Perception			RANK:3
 SKILL:Spellcraft			RANK:3
-FEAT:Dodge
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
 
@@ -1547,16 +1547,16 @@ SKILL:Spellcraft			RANK:20
 SKILL:Stealth			RANK:20
 SKILL:Survival			RANK:12
 SKILL:Use Magic Device		RANK:20
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Initiative
-FEAT:Improved Iron Will
-FEAT:Improved Vital Strike
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability ~ Spell(Fireball)
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell(Fireball)
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -1574,13 +1574,13 @@ SKILL:Spellcraft			RANK:14
 SKILL:Stealth			RANK:4
 SKILL:Knowledge (Arcana)	RANK:14
 SKILL:Knowledge (Planes)	RANK:14
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Casting
-FEAT:Combat Expertise
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 
 
@@ -1589,11 +1589,11 @@ ALIGN:TN
 RACE:Dinosaur (Ankylosaurus)	!PRERACE:1,%
 NAME:Ankylosaurus
 SKILL:Perception	RANK:10
-FEAT:Great Fortitude
-FEAT:Improved Bull Rush
-FEAT:Improved Overrun
-FEAT:Power Attack
-FEAT:Weapon Focus (Tail)
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Tail)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -1602,15 +1602,15 @@ ALIGN:TN
 RACE:Dinosaur (Brachiosaurus)	!PRERACE:1,%
 NAME:Brachiosaurus
 SKILL:Perception	RANK:18
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Greater Overrun
-FEAT:Improved Bull Rush
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Focus (Tail)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Greater Overrun
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Tail)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -1620,8 +1620,8 @@ RACE:Dinosaur (Deinonychus)	!PRERACE:1,%
 NAME:Deinonychus
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:2
-FEAT:Improved Initiative
-FEAT:Run
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Run
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -1630,11 +1630,11 @@ ALIGN:TN
 RACE:Dinosaur (Elasmosaurus)	!PRERACE:1,%
 NAME:Elasmosaurus
 SKILL:Perception	RANK:10
-FEAT:Dodge
-FEAT:Great Fortitude
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
@@ -1643,9 +1643,9 @@ ALIGN:TN
 RACE:Dinosaur (Pteranodon)	!PRERACE:1,%
 NAME:Pteranodon
 SKILL:Perception	RANK:5
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -1654,12 +1654,12 @@ ALIGN:TN
 RACE:Dinosaur (Stegosaurus)	!PRERACE:1,%
 NAME:Stegosaurus
 SKILL:Perception	RANK:12
-FEAT:Cleave
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Improved Overrun
-FEAT:Power Attack
-FEAT:Weapon Focus (Tail)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Tail)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -1668,13 +1668,13 @@ ALIGN:TN
 RACE:Dinosaur (Triceratops)	!PRERACE:1,%
 NAME:Triceratops
 SKILL:Perception	RANK:14
-FEAT:Great Fortitude
-FEAT:Improved Bull Rush
-FEAT:Improved Critical (Gore)
-FEAT:Power Attack
-FEAT:Run
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Focus (Gore)
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Gore)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Gore)
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 
 
@@ -1684,15 +1684,15 @@ NAME:Tyrannosaurus
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:18
-FEAT:Bleeding Critical
-FEAT:Critical Focus
-FEAT:Diehard
-FEAT:Endurance
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Run
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Bleeding Critical
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Diehard
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 
 STARTPACK:Dog Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dog]	SOURCEPAGE:p.87
@@ -1701,7 +1701,7 @@ NAME:Dog
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:1
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 
 STARTPACK:Dog (Riding) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dog (Riding)]	SOURCEPAGE:p.87
@@ -1711,7 +1711,7 @@ ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Acrobatics	RANK:1
 SKILL:Perception	RANK:1
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 
 STARTPACK:Dolphin Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dolphin]	SOURCEPAGE:p.88
@@ -1721,7 +1721,7 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:1
 SKILL:Swim		RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Dolphin (Orca) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dolphin (Orca)],[!PRERACE:1,%]	SOURCEPAGE:p.88
@@ -1730,11 +1730,11 @@ RACE:Dolphin (Orca)	!PRERACE:1,%
 NAME:Orca
 SKILL:Perception	RANK:3
 SKILL:Swim		RANK:6
-FEAT:Endurance
-FEAT:Improved Initiative
-FEAT:Skill Focus (Perception)
-FEAT:Skill Focus (Swim)
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Swim)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
 
@@ -1748,8 +1748,8 @@ SKILL:Disguise		RANK:4
 SKILL:Perception		RANK:4
 SKILL:Sense Motive	RANK:4
 SKILL:Stealth		RANK:1
-FEAT:Dodge
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Fortitude
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 
 STARTPACK:Dragon Age 01 ~ Wyrmling	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
@@ -1812,10 +1812,10 @@ SKILL:Intimidate		RANK:8
 SKILL:Perception		RANK:8
 SKILL:Stealth		RANK:8
 SKILL:Swim			RANK:8
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Skill Focus (Stealth)
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -1833,13 +1833,13 @@ SKILL:Perception			RANK:14
 SKILL:Spellcraft			RANK:14
 SKILL:Stealth			RANK:14
 SKILL:Swim				RANK:14
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Improved Vital Strike
-FEAT:Power Attack
-FEAT:Skill Focus (Stealth)
-FEAT:Vital Strike
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Vital Strike
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Giant
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alarm
@@ -1868,17 +1868,17 @@ SKILL:Perception			RANK:22
 SKILL:Spellcraft			RANK:22
 SKILL:Stealth			RANK:22
 SKILL:Swim				RANK:22
-FEAT:Alertness
-FEAT:Combat Expertise
-FEAT:Flyby Attack
-FEAT:Greater Vital Strike
-FEAT:Improved Initiative
-FEAT:Improved Vital Strike
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Skill Focus (Stealth)
-FEAT:Vital Strike
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Greater Vital Strike
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Vital Strike
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Giant|Goblin|Orc
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cone of Cold
@@ -1924,11 +1924,11 @@ SKILL:Knowledge (Local)	RANK:10
 SKILL:Perception		RANK:10
 SKILL:Stealth		RANK:10
 SKILL:Survival		RANK:10
-FEAT:Dazzling Display
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Shatter Defenses
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Dazzling Display
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Shatter Defenses
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common
 
@@ -1948,14 +1948,14 @@ SKILL:Perception			RANK:16
 SKILL:Spellcraft			RANK:16
 SKILL:Stealth			RANK:16
 SKILL:Survival			RANK:16
-FEAT:Combat Casting
-FEAT:Dazzling Display
-FEAT:Deadly Stroke
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Shatter Defenses
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Dazzling Display
+ABILITY:CATEGORY=FEAT|Deadly Stroke
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Shatter Defenses
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Auran|Common|Giant
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
@@ -1987,18 +1987,18 @@ SKILL:Perception			RANK:24
 SKILL:Spellcraft			RANK:24
 SKILL:Stealth			RANK:24
 SKILL:Survival			RANK:24
-FEAT:Combat Casting
-FEAT:Dazzling Display
-FEAT:Deadly Stroke
-FEAT:Extend Spell
-FEAT:Hover
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Quicken Spell
-FEAT:Silent Spell
-FEAT:Shatter Defenses
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Dazzling Display
+ABILITY:CATEGORY=FEAT|Deadly Stroke
+ABILITY:CATEGORY=FEAT|Extend Spell
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Silent Spell
+ABILITY:CATEGORY=FEAT|Shatter Defenses
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Auran|Common|Giant|Ignan|Infernal
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Forceful Hand
@@ -2048,11 +2048,11 @@ SKILL:Spellcraft			RANK:9
 SKILL:Stealth			RANK:9
 SKILL:Survival			RANK:9
 SKILL:Swim				RANK:9
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common
 
@@ -2072,14 +2072,14 @@ SKILL:Stealth			RANK:15
 SKILL:Survival			RANK:15
 SKILL:Swim				RANK:15
 SKILL:Use Magic Device		RANK:15
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Flyby Attack
-FEAT:Improved Critical (Bite)
-FEAT:Improved Critical (Claw)
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Great Cleave
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Elven|Sylvan
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alter Self
@@ -2113,18 +2113,18 @@ SKILL:Stealth			RANK:23
 SKILL:Survival			RANK:23
 SKILL:Swim				RANK:23
 SKILL:Use Magic Device		RANK:23
-FEAT:Alertness
-FEAT:Bleeding Critical
-FEAT:Cleave
-FEAT:Critical Focus
-FEAT:Flyby Attack
-FEAT:Improved Critical (Bite)
-FEAT:Improved Critical (Claw)
-FEAT:Improved Sunder
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Great Cleave
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Bleeding Critical
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Abyssal|Common|Elven|Giant|Sylvan
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disintegrate
@@ -2171,12 +2171,12 @@ SKILL:Intimidate		RANK:11
 SKILL:Perception		RANK:11
 SKILL:Sense Motive	RANK:11
 SKILL:Stealth		RANK:11
-FEAT:Cleave
-FEAT:Improved Initiative
-FEAT:Improved Vital Strike
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
@@ -2202,15 +2202,15 @@ SKILL:Perception			RANK:17
 SKILL:Sense Motive		RANK:17
 SKILL:Spellcraft			RANK:17
 SKILL:Stealth			RANK:17
-FEAT:Cleave
-FEAT:Greater Vital Strike
-FEAT:Improved Initiative
-FEAT:Improved Iron Will
-FEAT:Improved Vital Strike
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Greater Vital Strike
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Dwarven|Orc
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
@@ -2248,19 +2248,19 @@ SKILL:Perception			RANK:25
 SKILL:Sense Motive		RANK:25
 SKILL:Spellcraft			RANK:25
 SKILL:Stealth			RANK:25
-FEAT:Cleave
-FEAT:Critical Focus
-FEAT:Greater Vital Strike
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Improved Iron Will
-FEAT:Improved Vital Strike
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Quicken Spell
-FEAT:Staggering Critical
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Greater Vital Strike
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Staggering Critical
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Abyssal|Common|Dwarven|Giant|Orc
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Limited Wish
@@ -2312,10 +2312,10 @@ SKILL:Intimidate	RANK:7
 SKILL:Perception	RANK:7
 SKILL:Stealth	RANK:7
 SKILL:Swim		RANK:7
-FEAT:Alertness
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -2332,13 +2332,13 @@ SKILL:Perception			RANK:13
 SKILL:Spellcraft			RANK:13
 SKILL:Stealth			RANK:13
 SKILL:Swim				RANK:13
-FEAT:Alertness
-FEAT:Flyby Attack
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Vital Strike
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
@@ -2364,17 +2364,17 @@ SKILL:Sense Motive		RANK:21
 SKILL:Spellcraft			RANK:21
 SKILL:Stealth			RANK:21
 SKILL:Swim				RANK:21
-FEAT:Alertness
-FEAT:Flyby Attack
-FEAT:Greater Vital Strike
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Improved Vital Strike
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Vital Strike
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Greater Vital Strike
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Monster
@@ -2413,10 +2413,10 @@ SKILL:Heal			RANK:8
 SKILL:Linguistics		RANK:8
 SKILL:Perception		RANK:8
 SKILL:Sense Motive	RANK:8
-FEAT:Alertness
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Spell Focus (Enchantment)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Spell Focus (Enchantment)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Person
@@ -2442,13 +2442,13 @@ SKILL:Perception		RANK:14
 SKILL:Sense Motive	RANK:14
 SKILL:Spellcraft		RANK:14
 SKILL:Survival		RANK:14
-FEAT:Alertness
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Greater Spell Focus (Enchantment)
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Spell Focus (Enchantment)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Greater Spell Focus (Enchantment)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Spell Focus (Enchantment)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Hold Person
@@ -2487,17 +2487,17 @@ SKILL:Perception			RANK:22
 SKILL:Sense Motive		RANK:22
 SKILL:Spellcraft			RANK:22
 SKILL:Survival			RANK:22
-FEAT:Alertness
-FEAT:Flyby Attack
-FEAT:Greater Spell Focus (Enchantment)
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Improved Vital Strike
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Quicken Spell
-FEAT:Spell Focus (Enchantment)
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Greater Spell Focus (Enchantment)
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Spell Focus (Enchantment)
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Teleport (Greater)
@@ -2553,11 +2553,11 @@ SKILL:Sense Motive		RANK:10
 SKILL:Spellcraft			RANK:10
 SKILL:Stealth			RANK:10
 SKILL:Swim				RANK:10
-FEAT:Alertness
-FEAT:Flyby Attack
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Aquan|Common|Elven
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alarm
@@ -2585,14 +2585,14 @@ SKILL:Sense Motive		RANK:16
 SKILL:Spellcraft			RANK:16
 SKILL:Stealth			RANK:16
 SKILL:Swim				RANK:16
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Vital Strike
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Aquan|Common|Elven|Gnome
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
@@ -2630,18 +2630,18 @@ SKILL:Sense Motive		RANK:24
 SKILL:Spellcraft			RANK:24
 SKILL:Stealth			RANK:24
 SKILL:Swim				RANK:24
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Hover
-FEAT:Improved Critical (Bite)
-FEAT:Improved Critical (Claw)
-FEAT:Improved Initiative
-FEAT:Improved Vital Strike
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Aquan|Common|Elven|Gnome
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Spell Turning
@@ -2691,11 +2691,11 @@ SKILL:Perform (Comedy)	RANK:9
 SKILL:Sense Motive	RANK:9
 SKILL:Stealth		RANK:9
 SKILL:Use Magic Device	RANK:9
-FEAT:Combat Expertise
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Improved Trip
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Trip
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Gnome
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alarm
@@ -2722,14 +2722,14 @@ SKILL:Sense Motive	RANK:15
 SKILL:Spellcraft		RANK:15
 SKILL:Stealth		RANK:15
 SKILL:Use Magic Device	RANK:15
-FEAT:Combat Expertise
-FEAT:Greater Trip
-FEAT:Improved Critical (Bite)
-FEAT:Improved Critical (Claw)
-FEAT:Improved Initiative
-FEAT:Improved Trip
-FEAT:Power Attack
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Greater Trip
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Trip
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Elven|Gnome|Halfling
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
@@ -2769,18 +2769,18 @@ SKILL:Sense Motive		RANK:23
 SKILL:Spellcraft			RANK:23
 SKILL:Stealth			RANK:23
 SKILL:Use Magic Device		RANK:23
-FEAT:Combat Expertise
-FEAT:Improved Disarm
-FEAT:Greater Trip
-FEAT:Improved Critical (Bite)
-FEAT:Improved Critical (Claw)
-FEAT:Improved Initiative
-FEAT:Improved Trip
-FEAT:Improved Vital Strike
-FEAT:Power Attack
-FEAT:Quicken Spell
-FEAT:Spell Focus (Illusion)
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Greater Trip
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Trip
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Spell Focus (Illusion)
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Dwarven|Elven|Giant|Gnome|Halfling
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Reverse Gravity
@@ -2836,12 +2836,12 @@ SKILL:Perception			RANK:12
 SKILL:Sense Motive		RANK:12
 SKILL:Spellcraft			RANK:12
 SKILL:Swim				RANK:12
-FEAT:Alertness
-FEAT:Improved Critical (Claw)
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Elven|Halfling
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
@@ -2869,15 +2869,15 @@ SKILL:Perception			RANK:18
 SKILL:Sense Motive		RANK:18
 SKILL:Spellcraft			RANK:18
 SKILL:Swim				RANK:18
-FEAT:Alertness
-FEAT:Critical Focus
-FEAT:Extend Spell
-FEAT:Improved Critical (Bite)
-FEAT:Improved Critical (Claw)
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Extend Spell
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Elven|Halfling|Celestial
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
@@ -2915,19 +2915,19 @@ SKILL:Perception			RANK:26
 SKILL:Sense Motive		RANK:26
 SKILL:Spellcraft			RANK:26
 SKILL:Swim				RANK:26
-FEAT:Alertness
-FEAT:Critical Focus
-FEAT:Extend Spell
-FEAT:Improved Critical (Bite)
-FEAT:Improved Critical (Claw)
-FEAT:Improved Critical (Wing)
-FEAT:Improved Critical (Tail)
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Quicken Spell
-FEAT:Staggering Critical
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Extend Spell
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical (Wing)
+ABILITY:CATEGORY=FEAT|Improved Critical (Tail)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Staggering Critical
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Elven|Halfling|Celestial
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Teleport (Greater)
@@ -2978,12 +2978,12 @@ SKILL:Knowledge (Local)	RANK:11
 SKILL:Perception		RANK:11
 SKILL:Sense Motive	RANK:11
 SKILL:Spellcraft		RANK:11
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Auran|Common|Giant
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alarm
@@ -3011,15 +3011,15 @@ SKILL:Knowledge (Nobility)	RANK:17
 SKILL:Perception			RANK:17
 SKILL:Sense Motive		RANK:17
 SKILL:Spellcraft			RANK:17
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Vital Strike
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Auran|Common|Dwarven|Giant|Terran
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
@@ -3060,19 +3060,19 @@ SKILL:Knowledge (Planes)	RANK:25
 SKILL:Perception			RANK:25
 SKILL:Sense Motive		RANK:25
 SKILL:Spellcraft			RANK:25
-FEAT:Critical Focus
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Quicken Spell
-FEAT:Skill Focus (Fly)
-FEAT:Vital Strike
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell
+ABILITY:CATEGORY=FEAT|Skill Focus (Fly)
+ABILITY:CATEGORY=FEAT|Vital Strike
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Auran|Common|Dwarven|Elven|Halfling|Giant|Terran
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Holy Word
@@ -3125,12 +3125,12 @@ SKILL:Sense Motive	RANK:12
 SKILL:Stealth		RANK:12
 SKILL:Survival		RANK:12
 SKILL:Swim			RANK:12
-FEAT:Awesome Blow
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 
 
 STARTPACK:Drider Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Drider],[!PRERACE:1,%]	SOURCEPAGE:p.113
@@ -3142,11 +3142,11 @@ SKILL:Knowledge (Arcana)	RANK:9
 SKILL:Perception			RANK:9
 SKILL:Spellcraft			RANK:9
 SKILL:Stealth			RANK:9
-FEAT:Blind-Fight
-FEAT:Dodge
-FEAT:Combat Casting
-FEAT:Weapon Focus (Bite)
-FEAT:Weapon Focus (Mace (Heavy))
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Mace (Heavy))
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 GEAR:Mace (Heavy)					LOCATION:Both Hands	EQMOD:MWORKW
 GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:MWORKW.BOWSTR|+2
@@ -3223,7 +3223,7 @@ ABILITY:CATEGORY=Favored Class|Warrior
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Leather					SIZE:M	LOCATION:Equipped
 GEAR:Shield (Light/Steel)			SIZE:M	LOCATION:Equipped
 GEAR:Rapier						SIZE:M	LOCATION:Primary Hand
@@ -3246,8 +3246,8 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank (Spellcraf
 ABILITY:CATEGORY=Special Ability|Channel Negative Energy
 SKILL:Knowledge (Religion)	RANK:3
 SKILL:Sense Motive		RANK:3
-FEAT:Channel Smite
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Channel Smite
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=12|DEX=13|CON=14|INT=8|WIS=15|CHA=10
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Death Knell|Hold Person|Silence
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless|Cause Fear|Cure Light Wounds|Protection from Law
@@ -3274,9 +3274,9 @@ SKILL:Knowledge (Nature)	RANK:6
 SKILL:Perception			RANK:6
 SKILL:Stealth			RANK:6
 SKILL:Survival			RANK:6
-FEAT:Great Fortitude
-FEAT:Stealthy
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Stealthy
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 GEAR:Dagger						LOCATION:Carried
 GEAR:Longbow (Composite +0)			LOCATION:Both Hands	EQMOD:MWORKW
@@ -3292,7 +3292,7 @@ ABILITY:CATEGORY=Favored Class|Warrior
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Intimidate	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Weapon Focus (Warhammer)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Warhammer)
 STAT:STR=12|DEX=9|CON=13|INT=10|WIS=11|CHA=8
 GEAR:Chainmail			LOCATION:Equipped
 GEAR:Shield (Heavy/Steel)	LOCATION:Equipped
@@ -3306,7 +3306,7 @@ NAME:Eagle
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Fly	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Eagle (Giant) Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Eagle (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.118
@@ -3315,8 +3315,8 @@ RACE:Eagle (Giant)	!PRERACE:1,%
 NAME:Giant Eagle
 SKILL:Fly		RANK:4
 SKILL:Perception	RANK:4
-FEAT:Alertness
-FEAT:Flyby Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Flyby Attack
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
@@ -3326,7 +3326,7 @@ RACE:Eel (Electric)	!PRERACE:1,%
 NAME:Electric Eel
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -3336,10 +3336,10 @@ RACE:Eel (Giant Moray)	!PRERACE:1,%
 NAME:Giant Moray Eel
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:4
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Skill Focus (Stealth)
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 
 
@@ -3354,7 +3354,7 @@ SKILL:Fly				RANK:1
 SKILL:Knowledge (Planes)	RANK:1
 SKILL:Perception			RANK:1
 SKILL:Stealth			RANK:1
-FEAT:Flyby Attack
+ABILITY:CATEGORY=FEAT|Flyby Attack
 
 
 STARTPACK:Elemental (Air/Medium) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Medium)]	SOURCEPAGE:p.120
@@ -3368,8 +3368,8 @@ SKILL:Fly				RANK:1
 SKILL:Knowledge (Planes)	RANK:1
 SKILL:Perception			RANK:4
 SKILL:Stealth			RANK:2
-FEAT:Dodge
-FEAT:Flyby Attack
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
 
 
 STARTPACK:Elemental (Air/Large) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Large)]	SOURCEPAGE:p.120
@@ -3383,10 +3383,10 @@ SKILL:Fly				RANK:5
 SKILL:Knowledge (Planes)	RANK:4
 SKILL:Perception			RANK:8
 SKILL:Stealth			RANK:5
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Mobility
 
 
 STARTPACK:Elemental (Air/Huge) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Huge)]	SOURCEPAGE:p.120
@@ -3400,11 +3400,11 @@ SKILL:Fly				RANK:7
 SKILL:Knowledge (Planes)	RANK:6
 SKILL:Perception			RANK:10
 SKILL:Stealth			RANK:5
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Iron Will
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
 
 
 STARTPACK:Elemental (Air/Greater) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Greater)]	SOURCEPAGE:p.120
@@ -3418,13 +3418,13 @@ SKILL:Fly				RANK:10
 SKILL:Knowledge (Planes)	RANK:10
 SKILL:Perception			RANK:13
 SKILL:Stealth			RANK:10
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
 
 
 STARTPACK:Elemental (Air/Elder) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Air/Elder)]	SOURCEPAGE:p.120
@@ -3438,14 +3438,14 @@ SKILL:Fly				RANK:16
 SKILL:Knowledge (Planes)	RANK:16
 SKILL:Perception			RANK:16
 SKILL:Stealth			RANK:16
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
 
 
 STARTPACK:Elemental (Earth/Small) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Earth/Small)]	SOURCEPAGE:p.122
@@ -3458,7 +3458,7 @@ SKILL:Knowledge (Dungeoneering)	RANK:1
 SKILL:Knowledge (Planes)		RANK:1
 SKILL:Perception				RANK:1
 SKILL:Stealth				RANK:1
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
 
@@ -3472,8 +3472,8 @@ SKILL:Knowledge (Dungeoneering)	RANK:2
 SKILL:Knowledge (Planes)		RANK:2
 SKILL:Perception				RANK:4
 SKILL:Stealth				RANK:1
-FEAT:Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
 
@@ -3487,10 +3487,10 @@ SKILL:Knowledge (Dungeoneering)	RANK:2
 SKILL:Knowledge (Planes)		RANK:5
 SKILL:Perception				RANK:8
 SKILL:Stealth				RANK:7
-FEAT:Cleave
-FEAT:Greater Bull Rush
-FEAT:Improved Overrun
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Greater Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
 
@@ -3504,11 +3504,11 @@ SKILL:Knowledge (Dungeoneering)	RANK:3
 SKILL:Knowledge (Planes)		RANK:6
 SKILL:Perception				RANK:10
 SKILL:Stealth				RANK:10
-FEAT:Awesome Blow
-FEAT:Cleave
-FEAT:Greater Bull Rush
-FEAT:Improved Overrun
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Greater Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
 
@@ -3522,13 +3522,13 @@ SKILL:Knowledge (Dungeoneering)	RANK:8
 SKILL:Knowledge (Planes)		RANK:11
 SKILL:Perception				RANK:13
 SKILL:Stealth				RANK:13
-FEAT:Awesome Blow
-FEAT:Cleave
-FEAT:Greater Bull Rush
-FEAT:Greater Overrun
-FEAT:Improved Overrun
-FEAT:Improved Sunder
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Greater Bull Rush
+ABILITY:CATEGORY=FEAT|Greater Overrun
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
 
@@ -3542,14 +3542,14 @@ SKILL:Knowledge (Dungeoneering)	RANK:16
 SKILL:Knowledge (Planes)		RANK:16
 SKILL:Perception				RANK:16
 SKILL:Stealth				RANK:16
-FEAT:Awesome Blow
-FEAT:Cleave
-FEAT:Greater Bull Rush
-FEAT:Greater Overrun
-FEAT:Improved Critical (Slam)
-FEAT:Improved Overrun
-FEAT:Improved Sunder
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Greater Bull Rush
+ABILITY:CATEGORY=FEAT|Greater Overrun
+ABILITY:CATEGORY=FEAT|Improved Critical (Slam)
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
 
@@ -3564,7 +3564,7 @@ SKILL:Escape Artist		RANK:1
 SKILL:Intimidate			RANK:1
 SKILL:Knowledge (Planes)	RANK:1
 SKILL:Perception			RANK:1
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge
 
 
 STARTPACK:Elemental (Fire/Medium) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Medium)]	SOURCEPAGE:p.124
@@ -3578,8 +3578,8 @@ SKILL:Escape Artist		RANK:2
 SKILL:Intimidate			RANK:2
 SKILL:Knowledge (Planes)	RANK:1
 SKILL:Perception			RANK:4
-FEAT:Dodge
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 
 
 STARTPACK:Elemental (Fire/Large) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Large)]	SOURCEPAGE:p.124
@@ -3593,10 +3593,10 @@ SKILL:Escape Artist		RANK:4
 SKILL:Intimidate			RANK:6
 SKILL:Knowledge (Planes)	RANK:4
 SKILL:Perception			RANK:8
-FEAT:Dodge
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
 
 
 STARTPACK:Elemental (Fire/Huge) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Huge)]	SOURCEPAGE:p.124
@@ -3610,11 +3610,11 @@ SKILL:Escape Artist		RANK:6
 SKILL:Intimidate			RANK:6
 SKILL:Knowledge (Planes)	RANK:6
 SKILL:Perception			RANK:10
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
 
 
 STARTPACK:Elemental (Fire/Greater) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Greater)]	SOURCEPAGE:p.124
@@ -3628,13 +3628,13 @@ SKILL:Escape Artist		RANK:10
 SKILL:Intimidate			RANK:12
 SKILL:Knowledge (Planes)	RANK:8
 SKILL:Perception			RANK:13
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Spring Attack
-FEAT:Wind Stance
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Wind Stance
 
 
 STARTPACK:Elemental (Fire/Elder) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Fire/Elder)]	SOURCEPAGE:p.124
@@ -3648,14 +3648,14 @@ SKILL:Escape Artist		RANK:16
 SKILL:Intimidate			RANK:16
 SKILL:Knowledge (Planes)	RANK:16
 SKILL:Perception			RANK:16
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Iron Will
-FEAT:Lightning Stance
-FEAT:Mobility
-FEAT:Spring Attack
-FEAT:Wind Stance
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Stance
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Wind Stance
 
 
 STARTPACK:Elemental (Water/Small) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Small)]	SOURCEPAGE:p.126
@@ -3669,7 +3669,7 @@ SKILL:Knowledge (Planes)	RANK:1
 SKILL:Perception			RANK:1
 SKILL:Stealth			RANK:1
 SKILL:Swim				RANK:1
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 
 STARTPACK:Elemental (Water/Medium) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Medium)]	SOURCEPAGE:p.126
@@ -3683,8 +3683,8 @@ SKILL:Knowledge (Planes)	RANK:2
 SKILL:Perception			RANK:2
 SKILL:Stealth			RANK:2
 SKILL:Swim				RANK:2
-FEAT:Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 
 STARTPACK:Elemental (Water/Large) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Large)]	SOURCEPAGE:p.126
@@ -3698,10 +3698,10 @@ SKILL:Knowledge (Planes)	RANK:4
 SKILL:Perception			RANK:6
 SKILL:Stealth			RANK:4
 SKILL:Swim				RANK:8
-FEAT:Cleave
-FEAT:Dodge
-FEAT:Great Cleave
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Power Attack
 
 
 STARTPACK:Elemental (Water/Huge) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Huge)]	SOURCEPAGE:p.126
@@ -3715,11 +3715,11 @@ SKILL:Knowledge (Planes)	RANK:6
 SKILL:Perception			RANK:10
 SKILL:Stealth			RANK:4
 SKILL:Swim				RANK:8
-FEAT:Cleave
-FEAT:Dodge
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Power Attack
 
 
 STARTPACK:Elemental (Water/Greater) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Greater)]	SOURCEPAGE:p.126
@@ -3733,13 +3733,13 @@ SKILL:Knowledge (Planes)	RANK:10
 SKILL:Perception			RANK:13
 SKILL:Stealth			RANK:10
 SKILL:Swim				RANK:10
-FEAT:Cleave
-FEAT:Dodge
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Sunder
-FEAT:Lightning Reflexes
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
 
 
 STARTPACK:Elemental (Water/Elder) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Water/Elder)]	SOURCEPAGE:p.126
@@ -3753,14 +3753,14 @@ SKILL:Knowledge (Planes)	RANK:16
 SKILL:Perception			RANK:16
 SKILL:Stealth			RANK:16
 SKILL:Swim				RANK:16
-FEAT:Cleave
-FEAT:Dodge
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Critical (Slam)
-FEAT:Improved Sunder
-FEAT:Lightning Reflexes
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Slam)
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
 
 
 STARTPACK:Elephant Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Elephant],[!PRERACE:1,%]	SOURCEPAGE:p.128
@@ -3768,12 +3768,12 @@ ALIGN:TN
 RACE:Elephant	!PRERACE:1,%
 NAME:Elephant
 SKILL:Perception	RANK:11
-FEAT:Endurance
-FEAT:Great Fortitude
-FEAT:Improved Bull Rush
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
 
@@ -3782,13 +3782,13 @@ ALIGN:TN
 RACE:Elephant (Mastodon)	!PRERACE:1,%
 NAME:Mastodon
 SKILL:Perception	RANK:14
-FEAT:Endurance
-FEAT:Improved Bull Rush
-FEAT:Improved Iron Will
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Focus (Gore)
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Gore)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
 
@@ -3800,8 +3800,8 @@ SKILL:Climb			RANK:1
 SKILL:Craft (Traps)	RANK:2
 SKILL:Perception		RANK:4
 SKILL:Stealth		RANK:1
-FEAT:Great Fortitude
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -3811,11 +3811,11 @@ RACE:Ettin	!PRERACE:1,%
 NAME:Ettin
 SKILL:Handle Animal	RANK:5
 SKILL:Perception		RANK:5
-FEAT:Cleave
-FEAT:Improved Initiative
-FEAT:Improved Overrun
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Leather		SIZE:L	LOCATION:Equipped
 GEAR:Flail			SIZE:L	LOCATION:Primary Hand
@@ -3830,7 +3830,7 @@ ALIGN:TN
 RACE:Familiar (Bat)	!PRERACE:1,%
 NAME:Bat
 SKILL:Fly	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Cat	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Cat)],[!PRERACE:1,%]	SOURCEPAGE:p.131
@@ -3838,7 +3838,7 @@ ALIGN:TN
 RACE:Familiar (Cat)	!PRERACE:1,%
 NAME:Cat
 SKILL:Perception	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Hawk	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Hawk)],[!PRERACE:1,%]	SOURCEPAGE:p.131
@@ -3846,7 +3846,7 @@ ALIGN:TN
 RACE:Familiar (Hawk)	!PRERACE:1,%
 NAME:Hawk
 SKILL:Perception	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Lizard	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Lizard)],[!PRERACE:1,%]	SOURCEPAGE:p.131
@@ -3854,7 +3854,7 @@ ALIGN:TN
 RACE:Familiar (Lizard)	!PRERACE:1,%
 NAME:Lizard
 SKILL:Stealth	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Monkey	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Monkey)],[!PRERACE:1,%]	SOURCEPAGE:p.132
@@ -3862,7 +3862,7 @@ ALIGN:TN
 RACE:Familiar (Monkey)	!PRERACE:1,%
 NAME:Monkey
 SKILL:Perception	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Owl	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Owl)],[!PRERACE:1,%]	SOURCEPAGE:p.132
@@ -3870,7 +3870,7 @@ ALIGN:TN
 RACE:Familiar (Owl)	!PRERACE:1,%
 NAME:Owl
 SKILL:Perception	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Rat	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Rat)],[!PRERACE:1,%]	SOURCEPAGE:p.132
@@ -3878,14 +3878,14 @@ ALIGN:TN
 RACE:Familiar (Rat)	!PRERACE:1,%
 NAME:Rat
 SKILL:Stealth	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Raven	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Raven)],[!PRERACE:1,%]	SOURCEPAGE:p.133
 ALIGN:TN
 RACE:Familiar (Raven)	!PRERACE:1,%
 NAME:Raven
 SKILL:Perception	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Toad	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Toad)],[!PRERACE:1,%]	SOURCEPAGE:p.133
@@ -3893,7 +3893,7 @@ ALIGN:TN
 RACE:Familiar (Toad)	!PRERACE:1,%
 NAME:Toad
 SKILL:Stealth	RANK:1
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 
 STARTPACK:Viper	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Viper)],[!PRERACE:1,%]	SOURCEPAGE:p.133
@@ -3901,7 +3901,7 @@ ALIGN:TN
 RACE:Familiar (Viper)	!PRERACE:1,%
 NAME:Viper
 SKILL:Perception	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Weasel	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Familiar (Weasel)],[!PRERACE:1,%]	SOURCEPAGE:p.133
@@ -3909,7 +3909,7 @@ ALIGN:TN
 RACE:Familiar (Weasel)	!PRERACE:1,%
 NAME:Weasel
 SKILL:Escape Artist	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 #### ---------------------------------------------------------------------------
 
@@ -3919,13 +3919,13 @@ RACE:Flytrap (Giant)	!PRERACE:1,%
 NAME:Giant Flytrap
 SKILL:Perception	RANK:6
 SKILL:Stealth	RANK:7
-FEAT:Cleave
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Skill Focus (Stealth)
-FEAT:Vital Strike
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Vital Strike
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -3935,7 +3935,7 @@ RACE:Frog (Giant)	!PRERACE:1,%
 NAME:Giant Frog
 SKILL:Acrobatics	RANK:1
 SKILL:Perception	RANK:1
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 
 
@@ -3945,7 +3945,7 @@ RACE:Frog (Poison)	!PRERACE:1,%
 NAME:Poison Frog
 ALIGN:TN
 SKILL:Perception	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Froghemoth Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Froghemoth],[!PRERACE:1,%]	SOURCEPAGE:p.136
@@ -3954,14 +3954,14 @@ RACE:Froghemoth	!PRERACE:1,%
 NAME:Froghemoth
 SKILL:Perception	RANK:4
 SKILL:Stealth	RANK:12
-FEAT:Cleave
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Lunge
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Lunge
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 STARTPACK:Gargoyle Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gargoyle],[!PRERACE:1,%]	SOURCEPAGE:p.137
@@ -3972,9 +3972,9 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Fly		RANK:4
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:4
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Skill Focus (Fly)
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Fly)
 
 
 STARTPACK:Gargoyle (Kapoacinth) Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gargoyle (Kapoacinth)],[!PRERACE:1,%]	SOURCEPAGE:p.137
@@ -3985,9 +3985,9 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Swim		RANK:4
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:4
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Skill Focus (Swim)
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Swim)
 
 
 STARTPACK:Gelatinous Cube Default	TYPE:Default Monster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gelatinous Cube],[!PRERACE:1,%]	SOURCEPAGE:p.138
@@ -4010,10 +4010,10 @@ SKILL:Perception			RANK:7
 SKILL:Sense Motive		RANK:7
 SKILL:Spellcraft			RANK:7
 SKILL:Stealth			RANK:7
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Wind Stance
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Wind Stance
 GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
 
 
@@ -4030,10 +4030,10 @@ SKILL:Perception			RANK:7
 SKILL:Sense Motive		RANK:7
 SKILL:Spellcraft			RANK:7
 SKILL:Stealth			RANK:7
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Wind Stance
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Wind Stance
 GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
 
 
@@ -4051,11 +4051,11 @@ SKILL:Sense Motive	RANK:10
 SKILL:Spellcraft		RANK:10
 SKILL:Stealth		RANK:6
 SKILL:Disguise		RANK:3
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Deceitful
-FEAT:Dodge
-FEAT:Quicken Spell-Like Ability ~ Spell (Scorching Ray)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Deceitful
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Scorching Ray)
 GEAR:Falchion	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
 
 
@@ -4073,12 +4073,12 @@ SKILL:Perception		RANK:13
 SKILL:Sense Motive	RANK:13
 SKILL:Spellcraft		RANK:13
 SKILL:Stealth		RANK:6
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Deceitful
-FEAT:Dodge
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability ~ Spell (Scorching Ray)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Deceitful
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Scorching Ray)
 GEAR:Falchion	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
 
 
@@ -4095,9 +4095,9 @@ SKILL:Ride			RANK:6
 SKILL:Sense Motive	RANK:6
 SKILL:Spellcraft		RANK:6
 SKILL:Stealth		RANK:6
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:BOWSTR|3
 GEAR:Scimitar			LOCATION:Primary Hand
 GEAR:Chainmail			LOCATION:Equipped
@@ -4116,9 +4116,9 @@ SKILL:Ride			RANK:6
 SKILL:Sense Motive	RANK:6
 SKILL:Spellcraft		RANK:6
 SKILL:Stealth		RANK:6
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:BOWSTR|3
 GEAR:Scimitar			LOCATION:Primary Hand
 GEAR:Chainmail			LOCATION:Equipped
@@ -4138,12 +4138,12 @@ SKILL:Sense Motive		RANK:12
 SKILL:Spellcraft			RANK:12
 SKILL:Stealth			RANK:12
 SKILL:Swim				RANK:12
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Great Fortitude
-FEAT:Improved Natural Attack (Slam)
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Natural Attack (Slam)
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Trident	SIZE:L	LOCATION:Both Hands	EQMOD:MWORKW
 
 
@@ -4161,12 +4161,12 @@ SKILL:Sense Motive		RANK:12
 SKILL:Spellcraft			RANK:12
 SKILL:Stealth			RANK:12
 SKILL:Swim				RANK:12
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Great Fortitude
-FEAT:Improved Natural Attack (Slam)
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Natural Attack (Slam)
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Trident	SIZE:L	LOCATION:Both Hands	EQMOD:MWORKW
 
 
@@ -4184,11 +4184,11 @@ SKILL:Knowledge (Engineering)	RANK:9
 SKILL:Perception			RANK:9
 SKILL:Sense Motive		RANK:9
 SKILL:Spellcraft			RANK:9
-FEAT:Combat Casting
-FEAT:Improved Bull Rush
-FEAT:Greater Bull Rush
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability ~ Spell (Glitterdust)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Greater Bull Rush
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Glitterdust)
 GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
 
 
@@ -4205,11 +4205,11 @@ SKILL:Knowledge (Engineering)	RANK:9
 SKILL:Perception			RANK:9
 SKILL:Sense Motive		RANK:9
 SKILL:Spellcraft			RANK:9
-FEAT:Combat Casting
-FEAT:Improved Bull Rush
-FEAT:Improved Natural Attack (Slam)
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability ~ Spell (Glitterdust)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Natural Attack (Slam)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Glitterdust)
 GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
 
 
@@ -4223,7 +4223,7 @@ SKILL:Climb		RANK:2
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:2
 SKILL:Swim		RANK:2
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Ghoul (Ghast) Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ghoul (Ghast)],[!PRERACE:1,%]	SOURCEPAGE:p.146
@@ -4236,7 +4236,7 @@ SKILL:Climb		RANK:2
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:2
 SKILL:Swim		RANK:2
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Ghoul (Lacedon) Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ghoul (Lacedon)],[!PRERACE:1,%]	SOURCEPAGE:p.146
@@ -4249,7 +4249,7 @@ SKILL:Climb		RANK:2
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:2
 SKILL:Swim		RANK:2
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Giant (Cloud) Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Cloud)],[!PRERACE:1,%]	SOURCEPAGE:p.147
@@ -4263,14 +4263,14 @@ SKILL:Diplomacy				RANK:5
 SKILL:Intimidate				RANK:10
 SKILL:Perception				RANK:11
 SKILL:Perform (String Instruments)	RANK:4
-FEAT:Awesome Blow
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Overrun
-FEAT:Intimidating Prowess
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Intimidating Prowess
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=Cloud Giant Oversized Weapon|Cloud Giant ~ Oversized Weapon (Morningstar)
 GEAR:Morningstar		SIZE:G	LOCATION:Both Hands
 GEAR:Chain Shirt		SIZE:H	LOCATION:Equipped
@@ -4286,14 +4286,14 @@ SKILL:Climb		RANK:8
 SKILL:TYPE=Craft	RANK:5
 SKILL:Intimidate	RANK:8
 SKILL:Perception	RANK:9
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Overrun
-FEAT:Improved Sunder
-FEAT:Iron Will
-FEAT:Martial Weapon Proficiency (Greatsword)
-FEAT:Power Attack
-FEAT:Weapon Focus (Greatsword)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Martial Weapon Proficiency (Greatsword)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Greatsword)
 GEAR:Greatsword	SIZE:L	LOCATION:Both Hands
 GEAR:Half-Plate	SIZE:L	LOCATION:Equipped
 GEAR:Rock (Small)			LOCATION:Not Carried
@@ -4309,13 +4309,13 @@ SKILL:TYPE=Craft	RANK:4
 SKILL:Intimidate	RANK:4
 SKILL:Perception	RANK:5
 SKILL:Stealth	RANK:6
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Overrun
-FEAT:Improved Sunder
-FEAT:Martial Weapon Proficiency (Greataxe)
-FEAT:Power Attack
-FEAT:Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Martial Weapon Proficiency (Greataxe)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 GEAR:Greataxe	SIZE:L	LOCATION:Both Hands
 GEAR:Chain Shirt	SIZE:L	LOCATION:Equipped
 GEAR:Rock (Small)			LOCATION:Not Carried
@@ -4329,11 +4329,11 @@ STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Climb		RANK:3
 SKILL:Intimidate	RANK:4
 SKILL:Perception	RANK:3
-FEAT:Cleave
-FEAT:Intimidating Prowess
-FEAT:Martial Weapon Proficiency (Greatclub)
-FEAT:Power Attack
-FEAT:Weapon Focus (Greatclub)
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Intimidating Prowess
+ABILITY:CATEGORY=FEAT|Martial Weapon Proficiency (Greatclub)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Greatclub)
 GEAR:Greatclub	SIZE:L	LOCATION:Both Hands
 GEAR:Hide		SIZE:L	LOCATION:Equipped
 GEAR:Rock (Small)			LOCATION:Not Carried
@@ -4348,12 +4348,12 @@ SKILL:Climb		RANK:1
 SKILL:Intimidate	RANK:9
 SKILL:Perception	RANK:8
 SKILL:Stealth	RANK:6
-FEAT:Iron Will
-FEAT:Martial Weapon Proficiency (Greatclub)
-FEAT:Point-Blank Shot
-FEAT:Power Attack
-FEAT:Precise Shot
-FEAT:Quick Draw
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Martial Weapon Proficiency (Greatclub)
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Precise Shot
+ABILITY:CATEGORY=FEAT|Quick Draw
 GEAR:Greatclub	SIZE:L	LOCATION:Both Hands
 GEAR:Rock (Small)			LOCATION:Not Carried
 
@@ -4371,16 +4371,16 @@ SKILL:Perception		RANK:19
 SKILL:Perform (Sing)	RANK:10
 SKILL:Sense Motive	RANK:19
 SKILL:Swim			RANK:3
-FEAT:Awesome Blow
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Improved Bull Rush
-FEAT:Improved Critical (Greatsword)
-FEAT:Improved Sunder
-FEAT:Improved Vital Strike
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Greatsword)
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
 GEAR:Greatsword			SIZE:H	LOCATION:Both Hands	EQMOD:MWORKW
 GEAR:Longbow (Composite)	SIZE:H	LOCATION:Carried		EQMOD:MWORKW.BOWSTR|14
 GEAR:Breastplate			SIZE:H	LOCATION:Equipped		EQMOD:MWORKA
@@ -4392,8 +4392,8 @@ NAME:Gibbering Mouther
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:4
-FEAT:Weapon Finesse
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 
 STARTPACK:Girallon Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Girallon],[!PRERACE:1,%]	SOURCEPAGE:p.154
@@ -4403,10 +4403,10 @@ ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Perception	RANK:4
 SKILL:Stealth	RANK:3
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Skill Focus (Perception)
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Toughness
 
 
 STARTPACK:Gnoll Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gnoll],[!PRERACE:1,%]	SOURCEPAGE:p.155
@@ -4415,7 +4415,7 @@ NAME:Gnoll
 ALIGN:CE
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:2
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Longspear			LOCATION:Both Hands
 GEAR:Leather			LOCATION:Equipped
 GEAR:Shield (Heavy/Wooden)	LOCATION:Equipped
@@ -4432,7 +4432,7 @@ ABILITY:CATEGORY=Favored Class|Warrior
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Ride	RANK:1
 SKILL:Swim	RANK:1
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Leather					SIZE:S	LOCATION:Equipped
 GEAR:Shield (Light/Wooden)			SIZE:S	LOCATION:Equipped
 GEAR:Sword (Short)				SIZE:S	LOCATION:Primary Hand
@@ -4446,7 +4446,7 @@ NAME:Goblin Dog
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Stealth	RANK:1
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Toughness
 
 
 STARTPACK:Golem (Clay) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Clay)],[!PRERACE:1,%]	SOURCEPAGE:p.159
@@ -4497,10 +4497,10 @@ NAME:Gorgon
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Perception	RANK:8
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 
 STARTPACK:Gray Ooze Default	TYPE:Default Monster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gray Ooze],[!PRERACE:1,%]	SOURCEPAGE:p.166
@@ -4523,8 +4523,8 @@ NAME:Id Ooze
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Stealth	RANK:4
-FEAT:Improved Initiative
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Toughness
 
 
 STARTPACK:Green Hag Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Green Hag],[!PRERACE:1,%]	SOURCEPAGE:p.167
@@ -4539,11 +4539,11 @@ SKILL:Perception			RANK:9
 SKILL:Sense Motive		RANK:6
 SKILL:Stealth			RANK:9
 SKILL:Swim				RANK:3
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Casting
-FEAT:Deceitful
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Deceitful
+ABILITY:CATEGORY=FEAT|Great Fortitude
 
 
 STARTPACK:Griffon Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Griffon],[!PRERACE:1,%]	SOURCEPAGE:p.168
@@ -4554,9 +4554,9 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 SKILL:Acrobatics	RANK:1
 SKILL:Fly		RANK:3
 SKILL:Perception	RANK:1
-FEAT:Iron Will
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 
 STARTPACK:Harpy Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Harpy],[!PRERACE:1,%]	SOURCEPAGE:p.172
@@ -4568,10 +4568,10 @@ SKILL:Fly			RANK:7
 SKILL:Intimidate		RANK:1
 SKILL:Perception		RANK:3
 SKILL:Perform (Sing)	RANK:2
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Great Fortitude
-FEAT:Skill Focus (Bluff)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Skill Focus (Bluff)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 GEAR:Morningstar	SIZE:M	LOCATION:Equipped
 GEAR:Leather	SIZE:M	LOCATION:Equipped
@@ -4585,8 +4585,8 @@ SKILL:Acrobatics	RANK:4
 SKILL:Perception	RANK:4
 SKILL:Stealth	RANK:4
 SKILL:Survival	RANK:4
-FEAT:Improved Initiative
-FEAT:Run
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Run
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -4598,12 +4598,12 @@ SKILL:Acrobatics	RANK:12
 SKILL:Perception	RANK:6
 SKILL:Stealth	RANK:12
 SKILL:Survival	RANK:6
-FEAT:Alertness
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Skill Focus (Stealth)
-FEAT:Skill Focus (Survival)
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Skill Focus (Survival)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 GEAR:Chainmail	SIZE:L	LOCATION:Equipped
 
@@ -4613,8 +4613,8 @@ ALIGN:TN
 RACE:Herd Animal (Aurochs)	!PRERACE:1,%
 NAME:Aurochs
 SKILL:Perception	RANK:3
-FEAT:Endurance
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -4623,9 +4623,9 @@ ALIGN:TN
 RACE:Herd Animal (Bison)	!PRERACE:1,%
 NAME:Bison
 SKILL:Perception	RANK:5
-FEAT:Endurance
-FEAT:Improved Bull Rush
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -4638,7 +4638,7 @@ ABILITY:CATEGORY=Favored Class|Fighter
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Toughness
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
 STAT:STR=15|DEX=13|CON=14|INT=10|WIS=12|CHA=8
 GEAR:Longsword			LOCATION:Primary Hand
@@ -4654,7 +4654,7 @@ RACE:Homunculus	!PRERACE:1,%
 NAME:Homunculus
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:2
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 
 
@@ -4664,7 +4664,7 @@ NAME:Horse
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Perception	RANK:2
-FEAT:Endurance
+ABILITY:CATEGORY=FEAT|Endurance
 
 
 STARTPACK:Horse (Pony) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Horse (Pony)]	SOURCEPAGE:p.177
@@ -4673,7 +4673,7 @@ NAME:Pony
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:2
-FEAT:Endurance
+ABILITY:CATEGORY=FEAT|Endurance
 
 
 STARTPACK:Hydra Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hydra],[!PRERACE:1,%]	SOURCEPAGE:p.178
@@ -4681,9 +4681,9 @@ ALIGN:TN
 RACE:Hydra	!PRERACE:1,%
 NAME:Hydra
 SKILL:Perception	RANK:5
-FEAT:Combat Reflexes
-FEAT:Iron Will
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 
 
@@ -4692,9 +4692,9 @@ ALIGN:TN
 RACE:Hydra (Cryohydra)	!PRERACE:1,%
 NAME:Cryohydra
 SKILL:Perception	RANK:5
-FEAT:Combat Reflexes
-FEAT:Iron Will
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 
 
@@ -4703,9 +4703,9 @@ ALIGN:TN
 RACE:Hydra (Pyrohydra)	!PRERACE:1,%
 NAME:Pyrohydra
 SKILL:Perception	RANK:5
-FEAT:Combat Reflexes
-FEAT:Iron Will
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 
 
@@ -4715,7 +4715,7 @@ RACE:Hyena	!PRERACE:1,%
 NAME:Hyena
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -4725,8 +4725,8 @@ RACE:Hyena (Dire)	!PRERACE:1,%
 NAME:Dire Hyena
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:3
-FEAT:Skill Focus (Perception)
-FEAT:Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -4741,10 +4741,10 @@ SKILL:Perception		RANK:8
 SKILL:Sense Motive	RANK:8
 SKILL:Stealth		RANK:8
 SKILL:Use Magic Device	RANK:8
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Toughness
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 
 
@@ -4760,10 +4760,10 @@ SKILL:Perception			RANK:7
 SKILL:Sense Motive		RANK:7
 SKILL:Stealth			RANK:7
 SKILL:Survival			RANK:7
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
@@ -4810,7 +4810,7 @@ ABILITY:CATEGORY=Favored Class|Warrior
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Craft (Traps)	RANK:1
 SKILL:Perception		RANK:1
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 GEAR:Longspear	SIZE:S	LOCATION:Both Hands
 GEAR:Sling		SIZE:S	LOCATION:Carried
@@ -4828,16 +4828,16 @@ SKILL:Perception			RANK:20
 SKILL:Stealth			RANK:20
 SKILL:Swim				RANK:20
 SKILL:Use Magic Device		RANK:20
-FEAT:Bleeding Critical
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Expertise
-FEAT:Critical Focus
-FEAT:Improved Critical (Arm)
-FEAT:Improved Initiative
-FEAT:Improved Trip
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Bleeding Critical
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Improved Critical (Arm)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Trip
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 
 
@@ -4852,10 +4852,10 @@ SKILL:Craft (Blacksmithing)	RANK:8
 SKILL:Escape Artist		RANK:8
 SKILL:Intimidate			RANK:8
 SKILL:Perception			RANK:8
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Improved Initiative
-FEAT:Weapon Focus (Chains)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus (Chains)
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
 
@@ -4871,11 +4871,11 @@ SKILL:Knowledge (Religion)	RANK:3
 SKILL:Perception			RANK:9
 SKILL:Stealth			RANK:9
 SKILL:Survival			RANK:6
-FEAT:Dodge
-FEAT:Great Fortitude
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 GEAR:Dagger	SIZE:M	LOCATION:Primary Hand
 
@@ -4902,14 +4902,14 @@ ALIGN:TN
 SKILL:Fly		RANK:15
 SKILL:Perception	RANK:15
 SKILL:Swim		RANK:15
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Improved Bull Rush
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
 
 
 STARTPACK:Linnorm (Ice) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Linnorm (Ice)],[!PRERACE:1,%]	SOURCEPAGE:p.191
@@ -4919,15 +4919,15 @@ NAME:Ice Linnorm
 SKILL:Climb		RANK:18
 SKILL:Fly		RANK:18
 SKILL:Perception	RANK:18
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Improved Bull Rush
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Vital Strike
-FEAT:Improved Vital Strike
-FEAT:Lightning Reflexes
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Vital Strike
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 
 
@@ -4939,17 +4939,17 @@ SKILL:Fly		RANK:22
 SKILL:Perception	RANK:22
 SKILL:Stealth	RANK:22
 SKILL:Swim		RANK:22
-FEAT:Awesome Blow
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Improved Bull Rush
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Improved Overrun
-FEAT:Improved Vital Strike
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Vital Strike
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Improved Vital Strike
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 
 
@@ -4960,9 +4960,9 @@ NAME:Lion
 SKILL:Acrobatics	RANK:1
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:2
-FEAT:Improved Initiative
-FEAT:Run
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -4973,10 +4973,10 @@ NAME:Dire Lion
 SKILL:Acrobatics	RANK:2
 SKILL:Perception	RANK:4
 SKILL:Stealth	RANK:2
-FEAT:Improved Initiative
-FEAT:Run
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -4987,8 +4987,8 @@ NAME:Monitor Lizard
 SKILL:Climb		RANK:1
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Great Fortitude
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -4998,10 +4998,10 @@ RACE:Lizard (Giant Frilled)	!PRERACE:1,%
 NAME:Giant Frilled Lizard
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:4
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -5011,7 +5011,7 @@ RACE:Lizardfolk	!PRERACE:1,%
 NAME:Lizardfolk
 SKILL:Perception	RANK:1
 SKILL:Swim		RANK:1
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Multiattack
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 GEAR:Morningstar				LOCATION:Primary Hand
 GEAR:Javelin			QTY:3	LOCATION:Carried
@@ -5026,9 +5026,9 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 SKILL:Fly		RANK:2
 SKILL:Perception	RANK:1
 SKILL:Survival	RANK:3
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Weapon Focus (Spikes)
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Weapon Focus (Spikes)
 
 STARTPACK:Mantis (Giant) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mantis (Giant)]	SOURCEPAGE:p.200
 RACE:Mantis (Giant)	!PRERACE:1,%
@@ -5046,10 +5046,10 @@ SKILL:Disguise	RANK:8
 SKILL:Intimidate	RANK:8
 SKILL:Perception	RANK:8
 SKILL:Stealth	RANK:8
-FEAT:Improved Initiative
-FEAT:Point-Blank Shot
-FEAT:Precise Shot
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Precise Shot
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Dagger		SIZE:PC	LOCATION:Primary Hand
 GEAR:Longbow	SIZE:PC	LOCATION:Carried		EQMOD:MWORKW
 
@@ -5062,8 +5062,8 @@ SKILL:Bluff		RANK:3
 SKILL:Fly		RANK:3
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Mephit (Dust) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Dust)]	SOURCEPAGE:p.202
 RACE:Mephit (Dust)	!PRERACE:1,%
@@ -5074,8 +5074,8 @@ SKILL:Bluff		RANK:3
 SKILL:Fly		RANK:3
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Mephit (Earth) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Earth)]	SOURCEPAGE:p.202
 RACE:Mephit (Earth)	!PRERACE:1,%
@@ -5086,8 +5086,8 @@ SKILL:Bluff		RANK:3
 SKILL:Fly		RANK:3
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Mephit (Fire) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Fire)]	SOURCEPAGE:p.202
 RACE:Mephit (Fire)	!PRERACE:1,%
@@ -5098,8 +5098,8 @@ SKILL:Bluff		RANK:3
 SKILL:Fly		RANK:3
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Mephit (Ice) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Ice)]	SOURCEPAGE:p.202
 RACE:Mephit (Ice)	!PRERACE:1,%
@@ -5110,8 +5110,8 @@ SKILL:Bluff		RANK:3
 SKILL:Fly		RANK:3
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Mephit (Magma) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Magma)]	SOURCEPAGE:p.202
 RACE:Mephit (Magma)	!PRERACE:1,%
@@ -5122,8 +5122,8 @@ SKILL:Bluff		RANK:3
 SKILL:Fly		RANK:3
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Mephit (Ooze) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Ooze)]	SOURCEPAGE:p.202
 RACE:Mephit (Ooze)	!PRERACE:1,%
@@ -5134,8 +5134,8 @@ SKILL:Bluff		RANK:3
 SKILL:Fly		RANK:3
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Mephit (Salt) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Salt)]	SOURCEPAGE:p.202
 RACE:Mephit (Salt)	!PRERACE:1,%
@@ -5146,8 +5146,8 @@ SKILL:Bluff		RANK:3
 SKILL:Fly		RANK:3
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Mephit (Steam) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Steam)]	SOURCEPAGE:p.202
 RACE:Mephit (Steam)	!PRERACE:1,%
@@ -5158,8 +5158,8 @@ SKILL:Bluff		RANK:3
 SKILL:Fly		RANK:3
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Mephit (Water) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mephit (Water)]	SOURCEPAGE:p.202
 RACE:Mephit (Water)	!PRERACE:1,%
@@ -5170,8 +5170,8 @@ SKILL:Bluff		RANK:3
 SKILL:Fly		RANK:3
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
-FEAT:Dodge
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Merfolk Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Merfolk]	SOURCEPAGE:p.204
 RACE:Merfolk	!PRERACE:1,%
@@ -5184,7 +5184,7 @@ ABILITY:CATEGORY=Favored Class|Warrior
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Perception	RANK:1
 SKILL:Swim		RANK:1
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 GEAR:Trident				SIZE:M	LOCATION:Both Hands
 GEAR:Crossbow (Heavy)			SIZE:M	LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:10			LOCATION:Carried
@@ -5197,10 +5197,10 @@ SKILL:Climb					RANK:7
 SKILL:Disguise				RANK:7
 SKILL:Knowledge (Dungeoneering)	RANK:7
 SKILL:Perception				RANK:7
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 STARTPACK:Minotaur Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Minotaur],[!PRERACE:1,%]	SOURCEPAGE:p.206
@@ -5212,9 +5212,9 @@ SKILL:Intimidate	RANK:3
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
 SKILL:Survival	RANK:3
-FEAT:Great Fortitude
-FEAT:Improved Bull Rush
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Greataxe	SIZE:L	LOCATION:Equipped
 
 STARTPACK:Mite Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mite],[!PRERACE:1,%]	SOURCEPAGE:p.207
@@ -5226,7 +5226,7 @@ SKILL:Perception		RANK:1
 SKILL:Ride			RANK:1
 SKILL:Sleight of Hand	RANK:1
 SKILL:Stealth		RANK:1
-FEAT:Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 GEAR:Dagger		SIZE:S	LOCATION:Primary Hand
 GEAR:Dart	QTY:6	SIZE:S	LOCATION:Carried
@@ -5239,13 +5239,13 @@ SKILL:Climb		RANK:14
 SKILL:Perception	RANK:14
 SKILL:Stealth	RANK:14
 SKILL:Swim		RANK:14
-FEAT:Ability Focus (Paralysis)
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Mobility
-FEAT:Skill Focus (Perception)
-FEAT:Spring Attack
+ABILITY:CATEGORY=FEAT|Ability Focus (Paralysis)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Spring Attack
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
 STARTPACK:Morlock Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Morlock]	SOURCEPAGE:209
@@ -5256,8 +5256,8 @@ STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Acrobatics	RANK:1
 SKILL:Climb		RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 GEAR:Club	SIZE:M	LOCATION:Primary Hand
 
 STARTPACK:Mummy Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mummy]	SOURCEPAGE:210
@@ -5267,10 +5267,10 @@ ALIGN:LE
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Perception	RANK:8
 SKILL:Stealth	RANK:8
-FEAT:Power Attack
-FEAT:Skill Focus (Perception)
-FEAT:Toughness
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 
 STARTPACK:Naga (Dark) Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Dark)]	SOURCEPAGE:211
 RACE:Naga (Dark)	!PRERACE:1,%
@@ -5287,11 +5287,11 @@ SKILL:Perception			RANK:10
 SKILL:Sense Motive		RANK:6
 SKILL:Spellcraft			RANK:6
 SKILL:Stealth			RANK:10
-FEAT:Alertness
-FEAT:Combat Casting
-FEAT:Dodge
-FEAT:Lightning Reflexes
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Stealthy
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Displacement|Lightning Bolt
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cat's Grace|Invisibility|Scorching Ray
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Expeditious Retreat|Magic Missile|Ray of Enfeeblement|Shield|Silent Image
@@ -5309,12 +5309,12 @@ SKILL:Perception			RANK:12
 SKILL:Sense Motive		RANK:12
 SKILL:Spellcraft			RANK:12
 SKILL:Stealth			RANK:12
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Casting
-FEAT:Combat Expertise
-FEAT:Improved Trip
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Improved Trip
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Divine Power|Invisibility (Greater)
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Serious Wounds|Dispel Magic|Lightning Bolt
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Thoughts|Restoration (Lesser)|See Invisibility|Scorching Ray
@@ -5334,11 +5334,11 @@ SKILL:Perception			RANK:10
 SKILL:Spellcraft			RANK:7
 SKILL:Stealth			RANK:9
 SKILL:Swim				RANK:1
-FEAT:Ability Focus (Charming Gaze)
-FEAT:Combat Casting
-FEAT:Lightning Reflexes
-FEAT:Skill Focus (Perception)
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Ability Focus (Charming Gaze)
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Stealthy
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze|Detect Magic|Mage Hand|Open/Close|Ray of Frost|Read Magic|Bleed
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Person|Cure Light Wounds|Divine Favor|Magic Missile|Shield of Faith
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cat's Grace|Invisibility|Summon Swarm
@@ -5356,16 +5356,16 @@ SKILL:Intimidate			RANK:20
 SKILL:Knowledge (Arcana)	RANK:20
 SKILL:Perception			RANK:20
 SKILL:Spellcraft			RANK:20
-FEAT:Improved Initiative
-FEAT:Improved Critical (Tongue)
-FEAT:Iron Will
-FEAT:Great Fortitude
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Overrun
-FEAT:Quicken Spell-Like Ability ~ Spell (Suggestion)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Critical (Tongue)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Suggestion)
 
 STARTPACK:Night Hag Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Night Hag]	SOURCEPAGE:215
 RACE:Night Hag	!PRERACE:1,%
@@ -5383,10 +5383,10 @@ SKILL:Perception			RANK:8
 SKILL:Ride				RANK:8
 SKILL:Sense Motive		RANK:8
 SKILL:Stealth			RANK:8
-FEAT:Alertness
-FEAT:Combat Casting
-FEAT:Deceitful
-FEAT:Mounted Combat
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Deceitful
+ABILITY:CATEGORY=FEAT|Mounted Combat
 GEAR:Heartstone (Night Hag)	LOCATION:Equipped
 
 STARTPACK:Nightmare Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightmare]	SOURCEPAGE:216
@@ -5401,9 +5401,9 @@ SKILL:Perception			RANK:6
 SKILL:Sense Motive		RANK:6
 SKILL:Stealth			RANK:6
 SKILL:Survival			RANK:6
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Run
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Run
 
 STARTPACK:Nightmare (Cauchemar) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightmare (Cauchemar)]	SOURCEPAGE:216
 RACE:Nightmare (Cauchemar)	!PRERACE:1,%
@@ -5419,13 +5419,13 @@ SKILL:Knowledge (Planes)	RANK:14
 SKILL:Perception			RANK:14
 SKILL:Sense Motive		RANK:14
 SKILL:Stealth			RANK:14
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Improved Overrun
-FEAT:Run
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Run
 
 STARTPACK:Nymph Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nymph]	SOURCEPAGE:217
 RACE:Nymph	!PRERACE:1,%
@@ -5441,10 +5441,10 @@ SKILL:Perception			RANK:8
 SKILL:Sense Motive		RANK:8
 SKILL:Stealth			RANK:8
 SKILL:Swim				RANK:8
-FEAT:Agile Maneuvers
-FEAT:Combat Casting
-FEAT:Dodge
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Agile Maneuvers
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Dagger	LOCATION:Equipped	EQMOD:MWORKW
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Detect Magic|Guidance|Light|Stabilize
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Charm Animal|Endure Elements|Entangle|Obscuring Mist|Produce Flame
@@ -5463,7 +5463,7 @@ ALIGN:TN
 RACE:Octopus	!PRERACE:1,%
 NAME:Octopus
 SKILL:Stealth	RANK:2
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 STARTPACK:Octopus (Giant) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Octopus (Giant)]	SOURCEPAGE:219
@@ -5473,12 +5473,12 @@ NAME:Octopus (Giant)
 SKILL:Escape Artist	RANK:4
 SKILL:Perception		RANK:4
 SKILL:Stealth		RANK:4
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Skill Focus (Stealth)
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Stealthy
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 
 STARTPACK:Ogre Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]	SOURCEPAGE:220
@@ -5488,8 +5488,8 @@ ALIGN:CE
 STAT:STR=11|CON=11|CHA=11|DEX=10|INT=10|WIS=10
 SKILL:Climb		RANK:2
 SKILL:Perception	RANK:2
-FEAT:Iron Will
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Toughness
 GEAR:Greatclub		SIZE:L	LOCATION:Both Hands
 GEAR:Hide			SIZE:L	LOCATION:Equipped
 GEAR:Javelin	QTY:4	SIZE:L	LOCATION:Carried
@@ -5507,10 +5507,10 @@ SKILL:Perception			RANK:8
 SKILL:Sense Motive		RANK:8
 SKILL:Spellcraft			RANK:8
 SKILL:Use Magic Device		RANK:8
-FEAT:Combat Expertise
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
 GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped
 GEAR:Greatsword			SIZE:PC	LOCATION:Both Hands
 GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Carried		EQMOD:BOWSTR|+7
@@ -5525,7 +5525,7 @@ CLASS:Warrior	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Warrior
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Intimidate	RANK:1
-FEAT:Weapon Focus (Falchion)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Falchion)
 GEAR:Studded Leather		SIZE:PC	LOCATION:Equipped
 GEAR:Falchion			SIZE:PC	LOCATION:Both Hands
 GEAR:Javelin		QTY:4	SIZE:PC	LOCATION:Carried
@@ -5537,9 +5537,9 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:3
-FEAT:Alertness
-FEAT:Toughness
-FEAT:Weapon Focus (Tentacle)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Tentacle)
 
 STARTPACK:Owlbear Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Owlbear]	SOURCEPAGE:224
 RACE:Owlbear	!PRERACE:1,%
@@ -5547,9 +5547,9 @@ NAME:Owlbear
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:5
-FEAT:Improved Initiative
-FEAT:Great Fortitude
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 STARTPACK:Pegasus Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pegasus]	SOURCEPAGE:p.225
 RACE:Pegasus	!PRERACE:1,%
@@ -5559,8 +5559,8 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Fly			RANK:2
 SKILL:Perception		RANK:3
 SKILL:Sense Motive	RANK:3
-FEAT:Flyby Attack
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Iron Will
 
 STARTPACK:Pegasus (Heroic) Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pegasus]	SOURCEPAGE:p.225
 RACE:Pegasus	!PRERACE:1,%
@@ -5570,8 +5570,8 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Fly			RANK:2
 SKILL:Perception		RANK:3
 SKILL:Sense Motive	RANK:3
-FEAT:Flyby Attack
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Iron Will
 TEMPLATE:Advanced Creature (Pegasus)
 
 STARTPACK:Phase Spider Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phase Spider]	SOURCEPAGE:p.226
@@ -5582,9 +5582,9 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 SKILL:Climb		RANK:2
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:2
-FEAT:Ability Focus (Poison)
-FEAT:Improved Initiative
-FEAT:Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Ability Focus (Poison)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 
 STARTPACK:Phoenix Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phoenix]	SOURCEPAGE:p.227
 RACE:Phoenix	!PRERACE:1,%
@@ -5599,16 +5599,16 @@ SKILL:Knowledge (Nature)	RANK:20
 SKILL:TYPE.Knowledge		RANK:20
 SKILL:Perception			RANK:20
 SKILL:Sense Motive		RANK:20
-FEAT:Improved Initiative
-FEAT:Improved Critical (Talons)
-FEAT:Critical Focus
-FEAT:Blinding Critical
-FEAT:Dodge
-FEAT:Mobility
-FEAT:Iron Will
-FEAT:Flyby Attack
-FEAT:Combat Reflexes
-FEAT:Quicken Spell-Like Ability ~ Spell (Wall of Fire)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Critical (Talons)
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Blinding Critical
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Wall of Fire)
 
 STARTPACK:Pixie Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pixie]	SOURCEPAGE:p.228
 RACE:Pixie	!PRERACE:1,%
@@ -5624,8 +5624,8 @@ SKILL:Perception			RANK:4
 SKILL:Sense Motive		RANK:4
 SKILL:Stealth			RANK:4
 SKILL:Use Magic Device		RANK:4
-FEAT:Dodge
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Equipped
 GEAR:Longbow		SIZE:PC	LOCATION:Carried
 
@@ -5640,7 +5640,7 @@ SKILL:Perception		RANK:2
 SKILL:Sense Motive	RANK:2
 SKILL:Stealth		RANK:2
 SKILL:Survival		RANK:2
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Purple Worm Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Purple Worm]	SOURCEPAGE:p.230
 RACE:Purple Worm	!PRERACE:1,%
@@ -5648,14 +5648,14 @@ NAME:Purple Worm
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Perception	RANK:16
-FEAT:Power Attack
-FEAT:Improved Bull Rush
-FEAT:Awesome Blow
-FEAT:Improved Critical (Bite)
-FEAT:Critical Focus
-FEAT:Staggering Critical
-FEAT:Weapon Focus (Bite)
-FEAT:Weapon Focus (Sting)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Staggering Critical
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Sting)
 
 STARTPACK:Rakshasa Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rakshasa]	SOURCEPAGE:p.231
 RACE:Rakshasa	!PRERACE:1,%
@@ -5669,11 +5669,11 @@ SKILL:Perception		RANK:10
 SKILL:Sense Motive	RANK:10
 SKILL:TYPE=Perform	RANK:10
 SKILL:Stealth		RANK:10
-FEAT:Combat Expertise
-FEAT:Dodge
-FEAT:Improved Critical (Kukri)
-FEAT:Improved Initiative
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Critical (Kukri)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 SPELLS:Dancing Lights|Detect Magic|Ghost Sound|Mage Hand|Mending|Message|Prestidigitation
 SPELLS:Charm Person|Mage Armor|Magic Missile|Shield|Silent Image
 SPELLS:Acid Arrow|Invisibility|Minor Image
@@ -5686,7 +5686,7 @@ NAME:Dire Rat
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Stealth	RANK:1
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 STARTPACK:Rat Swarm Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat Swarm]	SOURCEPAGE:p.232
 RACE:Rat Swarm	!PRERACE:1,%
@@ -5696,8 +5696,8 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Acrobatics	RANK:1
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Improved Initiative
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 STARTPACK:Remorhaz Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Remorhaz]	SOURCEPAGE:p.233
 RACE:Remorhaz	!PRERACE:1,%
@@ -5705,11 +5705,11 @@ NAME:Remorhaz
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Perception	RANK:9
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Improved Bull Rush
-FEAT:Skill Focus (Perception)
-FEAT:Awesome Blow
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Awesome Blow
 ## Awesome Blow requires a Strength of 25 so the Remoraz does not qualify.
 
 STARTPACK:Retriever Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Retriever]	SOURCEPAGE:p.234
@@ -5718,14 +5718,14 @@ NAME:Retriever
 ALIGN:CE
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 SKILL:Perception	RANK:15
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Improved Bull Rush
-FEAT:Great Fortitude
-FEAT:Improved Critical (Claw)
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Toughness
 
 STARTPACK:Rhinoceros Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rhinoceros]	SOURCEPAGE:p.235
 RACE:Rhinoceros	!PRERACE:1,%
@@ -5733,9 +5733,9 @@ NAME:Rhinoceros
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Perception	RANK:5
-FEAT:Skill Focus (Perception)
-FEAT:Endurance
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Great Fortitude
 
 STARTPACK:Rhinoceros (Woolly) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rhinoceros (Woolly)]	SOURCEPAGE:p.235
 RACE:Rhinoceros (Woolly)	!PRERACE:1,%
@@ -5743,10 +5743,10 @@ NAME:Rhinoceros (Woolly)
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Perception	RANK:8
-FEAT:Skill Focus (Perception)
-FEAT:Endurance
-FEAT:Great Fortitude
-FEAT:Diehard
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Diehard
 
 STARTPACK:Roc Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Roc]	SOURCEPAGE:p.236
 RACE:Roc	!PRERACE:1,%
@@ -5755,14 +5755,14 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 SKILL:Fly		RANK:8
 SKILL:Perception	RANK:8
-FEAT:Flyby Attack
-FEAT:Improved Critical (Talons)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Focus (Talons)
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Critical (Talons)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Talons)
 
 STARTPACK:Roper Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Roper]	SOURCEPAGE:p.237
 RACE:Roper	!PRERACE:1,%
@@ -5774,12 +5774,12 @@ SKILL:Knowledge (Dungeoneering)	RANK:12
 SKILL:Knowledge (Religion)		RANK:9
 SKILL:Perception				RANK:12
 SKILL:Stealth				RANK:12
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Skill Focus (Perception)
-FEAT:Skill Focus (Stealth)
-FEAT:Weapon Focus (Strand)
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Strand)
 
 STARTPACK:Rust Monster Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rust Monster]	SOURCEPAGE:p.235
 RACE:Rust Monster	!PRERACE:1,%
@@ -5787,9 +5787,9 @@ NAME:Rust Monster
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:5
-FEAT:Ability Focus (Rust)
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Ability Focus (Rust)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Sahuagin Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sahuagin]	SOURCEPAGE:p.239
 RACE:Sahuagin	!PRERACE:1,%
@@ -5802,7 +5802,7 @@ SKILL:Ride			RANK:2
 SKILL:Stealth		RANK:2
 SKILL:Survival		RANK:2
 SKILL:Swim			RANK:2
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Great Fortitude
 GEAR:Trident				LOCATION:Both Hands
 GEAR:Crossbow (Heavy)			LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:10	LOCATION:Carried
@@ -5820,10 +5820,10 @@ SKILL:Knowledge (Planes)	RANK:8
 SKILL:Perception			RANK:8
 SKILL:Sense Motive		RANK:8
 SKILL:Stealth			RANK:8
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Iron Will
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 GEAR:Spear	LOCATION:Both Hands
 
 STARTPACK:Satyr Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Satyr]	SOURCEPAGE:p.241
@@ -5840,10 +5840,10 @@ SKILL:Perception				RANK:6
 SKILL:Perform (Wind Instruments)	RANK:8
 SKILL:Stealth				RANK:8
 SKILL:Survival				RANK:5
-FEAT:Dodge
-FEAT:Mobility
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Dagger							LOCATION:Primary Hand
 GEAR:Shortbow						LOCATION:Carried
 GEAR:Arrow					QTY:20	LOCATION:Carried
@@ -5901,8 +5901,8 @@ SKILL:TYPE=Knowledge	RANK:4
 SKILL:Perception		RANK:4
 SKILL:Stealth		RANK:4
 SKILL:Swim			RANK:4
-FEAT:Skill Focus (Bluff)
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Bluff)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 STARTPACK:Sea Serpent Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sea Serpent]	SOURCEPAGE:p.244
 RACE:Sea Serpent	!PRERACE:1,%
@@ -5912,14 +5912,14 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 SKILL:Perception	RANK:5
 SKILL:Stealth	RANK:5
 SKILL:Swim		RANK:5
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Improved Bull Rush
-FEAT:Improved Critical (Bite)
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Stealthy
-FEAT:Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Stealthy
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 
 STARTPACK:Shadow Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow]	SOURCEPAGE:p.245
 RACE:Shadow	!PRERACE:1,%
@@ -5929,8 +5929,8 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Fly		RANK:2
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:3
-FEAT:Dodge
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 STARTPACK:Shadow (Greater) Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow (Greater)]	SOURCEPAGE:p.245
 RACE:Shadow (Greater)	!PRERACE:1,%
@@ -5940,11 +5940,11 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 SKILL:Fly		RANK:3
 SKILL:Perception	RANK:6
 SKILL:Stealth	RANK:9
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Mobility
-FEAT:Skill Focus (Perception)
-FEAT:Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 
 STARTPACK:Shambling Mound Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shambling Mound]	SOURCEPAGE:p.246
 RACE:Shambling Mound	!PRERACE:1,%
@@ -5953,11 +5953,11 @@ ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 SKILL:Perception	RANK:4
 SKILL:Stealth	RANK:5
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 
 STARTPACK:Shark Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark]	SOURCEPAGE:p.247
 RACE:Shark	!PRERACE:1,%
@@ -5965,8 +5965,8 @@ NAME:Blue Shark
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Perception	RANK:4
-FEAT:Great Fortitude
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Shark (Hammerhead) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark]	SOURCEPAGE:p.247
 RACE:Shark	!PRERACE:1,%
@@ -5974,8 +5974,8 @@ NAME:Hammerhead Shark
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Perception	RANK:4
-FEAT:Great Fortitude
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
 TEMPLATE:Advanced Creature
 
 STARTPACK:Shark (Tiger) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark]	SOURCEPAGE:p.247
@@ -5984,8 +5984,8 @@ NAME:Tiger Shark
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Perception	RANK:4
-FEAT:Great Fortitude
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
 TEMPLATE:Giant Creature
 
 STARTPACK:Shark (Great White) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shark]	SOURCEPAGE:p.247
@@ -5994,8 +5994,8 @@ NAME:Great White Shark
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Perception	RANK:4
-FEAT:Great Fortitude
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
 TEMPLATE:Advanced Creature
 TEMPLATE:Giant Creature
 
@@ -6005,14 +6005,14 @@ NAME:Dire Shark
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 SKILL:Perception	RANK:15
-FEAT:Critical Focus
-FEAT:Bleeding Critical
-FEAT:Great Fortitude
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Bleeding Critical
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 STARTPACK:Shocker Lizard Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shocker Lizard]	SOURCEPAGE:p.248
 RACE:Shocker Lizard	!PRERACE:1,%
@@ -6021,8 +6021,8 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:1
-FEAT:Improved Initiative
-FEAT:Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 
 STARTPACK:Shoggoth Default	TYPE:Default Monster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shoggoth]	SOURCEPAGE:p.249
 RACE:Shoggoth	!PRERACE:1,%
@@ -6030,18 +6030,18 @@ NAME:Shoggoth
 ALIGN:CN
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 SKILL:Perception	RANK:23
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Great Fortitude
-FEAT:Improved Critical (Slam)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Sunder
-FEAT:Critical Focus
-FEAT:Staggering Critical
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Critical (Slam)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Staggering Critical
 
 STARTPACK:Skeleton (Human) Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Skeleton (Human)]	SOURCEPAGE:p.251
 RACE:Skeleton (Human)	!PRERACE:1,%
@@ -6061,9 +6061,9 @@ ALIGN:NE
 SKILL:Intimidate	RANK:3
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:1
-FEAT:Weapon Focus (Longsword)
-FEAT:Power Attack
-FEAT:Cleave
+ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
 STAT:STR=15|DEX=11|CON=10|INT=9|WIS=10|CHA=12
 GEAR:Breastplate			SIZE:PC	LOCATION:Equipped
 GEAR:Longsword			SIZE:PC	LOCATION:Primary	EQMOD:MWORKW
@@ -6078,7 +6078,7 @@ SKILL:Intimidate	RANK:2
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:2
 SKILL:Swim		RANK:2
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Toughness
 GEAR:Trident	SIZE:PC	LOCATION:Primary
 
 STARTPACK:Slug (Giant) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slug (Giant)]	SOURCEPAGE:p.254
@@ -6095,8 +6095,8 @@ STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 SKILL:Acrobatics	RANK:1
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Skill Focus (Perception)
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Toughness
 
 STARTPACK:Snake (Anaconda) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Constrictor)]	SOURCEPAGE:p.255
 RACE:Snake (Constrictor)	!PRERACE:1,%
@@ -6106,8 +6106,8 @@ STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 SKILL:Acrobatics	RANK:1
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Skill Focus (Perception)
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Toughness
 TEMPLATE:Advanced Creature
 TEMPLATE:Giant Creature
 
@@ -6118,7 +6118,7 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Snake (King Cobra) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snake (Venomous)]	SOURCEPAGE:p.255
 RACE:Snake (Venomous)	!PRERACE:1,%
@@ -6127,7 +6127,7 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 TEMPLATE:Advanced Creature
 TEMPLATE:Giant Creature
 
@@ -6142,10 +6142,10 @@ SKILL:Knowledge (Religion)	RANK:8
 SKILL:Perception			RANK:8
 SKILL:Stealth			RANK:8
 SKILL:Survival			RANK:8
-FEAT:Improved Initiative
-FEAT:Blind-Fight
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Focus (Incorporeal touch)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Incorporeal touch)
 
 STARTPACK:Sphinx (Gynosphinx) Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sphinx (Gynosphinx)]	SOURCEPAGE:p.257
 RACE:Sphinx (Gynosphinx)	!PRERACE:1,%
@@ -6162,12 +6162,12 @@ SKILL:TYPE=Knowledge	RANK:2
 SKILL:Perception		RANK:10
 SKILL:Sense Motive	RANK:11
 SKILL:Spellcraft		RANK:8
-FEAT:Alertness
-FEAT:Combat Casting
-FEAT:Hover
-FEAT:Improved Critical (Claw)
-FEAT:Improved Initiative
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Critical (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=Special Ability|Gynosphinx ~ Symbol of Fear|Gynosphinx ~ Symbol of Pain|Gynosphinx ~ Symbol of Persuasion|Gynosphinx ~ Symbol of Sleep|Gynosphinx ~ Symbol of Stunning	FREE:YES
 
 STARTPACK:Spider (Giant) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant)]	SOURCEPAGE:p.258
@@ -6231,8 +6231,8 @@ NAME:Squid
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:3
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
 
 STARTPACK:Squid (Giant) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Squid (Giant)]	SOURCEPAGE:p.259
 RACE:Squid (Giant)	!PRERACE:1,%
@@ -6240,12 +6240,12 @@ NAME:Squid (Giant)
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:12
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Combat Reflexes
-FEAT:Great Fortitude
-FEAT:Improved Critical (Tentacles)
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Critical (Tentacles)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 STARTPACK:Stirge Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Stirge]	SOURCEPAGE:p.260
 RACE:Stirge	!PRERACE:1,%
@@ -6253,7 +6253,7 @@ NAME:Strige
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 SKILL:Stealth	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Svirfneblin Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Svirfneblin],[!PRERACE:1,%]	SOURCEPAGE:p.261
 ALIGN:TN
@@ -6270,7 +6270,7 @@ SKILL:Knowledge (Dungeoneering)	RANK:1
 SKILL:Perception				RANK:1
 SKILL:Stealth				RANK:1
 SKILL:Survival				RANK:1
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Toughness
 GEAR:Pick (Heavy)				SIZE:S	LOCATION:Both Hands
 GEAR:Crossbow (Light)			SIZE:S	LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:10			LOCATION:Carried
@@ -6280,21 +6280,21 @@ ALIGN:TN
 RACE:Tarrasque	!PRERACE:1,%
 NAME:Tarrasque
 SKILL:Perception	RANK:30
-FEAT:Awesome Blow
-FEAT:Blind-Fight
-FEAT:Bleeding Critical
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Critical Focus
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Improved Bull Rush
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Run
-FEAT:Staggering Critical
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Bleeding Critical
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Staggering Critical
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
 
 STARTPACK:Tengu Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tengu]	SOURCEPAGE:p.263
@@ -6313,7 +6313,7 @@ SKILL:Knowledge (Local)	RANK:1
 SKILL:Linguistics		RANK:1
 SKILL:Perception		RANK:1
 SKILL:Stealth		RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Leather			SIZE:M	LOCATION:Equipped
 GEAR:Dagger				SIZE:M	LOCATION:Primary Hand
 GEAR:Shortbow			SIZE:M	LOCATION:Carried
@@ -6336,7 +6336,7 @@ SKILL:Perception		RANK:1
 SKILL:Sense Motive	RANK:1
 SKILL:Sleight of Hand	RANK:1
 SKILL:Stealth		RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Studded Leather			SIZE:M	LOCATION:Equipped
 GEAR:Sword (Short)			SIZE:M	LOCATION:Primary Hand
 GEAR:Crossbow (Light)			SIZE:M	LOCATION:Carried
@@ -6353,9 +6353,9 @@ SKILL:Acrobatics	RANK:1
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:2
 SKILL:Swim		RANK:2
-FEAT:Improved Initiative
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 
 STARTPACK:Tiger (Dire) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tiger (Dire)]	SOURCEPAGE:p.265
 RACE:Tiger (Dire)	!PRERACE:1,%
@@ -6365,13 +6365,13 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:5
 SKILL:Stealth	RANK:7
 SKILL:Swim		RANK:2
-FEAT:Improved Critical (Bite)
-FEAT:Improved Initiative
-FEAT:Run
-FEAT:Skill Focus (Perception)
-FEAT:Skill Focus (Stealth)
-FEAT:Weapon Focus (Bite)
-FEAT:Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 
 STARTPACK:Treant Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Treant],[!PRERACE:1,%]	SOURCEPAGE:p.266
 ALIGN:NG
@@ -6382,12 +6382,12 @@ SKILL:Intimidate			RANK:8
 SKILL:Knowledge (Nature)	RANK:8
 SKILL:Perception			RANK:4
 SKILL:Sense Motive		RANK:4
-FEAT:Alertness
-FEAT:Improved Critical (Slam)
-FEAT:Improved Sunder
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Critical (Slam)
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
 GEAR:Rock (Medium)	LOCATION:Carried
 
@@ -6397,7 +6397,7 @@ NAME:Troglodyte
 ALIGN:CE
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Stealth	RANK:2
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Great Fortitude
 GEAR:Club			LOCATION:Both Hands
 GEAR:Javelin	QTY:3	LOCATION:Carried
 
@@ -6409,9 +6409,9 @@ ALIGN:CE
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Intimidate	RANK:3
 SKILL:Perception	RANK:3
-FEAT:Intimidating Prowess
-FEAT:Iron Will
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Intimidating Prowess
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 
 STARTPACK:Troll (Scrag) Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Scrag)]	SOURCEPAGE:p.268
@@ -6421,9 +6421,9 @@ ALIGN:CE
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Intimidate	RANK:3
 SKILL:Perception	RANK:3
-FEAT:Intimidating Prowess
-FEAT:Iron Will
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Intimidating Prowess
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 
 STARTPACK:Unicorn Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Unicorn],[!PRERACE:1,%]	SOURCEPAGE:p.269
@@ -6435,8 +6435,8 @@ SKILL:Acrobatics	RANK:2
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:2
 SKILL:Survival	RANK:2
-FEAT:Multiattack
-FEAT:Weapon Focus (Gore)
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Gore)
 
 STARTPACK:Vampire Spawn Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Vampire Spawn],[!PRERACE:1,%]	SOURCEPAGE:p.271
 ALIGN:LE
@@ -6446,8 +6446,8 @@ SKILL:Intimidate			RANK:4
 SKILL:Knowledge (Religion)	RANK:4
 SKILL:Perception			RANK:4
 SKILL:Stealth			RANK:4
-FEAT:Blind-Fight
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 
 
@@ -6458,8 +6458,8 @@ NAME:Vargouille
 SKILL:Fly		RANK:3
 SKILL:Intimidate	RANK:3
 SKILL:Perception	RANK:3
-FEAT:Skill Focus (Stealth)
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 
 
@@ -6468,7 +6468,7 @@ ALIGN:TN
 RACE:Vegepygmy	!PRERACE:1,%
 NAME:Vegepygmy
 SKILL:Perception	RANK:1
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 GEAR:Longspear	SIZE:S	LOCATION:Both Hands
 
@@ -6502,8 +6502,8 @@ SKILL:Intimidate			RANK:4
 SKILL:Knowledge (Religion)	RANK:4
 SKILL:Perception			RANK:4
 SKILL:Stealth			RANK:4
-FEAT:Blind-Fight
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 
 
@@ -6515,8 +6515,8 @@ SKILL:Intimidate			RANK:4
 SKILL:Knowledge (Religion)	RANK:4
 SKILL:Perception			RANK:4
 SKILL:Stealth			RANK:4
-FEAT:Blind-Fight
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 
 
@@ -6528,8 +6528,8 @@ SKILL:Intimidate			RANK:4
 SKILL:Knowledge (Religion)	RANK:4
 SKILL:Perception			RANK:4
 SKILL:Stealth			RANK:4
-FEAT:Blind-Fight
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 GEAR:Longsword	LOCATION:Primary Hand
 
@@ -6542,8 +6542,8 @@ SKILL:Intimidate			RANK:4
 SKILL:Knowledge (Religion)	RANK:4
 SKILL:Perception			RANK:4
 SKILL:Stealth			RANK:4
-FEAT:Blind-Fight
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 
 
@@ -6557,11 +6557,11 @@ SKILL:Escape Artist	RANK:9
 SKILL:Fly			RANK:9
 SKILL:Perception		RANK:9
 SKILL:Stealth		RANK:9
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
 
@@ -6572,7 +6572,7 @@ ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:1
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 
 
 STARTPACK:Wolf (Dire) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf (Dire)]	SOURCEPAGE:p.278
@@ -6582,9 +6582,9 @@ ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Perception	RANK:3
 SKILL:Stealth	RANK:2
-FEAT:Run
-FEAT:Skill Focus (Perception)
-FEAT:Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 
 
 STARTPACK:Wolverine Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wolverine],[!PRERACE:1,%]	SOURCEPAGE:p.279
@@ -6592,8 +6592,8 @@ ALIGN:TN
 RACE:Wolverine	!PRERACE:1,%
 NAME:Wolverine
 SKILL:Perception	RANK:3
-FEAT:Skill Focus (Perception)
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -6602,9 +6602,9 @@ ALIGN:TN
 RACE:Wolverine (Dire)	!PRERACE:1,%
 NAME:Dire Wolverine
 SKILL:Perception	RANK:5
-FEAT:Improved Initiative
-FEAT:Skill Focus (Perception)
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -6615,8 +6615,8 @@ NAME:Worg
 SKILL:Perception	RANK:1
 SKILL:Stealth	RANK:2
 SKILL:Survival	RANK:1
-FEAT:Run
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -6627,9 +6627,9 @@ NAME:Winter Wolf
 SKILL:Perception	RANK:2
 SKILL:Stealth	RANK:2
 SKILL:Survival	RANK:2
-FEAT:Improved Initiative
-FEAT:Run
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 
 
@@ -6643,9 +6643,9 @@ SKILL:Knowledge (Planes)	RANK:5
 SKILL:Perception			RANK:5
 SKILL:Sense Motive		RANK:5
 SKILL:Stealth			RANK:5
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
 
 
@@ -6657,10 +6657,10 @@ SKILL:Fly			RANK:7
 SKILL:Perception		RANK:7
 SKILL:Sense Motive	RANK:7
 SKILL:Stealth		RANK:7
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 
 
@@ -6676,11 +6676,11 @@ SKILL:Knowledge (Planes)	RANK:9
 SKILL:Perception			RANK:9
 SKILL:Sense Motive		RANK:9
 SKILL:Stealth			RANK:9
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Weapon Focus (Claw)
-FEAT:Weapon Focus (Sword (Short))
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Short))
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 GEAR:Shield (Heavy/Steel)			LOCATION:Equipped
 GEAR:Sword (Short)				LOCATION:Primary Hand
@@ -6699,10 +6699,10 @@ SKILL:Knowledge (Dungeoneering)	RANK:7
 SKILL:Perception				RANK:7
 SKILL:Stealth				RANK:7
 SKILL:Survival				RANK:7
-FEAT:Cleave
-FEAT:Improved Bull Rush
-FEAT:Power Attack
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
@@ -6721,8 +6721,8 @@ SKILL:Fly		RANK:4
 SKILL:Perception	RANK:4
 SKILL:Stealth	RANK:4
 SKILL:Survival	RANK:4
-FEAT:Improved Initiative
-FEAT:Skill Focus (Fly)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Skill Focus (Fly)
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
@@ -6733,9 +6733,9 @@ NAME:Yeti
 SKILL:Climb		RANK:6
 SKILL:Intimidate	RANK:6
 SKILL:Perception	RANK:6
-FEAT:Cleave
-FEAT:Great Fortitude
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 
 
@@ -6758,11 +6758,11 @@ SKILL:Knowledge (Nobility)	RANK:7
 SKILL:Perception			RANK:7
 SKILL:Sense Motive		RANK:7
 SKILL:Stealth			RANK:2
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Toughness
 TEMPLATE:Ghost
 ABILITY:CATEGORY=Ability Bonus|+2 Charisma
 ABILITY:CATEGORY=Favored Class|Fighter
@@ -6781,8 +6781,8 @@ SKILL:Knowledge (Planes)	RANK:4
 SKILL:Sense Motive		RANK:4
 SKILL:Stealth			RANK:4
 SKILL:Survival			RANK:4
-FEAT:Multiattack
-FEAT:Weapon Focus (Gore)
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Gore)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 ABILITY:CATEGORY=Half-Celestial Ability Bonus|Template ~ +2 Strength
 ABILITY:CATEGORY=Half-Celestial Ability Bonus|Template ~ +2 Constitution
@@ -6797,10 +6797,10 @@ TEMPLATE:Half-Dragon
 SKILL:Fly		RANK:7
 SKILL:Perception	RANK:7
 SKILL:Stealth	RANK:7
-FEAT:Blind-Fight
-FEAT:Great Fortitude
-FEAT:Iron Will
-FEAT:Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 ABILITY:CATEGORY=Half-Dragon Type|Black Half-Dragon
 
@@ -6815,9 +6815,9 @@ SKILL:Knowledge (Religion)	RANK:6
 SKILL:Perception			RANK:6
 SKILL:Stealth			RANK:6
 SKILL:Survival			RANK:6
-FEAT:Great Fortitude
-FEAT:Improved Bull Rush
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 ABILITY:CATEGORY=Half-Fiend Ability Bonus|Template ~ +2 Strength
 ABILITY:CATEGORY=Half-Fiend Ability Bonus|Template ~ +2 Constitution
@@ -6860,14 +6860,14 @@ SKILL:Perception			RANK:11
 SKILL:Sense Motive		RANK:11
 SKILL:Spellcraft			RANK:11
 SKILL:Stealth			RANK:11
-FEAT:Craft Wondrous Item
-FEAT:Defensive Combat Training
-FEAT:Extend Spell
-FEAT:Improved Lightning Reflexes
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Maximize Spell
-FEAT:Toughness				FREE:YES
+ABILITY:CATEGORY=FEAT|Craft Wondrous Item
+ABILITY:CATEGORY=FEAT|Defensive Combat Training
+ABILITY:CATEGORY=FEAT|Extend Spell
+ABILITY:CATEGORY=FEAT|Improved Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Maximize Spell
+ABILITY:CATEGORY=FEAT|Toughness				FREE:YES
 GEAR:Boots of Levitation			LOCATION:Equipped
 GEAR:Headband of Vast Intelligence +2	LOCATION:Equipped
 GEAR:Ring of Protection +2			LOCATION:Equipped
@@ -6951,8 +6951,8 @@ SKILL:Perception		RANK:2
 SKILL:Sense Motive	RANK:2
 SKILL:Stealth		RANK:2
 SKILL:Swim			RANK:2
-FEAT:Dodge
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 TEMPLATE:Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Kind|Wererat
@@ -6980,8 +6980,8 @@ ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 SKILL:Climb		RANK:2
 SKILL:Intimidate	RANK:2
 SKILL:Perception	RANK:2	FREE:YES
-FEAT:Cleave
-FEAT:Combat Reflexes
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=Fighter Bonus Feat|Improved Initiative
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
 TEMPLATE:Lycanthrope
@@ -7021,12 +7021,12 @@ SKILL:Knowledge (Arcana)	RANK:8
 SKILL:Knowledge (Religion)	RANK:8
 SKILL:Spellcraft			RANK:8
 SKILL:Use Magic Device		RANK:8
-FEAT:Combat Casting
-FEAT:Eschew Materials
-FEAT:Extend Spell
-FEAT:Silent Spell
-FEAT:Weapon Finesse
-FEAT:Blind-Fight		FREE:YES
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Eschew Materials
+ABILITY:CATEGORY=FEAT|Extend Spell
+ABILITY:CATEGORY=FEAT|Silent Spell
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Blind-Fight		FREE:YES
 ABILITY:CATEGORY=Undead Bloodline Feat|Still Spell
 STAT:STR=10|DEX=14|CON=10|INT=12|WIS=14|CHA=16
 LANGBONUS:Abyssal|Draconic

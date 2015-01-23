@@ -42,7 +42,7 @@ ABILITY:asol_abilities_traits.lst
 ABILITYCATEGORY:asol_abilitycategories.lst
 CLASS:asol_classes.lst
 EQUIPMENT:asol_equip.lst
-FEAT:asol_feats.lst
+ABILITY:asol_feats.lst
 KIT:asol_kits.lst
 RACE:asol_races.lst
 SKILL:asol_skills.lst

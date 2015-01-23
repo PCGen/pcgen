@@ -7,8 +7,8 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar 
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar					Type			
-MASTERBONUSRACE:Familiar (Fennec (Brushtail))	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Fennec (Brushtail))	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Bustard)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bustard)			VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Jerboa)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Jerboa)			VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Scorpion (Lashtail))	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Scorpion (Lashtail))	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Solifugid)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Solifugid)			VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Fennec (Brushtail))	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Fennec (Brushtail))	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Bustard)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bustard)			ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Jerboa)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Jerboa)			ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Scorpion (Lashtail))	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Scorpion (Lashtail))	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Solifugid)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Solifugid)			ABILITY:FEAT|VIRTUAL|Alertness

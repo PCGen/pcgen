@@ -27,8 +27,7 @@ ABILITYCATEGORY:soi_abilitycategories.lst
 ABILITY:soi_abilities.lst
 
 CLASS:schoolillusion_classes.lst
-FEAT:schoolillusion_feats.lst
-FEAT:schoolillusion_feats_hidden.lst
+ABILITY:schoolillusion_feats.lst
 SKILL:schoolillusion_skills.lst
 
 SPELL:schoolillusion_spells.lst

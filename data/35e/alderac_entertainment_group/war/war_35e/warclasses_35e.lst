@@ -6,7 +6,7 @@ CLASS:Beast Handler.MOD	SPELLLEVEL:CLASS|Beast Handler=1|Enlarge Person,Hide fro
 CLASS:Beast Handler.MOD	CSKILL:.CLEAR		CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Nature)|Jump|Ride|Swim
 
 # Class Name			Clear Prereq.	Required Feat				Required Race		Required Skill						PRETOTALAB
-CLASS:Elf Treerunner.MOD	PRE:.CLEAR		PREFEAT:2,Lightning Reflexes,Track	PRERACE:1,Elf%,Half-Elf	PRESKILL:4,Climb=8,Survival=4,Jump=6,Balance=6	PRETOTALAB:5
+CLASS:Elf Treerunner.MOD	PRE:.CLEAR		PREABILITY:2,CATEGORY=FEAT,Lightning Reflexes,Track	PRERACE:1,Elf%,Half-Elf	PRESKILL:4,Climb=8,Survival=4,Jump=6,Balance=6	PRETOTALAB:5
 # Class Name			Remove Class Skill	Class Skill
 CLASS:Elf Treerunner.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Survival|Swim
 
@@ -14,11 +14,11 @@ CLASS:Elf Treerunner.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Handle Animal|Hide|
 CLASS:Epic Athlete.MOD	CSKILL:.CLEAR		CSKILL:Balance|Climb|Escape Artist|Heal|Intimidate|Jump|Listen|TYPE=Perform|Ride|Spot|Swim|Tumble
 
 # Class Name	Clear Prereq.	Required Feat				Maximum Size	PRETOTALAB
-CLASS:Footman.MOD	PRE:.CLEAR		PREFEAT:2,Dodge,Combat Expertise	PRESIZELTEQ:S	PRETOTALAB:3
+CLASS:Footman.MOD	PRE:.CLEAR		PREABILITY:2,CATEGORY=FEAT,Dodge,Combat Expertise	PRESIZELTEQ:S	PRETOTALAB:3
 
 # Class Name			Remove Class Skill	Class Skill
 CLASS:Gutter Fighter.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Climb|TYPE=Craft|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|TYPE=Profession|Search|Sleight of Hand|Spot|Swim|Tumble
-8	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	BONUS:VAR|UncannyDodgeLevel|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	AUTO:FEAT|.CLEAR.Uncanny Dodge
+8	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	BONUS:VAR|UncannyDodgeLevel|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	ABILITY:FEAT|AUTOMATIC|.CLEAR.Uncanny Dodge
 
 # Class Name			Remove Class Skill	Class Skill
 CLASS:Knight Chaplain.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE=Craft|Heal|Listen|Ride|Search|Spot
@@ -29,25 +29,25 @@ CLASS:Knight Chaplain.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE=Craft|Heal|Li
 
 # Class Name
 CLASS:Lancer.MOD
-7	VFEAT:Two-Weapon Fighting
+7	ABILITY:FEAT|VIRTUAL|Two-Weapon Fighting
 
 # Class Name			Remove Class Skill	Class Skill
 CLASS:Mercenary Captain.MOD	CSKILL:.CLEAR		CSKILL:Bluff|Climb|Intimidate|Listen|TYPE=Perform|Ride|Search|Sense Motive|Spot
 
 # Class Name	Clear Prereq.	Required Feat			Required Skill				PRETOTALAB
-CLASS:Rake.MOD	PRE:.CLEAR		PREFEAT:1,Combat Expertise	PRESKILL:2,Bluff=8,Intimidate=8	PRETOTALAB:4
+CLASS:Rake.MOD	PRE:.CLEAR		PREABILITY:1,CATEGORY=FEAT,Combat Expertise	PRESKILL:2,Bluff=8,Intimidate=8	PRETOTALAB:4
 # Class Name	Remove Class Skill	Class Skill
 CLASS:Rake.MOD	CSKILL:.CLEAR		CSKILL:Balance|Bluff|Climb|Gather Information|Intimidate|Jump|TYPE=Perform|Sleight of Hand|Tumble
 
 # Class Name			Auto Feat
-CLASS:Wandering Squire.MOD	AUTO:FEAT|Combat Expertise
+CLASS:Wandering Squire.MOD	ABILITY:FEAT|AUTOMATIC|Combat Expertise
 # Class Name			Clear Prereq.	Required Feat									PRETOTALAB
-CLASS:Wandering Squire.MOD	PRE:.CLEAR		PREFEAT:3,Dodge,Two-Weapon Fighting,Weapon Focus (Quarterstaff)	PRETOTALAB:5
+CLASS:Wandering Squire.MOD	PRE:.CLEAR		PREABILITY:3,CATEGORY=FEAT,Dodge,Two-Weapon Fighting,Weapon Focus (Quarterstaff)	PRETOTALAB:5
 
 # Class Name	Remove Class Skill	Class Skill
 CLASS:Warmage.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
 
 # Class Name		Clear Prereq.	Required Feat					Required Skill				PRETOTALAB		Var. Min. Value
-CLASS:Wild Rider.MOD	PRE:.CLEAR		PREFEAT:2,Mounted Combat,Mounted Archery	PRESKILL:3,Ride=8,Heal=6,Survival=6	PRETOTALAB:5	PREVARGTEQ:RageTimes,1
+CLASS:Wild Rider.MOD	PRE:.CLEAR		PREABILITY:2,CATEGORY=FEAT,Mounted Combat,Mounted Archery	PRESKILL:3,Ride=8,Heal=6,Survival=6	PRETOTALAB:5	PREVARGTEQ:RageTimes,1
 # Class Name		Remove Class Skill	Class Skill
 CLASS:Wild Rider.MOD	CSKILL:.CLEAR		CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|TYPE=Profession|Ride|Survival|Swim

@@ -30,7 +30,7 @@ public class HandsTokenTest extends AbstractIntegerTokenTestCase<Race>
 {
 
 	static HandsToken token = new HandsToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
 
 	@Override
 	public Class<Race> getCDOMClass()

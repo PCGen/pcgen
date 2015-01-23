@@ -86,10 +86,10 @@ CLASS:bloodandblades_classes_victims.lst
 EQUIPMENT:bloodandblades_equip.lst
 EQUIPMENT:bloodandblades_equip_FX.lst
 EQUIPMENT:bloodandblades_equip_weap_melee.lst
-FEAT:bloodandblades_feats.lst
-FEAT:bloodandblades_feats_flaws.lst
-FEAT:bloodandblades_feats_hidden.lst
-FEAT:bloodandblades_feats_mods.lst
+ABILITY:bloodandblades_feats.lst
+ABILITY:bloodandblades_feats_flaws.lst
+ABILITY:bloodandblades_feats_hidden.lst
+ABILITY:bloodandblades_feats_mods.lst
 KIT:bloodandblades_kits_defaultmonsters.lst
 LANGUAGE:bloodandblades_languages.lst
 RACE:bloodandblades_races.lst

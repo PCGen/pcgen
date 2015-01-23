@@ -38,8 +38,7 @@ public class WeildIntegrationTest extends
 		AbstractIntegrationTestCase<Equipment>
 {
 	static WieldToken token = new WieldToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

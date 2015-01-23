@@ -68,4 +68,4 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Combat" Copyrigh
 #PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/ultimate_combat.pcc
 
 WEAPONPROF:pfs_uc_profs_weapon.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
-FEAT:pfs_uc_feats.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+ABILITY:pfs_uc_feats.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat

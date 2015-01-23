@@ -10,7 +10,7 @@ SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:4
 SKILL:Swim			RANK:4
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Zombie (Dessicated Dead) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Dessicated Dead)]
 RACE:Zombie (Dessicated Dead)	!PRERACE:1,%
@@ -20,7 +20,7 @@ SKILL:Hide			RANK:4
 SKILL:Move Silently	RANK:4
 SKILL:Listen		RANK:6
 SKILL:Spot			RANK:6
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Default Zombie (Feral Walkin' Dead)	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Feral Walkin' Dead)]
 RACE:Zombie (Feral Walkin' Dead)	!PRERACE:1,%
@@ -32,7 +32,7 @@ SKILL:Hide			RANK:5
 SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:6
 SKILL:Listen		RANK:6
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Zombie (Frozen Dead) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Frozen Dead)]
 RACE:Zombie (Frozen Dead)	!PRERACE:1,%
@@ -44,7 +44,7 @@ SKILL:Listen		RANK:5
 SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:5
 SKILL:Intimidate		RANK:6
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Zombie (Glom) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Glom)]
 RACE:Zombie (Glom)	!PRERACE:1,%
@@ -54,7 +54,7 @@ SKILL:Intimidate		RANK:9
 SKILL:Listen		RANK:7
 SKILL:Spot			RANK:7
 SKILL:Move Silently	RANK:3
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Zombie (Glom/Colony) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Glom/Colony)]
 RACE:Zombie (Glom/Colony)	!PRERACE:1,%
@@ -64,7 +64,7 @@ SKILL:Intimidate		RANK:10
 SKILL:Listen		RANK:6
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:7
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Zombie (Headless Dead) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Headless Dead)]
 RACE:Zombie (Headless Dead)	!PRERACE:1,%
@@ -77,7 +77,7 @@ SKILL:Move Silently	RANK:5
 SKILL:Ride			RANK:5
 SKILL:Spot			RANK:5
 SKILL:Intimidate		RANK:6
-FEAT:Blind-Fight
+ABILITY:CATEGORY=FEAT|Blind-Fight
 
 STARTPACK:Zombie (Orphaned Head) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Orphaned Head)]
 RACE:Zombie (Orphaned Head)	!PRERACE:1,%
@@ -90,7 +90,7 @@ SKILL:Hide			RANK:6
 SKILL:Intimidate		RANK:6
 SKILL:Move Silently	RANK:6
 SKILL:Ridicule		RANK:6
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Zombie (Severed Hand) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Severed Hand)]
 RACE:Zombie (Severed Hand)	!PRERACE:1,%
@@ -110,7 +110,7 @@ SKILL:Search		RANK:4
 SKILL:Spot			RANK:4
 SKILL:Hide			RANK:10
 SKILL:Ridicule		RANK:3
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Zombie (Skeleton) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Zombie (Skeleton)]
 RACE:Zombie (Skeleton)	!PRERACE:1,%
@@ -122,4 +122,4 @@ SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:5
 SKILL:Intimidate		RANK:7
 SKILL:Listen		RANK:4
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Multiattack

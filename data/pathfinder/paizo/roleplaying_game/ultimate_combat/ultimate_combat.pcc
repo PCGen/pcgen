@@ -45,7 +45,7 @@ EQUIPMENT:uc_equip_arms_armor.lst|(EXCLUDE:Do-Maru|Tatami-Do|O-Yoroi|Mountain Pa
 EQUIPMENT:uc_equip_arms_armor.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
 EQUIPMENT:uc_equip_magic_items.lst
 EQUIPMOD:uc_equipmods.lst
-FEAT:uc_feats.lst
+ABILITY:uc_feats.lst
 KIT:uc_kits.lst
 RACE:uc_races.lst
 SPELL:uc_spells.lst

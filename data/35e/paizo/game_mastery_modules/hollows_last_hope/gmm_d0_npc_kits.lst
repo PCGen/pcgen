@@ -24,7 +24,7 @@ SKILL:Open Lock			RANK:2
 SKILL:Search			RANK:5
 SKILL:Spot				RANK:5
 SKILL:Tumble			RANK:3
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Initiative
 GEAR:Potion (Cure Light Wounds)				LOCATION:Carried
 GEAR:Sword (Short)				SIZE:S	LOCATION:Primary Hand	EQMOD:MWORKW
 GEAR:Dagger					QTY:4	SIZE:S	LOCATION:Carried
@@ -45,6 +45,6 @@ SKILL:Intimidate		RANK:2
 SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
-FEAT:Track
-FEAT:Iron Will
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Track
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack

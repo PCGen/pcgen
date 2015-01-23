@@ -36,8 +36,7 @@ public class PreTokenTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<ConcretePrereqObject> token = new PreLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
 
 	@Override
 	@Before

@@ -54,8 +54,8 @@ EQUIPMENT:srd_equip.lst
 EQUIPMOD:srd_equipmods_magic.lst
 EQUIPMOD:srd_equipmods_mundane.lst
 
-FEAT:srd_feats.lst
-FEAT:srd_feats_monster.lst
+ABILITY:srd_feats.lst
+ABILITY:srd_feats_monster.lst
 
 KIT:srd_kits_races__animals.lst
 KIT:srd_kits_races__base.lst

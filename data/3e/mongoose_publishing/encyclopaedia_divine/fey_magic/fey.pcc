@@ -41,7 +41,7 @@ EQUIPMENT:fey_equip_weap.lst
 EQUIPMENT:fey_equip_wondrous_items.lst
 EQUIPMENT:fey_equip_artifacts.lst
 EQUIPMOD:fey_equip_mod.lst
-FEAT:fey_feats.lst
+ABILITY:fey_feats.lst
 SKILL:fey_skills.lst
 SPELL:fey_spells.lst
 TEMPLATE:fey_templates.lst

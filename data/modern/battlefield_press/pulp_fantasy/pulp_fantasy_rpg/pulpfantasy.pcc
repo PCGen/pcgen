@@ -79,8 +79,8 @@ ALLOWDUPES:SPELL
 EQUIPMENT:@/modern/wizards_of_the_coast/msrd/arcana/basics/arcanabasics_equip_armorshields.lst
 ARMORPROF:@/modern/wizards_of_the_coast/msrd/arcana/basics/arcanabasics_profs_armor.lst
 ABILITYCATEGORY:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_ability_categories_future.lst|(INCLUDE:Charismatic Plus Talent,Dedicated Plus Talent,Fast Plus Talent,Smart Plus Talent,Strong Plus Talent,Tough Plus Talent)
-FEAT:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Charismatic Plus,Dedicated Plus,Fast Plus,Smart Plus,Strong Plus,Tough Plus)
-FEAT:@/modern/wizards_of_the_coast/msrd/arcana/basics/arcanabasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Improved Grapple,Improved Overrun,Improved Natural Healing,Jack of all Trades,Precise Strike)
+ABILITY:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Charismatic Plus,Dedicated Plus,Fast Plus,Smart Plus,Strong Plus,Tough Plus)
+ABILITY:@/modern/wizards_of_the_coast/msrd/arcana/basics/arcanabasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Improved Grapple,Improved Overrun,Improved Natural Healing,Jack of all Trades,Precise Strike)
 RACE:@/modern/wizards_of_the_coast/msrd/arcana/creatures/arcanacreatures_races.lst|(INCLUDE:Lizard|Lizard (Giant)|Octopus|Octopus (Giant)|Octopus (Venemous)|Porpoise|Squid|Squid (Giant))
 RACE:@/modern/wizards_of_the_coast/msrd/basics/modern_creatures/moderncreatures_races.lst|(INCLUDE:Snake (Constrictor)|Snake (Tiny/Viper))
 RACE:@/modern/wizards_of_the_coast/msrd/menaces/menaces_races_a-i.lst|(INCLUDE:Boar (Wild Pig)|Chimpanzee)
@@ -102,9 +102,9 @@ EQUIPMENT:pulpfantasy_equip_weap_ammo.lst
 EQUIPMENT:pulpfantasy_equip_weap_melee.lst
 EQUIPMENT:pulpfantasy_equip_weap_ranged.lst
 EQUIPMOD:pulpfantasy_equipmods.lst
-FEAT:pulpfantasy_feats.lst
-FEAT:pulpfantasy_feats_hidden.lst
-FEAT:pulpfantasy_feats_mod.lst
+ABILITY:pulpfantasy_feats.lst
+ABILITY:pulpfantasy_feats_hidden.lst
+ABILITY:pulpfantasy_feats_mod.lst
 KIT:pulpfantasy_kits_defaultmonsters.lst
 LANGUAGE:pulpfantasy_languages.lst
 RACE:pulpfantasy_races.lst

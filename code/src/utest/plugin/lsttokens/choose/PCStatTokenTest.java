@@ -40,8 +40,7 @@ public class PCStatTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static PCStatToken subtoken = new PCStatToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<Race> getCDOMClass()

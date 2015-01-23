@@ -37,8 +37,7 @@ public class LangBonusTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static LangToken subtoken = new LangToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 	private static final LangBonusToken LANGBONUS_TOKEN = new LangBonusToken();
 
 	public LangBonusTokenTest()

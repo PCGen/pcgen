@@ -16,7 +16,7 @@ Gloves of the Rogue											TYPE:Magic.Wondrous.Glove	COST:4000	WT:1		SLOTS:2	
 Headband of Leadership											TYPE:Magic.Wondrous.Headgear	COST:16000	WT:1				SOURCEPAGE:p.170																					SPROP:When worn by a character who has the Leadership feat this headband increases the wearer's Leadership score by 2.
 Helm of Solitude												TYPE:Magic.Wondrous.Headgear	COST:36000	WT:1				SOURCEPAGE:p.170																					SPROP:Continuous nondetection spell as cast by a 6th level wizard.
 Infinite Quill												TYPE:Magic.Wondrous		COST:500	WT:0				SOURCEPAGE:p.171					BONUS:SKILL|Profession (Scribe)|2|TYPE=Competence								SPROP:Grants a +2 competence bonus to any Profession (scribe) or similar checks, including Spellcraft checks to successfully copy a spell.
-Ioun Stone (Deep Red and Black)									TYPE:Magic.Wondrous		COST:8000	WT:0				SOURCEPAGE:p.171	VFEAT:Combat Reflexes																	SPROP:Grants Combat Reflexes feat
+Ioun Stone (Deep Red and Black)									TYPE:Magic.Wondrous		COST:8000	WT:0				SOURCEPAGE:p.171	ABILITY:FEAT|VIRTUAL|Combat Reflexes																	SPROP:Grants Combat Reflexes feat
 Ioun Stone (Bright Yellow)										TYPE:Magic.Wondrous		COST:8000	WT:0				SOURCEPAGE:p.171																					SPROP:Grants darkvision 120 feet
 Ioun Stone (Deep Green)											TYPE:Magic.Wondrous		COST:10000	WT:0				SOURCEPAGE:p.171					BONUS:SKILL|Animal Empathy|10												SPROP:+10 to Animal Empathy
 Ioun Stone (Incandescent Blue/SS)		OUTPUTNAME:Ioun Stone (Incandescent Blue)	TYPE:Magic.Wondrous		COST:10000	WT:0				SOURCEPAGE:p.171																					SPROP:Fly as the spell

@@ -40,7 +40,7 @@ COPYRIGHT:PCGen dataset conversion for "Monster Focus: Zombies", Copyright 2013,
 # Data files
 ABILITY:mfz_abilities.lst
 EQUIPMENT:mfz_equip.lst
-FEAT:mfz_feats.lst
+ABILITY:mfz_feats.lst
 KIT:mfz_kits.lst
 RACE:mfz_races.lst
 SPELL:mfz_spells.lst

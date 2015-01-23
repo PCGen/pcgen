@@ -51,16 +51,16 @@ Master of Venoms - Lesson 8		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SAB:Expert Craftsm
 Master of Venoms - Lesson 9		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SAB:Venomous Strike																						PRETEMPLATE:1,Master of Venoms - Lesson 8		REMOVABLE:NO
 Master of Venoms - Lesson 10		VISIBLE:DISPLAY	SOURCEPAGE:p.151	SAB:Deadly Injection																						PRETEMPLATE:1,Master of Venoms - Lesson 9		REMOVABLE:NO
 
-Razorfiend - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Swift Strike			PREFEAT:2,Weapon Focus (Dagger),Weapon Finesse (Dagger)																			REMOVABLE:NO
-Razorfiend - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Stinging Cut			PREFEAT:2,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 1			REMOVABLE:NO
-Razorfiend - Lesson 3			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Flurry of Cuts		PREFEAT:2,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 2			REMOVABLE:NO
-Razorfiend - Lesson 4			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Quickest Strike		PREFEAT:2,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 3			REMOVABLE:NO
-Razorfiend - Lesson 5			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Tendon Strike			PREFEAT:2,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 4			REMOVABLE:NO
-Razorfiend - Lesson 6			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Precise Blow			PREFEAT:2,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 5			REMOVABLE:NO
-Razorfiend - Lesson 7			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SAB:Hurricane of Cuts		PREFEAT:2,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 6			REMOVABLE:NO
-Razorfiend - Lesson 8			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SAB:Lightning Strike		PREFEAT:2,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 7			REMOVABLE:NO
-Razorfiend - Lesson 9			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SAB:Deadeye Strike		PREFEAT:2,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 8			REMOVABLE:NO
-Razorfiend - Lesson 10			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SAB:Hobbling Strike		PREFEAT:2,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 9			REMOVABLE:NO
+Razorfiend - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Swift Strike			PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Dagger),Weapon Finesse (Dagger)																			REMOVABLE:NO
+Razorfiend - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Stinging Cut			PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 1			REMOVABLE:NO
+Razorfiend - Lesson 3			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Flurry of Cuts		PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 2			REMOVABLE:NO
+Razorfiend - Lesson 4			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Quickest Strike		PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 3			REMOVABLE:NO
+Razorfiend - Lesson 5			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Tendon Strike			PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 4			REMOVABLE:NO
+Razorfiend - Lesson 6			VISIBLE:DISPLAY	SOURCEPAGE:p.152	SAB:Precise Blow			PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 5			REMOVABLE:NO
+Razorfiend - Lesson 7			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SAB:Hurricane of Cuts		PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 6			REMOVABLE:NO
+Razorfiend - Lesson 8			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SAB:Lightning Strike		PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 7			REMOVABLE:NO
+Razorfiend - Lesson 9			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SAB:Deadeye Strike		PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 8			REMOVABLE:NO
+Razorfiend - Lesson 10			VISIBLE:DISPLAY	SOURCEPAGE:p.153	SAB:Hobbling Strike		PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Dagger),Weapon Finesse (Dagger)											PRETEMPLATE:1,Razorfiend - Lesson 9			REMOVABLE:NO
 
 Shadowlurker - Lesson 1			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SAB:Information Network																														REMOVABLE:NO
 Shadowlurker - Lesson 2			VISIBLE:DISPLAY	SOURCEPAGE:p.154	SAB:Face in the Crowd																						PRETEMPLATE:1,Shadowlurker - Lesson 1		REMOVABLE:NO
@@ -115,7 +115,7 @@ Hermod's Traveling Exhibition of Wonders - Rank 3				VISIBLE:YES	SOURCEPAGE:p.16
 Hermod's Traveling Exhibition of Wonders - Rank 4				VISIBLE:YES	SOURCEPAGE:p.160																																	PRESKILL:3,Balance=7,Escape Artist=7,Handle Animal=7,Performance=7,Tumble=7					PRETEMPLATE:1,Hermod's Traveling Exhibition of Wonders - Rank 3																												REMOVABLE:YES
 Hermod's Traveling Exhibition of Wonders - Rank 5				VISIBLE:YES	SOURCEPAGE:p.160																																	PRESKILL:3,Balance=9,Escape Artist=9,Handle Animal=9,Performance=9,Tumble=9					PRETEMPLATE:1,Hermod's Traveling Exhibition of Wonders - Rank 4																												REMOVABLE:YES
 
-League of Bounty Hunters - Rank 1 - Apprentice Hunter				VISIBLE:YES	SOURCEPAGE:p.161						PREFEAT:1,Track																									PRESKILL:1,Gather Information=1																																																		REMOVABLE:YES
+League of Bounty Hunters - Rank 1 - Apprentice Hunter				VISIBLE:YES	SOURCEPAGE:p.161						PREABILITY:1,CATEGORY=FEAT,Track																									PRESKILL:1,Gather Information=1																																																		REMOVABLE:YES
 League of Bounty Hunters - Rank 2 - Journeyman Hunter				VISIBLE:YES	SOURCEPAGE:p.161																																	PRESKILL:2,Intimidate=1,Gather Information=3										PRETEMPLATE:1,League of Bounty Hunters - Rank 1 - Apprentice Hunter																											REMOVABLE:YES
 League of Bounty Hunters - Rank 3 - Hunter					VISIBLE:YES	SOURCEPAGE:p.161																																	PRESKILL:3,Spot=1,Intimidate=3,Gather Information=5									PRETEMPLATE:1,League of Bounty Hunters - Rank 2 - Journeyman Hunter																											REMOVABLE:YES
 League of Bounty Hunters - Rank 4 - Eminent Hunter				VISIBLE:YES	SOURCEPAGE:p.161																																	PRESKILL:3,Spot=3,Intimidate=5,Gather Information=7									PRETEMPLATE:1,League of Bounty Hunters - Rank 3 - Hunter																													REMOVABLE:YES

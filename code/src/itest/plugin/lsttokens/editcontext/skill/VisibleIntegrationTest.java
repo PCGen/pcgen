@@ -32,8 +32,7 @@ public class VisibleIntegrationTest extends AbstractIntegrationTestCase<Skill>
 {
 
 	static VisibleToken token = new VisibleToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>(
-			Skill.class);
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
 
 	@Override
 	public Class<Skill> getCDOMClass()

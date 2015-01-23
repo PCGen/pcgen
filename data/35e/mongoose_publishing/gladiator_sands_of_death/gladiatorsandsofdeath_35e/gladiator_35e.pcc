@@ -36,6 +36,6 @@ CLASS:../gladiatorclasses.lst
 EQUIPMENT:../gladiatorequip.lst
 EQUIPMENT:../gladiatorequipweapmelee.lst
 EQUIPMENT:../gladiatorequipweapranged.lst
-FEAT:../gladiatorfeats.lst
+ABILITY:../gladiatorfeats.lst
 TEMPLATE:../gladiatortemplates.lst
 WEAPONPROF:../gladiatorweapprofs.lst

@@ -2,4 +2,4 @@
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-02
 
 # Feat Name		Clear Prereq.
-Twin Shot.MOD	PRE:.CLEAR
+CATEGORY=FEAT|Twin Shot.MOD	PRE:.CLEAR

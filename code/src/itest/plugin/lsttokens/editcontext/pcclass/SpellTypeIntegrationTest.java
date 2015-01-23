@@ -35,8 +35,7 @@ public class SpellTypeIntegrationTest extends
 {
 
 	static SpelltypeToken token = new SpelltypeToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>(
-			PCClass.class);
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

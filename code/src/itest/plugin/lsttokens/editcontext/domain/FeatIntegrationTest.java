@@ -34,8 +34,7 @@ public class FeatIntegrationTest extends
 {
 
 	static FeatToken token = new FeatToken();
-	static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<Domain>(
-			Domain.class);
+	static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<Domain>();
 
 	@Override
 	public Class<Domain> getCDOMClass()

@@ -55,8 +55,7 @@ public class VFeatTokenTest extends
 	private static final Nature NATURE = Nature.VIRTUAL;
 	static AddLst token = new AddLst();
 	static VFeatToken subtoken = new VFeatToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

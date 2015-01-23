@@ -30,8 +30,7 @@ public class PPCostTokenTest extends AbstractIntegerTokenTestCase<Spell>
 {
 
 	static PpcostToken token = new PpcostToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>(
-			Spell.class);
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

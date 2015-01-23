@@ -13,7 +13,7 @@ FOLLOWER:HorrorLVL=5	TYPE:Horror	HD:1																														BONUS:ABILITY
 FOLLOWER:HorrorLVL=6	TYPE:Horror	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																			BONUS:ABILITYPOOL|Horror Evolution|1																				BONUS:VAR|MasterLevel|1
 FOLLOWER:HorrorLVL=7	TYPE:Horror	HD:1																														BONUS:ABILITYPOOL|Horror Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:HorrorLVL=8	TYPE:Horror																															BONUS:ABILITYPOOL|Horror Evolution|1																				BONUS:VAR|MasterLevel|1
-FOLLOWER:HorrorLVL=9	TYPE:Horror	HD:1														AUTO:FEAT|Multiattack													BONUS:ABILITYPOOL|Horror Evolution|2																				BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:HorrorLVL=9	TYPE:Horror	HD:1														ABILITY:FEAT|AUTOMATIC|Multiattack													BONUS:ABILITYPOOL|Horror Evolution|2																				BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
 FOLLOWER:HorrorLVL=10	TYPE:Horror	HD:1																														BONUS:ABILITYPOOL|Horror Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:HorrorLVL=11	TYPE:Horror	HD:1																														BONUS:ABILITYPOOL|Horror Evolution|1																				BONUS:VAR|MasterLevel|1
 FOLLOWER:HorrorLVL=12	TYPE:Horror																															BONUS:ABILITYPOOL|Horror Evolution|1									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1

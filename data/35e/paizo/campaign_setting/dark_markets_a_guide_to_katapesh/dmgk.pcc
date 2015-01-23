@@ -46,7 +46,7 @@ EQUIPMENT:dmgk_equip_poisons.lst
 EQUIPMENT:dmgk_equip_potions.lst
 EQUIPMENT:dmgk_equip_weapons_melee.lst
 EQUIPMENT:dmgk_equip_wondrousitems.lst
-FEAT:dmgk_feats.lst
+ABILITY:dmgk_feats.lst
 RACE:dmgk_races.lst
 SPELL:dmgk_spells.lst
 TEMPLATE:dmgk_templates.lst

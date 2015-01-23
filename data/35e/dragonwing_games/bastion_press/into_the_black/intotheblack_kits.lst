@@ -16,9 +16,9 @@ SKILL:Bluff		RANK:3	FREE:YES
 SKILL:Diplomacy	RANK:1
 SKILL:Hide		RANK:10
 SKILL:Search	RANK:3	FREE:YES
-FEAT:Endurance
-FEAT:Negotiator
-FEAT:Skill Focus(Appraise)
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Negotiator
+ABILITY:CATEGORY=FEAT|Skill Focus(Appraise)
 
 ###Block: Cavern Giant ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Cavern Giant Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cavern Giant (NPC)]
@@ -30,9 +30,9 @@ SKILL:Hide		RANK:6
 SKILL:Intimidate	RANK:3
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:4
-FEAT:Improved Grapple
-FEAT:Improved Unarmed Strike
-FEAT:Weapon Focus(Unarmed Strike)
+ABILITY:CATEGORY=FEAT|Improved Grapple
+ABILITY:CATEGORY=FEAT|Improved Unarmed Strike
+ABILITY:CATEGORY=FEAT|Weapon Focus(Unarmed Strike)
 GEAR:Stalactite	SIZE:PC	LOCATION:Primary Hand
 
 ###Block: Deviant Mimic ~ Arcarivore ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -45,8 +45,8 @@ SKILL:Hide			RANK:1	FREE:YES
 SKILL:Jump			RANK:6
 SKILL:Move Silently	RANK:4
 SKILL:Tumble		RANK:1	FREE:YES
-FEAT:Acrobatic
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Acrobatic
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 ###Block:Deviant Mimic ~ Parasitic ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Deviant Mimic ~ Parasitic Default	TYPE:DefaultMonster.Shapeshifter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deviant Mimic (Parasitic)]
@@ -58,8 +58,8 @@ SKILL:Hide			RANK:1	FREE:YES
 SKILL:Jump			RANK:6
 SKILL:Move Silently	RANK:4
 SKILL:Tumble		RANK:1	FREE:YES
-FEAT:Acrobatic
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Acrobatic
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 ###Block:Deviant Mimic ~ Assuming ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Deviant Mimic ~ Assuming Default	TYPE:DefaultMonster.Shapeshifter	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deviant Mimic (Assuming)]
@@ -70,8 +70,8 @@ SKILL:Disguise		RANK:2
 SKILL:Hide			RANK:1
 SKILL:Move Silently	RANK:3
 SKILL:Swim			RANK:1
-FEAT:Athletic
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Athletic
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 ###Block:Mal'Orm (Cricket Men of the Deep) ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Mal'Orm Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mal'Orm (Cricket Men of the Deep)]
@@ -85,8 +85,8 @@ SKILL:Knowledge (Nature)	RANK:5
 SKILL:Knowledge (The Planes)	RANK:3
 SKILL:Listen			RANK:2
 SKILL:Move Silently		RANK:8
-FEAT:Combat Casting
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Track
 
 ###Block:Pallemon ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Pallemon Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pallemon]
@@ -104,10 +104,10 @@ SKILL:Sense Motive		RANK:3
 SKILL:Spellcraft			RANK:6
 SKILL:Survival			RANK:3
 SKILL:Use Magic Device		RANK:2
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Spring Attack		FREE:YES
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack		FREE:YES
 
 ###Block:Snailfolk ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Snailfolk Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Snailfolk]
@@ -117,7 +117,7 @@ STAT:STR=11|DEX=10|CON=11|INT=11|WIS=11|CHA=10
 SKILL:Hide			RANK:4
 SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:1
-FEAT:Great Fortitude
+ABILITY:CATEGORY=FEAT|Great Fortitude
 GEAR:Mace (Light)	SIZE:PC	LOCATION:Primary Hand
 
 ###Block:Xastrial ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -133,11 +133,11 @@ SKILL:Hide			RANK:18
 SKILL:TYPE.Knowledge	RANK:16	COUNT:3
 SKILL:Sense Motive	RANK:16
 SKILL:Spellcraft		RANK:16
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Toughness
 
 ###Block:Crypt Guardian  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Crypt Guardian Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crypt Guardian]
@@ -159,10 +159,10 @@ SKILL:Listen		RANK:6
 SKILL:Search		RANK:7
 SKILL:Sense Motive	RANK:5
 SKILL:Spot			RANK:8
-FEAT:Blind-Fight
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
 
 ###Block:Leytru ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Leytru Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leytru]
@@ -178,10 +178,10 @@ SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
 SKILL:Tumble		RANK:6
 SKILL:Tumble		RANK:2	FREE:YES
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Multiattack
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 ###Block:Silent Reaper ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Silent Reaper Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Silent Reaper]
@@ -193,9 +193,9 @@ SKILL:Move Silently	RANK:4
 SKILL:Search		RANK:6
 SKILL:Spot			RANK:4
 SKILL:Survival		RANK:6
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Stealthy
 
 ###Block:Waking Dead ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Waking Dead Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Waking Dead]
@@ -207,8 +207,8 @@ SKILL:Intimidate		RANK:2
 SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:4
-FEAT:Alertness
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Toughness
 
 ###Block:Barangulaak  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Barangulaak Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barangulaak]
@@ -239,8 +239,8 @@ SKILL:Search			RANK:5
 SKILL:Spot				RANK:4
 SKILL:Spot				RANK:1	FREE:YES
 SKILL:Survival			RANK:7	FREE:YES
-FEAT:Toughness
-FEAT:Weapon Focus(Pick (Heavy))
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Focus(Pick (Heavy))
 GEAR:Pick (Heavy)	SIZE:PC	LOCATION:Primary Hand
 
 ###Block:Nokker ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -258,8 +258,8 @@ SKILL:Hide				RANK:3
 SKILL:Knowledge (Geology)	RANK:4
 SKILL:Move Silently		RANK:5
 SKILL:Profession (Miner)	RANK:6
-FEAT:Dodge
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
 
 ###Block:Orvender ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Orvender Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Orvender]
@@ -271,11 +271,11 @@ SKILL:Hide		RANK:4
 SKILL:Hide		RANK:8	FREE:YES
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
-FEAT:Combat Reflexes
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Overrun
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Overrun
 
 ###Block:Barathelar ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Barathelar Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Barathelar]
@@ -292,9 +292,9 @@ SKILL:Listen		RANK:8
 SKILL:Move Silently	RANK:2
 SKILL:Move Silently	RANK:8	FREE:YES
 SKILL:Spot			RANK:5
-FEAT:Improved Initiative
-FEAT:Dodge
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 ###Block:Ravvimen ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Ravvimen Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ravvimen]
@@ -308,7 +308,7 @@ SKILL:Move Silently	RANK:1
 SKILL:Search		RANK:2
 SKILL:Spot			RANK:2
 SKILL:Survival		RANK:2
-FEAT:Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 GEAR:Gaff		SIZE:PC	LOCATION:Primary Hand
 GEAR:Gaff		SIZE:PC	LOCATION:Secondary Hand
 GEAR:Leather	SIZE:PC	LOCATION:Equipped
@@ -322,8 +322,8 @@ SKILL:Escape Artist	RANK:2
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:4	FREE:YES
 SKILL:Spot			RANK:2
-FEAT:Blind-Fight
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 ###Block:Walking Disease ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Walking Disease Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Walking Disease]
@@ -337,11 +337,11 @@ SKILL:Move Silently	RANK:5
 SKILL:Search		RANK:13
 SKILL:Spot			RANK:14
 SKILL:Survival		RANK:10
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Toughness
 
 ###Block:Wurggis ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 STARTPACK:Wurggis Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wurggis]

@@ -42,7 +42,7 @@ ABILITY:pfsfg_abilities_class.lst
 EQUIPMENT:pfsfg_equip.lst
 KIT:pfsfg_kits.lst
 SPELL:pfsfg_spells.lst
-FEAT:pfsfg_feats.lst
+ABILITY:pfsfg_feats.lst
 EQUIPMOD:pfsfg_equipmods.lst
 
 ABILITYCATEGORY:pfsfg_abilitycategories_skillspecialization.lst

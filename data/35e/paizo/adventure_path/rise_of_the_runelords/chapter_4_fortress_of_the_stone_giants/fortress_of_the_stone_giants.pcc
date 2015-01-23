@@ -40,7 +40,7 @@ ABILITY:pf4_abilities.lst
 EQUIPMENT:pf4_equip_magic_weapons_melee.lst
 EQUIPMENT:pf4_equip_magic_rodsstaveswands.lst
 EQUIPMENT:pf4_equip_magic_wondrousitems.lst
-FEAT:pf4_feats.lst
+ABILITY:pf4_feats.lst
 KIT:pf4_kits_races.lst
 RACE:pf4_races.lst
 TEMPLATE:pf4_templates.lst

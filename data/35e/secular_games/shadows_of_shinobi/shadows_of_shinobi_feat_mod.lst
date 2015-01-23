@@ -5,9 +5,9 @@ SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com
 #EDITED BY: Paul W. King, Jan 2007
 
 # Feat Name					Type
-Greater Weapon Focus.MOD		TYPE:LotusWarrior
-Greater Weapon Specialization.MOD	TYPE:LotusWarrior
-Weapon Specialization.MOD		TYPE:LotusWarrior
+CATEGORY=FEAT|Greater Weapon Focus.MOD		TYPE:LotusWarrior
+CATEGORY=FEAT|Greater Weapon Specialization.MOD	TYPE:LotusWarrior
+CATEGORY=FEAT|Weapon Specialization.MOD		TYPE:LotusWarrior
 
 #
 # End

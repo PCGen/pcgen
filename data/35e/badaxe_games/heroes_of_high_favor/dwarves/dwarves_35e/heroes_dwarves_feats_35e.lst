@@ -3,7 +3,7 @@ SOURCELONG:Heroes of High Favor - Dwarves	SOURCESHORT:HoHF-D	SOURCEWEB:www.badax
 # Original Entry by: Andrew Maitland
 
 # Feat Name			Clear Prereq.	Required Feat
-Cleave Asunder.MOD	PRE:.CLEAR		PREFEAT:2,Cleave,Improved Sunder
+CATEGORY=FEAT|Cleave Asunder.MOD	PRE:.CLEAR		PREABILITY:2,CATEGORY=FEAT,Cleave,Improved Sunder
 
 #
 # End

@@ -42,7 +42,7 @@ ABILITY:agelegend_abilities_racial.lst
 ABILITY:agelegend_abilities_class.lst
 
 CLASS:agelegend_classes_prestige.lst
-FEAT:agelegend_feats.lst
+ABILITY:agelegend_feats.lst
 RACE:agelegend_races.lst
 SKILL:agelegend_skills.lst
 SPELL:agelegend_spells.lst

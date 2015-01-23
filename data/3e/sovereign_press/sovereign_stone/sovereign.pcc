@@ -37,8 +37,7 @@ EQUIPMENT:sovereignequipcoins.lst
 EQUIPMENT:sovereignequip.lst
 EQUIPMENT:sovereignequipweapammo.lst
 EQUIPMENT:sovereignequipweapmelee.lst
-FEAT:sovereignfeats.lst
-FEAT:sovereign_feats_hidden.lst
+ABILITY:sovereignfeats.lst
 RACE:sovereignraces.lst
 SKILL:sovereignskills.lst
 SPELL:sovereignspells.lst

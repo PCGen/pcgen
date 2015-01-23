@@ -27,9 +27,9 @@ SKILL:Sense Motive		RANK:3.0
 SKILL:Sleight of Hand		RANK:3.0
 SKILL:Stealth			RANK:1.0
 SKILL:Swim				RANK:1.0
-FEAT:Catch Off-Guard
-FEAT:Great Fortitude
-FEAT:Skill Focus (Profession (Cook))
+ABILITY:CATEGORY=FEAT|Catch Off-Guard
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Skill Focus (Profession (Cook))
 ABILITY:CATEGORY=Rogue Talent|Rogue Talent ~ Resiliency
 ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
 ABILITY:CATEGORY=Favored Class|Rogue

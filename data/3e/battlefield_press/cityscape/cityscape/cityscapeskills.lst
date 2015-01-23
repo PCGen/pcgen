@@ -16,7 +16,7 @@ Craft (Writing)				KEYSTAT:INT	USEUNTRAINED:YES							TYPE:Intelligence.Craft			
 Craft (Tattoo)				KEYSTAT:INT	USEUNTRAINED:NO							TYPE:Intelligence.Craft									SOURCEPAGE:p.
 # Craft Tatoo not mentioned in skill section
 Criminology					KEYSTAT:INT	USEUNTRAINED:NO							TYPE:Intelligence										SOURCEPAGE:p.
-Demolitions					KEYSTAT:INT	USEUNTRAINED:NO							TYPE:Intelligence										SOURCEPAGE:p.						BONUS:SKILL|Demolitions|SynergyBonus|PREFEAT:1,Cautious|TYPE=Synergy
+Demolitions					KEYSTAT:INT	USEUNTRAINED:NO							TYPE:Intelligence										SOURCEPAGE:p.						BONUS:SKILL|Demolitions|SynergyBonus|PREABILITY:1,CATEGORY=FEAT,Cautious|TYPE=Synergy
 # in case Dragonstar is loaded
 Demolitions.MOD																				PRE:.CLEAR
 

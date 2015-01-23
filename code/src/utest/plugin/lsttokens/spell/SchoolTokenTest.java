@@ -32,7 +32,7 @@ public class SchoolTokenTest extends
 
 	static SchoolToken token = new SchoolToken();
 	static CDOMTokenLoader<Spell> loader =
-			new CDOMTokenLoader<Spell>(Spell.class);
+			new CDOMTokenLoader<Spell>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

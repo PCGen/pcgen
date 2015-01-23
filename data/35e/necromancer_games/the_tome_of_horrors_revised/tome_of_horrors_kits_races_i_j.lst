@@ -13,8 +13,8 @@ SKILL:Listen			RANK:3
 SKILL:Move Silently		RANK:3
 SKILL:Search			RANK:2
 SKILL:Spot				RANK:3
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Iron Cobra Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Iron Cobra]
 #GENDER:None
@@ -32,9 +32,9 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Hide			RANK:3
 SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:3
-FEAT:Dodge
-FEAT:Mobility
-FEAT:Stealthy
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Stealthy
 
 STARTPACK:Jaculi Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jaculi]
 ALIGN:TN
@@ -43,7 +43,7 @@ NAME:Jaculi
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Jellyfish (Monstrous) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jellyfish (Monstrous)]
 ALIGN:TN

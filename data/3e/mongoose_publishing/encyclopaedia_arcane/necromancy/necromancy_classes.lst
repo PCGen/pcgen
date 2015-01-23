@@ -7,7 +7,7 @@ SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:N
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Spectral Loremaster	HD:4		TYPE:PC.Prestige	ABB:SpL		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/5+1+((classlevel("APPLIEDAS=NONEPIC")+3)/5)
 # Class Name			Required Feat		Required Skill								Required Spell School		Prohibited Sub-school			Req. Spell Type
-CLASS:Spectral Loremaster	PREFEAT:1,Spell Focus	PRESKILL:2,Knowledge (Arcana)=7,Knowledge (Necrology)=7	PRESPELLSCHOOL:1,Necromancy=1	!PRESPELLSCHOOLSUB:1,Divination=1	PRESPELLTYPE:1,Arcane=1
+CLASS:Spectral Loremaster	PREABILITY:1,CATEGORY=FEAT,Spell Focus	PRESKILL:2,Knowledge (Arcana)=7,Knowledge (Necrology)=7	PRESPELLSCHOOL:1,Necromancy=1	!PRESPELLSCHOOLSUB:1,Divination=1	PRESPELLTYPE:1,Arcane=1
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Spectral Loremaster	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Decipher Script|Gather Information|TYPE=Knowledge|Scry|Spellcraft
 1																										ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Speak with Dead ~ Spectral Loremaster			SPELLS:Class|TIMES=1|Speak with Dead

@@ -32,8 +32,7 @@ public class PantheonIntegrationTest extends
 {
 
 	static PantheonToken token = new PantheonToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>(
-			Deity.class);
+	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

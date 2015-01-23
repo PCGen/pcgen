@@ -21,7 +21,7 @@ SOURCELONG:My Campaign	SOURCESHORT:My	SOURCEWEB:http://www.mywebsite.com	SOURCED
 #
 #####2nd Example
 
-#MASTERBONUSRACE:Bat		TYPE:Familiar		BONUS:SKILL|Listen|3		VFEAT:Alertness
+#MASTERBONUSRACE:Bat		TYPE:Familiar		BONUS:SKILL|Listen|3		ABILITY:FEAT|VIRTUAL|Alertness
 
 #####
 #These files specify the bonuses that "enhanced companions", such as familiars and a Paladin's special mount, receive from

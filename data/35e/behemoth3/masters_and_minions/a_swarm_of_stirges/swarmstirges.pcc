@@ -31,7 +31,6 @@ RACE:swarmstirges_races.lst
 TEMPLATE:swarmstirges_templates.lst
 
 CLASS:swarmstirges_classes.lst
-FEAT:swarmstirges_feats_hidden.lst
 
 KIT:swarmstirges_kits_races.lst
 

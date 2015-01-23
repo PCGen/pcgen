@@ -48,8 +48,7 @@ EQUIPMENT:deadlands_equip_wondrousitems.lst
 EQUIPMENT:deadlands_equip_weap_ammo.lst
 EQUIPMENT:deadlands_equip_weap_melee.lst
 EQUIPMENT:deadlands_equip_weap_ranged.lst
-FEAT:deadlands_feats.lst
-FEAT:deadlands_feats_hidden.lst
+ABILITY:deadlands_feats.lst
 RACE:deadlands_races.lst
 SKILL:deadlands_skills.lst
 SPELL:deadlands_spells.lst
@@ -59,7 +58,7 @@ LANGUAGE:deadlands_languages.lst
 EQUIPMOD:deadlands_equipmods.lst
 
 CLASS:deadlands_mon_classes.lst
-FEAT:deadlands_mon_feats.lst
+ABILITY:deadlands_mon_feats.lst
 KIT:deadlands_mon_kits.lst
 RACE:deadlands_mon_races.lst
 TEMPLATE:deadlands_mon_templates.lst

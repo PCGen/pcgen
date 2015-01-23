@@ -4,7 +4,7 @@ SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcept
 
 ###Block: Altherian Artificer -----------------------------------------------------
 # Ability Name			Output Name						Category of Ability		Type						Define				Description			Stackable?	Multiple?	Choose																		Selections	Auto Feat				Add 										Bonus to skill																Allow Follower				Allowed Companions
-Altherian Craftsman									CATEGORY:Special Ability																																									AUTO:FEAT|Altherian Craftsman
+Altherian Craftsman									CATEGORY:Special Ability																																									ABILITY:FEAT|AUTOMATIC|Altherian Craftsman
 Sharp Intellect										CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality
 Dedication											CATEGORY:Special Ability							DEFINE:DedicationBonus|0	DESC:%1|DedicationBonus																															ADD:ABILITY|Special Ability|NORMAL|Dedication Output Choice
 Dedication Output Choice	OUTPUTNAME:Dedication				CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality						DESC:%1|DedicationBonus	STACK:NO	MULT:YES	CHOOSE:SKILL|Craft (Alchemy)|Craft (Armorsmithing)|Craft (Flintlocks)|Craft (Trapmaking)|Craft (Weaponsmithing)	SELECT:1																BONUS:SKILL|%LIST|DedicationBonus	BONUS:SKILL|Knowledge (Architecture and Engineering)|DedicationBonus
@@ -27,7 +27,7 @@ Hedge Mage's Education		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordina
 #Summon Familiar			CATEGORY:Special Ability
 Intution				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																									BONUS:SKILL|Spot,Listen,Sense Motive|1|TYPE=Insight
 #Poison Use				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Brew Potion				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																					AUTO:FEAT|Brew Potion
+Brew Potion				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																					ABILITY:FEAT|AUTOMATIC|Brew Potion
 Adaptable Magic			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Hedge Mage's Lore			CATEGORY:Special Ability
 Circle Magic			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
@@ -84,7 +84,7 @@ Lesser Spirit Gift - Rabbit			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:Sp
 Lesser Spirit Gift - Owl			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																										BONUS:SKILL|TYPE.Knowledge|2
 Lesser Spirit Gift - Shaman Ancestor	OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
 Lesser Spirit Gift - Spider			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Supernatural
-Lesser Spirit Gift - Stone			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																		AUTO:FEAT|Toughness
+Lesser Spirit Gift - Stone			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																		ABILITY:FEAT|AUTOMATIC|Toughness
 Lesser Spirit Gift - Thunder			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.SpellLike.Extraordinary
 Lesser Spirit Gift - Warrior Ancestor	OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary																																																																																																														BONUS:WEAPONPROF=TYPE.Martial|DAMAGE|2|TYPE=WarriorAncestor	BONUS:WEAPONPROF=TYPE.Simple|DAMAGE|2|TYPE=WarriorAncestor	BONUS:WEAPONPROF=TYPE.Exotic|DAMAGE|2|TYPE=WarriorAncestor
 Lesser Spirit Gift - Water			OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:SpiritGift.SpecialQuality.Extraordinary
@@ -130,7 +130,7 @@ Supreme Battlemagic	CATEGORY:Special Ability	TYPE:SpecialAttack
 ###Block: Suromar ----------------------------------------------------------------------------
 #Rogue Special Ability ~ Slippery Mind		CATEGORY:Special Ability	TYPE:SpecialQuality	TYPE:Ex
 # Ability Name		Category of Ability		Type						Auto Feat
-Iron Will			CATEGORY:Special Ability	TYPE:SpecialQuality			AUTO:FEAT|Iron Will
+Iron Will			CATEGORY:Special Ability	TYPE:SpecialQuality			ABILITY:FEAT|AUTOMATIC|Iron Will
 Lack of Focus		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Psionic Resistance	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Unyielding Will		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
@@ -376,7 +376,7 @@ Elemental Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 ###Block: The Ehtzara -------------------------------------------------------------------------------------------------------------
 #Summon Familiar			CATEGORY:Special Ability	TYPE:SpecialQuality
 # Ability Name		Output Name					Category of Ability		Type						Innate Spells												Auto Weapon Prof													Virtual Feat
-Fetish Crafting								CATEGORY:Special Ability	TYPE:SpecialQuality																																VFEAT:Craft Fetish|Craft Lesser Fetish
+Fetish Crafting								CATEGORY:Special Ability	TYPE:SpecialQuality																																ABILITY:FEAT|VIRTUAL|Craft Fetish|Craft Lesser Fetish
 Spirit Robes								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Binding Fetish								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 #
@@ -422,7 +422,7 @@ Improved Armored Caster	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordina
 ###Block: Magus Irascortum -------------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name	Unique Key						Output Name									Category of Ability		Type						Define			Stackable?	Multiple?	Choose		Virtual Feat		Bonus to skill					Modify VAR
 Focused Fury																		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Armored Caster																		CATEGORY:Special Ability	TYPE:SpecialQuality														VFEAT:Armored Caster
+Armored Caster																		CATEGORY:Special Ability	TYPE:SpecialQuality														ABILITY:FEAT|VIRTUAL|Armored Caster
 Additional Rage	KEY:Additional Rage ~ Magus Irascortum											CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:AdditionalRage|0																			BONUS:VAR|RageTimes|AdditionalRage
 Channel Rage								OUTPUTNAME:Channel Rage, Greater|PREVAREQ:ChannelRage,1	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:ChannelRage|0
 Enhanced Focus																		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																BONUS:SKILL|Concentration|max(CHA,0)
@@ -438,9 +438,9 @@ Skill Mastery (Master-Smith)		OUTPUTNAME:Skill Mastery	CATEGORY:Special Ability	
 Silvered Weapon									CATEGORY:Special Ability	TYPE:SpecialQuality
 Master Craftsman (Armorsmith)							CATEGORY:Special Ability	TYPE:SpecialQuality												ADD:ABILITY|Special Ability|NORMAL|Master Craftsman (Armorsmithing) Feat,Master Craftsman (Weaponsmithing) Bonus
 Master Craftsman (Weaponsmith)						CATEGORY:Special Ability	TYPE:SpecialQuality												ADD:ABILITY|Special Ability|NORMAL|Master Craftsman (Weaponsmithing) Bonus,Master Craftsman (Weaponsmithing) Feat
-Weapon Focus									CATEGORY:Special Ability	TYPE:SpecialQuality						VFEAT:Weapon Focus(Warhammer)
+Weapon Focus									CATEGORY:Special Ability	TYPE:SpecialQuality						ABILITY:FEAT|VIRTUAL|Weapon Focus(Warhammer)
 Cold-Forging									CATEGORY:Special Ability	TYPE:SpecialQuality
-Master-Smith									CATEGORY:Special Ability	TYPE:SpecialQuality						VFEAT:Craft Magic Arms and Armor
+Master-Smith									CATEGORY:Special Ability	TYPE:SpecialQuality						ABILITY:FEAT|VIRTUAL|Craft Magic Arms and Armor
 Secret of the Smithy								CATEGORY:Special Ability	TYPE:SpecialQuality
 Eschew Spell Requirements							CATEGORY:Special Ability	TYPE:SpecialQuality
 A Practiced Hand									CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -448,10 +448,10 @@ Practitioner's Technique							CATEGORY:Special Ability	TYPE:SpecialQuality
 Master of the Forge								CATEGORY:Special Ability	TYPE:SpecialQuality
 ###Block
 # Ability Name					Category of Ability		Type				Required Feat							Prohibited Feat							Virtual Feat						Bonus to skill
-Master Craftsman (Armorsmithing) Feat	CATEGORY:Special Ability														!PREFEAT:1,Master Craftsman (Craft (Armorsmithing))	VFEAT:Master Craftsman (Craft (Armorsmithing))
-Master Craftsman (Armorsmithing) Bonus	CATEGORY:Special Ability					PREFEAT:1,Master Craftsman (Craft (Armorsmithing))																		BONUS:SKILL|Craft (Armorsmithing)|1
-Master Craftsman (Weaponsmithing) Feat	CATEGORY:Special Ability														!PREFEAT:1,Master Craftsman (Craft (Weaponsmithing))	VFEAT:Master Craftsman (Craft (Weaponsmithing))
-Master Craftsman (Weaponsmithing) Bonus	CATEGORY:Special Ability					PREFEAT:1,Master Craftsman (Craft (Weaponsmithing))																		BONUS:SKILL|Craft (Weaponsmithing)|1
+Master Craftsman (Armorsmithing) Feat	CATEGORY:Special Ability														!PREABILITY:1,CATEGORY=FEAT,Master Craftsman (Craft (Armorsmithing))	ABILITY:FEAT|VIRTUAL|Master Craftsman (Craft (Armorsmithing))
+Master Craftsman (Armorsmithing) Bonus	CATEGORY:Special Ability					PREABILITY:1,CATEGORY=FEAT,Master Craftsman (Craft (Armorsmithing))																		BONUS:SKILL|Craft (Armorsmithing)|1
+Master Craftsman (Weaponsmithing) Feat	CATEGORY:Special Ability														!PREABILITY:1,CATEGORY=FEAT,Master Craftsman (Craft (Weaponsmithing))	ABILITY:FEAT|VIRTUAL|Master Craftsman (Craft (Weaponsmithing))
+Master Craftsman (Weaponsmithing) Bonus	CATEGORY:Special Ability					PREABILITY:1,CATEGORY=FEAT,Master Craftsman (Craft (Weaponsmithing))																		BONUS:SKILL|Craft (Weaponsmithing)|1
 
 Clockwork Construct traits			CATEGORY:Special Ability	TYPE:SpecialQuality
 
@@ -671,7 +671,7 @@ Arcane Healing																																	CATEGORY:Special Ability	TYPE:Spe
 Sorcerer King's Blessing																															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Spell Thief																																		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Reform Magic																																	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Experienced Caster																																CATEGORY:Special Ability	TYPE:SpecialQuality																	AUTO:FEAT|Experienced Caster
+Experienced Caster																																CATEGORY:Special Ability	TYPE:SpecialQuality																	ABILITY:FEAT|AUTOMATIC|Experienced Caster
 #Ordainer Feat Choices
 Spell Focus																																		CATEGORY:Special Ability	TYPE:OrdainerFeat																							BONUS:ABILITYPOOL|Spell Focus|1
 Greater Spell Focus																																CATEGORY:Special Ability	TYPE:OrdainerFeat				PREVARGTEQ:OrdainerFeatLvl,1															BONUS:ABILITYPOOL|Greater Spell Focus|1

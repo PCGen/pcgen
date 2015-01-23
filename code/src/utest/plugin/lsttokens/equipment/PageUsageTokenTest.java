@@ -28,8 +28,7 @@ public class PageUsageTokenTest extends AbstractFormulaTokenTestCase<Equipment>
 {
 
 	static PageUsageToken token = new PageUsageToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

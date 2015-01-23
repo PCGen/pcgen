@@ -34,8 +34,7 @@ public class ChangeProfIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	static ChangeprofLst token = new ChangeprofLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

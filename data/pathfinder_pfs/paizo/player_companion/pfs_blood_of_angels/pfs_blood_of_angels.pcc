@@ -47,4 +47,4 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Angels" Copyr
 ABILITY:pfs_boa_abilities.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
 ABILITY:pfs_boa_abilities_variant.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
 ABILITYCATEGORY:pfs_boa_abilitycategories.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
-FEAT:pfs_boa_feats.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
+ABILITY:pfs_boa_feats.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels

@@ -29,8 +29,7 @@ public class BenefitIntegrationTest extends
 {
 
 	static BenefitToken token = new BenefitToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>(
-			Ability.class);
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

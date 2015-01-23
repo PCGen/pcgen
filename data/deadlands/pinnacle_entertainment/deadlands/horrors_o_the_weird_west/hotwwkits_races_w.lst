@@ -10,8 +10,8 @@ SKILL:Wilderness Lore	RANK:6
 SKILL:Listen		RANK:7
 SKILL:Spot			RANK:7
 SKILL:Move Silently	RANK:4
-FEAT:Power Attack
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Track
 
 STARTPACK:Wave Shadow Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wave Shadow]
 RACE:Wave Shadow	!PRERACE:1,%
@@ -23,7 +23,7 @@ SKILL:Listen		RANK:5
 SKILL:Spot			RANK:5
 SKILL:Search		RANK:6
 SKILL:Swim			RANK:8
-FEAT:Endurance
+ABILITY:CATEGORY=FEAT|Endurance
 
 STARTPACK:Weeping Widow Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Weeping Widow]
 RACE:Weeping Widow	!PRERACE:1,%
@@ -36,8 +36,8 @@ SKILL:Listen		RANK:6
 SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
 SKILL:Knowledge (Local)	RANK:8
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Were-Shark Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Were-Shark]
 RACE:Were-Shark	!PRERACE:1,%
@@ -49,7 +49,7 @@ SKILL:Intimidate		RANK:8
 SKILL:Listen		RANK:8
 SKILL:Spot			RANK:8
 SKILL:Swim			RANK:8
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Default Will-o'-the-Wisp	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Will-o'-the-Wisp]
 RACE:Will-o'-the-Wisp	!PRERACE:1,%
@@ -62,4 +62,4 @@ SKILL:Sense Motive	RANK:5
 SKILL:Spot			RANK:5
 SKILL:Hide			RANK:3
 SKILL:Move Silently	RANK:2
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge

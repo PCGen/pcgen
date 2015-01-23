@@ -31,8 +31,7 @@ public class DurationTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 {
 
 	static DurationToken token = new DurationToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>(
-			Spell.class);
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

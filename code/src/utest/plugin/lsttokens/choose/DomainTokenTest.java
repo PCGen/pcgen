@@ -37,8 +37,7 @@ public class DomainTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static DomainToken subtoken = new DomainToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>(
-			CDOMObject.class);
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
 
 	@Override
 	public Class<Domain> getCDOMClass()

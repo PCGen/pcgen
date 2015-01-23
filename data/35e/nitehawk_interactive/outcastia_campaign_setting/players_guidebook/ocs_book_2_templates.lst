@@ -17,13 +17,13 @@ Claws ~ 1d8									VISIBLE:NO																																	PREVAREQ:ClawsSiz
 
 Run Feat Evalution							VISIBLE:NO				TEMPLATE:CHOOSE:Has Run Feat|Does Not Have Run Feat
 #
-Has Run Feat								VISIBLE:NO																	PREFEAT:1,Run																											BONUS:SKILL|Jump (Running Start)|8
-Does Not Have Run Feat							VISIBLE:NO																						!PREFEAT:1,Run																																																																						AUTO:FEAT|Run
+Has Run Feat								VISIBLE:NO																	PREABILITY:1,CATEGORY=FEAT,Run																											BONUS:SKILL|Jump (Running Start)|8
+Does Not Have Run Feat							VISIBLE:NO																						!PREABILITY:1,CATEGORY=FEAT,Run																																																																						ABILITY:FEAT|AUTOMATIC|Run
 
 Bond With Nature Feat Evaluation					VISIBLE:NO				TEMPLATE:CHOOSE:Has Bond With Nature Feat|Does Not Have Bond With Nature Feat
 #
 Has Bond With Nature Feat						VISIBLE:NO
-Does Not Have Bond With Nature Feat					VISIBLE:NO																																																																																														AUTO:FEAT|Bond with Nature
+Does Not Have Bond With Nature Feat					VISIBLE:NO																																																																																														ABILITY:FEAT|AUTOMATIC|Bond with Nature
 
 
 Racetype now Outsider							VISIBLE:NO																																																																																																			RACETYPE:Outsider
@@ -31,9 +31,9 @@ Racetype now Outsider							VISIBLE:NO																																										
 Run Evaluation Feral Raider											TEMPLATE:CHOOSE:Has Run Feat ~ Feral Raider|No Run Feat ~ Feral Raider
 #
 Has Run Feat ~ Feral Raider																																												BONUS:ABILITYPOOL|Feral Raider Run Substitution|1
-No Run Feat ~ Feral Raider																																																																																																					AUTO:FEAT|Run
+No Run Feat ~ Feral Raider																																																																																																					ABILITY:FEAT|AUTOMATIC|Run
 
 Select Knight of Manuzul Bonus										TEMPLATE:CHOOSE:Has Mounted Archery Feat|No Mounted Archery Feat
 
-Has Mounted Archery Feat																								PREFEAT:1,Mounted Archery
-No Mounted Archery Feat																														!PREFEAT:1,Mounted Archery																																																																				AUTO:FEAT|Mounted Archery
+Has Mounted Archery Feat																								PREABILITY:1,CATEGORY=FEAT,Mounted Archery
+No Mounted Archery Feat																														!PREABILITY:1,CATEGORY=FEAT,Mounted Archery																																																																				ABILITY:FEAT|AUTOMATIC|Mounted Archery

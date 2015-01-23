@@ -27,12 +27,12 @@ SKILL:Move Silently				RANK:20
 SKILL:Sense Motive				RANK:20
 SKILL:Spellcraft					RANK:20
 SKILL:Spot						RANK:20
-FEAT:Combat Expertise
-FEAT:Combat Reflexes
-FEAT:Improved Disarm
-FEAT:Improved Trip
-FEAT:Iron Will
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Improved Trip
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Multiattack
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 
 
@@ -59,9 +59,9 @@ SKILL:Sleight of Hand		RANK:7
 SKILL:Spellcraft			RANK:7
 SKILL:Spot				RANK:14
 SKILL:TYPE.Knowledge		RANK:7	COUNT:2
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Mobility
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
 
 
 STARTPACK:Mobogo Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mobogo],[!PRERACE:1,%]	SOURCEPAGE:p.88
@@ -71,11 +71,11 @@ NAME:Mobogo
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:8
 SKILL:Spot		RANK:7
-FEAT:Combat Reflexes
-FEAT:Great Fortitude
-FEAT:Improved Overrun
-FEAT:Power Attack
-FEAT:Wingover
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Wingover
 
 #
 # End

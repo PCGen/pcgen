@@ -4,7 +4,7 @@ SOURCELONG:Avalanche Press - Jade and Steel	SOURCESHORT:JadeSteel	SOURCEWEB:http
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Alchemist	HD:6		TYPE:PC.Prestige	ABB:Alc		MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Feat						Required Skill		Req. Spell Type
-CLASS:Alchemist	PREFEAT:2,Brew Potion,Skill Focus (Alchemy)	PRESKILL:1,Alchemy=10	PRESPELLTYPE:1,Arcane=1
+CLASS:Alchemist	PREABILITY:2,CATEGORY=FEAT,Brew Potion,Skill Focus (Alchemy)	PRESKILL:1,Alchemy=10	PRESPELLTYPE:1,Arcane=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Alchemist	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE=Craft|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
 1	SAB:Brewing Bonus					ADD:SPELLCASTER|Arcane
@@ -21,7 +21,7 @@ CLASS:Alchemist	STARTSKILLPTS:2	CSKILL:Alchemy|Appraise|Concentration|TYPE=Craft
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Attack Cycle	Combat bonus											Save bonus
 CLASS:Dim Mak Practitioner	HD:8		TYPE:PC.Prestige	ABB:DMk		MAXLEVEL:10	SOURCEPAGE:p.13	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL		Required Feat										PRETOTALAB
-CLASS:Dim Mak Practitioner	PREALIGN:LG,LN,LE	PREFEAT:3,Improved Unarmed Strike,Improved Trip,Improved Initiative	PRETOTALAB:3
+CLASS:Dim Mak Practitioner	PREALIGN:LG,LN,LE	PREABILITY:3,CATEGORY=FEAT,Improved Unarmed Strike,Improved Trip,Improved Initiative	PRETOTALAB:3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Dim Mak Practitioner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|Perform|TYPE=Profession|Swim|Tumble
 1	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	SAB:Chakra Strike %|ChakraStrike	SAB:Student of Perfection	BONUS:COMBAT|AC|MonkAC|PREVARGT:MonkACChk,0	BONUS:VAR|ChakraStrike|1	BONUS:VAR|MonkACChk|MonkAC+WIS	BONUS:VAR|MonkAC|min(floor(CL/5),4)	DEFINE:MonkACChk|0	DEFINE:ChakraStrike|0	DEFINE:MonkAC|0
@@ -39,7 +39,7 @@ CLASS:Dim Mak Practitioner	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TY
 CLASS:Diviner	KEY:Diviner ~JS	HD:4		TYPE:PC.Prestige	ABB:Div		MAXLEVEL:10	SOURCEPAGE:p.15	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 
 # Class Name	Required Feat				Required Skill					Required Spell School
-CLASS:Diviner ~JS	PREFEAT:1,Spell Focus (Divination)	PRESKILL:2,Knowledge (Arcana)=8,Scry=8	PRESPELLSCHOOL:7,Divination=3
+CLASS:Diviner ~JS	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Divination)	PRESKILL:2,Knowledge (Arcana)=8,Scry=8	PRESPELLSCHOOL:7,Divination=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Diviner ~JS	STARTSKILLPTS:2	CSKILL:Concentration|Decipher Script|Gather Information|TYPE=Knowledge|Scry|Spellcraft
 # Class Name	Use Spell List
@@ -58,7 +58,7 @@ CLASS:Diviner ~JS	SPELLLIST:1|Wizard
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Save bonus
 CLASS:Geometer	HD:8		TYPE:PC.Prestige	ABB:Geo		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat						Required Skill										Req. Spell Type
-CLASS:Geometer	PREFEAT:2,Craft Wondrous Item,Extend Spell	PRESKILL:3,Knowledge (Arcana)=8,Knowledge (Religion)=8,Spellcraft=8	PRESPELLTYPE:1,Divine=3
+CLASS:Geometer	PREABILITY:2,CATEGORY=FEAT,Craft Wondrous Item,Extend Spell	PRESKILL:3,Knowledge (Arcana)=8,Knowledge (Religion)=8,Spellcraft=8	PRESPELLTYPE:1,Divine=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Geometer	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|TYPE=Profession|Search|Sense Motive|Spellcraft
 # Class Name	Use Spell List
@@ -77,7 +77,7 @@ CLASS:Geometer	SPELLLIST:1|Cleric
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Attack Cycle	Combat bonus											Save bonus
 CLASS:Iron Hand Disciple	HD:8		TYPE:PC.Prestige	ABB:IHD		SOURCEPAGE:p.18	ATTACKCYCLE:UAB|3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL		Required Feat									PRETOTALAB
-CLASS:Iron Hand Disciple	PREALIGN:LG,LN,LE	PREFEAT:3,Improved Unarmed Strike,Great Fortitude,Power Attack	PRETOTALAB:4
+CLASS:Iron Hand Disciple	PREALIGN:LG,LN,LE	PREABILITY:3,CATEGORY=FEAT,Improved Unarmed Strike,Great Fortitude,Power Attack	PRETOTALAB:4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Iron Hand Disciple	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|Perform|TYPE=Profession|Swim|Tumble
 1	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10			SAB:Iron Hand attack	SAB:Student of Perfection	BONUS:COMBAT|AC|MonkAC|PREVARGT:MonkACChk,0	BONUS:VAR|MonkACChk|MonkAC+WIS	BONUS:VAR|MonkAC|min(floor(CL/5),4)	DEFINE:MonkACChk|0	DEFINE:MonkAC|0
@@ -94,15 +94,15 @@ CLASS:Iron Hand Disciple	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Sword Saint	HD:10		TYPE:PC.Prestige	ABB:SwS		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Feat										PRETOTALAB
-CLASS:Sword Saint	PREFEAT:4,Weapon Specialization,Expertise,Quick Draw,Spring Attack	PRETOTALAB:6
+CLASS:Sword Saint	PREABILITY:4,CATEGORY=FEAT,Weapon Specialization,Expertise,Quick Draw,Spring Attack	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sword Saint	STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Knowledge (Religion)|Tumble
 1																								ABILITY:Special Ability|AUTOMATIC|Flurry of Blows
 2																								ABILITY:Special Ability|AUTOMATIC|Still Mind
-3												AUTO:FEAT|Deflect Arrows
+3												ABILITY:FEAT|AUTOMATIC|Deflect Arrows
 4					BONUS:COMBAT|TOHIT|2|TYPE=Enhancement	ADD:ABILITY|2|Special Ability|NORMAL|Superior Weapon Focus
 5	SAB:Leap of The Clouds
-6												AUTO:FEAT|Lightning Reflexes
+6												ABILITY:FEAT|AUTOMATIC|Lightning Reflexes
 7					BONUS:COMBAT|DAMAGE|2|TYPE=Enhancement	ADD:ABILITY|2|Special Ability|NORMAL|Superior Weapon Specialization
 8	SAB:Perfect Balance
 9																								ABILITY:Special Ability|AUTOMATIC|Wholeness of Body

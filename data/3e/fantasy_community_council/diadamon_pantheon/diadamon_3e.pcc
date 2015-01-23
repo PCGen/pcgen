@@ -25,10 +25,10 @@ COPYRIGHT:PCGen dataset conversion for Diadamon Pantheon Copyright 2005, PCgen D
 
 DEITY:diadamon_deity.lst
 DOMAIN:diadamon_domain.lst
-FEAT:diadamon_feat.lst
+ABILITY:diadamon_feat.lst
 SPELL:diadamon_spell.lst
 WEAPONPROF:diadamon_prof_weapon.lst
 
 DEITY:diadamon_deity_3e.lst
-FEAT:diadamon_feat_3e.lst
+ABILITY:diadamon_feat_3e.lst
 DOMAIN:diadamon_domain_3e.lst

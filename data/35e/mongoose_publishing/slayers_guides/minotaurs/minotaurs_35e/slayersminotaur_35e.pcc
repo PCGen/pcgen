@@ -29,7 +29,7 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1904577628?ie=UTF8&tag=httppcgen
 BIOSET:../slayersminotaurbiosettings.lst
 LANGUAGE:../slayersminotaurlanguages.lst
 RACE:../slayersminotaurraces.lst
-FEAT:../slayersminotaurfeats.lst
+ABILITY:../slayersminotaurfeats.lst
 SKILL:../slayersminotaurskills.lst
 SPELL:../slayersminotaurspells.lst
 EQUIPMENT:../slayersminotaurequip.lst

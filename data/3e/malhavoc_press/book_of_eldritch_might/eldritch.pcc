@@ -27,7 +27,7 @@ INFOTEXT:Spell names and other proper names from The Book of Eldritch Might are 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-FEAT:eldritch_feats.lst
+ABILITY:eldritch_feats.lst
 SKILL:eldritch_skills.lst
 
 CLASS:eldritch_classes.lst

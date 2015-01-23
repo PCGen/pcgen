@@ -44,7 +44,7 @@ CLASS:dm_classes.lst
 EQUIPMENT:dm_equip_general.lst
 EQUIPMENT:dm_equip_arms_armor.lst
 EQUIPMENT:dm_equip_magic_items.lst
-FEAT:dm_feats.lst
+ABILITY:dm_feats.lst
 RACE:dm_races.lst
 SPELL:dm_spells.lst
 TEMPLATE:dm_templates.lst

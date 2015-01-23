@@ -12,8 +12,8 @@ SKILL:Hide		RANK:2
 SKILL:Listen	RANK:1
 SKILL:Search	RANK:2
 SKILL:Spot		RANK:1
-FEAT:Power Attack
-FEAT:Weapon Focus (Club)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Club)
 GEAR:Hide	SIZE:PC	LOCATION:Equipped
 GEAR:Club	SIZE:PC	LOCATION:Primary Hand
 GEAR:Club	SIZE:PC	LOCATION:Secondary Hand
@@ -34,7 +34,7 @@ SKILL:Hide			RANK:1
 SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
 STARTPACK:Vegepygmy (Worker) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Worker)]
@@ -46,7 +46,7 @@ SKILL:Hide			RANK:2
 SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
 STARTPACK:Vegepygmy (Guard) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Guard)]
@@ -58,8 +58,8 @@ SKILL:Hide			RANK:3
 SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:3
-FEAT:Alertness
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Toughness
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
 STARTPACK:Vegepygmy (Bodyguard) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Bodyguard)]
@@ -71,8 +71,8 @@ SKILL:Hide			RANK:4
 SKILL:Listen		RANK:3
 SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:3
-FEAT:Alertness
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Toughness
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
 STARTPACK:Vegepygmy (Subchief) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Subchief)]
@@ -84,8 +84,8 @@ SKILL:Hide			RANK:4
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:4
 SKILL:Spot			RANK:2
-FEAT:Alertness
-FEAT:Weapon Focus (Longspear)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Longspear)
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
 STARTPACK:Vegepygmy (Chief) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vegepygmy (Chief)]
@@ -97,9 +97,9 @@ SKILL:Hide			RANK:6
 SKILL:Listen		RANK:7
 SKILL:Move Silently	RANK:7
 SKILL:Spot			RANK:7
-FEAT:Alertness
-FEAT:Toughness
-FEAT:Weapon Focus (Longspear)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Longspear)
 GEAR:Longspear	SIZE:PC	LOCATION:Both Hands
 
 STARTPACK:Vilstrak Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vilstrak]
@@ -110,7 +110,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Hide		RANK:2
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Volt Default	TYPE:DefaultMonster.PlaAberrationnt	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Volt]
 RACE:Volt	!PRERACE:1,%
@@ -119,7 +119,7 @@ ALIGN:TN
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:3
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Vulchling Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vulchling]
 RACE:Vulchling	!PRERACE:1,%
@@ -130,4 +130,4 @@ SKILL:Hide			RANK:1
 SKILL:Listen		RANK:1
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse

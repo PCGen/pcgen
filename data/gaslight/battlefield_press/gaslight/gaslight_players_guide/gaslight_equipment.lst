@@ -30,9 +30,9 @@ Incendiary Bomb													TYPE:Splash.Fire											COST:3	WT:1					CRITMULT:
 
 # Equipment Name		Output Name				Required Armor Proficiency		Type									Contains			Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Maximum DEX Bonus	Range		Size		Source Page		Combat bonus																Special Property
 Leather Jacket							PROFICIENCY:ARMOR|Leather Jacket	TYPE:Armor.Light.Suit										COST:10	WT:4		ACCHECK:0								MAXDEX:8						SOURCEPAGE:p.217	BONUS:COMBAT|AC|1|TYPE=Armor.STACK
-Leather Armor							PROFICIENCY:ARMOR|Leather Armor	TYPE:Armor.Light.Suit.Archaic									COST:12	WT:15		ACCHECK:0								MAXDEX:6						SOURCEPAGE:p.217	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Light)|TYPE=Armor.STACK
-Chainmail Shirt							PROFICIENCY:ARMOR|Chainmail Shirt	TYPE:Armor.Medium.Suit.Archaic								COST:18	WT:40		ACCHECK:-5								MAXDEX:2						SOURCEPAGE:p.217	BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK
-Plate Mail								PROFICIENCY:ARMOR|Plate Mail		TYPE:Armor.Heavy.Suit.Archaic									COST:23	WT:50		ACCHECK:-6								MAXDEX:1						SOURCEPAGE:p.217	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|5|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK
+Leather Armor							PROFICIENCY:ARMOR|Leather Armor	TYPE:Armor.Light.Suit.Archaic									COST:12	WT:15		ACCHECK:0								MAXDEX:6						SOURCEPAGE:p.217	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|1|PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Light)|TYPE=Armor.STACK
+Chainmail Shirt							PROFICIENCY:ARMOR|Chainmail Shirt	TYPE:Armor.Medium.Suit.Archaic								COST:18	WT:40		ACCHECK:-5								MAXDEX:2						SOURCEPAGE:p.217	BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|3|PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Medium)|TYPE=Armor.STACK
+Plate Mail								PROFICIENCY:ARMOR|Plate Mail		TYPE:Armor.Heavy.Suit.Archaic									COST:23	WT:50		ACCHECK:-6								MAXDEX:1						SOURCEPAGE:p.217	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|5|PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Heavy)|TYPE=Armor.STACK
 
 
 # 5.14 added 'QUALITY:Light|x ft.' and 'QUALITY:DURATION|x hr.'

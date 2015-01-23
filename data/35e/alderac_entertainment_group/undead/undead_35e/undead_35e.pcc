@@ -43,11 +43,11 @@ EQUIPMENT:../undeadequiprings.lst
 EQUIPMENT:../undeadequippotionspoisons.lst
 EQUIPMENT:../undeadequiprodstaffwands.lst
 EQUIPMOD:../undeadequipmods.lst
-FEAT:../undeadfeats.lst
+ABILITY:../undeadfeats.lst
 SKILL:../undeadskills.lst
 SPELL:../undeadspells.lst
 TEMPLATE:../undeadtemplates.lst
 
-FEAT:@/35e/alderac_entertainment_group/dragons/dragonsfeats.lst|(INCLUDE:CATEGORY=FEAT,Fearless,Invincible)
-FEAT:@/35e/alderac_entertainment_group/dungeons/dungeonsfeats.lst|(INCLUDE:CATEGORY=FEAT,Improved Endurance,Thick Skin(Hot),Thick Skin(Cold))
-FEAT:@/35e/alderac_entertainment_group/evil/evil_feats.lst|(INCLUDE:CATEGORY=FEAT,Turn Outsider)
+ABILITY:@/35e/alderac_entertainment_group/dragons/dragonsfeats.lst|(INCLUDE:CATEGORY=FEAT,Fearless,Invincible)
+ABILITY:@/35e/alderac_entertainment_group/dungeons/dungeonsfeats.lst|(INCLUDE:CATEGORY=FEAT,Improved Endurance,Thick Skin(Hot),Thick Skin(Cold))
+ABILITY:@/35e/alderac_entertainment_group/evil/evil_feats.lst|(INCLUDE:CATEGORY=FEAT,Turn Outsider)

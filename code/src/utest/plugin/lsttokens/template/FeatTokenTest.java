@@ -38,8 +38,7 @@ public class FeatTokenTest extends
 {
 	static FeatToken token = new FeatToken();
 
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
-			PCTemplate.class);
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
 
 	@Override
 	public char getJoinCharacter()

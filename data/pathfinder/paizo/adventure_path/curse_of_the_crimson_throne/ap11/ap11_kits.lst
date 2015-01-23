@@ -17,15 +17,15 @@ SKILL:Perception			RANK:21
 SKILL:Sense Motive		RANK:21
 SKILL:Stealth			RANK:21
 SKILL:Survival			RANK:21
-FEAT:Power Attack
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Multiattack
-FEAT:Snatch
-FEAT:Wingover
-FEAT:Improved Bull Rush
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Wingover
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Alertness
 SPELLS:SPELLBOOK=Known Spells|CLASS=Umbral Dragon|Acid Arrow|Silence|Detect Undead|Grease|Magic Missile|Shield|Create Water|Dancing Lights|Detect Magic|Disrupt Undead|Ray of Frost|Read Magic

@@ -29,8 +29,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class RaceTokenTest extends AbstractTypeSafeListTestCase<Deity, String>
 {
 	static RaceToken token = new RaceToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>(
-			Deity.class);
+	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>();
 
 	@Override
 	public char getJoinCharacter()

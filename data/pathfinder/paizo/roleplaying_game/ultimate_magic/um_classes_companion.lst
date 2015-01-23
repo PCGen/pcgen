@@ -8,7 +8,7 @@ CLASS:Vermin Companion	OUTPUTNAME:Vermin	HD:8		TYPE:Monster.Companion	CLASSTYPE:
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Vermin Companion	STARTSKILLPTS:0	MODTOSKILLS:NO			CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Stealth|Survival|Swim
 ###Block: Level Advancement
-1	AUTO:FEAT|CMB Output
+1	ABILITY:FEAT|AUTOMATIC|CMB Output
 
 # Class Name	Output Name			Type				Class Type			Abbreviation	Max Level	Source Page		Visible	Bonus to HP
 CLASS:Black Blade	OUTPUTNAME:Black Blade	TYPE:Monster.Companion	CLASSTYPE:Companion	ABB:BB		MAXLEVEL:1	SOURCEPAGE:p.47	VISIBLE:NO	BONUS:HP|CURRENTMAX|5

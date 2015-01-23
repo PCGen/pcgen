@@ -29,8 +29,7 @@ public class TitleIntegrationTest extends
 {
 
 	static TitleToken token = new TitleToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>(
-			Deity.class);
+	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

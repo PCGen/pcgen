@@ -20,15 +20,15 @@ SKILL:Spot					RANK:16
 SKILL:Tumble				RANK:1
 SKILL:Use Rope				RANK:17
 SKILL:Wilderness Lore			RANK:18
-FEAT:Dodge
-FEAT:Endurance
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Mobility
-FEAT:Power Attack
-FEAT:Skill Focus (Spot)
-FEAT:Track
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Spot)
+ABILITY:CATEGORY=FEAT|Track
 GEAR:Shortspear						LOCATION:Primary Hand	EQMOD:PLUS5W.RETRN
 GEAR:Leather				SIZE:PC	LOCATION:Equipped		EQMOD:SHDW.PLUS5A
 GEAR:The Master of the Hunt Horn			LOCATION:Equipped
@@ -38,8 +38,8 @@ STARTPACK:Hound of the Wild Hunt Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
 ALIGN:TN
 RACE:Hound of the Wild Hunt	!PRERACE:1,%
-FEAT:Alertness
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
 SKILL:Hide			RANK:9
 SKILL:Intuit Direction	RANK:2
 SKILL:Listen		RANK:1

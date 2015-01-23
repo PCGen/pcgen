@@ -35,4 +35,4 @@ INFOTEXT:This dataset requires the use of the MSRD Future dataset
 
 CLASS:md_047_class.lst
 EQUIPMENT:md_047_equip.lst
-FEAT:md_047_feat.lst
+ABILITY:md_047_feat.lst

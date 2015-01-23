@@ -8,7 +8,7 @@ RACE:Elemental (Glass)	!PRERACE:1,%
 NAME:Glass Elemental
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:7
-FEAT:Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
 
 STARTPACK:Elemental (Radiation) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Radiation)]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
@@ -16,7 +16,7 @@ RACE:Elemental (Radiation)	!PRERACE:1,%
 NAME:Radiation Elemental
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:7
-FEAT:Weapon Finesse (Slam)
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Slam)
 
 STARTPACK:Elemental (Steel) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Steel)]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
@@ -24,7 +24,7 @@ RACE:Elemental (Steel)	!PRERACE:1,%
 NAME:Steel Elemental
 SKILL:Listen	RANK:7
 SKILL:Spot		RANK:4
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Elemental (Concrete) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Concrete)]
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
@@ -32,7 +32,7 @@ RACE:Elemental (Concrete)	!PRERACE:1,%
 NAME:Concrete Elemental
 SKILL:Listen	RANK:7
 SKILL:Spot		RANK:4
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Daemonhost (Disembodied Attendant) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemonhost (Disembodied Attendant)]
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
@@ -45,8 +45,8 @@ SKILL:Knowledge (Arcane Lore)	RANK:2
 SKILL:Read/Write Language	RANK:1
 SKILL:Speak Language		RANK:1
 SKILL:Spellcraft			RANK:2
-FEAT:Iron Will
-FEAT:Archaic Weapons Proficiency
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Archaic Weapons Proficiency
 
 STARTPACK:Daemon Hound Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon Hound]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -56,9 +56,9 @@ SKILL:Hide			RANK:8
 SKILL:Listen		RANK:11
 SKILL:Move Silently	RANK:9
 SKILL:Spot			RANK:8
-FEAT:Multiattack
-FEAT:Alertness
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
 
 STARTPACK:Ethereal Predator Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ethereal Predator]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
@@ -66,7 +66,7 @@ RACE:Ethereal Predator	!PRERACE:1,%
 NAME:Ethereal Predator
 SKILL:Listen	RANK:7
 SKILL:Spot		RANK:9
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Mentiscaptor (Whipspider) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mentiscaptor (Whipspider)]
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
@@ -77,7 +77,7 @@ SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:2
 SKILL:Search		RANK:2
 SKILL:Spot			RANK:2
-FEAT:Weapon Finesse (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Bite)
 
 STARTPACK:Plategrazer Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Plategrazer]
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
@@ -103,8 +103,8 @@ SKILL:Hide			RANK:3
 SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:5
 SKILL:Spot			RANK:4
-FEAT:Alertness
-FEAT:Weapon Finesse (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Finesse (Bite)
 
 STARTPACK:Shadowcrawler Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadowcrawler]
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
@@ -116,7 +116,7 @@ SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:5
 SKILL:Search		RANK:2
 SKILL:Spot			RANK:4
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 
 STARTPACK:Shaskarath (The Cold Death) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shaskarath (The Cold Death)]
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
@@ -141,15 +141,15 @@ SKILL:Search					RANK:6
 SKILL:Sense Motive				RANK:8
 SKILL:Spot						RANK:16
 SKILL:Swim						RANK:4
-FEAT:Alertness
-FEAT:Athletic
-FEAT:Attentive
-FEAT:Cleave
-FEAT:Improved Damage Threshold
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Renown
-FEAT:Weapon Focus (Claws)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Athletic
+ABILITY:CATEGORY=FEAT|Attentive
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Damage Threshold
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Renown
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claws)
 
 STARTPACK:Spider Ebon Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider Ebon]
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10

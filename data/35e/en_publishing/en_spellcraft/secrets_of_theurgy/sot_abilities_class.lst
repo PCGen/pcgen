@@ -46,13 +46,13 @@ Divine Inspiration		KEY:Divine Inspiration ~ SoT					CATEGORY:Special Ability	TY
 # Ability Name					Category of Ability		Type						Visible		Required Ability							Required Class			Required Feat			Required Skill					Required Stat	Special ABility		Virtual Feat				Caster level
 Spellcaster						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:DISPLAY																														SAB:Spellcaster (Ex)							BONUS:CASTERLEVEL|Cleric,Sorcerer,Druid,Wizard,Ranger,Paladin,Bard|HierophantTheurgeLevel
 
-Theurgic Feat (Improved Metamagic)		CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY															PREFEAT:2,TYPE=Metamagic															VFEAT:Improved Metamagic ~ SoT
-Theurgic Feat (Many Sources of Power)	CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY																																		VFEAT:Many Sources of Power
-Theurgic Feat (Planar Ward)			CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY																				PRESKILL:1,Knowledge (The Planes)=10	PRESTAT:1,CHA=15					VFEAT:Planar Ward
-Theurgic Feat (Profane Arcana)		CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead						PREFEAT:1,Empower Spell																VFEAT:Profane Arcana
-Theurgic Feat (Sacred Arcana)			CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Turn Undead						PREFEAT:1,Empower Spell																VFEAT:Sacred Arcana
-Theurgic Feat (Spellcasting Might)		CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY										PRECLASS:1,SPELLCASTER=10	PREFEAT:1,Spell Penetration															VFEAT:Spellcasting Might
-Theurgic Feat (Tap All-Magic)			CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY																																		VFEAT:Tap All-Magic
+Theurgic Feat (Improved Metamagic)		CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY															PREABILITY:2,CATEGORY=FEAT,TYPE=Metamagic															ABILITY:FEAT|VIRTUAL|Improved Metamagic ~ SoT
+Theurgic Feat (Many Sources of Power)	CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY																																		ABILITY:FEAT|VIRTUAL|Many Sources of Power
+Theurgic Feat (Planar Ward)			CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY																				PRESKILL:1,Knowledge (The Planes)=10	PRESTAT:1,CHA=15					ABILITY:FEAT|VIRTUAL|Planar Ward
+Theurgic Feat (Profane Arcana)		CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead						PREABILITY:1,CATEGORY=FEAT,Empower Spell																ABILITY:FEAT|VIRTUAL|Profane Arcana
+Theurgic Feat (Sacred Arcana)			CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Turn Undead						PREABILITY:1,CATEGORY=FEAT,Empower Spell																ABILITY:FEAT|VIRTUAL|Sacred Arcana
+Theurgic Feat (Spellcasting Might)		CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY										PRECLASS:1,SPELLCASTER=10	PREABILITY:1,CATEGORY=FEAT,Spell Penetration															ABILITY:FEAT|VIRTUAL|Spellcasting Might
+Theurgic Feat (Tap All-Magic)			CATEGORY:Special Ability	TYPE:TheurgicFeats			VISIBLE:DISPLAY																																		ABILITY:FEAT|VIRTUAL|Tap All-Magic
 
 
 ###Block: Hierophant Theurge Ability I block

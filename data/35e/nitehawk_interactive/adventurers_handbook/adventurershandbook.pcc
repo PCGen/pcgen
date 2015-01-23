@@ -33,7 +33,7 @@ ABILITY:ahb_abilities_race.lst
 #Skills, Languages, etc.
 SKILL:ahb_skills.lst
 LANGUAGE:ahb_languages.lst
-FEAT:ahb_feats.lst
+ABILITY:ahb_feats.lst
 
 #Race stuff
 RACE:ahb_races.lst

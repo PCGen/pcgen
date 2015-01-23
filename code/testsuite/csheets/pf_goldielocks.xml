@@ -1866,7 +1866,29 @@ BIO
 		</ability_object>
 	<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
+			<name>Base Size ~ Colossal</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>CMB</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Current Size ~ Colossal</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
@@ -2021,6 +2043,17 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Race Traits ~ Gold Dragon</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Size Tracker</name>
 			<description></description>
 			<type></type>
 			<associated></associated>

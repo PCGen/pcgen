@@ -37,7 +37,7 @@ CLASS:aeg_gods_classes_prestige.lst
 DEITY:aeg_gods_deities.lst
 DOMAIN:aeg_gods_domains.lst
 EQUIPMENT:aeg_gods_equip_magic.lst
-FEAT:aeg_gods_feats_hidden.lst
+ABILITY:aeg_gods_feats_hidden.lst
 #KIT:aeg_gods_kits_races.lst
 SKILL:aeg_gods_skills.lst
 SPELL:aeg_gods_spells.lst

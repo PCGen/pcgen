@@ -23,7 +23,7 @@ SKILL:Concentration		RANK:2
 SKILL:Knowledge (Psionics)	RANK:3
 SKILL:Listen			RANK:1
 SKILL:Spot				RANK:1
-FEAT:Combat Manifestation
+ABILITY:CATEGORY=FEAT|Combat Manifestation
 
 STARTPACK:Elemental (Psionic/Medium) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Medium)]
 RACE:Elemental (Psionic/Medium)	!PRERACE:1,%
@@ -35,8 +35,8 @@ SKILL:Concentration		RANK:4
 SKILL:Knowledge (Psionics)	RANK:4
 SKILL:Listen			RANK:2
 SKILL:Spot				RANK:2
-FEAT:Combat Manifestation
-FEAT:Combat Reflexes
+ABILITY:CATEGORY=FEAT|Combat Manifestation
+ABILITY:CATEGORY=FEAT|Combat Reflexes
 
 STARTPACK:Elemental (Psionic/Large) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Large)]
 RACE:Elemental (Psionic/Large)	!PRERACE:1,%
@@ -48,9 +48,9 @@ SKILL:Concentration		RANK:4
 SKILL:Knowledge (Psionics)	RANK:5
 SKILL:Listen			RANK:4
 SKILL:Spot				RANK:4
-FEAT:Combat Manifestation
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Combat Manifestation
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Elemental (Psionic/Huge) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Huge)]
 RACE:Elemental (Psionic/Huge)	!PRERACE:1,%
@@ -62,12 +62,12 @@ SKILL:Concentration		RANK:7
 SKILL:Knowledge (Psionics)	RANK:9
 SKILL:Listen			RANK:7
 SKILL:Spot				RANK:7
-FEAT:Blind-Fight
-FEAT:Combat Manifestation
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Rapid Metabolism
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Manifestation
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Rapid Metabolism
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Elemental (Psionic/Greater) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Greater)]
 RACE:Elemental (Psionic/Greater)	!PRERACE:1,%
@@ -79,15 +79,15 @@ SKILL:Concentration		RANK:15
 SKILL:Knowledge (Psionics)	RANK:15
 SKILL:Listen			RANK:14
 SKILL:Spot				RANK:14
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Manifestation
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Psionic Fist
-FEAT:Psionic Hole
-FEAT:Rapid Metabolism
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Manifestation
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Psionic Fist
+ABILITY:CATEGORY=FEAT|Psionic Hole
+ABILITY:CATEGORY=FEAT|Rapid Metabolism
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Elemental (Psionic/Elder) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental (Psionic/Elder)]
 RACE:Elemental (Psionic/Elder)	!PRERACE:1,%
@@ -99,15 +99,15 @@ SKILL:Concentration		RANK:20
 SKILL:Knowledge (Psionics)	RANK:25
 SKILL:Listen			RANK:20
 SKILL:Spot				RANK:20
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Manifestation
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Psionic Fist
-FEAT:Psionic Hole
-FEAT:Rapid Metabolism
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Manifestation
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Psionic Fist
+ABILITY:CATEGORY=FEAT|Psionic Hole
+ABILITY:CATEGORY=FEAT|Rapid Metabolism
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Rat (Brain/Psionic) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat (Brain/Psionic)]
 RACE:Rat (Brain/Psionic)	!PRERACE:1,%
@@ -121,4 +121,4 @@ SKILL:Move Silently	RANK:4
 SKILL:Search		RANK:2
 SKILL:Sense Motive	RANK:3
 SKILL:Spot			RANK:2
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse

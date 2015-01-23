@@ -3,4 +3,4 @@
 # Feats: all feats on pages 284-289 except Eye of the Arclord, Fortune Teller, Hamatulatsu, Harrowed, and Shade of the Uskwood. For the Cypher Magic feat, replace the Scribe Scroll prerequisite with Spell Focus;
 
 # Feat Name				Ability
-Exotic Weapon Proficiency.MOD	ABILITY:Internal|AUTOMATIC|Exotic Weapon Proficiency ~ Firearms|PREFEAT:2,Exotic Weapon Proficiency (Firearms),Gunsmithing
+CATEGORY=FEAT|Exotic Weapon Proficiency.MOD	ABILITY:Internal|AUTOMATIC|Exotic Weapon Proficiency ~ Firearms|PREABILITY:2,CATEGORY=FEAT,Exotic Weapon Proficiency (Firearms),Gunsmithing

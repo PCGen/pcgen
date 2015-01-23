@@ -38,7 +38,7 @@ DEITY:fob_deities.lst
 EQUIPMENT:fob_equip_general.lst
 EQUIPMENT:fob_equip_arms_armor.lst
 EQUIPMENT:fob_equip_magic_items.lst
-FEAT:fob_feats.lst
+ABILITY:fob_feats.lst
 SPELL:fob_spells.lst
 
 # Out of set data files

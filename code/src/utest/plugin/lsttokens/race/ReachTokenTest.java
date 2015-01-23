@@ -30,7 +30,7 @@ public class ReachTokenTest extends AbstractIntegerTokenTestCase<Race>
 {
 
 	static ReachToken token = new ReachToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
 
 	@Override
 	public Class<Race> getCDOMClass()

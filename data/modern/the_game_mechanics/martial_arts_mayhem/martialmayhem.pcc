@@ -33,9 +33,9 @@ EQUIPMENT:martialmayhem_equip_shields.lst
 EQUIPMENT:martialmayhem_equip_weap_melee.lst
 EQUIPMENT:martialmayhem_equip_weap_ranged.lst
 EQUIPMOD:martialmayhem_equipmods.lst
-FEAT:martialmayhem_feats.lst
-FEAT:martialmayhem_feats_psionic.lst
-FEAT:martialmayhem_feats_hidden.lst
-FEAT:martialmayhem_feats_mods.lst
-FEAT:martialmayhem_feats_schools.lst
+ABILITY:martialmayhem_feats.lst
+ABILITY:martialmayhem_feats_psionic.lst
+ABILITY:martialmayhem_feats_hidden.lst
+ABILITY:martialmayhem_feats_mods.lst
+ABILITY:martialmayhem_feats_schools.lst
 WEAPONPROF:martialmayhem_weaponprofs.lst

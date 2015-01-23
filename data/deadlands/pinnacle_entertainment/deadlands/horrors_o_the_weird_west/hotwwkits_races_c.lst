@@ -65,9 +65,9 @@ SKILL:Listen		RANK:7
 SKILL:Spot			RANK:7
 SKILL:Wilderness Lore	RANK:7
 SKILL:Move Silently	RANK:8
-FEAT:Cleave
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Chupakabara Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Chupakabara]
 RACE:Chupakabara	!PRERACE:1,%
@@ -79,7 +79,7 @@ SKILL:Move Silently	RANK:6
 SKILL:Spot			RANK:6
 SKILL:Wilderness Lore	RANK:6
 SKILL:Listen		RANK:8
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Clockwork Tarantula Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Clockwork Tarantula]
 RACE:Clockwork Tarantula	!PRERACE:1,%

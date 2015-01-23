@@ -43,7 +43,7 @@ EQUIPMENT:ap10_equip_arms_armor.lst
 EQUIPMENT:ap10_equip_general.lst
 EQUIPMENT:ap10_equip_magic_items.lst
 EQUIPMOD:ap10_equipmods.lst
-FEAT:ap10_feats.lst
+ABILITY:ap10_feats.lst
 RACE:ap10_races.lst
 TEMPLATE:ap10_templates.lst
 WEAPONPROF:ap10_profs_weapon.lst

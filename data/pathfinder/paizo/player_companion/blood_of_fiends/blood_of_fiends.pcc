@@ -41,7 +41,7 @@ ABILITY:bof_abilities_race.lst
 ABILITYCATEGORY:bof_abilitycategories.lst
 CLASS:bof_classes.lst
 DOMAIN:bof_domains.lst
-FEAT:bof_feats.lst
+ABILITY:bof_feats.lst
 RACE:bof_races.lst
 SPELL:bof_spells.lst
 TEMPLATE:bof_templates.lst

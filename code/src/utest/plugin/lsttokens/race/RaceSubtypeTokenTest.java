@@ -31,7 +31,7 @@ public class RaceSubtypeTokenTest extends AbstractTypeSafeListTestCase<Race, Rac
 {
 
 	static RacesubtypeToken token = new RacesubtypeToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>(Race.class);
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
 
 	@Override
 	public Class<Race> getCDOMClass()

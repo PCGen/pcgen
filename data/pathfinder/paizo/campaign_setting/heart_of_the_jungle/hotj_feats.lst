@@ -3,4 +3,4 @@ SOURCELONG:Heart of the Jungle	SOURCESHORT:HOTJ	SOURCEWEB:http://paizo.com/pathf
 # Original Entry by:Stefan Radermacher
 
 # Feat Name					Type
-Martial Weapon Proficiency.MOD	TYPE:MartialWeaponProficiency
+CATEGORY=FEAT|Martial Weapon Proficiency.MOD	TYPE:MartialWeaponProficiency

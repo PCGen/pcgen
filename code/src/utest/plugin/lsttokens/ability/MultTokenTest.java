@@ -30,8 +30,7 @@ public class MultTokenTest extends AbstractYesNoTokenTestCase<Ability>
 {
 
 	static MultToken token = new MultToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>(
-			Ability.class);
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

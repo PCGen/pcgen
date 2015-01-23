@@ -38,7 +38,7 @@ DEITY:cotct_pg_deities.lst
 EQUIPMENT:cotct_pg_equipment.lst
 EQUIPMENT:cotct_pg_equipment_armor.lst
 EQUIPMENT:cotct_pg_equipment_weapons.lst
-FEAT:cotct_pg_feats.lst
+ABILITY:cotct_pg_feats.lst
 ARMORPROF:cotct_pg_profs_armor.lst
 WEAPONPROF:cotct_pg_profs_weapons.lst
 

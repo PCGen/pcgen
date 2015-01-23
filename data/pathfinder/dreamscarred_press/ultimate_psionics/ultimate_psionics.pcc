@@ -72,7 +72,7 @@ ARMORPROF:up_profs_armor.lst
 SHIELDPROF:up_profs_shield.lst
 WEAPONPROF:up_profs_weapon.lst
 
-FEAT:up_feats.lst
+ABILITY:up_feats.lst
 
 KIT:up_kits.lst
 
@@ -94,7 +94,7 @@ ABILITYCATEGORY:up_abilitycategories_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Pla
 CLASS:up_classes_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 COMPANIONMOD:up_companionmods_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 DOMAIN:up_domains_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
-FEAT:up_feats_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:up_feats_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 KIT:up_kits_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 RACE:up_races_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 

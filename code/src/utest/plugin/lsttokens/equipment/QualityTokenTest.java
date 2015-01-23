@@ -30,8 +30,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class QualityTokenTest extends AbstractTokenTestCase<Equipment>
 {
 	static QualityToken token = new QualityToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

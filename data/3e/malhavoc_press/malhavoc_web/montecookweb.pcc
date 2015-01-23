@@ -32,7 +32,7 @@ ABILITY:montecookwebclassfeats.lst
 ABILITYCATEGORY:mcw_abilitycategories.lst
 
 CLASS:montecookwebclasses.lst
-FEAT:montecookwebfeats.lst
+ABILITY:montecookwebfeats.lst
 LANGUAGE:montecookweblanguages.lst
 RACE:montecookwebraces.lst
 SPELL:montecookwebspells.lst

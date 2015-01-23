@@ -38,8 +38,7 @@ import plugin.pretokens.writer.PreVariableWriter;
 public class WieldTokenTest extends AbstractTokenTestCase<Equipment>
 {
 	static WieldToken token = new WieldToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

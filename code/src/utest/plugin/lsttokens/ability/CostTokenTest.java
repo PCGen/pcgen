@@ -30,8 +30,7 @@ public class CostTokenTest extends AbstractBigDecimalTokenTestCase<Ability>
 {
 
 	static CostToken token = new CostToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>(
-			Ability.class);
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

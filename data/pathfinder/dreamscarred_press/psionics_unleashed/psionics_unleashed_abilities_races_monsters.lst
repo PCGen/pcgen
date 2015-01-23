@@ -7,13 +7,13 @@ SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress
 # Ability Name								Unique Key						Output Name		Category of Ability		Type								Visible		Description																		Template					Move			Auto Feat						Ability									Bonus Ability Pool						Combat bonus				Bonus DR		Bonus to HP			Add to base move			Bonus to skill					Stat bonus									Modify VAR						Vision			Damage Reduction	Aspects
 Buff										KEY:Astral_Buff								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:YES																																																																	BONUS:HP|CURRENTMAX|5
 Celerity									KEY:Astral_Celerity							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:YES																																																																					BONUS:MOVEADD|TYPE.Walk|10
-Cleave									KEY:Astral_Cleave								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													AUTO:FEAT|Cleave
+Cleave									KEY:Astral_Cleave								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Cleave
 Deflection									KEY:Astral_Deflection							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:YES																																																								BONUS:COMBAT|AC|1|TYPE=Deflection
 Fly										KEY:Astral_Fly								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:YES																											MOVE:Fly,20									ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																																													BONUS:VAR|Maneuverability|3
-Improved Bull Rush							KEY:Astral_Improved Bull Rush						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													AUTO:FEAT|Improved Bull Rush
-Improved Slam Attack							KEY:Astral_Improved Slam Attack					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													AUTO:FEAT|Improved Natural Attack (Slam)
-Mobility									KEY:Astral_Mobility							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													AUTO:FEAT|Mobility
-Power Attack								KEY:Astral_Power Attack							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													AUTO:FEAT|Power Attack
+Improved Bull Rush							KEY:Astral_Improved Bull Rush						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Improved Bull Rush
+Improved Slam Attack							KEY:Astral_Improved Slam Attack					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Improved Natural Attack (Slam)
+Mobility									KEY:Astral_Mobility							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Mobility
+Power Attack								KEY:Astral_Power Attack							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Power Attack
 #Resistance				KEY:Astral_Resistance				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:DISPLAY										ABILITY:Special Ability|AUTOMATIC|Resistance
 Swim										KEY:Astral_Swim								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:YES																											MOVE:Swim,30
 Trip										KEY:Astral_Trip								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA		VISIBLE:DISPLAY																																				ABILITY:Special Ability|AUTOMATIC|Trip
@@ -30,7 +30,7 @@ Extra Attack								KEY:Astral_Extra Attack							CATEGORY:Special Ability	TYPE:
 Fast Healing								KEY:Astral_Fast Healing							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																																				ABILITY:Special Ability|AUTOMATIC|Fast Healing																																															BONUS:VAR|FastHealing|2
 Heavy Deflection								KEY:Astral_Heavy Deflection						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:YES																																																								BONUS:COMBAT|AC|4|TYPE=Deflection
 Improved Buff								KEY:Astral_Improved Buff						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:YES																																																																	BONUS:HP|CURRENTMAX|15
-Improved Critical								KEY:Astral_Improved Critical						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																													AUTO:FEAT|Improved Critical (Slam)
+Improved Critical								KEY:Astral_Improved Critical						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Improved Critical (Slam)
 Improved Damage Reduction						KEY:Astral_Improved Damage Reduction				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																																																													BONUS:DR|Magic|3																																						DR:0/Magic
 Improved Fly								KEY:Astral_Improved Fly							CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																										MOVE:Fly,40									ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability																																													BONUS:VAR|Maneuverability|3
 Grab										KEY:Astral_Grab								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuB		VISIBLE:DISPLAY																																				ABILITY:Special Ability|AUTOMATIC|Grab
@@ -58,8 +58,8 @@ Extreme Deflection							KEY:Astral_Extreme Deflection						CATEGORY:Special Abi
 Natural Invisibility							KEY:Astral_Natural Invisibility					CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:DISPLAY																																				ABILITY:Special Ability|AUTOMATIC|Natural Invisibility
 Power Resistance								KEY:Astral_Power Resistance						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:YES
 Rend										KEY:Astral_Rend								CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:DISPLAY																																				ABILITY:Special Ability|AUTOMATIC|Rend
-Spring Attack								KEY:Astral_Spring Attack						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:DISPLAY																													AUTO:FEAT|Spring Attack
-Whirlwind Attack								KEY:Astral_Whirlwind Attack						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:DISPLAY																													AUTO:FEAT|Whirlwind Attack
+Spring Attack								KEY:Astral_Spring Attack						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Spring Attack
+Whirlwind Attack								KEY:Astral_Whirlwind Attack						CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC		VISIBLE:DISPLAY																													ABILITY:FEAT|AUTOMATIC|Whirlwind Attack
 
 Body Thief																			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES		DESC:Can merge with body of victim.
 Cascade Flu																			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES		DESC:Disease - bite; Fortitude DC %1, onset one day, damage psionic cascade.|11+CON

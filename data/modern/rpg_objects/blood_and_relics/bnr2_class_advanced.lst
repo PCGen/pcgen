@@ -4,7 +4,7 @@ SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rp
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																														Modify VAR
 CLASS:Believer	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat								Required Skill							Required Text
-CLASS:Believer	PREFEAT:2,Conviction (Higher Power),Faith's Protection	PRESKILL:1,Knowledge (Theology and Philosophy)=6	PRETEXT:Higher Power Allegiance
+CLASS:Believer	PREABILITY:2,CATEGORY=FEAT,Conviction (Higher Power),Faith's Protection	PRESKILL:1,Knowledge (Theology and Philosophy)=6	PRETEXT:Higher Power Allegiance
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Believer	STARTSKILLPTS:6	CSKILL:Craft (Pharmaceutical)|Decipher Script|Diplomacy|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|READ/WRITE LANGUAGE|Research|Sense Motive|Treat Injury
 ###Block: Turning
@@ -25,7 +25,7 @@ CLASS:Believer	STARTSKILLPTS:6	CSKILL:Craft (Pharmaceutical)|Decipher Script|Dip
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																					Modify VAR
 CLASS:Cultist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat						Required Skill					Required Text
-CLASS:Cultist	PREFEAT:2,Conviction (Dark Power),Educated	PRESKILL:1,Knowledge (Arcane Lore)=6	PRETEXT:The character?s first allegiance must be to a Dark Power.
+CLASS:Cultist	PREABILITY:2,CATEGORY=FEAT,Conviction (Dark Power),Educated	PRESKILL:1,Knowledge (Arcane Lore)=6	PRETEXT:The character?s first allegiance must be to a Dark Power.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cultist	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Chemical)|Craft (Writing)|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Theology and Philosophy)|READ/WRITE LANGUAGE|SPEAK LANGUAGE|Research
 ###Block: Turning
@@ -48,7 +48,7 @@ CLASS:Cultist	STARTSKILLPTS:6	CSKILL:Concentration|Craft (Chemical)|Craft (Writi
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																						Modify VAR
 CLASS:Dark Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat						Required Skill		Required Text						PRETOTALAB
-CLASS:Dark Warrior	PREFEAT:2,Conviction (Dark Power),Toughness	PRESKILL:1,Intimidate=3	PRETEXT:Avarice and Dark Power Allegiances	PRETOTALAB:2
+CLASS:Dark Warrior	PREABILITY:2,CATEGORY=FEAT,Conviction (Dark Power),Toughness	PRESKILL:1,Intimidate=3	PRETEXT:Avarice and Dark Power Allegiances	PRETOTALAB:2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dark Warrior	STARTSKILLPTS:2	CSKILL:Climb|Demolitions|Drive|Gamble|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Streetwise)|Knowledge (Tactics)|Survival|Swim|Treat Injury
 1	SAB:Hatred %/day|Hatred												BONUS:VAR|Hatred|CL/6+1								DEFINE:Hatred|0
@@ -64,7 +64,7 @@ CLASS:Dark Warrior	STARTSKILLPTS:2	CSKILL:Climb|Demolitions|Drive|Gamble|Intimid
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																														Modify VAR
 CLASS:Grave Robber	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.9	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat				Required Skill			Required Text			PRETOTALAB
-CLASS:Grave Robber	PREFEAT:1,Conviction (Avarice)	PRESKILL:2,Bluff=6,Forgery=6	PRETEXT:Avarice Allegiance	PRETOTALAB:1
+CLASS:Grave Robber	PREABILITY:1,CATEGORY=FEAT,Conviction (Avarice)	PRESKILL:2,Bluff=6,Forgery=6	PRETEXT:Avarice Allegiance	PRETOTALAB:1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Grave Robber	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Forgery|Gather Information|Hide|Intimidate|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Business)|Knowledge (History)|Knowledge (Streetwise)|Move Silently|Navigate|Search
 1	SAB:Ends Justify the Means %/day|EndsJustify	BONUS:VAR|EndsJustify|(CL+3)/4	DEFINE:EndsJustify|0
@@ -77,7 +77,7 @@ CLASS:Grave Robber	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Decipher Script|Diplomacy|
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																						Modify VAR
 CLASS:Monitor	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat									Required Skill							Required Text																PRETOTALAB
-CLASS:Monitor	PREFEAT:2,Archaic Weapons Proficiency,Conviction (Higher Power)	PRESKILL:1,Knowledge (Theology and Philosophy)=3	PRETEXT:Allegiance to one group devoted to protecting the past (such as the Knights Templar), Higher Power.	PRETOTALAB:2
+CLASS:Monitor	PREABILITY:2,CATEGORY=FEAT,Archaic Weapons Proficiency,Conviction (Higher Power)	PRESKILL:1,Knowledge (Theology and Philosophy)=3	PRETEXT:Allegiance to one group devoted to protecting the past (such as the Knights Templar), Higher Power.	PRETOTALAB:2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Monitor	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (History)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Listen|Ride|Sense Motive|Spot
 1	SAB:Monitor's Wrath +%|MonitorsWrath	BONUS:VAR|MonitorsWrath|(CL+2)/3	DEFINE:MonitorsWrath|0
@@ -91,7 +91,7 @@ CLASS:Monitor	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Jump|Knowledge (Arcane
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus											Save bonus																														Modify VAR
 CLASS:Relic Seeker	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.12	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name		Required Feat		Required Skill
-CLASS:Relic Seeker	PREFEAT:1,Studious	PRESKILL:3,Knowledge (Arcane Lore)=6,Knowledge (Art)=6,Knowledge (History)=6
+CLASS:Relic Seeker	PREABILITY:1,CATEGORY=FEAT,Studious	PRESKILL:3,Knowledge (Arcane Lore)=6,Knowledge (Art)=6,Knowledge (History)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Relic Seeker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Decipher Script|Disable Device|Escape Artist|Hide|Jump|Knowledge (Arcane Lore)|Knowledge (History)|Listen|Move Silently|Navigate|Research|Ride|Search|Spot|Survival|Swim|Tumble
 1	SAB:Evasion
@@ -108,7 +108,7 @@ CLASS:Relic Seeker	STARTSKILLPTS:6	CSKILL:Balance|Climb|Decipher Script|Disable 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus																														Modify VAR
 CLASS:Witch		HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL-1)/2	BONUS:VAR|Action|CL*6
 # Class Name	Required Feat		Required Skill
-CLASS:Witch		PREFEAT:1,Iron Will	PRESKILL:2,Craft (Chemical)=6,Knowledge (Arcane Lore)=6
+CLASS:Witch		PREABILITY:1,CATEGORY=FEAT,Iron Will	PRESKILL:2,Craft (Chemical)=6,Knowledge (Arcane Lore)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Witch		STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|Sense Motive|Spot|Survival|Treat Injury
 1														BONUS:VAR|FamiliarLVL|CL					ABILITY:Special Ability|AUTOMATIC|Summon Familiar

@@ -216,3 +216,6 @@ ABILITYCATEGORY:Region of Origin				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FR
 ABILITYCATEGORY:Headband of Intellect Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HeadbandSkill																				DISPLAYLOCATION:Misc
 
 ABILITYCATEGORY:Intelligence-Based Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:IntBaseSkill																					DISPLAYLOCATION:Class Features
+
+# For keeping the output the same
+ABILITYCATEGORY:Sorcerer Draconic Bloodline	VISIBLE:NO	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Sorcerer Draconic Bloodline

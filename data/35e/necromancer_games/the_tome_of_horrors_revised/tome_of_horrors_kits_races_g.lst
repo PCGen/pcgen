@@ -10,8 +10,8 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Hide	RANK:2
 SKILL:Spot	RANK:2
 SKILL:Jump	RANK:3
-FEAT:Alertness
-FEAT:Skill Focus (Hide)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Skill Focus (Hide)
 
 STARTPACK:Gargoyle (Four-Armed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle (Four-Armed)]
 ALIGN:CE
@@ -21,8 +21,8 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Hide		RANK:3
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Multiattack
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Toughness
 
 STARTPACK:Gargoyle (Green Guardian) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle (Green Guardian)]
 ALIGN:CE
@@ -32,8 +32,8 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Hide		RANK:3
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Multiattack
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Toughness
 
 STARTPACK:Gargoyle (Margoyle) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gargoyle (Margoyle)]
 ALIGN:CE
@@ -43,9 +43,9 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 SKILL:Hide		RANK:5
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Toughness
 
 STARTPACK:Ghoul-Stirge Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ghoul-Stirge]
 ALIGN:CE
@@ -55,8 +55,8 @@ STAT:STR=10|DEX=11|INT=10|WIS=10|CHA=10
 SKILL:Hide		RANK:4
 SKILL:Listen	RANK:5
 SKILL:Spot		RANK:5
-FEAT:Alertness
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Giant (Sand) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Sand)]
 ALIGN:NE
@@ -67,12 +67,12 @@ SKILL:Jump		RANK:15
 SKILL:Listen	RANK:15
 SKILL:Spot		RANK:15
 SKILL:Survival	RANK:15
-FEAT:Awesome Blow
-FEAT:Cleave
-FEAT:Improved Bull Rush
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Weapon Focus (Greatsword)
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Greatsword)
 GEAR:Leather	SIZE:PC	LOCATION:Equipped
 GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands
 
@@ -86,9 +86,9 @@ SKILL:Hide			RANK:8
 SKILL:Jump			RANK:8
 SKILL:Move Silently	RANK:8
 SKILL:Spot			RANK:8
-FEAT:Point Blank Shot
-FEAT:Power Attack
-FEAT:Weapon Focus (Longbow)
+ABILITY:CATEGORY=FEAT|Point Blank Shot
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Longbow)
 GEAR:Leather			SIZE:PC	LOCATION:Equipped
 GEAR:Greatsword			SIZE:PC	LOCATION:Carried
 GEAR:Longbow (Composite)	SIZE:PC	LOCATION:Both Hands	EQMOD:BOWSTR|5
@@ -102,8 +102,8 @@ SKILL:Hide			RANK:8
 SKILL:Listen		RANK:8
 SKILL:Move Silently	RANK:8
 SKILL:Spot			RANK:8
-FEAT:Flyby Attack
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Golem (Blood) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Blood)]
 ALIGN:TN
@@ -112,9 +112,9 @@ NAME:Golem, Blood
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:5
-FEAT:Alertness
-FEAT:Great Fortitude
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Toughness
 
 STARTPACK:Golem (Ice) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Ice)]
 ALIGN:TN
@@ -148,7 +148,7 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Hide		RANK:1
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Flyby Attack
+ABILITY:CATEGORY=FEAT|Flyby Attack
 
 STARTPACK:Gorgimera Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorgimera]
 ALIGN:TN
@@ -158,10 +158,10 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 SKILL:Hide		RANK:5
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:4
-FEAT:Alertness
-FEAT:Hover
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 
 STARTPACK:Gorgon (True/Sthenno) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorgon (True/Sthenno)]
 ALIGN:LE
@@ -184,13 +184,13 @@ SKILL:Search			RANK:16
 SKILL:Sense Motive		RANK:16
 SKILL:Spot				RANK:21
 SKILL:Survival			RANK:17
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Weapon Focus (Claw)
-FEAT:Weapon Focus (Bite)
-FEAT:Weapon Focus (Snakes)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Snakes)
 
 STARTPACK:Gorgon (True/Euryale) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorgon (True/Euryale)]
 ALIGN:LE
@@ -213,13 +213,13 @@ SKILL:Search			RANK:20
 SKILL:Sense Motive		RANK:18
 SKILL:Spot				RANK:23
 SKILL:Survival			RANK:22
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Weapon Focus (Claw)
-FEAT:Weapon Focus (Bite)
-FEAT:Weapon Focus (Snakes)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Snakes)
 
 STARTPACK:Gorilla Bear Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gorilla Bear]
 ALIGN:TN
@@ -230,8 +230,8 @@ SKILL:Climb		RANK:4
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
 SKILL:Swim		RANK:3
-FEAT:Alertness
-FEAT:Toughness
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Toughness
 
 STARTPACK:Grippli Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grippli]
 ALIGN:TN
@@ -243,7 +243,7 @@ SKILL:Climb		RANK:3
 SKILL:Hide		RANK:3
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Alertness
+ABILITY:CATEGORY=FEAT|Alertness
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Dart			SIZE:PC	LOCATION:Carried
 GEAR:Net			SIZE:PC	LOCATION:Carried
@@ -260,9 +260,9 @@ SKILL:Listen		RANK:10
 SKILL:Search		RANK:10
 SKILL:Sense Motive	RANK:10
 SKILL:Spot			RANK:10
-FEAT:Ability Focus(Keening)
-FEAT:Blind-Fight
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Ability Focus(Keening)
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Gryph Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gryph]
 ALIGN:NE
@@ -272,7 +272,7 @@ STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
 SKILL:Hide		RANK:1
 SKILL:Listen	RANK:2
 SKILL:Spot		RANK:2
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Guardian Daemon Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Guardian Daemon]
 ALIGN:TN
@@ -289,6 +289,6 @@ SKILL:Search			RANK:10
 SKILL:Sense Motive		RANK:10
 SKILL:Spot				RANK:10
 SKILL:Survival			RANK:10
-FEAT:Blind-Fight
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack

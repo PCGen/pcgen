@@ -11,8 +11,8 @@ SKILL:Hide			RANK:2
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:1
 SKILL:Spot			RANK:2
-FEAT:Alertness
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 
 STARTPACK:Aerial Servant Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aerial Servant]
 ALIGN:TN
@@ -24,12 +24,12 @@ SKILL:Move Silently	RANK:3
 SKILL:Search		RANK:4
 SKILL:Spot			RANK:4
 SKILL:Survival		RANK:4
-FEAT:Alertness
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Weapon Focus (Slam)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 
 STARTPACK:Common Algoid	TYPE:DefaultMonster.Plant	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Algoid]
 ALIGN:TN
@@ -38,8 +38,8 @@ SKILL:Hide			RANK:2
 SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:2
 SKILL:Spot			RANK:2
-FEAT:Alertness
-FEAT:Iron Will
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Iron Will
 
 STARTPACK:Algoid Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Algoid]
 RACE:Algoid	!PRERACE:1,%
@@ -53,7 +53,7 @@ SKILL:Hide		RANK:1
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
 SKILL:Survival	RANK:1
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Al-mi'raj Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Al-mi'raj]
 RACE:Al-mi'raj	!PRERACE:1,%
@@ -70,9 +70,9 @@ SKILL:Listen		RANK:2
 SKILL:Move Silently	RANK:1
 SKILL:Search		RANK:2
 SKILL:Spot			RANK:2
-FEAT:Alertness
-FEAT:Toughness
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 STARTPACK:Angel (Monadic Deva) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Monadic Deva)]
 ALIGN:LG|NG|CG
@@ -92,10 +92,10 @@ SKILL:Search			RANK:7
 SKILL:Sense Motive		RANK:9
 SKILL:Spot				RANK:13
 SKILL:Survival			RANK:13
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Mace (Heavy)	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW.PLUS3W.SMITE.ADAMANT_WEAP
 
 STARTPACK:Angel (Movanic Deva) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Movanic Deva)]
@@ -116,9 +116,9 @@ SKILL:Move Silently		RANK:11
 SKILL:Sense Motive		RANK:8
 SKILL:Spot				RANK:11
 SKILL:Survival			RANK:11
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Greatsword	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW.PLUS1W.FLM_M
 
 STARTPACK:Animal Lord (Cat Lord) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animal Lord (Cat Lord)]
@@ -141,13 +141,13 @@ SKILL:Sense Motive		RANK:15
 SKILL:Spot				RANK:20
 SKILL:Survival			RANK:13
 SKILL:Tumble			RANK:15
-FEAT:Acrobatic
-FEAT:Agile
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Acrobatic
+ABILITY:CATEGORY=FEAT|Agile
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
 
 STARTPACK:Animal Lord (Mouse Lord) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Animal Lord (Mouse Lord)]
 ALIGN:TN
@@ -167,11 +167,11 @@ SKILL:Move Silently		RANK:18
 SKILL:Spot				RANK:18
 SKILL:Survival			RANK:12
 SKILL:Swim				RANK:18
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Improved Initiative
-FEAT:Weapon Finesse
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 STARTPACK:Ant Lion Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ant Lion]
 ALIGN:TN
@@ -191,9 +191,9 @@ SKILL:Listen		RANK:6
 SKILL:Search		RANK:6
 SKILL:Spot			RANK:6
 SKILL:Survival		RANK:6
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Improved Initiative
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Initiative
 
 STARTPACK:Archer Bush Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Archer Bush]
 ALIGN:TN
@@ -202,7 +202,7 @@ NAME:Archer Bush
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Hide			RANK:3
 SKILL:Move Silently	RANK:2
-FEAT:Weapon Focus (Thorns)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Thorns)
 
 STARTPACK:Ascomoid Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ascomoid]
 ALIGN:TN
@@ -221,9 +221,9 @@ SKILL:Move Silently	RANK:11
 SKILL:Search		RANK:11
 SKILL:Spot			RANK:11
 SKILL:Survival		RANK:11
-FEAT:Alertness
-FEAT:Improved Critical (Bite)
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 STARTPACK:Atomie Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Atomie]
 ALIGN:CN
@@ -241,7 +241,7 @@ SKILL:Perform (Dance)	RANK:1
 SKILL:Perform (Sing)	RANK:1
 SKILL:Search		RANK:1
 SKILL:Spot			RANK:2
-FEAT:Dodge
+ABILITY:CATEGORY=FEAT|Dodge
 GEAR:Sword (Short)	SIZE:PC	LOCATION:Primary Hand
 GEAR:Crossbow (Light)	SIZE:PC	LOCATION:Carried
 
@@ -254,10 +254,10 @@ SKILL:Hide			RANK:4
 SKILL:Listen		RANK:4
 SKILL:Move Silently	RANK:3
 SKILL:Spot			RANK:4
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Great Fortitude
-FEAT:Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 STARTPACK:Axe Beak Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Axe Beak]
 ALIGN:TN
@@ -266,5 +266,5 @@ NAME:Axe Beak
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 SKILL:Listen	RANK:3
 SKILL:Spot		RANK:3
-FEAT:Alertness
-FEAT:Multiattack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Multiattack

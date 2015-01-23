@@ -39,7 +39,7 @@ ABILITY:sggam_abilities_class.lst
 ABILITYCATEGORY:sggam_abilitycategories.lst
 CLASS:sggam_classes_companions.lst
 DOMAIN:sggam_domains.lst
-FEAT:sggam_feats.lst
+ABILITY:sggam_feats.lst
 KIT:sggam_kits_companions.lst
 RACE:sggam_races_companions.lst
 SPELL:sggam_spells.lst

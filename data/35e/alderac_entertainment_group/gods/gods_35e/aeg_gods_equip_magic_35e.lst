@@ -2,4 +2,4 @@
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 # Equipment Name		Virtual Feat
-Ring (Sundering).MOD	VFEAT:Improved Sunder
+Ring (Sundering).MOD	ABILITY:FEAT|VIRTUAL|Improved Sunder

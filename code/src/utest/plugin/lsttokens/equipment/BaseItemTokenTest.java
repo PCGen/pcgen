@@ -30,8 +30,7 @@ public class BaseItemTokenTest extends
 {
 
 	static BaseitemToken token = new BaseitemToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

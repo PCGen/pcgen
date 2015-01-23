@@ -34,7 +34,7 @@ ABILITYCATEGORY:itck_abilitycategories_35e.lst
 
 BIOSET:itck_biosettings_35e.lst
 CLASS:itck_classes_35e.lst
-FEAT:itck_feats_35e.lst
+ABILITY:itck_feats_35e.lst
 SPELL:itck_powers_35e.lst
 RACE:itck_races_35e.lst
 EQUIPMENT:itck_equip_35e.lst

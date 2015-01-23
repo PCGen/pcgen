@@ -27,8 +27,8 @@ ABILITYCATEGORY:soe_abilitycategories.lst
 ABILITY:soe_abilities.lst
 
 CLASS:schoolevocation_classes.lst
-FEAT:schoolevocation_feats.lst
-FEAT:schoolevocation_feats_hidden.lst
+ABILITY:schoolevocation_feats.lst
+ABILITY:schoolevocation_feats_hidden.lst
 SPELL:schoolevocation_spells.lst
 EQUIPMENT:schoolevocation_equip.lst
 EQUIPMENT:schoolevocation_equip_armorshields_specific.lst

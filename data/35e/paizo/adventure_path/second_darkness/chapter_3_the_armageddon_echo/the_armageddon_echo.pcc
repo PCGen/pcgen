@@ -38,7 +38,7 @@ ABILITYCATEGORY:pf15_ability_categories.lst
 CLASS:pf15_classes.lst
 DEITY:pf15_deity_drow_demon_lords.lst
 EQUIPMENT:pf15_equipment.lst
-FEAT:pf15_feat.lst
+ABILITY:pf15_feat.lst
 KIT:pf15_kits_monsters.lst
 RACE:pf15_races.lst
 

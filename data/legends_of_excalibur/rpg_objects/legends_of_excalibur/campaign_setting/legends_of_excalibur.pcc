@@ -35,7 +35,7 @@ ABILITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_abilities.lst
 ABILITYCATEGORY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_abilitycategories.lst
 CLASS:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_classes.lst|(INCLUDE:Barbarian|Ex Barbarian|Ex Druid|Ex Paladin|Fighter|Rogue|Arcane TricksterAnimal|Animal (Will)|Sorcerer/Cleric (Arcane))
 COMPANIONMOD:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_companionmods.lst
-FEAT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_feats.lst
+ABILITY:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_feats.lst
 EQUIPMOD:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_equipmods.lst
 EQUIPMENT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_equip_arms_and_armor.lst
 #EQUIPMENT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_equip_armorshields.lst
@@ -49,6 +49,8 @@ SHIELDPROF:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_profs_shield.lst
 KIT:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_kits_companion.lst
 TEMPLATE:@/35e/wizards_of_the_coast/rsrd/basics/rsrd_templates.lst
 
+ABILITY:loe_feats_hidden.lst
+ABILITYCATEGORY:loe_abilitycategories.lst
 
 # LOE HC files
 CLASS:loe_classes_base.lst
@@ -57,9 +59,8 @@ CLASS:loe_classes_prestige.lst
 CLASS:loe_classes_prestige_mod.lst
 COMPANIONMOD:loe_companionmods.lst
 EQUIPMENT:loe_equip_weap_melee.lst
-FEAT:loe_feats.lst
-FEAT:loe_feats_hidden.lst
-FEAT:loe_feats_mod.lst
+ABILITY:loe_feats.lst
+ABILITY:loe_feats_mod.lst
 LANGUAGE:loe_languages.lst
 RACE:loe_races_bloodlines.lst
 RACE:loe_races__animals_mod.lst

@@ -14,11 +14,11 @@ SKILL:TYPE.Knowledge		RANK:10	COUNT:2
 SKILL:Perception			RANK:10
 SKILL:Stealth			RANK:10
 SKILL:Survival			RANK:10
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Weapon Focus(Shortbow)
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Focus(Shortbow)
 GEAR:Shortbow (Composite)	SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS2W.BOWSTR|+4.WOOD
 
 
@@ -51,12 +51,12 @@ SKILL:Perception			RANK:11
 SKILL:Sense Motive		RANK:8
 SKILL:Spellcraft			RANK:7
 SKILL:Stealth			RANK:11
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Flyby Attack
-FEAT:Lightning Reflexes
-FEAT:Multiattack
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=11|CON=10|WIS=10|INT=11|CHA=11
 SPELLS:Animate Dead|Contagion|Dispel Magic|Death Knell|Hold Person|Spiritual Weapon|Cause Fear|Entropic Shield|Inflict Light Wounds|Protection from Good|Detect Magic|Guidance|Resistance|Virtue
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Animate Dead|Contagion|Dispel Magic|Death Knell|Hold Person|Spiritual Weapon|Cause Fear|Entropic Shield|Inflict Light Wounds|Protection from Good|Detect Magic|Guidance|Resistance|Virtue
@@ -72,14 +72,14 @@ SKILL:Knowledge (Local)		RANK:10
 SKILL:Knowledge (Religion)	RANK:10
 SKILL:Perception			RANK:17
 SKILL:Sense Motive		RANK:15
-FEAT:Alertness
-FEAT:Awesome Blow
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Great Cleave
-FEAT:Greater Bull Rush
-FEAT:Improved Bull Rush
-FEAT:Improved Overrun
-FEAT:Power Attack
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Greater Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=10|CON=10|WIS=10|INT=10|CHA=10
 GEAR:Gavel of Abadar	LOCATION:Both Hands

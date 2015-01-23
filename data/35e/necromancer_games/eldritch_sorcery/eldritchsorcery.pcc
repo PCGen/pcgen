@@ -28,7 +28,7 @@ COPYRIGHT:PCGen dataset conversion for Eldritch Sorcery Copyright 2005, PCgen Da
 
 ABILITY:eldritchsorcery_abilities.lst
 
-FEAT:eldritchsorcery_feats.lst
+ABILITY:eldritchsorcery_feats.lst
 
 DOMAIN:eldritchsorcery_domains.lst
 SPELL:eldritchsorcery_spells.lst

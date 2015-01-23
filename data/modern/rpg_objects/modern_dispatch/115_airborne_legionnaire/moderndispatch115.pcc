@@ -27,7 +27,7 @@ COPYRIGHT:PCGen dataset conversion for Modern Dispatch #115 Copyright 2007, PCGe
 #EXTRAFILE:OGL.txt
 
 CLASS:moderndispatch115_class.lst
-FEAT:moderndispatch115_feat.lst
+ABILITY:moderndispatch115_feat.lst
 
 #
 # End

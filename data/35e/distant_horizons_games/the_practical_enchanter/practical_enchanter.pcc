@@ -46,7 +46,7 @@ CLASS:practical_enchanter_classes.lst
 EQUIPMENT:practical_enchanter_equipment.lst
 EQUIPMOD:practical_enchanter_equipmods.lst
 
-FEAT:practical_enchanter_feats.lst
+ABILITY:practical_enchanter_feats.lst
 
 KIT:practical_enchanter_kits.lst
 RACE:practical_enchanter_races.lst

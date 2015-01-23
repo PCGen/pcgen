@@ -16,9 +16,9 @@ CLASS:Disciple	PRETEXT:A Disciple's alignment must be within one step of the imm
 CLASS:Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (the planes)|Listen|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level			Use Spell List
 CLASS:Disciple	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Disciple|CL	SPELLLIST:1|Cleric
-1	AUTO:FEAT|Simple Weapon Proficiency										AUTO:WEAPONPROF|TYPE=Simple
-1	AUTO:FEAT|Shield Proficiency
-1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency										AUTO:WEAPONPROF|TYPE=Simple
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal level progression
 1	CAST:3,1				SAB:Intercession %/day (Su)|Intercession										BONUS:VAR|Intercession|CL/10+1	DEFINE:Intercession|0
 2	CAST:4,2											BONUS:ABILITYPOOL|Disciple Innate Spells|(CL+1)/2
@@ -49,12 +49,12 @@ CLASS:Shaman	HD:8		TYPE:Base.PC	ABB:Sha		MAXLEVEL:20	SOURCEPAGE:p.61	LANGBONUS:S
 CLASS:Shaman	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level			Use Spell List
 CLASS:Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Shaman|CL	SPELLLIST:1|Druid
-1	AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Simple
-1	AUTO:FEAT|Shield Proficiency
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Simple
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal level progression
 1	CAST:3,1																																						BONUS:SKILL|Knowledge (Nature),Survival|2	BONUS:VAR|AnimalCompanionLVL|CL/2	ABILITY:Special Ability|AUTOMATIC|Druid ~ Nature Sense|Druid ~ Wild Empathy|Spontaneous casting ~ Summon Nature's Ally	ABILITY:Special Ability|AUTOMATIC|Druid ~ Animal Companion
-2	CAST:4,2																																																																																					AUTO:FEAT|Craft Spell Fetish
+2	CAST:4,2																																																																																					ABILITY:FEAT|AUTOMATIC|Craft Spell Fetish
 3	CAST:4,2,1				SAB:Rituals of Power I (Su) (-1 WIS for any spell up to 3rd level)
 4	CAST:5,3,2				SAB:Companion Sight (Su)
 5	CAST:5,3,2,1																														BONUS:ABILITYPOOL|Elemental Form Choice|1
@@ -82,9 +82,9 @@ CLASS:Shaper	KEY:Shaper (DF)	HD:8		TYPE:Base.PC	ABB:Shp		MAXLEVEL:20	SOURCEPAGE:
 CLASS:Shaper (DF)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Gather Information|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (the planes)|Listen|TYPE=Profession|Search|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
 CLASS:Shaper (DF)	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Shaper (DF)|CL	SPELLLIST:1|Cleric
-1	AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Simple
-1	AUTO:FEAT|Shield Proficiency
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Simple
+1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Level progression
 1	CAST:5,3				KNOWN:4,2									BONUS:ABILITYPOOL|Shaper Divine Focus Choice|2
 2	CAST:6,4				KNOWN:5,2				SAB:Enlarge Specialty Spell	BONUS:ABILITYPOOL|Shaper Specialty Choice|1
@@ -112,9 +112,9 @@ CLASS:Shaper (DF)	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|S
 CLASS:Spirit Adept	HD:10		TYPE:Base.PC	ABB:SpA		MAXLEVEL:20	SOURCEPAGE:p.70	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spirit Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
-1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-1										AUTO:FEAT|Shield Proficiency
-1										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1										ABILITY:FEAT|AUTOMATIC|Shield Proficiency
+1										ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Level progression
 1	SAB:Spirit Sense I	SAB:Spirit Strength (%)|SpiritStrength	BONUS:ABILITYPOOL|Spirit Adept Powers Choice|1					BONUS:VAR|SpiritStrength|2*min(var("CL=Spirit Adept"),5)		DEFINE:SpiritStrength|0
 2																																							ABILITY:Special Ability|AUTOMATIC|Evasion
@@ -173,7 +173,7 @@ SUBCLASSLEVEL:5	SAB:Still Spell (1/day)
 SUBCLASSLEVEL:10	SAB:Empower Spell (1/day)
 SUBCLASSLEVEL:15	SAB:Widen Spell (1/day)
 SUBCLASSLEVEL:20	SAB:Quicken Spell (1/day)
-1	CAST:5,3				KNOWN:4,2				ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Familiar	AUTO:FEAT|Simple Weapon Proficiency
+1	CAST:5,3				KNOWN:4,2				ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Familiar	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 2	CAST:6,4				KNOWN:5,2
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1
@@ -215,7 +215,7 @@ SUBCLASSLEVEL:1	SAB:Available Schools (Conjuration, Divination, Enchantment, Nec
 1						SAB:Spell Mastery feat can only be applied to spells available in his bonded aspect.
 1						SAB:+2 bonus on Spellcraft checks to learn new spells within his bonded aspect	SAB:Silent Spell (1/day)
 1						SAB:The experience cost for creating magic items from available schools is reduced by 10pct and increased 20pct from others.
-1	CAST:3,1																															ABILITY:Special Ability|AUTOMATIC|Wizard ~ Familiar	AUTO:FEAT|Scribe Scroll	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+1	CAST:3,1																															ABILITY:Special Ability|AUTOMATIC|Wizard ~ Familiar	ABILITY:FEAT|AUTOMATIC|Scribe Scroll	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2

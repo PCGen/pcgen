@@ -37,7 +37,7 @@ ABILITYCATEGORY:oog_abilitycategories.lst
 ABILITY:oog_abilities_class.lst
 ABILITY:oog_abilities.lst
 ABILITY:oog_abilities_race.lst
-FEAT:oog_feats.lst
+ABILITY:oog_feats.lst
 RACE:oog_races.lst
 TEMPLATE:oog_templates.lst
 SPELL:oog_spells.lst

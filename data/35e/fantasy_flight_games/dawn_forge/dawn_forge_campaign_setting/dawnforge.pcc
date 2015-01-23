@@ -44,7 +44,7 @@ ABILITY:dawnforge_abilities_class_legendary_mod.lst
 BIOSET:dawnforge_biosettings.lst
 CLASS:dawnforge_classes.lst
 CLASS:dawnforge_classes_legendary.lst
-FEAT:dawnforge_feats.lst
+ABILITY:dawnforge_feats.lst
 EQUIPMENT:dawnforge_equip_shields.lst
 EQUIPMENT:dawnforge_equip_weap.lst
 LANGUAGE:dawnforge_languages.lst

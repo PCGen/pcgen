@@ -39,7 +39,7 @@ DOMAIN:../evil_domains.lst|(EXCLUDE:Darkness)
 RACE:../evil_races.lst
 SKILL:../evil_skills.lst
 CLASS:../evil_classes.lst
-FEAT:../evil_feats.lst
+ABILITY:../evil_feats.lst
 KIT:../evil_kits_races.lst
 EQUIPMENT:../evil_equip_potionsscrolls.lst
 EQUIPMENT:../evil_equip_rodsstaffswands.lst

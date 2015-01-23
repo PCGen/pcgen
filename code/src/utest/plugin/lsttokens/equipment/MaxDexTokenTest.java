@@ -28,8 +28,7 @@ public class MaxDexTokenTest extends AbstractIntegerTokenTestCase<Equipment>
 {
 
 	static MaxdexToken token = new MaxdexToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>(
-			Equipment.class);
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()
