@@ -39,9 +39,8 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class FactSetLstTest extends AbstractGlobalTokenTestCase
 {
-	static FactSetLst token = new FactSetLst();
-	static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<Domain>(
-			Domain.class);
+	private static FactSetLst token = new FactSetLst();
+	private static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<Domain>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

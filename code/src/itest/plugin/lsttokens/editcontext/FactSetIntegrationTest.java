@@ -43,10 +43,10 @@ public class FactSetIntegrationTest extends
 
 	private static final String PROP_1 = "Property";
 	private static final StringManager STRING_MGR = new StringManager();
-	static FactSetLst token = new FactSetLst();
-	static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>(CDOMObject.class);
-	FactSetDefinition cd;
+	private static FactSetLst token = new FactSetLst();
+	private static CDOMTokenLoader<CDOMObject> loader =
+			new CDOMTokenLoader<CDOMObject>();
+	private FactSetDefinition cd;
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
