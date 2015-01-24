@@ -124,7 +124,7 @@ task copyMasterSheets(type: Copy) {
 }
 
 compileJava {
-	it.dependsOn 'copyMasterSheets', 'svninfo'
+	it.dependsOn 'copyMasterSheets'
 }
 
 
@@ -347,27 +347,6 @@ task rsrdinttest(type: Test, dependsOn: 'jar') {
 
 // Do the lot!
 task all(dependsOn: ['clean', 'build', 'slowtest', 'javadoc', 'allReports']) {
-}
-
-// Extract the SVN revision number to a properties file
-task svninfo << {
-	new ByteArrayOutputStream().withStream { os ->
-		try {
-			def result = exec {
-			    executable = 'svn'
-			    args = ['info']
-			    standardOutput = os
-			    ignoreExitValue = true // Just continue if we haven't got svn
-			}
-			def outputAsString = os.toString()
-			def matchLastChangedRev = outputAsString =~ /Last Changed Rev: (\d+)/
-			//println "Latest Changed Revision #: ${matchLastChangedRev[0][1]}"
-			File svnPropsFile = file("svn.properties").write("svnrevision=${matchLastChangedRev[0][1]}")
-		} catch(all) { 
-			logger.warn ("Could not find svn, no revision details recorded")
-			file("svn.properties").delete()
-		}
-	}
 }
 
 task wrapper(type: Wrapper) {
