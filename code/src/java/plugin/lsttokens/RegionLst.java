@@ -16,6 +16,7 @@ import pcgen.cdom.base.ConcreteTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.choiceset.SimpleChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
@@ -48,6 +49,12 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		CDOMObject pcc, String value)
 	{
+		if (pcc instanceof Ungranted)
+		{
+			return new ParseResult.Fail("Cannot use " + getTokenName()
+				+ " on an Ungranted object type: "
+				+ pcc.getClass().getSimpleName(), context);
+		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String item = tok.nextToken();
 		Formula count = FormulaFactory.getFormulaFor(item);
