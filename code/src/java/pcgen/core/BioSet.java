@@ -40,6 +40,7 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.enumeration.Region;
 import pcgen.util.Logging;
 
@@ -49,7 +50,7 @@ import pcgen.util.Logging;
  * @author Bryan McRoberts
  * @version $Revision$
  */
-public final class BioSet extends PObject
+public final class BioSet extends PObject implements NonInteractive
 {
 	private DoubleKeyMap<Region, Integer, AgeSet> ageMap = new DoubleKeyMap<Region, Integer, AgeSet>();
 

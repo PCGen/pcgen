@@ -17,6 +17,8 @@
  */
 package pcgen.core;
 
-public final class PCCheck extends PObject
+import pcgen.cdom.base.NonInteractive;
+
+public final class PCCheck extends PObject implements NonInteractive
 {
 }

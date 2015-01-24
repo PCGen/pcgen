@@ -32,6 +32,7 @@ import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ConcreteTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.choiceset.QualifiedDecorator;
@@ -69,13 +70,19 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject pcc, String value)
+		CDOMObject obj, String value)
 	{
-		if (pcc instanceof Ungranted)
+		if (obj instanceof Ungranted)
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ pcc.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName(), context);
+		}
+		if (obj instanceof NonInteractive)
+		{
+			return new ParseResult.Fail("Cannot use " + getTokenName()
+				+ " on an Non-Interactive object type: "
+				+ obj.getClass().getSimpleName(), context);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		Formula count = FormulaFactory.getFormulaFor(tok.nextToken());
@@ -128,7 +135,7 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				new QualifiedDecorator<Kit>(rcs));
 		cs.setTitle("Kit Selection");
 		TransitionChoice<Kit> tc = new ConcreteTransitionChoice<Kit>(cs, count);
-		context.getObjectContext().addToList(pcc, ListKey.KIT_CHOICE, tc);
+		context.getObjectContext().addToList(obj, ListKey.KIT_CHOICE, tc);
 		tc.setRequired(false);
 		tc.setChoiceActor(this);
 		return ParseResult.SUCCESS;
