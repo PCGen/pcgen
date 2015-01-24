@@ -29,6 +29,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.list.CompanionList;
@@ -84,6 +85,12 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
+		if (obj instanceof Ungranted)
+		{
+			return new ParseResult.Fail("Cannot use " + getTokenName()
+				+ " on an Ungranted object type: "
+				+ obj.getClass().getSimpleName(), context);
+		}
 		if ((value == null) || (value.length() == 0))
 		{
 			return new ParseResult.Fail("Argument in " + getTokenName()

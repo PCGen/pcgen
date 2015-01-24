@@ -20,6 +20,7 @@ package plugin.lsttokens;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -41,6 +42,12 @@ public class SelectLst implements CDOMPrimaryToken<CDOMObject>
 	public ParseResult parseToken(LoadContext context, CDOMObject cdo,
 		String value)
 	{
+		if (cdo instanceof Ungranted)
+		{
+			return new ParseResult.Fail("Cannot use " + getTokenName()
+				+ " on an Ungranted object type: "
+				+ cdo.getClass().getSimpleName(), context);
+		}
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{

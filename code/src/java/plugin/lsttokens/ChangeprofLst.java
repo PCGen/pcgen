@@ -30,6 +30,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.content.ChangeProf;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -69,6 +70,12 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		CDOMObject obj, String value)
 	{
+		if (obj instanceof Ungranted)
+		{
+			return new ParseResult.Fail("Cannot use " + getTokenName()
+				+ " on an Ungranted object type: "
+				+ obj.getClass().getSimpleName(), context);
+		}
 		// value should be of the format:
 		// Name1,TYPE.type1,Name3=Prof1|Name4,Name5=Prof2
 		//

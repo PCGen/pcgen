@@ -36,6 +36,7 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
@@ -133,6 +134,12 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		CDOMObject obj, String value)
 	{
+		if (obj instanceof Ungranted)
+		{
+			return new ParseResult.Fail("Cannot use " + getTokenName()
+				+ " on an Ungranted object type: "
+				+ obj.getClass().getSimpleName(), context);
+		}
 		StringTokenizer tok = new StringTokenizer(value, LstUtils.PIPE);
 
 		String companionType = tok.nextToken();

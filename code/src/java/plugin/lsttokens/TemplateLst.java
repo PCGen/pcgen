@@ -27,6 +27,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMCompoundOrReference;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -62,6 +63,12 @@ public class TemplateLst extends AbstractToken implements
 	public ParseResult parseToken(LoadContext context, CDOMObject cdo,
 		String value)
 	{
+		if (cdo instanceof Ungranted)
+		{
+			return new ParseResult.Fail("Cannot use " + getTokenName()
+				+ " on an Ungranted object type: "
+				+ cdo.getClass().getSimpleName(), context);
+		}
 		ListKey<CDOMReference<PCTemplate>> lk;
 		String remaining;
 		boolean consolidate = false;
