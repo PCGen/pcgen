@@ -329,6 +329,22 @@ task pfinttest(type: Test, dependsOn: 'jar') {
 	}
 }
 
+task rsrdinttest(type: Test, dependsOn: 'jar') {
+    testClassesDir = sourceSets.slowtest.output.classesDir
+    classpath = sourceSets.slowtest.runtimeClasspath
+    forkEvery = 1
+    maxHeapSize = "512m"
+    include 'pcgen/inttest/game_35e/*Test.class'
+    testLogging {
+        exceptionFormat = 'full'
+    }
+
+	// Report each test as it is started.
+	beforeTest { descriptor ->
+    	logger.lifecycle("Running test: " + descriptor)
+	}
+}
+
 // Do the lot!
 task all(dependsOn: ['clean', 'build', 'slowtest', 'javadoc', 'allReports']) {
 }
