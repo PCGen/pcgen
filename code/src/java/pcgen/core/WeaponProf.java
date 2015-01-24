@@ -20,6 +20,8 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.base.Ungranted;
+
 
 /**
  * <code>WeaponProf</code>.
@@ -27,7 +29,8 @@ package pcgen.core;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class WeaponProf extends PObject implements Comparable<Object>
+public final class WeaponProf extends PObject implements Comparable<Object>,
+		Ungranted
 {
 	/**
 	 * Compares keyName only.
