@@ -155,8 +155,9 @@ public class WeaponhToken extends WeaponToken
 		head.put(IntegerKey.CRIT_RANGE, 1);
 		eq.put(ObjectKey.MOD_CONTROL, EqModControl.NO);
 		SizeAdjustment sa = display.getSizeAdjustment();
-		eq.put(ObjectKey.SIZE, sa);
-		eq.put(ObjectKey.BASESIZE, sa);
+		CDOMDirectSingleRef<SizeAdjustment> ref = CDOMDirectSingleRef.getRef(sa);
+		eq.put(ObjectKey.SIZE, ref);
+		eq.put(ObjectKey.BASESIZE, ref);
 
 		return eq;
 	}

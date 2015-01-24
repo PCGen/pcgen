@@ -21,6 +21,8 @@ import java.math.BigDecimal;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.model.DeityFacet;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.PCStat;
 import pcgen.output.publish.OutputDB;
@@ -74,12 +76,12 @@ public class ObjectKeyActorTest extends AbstractOutputTestCase
 		BigDecimal expectedResult = new BigDecimal("4.063");
 		str.put(ObjectKey.COST, expectedResult);
 		df.set(id, d);
-		d.put(ObjectKey.SPELL_STAT, str);
+		d.put(ObjectKey.SPELL_STAT, CDOMDirectSingleRef.getRef(str));
 		ObjectKeyActor<BigDecimal> oka_cost =
 				new ObjectKeyActor<BigDecimal>(ObjectKey.COST);
 		CDOMObjectWrapper.getInstance().load(str.getClass(), "cost", oka_cost);
-		ObjectKeyActor<PCStat> oka_stat =
-				new ObjectKeyActor<PCStat>(ObjectKey.SPELL_STAT);
+		ObjectKeyActor<CDOMSingleRef<PCStat>> oka_stat =
+				new ObjectKeyActor<CDOMSingleRef<PCStat>>(ObjectKey.SPELL_STAT);
 		CDOMObjectWrapper.getInstance().load(d.getClass(), "stat", oka_stat);
 		processThroughFreeMarker("${deity.stat}", str.getDisplayName());
 		processThroughFreeMarker("${deity.stat.cost}", expectedResult.toString());

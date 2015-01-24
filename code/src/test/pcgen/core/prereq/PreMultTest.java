@@ -123,6 +123,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
 		context.getReferenceContext().buildDerivedObjects();
+		context.getReferenceContext().resolveReferences(null);
 		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();

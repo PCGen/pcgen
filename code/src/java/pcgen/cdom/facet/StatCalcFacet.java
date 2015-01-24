@@ -77,13 +77,13 @@ public class StatCalcFacet
 				int total =
 						val.intValue()
 							+ (int) bonusCheckingFacet.getBonus(id,
-								"LOCKEDSTAT", stat.getAbb());
+								"LOCKEDSTAT", stat.getKeyName());
 				total = Math.min(maxStatValue, total);
 				return Math.max(minStatValue, total);
 			}
 		}
 
-		y += bonusCheckingFacet.getBonus(id, "STAT", stat.getAbb());
+		y += bonusCheckingFacet.getBonus(id, "STAT", stat.getKeyName());
 
 		y = Math.min(maxStatValue, y);
 		return Math.max(minStatValue, y);
@@ -127,7 +127,7 @@ public class StatCalcFacet
 
 		int z =
 				variableCheckingFacet.getVariableValue(id,
-					"BASE." + stat.getAbb()).intValue();
+					"BASE." + stat.getKeyName()).intValue();
 
 		if (z != 0)
 		{
@@ -143,7 +143,7 @@ public class StatCalcFacet
 	{
 		return variableCheckingFacet.getVariableValue(id,
 			stat.getSafe(FormulaKey.STAT_MOD).toString(),
-			"STAT:" + stat.getAbb()).intValue();
+			"STAT:" + stat.getKeyName()).intValue();
 	}
 
 	public int getModFornumber(CharID id, int aNum, PCStat stat)

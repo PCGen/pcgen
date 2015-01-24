@@ -22,13 +22,13 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class SizeTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
@@ -60,28 +60,21 @@ public class SizeTokenTest extends AbstractKitTokenTestCase<KitGear>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		SizeAdjustment ps = primaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Small");
-		ps.put(StringKey.ABB, "S");
-		primaryContext.getReferenceContext().registerAbbreviation(ps, "S");
-		SizeAdjustment pm = primaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Medium");
-		pm.put(StringKey.ABB, "M");
-		primaryContext.getReferenceContext().registerAbbreviation(pm, "M");
-		SizeAdjustment ss = secondaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Small");
-		ss.put(StringKey.ABB, "S");
-		secondaryContext.getReferenceContext().registerAbbreviation(ss, "S");
-		SizeAdjustment sm = secondaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Medium");
-		sm.put(StringKey.ABB, "M");
-		secondaryContext.getReferenceContext().registerAbbreviation(sm, "M");
+		SizeAdjustment ps = BuildUtilities.createSize("S");
+		primaryContext.getReferenceContext().importObject(ps);
+		SizeAdjustment pm = BuildUtilities.createSize("M");
+		primaryContext.getReferenceContext().importObject(pm);
+		SizeAdjustment ss = BuildUtilities.createSize("S");
+		secondaryContext.getReferenceContext().importObject(ss);
+		SizeAdjustment sm = BuildUtilities.createSize("M");
+		secondaryContext.getReferenceContext().importObject(sm);
 	}
 
 	@Test
 	public void testInvalidNotASize()
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "W").passed());
+		assertTrue(token.parseToken(primaryContext, primaryProf, "W").passed());
+		assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 	}
 
 	@Test

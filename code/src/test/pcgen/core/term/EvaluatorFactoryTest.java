@@ -12580,17 +12580,23 @@ public class EvaluatorFactoryTest extends PCGenTestCase {
 	
 		AbstractReferenceContext rc = Globals.getContext().getReferenceContext();
 		PCStat str = rc.constructCDOMObject(PCStat.class, "Strength");
-		rc.registerAbbreviation(str, "STR");
+		str.setKeyName("STR");
+		rc.reassociateKey("STR", str);
 		PCStat intel = rc.constructCDOMObject(PCStat.class, "Intelligence");
-		rc.registerAbbreviation(intel, "INT");
+		intel.setKeyName("INT");
+		rc.reassociateKey("INT", intel);
 		PCStat dex = rc.constructCDOMObject(PCStat.class, "Dexterity");
-		rc.registerAbbreviation(dex, "DEX");
+		dex.setKeyName("DEX");
+		rc.reassociateKey("DEX", dex);
 		PCStat wis = rc.constructCDOMObject(PCStat.class, "Wisdom");
-		rc.registerAbbreviation(wis, "WIS");
+		wis.setKeyName("WIS");
+		rc.reassociateKey("WIS", wis);
 		PCStat con = rc.constructCDOMObject(PCStat.class, "Constitution");
-		rc.registerAbbreviation(con, "CON");
+		con.setKeyName("CON");
+		rc.reassociateKey("CON", con);
 		PCStat cha = rc.constructCDOMObject(PCStat.class, "Charisma");
-		rc.registerAbbreviation(cha, "CHA");
+		cha.setKeyName("CHA");
+		rc.reassociateKey("CHA", cha);
 		SettingsHandler.validateBonuses = SettingsHandler.getPCGenOption("validateBonuses", false); //$NON-NLS-1$
 	}
 

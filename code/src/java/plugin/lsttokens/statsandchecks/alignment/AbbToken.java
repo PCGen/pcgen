@@ -17,7 +17,9 @@
  */
 package plugin.lsttokens.statsandchecks.alignment;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCAlignment;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -45,19 +47,25 @@ public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		PCAlignment al, String value)
 	{
-		/*
-		 * Warning: RegisterAbbreviation is not editor friendly, and this is a
-		 * gate to additional alignments being added in Campaigns (vs. Game
-		 * Modes)
-		 */
-		context.getReferenceContext().registerAbbreviation(al, value);
+		try
+		{
+			if (!context.processToken(al, "KEY", value))
+			{
+				return new ParseResult.Fail("Internal Error", context);
+			}
+		}
+		catch (PersistenceLayerException e)
+		{
+			return new ParseResult.Fail(e.getLocalizedMessage(), context);
+		}
+		context.getObjectContext().put(al, StringKey.ABB, value);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCAlignment al)
 	{
-		String abb = context.getReferenceContext().getAbbreviation(al);
+		String abb = context.getObjectContext().getString(al, StringKey.ABB);
 		if (abb == null)
 		{
 			return null;

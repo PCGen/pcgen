@@ -22,13 +22,13 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCStat;
 import pcgen.core.kit.KitStat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class StatTokenTest extends AbstractKitTokenTestCase<KitStat>
 {
@@ -42,18 +42,14 @@ public class StatTokenTest extends AbstractKitTokenTestCase<KitStat>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		PCStat ps = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class, "Strength");
-		primaryContext.getReferenceContext().registerAbbreviation(ps, "STR");
-		ps.put(StringKey.ABB, "STR");
-		PCStat ss = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class, "Strength");
-		secondaryContext.getReferenceContext().registerAbbreviation(ss, "STR");
-		ss.put(StringKey.ABB, "STR");
-		PCStat pi = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class, "Intelligence");
-		primaryContext.getReferenceContext().registerAbbreviation(pi, "INT");
-		pi.put(StringKey.ABB, "INT");
-		PCStat si = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class, "Intelligence");
-		secondaryContext.getReferenceContext().registerAbbreviation(si, "INT");
-		si.put(StringKey.ABB, "INT");
+		PCStat ps = BuildUtilities.createStat("Strength", "STR");
+		primaryContext.getReferenceContext().importObject(ps);
+		PCStat pi = BuildUtilities.createStat("Intelligence", "INT");
+		primaryContext.getReferenceContext().importObject(pi);
+		PCStat ss = BuildUtilities.createStat("Strength", "STR");
+		secondaryContext.getReferenceContext().importObject(ss);
+		PCStat si = BuildUtilities.createStat("Intelligence", "INT");
+		secondaryContext.getReferenceContext().importObject(si);
 	}
 
 	@Override

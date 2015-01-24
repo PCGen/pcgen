@@ -45,7 +45,7 @@ public class PCStatTotalTermEvaluator
 	public Float resolve(CharacterDisplay display)
 	{
 		PCStat stat = Globals.getContext().getReferenceContext()
-				.getAbbreviatedObject(PCStat.class, statAbbrev);
+				.silentlyGetConstructedCDOMObject(PCStat.class, statAbbrev);
 		return (float) display.getTotalStatFor(stat);
 	}
 

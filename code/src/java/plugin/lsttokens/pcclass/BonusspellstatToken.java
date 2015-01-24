@@ -19,16 +19,19 @@ package plugin.lsttokens.pcclass;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with BONUSSPELLSTAT Token
  */
-public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
+public class BonusspellstatToken extends AbstractNonEmptyToken<PCClass>
+		implements CDOMPrimaryToken<PCClass>
 {
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
@@ -40,7 +43,7 @@ public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc, String value)
 	{
 		if (Constants.LST_NONE.equals(value))
 		{
@@ -55,7 +58,9 @@ public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
 		 * HAS_BONUS_SPELL_STAT to true, but not trigger the creation of
 		 * BONUS_SPELL_STAT?
 		 */
-		PCStat pcs = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, value);
+		CDOMSingleRef<PCStat> pcs =
+				context.getReferenceContext().getCDOMReference(PCSTAT_CLASS,
+					value);
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in " + getTokenName()
@@ -70,8 +75,9 @@ public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
 	{
 		Boolean bss = context.getObjectContext().getObject(pcc,
 				ObjectKey.HAS_BONUS_SPELL_STAT);
-		PCStat pcs = context.getObjectContext().getObject(pcc,
-				ObjectKey.BONUS_SPELL_STAT);
+		CDOMSingleRef<PCStat> pcs =
+				context.getObjectContext().getObject(pcc,
+					ObjectKey.BONUS_SPELL_STAT);
 		if (bss == null)
 		{
 			if (pcs != null)
@@ -91,7 +97,7 @@ public class BonusspellstatToken implements CDOMPrimaryToken<PCClass>
 					+ "since HAS_BONUS_SPELL_STAT was false");
 				return null;
 			}
-			return new String[] { pcs.getLSTformat() };
+			return new String[]{pcs.getLSTformat(false)};
 		}
 		else
 		{

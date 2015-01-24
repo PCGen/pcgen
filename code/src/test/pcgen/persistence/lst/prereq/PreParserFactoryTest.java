@@ -119,7 +119,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
 
-		Prerequisite prereq = factory.parse("!PREALIGN:0,1,2");
+		Prerequisite prereq = factory.parse("!PREALIGN:LG,LN,LE");
 		assertEquals(
 			"<prereq operator=\"LT\" operand=\"1\" >\n"
 				+ "<prereq kind=\"align\" key=\"LG\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
@@ -127,7 +127,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 				+ "<prereq kind=\"align\" key=\"LE\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
 				+ "</prereq>\n", prereq.toString());
 
-		prereq = factory.parse("PREALIGN:3,4,5,6,7,8");
+		prereq = factory.parse("PREALIGN:NG,TN,NE,CG,CN,CE");
 		assertEquals(
 			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "<prereq kind=\"align\" key=\"NG\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"

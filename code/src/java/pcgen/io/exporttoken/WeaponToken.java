@@ -2686,7 +2686,7 @@ public class WeaponToken extends Token
 				final SizeAdjustment defAdj = SizeUtilities.getDefaultSizeAdjustment();
 				if (defAdj != null)
 				{
-					eqSize = SizeUtilities.sizeInt(defAdj.getAbbreviation());
+					eqSize = SizeUtilities.sizeInt(defAdj.getKeyName());
 				}
 			}
 

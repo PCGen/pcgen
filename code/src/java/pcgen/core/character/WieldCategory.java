@@ -34,6 +34,7 @@ import java.util.Map;
 
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -218,11 +219,11 @@ public final class WieldCategory implements Loadable
 				final int newSizeInt = eq.sizeInt() + aBump;
 				final SizeAdjustment sadj = Globals.getContext().getReferenceContext()
 						.getItemInOrder(SizeAdjustment.class, newSizeInt);
-				eq.put(ObjectKey.SIZE, sadj);
+				eq.put(ObjectKey.SIZE, CDOMDirectSingleRef.getRef(sadj));
 			}
 		}
 		WieldCategory pcWCat = getSwitch(pc, eq);
-		eq.put(ObjectKey.SIZE, oldEqSa);
+		eq.put(ObjectKey.SIZE, CDOMDirectSingleRef.getRef(oldEqSa));
 		return pcWCat;
 	}
 

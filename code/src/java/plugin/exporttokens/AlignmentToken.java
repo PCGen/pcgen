@@ -83,6 +83,6 @@ public class AlignmentToken extends AbstractExportToken
 		}
 		
 		final PCAlignment alignment = display.getPCAlignment();
-		return alignment==null?"None":alignment.getAbb();
+		return alignment==null?"None":alignment.getKeyName();
 	}
 }

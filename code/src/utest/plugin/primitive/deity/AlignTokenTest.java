@@ -29,6 +29,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.DeityToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
@@ -50,12 +51,10 @@ public class AlignTokenTest extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		PCAlignment lg = primaryContext.getReferenceContext().constructCDOMObject(
-				PCAlignment.class, "Lawful Good");
-		primaryContext.getReferenceContext().registerAbbreviation(lg, "LG");
-		PCAlignment slg = secondaryContext.getReferenceContext().constructCDOMObject(
-				PCAlignment.class, "Lawful Good");
-		secondaryContext.getReferenceContext().registerAbbreviation(slg, "LG");
+		PCAlignment lg = BuildUtilities.createAlignment("Lawful Good", "LG");
+		primaryContext.getReferenceContext().importObject(lg);
+		PCAlignment slg = BuildUtilities.createAlignment("Lawful Good", "LG");
+		secondaryContext.getReferenceContext().importObject(slg);
 		TokenRegistration.register(ALIGN_TOKEN);
 	}
 

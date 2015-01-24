@@ -26,6 +26,7 @@ import java.util.List;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -43,7 +44,7 @@ public class SkillInfoUtilities
 	 */
 	public static String getKeyStatFromStats(PlayerCharacter pc, Skill sk)
 	{
-		PCStat stat = sk.get(ObjectKey.KEY_STAT);
+		CDOMSingleRef<PCStat> stat = sk.get(ObjectKey.KEY_STAT);
 		if (stat == null)
 		{
 			if (Globals.getGameModeHasPointPool())
@@ -57,7 +58,7 @@ public class SkillInfoUtilities
 					{
 						sb.append('/');
 					}
-					sb.append(s.getAbb());
+					sb.append(s.getKeyName());
 				}
 				return sb.toString();
 			}
@@ -68,7 +69,7 @@ public class SkillInfoUtilities
 		}
 		else
 		{
-			return stat.getAbb();
+			return stat.resolvesTo().getKeyName();
 		}
 	}
 
@@ -121,7 +122,7 @@ public class SkillInfoUtilities
 	public static Iterator<Type> getSubtypeIterator(Skill sk)
 	{
 		List<Type> ret = sk.getSafeListFor(ListKey.TYPE);
-		PCStat keystat = sk.get(ObjectKey.KEY_STAT);
+		CDOMSingleRef<PCStat> keystat = sk.get(ObjectKey.KEY_STAT);
 		if (keystat == null)
 		{
 			ret.remove(Type.NONE);
@@ -129,7 +130,7 @@ public class SkillInfoUtilities
 		else
 		{
 			// skip the keystat
-			ret.remove(Type.getConstant(keystat.getDisplayName()));
+			ret.remove(Type.getConstant(keystat.resolvesTo().getDisplayName()));
 			/*
 			 * TODO This is magic, and makes tremendous assumptions about the
 			 * DATA - BAD BAD BAD

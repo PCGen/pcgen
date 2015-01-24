@@ -544,7 +544,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		final String alignment = line.substring(TAG_ALIGNMENT.length() + 1);
 		PCAlignment align =
-				Globals.getContext().getReferenceContext().getAbbreviatedObject(
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					PCAlignment.class, alignment);
 
 		if (align != null)
@@ -1815,7 +1815,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					String statAbb = element.getText().substring(0, idx);
 					final PCStat pcstat =
-							Globals.getContext().getReferenceContext().getAbbreviatedObject(
+							Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 								PCStat.class, statAbb);
 
 					if (pcstat != null)
@@ -4549,7 +4549,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			PCGElement element = it.next();
 			final String statName = element.getText();
 			PCStat stat =
-					Globals.getContext().getReferenceContext().getAbbreviatedObject(PCStat.class,
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class,
 						statName);
 
 			if ((stat != null) && seenStats.add(statName.toUpperCase())

@@ -31,10 +31,12 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.LevelInfo;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
@@ -127,7 +129,8 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(knowledge[0], "CLASSES", "MyClass");
 		knowledge[0].setName("KNOWLEDGE (ARCANA)");
 		TestHelper.addType(knowledge[0], "KNOWLEDGE.INT");
-		knowledge[0].put(ObjectKey.KEY_STAT, intel);
+		CDOMDirectSingleRef<PCStat> intelRef = CDOMDirectSingleRef.getRef(intel);
+		knowledge[0].put(ObjectKey.KEY_STAT, intelRef);
 		context.getReferenceContext().importObject(knowledge[0]);
 		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
 
@@ -135,7 +138,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(knowledge[1], "CLASSES", "MyClass");
 		knowledge[1].setName("KNOWLEDGE (RELIGION)");
 		TestHelper.addType(knowledge[1], "KNOWLEDGE.INT");
-		knowledge[1].put(ObjectKey.KEY_STAT, intel);
+		knowledge[1].put(ObjectKey.KEY_STAT, intelRef);
 		context.getReferenceContext().importObject(knowledge[1]);
 		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
 
@@ -143,7 +146,8 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(tumble, "CLASSES", "MyClass");
 		tumble.setName("Tumble");
 		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
-		tumble.put(ObjectKey.KEY_STAT, dex);
+		CDOMDirectSingleRef<PCStat> dexRef = CDOMDirectSingleRef.getRef(dex);
+		tumble.put(ObjectKey.KEY_STAT, dexRef);
 		context.getReferenceContext().importObject(tumble);
 		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
 
@@ -151,7 +155,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(balance, "CLASSES", "MyClass");
 		balance.setName("Balance");
 		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
-		balance.put(ObjectKey.KEY_STAT, dex);
+		balance.put(ObjectKey.KEY_STAT, dexRef);
 		aBonus = Bonus.newBonus(context, "SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
 		
 		if (aBonus != null)

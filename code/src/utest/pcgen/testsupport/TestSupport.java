@@ -20,10 +20,9 @@ package pcgen.testsupport;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
-import pcgen.core.PCAlignment;
 import pcgen.rules.context.AbstractReferenceContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * Support class for running Junit tests
@@ -72,32 +71,19 @@ public class TestSupport
 		return instance;
 	}
 
-	public static PCAlignment createAlignment(final String longName,
-			final String shortName)
-		{
-			final PCAlignment align = new PCAlignment();
-			align.setName(longName);
-			align.put(StringKey.ABB, shortName);
-			return align;
-		}
-
 	public static void createAllAlignments()
 	{
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-		ref.importObject(createAlignment("Lawful Good", "LG"));
-		ref.importObject(createAlignment("Lawful Neutral", "LN"));
-		ref.importObject(createAlignment("Lawful Evil", "LE"));
-		ref.importObject(createAlignment("Neutral Good", "NG"));
-		ref.importObject(createAlignment("True Neutral", "TN"));
-		ref.importObject(createAlignment("Neutral Evil", "NE"));
-		ref.importObject(createAlignment("Chaotic Good", "CG"));
-		ref.importObject(createAlignment("Chaotic Neutral", "CN"));
-		ref.importObject(createAlignment("Chaotic Evil", "CE"));
-		ref.importObject(createAlignment("None", "NONE"));
-		ref.importObject(createAlignment("Deity's", "Deity"));
-		for (PCAlignment al : ref.getConstructedCDOMObjects(PCAlignment.class))
-		{
-			ref.registerAbbreviation(al, al.getAbb());
-		}
+		ref.importObject(BuildUtilities.createAlignment("Lawful Good", "LG"));
+		ref.importObject(BuildUtilities.createAlignment("Lawful Neutral", "LN"));
+		ref.importObject(BuildUtilities.createAlignment("Lawful Evil", "LE"));
+		ref.importObject(BuildUtilities.createAlignment("Neutral Good", "NG"));
+		ref.importObject(BuildUtilities.createAlignment("True Neutral", "TN"));
+		ref.importObject(BuildUtilities.createAlignment("Neutral Evil", "NE"));
+		ref.importObject(BuildUtilities.createAlignment("Chaotic Good", "CG"));
+		ref.importObject(BuildUtilities.createAlignment("Chaotic Neutral", "CN"));
+		ref.importObject(BuildUtilities.createAlignment("Chaotic Evil", "CE"));
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 	}	
 }

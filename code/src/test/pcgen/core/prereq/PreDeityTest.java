@@ -28,6 +28,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
@@ -241,7 +242,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		super.setUp();
 		deity = new Deity();
 		deity.setName("Test Deity");
-		deity.put(ObjectKey.ALIGNMENT, ng);
+		deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
 		deity.addToListFor(ListKey.PANTHEON, Pantheon.getConstant("Celtic"));
 	}
 }

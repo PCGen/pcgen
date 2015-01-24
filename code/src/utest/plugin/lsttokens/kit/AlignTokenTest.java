@@ -28,6 +28,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class AlignTokenTest extends AbstractKitTokenTestCase<KitAlignment>
 {
@@ -42,18 +43,14 @@ public class AlignTokenTest extends AbstractKitTokenTestCase<KitAlignment>
 			URISyntaxException
 	{
 		super.setUp();
-		PCAlignment lg = primaryContext.getReferenceContext().constructCDOMObject(
-				PCAlignment.class, "Lawful Good");
-		primaryContext.getReferenceContext().registerAbbreviation(lg, "LG");
-		PCAlignment ln = primaryContext.getReferenceContext().constructCDOMObject(
-				PCAlignment.class, "Lawful Neutral");
-		primaryContext.getReferenceContext().registerAbbreviation(ln, "LN");
-		PCAlignment slg = secondaryContext.getReferenceContext().constructCDOMObject(
-				PCAlignment.class, "Lawful Good");
-		secondaryContext.getReferenceContext().registerAbbreviation(slg, "LG");
-		PCAlignment sln = secondaryContext.getReferenceContext().constructCDOMObject(
-				PCAlignment.class, "Lawful Neutral");
-		secondaryContext.getReferenceContext().registerAbbreviation(sln, "LN");
+		PCAlignment lg = BuildUtilities.createAlignment("Lawful Good", "LG");
+		primaryContext.getReferenceContext().importObject(lg);
+		PCAlignment ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
+		primaryContext.getReferenceContext().importObject(ln);
+		PCAlignment slg = BuildUtilities.createAlignment("Lawful Good", "LG");
+		secondaryContext.getReferenceContext().importObject(slg);
+		PCAlignment sln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
+		secondaryContext.getReferenceContext().importObject(sln);
 	}
 
 	@Override
@@ -78,7 +75,10 @@ public class AlignTokenTest extends AbstractKitTokenTestCase<KitAlignment>
 	public void testInvalidInputEmptySpellbook()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("NoAlign"));
+		if (parse("NoAlign"))
+		{
+			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+		}
 	}
 
 	@Test

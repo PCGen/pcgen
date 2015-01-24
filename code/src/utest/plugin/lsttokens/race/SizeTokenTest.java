@@ -25,12 +25,14 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
@@ -64,18 +66,14 @@ public class SizeTokenTest extends AbstractTokenTestCase<Race>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		ps = primaryContext.getReferenceContext().constructCDOMObject(SizeAdjustment.class,
-				"Small");
-		primaryContext.getReferenceContext().registerAbbreviation(ps, "S");
-		SizeAdjustment pm = primaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Medium");
-		primaryContext.getReferenceContext().registerAbbreviation(pm, "M");
-		SizeAdjustment ss = secondaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Small");
-		secondaryContext.getReferenceContext().registerAbbreviation(ss, "S");
-		SizeAdjustment sm = secondaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Medium");
-		secondaryContext.getReferenceContext().registerAbbreviation(sm, "M");
+		ps = BuildUtilities.createSize("S");
+		primaryContext.getReferenceContext().importObject(ps);
+		SizeAdjustment pm = BuildUtilities.createSize("M");
+		primaryContext.getReferenceContext().importObject(pm);
+		SizeAdjustment ss = BuildUtilities.createSize("S");
+		secondaryContext.getReferenceContext().importObject(ss);
+		SizeAdjustment sm = BuildUtilities.createSize("M");
+		secondaryContext.getReferenceContext().importObject(sm);
 	}
 
 	@Override
@@ -88,8 +86,14 @@ public class SizeTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testInvalidNotASize()
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "W").passed());
-		assertNoSideEffects();
+		if (token.parseToken(primaryContext, primaryProf, "W").passed())
+		{
+			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
@@ -132,10 +136,10 @@ public class SizeTokenTest extends AbstractTokenTestCase<Race>
 	@Test
 	public void testUnparseLegal() throws PersistenceLayerException
 	{
-		FixedSizeFormula fsf = new FixedSizeFormula(ps);
+		FixedSizeFormula fsf = new FixedSizeFormula(CDOMDirectSingleRef.getRef(ps));
 		primaryProf.put(FormulaKey.SIZE, fsf);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), ps
-				.getAbbreviation());
+				.getKeyName());
 	}
 
 	/*

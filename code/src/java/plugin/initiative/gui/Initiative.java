@@ -956,7 +956,7 @@ public class Initiative extends javax.swing.JPanel
 				PlayerCharacter pc = pcgcbt.getPC();
 
 				PCStat stat = Globals.getContext().getReferenceContext()
-						.getAbbreviatedObject(PCStat.class, "CON");
+						.silentlyGetConstructedCDOMObject(PCStat.class, "CON");
 				if (damage > pc.getTotalStatFor(stat))
 				{
 					isEnough = true;

@@ -23,12 +23,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
@@ -44,18 +46,14 @@ public class AlignTokenTest extends AbstractTokenTestCase<Deity>
 			URISyntaxException
 	{
 		super.setUp();
-		lg = primaryContext.getReferenceContext().constructCDOMObject(
-				PCAlignment.class, "Lawful Good");
-		primaryContext.getReferenceContext().registerAbbreviation(lg, "LG");
-		PCAlignment ln = primaryContext.getReferenceContext().constructCDOMObject(
-				PCAlignment.class, "Lawful Neutral");
-		primaryContext.getReferenceContext().registerAbbreviation(ln, "LN");
-		PCAlignment slg = secondaryContext.getReferenceContext().constructCDOMObject(
-				PCAlignment.class, "Lawful Good");
-		secondaryContext.getReferenceContext().registerAbbreviation(slg, "LG");
-		PCAlignment sln = secondaryContext.getReferenceContext().constructCDOMObject(
-				PCAlignment.class, "Lawful Neutral");
-		secondaryContext.getReferenceContext().registerAbbreviation(sln, "LN");
+		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
+		primaryContext.getReferenceContext().importObject(lg);
+		PCAlignment ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
+		primaryContext.getReferenceContext().importObject(ln);
+		PCAlignment slg = BuildUtilities.createAlignment("Lawful Good", "LG");
+		secondaryContext.getReferenceContext().importObject(slg);
+		PCAlignment sln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
+		secondaryContext.getReferenceContext().importObject(sln);
 	}
 
 	@Override
@@ -91,8 +89,14 @@ public class AlignTokenTest extends AbstractTokenTestCase<Deity>
 	@Test
 	public void testInvalidFormula() throws PersistenceLayerException
 	{
-		assertFalse(parse("1+3"));
-		assertNoSideEffects();
+		if(parse("1+3"))
+		{
+			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
@@ -105,8 +109,14 @@ public class AlignTokenTest extends AbstractTokenTestCase<Deity>
 	@Test
 	public void testInvalidString() throws PersistenceLayerException
 	{
-		assertFalse(parse("String"));
-		assertNoSideEffects();
+		if (parse("String"))
+		{
+			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
@@ -149,9 +159,9 @@ public class AlignTokenTest extends AbstractTokenTestCase<Deity>
 	@Test
 	public void testUnparseLegal() throws PersistenceLayerException
 	{
-		primaryProf.put(ObjectKey.ALIGNMENT, lg);
+		primaryProf.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(lg));
 		expectSingle(getToken().unparse(primaryContext, primaryProf), lg
-				.getAbb());
+				.getKeyName());
 	}
 
 	@SuppressWarnings("unchecked")

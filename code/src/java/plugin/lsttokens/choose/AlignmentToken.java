@@ -18,10 +18,8 @@
 package plugin.lsttokens.choose;
 
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PCAlignment;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.AbbreviatedCreator;
 import pcgen.rules.persistence.token.AbstractSimpleChooseToken;
 
 /**
@@ -52,13 +50,13 @@ public class AlignmentToken extends AbstractSimpleChooseToken<PCAlignment>
 	@Override
 	public PCAlignment decodeChoice(LoadContext context, String s)
 	{
-		return context.getReferenceContext().getAbbreviatedObject(PCALIGNMENT_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCALIGNMENT_CLASS, s);
 	}
 
 	@Override
 	public String encodeChoice(PCAlignment choice)
 	{
-		return choice.getAbb();
+		return choice.getKeyName();
 	}
 
 	@Override
@@ -66,11 +64,4 @@ public class AlignmentToken extends AbstractSimpleChooseToken<PCAlignment>
 	{
 		return AssociationListKey.getKeyFor(PCALIGNMENT_CLASS, "CHOOSE*ALIGNMENT");
 	}
-
-	@Override
-	public SelectionCreator<PCAlignment> getManufacturer(LoadContext context)
-	{
-		return AbbreviatedCreator.get(context, super.getManufacturer(context));
-	}
-
 }

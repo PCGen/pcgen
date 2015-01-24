@@ -36,6 +36,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -83,7 +84,7 @@ public class PcgCombatant extends Combatant
 		this.init = new PcgSystemInitiative(pc);
 
 		PCStat stat = Globals.getContext().getReferenceContext()
-				.getAbbreviatedObject(PCStat.class, "CON");
+				.silentlyGetConstructedCDOMObject(PCStat.class, "CON");
 		this.hitPoints = new SystemHP(new SystemAttribute("Constitution",
 				pc.getTotalStatFor(stat)), pc.hitPoints(), pc
 				.hitPoints());
@@ -127,7 +128,7 @@ public class PcgCombatant extends Combatant
 			this.init = new PcgSystemInitiative(pc);
 
 			PCStat stat = Globals.getContext().getReferenceContext()
-					.getAbbreviatedObject(PCStat.class, "CON");
+					.silentlyGetConstructedCDOMObject(PCStat.class, "CON");
 			this.hitPoints =
 					new SystemHP(new SystemAttribute("Constitution", pc.getTotalStatFor(stat)), pc.hitPoints(), pc
 						.hitPoints());
@@ -713,7 +714,7 @@ public class PcgCombatant extends Combatant
 
 			for (PCStat stat : pcOut.getUnmodifiableStatList())
 			{
-				String statAbb = stat.getAbb();
+				String statAbb = stat.getKeyName();
 				if (display.isNonAbility(stat))
 				{
 					statBuf.append("<font class='type'>");
@@ -811,11 +812,12 @@ public class PcgCombatant extends Combatant
 
 				int modSkill;
 
-				if (skill.get(ObjectKey.KEY_STAT) != null)
+				CDOMSingleRef<PCStat> keyStat = skill.get(ObjectKey.KEY_STAT);
+				if (keyStat != null)
 				{
 					modSkill =
 							SkillModifier.modifier(skill, pc).intValue()
-								- pc.getStatModFor(skill.get(ObjectKey.KEY_STAT));
+								- pc.getStatModFor(keyStat.resolvesTo());
 					Logging.debugPrint("modSkill: " + modSkill);
 				}
 

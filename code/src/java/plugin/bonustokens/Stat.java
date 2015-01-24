@@ -56,7 +56,7 @@ public final class Stat extends BonusObj
 		if (token.startsWith("CAST=")
 			|| token.startsWith("CAST."))
 		{
-			PCStat stat = context.getReferenceContext().getAbbreviatedObject(
+			PCStat stat = context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				PCStat.class,
 				token.substring(Constants.SUBSTRING_LENGTH_FIVE));
 
@@ -69,7 +69,9 @@ public final class Stat extends BonusObj
 		}
 		else
 		{
-			PCStat stat = context.getReferenceContext().getAbbreviatedObject(PCStat.class, token);
+			PCStat stat =
+					context.getReferenceContext()
+						.silentlyGetConstructedCDOMObject(PCStat.class, token);
 
 			if (stat != null)
 			{
@@ -105,7 +107,7 @@ public final class Stat extends BonusObj
 		}
 		else if (obj instanceof CastStat)
 		{
-			return "CAST." + ((CastStat) obj).getStat().getAbb();
+			return "CAST." + ((CastStat) obj).getStat().getKeyName();
 		}
 		else if (obj instanceof PCClass)
 		{
@@ -116,7 +118,7 @@ public final class Stat extends BonusObj
 			return ((MissingObject) obj).getObjectName();
 		}
 
-		return ((PCStat) obj).getAbb();
+		return ((PCStat) obj).getKeyName();
 	}
 
 	/**
@@ -158,8 +160,11 @@ public final class Stat extends BonusObj
 	public String getDescription()
 	{
 		final PCStat pcstat =
-				Globals.getContext().getReferenceContext().getAbbreviatedObject(PCStat.class,
-					getBonusInfo());
+				Globals
+					.getContext()
+					.getReferenceContext()
+					.silentlyGetConstructedCDOMObject(PCStat.class,
+						getBonusInfo());
 		if (pcstat != null)
 		{
 			return pcstat.getName();

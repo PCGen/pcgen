@@ -20,6 +20,7 @@ package plugin.lsttokens;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PersistentTransitionChoice;
+import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
@@ -52,6 +53,12 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		CDOMObject obj, String value)
 	{
+		if (obj instanceof Ungranted)
+		{
+			return new ParseResult.Fail("Cannot use " + getTokenName()
+				+ " on an Ungranted object type: "
+				+ obj.getClass().getSimpleName(), context);
+		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{

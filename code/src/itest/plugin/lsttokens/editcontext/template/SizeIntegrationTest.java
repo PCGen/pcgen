@@ -30,6 +30,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.template.SizeToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class SizeIntegrationTest extends
@@ -62,18 +63,14 @@ public class SizeIntegrationTest extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		SizeAdjustment ps = primaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Small");
-		primaryContext.getReferenceContext().registerAbbreviation(ps, "S");
-		SizeAdjustment pm = primaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Medium");
-		primaryContext.getReferenceContext().registerAbbreviation(pm, "M");
-		SizeAdjustment ss = secondaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Small");
-		secondaryContext.getReferenceContext().registerAbbreviation(ss, "S");
-		SizeAdjustment sm = secondaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Medium");
-		secondaryContext.getReferenceContext().registerAbbreviation(sm, "M");
+		SizeAdjustment ps = BuildUtilities.createSize("S");
+		primaryContext.getReferenceContext().importObject(ps);
+		SizeAdjustment pm = BuildUtilities.createSize("M");
+		primaryContext.getReferenceContext().importObject(pm);
+		SizeAdjustment ss = BuildUtilities.createSize("S");
+		secondaryContext.getReferenceContext().importObject(ss);
+		SizeAdjustment sm = BuildUtilities.createSize("M");
+		secondaryContext.getReferenceContext().importObject(sm);
 	}
 
 	@Test

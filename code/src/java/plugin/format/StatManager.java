@@ -34,8 +34,8 @@ public class StatManager implements FormatManager<PCStat>
 	@Override
 	public PCStat convert(LoadContext context, String statID)
 	{
-		return context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS,
-			statID);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
+			PCSTAT_CLASS, statID);
 	}
 
 	@Override
@@ -56,7 +56,7 @@ public class StatManager implements FormatManager<PCStat>
 	@Override
 	public String unconvert(PCStat stat)
 	{
-		return stat.getAbb();
+		return stat.getKeyName();
 	}
 
 	@Override

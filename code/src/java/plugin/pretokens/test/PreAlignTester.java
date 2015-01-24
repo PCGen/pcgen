@@ -28,10 +28,10 @@ package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
-import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
@@ -39,6 +39,7 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * @author wardc
@@ -123,9 +124,9 @@ public class PreAlignTester extends AbstractDisplayPrereqTest implements Prerequ
 		else if ((desiredAlignment.equalsIgnoreCase("Deity"))
 			&& (display.getDeity() != null))
 		{
-			final PCAlignment deityAlignStr =
+			final CDOMSingleRef<PCAlignment> deityAlign =
 					display.getDeity().get(ObjectKey.ALIGNMENT);
-			if (charAlignment.equals(deityAlignStr))
+			if (charAlignment.equals(deityAlign.resolvesTo()))
 			{
 				return true;
 			}
@@ -153,11 +154,22 @@ public class PreAlignTester extends AbstractDisplayPrereqTest implements Prerequ
 		PCAlignment al = getPCAlignment(alignment);
 		return LanguageBundle
 			.getFormattedString(
-				"PreAlign.toHtml", prereq.getOperator().toDisplayString(), al.getAbb()); //$NON-NLS-1$
+				"PreAlign.toHtml", prereq.getOperator().toDisplayString(), al.getKeyName()); //$NON-NLS-1$
 	}
 
 	private PCAlignment getPCAlignment(String desiredAlignIdentifier)
 	{
-		return AlignmentConverter.getPCAlignment(desiredAlignIdentifier);
+		PCAlignment desiredAlign =
+				Globals
+					.getContext()
+					.getReferenceContext()
+					.silentlyGetConstructedCDOMObject(PCAlignment.class,
+						desiredAlignIdentifier);
+		if (desiredAlign == null)
+		{
+			Logging.errorPrint("Unable to find alignment that matches: "
+				+ desiredAlignIdentifier);
+		}
+		return desiredAlign;
 	}
 }

@@ -37,7 +37,6 @@ import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
@@ -57,6 +56,7 @@ import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
@@ -122,76 +122,64 @@ abstract public class AbstractJunit4CharacterTestCase
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		
-		str = new PCStat();
-		str.setName("Strength");
-		str.put(StringKey.ABB, "STR");
+		str = BuildUtilities.createStat("Strength", "STR");
 		str.put(VariableKey.getConstant("LOADSCORE"),
 				FormulaFactory.getFormulaFor("STRSCORE"));
 		str.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"),
 				FormulaFactory.getFormulaFor(2));
 		str.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
-		str.put(VariableKey.getConstant("MAXLEVELSTAT=" + str.getAbb()),
-				FormulaFactory.getFormulaFor(str.getAbb() + "SCORE-10"));
+		str.put(VariableKey.getConstant("MAXLEVELSTAT=" + str.getKeyName()),
+				FormulaFactory.getFormulaFor(str.getKeyName() + "SCORE-10"));
 
-		dex = new PCStat();
-		dex.setName("Dexterity");
-		dex.put(StringKey.ABB, "DEX");
+		dex = BuildUtilities.createStat("Dexterity", "DEX");
 		dex.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
-		dex.put(VariableKey.getConstant("MAXLEVELSTAT=" + dex.getAbb()),
-				FormulaFactory.getFormulaFor(dex.getAbb() + "SCORE-10"));
+		dex.put(VariableKey.getConstant("MAXLEVELSTAT=" + dex.getKeyName()),
+				FormulaFactory.getFormulaFor(dex.getKeyName() + "SCORE-10"));
 
-		final PCStat con = new PCStat();
-		con.setName("Constitution");
-		con.put(StringKey.ABB, "CON");
+		PCStat con = BuildUtilities.createStat("Constitution", "CON");
 		con.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
-		con.put(VariableKey.getConstant("MAXLEVELSTAT=" + con.getAbb()),
-				FormulaFactory.getFormulaFor(con.getAbb() + "SCORE-10"));
+		con.put(VariableKey.getConstant("MAXLEVELSTAT=" + con.getKeyName()),
+				FormulaFactory.getFormulaFor(con.getKeyName() + "SCORE-10"));
 
-		intel = new PCStat();
-		intel.setName("Intelligence");
-		intel.put(StringKey.ABB, "INT");
+		intel = BuildUtilities.createStat("Intelligence", "INT");
 		intel.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
-		intel.put(VariableKey.getConstant("MAXLEVELSTAT=" + intel.getAbb()),
-				FormulaFactory.getFormulaFor(intel.getAbb() + "SCORE-10"));
+		intel.put(VariableKey.getConstant("MAXLEVELSTAT=" + intel.getKeyName()),
+				FormulaFactory.getFormulaFor(intel.getKeyName() + "SCORE-10"));
 
-		wis = new PCStat();
-		wis.setName("Wisdom");
-		wis.put(StringKey.ABB, "WIS");
+		wis = BuildUtilities.createStat("Wisdom", "WIS");
 		wis.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
-		wis.put(VariableKey.getConstant("MAXLEVELSTAT=" + wis.getAbb()),
-				FormulaFactory.getFormulaFor(wis.getAbb() + "SCORE-10"));
+		wis.put(VariableKey.getConstant("MAXLEVELSTAT=" + wis.getKeyName()),
+				FormulaFactory.getFormulaFor(wis.getKeyName() + "SCORE-10"));
 
-		cha = new PCStat();
-		cha.setName("Charisma");
-		cha.put(StringKey.ABB, "CHA");
+		cha = BuildUtilities.createStat("Charisma", "CHA");
 		cha.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
-		cha.put(VariableKey.getConstant("MAXLEVELSTAT=" + cha.getAbb()),
-				FormulaFactory.getFormulaFor(cha.getAbb() + "SCORE-10"));
+		cha.put(VariableKey.getConstant("MAXLEVELSTAT=" + cha.getKeyName()),
+				FormulaFactory.getFormulaFor(cha.getKeyName() + "SCORE-10"));
 
 		gamemode.setBonusFeatLevels("3|3");
 		SettingsHandler.setGame("3.5");
 
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-		lg = createAlignment("Lawful Good", "LG");
+		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
-		ln = createAlignment("Lawful Neutral", "LN");
+		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
 		ref.importObject(ln);
-		le = createAlignment("Lawful Evil", "LE");
+		le = BuildUtilities.createAlignment("Lawful Evil", "LE");
 		ref.importObject(le);
-		ng = createAlignment("Neutral Good", "NG");
+		ng = BuildUtilities.createAlignment("Neutral Good", "NG");
 		ref.importObject(ng);
-		tn = createAlignment("True Neutral", "TN");
+		tn = BuildUtilities.createAlignment("True Neutral", "TN");
 		ref.importObject(tn);
-		ne = createAlignment("Neutral Evil", "NE");
+		ne = BuildUtilities.createAlignment("Neutral Evil", "NE");
 		ref.importObject(ne);
-		cg = createAlignment("Chaotic Good", "CG");
+		cg = BuildUtilities.createAlignment("Chaotic Good", "CG");
 		ref.importObject(cg);
-		cn = createAlignment("Chaotic Neutral", "CN");
+		cn = BuildUtilities.createAlignment("Chaotic Neutral", "CN");
 		ref.importObject(cn);
-		ce = createAlignment("Chaotic Evil", "CE");
+		ce = BuildUtilities.createAlignment("Chaotic Evil", "CE");
 		ref.importObject(ce);
-		ref.importObject(createAlignment("None", "NONE"));
-		ref.importObject(createAlignment("Deity's", "Deity"));
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 
 		GameModeFileLoader.addDefaultWieldCategories(Globals.getContext());
 		
@@ -204,30 +192,26 @@ abstract public class AbstractJunit4CharacterTestCase
 
 		ref.constructCDOMObject(Language.class, "All Language For Test");
 
-		fine = createSize("Fine");
-		diminutive = createSize("Diminutive");
-		tiny = createSize("Tiny");
-		small = createSize("Small");
-		medium = createSize("Medium");
+		fine = BuildUtilities.createSize("Fine");
+		diminutive = BuildUtilities.createSize("Diminutive");
+		tiny = BuildUtilities.createSize("Tiny");
+		small = BuildUtilities.createSize("Small");
+		medium = BuildUtilities.createSize("Medium");
 		medium.put(ObjectKey.IS_DEFAULT_SIZE, true);
-		large = createSize("Large");
-		huge = createSize("Huge");
-		gargantuan = createSize("Gargantuan");
-		colossal = createSize("Colossal");
+		large = BuildUtilities.createSize("Large");
+		huge = BuildUtilities.createSize("Huge");
+		gargantuan = BuildUtilities.createSize("Gargantuan");
+		colossal = BuildUtilities.createSize("Colossal");
 
-		for (PCStat stat : ref.getOrderSortedCDOMObjects(PCStat.class))
-		{
-			ref.registerAbbreviation(stat, stat.getAbb());
-		}
-		for (PCAlignment al : ref.getOrderSortedCDOMObjects(PCAlignment.class))
-		{
-			ref.registerAbbreviation(al, al.getAbb());
-		}
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
 		ref.importObject(AbilityCategory.FEAT);
 		additionalSetUp();
+		if (!ref.resolveReferences(null))
+		{
+			fail("Unconstructed References");
+		}
 
 		character = new PlayerCharacter();
 	}
@@ -235,20 +219,6 @@ abstract public class AbstractJunit4CharacterTestCase
 	protected void additionalSetUp() throws Exception
 	{
 		//override to provide info
-	}
-
-	private SizeAdjustment createSize(String name)
-	{
-		final String abb  = name.substring(0, 1);
-
-		final SizeAdjustment sa = new SizeAdjustment();
-
-		sa.setName(name);
-		sa.put(StringKey.ABB, abb);
-
-		Globals.getContext().getReferenceContext().importObject(sa);
-		Globals.getContext().getReferenceContext().registerAbbreviation(sa, sa.getAbbreviation());
-		return sa;
 	}
 
 	/**
@@ -259,15 +229,6 @@ abstract public class AbstractJunit4CharacterTestCase
 	public AbstractJunit4CharacterTestCase()
 	{
 		super();
-	}
-
-	public static PCAlignment createAlignment(final String longName,
-		final String shortName)
-	{
-		final PCAlignment align = new PCAlignment();
-		align.setName(longName);
-		align.put(StringKey.ABB, shortName);
-		return align;
 	}
 
 	/**

@@ -36,6 +36,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.EqModRef;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.EquipmentUtilities;
@@ -59,7 +60,7 @@ public final class KitGear extends BaseKit
 	private List<EqModRef> mods;
 	private String theLocationStr = null;
 	private Boolean sizeToPC;
-	private SizeAdjustment size;
+	private CDOMSingleRef<SizeAdjustment> size;
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
@@ -169,7 +170,7 @@ public final class KitGear extends BaseKit
 		}
 		if (gear.size != null)
 		{
-			actingSize = gear.size;
+			actingSize = gear.size.resolvesTo();
 		}
 	}
 
@@ -181,7 +182,7 @@ public final class KitGear extends BaseKit
 		actingCost = maxCost;
 		actingMods = mods == null ? null : new ArrayList<EqModRef>(mods);
 		actingLocation = theLocationStr;
-		actingSize = size;
+		actingSize = size.resolvesTo();
 
 		theEquipment = null;
 		theQty = 0;
@@ -271,7 +272,7 @@ public final class KitGear extends BaseKit
 		{
 			// We need setBase() called.  The only way to do that is to resize.
 			// We will set the size to itself.
-			theEquipment.resizeItem(aPC, theEquipment.getSafe(ObjectKey.SIZE));
+			theEquipment.resizeItem(aPC, theEquipment.getSafe(ObjectKey.SIZE).resolvesTo());
 		}
 
 		//
@@ -512,12 +513,12 @@ public final class KitGear extends BaseKit
 		return sizeToPC;
 	}
 
-	public void setSize(SizeAdjustment sa)
+	public void setSize(CDOMSingleRef<SizeAdjustment> sa)
 	{
 		size = sa;
 	}
 
-	public SizeAdjustment getSize()
+	public CDOMSingleRef<SizeAdjustment> getSize()
 	{
 		return size;
 	}

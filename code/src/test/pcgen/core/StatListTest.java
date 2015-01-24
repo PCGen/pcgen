@@ -29,6 +29,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.StatLock;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
@@ -63,10 +64,11 @@ public class StatListTest extends AbstractCharacterTestCase
 
 		locker = new PCTemplate();
 		locker.setName("locker");
-		locker.addToListFor(ListKey.STAT_LOCKS, new StatLock(str, FormulaFactory.getFormulaFor(12)));
+		CDOMDirectSingleRef<PCStat> strRef = CDOMDirectSingleRef.getRef(str);
+		locker.addToListFor(ListKey.STAT_LOCKS, new StatLock(strRef, FormulaFactory.getFormulaFor(12)));
 		unlocker = new PCTemplate();
 		unlocker.setName("unlocker");
-		unlocker.addToListFor(ListKey.UNLOCKED_STATS, str);
+		unlocker.addToListFor(ListKey.UNLOCKED_STATS, strRef);
 		bonus = TestHelper.makeAbility("Bonus", AbilityCategory.FEAT, "General.Fighter");
 		BonusObj aBonus = Bonus.newBonus(context, "STAT|STR|7|TYPE=Enhancement");
 		if (aBonus != null)
@@ -146,7 +148,7 @@ public class StatListTest extends AbstractCharacterTestCase
 		PCTemplate statMinValTemplate = new PCTemplate();
 		statMinValTemplate.setName("minval");
 		statMinValTemplate.addToListFor(ListKey.STAT_MINVALUE, new StatLock(
-			str, FormulaFactory.getFormulaFor(8)));
+			CDOMDirectSingleRef.getRef(str), FormulaFactory.getFormulaFor(8)));
 		pc.addTemplate(statMinValTemplate);
 		assertEquals("STR now has minimum value", 8, pc.getTotalStatFor(str));
 		assertEquals("Starting STR mod", -1, pc.getStatModFor(str));

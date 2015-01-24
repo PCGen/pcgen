@@ -39,6 +39,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.SizeAdjustment;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
@@ -84,10 +85,11 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 		pcClass = classLoader.parseLine(context, null, pcClassLine, source);
 		context.getReferenceContext().importObject(pcClass);
 
+		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
 		// Create the BugBear race
 		bugbearRace.setName("Bugbear");
 		bugbearRace.put(StringKey.KEY_NAME, "KEY_Bugbear");
-		bugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
+		bugbearRace.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
 		bugbearRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		bugbearRace.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
 				CDOMDirectSingleRef.getRef(humanoidClass), FormulaFactory.getFormulaFor(3)));
@@ -96,7 +98,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 		// Create the human race
 		humanRace.setName("Human");
 		humanRace.put(StringKey.KEY_NAME, "KEY_Human");
-		humanRace.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
+		humanRace.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
 		context.getReferenceContext().importObject(humanRace);
 	}
 

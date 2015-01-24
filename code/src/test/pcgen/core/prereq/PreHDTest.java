@@ -36,6 +36,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.SizeAdjustment;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -79,7 +80,8 @@ public class PreHDTest extends AbstractCharacterTestCase
 	public void testHD() throws Exception
 	{
 		race.setName("Human");
-		race.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
+		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
+		race.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
 		Globals.getContext().getReferenceContext().importObject(race);
 
 		PCClass raceClass = new PCClass();
@@ -140,7 +142,8 @@ public class PreHDTest extends AbstractCharacterTestCase
 		Globals.getContext().getReferenceContext().importObject(monClass);
 
 		race1.setName("Bugbear");
-		race1.put(FormulaKey.SIZE, new FixedSizeFormula(large));
+		CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
+		race1.put(FormulaKey.SIZE, new FixedSizeFormula(largeRef));
 
 		race1.put(ObjectKey.MONSTER_CLASS, new LevelCommandFactory(
 				CDOMDirectSingleRef.getRef(monClass), FormulaFactory

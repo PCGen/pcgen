@@ -25,6 +25,7 @@ import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
@@ -35,7 +36,7 @@ public class BaseSizeToken implements PrimitiveToken<Race>,
 		PrimitiveFilter<Race>
 {
 	private static final Class<Race> RACE_CLASS = Race.class;
-	private SizeAdjustment size;
+	private CDOMSingleRef<SizeAdjustment> size;
 	private CDOMReference<Race> allRaces;
 
 	@Override
@@ -47,7 +48,7 @@ public class BaseSizeToken implements PrimitiveToken<Race>,
 			return false;
 		}
 		size =
-				context.getReferenceContext().getAbbreviatedObject(
+				context.getReferenceContext().getCDOMReference(
 					SizeAdjustment.class, value);
 		allRaces =
 				context.getReferenceContext().getCDOMAllReference(RACE_CLASS);
@@ -69,14 +70,14 @@ public class BaseSizeToken implements PrimitiveToken<Race>,
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + size.getAbbreviation();
+		return getTokenName() + "=" + size.getLSTformat(false);
 	}
 
 	@Override
 	public boolean allow(PlayerCharacter pc, Race race)
 	{
 		Formula raceSize = race.get(FormulaKey.SIZE);
-		return size.getAbbreviation().equals(raceSize.toString());
+		return size.resolvesTo().getKeyName().equals(raceSize.toString());
 	}
 
 	@Override

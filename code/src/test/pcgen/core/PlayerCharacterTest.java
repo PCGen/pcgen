@@ -906,7 +906,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// With template lock
 		PCTemplate nonAbilityLocker = new PCTemplate();
 		nonAbilityLocker.setName("locker");
-		nonAbilityLocker.addToListFor(ListKey.NONSTAT_STATS, str);
+		CDOMDirectSingleRef<PCStat> strRef = CDOMDirectSingleRef.getRef(str);
+		nonAbilityLocker.addToListFor(ListKey.NONSTAT_STATS, strRef);
 		pc.addTemplate(nonAbilityLocker);
 		assertEquals("STR now locked to non ability", true, pc.isNonAbility(str));
 		pc.removeTemplate(nonAbilityLocker);
@@ -915,19 +916,19 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// With race lock
 		Race nonAbilityLockerRace = new Race();
 		nonAbilityLockerRace.setName("locker");
-		nonAbilityLockerRace.addToListFor(ListKey.NONSTAT_STATS, str);
+		nonAbilityLockerRace.addToListFor(ListKey.NONSTAT_STATS, strRef);
 		pc.setRace(nonAbilityLockerRace);
 		assertEquals("STR now locked to non ability", true, pc.isNonAbility(str));
 		
 		// With template unlock
-		nonAbilityLocker.addToListFor(ListKey.NONSTAT_TO_STAT_STATS, str);
+		nonAbilityLocker.addToListFor(ListKey.NONSTAT_TO_STAT_STATS, strRef);
 		pc.addTemplate(nonAbilityLocker);
 		assertEquals("STR now unlocked from a non ability by template", false, pc.isNonAbility(str));
 		pc.removeTemplate(nonAbilityLocker);
 		assertEquals("STR no longer locked to non ability", true, pc.isNonAbility(str));
 		
 		// With race unlock
-		nonAbilityLockerRace.addToListFor(ListKey.NONSTAT_TO_STAT_STATS, str);
+		nonAbilityLockerRace.addToListFor(ListKey.NONSTAT_TO_STAT_STATS, strRef);
 		//This weirdness is because we are altering the race after application (no-no at runtime)
 		pc.setRace(null);
 		pc.setRace(nonAbilityLockerRace);

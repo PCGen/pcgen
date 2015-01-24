@@ -24,6 +24,7 @@ import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
@@ -35,7 +36,7 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 
 	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
 	private static final Class<Deity> DEITY_CLASS = Deity.class;
-	private PCAlignment alignment;
+	private CDOMSingleRef<PCAlignment> alignment;
 	private CDOMReference<Deity> allDeities;
 
 	@Override
@@ -46,7 +47,7 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 		{
 			return false;
 		}
-		alignment = context.getReferenceContext().getAbbreviatedObject(ALIGNMENT_CLASS, value);
+		alignment = context.getReferenceContext().getCDOMReference(ALIGNMENT_CLASS, value);
 		allDeities = context.getReferenceContext().getCDOMAllReference(DEITY_CLASS);
 		return alignment != null;
 	}
@@ -66,13 +67,14 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + alignment.getLSTformat();
+		return getTokenName() + "=" + alignment.getLSTformat(false);
 	}
 
 	@Override
 	public boolean allow(PlayerCharacter pc, Deity deity)
 	{
-		return alignment.equals(deity.get(ObjectKey.ALIGNMENT));
+		CDOMSingleRef<PCAlignment> alignRef = deity.get(ObjectKey.ALIGNMENT);
+		return (alignRef != null) && alignment.resolvesTo().equals(alignRef.resolvesTo());
 	}
 
 	@Override

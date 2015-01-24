@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.sizeadjustment;
 
+import java.net.URISyntaxException;
+
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.StringKey;
@@ -24,15 +26,25 @@ import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.KeyLst;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class AbbTokenTest extends AbstractTokenTestCase<SizeAdjustment>
 {
 	static AbbToken token = new AbbToken();
+	static KeyLst keyToken = new KeyLst();
 
 	static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<SizeAdjustment>();
+
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		TokenRegistration.register(keyToken);
+	}
 
 	@Override
 	public Class<SizeAdjustment> getCDOMClass()
@@ -56,7 +68,6 @@ public class AbbTokenTest extends AbstractTokenTestCase<SizeAdjustment>
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
 		assertFalse(parse(""));
-		assertEquals(null, primaryContext.getReferenceContext().getAbbreviation(primaryProf));
 		assertNoSideEffects();
 	}
 
@@ -159,7 +170,7 @@ public class AbbTokenTest extends AbstractTokenTestCase<SizeAdjustment>
 
 	protected String[] setAndUnparse(String val)
 	{
-		primaryContext.getReferenceContext().registerAbbreviation(primaryProf, val);
+		primaryProf.put(getStringKey(), val);
 		return getToken().unparse(primaryContext, primaryProf);
 	}
 

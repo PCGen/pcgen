@@ -19,7 +19,6 @@ package plugin.lsttokens.editcontext.spell;
 
 import java.net.URISyntaxException;
 
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCStat;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -28,6 +27,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractItemIntegrationTestCase;
 import plugin.lsttokens.spell.StatToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class StatIntegrationTest extends
@@ -53,20 +53,14 @@ public class StatIntegrationTest extends
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		PCStat ps = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class, "STR");
-		ps.put(StringKey.ABB, "STR");
-		primaryContext.getReferenceContext().registerAbbreviation(ps, "STR");
-		PCStat ss = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
-				"STR");
-		ss.put(StringKey.ABB, "STR");
-		secondaryContext.getReferenceContext().registerAbbreviation(ss, "STR");
-		PCStat pi = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class, "INT");
-		pi.put(StringKey.ABB, "INT");
-		primaryContext.getReferenceContext().registerAbbreviation(pi, "INT");
-		PCStat si = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
-				"INT");
-		si.put(StringKey.ABB, "INT");
-		secondaryContext.getReferenceContext().registerAbbreviation(si, "INT");
+		PCStat ps = BuildUtilities.createStat("Strength", "STR");
+		primaryContext.getReferenceContext().importObject(ps);
+		PCStat pi = BuildUtilities.createStat("Intelligence", "INT");
+		primaryContext.getReferenceContext().importObject(pi);
+		PCStat ss = BuildUtilities.createStat("Strength", "STR");
+		secondaryContext.getReferenceContext().importObject(ss);
+		PCStat si = BuildUtilities.createStat("Intelligence", "INT");
+		secondaryContext.getReferenceContext().importObject(si);
 	}
 
 	@Override

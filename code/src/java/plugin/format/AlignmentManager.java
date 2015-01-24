@@ -35,7 +35,7 @@ public class AlignmentManager implements FormatManager<PCAlignment>
 	@Override
 	public PCAlignment convert(LoadContext context, String statID)
 	{
-		return context.getReferenceContext().getAbbreviatedObject(
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
 			PCALIGNMENT_CLASS, statID);
 	}
 
@@ -58,7 +58,7 @@ public class AlignmentManager implements FormatManager<PCAlignment>
 	@Override
 	public String unconvert(PCAlignment stat)
 	{
-		return stat.getAbb();
+		return stat.getKeyName();
 	}
 
 	@Override

@@ -113,7 +113,7 @@ public class StatToken extends Token
 
 			if ("NAME".equals(token))
 			{
-				return stat.getAbb();
+				return stat.getKeyName();
 			}
 			if ("LONGNAME".equals(token))
 			{

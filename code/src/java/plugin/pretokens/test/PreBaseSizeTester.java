@@ -55,9 +55,7 @@ public class PreBaseSizeTester extends AbstractDisplayPrereqTest implements Prer
 		if ((display.getRace() != null)
 			&& !display.getRace().equals(Globals.s_EMPTYRACE))
 		{
-			final String key =
-					String.valueOf(prereq.getOperand().toUpperCase().charAt(0));
-			final int targetSize = SizeUtilities.sizeInt(key, -1);
+			final int targetSize = SizeUtilities.sizeInt(prereq.getOperand(), -1);
 			if (targetSize < 0)
 			{
 				throw new PrerequisiteException(LanguageBundle

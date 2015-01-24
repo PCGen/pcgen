@@ -162,7 +162,6 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
-		assertTrue(context.getReferenceContext().resolveReferences(null));
 	}
 
 	/**

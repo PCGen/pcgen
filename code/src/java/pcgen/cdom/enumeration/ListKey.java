@@ -208,9 +208,9 @@ public final class ListKey<T>
 	public static final ListKey<CDOMReference<? extends PCClass>> FAVORED_CLASS = new ListKey<CDOMReference<? extends PCClass>>();
 	public static final ListKey<Qualifier> QUALIFY = new ListKey<Qualifier>();
 	public static final ListKey<DamageReduction> DAMAGE_REDUCTION = new ListKey<DamageReduction>();
-	public static final ListKey<PCStat> UNLOCKED_STATS = new ListKey<PCStat>();
-	public static final ListKey<PCStat> NONSTAT_STATS = new ListKey<PCStat>();
-	public static final ListKey<PCStat> NONSTAT_TO_STAT_STATS = new ListKey<PCStat>();
+	public static final ListKey<CDOMSingleRef<PCStat>> UNLOCKED_STATS = new ListKey<CDOMSingleRef<PCStat>>();
+	public static final ListKey<CDOMSingleRef<PCStat>> NONSTAT_STATS = new ListKey<CDOMSingleRef<PCStat>>();
+	public static final ListKey<CDOMSingleRef<PCStat>> NONSTAT_TO_STAT_STATS = new ListKey<CDOMSingleRef<PCStat>>();
 	public static final ListKey<StatLock> STAT_LOCKS = new ListKey<StatLock>();
 	public static final ListKey<StatLock> STAT_MINVALUE = new ListKey<StatLock>();
 	public static final ListKey<StatLock> STAT_MAXVALUE = new ListKey<StatLock>();

@@ -30,12 +30,13 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.LanguageList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
-import pcgen.facade.core.LanguageFacade;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.facade.core.LanguageFacade;
 
 /**
  * <code>Language</code>.
@@ -43,7 +44,9 @@ import pcgen.core.utils.ShowMessageDelegate;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class Language extends PObject implements Comparable<Object>, LanguageFacade {
+public final class Language extends PObject implements Comparable<Object>,
+		LanguageFacade, Ungranted
+{
 	public static final CDOMReference<LanguageList> STARTING_LIST;
 
 	static

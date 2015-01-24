@@ -8,15 +8,16 @@ package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
-import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * Prerequisite test that the character has a deity with the correct alignment.
@@ -42,7 +43,7 @@ public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements Pr
 		}
 		else
 		{
-			PCAlignment deityAlign = null; //$NON-NLS-1$
+			CDOMSingleRef<PCAlignment> deityAlign = null; //$NON-NLS-1$
 			Deity deity = display.getDeity();
 			if (deity != null)
 			{
@@ -53,7 +54,7 @@ public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements Pr
 				String desiredAlignIdentifier = prereq.getOperand();
 				PCAlignment desiredAlign = getPCAlignment(desiredAlignIdentifier);
 
-				if (desiredAlign.equals(deityAlign))
+				if (desiredAlign.equals(deityAlign.resolvesTo()))
 				{
 					runningTotal = 1;
 				}
@@ -65,7 +66,18 @@ public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements Pr
 
 	private PCAlignment getPCAlignment(String desiredAlignIdentifier)
 	{
-		return AlignmentConverter.getPCAlignment(desiredAlignIdentifier);
+		PCAlignment desiredAlign =
+				Globals
+					.getContext()
+					.getReferenceContext()
+					.silentlyGetConstructedCDOMObject(PCAlignment.class,
+						desiredAlignIdentifier);
+		if (desiredAlign == null)
+		{
+			Logging.errorPrint("Unable to find alignment that matches: "
+				+ desiredAlignIdentifier);
+		}
+		return desiredAlign;
 	}
 
 	/**
@@ -86,7 +98,7 @@ public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements Pr
 	{
 		return LanguageBundle
 			.getFormattedString(
-				"PreDeityAlign.toHtml", prereq.getOperator().toDisplayString(), getPCAlignment(prereq.getOperand()).getAbb()); //$NON-NLS-1$
+				"PreDeityAlign.toHtml", prereq.getOperator().toDisplayString(), getPCAlignment(prereq.getOperand()).getKeyName()); //$NON-NLS-1$
 	}
 
 }

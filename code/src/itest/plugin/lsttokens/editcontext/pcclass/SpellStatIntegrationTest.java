@@ -30,6 +30,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.pcclass.SpellstatToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class SpellStatIntegrationTest extends
@@ -45,18 +46,14 @@ public class SpellStatIntegrationTest extends
 	{
 		super.setUp();
 		prefix = "CLASS:";
-		PCStat ps = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
-				"Strength");
-		primaryContext.getReferenceContext().registerAbbreviation(ps, "STR");
-		PCStat ss = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
-				"Strength");
-		secondaryContext.getReferenceContext().registerAbbreviation(ss, "STR");
-		PCStat pi = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
-				"Intelligence");
-		primaryContext.getReferenceContext().registerAbbreviation(pi, "INT");
-		PCStat si = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
-				"Intelligence");
-		secondaryContext.getReferenceContext().registerAbbreviation(si, "INT");
+		PCStat ps = BuildUtilities.createStat("Strength", "STR");
+		primaryContext.getReferenceContext().importObject(ps);
+		PCStat pi = BuildUtilities.createStat("Intelligence", "INT");
+		primaryContext.getReferenceContext().importObject(pi);
+		PCStat ss = BuildUtilities.createStat("Strength", "STR");
+		secondaryContext.getReferenceContext().importObject(ss);
+		PCStat si = BuildUtilities.createStat("Intelligence", "INT");
+		secondaryContext.getReferenceContext().importObject(si);
 	}
 
 	@Override

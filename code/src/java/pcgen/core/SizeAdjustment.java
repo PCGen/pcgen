@@ -22,7 +22,6 @@ package pcgen.core;
 
 import java.util.List;
 
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 import pcgen.facade.core.SizeAdjustmentFacade;
@@ -35,15 +34,6 @@ import pcgen.facade.core.SizeAdjustmentFacade;
  */
 public final class SizeAdjustment extends PObject implements SizeAdjustmentFacade
 {
-	/**
-	 * Get abbreviation
-	 * @return abbreviation
-	 */
-	public String getAbbreviation()
-	{
-		return get(StringKey.ABB);
-	}
-
 	/**
 	 * Activates (checks PrereqToUse) and returns list of BonusObj's
 	 * @param aPC

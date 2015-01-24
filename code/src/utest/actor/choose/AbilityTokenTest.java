@@ -64,8 +64,6 @@ public class AbilityTokenTest extends TestCase
 	private Ability getObject()
 	{
 		Ability obj = context.getReferenceContext().constructCDOMObject(Ability.class, ITEM_NAME);
-		//In case
-		context.getReferenceContext().registerAbbreviation(obj, ITEM_NAME);
 		context.getReferenceContext().reassociateCategory(CATEGORY, obj);
 		return obj;
 	}

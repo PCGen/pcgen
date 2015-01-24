@@ -36,6 +36,7 @@ public class SizeAdjustmentTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(race, "SIZE", "S");
 		context.unconditionallyProcess(template, "SIZE", "D");
 		context.unconditionallyProcess(deity, "BONUS", "SIZEMOD|NUMBER|1");
+		context.getReferenceContext().resolveReferences(null);
 
 		PlayerCharacter pc = getCharacter();
 		assertEquals("M", pc.getDisplay().getSize());

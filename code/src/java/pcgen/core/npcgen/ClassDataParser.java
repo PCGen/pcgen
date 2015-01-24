@@ -295,7 +295,7 @@ class ClassDataHandler extends DefaultHandler
 					if ( statAbbr != null )
 					{
 						PCStat stat = Globals.getContext().getReferenceContext()
-								.getAbbreviatedObject(PCStat.class, statAbbr);
+								.silentlyGetConstructedCDOMObject(PCStat.class, statAbbr);
 						theCurrentData.addStat(stat, weight);
 					}
 				}

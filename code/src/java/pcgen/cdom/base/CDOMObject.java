@@ -910,12 +910,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	@Override
 	public final String getLSTformat()
 	{
-		String abb = get(StringKey.ABB);
-		if (abb == null)
-		{
-			return getKeyName();
-		}
-		return abb;
+		return getKeyName();
 	}
 
 	public final void overlayCDOMObject(CDOMObject cdo)

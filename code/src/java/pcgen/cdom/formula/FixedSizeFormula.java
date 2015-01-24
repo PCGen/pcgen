@@ -18,6 +18,7 @@
 package pcgen.cdom.formula;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
@@ -36,7 +37,7 @@ public class FixedSizeFormula implements Formula
 	 * The underlying SizeAdjustment for which this Formula will return the
 	 * identifying value.
 	 */
-	private final SizeAdjustment size;
+	private final CDOMSingleRef<SizeAdjustment> size;
 
 	/**
 	 * Creates a new FixedSizeFormula for the given SizeAdjustment.
@@ -47,7 +48,7 @@ public class FixedSizeFormula implements Formula
 	 * @throws IllegalArgumentException
 	 *             if the given SizeAdjustment is null
 	 */
-	public FixedSizeFormula(SizeAdjustment sAdj)
+	public FixedSizeFormula(CDOMSingleRef<SizeAdjustment> sAdj)
 	{
 		if (sAdj == null)
 		{
@@ -65,7 +66,7 @@ public class FixedSizeFormula implements Formula
 	@Override
 	public String toString()
 	{
-		return size.getAbbreviation();
+		return size.getLSTformat(false);
 	}
 
 	/**
@@ -171,6 +172,6 @@ public class FixedSizeFormula implements Formula
 	@Override
 	public Integer resolveStatic()
 	{
-		return SizeUtilities.sizeInt(size.getAbbreviation());
+		return SizeUtilities.sizeInt(size.resolvesTo().getKeyName());
 	}
 }

@@ -25,6 +25,7 @@
 
 package plugin.lsttokens.kit.gear;
 
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.kit.KitGear;
 import pcgen.rules.context.LoadContext;
@@ -65,13 +66,9 @@ public class SizeToken extends AbstractNonEmptyToken<KitGear> implements
 		}
 		else
 		{
-			SizeAdjustment size = context.getReferenceContext().getAbbreviatedObject(
-					SizeAdjustment.class, value);
-			if (size == null)
-			{
-				return new ParseResult.Fail(getTokenName()
-						+ " found invalid Size abbreviation: " + value, context);
-			}
+			CDOMSingleRef<SizeAdjustment> size =
+					context.getReferenceContext().getCDOMReference(
+						SizeAdjustment.class, value);
 			kitGear.setSize(size);
 		}
 		return ParseResult.SUCCESS;
@@ -80,7 +77,7 @@ public class SizeToken extends AbstractNonEmptyToken<KitGear> implements
 	@Override
 	public String[] unparse(LoadContext context, KitGear kitGear)
 	{
-		SizeAdjustment sz = kitGear.getSize();
+		CDOMSingleRef<SizeAdjustment> sz = kitGear.getSize();
 		if (sz == null)
 		{
 			Boolean b = kitGear.getSizeToPC();
@@ -90,6 +87,6 @@ public class SizeToken extends AbstractNonEmptyToken<KitGear> implements
 			}
 			return new String[] { "PC" };
 		}
-		return new String[] { sz.getAbbreviation() };
+		return new String[] { sz.getLSTformat(false) };
 	}
 }

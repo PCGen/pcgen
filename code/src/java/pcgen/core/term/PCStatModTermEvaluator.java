@@ -46,7 +46,7 @@ public class PCStatModTermEvaluator
 	public Float resolve(CharacterDisplay display)
 	{
 		final PCStat stat = Globals.getContext().getReferenceContext()
-				.getAbbreviatedObject(PCStat.class, statAbbrev);
+				.silentlyGetConstructedCDOMObject(PCStat.class, statAbbrev);
 		if (stat == null)
 		{
 			Logging.errorPrint("Unable to find stat for " + statAbbrev + " in " + originalText);

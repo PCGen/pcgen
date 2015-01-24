@@ -2661,7 +2661,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		{
 			resolveReferenceManufacturer(referenceContext, rm);
 		}
-		referenceContext.copyAbbreviationsFrom(gameRefContext);
 	}
 
 	private AbstractReferenceContext getRefContext()

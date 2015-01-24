@@ -24,10 +24,10 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.FormulaResolvingFacet;
-import pcgen.cdom.facet.analysis.StatLockFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.StatLock;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -55,8 +55,8 @@ public class StatLockFacetTest extends
 		pcs1.setName("Stat1");
 		PCStat pcs2 = new PCStat();
 		pcs2.setName("Stat2");
-		StatLock st1 = new StatLock(pcs1, FormulaFactory.getFormulaFor(4));
-		StatLock st2 = new StatLock(pcs2, FormulaFactory.getFormulaFor(2));
+		StatLock st1 = new StatLock(CDOMDirectSingleRef.getRef(pcs1), FormulaFactory.getFormulaFor(4));
+		StatLock st2 = new StatLock(CDOMDirectSingleRef.getRef(pcs2), FormulaFactory.getFormulaFor(2));
 		cdo1.addToListFor(ListKey.STAT_LOCKS, st1);
 		cdo2.addToListFor(ListKey.STAT_LOCKS, st2);
 		source = new CDOMObject[]{cdo1, cdo2};
@@ -76,7 +76,7 @@ public class StatLockFacetTest extends
 	{
 		PCStat stat = new PCStat();
 		stat.setName("Stat" + n++);
-		return new StatLock(stat, FormulaFactory.getFormulaFor(1));
+		return new StatLock(CDOMDirectSingleRef.getRef(stat), FormulaFactory.getFormulaFor(1));
 	}
 
 	@Override
@@ -104,13 +104,13 @@ public class StatLockFacetTest extends
 		Object source2 = new Object();
 		PCStat stat = new PCStat();
 		stat.setName("Stat" + n++);
-		StatLock t1 = new StatLock(stat, FormulaFactory.getFormulaFor(1));
+		StatLock t1 = new StatLock(CDOMDirectSingleRef.getRef(stat), FormulaFactory.getFormulaFor(1));
 		PCStat stat1 = new PCStat();
 		stat1.setName("Stat" + n++);
-		StatLock t2 = new StatLock(stat1, FormulaFactory.getFormulaFor(4));
+		StatLock t2 = new StatLock(CDOMDirectSingleRef.getRef(stat1), FormulaFactory.getFormulaFor(4));
 		PCStat stat3 = new PCStat();
 		stat3.setName("Stat" + n++);
-		StatLock t3 = new StatLock(stat3, FormulaFactory.getFormulaFor(2));
+		StatLock t3 = new StatLock(CDOMDirectSingleRef.getRef(stat3), FormulaFactory.getFormulaFor(2));
 		assertNull(facet.getLockedStat(id, stat));
 		getFacet().add(id, t1, source1);
 		assertEquals(1, facet.getLockedStat(id, stat));

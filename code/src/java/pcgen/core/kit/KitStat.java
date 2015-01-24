@@ -32,6 +32,7 @@ import java.util.TreeSet;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -45,15 +46,16 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
  */
 public class KitStat extends BaseKit
 {
-	private Map<PCStat, Formula> statMap = new HashMap<PCStat, Formula>();
+	private Map<CDOMSingleRef<PCStat>, Formula> statMap =
+			new HashMap<CDOMSingleRef<PCStat>, Formula>();
 
 	@Override
 	public String toString()
 	{
 		Set<String> set = new TreeSet<String>();
-		for (Map.Entry<PCStat, Formula> me : statMap.entrySet())
+		for (Map.Entry<CDOMSingleRef<PCStat>, Formula> me : statMap.entrySet())
 		{
-			set.add(me.getKey().getAbb()+ '='+ me.getValue());
+			set.add(me.getKey().getLSTformat(false) + '='+ me.getValue());
 		}
 		return StringUtil.join(set, Constants.PIPE);
 	}
@@ -62,16 +64,17 @@ public class KitStat extends BaseKit
 	public boolean testApply(Kit aKit, PlayerCharacter aPC,
 		List<String> warnings)
 	{
-		for (Map.Entry<PCStat, Formula> me : statMap.entrySet())
+		for (Map.Entry<CDOMSingleRef<PCStat>, Formula> me : statMap.entrySet())
 		{
+			PCStat mapStat = me.getKey().resolvesTo();
 			int sVal = me.getValue().resolve(aPC, "").intValue();
 			for (PCStat currentStat : aPC.getStatSet())
 			{
 				if (!aPC.isNonAbility(currentStat)
-					&& currentStat.equals(me.getKey()))
+					&& currentStat.equals(mapStat))
 				{
 					aPC.setStat(currentStat, sVal);
-					if ("INT".equals(currentStat.getAbb()))
+					if ("INT".equals(currentStat.getKeyName()))
 					{
 						recalculateSkillPoints(aPC);
 					}
@@ -126,7 +129,7 @@ public class KitStat extends BaseKit
 		}
 	}
 
-	public void addStat(PCStat stat, Formula statValue)
+	public void addStat(CDOMSingleRef<PCStat> stat, Formula statValue)
 	{
 		if (statMap.put(stat, statValue) != null)
 		{
