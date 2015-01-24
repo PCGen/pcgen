@@ -20,6 +20,7 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -32,7 +33,7 @@ import pcgen.facade.core.StatFacade;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class PCStat extends PObject implements StatFacade
+public final class PCStat extends PObject implements StatFacade, NonInteractive
 {
 	public String getAbb()
 	{
