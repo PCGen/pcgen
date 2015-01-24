@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import pcgen.base.util.OneToOneMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.CategorizedClassIdentity;
@@ -59,8 +58,6 @@ public abstract class AbstractReferenceContext
 	private static final Class<ClassSkillList> CLASSSKILLLIST_CLASS = ClassSkillList.class;
 	private static final Class<ClassSpellList> CLASSSPELLLIST_CLASS = ClassSpellList.class;
 	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
-
-	private final Map<Class<?>, OneToOneMap<CDOMObject, String>> abbMap = new HashMap<Class<?>, OneToOneMap<CDOMObject, String>>();
 
 	private final Map<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<CDOMObject, CDOMSingleRef<?>>();
 
@@ -239,12 +236,6 @@ public abstract class AbstractReferenceContext
 
 	public <T extends Loadable> boolean forget(T obj)
 	{
-		OneToOneMap<CDOMObject, String> map = abbMap.get(obj.getClass());
-		if (map != null)
-		{
-			map.remove(obj);
-		}
-
 		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(obj.getClass()))
 		{
 			Class cl = obj.getClass();
@@ -395,30 +386,6 @@ public abstract class AbstractReferenceContext
 		return (CDOMSingleRef<T>) ref;
 	}
 
-	public void registerAbbreviation(CDOMObject obj, String value)
-	{
-		OneToOneMap<CDOMObject, String> map = abbMap.get(obj.getClass());
-		if (map == null)
-		{
-			map = new OneToOneMap<CDOMObject, String>();
-			abbMap.put(obj.getClass(), map);
-		}
-		obj.put(StringKey.ABB, value);
-		map.put(obj, value);
-	}
-
-	public String getAbbreviation(CDOMObject obj)
-	{
-		OneToOneMap<CDOMObject, String> map = abbMap.get(obj.getClass());
-		return map == null ? null : map.get(obj);
-	}
-
-	public <T> T getAbbreviatedObject(Class<T> cl, String value)
-	{
-		OneToOneMap<T, String> map = (OneToOneMap<T, String>) abbMap.get(cl);
-		return map == null ? null : map.getKeyFor(value);
-	}
-
 	URI getExtractURI()
 	{
 		return extractURI;
@@ -476,11 +443,6 @@ public abstract class AbstractReferenceContext
 	public <T extends Loadable> int getConstructedObjectCount(Class<T> c)
 	{
 		return getManufacturer(c).getConstructedObjectCount();
-	}
-
-	public void copyAbbreviationsFrom(AbstractReferenceContext rc)
-	{
-		abbMap.putAll(rc.abbMap);
 	}
 
 	public <T extends Loadable> T getItemInOrder(Class<T> cl, int item)

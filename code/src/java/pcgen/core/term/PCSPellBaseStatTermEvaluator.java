@@ -27,6 +27,7 @@
 package pcgen.core.term;
 
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -52,14 +53,14 @@ public class PCSPellBaseStatTermEvaluator
 			return 0f;
 		}
 
-		PCStat ss = aClass.get(ObjectKey.SPELL_STAT);
+		CDOMSingleRef<PCStat> ss = aClass.get(ObjectKey.SPELL_STAT);
 
 		if (ss == null)
 		{
 			return 10f;
 		}
 
-		return (float) pc.getDisplay().getTotalStatFor(ss);
+		return (float) pc.getDisplay().getTotalStatFor(ss.resolvesTo());
 	}
 
 	@Override

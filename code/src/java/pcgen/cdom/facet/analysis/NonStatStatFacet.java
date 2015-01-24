@@ -26,6 +26,7 @@ import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCStat;
 
 /**
@@ -62,10 +63,14 @@ public class NonStatStatFacet extends AbstractSourcedListFacet<CharID, PCStat> i
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		List<PCStat> locks = cdo.getListFor(ListKey.NONSTAT_STATS);
+		List<CDOMSingleRef<PCStat>> locks = cdo.getListFor(ListKey.NONSTAT_STATS);
 		if (locks != null)
 		{
-			addAll(dfce.getCharID(), locks, cdo);
+			CharID charID = dfce.getCharID();
+			for (CDOMSingleRef<PCStat> ref : locks)
+			{
+				add(charID, ref.resolvesTo(), cdo);
+			}
 		}
 	}
 

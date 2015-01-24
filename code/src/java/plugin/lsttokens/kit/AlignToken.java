@@ -28,8 +28,9 @@ package plugin.lsttokens.kit;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PCAlignment;
 import pcgen.core.kit.KitAlignment;
 import pcgen.rules.context.LoadContext;
@@ -78,13 +79,9 @@ public class AlignToken extends AbstractTokenWithSeparator<KitAlignment>
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			PCAlignment ref = context.getReferenceContext().getAbbreviatedObject(
+			CDOMSingleRef<PCAlignment> ref =
+					context.getReferenceContext().getCDOMReference(
 						ALIGNMENT_CLASS, tokText);
-			if (ref == null)
-			{
-				return new ParseResult.Fail("Cannot find Alignment: " + tokText
-					+ " part of " + value, context);
-			}
 			kitAlignment.addAlignment(ref);
 		}
 		return ParseResult.SUCCESS;
@@ -93,12 +90,12 @@ public class AlignToken extends AbstractTokenWithSeparator<KitAlignment>
 	@Override
 	public String[] unparse(LoadContext context, KitAlignment kitAlignment)
 	{
-		List<PCAlignment> alignments = kitAlignment.getAlignments();
+		List<CDOMSingleRef<PCAlignment>> alignments = kitAlignment.getAlignments();
 		if (alignments == null)
 		{
 			return null;
 		}
-		return new String[]{CDOMObjectUtilities.joinKeyName(alignments,
+		return new String[]{ReferenceUtilities.joinLstFormat(alignments,
 			Constants.PIPE)};
 	}
 }

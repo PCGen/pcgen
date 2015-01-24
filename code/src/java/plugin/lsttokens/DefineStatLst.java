@@ -28,6 +28,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.StatLock;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCStat;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.Changes;
@@ -103,12 +104,9 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 				+ Constants.COLON+subToken+"| must be followed by a stat.", context);
 		}
 		String statKey = sep.next();
-		PCStat stat = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, statKey);
-		if (stat == null)
-		{
-			return new ParseResult.Fail(getTokenName() + Constants.COLON + value
-				+ " uses an invalid stat key.", context);
-		}
+		CDOMSingleRef<PCStat> stat =
+				context.getReferenceContext().getCDOMReference(PCSTAT_CLASS,
+					statKey);
 		
 		Formula f = null;
 		if (subToken == DefineStatSubToken.LOCK
@@ -173,11 +171,11 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 	{
 		Changes<StatLock> lockChanges = context.getObjectContext().getListChanges(
 				obj, ListKey.STAT_LOCKS);
-		Changes<PCStat> ulchanges = context.getObjectContext().getListChanges(
+		Changes<CDOMSingleRef<PCStat>> ulchanges = context.getObjectContext().getListChanges(
 				obj, ListKey.UNLOCKED_STATS);
-		Changes<PCStat> nonStatChanges = context.getObjectContext().getListChanges(
+		Changes<CDOMSingleRef<PCStat>> nonStatChanges = context.getObjectContext().getListChanges(
 			obj, ListKey.NONSTAT_STATS);
-		Changes<PCStat> nonStatToStatChanges = context.getObjectContext().getListChanges(
+		Changes<CDOMSingleRef<PCStat>> nonStatToStatChanges = context.getObjectContext().getListChanges(
 			obj, ListKey.NONSTAT_TO_STAT_STATS);
 		Changes<StatLock> minValueChanges = context.getObjectContext().getListChanges(
 			obj, ListKey.STAT_MINVALUE);
@@ -195,7 +193,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			{
 				for (StatLock sl : lockChanges.getAdded())
 				{
-					set.add("LOCK|" + sl.getLockedStat().getLSTformat() + Constants.PIPE
+					set.add("LOCK|" + sl.getLSTformat() + Constants.PIPE
 							+ sl.getLockValue());
 				}
 			}
@@ -210,9 +208,9 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			}
 			if (ulchanges.hasAddedItems())
 			{
-				for (PCStat st : ulchanges.getAdded())
+				for (CDOMSingleRef<PCStat> st : ulchanges.getAdded())
 				{
-					set.add("UNLOCK|" + st.getLSTformat());
+					set.add("UNLOCK|" + st.getLSTformat(false));
 				}
 			}
 		}
@@ -220,9 +218,9 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			if (nonStatChanges.hasAddedItems())
 			{
-				for (PCStat st : nonStatChanges.getAdded())
+				for (CDOMSingleRef<PCStat> st : nonStatChanges.getAdded())
 				{
-					set.add("NONSTAT|" + st.getLSTformat());
+					set.add("NONSTAT|" + st.getLSTformat(false));
 				}
 			}
 		}
@@ -230,9 +228,9 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			if (nonStatToStatChanges.hasAddedItems())
 			{
-				for (PCStat st : nonStatToStatChanges.getAdded())
+				for (CDOMSingleRef<PCStat> st : nonStatToStatChanges.getAdded())
 				{
-					set.add("STAT|" + st.getLSTformat());
+					set.add("STAT|" + st.getLSTformat(false));
 				}
 			}
 		}
@@ -242,7 +240,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			{
 				for (StatLock sl : minValueChanges.getAdded())
 				{
-					set.add("MINVALUE|" + sl.getLockedStat().getLSTformat() + Constants.PIPE
+					set.add("MINVALUE|" + sl.getLSTformat() + Constants.PIPE
 							+ sl.getLockValue());
 				}
 			}
@@ -253,7 +251,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			{
 				for (StatLock sl : maxValueChanges.getAdded())
 				{
-					set.add("MAXVALUE|" + sl.getLockedStat().getLSTformat() + Constants.PIPE
+					set.add("MAXVALUE|" + sl.getLSTformat() + Constants.PIPE
 							+ sl.getLockValue());
 				}
 			}

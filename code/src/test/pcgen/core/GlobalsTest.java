@@ -408,9 +408,9 @@ public class GlobalsTest extends PCGenTestCase
 		d6.addToUpList(new RollInfo("8d6"));
 		d6.addToUpList(new RollInfo("12d6"));
 		Globals.getContext().getReferenceContext().importObject(d6);
-		SizeAdjustment small = Globals.getContext().getReferenceContext().getAbbreviatedObject(
+		SizeAdjustment small = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				SizeAdjustment.class, "S");
-		SizeAdjustment medium = Globals.getContext().getReferenceContext().getAbbreviatedObject(
+		SizeAdjustment medium = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				SizeAdjustment.class, "M");
 		is(Globals.adjustDamage("1d6", medium, small), strEq("1d4"),
 			"reduction of damage due to smaller size");

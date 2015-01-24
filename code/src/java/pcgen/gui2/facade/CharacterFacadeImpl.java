@@ -1622,8 +1622,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		//return Integer.valueOf(currentStatAnalysis.getTotalStatFor(aStat) - currentStatAnalysis.getBaseStatFor(aStat));
-		int rBonus = (int) theCharacter.getRaceBonusTo("STAT", activeStat.getAbb()); //$NON-NLS-1$
-		rBonus += (int) theCharacter.getBonusDueToType("STAT", activeStat.getAbb(), "RACIAL");
+		int rBonus = (int) theCharacter.getRaceBonusTo("STAT", activeStat.getKeyName()); //$NON-NLS-1$
+		rBonus += (int) theCharacter.getBonusDueToType("STAT", activeStat.getKeyName(), "RACIAL");
 
 		return rBonus;
 	}
@@ -1645,8 +1645,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		//return Integer.valueOf(currentStatAnalysis.getTotalStatFor(aStat) - currentStatAnalysis.getBaseStatFor(aStat));
-		int iRace = (int) theCharacter.getRaceBonusTo("STAT", activeStat.getAbb()); //$NON-NLS-1$
-		iRace += (int) theCharacter.getBonusDueToType("STAT", activeStat.getAbb(), "RACIAL");
+		int iRace = (int) theCharacter.getRaceBonusTo("STAT", activeStat.getKeyName()); //$NON-NLS-1$
+		iRace += (int) theCharacter.getBonusDueToType("STAT", activeStat.getKeyName(), "RACIAL");
 
 		return theCharacter.getTotalStatFor(activeStat)
 				- theCharacter.getBaseStatFor(activeStat) - iRace;
@@ -1670,7 +1670,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		Collection<PCStat> pcStatList = charDisplay.getStatSet();
 		for (PCStat aStat : pcStatList)
 		{
-			if (stat.getAbbreviation().equals(aStat.getAbbreviation()))
+			if (stat.getKeyName().equals(aStat.getKeyName()))
 			{
 				pcStat = aStat;
 				break;

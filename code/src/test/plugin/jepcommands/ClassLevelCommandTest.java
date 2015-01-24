@@ -32,6 +32,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Campaign;
 import pcgen.core.Description;
 import pcgen.core.GameMode;
@@ -40,6 +41,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 
 /**
  * <code>OrCommandTest</code> tests the functioning of the jep or plugin
@@ -88,11 +90,12 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		gamemode.setSkillMultiplierLevels("4");
 		gamemode.setMaxNonEpicLevel(20);
 
+		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
 		// Create the Nymph race
 		nymphRace = new Race();
 		nymphRace.setName("Nymph");
 		nymphRace.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
-		nymphRace.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
+		nymphRace.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
 		Globals.getContext().getReferenceContext().importObject(nymphRace);
 
 		// Create the humanoid class

@@ -62,7 +62,7 @@ public class TemplateModifier
 		{
 			if (NonAbilityDisplay.isNonAbilityForObject(stat, pct))
 			{
-				mods.append(stat.getAbb()).append(":nonability ");
+				mods.append(stat.getKeyName()).append(":nonability ");
 			}
 			else
 			{
@@ -70,7 +70,7 @@ public class TemplateModifier
 
 				if (statMod != 0)
 				{
-					mods.append(stat.getAbb()).append(':').append(
+					mods.append(stat.getKeyName()).append(':').append(
 							statMod).append(' ');
 				}
 			}

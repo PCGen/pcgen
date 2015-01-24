@@ -508,7 +508,7 @@ public final class EquipmentChoice
 	public void addStats() {
 		for (PCStat stat : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCStat.class))
 		{
-			this.getAvailableList().add(stat.getAbb());
+			this.getAvailableList().add(stat.getKeyName());
 		}
 	}
 

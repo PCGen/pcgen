@@ -9172,10 +9172,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		if (useStatFromSpell)
 		{
 			// get the BASESPELLSTAT from the spell itself
-			PCStat stat = sp.get(ObjectKey.SPELL_STAT);
+			CDOMSingleRef<PCStat> stat = sp.get(ObjectKey.SPELL_STAT);
 			if (stat != null)
 			{
-				dc += this.getStatModFor(stat);
+				dc += this.getStatModFor(stat.resolvesTo());
 			}
 		}
 
@@ -9317,10 +9317,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		if (useStatFromSpell)
 		{
 			// get the BASESPELLSTAT from the spell itself
-			PCStat stat = sp.get(ObjectKey.SPELL_STAT);
+			CDOMSingleRef<PCStat> stat = sp.get(ObjectKey.SPELL_STAT);
 			if (stat != null)
 			{
-				concentration += this.getStatModFor(stat);
+				concentration += this.getStatModFor(stat.resolvesTo());
 			}
 		}
 

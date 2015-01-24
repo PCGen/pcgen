@@ -40,6 +40,7 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.AbstractReferenceContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class SizeFacetTest extends TestCase
 {
@@ -81,17 +82,17 @@ public class SizeFacetTest extends TestCase
 		{
 			SettingsHandler.getGame().clearLoadContext();
 			AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-			t = ref.constructCDOMObject(SizeAdjustment.class, "Tiny");
-			ref.registerAbbreviation(t, "T");
-			s = ref.constructCDOMObject(SizeAdjustment.class, "Small");
-			ref.registerAbbreviation(s, "S");
-			m = ref.constructCDOMObject(SizeAdjustment.class, "Medium");
-			ref.registerAbbreviation(m, "M");
+			t = BuildUtilities.createSize("Tiny");
+			ref.importObject(t);
+			s = BuildUtilities.createSize("Small");
+			ref.importObject(s);
+			m = BuildUtilities.createSize("Medium");
 			m.put(ObjectKey.IS_DEFAULT_SIZE, true);
-			l = ref.constructCDOMObject(SizeAdjustment.class, "Large");
-			ref.registerAbbreviation(l, "L");
-			h = ref.constructCDOMObject(SizeAdjustment.class, "Huge");
-			ref.registerAbbreviation(h, "H");
+			ref.importObject(m);
+			l = BuildUtilities.createSize("Large");
+			ref.importObject(l);
+			h = BuildUtilities.createSize("Huge");
+			ref.importObject(h);
 			staticDone = true;
 		}
 	}

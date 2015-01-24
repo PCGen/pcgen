@@ -229,6 +229,12 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	@Override
 	public Collection<T> getContainedObjects()
 	{
+		if (referencedObject == null)
+		{
+			throw new IllegalStateException("Cannot ask for contains: "
+					+ getReferenceClass().getName() + " Reference " + getName()
+					+ " has not been resolved");
+		}
 		return Collections.singleton(referencedObject);
 	}
 

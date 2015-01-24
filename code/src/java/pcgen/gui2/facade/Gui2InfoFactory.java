@@ -1554,7 +1554,7 @@ public class Gui2InfoFactory implements InfoFactory
 					retString.append(' ');
 				}
 
-				retString.append(stat.getAbb() + ":Nonability");
+				retString.append(stat.getKeyName() + ":Nonability");
 			}
 			else
 			{
@@ -1565,7 +1565,7 @@ public class Gui2InfoFactory implements InfoFactory
 						retString.append(' ');
 					}
 
-					retString.append(stat.getAbb() + ":"
+					retString.append(stat.getKeyName() + ":"
 						+ BonusCalc.getStatMod(race, stat, pc));
 				}
 			}

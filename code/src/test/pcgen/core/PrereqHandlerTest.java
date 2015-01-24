@@ -38,8 +38,8 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();
 
-		final Prerequisite prereqNeg = factory.parse("!PREALIGN:0,1,2");
-		final Prerequisite prereq = factory.parse("PREALIGN:3,4,5,6,7,8");
+		final Prerequisite prereqNeg = factory.parse("!PREALIGN:LG,LN,LE");
+		final Prerequisite prereq = factory.parse("PREALIGN:NG,TN,NE,CG,CN,CE");
 
 		final PlayerCharacter pc = getCharacter();
 		final Race human = new Race();

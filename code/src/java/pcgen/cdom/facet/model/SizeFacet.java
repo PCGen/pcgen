@@ -86,7 +86,8 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 		if (race != null)
 		{
 			// get the base size for the race
-			iSize = formulaResolvingFacet.resolve(id, race.getSafe(FormulaKey.SIZE), "")
+			Formula size = race.getSafe(FormulaKey.SIZE);
+			iSize = formulaResolvingFacet.resolve(id, size, "")
 					.intValue();
 
 			// now check and see if a template has set the
@@ -228,7 +229,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 	 */
 	public String getSizeAbb(CharID id)
 	{
-		return getSizeAdjustment(id).getAbbreviation();
+		return getSizeAdjustment(id).getKeyName();
 	}
 
 	/**

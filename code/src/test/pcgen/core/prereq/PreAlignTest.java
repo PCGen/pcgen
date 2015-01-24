@@ -26,6 +26,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -55,29 +56,6 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	public static Test suite()
 	{
 		return new TestSuite(PreAlignTest.class);
-	}
-
-	/**
-	 * Test that numeric alignment values work correctly in Align tests.
-	 * @throws Exception
-	 */
-	public void testNumeric() throws Exception
-	{
-		final PlayerCharacter character = getCharacter();
-		character.setAlignment(ng);
-
-		Prerequisite prereq;
-
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREALIGN:3");
-
-		assertTrue("Number 3 should match character's alignment of 3",
-			PrereqHandler.passes(prereq, character, null));
-
-		prereq = factory.parse("PREALIGN:6");
-
-		assertFalse("Number 6 should not match character's alignment of 3",
-			PrereqHandler.passes(prereq, character, null));
 	}
 
 	/**
@@ -168,16 +146,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		character.setAlignment(ng);
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
-		Prerequisite prereq = factory.parse("PREALIGN:2,3,5");
-
-		assertTrue("2, 3, or 5 should match character's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
-
-		prereq = factory.parse("PREALIGN:2,5,8");
-		assertFalse("2, 5, or 8 should not match character's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
-
-		prereq = factory.parse("PREALIGN:LE,NG,NE");
+		Prerequisite prereq = factory.parse("PREALIGN:LE,NG,NE");
 		assertTrue("LE, NG, or NE should match character's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 
@@ -193,6 +162,6 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		super.setUp();
 		deity = new Deity();
 		deity.setName("TestDeity");
-		deity.put(ObjectKey.ALIGNMENT, ng);
+		deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
 	}
 }

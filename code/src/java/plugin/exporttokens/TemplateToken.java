@@ -247,7 +247,7 @@ public class TemplateToken extends Token
 
 		for (PCStat stat : pc.getDisplay().getStatSet())
 		{
-			String modName = stat.getAbb() + "MOD";
+			String modName = stat.getKeyName() + "MOD";
 
 			if (aLabel.equals(modName))
 			{

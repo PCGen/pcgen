@@ -48,6 +48,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -57,7 +58,6 @@ import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
-import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -85,6 +85,7 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.Main;
 import pcgen.system.PCGenTask;
 import pcgen.system.PropertyContextFactory;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * Helps Junit tests
@@ -115,19 +116,11 @@ public class TestHelper
 		SettingsHandler.setGame("3.5");
 		while (aTok.hasMoreTokens())
 		{
-			final String name = aTok.nextToken();
-			final String abb  = name.substring(0, 1);
-
-			final SizeAdjustment sa = new SizeAdjustment();
-
-			sa.setName(name);
-			sa.put(StringKey.ABB, abb);
-
+			SizeAdjustment sa = BuildUtilities.createSize(aTok.nextToken());
 			Globals.getContext().getReferenceContext().importObject(sa);
-			Globals.getContext().getReferenceContext().registerAbbreviation(sa, sa.getAbbreviation());
 		}
 		Globals.getContext().getReferenceContext()
-				.getAbbreviatedObject(SizeAdjustment.class, "M").put(
+				.silentlyGetConstructedCDOMObject(SizeAdjustment.class, "M").put(
 						ObjectKey.IS_DEFAULT_SIZE, true);
 	}
 	
@@ -242,7 +235,8 @@ public class TestHelper
 		aSkill.setName(name);
 		aSkill.put(StringKey.KEY_NAME, ("KEY_" + name));
 		addType(aSkill, type);
-		aSkill.put(ObjectKey.KEY_STAT, stat);
+		CDOMDirectSingleRef<PCStat> statRef = CDOMDirectSingleRef.getRef(stat);
+		aSkill.put(ObjectKey.KEY_STAT, statRef);
 		aSkill.put(ObjectKey.USE_UNTRAINED, untrained);
 		aSkill.put(ObjectKey.ARMOR_CHECK, armorCheck);
 		Globals.getContext().getReferenceContext().importObject(aSkill);
@@ -471,32 +465,20 @@ public class TestHelper
 		return wp != null && pc.hasWeaponProf(wp);
 	}
 
-	public static PCAlignment createAlignment(String longName, String shortName)
-	{
-		PCAlignment align = new PCAlignment();
-		align.setName(longName);
-		align.put(StringKey.ABB, shortName);
-		return align;
-	}
-
 	public static void createAllAlignments()
 	{
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-		ref.importObject(createAlignment("Lawful Good", "LG"));
-		ref.importObject(createAlignment("Lawful Neutral", "LN"));
-		ref.importObject(createAlignment("Lawful Evil", "LE"));
-		ref.importObject(createAlignment("Neutral Good", "NG"));
-		ref.importObject(createAlignment("True Neutral", "TN"));
-		ref.importObject(createAlignment("Neutral Evil", "NE"));
-		ref.importObject(createAlignment("Chaotic Good", "CG"));
-		ref.importObject(createAlignment("Chaotic Neutral", "CN"));
-		ref.importObject(createAlignment("Chaotic Evil", "CE"));
-		ref.importObject(createAlignment("None", "NONE"));
-		ref.importObject(createAlignment("Deity's", "Deity"));
-		for (PCAlignment al : ref.getConstructedCDOMObjects(PCAlignment.class))
-		{
-			ref.registerAbbreviation(al, al.getAbb());
-		}
+		ref.importObject(BuildUtilities.createAlignment("Lawful Good", "LG"));
+		ref.importObject(BuildUtilities.createAlignment("Lawful Neutral", "LN"));
+		ref.importObject(BuildUtilities.createAlignment("Lawful Evil", "LE"));
+		ref.importObject(BuildUtilities.createAlignment("Neutral Good", "NG"));
+		ref.importObject(BuildUtilities.createAlignment("True Neutral", "TN"));
+		ref.importObject(BuildUtilities.createAlignment("Neutral Evil", "NE"));
+		ref.importObject(BuildUtilities.createAlignment("Chaotic Good", "CG"));
+		ref.importObject(BuildUtilities.createAlignment("Chaotic Neutral", "CN"));
+		ref.importObject(BuildUtilities.createAlignment("Chaotic Evil", "CE"));
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 	}
 
 	/**

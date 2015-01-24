@@ -20,12 +20,10 @@ package plugin.lsttokens.choose;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Loadable;
 import pcgen.core.PCCheck;
 import pcgen.core.PCStat;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -109,6 +107,12 @@ public class PCStatTokenTest extends
 	}
 
 	@Override
+	protected boolean usesComma()
+	{
+		return false;
+	}
+
+	@Override
 	public void testOverwrite() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
@@ -118,22 +122,6 @@ public class PCStatTokenTest extends
 		construct(secondaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP3");
 		super.testOverwrite();
-	}
-
-
-	@Override
-	protected Loadable construct(LoadContext loadContext, String one)
-	{
-		PCStat obj = loadContext.getReferenceContext().constructCDOMObject(getTargetClass(),
-				one);
-		loadContext.getReferenceContext().registerAbbreviation(obj, one);
-		return obj;
-	}
-
-	@Override
-	protected boolean requiresLiteral()
-	{
-		return true;
 	}
 
 }

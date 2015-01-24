@@ -61,6 +61,7 @@ import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.BonusManager;
@@ -646,7 +647,7 @@ public final class PCGVer2Creator implements IOConstants
 		if (Globals.getGameModeAlignmentText().length() != 0 && charDisplay.getPCAlignment() != null)
 		{
 			buffer.append(TAG_ALIGNMENT).append(':');
-			buffer.append(charDisplay.getPCAlignment().getAbb());
+			buffer.append(charDisplay.getPCAlignment().getKeyName());
 			buffer.append(LINE_SEP);
 		}
 	}
@@ -1080,10 +1081,10 @@ public final class PCGVer2Creator implements IOConstants
 
 			buffer.append('|');
 			buffer.append(TAG_DEITYALIGN).append(':');
-			PCAlignment al = aDeity.get(ObjectKey.ALIGNMENT);
+			CDOMSingleRef<PCAlignment> al = aDeity.get(ObjectKey.ALIGNMENT);
 			if (al != null)
 			{
-				buffer.append(al.getKeyName());
+				buffer.append(al.getLSTformat(false));
 			}
 
 			buffer.append(LINE_SEP);
@@ -2274,7 +2275,7 @@ public final class PCGVer2Creator implements IOConstants
 		for (PCStat aStat : charDisplay.getStatSet())
 		{
 			buffer.append(TAG_STAT).append(':');
-			buffer.append(aStat.getAbb());
+			buffer.append(aStat.getKeyName());
 			buffer.append('|');
 			buffer.append(TAG_SCORE).append(':');
 			buffer.append(charDisplay.getStat(aStat));

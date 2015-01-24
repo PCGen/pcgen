@@ -52,7 +52,7 @@ public class PreStatTester extends AbstractDisplayPrereqTest implements
 	{
 		final int targetNumber = Integer.parseInt(prereq.getOperand());
 		PCStat stat = Globals.getContext().getReferenceContext()
-				.getAbbreviatedObject(PCStat.class, prereq.getKey());
+				.silentlyGetConstructedCDOMObject(PCStat.class, prereq.getKey());
 		if (stat == null)
 		{
 			throw new PrerequisiteException("PRESTAT refers to invalid stat '" + stat

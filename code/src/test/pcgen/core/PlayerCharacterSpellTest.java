@@ -60,6 +60,13 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	private PCClass divineClass;
 
 	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		Globals.getContext().loadCampaignFacets();
+	}
+
+	@Override
 	protected void additionalSetUp() throws Exception
 	{
 		LoadContext context = Globals.getContext();
@@ -92,8 +99,6 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
-		assertTrue(context.getReferenceContext().resolveReferences(null));
-		context.loadCampaignFacets();
 	}
 
 	/**

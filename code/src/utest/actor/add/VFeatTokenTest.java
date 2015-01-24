@@ -125,9 +125,9 @@ public class VFeatTokenTest extends AbstractCharacterUsingTestCase
 			e.printStackTrace();
 			fail();
 		}
-		PlayerCharacter pc = new PlayerCharacter();
 		Object source = UserSelection.getInstance();
 		finishLoad(context);
+		PlayerCharacter pc = new PlayerCharacter();
 		
 		CNAbilitySelection badCACAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(oc, Nature.AUTOMATIC, badCA), "Foo");
 		CNAbilitySelection fooCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, item), "Foo");

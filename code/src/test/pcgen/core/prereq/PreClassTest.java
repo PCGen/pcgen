@@ -199,6 +199,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
 		context.getReferenceContext().buildDerivedObjects();
+		context.getReferenceContext().resolveReferences(null);
 		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
@@ -238,6 +239,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
 		context.getReferenceContext().buildDerivedObjects();
+		context.getReferenceContext().resolveReferences(null);
 		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
@@ -379,6 +381,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
 		context.getReferenceContext().buildDerivedObjects();
+		context.getReferenceContext().resolveReferences(null);
 		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();
@@ -433,6 +436,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
+		context.getReferenceContext().resolveReferences(null);
 		context.getReferenceContext().buildDerivedObjects();
 		context.loadCampaignFacets();
 
@@ -463,6 +467,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
 		context.getReferenceContext().buildDerivedObjects();
+		context.getReferenceContext().resolveReferences(null);
 		context.loadCampaignFacets();
 
 		final PlayerCharacter character = getCharacter();

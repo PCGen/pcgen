@@ -17,8 +17,6 @@
  */
 package pcgen.core.analysis;
 
-import java.util.List;
-
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.util.Logging;
@@ -27,26 +25,19 @@ public class AlignmentConverter
 {
 	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
 
-	public static PCAlignment getPCAlignment(String desiredAlignIdentifier)
+	public static PCAlignment getPCAlignment(String alignKey)
 	{
 		PCAlignment desiredAlign;
-		try
-		{
-			final int align = Integer.parseInt(desiredAlignIdentifier);
-			List<PCAlignment> alignments = Globals.getContext().getReferenceContext()
-					.getOrderSortedCDOMObjects(ALIGNMENT_CLASS);
-			desiredAlign = alignments.get(align);
-		}
-		catch (NumberFormatException e)
-		{
-			// If it isn't a number, we expect the exception
-			desiredAlign = Globals.getContext().getReferenceContext().getAbbreviatedObject(
-					ALIGNMENT_CLASS, desiredAlignIdentifier);
-		}
+		desiredAlign =
+				Globals
+					.getContext()
+					.getReferenceContext()
+					.silentlyGetConstructedCDOMObject(ALIGNMENT_CLASS,
+						alignKey);
 		if (desiredAlign == null)
 		{
 			Logging.errorPrint("Unable to find alignment that matches: "
-					+ desiredAlignIdentifier);
+				+ alignKey);
 		}
 		return desiredAlign;
 	}

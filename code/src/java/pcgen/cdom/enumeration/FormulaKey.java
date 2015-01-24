@@ -25,6 +25,8 @@ import pcgen.base.formula.Formula;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.SizeUtilities;
 
 /**
@@ -85,8 +87,10 @@ public class FormulaKey implements TypeSafeConstant
 			@Override
 			public Formula getDefault()
 			{
-				return new FixedSizeFormula(SizeUtilities
-						.getDefaultSizeAdjustment());
+				SizeAdjustment def = SizeUtilities.getDefaultSizeAdjustment();
+				CDOMDirectSingleRef<SizeAdjustment> ref =
+						CDOMDirectSingleRef.getRef(def);
+				return new FixedSizeFormula(ref);
 			}
 
 		};

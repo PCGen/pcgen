@@ -18,16 +18,19 @@
 package plugin.lsttokens.deity;
 
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with ALIGN Token
  */
-public class AlignToken implements CDOMPrimaryToken<Deity>
+public class AlignToken extends AbstractNonEmptyToken<Deity> implements
+		CDOMPrimaryToken<Deity>
 {
 
 	@Override
@@ -37,15 +40,11 @@ public class AlignToken implements CDOMPrimaryToken<Deity>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, Deity deity, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, Deity deity, String value)
 	{
-		PCAlignment al =
-				context.getReferenceContext().getAbbreviatedObject(PCAlignment.class, value);
-		if (al == null)
-		{
-			return new ParseResult.Fail("In " + getTokenName() + " " + value
-				+ " is not an Alignment", context);
-		}
+		CDOMSingleRef<PCAlignment> al =
+				context.getReferenceContext().getCDOMReference(
+					PCAlignment.class, value);
 		context.getObjectContext().put(deity, ObjectKey.ALIGNMENT, al);
 		return ParseResult.SUCCESS;
 	}
@@ -53,14 +52,14 @@ public class AlignToken implements CDOMPrimaryToken<Deity>
 	@Override
 	public String[] unparse(LoadContext context, Deity deity)
 	{
-		PCAlignment at =
+		CDOMSingleRef<PCAlignment> at =
 				context.getObjectContext()
 					.getObject(deity, ObjectKey.ALIGNMENT);
 		if (at == null)
 		{
 			return null;
 		}
-		return new String[]{at.getLSTformat()};
+		return new String[]{at.getLSTformat(false)};
 	}
 
 	@Override

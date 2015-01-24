@@ -29,7 +29,6 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.core.SettingsHandler;
-import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
@@ -93,7 +92,7 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements
 		{
 			if (alignments.length == 1)
 			{
-				prereq.setKey(getPCAlignment(formula).getAbb());
+				prereq.setKey(formula);
 				prereq.setOperator(PrerequisiteOperator.EQ);
 			}
 			else
@@ -106,7 +105,7 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements
 				{
 					Prerequisite subreq = new Prerequisite();
 					subreq.setKind("align");
-					subreq.setKey(getPCAlignment(alignments[i]).getAbb());
+					subreq.setKey(alignments[i]);
 					subreq.setOperator(PrerequisiteOperator.EQ);
 					prereq.addPrerequisite(subreq);
 				}
@@ -117,10 +116,5 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements
 			prereq.setOperator(prereq.getOperator().invert());
 		}
 		return prereq;
-	}
-
-	private PCAlignment getPCAlignment(String desiredAlignIdentifier)
-	{
-		return AlignmentConverter.getPCAlignment(desiredAlignIdentifier);
 	}
 }

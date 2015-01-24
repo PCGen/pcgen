@@ -607,6 +607,11 @@ public class GameModeFileLoader extends PCGenTask
 			buildTooSmall = true;
 		}
 
+		CDOMDirectSingleRef<WieldCategory> tooSmallRef = CDOMDirectSingleRef.getRef(tooSmall);
+		CDOMDirectSingleRef<WieldCategory> lightRef = CDOMDirectSingleRef.getRef(light);
+		CDOMDirectSingleRef<WieldCategory> oneHandedRef = CDOMDirectSingleRef.getRef(oneHanded);
+		CDOMDirectSingleRef<WieldCategory> twoHandedRef = CDOMDirectSingleRef.getRef(twoHanded);
+		CDOMDirectSingleRef<WieldCategory> tooLargeRef = CDOMDirectSingleRef.getRef(tooLarge);
 		if (buildLight)
 		{
 			light.setHandsRequired(1);
@@ -615,26 +620,26 @@ public class GameModeFileLoader extends PCGenTask
 			light.addDamageMult(2, 1.0f);
 			Prerequisite p = prereqParser.parse("PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1");
 			QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooSmall));
+					tooSmallRef);
 			qo.addPrerequisite(p);
 			light.addCategorySwitch(qo);
 			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1");
 			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(oneHanded));
+					oneHandedRef);
 			qo.addPrerequisite(p);
 			light.addCategorySwitch(qo);
 			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+2");
 			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(twoHanded));
+					twoHandedRef);
 			qo.addPrerequisite(p);
 			light.addCategorySwitch(qo);
 			p = prereqParser.parse("PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+3");
 			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooLarge));
+					tooLargeRef);
 			qo.addPrerequisite(p);
 			light.addCategorySwitch(qo);
-			light.setWieldCategoryStep(1, CDOMDirectSingleRef.getRef(oneHanded));
-			light.setWieldCategoryStep(2, CDOMDirectSingleRef.getRef(twoHanded));
+			light.setWieldCategoryStep(1, oneHandedRef);
+			light.setWieldCategoryStep(2, twoHandedRef);
 		}
 		if (buildTwoHanded)
 		{
@@ -643,26 +648,26 @@ public class GameModeFileLoader extends PCGenTask
 			twoHanded.addDamageMult(2, 1.5f);
 			Prerequisite p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-3");
 			QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooSmall));
+					tooSmallRef);
 			qo.addPrerequisite(p);
 			twoHanded.addCategorySwitch(qo);
 			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2");
 			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(light));
+					lightRef);
 			qo.addPrerequisite(p);
 			twoHanded.addCategorySwitch(qo);
 			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1");
 			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(oneHanded));
+					oneHandedRef);
 			qo.addPrerequisite(p);
 			twoHanded.addCategorySwitch(qo);
 			p = prereqParser.parse("PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1");
 			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooLarge));
+					tooLargeRef);
 			qo.addPrerequisite(p);
 			twoHanded.addCategorySwitch(qo);
-			twoHanded.setWieldCategoryStep(-2, CDOMDirectSingleRef.getRef(light));
-			twoHanded.setWieldCategoryStep(-1, CDOMDirectSingleRef.getRef(oneHanded));
+			twoHanded.setWieldCategoryStep(-2, lightRef);
+			twoHanded.setWieldCategoryStep(-1, oneHandedRef);
 		}
 		if (buildOneHanded)
 		{
@@ -672,35 +677,35 @@ public class GameModeFileLoader extends PCGenTask
 			oneHanded.addDamageMult(2, 1.5f);
 			Prerequisite p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2");
 			QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooSmall));
+					tooSmallRef);
 			qo.addPrerequisite(p);
 			oneHanded.addCategorySwitch(qo);
 			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1");
 			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(light));
+					lightRef);
 			qo.addPrerequisite(p);
 			oneHanded.addCategorySwitch(qo);
 			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1");
 			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(twoHanded));
+					twoHandedRef);
 			qo.addPrerequisite(p);
 			oneHanded.addCategorySwitch(qo);
 			p = prereqParser.parse("PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+2");
 			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooLarge));
+					tooLargeRef);
 			qo.addPrerequisite(p);
 			oneHanded.addCategorySwitch(qo);
-			oneHanded.setWieldCategoryStep(-1, CDOMDirectSingleRef.getRef(light));
-			oneHanded.setWieldCategoryStep(1, CDOMDirectSingleRef.getRef(twoHanded));
+			oneHanded.setWieldCategoryStep(-1, lightRef);
+			oneHanded.setWieldCategoryStep(1, twoHandedRef);
 		}
 		if (buildTooLarge)
 		{
 			tooLarge.setFinessable(false);
 			tooLarge.setHandsRequired(999);
-			tooLarge.setWieldCategoryStep(-3, CDOMDirectSingleRef.getRef(light));
-			tooLarge.setWieldCategoryStep(-2, CDOMDirectSingleRef.getRef(oneHanded));
-			tooLarge.setWieldCategoryStep(-1, CDOMDirectSingleRef.getRef(twoHanded));
-			tooLarge.setWieldCategoryStep(0, CDOMDirectSingleRef.getRef(twoHanded));
+			tooLarge.setWieldCategoryStep(-3, lightRef);
+			tooLarge.setWieldCategoryStep(-2, oneHandedRef);
+			tooLarge.setWieldCategoryStep(-1, twoHandedRef);
+			tooLarge.setWieldCategoryStep(0, twoHandedRef);
 		}
 		if (buildTooSmall)
 		{
@@ -709,26 +714,26 @@ public class GameModeFileLoader extends PCGenTask
 			tooSmall.addDamageMult(2, 1.5f);
 			Prerequisite p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-3");
 			QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooSmall));
+					tooSmallRef);
 			qo.addPrerequisite(p);
 			tooSmall.addCategorySwitch(qo);
 			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2");
 			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(light));
+					lightRef);
 			qo.addPrerequisite(p);
 			tooSmall.addCategorySwitch(qo);
 			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1");
 			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(oneHanded));
+					oneHandedRef);
 			qo.addPrerequisite(p);
 			tooSmall.addCategorySwitch(qo);
 			p = prereqParser.parse("PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1");
 			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooLarge));
+					tooLargeRef);
 			qo.addPrerequisite(p);
 			tooSmall.addCategorySwitch(qo);
-			tooSmall.setWieldCategoryStep(-2, CDOMDirectSingleRef.getRef(light));
-			tooSmall.setWieldCategoryStep(-1, CDOMDirectSingleRef.getRef(oneHanded));
+			tooSmall.setWieldCategoryStep(-2, lightRef);
+			tooSmall.setWieldCategoryStep(-1, oneHandedRef);
 		}
 
 	}

@@ -28,6 +28,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.RaceToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
@@ -51,14 +52,10 @@ public class BaseSizeTokenTest extends
 	{
 		super.setUp();
 		TokenRegistration.register(BASESIZE_TOKEN);
-		SizeAdjustment small =
-				primaryContext.getReferenceContext().constructNowIfNecessary(
-					SizeAdjustment.class, "Small");
-		primaryContext.getReferenceContext().registerAbbreviation(small, "S");
-		small =
-				secondaryContext.getReferenceContext().constructNowIfNecessary(
-					SizeAdjustment.class, "Small");
-		secondaryContext.getReferenceContext().registerAbbreviation(small, "S");
+		SizeAdjustment ps = BuildUtilities.createSize("Small");
+		primaryContext.getReferenceContext().importObject(ps);
+		SizeAdjustment ss = BuildUtilities.createSize("Small");
+		secondaryContext.getReferenceContext().importObject(ss);
 	}
 
 	@Override

@@ -37,6 +37,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.SizeAdjustment;
@@ -51,8 +52,8 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
 
 /**
@@ -60,7 +61,7 @@ import pcgen.util.Logging;
  *
  */
 public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>, PostDeferredToken<CDOMObject>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
@@ -430,8 +431,9 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 						SizeAdjustment.class, isize);
 				for (Equipment e : natWeapons)
 				{
-					e.put(ObjectKey.BASESIZE, size);
-					e.put(ObjectKey.SIZE, size);
+					CDOMDirectSingleRef<SizeAdjustment> sizeRef = CDOMDirectSingleRef.getRef(size);
+					e.put(ObjectKey.BASESIZE, sizeRef);
+					e.put(ObjectKey.SIZE, sizeRef);
 				}
 			}
 			else
@@ -475,6 +477,12 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 	public Class<CDOMObject> getDeferredTokenClass()
 	{
 		return getTokenClass();
+	}
+
+	@Override
+	public int getPriority()
+	{
+		return 0;
 	}
 
 }

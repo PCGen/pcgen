@@ -26,7 +26,6 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.facet.analysis.NonStatStatFacet;
 import pcgen.cdom.facet.analysis.NonStatToStatFacet;
@@ -35,9 +34,11 @@ import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.helper.StatLock;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class StatIntegrationTest extends TestCase
 {
@@ -69,12 +70,8 @@ public class StatIntegrationTest extends TestCase
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
-		stat1 = new PCStat();
-		stat2 = new PCStat();
-		stat1.put(StringKey.ABB, "Stat1");
-		stat1.setName("Stat1");
-		stat2.put(StringKey.ABB, "Stat2");
-		stat2.setName("Stat2");
+		stat1 = BuildUtilities.createStat("Stat1", "Stat1");
+		stat2 = BuildUtilities.createStat("Stat2", "Stat2");
 		unlockedFacet = new UnlockedStatFacet();
 		lockFacet = new StatLockFacet();
 		lockFacet.setFormulaResolvingFacet(new FormulaResolvingFacet());
@@ -283,22 +280,22 @@ public class StatIntegrationTest extends TestCase
 	
 	private void causeLockNonAbility(CDOMObject r, PCStat stat)
 	{
-		r.addToListFor(ListKey.NONSTAT_STATS, stat);
+		r.addToListFor(ListKey.NONSTAT_STATS, CDOMDirectSingleRef.getRef(stat));
 	}
 
 	private void causeUnLockNonAbility(CDOMObject r, PCStat stat)
 	{
-		r.addToListFor(ListKey.NONSTAT_TO_STAT_STATS, stat);
+		r.addToListFor(ListKey.NONSTAT_TO_STAT_STATS, CDOMDirectSingleRef.getRef(stat));
 	}
 
 	private void causeLock(CDOMObject r, PCStat stat, int i)
 	{
-		StatLock sl = new StatLock(stat, FormulaFactory.getFormulaFor(i));
+		StatLock sl = new StatLock(CDOMDirectSingleRef.getRef(stat), FormulaFactory.getFormulaFor(i));
 		r.addToListFor(ListKey.STAT_LOCKS, sl);
 	}
 
 	private void causeUnlock(CDOMObject r, PCStat stat)
 	{
-		r.addToListFor(ListKey.UNLOCKED_STATS, stat);
+		r.addToListFor(ListKey.UNLOCKED_STATS, CDOMDirectSingleRef.getRef(stat));
 	}
 }

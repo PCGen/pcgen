@@ -188,7 +188,7 @@ public final class Equipment extends PObject implements Serializable,
 		final SizeAdjustment sizeAdj = SizeUtilities.getDefaultSizeAdjustment();
 		if (sizeAdj != null)
 		{
-			put(ObjectKey.SIZE, sizeAdj);
+			put(ObjectKey.SIZE, CDOMDirectSingleRef.getRef(sizeAdj));
 		}
 	}
 
@@ -1297,8 +1297,8 @@ public final class Equipment extends PObject implements Serializable,
 		//
 		// Put size in name if not the same as the base item
 		//
-		SizeAdjustment thisSize = getSafe(ObjectKey.SIZE);
-		if (!getSafe(ObjectKey.BASESIZE).equals(thisSize))
+		SizeAdjustment thisSize = getSafe(ObjectKey.SIZE).resolvesTo();
+		if (!getSafe(ObjectKey.BASESIZE).resolvesTo().equals(thisSize))
 		{
 			itemName.append(thisSize.getDisplayName());
 			itemName.append('/');
@@ -1999,12 +1999,12 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public String getSize()
 	{
-		return getSafe(ObjectKey.SIZE).getAbbreviation();
+		return getSafe(ObjectKey.SIZE).resolvesTo().getKeyName();
 	}
 
 	public SizeAdjustment getSizeAdjustment()
 	{
-		return getSafe(ObjectKey.SIZE);
+		return getSafe(ObjectKey.SIZE).resolvesTo();
 	}
 
 	/**
@@ -3129,11 +3129,11 @@ public final class Equipment extends PObject implements Serializable,
 				this.getKeyName());
 		}
 
-		SizeAdjustment thisSize = getSafe(ObjectKey.SIZE);
-		if (!thisSize.equals(base.getSafe(ObjectKey.SIZE)))
+		SizeAdjustment thisSize = getSafe(ObjectKey.SIZE).resolvesTo();
+		if (!thisSize.equals(base.getSafe(ObjectKey.SIZE).resolvesTo()))
 		{
 			sbuf.append(sep).append("SIZE").append(endPart).append(
-				thisSize.getAbbreviation());
+				thisSize.getKeyName());
 		}
 
 		String string1 = getEqModifierString(true); // key1.key2|assoc1|assoc2.key3.key4
@@ -3316,7 +3316,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		final StringTokenizer aTok = new StringTokenizer(aLine, sep);
 		final int endPartLen = endPart.length();
-		SizeAdjustment newSize = getSafe(ObjectKey.SIZE);
+		SizeAdjustment newSize = getSafe(ObjectKey.SIZE).resolvesTo();
 		boolean firstSprop = true;
 		
 		while (aTok.hasMoreTokens())
@@ -3335,7 +3335,7 @@ public final class Equipment extends PObject implements Serializable,
 			else if (aString.startsWith("SIZE" + endPart))
 			{
 				newSize =
-						Globals.getContext().getReferenceContext().getAbbreviatedObject(
+						Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 							SizeAdjustment.class, aString
 								.substring(4 + endPartLen));
 			}
@@ -3727,7 +3727,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		if (iNewSize != iOldSize)
 		{
-			put(ObjectKey.SIZE, newSize);
+			put(ObjectKey.SIZE, CDOMDirectSingleRef.getRef(newSize));
 			CDOMSingleRef<Equipment> baseItem = get(ObjectKey.BASE_ITEM);
 
 			Equipment eq;
@@ -3820,7 +3820,7 @@ public final class Equipment extends PObject implements Serializable,
 						// perform a set
 						aBonus.setOperand(Globals.getContext().getReferenceContext()
 							.getItemInOrder(SizeAdjustment.class, iNewSize)
-							.getAbbreviation());
+							.getKeyName());
 					}
 				}
 			}
@@ -3834,7 +3834,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public int sizeInt()
 	{
-		return SizeUtilities.sizeInt(getSafe(ObjectKey.SIZE));
+		return SizeUtilities.sizeInt(getSafe(ObjectKey.SIZE).resolvesTo());
 	}
 
 	/**
@@ -4197,13 +4197,9 @@ public final class Equipment extends PObject implements Serializable,
 		//
 		// Scale everything to medium before conversion
 		//
-		SizeAdjustment saBase = get(ObjectKey.BASESIZE);
-		if (saBase == null)
-		{
-			saBase = SizeUtilities.getDefaultSizeAdjustment();
-		}
+		SizeAdjustment saBase = getSafe(ObjectKey.BASESIZE).resolvesTo();
 
-		if ((saSize == null) || (saBase == null))
+		if (saSize == null)
 		{
 			return c;
 		}
@@ -4551,7 +4547,7 @@ public final class Equipment extends PObject implements Serializable,
 			return BigDecimal.ZERO;
 		}
 
-		final SizeAdjustment currSA = getSafe(ObjectKey.SIZE);
+		final SizeAdjustment currSA = getSafe(ObjectKey.SIZE).resolvesTo();
 
 		BigDecimal weight = getBaseWeight();
 		if ((newSA == null) || (currSA == null))
@@ -4593,9 +4589,9 @@ public final class Equipment extends PObject implements Serializable,
 		if ((getRawBonusList(aPC) != null) && isArmor())
 		{
 			double mult = 1.0;
-			final SizeAdjustment currSA = baseEq.getSafe(ObjectKey.SIZE);
+			final SizeAdjustment currSA = baseEq.getSafe(ObjectKey.SIZE).resolvesTo();
 
-			if ((newSA != null) && (currSA != null) && aPC != null)
+			if ((newSA != null) && aPC != null)
 			{
 				mult =
 						aPC
@@ -5361,7 +5357,7 @@ public final class Equipment extends PObject implements Serializable,
 		String upName = thisName.toUpperCase();
 
 		// Get the full name of the current size
-		SizeAdjustment sa1 = getSafe(ObjectKey.SIZE);
+		SizeAdjustment sa1 = getSafe(ObjectKey.SIZE).resolvesTo();
 		String upThisSize = sa1.getDisplayName().toUpperCase();
 
 		int start = upName.indexOf(upThisSize);
@@ -6342,7 +6338,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (!"special".equalsIgnoreCase(aDamage) && !"-".equals(aDamage))
 		{
 			return Globals
-				.adjustDamage(aDamage, getSafe(ObjectKey.SIZE), aSize);
+				.adjustDamage(aDamage, getSafe(ObjectKey.SIZE).resolvesTo(), aSize);
 		}
 
 		return aDamage;

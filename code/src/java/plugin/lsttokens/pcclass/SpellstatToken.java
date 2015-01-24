@@ -18,16 +18,19 @@
 package plugin.lsttokens.pcclass;
 
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SPELLSTAT Token
  */
-public class SpellstatToken implements CDOMPrimaryToken<PCClass>
+public class SpellstatToken extends AbstractNonEmptyToken<PCClass> implements
+		CDOMPrimaryToken<PCClass>
 {
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
@@ -39,7 +42,7 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc, String value)
 	{
 		if ("SPELL".equalsIgnoreCase(value))
 		{
@@ -57,7 +60,9 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 		}
 		context.getObjectContext().put(pcc,
 				ObjectKey.CASTER_WITHOUT_SPELL_STAT, Boolean.FALSE);
-		PCStat pcs = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, value);
+		CDOMSingleRef<PCStat> pcs =
+				context.getReferenceContext().getCDOMReference(PCSTAT_CLASS,
+					value);
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in " + getTokenName()
@@ -70,8 +75,8 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		PCStat pcs = context.getObjectContext().getObject(pcc,
-				ObjectKey.SPELL_STAT);
+		CDOMSingleRef<PCStat> pcs =
+				context.getObjectContext().getObject(pcc, ObjectKey.SPELL_STAT);
 		Boolean useStat = context.getObjectContext().getObject(pcc,
 				ObjectKey.USE_SPELL_SPELL_STAT);
 		Boolean otherCaster = context.getObjectContext().getObject(pcc,
@@ -122,7 +127,7 @@ public class SpellstatToken implements CDOMPrimaryToken<PCClass>
 		}
 		else
 		{
-			return new String[] { pcs.getLSTformat() };
+			return new String[]{pcs.getLSTformat(false)};
 		}
 	}
 

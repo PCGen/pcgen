@@ -73,7 +73,7 @@ public final class Deity extends PObject implements DeityFacade
     @Override
 	public AlignmentFacade getAlignment()
 	{
-		return get(ObjectKey.ALIGNMENT);
+		return get(ObjectKey.ALIGNMENT).resolvesTo();
 	}
 
     @Override

@@ -59,6 +59,7 @@ import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.ExchangeLevelApplication;
@@ -354,7 +355,9 @@ public class PCClass extends PObject implements ClassFacade
 		{
 			return "OTHER";
 		}
-		return get(ObjectKey.SPELL_STAT).getAbb();
+		CDOMSingleRef<PCStat> ss = get(ObjectKey.SPELL_STAT);
+		//TODO This could be null, do we need to worry about it?
+		return ss.resolvesTo().getKeyName();
 	}
 
 	/*
@@ -656,10 +659,10 @@ public class PCClass extends PObject implements ClassFacade
 		{
 			return null;
 		}
-		PCStat ss = get(ObjectKey.SPELL_STAT);
+		CDOMSingleRef<PCStat> ss = get(ObjectKey.SPELL_STAT);
 		if (ss != null)
 		{
-			return ss;
+			return ss.resolvesTo();
 		}
 		if (Logging.isDebugMode())
 		{
@@ -688,12 +691,13 @@ public class PCClass extends PObject implements ClassFacade
 		}
 		else if (hbss)
 		{
-			return get(ObjectKey.BONUS_SPELL_STAT);
+			CDOMSingleRef<PCStat> bssref = get(ObjectKey.BONUS_SPELL_STAT);
+			if (bssref != null)
+			{
+				return bssref.resolvesTo();
+			}
 		}
-		else
-		{
-			return null;
-		}
+		return null;
 	}
 
 	@Override
@@ -1292,7 +1296,7 @@ public class PCClass extends PObject implements ClassFacade
 		if (hbss != null)
 		{
 			put(ObjectKey.HAS_BONUS_SPELL_STAT, hbss);
-			PCStat bss = otherClass.get(ObjectKey.BONUS_SPELL_STAT);
+			CDOMSingleRef<PCStat> bss = otherClass.get(ObjectKey.BONUS_SPELL_STAT);
 			if (bss != null)
 			{
 				put(ObjectKey.BONUS_SPELL_STAT, bss);
@@ -1309,7 +1313,7 @@ public class PCClass extends PObject implements ClassFacade
 		{
 			put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, cwss);
 		}
-		PCStat ss = otherClass.get(ObjectKey.SPELL_STAT);
+		CDOMSingleRef<PCStat> ss = otherClass.get(ObjectKey.SPELL_STAT);
 		if (ss != null)
 		{
 			put(ObjectKey.SPELL_STAT, ss);

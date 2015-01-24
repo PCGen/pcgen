@@ -18,6 +18,7 @@
 package pcgen.cdom.helper;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCStat;
 
 /**
@@ -30,7 +31,7 @@ public class StatLock
 	/**
 	 * The PCStat to be locked
 	 */
-	private final PCStat lockedStat;
+	private final CDOMSingleRef<PCStat> lockedStat;
 
 	/**
 	 * The Formula indicating the value to which the PCStat should be locked
@@ -48,7 +49,7 @@ public class StatLock
 	 *            The Formula indicating the value to which the PCStat should be
 	 *            locked
 	 */
-	public StatLock(PCStat stat, Formula formula)
+	public StatLock(CDOMSingleRef<PCStat> stat, Formula formula)
 	{
 		if (stat == null)
 		{
@@ -71,7 +72,12 @@ public class StatLock
 	 */
 	public PCStat getLockedStat()
 	{
-		return lockedStat;
+		return lockedStat.resolvesTo();
+	}
+
+	public String getLSTformat()
+	{
+		return lockedStat.getLSTformat(false);
 	}
 
 	/**

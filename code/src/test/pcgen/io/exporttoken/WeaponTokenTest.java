@@ -55,6 +55,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -162,7 +163,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		Race testRace = new Race();
 		testRace.setName("TestRace");
 		testRace.put(StringKey.KEY_NAME, "KEY_TEST_RACE");
-		testRace.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
+		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
+		CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
+		testRace.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
 		character.setRace(testRace);
 
 		// Class
@@ -190,8 +193,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		dblWpn.put(IntegerKey.SLOTS, 2);
 		dblWpn.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "TwoHanded"));
-		dblWpn.put(ObjectKey.SIZE, medium);
-		dblWpn.put(ObjectKey.BASESIZE, medium);
+		dblWpn.put(ObjectKey.SIZE, mediumRef);
+		dblWpn.put(ObjectKey.BASESIZE, mediumRef);
 		character.addEquipment(dblWpn);
 		EquipSet def = new EquipSet("0.1", "Default");
 		character.addEquipSet(def);
@@ -222,8 +225,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bastardSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
 		bastardSword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "TwoHanded"));
-		bastardSword.put(ObjectKey.SIZE, medium);
-		bastardSword.put(ObjectKey.BASESIZE, medium);
+		bastardSword.put(ObjectKey.SIZE, mediumRef);
+		bastardSword.put(ObjectKey.BASESIZE, mediumRef);
 
 		wp = new WeaponProf();
 		wp.setName("Longsword");
@@ -242,8 +245,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		largeSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
 		largeSword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "OneHanded"));
-		largeSword.put(ObjectKey.SIZE, large);
-		largeSword.put(ObjectKey.BASESIZE, large);
+		largeSword.put(ObjectKey.SIZE, largeRef);
+		largeSword.put(ObjectKey.BASESIZE, largeRef);
 
 		fineSword = new Equipment();
 		fineSword.setName("Longsword (Fine)");
@@ -256,8 +259,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		fineSword.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 2);
 		fineSword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "OneHanded"));
-		fineSword.put(ObjectKey.SIZE, medium);
-		fineSword.put(ObjectKey.BASESIZE, medium);
+		fineSword.put(ObjectKey.SIZE, mediumRef);
+		fineSword.put(ObjectKey.BASESIZE, mediumRef);
 
 		WeaponProf spearwp = new WeaponProf();
 		spearwp.setName("Spear");
@@ -276,8 +279,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_RANGE, 1);
 		longSpear.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "TwoHanded"));
-		longSpear.put(ObjectKey.SIZE, medium);
-		longSpear.put(ObjectKey.BASESIZE, medium);
+		longSpear.put(ObjectKey.SIZE, mediumRef);
+		longSpear.put(ObjectKey.BASESIZE, mediumRef);
 		longSpear.put(IntegerKey.REACH, 10);
 
 		GameMode gm = SettingsHandler.getGame();
@@ -301,8 +304,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		bite.put(StringKey.OUTPUT_NAME, "Silly Bite (For Test)");
 		TestHelper.addType(bite, "Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing");
 		bite.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
-		bite.put(ObjectKey.SIZE, medium);
-		bite.put(ObjectKey.BASESIZE, medium);
+		bite.put(ObjectKey.SIZE, mediumRef);
+		bite.put(ObjectKey.BASESIZE, mediumRef);
 		aBonus = Bonus.newBonus(context, "WEAPON|ATTACKS|" + 7);
 		
 		if (aBonus != null)

@@ -23,7 +23,6 @@ package pcgen.core;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.facade.core.StatFacade;
 
 /**
@@ -34,11 +33,7 @@ import pcgen.facade.core.StatFacade;
  */
 public final class PCStat extends PObject implements StatFacade
 {
-	public String getAbb()
-	{
-		return get(StringKey.ABB);
-	}
-
+	@Override
 	public int getMinValue()
 	{
 		return getSafe(IntegerKey.MIN_VALUE);		
@@ -48,7 +43,7 @@ public final class PCStat extends PObject implements StatFacade
 	public String toString()
 	{
 		final StringBuilder sb = new StringBuilder(30);
-		sb.append("stat:").append(getAbb()).append(' ');
+		sb.append("stat:").append(getKeyName()).append(' ');
 		sb.append("formula:").append(getSafe(FormulaKey.STAT_MOD)).append(' ');
 		boolean rolled = getSafe(ObjectKey.ROLLED);
 		if (!rolled)
@@ -57,15 +52,6 @@ public final class PCStat extends PObject implements StatFacade
 		}
 
 		return sb.toString();
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.StatFacade#getAbbreviation()
-	 */
-    @Override
-	public String getAbbreviation()
-	{
-		return getAbb();
 	}
 
 	/* (non-Javadoc)

@@ -30,8 +30,6 @@ package plugin.pretokens.parser;
 
 import java.util.StringTokenizer;
 
-import pcgen.core.PCAlignment;
-import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
@@ -87,7 +85,7 @@ public class PreDeityAlignParser extends AbstractPrerequisiteParser implements
 
 			String token = inputTokenizer.nextToken();
 
-			subprereq.setOperand(getPCAlignment(token).getAbb());
+			subprereq.setOperand(token);
 		}
 
 		if ((prereq.getPrerequisiteCount() == 1)
@@ -102,10 +100,5 @@ public class PreDeityAlignParser extends AbstractPrerequisiteParser implements
 			prereq.setOperator(prereq.getOperator().invert());
 		}
 		return prereq;
-	}
-
-	private PCAlignment getPCAlignment(String desiredAlignIdentifier)
-	{
-		return AlignmentConverter.getPCAlignment(desiredAlignIdentifier);
 	}
 }

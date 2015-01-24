@@ -63,6 +63,13 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 	private PCClass wiz;
 	private PCClass cle;
 
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		Globals.getContext().loadCampaignFacets();
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -119,8 +126,6 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(cure, "SCHOOL", "Useful");
 
 		context.getReferenceContext().buildDerivedObjects();
-		assertTrue(context.getReferenceContext().resolveReferences(null));
-		context.loadCampaignFacets();
 	}
 
 	public void testSimpleSchool() throws Exception

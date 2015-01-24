@@ -17,7 +17,9 @@
  */
 package plugin.lsttokens.statsandchecks.stat;
 
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCStat;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -43,18 +45,25 @@ public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrima
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, PCStat stat, String value)
 	{
-		/*
-		 * Warning: RegisterAbbreviation is not editor friendly, and this is a
-		 * gate to additional stats being added in Campaigns (vs. Game Modes)
-		 */
-		context.getReferenceContext().registerAbbreviation(stat, value.toUpperCase());
+		try
+		{
+			if (!context.processToken(stat, "KEY", value))
+			{
+				return new ParseResult.Fail("Internal Error", context);
+			}
+		}
+		catch (PersistenceLayerException e)
+		{
+			return new ParseResult.Fail(e.getLocalizedMessage(), context);
+		}
+		context.getObjectContext().put(stat, StringKey.ABB, value);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCStat stat)
 	{
-		String abb = context.getReferenceContext().getAbbreviation(stat);
+		String abb = context.getObjectContext().getString(stat, StringKey.ABB);
 		if (abb == null)
 		{
 			return null;

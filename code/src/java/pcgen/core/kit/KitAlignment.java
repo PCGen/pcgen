@@ -25,6 +25,7 @@ package pcgen.core.kit;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PCAlignment;
@@ -36,7 +37,7 @@ import pcgen.core.analysis.RaceAlignment;
  */
 public class KitAlignment extends BaseKit
 {
-	private List<PCAlignment> alignments;
+	private List<CDOMSingleRef<PCAlignment>> alignments;
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
@@ -66,14 +67,19 @@ public class KitAlignment extends BaseKit
 		align = null;
 		if (alignments.size() == 1)
 		{
-			align = alignments.get(0);
+			align = alignments.get(0).resolvesTo();
 		}
 		else
 		{
+			List<PCAlignment> available = new ArrayList<PCAlignment>(alignments.size());
+			for (CDOMSingleRef<PCAlignment> ref : alignments)
+			{
+				available.add(ref.resolvesTo());
+			}
 			while (true)
 			{
 				List<PCAlignment> sel = new ArrayList<PCAlignment>(1);
-				sel = Globals.getChoiceFromList("Choose alignment", alignments, sel,
+				sel = Globals.getChoiceFromList("Choose alignment", available, sel,
 					1, aPC);
 				if (sel.size() == 1)
 				{
@@ -102,7 +108,7 @@ public class KitAlignment extends BaseKit
 		}
 		if (alignments.size() == 1)
 		{
-			return alignments.get(0).getDisplayName();
+			return alignments.get(0).resolvesTo().getDisplayName();
 		}
 		else
 		{
@@ -110,8 +116,9 @@ public class KitAlignment extends BaseKit
 			StringBuilder buf = new StringBuilder();
 			buf.append("One of (");
 			boolean needComma = false;
-			for (PCAlignment al : alignments)
+			for (CDOMSingleRef<PCAlignment> alref : alignments)
 			{
+				PCAlignment al = alref.resolvesTo();
 				if (needComma)
 				{
 					buf.append(", ");
@@ -124,16 +131,16 @@ public class KitAlignment extends BaseKit
 		}
 	}
 
-	public void addAlignment(PCAlignment ref)
+	public void addAlignment(CDOMSingleRef<PCAlignment> ref)
 	{
 		if (alignments == null)
 		{
-			alignments = new ArrayList<PCAlignment>();
+			alignments = new ArrayList<CDOMSingleRef<PCAlignment>>();
 		}
 		alignments.add(ref);
 	}
 
-	public List<PCAlignment> getAlignments()
+	public List<CDOMSingleRef<PCAlignment>> getAlignments()
 	{
 		return alignments;
 	}

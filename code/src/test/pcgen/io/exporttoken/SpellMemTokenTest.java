@@ -31,6 +31,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -77,13 +78,21 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
+	
+	
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		Globals.getContext().loadCampaignFacets();
+	}
+
 	/*
 	 * @see TestCase#setUp()
 	 */
     @Override
-	protected void setUp() throws Exception
+	protected void additionalSetUp() throws Exception
 	{
-		super.setUp();
 		LoadContext context = Globals.getContext();
 
 		// Human
@@ -94,9 +103,9 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		testSpell = new Spell();
 		testSpell.setName("Test Spell");
 		testSpell.put(StringKey.KEY_NAME, "TEST_SPELL");
-		context.unconditionallyProcess(testSpell, "CLASSES", "TestArcane=1");
+		context.unconditionallyProcess(testSpell, "CLASSES", "KEY_TEST_ARCANE=1");
 		context.unconditionallyProcess(testSpell, "DOMAINS", "Fire=0");
-		context.unconditionallyProcess(testSpell, "CLASSES", "TestDivind=1");
+		context.unconditionallyProcess(testSpell, "CLASSES", "KEY_TEST_DIVINE=1");
 		Globals.addToSpellMap(testSpell.getKeyName(), testSpell);
 
 		arcaneClass = new PCClass();
@@ -118,9 +127,11 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		divineClass.put(ObjectKey.SPELLBOOK, false);
 		divineClass.put(ObjectKey.MEMORIZE_SPELLS, true);
 		context.unconditionallyProcess(divineClass.getOriginalClassLevel(1), "CAST", "3,1,0");
+		
+		context.getReferenceContext().constructCDOMObject(Domain.class, "Fire");
+		
 		context.getReferenceContext().importObject(divineClass);
 		context.getReferenceContext().buildDerivedObjects();
-		context.loadCampaignFacets();
 	}
 
 	/*

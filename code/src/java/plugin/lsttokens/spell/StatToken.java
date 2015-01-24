@@ -18,16 +18,19 @@
 package plugin.lsttokens.spell;
 
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCStat;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with STAT Token
  */
-public class StatToken implements CDOMPrimaryToken<Spell>
+public class StatToken extends AbstractNonEmptyToken<Spell> implements
+		CDOMPrimaryToken<Spell>
 {
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
@@ -39,9 +42,11 @@ public class StatToken implements CDOMPrimaryToken<Spell>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, Spell spell, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, Spell spell, String value)
 	{
-		PCStat pcs = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, value);
+		CDOMSingleRef<PCStat> pcs =
+				context.getReferenceContext().getCDOMReference(PCSTAT_CLASS,
+					value);
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in Token "
@@ -54,13 +59,14 @@ public class StatToken implements CDOMPrimaryToken<Spell>
 	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		PCStat pcs = context.getObjectContext().getObject(spell,
-				ObjectKey.SPELL_STAT);
+		CDOMSingleRef<PCStat> pcs =
+				context.getObjectContext().getObject(spell,
+					ObjectKey.SPELL_STAT);
 		if (pcs == null)
 		{
 			return null;
 		}
-		return new String[] { pcs.getAbb() };
+		return new String[]{pcs.getLSTformat(false)};
 	}
 
 	@Override

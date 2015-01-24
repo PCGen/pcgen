@@ -22,10 +22,7 @@ import java.util.Collection;
 
 import junit.framework.TestCase;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.ObjectCache;
-import pcgen.core.Globals;
-import pcgen.core.SizeAdjustment;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
@@ -109,20 +106,6 @@ public abstract class AbstractPreRoundRobin extends TestCase
 			e.printStackTrace();
 			fail(e.getLocalizedMessage());
 		}
-	}
-
-	protected SizeAdjustment createSize(String name)
-	{
-		final String abb = name.substring(0, 1);
-
-		final SizeAdjustment sa = new SizeAdjustment();
-
-		sa.setName(name);
-		sa.put(StringKey.ABB, abb);
-
-		Globals.getContext().getReferenceContext().importObject(sa);
-		Globals.getContext().getReferenceContext().registerAbbreviation(sa, sa.getAbbreviation());
-		return sa;
 	}
 
 }

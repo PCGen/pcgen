@@ -28,6 +28,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
@@ -41,10 +42,10 @@ public class DefineLstTest extends AbstractGlobalTokenTestCase
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		PCStat ps = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class, "Strength");
-		primaryContext.getReferenceContext().registerAbbreviation(ps, "STR");
-		PCStat ss = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class, "Strength");
-		secondaryContext.getReferenceContext().registerAbbreviation(ss, "STR");
+		PCStat ps = BuildUtilities.createStat("Strength", "STR");
+		primaryContext.getReferenceContext().importObject(ps);
+		PCStat ss = BuildUtilities.createStat("Strength", "STR");
+		secondaryContext.getReferenceContext().importObject(ss);
 	}
 
 	@Override

@@ -38,7 +38,7 @@ public class SizeUtilities
 				.getOrderSortedCDOMObjects(SizeAdjustment.class);
 		for (int i = 0; i < list.size(); i++)
 		{
-			if (aSize.equals(list.get(i).getAbbreviation()))
+			if (aSize.equals(list.get(i).getKeyName()))
 			{
 				return i;
 			}

@@ -31,22 +31,6 @@ public abstract class AbstractAlignRoundRobin extends AbstractPreRoundRobin
 		runRoundRobin("PRE" + getBaseString() + ":LG,LN,LE");
 	}
 
-	public void testNumber()
-	{
-		runSimpleRoundRobin("PRE" + getBaseString() + ":3", "PRE"
-				+ getBaseString() + ":NG");
-		runSimpleRoundRobin("!PRE" + getBaseString() + ":3", "!PRE"
-				+ getBaseString() + ":NG");
-	}
-
-	public void testNumberMultiple()
-	{
-		runSimpleRoundRobin("PRE" + getBaseString() + ":3,4,5", "PRE"
-				+ getBaseString() + ":NG,TN,NE");
-		runSimpleRoundRobin("!PRE" + getBaseString() + ":3,4,5", "!PRE"
-				+ getBaseString() + ":NG,TN,NE");
-	}
-
 	public void testNoCompress()
 	{
 		runRoundRobin("PREMULT:2,[PRE" + getBaseString() + ":NG],[PRE"

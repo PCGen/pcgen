@@ -138,7 +138,7 @@ public class SystemHP
 			PlayerCharacter pc = pcgcbt.getPC();
 
 			PCStat stat = Globals.getContext().getReferenceContext()
-					.getAbbreviatedObject(PCStat.class, "CON");
+					.silentlyGetConstructedCDOMObject(PCStat.class, "CON");
 			if (damage > pc.getTotalStatFor(stat))
 			{
 				return true;

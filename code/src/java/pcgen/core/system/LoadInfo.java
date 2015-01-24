@@ -182,7 +182,7 @@ public class LoadInfo implements Loadable
 		if (Logging.isDebugMode())
 		{
 			Logging.debugPrint("Unable to find Load Multiplier for Size: "
-				+ size.getAbbreviation());
+				+ size.getKeyName());
 		}
 		return BigDecimal.ONE;
 	}

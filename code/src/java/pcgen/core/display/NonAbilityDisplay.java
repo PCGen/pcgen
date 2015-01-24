@@ -19,6 +19,7 @@ package pcgen.core.display;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCStat;
 
 public class NonAbilityDisplay
@@ -40,15 +41,24 @@ public class NonAbilityDisplay
 	 */
 	public static boolean isNonAbilityForObject(PCStat stat, CDOMObject po)
 	{
-		// An unlock will always override a lock, so check it first
-		if (po == null || po.containsInList(ListKey.NONSTAT_TO_STAT_STATS, stat))
+		if (po == null)
 		{
+			//why is this check necessary (and what errors does it suppress??)
 			return false;
 		}
-	
-		for (PCStat nsStat : po.getSafeListFor(ListKey.NONSTAT_STATS))
+		// An unlock will always override a lock, so check it first
+		for (CDOMSingleRef<PCStat> ref : po
+			.getSafeListFor(ListKey.NONSTAT_TO_STAT_STATS))
 		{
-			if (nsStat.equals(stat))
+			if (ref.resolvesTo().equals(stat))
+			{
+				return false;
+			}
+		}
+	
+		for (CDOMSingleRef<PCStat> nsStat : po.getSafeListFor(ListKey.NONSTAT_STATS))
+		{
+			if (nsStat.resolvesTo().equals(stat))
 			{
 				return true;
 			}

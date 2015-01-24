@@ -23,13 +23,15 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
@@ -45,21 +47,14 @@ public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		ps = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class, "Strength");
-		primaryContext.getReferenceContext().registerAbbreviation(ps, "STR");
-		ps.put(StringKey.ABB, "STR");
-		PCStat ss = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
-				"Strength");
-		secondaryContext.getReferenceContext().registerAbbreviation(ss, "STR");
-		ss.put(StringKey.ABB, "STR");
-		PCStat pi = primaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
-				"Intelligence");
-		primaryContext.getReferenceContext().registerAbbreviation(pi, "INT");
-		pi.put(StringKey.ABB, "INT");
-		PCStat si = secondaryContext.getReferenceContext().constructCDOMObject(PCStat.class,
-				"Intelligence");
-		secondaryContext.getReferenceContext().registerAbbreviation(si, "INT");
-		si.put(StringKey.ABB, "INT");
+		ps = BuildUtilities.createStat("Strength", "STR");
+		primaryContext.getReferenceContext().importObject(ps);
+		PCStat pi = BuildUtilities.createStat("Intelligence", "INT");
+		primaryContext.getReferenceContext().importObject(pi);
+		PCStat ss = BuildUtilities.createStat("Strength", "STR");
+		secondaryContext.getReferenceContext().importObject(ss);
+		PCStat si = BuildUtilities.createStat("Intelligence", "INT");
+		secondaryContext.getReferenceContext().importObject(si);
 	}
 
 	@Override
@@ -83,29 +78,53 @@ public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testInvalidNotAStat() throws PersistenceLayerException
 	{
-		assertFalse(parse("NAN"));
-		assertNoSideEffects();
+		if (parse("NAN"))
+		{
+			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
 	public void testInvalidMultipleStatComma() throws PersistenceLayerException
 	{
-		assertFalse(parse("STR,INT"));
-		assertNoSideEffects();
+		if (parse("STR,INT"))
+		{
+			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
 	public void testInvalidMultipleStatBar() throws PersistenceLayerException
 	{
-		assertFalse(parse("STR|INT"));
-		assertNoSideEffects();
+		if (parse("STR|INT"))
+		{
+			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
 	public void testInvalidMultipleStatDot() throws PersistenceLayerException
 	{
-		assertFalse(parse("STR.INT"));
-		assertNoSideEffects();
+		if (parse("STR.INT"))
+		{
+			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+		}
+		else
+		{
+			assertNoSideEffects();
+		}
 	}
 
 	@Test
@@ -211,7 +230,7 @@ public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<PCStat> getObjectKey()
+	private ObjectKey<CDOMSingleRef<PCStat>> getObjectKey()
 	{
 		return ObjectKey.SPELL_STAT;
 	}
@@ -318,9 +337,9 @@ public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 	{
 		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
 		primaryProf.put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, false);
-		primaryProf.put(getObjectKey(), ps);
+		primaryProf.put(getObjectKey(), CDOMDirectSingleRef.getRef(ps));
 		expectSingle(getToken().unparse(primaryContext, primaryProf), ps
-				.getAbb());
+				.getKeyName());
 	}
 
 	@SuppressWarnings("unchecked")

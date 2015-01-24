@@ -36,6 +36,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.bonus.BonusObj;
 import pcgen.facade.core.SkillFacade;
 
@@ -49,8 +50,8 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver
 {
 	public String getKeyStatAbb()
 	{
-		PCStat keyStat = get(ObjectKey.KEY_STAT);
-		return keyStat == null ? "" : keyStat.getAbb();
+		CDOMSingleRef<PCStat> keyStat = get(ObjectKey.KEY_STAT);
+		return keyStat == null ? "" : keyStat.resolvesTo().getKeyName();
 	}
 
 	@Override

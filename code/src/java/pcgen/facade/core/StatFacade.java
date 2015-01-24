@@ -29,7 +29,7 @@ public interface StatFacade
 
     public String getName();
 
-    public String getAbbreviation();
+    public String getKeyName();
 
     @Override
     public String toString();
