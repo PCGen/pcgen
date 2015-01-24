@@ -18,6 +18,7 @@
 package plugin.lsttokens;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.io.EntityEncoder;
 import pcgen.rules.context.LoadContext;
@@ -47,6 +48,12 @@ public class TempdescLst extends AbstractNonEmptyToken<CDOMObject> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		CDOMObject obj, String value)
 	{
+		if (obj instanceof Ungranted)
+		{
+			return new ParseResult.Fail("Cannot use " + getTokenName()
+				+ " on an Ungranted object type: "
+				+ obj.getClass().getSimpleName(), context);
+		}
 		context.getObjectContext().put(obj, StringKey.TEMP_DESCRIPTION,
 				EntityEncoder.decode(value));
 		return ParseResult.SUCCESS;

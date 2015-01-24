@@ -24,6 +24,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.PCStat;
 import pcgen.core.utils.ParsingSeparator;
@@ -51,6 +52,12 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 			String value)
 	{
+		if (obj instanceof Ungranted)
+		{
+			return new ParseResult.Fail("Cannot use " + getTokenName()
+				+ " on an Ungranted object type: "
+				+ obj.getClass().getSimpleName(), context);
+		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		if (!sep.hasNext())
 		{

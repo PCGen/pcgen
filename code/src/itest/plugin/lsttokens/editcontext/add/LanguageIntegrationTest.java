@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.core.Domain;
 import pcgen.core.Language;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -54,9 +55,9 @@ public class LanguageIntegrationTest extends
 	}
 
 	@Override
-	public Class<Language> getCDOMClass()
+	public Class<Domain> getCDOMClass()
 	{
-		return Language.class;
+		return Domain.class;
 	}
 
 	@Override
