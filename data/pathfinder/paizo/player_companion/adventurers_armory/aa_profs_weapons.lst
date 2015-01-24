@@ -1,0 +1,42 @@
+# CVS $Revision: 12254 $ $Author: jbaril $ -- Sat Jan 24 13:01:09 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+SOURCELONG:Adventurer's Armory	SOURCESHORT:AA	SOURCEWEB:http://paizo.com/products/btpy8dmf?Pathfinder-Player-Companion-Adventurers-Armory	SOURCEDATE:2010-04
+
+# Weapon Name		Type
+
+# Weapon Name	Type
+Hanbo			TYPE:Simple.Melee
+Mere Club		TYPE:Simple.Melee
+
+Scizone		TYPE:Martial.Melee
+Switchblade Knife	TYPE:Martial.Melee
+Terbutje		TYPE:Martial.Melee
+Blade Boot		TYPE:Martial.Melee
+Combat Scabbard	TYPE:Martial.Melee
+#Dogslicer			TYPE:Martial.Melee
+#War Razor			TYPE:Martial.Melee
+#Klar						TYPE:Martial.Melee
+#Earth Breaker		TYPE:Martial.Melee
+#Horsechopper		TYPE:Martial.Melee
+#Ogre Hook				TYPE:Martial.Melee
+
+Flambard		TYPE:Martial.Melee
+Garrote		TYPE:Martial.Melee
+Rhoka			TYPE:Martial.Melee
+Rope Gauntlet	TYPE:Martial.Melee
+Sling Glove		TYPE:Martial.Melee
+Stingchuck		TYPE:Martial.Melee
+Battle Poi		TYPE:Martial.Melee
+
+Butterfly Knife	TYPE:Exotic.Melee
+Maulaxe		TYPE:Exotic.Melee.Thrown
+Pata			TYPE:Exotic.Melee
+#Sawtooth Sabre			TYPE:Exotic.Melee
+Chain Spear		TYPE:Exotic.Melee
+#Aldori Dueling Sword	TYPE:Exotic.Melee
+#Urumi									TYPE:Exotic.Melee
+#Bladed Scarf					TYPE:Exotic.Melee
+Shoanti Bola	TYPE:Exotic.Ranged
+
+#
+# End
+#
