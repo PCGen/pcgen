@@ -7,7 +7,7 @@ RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:None
-!PRECAMPAIGN:1,DSP - Psionics Unleashed,DSP - Psionics Expanded,DSP - Psionics Expanded - Mind over Body,DSP - Psionics Expanded - Find the Mark,DSP - Psionics Expanded - Unlimited Possibilities,DSP - Psionics Expanded - Pawns and Powers,DSP - Psionics Expanded - Master the Battle
+!PRECAMPAIGN:1,INCLUDES=DSP - Psionics Unleashed,INCLUDES=DSP - Psionics Expanded
 STATUS:BETA
 PUBNAMELONG:Dreamscarred Press
 PUBNAMESHORT:DSP
