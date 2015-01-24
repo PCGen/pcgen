@@ -93,7 +93,7 @@ public class PreBaseSizeParser extends AbstractPrerequisiteParser implements
 			else if (formula.length() > 1)
 			{
 				Logging.deprecationPrint("Use of a non-key (" + formula
-					+ "in PREBASESIZE is deprecated, use the KEY of the Size");
+					+ ") in PREBASESIZE is deprecated, use the KEY of the Size");
 			}
 			prereq.setOperand(abb);
 			if (invertResult)
