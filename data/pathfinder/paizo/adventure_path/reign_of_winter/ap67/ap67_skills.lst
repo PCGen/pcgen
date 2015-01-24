@@ -1,0 +1,13 @@
+# CVS $Revision: 17892 $ $Author: amaitland $ -- Wed Jan 21 16:41:44 2015 -- reformated by prettylst.pl v1.51 (build 25836)
+SOURCELONG:Reign of Winter, Part 1: The Snows of Summer	SOURCESHORT:AP67	SOURCEWEB:http://paizo.com/products/btpy8w7d/discuss?Pathfinder-Adventure-Path-67-The-Snows-of-Summer	SOURCEDATE:2013-02
+# ORIGINAL ENTRY: Stefan Radermacher
+
+###Block: New Conditional Skills
+# Skill Name	Situational Skill
+Stealth.MOD		SITUATION:In frigid waters
+Survival.MOD	SITUATION:In frigid waters
+Survival.MOD	SITUATION:In snow
+
+#
+# End
+#
