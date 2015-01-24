@@ -20,11 +20,9 @@ package plugin.lsttokens.choose;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Loadable;
 import pcgen.core.PCAlignment;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -98,16 +96,7 @@ public class AlignmentTokenTest extends
 	@Override
 	protected boolean requiresLiteral()
 	{
-		return true;
-	}
-
-	@Override
-	protected Loadable construct(LoadContext loadContext, String one)
-	{
-		PCAlignment obj = loadContext.getReferenceContext().constructCDOMObject(getTargetClass(),
-				one);
-		loadContext.getReferenceContext().registerAbbreviation(obj, one);
-		return obj;
+		return false;
 	}
 
 	@Override
@@ -118,6 +107,12 @@ public class AlignmentTokenTest extends
 
 	@Override
 	protected boolean isAllLegal()
+	{
+		return false;
+	}
+
+	@Override
+	protected boolean usesComma()
 	{
 		return false;
 	}

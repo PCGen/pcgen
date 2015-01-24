@@ -134,7 +134,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 
 		deity = new Deity();
 		deity.setName("Test Deity");
-		deity.put(ObjectKey.ALIGNMENT, ng);
+		deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
 		deity.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef
 				.getRef(goodDomain), new SimpleAssociatedObject());
 		deity.putToList(Deity.DOMAINLIST, CDOMDirectSingleRef

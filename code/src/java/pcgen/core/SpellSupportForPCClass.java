@@ -201,7 +201,7 @@ public class SpellSupportForPCClass
 		if (aStat != null)
 		{
 			stat = aPC.getTotalStatFor(aStat);
-			statString = aStat.getAbb();
+			statString = aStat.getKeyName();
 		}
 		final int bonusStat = (int) aPC.getTotalBonusTo("STAT", "KNOWN."
 				+ statString)
@@ -325,7 +325,7 @@ public class SpellSupportForPCClass
 		if (aStat != null)
 		{
 			final int maxSpellLevel = aPC.getVariableValue(
-					"MAXLEVELSTAT=" + aStat.getAbb(), "").intValue();
+					"MAXLEVELSTAT=" + aStat.getKeyName(), "").intValue();
 
 			if (spellLevel > maxSpellLevel)
 			{
@@ -521,7 +521,7 @@ public class SpellSupportForPCClass
 		if (aStat != null)
 		{
 			stat = aPC.getTotalStatFor(aStat);
-			statString = aStat.getAbb();
+			statString = aStat.getKeyName();
 		}
 
 		final int bonusStat = (int) aPC.getTotalBonusTo("STAT", "CAST."
@@ -536,7 +536,7 @@ public class SpellSupportForPCClass
 			if (ss != null)
 			{
 				final int maxSpellLevel = aPC.getVariableValue(
-						"MAXLEVELSTAT=" + ss.getAbb(), "").intValue();
+						"MAXLEVELSTAT=" + ss.getKeyName(), "").intValue();
 
 				if ((maxSpellLevel + bonusStat) < spellLevel)
 				{

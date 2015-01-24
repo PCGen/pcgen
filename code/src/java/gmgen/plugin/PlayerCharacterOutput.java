@@ -90,7 +90,7 @@ public class PlayerCharacterOutput
 	public String getAlignmentShort()
 	{
 		PCAlignment pcAlignment = display.getPCAlignment();
-		return pcAlignment == null ? "" : pcAlignment.getAbb();
+		return pcAlignment == null ? "" : pcAlignment.getKeyName();
 	}
 
 	public String getBAB()
@@ -268,7 +268,7 @@ public class PlayerCharacterOutput
 
 	public String getInitMiscMod()
 	{
-		PCStat dex = Globals.getContext().getReferenceContext().getAbbreviatedObject(
+		PCStat dex = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				PCStat.class, "DEX");
 		int statMod = pc.getStatModFor(dex);
 		int miscMod = display.initiativeMod() - statMod;
@@ -278,7 +278,7 @@ public class PlayerCharacterOutput
 
 	public String getInitStatMod()
 	{
-		PCStat dex = Globals.getContext().getReferenceContext().getAbbreviatedObject(
+		PCStat dex = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				PCStat.class, "DEX");
 		int statMod = pc.getStatModFor(dex);
 

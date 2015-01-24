@@ -37,6 +37,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
@@ -128,8 +129,8 @@ public class DeityToken extends Token
 			}
 			else if ("ALIGNMENT".equals(subTag))
 			{
-				PCAlignment al = deity.get(ObjectKey.ALIGNMENT);
-				retString = al == null ? "" : al.getAbb();
+				CDOMSingleRef<PCAlignment> al = deity.get(ObjectKey.ALIGNMENT);
+				retString = al == null ? "" : al.resolvesTo().getKeyName();
 			}
 			else if ("APPEARANCE".equals(subTag))
 			{

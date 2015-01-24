@@ -56,7 +56,6 @@ public class AbbTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
 		assertFalse(parse(""));
-		assertEquals(null, primaryContext.getReferenceContext().getAbbreviation(primaryProf));
 		assertNoSideEffects();
 	}
 

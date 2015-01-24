@@ -26,6 +26,7 @@ import java.util.regex.Pattern;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -44,11 +45,12 @@ public final class SkillModifier
 		}
 
 		String keyName = sk.getKeyName();
-		PCStat stat = sk.get(ObjectKey.KEY_STAT);
-		if (stat != null)
+		CDOMSingleRef<PCStat> statref = sk.get(ObjectKey.KEY_STAT);
+		if (statref != null)
 		{
+			PCStat stat = statref.resolvesTo();
 			bonus = aPC.getStatModFor(stat);
-			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getAbb());
+			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getKeyName());
 		}
 		bonus += aPC.getTotalBonusTo("SKILL", keyName);
 
@@ -116,7 +118,7 @@ public final class SkillModifier
 	 */
 	public static int getStatMod(Skill sk, PlayerCharacter pc)
 	{
-		PCStat stat = sk.get(ObjectKey.KEY_STAT);
+		CDOMSingleRef<PCStat> stat = sk.get(ObjectKey.KEY_STAT);
 		if (stat == null)
 		{
 			int statMod = 0;
@@ -134,7 +136,7 @@ public final class SkillModifier
 		}
 		else
 		{
-			return pc.getStatModFor(stat);
+			return pc.getStatModFor(stat.resolvesTo());
 		}
 	}
 }

@@ -28,7 +28,7 @@ public class BonusCalc
 	 */
 	public static int getStatMod(PObject po, PCStat stat, final PlayerCharacter aPC)
 	{
-		return (int) BonusCalc.charBonusTo(po, "STAT", stat.getAbb(), aPC);
+		return (int) BonusCalc.charBonusTo(po, "STAT", stat.getKeyName(), aPC);
 	}
 
 	public static double bonusTo(

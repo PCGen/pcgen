@@ -37,7 +37,7 @@ public class PcgSystemInitiative extends SystemInitiative
 		this.pc = pc;
 		display = pc.getDisplay();
 		PCStat stat = Globals.getContext().getReferenceContext()
-				.getAbbreviatedObject(PCStat.class, "DEX");
+				.silentlyGetConstructedCDOMObject(PCStat.class, "DEX");
 		this.attribute = new SystemAttribute("Dexterity", pc.getTotalStatFor(stat));
 		bonus = 0;
 		die = new Dice(1, 20);
@@ -47,7 +47,7 @@ public class PcgSystemInitiative extends SystemInitiative
 	public SystemAttribute getAttribute()
 	{
 		PCStat stat = Globals.getContext().getReferenceContext()
-				.getAbbreviatedObject(PCStat.class, "DEX");
+				.silentlyGetConstructedCDOMObject(PCStat.class, "DEX");
 		return new SystemAttribute("Dexterity", pc.getTotalStatFor(stat));
 	}
 
@@ -61,7 +61,7 @@ public class PcgSystemInitiative extends SystemInitiative
     @Override
 	public int getBonus()
 	{
-		PCStat dex = Globals.getContext().getReferenceContext().getAbbreviatedObject(
+		PCStat dex = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				PCStat.class, "DEX");
 		return display.initiativeMod() - pc.getStatModFor(dex) + bonus;
 	}

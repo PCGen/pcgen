@@ -31,6 +31,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Kit;
 import pcgen.core.PCStat;
 import pcgen.core.kit.BaseKit;
@@ -93,12 +94,15 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 						+ value, context);
 			}
 			String statName = token.substring(0, equalLoc);
-			PCStat stat = context.getReferenceContext().getAbbreviatedObject(PCStat.class,
-					statName);
-			if (stat == null)
+			if (statName.length() == 0)
 			{
-				return new ParseResult.Fail("Unable to find STAT: " + statName, context);
+				return new ParseResult.Fail("Illegal " + getTokenName()
+					+ " had no stat, is not Stat=X format: "
+					+ value, context);
 			}
+			CDOMSingleRef<PCStat> stat =
+					context.getReferenceContext().getCDOMReference(
+						PCStat.class, statName);
 			String formula = token.substring(equalLoc + 1);
 			if (formula.length() == 0)
 			{

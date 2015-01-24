@@ -54,6 +54,7 @@ import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
@@ -105,11 +106,11 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Boolean> EXCLUSIVE = new ObjectKey<Boolean>(Boolean.FALSE);
 
-	public static final ObjectKey<PCAlignment> ALIGNMENT = new ObjectKey<PCAlignment>(null);
+	public static final ObjectKey<CDOMSingleRef<PCAlignment>> ALIGNMENT = new ObjectKey<CDOMSingleRef<PCAlignment>>(null);
 
 	public static final ObjectKey<Boolean> READ_ONLY = new ObjectKey<Boolean>(Boolean.FALSE);
 
-	public static final ObjectKey<PCStat> KEY_STAT = new ObjectKey<PCStat>(null);
+	public static final ObjectKey<CDOMSingleRef<PCStat>> KEY_STAT = new ObjectKey<CDOMSingleRef<PCStat>>(null);
 
 	public static final ObjectKey<SkillArmorCheck> ARMOR_CHECK = new ObjectKey<SkillArmorCheck>(SkillArmorCheck.NONE);
 
@@ -141,7 +142,7 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<BigDecimal> COST = new ObjectKey<BigDecimal>(BigDecimal.ZERO);
 
-	public static final ObjectKey<PCStat> SPELL_STAT = new ObjectKey<PCStat>(null);
+	public static final ObjectKey<CDOMSingleRef<PCStat>> SPELL_STAT = new ObjectKey<CDOMSingleRef<PCStat>>(null);
 
 	public static final ObjectKey<Boolean> COST_DOUBLE = new ObjectKey<Boolean>(null);
 
@@ -197,7 +198,7 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Boolean> HAS_BONUS_SPELL_STAT = new ObjectKey<Boolean>(null);
 
-	public static final ObjectKey<PCStat> BONUS_SPELL_STAT = new ObjectKey<PCStat>(null);
+	public static final ObjectKey<CDOMSingleRef<PCStat>> BONUS_SPELL_STAT = new ObjectKey<CDOMSingleRef<PCStat>>(null);
 
 	public static final ObjectKey<HitDie> LEVEL_HITDIE = new ObjectKey<HitDie>(HitDie.ZERO);
 
@@ -254,9 +255,9 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Nature> ABILITY_NATURE = new ObjectKey<Nature>(Nature.NORMAL);
 
-	public static final ObjectKey<SizeAdjustment> BASESIZE;
+	public static final ObjectKey<CDOMSingleRef<SizeAdjustment>> BASESIZE;
 
-	public static final ObjectKey<SizeAdjustment> SIZE;
+	public static final ObjectKey<CDOMSingleRef<SizeAdjustment>> SIZE;
 
 	public static final ObjectKey<TransitionChoice<Region>> REGION_CHOICE = new ObjectKey<TransitionChoice<Region>>(null);
 
@@ -331,22 +332,22 @@ public class ObjectKey<T>
 	static
 	{
 		buildMap();
-		BASESIZE = new ObjectKey<SizeAdjustment>(null)
+		BASESIZE = new ObjectKey<CDOMSingleRef<SizeAdjustment>>(null)
 		{
 			@Override
-			public SizeAdjustment getDefault()
+			public CDOMSingleRef<SizeAdjustment> getDefault()
 			{
-				return SizeUtilities.getDefaultSizeAdjustment();
+				return CDOMDirectSingleRef.getRef(SizeUtilities.getDefaultSizeAdjustment());
 			}
 
 		};
 		map.put(BASESIZE.toString(), BASESIZE);
-		SIZE = new ObjectKey<SizeAdjustment>(null)
+		SIZE = new ObjectKey<CDOMSingleRef<SizeAdjustment>>(null)
 		{
 			@Override
-			public SizeAdjustment getDefault()
+			public CDOMSingleRef<SizeAdjustment> getDefault()
 			{
-				return SizeUtilities.getDefaultSizeAdjustment();
+				return CDOMDirectSingleRef.getRef(SizeUtilities.getDefaultSizeAdjustment());
 			}
 
 		};

@@ -27,6 +27,7 @@ import java.util.regex.Pattern;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -108,11 +109,12 @@ public class SkillCostDisplay
 		// - familiars, racial, feats - and add them to bonusObjTotal
 	
 		double bonus;
-		PCStat stat = sk.get(ObjectKey.KEY_STAT);
-		if (stat != null)
+		CDOMSingleRef<PCStat> statref = sk.get(ObjectKey.KEY_STAT);
+		if (statref != null)
 		{
+			PCStat stat = statref.resolvesTo();
 			bonus = aPC.getStatModFor(stat);
-			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getAbb());
+			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getKeyName());
 			SkillCostDisplay.appendBonusDesc(bonusDetails, bonus, "STAT");
 		}
 	

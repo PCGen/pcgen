@@ -43,7 +43,6 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
@@ -99,7 +98,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 		Aspect cube = new Aspect("Shape", "Cube");
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("ALIGN");
-		prereq.setKey(AlignmentConverter.getPCAlignment("LG").getAbb());
+		prereq.setKey("LG");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 		cube.addPrerequisite(prereq);
 		shapeList.add(cube);

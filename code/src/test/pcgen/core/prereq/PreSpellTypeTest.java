@@ -119,7 +119,6 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(cure, "TYPE", "Divine");
 
 		context.getReferenceContext().buildDerivedObjects();
-		assertTrue(context.getReferenceContext().resolveReferences(null));
 	}
 
 	public void testSimpleType() throws Exception

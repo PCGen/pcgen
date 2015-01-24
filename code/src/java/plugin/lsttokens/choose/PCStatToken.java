@@ -18,10 +18,8 @@
 package plugin.lsttokens.choose;
 
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.AbbreviatedCreator;
 import pcgen.rules.persistence.token.AbstractSimpleChooseToken;
 
 /**
@@ -52,25 +50,19 @@ public class PCStatToken extends AbstractSimpleChooseToken<PCStat>
 	@Override
 	public PCStat decodeChoice(LoadContext context, String s)
 	{
-		return context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCSTAT_CLASS, s);
 	}
 
 	@Override
 	public String encodeChoice(PCStat choice)
 	{
-		return choice.getAbb();
+		return choice.getKeyName();
 	}
 
 	@Override
 	protected AssociationListKey<PCStat> getListKey()
 	{
 		return AssociationListKey.getKeyFor(PCSTAT_CLASS, "CHOOSE*PCSTAT");
-	}
-
-	@Override
-	public SelectionCreator<PCStat> getManufacturer(LoadContext context)
-	{
-		return AbbreviatedCreator.get(context, super.getManufacturer(context));
 	}
 
 }

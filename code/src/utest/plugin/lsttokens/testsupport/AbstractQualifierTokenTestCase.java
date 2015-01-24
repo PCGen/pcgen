@@ -23,10 +23,8 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -1954,37 +1952,37 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		Globals.emptyLists();
 		GameMode gamemode = SettingsHandler.getGame();
 		
-		str = createStat("Strength", "STR");
+		str = BuildUtilities.createStat("Strength", "STR");
 		str.put(VariableKey.getConstant("LOADSCORE"), FormulaFactory
 			.getFormulaFor("STRSCORE"));
 		str.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"), FormulaFactory
 			.getFormulaFor(2));
-		dex = createStat("Dexterity", "DEX");
-		PCStat con = createStat("Constitution", "CON");
-		intel = createStat("Intelligence", "INT");
-		wis = createStat("Wisdom", "WIS");
-		cha = createStat("Charisma", "CHA");
+		dex = BuildUtilities.createStat("Dexterity", "DEX");
+		PCStat con = BuildUtilities.createStat("Constitution", "CON");
+		intel = BuildUtilities.createStat("Intelligence", "INT");
+		wis = BuildUtilities.createStat("Wisdom", "WIS");
+		cha = BuildUtilities.createStat("Charisma", "CHA");
 
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-		lg = createAlignment("Lawful Good", "LG");
+		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
-		ln = createAlignment("Lawful Neutral", "LN");
+		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
 		ref.importObject(ln);
-		le = createAlignment("Lawful Evil", "LE");
+		le = BuildUtilities.createAlignment("Lawful Evil", "LE");
 		ref.importObject(le);
-		ng = createAlignment("Neutral Good", "NG");
+		ng = BuildUtilities.createAlignment("Neutral Good", "NG");
 		ref.importObject(ng);
-		tn = createAlignment("True Neutral", "TN");
+		tn = BuildUtilities.createAlignment("True Neutral", "TN");
 		ref.importObject(tn);
-		ne = createAlignment("Neutral Evil", "NE");
+		ne = BuildUtilities.createAlignment("Neutral Evil", "NE");
 		ref.importObject(ne);
-		cg = createAlignment("Chaotic Good", "CG");		ref.importObject(cg);
-		cn = createAlignment("Chaotic Neutral", "CN");
+		cg = BuildUtilities.createAlignment("Chaotic Good", "CG");		ref.importObject(cg);
+		cn = BuildUtilities.createAlignment("Chaotic Neutral", "CN");
 		ref.importObject(cn);
-		ce = createAlignment("Chaotic Evil", "CE");
+		ce = BuildUtilities.createAlignment("Chaotic Evil", "CE");
 		ref.importObject(ce);
-		ref.importObject(createAlignment("None", "NONE"));
-		ref.importObject(createAlignment("Deity's", "Deity"));
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 
 		gamemode.setBonusFeatLevels("3|3");
 
@@ -1997,60 +1995,18 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		ref.importObject(wis);
 		ref.importObject(cha);
 
-		fine = createSize("Fine");
-		diminutive = createSize("Diminutive");
-		tiny = createSize("Tiny");
-		small = createSize("Small");
-		medium = createSize("Medium");
+		fine = BuildUtilities.createSize("Fine");
+		diminutive = BuildUtilities.createSize("Diminutive");
+		tiny = BuildUtilities.createSize("Tiny");
+		small = BuildUtilities.createSize("Small");
+		medium = BuildUtilities.createSize("Medium");
 		medium.put(ObjectKey.IS_DEFAULT_SIZE, true);
-		large = createSize("Large");
-		huge = createSize("Huge");
-		gargantuan = createSize("Gargantuan");
-		colossal = createSize("Colossal");
+		large = BuildUtilities.createSize("Large");
+		huge = BuildUtilities.createSize("Huge");
+		gargantuan = BuildUtilities.createSize("Gargantuan");
+		colossal = BuildUtilities.createSize("Colossal");
 
-		for (PCStat stat : ref.getOrderSortedCDOMObjects(PCStat.class))
-		{
-			ref.registerAbbreviation(stat, stat.getAbb());
-		}
-		for (PCAlignment al : ref.getOrderSortedCDOMObjects(PCAlignment.class))
-		{
-			ref.registerAbbreviation(al, al.getAbb());
-		}
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
-	}
-
-	private PCStat createStat(String name, String abb)
-	{
-		PCStat stat = new PCStat();
-		stat.setName(name);
-		stat.put(StringKey.ABB, abb);
-		stat.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
-		stat.put(VariableKey.getConstant("MAXLEVELSTAT=" + stat.getAbb()),
-				FormulaFactory.getFormulaFor(stat.getAbb() + "SCORE-10"));
-		return stat;
-	}
-
-	private SizeAdjustment createSize(String name)
-	{
-		final String abb  = name.substring(0, 1);
-
-		final SizeAdjustment sa = new SizeAdjustment();
-
-		sa.setName(name);
-		sa.put(StringKey.ABB, abb);
-
-		Globals.getContext().getReferenceContext().importObject(sa);
-		Globals.getContext().getReferenceContext().registerAbbreviation(sa, sa.getAbbreviation());
-		return sa;
-	}
-
-	public static PCAlignment createAlignment(final String longName,
-		final String shortName)
-	{
-		final PCAlignment align = new PCAlignment();
-		align.setName(longName);
-		align.put(StringKey.ABB, shortName);
-		return align;
 	}
 
 	public void testEmptyIdentity() throws InstantiationException,

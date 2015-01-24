@@ -60,7 +60,7 @@ public class AlignGeneratorOption extends GeneratorOption
 			}
 			return;
 		}
-		final PCAlignment align = Globals.getContext().getReferenceContext().getAbbreviatedObject(PCAlignment.class, aValue);
+		final PCAlignment align = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCAlignment.class, aValue);
 		if (align == null)
 		{
 			Logging.errorPrintLocalised("NPCGen.Options.AlignNotFound", aValue); //$NON-NLS-1$

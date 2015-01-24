@@ -34,6 +34,7 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
+import pcgen.util.Logging;
 
 /**
  * A prerequisite parser class that handles the parsing of pre size tokens.
@@ -84,10 +85,15 @@ public class PreSizeParser extends AbstractPrerequisiteParser implements
 			}
 			prereq.setOperator(compType);
 
-			
-			if (SizeUtilities.sizeInt(formula, -1) < 0)
+			String abb = formula.substring(0,1);
+			if (SizeUtilities.sizeInt(abb, -1) < 0)
 			{
 				throw new PrerequisiteException("Invalid size " + formula);
+			}
+			else if (formula.length() > 1)
+			{
+				Logging.deprecationPrint("Use of a non-key (" + formula
+					+ "in PRESIZE is deprecated, use the KEY of the Size");
 			}
 			prereq.setOperand(formula);
 			if (invertResult)

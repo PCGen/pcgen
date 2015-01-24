@@ -322,7 +322,7 @@ public class NPCGenerator
 		aPC.rollStats(Constants.CHARACTER_STAT_METHOD_ROLLED, statOrder, aRollMethod, true);
 		for (PCStat stat : aPC.getStatSet())
 		{
-			Logging.debugPrint( "NPCGenerator: Setting stat " + stat.getAbb()
+			Logging.debugPrint( "NPCGenerator: Setting stat " + stat.getKeyName()
 				+ " to " + aPC.getStat(stat) );  //$NON-NLS-1$//$NON-NLS-2$
 			aPC.setStat(stat, aPC.getStat(stat));
 		}

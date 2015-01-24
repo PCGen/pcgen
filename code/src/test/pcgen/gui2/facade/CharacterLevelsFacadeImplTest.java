@@ -80,6 +80,14 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		dataSetFacade = new MockDataSetFacade(gameMode);
 	}
 
+	@Override
+	public void setUp() throws Exception
+	{
+		super.setUp();
+		Globals.getContext().resolvePostDeferredTokens();
+		Globals.getContext().loadCampaignFacets();
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -109,9 +117,6 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
-		assertTrue(context.getReferenceContext().resolveReferences(null));
-		context.resolvePostDeferredTokens();
-		context.loadCampaignFacets();
 	}
 
 	/**

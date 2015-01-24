@@ -35,8 +35,8 @@ import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
@@ -46,6 +46,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class PObjectLoaderTest extends PCGenTestCase
 {
@@ -106,16 +107,9 @@ public class PObjectLoaderTest extends PCGenTestCase
 	{
 		LoadContext context = Globals.getContext();
 		
-		PCStat con = new PCStat();
-		con.setName("Constitution");
-		con.put(StringKey.ABB, "CON");
-		context.getReferenceContext().registerAbbreviation(con, con.getAbb());
+		BuildUtilities.createStat("Constitution", "CON");
+		BuildUtilities.createStat("Intelligence", "INT");
 
-		PCStat intel = new PCStat();
-		intel.setName("Intelligence");
-		intel.put(StringKey.ABB, "INT");
-		context.getReferenceContext().registerAbbreviation(intel, intel.getAbb());
-		
 		Ability feat = new Ability();
 
 		is(context.processToken(feat, "DEFINESTAT", "UNLOCK|INT"), eq(true),
@@ -123,9 +117,9 @@ public class PObjectLoaderTest extends PCGenTestCase
 		context.commit();
 		Logging.clearParseMessages();
 
-		List<PCStat> statList = feat.getListFor(ListKey.UNLOCKED_STATS);
+		List<CDOMSingleRef<PCStat>> statList = feat.getListFor(ListKey.UNLOCKED_STATS);
 		assertEquals(1, statList.size());
-		assertEquals("INT", statList.get(0).getAbb());
+		assertEquals("INT", statList.get(0).resolvesTo().getKeyName());
 	}
 
 	public void testBadUnlockDefine() throws Exception

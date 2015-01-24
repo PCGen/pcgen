@@ -24,9 +24,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.cdom.helper.StatLock;
 import pcgen.core.PCStat;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.rules.context.LoadContext;
@@ -62,19 +60,8 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 
 		if (firstItem.startsWith("UNLOCK."))
 		{
-			if (sep.hasNext())
-			{
-				return new ParseResult.Fail(getTokenName()
-					+ " found UNLOCK. with additional pipe separated item.  "
-					+ "Must be of Format: varName|varFormula or "
-					+ "LOCK.<stat>|value or UNLOCK.<stat>", context);
-			}
-			PCStat stat = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, value
-					.substring(7));
-			context.getObjectContext().addToList(obj, ListKey.NONSTAT_TO_STAT_STATS, stat);
-			Logging.deprecationPrint("DEFINE:UNLOCK. has been deprecated, "
+			return new ParseResult.Fail("DEFINE:UNLOCK. has been deprecated, "
 				+ "please use DEFINESTAT:STAT| or DEFINESTAT:UNLOCK|", context);
-			return ParseResult.SUCCESS;
 		}
 		if (!sep.hasNext())
 		{
@@ -110,21 +97,8 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			}
 			if (value.startsWith("LOCK."))
 			{
-				PCStat stat = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS,
-						firstItem.substring(5));
-				if (f.isStatic() && f.resolveStatic().equals(10))
-				{
-					context.getObjectContext().addToList(obj, ListKey.NONSTAT_STATS, stat);
-				}
-				else
-				{
-					context.getObjectContext().addToList(obj, ListKey.STAT_LOCKS,
-							new StatLock(stat, f));
-				}
-				Logging.deprecationPrint("DEFINE:LOCK. has been deprecated, "
-					+ "please use DEFINESTAT:LOCK| or DEFINESTAT:NONSTAT|",
-					context);
-				
+				return new ParseResult.Fail("DEFINE:LOCK. has been deprecated, "
+						+ "please use DEFINESTAT:LOCL| or DEFINESTAT:NONSTAT|", context);
 			}
 			else
 			{

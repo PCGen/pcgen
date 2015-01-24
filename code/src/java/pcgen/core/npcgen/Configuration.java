@@ -159,7 +159,7 @@ public class Configuration
 					break;
 				}
 			}
-			if (!align.getAbb().equals(Constants.NONE) && !included)
+			if (!align.getKeyName().equals(Constants.NONE) && !included)
 			{
 				final AlignGeneratorOption opt = new AlignGeneratorOption();
 				opt.setName(align.getDisplayName());

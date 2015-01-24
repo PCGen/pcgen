@@ -20,16 +20,19 @@ package plugin.lsttokens.race;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with SIZE Token
  */
-public class SizeToken implements CDOMPrimaryToken<Race>
+public class SizeToken extends AbstractNonEmptyToken<Race> implements
+		CDOMPrimaryToken<Race>
 {
 
 	@Override
@@ -39,21 +42,12 @@ public class SizeToken implements CDOMPrimaryToken<Race>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, Race race, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, Race race, String value)
 	{
-		SizeAdjustment size = context.getReferenceContext().getAbbreviatedObject(
-				SizeAdjustment.class, value);
-		Formula sizeFormula;
-		if (size == null)
-		{
-			return new ParseResult.Fail("Error parsing " + getTokenName() + ": " + value
-					+ " is not a Size for this Game Mode", context);
-			//sizeFormula = FormulaFactory.getFormulaFor(value);
-		}
-		else
-		{
-			sizeFormula = new FixedSizeFormula(size);
-		}
+		CDOMSingleRef<SizeAdjustment> size =
+				context.getReferenceContext().getCDOMReference(
+					SizeAdjustment.class, value);
+		Formula sizeFormula = new FixedSizeFormula(size);
 		context.getObjectContext().put(race, FormulaKey.SIZE, sizeFormula);
 		return ParseResult.SUCCESS;
 	}

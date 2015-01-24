@@ -18,16 +18,19 @@
 package plugin.lsttokens.skill;
 
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCStat;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with KEYSTAT Token
  */
-public class KeystatToken implements CDOMPrimaryToken<Skill>
+public class KeystatToken extends AbstractNonEmptyToken<Skill> implements
+		CDOMPrimaryToken<Skill>
 {
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
@@ -39,9 +42,11 @@ public class KeystatToken implements CDOMPrimaryToken<Skill>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, Skill skill, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, Skill skill, String value)
 	{
-		PCStat pcs = context.getReferenceContext().getAbbreviatedObject(PCSTAT_CLASS, value);
+		CDOMSingleRef<PCStat> pcs =
+				context.getReferenceContext().getCDOMReference(PCSTAT_CLASS,
+					value);
 		if (pcs == null)
 		{
 			return new ParseResult.Fail("Invalid Stat Abbreviation in Token "
@@ -54,13 +59,13 @@ public class KeystatToken implements CDOMPrimaryToken<Skill>
 	@Override
 	public String[] unparse(LoadContext context, Skill skill)
 	{
-		PCStat pcs = context.getObjectContext().getObject(skill,
-				ObjectKey.KEY_STAT);
+		CDOMSingleRef<PCStat> pcs =
+				context.getObjectContext().getObject(skill, ObjectKey.KEY_STAT);
 		if (pcs == null)
 		{
 			return null;
 		}
-		return new String[] { pcs.getLSTformat() };
+		return new String[]{pcs.getLSTformat(false)};
 	}
 
 	@Override

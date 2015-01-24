@@ -111,7 +111,7 @@ public class StatBonusToken implements CDOMSecondaryToken<EquipmentModifier>
 				boolean found = false;
 				for (PCStat stat : list)
 				{
-					if (tokString.equals(stat.getAbb()))
+					if (tokString.equals(stat.getKeyName()))
 					{
 						found = true;
 						break;

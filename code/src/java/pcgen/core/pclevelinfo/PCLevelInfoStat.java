@@ -47,7 +47,7 @@ public final class PCLevelInfoStat implements Serializable
 	@Override
 	public String toString()
 	{
-		return stat.getAbb() + "=" + Integer.toString(mod);
+		return stat.getKeyName() + "=" + Integer.toString(mod);
 	}
 
 	public PCStat getStat()

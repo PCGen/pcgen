@@ -5,6 +5,8 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillFilter;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.OutputNameFormatting;
@@ -59,11 +61,12 @@ public class SkillListModsToken extends Token
 		{
 			int modSkill = -1;
 
-			if (aSkill.get(ObjectKey.KEY_STAT) != null)
+			CDOMSingleRef<PCStat> statref = aSkill.get(ObjectKey.KEY_STAT);
+			if (statref != null)
 			{
 				modSkill =
 						SkillModifier.modifier(aSkill, pc).intValue()
-							- pc.getStatModFor(aSkill.get(ObjectKey.KEY_STAT));
+							- pc.getStatModFor(statref.resolvesTo());
 			}
 
 			if ((SkillRankControl.getTotalRank(pc, aSkill).intValue() > 0) || (modSkill > 0))

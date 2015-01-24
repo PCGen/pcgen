@@ -28,10 +28,12 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -221,11 +223,13 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
+		CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
 
 		race.setName("Human");
-		race.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
+		race.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
 		Globals.getContext().getReferenceContext().importObject(race);
 		
-		template.put(FormulaKey.SIZE, new FixedSizeFormula(large));
+		template.put(FormulaKey.SIZE, new FixedSizeFormula(largeRef));
 	}
 }

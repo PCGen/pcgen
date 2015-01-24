@@ -27,6 +27,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -56,41 +57,6 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 	public static Test suite()
 	{
 		return new TestSuite(PreDeityAlignTest.class);
-	}
-
-	/**
-	 * Test that numeric alignment values work correctly in Deity Align tests.
-	 * @throws Exception
-	 */
-	public void testNumeric() throws Exception
-	{
-		final PlayerCharacter character = getCharacter();
-		character.setAlignment(ng);
-		character.setDeity(deity);
-		assertEquals("Deity should have been set for character.", deity,
-			character.getDeity());
-
-		Prerequisite prereq = new Prerequisite();
-		prereq.setKind("deityAlign");
-		prereq.setOperand("3");
-		prereq.setOperator(PrerequisiteOperator.EQ);
-
-		assertTrue("Number 3 should match deity's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
-
-		prereq = new Prerequisite();
-		prereq.setKind("deityAlign");
-		prereq.setOperand("6");
-		prereq.setOperator(PrerequisiteOperator.EQ);
-
-		assertFalse("Number 6 should not match deity's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
-
-		final PreParserFactory factory = PreParserFactory.getInstance();
-		prereq = factory.parse("PREDEITYALIGN:3");
-		assertTrue("Number 3 should match deity's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
-
 	}
 
 	/**
@@ -136,7 +102,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 		super.setUp();
 		deity = new Deity();
 		deity.setName("TestDeity");
-		deity.put(ObjectKey.ALIGNMENT, ng);
+		deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
 	}
 
     @Override

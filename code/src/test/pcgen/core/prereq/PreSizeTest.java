@@ -29,6 +29,7 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -75,6 +76,7 @@ public class PreSizeTest extends AbstractCharacterTestCase
 	public void testEquipmentPreSize() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
+		Globals.getContext().getReferenceContext().resolveReferences(null);
 
 		is(eq1.sizeInt(), eq(3), "Item one is expected size");
 		is(eq2.sizeInt(), eq(4), "Item two is expected size");

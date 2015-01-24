@@ -25,10 +25,12 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.character.WieldCategory;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
@@ -127,7 +129,9 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 
 		final Race race = new Race();
 		race.setName("Test Race");
-		race.put(FormulaKey.SIZE, new FixedSizeFormula(medium));
+		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
+		CDOMDirectSingleRef<SizeAdjustment> smallRef = CDOMDirectSingleRef.getRef(small);
+		race.put(FormulaKey.SIZE, new FixedSizeFormula(mediumRef));
 
 		character.setRace(race);
 		LoadContext context = Globals.getContext();
@@ -147,21 +151,21 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		// Test 3.0 Style
-		longsword.put(ObjectKey.SIZE, small);
-		longsword.put(ObjectKey.BASESIZE, small);
+		longsword.put(ObjectKey.SIZE, smallRef);
+		longsword.put(ObjectKey.BASESIZE, smallRef);
 
 		assertTrue("Weapon is S therefore Light", PrereqHandler.passes(prereq,
 			character, null));
 
-		longsword.put(ObjectKey.SIZE, medium);
-		longsword.put(ObjectKey.BASESIZE, medium);
+		longsword.put(ObjectKey.SIZE, mediumRef);
+		longsword.put(ObjectKey.BASESIZE, mediumRef);
 
 		assertFalse("Weapon is M therefore OneHanded", PrereqHandler.passes(
 			prereq, character, null));
 
 		// Test 3.5 style
-		longsword.put(ObjectKey.SIZE, medium);
-		longsword.put(ObjectKey.BASESIZE, medium);
+		longsword.put(ObjectKey.SIZE, mediumRef);
+		longsword.put(ObjectKey.BASESIZE, mediumRef);
 		longsword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "OneHanded"));
 

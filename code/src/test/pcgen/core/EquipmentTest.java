@@ -43,6 +43,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 
@@ -98,14 +99,9 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
-	/**
-	 * @see pcgen.PCGenTestCase#setUp()
-	 */
 	@Override
-	public void setUp() throws Exception
+	public void additionalSetUp() throws PersistenceLayerException
 	{
-		super.setUp();
-
 		try
 		{
 			source = new CampaignSourceEntry(new Campaign(),
@@ -167,7 +163,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		SizeAdjustment newSize = small;
 		
 		final String expectedKey =
-				Constants.AUTO_RESIZE_PREFIX + newSize.getAbbreviation().toUpperCase()
+				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase()
 					+ this.OriginalKey;
 
 		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
@@ -181,7 +177,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		SizeAdjustment newSize = colossal;
 
 		final String expectedKey =
-				Constants.AUTO_RESIZE_PREFIX + newSize.getAbbreviation().toUpperCase().substring(0, 1)
+				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase().substring(0, 1)
 					+ this.OriginalKey;
 
 		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
@@ -199,7 +195,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		SizeAdjustment newSize = fine;
 
 		String expectedKey =
-				Constants.AUTO_RESIZE_PREFIX + newSize.getAbbreviation().toUpperCase().substring(0, 1)
+				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase().substring(0, 1)
 					+ this.OriginalKey;
 
 		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
@@ -207,7 +203,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		newSize = diminutive;
 
 		expectedKey =
-				Constants.AUTO_RESIZE_PREFIX + newSize.getAbbreviation().toUpperCase().substring(0, 1)
+				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase().substring(0, 1)
 					+ this.OriginalKey;
 
 		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
@@ -248,7 +244,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	public void testcreateNameForAutoResize005()
 	{
 		String newKey = eq.createKeyForAutoResize(large);
-		eq.put(ObjectKey.SIZE, large);
+		CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
+		eq.put(ObjectKey.SIZE, largeRef);
 		eq.setName("Pointy Stick (Large)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
@@ -269,8 +266,9 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	public void testcreateNameForAutoResize006()
 	{
 		String newKey = eq.createKeyForAutoResize(large);
-		eq.put(ObjectKey.SIZE, large);
-		eq.put(ObjectKey.BASESIZE, large);
+		CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
+		eq.put(ObjectKey.SIZE, largeRef);
+		eq.put(ObjectKey.BASESIZE, largeRef);
 		eq.setName("Pointy Stick (+1/Large)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
@@ -291,7 +289,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	public void testcreateNameForAutoResize007()
 	{
 		String newKey = eq.createKeyForAutoResize(large);
-		eq.put(ObjectKey.SIZE, large);
+		CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
+		eq.put(ObjectKey.SIZE, largeRef);
 		eq.setName("Pointy Stick (+1/Large/Speed)");
 		eq.put(StringKey.KEY_NAME, newKey);
 
@@ -311,7 +310,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	public void testcreateNameForAutoResize008()
 	{
 		String newKey = eq.createKeyForAutoResize(large);
-		eq.put(ObjectKey.SIZE, large);
+		CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
+		eq.put(ObjectKey.SIZE, largeRef);
 		eq.setName("Pointy Stick (+1/Speed)");
 		eq.put(StringKey.KEY_NAME, newKey);
 

@@ -21,6 +21,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.formula.FixedSizeFormula;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCTemplate;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
@@ -45,8 +46,9 @@ public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		PCTemplate template, String value)
 	{
-		SizeAdjustment size = context.getReferenceContext().getAbbreviatedObject(
-				SizeAdjustment.class, value);
+		SizeAdjustment size =
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(
+					SizeAdjustment.class, value);
 		Formula sizeFormula;
 		if (size == null)
 		{
@@ -54,7 +56,7 @@ public class SizeToken extends AbstractNonEmptyToken<PCTemplate> implements
 		}
 		else
 		{
-			sizeFormula = new FixedSizeFormula(size);
+			sizeFormula = new FixedSizeFormula(CDOMDirectSingleRef.getRef(size));
 		}
 		if (!sizeFormula.isValid())
 		{

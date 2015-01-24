@@ -99,10 +99,9 @@ public class EquipmentList {
 
 			while (aTok.hasMoreTokens()) {
 				final String cString = aTok.nextToken();
-				int iSize;
 
 				SizeAdjustment sa = Globals.getContext().getReferenceContext()
-						.getAbbreviatedObject(SizeAdjustment.class, cString);
+						.silentlyGetConstructedCDOMObject(SizeAdjustment.class, cString);
 
 				if (sa != null) {
 					sizList.add(cString);
@@ -296,7 +295,7 @@ public class EquipmentList {
 				 * CONSIDER This size can be further optimized by changing sizList
 				 */
 				eq.resizeItem(aPC, Globals.getContext().getReferenceContext()
-						.getAbbreviatedObject(SizeAdjustment.class, sizList
+						.silentlyGetConstructedCDOMObject(SizeAdjustment.class, sizList
 								.get(0)));
 				bModified = true;
 

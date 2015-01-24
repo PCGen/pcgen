@@ -30,6 +30,7 @@ import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.TestHelper;
 
 /**
@@ -96,10 +97,11 @@ public class EquipmentListTest extends PCGenTestCase
 
 		this.eq = new Equipment();
 		this.eq.setName("Dummy");
-		SizeAdjustment sa = Globals.getContext().getReferenceContext().getAbbreviatedObject(
+		SizeAdjustment sa = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				SizeAdjustment.class, "M");
-		eq.put(ObjectKey.SIZE, sa);
-		eq.put(ObjectKey.BASESIZE, sa);
+		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(sa);
+		eq.put(ObjectKey.SIZE, mediumRef);
+		eq.put(ObjectKey.BASESIZE, mediumRef);
 		TestHelper.addType(eq, "WEAPON.MELEE.CHOCOLATE");
 
 		this.eq.put(StringKey.KEY_NAME, originalKey);

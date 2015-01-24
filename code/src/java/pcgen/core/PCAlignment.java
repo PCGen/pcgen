@@ -20,7 +20,6 @@
  */
 package pcgen.core;
 
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.facade.core.AlignmentFacade;
 
 /**
@@ -31,29 +30,4 @@ import pcgen.facade.core.AlignmentFacade;
  */
 public final class PCAlignment extends PObject implements AlignmentFacade
 {
-	public String getAbb()
-	{
-		return get(StringKey.ABB);
-	}
-
-	@Override
-	public boolean equals(final Object obj)
-	{
-		if (obj == this)
-		{
-			return true;
-		}
-		if (obj instanceof PCAlignment)
-		{
-			return getAbb().equals(((PCAlignment) obj).getAbb());
-		}
-		return false;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		String abb = getAbb();
-		return abb == null ? 0 : getAbb().hashCode();
-	}
 }

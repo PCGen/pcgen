@@ -782,7 +782,7 @@ public class BonusManager
 	public int getPartialStatBonusFor(PCStat stat, boolean useTemp,
 			boolean useEquip)
 	{
-		String statAbbr = stat.getAbb();
+		String statAbbr = stat.getKeyName();
 		final String prefix = "STAT." + statAbbr;
 		Map<String, String> bonusMap = new HashMap<String, String>();
 		Map<String, String> nonStackMap = new ConcurrentHashMap<String, String>();

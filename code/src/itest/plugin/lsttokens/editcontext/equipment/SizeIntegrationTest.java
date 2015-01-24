@@ -22,7 +22,6 @@ import java.net.URISyntaxException;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
@@ -31,6 +30,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.equipment.SizeToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class SizeIntegrationTest extends AbstractIntegrationTestCase<Equipment>
@@ -62,22 +62,14 @@ public class SizeIntegrationTest extends AbstractIntegrationTestCase<Equipment>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		SizeAdjustment ps = primaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Small");
-		ps.put(StringKey.ABB, "S");
-		primaryContext.getReferenceContext().registerAbbreviation(ps, "S");
-		SizeAdjustment pm = primaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Medium");
-		pm.put(StringKey.ABB, "M");
-		primaryContext.getReferenceContext().registerAbbreviation(pm, "M");
-		SizeAdjustment ss = secondaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Small");
-		ss.put(StringKey.ABB, "S");
-		secondaryContext.getReferenceContext().registerAbbreviation(ss, "S");
-		SizeAdjustment sm = secondaryContext.getReferenceContext().constructCDOMObject(
-				SizeAdjustment.class, "Medium");
-		sm.put(StringKey.ABB, "M");
-		secondaryContext.getReferenceContext().registerAbbreviation(sm, "M");
+		SizeAdjustment ps = BuildUtilities.createSize("Small");
+		primaryContext.getReferenceContext().importObject(ps);
+		SizeAdjustment pm = BuildUtilities.createSize("Medium");
+		primaryContext.getReferenceContext().importObject(pm);
+		SizeAdjustment ss = BuildUtilities.createSize("Small");
+		secondaryContext.getReferenceContext().importObject(ss);
+		SizeAdjustment sm = BuildUtilities.createSize("Medium");
+		secondaryContext.getReferenceContext().importObject(sm);
 	}
 
 	@Test

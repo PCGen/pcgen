@@ -23,6 +23,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -46,8 +47,8 @@ public class UnlockedStatFacetTest extends
 		cdo2.setName("Race");
 		PCStat st1 = new PCStat();
 		PCStat st2 = new PCStat();
-		cdo1.addToListFor(ListKey.UNLOCKED_STATS, st1);
-		cdo2.addToListFor(ListKey.UNLOCKED_STATS, st2);
+		cdo1.addToListFor(ListKey.UNLOCKED_STATS, CDOMDirectSingleRef.getRef(st1));
+		cdo2.addToListFor(ListKey.UNLOCKED_STATS, CDOMDirectSingleRef.getRef(st2));
 		source = new CDOMObject[]{cdo1, cdo2};
 		stat = new PCStat[]{st1, st2};
 	}

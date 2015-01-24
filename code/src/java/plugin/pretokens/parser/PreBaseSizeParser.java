@@ -28,11 +28,13 @@
  */
 package plugin.pretokens.parser;
 
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
+import pcgen.util.Logging;
 
 /**
  * A prerequisite parser class that handles the parsing of pre base size tokens.
@@ -83,7 +85,17 @@ public class PreBaseSizeParser extends AbstractPrerequisiteParser implements
 			}
 			prereq.setOperator(compType);
 
-			prereq.setOperand(formula);
+			String abb = formula.substring(0,1);
+			if (SizeUtilities.sizeInt(abb, -1) < 0)
+			{
+				throw new PrerequisiteException("Invalid size " + formula);
+			}
+			else if (formula.length() > 1)
+			{
+				Logging.deprecationPrint("Use of a non-key (" + formula
+					+ "in PREBASESIZE is deprecated, use the KEY of the Size");
+			}
+			prereq.setOperand(abb);
 			if (invertResult)
 			{
 				prereq.setOperator(prereq.getOperator().invert());

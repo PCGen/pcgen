@@ -19,18 +19,17 @@ package plugin.lsttokens.sizeadjustment;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.SizeAdjustment;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 
 /**
  * Class deals with ABB Token for size adjustment
  */
 public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements
-		CDOMPrimaryToken<SizeAdjustment>, DeferredToken<SizeAdjustment>
+		CDOMPrimaryToken<SizeAdjustment>
 {
 
 	/**
@@ -45,21 +44,28 @@ public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements
 	}
 
 	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context, SizeAdjustment size, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context,
+		SizeAdjustment size, String value)
 	{
-		/*
-		 * Warning: RegisterAbbreviation is not editor friendly, and this is a
-		 * gate to additional SizeAdjustments being added in Campaigns (vs. Game
-		 * Modes)
-		 */
-		context.getReferenceContext().registerAbbreviation(size, value);
+		try
+		{
+			if (!context.processToken(size, "KEY", value))
+			{
+				return new ParseResult.Fail("Internal Error", context);
+			}
+		}
+		catch (PersistenceLayerException e)
+		{
+			return new ParseResult.Fail(e.getLocalizedMessage(), context);
+		}
+		context.getObjectContext().put(size, StringKey.ABB, value);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, SizeAdjustment size)
 	{
-		String abb = context.getReferenceContext().getAbbreviation(size);
+		String abb = context.getObjectContext().getString(size, StringKey.ABB);
 		if (abb == null)
 		{
 			return null;
@@ -71,32 +77,5 @@ public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements
 	public Class<SizeAdjustment> getTokenClass()
 	{
 		return SizeAdjustment.class;
-	}
-
-	@Override
-	public Class<SizeAdjustment> getDeferredTokenClass()
-	{
-		return SizeAdjustment.class;
-	}
-
-	@Override
-	public boolean process(LoadContext context, SizeAdjustment size)
-	{
-		String abb = size.get(StringKey.ABB);
-		if (abb == null)
-		{
-			Logging.errorPrint("Expected SizeAdjustment to "
-					+ "have an Abbreviation, but " + size.getDisplayName()
-					+ " did not");
-			return false;
-		}
-		if (abb.length() > 1)
-		{
-			Logging.errorPrint("Expected SizeAdjustment to have a "
-					+ "single character Abbreviation, but "
-					+ size.getDisplayName() + " had: " + abb);
-			return false;
-		}
-		return false;
 	}
 }

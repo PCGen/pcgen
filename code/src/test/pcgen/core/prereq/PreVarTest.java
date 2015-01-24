@@ -179,6 +179,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 			SourceEntry se = new CampaignSourceEntry(new Campaign(), new URI(
 					"file://test"));
 			loader.completeObject(context, se, spellcaster);
+			context.getReferenceContext().resolveReferences(null);
 			PlayerCharacter character = this.getCharacter();
 			setPCStat(character, intel, 16);
 			assertTrue(spellcaster.qualifies(character, spellcaster));

@@ -29,6 +29,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.util.MissingObject;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -47,7 +48,7 @@ public final class LockedStat extends BonusObj
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
-		PCStat stat = context.getReferenceContext().getAbbreviatedObject(PCStat.class, token);
+		PCStat stat = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, token);
 
 		if (stat != null)
 		{
@@ -69,7 +70,7 @@ public final class LockedStat extends BonusObj
 			return ((MissingObject) obj).getObjectName();
 		}
 
-		return ((PCStat) obj).getAbb();
+		return ((PCStat) obj).getKeyName();
 	}
 
 	/**
@@ -85,8 +86,10 @@ public final class LockedStat extends BonusObj
 	@Override
 	public String getDescription()
 	{
+		AbstractReferenceContext rc =
+				Globals.getContext().getReferenceContext();
 		final PCStat pcstat =
-				Globals.getContext().getReferenceContext().getAbbreviatedObject(PCStat.class,
+				rc.silentlyGetConstructedCDOMObject(PCStat.class,
 					getBonusInfo());
 		if (pcstat != null)
 		{

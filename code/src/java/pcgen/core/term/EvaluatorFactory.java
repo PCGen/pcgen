@@ -116,8 +116,8 @@ public class EvaluatorFactory {
 			} else {
 				add1 = true;
 			}
-			pSt.append(stat.getAbb());
-			s.add(stat.getAbb());
+			pSt.append(stat.getKeyName());
+			s.add(stat.getKeyName());
 		}
 		pSt.append(")");
 
