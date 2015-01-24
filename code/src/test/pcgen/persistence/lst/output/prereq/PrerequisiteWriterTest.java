@@ -91,7 +91,7 @@ public class PrerequisiteWriterTest extends TestCase
 		"PREPROFWITHARMOR:1,Chainmail,Full Plate",										"PREPROFWITHARMOR:1,Chainmail,Full Plate",
 		"PREPROFWITHARMOR:1,TYPE.Medium",												"PREPROFWITHARMOR:1,TYPE.Medium",
 		"PREATT:6",																		"PREATT:6",
-		"PREBASESIZELTEQ:Medium",														"PREBASESIZELTEQ:Medium",
+		"PREBASESIZELTEQ:Medium",														"PREBASESIZELTEQ:M",
 		"PREBIRTHPLACE:Klamath",														"PREBIRTHPLACE:Klamath",
 		"PRECHECK:1,Fortitude=5,Reflex=3",												"PRECHECK:1,Fortitude=5,Reflex=3",
 		"PRECHECK:2,Fortitude=5,Reflex=3,Will=4",										"PRECHECK:2,Fortitude=5,Reflex=3,Will=4",
@@ -248,7 +248,7 @@ public class PrerequisiteWriterTest extends TestCase
 //
 // Test default logic cases
 //
-		"PREBASESIZE:Medium",															"PREBASESIZEGTEQ:Medium",
+		"PREBASESIZE:Medium",															"PREBASESIZEGTEQ:M",
 		"PREHANDS:2",																	"PREHANDSGTEQ:2",
 		"PRELEGS:4",																	"PRELEGSGTEQ:4",
 		"PRESIZE:H",																	"PRESIZEGTEQ:H",
@@ -264,7 +264,7 @@ public class PrerequisiteWriterTest extends TestCase
 		"!PRESPELLCAST:TYPE=Arcane",													"!PRESPELLCAST:TYPE=Arcane",
 		"!PRESPELLCAST:TYPE=Divine",													"!PRESPELLCAST:TYPE=Divine",
 		"!PRECSKILL:1,Spot,Listen",														"!PRECSKILL:1,Spot,Listen",
-		"!PREBASESIZELTEQ:Medium",														"PREBASESIZEGT:Medium",
+		"!PREBASESIZELTEQ:Medium",														"PREBASESIZEGT:M",
 		"!PREHANDSGT:2",																"PREHANDSLTEQ:2",
 		"!PRELEGSGTEQ:4",																"PRELEGSLT:4",
 		"!PRESIZEEQ:H",																	"PRESIZENEQ:H",
@@ -336,11 +336,11 @@ public class PrerequisiteWriterTest extends TestCase
 		"!PRESKILLTOT:TYPE.Knowledge=20",												"!PRESKILLTOT:TYPE.Knowledge=20",
 		"!PREPOINTBUYMETHOD:1,Standard,High-powered",									"!PREPOINTBUYMETHOD:1,Standard,High-powered",
 
-		"PREBASESIZEEQ:Medium",															"PREBASESIZEEQ:Medium",
-		"PREBASESIZEGT:Medium",															"PREBASESIZEGT:Medium",
-		"PREBASESIZEGTEQ:Medium",														"PREBASESIZEGTEQ:Medium",
-		"PREBASESIZELT:Medium",															"PREBASESIZELT:Medium",
-		"PREBASESIZENEQ:Medium",														"PREBASESIZENEQ:Medium",
+		"PREBASESIZEEQ:Medium",															"PREBASESIZEEQ:M",
+		"PREBASESIZEGT:Medium",															"PREBASESIZEGT:M",
+		"PREBASESIZEGTEQ:Medium",														"PREBASESIZEGTEQ:M",
+		"PREBASESIZELT:Medium",															"PREBASESIZELT:M",
+		"PREBASESIZENEQ:Medium",														"PREBASESIZENEQ:M",
 		"PRECHECK:1,Fortitude=3",														"PRECHECK:1,Fortitude=3",
 		"PRECHECKBASE:1,Will=3",														"PRECHECKBASE:1,Will=3",
 		"PRECLASSLEVELMAX:1,Barbarian=1",												"!PRECLASS:1,Barbarian=2",

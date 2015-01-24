@@ -28,12 +28,16 @@
  */
 package plugin.pretokens.parser;
 
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Globals;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -88,7 +92,11 @@ public class PreSizeParser extends AbstractPrerequisiteParser implements
 			String abb = formula.substring(0,1);
 			if (SizeUtilities.sizeInt(abb, -1) < 0)
 			{
-				throw new PrerequisiteException("Invalid size " + formula);
+				LoadContext context = Globals.getContext();
+				CDOMSingleRef<SizeAdjustment> ref =
+						context.getReferenceContext().getCDOMReference(
+							SizeAdjustment.class, abb);
+				context.forgetMeNot(ref);
 			}
 			else if (formula.length() > 1)
 			{

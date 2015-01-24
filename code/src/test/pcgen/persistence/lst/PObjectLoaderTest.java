@@ -43,6 +43,7 @@ import pcgen.core.PCStat;
 import pcgen.core.PObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
@@ -107,14 +108,16 @@ public class PObjectLoaderTest extends PCGenTestCase
 	{
 		LoadContext context = Globals.getContext();
 		
-		BuildUtilities.createStat("Constitution", "CON");
-		BuildUtilities.createStat("Intelligence", "INT");
+		AbstractReferenceContext ref = context.getReferenceContext();
+		ref.importObject(BuildUtilities.createStat("Constitution", "CON"));
+		ref.importObject(BuildUtilities.createStat("Intelligence", "INT"));
 
 		Ability feat = new Ability();
 
 		is(context.processToken(feat, "DEFINESTAT", "UNLOCK|INT"), eq(true),
 			"Parse fails for unlock");
 		context.commit();
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		Logging.clearParseMessages();
 
 		List<CDOMSingleRef<PCStat>> statList = feat.getListFor(ListKey.UNLOCKED_STATS);
