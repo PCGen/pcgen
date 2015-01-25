@@ -15,20 +15,16 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.template;
+package plugin.lsttokens.deprecated;
 
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCTemplate;
-import pcgen.rules.persistence.token.AbstractStringToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractToFactToken;
 
 /**
  * Class deals with APPLIEDNAME Token
  */
-public class AppliedNameToken extends AbstractStringToken<PCTemplate>
-		implements CDOMPrimaryToken<PCTemplate>
+public class TemplateAppliedNameToken extends AbstractToFactToken<PCTemplate>
 {
-
 	@Override
 	public String getTokenName()
 	{
@@ -39,11 +35,5 @@ public class AppliedNameToken extends AbstractStringToken<PCTemplate>
 	public Class<PCTemplate> getTokenClass()
 	{
 		return PCTemplate.class;
-	}
-
-	@Override
-	protected StringKey stringKey()
-	{
-		return StringKey.APPLIED_NAME;
 	}
 }

@@ -298,7 +298,7 @@ public final class ChoiceSetLoadUtilities
 	private static <T extends Loadable> PrimitiveCollection<T> getDynamicGroup(
 		LoadContext context, PrimitiveInfo pi, Class<T> refClass)
 	{
-		GroupDefinition<?> fgd = TokenLibrary.getGroup(refClass, pi.tokKey);
+		GroupDefinition<?> fgd = context.getGroup(refClass, pi.tokKey);
 		if (fgd == null)
 		{
 			return null;

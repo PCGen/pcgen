@@ -36,6 +36,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.SubClassApplication;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.test.PreSubClassTester;
 
 /**
@@ -74,7 +75,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		pcClass.put(StringKey.KEY_NAME, "KEY_MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(3, pcClass);
@@ -100,7 +101,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
@@ -130,7 +131,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
@@ -162,7 +163,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -186,7 +187,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);

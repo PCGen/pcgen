@@ -72,6 +72,7 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * The Class <code>PlayerCharacterTest</code> is responsible for testing 
@@ -131,7 +132,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// Giant Class
 		giantClass = new PCClass();
 		giantClass.setName("Giant");
-		giantClass.put(StringKey.CLASSTYPE, "MONSTER");
+		BuildUtilities.setFact(giantClass, "ClassType", "Monster");
 		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BAB|CL*3/4");
 		giantClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
 		context.getReferenceContext().importObject(giantClass);
@@ -163,12 +164,12 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 		pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 		context.getReferenceContext().importObject(pcClass);
 		
 		classMemDivine = new PCClass();
 		classMemDivine.setName("MemDivine");
-		classMemDivine.put(StringKey.SPELLTYPE, "DIVINE");
+		BuildUtilities.setFact(classMemDivine, "SpellType", "Divine");
 		classMemDivine.put(ObjectKey.MEMORIZE_SPELLS, true);
 		context.unconditionallyProcess(classMemDivine, "SPELLSTAT", "WIS");
 		context.unconditionallyProcess(classMemDivine.getOriginalClassLevel(1), "CAST", "3,2,2");
@@ -181,21 +182,21 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 		class2LpfM = new PCClass();
 		class2LpfM.setName("2LpfM");
-		class2LpfM.put(StringKey.CLASSTYPE, "MONSTER");
+		BuildUtilities.setFact(class2LpfM, "ClassType", "Monster");
 		class2LpfM.put(IntegerKey.LEVELS_PER_FEAT, 2);
 		class2LpfM.put(StringKey.LEVEL_TYPE, "MONSTER");
 		context.getReferenceContext().importObject(class2LpfM);
 		
 		class3LpfM = new PCClass();
 		class3LpfM.setName("3LpfM");
-		class3LpfM.put(StringKey.CLASSTYPE, "MONSTER");
+		BuildUtilities.setFact(class3LpfM, "ClassType", "Monster");
 		class3LpfM.put(IntegerKey.LEVELS_PER_FEAT, 3);
 		class3LpfM.put(StringKey.LEVEL_TYPE, "MONSTER");
 		context.getReferenceContext().importObject(class3LpfM);
 		
 		class3LpfBlank = new PCClass();
 		class3LpfBlank.setName("3LpfBlank");
-		class3LpfBlank.put(StringKey.CLASSTYPE, "Foo");
+		BuildUtilities.setFact(class3LpfBlank, "ClassType", "Foo");
 		class3LpfBlank.put(IntegerKey.LEVELS_PER_FEAT, 3);
 		context.getReferenceContext().importObject(class3LpfBlank);
 

@@ -46,6 +46,13 @@ public class FactDefinition<T extends CDOMObject, F> extends
 	 */
 	private String factName;
 
+	@Override
+	protected void activateKey()
+	{
+		//Necessary to get the key with getConstant early so later items can use valueOf
+		getFactKey();
+	}
+
 	/**
 	 * @see pcgen.cdom.content.ContentDefinition#activateOutput()
 	 */

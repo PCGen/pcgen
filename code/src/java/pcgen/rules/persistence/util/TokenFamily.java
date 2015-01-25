@@ -34,6 +34,7 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMap;
+import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -73,6 +74,8 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	private final List<DeferredToken<? extends Loadable>> deferredTokenList =
 			new ArrayList<DeferredToken<? extends Loadable>>();
 
+	private final DoubleKeyMap<Class<?>, String, GroupDefinition> groupDefinitionMap =
+			new DoubleKeyMap<Class<?>, String, GroupDefinition>(HashMap.class, CaseInsensitiveMap.class);
 	
 	public TokenFamily(Revision r)
 	{
@@ -279,5 +282,25 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	public void addDeferredToken(DeferredToken<?> newToken)
 	{
 		deferredTokenList.add(newToken);
+	}
+
+	public void addGroupDefinition(GroupDefinition<?> def)
+	{
+		GroupDefinition<?> existingDef =
+				groupDefinitionMap.put(def.getReferenceClass(),
+					def.getPrimitiveName(), def);
+		if (existingDef != null)
+		{
+			Logging.errorPrint("Duplicate Group Definition in "
+				+ def.getReferenceClass().getSimpleName() + ": "
+				+ def.getPrimitiveName() + ". Classes were "
+				+ existingDef.getClass().getName() + " and "
+				+ def.getClass().getName());
+		}
+	}
+	
+	public GroupDefinition<?> getGroup(Class<?> cl, String name)
+	{
+		return groupDefinitionMap.get(cl, name);
 	}
 }

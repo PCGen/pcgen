@@ -58,14 +58,14 @@ public class AbbToken extends AbstractNonEmptyToken<SizeAdjustment> implements
 		{
 			return new ParseResult.Fail(e.getLocalizedMessage(), context);
 		}
-		context.getObjectContext().put(size, StringKey.ABB, value);
+		context.getObjectContext().put(size, StringKey.ABB_KR, value);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, SizeAdjustment size)
 	{
-		String abb = context.getObjectContext().getString(size, StringKey.ABB);
+		String abb = context.getObjectContext().getString(size, StringKey.ABB_KR);
 		if (abb == null)
 		{
 			return null;

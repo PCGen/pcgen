@@ -31,11 +31,11 @@ import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.content.RollMethod;
+import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -660,7 +660,7 @@ public class NPCGenerator
 					
 					selectDomains( aPC, pcClass );
 					
-					if (pcClass.get(StringKey.SPELLTYPE) != null)
+					if (pcClass.get(FactKey.valueOf("SpellType")) != null)
 					{
 						// This is a spellcasting class.  We may have to select
 						// spells of some sort (known or prepared).

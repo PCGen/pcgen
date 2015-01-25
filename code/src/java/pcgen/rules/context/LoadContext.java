@@ -23,6 +23,7 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.DataSetID;
@@ -145,4 +146,6 @@ public interface LoadContext
 	 *            The "local" token to be loaded into this LoadContext
 	 */
 	public void loadLocalToken(Object token);
+	
+	public GroupDefinition<?> getGroup(Class<?> cl, String s);
 }

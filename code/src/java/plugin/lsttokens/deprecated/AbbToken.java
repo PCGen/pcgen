@@ -15,35 +15,31 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.lsttokens.equipment;
+package plugin.lsttokens.deprecated;
 
-import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.Equipment;
-import pcgen.rules.persistence.token.AbstractStringToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.core.PCClass;
+import pcgen.rules.persistence.token.AbstractToFactToken;
 
 /**
- * Deals with RATEOFFIRE token
+ * Class deals with ABB Token for PCC files
  */
-public class RateoffireToken extends AbstractStringToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class AbbToken extends AbstractToFactToken<PCClass>
 {
 
+	/**
+	 * Return token name
+	 * 
+	 * @return token name
+	 */
 	@Override
 	public String getTokenName()
 	{
-		return "RATEOFFIRE";
+		return "ABB";
 	}
 
 	@Override
-	public Class<Equipment> getTokenClass()
+	public Class<PCClass> getTokenClass()
 	{
-		return Equipment.class;
-	}
-
-	@Override
-	protected StringKey stringKey()
-	{
-		return StringKey.RATE_OF_FIRE;
+		return PCClass.class;
 	}
 }

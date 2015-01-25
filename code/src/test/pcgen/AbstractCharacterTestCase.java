@@ -12,6 +12,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
+import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -23,6 +24,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -30,6 +32,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
@@ -81,6 +84,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		final GameMode gamemode = SettingsHandler.getGame();
+		LoadContext context = Globals.getContext();
 		
 		str = BuildUtilities.createStat("Strength", "STR");
 		str.put(VariableKey.getConstant("LOADSCORE"),
@@ -119,7 +123,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		gamemode.setBonusFeatLevels("3|3");
 		SettingsHandler.setGame("3.5");
 
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+		AbstractReferenceContext ref = context.getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
@@ -141,7 +145,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
 		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 
-		GameModeFileLoader.addDefaultWieldCategories(Globals.getContext());
+		GameModeFileLoader.addDefaultWieldCategories(context);
 		
 		ref.importObject(str);
 		ref.importObject(dex);
@@ -151,6 +155,12 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		ref.importObject(cha);
 
 		ref.constructCDOMObject(Language.class, "All Language For Test");
+
+		BuildUtilities.createFact(context, "ClassType", PCClass.class);
+		FactDefinition<?, String> fd =
+				BuildUtilities.createFact(context, "SpellType", PCClass.class);
+		fd.setSelectable(true);
+		SourceFileLoader.processFactDefinitions(context);
 
 		fine = BuildUtilities.createSize("Fine");
 		diminutive = BuildUtilities.createSize("Diminutive");
@@ -163,11 +173,13 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 		gargantuan = BuildUtilities.createSize("Gargantuan");
 		colossal = BuildUtilities.createSize("Colossal");
 
-		SourceFileLoader.createLangBonusObject(Globals.getContext());
+		SourceFileLoader.createLangBonusObject(context);
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
 		ref.importObject(AbilityCategory.FEAT);
 		additionalSetUp();
+		context.getReferenceContext().buildDerivedObjects();
+		context.resolveDeferredTokens();
 		assertTrue(ref.resolveReferences(null));
 
 		character = new PlayerCharacter();

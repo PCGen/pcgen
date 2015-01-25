@@ -107,7 +107,6 @@ public class FactSetGroupDefinition<T extends CDOMObject, F> implements
 	@Override
 	public ObjectContainer<T> getPrimitive(LoadContext context, String value)
 	{
-		//TODO Need to implement this
-		return null;
+		return new FactSetGroup<T, F>(context, def, value);
 	}
 }
