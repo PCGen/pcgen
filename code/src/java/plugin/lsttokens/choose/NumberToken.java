@@ -17,30 +17,21 @@
  */
 package plugin.lsttokens.choose;
 
-import java.util.StringTokenizer;
-
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.EquipmentModifier;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 /**
  * New chooser plugin, handles numbers.
  */
-public class NumberToken implements CDOMSecondaryToken<CDOMObject>
+public class NumberToken implements CDOMCompatibilityToken<CDOMObject>
 {
 
 	@Override
 	public String getTokenName()
-	{
-		return "NUMBER";
-	}
-
-	@Override
-	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
@@ -49,84 +40,53 @@ public class NumberToken implements CDOMSecondaryToken<CDOMObject>
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
-		if (value == null)
+		if (!value.startsWith("NUMBER|"))
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments", context);
+			return new ParseResult.Fail("Incompatible");
 		}
-		if (value.indexOf('[') != -1)
+		Logging.deprecationPrint("CHOOSE:NUMBER is deprecated, please use TEMPVALUE");
+		try
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value, context);
+			if (!context.processToken(obj, "TEMPVALUE", value))
+			{
+				Logging.replayParsedMessages();
+				return new ParseResult.Fail(
+					"Internal Error in delegation of CHOOSE:NUMBER to TEMPVALUE",
+					context);
+			}
 		}
-		if (value.charAt(0) == '|')
+		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value, context);
+			Logging.replayParsedMessages();
+			return new ParseResult.Fail(
+				"Error in delegation of CHOOSE:NUMBER to TEMPVALUE: "
+					+ e.getLocalizedMessage(), context);
 		}
-		if (value.charAt(value.length() - 1) == '|')
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value, context);
-		}
-		if (value.indexOf("||") != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value, context);
-		}
-		int pipeLoc = value.indexOf(Constants.PIPE);
-		if (pipeLoc == -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-							+ " must have two or more | delimited arguments : "
-							+ value, context);
-		}
-		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		if (tok.countTokens() != 3)
-		{
-			return new ParseResult.Fail("COUNT:" + getTokenName()
-					+ " requires three arguments, MIN=, MAX= and TITLE= : "
-					+ value, context);
-		}
-		if (!tok.nextToken().startsWith("MIN="))
-		{
-			return new ParseResult.Fail("COUNT:" + getTokenName()
-					+ " first argument was not MIN=", context);
-		}
-		if (!tok.nextToken().startsWith("MAX="))
-		{
-			return new ParseResult.Fail("COUNT:" + getTokenName()
-					+ " second argument was not MAX=", context);
-		}
-		if (!tok.nextToken().startsWith("TITLE="))
-		{
-			return new ParseResult.Fail("COUNT:" + getTokenName()
-					+ " third argument was not TITLE=", context);
-		}
-		StringBuilder sb = new StringBuilder(value.length() + 20);
-		sb.append(getTokenName()).append('|').append(value);
-		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, sb.toString());
-		return ParseResult.SUCCESS;
-	}
 
-	@Override
-	public String[] unparse(LoadContext context, CDOMObject cdo)
-	{
-		String chooseString = context.getObjectContext().getString(cdo,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-			|| chooseString.indexOf(getTokenName() + '|') != 0
-			|| cdo instanceof EquipmentModifier)
-		{
-			return null;
-		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
+		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
+	}
+
+	@Override
+	public int compatibilityLevel()
+	{
+		return 6;
+	}
+
+	@Override
+	public int compatibilitySubLevel()
+	{
+		return 4;
+	}
+
+	@Override
+	public int compatibilityPriority()
+	{
+		return 20;
 	}
 }

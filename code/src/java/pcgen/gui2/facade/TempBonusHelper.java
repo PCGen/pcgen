@@ -30,10 +30,8 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
-import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.BonusManager;
@@ -46,11 +44,11 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.EquipBonus;
 import pcgen.core.display.BonusDisplay;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.PrereqHandler;
 import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.UIDelegate;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -253,7 +251,7 @@ public class TempBonusHelper
 			BonusObj aBonus = eb.bonus;
 			String oldValue = aBonus.toString();
 			String newValue = oldValue;
-			if (originObj.getSafe(StringKey.CHOICE_STRING).length() > 0)
+			if (originObj.getSafe(StringKey.TEMPVALUE).length() > 0)
 			{
 				BonusInfo bi =
 						TempBonusHelper.getBonusChoice(oldValue, originObj,
@@ -313,7 +311,7 @@ public class TempBonusHelper
 		{
 			String oldValue = aBonus.toString();
 			String newValue = oldValue;
-			if (originObj.getSafe(StringKey.CHOICE_STRING).length() > 0)
+			if (originObj.getSafe(StringKey.TEMPVALUE).length() > 0)
 			{
 				BonusInfo bi =
 						TempBonusHelper.getBonusChoice(oldValue, originObj,
@@ -420,93 +418,54 @@ public class TempBonusHelper
 			return new BonusInfo(value, repeatValue);
 		}
 
-		String aChoice = source.getSafe(StringKey.CHOICE_STRING);
+		String aChoice = source.getSafe(StringKey.TEMPVALUE);
 		StringTokenizer aTok = new StringTokenizer(aChoice, "|"); //$NON-NLS-1$
 
-		String testNumber = aChoice;
+		String minString = aTok.nextToken().substring(4); //Take off MIN=
+		String maxString = aTok.nextToken().substring(4); //Take off MAX=
+		String titleString = aTok.nextToken().substring(6); // Take off TITLE=
+
+		int min = pc.getVariableValue(minString, EMPTY_STRING).intValue();
+		int max = pc.getVariableValue(maxString, EMPTY_STRING).intValue();
 		
-		Formula numchoices = source.get(FormulaKey.NUMCHOICES);
-		if (numchoices != null)
+		if (max < min)
 		{
-			Logging.errorPrint("NUMCHOICES is not implemented " //$NON-NLS-1$
-					+ "for CHOOSE in Temporary Mods"); //$NON-NLS-1$
-			Logging.errorPrint("  CHOOSE was: " + aChoice //$NON-NLS-1$
-					+ ", NUMCHOICES was: " + numchoices); //$NON-NLS-1$
+			Logging.errorPrint("Temp Bonus Value had max < min: " + max + "<" + min);
+			return null;
 		}
-		if (testNumber.startsWith("NUMBER") && (aTok.countTokens() >= 3)) //$NON-NLS-1$
+		if (max <= 0)
 		{
-			int min;
-			int max;
-			aTok.nextToken(); // throw away "NUMBER"
-
-			String minString = aTok.nextToken();
-			String maxString = aTok.nextToken();
-			String titleString = LanguageBundle.getString("in_itmPickNumber"); //$NON-NLS-1$
-
-			if (aTok.hasMoreTokens())
-			{
-				titleString = aTok.nextToken();
-
-				if (titleString.startsWith("TITLE=")) //$NON-NLS-1$
-				{
-					// remove TITLE=
-					titleString = titleString.substring(6);
-				}
-			}
-
-			if (minString.startsWith("MIN=")) //$NON-NLS-1$
-			{
-				minString = minString.substring(4);
-				min = pc.getVariableValue(minString, EMPTY_STRING).intValue();
-			}
-			else
-			{
-				min = pc.getVariableValue(minString, EMPTY_STRING).intValue();
-			}
-
-			if (maxString.startsWith("MAX=")) //$NON-NLS-1$
-			{
-				maxString = maxString.substring(4);
-				max = pc.getVariableValue(maxString, EMPTY_STRING).intValue();
-			}
-			else
-			{
-				max = pc.getVariableValue(maxString, EMPTY_STRING).intValue();
-			}
-
-			if ((max > 0) || (min <= max))
-			{
-				List<Integer> numberList = new ArrayList<Integer>();
-
-				for (int i = min; i <= max; i++)
-				{
-					numberList.add(i);
-				}
-
-				// let them choose the number from a radio list
-				List<Integer> selectedList = new ArrayList<Integer>();
-				selectedList = Globals.getChoiceFromList(titleString, numberList, selectedList, 1,
-					false, true, pc);
-				if (selectedList.size() > 0)
-				{
-					final String aI = String.valueOf(selectedList.get(0));
-
-					// need to parse the bonus.getValue()
-					// string and replace %CHOICE
-					if (oldValue.indexOf("%CHOICE") >= 0) //$NON-NLS-1$
-					{
-						value =
-							oldValue.replaceAll(Pattern.quote("%CHOICE"),  //$NON-NLS-1$
-								                  aI);
-					}
-
-					return new BonusInfo(value, aI);
-				}
-				// they hit the cancel button
-				return null;
-			}
+			Logging.errorPrint("Temp Bonus Value had max <= 0: " + max);
+			return null;
 		}
 
+		List<Integer> numberList = new ArrayList<Integer>();
+
+		for (int i = min; i <= max; i++)
+		{
+			numberList.add(i);
+		}
+
+		// let them choose the number from a radio list
+		List<Integer> selectedList = new ArrayList<Integer>();
+		selectedList =
+				Globals.getChoiceFromList(titleString, numberList,
+					selectedList, 1, false, true, pc);
+		if (selectedList.size() > 0)
+		{
+			final String aI = String.valueOf(selectedList.get(0));
+
+			// need to parse the bonus.getValue()
+			// string and replace %CHOICE
+			if (oldValue.indexOf("%CHOICE") >= 0) //$NON-NLS-1$
+			{
+				value = oldValue.replaceAll(Pattern.quote("%CHOICE"), //$NON-NLS-1$
+					aI);
+			}
+
+			return new BonusInfo(value, aI);
+		}
+		// they hit the cancel button
 		return null;
 	}
 	
