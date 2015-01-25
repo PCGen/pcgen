@@ -17,7 +17,7 @@
  */
 package pcgen.base.geom;
 
-import java.math.BigDecimal;
+import pcgen.base.lang.NumberUtilities;
 
 /**
  * A GridPoint is an arbitrary precision, immutable peer of Point2D.
@@ -139,15 +139,7 @@ public class GridPoint
 		try
 		{
 			String widthString = value.substring(0, commaLoc).trim();
-			//CONSIDER is there a way to *reliably* know if a decimal can be stored in a Double?
-			if (widthString.length() < 8 && widthString.indexOf('.') == -1)
-			{
-				width = Integer.valueOf(widthString);
-			}
-			else
-			{
-				width = new BigDecimal(widthString);
-			}
+			width = NumberUtilities.getPreciseNumber(widthString);
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -157,14 +149,7 @@ public class GridPoint
 		try
 		{
 			String heightString = value.substring(commaLoc + 1).trim();
-			if (heightString.length() < 8 && heightString.indexOf('.') == -1)
-			{
-				height = Integer.valueOf(heightString);
-			}
-			else
-			{
-				height = new BigDecimal(heightString);
-			}
+			height = NumberUtilities.getPreciseNumber(heightString);
 		}
 		catch (NumberFormatException ne)
 		{
