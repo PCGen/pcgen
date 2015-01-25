@@ -42,12 +42,12 @@ public class NumberToken implements CDOMCompatibilityToken<CDOMObject>
 	{
 		if (!value.startsWith("NUMBER|"))
 		{
-			return new ParseResult.Fail("Incompatible");
+			return new ParseResult.Fail("Incompatible with NUMBER|: " + value);
 		}
 		Logging.deprecationPrint("CHOOSE:NUMBER is deprecated, please use TEMPVALUE");
 		try
 		{
-			if (!context.processToken(obj, "TEMPVALUE", value))
+			if (!context.processToken(obj, "TEMPVALUE", value.substring(7)))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail(

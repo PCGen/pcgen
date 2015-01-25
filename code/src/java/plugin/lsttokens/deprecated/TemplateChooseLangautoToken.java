@@ -48,7 +48,8 @@ public class TemplateChooseLangautoToken extends
 	{
 		if (!value.startsWith("LANGAUTO|"))
 		{
-			return new ParseResult.Fail("Incompatible");
+			return new ParseResult.Fail(
+				"Incompatible with CHOOSE:LANGAUTO replacement in Template");
 		}
 		Logging.deprecationPrint("CHOOSE:LANGAUTO is deprecated, "
 			+ "please use CHOOSE:LANG and AUTO:LANG|%LIST");

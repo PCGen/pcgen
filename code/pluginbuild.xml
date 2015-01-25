@@ -7216,7 +7216,7 @@ jar-all-plugins - Generate the plugin jar files
 		<jar jarfile="${lstplugins.dir}/ChooseToken-DEPRECATED-NUMBER.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/lsttokens/deprecated/NumberToken.class" />
+					<include name="plugin/lsttokens/choose/NumberToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
