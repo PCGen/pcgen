@@ -20,6 +20,7 @@
  */
 package pcgen.core;
 
+import pcgen.cdom.base.NonInteractive;
 import pcgen.facade.core.AlignmentFacade;
 
 /**
@@ -28,6 +29,7 @@ import pcgen.facade.core.AlignmentFacade;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public final class PCAlignment extends PObject implements AlignmentFacade
+public final class PCAlignment extends PObject implements AlignmentFacade,
+		NonInteractive
 {
 }

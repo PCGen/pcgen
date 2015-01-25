@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -57,6 +58,12 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
+				+ obj.getClass().getSimpleName(), context);
+		}
+		if (obj instanceof NonInteractive)
+		{
+			return new ParseResult.Fail("Cannot use " + getTokenName()
+				+ " on an Non-Interactive object type: "
 				+ obj.getClass().getSimpleName(), context);
 		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
