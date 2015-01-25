@@ -24,6 +24,7 @@ package pcgen.core.spell;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.SpellList;
@@ -42,7 +43,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
  * @version $Revision$
  */
 @SuppressWarnings("serial")
-public final class Spell extends PObject implements InfoFacade
+public final class Spell extends PObject implements InfoFacade, Ungranted
 {
 	public static final CDOMReference<SpellList> SPELLS;
 
