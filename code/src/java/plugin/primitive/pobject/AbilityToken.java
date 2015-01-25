@@ -23,6 +23,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.GroupingState;
@@ -34,10 +35,14 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.util.Logging;
 
-public class FeatToken<T> implements PrimitiveToken<T>
+public class AbilityToken<T> implements PrimitiveToken<T>
 {
 
+	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
+
 	private CDOMSingleRef<Ability> ref;
+	
+	private Category<Ability> category;
 
 	private Class<T> refClass;
 
@@ -45,14 +50,16 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	public boolean initialize(LoadContext context, Class<T> cl, String value,
 			String args)
 	{
-		Logging.deprecationPrint("FEAT=x is deprecated in CHOOSE, "
-			+ "please use ABILITY=FEAT[x]");
-		if (args != null)
+		if (args == null)
 		{
+			Logging.errorPrint("Syntax for ABILITY primitive is ABILITY=category[key]");
 			return false;
 		}
-		ref = context.getReferenceContext().getCDOMReference(Ability.class, AbilityCategory.FEAT,
-				value);
+		Category<Ability> cat = context.getReferenceContext()
+				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, value);
+		category = cat;
+		ref = context.getReferenceContext().getCDOMReference(Ability.class, cat,
+				args);
 		refClass = cl;
 		return true;
 	}
@@ -60,7 +67,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	@Override
 	public String getTokenName()
 	{
-		return "FEAT";
+		return "ABILITY";
 	}
 
 	@Override
@@ -79,7 +86,8 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return "ABILITY=FEAT[" + ref.getLSTformat(useAny) + "]";
+		return "ABILITY=" + category.getLSTformat() + "["
+			+ ref.getLSTformat(useAny) + "]";
 	}
 
 	private <R> List<R> getList(PlayerCharacter pc, Ability a)
@@ -112,9 +120,9 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		{
 			return true;
 		}
-		if (obj instanceof FeatToken)
+		if (obj instanceof AbilityToken)
 		{
-			FeatToken<?> other = (FeatToken<?>) obj;
+			AbilityToken<?> other = (AbilityToken<?>) obj;
 			if (ref == null)
 			{
 				return (other.ref == null) && (refClass == null)
