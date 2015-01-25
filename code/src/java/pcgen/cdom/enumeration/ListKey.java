@@ -278,6 +278,9 @@ public final class ListKey<T>
 	public static final ListKey<EquipBonus> BONUS_EQUIP = new ListKey<EquipBonus>();
 	public static final ListKey<CDOMReference<WeaponProf>> WEAPONBONUS = new ListKey<CDOMReference<WeaponProf>>();
 	public static final ListKey<String> SITUATION = new ListKey<String>();
+	public static final ListKey<FactKey<?>> REMOVED_FACTKEY = new ListKey<FactKey<?>>();
+	public static final ListKey<FactSetKey<?>> REMOVED_FACTSETKEY = new ListKey<FactSetKey<?>>();
+	public static final ListKey<CampaignSourceEntry> FILE_DATACTRL = new ListKey<CampaignSourceEntry>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 

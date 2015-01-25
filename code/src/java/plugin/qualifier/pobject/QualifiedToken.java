@@ -164,7 +164,7 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>,
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		Converter<T, R> conv = new AddFilterConverter<T, R>(c, this);
 		conv = negated ? new NegateFilterConverter<T, R>(conv) : conv;

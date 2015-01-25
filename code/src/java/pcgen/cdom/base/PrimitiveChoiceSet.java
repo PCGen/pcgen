@@ -80,7 +80,7 @@ public interface PrimitiveChoiceSet<T>
 	 * @return A Set containing the Objects which this PrimitiveChoiceSet
 	 *         contains.
 	 */
-	public Collection<T> getSet(PlayerCharacter pc);
+	public Collection<? extends T> getSet(PlayerCharacter pc);
 
 	/**
 	 * The class of object this PrimitiveChoiceSet contains.

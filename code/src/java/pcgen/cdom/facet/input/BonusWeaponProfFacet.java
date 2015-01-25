@@ -18,8 +18,8 @@
 package pcgen.cdom.facet.input;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.WeaponProfFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
-import pcgen.cdom.facet.model.WeaponProfFacet;
 import pcgen.core.WeaponProf;
 
 /**

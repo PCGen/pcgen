@@ -224,7 +224,7 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	 *         PlayerCharacter.
 	 */
 	@Override
-	public Collection<T> getSet(PlayerCharacter pc)
+	public Collection<? extends T> getSet(PlayerCharacter pc)
 	{
 		return pcs.getSet(pc);
 	}

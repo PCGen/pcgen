@@ -32,7 +32,11 @@ import java.util.Set;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.base.util.Indirect;
 import pcgen.base.util.MapToList;
+import pcgen.base.util.ObjectContainer;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -40,6 +44,7 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.util.FactSetKeyMapToList;
 import pcgen.cdom.util.ListKeyMapToList;
 import pcgen.cdom.util.MapKeyMap;
 import pcgen.core.Description;
@@ -79,6 +84,14 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	/** A map to hold items keyed by Strings for the object */
 	// TODO make this final once clone() is no longer required...
 	private Map<ObjectKey<?>, Object> objectChar = null;
+
+	/** A map to hold items keyed by Strings for the object */
+	// TODO make this final once clone() is no longer required...
+	private Map<FactKey<?>, Object> factChar = null;
+
+	/** A map to hold items keyed by Strings for the object */
+	// TODO make this final once clone() is no longer required...
+	private FactSetKeyMapToList factSetChar = null;
 
 	/** A map of Lists for the object */
 	// TODO make this final once clone() is no longer required...
@@ -298,6 +311,139 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public final Set<ObjectKey<?>> getObjectKeys()
 	{
 		return objectChar == null ? Collections.<ObjectKey<?>>emptySet() : new HashSet<ObjectKey<?>>(objectChar.keySet());
+	}
+
+	public final boolean containsKey(FactKey<?> key)
+	{
+		return factChar == null ? false : factChar.containsKey(key);
+	}
+
+	public final <FT> Indirect<FT> get(FactKey<FT> key)
+	{
+		if (factChar == null)
+		{
+			return null;
+		}
+		return (Indirect<FT>) factChar.get(key);
+	}
+
+	public final <FT> FT getResolved(FactKey<FT> key)
+	{
+		if (factChar == null)
+		{
+			return null;
+		}
+		Indirect<FT> indirect = (Indirect<FT>) factChar.get(key);
+		return indirect.resolvesTo();
+	}
+
+	public final <FT> FT put(FactKey<FT> key, Indirect<FT> value)
+	{
+		if (factChar == null)
+		{
+			factChar = new HashMap<FactKey<?>, Object>();
+		}
+		return key.cast(factChar.put(key, value));
+	}
+
+	public final <FT> FT remove(FactKey<FT> key)
+	{
+		FT out = factChar == null ? null : key.cast(factChar.remove(key));
+		if (out != null && factChar.isEmpty())
+		{
+			factChar = null;
+		}
+		return out;
+	}
+
+	public final Set<FactKey<?>> getFactKeys()
+	{
+		return factChar == null ? Collections.<FactKey<?>>emptySet() : new HashSet<FactKey<?>>(factChar.keySet());
+	}
+
+	public final boolean containsSetFor(FactSetKey<?> key)
+	{
+		return factSetChar == null ? false : factSetChar.containsListFor(key);
+	}
+
+	public final <T> void addToSetFor(FactSetKey<T> key, ObjectContainer<T> element)
+	{
+		if (factSetChar == null)
+		{
+			factSetChar = new FactSetKeyMapToList();
+		}
+		factSetChar.addToListFor(key, element);
+	}
+
+	public final <T> void addAllToSetFor(FactSetKey<T> key, Collection<ObjectContainer<T>> elementCollection)
+	{
+		if (factSetChar == null)
+		{
+			factSetChar = new FactSetKeyMapToList();
+		}
+		factSetChar.addAllToListFor(key, elementCollection);
+	}
+
+	public final <T> List<ObjectContainer<T>> getSetFor(FactSetKey<T> key)
+	{
+		return factSetChar == null ? null : factSetChar.getListFor(key);
+	}
+
+	public final <T> List<ObjectContainer<T>> getSafeSetFor(FactSetKey<T> key)
+	{
+		return factSetChar != null && factSetChar.containsListFor(key) ? factSetChar.getListFor(key)
+				: new ArrayList<ObjectContainer<T>>();
+	}
+	
+	public final String getSetAsString(FactSetKey<?> key)
+	{
+		return StringUtil.join(getSetFor(key), ", ");
+	}
+
+	public final int getSizeOfSetFor(FactSetKey<?> key)
+	{
+		// The javadoc says throw NPE, but the code returns 0, so I also return 0 here
+		return factSetChar == null ? 0 : factSetChar.sizeOfListFor(key);
+	}
+
+	public final int getSafeSizeOfSetFor(FactSetKey<?> key)
+	{
+		return factSetChar == null ? 0 : factSetChar.containsListFor(key) ? factSetChar.sizeOfListFor(key) : 0;
+	}
+
+	public final <T> boolean containsInSet(FactSetKey<T> key, ObjectContainer<T> element)
+	{
+		return factSetChar == null ? false : factSetChar.containsInList(key, element);
+	}
+
+	public final <T> boolean containsAnyInSet(FactSetKey<T> key, Collection<ObjectContainer<T>> elementCollection)
+	{
+		return factSetChar == null ? false : factSetChar.containsAnyInList(key, elementCollection);
+	}
+
+	public final <T> List<ObjectContainer<T>> removeSetFor(FactSetKey<T> key)
+	{
+		List<ObjectContainer<T>> out = factSetChar == null ? null : factSetChar.removeListFor(key);
+		if (out != null && factSetChar.isEmpty())
+		{
+			factSetChar = null;
+		}
+		return out;
+	}
+
+	public final <T> boolean removeFromSetFor(FactSetKey<T> key, ObjectContainer<T> element)
+	{
+		boolean removed = factSetChar == null ? false : factSetChar.removeFromListFor(key, element);
+		if (removed && factSetChar.isEmpty())
+		{
+			factSetChar = null;
+		}
+		return removed;
+	}
+
+	public final Set<FactSetKey<?>> getFactSetKeys()
+	{
+		return factSetChar == null ? Collections.<FactSetKey<?>>emptySet() : factSetChar.getKeySet();
 	}
 
 	public final boolean containsListFor(ListKey<?> key)
@@ -655,6 +801,12 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			// System.err.println(objectChar + " " + cdo.objectChar);
 			return false;
 		}
+		if (factChar == null ? cdo.factChar != null : !factChar.equals(cdo.factChar))
+		{
+			// System.err.println("CDOM Inequality Object");
+			// System.err.println(objectChar + " " + cdo.objectChar);
+			return false;
+		}
 		if (listChar == null ? cdo.listChar != null : !listChar.equals(cdo.listChar))
 		{
 //			 System.err.println("CDOM Inequality List");
@@ -801,6 +953,14 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			}
 			objectChar.putAll(cdo.objectChar);
 		}
+		if (cdo.factChar != null)
+		{
+			if (factChar == null)
+			{
+				factChar = new HashMap<FactKey<?>, Object>();
+			}
+			factChar.putAll(cdo.factChar);
+		}
 		if (cdo.variableChar != null)
 		{
 			if (variableChar == null)
@@ -816,6 +976,14 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 				listChar = new ListKeyMapToList();
 			}
 			listChar.addAllLists(cdo.listChar);
+		}
+		if (cdo.factSetChar != null)
+		{
+			if (factSetChar == null)
+			{
+				factSetChar = new FactSetKeyMapToList();
+			}
+			factSetChar.addAllLists(cdo.factSetChar);
 		}
 		if (cdo.mapChar != null)
 		{
@@ -846,10 +1014,16 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		clone.formulaChar = formulaChar == null ? null : new HashMap<FormulaKey, Formula>(formulaChar);
 		clone.variableChar = variableChar == null ? null : new HashMap<VariableKey, Formula>(variableChar);
 		clone.objectChar = objectChar == null ? null : new HashMap<ObjectKey<?>, Object>(objectChar);
+		clone.factChar = factChar == null ? null : new HashMap<FactKey<?>, Object>(factChar);
 		if (listChar != null)
 		{
 			clone.listChar = new ListKeyMapToList();
 			clone.listChar.addAllLists(listChar);
+		}
+		if (factSetChar != null)
+		{
+			clone.factSetChar = new FactSetKeyMapToList();
+			clone.factSetChar.addAllLists(factSetChar);
 		}
 		if (mapChar != null)
 		{

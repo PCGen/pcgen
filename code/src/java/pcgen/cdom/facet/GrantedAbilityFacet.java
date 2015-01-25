@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
@@ -33,6 +34,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+import pcgen.output.publish.OutputDB;
 import pcgen.util.enumeration.View;
 
 /**
@@ -42,7 +44,8 @@ import pcgen.util.enumeration.View;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
-		DataFacetChangeListener<CharID, CNAbilitySelection>
+		DataFacetChangeListener<CharID, CNAbilitySelection>,
+		SetFacet<CharID, CNAbilitySelection>
 {
 
 	public boolean hasAbilityVisibleTo(CharID id, Category<Ability> cat,
@@ -215,5 +218,10 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 			}
 		}
 		return false;
+	}
+	
+	public void init()
+	{
+		OutputDB.register("abilities", this);
 	}
 }

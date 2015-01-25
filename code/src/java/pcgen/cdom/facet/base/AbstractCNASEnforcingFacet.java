@@ -175,11 +175,27 @@ public class AbstractCNASEnforcingFacet extends
 		}
 	}
 
+	public int getCount(CharID id)
+	{
+		List<List<SourcedCNAS>> list = getList(id);
+		int count = 0;
+		if (list != null)
+		{
+			for (List<SourcedCNAS> orig : list)
+			{
+				count += orig.size();
+			}
+		}
+		return count;
+	}
+
+	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 	{
 		add(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
+	@Override
 	public void dataRemoved(
 		DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 	{

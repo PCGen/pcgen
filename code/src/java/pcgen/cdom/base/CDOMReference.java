@@ -19,6 +19,7 @@ package pcgen.cdom.base;
 
 import java.util.Collection;
 
+import pcgen.base.util.ObjectContainer;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -35,7 +36,8 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            The class of object this CDOMReference refers to.
  */
-public abstract class CDOMReference<T> implements PrimitiveCollection<T>
+public abstract class CDOMReference<T> implements ObjectContainer<T>,
+		PrimitiveCollection<T>
 {
 
 	/**
@@ -131,6 +133,7 @@ public abstract class CDOMReference<T> implements PrimitiveCollection<T>
 	 * @return true if the given Object is included in the Collection of Objects
 	 *         to which this CDOMReference refers; false otherwise.
 	 */
+	@Override
 	public abstract boolean contains(T item);
 
 	/**
@@ -176,6 +179,7 @@ public abstract class CDOMReference<T> implements PrimitiveCollection<T>
 	 * @return A Collection containing the Objects to which this CDOMReference
 	 *         refers.
 	 */
+	@Override
 	public abstract Collection<T> getContainedObjects();
 
 	/**
@@ -193,7 +197,7 @@ public abstract class CDOMReference<T> implements PrimitiveCollection<T>
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		return c.convert(this);
 	}

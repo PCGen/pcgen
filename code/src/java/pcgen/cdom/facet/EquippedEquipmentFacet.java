@@ -22,10 +22,12 @@ import java.util.IdentityHashMap;
 import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
+import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractDataFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.core.Equipment;
+import pcgen.output.publish.OutputDB;
 
 /**
  * EquippedEquipmentFacet is a Facet that tracks the Equipment that is Equipped
@@ -33,7 +35,9 @@ import pcgen.core.Equipment;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class EquippedEquipmentFacet extends AbstractDataFacet<CharID, Equipment>
+public class EquippedEquipmentFacet extends
+		AbstractDataFacet<CharID, Equipment> implements
+		SetFacet<CharID, Equipment>
 {
 	private EquipmentFacet equipmentFacet;
 
@@ -114,6 +118,7 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<CharID, Equipment>
 	 *         EquippedEquipmentFacet for the Player Character represented by
 	 *         the given CharID
 	 */
+	@Override
 	public Set<Equipment> getSet(CharID id)
 	{
 		Set<Equipment> set = (Set<Equipment>) getCache(id);
@@ -125,6 +130,25 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<CharID, Equipment>
 				IdentityHashMap.class);
 		returnEquipped.addAll(set);
 		return returnEquipped;
+	}
+
+	/**
+	 * Returns the count of the number of Equipment objects in this
+	 * EquippedEquipmentFacet for the Player Character represented by the given
+	 * CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            count of the number of items in this EquippedEquipmentFacet
+	 *            should be returned
+	 * @return The count of the number of items in this EquippedEquipmentFacet
+	 *         for the Player Character represented by the given CharID
+	 */
+	@Override
+	public int getCount(CharID id)
+	{
+		Set<Equipment> set = (Set<Equipment>) getCache(id);
+		return (set == null) ? 0 : set.size();
 	}
 
 	public void setEquipmentFacet(EquipmentFacet equipmentFacet)
@@ -175,5 +199,10 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<CharID, Equipment>
 	public void removeAll(CharID id)
 	{
 		removeCache(id);		
+	}
+
+	public void init()
+	{
+		OutputDB.register("equipment.equipped", this);
 	}
 }

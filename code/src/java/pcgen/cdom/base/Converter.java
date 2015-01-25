@@ -19,10 +19,12 @@ package pcgen.cdom.base;
 
 import java.util.Collection;
 
+import pcgen.base.util.ObjectContainer;
+
 public interface Converter<B, R>
 {
 
-	Collection<R> convert(CDOMReference<B> orig);
+	Collection<? extends R> convert(ObjectContainer<B> orig);
 
-	Collection<R> convert(CDOMReference<B> orig, PrimitiveFilter<B> lim);
+	Collection<? extends R> convert(ObjectContainer<B> orig, PrimitiveFilter<B> lim);
 }

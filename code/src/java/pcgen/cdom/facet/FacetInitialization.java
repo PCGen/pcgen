@@ -37,7 +37,6 @@ import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.cdom.facet.model.WeaponProfFacet;
 
 public final class FacetInitialization
 {

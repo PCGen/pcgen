@@ -108,7 +108,7 @@ public class BaseSizeToken implements PrimitiveToken<Race>,
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
 		Converter<Race, R> c)
 	{
 		return c.convert(allRaces, this);

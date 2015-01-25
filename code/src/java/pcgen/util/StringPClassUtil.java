@@ -18,14 +18,19 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Kit;
 import pcgen.core.Language;
+import pcgen.core.PCAlignment;
+import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.ShieldProf;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.WeaponProf;
+import pcgen.core.character.CompanionMod;
 import pcgen.core.spell.Spell;
 
 public class StringPClassUtil
@@ -42,6 +47,9 @@ public class StringPClassUtil
 		catClassMap = new HashMap<String, Class<? extends Category<?>>>();
 
 		classMap.put("ABILITY", Ability.class);
+		classMap.put("ALIGNMENT", PCAlignment.class);
+		classMap.put("CHECK", PCCheck.class);
+		classMap.put("COMPANIONMOD", CompanionMod.class);
 		classMap.put("DEITY", Deity.class);
 		classMap.put("DOMAIN", Domain.class);
 		classMap.put("EQUIPMENT", Equipment.class);
@@ -52,6 +60,8 @@ public class StringPClassUtil
 		classMap.put("RACE", Race.class);
 		classMap.put("SPELL", Spell.class);
 		classMap.put("SKILL", Skill.class);
+		classMap.put("STAT", PCStat.class);
+		classMap.put("SIZEADJUSTMENT", SizeAdjustment.class);
 		classMap.put("TEMPLATE", PCTemplate.class);
 		classMap.put("WEAPONPROF", WeaponProf.class);
 		classMap.put("ARMORPROF", ArmorProf.class);
@@ -60,6 +70,9 @@ public class StringPClassUtil
 		classMap.put("CLASSSKILLLIST", ClassSkillList.class);
 		classMap.put("DOMAINSPELLLIST", DomainSpellList.class);
 
+		stringMap.put(PCAlignment.class, "ALIGNMENT");
+		stringMap.put(PCCheck.class, "CHECK");
+		stringMap.put(CompanionMod.class, "COMPANIONMOD");
 		stringMap.put(Deity.class, "DEITY");
 		stringMap.put(Domain.class, "DOMAIN");
 		stringMap.put(Equipment.class, "EQUIPMENT");
@@ -71,6 +84,8 @@ public class StringPClassUtil
 		stringMap.put(Race.class, "RACE");
 		stringMap.put(Spell.class, "SPELL");
 		stringMap.put(Skill.class, "SKILL");
+		stringMap.put(PCStat.class, "STAT");
+		stringMap.put(SizeAdjustment.class, "SIZEADJUSTMENT");
 		stringMap.put(PCTemplate.class, "TEMPLATE");
 		stringMap.put(WeaponProf.class, "WEAPONPROF");
 		stringMap.put(ArmorProf.class, "ARMORPROF");

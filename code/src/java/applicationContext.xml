@@ -640,7 +640,9 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<!-- W -->
-	<bean id="weaponProfFacet" class="pcgen.cdom.facet.model.WeaponProfFacet">
+	<bean id="weaponProfFacet" class="pcgen.cdom.facet.WeaponProfFacet"/>
+	<bean id="weaponProfModelFacet" class="pcgen.cdom.facet.model.WeaponProfModelFacet">
+		<property name="weaponProfFacet" ref="weaponProfFacet"/>
 		<property name="autoWeaponProfFacet" ref="autoWeaponProfFacet"/>
 		<property name="hasDeityWeaponProfFacet" ref="hasDeityWeaponProfFacet"/>
 		<property name="deityWeaponProfFacet" ref="deityWeaponProfFacet"/>

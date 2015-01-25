@@ -17,9 +17,11 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.PCCheck;
+import pcgen.output.publish.OutputDB;
 
 /**
  * CheckFacet is a Facet that tracks the PCCheck objects available to a Player
@@ -27,6 +29,11 @@ import pcgen.core.PCCheck;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class CheckFacet extends AbstractListFacet<CharID, PCCheck>
+public class CheckFacet extends AbstractListFacet<CharID, PCCheck> implements
+		SetFacet<CharID, PCCheck>
 {
+	public void init()
+	{
+		OutputDB.register("checks", this);
+	}
 }
