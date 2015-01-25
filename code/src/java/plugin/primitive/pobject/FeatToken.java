@@ -32,6 +32,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
+import pcgen.util.Logging;
 
 public class FeatToken<T> implements PrimitiveToken<T>
 {
@@ -44,6 +45,8 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	public boolean initialize(LoadContext context, Class<T> cl, String value,
 			String args)
 	{
+		Logging.deprecationPrint("FEAT=x is deprecated in CHOOSE, "
+			+ "please use ABILITY=FEAT[x]");
 		if (args != null)
 		{
 			return false;
@@ -76,7 +79,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + ref.getLSTformat(useAny);
+		return "ABILITY=FEAT[" + ref.getLSTformat(useAny) + "]";
 	}
 
 	private <R> List<R> getList(PlayerCharacter pc, Ability a)
