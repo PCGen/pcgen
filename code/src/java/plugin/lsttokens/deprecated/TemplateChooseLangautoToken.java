@@ -51,15 +51,15 @@ public class TemplateChooseLangautoToken extends
 			return new ParseResult.Fail("Incompatible");
 		}
 		Logging.deprecationPrint("CHOOSE:LANGAUTO is deprecated, "
-			+ "please use CHOOSE:LANGUAGE and AUTO:LANG|%LIST");
+			+ "please use CHOOSE:LANG and AUTO:LANG|%LIST");
 		try
 		{
 			if (!context.processToken(template, "CHOOSE",
-				"LANGUAGE|" + value.substring(9)))
+				"LANG|" + value.substring(9)))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail(
-					"Internal Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANGUAGE",
+					"Internal Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANG",
 					context);
 			}
 		}
@@ -67,7 +67,7 @@ public class TemplateChooseLangautoToken extends
 		{
 			Logging.replayParsedMessages();
 			return new ParseResult.Fail(
-				"Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANGUAGE: "
+				"Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANG: "
 					+ e.getLocalizedMessage(), context);
 		}
 		try
