@@ -62,11 +62,6 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
 		CDOMObject obj, String value)
 	{
-		if (value.indexOf('[') != -1 || value.indexOf(']') != -1)
-		{
-			return new ParseResult.Fail(getParentToken() + ":" + getTokenName()
-				+ " may not contain brackets: " + value, context);
-		}
 		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
 		String title;
