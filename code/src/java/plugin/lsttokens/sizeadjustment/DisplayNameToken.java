@@ -39,7 +39,7 @@ public class DisplayNameToken extends AbstractNonEmptyToken<SizeAdjustment>
 		SizeAdjustment size, String value)
 	{
 		//Have to be bad to an editor, sorry
-		size.setName(value);
+		size.setDisplayName(value);
 		context.getObjectContext().put(size, StringKey.DISPLAY_NAME, value);
 		return ParseResult.SUCCESS;
 	}

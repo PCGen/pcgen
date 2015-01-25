@@ -607,6 +607,11 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	@Override
 	public void setName(String name)
 	{
+		setDisplayName(name);
+	}
+
+	public void setDisplayName(String name)
+	{
 		displayName = name;
 	}
 
