@@ -49,11 +49,11 @@ public class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race>
 			return new ParseResult.Fail(value + " Incompatible with CHOOSE:LANGAUTO replacement");
 		}
 		Logging.deprecationPrint("CHOOSE:LANGAUTO is deprecated, "
-			+ "please use CHOOSE:LANGUAGE and AUTO:LANG|%LIST");
+			+ "please use CHOOSE:LANG and AUTO:LANG|%LIST");
 		try
 		{
 			if (!context.processToken(race, "CHOOSE",
-				"LANGUAGE|" + value.substring(9)))
+				"LANG|" + value.substring(9)))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail(
@@ -65,7 +65,7 @@ public class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race>
 		{
 			Logging.replayParsedMessages();
 			return new ParseResult.Fail(
-				"Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANGUAGE: "
+				"Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANG: "
 					+ e.getLocalizedMessage(), context);
 		}
 		try
