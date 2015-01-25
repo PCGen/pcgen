@@ -18,6 +18,8 @@
 package pcgen.output.wrapper;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.output.library.ObjectWrapperLibrary;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -34,11 +36,17 @@ public class CDOMReferenceWrapper implements ObjectWrapper
 	@Override
 	public TemplateModel wrap(Object o) throws TemplateModelException
 	{
+		if (o instanceof CDOMSingleRef)
+		{
+			CDOMSingleRef<?> ref = (CDOMSingleRef<?>) o;
+			Object obj = ref.resolvesTo();
+			return ObjectWrapperLibrary.getInstance().wrap(obj);
+		}
 		if (o instanceof CDOMReference)
 		{
-			CDOMReference<?> obj = (CDOMReference<?>) o;
+			CDOMReference<?> ref = (CDOMReference<?>) o;
 			//TODO is this correct?  This would produce TYPE=Blah in some cases, and we may want to spell them out??  Shouldn't both be an option? Need a Model?
-			String lstFormat = obj.getLSTformat(true);
+			String lstFormat = ref.getLSTformat(true);
 			return ObjectWrapper.SIMPLE_WRAPPER.wrap(lstFormat);
 		}
 		throw new TemplateModelException("Object was not a CDOMReference");
