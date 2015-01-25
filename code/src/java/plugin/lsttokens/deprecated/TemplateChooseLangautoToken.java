@@ -54,8 +54,14 @@ public class TemplateChooseLangautoToken extends
 			+ "please use CHOOSE:LANGUAGE and AUTO:LANG|%LIST");
 		try
 		{
-			context.processToken(template, "CHOOSE",
-				"LANGUAGE|" + value.substring(9));
+			if (!context.processToken(template, "CHOOSE",
+				"LANGUAGE|" + value.substring(9)))
+			{
+				Logging.replayParsedMessages();
+				return new ParseResult.Fail(
+					"Internal Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANGUAGE",
+					context);
+			}
 		}
 		catch (PersistenceLayerException e)
 		{
@@ -66,7 +72,13 @@ public class TemplateChooseLangautoToken extends
 		}
 		try
 		{
-			context.processToken(template, "AUTO", "LANG|%LIST");
+			if (!context.processToken(template, "AUTO", "LANG|%LIST"))
+			{
+				Logging.replayParsedMessages();
+				return new ParseResult.Fail(
+					"Internal Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG",
+					context);
+			}
 		}
 		catch (PersistenceLayerException e)
 		{

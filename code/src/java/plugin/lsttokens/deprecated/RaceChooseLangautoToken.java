@@ -52,8 +52,14 @@ public class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race>
 			+ "please use CHOOSE:LANGUAGE and AUTO:LANG|%LIST");
 		try
 		{
-			context.processToken(race, "CHOOSE",
-				"LANGUAGE|" + value.substring(9));
+			if (!context.processToken(race, "CHOOSE",
+				"LANGUAGE|" + value.substring(9)))
+			{
+				Logging.replayParsedMessages();
+				return new ParseResult.Fail(
+					"Internal Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANGUAGE",
+					context);
+			}
 		}
 		catch (PersistenceLayerException e)
 		{
@@ -64,7 +70,13 @@ public class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race>
 		}
 		try
 		{
-			context.processToken(race, "AUTO", "LANG|%LIST");
+			if (!context.processToken(race, "AUTO", "LANG|%LIST"))
+			{
+				Logging.replayParsedMessages();
+				return new ParseResult.Fail(
+					"Internal Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG",
+					context);
+			}
 		}
 		catch (PersistenceLayerException e)
 		{
