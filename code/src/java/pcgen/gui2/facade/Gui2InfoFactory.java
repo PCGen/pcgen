@@ -2169,7 +2169,7 @@ public class Gui2InfoFactory implements InfoFactory
 					FactDefinition.class);
 		for (FactDefinition<?, ?> def : defs)
 		{
-			if (cl.equals(def.getUsableLocation()))
+			if (def.getUsableLocation().isAssignableFrom(cl))
 			{
 				if (def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY))
 				{
@@ -2191,7 +2191,7 @@ public class Gui2InfoFactory implements InfoFactory
 					FactSetDefinition.class);
 		for (FactSetDefinition<?, ?> def : setdefs)
 		{
-			if (cl.equals(def.getUsableLocation()))
+			if (def.getUsableLocation().isAssignableFrom(cl))
 			{
 				if (def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY))
 				{

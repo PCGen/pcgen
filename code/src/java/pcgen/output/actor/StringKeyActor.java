@@ -26,7 +26,7 @@ import freemarker.template.TemplateModelException;
 
 /**
  * A StringKeyActor is designed to process an interpolation and convert that
- * into a TemplateModel representing the contents of the specific Integer being
+ * into a TemplateModel representing the contents of the specific String being
  * requested by its StringKey
  * 
  * Note that the actual name of the interpolation is stored externally to this
