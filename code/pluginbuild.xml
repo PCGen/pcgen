@@ -6622,10 +6622,10 @@ jar-all-plugins - Generate the plugin jar files
 
 	<target name="jar-primitive-pobject-plugins" depends="makeplugindirs" description="Build (Link) PObject Primitive Token plugin jar files">
 		<!-- PObject Primitive tokens-->
-		<jar jarfile="${lstplugins.dir}/PObjectPrimitive-FEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+		<jar jarfile="${lstplugins.dir}/PObjectPrimitive-ABILITY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/primitive/pobject/FeatToken.class" />
+					<include name="plugin/primitive/pobject/AbilityToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -7212,6 +7212,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/deprecated/NumberToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/PObjectPrimitive-FEAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/primitive/pobject/FeatToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
