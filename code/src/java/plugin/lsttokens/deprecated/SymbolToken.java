@@ -15,40 +15,25 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.lsttokens.pcclass;
+package plugin.lsttokens.deprecated;
 
-import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.PCClass;
-import pcgen.rules.persistence.token.AbstractStringToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.core.Deity;
+import pcgen.rules.persistence.token.AbstractToFactToken;
 
 /**
- * Class deals with ABB Token for PCC files
+ * Class deals with SYMBOL Token
  */
-public class ClasstypeToken extends AbstractStringToken<PCClass> implements
-		CDOMPrimaryToken<PCClass>
+public class SymbolToken extends AbstractToFactToken<Deity>
 {
-
-	/**
-	 * Return token name
-	 * 
-	 * @return token name
-	 */
 	@Override
 	public String getTokenName()
 	{
-		return "CLASSTYPE";
+		return "SYMBOL";
 	}
 
 	@Override
-	public Class<PCClass> getTokenClass()
+	public Class<Deity> getTokenClass()
 	{
-		return PCClass.class;
-	}
-
-	@Override
-	protected StringKey stringKey()
-	{
-		return StringKey.CLASSTYPE;
+		return Deity.class;
 	}
 }

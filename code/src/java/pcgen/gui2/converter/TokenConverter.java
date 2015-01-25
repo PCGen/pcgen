@@ -27,7 +27,6 @@ import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AspectName;
-import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.Region;
@@ -230,7 +229,6 @@ public class TokenConverter
 	public static void clearConstants()
 	{
 		AspectName.clearConstants();
-		Pantheon.clearConstants();
 		RaceSubType.clearConstants();
 		RaceType.clearConstants();
 		Region.clearConstants();

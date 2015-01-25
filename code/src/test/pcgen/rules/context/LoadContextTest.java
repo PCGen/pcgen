@@ -29,12 +29,14 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.util.TestHelper;
+import plugin.format.StringManager;
 
 /**
  * The Class <code>LoadContextTest</code> checks the fucntion fo the LoadCOntext class.
@@ -68,6 +70,8 @@ public class LoadContextTest extends TestCase
 	public final void testCloneInMasterListsAssoc()
 	{
 		final LoadContext context = Globals.getContext();
+		FactKey.getConstant("ClassType", new StringManager());
+		FactKey.getConstant("SpellType", new StringManager());
 
 		Spell testSpell = TestHelper.makeSpell("LoadContextTest");
 		PCClass wiz = TestHelper.makeClass("Wizard");

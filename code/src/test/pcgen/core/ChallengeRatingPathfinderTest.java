@@ -26,11 +26,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.content.fact.FactDefinition;
+import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * The Class <code>ChallengeRatingPathfinderTest</code> checks the calculation
@@ -86,6 +89,10 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		SettingsHandler.getGame().addClassType("Companion	CRFORMULA:NONE	ISMONSTER:YES");
 		
 		LoadContext context = Globals.getContext();
+
+		BuildUtilities.createFact(context, "ClassType", PCClass.class);
+		SourceFileLoader.processFactDefinitions(context);
+
 		CampaignSourceEntry source = TestHelper.createSource(getClass());
 		GenericLoader<Race> raceLoader = new GenericLoader<Race>(Race.class);
 		PCClassLoader classLoader = new PCClassLoader();
@@ -159,7 +166,12 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		context.getReferenceContext().importObject(companionClass);
 
 		context.commit();
+		BuildUtilities.createFact(context, "ClassType", PCClass.class);
+		FactDefinition<?, String> fd =
+				BuildUtilities.createFact(context, "SpellType", PCClass.class);
+		fd.setSelectable(true);
 
+		SourceFileLoader.processFactDefinitions(context);
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
 	}

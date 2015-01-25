@@ -33,11 +33,13 @@ import java.util.TreeSet;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -222,7 +224,7 @@ public class SpellMemToken extends Token
 					}
 					else if ("APPLIEDNAME".equals(aLabel))
 					{
-						retValue.append(si.getAppliedName());
+						retValue.append(getAppliedName(si));
 					}
 					else if ("PPCOST".equals(aLabel))
 					{
@@ -514,6 +516,29 @@ public class SpellMemToken extends Token
 		}
 
 		return retValue.toString();
+	}
+
+	private String getAppliedName(final SpellInfo si)
+	{
+		List<Ability> featList = si.getFeatList();
+		if (featList == null || featList.isEmpty())
+		{
+			return "";
+		}
+		
+		final StringBuilder aBuf = new StringBuilder(50);
+		for (int i = 0; i < featList.size(); i++)
+		{
+			Object an =
+					featList.get(i).getResolved(FactKey.valueOf("AppliedName"));
+			aBuf.append((an == null) ? "" : an);
+			if (i < featList.size())
+			{
+				aBuf.append(" ");
+			}
+		}
+		
+		return aBuf.toString();
 	}
 
 	/**

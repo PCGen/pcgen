@@ -20,6 +20,7 @@ package tokenmodel.testsupport;
 import junit.framework.TestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
@@ -48,6 +49,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -131,6 +133,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected void finishLoad()
 	{
 		context.commit();
+		SourceFileLoader.processFactDefinitions(context);
 		context.getReferenceContext().buildDeferredObjects();
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
@@ -286,6 +289,10 @@ public abstract class AbstractTokenModelTest extends TestCase
 
 		context = Globals.getContext();
 		create(Language.class, "Common");
+		BuildUtilities.createFact(context, "ClassType", PCClass.class);
+		FactDefinition<?, String> fd =
+				BuildUtilities.createFact(context, "SpellType", PCClass.class);
+		fd.setSelectable(true);
 		context.getReferenceContext().importObject(AbilityCategory.FEAT);
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
 	}

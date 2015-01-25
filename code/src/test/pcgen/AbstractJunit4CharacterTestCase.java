@@ -34,6 +34,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
+import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -46,6 +47,7 @@ import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.LevelInfo;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -55,6 +57,7 @@ import pcgen.core.system.LoadInfo;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
@@ -159,7 +162,8 @@ abstract public class AbstractJunit4CharacterTestCase
 		gamemode.setBonusFeatLevels("3|3");
 		SettingsHandler.setGame("3.5");
 
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+		LoadContext context = Globals.getContext();
+		AbstractReferenceContext ref = context.getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
@@ -181,7 +185,7 @@ abstract public class AbstractJunit4CharacterTestCase
 		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
 		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 
-		GameModeFileLoader.addDefaultWieldCategories(Globals.getContext());
+		GameModeFileLoader.addDefaultWieldCategories(context);
 		
 		ref.importObject(str);
 		ref.importObject(dex);
@@ -191,6 +195,11 @@ abstract public class AbstractJunit4CharacterTestCase
 		ref.importObject(cha);
 
 		ref.constructCDOMObject(Language.class, "All Language For Test");
+
+		BuildUtilities.createFact(context, "ClassType", PCClass.class);
+		FactDefinition<?, String> fd =
+				BuildUtilities.createFact(context, "SpellType", PCClass.class);
+		fd.setSelectable(true);
 
 		fine = BuildUtilities.createSize("Fine");
 		diminutive = BuildUtilities.createSize("Diminutive");
@@ -203,10 +212,11 @@ abstract public class AbstractJunit4CharacterTestCase
 		gargantuan = BuildUtilities.createSize("Gargantuan");
 		colossal = BuildUtilities.createSize("Colossal");
 
-		SourceFileLoader.createLangBonusObject(Globals.getContext());
+		SourceFileLoader.createLangBonusObject(context);
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
 		ref.importObject(AbilityCategory.FEAT);
+		SourceFileLoader.processFactDefinitions(context);
 		additionalSetUp();
 		if (!ref.resolveReferences(null))
 		{

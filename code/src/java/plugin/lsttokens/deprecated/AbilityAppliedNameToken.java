@@ -15,20 +15,16 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package plugin.lsttokens.ability;
+package plugin.lsttokens.deprecated;
 
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
-import pcgen.rules.persistence.token.AbstractStringToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractToFactToken;
 
 /**
  * Class deals with APPLIEDNAME Token
  */
-public class AppliedNameToken extends AbstractStringToken<Ability>
-		implements CDOMPrimaryToken<Ability>
+public class AbilityAppliedNameToken extends AbstractToFactToken<Ability>
 {
-
 	@Override
 	public String getTokenName()
 	{
@@ -39,11 +35,5 @@ public class AppliedNameToken extends AbstractStringToken<Ability>
 	public Class<Ability> getTokenClass()
 	{
 		return Ability.class;
-	}
-
-	@Override
-	protected StringKey stringKey()
-	{
-		return StringKey.APPLIED_NAME;
 	}
 }

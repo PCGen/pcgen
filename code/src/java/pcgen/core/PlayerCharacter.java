@@ -72,6 +72,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
+import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
@@ -5245,7 +5246,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		for (PCClass aClass : getClassSet())
 		{
-			String classSpellType = aClass.get(StringKey.SPELLTYPE);
+			FactKey<String> fk = FactKey.valueOf("SpellType");
+			String classSpellType = aClass.getResolved(fk);
 			if (classSpellType != null
 					&& ("Any".equalsIgnoreCase(spellType) || classSpellType.equalsIgnoreCase(spellType)))
 			{
@@ -5294,7 +5296,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		int cast = 0;
 		for (PCClass aClass : getClassSet())
 		{
-			String classSpellType = aClass.get(StringKey.SPELLTYPE);
+			FactKey<String> fk = FactKey.valueOf("SpellType");
+			String classSpellType = aClass.getResolved(fk);
 			if (classSpellType != null
 					&& ("Any".equalsIgnoreCase(spellType) || classSpellType.equalsIgnoreCase(spellType)))
 			{
@@ -6832,7 +6835,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			final boolean knownLearned, final boolean isSpecialtySpell)
 	{
 		boolean available = false;
-		final boolean isDivine = ("Divine".equalsIgnoreCase(aClass.get(StringKey.SPELLTYPE)));
+		FactKey<String> fk = FactKey.valueOf("SpellType");
+		String spelltype = aClass.getResolved(fk);
+		final boolean isDivine = ("Divine".equalsIgnoreCase(spelltype));
 		final boolean canUseHigher = knownLearned ? getUseHigherKnownSlots() : getUseHigherPreppedSlots();
 		int knownTot;
 		int knownNon;
@@ -7190,7 +7195,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		for (PCClass pcClass : getClassSet())
 		{
-			if (pcClass.get(StringKey.SPELLTYPE) != null)
+			if (pcClass.get(FactKey.valueOf("SpellType")) != null)
 			{
 				aList.add(pcClass);
 			}

@@ -56,14 +56,14 @@ public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrima
 		{
 			return new ParseResult.Fail(e.getLocalizedMessage(), context);
 		}
-		context.getObjectContext().put(stat, StringKey.ABB, value);
+		context.getObjectContext().put(stat, StringKey.ABB_KR, value);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCStat stat)
 	{
-		String abb = context.getObjectContext().getString(stat, StringKey.ABB);
+		String abb = context.getObjectContext().getString(stat, StringKey.ABB_KR);
 		if (abb == null)
 		{
 			return null;

@@ -33,7 +33,6 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -43,6 +42,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreClassLevelMaxParser;
 import plugin.pretokens.test.PreClassTester;
 
@@ -80,7 +80,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(3, pcClass);
@@ -134,7 +134,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -160,7 +160,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
@@ -191,12 +191,12 @@ public class PreClassTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 
 		final PCClass pcClass2 = context.getReferenceContext().constructCDOMObject(PCClass.class, "Other Class");
 		context.unconditionallyProcess(pcClass2, "SPELLSTAT", "INT");
-		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass2, "SpellType", "Arcane");
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
 		context.getReferenceContext().buildDerivedObjects();
 		context.getReferenceContext().resolveReferences(null);
@@ -231,12 +231,12 @@ public class PreClassTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 
 		final PCClass pcClass2 = context.getReferenceContext().constructCDOMObject(PCClass.class, "Other Class");
 		context.unconditionallyProcess(pcClass2, "SPELLSTAT", "INT");
-		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass2, "SpellType", "Arcane");
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
 		context.getReferenceContext().buildDerivedObjects();
 		context.getReferenceContext().resolveReferences(null);
@@ -273,13 +273,13 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 		context.unconditionallyProcess(pcClass2, "SPELLSTAT", "INT");
-		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass2, "SpellType", "Arcane");
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
 
 		final PlayerCharacter character = getCharacter();
@@ -307,7 +307,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -377,7 +377,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
 		context.getReferenceContext().buildDerivedObjects();
@@ -407,7 +407,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	public void testSpellcasterTypeFail() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -433,7 +433,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
 		context.getReferenceContext().resolveReferences(null);
@@ -463,7 +463,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
 		context.getReferenceContext().buildDerivedObjects();
@@ -553,7 +553,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -575,11 +575,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
-		pcClass2.put(StringKey.SPELLTYPE, "DIVINE");
+		BuildUtilities.setFact(pcClass2, "SpellType", "Divine");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -605,11 +605,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
-		pcClass2.put(StringKey.SPELLTYPE, "DIVINE");
+		BuildUtilities.setFact(pcClass2, "SpellType", "Divine");
 
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
@@ -630,11 +630,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
-		pcClass2.put(StringKey.SPELLTYPE, "DIVINE");
+		BuildUtilities.setFact(pcClass2, "SpellType", "Divine");
 
 		final PlayerCharacter character = getCharacter();
 
@@ -653,11 +653,11 @@ public class PreClassTest extends AbstractCharacterTestCase
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
-		pcClass2.put(StringKey.SPELLTYPE, "DIVINE");
+		BuildUtilities.setFact(pcClass2, "SpellType", "Divine");
 
 		final PlayerCharacter character = getCharacter();
 
@@ -680,7 +680,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 		BonusObj aBonus = Bonus.newBonus(context, "CASTERLEVEL|MyClass|CL");
 		
 		if (aBonus != null)
@@ -690,7 +690,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
-		pcClass2.put(StringKey.SPELLTYPE, "DIVINE");
+		BuildUtilities.setFact(pcClass2, "SpellType", "Divine");
 		aBonus = Bonus.newBonus(context, "CASTERLEVEL|MyClass2|CL");
 		
 		if (aBonus != null)
@@ -716,7 +716,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 
 		pcClass.setName("MyClass");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 		BonusObj aBonus = Bonus.newBonus(context, "CASTERLEVEL|MyClass|CL");
 		
 		if (aBonus != null)
@@ -726,7 +726,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("MyClass2");
-		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass2, "SpellType", "Arcane");
 		aBonus = Bonus.newBonus(context, "CASTERLEVEL|MyClass2|CL");
 		
 		if (aBonus != null)

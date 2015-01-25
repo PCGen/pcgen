@@ -148,10 +148,6 @@ public final class ListKey<T>
 	public static final ListKey<CampaignSourceEntry> LICENSE_FILE = new ListKey<CampaignSourceEntry>();
 	/** FILE_LOGO - a ListKey */
 	public static final ListKey<CampaignSourceEntry> FILE_LOGO = new ListKey<CampaignSourceEntry>();
-	/** PANTHEON - a ListKey */
-	public static final ListKey<Pantheon> PANTHEON = new ListKey<Pantheon>();
-	/** RACE_PANTHEON - a ListKey */
-	public static final ListKey<String> RACEPANTHEON = new ListKey<String>();
 	/** SECTION 15 - a ListKey */
 	public static final ListKey<String> SECTION_15 = new ListKey<String>();
 	/** INFO_TEXT - a ListKey */

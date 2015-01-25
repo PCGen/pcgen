@@ -1902,6 +1902,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	protected void finishLoad()
 	{
+		SourceFileLoader.processFactDefinitions(primaryContext);
 		primaryContext.getReferenceContext().buildDeferredObjects();
 		primaryContext.getReferenceContext().buildDerivedObjects();
 		primaryContext.resolveDeferredTokens();

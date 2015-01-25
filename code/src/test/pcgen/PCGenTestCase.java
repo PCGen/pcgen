@@ -68,6 +68,7 @@ public abstract class PCGenTestCase extends TestCase
 		gamemode.addLevelInfo("Normal", new LevelInfo());
 		gamemode.addXPTableName("Normal");
 		gamemode.setDefaultXPTableName("Normal");
+		gamemode.clearLoadContext();
 		LoadInfo loadable =
 				gamemode.getModeContext().getReferenceContext().constructNowIfNecessary(
 					LoadInfo.class, gamemode.getName());

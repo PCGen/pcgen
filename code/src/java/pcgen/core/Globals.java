@@ -50,7 +50,6 @@ import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.content.BaseDice;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
@@ -1006,7 +1005,6 @@ public final class Globals
 		Equipment.clearEquipmentTypes();
 		SettingsHandler.getGame().clearLoadContext();
 
-		Pantheon.clearConstants();
 		RaceType.clearConstants();
 		createEmptyRace();
 		CNAbilityFactory.reset();
