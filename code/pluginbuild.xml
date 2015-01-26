@@ -6670,13 +6670,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/DeityPrimitive-PANTHEON.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/primitive/deity/PantheonToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 	</target>
 
 	<target name="jar-primitive-domain-plugins" depends="makeplugindirs" description="Build (Link) Domain Primitive Token plugin jar files">
