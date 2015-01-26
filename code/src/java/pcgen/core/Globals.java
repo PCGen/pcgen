@@ -62,6 +62,7 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.gui2.facade.Gui2InfoFactory;
+import pcgen.output.wrapper.CDOMObjectWrapper;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
@@ -1009,6 +1010,7 @@ public final class Globals
 		RaceType.clearConstants();
 		createEmptyRace();
 		CNAbilityFactory.reset();
+		CDOMObjectWrapper.getInstance().clear();
 	}
 
 	/**

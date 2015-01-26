@@ -17,15 +17,21 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.character.CompanionMod;
+import pcgen.output.publish.OutputDB;
 
 /**
  * CompanionModFacet is a Facet that tracks the CompanionMods that have been
  * granted to a Player Character.
  */
 public class CompanionModFacet extends AbstractListFacet<CharID, CompanionMod>
+		implements SetFacet<CharID, CompanionMod>
 {
-
+	public void init()
+	{
+		OutputDB.register("companionmods", this);
+	}
 }

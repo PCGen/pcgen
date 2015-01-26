@@ -17,13 +17,20 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.core.Race;
+import pcgen.output.publish.OutputDB;
 
 /**
  * RaceFacet is a Facet that tracks the Race of a Player Character.
  */
-public class RaceFacet extends AbstractItemFacet<CharID, Race>
+public class RaceFacet extends AbstractItemFacet<CharID, Race> implements
+		ItemFacet<CharID, Race>
 {
+	public void init()
+	{
+		OutputDB.register("race", this);
+	}
 }

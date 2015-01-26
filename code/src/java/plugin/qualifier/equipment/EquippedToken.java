@@ -130,7 +130,7 @@ public class EquippedToken implements QualifierToken<Equipment>,
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
 		Converter<Equipment, R> c)
 	{
 		Converter<Equipment, R> conv =

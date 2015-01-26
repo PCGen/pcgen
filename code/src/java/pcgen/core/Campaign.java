@@ -27,6 +27,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Status;
@@ -49,7 +50,7 @@ import pcgen.rules.context.RuntimeLoadContext;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public class Campaign extends PObject implements CampaignFacade
+public class Campaign extends PObject implements CampaignFacade, NonInteractive
 {
 
 	public Campaign()

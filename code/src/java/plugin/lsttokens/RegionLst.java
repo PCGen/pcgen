@@ -15,6 +15,7 @@ import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ConcreteTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.choiceset.SimpleChoiceSet;
@@ -47,13 +48,19 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject pcc, String value)
+		CDOMObject obj, String value)
 	{
-		if (pcc instanceof Ungranted)
+		if (obj instanceof Ungranted)
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
-				+ pcc.getClass().getSimpleName(), context);
+				+ obj.getClass().getSimpleName(), context);
+		}
+		if (obj instanceof NonInteractive)
+		{
+			return new ParseResult.Fail("Cannot use " + getTokenName()
+				+ " on an Non-Interactive object type: "
+				+ obj.getClass().getSimpleName(), context);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String item = tok.nextToken();
@@ -95,7 +102,7 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		ChoiceSet<Region> cs = new ChoiceSet<Region>(getTokenName(), rcs);
 		cs.setTitle("Region Selection");
 		TransitionChoice<Region> tc = new ConcreteTransitionChoice<Region>(cs, count);
-		context.getObjectContext().put(pcc, ObjectKey.REGION_CHOICE, tc);
+		context.getObjectContext().put(obj, ObjectKey.REGION_CHOICE, tc);
 		tc.setRequired(false);
 		tc.setChoiceActor(this);
 		return ParseResult.SUCCESS;

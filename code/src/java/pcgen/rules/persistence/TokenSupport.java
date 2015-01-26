@@ -19,9 +19,12 @@ package pcgen.rules.persistence;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
+import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.base.util.WeightedCollection;
@@ -51,7 +54,7 @@ public class TokenSupport
 		new DoubleKeyMapToList<Class<?>, String, CDOMToken<?>>();
 
 	private TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>> subTokenCache =
-		new TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>>();
+		new TripleKeyMapToList<Class<?>, String, String, CDOMToken<?>>(HashMap.class, CaseInsensitiveMap.class, CaseInsensitiveMap.class);
 
 	public <T extends Loadable> boolean processToken(LoadContext context,
 		T derivative, String typeStr, String argument)
@@ -195,6 +198,19 @@ public class TokenSupport
 				}
 			}
 		}
+		Set<CDOMSecondaryToken<?>> local = localTokens.getSubTokens(cl, tokenName);
+		for (CDOMSecondaryToken token : local)
+		{
+			String[] s = token.unparse(context, cdo);
+			if (s != null)
+			{
+				for (String aString : s)
+				{
+					set.add(token.getTokenName() + separator + aString);
+				}
+			}
+		}
+
 		if (set.isEmpty())
 		{
 			return null;
@@ -288,5 +304,10 @@ public class TokenSupport
 		c.addAll(localTokens.getDeferredTokens());
 		c.addAll(TokenFamily.CURRENT.getDeferredTokens());
 		return c;
+	}
+
+	public void loadLocalToken(Object token)
+	{
+		TokenLibrary.loadFamily(localTokens, token, false);
 	}
 }

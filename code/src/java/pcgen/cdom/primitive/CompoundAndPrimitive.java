@@ -86,9 +86,9 @@ public class CompoundAndPrimitive<T> implements PrimitiveCollection<T>
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
-		Collection<R> returnSet = null;
+		Collection<? extends R> returnSet = null;
 		for (PrimitiveCollection<T> cs : primCollection)
 		{
 			if (returnSet == null)

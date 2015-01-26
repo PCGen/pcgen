@@ -102,7 +102,7 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<R
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Race, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Race, R> c)
 	{
 		return c.convert(allRaces, this);
 	}

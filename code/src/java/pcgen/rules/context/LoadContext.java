@@ -131,4 +131,18 @@ public interface LoadContext
 	public void addWriteMessage(String string);
 
 	public int getWriteMessageCount();
+
+	/**
+	 * Loads a token "local" to this LoadContext (meaning it is local to the
+	 * data currently loaded and does not apply to all future data that may be
+	 * loaded [with a different LoadContext since a LoadContext is not
+	 * reusable]).
+	 * 
+	 * This is used for dynamic tokens, such as those produced from a FACTDEF or
+	 * FACTSETDEF
+	 * 
+	 * @param token
+	 *            The "local" token to be loaded into this LoadContext
+	 */
+	public void loadLocalToken(Object token);
 }

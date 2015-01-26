@@ -53,7 +53,7 @@ public interface PrimitiveCollection<T>
 		}
 	};
 
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c);
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c);
 
 	/**
 	 * Returns the GroupingState for this PrimitiveCollection. The GroupingState

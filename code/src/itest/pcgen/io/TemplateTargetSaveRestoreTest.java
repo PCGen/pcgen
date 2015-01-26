@@ -19,16 +19,12 @@ package pcgen.io;
 
 import org.junit.Test;
 
-import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.io.testsupport.AbstractGlobalTargetedSaveRestoreTest;
-import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.choose.ClassToken;
-import plugin.lsttokens.template.ChooseLangautoToken;
 import plugin.lsttokens.template.FavoredclassToken;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class TemplateTargetSaveRestoreTest extends
 		AbstractGlobalTargetedSaveRestoreTest<PCTemplate>
@@ -77,27 +73,5 @@ public class TemplateTargetSaveRestoreTest extends
 		reloadedPC.setDirty(true);
 		assertFalse(reloadedPC.getDisplay().getFavoredClasses()
 			.contains(monclass));
-	}
-
-	@Test
-	public void testRaceChooseLangauto() throws PersistenceLayerException
-	{
-		PCTemplate target = create(getObjectClass(), "Target");
-		Language granted = create(Language.class, "Granted");
-		create(Language.class, "Ignored");
-		ChooseLangautoToken cla = new ChooseLangautoToken();
-		TokenRegistration.register(cla);
-		cla.parseToken(context, target, "Granted|Ignored");
-		Object o = prepare(target);
-		finishLoad();
-		assertFalse(pc.hasLanguage(granted));
-		applyObject(target);
-		assertTrue(pc.hasLanguage(granted));
-		runRoundRobin(getPreEqualityCleanup());
-		assertTrue(pc.hasLanguage(granted));
-		assertTrue(reloadedPC.hasLanguage(granted));
-		remove(o);
-		reloadedPC.setDirty(true);
-		assertFalse(reloadedPC.hasLanguage(granted));
 	}
 }

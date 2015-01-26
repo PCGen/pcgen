@@ -104,7 +104,7 @@ public class DescriptorToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
 			Converter<Spell, R> c)
 	{
 		return c.convert(allSpells, this);

@@ -21,7 +21,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import pcgen.cdom.base.CDOMReference;
+import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.core.PlayerCharacter;
@@ -37,13 +37,13 @@ public class DereferencingConverter<T> implements Converter<T, T>
 	}
 
 	@Override
-	public Collection<T> convert(CDOMReference<T> orig)
+	public Collection<? extends T> convert(ObjectContainer<T> orig)
 	{
 		return orig.getContainedObjects();
 	}
 
 	@Override
-	public Collection<T> convert(CDOMReference<T> orig, PrimitiveFilter<T> lim)
+	public Collection<T> convert(ObjectContainer<T> orig, PrimitiveFilter<T> lim)
 	{
 		Set<T> returnSet = new HashSet<T>();
 		for (T o : orig.getContainedObjects())

@@ -231,6 +231,7 @@ public class VariableReport
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_KIT));
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_BIO_SET));
+		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_DATACTRL));
 
 		List<File> missingLstFiles = new ArrayList<File>();
 		for (CampaignSourceEntry cse : cseList)

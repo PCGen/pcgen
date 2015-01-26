@@ -64,7 +64,7 @@ public class MultiClassFacet
 		int xpPenalty = 0;
 		double xpMultiplier = 1.0;
 
-		for (PCClass pcClass : classFacet.getClassSet(id))
+		for (PCClass pcClass : classFacet.getSet(id))
 		{
 			if (!pcClass.hasXPPenalty())
 			{

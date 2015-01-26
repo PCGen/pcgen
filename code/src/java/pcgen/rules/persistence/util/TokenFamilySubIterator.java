@@ -23,7 +23,6 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.CDOMSubToken;
 import pcgen.rules.persistence.token.CDOMToken;
 
 public class TokenFamilySubIterator<C> implements
@@ -34,7 +33,7 @@ public class TokenFamilySubIterator<C> implements
 	private boolean needNewToken = true;
 	private Class<?> actingClass;
 	private final String parentToken;
-	private Iterator<CDOMSubToken<?>> subIterator;
+	private Iterator<CDOMSecondaryToken<?>> subIterator;
 	private final Set<String> used = new HashSet<String>();
 
 	public TokenFamilySubIterator(Class<C> cl, String parentName)

@@ -19,7 +19,7 @@ package pcgen.cdom.converter;
 
 import java.util.Collection;
 
-import pcgen.cdom.base.CDOMReference;
+import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.core.PlayerCharacter;
@@ -48,13 +48,13 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 	};
 
 	@Override
-	public Collection<R> convert(CDOMReference<B> orig)
+	public Collection<? extends R> convert(ObjectContainer<B> orig)
 	{
 		return converter.convert(orig, PREVENT);
 	}
 
 	@Override
-	public Collection<R> convert(CDOMReference<B> orig, PrimitiveFilter<B> lim)
+	public Collection<? extends R> convert(ObjectContainer<B> orig, PrimitiveFilter<B> lim)
 	{
 		return converter.convert(orig, new InvertingFilter<B>(lim));
 	}

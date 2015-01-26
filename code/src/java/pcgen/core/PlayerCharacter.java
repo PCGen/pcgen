@@ -209,7 +209,7 @@ import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.cdom.facet.model.WeaponProfFacet;
+import pcgen.cdom.facet.model.WeaponProfModelFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ProfProvider;
@@ -382,7 +382,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	private ArmorProfProviderFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfProviderFacet.class);
 	private ShieldProfProviderFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfProviderFacet.class);
 	private CharacterSpellResistanceFacet srFacet = FacetLibrary.getFacet(CharacterSpellResistanceFacet.class);
-	private WeaponProfFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
+	private WeaponProfModelFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfModelFacet.class);
 	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
 	private AutoEquipmentListFacet autoListEquipmentFacet = FacetLibrary.getFacet(AutoEquipmentListFacet.class);
 	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
@@ -884,7 +884,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public Set<PCClass> getClassSet()
 	{
-		return classFacet.getClassSet(id);
+		return classFacet.getSet(id);
 	}
 
 	/**
@@ -6739,7 +6739,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		list.addAll(checkFacet.getSet(id));
 
 		// Class
-		list.addAll(classFacet.getClassSet(id));
+		list.addAll(classFacet.getSet(id));
 
 		// CompanionMod
 		list.addAll(companionModFacet.getSet(id));
@@ -6784,7 +6784,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 
 		// SizeAdjustment
-		SizeAdjustment sa = sizeFacet.getSizeAdjustment(id);
+		SizeAdjustment sa = sizeFacet.get(id);
 		if (sa != null)
 		{
 			list.add(sa);
@@ -7165,7 +7165,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public SizeAdjustment getSizeAdjustment()
 	{
-		return sizeFacet.getSizeAdjustment(id);
+		return sizeFacet.get(id);
 	}
 
 	public int getSpellClassCount()
@@ -7737,7 +7737,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		}
 		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
 
-		for (PCClass cloneClass : aClone.classFacet.getClassSet(aClone.id))
+		for (PCClass cloneClass : aClone.classFacet.getSet(aClone.id))
 		{
 			cloneClass.addFeatPoolBonus(aClone);
 		}

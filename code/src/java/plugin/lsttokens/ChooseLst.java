@@ -26,6 +26,7 @@ import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -66,6 +67,12 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return new ParseResult.Fail("Cannot use " + getTokenName()
 				+ " on an Ungranted object type: "
+				+ obj.getClass().getSimpleName(), context);
+		}
+		if (obj instanceof NonInteractive)
+		{
+			return new ParseResult.Fail("Cannot use " + getTokenName()
+				+ " on an Non-Interactive object type: "
 				+ obj.getClass().getSimpleName(), context);
 		}
 		String key;

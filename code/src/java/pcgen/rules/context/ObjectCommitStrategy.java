@@ -21,8 +21,12 @@ import java.net.URI;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.util.Indirect;
+import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -43,6 +47,10 @@ public interface ObjectCommitStrategy
 
 	public void remove(CDOMObject cdo, ObjectKey<?> sk);
 
+	public <T> void put(CDOMObject cdo, FactKey<T> sk, Indirect<T> s);
+
+	public void remove(CDOMObject cdo, FactKey<?> sk);
+
 	public void put(CDOMObject cdo, IntegerKey ik, Integer i);
 
 	public void remove(CDOMObject cdo, IntegerKey ik);
@@ -57,6 +65,12 @@ public interface ObjectCommitStrategy
 
 	public <T> void removeFromList(CDOMObject cdo, ListKey<T> lk, T val);
 
+	public <T> void addToSet(CDOMObject cdo, FactSetKey<T> key, ObjectContainer<T> value);
+
+	public void removeSet(CDOMObject cdo, FactSetKey<?> lk);
+
+	public <T> void removeFromSet(CDOMObject cdo, FactSetKey<T> lk, ObjectContainer<T> val);
+
 	public Integer getInteger(CDOMObject cdo, IntegerKey ik);
 
 	public Formula getFormula(CDOMObject cdo, FormulaKey fk);
@@ -67,7 +81,11 @@ public interface ObjectCommitStrategy
 
 	public <T> T getObject(CDOMObject cdo, ObjectKey<T> ik);
 
+	public <T> Indirect<T> getFact(CDOMObject cdo, FactKey<T> ik);
+
 	public <T> Changes<T> getListChanges(CDOMObject cdo, ListKey<T> lk);
+
+	public <T> Changes<ObjectContainer<T>> getSetChanges(CDOMObject cdo, FactSetKey<T> lk);
 
 	public <K, V> void put(CDOMObject cdo, MapKey<K, V> mk, K key, V value);
 
@@ -87,6 +105,8 @@ public interface ObjectCommitStrategy
 
 	public boolean containsListFor(CDOMObject obj, ListKey<?> lk);
 	
+	public boolean containsSetFor(CDOMObject obj, FactSetKey<?> lk);
+	
 	public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk,
 			String pattern);
 
@@ -96,6 +116,10 @@ public interface ObjectCommitStrategy
 			ListKey<T> lk);
 
 	public boolean wasRemoved(CDOMObject cdo, ObjectKey<?> ok);
+
+	public boolean wasRemoved(CDOMObject cdo, FactKey<?> ok);
+
+	public boolean wasRemoved(CDOMObject cdo, FactSetKey<?> ok);
 
 	public boolean wasRemoved(CDOMObject cdo, IntegerKey ik);
 
