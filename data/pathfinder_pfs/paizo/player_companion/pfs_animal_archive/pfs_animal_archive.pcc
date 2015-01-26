@@ -50,7 +50,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Animal Arch
 
 # Data files
 EQUIPMENT:pfs_anar_equipment.lst|PRECAMPAIGN:1,INCLUDES=Animal Archive
-FEAT:pfs_anar_feats.lst|PRECAMPAIGN:1,INCLUDES=Animal Archive
+ABILITY:pfs_anar_feats.lst|PRECAMPAIGN:1,INCLUDES=Animal Archive
 
 #
 # End
