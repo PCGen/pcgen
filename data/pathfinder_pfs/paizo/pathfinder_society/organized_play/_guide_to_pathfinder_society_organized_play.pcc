@@ -76,13 +76,13 @@ PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_core_rulebook/pfs_core_rulebook.
 
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_advanced_players_guide/pfs_advanced_players_guide.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_advanced_race_guide/pfs_advanced_race_guide.pcc
-PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_bestiary/pfs_bestiary.pcc|PRECAMPAIGN:1,INCLUDES=Bestiary
-PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_bestiary_2/pfs_bestiary_2.pcc|PRECAMPAIGN:1,INCLUDES=Bestiary 2
-PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_bestiary_3/pfs_bestiary_3.pcc|PRECAMPAIGN:1,INCLUDES=Bestiary 3
-PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_campaign/pfs_ultimate_campaign.pcc|PRECAMPAIGN:1,INCLUDES=Ultimate Campaign
-PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_combat/pfs_ultimate_combat.pcc|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
-PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_equipment/pfs_ultimate_equipment.pcc|PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
-PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_magic/pfs_ultimate_magic.pcc|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_bestiary/pfs_bestiary.pcc
+PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_bestiary_2/pfs_bestiary_2.pcc
+PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_bestiary_3/pfs_bestiary_3.pcc
+PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_campaign/pfs_ultimate_campaign.pcc
+PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_combat/pfs_ultimate_combat.pcc
+PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_equipment/pfs_ultimate_equipment.pcc
+PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_ultimate_magic/pfs_ultimate_magic.pcc
 
 # PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_advanced_class_guide/pfs_advanced_class_guide.pcc
 # PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_bestiary_4/pfs_bestiary_4.pcc|PRECAMPAIGN:1,INCLUDES=Bestiary 4
@@ -135,6 +135,7 @@ PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_seekers_of_secrets/pfs_seekers_o
 # NOTE: Pathfinder Character Traits Web Enhancement
 # NOTE: As of 3/7/11, the Pathfinder Chronicles Campaign Setting has been replaced by the Pathfinder Campaign Setting: Inner Sea World Guid
 
+PCC:@/pathfinder_pfs/paizo/player_companion/pfs_adventurers_armory/pfs_adventurers_armory.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_andoran_spirit_of_liberty/pfs_andoran_spirit_of_liberty.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_animal_archive/pfs_animal_archive.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_blood_of_angels/pfs_blood_of_angels.pcc
@@ -157,7 +158,6 @@ PCC:@/pathfinder_pfs/paizo/player_companion/pfs_sargava_the_lost_colony/pfs_sarg
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_varisia_birthplace_of_legends/pfs_varisia_birthplace_of_legends.pcc
 
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_advanced_class_origins/pfs_advanced_class_origins.pcc
-# PCC:@/pathfinder_pfs/paizo/player_companion/pfs_adventurers_armory/pfs_adventurers_armory.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_alchemy_manual/pfs_alchemy_manual.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_bastards_of_golarion/pfs_bastards_of_golarion.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_blood_of_the_elements/pfs_blood_of_the_elements.pcc
