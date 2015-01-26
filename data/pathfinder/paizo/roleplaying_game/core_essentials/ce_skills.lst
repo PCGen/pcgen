@@ -1,4 +1,4 @@
-# CVS $Revision: 20121 $ $Author: zaister $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
+# CVS $Revision: 20121 $ $Author: zaister $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
 # Original Entry by: Eric Smith (Maredudd), Stefan Radermacher
 
 # Conditional skills for bard's Versatile Performance ability
@@ -50,11 +50,11 @@ Ride.MOD		DEFINE:RideACP|0	DEFINE:SamuraiMountACP|0	BONUS:SITUATION|Samurai Moun
 Profession (Fortune-teller)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCELONG:Inner Sea Primer	SOURCESHORT:ISP		SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih	SOURCEPAGE:p.103	BONUS:SKILL|Profession (Fortune-teller)|3|TYPE=ClassSkill|PRECSKILL:1,Profession (Fortune-teller)|PRESKILL:1,Profession (Fortune-teller)=1	SOURCEDATE:2010-11
 
 ###Block: Skill Focus implementation
-# Skill Name				Bonus to skill
-Profession (Fortune-teller).MOD	BONUS:SKILL|Profession (Fortune-teller)|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Fortune-teller))	BONUS:SKILL|Profession (Fortune-teller)|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Fortune-teller))|PRESKILL:1,Profession (Fortune-teller)=10
+# Skill Name				Key Stat	Untrained?		Type					Var. Must Be Lower			Source, Long Desc.	Source, Short Desc.	Source Page		Bonus to skill
+Profession (Fortune-teller).MOD																												BONUS:SKILL|Profession (Fortune-teller)|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Fortune-teller))	BONUS:SKILL|Profession (Fortune-teller)|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Profession (Fortune-teller))|PRESKILL:1,Profession (Fortune-teller)=10
 
 
-Craft (Clockwork)				KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Craft.Base					PREVARLT:AnimalCompanionSkill,1	SOURCEPAGE:p.54	SOURCELONG:Bestiary 3	SOURCESHORT:B3					BONUS:SKILL|Craft (Clockwork)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Clockwork)|PRESKILL:1,Craft (Clockwork)=1
+Craft (Clockwork)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Base	PREVARLT:AnimalCompanionSkill,1	SOURCELONG:Bestiary 3	SOURCESHORT:B3		SOURCEPAGE:p.54	BONUS:SKILL|Craft (Clockwork)|3|TYPE=ClassSkill|PRECSKILL:1,Craft (Clockwork)|PRESKILL:1,Craft (Clockwork)=1
 
 
 

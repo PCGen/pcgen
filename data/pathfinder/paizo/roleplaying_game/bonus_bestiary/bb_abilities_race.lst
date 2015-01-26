@@ -1,4 +1,4 @@
-# CVS $Revision: 20127 $ $Author: zaister $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: 20127 $ $Author: zaister $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
 SOURCELONG:Bonus Bestiary	SOURCESHORT:BB	SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy88x4	SOURCEDATE:2009-06
 
 ###Block: Allip abilities
@@ -26,11 +26,11 @@ Shatter Weapons								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinar
 Statue									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A caryatid column can stand perfectly still, emulating a statue (usually one that is holding up the ceiling, like a carved column). An observer must succeed on a DC 20 Perception check to notice the caryatid column is alive.																																															SOURCEPAGE:p.8
 
 ###Block: Faerie Dragon abilities
-# Ability Name	Unique Key					Category of Ability		Type						Visible	Define			Description																																										Ability							Modify VAR																				Source Page
+# Ability Name	Unique Key					Category of Ability		Type						Visible	Define			Description																																										Ability							Modify VAR																						Source Page
 Breath Weapon	KEY:Faerie Dragon ~ Breath Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BreathWeaponDC|0	DESC:5-foot cone, euphoria for 1d6 rounds, DC %1 Fortitude negates. Affected creatures are staggered, sickened, and immunte to fear effects for the duration of the euphoria. A faerie dragon can use this breath weapon once every 1d4 rounds.|BreathWeaponDC	ABILITY:Ability Focus|AUTOMATIC|Breath Weapon	BONUS:VAR|BreathWeaponDC|10+(HD/2)+CON|TYPE=Base	BONUS:VAR|BreathWeaponDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Breath Weapon)	SOURCEPAGE:p.9
 
 ###Block: Dragonne abilities
-# Ability Name	Category of Ability		Type						Visible	Define		Description																																																	Ability						Modify VAR															Source Page
+# Ability Name	Category of Ability		Type						Visible	Define		Description																																																	Ability						Modify VAR																		Source Page
 Roar			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:RoarDC|0	DESC:A dragonne can unleash a devastating roar every 1d4 rounds as a standard action. All creatures except dragonnes within 120 feet must succed on a DC %1 Fortitude save or become fatigued. Those within 30 feet who fail their saves are also deafened for 2d4 rounds. This is a sonic effect.|RoarDC	ABILITY:Ability Focus|AUTOMATIC|Roar	BONUS:VAR|RoarDC|10+(HD/2)+CON|TYPE=Base	BONUS:VAR|RoarDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Roar)	SOURCEPAGE:p.10
 
 ###Block: Huecuva abilities
@@ -47,6 +47,6 @@ Magic Circle against Evil	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatu
 Poison		KEY:Water Naga ~ Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:WaterNagaPoisonDC|0	DESC:Bite, Level 7, Save Fortitude DC %1, Frequency 1 round (10), Effect 1 Con damage, Cure 1 save.|WaterNagaPoisonDC	BONUS:VAR|WaterNagaPoisonDC|10+(HD/2)+CON|TYPE=Base	SOURCEPAGE:p.14
 
 ###Block: Shadow Mastiff abilities
-# Ability Name	Unique Key					Category of Ability		Type						Visible	Define		Description																																																							Ability					Modify VAR																				Source Page
+# Ability Name	Unique Key					Category of Ability		Type						Visible	Define		Description																																																							Ability					Modify VAR																						Source Page
 Bay			KEY:Shadow Mastiff ~ Bay		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DEFINE:BayDC|0	DESC:When a shadow mastiff howls or barks, all creatures except evil outsiders within a 300-foot spread must succeed on a DC %1 Will save or become panicked for 2d4 rounds. This is a sonic, mind-affecting fear effect. A creature that successfully saves cannot be affected by the same mastiff's bay for 24 hours.|BayDC				ABILITY:Ability Focus|AUTOMATIC|Bay	BONUS:VAR|BayDC|10+(HD/2)+CON|TYPE=Base	BONUS:VAR|BayDC|2|TYPE=Racial	BONUS:VAR|RoarDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Bay)	SOURCEPAGE:p.16
-Shadow Blend	KEY:Shadow Mastiff ~ Shadow Blend	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES				DESC:In any condition of illumination other than full daylight, a shadow mastiff disappears into the shadows, giving it total concealment. Artificial illumination, even a Light or Continual Flame spell, does not negate this ability. A Daylight spell, however, will. A shadow mastiff can suspend or resume this ability as a free action.																												SOURCEPAGE:p.16
+Shadow Blend	KEY:Shadow Mastiff ~ Shadow Blend	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES				DESC:In any condition of illumination other than full daylight, a shadow mastiff disappears into the shadows, giving it total concealment. Artificial illumination, even a Light or Continual Flame spell, does not negate this ability. A Daylight spell, however, will. A shadow mastiff can suspend or resume this ability as a free action.																														SOURCEPAGE:p.16

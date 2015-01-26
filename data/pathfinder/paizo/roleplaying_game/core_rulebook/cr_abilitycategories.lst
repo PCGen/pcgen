@@ -1,4 +1,4 @@
-# CVS $Revision: 21407 $ $Author: evilmynex $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: 21407 $ $Author: evilmynex $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
 #SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
@@ -161,61 +161,61 @@ ABILITYCATEGORY:Animal Trick	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONA
 ###Block: Prestige Classes --------------------------
 
 # Loremaster
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list				Plural description for UI				Display Location
-ABILITYCATEGORY:Loremaster Secret				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LoremasterSecret												PLURAL:Loremaster Secrets				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Add Spoken Language				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AddSpokenLanguage																				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Cosmopolitan Spoken Language		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AddSpokenLanguage																				DISPLAYLOCATION:Feats
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object				Type of Object						Specific choices list				Plural description for UI			Display Location
+ABILITYCATEGORY:Loremaster Secret				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:LoremasterSecret												PLURAL:Loremaster Secrets			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Add Spoken Language				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability			TYPE:AddSpokenLanguage																			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cosmopolitan Spoken Language		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability			TYPE:AddSpokenLanguage																			DISPLAYLOCATION:Feats
 
 # Master Category
 ABILITYCATEGORY:Intelligent Item				VISIBLE:NO												CATEGORY:Intelligent Item
 
 # Child Categories
-ABILITYCATEGORY:Intelligent Item Alignment		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:IntelligentAlignment											PLURAL:Intelligent Item Alignment			DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Languages		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:IntItemLang													PLURAL:Intelligent Item Languages			DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:ItemStandardPower												PLURAL:Intelligent Item Power				DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Purpose			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:ItemPurpose													PLURAL:Intelligent Item Purpose			DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Purpose Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:ItemPurposePower												PLURAL:Intelligent Item Purpose Power		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Alignment		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Intelligent Item			TYPE:IntelligentAlignment											PLURAL:Intelligent Item Alignment		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Languages		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Intelligent Item			TYPE:IntItemLang													PLURAL:Intelligent Item Languages		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Intelligent Item			TYPE:ItemStandardPower												PLURAL:Intelligent Item Power			DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Purpose			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Intelligent Item			TYPE:ItemPurpose													PLURAL:Intelligent Item Purpose		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Purpose Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Intelligent Item			TYPE:ItemPurposePower												PLURAL:Intelligent Item Purpose Power	DISPLAYLOCATION:Intelligent Magic Item
 
 # Master Category
-ABILITYCATEGORY:Afflictions					VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Afflictions																	PLURAL:Afflictions					DISPLAYLOCATION:Misc
-ABILITYCATEGORY:GM Awards					VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GM_Award															PLURAL:GM Awards						DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Afflictions					VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Afflictions																			PLURAL:Afflictions				DISPLAYLOCATION:Misc
+ABILITYCATEGORY:GM Awards					VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:GM_Award													PLURAL:GM Awards					DISPLAYLOCATION:Misc
 
 
 # Child Category
 #ABILITYCATEGORY:Affliction				VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Afflictions
 
 # Extra Channel Category
-ABILITYCATEGORY:Extra Channel					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExtraChannel													PLURAL:Extra Channels					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Extra Channel					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:ExtraChannel													PLURAL:Extra Channels				DISPLAYLOCATION:Feats
 
 # Feat Choices
-ABILITYCATEGORY:Weapon Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Weapon Focus											DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Exotic Weapon Proficiency			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Exotic Weapon Proficiency									DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Martial Weapon Proficiency		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Martial Weapon Proficiency									DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Skill Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Skill Focus												DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Spell Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Spell Focus												DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Weapon Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT													ABILITYLIST:Weapon Focus										DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Exotic Weapon Proficiency			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT													ABILITYLIST:Exotic Weapon Proficiency								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Martial Weapon Proficiency		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT													ABILITYLIST:Martial Weapon Proficiency								DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Skill Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT													ABILITYLIST:Skill Focus											DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Spell Focus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT													ABILITYLIST:Spell Focus											DISPLAYLOCATION:Feats
 
 
 # COMMENT: This can be used to allow Users to see Monster Traits - Requires all 'ABILITY:Special Ability|AUTOMATIC' to 'ABILITY:Racial Trait|AUTOMATIC'
-ABILITYCATEGORY:Racial Trait					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.SpecialAttack																DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Class Feature					VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ClassFeatures.SpecialQuality.SpecialAttack								PLURAL:Class Features					DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Class Ability					VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.SpecialAttack								PLURAL:Class Features					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Racial Trait					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability			TYPE:RacialTrait.SpecialQuality.SpecialAttack															DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Class Feature					VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability			TYPE:ClassFeatures.SpecialQuality.SpecialAttack								PLURAL:Class Features				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Class Ability					VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability			TYPE:ClassAbility.SpecialQuality.SpecialAttack								PLURAL:Class Features				DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Special Mount Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection																			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Permanency Applied Effects		VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:PermanencySpell																				DISPLAYLOCATION:Misc
-ABILITYCATEGORY:Optional Rules Systems			VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES					CATEGORY:Internal			TYPE:OptionalRules																				DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Special Mount Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal					TYPE:SpecialMountSelection																		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Permanency Applied Effects		VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability			TYPE:PermanencySpell																			DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Optional Rules Systems			VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES					CATEGORY:Internal					TYPE:OptionalRules																			DISPLAYLOCATION:Misc
 
 
 
 # Duplicated Multiple Times - Needs to be placed in the CORE Folder once that is all set up.
 ABILITYCATEGORY:Background					VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Background
 #
-ABILITYCATEGORY:Human Ethnicity				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background		TYPE:HumanEthnicity												PLURAL:Human Ethnicities				DISPLAYLOCATION:Background
-ABILITYCATEGORY:Region of Origin				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background		TYPE:Region														PLURAL:Regions of Origin				DISPLAYLOCATION:Background
+ABILITYCATEGORY:Human Ethnicity				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background				TYPE:HumanEthnicity												PLURAL:Human Ethnicities			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Region of Origin				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background				TYPE:Region														PLURAL:Regions of Origin			DISPLAYLOCATION:Background
 
-ABILITYCATEGORY:Headband of Intellect Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HeadbandSkill																				DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Headband of Intellect Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:HeadbandSkill																			DISPLAYLOCATION:Misc
 
-ABILITYCATEGORY:Intelligence-Based Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:IntBaseSkill																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Intelligence-Based Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability			TYPE:IntBaseSkill																				DISPLAYLOCATION:Class Features
 
 # For keeping the output the same
-ABILITYCATEGORY:Sorcerer Draconic Bloodline	VISIBLE:NO	EDITABLE:NO	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Sorcerer Draconic Bloodline
+ABILITYCATEGORY:Sorcerer Draconic Bloodline		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Sorcerer Draconic Bloodline

@@ -1,4 +1,4 @@
-# CVS $Revision: 21469 $ $Author: amaitland $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: 21469 $ $Author: amaitland $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
 
 # ORIGINAL ENTRY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 08-2012 (August 8th)
@@ -11,7 +11,7 @@ CLASS:Gunslinger	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Gun		MAXLEVEL:20	SOURCEPAG
 CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (Local)|Perception|TYPE=Profession|Ride|Sleight of Hand|Survival|Swim
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Exotic Weapon Proficiency (Firearms)|Martial Weapon Proficiency Output|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Firearm
-1																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Level progression
 1	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Gunsmith|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunsmith
 1	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Deeds|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeeds
@@ -32,7 +32,7 @@ CLASS:Ninja		PREMULT:1,[PRECLASS:1,Ninja=1],[!PRECLASS:1,TYPE.Rogue=1]
 CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|Ninja ~ Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaWeaponProficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1																																	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Vars
 1	BONUS:VAR|NinjaSneakAttackLVL|CL
 2	BONUS:VAR|KiPoolLVL|CL
