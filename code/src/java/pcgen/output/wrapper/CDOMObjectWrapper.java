@@ -21,6 +21,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.output.actor.KeyActor;
+import pcgen.output.actor.SourceActor;
 import pcgen.output.base.OutputActor;
 import pcgen.output.model.CDOMObjectModel;
 import pcgen.output.model.CDOMObjectWrapperInfo;
@@ -46,6 +48,11 @@ public final class CDOMObjectWrapper implements ObjectWrapper
 	 */
 	private final Map<Class<?>, CDOMObjectWrapperInfo> infoMap =
 			new HashMap<Class<?>, CDOMObjectWrapperInfo>();
+
+	static
+	{
+		triggerLoad();
+	}
 
 	/**
 	 * The singleton constructor
@@ -133,5 +140,12 @@ public final class CDOMObjectWrapper implements ObjectWrapper
 	public void clear()
 	{
 		infoMap.clear();
+		triggerLoad();
+	}
+	
+	private static void triggerLoad()
+	{
+		INSTANCE.load(CDOMObject.class, "source", new SourceActor());
+		INSTANCE.load(CDOMObject.class, "key", new KeyActor());
 	}
 }
