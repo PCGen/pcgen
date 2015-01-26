@@ -145,7 +145,7 @@ ABILITY:pfs_arg_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 EQUIPMENT:pfs_arg_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 EQUIPMENT:pfs_arg_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 EQUIPMOD:pfs_arg_equipmods.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
-FEAT:pfs_arg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+ABILITY:pfs_arg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 SPELL:pfs_arg_spells.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 
 #

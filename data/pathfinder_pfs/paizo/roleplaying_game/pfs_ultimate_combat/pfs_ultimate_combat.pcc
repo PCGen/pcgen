@@ -69,7 +69,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Combat" Copyrigh
 
 # Data files
 WEAPONPROF:pfs_uc_profs_weapon.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
-FEAT:pfs_uc_feats.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+ABILITY:pfs_uc_feats.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 ABILITY:pfs_uc_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 SPELL:pfs_uc_spells.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 

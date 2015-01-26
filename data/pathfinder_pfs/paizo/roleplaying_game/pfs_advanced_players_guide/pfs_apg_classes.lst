@@ -46,6 +46,6 @@ CLASS:Summoner.MOD	!PREALIGN:CE,NE,LE
 CLASS:Witch.MOD	!PREALIGN:CE,NE,LE
 
 # Class Name		Type			Visible
-CLASS:Antipaladin.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CLASS:Antipaladin.MOD	TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
 # Class Name		Restricted AL
 CLASS:Antipaladin.MOD	!PREALIGN:CE,NE,LE

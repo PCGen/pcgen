@@ -53,7 +53,7 @@ ABILITY:pfs_fop_abilities.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Purity
 
 # TODO: Previous versions of Additional Resource Guide allowed these feats. Existing characters would be broken with this change unless Inner Sea Gods source is added to PCGen, which it isn't at this time. So I'm keeping these feats in for the time being.
 #LSTEXCLUDE:@/pathfinder/paizo/player_companion/faiths_of_balance/fop_feats.lst
-FEAT:pfs_fop_feats.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Purity
+ABILITY:pfs_fop_feats.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Purity
 
 #
 # End

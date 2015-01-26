@@ -74,7 +74,7 @@ EQUIPMENT:pfs_b1_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
 RACE:pfs_b1_races_companion.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
 
 LANGUAGE:pfs_ce_languages.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
-FEAT:pfs_ce_feats.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
+ABILITY:pfs_ce_feats.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
 
 # TODO: All languages found in this book are available for a character to learn with the linguistics skill, except aboleth and drow sign language.
 # Aboleth and drow sign language are blocked, but the others are not blocked from int bonus language selection.

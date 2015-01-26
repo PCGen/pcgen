@@ -6,20 +6,20 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 # Ability Name			Bonus Ability Pool
 
 # Ability Name								Type			Visible
-CATEGORY=Special Ability|Trait ~ Hedge Magician.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Natural-Born Leader.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Rich Parents.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Hedge Magician.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Natural-Born Leader.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Rich Parents.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 
 # No campaign traits allowed from this source
 ###Block: Campaign Traits
 # Ability Name									Type			Visible
-CATEGORY=Special Ability|Trait ~ Favored Person.MOD			TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Favored Person ~ Ameiko.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Favored Person ~ Belor.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Black Sheep.MOD			TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Black Sheep ~ Aliver.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Black Sheep ~ Titus.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Outlander.MOD				TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Outlander ~ Lore Seeker.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Outlander ~ Exile.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Outlander ~ Missionary.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Favored Person.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Favored Person ~ Ameiko.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Favored Person ~ Belor.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Black Sheep.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Black Sheep ~ Aliver.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Black Sheep ~ Titus.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Outlander.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Outlander ~ Lore Seeker.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Outlander ~ Exile.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Outlander ~ Missionary.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

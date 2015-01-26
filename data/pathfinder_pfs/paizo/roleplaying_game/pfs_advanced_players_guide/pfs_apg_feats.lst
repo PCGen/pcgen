@@ -3,9 +3,9 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 # Original Entry by: Stefan Radermacher & Andrew Maitland
 
 # Feat Name				Type			Visible	Multiple Requirements
-Cooperative Crafting.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-Blood of Heroes.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-Hero's Fortune.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-Luck of Heroes.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=FEAT|Cooperative Crafting.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Blood of Heroes.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Hero's Fortune.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Luck of Heroes.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 
-Master Alchemist.MOD							PREMULT:1,[PRECLASS:1,Alchemist],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]
+CATEGORY=FEAT|Master Alchemist.MOD							PREMULT:1,[PRECLASS:1,Alchemist],[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Poisoner]

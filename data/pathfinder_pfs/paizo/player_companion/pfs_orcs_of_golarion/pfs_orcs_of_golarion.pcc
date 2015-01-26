@@ -45,7 +45,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Dwarves of Golario
 
 # Data files
 ABILITY:pfs_oog_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Orcs of Golarion
-FEAT:pfs_oog_feats.lst|PRECAMPAIGN:1,INCLUDES=Orcs of Golarion
+ABILITY:pfs_oog_feats.lst|PRECAMPAIGN:1,INCLUDES=Orcs of Golarion
 SPELL:pfs_oog_spells.lst|PRECAMPAIGN:1,INCLUDES=Orcs of Golarion
 
 #

@@ -3,7 +3,7 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 # ORIGINAL ENTRY: none
 # ORIGINAL ENTRY DATE: none
 
-#CATEGORY=Special Ability|Dwarf ~ Craftsman.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+#CATEGORY=Special Ability|Dwarf ~ Craftsman.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 # Ability Name							Type			Visible
 CATEGORY=Special Ability|Dwarf ~ Xenophobic.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=Special Ability|Elf ~ Darkvision.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

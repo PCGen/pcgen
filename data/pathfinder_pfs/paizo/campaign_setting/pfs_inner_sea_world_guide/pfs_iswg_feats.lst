@@ -5,48 +5,12 @@
 # Feats: all feats on pages 284-289 except Eye of the Arclord, Fortune Teller, Hamatulatsu, Harrowed, and Shade of the Uskwood. For the Cypher Magic feat, replace the Scribe Scroll prerequisite with Spell Focus;
 
 # Feat Name						Type			Required Feat
-Aldori Dueling Mastery
-Altitude Affinity.MOD				TYPE:PFSLegal
-Andoren Falconry.MOD				TYPE:PFSLegal
-Arcane Vendetta.MOD				TYPE:PFSLegal
-Careful Speaker.MOD				TYPE:PFSLegal
-Cypher Magic.MOD					TYPE:PFSLegal	PREFEAT:1,Spell Focus
-Cypher Script.MOD					TYPE:PFSLegal
-Demon Hunter.MOD					TYPE:PFSLegal
-Dervish Dance.MOD					TYPE:PFSLegal
-Desert Dweller.MOD				TYPE:PFSLegal
-Desperate Battler.MOD				TYPE:PFSLegal
-Eye of the Arclord.MOD				TYPE:PFSNotLegal
-Fey Foundling.MOD					TYPE:PFSLegal
-Flagbearer.MOD					TYPE:PFSLegal
-Focused Discipline.MOD				TYPE:PFSLegal
-Fortune Teller.MOD				TYPE:PFSNotLegal
-Free Spirit.MOD					TYPE:PFSLegal
-Godless Healing.MOD				TYPE:PFSLegal
-Green Faith Acolyte.MOD				TYPE:PFSLegal
-Hamatulatsu.MOD					TYPE:PFSNotLegal
-Harmonic Spell.MOD				TYPE:PFSLegal
-Harrowed.MOD					TYPE:PFSNotLegal
-Hermean Blood.MOD					TYPE:PFSLegal
-Necromantic Affinity.MOD			TYPE:PFSLegal
-Noble Scion.MOD					TYPE:PFSLegal
-Rugged Northerner.MOD				TYPE:PFSLegal
-Scholar.MOD						TYPE:PFSLegal
-Secret Signs.MOD					TYPE:PFSLegal
-Shade of the Uskwood.MOD			TYPE:PFSNotLegal
-Shrewd Tactician.MOD				TYPE:PFSLegal
-Stoic.MOD						TYPE:PFSLegal
-Storm-Lashed.MOD					TYPE:PFSLegal
-Survivor.MOD					TYPE:PFSLegal
-Taldan Duelist.MOD				TYPE:PFSLegal
-Totem Spirit.MOD					TYPE:PFSLegal
-Varisian Tattoo.MOD				TYPE:PFSLegal
-Wand Dancer.MOD					TYPE:PFSLegal
 
-# .MOD to incorporate firearms
-Rapid Reload.MOD					TYPE:PFSLegal
+CATEGORY=FEAT|Eye of the Arclord.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Fortune Teller.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Hamatulatsu.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Harrowed.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Shade of the Uskwood.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 
-# PREAPPLYs
-Aldori Dueling Mastery (One-Handed).MOD	TYPE:PFSLegal
-Aldori Dueling Mastery (Two-Handed).MOD	TYPE:PFSLegal
+CATEGORY=FEAT|Cypher Magic.MOD					PREFEAT:1,Spell Focus
 

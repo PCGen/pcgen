@@ -1,3 +1,4 @@
 
-Familiar Spell.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+# TODO: This doesn't work for some reason
+#CATEGORY=FEAT|Familiar Spell.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 

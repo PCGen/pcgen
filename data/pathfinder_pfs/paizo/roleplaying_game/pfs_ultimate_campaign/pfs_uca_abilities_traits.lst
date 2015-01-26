@@ -3,9 +3,9 @@ SOURCELONG:Ultimate Campaign	SOURCESHORT:UCA	SOURCEWEB:http://paizo.com/products
 
 # Traits: all traits listed on pages 51-64 are legal for play except corpse cannibal, hedge magician, natural-born leader, rich parents, and unblemished barrel.
 
-CATEGORY=Special Ability|Trait ~ Corpse Cannibal.MOD			TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Hedge Magician.MOD			TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Natural-Born Leader.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Rich Parents.MOD			TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Unblemished Barrel.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Corpse Cannibal.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Hedge Magician.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Natural-Born Leader.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Rich Parents.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Unblemished Barrel.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 

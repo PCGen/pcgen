@@ -5,6 +5,6 @@ SOURCELONG:Dwarves of Golarion	SOURCESHORT:DOG	SOURCEWEB:http://paizo.com/store/
 # Traits: all traits except Coin Hoarder, Eldritch Smith, and Toilcrafter
 
 # Ability Name							Type			Visible
-CATEGORY=Special Ability|Trait ~ Eldritch Smith.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Coin Hoarder.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Toilcrafter.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Eldritch Smith.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Coin Hoarder.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Toilcrafter.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
