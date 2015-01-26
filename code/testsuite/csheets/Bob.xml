@@ -1902,10 +1902,10 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Chooser ~ Choose SIZE (Medium)</name>
+			<name>Chooser ~ Choose SIZE (M)</name>
 			<description></description>
 			<type>CHOOSER.TEST.SPECIALQUALITY</type>
-			<associated>Medium</associated>
+			<associated>M</associated>
 			<count>1</count>
 			<auto>T</auto>
 			<hidden>F</hidden>
