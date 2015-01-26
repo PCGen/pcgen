@@ -5,10 +5,10 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 
 #CATEGORY=Special Ability|Dwarf ~ Craftsman.MOD		VISIBLE:NO	TYPE:PFSNotLegal
 # Ability Name							Type			Visible
-CATEGORY=Special Ability|Dwarf ~ Xenophobic.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Elf ~ Darkvision.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Half-Elf ~ Drow Blooded.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Half-Elf ~ Drow Magic.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-#CATEGORY=Special Ability|Halfling ~ Practicality.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-#CATEGORY=Special Ability|Human ~ Heart of the Fields.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Human ~ Heroic.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Dwarf ~ Xenophobic.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Elf ~ Darkvision.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Half-Elf ~ Drow Blooded.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Half-Elf ~ Drow Magic.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+#CATEGORY=Special Ability|Halfling ~ Practicality.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+#CATEGORY=Special Ability|Human ~ Heart of the Fields.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Human ~ Heroic.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

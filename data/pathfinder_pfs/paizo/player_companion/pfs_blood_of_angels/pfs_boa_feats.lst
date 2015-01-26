@@ -7,4 +7,4 @@ SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/b
 ###Block
 #Feat name			Type				Description																								Benefit																																																																																																																																																												Prerequisites																										Added levels	Added name
 # Feat Name			Type			Visible
-CATEGORY=FEAT|Supernal Feast.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+Supernal Feast.MOD	TYPE:PFSNotLegal	VISIBLE:NO

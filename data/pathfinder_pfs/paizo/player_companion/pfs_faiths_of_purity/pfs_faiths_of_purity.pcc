@@ -39,9 +39,23 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Faiths of Purity" Copy
 # Spells: all spells on pages 28-29;
 # Traits: all traits on pages 5, 7, 9, 11, 13, 15, 17, and 18-21. Note that Eye of the Father grants Appraise as a class skill, not Perform, as written.
 
-!PRECAMPAIGN:1,Faiths of Purity
-#PCC:@/pathfinder/paizo/player_companion/faiths_of_purity/faiths_of_purity.pcc
-ABILITY:pfs_fop_feats.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Purity
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Player Companion: Faiths of Purity
+# Feats: Feats on pages 24-25 are no longer legal in this sourcebook. Please refer to Pathfinder Campaign Setting: Inner Sea Gods for the updated versions of these feats and the requirements to choose them;
+# Spells: all spells on pages 28-29;
+# Traits: all traits on pages 5, 7, 9, 11, 13, 15, 17, and 18-21. Note that Eye of the Father grants Appraise as a class skill, not Perform, as written.
+
+# Data files
 DEITY:pfs_fop_deities.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Purity
 ABILITY:pfs_fop_abilities.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Purity
+
+# TODO: Previous versions of Additional Resource Guide allowed these feats. Existing characters would be broken with this change unless Inner Sea Gods source is added to PCGen, which it isn't at this time. So I'm keeping these feats in for the time being.
+#LSTEXCLUDE:@/pathfinder/paizo/player_companion/faiths_of_balance/fop_feats.lst
+FEAT:pfs_fop_feats.lst|PRECAMPAIGN:1,INCLUDES=Faiths of Purity
+
+#
+# End
+#
 

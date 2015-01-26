@@ -13,7 +13,7 @@ Aldori Dueling Sword.MOD	TYPE:PFSLegal
 Sawtooth Sabre.MOD		TYPE:PFSLegal
 Urumi.MOD				TYPE:PFSLegal
 Bladed Scarf.MOD			TYPE:PFSLegal
-Firearms.MOD			TYPE:PFSLegal	PREABILITY:1,CATEGORY=FEAT,Gunsmithing
+Firearms.MOD			TYPE:PFSLegal	PREFEAT:1,Gunsmithing
 Pepperbox.MOD			TYPE:PFSLegal
 Pistol.MOD				TYPE:PFSLegal
 Musket.MOD				TYPE:PFSLegal

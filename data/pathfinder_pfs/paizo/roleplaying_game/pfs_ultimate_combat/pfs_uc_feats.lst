@@ -1,6 +1,24 @@
 # CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
-# Feats: all feats on pages 284-289 except Eye of the Arclord, Fortune Teller, Hamatulatsu, Harrowed, and Shade of the Uskwood. For the Cypher Magic feat, replace the Scribe Scroll prerequisite with Spell Focus;
-
 # Feat Name				Ability
-CATEGORY=FEAT|Exotic Weapon Proficiency.MOD	ABILITY:Internal|AUTOMATIC|Exotic Weapon Proficiency ~ Firearms|PREABILITY:2,CATEGORY=FEAT,Exotic Weapon Proficiency (Firearms),Gunsmithing
+Expert Driver.MOD				TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Field Repair.MOD				TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Master Combat Performer.MOD		TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Master Siege Engineer.MOD		TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Performance Weapon Mastery.MOD	TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Performing Combatant.MOD		TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Secret Stash Deed.MOD			TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Siege Commander.MOD			TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Siege Engineer.MOD			TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Siege Gunner.MOD				TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Skilled Driver.MOD			TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+
+Dramatic Display.MOD			TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Hero's Display.MOD			TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Masterful Display.MOD			TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Mocking Dance.MOD				TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Murderer's Circle.MOD			TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+Savage Display.MOD			TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+
+Exotic Weapon Proficiency.MOD	ABILITY:Internal|AUTOMATIC|Exotic Weapon Proficiency ~ Firearms|PREFEAT:2,Exotic Weapon Proficiency (Firearms),Gunsmithing
+

@@ -43,24 +43,28 @@ COPYRIGHT:Pathfinder Roleplaying Game Advanced Race Guide Copyright 2012, Paizo 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-# Pathfinder Society Additional Resource Guide October 1, 2014
-
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Roleplaying Game: Advanced Race Guide
-# To create an dhampir, fetchling, grippli, goblin, ifrit, kitsune, nagaji, oread, suli, sylph, undine, vishkanya or wayang character, you must have a Chronicle sheet that opens the race as a legal option at character creation.
-# Note: Alternate racial traits, racial archetypes, racial evolutions, racial feats, and racial spells are only available for characters of the associated race. Racial equipment and magic items can be purchased and used by any race as long as the specific item permits it (for example, only halflings can purchase and use solidsmoke pipeweed).
+# To create an aasimar, dhampir, fetchling, grippli, goblin, ifrit, oread, ratfolk, samsaran, suli, sylph, tiefling, undine, or vishkanya character, you must have a Chronicle sheet that opens the race as a legal option at character creation.
+#   Aasimars and tieflings that were created and had at least one xp applied before August 14, 2014, remain legal for play.
+#   The boon restriction to create a kitsune, nagaji, and wayang was removed at the start of Season 6 and all three are now available for open creation.
+# Note: Alternate racial traits, racial archetypes, racial evolutions, racial feats, and racial spells are only available for characters of the associated race.
+#   Racial equipment and magic items can be purchased and used by any race as long as the specific item permits it (for example, only halflings can purchase and use solidsmoke pipeweed).
 # The new alchemist discovery on page 44 is legal for play for characters of all races.
 # Dwarves:
 #   all alternate racial traits, except craftsman and xenophobic, are legal for play;
-#   racial subtypes are legal for play;
-#   *all favored class options except *wizard are legal for play;
+#   * racial subtypes are legal for play;
+#   all favored class options except wizard are legal for play;
 #   all archetypes are legal for play.
 #   The Forgemaster's 3rd level Craft Magic Arms and Armor bonus feat is replaced with the Heavy Armor Proficiency feat.
-#   The Forgemaster's 5th level master smith ability is replaced with Skill Focus (Craft);   ** Set to Craft (Blacksmiting)
+#   The Forgemaster's 5th level master smith ability is replaced with Skill Focus (Craft);
 #   all dwarven equipment, feats, magic items, and spells are legal for play.
 # Elves:
 #   all alternate racial traits, except darkvision;
-#   *all racial subtypes except *arctic and *dusk elves, are legal for play;
-#   all racial subtypes, favored class options, racial archetypes, elven special materials except wyroot, feats, magic items, and spells are legal for play.
+#   all racial subtypes except arctic and dusk elves, are legal for play;
+#   all favored class options, racial archetypes, elven special materials except wyroot, feats, magic items, and spells are legal for play.
 # Gnomes:
 #   all alternate racial traits, racial subtypes, and favored class options are legal for play;
 #   all racial archetypes except experimental gunsmith are legal for play;
@@ -69,10 +73,10 @@ COPYRIGHT:Pathfinder Roleplaying Game Advanced Race Guide Copyright 2012, Paizo 
 #   Ring of craft magic may be used for Day Job checks.
 # Half-Elves:
 #   all alernate racial traits except drow-blooded and drow magic are legal for play;
-#   *all racial subtypes except *drow-descended are legal for play;
+#   * all racial subtypes except drow-descended are legal for play;
 #   all favored class options are legal for play;
 #   all racial archetypes except wild caller are legal for play.
-#   *For the bonded witch archetype, energy siege shot is replaced with resounding shot (Advanced Player's Guide 238) at 10th level and arcane cannon is replaced with fire brand (Advanced Player's Guide 222) at 14th level under the bonded item weapon entry;
+#   For the bonded witch archetype, energy siege shot is replaced with resounding shot (Advanced Player's Guide 238) at 10th level and arcane cannon is replaced with fire brand (Advanced Player's Guide 222) at 14th level under the bonded item weapon entry;
 #   all half-elven equipment, magic items, and spells are legal for play;
 #   all half-elven feats except Half-Drow Paragon are legal for play.
 # Half-Orcs:
@@ -87,7 +91,7 @@ COPYRIGHT:Pathfinder Roleplaying Game Advanced Race Guide Copyright 2012, Paizo 
 #   all racial subtypes, favored class options, racial archetypes, orders, equipment, feats, and magic items are legal for play.
 # Humans:
 #   all alternate racial traits except heart of the fields and heroic are legal for play;
-#   *all racial subtypes, except *trailblazer, are legal for play;
+#   * all racial subtypes, except trailblazer, are legal for play;
 #   all favored class options, feats, equipment, and spells are legal for play;
 #   all racial archetypes and bloodlines except buccaneer and feral child are legal for play.
 # In Chapter 2, nothing from the catfolk, drow, hobgoblins, kobolds, orcs, and ratfolk entries are currently legal for play.
@@ -104,6 +108,10 @@ COPYRIGHT:Pathfinder Roleplaying Game Advanced Race Guide Copyright 2012, Paizo 
 #   all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spells are legal for play.
 # Oreads:
 #   all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spells are legal for play.
+# Ratfolk:
+#   all alternate racial traits, favored class options, racial archetypes, racial discoveries, equipment, feats, magic items, and spells are legal for play.
+# Samsaran:
+#   all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spells are legal for play.
 # Sylphs:
 #   all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spells are legal for play.
 # Tengus:
@@ -113,7 +121,7 @@ COPYRIGHT:Pathfinder Roleplaying Game Advanced Race Guide Copyright 2012, Paizo 
 #   all racial archetypes except Fiendish Vessel are legal for play.
 # Undines:
 #   all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spells are legal for play.
-# In Chapter 3, nothing from the changelings, duergar, gillmen, merfolk, samsarans, strix, svirfneblin, and vanaras entries are currently legal for play.
+# In Chapter 3, nothing from the changelings, duergar, gillmen, merfolk, strix, svirfneblin, and vanaras entries are currently legal for play.
 # The rogue talents on page 193 are legal for play for characters of all races.
 # Gripplis:
 #   all alternate racial traits, favored class options, racial archetypes, racial equipment, racial discoveries, racial magic items, and racial feats are legal for play.
@@ -121,23 +129,25 @@ COPYRIGHT:Pathfinder Roleplaying Game Advanced Race Guide Copyright 2012, Paizo 
 #   all alternate racial traits, favored class options, racial archetypes, racial feats, and magic items are legal for play.
 # Nagaji:
 #   all alternate racial traits, favored class options, racial archetypes, racial feats, and magic items are legal for play.
-# Sulis:
+# Suli:
 #   all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, and spells are legal for play.
 # Vishkanyas:
 #   all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spells are legal for play.
 # Wayangs:
 #   all alternate racial traits, favored class options, racial archetypes, racial equipment, feats, magic items, and spell are legal for play.
 # Nothing in Chapter 4 is legal for play.
-#
-# * Items marked with * have not been removed or marked as PFSNotLegal because either they could not be found in this source, or some problem caused by doing so, or it was not simple to do.
 
-!PRECAMPAIGN:1,Advanced Race Guide
-#PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.pcc
+# * TODO: Racial subtypes are not in PCGen
 
+# Data files
 ABILITY:pfs_arg_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 ABILITY:pfs_arg_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 EQUIPMENT:pfs_arg_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 EQUIPMENT:pfs_arg_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 EQUIPMOD:pfs_arg_equipmods.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
-ABILITY:pfs_arg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+FEAT:pfs_arg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 SPELL:pfs_arg_spells.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+
+#
+# End
+#

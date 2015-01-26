@@ -36,11 +36,23 @@ COPYRIGHT:PCGen dataset conversion for "Guide to the River Kingdoms" Copyright 2
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Campaign Setting: Guide to the River Kingdoms
 # Feat: Touvette Defender;
 # Spell: silverlight;
 # Other: focused performance bard alternate class ability
 
-!PRECAMPAIGN:1,Guide to the River Kingdoms
-#PCC:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/guide_to_the_river_kingdoms.pcc
+# TODO: Focused Performance (Ex) is missing from this source
+
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/gttrk_templates.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/gttrk_equip_magic_items.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/gttrk_equip_general.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/gttrk_deities.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/gttrk_abilities.lst
+
+#
+# End
+#
 

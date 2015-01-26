@@ -21,10 +21,10 @@ Field Plate.MOD			TYPE:PFSLegal
 Hellknight Plate.MOD		TYPE:PFSLegal
 Stoneplate.MOD			TYPE:PFSLegal
 Klar (as Shield).MOD		TYPE:PFSLegal
-Pepperbox.MOD			TYPE:PFSLegal	PREABILITY:1,CATEGORY=FEAT,Gunsmithing
-Pistol.MOD				TYPE:PFSLegal	PREABILITY:1,CATEGORY=FEAT,Gunsmithing
-Musket.MOD				TYPE:PFSLegal	PREABILITY:1,CATEGORY=FEAT,Gunsmithing
-Cannon.MOD				TYPE:PFSLegal	PREABILITY:1,CATEGORY=FEAT,Gunsmithing
+Pepperbox.MOD			TYPE:PFSLegal	PREFEAT:1,Gunsmithing
+Pistol.MOD				TYPE:PFSLegal	PREFEAT:1,Gunsmithing
+Musket.MOD				TYPE:PFSLegal	PREFEAT:1,Gunsmithing
+Cannon.MOD				TYPE:PFSLegal	PREFEAT:1,Gunsmithing
 Black Powder (Dose).MOD		TYPE:PFSLegal
 Black Powder (Keg).MOD		TYPE:PFSLegal
 Cannon Ball.MOD			TYPE:PFSLegal

@@ -56,18 +56,30 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary" Copyright 2009-
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
-# Pathfinder Society Additional Resource Guide October 1, 2014
-
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Roleplaying Game: Bestiary
 # Animal Companions: ankylosaurus, aurochs, brachiosaurus, dire bat, dire rat, dolphin, elasmosaurus, electric eel, elephant/mastodon, frog, goblin dog, hyena, monitor lizard, moray eel, octopus, orca, pteranodon, rhinoceros, roc, squid, stegosaurus, triceratops, and tyrannosaurus;
 # Familiars: all familiars listed on pages 131-133;
-# Feats: none of the feats are legal for play for PCs, animal companions, or familiars unless specifically granted by another legal source.
+# Feats: none of the feats are legal for play for PCs, animal companions, or familiars unless specifically granted by another legal source;
 # Other: all creatures in this book are legal for polymorph effects (including a druid's wild shape ability) within the boundaries of each spell or ability's parameters.
+# All languages found in this book are available for a character to learn with the linguistics skill, except aboleth and drow sign language.
 
-!PRECAMPAIGN:1,Bestiary
-#PCC:@/pathfinder/paizo/roleplaying_game/bestiary/bestiary.pcc
-
+# Data files
 ABILITY:pfs_b1_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
 EQUIPMENT:pfs_b1_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
 EQUIPMENT:pfs_b1_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
 EQUIPMENT:pfs_b1_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
+RACE:pfs_b1_races_companion.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
+
+LANGUAGE:pfs_ce_languages.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
+FEAT:pfs_ce_feats.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
+
+# TODO: All languages found in this book are available for a character to learn with the linguistics skill, except aboleth and drow sign language.
+# Aboleth and drow sign language are blocked, but the others are not blocked from int bonus language selection.
+# PCGen shows all the languages for INT bonus languages.
+
+#
+# End
+#

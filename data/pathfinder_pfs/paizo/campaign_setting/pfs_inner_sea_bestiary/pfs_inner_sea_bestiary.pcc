@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Inner Sea Bestiary (PFS)
 KEY:PFS ~ Inner Sea Bestiary
-GAMEMODE:Pathfinder|Pathinder_PFS
+#GAMEMODE:Pathfinder|Pathinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
 RANK:3
 STATUS:BETA
@@ -42,13 +42,18 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Equipment" Copyr
 
 # Additional Resources
 # Last Updated Friday, January 9, 2015
+#
 # Pathfinder Campaign Setting: Inner Sea Bestiary
 # All languages found in this book are available for a character to learn with the linguistics skill.
 
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/isb_abilities_race.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/isb_abilitycategories.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/isb_kits_race.lst
-# LANGUAGE:isb_languages.lst
-LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/isb_skills.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/isb_races.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/isb_skills.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/isb_templates.lst
+
+#
+# End
+#
+

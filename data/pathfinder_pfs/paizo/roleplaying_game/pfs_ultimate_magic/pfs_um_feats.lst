@@ -4,8 +4,16 @@ SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRP
 # ORIGINAL ENTRY DATE: Unknown
 
 #   Feats: Blighted Critical, Create Reliquary Arms and Shield, Create Sanguine Elixir are not legal for play.
-# Feat Name								Type			Visible
-CATEGORY=Feat|Blighted Critical.MOD				TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Feat|Blighted Critical Mastery.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Feat|Create Reliquary Arms and Shields.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Feat|Create Sanguine Elixir.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+# Feat Name						Type			Visible
+Blighted Critical.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Blighted Critical Mastery.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Create Reliquary Arms and Shields.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Create Sanguine Elixir.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+
+#   Discoveries: arcane builder arcane discovery, golem constructor arcane discovery, true name arcane discovery, staff-like wand arcane discovery are not legal for play.
+# Feat Name					Type							Required Ability								Required Class		Required Feat		Define			Description																																																			Stackable?	Multiple?	Choose								Selections	Ability								Bonus Ability Pool																																																																				Modify VAR						Source Page		Benefits
+Discovery (Arcane Builder).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Discovery (Golem Constructor).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Discovery (True Name).MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Discovery (Staff-Like Wand).MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+

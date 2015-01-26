@@ -35,17 +35,21 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Dragon Empires Primer"
 #EXTRAFILE:OGL.txt
 
 # Additional Resources
-# Last Updated Tuesday, October 14, 2014
-
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Player Companion: Dragon Empires Primer
 # Archetypes: all archetypes on pages 22-23;
 # Feats: kitsune feats on page 5 are legal for kitsune characters; all feats on pages 24-25;
 # Gods: All gods listed on pages 26-27;
 # Other: Oni Bloodline, Void elemental school;
-# Spells: Call the Void;
+# Spells: call the void;
 # Subdomains: Moon;
-# Traits: all traits on pages 8-21, except Chosen Child and Rebel Leader
+# Traits: all traits on pages 8-21 except Chosen Child and Rebel Leader.
+# The boon restriction to create a kitsune, nagaji, and wayang was removed at the start of Season 6 and all three are now available for open creation.
 
-!PRECAMPAIGN:1,Dragon Empires Primer
-#PCC:@/pathfinder/paizo/player_companion/dragon_empires_primer/dragon_empires_primer.pcc
+# Data files
+
+#
+# End
+#
 

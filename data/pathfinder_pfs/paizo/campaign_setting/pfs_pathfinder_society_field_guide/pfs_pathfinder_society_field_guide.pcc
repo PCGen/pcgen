@@ -37,9 +37,13 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
-# Pathfinder Society Additional Resource Guide October 1, 2014
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Campaign Setting: Pathfinder Society Field Guide
 # All rules in this book are legal for play in Pathfinder Society Organized Play.
 
-!PRECAMPAIGN:1,Pathfinder Society Field Guide
-#PCC:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pathfinder_society_field_guide.pcc
+#
+# End
+#
+

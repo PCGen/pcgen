@@ -17,7 +17,7 @@ SOURCEWEB:http://paizo.com/products/btpy8x64?Pathfinder-Roleplaying-Game-Ultimat
 SOURCEDATE:2013-05
 ISOGL:YES
 
-COVER:../ultimate_campaign.jpg
+COVER:/pathfinder/paizo/roleplaying_game/ultimate_campaign/ultimate_campaign.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -34,13 +34,15 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Campaign" Copyri
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Roleplaying Game: Ultimate Campaign
 # Refer to page 10 in the Guide to Pathfinder Society Organized Play for rules on utilizing character retraining.
 # Note: Race traits are only available for characters of the associated race. Religion traits are only available for characters of the associated religion.
 # Traits: all traits listed on pages 51-64 are legal for play except corpse cannibal, hedge magician, natural-born leader, rich parents, and unblemished barrel.
 
-PRECAMPAIGN:1,INCLUDES=Ultimate Campaign
-#PCC:../_ultimate_CAMPAIGN.pcc
+# Data files
 ABILITY:pfs_uca_abilities_traits.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Campaign
 ABILITY:pfs_uca_abilities_drawbacks.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Campaign
 

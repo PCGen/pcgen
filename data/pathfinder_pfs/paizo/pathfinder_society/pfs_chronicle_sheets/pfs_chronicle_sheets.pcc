@@ -8,7 +8,7 @@ BOOKTYPE:Supplement
 SETTING:Pathfinder Society Chronicle Sheets
 PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
 !PRECAMPAIGN:1,Pathfinder Society Core Assumption
-!PRECAMPAIGN:1,Pathfinder Society Complete
+!PRECAMPAIGN:1,Pathfinder Society
 TYPE:Paizo Publishing.Pathfinder Society
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -35,7 +35,7 @@ ABILITYCATEGORY:pfscs_abilitycategories.lst
 # EQUIPMENT:pfscs_equip_general.lst
 EQUIPMENT:pfscs_equip.lst
 EQUIPMOD:pfscs_equipmods.lst
-# ABILITY:pfscs_feats.lst
+# FEAT:pfscs_feats.lst
 # KIT:pfscs_kits.lst
 # LANGUAGE:pfscs_languages.lst
 # RACE:pfscs_races.lst

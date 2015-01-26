@@ -40,29 +40,44 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Equipment" Copyr
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-# Pathfinder Society Additional Resource Guide October 1, 2014
-
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Roleplaying Game: Ultimate Equipment
 # All items from Chapter 1 are legal for play except as noted below. Some rules elements are legal but function differently in Pathfinder Society Organized Play, as described here.
-#   Equipment: No Large or larger firearm is available for purchase. The double hackbut, culverin and any advanced firearms on Table 1-10 are not permitted in Pathfinder Society Organized Play. No character may purchase a firearm unless she possesses the Gunsmithing feat and firearms are never considered Always Available; a character must possess enough Fame to purchase any firearm not found on a Chronicle sheet or granted by a class feature. All ammunition except metal cartridges may be purchased.
+#   Equipment: No Large or larger firearm is available for purchase. The double hackbut, culverin and any advanced firearms on Table 1-10 are not permitted in Pathfinder Society Organized Play.
+#     No character may purchase a firearm unless she possesses the Gunsmithing feat and firearms are never considered Always Available; a character must possess enough Fame to purchase any firearm not found on a Chronicle sheet or granted by a class feature.
+#     All ammunition except metal cartridges may be purchased.
 #   Special Materials: All special materials, except angel skin, living steel and wyroot, are legal for play.
+#   The scorpion whip found in this book is no longer legal. Please refer to the Adventurer’s Armory for the legal version.
 # All items from Chapter 2 are legal for play except as noted below.
-#   Equipment: Only creatures of the animal type of size Large and smaller may be purchased. No eggs are legal for play. Animal-related gear on pages 80-86 is available for purchase. Transports on pages 86-87 are not available for purchase. All alchemical remedies, alchemical tools, alchemical weapons, clothing, entertainment items, and food and drink are legal for play.
-#   Any character with the Poison Use class ability can purchase and use poisons. For now, they are the only classes that have a list of -always available poisons- (those noted below) -no other class may purchase poisons unless they appear on a Chronicle sheet or in another legal source.
-#   Alchemists, ninja, and poisoner rogues may only purchase the following poisons: black adder venom, bloodroot, giant wasp poison, greenblood oil, large scorpion venom, malyass root paste, Medium spider venom, nitharit, shadow essence, small centipede poison, terinav root.
+#   Equipment: Only creatures of the animal type of size Large and smaller may be purchased.
+#     No eggs are legal for play.
+#     Animal-related gear on pages 80-86 is available for purchase.
+#     Transports on pages 86-87 are not available for purchase.
+#     All alchemical remedies, alchemical tools, alchemical weapons, clothing, entertainment items, and food and drink are legal for play.
+#   Any character with the Poison Use class ability can purchase and use poisons.
+#     For now, they are the only classes that have a list of "always available poisons" (those noted below)—no other class may purchase poisons unless they appear on a Chronicle sheet or in another legal source.
+#     Alchemists, ninja, and poisoner rogues may only purchase the following poisons: black adder venom, bloodroot, giant wasp poison, greenblood oil, large scorpion venom, malyass root paste, Medium spider venom, nitharit, shadow essence, small centipede poison, terinav root.
 # All items from Chapter 3 are legal for play except as noted below.
 #   All armor special abilities on pages 114-123, except dastard, are legal for play.
 #   All specific magic armor on pages 124-129, except breastplate of vanishing, catskin leather, demon armor, enchanted eelskin, hamatula hide, mail of malevolence, morlock hide, otyugh hide, scarab breastplate, and warden of the woods are legal for play.
 #   All specific magic shields on pages 130-133, except avalanche shield, belligerent shield, celestial shield, dragonslayer's shield, elysian shield, living steel heavy shield, tempest shield, volcanic shield, wyrmslayer's shield, and zombie skin shield are legal for play.
 #   All weapon special abilities on pages 134-149, except unholy, are legal for play.
-#   All specific magic weapons on pages 150-163, except bastard's sting, blade of the rising sun, blade of the sword-saint, cutthroat's apprentice, dagger of doubling, dragoncatch guisarme, earthenflail, hellscourge, lash of the howler, nine lives stealer, pistol of the infinite sky, polarity hammer, spider's fang, and ten-ring sword, are legal
-# All items from Chapter 4 are legal for play except as noted below.
+#   All specific magic weapons on pages 150-163, except bastard's sting, blade of the rising sun, blade of the sword-saint, cutthroat's apprentice, dagger of doubling, dragoncatch guisarme, earthenflail, hellscourge, lash of the howler, nine lives stealer, pistol of the infinite sky, polarity hammer, spider's fang, and ten-ring sword, are legal All items from Chapter 4 are legal for play except as noted below.
 #   All rings on pages 166-177 are legal for play.
 #   All rods on pages 178-191, except rod of the viper, are legal for play.
 #   All staves on pages 192-203, except unholy staff, are legal for play.
 # All items from Chapter 5 are legal for play except as noted below.
-#   Equipment: All items on pages 208-325, except ampoule of false blood, beneficial bandolier, bone razor, bracer's of falcon's aim, cauldron of the undead, collar of the true companion, darkskull, horn of evil, otherworldly kimono, orb of foul abaddon, quick runner's shirt, robe of the archmagi (black), stalker's mask, and talons of Leng are legal for play.
+#   Equipment: All items on pages 208-325, except ampoule of false blood, beneficial bandolier, bone razor, bracers of falcon's aim, cauldron of the undead, collar of the true companion, darkskull, horn of evil, otherworldly kimono, orb of foul abaddon, quick runner's shirt, robe of the archmagi (black), stalker's mask and talons of Leng are legal for play.
 # Nothing from Chapter 6 is legal for play unless it appears on a Chronicle sheet.
 
-!PRECAMPAIGN:1,Ultimate Equipment
-#PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc
+# Data files
+EQUIPMOD:pfs_ue_equipmods.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+EQUIPMENT:pfs_ue_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+EQUIPMENT:pfs_ue_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+EQUIPMENT:pfs_ue_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+
+#
+# End
+#

@@ -94,15 +94,24 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary 2" Copyright 201
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
-# Pathfinder Society Additional Resource Guide October 1, 2014
-
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Roleplaying Game: Bestiary 2
-# Animal Companions: allosaurus, arsinoitherium, baboon, compsognathus, gar, glyptodon, hippopotamus, manta ray, megaloceros, megatherium, parasaurolophus, ram, giant snapping turtle, stingray, tylosaurus; Familiars: brownie, compsognathus, lyraken azata, snapping turtle, voidworm protean;
+# Animal Companions: baboon, compsognathus, gar, hippopotamus, manta ray, ram, giant snapping turtle, stingray;
+# Familiars: brownie, compsognathus, lyraken azata, snapping turtle, voidworm protean;
 # Feats: none of the feats are legal for play for PCs, animal companions, or familiars unless specifically granted by another legal source;
 # Other: all creatures in this book are legal for polymorph effects (including a druid's wild shape ability) within the boundaries of each spell or ability's parameters.
+# All languages found in this book are available for a character to learn with the linguistics skill.
 
-!PRECAMPAIGN:1,Bestiary 2
-#PCC:@/pathfinder/paizo/roleplaying_game/bestiary_2/bestiary_2.pcc
-
+# Data files
 EQUIPMENT:pfs_b2_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 2
 EQUIPMENT:pfs_b2_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 2
+LANGUAGE:pfs_ce_languages.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 2
+
+# TODO: All languages found in this book are available for a character to learn with the linguistics skill.
+# PCGen shows all the languages for INT bonus languages.
+
+#
+# End
+#

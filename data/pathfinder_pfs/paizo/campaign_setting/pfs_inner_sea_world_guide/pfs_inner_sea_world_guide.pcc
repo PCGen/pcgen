@@ -56,8 +56,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: The Inner S
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-# Pathfinder Society Additional Resource Guide October 14, 2014
-
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Campaign Setting: Inner Sea World Guide
 # Domains: Scalykind and Void domains are legal;
 # Equipment: all weapons, armor, and adventuring gear on pages 290-293 with the following restrictions: No character may purchase a firearm unless she possesses the Gunsmithing feat and firearms are never considered Always Available.
@@ -70,9 +71,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: The Inner S
 # Note: to use the abilities from the Harrower prestige class, only a Harrow deck may be used. Any alternative means to simulate the Harrow deck, such as a normal deck of cards or dice, is not legal;
 # Races: All human ethnicities are legal except Azlanti. Humans begin play knowing all listed languages for their chosen ethnicity as racial languages;
 # Spells: all spells on pages 294-297 except interplanetary teleport, and teleport trap are legal for play.
-
-!PRECAMPAIGN:1,Inner Sea World Guide
-#PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_guide.pcc
 
 ABILITY:pfs_iswg_abilities.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 ABILITY:pfs_iswg_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
@@ -87,7 +85,7 @@ EQUIPMENT:pfs_iswg_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World G
 EQUIPMENT:pfs_iswg_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 EQUIPMENT:pfs_iswg_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 EQUIPMOD:pfs_iswg_equipmods.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
-ABILITY:pfs_iswg_feats.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+FEAT:pfs_iswg_feats.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 KIT:pfs_iswg_kits_race.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 LANGUAGE:pfs_iswg_languages.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 RACE:pfs_iswg_races.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
