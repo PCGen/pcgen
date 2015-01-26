@@ -1,4 +1,4 @@
-# CVS $Revision: 21490 $ $Author: amaitland $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: 21490 $ $Author: amaitland $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2012-02-03
 
@@ -86,4 +86,4 @@ ABILITYCATEGORY:Ninja Class Feature					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO
 ABILITYCATEGORY:Samurai Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SamuraiClassFeatures																																PLURAL:Samurai Class Features			DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Terrain Mastery					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Terrain Mastery																																	PLURAL:Terrain Mastery				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Magus Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability		TYPE:MagusClassFeatures		PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Magus Class Feature					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:MagusClassFeatures																																	PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features

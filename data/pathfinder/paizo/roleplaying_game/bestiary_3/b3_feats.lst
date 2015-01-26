@@ -1,18 +1,19 @@
-# CVS $Revision: 21638 $ $Author: amaitland $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: 21638 $ $Author: amaitland $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
 SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
 
 
 
 # Feat Name			Allowed Companions
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Kyton (Augur)|PREALIGN:LE|PRECLASS:1,Wizard=7
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Dragon (Faerie)|!PREALIGN:LG,LN,LE,NE,TN,CE|PRECLASS:1,Wizard=7
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Zoog|PRECLASS:1,Wizard=5|PREALIGN:CN
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Sprite|PRECLASS:1,Wizard=5|PREALIGN:CN
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Rakshasa (Raktavarna)|PRECLASS:1,Wizard=7|PREALIGN:LE
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Oni (Spirit)|PRECLASS:1,Wizard=7|PREALIGN:LE
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Div (Doru)|PRECLASS:1,Wizard=7|PREALIGN:NE
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Carbuncle|PRECLASS:1,Wizard=5|PREALIGN:TN,NG,NE
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Archon (Harbinger)|PRECLASS:1,Wizard=7|PREALIGN:LG
+# Ability Name							Allowed Companions
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Kyton (Augur)|PREALIGN:LE|PRECLASS:1,Wizard=7
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Dragon (Faerie)|!PREALIGN:LG,LN,LE,NE,TN,CE|PRECLASS:1,Wizard=7
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Zoog|PRECLASS:1,Wizard=5|PREALIGN:CN
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Sprite|PRECLASS:1,Wizard=5|PREALIGN:CN
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Rakshasa (Raktavarna)|PRECLASS:1,Wizard=7|PREALIGN:LE
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Oni (Spirit)|PRECLASS:1,Wizard=7|PREALIGN:LE
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Div (Doru)|PRECLASS:1,Wizard=7|PREALIGN:NE
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Carbuncle|PRECLASS:1,Wizard=5|PREALIGN:TN,NG,NE
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Archon (Harbinger)|PRECLASS:1,Wizard=7|PREALIGN:LG
 
 
 CATEGORY=Special Ability|Arcane Bond ~ Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Flying Squirrel),Familiar (Fox),Familiar (Goat),Familiar (Otter),Familiar (Pig),Familiar (Raccoon)
