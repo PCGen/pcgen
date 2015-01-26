@@ -1,4 +1,4 @@
-# CVS $Revision: 20125 $ $Author: zaister $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: 20125 $ $Author: zaister $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 STARTPACK:Aasimar Cleric	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aasimar],[!PRERACE:1,%]	SOURCEPAGE:p.7
@@ -2430,7 +2430,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
 STARTPACK:Dragon (Brass/Adult) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brass)],[!PRERACE:1,%]	SOURCEPAGE:p.102
 ALIGN:CG
 RACE:Dragon (Brass)	!PRERACE:1,%
-ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+ABILITY:CATEGORY=Internal|Dragon Age Selected			FREE:YES
 CLASS:Dragon	LEVEL:10
 NAME:Adult Brass Dragon
 SKILL:Bluff			RANK:14
@@ -2473,7 +2473,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prying Eyes
 STARTPACK:Dragon (Brass/Ancient) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brass)],[!PRERACE:1,%]	SOURCEPAGE:p.102
 ALIGN:CG
 RACE:Dragon (Brass)	!PRERACE:1,%
-ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+ABILITY:CATEGORY=Internal|Dragon Age Selected			FREE:YES
 CLASS:Dragon	LEVEL:18
 NAME:Ancient Brass Dragon
 SKILL:Bluff				RANK:22
@@ -6867,7 +6867,7 @@ ABILITY:CATEGORY=FEAT|Improved Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Maximize Spell
-ABILITY:CATEGORY=FEAT|Toughness				FREE:YES
+ABILITY:CATEGORY=FEAT|Toughness								FREE:YES
 GEAR:Boots of Levitation			LOCATION:Equipped
 GEAR:Headband of Vast Intelligence +2	LOCATION:Equipped
 GEAR:Ring of Protection +2			LOCATION:Equipped
@@ -7026,7 +7026,7 @@ ABILITY:CATEGORY=FEAT|Eschew Materials
 ABILITY:CATEGORY=FEAT|Extend Spell
 ABILITY:CATEGORY=FEAT|Silent Spell
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-ABILITY:CATEGORY=FEAT|Blind-Fight		FREE:YES
+ABILITY:CATEGORY=FEAT|Blind-Fight							FREE:YES
 ABILITY:CATEGORY=Undead Bloodline Feat|Still Spell
 STAT:STR=10|DEX=14|CON=10|INT=12|WIS=14|CHA=16
 LANGBONUS:Abyssal|Draconic
