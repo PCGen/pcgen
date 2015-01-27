@@ -13,7 +13,7 @@ Stake				TYPE:Martial.Melee
 Mere Club			TYPE:Martial.Melee	
 Bayonet			TYPE:Martial.Melee
 Stingchuck			TYPE:Martial.Melee.Ranged
-Scizore				TYPE:Martial.Melee
+Scizore			TYPE:Martial.Melee
 Switchblade Knife		TYPE:Martial.Melee
 Terbutje			TYPE:Martial.Melee
 Blade Boot			TYPE:Martial.Melee
@@ -50,24 +50,24 @@ Shoanti Bola		TYPE:Exotic.Ranged
 
 Aklys				TYPE:Exotic.Melee.Ranged
 Maulaxe			TYPE:Exotic.Melee.Ranged
-Rope Gauntlet			TYPE:Exotic.Melee
-Sawtooth Sabre			TYPE:Exotic.Melee
-Sika					TYPE:Exotic.Melee
-Swordbreaker Dagger		TYPE:Exotic.Melee
-Battle Poi				TYPE:Exotic.Melee
-Butterfly knife			TYPE:Exotic.Melee
-Falcata				TYPE:Exotic.Melee
-Khopesh				TYPE:Exotic.Melee
-Scorpion Whip			TYPE:Exotic.Melee
-Shotel				TYPE:Exotic.Melee
-Temple Sword			TYPE:Exotic.Melee
-Mancatcher				TYPE:Exotic.Melee
-Boomerang				TYPE:Exotic.Melee
-Crossbow (Double)		TYPE:Exotic.Melee
+Rope Gauntlet		TYPE:Exotic.Melee
+Sawtooth Sabre		TYPE:Exotic.Melee
+Sika				TYPE:Exotic.Melee
+Swordbreaker Dagger	TYPE:Exotic.Melee
+Battle Poi			TYPE:Exotic.Melee
+Butterfly knife		TYPE:Exotic.Melee
+Falcata			TYPE:Exotic.Melee
+Khopesh			TYPE:Exotic.Melee
+Scorpion Whip		TYPE:Exotic.Melee
+Shotel			TYPE:Exotic.Melee
+Temple Sword		TYPE:Exotic.Melee
+Mancatcher			TYPE:Exotic.Melee
+Boomerang			TYPE:Exotic.Ranged
+Crossbow (Double)		TYPE:Exotic.Ranged
 Lasso				TYPE:Exotic.Melee
-Crossbow (Light)			TYPE:Exotic.Melee
+Crossbow (Light)		TYPE:Exotic.Ranged
 Sling Glove			TYPE:Exotic.Melee
-Throwing Shield			TYPE:Exotic.Melee
+Throwing Shield		TYPE:Exotic.Melee.Ranged
 
 #
 # End
