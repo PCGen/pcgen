@@ -5,48 +5,12 @@
 # Feats: all feats on pages 284-289 except Eye of the Arclord, Fortune Teller, Hamatulatsu, Harrowed, and Shade of the Uskwood. For the Cypher Magic feat, replace the Scribe Scroll prerequisite with Spell Focus;
 
 # Feat Name						Type			Required Feat
-CATEGORY=FEAT|Aldori Dueling Mastery.MOD			TYPE:PFSLegal
-CATEGORY=FEAT|Altitude Affinity.MOD				TYPE:PFSLegal
-CATEGORY=FEAT|Andoren Falconry.MOD				TYPE:PFSLegal
-CATEGORY=FEAT|Arcane Vendetta.MOD				TYPE:PFSLegal
-CATEGORY=FEAT|Careful Speaker.MOD				TYPE:PFSLegal
-CATEGORY=FEAT|Cypher Magic.MOD					TYPE:PFSLegal	PREABILITY:1,CATEGORY=FEAT,Spell Focus
-CATEGORY=FEAT|Cypher Script.MOD					TYPE:PFSLegal
-CATEGORY=FEAT|Demon Hunter.MOD					TYPE:PFSLegal
-CATEGORY=FEAT|Dervish Dance.MOD					TYPE:PFSLegal
-CATEGORY=FEAT|Desert Dweller.MOD				TYPE:PFSLegal
-CATEGORY=FEAT|Desperate Battler.MOD				TYPE:PFSLegal
-CATEGORY=FEAT|Eye of the Arclord.MOD				TYPE:PFSNotLegal
-CATEGORY=FEAT|Fey Foundling.MOD					TYPE:PFSLegal
-CATEGORY=FEAT|Flagbearer.MOD					TYPE:PFSLegal
-CATEGORY=FEAT|Focused Discipline.MOD				TYPE:PFSLegal
-CATEGORY=FEAT|Fortune Teller.MOD				TYPE:PFSNotLegal
-CATEGORY=FEAT|Free Spirit.MOD					TYPE:PFSLegal
-CATEGORY=FEAT|Godless Healing.MOD				TYPE:PFSLegal
-CATEGORY=FEAT|Green Faith Acolyte.MOD				TYPE:PFSLegal
-CATEGORY=FEAT|Hamatulatsu.MOD					TYPE:PFSNotLegal
-CATEGORY=FEAT|Harmonic Spell.MOD				TYPE:PFSLegal
-CATEGORY=FEAT|Harrowed.MOD					TYPE:PFSNotLegal
-CATEGORY=FEAT|Hermean Blood.MOD					TYPE:PFSLegal
-CATEGORY=FEAT|Necromantic Affinity.MOD			TYPE:PFSLegal
-CATEGORY=FEAT|Noble Scion.MOD					TYPE:PFSLegal
-CATEGORY=FEAT|Rugged Northerner.MOD				TYPE:PFSLegal
-CATEGORY=FEAT|Scholar.MOD						TYPE:PFSLegal
-CATEGORY=FEAT|Secret Signs.MOD					TYPE:PFSLegal
-CATEGORY=FEAT|Shade of the Uskwood.MOD			TYPE:PFSNotLegal
-CATEGORY=FEAT|Shrewd Tactician.MOD				TYPE:PFSLegal
-CATEGORY=FEAT|Stoic.MOD						TYPE:PFSLegal
-CATEGORY=FEAT|Storm-Lashed.MOD					TYPE:PFSLegal
-CATEGORY=FEAT|Survivor.MOD					TYPE:PFSLegal
-CATEGORY=FEAT|Taldan Duelist.MOD				TYPE:PFSLegal
-CATEGORY=FEAT|Totem Spirit.MOD					TYPE:PFSLegal
-CATEGORY=FEAT|Varisian Tattoo.MOD				TYPE:PFSLegal
-CATEGORY=FEAT|Wand Dancer.MOD					TYPE:PFSLegal
 
-# .MOD to incorporate firearms
-CATEGORY=FEAT|Rapid Reload.MOD					TYPE:PFSLegal
+CATEGORY=FEAT|Eye of the Arclord.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Fortune Teller.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Hamatulatsu.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Harrowed.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Shade of the Uskwood.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 
-# PREAPPLYs
-CATEGORY=FEAT|Aldori Dueling Mastery (One-Handed).MOD	TYPE:PFSLegal
-CATEGORY=FEAT|Aldori Dueling Mastery (Two-Handed).MOD	TYPE:PFSLegal
+CATEGORY=FEAT|Cypher Magic.MOD					PREABILITY:1,CATEGORY=FEAT,Spell Focus
 

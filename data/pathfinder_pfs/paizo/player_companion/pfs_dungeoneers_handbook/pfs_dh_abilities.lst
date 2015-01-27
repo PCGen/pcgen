@@ -6,5 +6,5 @@ SOURCELONG:Dungeoneer's Handbook	SOURCESHORT:DH	SOURCEWEB:http://paizo.com/produ
 # Traits: all traits on back inside cover are legal except Alien Origins and Lost Role Model.
 
 # Ability Name							Type			Visible
-CATEGORY=Special Ability|Trait ~ Alien Origins.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Trait ~ Lost Role Model.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Trait ~ Alien Origins.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Lost Role Model.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

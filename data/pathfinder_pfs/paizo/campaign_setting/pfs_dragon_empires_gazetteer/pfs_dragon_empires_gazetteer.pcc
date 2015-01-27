@@ -36,17 +36,22 @@ URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search|Buy this publication from Paizo Publishing!
 DESC:It is a land where honorable samurai wage war against devious ninja. Where the guardian spirits known as kami stand against the ravages of evil oni. Where the martial artists of a shattered empire strive to maintain their traditions against rising chaos. A land of jade and tea, of pride and treachery, of reincarnation and vengeful ghosts. These are the lands of the Dragon Empires. Dragon Empires Gazetteer presents the first exploration of the continent of Tian Xia, a vast realm found on the opposite side of the world of Golarion from the Inner Sea region. Inspired by the fascinating myths and rich histories of numerous Asian cultures and traditions, the Dragon Empires can be either an exotic destination for world-traveling heroes from the far side of the world, or they can be the foundation of an entirely new campaign.
 
-
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Campaign Setting: Dragon Empires Gazetteer
 # Subdomains: Moon;
 # Gods: All gods listed on pages 58-63;
 # Languages: all languages on pages 49-51 may be learned via the Linguistics skill;
 # Races: All human ethnicities are legal, humans begin play knowing all listed languages for their chosen ethnicity as racial languages.
-
-!PRECAMPAIGN:1,Dragon Empires Gazetteer
-#PCC:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/dragon_empires_gazetteer.pcc
+# The boon restriction to create a kitsune, nagaji, and wayang was removed at the start of Season 6 and all three are now available for open creation.
 
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/deg_spells.lst
+
+#
+# End
+#
+

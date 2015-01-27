@@ -34,8 +34,15 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Chronicles: Princes of Darkne
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Campaign Setting: Princes of Darkness
-# Prestige Class: Diabolist; Spells: agonize, hellfire ray, malediction, vision of hell
+# Prestige Class: Diabolist; to qualify for the diabolist prestige class, you must cast lesser planar ally or lesser planar binding (or a similar spell) using one of your own prepared spells or a daily spell slot, and the spell must be on your class spell list;
+# Spells: vision of hell
 
-!PRECAMPAIGN:1,Princes of Darkness - Book of the Damned - Volume 1
-#PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/book_of_the_damned_volume_1.pcc
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/botd1_abilities_race.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/botd1_kits_race.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/botd1_races.lst
+SPELL:pfs_botd1_spells.lst|PRECAMPAIGN:1,Princes of Darkness - Book of the Damned - Volume 1
+

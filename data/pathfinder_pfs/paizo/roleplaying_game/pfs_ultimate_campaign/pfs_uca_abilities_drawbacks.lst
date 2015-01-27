@@ -8,23 +8,23 @@ SOURCELONG:Ultimate Campaign	SOURCESHORT:UCA	SOURCEWEB:http://paizo.com/products
 CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Traits|1|PRECHARACTERTYPE:1,PC|PREABILITY:1,CATEGORY=Special Ability,TYPE.Drawback
 
 ###Block: Drawbacks
-CATEGORY=Special Ability|Drawback ~ Attached.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Avarice.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Dependent.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Doubt.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Family Ties.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Headstrong.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Hedonistic.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Lovesick.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Meticulous.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Paranoid.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Power-Hungry.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Pride.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Provincial.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Sentimental.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Vain.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Xenophobic.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Drawback ~ Zealous.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Drawback ~ Attached.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Avarice.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Dependent.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Doubt.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Family Ties.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Headstrong.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Hedonistic.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Lovesick.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Meticulous.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Paranoid.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Power-Hungry.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Pride.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Provincial.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Sentimental.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Vain.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Xenophobic.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Drawback ~ Zealous.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 
 #
 # End

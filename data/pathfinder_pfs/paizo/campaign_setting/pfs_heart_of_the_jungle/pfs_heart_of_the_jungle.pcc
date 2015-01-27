@@ -43,9 +43,23 @@ COPYRIGHT:PCGen dataset conversion for "Heart of the Jungle" Copyright 2010, PCG
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Campaign Setting: Heart of the Jungle
 # Animal Companion: pygmy hippopotamus
 
-!PRECAMPAIGN:1,Heart of the Jungle
-#PCC:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/heart_of_the_jungle.pcc
+# Data Files
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/hotj_abilities.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/hotj_abilities_race.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/hotj_abilitycategories.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/hotj_equip_general.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/hotj_feats.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/hotj_kits_race.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/hotj_languages.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/hotj_races.lst
+
+#
+# End
+#
 

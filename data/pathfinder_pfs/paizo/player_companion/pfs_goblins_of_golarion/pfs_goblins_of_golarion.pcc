@@ -33,20 +33,27 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Goblins of Golarion" C
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Player Companion: Goblins of Golarion
 # To create a goblin character, you must have a Chronicle sheet that opens the race as a legal option at character creation. Only legal goblin PCs are allowed to choose anything from this book.
 # Equipment: all equipment in the table on page 12 except cobbled item are legal for play;
 # Feats: all feats on pages 24-25 are legal for play;
-# Magic Items: all magic items on page 29 are legal for play;
+# Magic items: all magic items on page 29 are legal for play;
 # Misc.: all goblin gods and subdomains except flotsam on pages 26-27 are legal for play;
 # Spells: all spells on pages 28-29 except limp lash are legal for play;
 # Traits: all traits on pages 15-16 are legal for play
-
-!PRECAMPAIGN:1,Goblins of Golarion
-#PCC:@/pathfinder/paizo/player_companion/goblins_of_golarion/goblins_of_golarion.pcc
 
 # Data files
 ABILITY:pfs_goog_abilities.lst|PRECAMPAIGN:1,INCLUDES=Goblins of Golarion
 DEITY:pfs_goog_deities.lst|PRECAMPAIGN:1,INCLUDES=Goblins of Golarion
 DOMAIN:pfs_goog_domains.lst|PRECAMPAIGN:1,INCLUDES=Goblins of Golarion
 SPELL:pfs_goog_spells.lst|PRECAMPAIGN:1,INCLUDES=Goblins of Golarion
+
+# TODO: items from this source should be limited to goblin PC's and goblin race should only be selectable for PC if PREVARGTEQ:PFSChronicle_GoblinPC_Enabled,1
+
+#
+# End
+#
+

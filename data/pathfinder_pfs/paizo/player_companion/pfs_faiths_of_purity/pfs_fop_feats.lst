@@ -6,3 +6,4 @@ SOURCELONG:Faiths of Purity	SOURCESHORT:FOP	SOURCEWEB:http://paizo.com/store/gam
 
 # Feat Name		Benefits
 CATEGORY=FEAT|Glorious Heat.MOD	BENEFIT:.CLEAR|When you cast a divine spell with the fire descriptor, choose a single ally within 30 feet that you can see. That ally heals the spell level in hit points, and gains a +1 morale bonus on attack rolls until the end of its next turn.
+

@@ -3,6 +3,6 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 # Original Entry by: Stefan Radermacher & Andrew Maitland
 
 # Ability Name								Type			Visible
-CATEGORY=Special Ability|Dwarf ~ Craftsman.MOD			TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Halfling ~ Practicality.MOD		TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=Special Ability|Human ~ Heart of the Fields.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Dwarf ~ Craftsman.MOD			TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Halfling ~ Practicality.MOD		TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Human ~ Heart of the Fields.MOD	TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC

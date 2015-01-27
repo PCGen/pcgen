@@ -35,6 +35,9 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Dungeoneer's Handbook"
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Player Companion: Dungeoneer's Handbook
 # Archetypes: all archetypes on pages 22-23 are legal for play;
 # Discoveries: all discoveries on page 27 are legal for play;
@@ -43,7 +46,11 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Dungeoneer's Handbook"
 # Spells: all spells on pages 30-31.;
 # Traits: all traits on back inside cover are legal except Alien Origins and Lost Role Model.
 
-!PRECAMPAIGN:1,Dungeoneer's Handbook
-#PCC:@/pathfinder/paizo/player_companion/dungeoneers_handbook/dungeoneers_handbook.pcc
+# Data files
 EQUIPMENT:pfs_dh_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Dungeoneer's Handbook
 ABILITY:pfs_dh_abilities.lst|PRECAMPAIGN:1,INCLUDES=Dungeoneer's Handbook
+
+#
+# End
+#
+

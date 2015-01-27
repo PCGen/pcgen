@@ -37,10 +37,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Varisia, Bi
 #EXTRAFILE:OGL.txt
 
 # Additional Resources
-# Last Updated Monday, December 15, 2014
+# Last Updated Friday, January 9, 2015
 #
 # Pathfinder Player Companion: Varisia, Birthplace of Legends
-#
 # Archetypes: Kapenia dancer and thundercaller are legal for play.;
 # Equipment: All equipment on pages 14-15 are legal for play except Varisian idol.;
 # Feats: Deadly Dealer and Thunder and Fang is legal for play.;
@@ -48,8 +47,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Varisia, Bi
 # Traits: Coincunning, cypher resistance, emissary, empyreal cultist, harrow chosen, humble beginnings, local know-it-all, regional influence (except Magnimar), regional recluse, roof racer, savage breaker, Shoanti steed, Shoanti tattoo, town gossip, underbridge dweller, Varisian tattoo, and winner's luck are legal for play.
 
 # Data files
-PRECAMPAIGN:1,INCLUDES=Varisia - Birthplace of Legends
-
 EQUIPMENT:pfs_vbol_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Varisia - Birthplace of Legends
 ABILITY:pfs_vbol_abilities.lst|PRECAMPAIGN:1,INCLUDES=Varisia - Birthplace of Legends
 ABILITY:pfs_vbol_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Varisia - Birthplace of Legends

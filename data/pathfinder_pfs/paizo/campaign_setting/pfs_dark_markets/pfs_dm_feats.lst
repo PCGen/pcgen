@@ -2,7 +2,7 @@
 SOURCELONG:Dark Markets - A Guide to Katapesh	SOURCESHORT:DM	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
 # Original Entry by: Terry Milnes
 
-#Pesh Euphoria.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-#Pesh Healing.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-#Pesh Rejuvenation.MOD		VISIBLE:NO	TYPE:PFSNotLegal
-#Sahir-Afiyun.MOD		VISIBLE:NO	TYPE:PFSNotLegal
+#CATEGORY=FEAT|Pesh Euphoria.MOD		!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+#CATEGORY=FEAT|Pesh Healing.MOD		!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+#CATEGORY=FEAT|Pesh Rejuvenation.MOD		!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal
+#CATEGORY=FEAT|Sahir-Afiyun.MOD		!PRECHARACTERTYPE:1,PC	TYPE:PFSNotLegal

@@ -8,4 +8,4 @@ SOURCELONG:Goblins of Golarion	SOURCESHORT:GOOG	SOURCEWEB:http://paizo.com/produ
 
 ###Block: Domain Abilities
 # Ability Name							Type			Visible
-CATEGORY=Special Ability|Flotsam Subdomain ~ Sift.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Flotsam Subdomain ~ Sift.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

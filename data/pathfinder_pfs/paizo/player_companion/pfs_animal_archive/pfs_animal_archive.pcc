@@ -35,13 +35,22 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Animal Arch
 #EXTRAFILE:OGL.txt
 
 # Additional Resources
-# Last Updated Tuesday, October 14, 2014
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Player Companion: Animal Archive
 # *Note: The Animal Magic Item Slots table found on the inside front cover of the book is not legal except under the following conditions. First, an animal companion, familiar, or bonded mount, may choose one slot listed under its body type when taking the Extra Item Slot feat (this feat may be taken multiple times, each time selecting a different available magic item slot based on the creature's anatomy). Second, access to specific magic item slots may be granted at a later date by another legal source.
-# Archetypes: all archetypes on pages 6-7 and 20-21 are legal. The Huntmaster may only have one animal companion in his hunting pack; Animals: all animal companions on pages 28-29 are legal. Animals on pages 14-15 are legal for purchase except dinosaurs and megafauna (unless already allowed in this document in Bestiary 1, Bestiary 2, Bestiary 3, or Ultimate Equipment) and dire animals. Additionally, only creatures of the animal type of size Large and smaller may be purchased. Goblin dog is restricted for purchase and only available to goblin PCs; Equipment: all equipment on pages 12-13 are legal except barding stitches, fury drops, and poison caps; Familiars: all familiars on pages 10-11 and 30-31 are legal. Approximating familiars is not legal for PFS play; Feats: all feats on pages 18-19 are legal except Familiar Spell; Magic items: all magic items on pages 26-27 are legal except circlet of speaking and familiar metamagic rod; Spells: all spells on pages 24-25 are legal; Tricks: All tricks on pages 8-9 are legal.
+# Archetypes: all archetypes on pages 6-7 and 20-21 are legal. The Huntmaster may only have one animal companion in his hunting pack;
+# Animals: all animal companions on pages 28-29 are legal. Animals on pages 14-15 are legal for purchase except dinosaurs and megafauna (unless already allowed in this document in Bestiary 1, Bestiary 2, Bestiary 3, or Ultimate Equipment) and dire animals. Additionally, only creatures of the animal type of size Large and smaller may be purchased. Goblin dog is restricted for purchase and only available to goblin PCs;
+# Equipment: all equipment on pages 12-13 are legal except barding stitches, fury drops, and poison caps;
+# Familiars: all familiars on pages 10-11 and 30-31 are legal. Approximating familiars is not legal for PFS play;
+# Feats: all feats on pages 18-19 are legal except Familiar Spell;
+# Magic items: all magic items on pages 26-27 are legal except circlet of speaking and familiar metamagic rod;
+# Spells: all spells on pages 24-25 are legal;
+# Tricks: All tricks on pages 8-9 are legal.
 
-PRECAMPAIGN:1,INCLUDES=Animal Archive
-#PCC:../animal_archive.pcc
+# Data files
+EQUIPMENT:pfs_anar_equipment.lst|PRECAMPAIGN:1,INCLUDES=Animal Archive
+ABILITY:pfs_anar_feats.lst|PRECAMPAIGN:1,INCLUDES=Animal Archive
 
 #
 # End

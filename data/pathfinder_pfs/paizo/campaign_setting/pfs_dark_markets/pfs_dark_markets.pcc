@@ -37,14 +37,12 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., whi
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Campaign Setting: Dark Markets, A Guide to Katapesh
 # Feats: Jackal Blood, Lucky Halfling;
 # Prestige Class: Balanced Scale of Abadar
-
-PRECAMPAIGN:1,Dark Markets - A Guide to Katapesh - Conversion
-
-#CLASS:@/pathfinder/paizo/campaign_setting/dark_markets/dm_classes.lst|(INCLUDE:Balanced Scale of Abadar)|PRECAMPAIGN:1,Dark Markets - A Guide to Katapesh (Conversion)
-#FEAT:@/pathfinder/paizo/campaign_setting/dark_markets/dm_feats.lst|(INCLUDE:Jackal Blood,Lucky Halfling)|PRECAMPAIGN:1,Dark Markets - A Guide to Katapesh (Conversion)
 
 ABILITY:pfs_dm_feats.lst|PRECAMPAIGN:1,INCLUDES=Dark Markets - A Guide to Katapesh - Conversion
 TEMPLATE:pfs_dm_templates.lst|PRECAMPAIGN:1,INCLUDES=Dark Markets - A Guide to Katapesh - Conversion

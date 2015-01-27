@@ -6,9 +6,9 @@ SOURCELONG:Gnomes of Golarion	SOURCESHORT:GNOG	SOURCEWEB:http://paizo.com/produc
 
 ###Block: Society Factions
 # Ability Name						Type			Visible
-CATEGORY=Background|Wonderseekers Faction.MOD	TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Background|Wonderseekers Faction.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 
-CATEGORY=FEAT|Master of Wonders.MOD			TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=FEAT|Master of Wonders.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 
 
 ##

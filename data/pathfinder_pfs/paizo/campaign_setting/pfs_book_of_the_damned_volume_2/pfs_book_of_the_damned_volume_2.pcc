@@ -47,19 +47,16 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Lords of Ch
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-#Additional Resources
-#Last Updated Wednesday, October 29, 2014
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Campaign Setting: Lords of Chaos
+# Spells: disfiguring touch, vermin shape I, vermin shape II
 
-#Pathfinder Campaign Setting: Lords of Chaos
-#Spells: disfiguring touch, vermin shape I, vermin shape II
-
-!PRECAMPAIGN:1,Lords of Chaos - Book of the Damned - Volume 2
-#PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/_book_of_the_damned_volume_2.pcc
 SPELL:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_spells.lst|(INCLUDE:Disfiguring Touch,Vermin Shape I,Vermin Shape II)|PRECAMPAIGN:1,INCLUDES=Lords of Chaos - Book of the Damned - Volume 2
 
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_abilitycategories.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_abilities_classes.lst
-# Nascent demon lord is a straight repeat of ISWG - so only incorporate if ISWG not loaded
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_abilities_ndl.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_abilities_race.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_classes_prestige.lst
@@ -68,10 +65,8 @@ LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_feats.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_kits_race.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_races.lst
-# Nascent demon lord is a straight repeat of ISWG - so only incorporate if ISWG not loaded
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_spells_ndl.lst
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_templates.lst
-# Nascent demon lord is a straight repeat of ISWG - so only incorporate if ISWG not loaded
 LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2_templates_ndl.lst
 
 

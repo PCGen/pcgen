@@ -38,25 +38,27 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Player's Guide" 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
-# Pathfinder Society Additional Resource Guide October 1, 2014
-
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Roleplaying Game: Advanced Player's Guide
 # All playtest versions of the six new base classes from this book are no longer legal for play as of 8/3/10. Anyone playing the playtest version of one of the six new base classes must have updated his or her character as of 8/3/10. Updating your character means adjusting only the things that have changed, but not rebuilding the character.
 # The following parts of the Advanced Player's Guide are NOT legal for play:
-#   craftsman alternate Dwarven racial trait
-#   practicality alternate Halfling racial trait
-#   heart of the fields alternate Human racial trait
-#   Alchemist's Brew Potion class ability (he receives Extra Bombs instead as a bonus feat)
-#   Cavalier's Expert Trainer class ability (he receives Skill Focus [Handle Animal] instead as a bonus feat)
-#   Witch's Cauldron hex
-#   Antipaladin alternate class
-#   Cooperative Crafting feat
-#   all cursed magic items and artifacts
+#   craftsman alternate Dwarven racial trait,
+#   practicality alternate Halfling racial trait,
+#   heart of the fields alternate Human racial trait,
+#   Alchemist's Brew Potion class ability (he receives Extra Bombs instead as a bonus feat),
+#   Cavalier's Expert Trainer class ability (he receives Skill Focus [Handle Animal] instead as a bonus feat),
+#   Witch's Cauldron hex,
+#   Antipaladin alternate class,
+#   Cooperative Crafting feat,
+#   all cursed magic items and artifacts,
 #   the Hero Point new rule and associated feats, spells, and magic items
-#   Equipment: All staves in Chapter 7 are not legal for play from this source. If you purchased these prior to Aug. 16, 2012, they are grandfathered into the campaign.
-#   Traits: hedge magician, natural born leader, and rich parents traits, and all of the Campaign Traits.
-#   The Master Alchemist feat may only be selected by Alchemists and Poisoners.
-#PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
+# Equipment: All staves in Chapter 7 are not legal for play from this source. If you purchased these prior to Aug. 16, 2012, they are grandfathered into the campaign.
+# Traits: hedge magician, natural born leader, and rich parents traits, and all of the Campaign Traits.
+# The Master Alchemist feat may only be selected by Alchemists and Poisoners.
+
+# Data files
 ABILITY:pfs_apg_abilities.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 ABILITY:pfs_apg_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 ABILITY:pfs_apg_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
@@ -65,3 +67,7 @@ EQUIPMENT:pfs_apg_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's 
 EQUIPMENT:pfs_apg_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 ABILITY:pfs_apg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 SPELL:pfs_apg_spells.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
+#
+# End
+#

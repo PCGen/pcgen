@@ -4,5 +4,5 @@ SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinde
 # Feats: all feats on pages 24-25 except Destroyer's Blessing and Fire God's Blessing;
 
 # Feat Name				Type			Visible
-CATEGORY=FEAT|Destroyer's Blessing.MOD	TYPE:PFSNotLegal	VISIBLE:NO
-CATEGORY=FEAT|Fire God's Blessing.MOD		TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=FEAT|Destroyer's Blessing.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=FEAT|Fire God's Blessing.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

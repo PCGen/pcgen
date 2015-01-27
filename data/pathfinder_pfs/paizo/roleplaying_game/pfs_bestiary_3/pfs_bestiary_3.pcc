@@ -69,16 +69,23 @@ COPYRIGHT:PCGen dataset conversion for "Bestiary 3" Copyright 2013, PCGen Data t
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-# Pathfinder Society Additional Resource Guide October 1, 2014
-
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Roleplaying Game: Bestiary 3
-# Animal Companions (p. 311): antelope, archelon, axe beak, baluchitherium, basilosaurus, dimetrodon, elk, giant chameleon, giant gecko, giant vulture, iguanodon, kangaroo, megalania, pachycephalosaurus, spinosaurus, thylacine;
+# Animal Companions (p. 311): antelope, axe beak, dimetrodon, elk, giant chameleon, giant gecko, giant vulture, kangaroo, pachycephalosaurus, thylacine;
 # Familiars: all familiars listed on pages 112-113 and the carbuncle and sprite;
 # Feats: none of the feats are legal for play for PCs, animal companions, or familiars unless specifically granted by another legal source;
 # Other: all creatures in this book are legal for polymorph effects (including a druid's wild shape ability) within the boundaries of each spell or ability's parameters.
+# All languages found in this book are available for a character to learn with the linguistics skill, except flail snail.
 
-!PRECAMPAIGN:1,Bestiary 3
-#PCC:@/pathfinder/paizo/roleplaying_game/bestiary_3/bestiary_3.pcc
-
+# Data files
 EQUIPMENT:pfs_b3_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 3
 EQUIPMOD:pfs_b3_equipmods.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 3
+
+# TODO: Not allowed animal companions: Archelon, Baluchitherium, Basilosaurus, Iguanodon, Megalania, Spinosaurus
+# TODO: Block all feats from being used on PCs, animal companions and familiars unless granted by another legal source
+
+#
+# End
+#

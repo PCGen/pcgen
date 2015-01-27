@@ -31,7 +31,14 @@ COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.;
 COPYRIGHT:Pathfinder Player Companion: Blood of Angels Copyright 2012, Paizo Publishing, LLC; Author: Amber E. Scott.
 COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Angels" Copyright 2014, PCgen Data team (Including, but not limited to Andrew Wilson (nuance), Paul Grosse, Andrew Maitland)
 
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
 # Pathfinder Player Companion: Blood of Angels
+# To create an aasimar, you must have a Chronicle sheet that opens the race as a legal option at character creation. Aasimars with at least one xp applied before August 14, 2014, remain legal for play.
 # Bloodlines: martyred bloodline is legal for Pathfinder Society but the bonus feat Leadership remains unavailable;
 # Heritages: all heritages, and associated traits, on pages 21-23 are legal;
 # Feats: all feats on pages 24-25 are legal except Supernal Feast;
@@ -39,12 +46,17 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Angels" Copyr
 # Other: variant assimar abilities are not legal for Pathfinder Society;
 # Oracle Curses on page 26 are legal;
 # Inquisitons on pages 26-27 are legal;
-# Subdomains: all subdomains on page 27 are legal;
+# Subdomains: all subdomains on page 27 are legal except the whimsy subdomain;
 # Traits: all traits on pages 30-31 are legal except ethical leader. Clergy member is useable once per scenario instead of once per week. Faith healer may be used for Day Job checks.
 
-!PRECAMPAIGN:1,Blood of Angels
-#PCC:@/pathfinder/paizo/player_companion/blood_of_angels/blood_of_angels.pcc
+# Data files
 ABILITY:pfs_boa_abilities.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
 ABILITY:pfs_boa_abilities_variant.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
 ABILITYCATEGORY:pfs_boa_abilitycategories.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
+DOMAIN:pfs_boa_domains.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
 ABILITY:pfs_boa_feats.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
+
+#
+# End
+#
+
