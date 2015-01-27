@@ -67,10 +67,13 @@ public enum Gender implements GenderFacade
 	}
 	
 	/**
-	 * Retrieve a Gender object to match the name ({@link #name()}) or localized name (output by {@link #toString()}).
-	 * The localized lookup is kept for legacy purpose when the localized name was saved in the character files (instead
-	 * of the {@link #name()}).
-	 * @param name The localized display name of the Gender.
+	 * Retrieve a Gender object to match the name ({@link #name()}) or localized
+	 * name (output by {@link #toString()}). The localized lookup is kept for
+	 * legacy purpose when the localized name was saved in the character files
+	 * (instead of the {@link #name()}).
+	 * 
+	 * @param name
+	 *            The localized display name of the Gender.
 	 * @return The matching Gender.
 	 */
 	public static Gender getGenderByName(String name)

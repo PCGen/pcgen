@@ -210,7 +210,7 @@ public class CharacterAbilities
 			{
 				masterListFacade.updateContentsNoOrder(workingListFacade.getContents());
 			}
-			updateAbilityCategoryTodo((AbilityCategory)category);
+			updateAbilityCategoryTodo((AbilityCategory) category);
 		}
 		
 		Set<AbilityCategoryFacade> origCats = new HashSet<AbilityCategoryFacade>(abilityListMap.keySet());
@@ -226,7 +226,7 @@ public class CharacterAbilities
 				{
 					abilityListMap.remove(category);
 				}
-				updateAbilityCategoryTodo((AbilityCategory)category);
+				updateAbilityCategoryTodo((AbilityCategory) category);
 			}
 		}
 		activeCategories.updateContents(workingActiveCategories.getContents());
@@ -432,7 +432,8 @@ public class CharacterAbilities
 		Ability anAbility = (Ability) abilityFacade;
 		AbilityCategory theCategory = (AbilityCategory) categoryFacade;
 
-		try {
+		try
+		{
 			Ability pcAbility =
 					theCharacter.getMatchingAbility(theCategory, anAbility,
 						Nature.NORMAL);

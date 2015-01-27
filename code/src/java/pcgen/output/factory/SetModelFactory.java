@@ -36,13 +36,13 @@ public class SetModelFactory implements ModelFactory
 	/**
 	 * Constructs a new SetModelFactory for the given SetFacet.
 	 * 
-	 * @param ifacet
+	 * @param sf
 	 *            The SetFacet for which this SetModelFactory will produce
 	 *            ModelFactory objects
 	 */
-	public SetModelFactory(SetFacet<CharID, ?> aif)
+	public SetModelFactory(SetFacet<CharID, ?> sf)
 	{
-		facet = aif;
+		facet = sf;
 	}
 
 	/**

@@ -103,6 +103,7 @@ public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 		return getTokenClass();
 	}
 
+	@Override
 	public int getPriority()
 	{
 		return 0;

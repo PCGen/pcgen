@@ -49,9 +49,6 @@ import pcgen.cdom.base.Loadable;
  * 
  * @param <T>
  *            The Class of object this ReferenceManufacturer can manufacture
- * @param <RT>
- *            The Class of Single Reference that this ReferenceManufacturer will
- *            produce
  */
 public interface ReferenceManufacturer<T extends Loadable> extends SelectionCreator<T>
 {

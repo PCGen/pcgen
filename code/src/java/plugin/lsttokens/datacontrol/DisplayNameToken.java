@@ -39,6 +39,7 @@ public class DisplayNameToken extends AbstractNonEmptyToken<ContentDefinition>
 		return ParseResult.SUCCESS;
 	}
 
+	@Override
 	public String[] unparse(LoadContext context, ContentDefinition factDef)
 	{
 		String name = factDef.getDisplayName();

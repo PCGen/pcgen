@@ -22,8 +22,8 @@ import pcgen.core.PCClass;
 public class SpellLevel implements Comparable<SpellLevel>
 {
 
-	public final PCClass pcclass;
-	public final int level;
+	private final PCClass pcclass;
+	private final int level;
 
 	public SpellLevel(PCClass pcc, int lvl)
 	{

@@ -55,7 +55,10 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * 
  * null is a valid source.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
+ * @param <IDT>
+ *            The Type of identifier used in this AbstractSourcedListFacet
+ * @param <T>
+ *            The Type of object stored in this AbstractSourcedListFacet
  */
 public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 		extends AbstractDataFacet<IDT, T>

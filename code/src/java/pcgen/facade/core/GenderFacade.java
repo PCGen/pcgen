@@ -22,9 +22,10 @@
 package pcgen.facade.core;
 
 /**
- *
+ * 
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public interface GenderFacade {
+public interface GenderFacade
+{
 
 }

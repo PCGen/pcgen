@@ -190,10 +190,10 @@ public class CoreUtils
 			CDOMObject source = null;
 			if (object instanceof CDOMObject)
 			{
-				source = ((CDOMObject)object);
+				source = ((CDOMObject) object);
 			}
 			return PrerequisiteUtilities.preReqHTMLStringsForList(pc, source,
-				((PrereqObject)object).getPrerequisiteList(), true);
+				((PrereqObject) object).getPrerequisiteList(), true);
 		}
 		return "";
 	}
@@ -292,7 +292,7 @@ public class CoreUtils
 		{
 			if (object instanceof CDOMObject)
 			{
-				return ((CDOMObject)object).getKeyName();
+				return ((CDOMObject) object).getKeyName();
 			}
 			return object.toString();
 		}

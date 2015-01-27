@@ -38,7 +38,10 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * 
  * null is not a valid object to be stored.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
+ * @param <IDT>
+ *            The Type of identifier used in this AbstractListFacet
+ * @param <T>
+ *            The Type of object stored in this AbstractListFacet
  */
 public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 		AbstractDataFacet<IDT, T>

@@ -52,15 +52,6 @@ import pcgen.util.Logging;
  * @param <T>
  *            The Class of object this AbstractReferenceManufacturer can
  *            manufacture
- * @param <RT>
- *            The Class of Single Reference that this
- *            AbstractReferenceManufacturer will produce
- * @param <TRT>
- *            The Class of Type Reference that this
- *            AbstractReferenceManufacturer will produce
- * @param <ART>
- *            The Class of All Reference that this AbstractReferenceManufacturer
- *            will produce
  */
 public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		implements ReferenceManufacturer<T>
@@ -92,8 +83,9 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * simplicity [and due to lack of user presentation of this value] this sort
 	 * does not correct for internationalization)
 	 */
-	private final Map<FixedStringList, WeakReference<CDOMGroupRef<T>>> typeReferences = new TreeMap<FixedStringList, WeakReference<CDOMGroupRef<T>>>(
-			FixedStringList.CASE_INSENSITIVE_ORDER);
+	private final Map<FixedStringList, WeakReference<CDOMGroupRef<T>>> typeReferences =
+			new TreeMap<FixedStringList, WeakReference<CDOMGroupRef<T>>>(
+				FixedStringList.CASE_INSENSITIVE_ORDER);
 
 	/**
 	 * Storage for individual references. This ensures that only one reference
@@ -102,8 +94,9 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * also stores the reference so that it can be appropriately resolved when
 	 * resolveReferences() is called.
 	 */
-	private final Map<String, WeakReference<CDOMSingleRef<T>>> referenced = new TreeMap<String, WeakReference<CDOMSingleRef<T>>>(
-			String.CASE_INSENSITIVE_ORDER);
+	private final Map<String, WeakReference<CDOMSingleRef<T>>> referenced =
+			new TreeMap<String, WeakReference<CDOMSingleRef<T>>>(
+				String.CASE_INSENSITIVE_ORDER);
 
 	/**
 	 * Stores the active objects for this AbstractReferenceManufacturer. These
@@ -137,7 +130,8 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 * developing a MapToList that is backed by a TreeMap and also an
 	 * "InstanceList"
 	 */
-	private final HashMapToInstanceList<CaseInsensitiveString, T> duplicates = new HashMapToInstanceList<CaseInsensitiveString, T>();
+	private final HashMapToInstanceList<CaseInsensitiveString, T> duplicates =
+			new HashMapToInstanceList<CaseInsensitiveString, T>();
 
 	/**
 	 * Contains a list of deferred objects. Identifiers for objects for which
@@ -165,9 +159,9 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	/**
 	 * Constructs a new AbstractReferenceManufacturer for the given Class.
 	 * 
-	 * @param objClass
-	 *            The Class of object this AbstractReferenceManufacturer will
-	 *            construct and reference.
+	 * @param fac
+	 *            The ManufacturableFactory this AbstractReferenceManufacturer
+	 *            will use to construct and reference objects
 	 * @throws IllegalArgumentException
 	 *             if the given Class is null or the given Class does not have a
 	 *             public, zero argument constructor
@@ -569,12 +563,13 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *         AbstractReferenceManufacturer; false otherwise.
 	 */
 	@Override
-	public boolean forgetObject(T item) throws InternalError
+	public boolean forgetObject(T item)
 	{
 		if (!factory.isMember(item))
 		{
 			throw new IllegalArgumentException(
-					"Object to be forgotten does not match Class of this AbstractReferenceManufacturer");
+				"Object to be forgotten does not match Class "
+					+ "of this AbstractReferenceManufacturer");
 		}
 		String key = active.getKeyFor(item);
 		if (key == null)
@@ -643,7 +638,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	 *             if the given key is null or empty
 	 */
 	@Override
-	public CDOMSingleRef<T> getReference(String val)
+	public CDOMSingleRef<T> getReference(String key)
 	{
 		/*
 		 * TODO This is incorrect, but a hack for now :)
@@ -653,12 +648,12 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		 * continue that long term? Once tokens are truly tested this may not be
 		 * necessary or desirable.
 		 */
-		if (val == null)
+		if (key == null)
 		{
 			throw new IllegalArgumentException(
 					"Cannot request a reference to null identifier");
 		}
-		if (val.length() == 0)
+		if (key.length() == 0)
 		{
 			throw new IllegalArgumentException(
 					"Cannot request a reference to an empty identifier");
@@ -669,35 +664,42 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		 */
 		try
 		{
-			Integer.parseInt(val);
-			throw new IllegalArgumentException("A number cannot be a valid single item: " + val);
+			Integer.parseInt(key);
+			throw new IllegalArgumentException("A number cannot be a valid single item: " + key);
 		}
 		catch (NumberFormatException nfe)
 		{
 			// ok
 		}
-		if (val.contains("="))
+		if (key.contains("="))
 		{
-			throw new IllegalArgumentException("= cannot be a in valid single item (perhaps something like TYPE= is not supported in this token?): " + val);
+			throw new IllegalArgumentException(
+				"= cannot be a in valid single item (perhaps something like TYPE= "
+					+ "is not supported in this token?): " + key);
 		}
-		if (val.equalsIgnoreCase("ANY"))
+		if (key.equalsIgnoreCase("ANY"))
 		{
-			throw new IllegalArgumentException("Any cannot be a valid single item (not supported in this token?)");
+			throw new IllegalArgumentException(
+				"Any cannot be a valid single item (not supported in this token?)");
 		}
-		if (val.equalsIgnoreCase("ALL"))
+		if (key.equalsIgnoreCase("ALL"))
 		{
-			throw new IllegalArgumentException("All cannot be a valid single item (not supported in this token?)");
+			throw new IllegalArgumentException(
+				"All cannot be a valid single item (not supported in this token?)");
 		}
-		if (val.contains(":"))
+		if (key.contains(":"))
 		{
-			throw new IllegalArgumentException(": cannot exist in a valid single item (did you try to use a PRE where it is not supported?) " + val);
+			throw new IllegalArgumentException(
+				": cannot exist in a valid single item (did you try to use a "
+					+ "PRE where it is not supported?) " + key);
 		}
-		if (val.equalsIgnoreCase("%LIST"))
+		if (key.equalsIgnoreCase("%LIST"))
 		{
-			throw new IllegalArgumentException("%LIST cannot be a valid single item (not supported in this token?)");
+			throw new IllegalArgumentException(
+				"%LIST cannot be a valid single item (not supported in this token?)");
 		}
 
-		WeakReference<CDOMSingleRef<T>> wr = referenced.get(val);
+		WeakReference<CDOMSingleRef<T>> wr = referenced.get(key);
 		if (wr != null)
 		{
 			CDOMSingleRef<T> ref = wr.get();
@@ -709,10 +711,10 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		CDOMSingleRef<T> ref;
 		if (isResolved)
 		{
-			T current = active.get(val);
+			T current = active.get(key);
 			if (current == null)
 			{
-				throw new IllegalArgumentException(val
+				throw new IllegalArgumentException(key
 						+ " is not valid post-resolution "
 						+ "because it was never constructed");
 			}
@@ -720,8 +722,8 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		}
 		else
 		{
-			CDOMSingleRef<T> lr = factory.getReference(val);
-			referenced.put(val, new WeakReference<CDOMSingleRef<T>>(lr));
+			CDOMSingleRef<T> lr = factory.getReference(key);
+			referenced.put(key, new WeakReference<CDOMSingleRef<T>>(lr));
 			ref = lr;
 		}
 		return ref;
@@ -879,7 +881,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		return returnGood;
 	}
 
-	private boolean validateDuplicates() throws InternalError
+	private boolean validateDuplicates()
 	{
 		boolean returnGood = true;
 		for (CaseInsensitiveString second : duplicates.getKeySet())

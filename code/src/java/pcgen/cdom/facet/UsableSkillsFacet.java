@@ -37,6 +37,7 @@ public class UsableSkillsFacet extends AbstractSourcedListFacet<CharID, Skill>
 {
 	private SkillCostFacet skillCostFacet;
 
+	@Override
 	public void dataAdded(
 		SubScopeFacetChangeEvent<Skill, SkillCost, PCClass> dfce)
 	{
@@ -47,6 +48,7 @@ public class UsableSkillsFacet extends AbstractSourcedListFacet<CharID, Skill>
 		}
 	}
 
+	@Override
 	public void dataRemoved(
 		SubScopeFacetChangeEvent<Skill, SkillCost, PCClass> dfce)
 	{

@@ -30,8 +30,13 @@ import pcgen.facade.util.event.ListListener;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class ListFacades
+public final class ListFacades
 {
+
+	private ListFacades()
+	{
+		//Do not instantiate Utility Class
+	}
 
 	public static final ListFacade EMPTY_LIST = new EmptyList();
 

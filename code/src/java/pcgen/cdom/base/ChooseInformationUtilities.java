@@ -24,8 +24,13 @@ import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 
-public class ChooseInformationUtilities
+public final class ChooseInformationUtilities
 {
+
+	private ChooseInformationUtilities()
+	{
+		//Utility class should not be constructed
+	}
 
 	static  <T> CharSequence buildEncodedString(ChooseInformation<T> info,
 		Collection<? extends T> collection)

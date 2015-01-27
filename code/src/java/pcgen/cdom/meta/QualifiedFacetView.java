@@ -45,6 +45,7 @@ public class QualifiedFacetView<T extends QualifyingObject> implements FacetView
 		return facet.getSources(id, obj);
 	}
 
+	@Override
 	public Object[] getChildren()
 	{
 		return facet.getDataFacetChangeListeners();

@@ -27,6 +27,8 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 /**
  * A ConditionalSelectionActor is a Decorator on a ChooseSelectionActor that provides
  * the ability to make the application conditional on Prerequisites.
+ * 
+ * @param <T> The type of object selected by this ConditionalSelectionActor
  */
 public class ConditionalSelectionActor<T> extends ConcretePrereqObject implements
 		ChooseSelectionActor<T>
@@ -151,6 +153,9 @@ public class ConditionalSelectionActor<T> extends ConcretePrereqObject implement
 	 * ConditionalSelectionActor.
 	 * 
 	 * @return The LST format of this ConditionalSelectionActor
+	 * @throws PersistenceLayerException
+	 *             if there is a problem converting this
+	 *             ConditionalSelectionActor to the LST format
 	 */
 	@Override
 	public String getLstFormat() throws PersistenceLayerException

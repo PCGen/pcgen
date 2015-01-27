@@ -34,8 +34,13 @@ import freemarker.template.TemplateModel;
  * OutputDB is the OutputDatabase for building the Map to be provided to
  * FreeMarker for output.
  */
-public class OutputDB
+public final class OutputDB
 {
+
+	private OutputDB()
+	{
+		//Utility class should not be constructed
+	}
 
 	/**
 	 * The Map of string names to output models
@@ -82,11 +87,31 @@ public class OutputDB
 		}
 	}
 
+	/**
+	 * Registers a new ItemFacet with the OutputDatabase using the given name as
+	 * the interpolation for fetching information from the given ItemFacet.
+	 * 
+	 * @param name
+	 *            The name as the interpolation for fetching information from
+	 *            the given ItemFacet during output
+	 * @param facet
+	 *            The ItemFacet to be registered with the given name
+	 */
 	public static void register(String name, ItemFacet<CharID, ?> facet)
 	{
 		registerModelFactory(name, new ItemModelFactory(facet));
 	}
 
+	/**
+	 * Registers a new SetFacet with the OutputDatabase using the given name as
+	 * the interpolation for fetching information from the given SetFacet.
+	 * 
+	 * @param name
+	 *            The name as the interpolation for fetching information from
+	 *            the given SetFacet during output
+	 * @param facet
+	 *            The SetFacet to be registered with the given name
+	 */
 	public static void register(String name, SetFacet<CharID, ?> facet)
 	{
 		registerModelFactory(name, new SetModelFactory(facet));
@@ -134,11 +159,24 @@ public class OutputDB
 		}
 	}
 
-	public static boolean isLegal(String filetype)
+	/**
+	 * Returns true if the given interpolation is legal based on the items
+	 * registered with OutputDB.
+	 * 
+	 * @param interpolation
+	 *            The interpolation to be checked to see if it is legal
+	 * @return true if the given interpolation is legal based on the items
+	 *         registered with OutputDB; false otherwise
+	 */
+	public static boolean isLegal(String interpolation)
 	{
-		return outModels.containsKey(filetype);
+		return outModels.containsKey(interpolation);
 	}
 
+	/**
+	 * Resets the Output Database, to be used when sources are purged/reloaded
+	 * or around testing
+	 */
 	public static void reset()
 	{
 		outModels.clear();

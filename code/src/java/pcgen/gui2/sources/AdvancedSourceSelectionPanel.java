@@ -189,7 +189,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 			.setCellRenderer(
 				new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		JScrollPane scrollPane = new JScrollPane(selectedTable);
-		scrollPane.setPreferredSize(new Dimension(300,350));
+		scrollPane.setPreferredSize(new Dimension(300, 350));
 		selPanel.add(scrollPane, BorderLayout.CENTER);
 		box = Box.createHorizontalBox();
 		box.add(Box.createHorizontalStrut(5));
@@ -292,7 +292,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 			return;
 		}
 		GameModeFacade selectedGame = sources.getGameMode().getReference();
-		for (int i=0; i< gameModeList.getModel().getSize(); i++)
+		for (int i = 0; i < gameModeList.getModel().getSize(); i++)
 		{
 			GameModeDisplayFacade gmdf = (GameModeDisplayFacade) gameModeList.getModel().getElementAt(i);
 			if (gmdf.getGameMode() == selectedGame)

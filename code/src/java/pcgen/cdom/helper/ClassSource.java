@@ -73,11 +73,13 @@ public class ClassSource implements Identified
 		return "ClassSource: " + getDisplayName();
 	}
 
+	@Override
 	public String getKeyName()
 	{
 		return pcclass.getFullKey() + " " + level;
 	}
 
+	@Override
 	public String getDisplayName()
 	{
 		return pcclass.getDisplayName() + " " + level;

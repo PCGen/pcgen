@@ -30,6 +30,12 @@ import pcgen.util.Logging;
  * 
  * This will thus enforce that every object of that type has the required FACT
  * present on the object.
+ * 
+ * @param <T>
+ *            The type of of object upon which the FactDefinitionEnforcer will
+ *            be used
+ * @param <F>
+ *            The format of the data stored in the Fact
  */
 public class FactDefinitionEnforcer<T extends CDOMObject, F> implements
 		DeferredToken<T>, LstToken

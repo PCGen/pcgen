@@ -451,14 +451,16 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
  *
  * @author  soulcatcher
  */
-class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
+class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
+{
 	private final HashMap<String, PluginRef> pluginMap = new HashMap<String, PluginRef>();
 
 	private JPanel mainPanel;
 	private JScrollPane jScrollPane1;
 
 	/** Creates new form PreferencesDamagePanel */
-	public PreferencesPluginsPanel() {
+	public PreferencesPluginsPanel()
+	{
 		for(PluginManager.PluginInfo info : PluginManager.getInstance().getPluginInfoList())
 		{
 			addPanel(info.logName, info.pluginName, Constants.SYSTEM_GMGEN);
@@ -468,7 +470,8 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 	}
 
 	@Override
-	public void applyPreferences() {
+	public void applyPreferences()
+	{
 		for ( String key : pluginMap.keySet() )
 		{
 			pluginMap.get(key).applyPreferences();
@@ -511,7 +514,8 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 
 	private void addPanel(String pluginName, String pluginTitle, String defaultSystem) 
 	{
-		if(!pluginMap.containsKey(pluginName)) {
+		if(!pluginMap.containsKey(pluginName))
+		{
 			PluginRef pluginRef = new PluginRef(pluginName, pluginTitle, defaultSystem);
 			pluginMap.put(pluginName, pluginRef);
 		}

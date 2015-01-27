@@ -22,9 +22,10 @@
 package pcgen.facade.core;
 
 /**
- *
+ * 
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public interface ItemFacade extends InfoFacade{
+public interface ItemFacade extends InfoFacade
+{
 
 }

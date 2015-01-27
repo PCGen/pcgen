@@ -243,7 +243,7 @@ public abstract class AbstractReferenceContext
 			if (hasManufacturer(cl, cdo.getCDOMCategory()))
 			{
                 // Work around a bug in the Eclipse 3.7.0/1 compiler by explicitly extracting a Category<?>
-                return getManufacturer(cl, (Category<?>)cdo.getCDOMCategory()).forgetObject(obj);
+                return getManufacturer(cl, (Category<?>) cdo.getCDOMCategory()).forgetObject(obj);
 			}
 		}
 		else

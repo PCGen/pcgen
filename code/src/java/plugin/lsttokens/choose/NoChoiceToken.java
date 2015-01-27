@@ -234,6 +234,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		return sb;
 	}
 
+	@Override
 	public boolean process(LoadContext context, CDOMObject obj)
 	{
 		ChooseInformation<?> ci = obj.get(ObjectKey.CHOOSE_INFO);
@@ -247,6 +248,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		return true;
 	}
 
+	@Override
 	public Class<CDOMObject> getDeferredTokenClass()
 	{
 		return CDOMObject.class;

@@ -367,6 +367,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> implements
 	 * @see pcgen.cdom.base.Loadable#isInternal()
 	 */
 	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public boolean isInternal()
 	{
 		return false;
@@ -376,6 +377,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> implements
 	 * @see pcgen.cdom.base.Loadable#isType(java.lang.String)
 	 */
 	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public boolean isType(String type)
 	{
 		return false;
@@ -385,8 +387,8 @@ public abstract class ContentDefinition<T extends CDOMObject, F> implements
 	 * Activates this ContentDefinition by performing the necessary steps to
 	 * link it to other subsystems.
 	 * 
-	 * @param LoadContext
-	 *            The LoadContext to initialize, as may required
+	 * @param context
+	 *            The LoadContext to initialize with tokens, if required
 	 */
 	public void activate(LoadContext context)
 	{

@@ -166,7 +166,7 @@ public class HtmlInfoBuilder
 	 */
 	public HtmlInfoBuilder appendI18nElement(final String propertyKey, final String value)
 	{
-		return appendElement(LanguageBundle.getString(propertyKey),value);
+		return appendElement(LanguageBundle.getString(propertyKey), value);
 	}
 	
 	/**

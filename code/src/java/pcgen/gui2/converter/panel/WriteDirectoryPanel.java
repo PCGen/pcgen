@@ -209,7 +209,7 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 		StringBuilder warning = new StringBuilder("<html>");
 		if (existingCampaigns.size() > 0)
 		{
-			int i= 1;
+			int i = 1;
 			final int maxCampaigns = 15;
 			warning.append("<b>Warning</b>: Some converted campaigns already exist in this ");
 			warning.append("destination folder and will be skipped:\n<UL>");

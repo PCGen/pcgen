@@ -2456,7 +2456,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				{
 					StringBuilder sb =
 							new StringBuilder(
-								Constants.ARBITRARY_INITIAL_StringBuilder_LENGTH);
+								Constants.ARBITRARY_INITIAL_STRINGBUILDER_LENGTH);
 					sb.append("This is a deliberate warning message, not an error - ");
 					sb.append("Avoiding infinite loop in getVariable: repeated lookup ");
 					sb.append("of \"").append(lastVariable).append("\" at ")

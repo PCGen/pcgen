@@ -6,6 +6,9 @@ import pcgen.rules.context.LoadContext;
 
 /**
  * Parses a token of the form: <Token Name>:<string>
+ * 
+ * @param <T>
+ *            The type of object on which this AbstractStringToken can be used
  */
 public abstract class AbstractStringToken<T extends CDOMObject> extends AbstractNonEmptyToken<T>
 {

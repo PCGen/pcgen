@@ -45,7 +45,11 @@ public class CDOMReferenceWrapper implements ObjectWrapper
 		if (o instanceof CDOMReference)
 		{
 			CDOMReference<?> ref = (CDOMReference<?>) o;
-			//TODO is this correct?  This would produce TYPE=Blah in some cases, and we may want to spell them out??  Shouldn't both be an option? Need a Model?
+			/*
+			 * TODO is this correct? This would produce TYPE=Blah in some cases,
+			 * and we may want to spell them out?? Shouldn't both be an option?
+			 * Need a Model?
+			 */
 			String lstFormat = ref.getLSTformat(true);
 			return ObjectWrapper.SIMPLE_WRAPPER.wrap(lstFormat);
 		}

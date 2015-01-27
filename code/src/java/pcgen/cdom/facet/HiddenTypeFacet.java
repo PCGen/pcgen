@@ -36,6 +36,7 @@ public class HiddenTypeFacet extends
 {
 	private DataSetInitializationFacet datasetInitializationFacet;
 
+	@Override
 	public void initialize(LoadContext context)
 	{
 		for (Campaign c : context.getLoadedCampaigns())

@@ -736,7 +736,8 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		@Override
 		public boolean accept(File dir, String name)
 		{
-			return dir.getName().equalsIgnoreCase(dirFilter) && ! name.endsWith("~");
+			return dir.getName().equalsIgnoreCase(dirFilter)
+				&& !name.endsWith("~");
 		}
 
 	}

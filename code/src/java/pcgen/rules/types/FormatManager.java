@@ -82,7 +82,7 @@ public interface FormatManager<T>
 	 * Serializes (unconverts) the given object into a human-readable serialized
 	 * form.
 	 * 
-	 * @param fact
+	 * @param obj
 	 *            The object to be converted into a human-readable serialized
 	 *            form
 	 * @return The human-readable serialized form of the given object

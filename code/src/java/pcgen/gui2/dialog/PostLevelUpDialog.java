@@ -133,7 +133,7 @@ public class PostLevelUpDialog extends JDialog implements ActionListener
 				{//TODO: the max roll should be calculated in a different manner
 					String hd = levels.getClassTaken(levels.getElementAt(row+oldLevel)).getHD();
 					int max = NumberUtils.toInt(hd);
-					return new SpinnerEditor(new SpinnerNumberModel(1,1,max,1));
+					return new SpinnerEditor(new SpinnerNumberModel(1, 1, max, 1));
 				}
 				return super.getCellEditor(row, column);
 			}

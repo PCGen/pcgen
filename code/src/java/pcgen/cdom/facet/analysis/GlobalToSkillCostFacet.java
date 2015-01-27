@@ -48,6 +48,7 @@ public class GlobalToSkillCostFacet extends
 
 	private MasterUsableSkillFacet masterUsableSkillFacet;
 
+	@Override
 	public void dataAdded(ScopeFacetChangeEvent<CharID, SkillCost, Skill> dfce)
 	{
 		CharID id = dfce.getCharID();
@@ -99,6 +100,7 @@ public class GlobalToSkillCostFacet extends
 		}
 	}
 
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, PCClass> dfce)
 	{
 		CharID id = dfce.getCharID();

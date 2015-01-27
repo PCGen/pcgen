@@ -54,6 +54,7 @@ public class MasterAvailableSpellFacet extends
 	 * Initializes the global lists of ClassSkillLists. This method only needs
 	 * to be called once for each set of sources that are loaded.
 	 */
+	@Override
 	public synchronized void initialize(LoadContext lc)
 	{
 		DataSetID dsID = lc.getDataSetID();
