@@ -25,7 +25,7 @@ Headband of Stupidity			TYPE:Magic.Wondrous.Cursed.Headgear					COST:0	WT:1		SOU
 Helm of Opposite Alignment		TYPE:Magic.Wondrous.Cursed.Headgear					COST:0	WT:3		SOURCEPAGE:p.347																																																																																																									SPROP:Changes alignment of the wearer.
 Incense of Obsession			TYPE:Magic.Wondrous.Cursed.Consumable				COST:0			SOURCEPAGE:p.347																																																																																																									SPROP:User must use spells at every opportunity.
 Mask of Ugliness				TYPE:Magic.Wondrous.Cursed.Headgear					COST:0	WT:1		SOURCEPAGE:p.347																																												BONUS:SKILL|Bluff,Diplomacy|-4	BONUS:SKILL|Intimidate|2
-Medallion of Thought Protection	TYPE:Magic.Wondrous.Cursed.Amulet					COST:0			SOURCEPAGE:p.347
+Medallion of Thought Projection	TYPE:Magic.Wondrous.Cursed.Amulet					COST:0			SOURCEPAGE:p.347
 Necklace of Strangulation		TYPE:Magic.Wondrous.Cursed.Amulet					COST:0			SOURCEPAGE:p.347																																																																																																									SPROP:Immediately tightens, dealing 6 points of damage per round.
 Pauldrons of the Jackass		TYPE:Magic.Wondrous.Cursed.Cloak					COST:0	WT:3		SOURCEPAGE:p.348																					BONUS:MOVEADD|TYPE.All|-10																														BONUS:STAT|DEX|-4
 Periapt of Foul Rotting			TYPE:Magic.Wondrous.Cursed.Amulet					COST:0			SOURCEPAGE:p.348																																																																																																									SPROP:After 24 hours, owner contracts a rotting disease that drains 1 point of Dex, Con and Cha every week
