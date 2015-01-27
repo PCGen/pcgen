@@ -37,9 +37,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary" Co
 ABILITYCATEGORY:aa_abilitycategories.lst
 ABILITY:aa_abilities_traits.lst
 EQUIPMENT:aa_equip.lst
-EQUIPMENT:aa_equip_armorshields.lst
-EQUIPMENT:aa_equip_weapons.lst
-EQUIPMENT:aa_equip_foci.lst
+EQUIPMENT:aa_equip_arms_armor.lst
 EQUIPMOD:aa_equipmods.lst
 ABILITY:aa_feats.lst
 WEAPONPROF:aa_profs_weapons.lst

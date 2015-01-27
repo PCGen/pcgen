@@ -3,39 +3,71 @@ SOURCELONG:Adventurer's Armory	SOURCESHORT:AA	SOURCEWEB:http://paizo.com/product
 
 # Weapon Name		Type
 
-# Weapon Name	Type
-Hanbo			TYPE:Simple.Melee
-Mere Club		TYPE:Simple.Melee
+# Weapon Name		Type
+Hanbo				TYPE:Simple.Melee
+Mere Club			TYPE:Simple.Melee
 
-Scizone		TYPE:Martial.Melee
-Switchblade Knife	TYPE:Martial.Melee
-Terbutje		TYPE:Martial.Melee
-Blade Boot		TYPE:Martial.Melee
-Combat Scabbard	TYPE:Martial.Melee
-#Dogslicer			TYPE:Martial.Melee
-#War Razor			TYPE:Martial.Melee
-#Klar						TYPE:Martial.Melee
-#Earth Breaker		TYPE:Martial.Melee
-#Horsechopper		TYPE:Martial.Melee
-#Ogre Hook				TYPE:Martial.Melee
+Cestus			TYPE:Martial.Melee	
+Hanbo				TYPE:Martial.Melee
+Stake				TYPE:Martial.Melee
+Mere Club			TYPE:Martial.Melee	
+Bayonet			TYPE:Martial.Melee
+Stingchuck			TYPE:Martial.Melee.Ranged
+Scizore			TYPE:Martial.Melee
+Switchblade Knife		TYPE:Martial.Melee
+Terbutje			TYPE:Martial.Melee
+Blade Boot			TYPE:Martial.Melee
+Combat Scabbard		TYPE:Martial.Melee
+Dogslicer			TYPE:Martial.Melee
+War Razor			TYPE:Martial.Melee
+Klar				TYPE:Martial.Melee
+Earth Breaker		TYPE:Martial.Melee
+Horsechopper		TYPE:Martial.Melee
+Ogre Hook			TYPE:Martial.Melee
+Bardiche			TYPE:Martial.Melee
+Bec de corbin		TYPE:Martial.Melee
+Bill				TYPE:Martial.Melee
+Glaive-Guisarme		TYPE:Martial.Melee
+Lucerne Hammer		TYPE:Martial.Melee
 
-Flambard		TYPE:Martial.Melee
-Garrote		TYPE:Martial.Melee
-Rhoka			TYPE:Martial.Melee
-Rope Gauntlet	TYPE:Martial.Melee
-Sling Glove		TYPE:Martial.Melee
-Stingchuck		TYPE:Martial.Melee
-Battle Poi		TYPE:Martial.Melee
+Flambard			TYPE:Martial.Melee
+Garrote			TYPE:Martial.Melee
+Rhoka				TYPE:Martial.Melee
+Rope Gauntlet		TYPE:Martial.Melee
+Sling Glove			TYPE:Martial.Melee
+Stingchuck			TYPE:Martial.Melee
+Battle Poi			TYPE:Martial.Melee
 
-Butterfly Knife	TYPE:Exotic.Melee
-Maulaxe		TYPE:Exotic.Melee.Thrown
-Pata			TYPE:Exotic.Melee
-#Sawtooth Sabre			TYPE:Exotic.Melee
-Chain Spear		TYPE:Exotic.Melee
-#Aldori Dueling Sword	TYPE:Exotic.Melee
-#Urumi									TYPE:Exotic.Melee
-#Bladed Scarf					TYPE:Exotic.Melee
-Shoanti Bola	TYPE:Exotic.Ranged
+Butterfly Knife		TYPE:Exotic.Melee
+Maulaxe			TYPE:Exotic.Melee.Thrown
+Pata				TYPE:Exotic.Melee
+Sawtooth Sabre		TYPE:Exotic.Melee
+Chain Spear			TYPE:Exotic.Melee
+Aldori Dueling Sword	TYPE:Exotic.Melee
+Urumi				TYPE:Exotic.Melee
+Bladed Scarf		TYPE:Exotic.Melee
+Shoanti Bola		TYPE:Exotic.Ranged
+
+Aklys				TYPE:Exotic.Melee.Ranged
+Maulaxe			TYPE:Exotic.Melee.Ranged
+Rope Gauntlet		TYPE:Exotic.Melee
+Sawtooth Sabre		TYPE:Exotic.Melee
+Sika				TYPE:Exotic.Melee
+Swordbreaker Dagger	TYPE:Exotic.Melee
+Battle Poi			TYPE:Exotic.Melee
+Butterfly knife		TYPE:Exotic.Melee
+Falcata			TYPE:Exotic.Melee
+Khopesh			TYPE:Exotic.Melee
+Scorpion Whip		TYPE:Exotic.Melee
+Shotel			TYPE:Exotic.Melee
+Temple Sword		TYPE:Exotic.Melee
+Mancatcher			TYPE:Exotic.Melee
+Boomerang			TYPE:Exotic.Ranged
+Crossbow (Double)		TYPE:Exotic.Ranged
+Lasso				TYPE:Exotic.Melee
+Crossbow (Light)		TYPE:Exotic.Ranged
+Sling Glove			TYPE:Exotic.Melee
+Throwing Shield		TYPE:Exotic.Melee.Ranged
 
 #
 # End
