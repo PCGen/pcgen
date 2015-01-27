@@ -312,6 +312,12 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
+	public void addEquipment(EquipmentFacade equip)
+	{
+		delegate.addEquipment(equip);
+	}
+
+	@Override
 	public ListFacade<BodyStructureFacade> getEquipmentLocations()
 	{
 		return bodyStructures;

@@ -71,6 +71,12 @@ public interface DataSetFacade
 
 	public ListFacade<EquipmentFacade> getEquipment();
 
+	/**
+	 * Add a new item of equipment (e.g. a new custom item) to the equipment list.
+	 * @param equip The item of equipment to be added.
+	 */
+	public void addEquipment(EquipmentFacade equip);
+	
 	public ListFacade<BodyStructureFacade> getEquipmentLocations();
 
 	public ListFacade<String> getXPTableNames();

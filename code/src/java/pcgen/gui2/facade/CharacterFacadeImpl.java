@@ -3590,11 +3590,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				new EquipmentBuilderFacadeImpl(newEquip, theCharacter, delegate);
 		CustomEquipResult result =
 				delegate.showCustomEquipDialog(this, builder);
-		if (newEquip != null && result != CustomEquipResult.CANCELLED
-			&& dataSet.getEquipment() instanceof DefaultListFacade<?>)
+		if (newEquip != null && result != CustomEquipResult.CANCELLED)
 		{
-			((DefaultListFacade<EquipmentFacade>) dataSet.getEquipment())
-				.addElement(newEquip);
+			dataSet.addEquipment(newEquip);
 		}
 		return result == CustomEquipResult.PURCHASE ? newEquip : null;
 	}
