@@ -43,19 +43,23 @@ EQUIPMOD:ma_equipmods.lst
 ABILITY:ma_feats.lst
 SPELL:ma_spells.lst
 TEMPLATE:ma_templates.lst
-#CLASS:ma_classes_base.lst
-#CLASS:ma_classes_base_mods.lst
-#CLASS:ma_classes_companions.lst
-#COMPANIONMOD:ma_companion_mods.lst
-#DOMAIN:ma_domains.lst
-#KIT:ma_kits_companions.lst
-#RACE:ma_races_companions.lst
-#SHIELDPROF:ma_profs_shield.lst
-#WEAPONPROF:ma_weaponprofs.lst
 
 
 EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ue_equipmods.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
 ABILITY:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ue_abilities.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+
+# ENTRY DATE: 2015-01
+# LST MONKEY: David Bender, and Andrew Maitland
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: 
+# RELEASE:
+# Built for PCGen Version: 6.04.01
+# Updated to work with version: -
+# MINVER:6.4
+# MINDEVVER:6.04.1
+# COMMENTS:
+
 
 #
 # End

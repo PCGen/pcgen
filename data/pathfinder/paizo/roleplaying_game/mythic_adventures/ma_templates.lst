@@ -10,3 +10,9 @@ Mythic Simple Template ~ Savage (Not Implemented)	KEY:Mythic Simple Template ~ S
 
 #
 Mythic															VISIBLE:NO	RACESUBTYPE:Mythic
+
+Swimming Master ~ Has Swim	PREMOVE:1,Swim=1		BONUS:MOVEADD|TYPE.Swim|30	VISIBLE:NO
+Swimming Master ~ No Swim	!PREMOVE:1,Swim=1		MOVE:Swim,30			VISIBLE:NO
+
+Climbing Master ~ Has Climb	PREMOVE:1,Climb=1		BONUS:MOVEADD|TYPE.Climb|30	VISIBLE:NO
+Climbing Master ~ No Climb	!PREMOVE:1,Climb=1		MOVE:Climb,30			VISIBLE:NO
