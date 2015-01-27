@@ -441,6 +441,12 @@ public class DataSet implements DataSetFacade
 		return equipment;
 	}
 
+	@Override
+	public void addEquipment(EquipmentFacade equip)
+	{
+		equipment.addElement(equip);
+	}
+
     @Override
 	public void refreshEquipment()
 	{

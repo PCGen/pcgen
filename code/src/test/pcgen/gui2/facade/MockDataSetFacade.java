@@ -172,6 +172,11 @@ public class MockDataSetFacade implements DataSetFacade
 		return null;
 	}
 
+	@Override
+	public void addEquipment(EquipmentFacade equip)
+	{
+	}
+
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.DataSetFacade#getEquipmentLocations()
 	 */
