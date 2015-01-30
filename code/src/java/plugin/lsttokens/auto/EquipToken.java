@@ -270,6 +270,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		pc.removeAutoEquipment(e, obj);
 	}
 
+	@Override
 	public Class<Equipment> getChoiceClass()
 	{
 		return EQUIPMENT_CLASS;

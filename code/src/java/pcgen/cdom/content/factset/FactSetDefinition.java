@@ -25,6 +25,24 @@ import pcgen.output.wrapper.CDOMObjectWrapper;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
+/**
+ * A FactSetDefinition is a definition of a legal entry for a FACTSET: in a
+ * file. This contains both the legal location (e.g. SKILL) as well as the name
+ * of the factset (e.g. Possibility).
+ * 
+ * This is a structure used to contain information about a FactSet. This is then
+ * used to derive the other necessary components, including input tokens,
+ * enforcement of required, output tokens, etc.
+ * 
+ * A FactSetDefinition is created when a FACTSETDEF: line is encountered in the
+ * Data Control LST file.
+ * 
+ * @param <T>
+ *            The Type of object upon which the FACTSET for this
+ *            FactSetDefinition can be applied
+ * @param <F>
+ *            The format of the data stored in the FactSet
+ */
 public class FactSetDefinition<T extends CDOMObject, F> extends
 		ContentDefinition<T, F> implements FactSetInfo<T, F>
 {

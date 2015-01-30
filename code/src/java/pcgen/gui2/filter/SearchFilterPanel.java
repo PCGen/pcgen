@@ -102,12 +102,12 @@ public class SearchFilterPanel extends JPanel
 		String abbStr = ""; //$NON-NLS-1$
 		if (element instanceof InfoFacade)
 		{
-			typeStr = ((InfoFacade)element).getType();
+			typeStr = ((InfoFacade) element).getType();
 		}
 		else if (element instanceof CampaignFacade)
 		{
-			typeStr = ((CampaignFacade)element).getBookTypes();
-			abbStr = ((CampaignFacade)element).getSourceShort();
+			typeStr = ((CampaignFacade) element).getBookTypes();
+			abbStr = ((CampaignFacade) element).getSourceShort();
 		}
 		final String searchText = searchField.getText();
 		return StringUtils.containsIgnoreCase(element.toString(), searchText)

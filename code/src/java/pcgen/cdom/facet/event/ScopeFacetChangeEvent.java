@@ -34,7 +34,13 @@ import pcgen.cdom.base.PCGenIdentifier;
  * makes the guarantee that no modifications are made by ScopeFacetChangeEvent
  * to the CDOMObject.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
+ * @param <IDT>
+ *            The type of Identifier (e.g. CharID) used by this
+ *            ScopeFacetChangeEvent
+ * @param <S>
+ *            The Type of object of the scope of the ScopeFacetChangeEvent
+ * @param <T>
+ *            The Type object of changed in the ScopeFacetChangeEvent
  */
 public class ScopeFacetChangeEvent<IDT extends PCGenIdentifier, S, T> extends
 		EventObject

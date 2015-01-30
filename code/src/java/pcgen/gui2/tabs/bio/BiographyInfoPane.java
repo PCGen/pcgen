@@ -228,7 +228,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 				}
 				else
 				{
-					item = new BiographyFieldBioItem(field,character);
+					item = new BiographyFieldBioItem(field, character);
 				}
 				customFieldMap.put(field, item);
 			}
@@ -930,8 +930,9 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			}
 
 			// Show dialog to choose fields
-			String s = (String)JOptionPane.showInputDialog(
-				JOptionPane.getFrameForComponent(addCustomItemButton),
+			String s =
+					(String) JOptionPane.showInputDialog(
+						JOptionPane.getFrameForComponent(addCustomItemButton),
 			                    LanguageBundle.getString("in_descAddFieldMsg"), //$NON-NLS-1$
 			                    LanguageBundle.getString("in_descAddFieldTitle"), //$NON-NLS-1$
 			                    JOptionPane.QUESTION_MESSAGE,

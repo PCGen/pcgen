@@ -30,12 +30,18 @@ import pcgen.util.Logging;
  * contains both the legal location (e.g. SKILL) as well as the name of the fact
  * (e.g. Possibility).
  * 
+ * This is a structure used to contain information about a Fact. This is then
+ * used to derive the other necessary components, including input tokens,
+ * enforcement of required, output tokens, etc.
+ * 
  * A FactDefinition is created when a FACTDEF: line is encountered in the Data
  * Control LST file.
  * 
  * @param <T>
  *            The Type of object upon which the FACT for this FactDefintion can
  *            be applied
+ * @param <F>
+ *            The format of the data stored in the Fact
  */
 public class FactDefinition<T extends CDOMObject, F> extends
 		ContentDefinition<T, F> implements FactInfo<T, F>

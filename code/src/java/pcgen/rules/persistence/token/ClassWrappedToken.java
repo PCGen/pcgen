@@ -45,9 +45,6 @@ import pcgen.rules.context.LoadContext;
  * monkeys using CLASS tokens on CLASSLEVEL lines, and therefore it should only 
  * work on level one, otherwise expectations for when the token will take 
  * effect are not set. 
- * 
- * @author Tom Parker <thpr@users.sourceforge.net>
- * @version $Revision: $
  */
 public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 {

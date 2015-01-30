@@ -22,8 +22,6 @@ import java.util.EventObject;
 import pcgen.cdom.base.PCGenIdentifier;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * An DataFacetChangeEvent is an event that indicates when a Facet has changed.
  * 
  * The object that implements the FacetChangeListener interface gets this
@@ -34,6 +32,12 @@ import pcgen.cdom.base.PCGenIdentifier;
  * mutability for that CDOMObject by listeners. DataFacetChangeEvent, however,
  * makes the guarantee that no modifications are made by DataFacetChangeEvent to
  * the CDOMObject.
+ * 
+ * @param <IDT>
+ *            The type of Identifier (e.g. CharID) used by this
+ *            DataFacetChangeEvent
+ * @param <T>
+ *            The Type object of changed in the DataFacetChangeEvent
  */
 public class DataFacetChangeEvent<IDT extends PCGenIdentifier, T> extends EventObject
 {

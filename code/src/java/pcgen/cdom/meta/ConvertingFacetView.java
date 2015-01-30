@@ -41,7 +41,7 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 		for (S src : sources)
 		{
 			D dest = facet.getResultFor(id, src);
-			list.add(new SourceDest(src,dest));
+			list.add(new SourceDest(src, dest));
 		}
 		return list;
 	}
@@ -52,6 +52,7 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 		return facet.getSourcesFor(id, ((SourceDest) obj).source);
 	}
 
+	@Override
 	public Object[] getChildren()
 	{
 		return facet.getDataFacetChangeListeners();

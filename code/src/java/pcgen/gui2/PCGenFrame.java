@@ -217,12 +217,12 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 		Rectangle screenBounds = getGraphicsConfiguration().getBounds();
 
-		setSize(1060, 725);//this is the default frame dimensions
-		setLocationRelativeTo(null);//center the frame
+		setSize(1060, 725); //this is the default frame dimensions
+		setLocationRelativeTo(null); //center the frame
 		if (!screenBounds.contains(getBounds()))
 		{
 			setSize((5 * screenBounds.width) / 6, (5 * screenBounds.height) / 6);
-			setLocationRelativeTo(null);//center the frame
+			setLocationRelativeTo(null); //center the frame
 		}
 		Rectangle frameBounds = getBounds();
 		frameBounds.x = frameContext.initInt("bounds.x", frameBounds.x);
@@ -324,7 +324,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 								showTipsOfTheDay();
 							}
 							
-							if (! SourceSelectionDialog.skipSourceSelection())
+							if (!SourceSelectionDialog.skipSourceSelection())
 							{
 								showSourceSelectionDialog();
 							}
@@ -584,7 +584,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	/**
 	 * @return the status bar for the main PCGen frame
 	 */
-	public final PCGenStatusBar getStatusBar() {
+	public final PCGenStatusBar getStatusBar()
+	{
 		return statusBar;
 	}
 

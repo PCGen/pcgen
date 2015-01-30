@@ -31,6 +31,13 @@ import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
+/**
+ * An AbstractPCQualifierToken is a QualifierToken that implements the "PC"
+ * qualifier for a specific type of target object.
+ * 
+ * @param <T>
+ *            The Type of object on which this AbstractPCQualifierToken operates
+ */
 public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 		QualifierToken<T>, PrimitiveFilter<T>
 {

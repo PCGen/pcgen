@@ -22,11 +22,16 @@ import java.util.EventListener;
 import pcgen.cdom.base.PCGenIdentifier;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * The listener interface for receiving DataFacetChangeEvents. When a CDOMObject
- * has been added to or removed from a resource, the respective method in
- * the listener object is invoked, and the DataFacetChangeEvent is passed to it.
+ * has been added to or removed from a resource, the respective method in the
+ * listener object is invoked, and the DataFacetChangeEvent is passed to it.
+ * 
+ * @param <IDT>
+ *            The type of Identifier (e.g. CharID) used by this
+ *            DataFacetChangeListener
+ * @param <T>
+ *            The Type object of changed in the events received by a
+ *            DataFacetChangeListener
  */
 public interface DataFacetChangeListener<IDT extends PCGenIdentifier, T>
 		extends EventListener

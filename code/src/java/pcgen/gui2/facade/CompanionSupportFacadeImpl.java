@@ -420,7 +420,8 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 								+ compList + " and race "
 								+ character.getRaceRef().getReference());
 					}
-					((CharacterFacadeImpl)character).getTheCharacter().setMaster(newMaster);
+					((CharacterFacadeImpl) character).getTheCharacter()
+						.setMaster(newMaster);
 				}
 				return;
 			}

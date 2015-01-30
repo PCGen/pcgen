@@ -79,6 +79,7 @@ public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 	 * @return true, as AbstractSimpleProfProvider is not a conditional object
 	 */
 	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public boolean qualifies(PlayerCharacter playerCharacter, Object owner)
 	{
 		return true;
@@ -98,6 +99,7 @@ public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 	 *         based on Equipment TYPE
 	 */
 	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public boolean providesEquipmentType(String type)
 	{
 		return false;

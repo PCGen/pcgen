@@ -352,6 +352,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		pc.removeWeaponProf(obj, wp);
 	}
 
+	@Override
 	public Class<WeaponProf> getChoiceClass()
 	{
 		return WEAPONPROF_CLASS;

@@ -44,6 +44,7 @@ public class ListFacetView<T> implements FacetView<T>
 		return facet.getSources(id, obj);
 	}
 
+	@Override
 	public Object[] getChildren()
 	{
 		return facet.getDataFacetChangeListeners();

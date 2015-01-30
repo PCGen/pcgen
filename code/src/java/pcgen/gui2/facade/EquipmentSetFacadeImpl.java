@@ -802,7 +802,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			return false;
 		}
 		
-		String pid = ((EquipNodeImpl)parentNode).idPath;
+		String pid = ((EquipNodeImpl) parentNode).idPath;
 		List<EquipNodeImpl> childList = new ArrayList<EquipmentSetFacadeImpl.EquipNodeImpl>();
 		Map<String, EquipNodeImpl> origPathToNode = buildPathNodeMap();
 		Map<String, EquipSet> origPathToEquipSet = buildPathEquipSetMap();
@@ -827,7 +827,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		
 		// Renumber paths
 		int id = 1;
-		NumberFormat format =new DecimalFormat("00");
+		NumberFormat format = new DecimalFormat("00");
 		for (EquipNodeImpl childNode : childList)
 		{
 			String origPath = childNode.idPath;
@@ -2122,7 +2122,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 					EquipSet eSet = charDisplay.getEquipSetByIdPath(equipNode.getIdPath());
 					if (eSet != null)
 					{
-						int numToRemove = Math.min(eSet.getQty().intValue(),numStillToRemove);
+						int numToRemove = Math.min(eSet.getQty().intValue(), numStillToRemove);
 						removeEquipment(equipNode, numToRemove);
 						numStillToRemove -= numToRemove;
 					}

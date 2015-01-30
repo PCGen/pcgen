@@ -493,7 +493,7 @@ public final class Utility
 	 */
 	public static String shortenString(FontMetrics fm, String string, int maxWidth)
 	{
-		for (int i=string.length() ; i>0 ; i-=5)
+		for (int i = string.length(); i > 0; i -= 5)
 		{
 			String foo = "..." + string.substring( string.length()-i);
 

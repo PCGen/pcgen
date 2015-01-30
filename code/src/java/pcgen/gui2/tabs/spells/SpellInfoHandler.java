@@ -85,7 +85,7 @@ class SpellInfoHandler implements ListSelectionListener
 			{
 				SpellNode node = (SpellNode) obj;
 				String text = character.getInfoFactory().getHTMLInfo(node.getSpell());
-				currText= text;
+				currText = text;
 				spellsPane.setText(text);
 			}
 			else if (obj instanceof RootNode)
@@ -94,7 +94,7 @@ class SpellInfoHandler implements ListSelectionListener
 				String text = character.getInfoFactory().getSpellBookInfo(node.getName());
 				if (!StringUtils.isEmpty(text))
 				{
-					currText= text;
+					currText = text;
 					spellsPane.setText(text);
 				}
 			}

@@ -36,6 +36,7 @@ public class EquipmentTypeFacet extends AbstractListFacet<DataSetID, Type>
 
 	private DataSetInitializationFacet datasetInitializationFacet;
 
+	@Override
 	public void initialize(LoadContext context)
 	{
 		DataSetID id = context.getDataSetID();

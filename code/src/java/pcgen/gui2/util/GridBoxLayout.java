@@ -7,14 +7,16 @@ import java.io.Serializable;
 /**
  * GridBoxLayout, the custom layout class for PCGen
  */
-public class GridBoxLayout extends GridLayout implements Serializable {
+public class GridBoxLayout extends GridLayout implements Serializable
+{
 	
 	/**
 	 * Constructor
 	 * @param rows
 	 * @param cols
 	 */
-	public GridBoxLayout(int rows, int cols) {
+	public GridBoxLayout(int rows, int cols)
+	{
 		this(rows, cols, 0, 0);
 	}
 
@@ -26,22 +28,27 @@ public class GridBoxLayout extends GridLayout implements Serializable {
 	 * @param vgap
 	 * @throws IllegalArgumentException
 	 */
-	public GridBoxLayout(int rows, int cols, int hgap, int vgap) throws IllegalArgumentException {
+	public GridBoxLayout(int rows, int cols, int hgap, int vgap) throws IllegalArgumentException
+	{
 		super(rows, cols, hgap, vgap);
 	}
 
 	@Override
-	public Dimension preferredLayoutSize(Container parent) {
-		synchronized (parent.getTreeLock()) {
+	public Dimension preferredLayoutSize(Container parent)
+	{
+		synchronized (parent.getTreeLock())
+		{
 			Insets insets = parent.getInsets();
 			int nComponents = parent.getComponentCount();
 			int nRows = getRows();
 			int nCols = getColumns();
 
-			if (nRows > 0) {
+			if (nRows > 0)
+			{
 				nCols = (nComponents + nRows - 1) / nRows;
 			}
-			else {
+			else
+			{
 				nRows = (nComponents + nCols - 1) / nCols;
 			}
 
@@ -50,25 +57,31 @@ public class GridBoxLayout extends GridLayout implements Serializable {
 			int c;
 			int r;
 
-			for (c = 0; c < nCols; c++) {
+			for (c = 0; c < nCols; c++)
+			{
 				widths[c] = Integer.MIN_VALUE;
 			}
-			for (r = 0; r < nRows; r++) {
+			for (r = 0; r < nRows; r++)
+			{
 				heights[r] = Integer.MIN_VALUE;
 			}
 
 			c = 0;
 			r = 0;
-			for (int i = 0; i < nComponents; i++) {
+			for (int i = 0; i < nComponents; i++)
+			{
 				Component comp = parent.getComponent(i);
 				Dimension d = comp.getPreferredSize();
-				if (widths[c] < d.width) {
+				if (widths[c] < d.width)
+				{
 					widths[c] = d.width;
 				}
-				if (heights[r] < d.height) {
+				if (heights[r] < d.height)
+				{
 					heights[r] = d.height;
 				}
-				if (++c >= nCols) {
+				if (++c >= nCols)
+				{
 					c = 0;
 					r++;
 				}
@@ -76,10 +89,12 @@ public class GridBoxLayout extends GridLayout implements Serializable {
 
 			int w = 0;
 			int h = 0;
-			for (c = 0; c < nCols; c++) {
+			for (c = 0; c < nCols; c++)
+			{
 				w += widths[c];
 			}
-			for (r = 0; r < nRows; r++) {
+			for (r = 0; r < nRows; r++)
+			{
 				h += heights[r];
 			}
 
@@ -89,17 +104,21 @@ public class GridBoxLayout extends GridLayout implements Serializable {
   }
 
 	@Override
-	public Dimension minimumLayoutSize(Container parent) {
-		synchronized (parent.getTreeLock()) {
+	public Dimension minimumLayoutSize(Container parent)
+	{
+		synchronized (parent.getTreeLock())
+		{
 			Insets insets = parent.getInsets();
 			int nComponents = parent.getComponentCount();
 			int nRows = getRows();
 			int nCols = getColumns();
 
-			if (nRows > 0) {
+			if (nRows > 0)
+			{
 				nCols = (nComponents + nRows - 1) / nRows;
 			}
-			else {
+			else
+			{
 				nRows = (nComponents + nCols - 1) / nCols;
 			}
 
@@ -108,25 +127,31 @@ public class GridBoxLayout extends GridLayout implements Serializable {
 			int c;
 			int r;
 
-			for (c = 0; c < nCols; c++) {
+			for (c = 0; c < nCols; c++)
+			{
 				widths[c] = Integer.MIN_VALUE;
 			}
-			for (r = 0; r < nRows; r++) {
+			for (r = 0; r < nRows; r++)
+			{
 				heights[r] = Integer.MIN_VALUE;
 			}
 
 			c = 0;
 			r = 0;
-			for (int i = 0; i < nComponents; i++) {
+			for (int i = 0; i < nComponents; i++)
+			{
 				Component comp = parent.getComponent(i);
 				Dimension d = comp.getMinimumSize();
-				if (widths[c] < d.width) {
+				if (widths[c] < d.width)
+				{
 					widths[c] = d.width;
 				}
-				if (heights[r] < d.height) {
+				if (heights[r] < d.height)
+				{
 					heights[r] = d.height;
 				}
-				if (++c >= nCols) {
+				if (++c >= nCols)
+				{
 					c = 0;
 					r++;
 				}
@@ -134,10 +159,12 @@ public class GridBoxLayout extends GridLayout implements Serializable {
 
 			int w = 0;
 			int h = 0;
-			for (c = 0; c < nCols; c++) {
+			for (c = 0; c < nCols; c++)
+			{
 				w += widths[c];
 			}
-			for (r = 0; r < nRows; r++) {
+			for (r = 0; r < nRows; r++)
+			{
 				h += heights[r];
 			}
 
@@ -147,21 +174,26 @@ public class GridBoxLayout extends GridLayout implements Serializable {
   }
 
 	@Override
-	public void layoutContainer(Container parent) {
-		synchronized (parent.getTreeLock()) {
+	public void layoutContainer(Container parent)
+	{
+		synchronized (parent.getTreeLock())
+		{
 			Insets insets = parent.getInsets();
 			int nComponents = parent.getComponentCount();
 			int nRows = getRows();
 			int nCols = getColumns();
 
-			if (nComponents == 0) {
+			if (nComponents == 0)
+			{
 				return;
 			}
 
-			if (nRows > 0) {
+			if (nRows > 0)
+			{
 				nCols = (nComponents + nRows - 1) / nRows;
 			}
-			else {
+			else
+			{
 				nRows = (nComponents + nCols - 1) / nCols;
 			}
 
@@ -170,25 +202,31 @@ public class GridBoxLayout extends GridLayout implements Serializable {
 			int c;
 			int r;
 
-			for (c = 0; c < nCols; c++) {
+			for (c = 0; c < nCols; c++)
+			{
 				widths[c] = Integer.MIN_VALUE;
 			}
-			for (r = 0; r < nRows; r++) {
+			for (r = 0; r < nRows; r++)
+			{
 				heights[r] = Integer.MIN_VALUE;
 			}
 
 			c = 0;
 			r = 0;
-			for (int i = 0; i < nComponents; i++) {
+			for (int i = 0; i < nComponents; i++)
+			{
 				Component comp = parent.getComponent(i);
 				Dimension d = comp.getPreferredSize();
-				if (widths[c] < d.width) {
+				if (widths[c] < d.width)
+				{
 					widths[c] = d.width;
 				}
-				if (heights[r] < d.height) {
+				if (heights[r] < d.height)
+				{
 					heights[r] = d.height;
 				}
-				if (++c >= nCols) {
+				if (++c >= nCols)
+				{
 					c = 0;
 					r++;
 				}
@@ -196,10 +234,12 @@ public class GridBoxLayout extends GridLayout implements Serializable {
 
 			int w = 0;
 			int h = 0;
-			for (c = 0; c < nCols; c++) {
+			for (c = 0; c < nCols; c++)
+			{
 				w += widths[c];
 			}
-			for (r = 0; r < nRows; r++) {
+			for (r = 0; r < nRows; r++)
+			{
 				h += heights[r];
 			}
 
@@ -211,20 +251,24 @@ public class GridBoxLayout extends GridLayout implements Serializable {
 			float widthProportion = (float) pWidth / w;
 			float heightProportion = (float) pHeight / h;
 
-			for (c = 0; c < nCols; c++) {
+			for (c = 0; c < nCols; c++)
+			{
 				widths[c] = (int) (widthProportion * widths[c]);
 			}
-			for (r = 0; r < nRows; r++) {
+			for (r = 0; r < nRows; r++)
+			{
 				heights[r] = (int) (heightProportion * heights[r]);
 			}
 
 			int comp = 0;
 			int y = insets.top;
-			outer:
-			for (r = 0; r < nRows; r++) {
+			outer: for (r = 0; r < nRows; r++)
+			{
 				int x = insets.left;
-				for (c = 0; c < nCols; c++) {
-					if (comp >= nComponents) {
+				for (c = 0; c < nCols; c++)
+				{
+					if (comp >= nComponents)
+					{
 						break outer;
 					}
 					parent.getComponent(comp++).setBounds(x, y, widths[c], heights[r]);

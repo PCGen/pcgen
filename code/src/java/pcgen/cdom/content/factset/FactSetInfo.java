@@ -29,6 +29,8 @@ import pcgen.rules.types.FormatManager;
  * @param <T>
  *            The Type of object upon which the underlying FactSet for this
  *            FactSetInfo can be applied
+ * @param <F>
+ *            The format of the objects stored in the FactSet
  */
 public interface FactSetInfo<T extends CDOMObject, F>
 {

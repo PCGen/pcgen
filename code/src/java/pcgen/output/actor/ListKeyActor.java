@@ -43,7 +43,7 @@ public class ListKeyActor implements OutputActor<CDOMObject>
 	/**
 	 * Constructs a new ListKeyActor with the given ListKey
 	 * 
-	 * @param fk
+	 * @param lk
 	 *            The ListKey underlying this ListKeyActor
 	 */
 	public ListKeyActor(ListKey<?> lk)

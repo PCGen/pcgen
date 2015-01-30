@@ -63,12 +63,14 @@ public class TransparentCategorizedReferenceManufacturer<T extends Loadable & Ca
 		if (cat == null)
 		{
 			throw new IllegalArgumentException(
-					"Cannot built TransparentCategorizedReferenceManufacturer with null category");
+				"Cannot build TransparentCategorizedReferenceManufacturer "
+					+ "with null category");
 		}
 		if (catClass == null)
 		{
 			throw new IllegalArgumentException(
-					"Cannot built TransparentCategorizedReferenceManufacturer with null category Class");
+				"Cannot build TransparentCategorizedReferenceManufacturer "
+					+ "with null category Class");
 		}
 		category = cat;
 		categoryClass = catClass;

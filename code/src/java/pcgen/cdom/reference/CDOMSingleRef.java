@@ -65,12 +65,14 @@ public abstract class CDOMSingleRef<T> extends CDOMReference<T> implements
 	 * 
 	 * @return the given Object this CDOMSingleRef contains.
 	 */
+	@Override
 	public abstract T resolvesTo();
 
 	public abstract boolean hasBeenResolved();
 	
 	public abstract void setChoice(String c);
 	
+	@Override
 	public String getUnconverted()
 	{
 		return getName();

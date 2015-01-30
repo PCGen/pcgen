@@ -60,6 +60,7 @@ public class SpellListToAvailableSpellFacet implements
 		}
 	}
 
+	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMList<Spell>> dfce)
 	{
 		CharID id = dfce.getCharID();
@@ -75,6 +76,7 @@ public class SpellListToAvailableSpellFacet implements
 		}
 	}
 
+	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMList<Spell>> dfce)
 	{
 		CharID id = dfce.getCharID();

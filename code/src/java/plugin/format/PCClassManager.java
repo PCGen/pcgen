@@ -24,10 +24,18 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.types.FormatManager;
 
+/**
+ * A PCClassManager is a FormatManager that provides services for PCClass
+ * objects
+ */
 public class PCClassManager implements FormatManager<PCClass>
 {
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 
+	/**
+	 * @see pcgen.rules.types.FormatManager#convert(LoadContext,
+	 *      java.lang.String)
+	 */
 	@Override
 	public PCClass convert(LoadContext context, String classKey)
 	{
@@ -35,6 +43,10 @@ public class PCClassManager implements FormatManager<PCClass>
 			PCCLASS_CLASS, classKey);
 	}
 
+	/**
+	 * @see pcgen.rules.types.FormatManager#convertIndirect(LoadContext,
+	 *      java.lang.String)
+	 */
 	@Override
 	public Indirect<PCClass> convertIndirect(LoadContext context,
 		String classKey)
@@ -43,6 +55,10 @@ public class PCClassManager implements FormatManager<PCClass>
 			classKey);
 	}
 
+	/**
+	 * @see pcgen.rules.types.FormatManager#convertObjectContainer(LoadContext,
+	 *      java.lang.String)
+	 */
 	@Override
 	public ObjectContainer<PCClass> convertObjectContainer(LoadContext context,
 		String s)
@@ -51,24 +67,32 @@ public class PCClassManager implements FormatManager<PCClass>
 			.getManufacturer(PCClass.class), s);
 	}
 
+	/**
+	 * @see pcgen.rules.types.FormatManager#unconvert(java.lang.Object)
+	 */
 	@Override
 	public String unconvert(PCClass pcc)
 	{
 		return pcc.getKeyName();
 	}
 
+	/**
+	 * @see pcgen.rules.types.FormatManager#getType()
+	 */
 	@Override
 	public Class<PCClass> getType()
 	{
 		return PCCLASS_CLASS;
 	}
 
+	/**
+	 * @see pcgen.rules.types.FormatManager#getIdentifierType()
+	 */
 	@Override
 	public String getIdentifierType()
 	{
 		return "CLASS";
 	}
-
 
 	@Override
 	public int hashCode()

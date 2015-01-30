@@ -21,7 +21,8 @@ import java.util.Collection;
 
 import pcgen.cdom.enumeration.CharID;
 
-public interface FacetView<T> {
+public interface FacetView<T>
+{
 
 	public Collection<? extends T> getSet(CharID id);
 

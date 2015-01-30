@@ -22,9 +22,10 @@
 package pcgen.facade.core;
 
 /**
- *
+ * 
  * @author Connor
  */
-public interface SimpleFacade {
+public interface SimpleFacade
+{
 
 }

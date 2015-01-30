@@ -58,7 +58,6 @@ public class CNAbilitySelection extends ConcretePrereqObject implements
 				"AbilitySelection with MULT:YES Ability " + abil
 					+ ": must have choices");
 		}
-if ("NOCHOICE".equals(choice)) Thread.dumpStack();
 		this.cna = cna;
 		selection = choice;
 	}

@@ -16,7 +16,24 @@
  */
 package pcgen.base.test;
 
+/**
+ * An InequalityTester is a method of checking two objects for equality.
+ * 
+ * This is done with a system other than .equals() since there may be exceptions
+ * to true equality that we need to handle
+ */
 public interface InequalityTester
 {
+	/**
+	 * Tests the equality between two objects using this InequalityTester
+	 * 
+	 * @param o1
+	 *            The first object to be tested for equality
+	 * @param o2
+	 *            The second object to be tested for equality
+	 * @param location
+	 *            The location of the objects, to assist with debugging
+	 * @return A String indicating how the items are not equal; null if equal
+	 */
 	public String testEquality(Object o1, Object o2, String location);
 }

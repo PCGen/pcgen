@@ -34,7 +34,7 @@ import pcgen.facade.util.event.ReferenceListener;
 public class DefaultReferenceFacade<E> implements ReferenceFacade<E>
 {
 
-	protected EventListenerList listenerList = new EventListenerList();
+	private EventListenerList listenerList = new EventListenerList();
 	protected E object;
 
 	public DefaultReferenceFacade()
@@ -101,6 +101,4 @@ public class DefaultReferenceFacade<E> implements ReferenceFacade<E>
 	{
 		return String.valueOf(object);
 	}
-
-	
 }

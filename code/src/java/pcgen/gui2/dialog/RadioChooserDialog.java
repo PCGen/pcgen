@@ -89,7 +89,7 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 
 	private void initComponents()
 	{
-		setTitle(LanguageBundle.getString("in_chooserSelectOne"));//$NON-NLS-1$
+		setTitle(LanguageBundle.getString("in_chooserSelectOne")); //$NON-NLS-1$
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		Container pane = getContentPane();
 		pane.setLayout(new BorderLayout());

@@ -18,12 +18,13 @@
 package pcgen.rules.persistence.token;
 
 /**
- * A CDOMCompatibilityToken is a CDOMToken that implements a tag syntax from a 
- * previous version of PCGen. Once deprecated, a CDOMPrimaryToken would become 
- * a CDOMCompatibilityToken. 
+ * A CDOMCompatibilityToken is a CDOMToken that implements a tag syntax from a
+ * previous version of PCGen. Once deprecated, a CDOMPrimaryToken would become a
+ * CDOMCompatibilityToken.
  * 
- * @author Tom Parker <thpr@users.sourceforge.net>
- * @version $Revision: $
+ * @param <T>
+ *            The type of object on which this CDOMCompatibilityToken can be
+ *            used
  */
 public interface CDOMCompatibilityToken<T> extends CDOMToken<T>,
 		CompatibilityToken

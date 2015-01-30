@@ -161,7 +161,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 				populateFullCategoryList(type, typeMap.get(type));
 				if (isInstalled)
 				{//Add new tab
-					addTab(type,index);
+					addTab(type, index);
 				}
 			}
 			typeMap.get(type).categoryList.addElement(element);

@@ -25,7 +25,15 @@ import java.util.EventListener;
  * respective method in the listener object is invoked, and the
  * SubScopeFacetChangeEvent is passed to it.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
+ * @param <S1>
+ *            The Type of object of the first scope of the
+ *            SubScopeFacetChangeListener
+ * @param <S2>
+ *            The Type of object of the second scope of the
+ *            SubScopeFacetChangeListener
+ * @param <T>
+ *            The Type of object changed in the events received by a
+ *            SubScopeFacetChangeListener
  */
 public interface SubScopeFacetChangeListener<S1, S2, T> extends EventListener
 {

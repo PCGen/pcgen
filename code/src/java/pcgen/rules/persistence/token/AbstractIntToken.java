@@ -23,6 +23,9 @@ import pcgen.rules.context.LoadContext;
 
 /**
  * Parses a token of the form: &lt;Token Name&gt;:&lt;int&gt;
+ * 
+ * @param <T>
+ *            The type of object on which this AbstractIntToken can be used
  */
 public abstract class AbstractIntToken<T extends CDOMObject>
 {

@@ -135,7 +135,7 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 	{
 		sanityCheck();
 		int index = Arrays.binarySearch(transform, e.getIndex(), indexComparator);
-		fireElementModified(this,e.getElement(), index);
+		fireElementModified(this, e.getElement(), index);
 	}
 
 	private boolean sanityCheck()

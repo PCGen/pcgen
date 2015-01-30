@@ -80,7 +80,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 	{
 		this.character = character;
 		this.treeTable = table;
-		treeRenderer = (TreeRenderer)treeTable.getTreeCellRenderer();
+		treeRenderer = (TreeRenderer) treeTable.getTreeCellRenderer();
 
 		equipsetMap = new HashMap<EquipmentSetFacade, EquipmentTreeTableModel>();
 		equipsets = character.getEquipmentSets();

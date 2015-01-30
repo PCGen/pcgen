@@ -128,15 +128,15 @@ public class TodoFacadeImpl implements TodoFacade
 	    // Then sort by the order
 	    if (that instanceof TodoFacadeImpl)
 	    {
-		    if (this.order > ((TodoFacadeImpl)that).order)
+			if (this.order > ((TodoFacadeImpl) that).order)
 		    {
 		    	return AFTER;
 		    }
-		    if (this.order < ((TodoFacadeImpl)that).order)
+			if (this.order < ((TodoFacadeImpl) that).order)
 		    {
 		    	return BEFORE;
 		    }
-	    	return this.fieldName.compareTo(((TodoFacadeImpl)that).fieldName);
+			return this.fieldName.compareTo(((TodoFacadeImpl) that).fieldName);
 	    }
 
 		return EQUAL;

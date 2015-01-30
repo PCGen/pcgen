@@ -20,7 +20,8 @@
 package pcgen.cdom.enumeration;
 
 /** An enum for the various types of ability options. */
-public enum Nature {
+public enum Nature
+{
 	/** Ability is Normal */
 	NORMAL,
 	/** Ability is Automatic */

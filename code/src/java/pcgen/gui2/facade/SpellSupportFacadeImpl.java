@@ -1615,7 +1615,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		 */
 		public SpellNodeImpl(SpellFacade spell, String level, RootNode rootNode)
 		{
-			this(spell, (ClassFacade)null, level, rootNode);
+			this(spell, (ClassFacade) null, level, rootNode);
 		}
 
 		/* (non-Javadoc)

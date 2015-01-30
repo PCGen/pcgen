@@ -70,10 +70,12 @@ public final class CorePerspective
 					{
 						map.put(fields[i].getName(), (CorePerspective) obj);
 					}
-				} catch (IllegalArgumentException e)
+				}
+				catch (IllegalArgumentException e)
 				{
 					throw new UnreachableError(e);
-				} catch (IllegalAccessException e)
+				}
+				catch (IllegalAccessException e)
 				{
 					throw new UnreachableError(e);
 				}

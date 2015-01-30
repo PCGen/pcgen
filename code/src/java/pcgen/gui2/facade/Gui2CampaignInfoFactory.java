@@ -81,7 +81,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		List<URI> uris = new ArrayList<URI>();
 		for (CampaignFacade campaignFacade : testList)
 		{
-			uris.add(((Campaign)campaignFacade).getSourceURI());
+			uris.add(((Campaign) campaignFacade).getSourceURI());
 		}
 		pman.setChosenCampaignSourcefiles(uris);
 		return oldList;

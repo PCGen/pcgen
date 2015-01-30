@@ -73,6 +73,7 @@ public abstract class CDOMListObject<T extends PrereqObject> extends
 	}
 
 	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public boolean isInternal()
 	{
 		return false;

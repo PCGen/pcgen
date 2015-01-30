@@ -134,7 +134,8 @@ public class CampaignPanel extends ConvertSubPanel
 		final JTable table = new JTable(model){    
 		    //Implement table cell tool tips.
 			@Override
-		    public String getToolTipText(MouseEvent e) {
+			public String getToolTipText(MouseEvent e)
+			{
 		        java.awt.Point p = e.getPoint();
 		        int rowIndex = rowAtPoint(p);
 		        int colIndex = columnAtPoint(p);

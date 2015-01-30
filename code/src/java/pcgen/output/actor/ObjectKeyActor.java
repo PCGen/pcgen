@@ -32,6 +32,10 @@ import freemarker.template.TemplateModelException;
  * 
  * Note that the actual name of the interpolation is stored externally to this
  * Actor (in CDOMObjectWrapperInfo to be precise)
+ * 
+ * @param <T>
+ *            The Type of object contained by the ObjectKey underlying this
+ *            ObjectKeyActor
  */
 public class ObjectKeyActor<T> implements OutputActor<CDOMObject>
 {
@@ -44,7 +48,7 @@ public class ObjectKeyActor<T> implements OutputActor<CDOMObject>
 	/**
 	 * Constructs a new ObjectKeyActor with the given ObjectKey
 	 * 
-	 * @param ik
+	 * @param ok
 	 *            The ObjectKey underlying this ObjectKeyActor
 	 */
 	public ObjectKeyActor(ObjectKey<T> ok)
