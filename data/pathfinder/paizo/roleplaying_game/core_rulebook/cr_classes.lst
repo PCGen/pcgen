@@ -438,7 +438,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 19	CAST:0,4,3,3,2
 20	CAST:0,4,4,3,3
 ###Block: Archetype Support
-1	DEFINE:DisableRangerHuntersBond|0	BONUS:VAR|DisableRangerHuntersBond|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHuntersBond
+1	DEFINE:DisableRangerHuntersBond|0	BONUS:VAR|DisableRangerHuntersBond|1|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHuntersBond
 
 
 
