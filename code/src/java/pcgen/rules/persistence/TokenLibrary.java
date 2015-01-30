@@ -19,7 +19,6 @@ package pcgen.rules.persistence;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -62,8 +61,6 @@ public final class TokenLibrary implements PluginLoader
 	private static final Class<CDOMObject> CDOMOBJECT_CLASS = CDOMObject.class;
 	private static final TreeMapToList<Integer, PostDeferredToken<? extends Loadable>> POST_DEFERRED_TOKENS =
 			new TreeMapToList<Integer, PostDeferredToken<? extends Loadable>>();
-	private static final DoubleKeyMap<Class<?>, String, GroupDefinition> GROUP_DEFINITION_MAP =
-			new DoubleKeyMap<Class<?>, String, GroupDefinition>(HashMap.class, CaseInsensitiveMap.class);
 	private static final DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>> QUALIFIER_MAP =
 			new DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>>();
 	private static final DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>> PRIMITIVE_MAP =
@@ -82,7 +79,6 @@ public final class TokenLibrary implements PluginLoader
 	public static void reset()
 	{
 		POST_DEFERRED_TOKENS.clear();
-		GROUP_DEFINITION_MAP.clear();
 		QUALIFIER_MAP.clear();
 		PRIMITIVE_MAP.clear();
 		BONUS_TAG_MAP.clear();
@@ -103,17 +99,6 @@ public final class TokenLibrary implements PluginLoader
 	{
 		for (Iterator<PrimitiveToken<T>> it =
 				new PrimitiveTokenIterator<T, PrimitiveToken<T>>(cl, tokKey); it
-			.hasNext();)
-		{
-			return it.next();
-		}
-		return null;
-	}
-
-	public static <T> GroupDefinition<T> getGroup(Class<T> cl, String tokKey)
-	{
-		for (Iterator<GroupDefinition<T>> it =
-				new GroupIterator<T, GroupDefinition<T>>(cl, tokKey); it
 			.hasNext();)
 		{
 			return it.next();
@@ -276,18 +261,7 @@ public final class TokenLibrary implements PluginLoader
 		}
 		if (newToken instanceof GroupDefinition)
 		{
-			GroupDefinition<?> def = (GroupDefinition<?>) newToken;
-			GroupDefinition existingDef =
-					GROUP_DEFINITION_MAP.put(def.getReferenceClass(),
-						def.getPrimitiveName(), def);
-			if (existingDef != null)
-			{
-				Logging.errorPrint("Duplicate Group Definition in "
-					+ def.getReferenceClass().getSimpleName() + ": "
-					+ def.getPrimitiveName() + ". Classes were "
-					+ existingDef.getClass().getName() + " and "
-					+ newToken.getClass().getName());
-			}
+			family.addGroupDefinition((GroupDefinition<?>) newToken);
 			found = true;
 		}
 		return found;
@@ -448,27 +422,6 @@ public final class TokenLibrary implements PluginLoader
 		protected T grabToken(TokenFamily family, Class<?> cl, String key)
 		{
 			return (T) family.getSubToken(cl, key, subTokenKey);
-		}
-
-	}
-
-	static class GroupIterator<C, T extends GroupDefinition<? super C>> extends
-			TokenLibrary.AbstractTokenIterator<C, T>
-	{
-
-		public GroupIterator(Class<C> cl, String key)
-		{
-			super(cl, key);
-		}
-
-		@Override
-		protected T grabToken(TokenFamily family, Class<?> cl, String key)
-		{
-			if (!TokenFamily.CURRENT.equals(family))
-			{
-				return null;
-			}
-			return (T) GROUP_DEFINITION_MAP.get(cl, key);
 		}
 
 	}

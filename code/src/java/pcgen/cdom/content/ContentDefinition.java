@@ -390,6 +390,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> implements
 	 */
 	public void activate(LoadContext context)
 	{
+		activateKey();
 		Visibility vis = (visibility == null) ? Visibility.HIDDEN : visibility;
 		if (vis.isVisibleTo(View.VISIBLE_EXPORT))
 		{
@@ -397,6 +398,14 @@ public abstract class ContentDefinition<T extends CDOMObject, F> implements
 		}
 		activateTokens(context);
 	}
+
+	/**
+	 * Activates any key owned by this ContentDefinition. This is intended only for
+	 * internal use by ContentDefinition, as a portion of the activate() method.
+	 * 
+	 * This should not be called from an external source
+	 */
+	protected abstract void activateKey();
 
 	/**
 	 * Activates this ContentDefinition for output. This is intended only for

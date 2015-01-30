@@ -1055,9 +1055,6 @@ public final class PCGVer2Creator implements IOConstants
 				buffer.append(TAG_DESC).append(':');
 				buffer.append(desc.getPCCText());
 			}
-			buffer.append('|');
-			buffer.append(TAG_HOLYITEM).append(':');
-			buffer.append(EntityEncoder.encode(aDeity.getSafe(StringKey.HOLY_ITEM)));
 
 			buffer.append('|');
 			buffer.append(TAG_DEITYFAVWEAP).append(':');

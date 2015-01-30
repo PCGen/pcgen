@@ -69,18 +69,18 @@
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
-			<name><@pcstring tag="DEITY"/></name>
+			<name>${pc.deity!}</name>
 			<alignment><@pcstring tag="DEITY.ALIGNMENT"/></alignment>
 			<description><@pcstring tag="DEITY.DESCRIPTION"/></description>
 			<domainlist><@pcstring tag="DEITY.DOMAINLIST"/></domainlist>
 			<favoredweapon><@pcstring tag="DEITY.FAVOREDWEAPON"/></favoredweapon>
-			<holyitem><@pcstring tag="DEITY.HOLYITEM"/></holyitem>
-			<pantheonlist><@pcstring tag="DEITY.PANTHEONLIST"/></pantheonlist>
-			<source><@pcstring tag="DEITY.SOURCE"/></source>
+			<holyitem>${pc.deity.symbol!}</holyitem>
+			<pantheonlist>${pc.deity.pantheon!?join(", ")}</pantheonlist>
+			<source>${pc.deity.source!}</source>
 			<special_abilities><@pcstring tag="DEITY.SA"/></special_abilities>
-			<appearance><@pcstring tag="DEITY.APPEARANCE"/></appearance>
-			<title><@pcstring tag="DEITY.TITLE"/></title>
-			<worshippers><@pcstring tag="DEITY.WORSHIPPERS"/></worshippers>
+			<appearance>${pc.deity.appearance!}</appearance>
+			<title>${pc.deity.title!}</title>
+			<worshippers>${pc.deity.worshippers!}</worshippers>
 		</deity>
 		<description><@pcstring tag="DESC"/></description>
 		<experience>

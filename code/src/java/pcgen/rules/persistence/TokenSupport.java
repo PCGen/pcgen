@@ -28,6 +28,7 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.base.util.WeightedCollection;
+import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -73,6 +74,7 @@ public class TokenSupport
 				}
 				catch (IllegalArgumentException e)
 				{
+					e.printStackTrace();
 					Logging.addParseMessage(
 						Logging.LST_ERROR,
 						"Token generated an IllegalArgumentException: "
@@ -309,5 +311,10 @@ public class TokenSupport
 	public void loadLocalToken(Object token)
 	{
 		TokenLibrary.loadFamily(localTokens, token, false);
+	}
+
+	public GroupDefinition<?> getGroup(Class<?> cl, String s)
+	{
+		return localTokens.getGroup(cl, s);
 	}
 }

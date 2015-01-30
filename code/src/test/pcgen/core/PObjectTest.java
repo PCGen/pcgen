@@ -38,6 +38,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.DamageReduction;
+import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -55,6 +56,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
+import plugin.format.StringManager;
 
 /**
  * Test the PObject class.
@@ -178,6 +180,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 				race.get(ObjectKey.CHALLENGE_RATING), reconstRace
 						.get(ObjectKey.CHALLENGE_RATING));
 
+		FactKey.getConstant("Abb", new StringManager());
 		PCClass aClass = new PCClass();
 		aClass.setName("TestClass");
 		String classPCCText = aClass.getPCCText();

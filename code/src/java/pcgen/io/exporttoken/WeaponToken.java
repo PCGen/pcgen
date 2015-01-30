@@ -32,9 +32,9 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.EquipmentLocation;
+import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -517,7 +517,9 @@ public class WeaponToken extends Token
 		}
 		else if (token.equals("RATEOFFIRE"))
 		{
-			return eq.getSafe(StringKey.RATE_OF_FIRE);
+			FactKey<String> fk = FactKey.valueOf("RateOfFire");
+			String str = eq.getResolved(fk);
+			return (str == null) ? "" : str;
 		}
 		else if (token.equals("ISLIGHT"))
 		{

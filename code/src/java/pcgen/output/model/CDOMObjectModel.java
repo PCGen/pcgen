@@ -19,7 +19,6 @@ package pcgen.output.model;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.output.base.OutputActor;
-import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -79,16 +78,9 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 		OutputActor<CDOMObject> actor = info.get(key);
 		if (actor == null)
 		{
-			if ("key".equals(key))
-			{
-				return ObjectWrapper.DEFAULT_WRAPPER.wrap(d.getKeyName());
-			}
-			else
-			{
-				throw new TemplateModelException("object of type "
-					+ d.getClass().getSimpleName()
-					+ " did not have output of type " + key);
-			}
+			throw new TemplateModelException("object of type "
+				+ d.getClass().getSimpleName()
+				+ " did not have output of type " + key);
 		}
 		return actor.process(d);
 	}

@@ -33,7 +33,6 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.content.BonusSpellInfo;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -43,6 +42,7 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.SimpleLoader;
 import pcgen.rules.context.LoadContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>SpellListTokenTest</code> is ...
@@ -111,7 +111,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");
-		arcaneClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(arcaneClass, "SpellType", "Arcane");
 		context.unconditionallyProcess(arcaneClass, "SPELLSTAT", "CHA");
 		arcaneClass.put(ObjectKey.SPELLBOOK, false);
 		arcaneClass.put(ObjectKey.MEMORIZE_SPELLS, false);
@@ -121,7 +121,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 
 		divineClass = new PCClass();
 		divineClass.setName("TestDivine");
-		divineClass.put(StringKey.SPELLTYPE, "DIVINE");
+		BuildUtilities.setFact(divineClass, "SpellType", "Divine");
 		context.unconditionallyProcess(divineClass, "SPELLSTAT", "WIS");
 		divineClass.put(ObjectKey.SPELLBOOK, false);
 		divineClass.put(ObjectKey.MEMORIZE_SPELLS, true);
@@ -265,9 +265,9 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, divineClass, true);
 
 		SpellListTypeToken token = new SpellListTypeToken();
-		assertEquals("testSpellListTypeToken(1lv TA)", "ARCANE", token
+		assertEquals("testSpellListTypeToken(1lv TA)", "Arcane", token
 			.getToken("SPELLLISTTYPE.0.1", character, null));
-		assertEquals("testSpellListTypeToken(1lv TD)", "DIVINE", token
+		assertEquals("testSpellListTypeToken(1lv TD)", "Divine", token
 			.getToken("SPELLLISTTYPE.1.1", character, null));
 	}
 }

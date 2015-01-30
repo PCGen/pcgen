@@ -15,34 +15,25 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.lsttokens.deity;
+package plugin.lsttokens.deprecated;
 
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Deity;
-import pcgen.rules.persistence.token.AbstractStringToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractToFactSetToken;
 
 /**
- * Class deals with SYMBOL Token
+ * Class deals with PANTHEON Token
  */
-public class SymbolToken extends AbstractStringToken<Deity> implements CDOMPrimaryToken<Deity>
+public class PantheonToken extends AbstractToFactSetToken<Deity>
 {
-
 	@Override
 	public String getTokenName()
 	{
-		return "SYMBOL";
+		return "PANTHEON";
 	}
 
 	@Override
 	public Class<Deity> getTokenClass()
 	{
 		return Deity.class;
-	}
-
-	@Override
-	protected StringKey stringKey()
-	{
-		return StringKey.HOLY_ITEM;
 	}
 }

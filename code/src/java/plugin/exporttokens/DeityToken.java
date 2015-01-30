@@ -27,16 +27,20 @@ package plugin.exporttokens;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Deity;
@@ -134,7 +138,9 @@ public class DeityToken extends Token
 			}
 			else if ("APPEARANCE".equals(subTag))
 			{
-				retString = deity.getSafe(StringKey.APPEARANCE);
+				FactKey<String> fk = FactKey.valueOf("Appearance");
+				String str = deity.getResolved(fk);
+				retString = (str == null) ? "" : str;
 			}
 			else if ("DESCRIPTION".equals(subTag))
 			{
@@ -142,7 +148,9 @@ public class DeityToken extends Token
 			}
 			else if ("HOLYITEM".equals(subTag))
 			{
-				retString = deity.getSafe(StringKey.HOLY_ITEM);
+				FactKey<String> fk = FactKey.valueOf("Symbol");
+				String str = deity.getResolved(fk);
+				retString = (str == null) ? "" : str;
 			}
 			else if ("FAVOREDWEAPON".equals(subTag))
 			{
@@ -152,7 +160,13 @@ public class DeityToken extends Token
 			}
 			else if ("PANTHEONLIST".equals(subTag))
 			{
-				retString = StringUtil.join(deity.getSafeListFor(ListKey.PANTHEON), ", ");
+				FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
+				Set<String> pset = new TreeSet<String>();
+				for (ObjectContainer<String> oc : deity.getSafeSetFor(fk))
+				{
+					pset.addAll(oc.getContainedObjects());
+				}
+				retString = StringUtil.join(pset, ", ");
 			}
 			else if ("SOURCE".equals(subTag))
 			{
@@ -165,11 +179,15 @@ public class DeityToken extends Token
 			}
 			else if ("TITLE".equals(subTag))
 			{
-				retString = deity.getSafe(StringKey.TITLE);
+				FactKey<String> fk = FactKey.valueOf("Title");
+				String str = deity.getResolved(fk);
+				retString = (str == null) ? "" : str;
 			}
 			else if ("WORSHIPPERS".equals(subTag))
 			{
-				retString = deity.getSafe(StringKey.WORSHIPPERS);
+				FactKey<String> fk = FactKey.valueOf("Worshippers");
+				String str = deity.getResolved(fk);
+				retString = (str == null) ? "" : str;
 			}
 		}
 
