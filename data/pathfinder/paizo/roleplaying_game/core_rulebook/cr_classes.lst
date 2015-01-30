@@ -393,7 +393,6 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Medium|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerMediumArmorProficiency
 1	ABILITY:Internal|AUTOMATIC|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerShieldProficiency
 ###Block: Favored Enemies and Terrains
-1
 1	BONUS:VAR|RangerFavoredEnemyLVL|CL
 1	BONUS:VAR|RangerFavoredTerrainLVL|CL
 1	BONUS:VAR|WildEmpathy|CL
@@ -408,7 +407,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Track|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerTrack
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWildEmpathy
 2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Combat Style|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyle
-4	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hunter's Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHuntersBond
+4	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hunter's Bond|PREVAREQ:DisableRangerHuntersBond,0
 7	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Woodland Stride|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWoodlandStride
 8	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Swift Tracker|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerSwiftTracker
 9	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion
@@ -438,6 +437,9 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 18	CAST:0,4,3,2,2
 19	CAST:0,4,3,3,2
 20	CAST:0,4,4,3,3
+###Block: Archetype Support
+1	DEFINE:DisableRangerHuntersBond|0	BONUS:VAR|DisableRangerHuntersBond|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHuntersBond
+
 
 
 # Class Name	Hit Dice	Type				Class Type		Abbreviation	Max Level	Source Page		Ability																Define		Combat bonus											Save bonus																					Modify VAR			Monster Role

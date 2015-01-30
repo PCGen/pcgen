@@ -14,13 +14,13 @@ ABILITYCATEGORY:Witch Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACT
 
 ###Block: Base Class Feature Display
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Alchemist Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AlchemistClassFeatures	PLURAL:Alchemist Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Cavalier Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:CavalierClassFeatures	PLURAL:Cavalier Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Inquisitor Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:InquisitorClassFeatures	PLURAL:Inquisitor Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Oracle Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:OracleClassFeatures	PLURAL:Oracle Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Summoner Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SummonerClassFeatures	PLURAL:Summoner Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Witch Class Feature			VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WitchClassFeatures		PLURAL:Witch Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Antipaladin Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AntipaladinClassFeatures	PLURAL:Antipaladin Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Alchemist Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AlchemistClassFeatures.Alchemist Class Feature	PLURAL:Alchemist Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cavalier Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:CavalierClassFeatures.Cavalier Class Feature	PLURAL:Cavalier Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Inquisitor Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:InquisitorClassFeatures.Inquisitor Class Feature	PLURAL:Inquisitor Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:OracleClassFeatures.Oracle Class Features	PLURAL:Oracle Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Summoner Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SummonerClassFeatures.Summoner Class Feature	PLURAL:Summoner Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Witch Class Feature			VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WitchClassFeatures.WitchClassFeatures		PLURAL:Witch Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Antipaladin Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AntipaladinClassFeatures.Antipaladin Class Feature	PLURAL:Antipaladin Class Features	DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Focused Arcane School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Focused Arcane School							DISPLAYLOCATION:Class Features
 
