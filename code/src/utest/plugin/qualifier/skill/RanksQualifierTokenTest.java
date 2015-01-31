@@ -23,6 +23,7 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
@@ -34,6 +35,7 @@ import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
@@ -105,6 +107,10 @@ public class RanksQualifierTokenTest extends
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|RANKS=3[ALL]"));
+		BuildUtilities.createFact(primaryContext, "ClassType", getTargetClass());
+		FactDefinition<?, ?> fd =
+				BuildUtilities.createFact(primaryContext, "SpellType", getTargetClass());
+		fd.setSelectable(true);
 
 		finishLoad();
 

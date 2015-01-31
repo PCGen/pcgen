@@ -22,7 +22,6 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
-import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
@@ -77,10 +76,6 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|PC"));
-		BuildUtilities.createFact(primaryContext, "ClassType", getTargetClass());
-		FactDefinition<?, ?> fd =
-				BuildUtilities.createFact(primaryContext, "SpellType", getTargetClass());
-		fd.setSelectable(true);
 		finishLoad();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
@@ -120,10 +115,6 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|PC[TYPE=Masterful]"));
-		BuildUtilities.createFact(primaryContext, "ClassType", getTargetClass());
-		FactDefinition<?, ?> fd =
-				BuildUtilities.createFact(primaryContext, "SpellType", getTargetClass());
-		fd.setSelectable(true);
 		finishLoad();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
@@ -145,10 +136,6 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|!PC[TYPE=Masterful]"));
-		BuildUtilities.createFact(primaryContext, "ClassType", getTargetClass());
-		FactDefinition<?, ?> fd =
-				BuildUtilities.createFact(primaryContext, "SpellType", getTargetClass());
-		fd.setSelectable(true);
 		finishLoad();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
