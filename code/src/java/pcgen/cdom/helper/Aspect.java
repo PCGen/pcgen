@@ -79,7 +79,7 @@ public class Aspect extends ConcretePrereqObject
 	 * @param name the name of the aspect
 	 * @param aString the aspect string
 	 */
-	public Aspect(final String name, final String aString )
+	public Aspect(final String name, final String aString)
 	{
 		if (name == null)
 		{
@@ -102,7 +102,7 @@ public class Aspect extends ConcretePrereqObject
 	 * @param key the name of the aspect
 	 * @param aString the aspect string
 	 */
-	public Aspect(final AspectName key, final String aString )
+	public Aspect(final AspectName key, final String aString)
 	{
 		if (key == null)
 		{
@@ -131,19 +131,19 @@ public class Aspect extends ConcretePrereqObject
 	{
 		int currentInd = 0;
 		int percentInd = -1;
-		while ( (percentInd = aString.indexOf('%', currentInd)) != -1 )
+		while ((percentInd = aString.indexOf('%', currentInd)) != -1)
 		{
 			final String preText = aString.substring(currentInd, percentInd);
-			if ( preText.length() > 0 )
+			if (preText.length() > 0)
 			{
 				theComponents.add(preText);
 			}
-			if ( percentInd == aString.length() - 1)
+			if (percentInd == aString.length() - 1)
 			{
 				theComponents.add("%"); //$NON-NLS-1$
 				return;
 			}
-			if ( aString.charAt(percentInd + 1) == '{' )
+			if (aString.charAt(percentInd + 1) == '{')
 			{
 				// This is a bracketed placeholder.  The replacement parameter
 				// is contained within the {}
@@ -154,13 +154,15 @@ public class Aspect extends ConcretePrereqObject
 				{
 					Integer.parseInt(replacement);
 				}
-				catch (NumberFormatException nfe )
+				catch (NumberFormatException nfe)
 				{
-					Logging.errorPrintLocalised("Errors.Description.InvalidVariableReplacement", replacement); //$NON-NLS-1$
+					Logging.errorPrintLocalised(
+						"Errors.Description.InvalidVariableReplacement", //$NON-NLS-1$
+						replacement);
 				}
 				theComponents.add(VAR_MARKER + replacement);
 			}
-			else if ( aString.charAt(percentInd + 1) == '%' )
+			else if (aString.charAt(percentInd + 1) == '%')
 			{
 				// This is an escape sequence so we can actually print a %
 				currentInd = percentInd + 2;
@@ -171,7 +173,7 @@ public class Aspect extends ConcretePrereqObject
 				// In this case we have an unbracketed placeholder.  We will
 				// walk the string until such time as we no longer have a number
 				currentInd = percentInd + 1;
-				while ( currentInd < aString.length() )
+				while (currentInd < aString.length())
 				{
 					final char val = aString.charAt(currentInd);
 					try
@@ -184,7 +186,7 @@ public class Aspect extends ConcretePrereqObject
 						break;
 					}
 				}
-				if ( currentInd > percentInd + 1 )
+				if (currentInd > percentInd + 1)
 				{
 					theComponents.add(VAR_MARKER + aString.substring(percentInd+1, currentInd));
 				}
@@ -205,13 +207,13 @@ public class Aspect extends ConcretePrereqObject
 	 * 
 	 * @param aVariable
 	 */
-	public void addVariable( final String aVariable )
+	public void addVariable(final String aVariable)
 	{
-		if ( theVariables == null )
+		if (theVariables == null)
 		{
 			theVariables = new ArrayList<String>();
 		}
-		theVariables.add( aVariable );
+		theVariables.add(aVariable);
 	}
 	
 	/**
@@ -238,7 +240,7 @@ public class Aspect extends ConcretePrereqObject
 	 * Gets the name string after having substituting all variables.
 	 * 
 	 * @param aPC The PlayerCharacter used to evaluate formulas.
-	 * @param theOwner the owning Ability object
+	 * @param abilities the abilities for which the Aspect text should be compiled
 	 * 
 	 * @return The fully substituted description string.
 	 */
@@ -256,22 +258,23 @@ public class Aspect extends ConcretePrereqObject
 		{
 			return "";
 		}
-		for ( final String comp : theComponents )
+		for (final String comp : theComponents)
 		{
-			if ( comp.startsWith(VAR_MARKER) )
+			if (comp.startsWith(VAR_MARKER))
 			{
-				final int ind = Integer.parseInt(comp.substring(VAR_MARKER.length()));
-				if ( theVariables == null || ind > theVariables.size() )
+				final int ind =
+						Integer.parseInt(comp.substring(VAR_MARKER.length()));
+				if (theVariables == null || ind > theVariables.size())
 				{
 					buf.append(Constants.EMPTY_STRING);
 					continue;
 				}
 				final String var = theVariables.get(ind - 1);
-				if ( var.equals(VAR_NAME) )
+				if (var.equals(VAR_NAME))
 				{
 					buf.append(sampleAbilityObject.getOutputName());
 				}
-				else if ( var.equals(VAR_LIST) )
+				else if (var.equals(VAR_LIST))
 				{
 					List<String> assocList = new ArrayList<String>();
 					for (CNAbility cna : abilities)
@@ -291,7 +294,7 @@ public class Aspect extends ConcretePrereqObject
 					buf.append(StringUtil.joinToStringBuilder(assocList,
 						joinString));
 				}
-					else if ( var.startsWith("\"") ) //$NON-NLS-1$
+				else if (var.startsWith("\"")) //$NON-NLS-1$
 				{
 					buf.append(var.substring(1, var.length() - 1));
 				}
@@ -318,12 +321,13 @@ public class Aspect extends ConcretePrereqObject
 	public String getPCCText()
 	{
 		final StringBuilder buf = new StringBuilder();
-		
-		for ( final String str : theComponents )
+
+		for (final String str : theComponents)
 		{
-			if ( str.startsWith(VAR_MARKER) )
+			if (str.startsWith(VAR_MARKER))
 			{
-				final int ind = Integer.parseInt(str.substring(VAR_MARKER.length()));
+				final int ind =
+						Integer.parseInt(str.substring(VAR_MARKER.length()));
 				buf.append('%').append(ind);
 			}
 			else
@@ -331,9 +335,9 @@ public class Aspect extends ConcretePrereqObject
 				buf.append(EntityEncoder.encode(str));
 			}
 		}
-		if ( theVariables != null )
+		if (theVariables != null)
 		{
-			for ( final String var : theVariables )
+			for (final String var : theVariables)
 			{
 				buf.append(Constants.PIPE);
 				buf.append(var);

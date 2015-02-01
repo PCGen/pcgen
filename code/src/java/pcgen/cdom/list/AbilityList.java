@@ -43,7 +43,8 @@ public class AbilityList extends CDOMListObject<Ability>
 	 * Stores references to the "master" set of lists that are unique for a
 	 * given Category/Nature combination.
 	 */
-	public static final DoubleKeyMap<Category<Ability>, Nature, CDOMReference<AbilityList>> MASTER_MAP = new DoubleKeyMap<Category<Ability>, Nature, CDOMReference<AbilityList>>();
+	public static final DoubleKeyMap<Category<Ability>, Nature, CDOMReference<AbilityList>> MASTER_MAP =
+			new DoubleKeyMap<Category<Ability>, Nature, CDOMReference<AbilityList>>();
 
 	/**
 	 * Returns the Ability Class object (Ability.class)

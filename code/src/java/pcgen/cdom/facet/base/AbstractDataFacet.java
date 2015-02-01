@@ -46,7 +46,10 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * DataFacetChangeListners of the <b>same</b> priority will receive events from
  * the AbstractDataFacet.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
+ * @param <IDT>
+ *            The Type of identifier used in this AbstractDataFacet
+ * @param <T>
+ *            The Type of object stored in this AbstractDataFacet
  */
 public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 		AbstractStorageFacet<IDT>

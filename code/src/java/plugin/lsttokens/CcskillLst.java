@@ -265,6 +265,7 @@ public class CcskillLst extends AbstractTokenWithSeparator<CDOMObject>
 		pc.removeGlobalCost(SkillCost.CROSS_CLASS, skill, obj);
 	}
 
+	@Override
 	public Class<Skill> getChoiceClass()
 	{
 		return Skill.class;

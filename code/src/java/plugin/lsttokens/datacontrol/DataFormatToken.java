@@ -72,6 +72,7 @@ public class DataFormatToken extends AbstractNonEmptyToken<ContentDefinition>
 		return CONTENTDEF_CLASS;
 	}
 
+	@Override
 	public boolean process(LoadContext context, ContentDefinition def)
 	{
 		boolean isMissingFormatManager = (def.getFormatManager() == null);
@@ -84,6 +85,7 @@ public class DataFormatToken extends AbstractNonEmptyToken<ContentDefinition>
 		return !isMissingFormatManager;
 	}
 
+	@Override
 	public Class<ContentDefinition> getDeferredTokenClass()
 	{
 		return CONTENTDEF_CLASS;

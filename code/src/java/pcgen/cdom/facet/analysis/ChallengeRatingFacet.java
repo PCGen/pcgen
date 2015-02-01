@@ -67,8 +67,8 @@ public class ChallengeRatingFacet
 	 */
 	public Integer getCR(CharID id)
 	{
-		Integer cr = new Integer(0);
-		
+		int cr = 0;
+
 		if (levelFacet.getMonsterLevelCount(id) == 0)
 		{
 			if (levelFacet.getNonMonsterLevelCount(id) == 0)
@@ -87,6 +87,9 @@ public class ChallengeRatingFacet
 			{
 				return null;
 			}
+			/*
+			 * BUG calcRaceCR can return null, cause NPE
+			 */
 			cr += calcRaceCR(id);
 			cr += classRaceCR;
 		}
@@ -97,7 +100,7 @@ public class ChallengeRatingFacet
 		// calculate and add in the MISC bonus to CR
 		cr += (int) bonusCheckingFacet.getBonus(id, "MISC", "CR");
 
-		return cr;
+		return Integer.valueOf(cr);
 	}
 
 	/**
@@ -130,8 +133,10 @@ public class ChallengeRatingFacet
 	{
 		final LevelCommandFactory lcf = raceFacet.get(id).getSafe(
 				ObjectKey.MONSTER_CLASS);
-		final int raceHD = Integer.parseInt(lcf.getLevelCount().toString());
-		return raceHD;
+		/*
+		 * BUG This converts a formula to a String?  What if it's a formula, NFE?
+		 */
+		return Integer.parseInt(lcf.getLevelCount().toString());
 	}
 
 	/**
@@ -143,9 +148,9 @@ public class ChallengeRatingFacet
 	 * @return the Challenge Rating provided by the PCTemplate objects granted
 	 *         to the Player Character identified by the given CharID
 	 */
-	private Integer getTemplateCR(CharID id)
+	private int getTemplateCR(CharID id)
 	{
-		Integer cr = new Integer(0);
+		int cr = 0;
 
 		// Calculate and add the CR from the templates
 		for (PCTemplate template : templateFacet.getSet(id))
@@ -164,10 +169,10 @@ public class ChallengeRatingFacet
 	 * @return the Challenge Rating provided by the PCClass objects granted to
 	 *         the Player Character identified by the given CharID
 	 */
-	private Integer calcClassesCR(CharID id)
+	private int calcClassesCR(CharID id)
 	{
-		Integer cr = new Integer(0);
-		Integer crMod = new Integer(0);
+		int cr = 0;
+		int crMod = 0;
 		int crModPriority = 0;
 		
 		for (PCClass pcClass : classFacet.getSet(id))
@@ -192,9 +197,10 @@ public class ChallengeRatingFacet
 		
 		return cr;
 	}
+
 	private Integer calcClassesForRaceCR(CharID id)
 	{
-		Integer cr = new Integer(0);
+		int cr = 0;
 		int levelsKey = 0;
 		int levelsNonKey = 0;
 		int levelsConverted = 0;
@@ -267,7 +273,7 @@ public class ChallengeRatingFacet
 		}
 		cr += levelsKey;
 	
-		return cr;
+		return Integer.valueOf(cr);
 	}
 
 	private Integer getClassRaceCRMod(CharID id, PCClass cl)
@@ -364,18 +370,16 @@ public class ChallengeRatingFacet
 				cl.getQualifiedKey()).intValue();
 	}
 
-	private Integer getClassCRMod(CharID id, PCClass cl)
+	private int getClassCRMod(CharID id, PCClass cl)
 	{
-		Formula crm = cl.get(FormulaKey.CRMOD);
-		Integer crMod = new Integer(0);
+		int crMod = 0;
 
 		ClassType aClassType = SettingsHandler.getGame()
 				.getClassTypeByName(cl.getClassType());
 		if (aClassType != null)
 		{
 			String crmf = aClassType.getCRMod();
-			crm = FormulaFactory.getFormulaFor(crmf);
-			
+			Formula crm = FormulaFactory.getFormulaFor(crmf);
 			crMod = Math.min(crMod, formulaResolvingFacet.resolve(id, crm,
 					cl.getQualifiedKey()).intValue());
 		}
@@ -390,8 +394,7 @@ public class ChallengeRatingFacet
 				if (aClassType != null)
 				{
 					String crmf = aClassType.getCRMod();
-					crm = FormulaFactory.getFormulaFor(crmf);
-					
+					Formula crm = FormulaFactory.getFormulaFor(crmf);
 					crMod = Math.min(crMod, formulaResolvingFacet.resolve(id, crm,
 							cl.getQualifiedKey()).intValue());
 				}
@@ -448,32 +451,6 @@ public class ChallengeRatingFacet
 			{
 				return 0;
 			}
-			// If the CR is a fractional CR then we convert to a 1/x format
-//			if (cr > 0 && cr < 1)
-//			{
-//				Fraction fraction = Fraction.getFraction(cr);
-//				int denominator = fraction.getDenominator();
-//				int numerator = fraction.getNumerator();
-//				crString = numerator + "/" + denominator;
-//			}
-//			else if (cr >= 1 || cr == 0)
-//			{
-//				int newCr = -99;
-//				if (decimalPlaceValue.equals(".0"))
-//				{
-//					newCr = (int) cr.floatValue();
-//				}
-//			
-//				if (newCr > -99)
-//				{
-//					crString = crString + newCr;
-//				}
-//				else
-//				{
-//					crString = crString + cr;
-//				}
-//			}
-			
 			Integer xp = xpAwardsMap.get(cr);
 			return xp == null ? 0 : xp;
 		}

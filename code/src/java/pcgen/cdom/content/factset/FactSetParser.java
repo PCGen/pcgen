@@ -36,6 +36,11 @@ import pcgen.rules.types.FormatManager;
 /**
  * A FactSetParser is a dynamically built subtoken created when a FACTSET: is
  * defined
+ * 
+ * @param <T>
+ *            The type of of object upon which the FactSetParser can be used
+ * @param <F>
+ *            The format of the data stored in the FactSet
  */
 public class FactSetParser<T extends CDOMObject, F> extends
 		AbstractTokenWithSeparator<T> implements CDOMSecondaryToken<T>
@@ -50,7 +55,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 	/**
 	 * Constructs a new FactSetParser with the given FactSetInfo.
 	 * 
-	 * @param fi
+	 * @param fsi
 	 *            The FactSetInfo underlying this FactSetParser
 	 * @throws IllegalArgumentException
 	 *             if the given FactSetInfo is null

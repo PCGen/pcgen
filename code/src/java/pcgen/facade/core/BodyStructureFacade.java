@@ -25,6 +25,7 @@ package pcgen.facade.core;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public interface BodyStructureFacade {
+public interface BodyStructureFacade
+{
 
 }

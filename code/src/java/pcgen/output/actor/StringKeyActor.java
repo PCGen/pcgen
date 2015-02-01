@@ -43,7 +43,7 @@ public class StringKeyActor implements OutputActor<CDOMObject>
 	/**
 	 * Constructs a new StringKeyActor with the given StringKey
 	 * 
-	 * @param ik
+	 * @param sk
 	 *            The StringKey underlying this StringKeyActor
 	 */
 	public StringKeyActor(StringKey sk)

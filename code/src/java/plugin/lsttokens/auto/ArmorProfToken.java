@@ -283,6 +283,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 		pc.removeArmorProf(obj, ap);
 	}
 
+	@Override
 	public Class<ArmorProf> getChoiceClass()
 	{
 		return ARMORPROF_CLASS;

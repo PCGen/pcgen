@@ -34,7 +34,8 @@ import pcgen.util.Logging;
  * cache. All classes (facets) that want to store information in the cache must
  * extend this class.
  * 
- * @author Tom Parker (thpr [at] yahoo.com)
+ * @param <T>
+ *            The Type of identifier used in this AbstractStorageFacet
  */
 public abstract class AbstractStorageFacet<T extends PCGenIdentifier>
 {

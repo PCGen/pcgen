@@ -44,6 +44,7 @@ public class SkillListToCostFacet extends
 
 	private MasterSkillFacet masterSkillFacet;
 
+	@Override
 	public void dataAdded(ScopeFacetChangeEvent<CharID, PCClass, ClassSkillList> dfce)
 	{
 		CharID id = dfce.getCharID();
@@ -59,6 +60,7 @@ public class SkillListToCostFacet extends
 		}
 	}
 
+	@Override
 	public void dataRemoved(ScopeFacetChangeEvent<CharID, PCClass, ClassSkillList> dfce)
 	{
 		removeAllFromSource(dfce.getCharID(), dfce.getCDOMObject());

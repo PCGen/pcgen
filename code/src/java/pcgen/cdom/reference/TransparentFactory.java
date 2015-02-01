@@ -79,15 +79,15 @@ public class TransparentFactory<T extends Loadable> implements
 		}
 		catch (InstantiationException e)
 		{
-			throw new UnreachableError(
-					"Class was tested at "
-							+ "construction to ensure it had a public, zero-argument constructor");
+			throw new UnreachableError("Class was tested at "
+				+ "construction to ensure it had a public, "
+				+ "zero-argument constructor");
 		}
 		catch (IllegalAccessException e)
 		{
-			throw new UnreachableError(
-					"Class was tested at "
-							+ "construction to ensure it had a public, zero-argument constructor");
+			throw new UnreachableError("Class was tested at "
+				+ "construction to ensure it had a public, "
+				+ "zero-argument constructor");
 		}
 	}
 

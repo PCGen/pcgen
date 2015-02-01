@@ -95,6 +95,7 @@ public class SkillCostFacet extends
 			&& contains(id, skill, SkillCost.CROSS_CLASS, pcc);
 	}
 
+	@Override
 	public void dataAdded(
 		SubScopeFacetChangeEvent<PCClass, SkillCost, Skill> dfce)
 	{
@@ -102,6 +103,7 @@ public class SkillCostFacet extends
 			dfce.getScope1(), dfce.getSource());
 	}
 
+	@Override
 	public void dataRemoved(
 		SubScopeFacetChangeEvent<PCClass, SkillCost, Skill> dfce)
 	{

@@ -117,7 +117,7 @@ public class CharacterHPDialog extends JDialog implements ActionListener
 		table.setDefaultRenderer(JButton.class, new Renderer());
 		table.setDefaultEditor(JButton.class, new Editor());
 		table.setCellSelectionEnabled(false);
-		table.setRowHeight(new IntegerEditor(1,10).getPreferredSize().height);
+		table.setRowHeight(new IntegerEditor(1, 10).getPreferredSize().height);
 		JTableHeader header = table.getTableHeader();
 		header.setReorderingAllowed(false);
 

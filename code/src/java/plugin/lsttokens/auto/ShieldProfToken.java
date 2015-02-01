@@ -281,6 +281,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		pc.removeShieldProf(obj, sp);
 	}
 
+	@Override
 	public Class<ShieldProf> getChoiceClass()
 	{
 		return SHIELDPROF_CLASS;

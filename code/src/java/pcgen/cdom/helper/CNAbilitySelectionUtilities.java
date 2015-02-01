@@ -4,8 +4,13 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 
-public class CNAbilitySelectionUtilities
+public final class CNAbilitySelectionUtilities
 {
+	
+	private CNAbilitySelectionUtilities()
+	{
+		//Do not instantiate utility class
+	}
 
 	public static boolean canCoExist(CNAbilitySelection cnas1,
 		CNAbilitySelection cnas2)

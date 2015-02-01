@@ -308,6 +308,6 @@ public class TokenSupport
 
 	public void loadLocalToken(Object token)
 	{
-		TokenLibrary.loadFamily(localTokens, token, false);
+		TokenLibrary.loadFamily(localTokens, token);
 	}
 }

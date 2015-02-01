@@ -32,6 +32,12 @@ import pcgen.util.Logging;
  * 
  * This will thus enforce that every object of that type has the required
  * FACTSET present on the object.
+ * 
+ * @param <T>
+ *            The type of of object upon which the FactSetDefinitionEnforcer
+ *            will be used
+ * @param <F>
+ *            The format of the data stored in the FactSet
  */
 public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements
 		DeferredToken<T>, LstToken

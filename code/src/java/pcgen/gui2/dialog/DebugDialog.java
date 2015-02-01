@@ -481,15 +481,15 @@ public class DebugDialog extends JDialog
 				case 0:
 					return (rowIndex == 0) ? "Heap" : "Non-Heap";
 				case 1:
-					return usage.getInit();// / megaByte;
+					return usage.getInit(); // / megaByte;
 				case 2:
-					return usage.getUsed();// / megaByte;
+					return usage.getUsed(); // / megaByte;
 				case 3:
-					return usage.getCommitted();// / megaByte;
+					return usage.getCommitted(); // / megaByte;
 				case 4:
-					return usage.getMax();// / megaByte;
+					return usage.getMax(); // / megaByte;
 				case 5:
-					return (100*usage.getUsed())/usage.getMax();// / percent
+					return (100*usage.getUsed())/usage.getMax(); // / percent
 				default:
 					return 0;
 			}

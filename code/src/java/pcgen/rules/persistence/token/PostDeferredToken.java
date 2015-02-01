@@ -20,11 +20,45 @@ package pcgen.rules.persistence.token;
 import pcgen.cdom.base.Loadable;
 import pcgen.rules.context.LoadContext;
 
+/**
+ * A PostDeferredToken is a token that is processed after LST file load is
+ * complete, AFTER references are resolved. It is generally used for
+ * compatibility with older syntax, and use of this interface is discouraged.
+ * 
+ * @param <T>
+ *            The type of object upon which the PostDeferredToken operates
+ */
 public interface PostDeferredToken<T extends Loadable>
 {
+	/**
+	 * Processes the PostDeferredToken with the given LoadContext and object.
+	 * Returns true if the processing was successful, false if the processing
+	 * indicates an LST load error.
+	 * 
+	 * @param context
+	 *            The LoadContext around which this PostDeferredToken is
+	 *            evaluated
+	 * @param obj
+	 *            The object to be processed in this PostDeferredToken
+	 * @return true if the processing was successful; false otherwise
+	 */
 	public boolean process(LoadContext context, T obj);
-	
+
+	/**
+	 * Returns the class of the object upon which this PostDeferredToken
+	 * operates.
+	 * 
+	 * @return The class of the object upon which this PostDeferredToken
+	 *         operates
+	 */
 	public Class<T> getDeferredTokenClass();
 
+	/**
+	 * Returns the priority of this PostDeferredToken. PostDeferredTokens are
+	 * supposed to be processed in the order in which they are required (lowest
+	 * first).
+	 * 
+	 * @return The priority of this PostDeferredToken
+	 */
 	public int getPriority();
 }

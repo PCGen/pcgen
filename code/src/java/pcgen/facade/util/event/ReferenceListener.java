@@ -24,9 +24,10 @@ package pcgen.facade.util.event;
 import java.util.EventListener;
 
 /**
- *
+ * 
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public interface ReferenceListener<E> extends EventListener{
+public interface ReferenceListener<E> extends EventListener
+{
 	void referenceChanged(ReferenceEvent<E> e);
 }

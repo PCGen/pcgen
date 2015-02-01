@@ -182,7 +182,10 @@ public final class KitGear extends BaseKit
 		actingCost = maxCost;
 		actingMods = mods == null ? null : new ArrayList<EqModRef>(mods);
 		actingLocation = theLocationStr;
-		actingSize = size.resolvesTo();
+		if (size != null)
+		{
+			actingSize = size.resolvesTo();
+		}
 
 		theEquipment = null;
 		theQty = 0;

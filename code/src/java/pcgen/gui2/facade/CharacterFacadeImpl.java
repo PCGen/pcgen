@@ -942,7 +942,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		if (charDisplay.getXP() >= charDisplay.minXPForNextECL())
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Class", "in_clTodoLevelUp", 120));
-		} else
+		}
+		else
 		{
 			todoManager.removeTodo("in_clTodoLevelUp");
 		}
@@ -1002,9 +1003,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				{
 					delegate.showErrorMessage(Constants.APPLICATION_NAME,
 						LanguageBundle.getFormattedString(
-							"in_sumYouAreNotQualifiedToTakeTheClass",//$NON-NLS-1$
+							"in_sumYouAreNotQualifiedToTakeTheClass", //$NON-NLS-1$
 							aClass.getDisplayName()
-								+ "/" + subClass.getDisplayName()));//$NON-NLS-1$
+								+ "/" + subClass.getDisplayName())); //$NON-NLS-1$
 					return false;
 				}
 			}
@@ -1027,19 +1028,21 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			if (SettingsHandler.getGame().isPurchaseStatMode()
 					&& (theCharacter.getPointBuyPoints() > getUsedStatPool()))
 			{
-				if (!delegate.showWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"),//$NON-NLS-1$
+				if (!delegate.showWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"), //$NON-NLS-1$
 						LanguageBundle.getString("in_sumPoolWarning")))//$NON-NLS-1$
 				{
 					return false;
 				}
-			} else if (allAbilitiesAreZero())
+			}
+			else if (allAbilitiesAreZero())
 			{
 				if (!delegate.showWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"),
 						LanguageBundle.getString("in_sumAbilitiesZeroWarning")))
 				{
 					return false;
 				}
-			} else
+			}
+			else
 			{
 				Boolean proceed = delegate.maybeShowWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"),
 						LanguageBundle.getString("in_sumAbilitiesWarning"),
@@ -1710,7 +1713,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 										.getGameModePointPoolName()));
 						return;
 					}
-				} else if (poolMod < 0)
+				}
+				else if (poolMod < 0)
 				{
 					if (theCharacter.getStatIncrease(pcStat, true) < Math.abs(score - baseScore))
 					{
@@ -1753,15 +1757,19 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		if (charDisplay.isNonAbility(pcStat))
 		{
 			return LanguageBundle.getString("in_sumCannotModifyANonAbility"); //$NON-NLS-1$
-		} else if (score < pcStat.getSafe(IntegerKey.MIN_VALUE))
+		}
+		else if (score < pcStat.getSafe(IntegerKey.MIN_VALUE))
 		{
 			return LanguageBundle.getFormattedString("in_sumCannotLowerStatBelow", SettingsHandler.getGame() //$NON-NLS-1$
 					.getStatDisplayText(pcStat.getSafe(IntegerKey.MIN_VALUE)));
-		} else if (score > pcStat.getSafe(IntegerKey.MAX_VALUE))
+		}
+		else if (score > pcStat.getSafe(IntegerKey.MAX_VALUE))
 		{
 			return LanguageBundle.getFormattedString("in_sumCannotRaiseStatAbove", SettingsHandler.getGame() //$NON-NLS-1$
 					.getStatDisplayText(pcStat.getSafe(IntegerKey.MAX_VALUE)));
-		} else if ((pcPlayerLevels < 2) && SettingsHandler.getGame().isPurchaseStatMode())
+		}
+		else if ((pcPlayerLevels < 2)
+			&& SettingsHandler.getGame().isPurchaseStatMode())
 		{
 			final int maxPurchaseScore = SettingsHandler.getGame().getPurchaseScoreMax(theCharacter);
 
@@ -1968,7 +1976,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		if (charDisplay.getRace() == null || Constants.NONESELECTED.equals(charDisplay.getRace().getKeyName()))
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Race", "in_irTodoRace", 100));
-		} else
+		}
+		else
 		{
 			todoManager.removeTodo("in_irTodoRace");
 		}
@@ -2013,7 +2022,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		if (isNewCharName(charDisplay.getName()))
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Name", "in_sumTodoName", 1));
-		} else
+		}
+		else
 		{
 			todoManager.removeTodo("in_sumTodoName");
 		}
@@ -2238,7 +2248,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void removeDomain(DomainFacade domain)
 	{
 		domains.removeElement(domain);
-		Domain dom = ((DomainFacadeImpl)domain).getRawObject();
+		Domain dom = ((DomainFacadeImpl) domain).getRawObject();
 		DomainApplication.removeDomain(theCharacter, dom);
 		theCharacter.removeDomain(((DomainFacadeImpl) domain).getRawObject());
 		remainingDomains.setReference(theCharacter.getMaxCharacterDomains() - charDisplay.getDomainCount());
@@ -2255,12 +2265,14 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.DOMAINS, "Domains", "in_domTodoDomainsLeft", 120));
 			todoManager.removeTodo("in_domTodoTooManyDomains");
-		} else if (remainingDomains.getReference() < 0)
+		}
+		else if (remainingDomains.getReference() < 0)
 		{
 			todoManager
 					.addTodo(new TodoFacadeImpl(Tab.DOMAINS, "Domains", "in_domTodoTooManyDomains", 120));
 			todoManager.removeTodo("in_domTodoDomainsLeft");
-		} else
+		}
+		else
 		{
 			todoManager.removeTodo("in_domTodoDomainsLeft");
 			todoManager.removeTodo("in_domTodoTooManyDomains");
@@ -2453,7 +2465,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 		if (set instanceof EquipmentSetFacadeImpl)
 		{
-			((EquipmentSetFacadeImpl)set).activateEquipSet();
+			((EquipmentSetFacadeImpl) set).activateEquipSet();
 		}
 		equipSet.setReference(set);
 		set.getEquippedItems().addListListener(this);
@@ -2613,7 +2625,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		if (currBonusLangs.contains(lang))
 		{
 			return theCharacter.getBonusLanguageAbility();
-		} else if (languages.containsElement(lang) && !isAutomatic(lang))
+		}
+		else if (languages.containsElement(lang) && !isAutomatic(lang))
 		{
 			return (Skill) dataSet.getSpeakLanguageSkill();
 		}
@@ -2696,12 +2709,13 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				theHandler.write(exportPc, buf);
 				Logging.log(Logging.DEBUG, "Finished export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
 				return;
-			} catch (ConcurrentModificationException e)
+			}
+			catch (ConcurrentModificationException e)
 			{
 				Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
 				for (Entry<Thread, StackTraceElement[]> threadEntry : allStackTraces.entrySet())
 				{
-					if (threadEntry.getValue().length > 1 )
+					if (threadEntry.getValue().length > 1)
 					{
 						StringBuilder sb = new StringBuilder("Thread: " + threadEntry.getKey() + "\n");
 						for (StackTraceElement elem : threadEntry.getValue())
@@ -2717,7 +2731,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				try
 				{
 					Thread.sleep(1000);
-				} catch (InterruptedException e1)
+				}
+				catch (InterruptedException e1)
 				{
 					Logging.errorPrint("Interrupted sleep - probably closing.");
 					return;
@@ -2741,7 +2756,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		if (pdf)
 		{
 			context.setProperty(UIPropertyContext.DEFAULT_PDF_OUTPUT_SHEET, outputSheetPath);
-		} else
+		}
+		else
 		{
 			context.setProperty(UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET, outputSheetPath);
 		}
@@ -2750,7 +2766,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			if (pdf)
 			{
 				theCharacter.setSelectedCharacterPDFOutputSheet(outputSheetPath);
-			} else
+			}
+			else
 			{
 				theCharacter.setSelectedCharacterHTMLOutputSheet(outputSheetPath);
 			}
@@ -3166,7 +3183,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				if (canChangePurchasePool() && (availablePool > 0) && (usedStatPool > availablePool))
 				{
 					delegate.showInfoMessage(Constants.APPLICATION_NAME, LanguageBundle.getFormattedString(
-							"in_sumYouHaveExcededTheMaximumPointsOf",//$NON-NLS-1$
+							"in_sumYouHaveExcededTheMaximumPointsOf", //$NON-NLS-1$
 							String.valueOf(availablePool), SettingsHandler.getGame().getPurchaseModeMethodName()));
 				}
 			}
@@ -3204,7 +3221,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 						.getPointBuyPoints() != getUsedStatPool()))))
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Ability Scores", "in_sumTodoStats", 50));
-		} else
+		}
+		else
 		{
 			todoManager.removeTodo("in_sumTodoStats");
 		}
@@ -3226,7 +3244,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		if (poolPointText != null)
 		{
 			maxDiddleLevel = 0;
-		} else
+		}
+		else
 		{
 			maxDiddleLevel = 1;
 		}
@@ -3501,7 +3520,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			Float qty = new Float(newQty);
 			updatedItem.setQty(qty);
 			purchasedEquip.setQuantity(equipment, qty.intValue());
-		} else
+		}
+		else
 		{
 			// item is not in inventory; add it
 			updatedItem = equipItemToAdjust.clone();
@@ -3635,7 +3655,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 				theCharacter.removeEquipment(updatedItem);
 				purchasedEquip.removeElement(updatedItem);
-			} else
+			}
+			else
 			{
 				// update item count
 				theCharacter.updateEquipmentQty(updatedItem, prevQty, newQty);
@@ -3680,7 +3701,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 		
 		if (!delegate.showWarningConfirm(LanguageBundle
-			.getString("in_igDeleteCustomWarnTitle"),//$NON-NLS-1$
+			.getString("in_igDeleteCustomWarnTitle"), //$NON-NLS-1$
 			LanguageBundle.getFormattedString("in_igDeleteCustomWarning", //$NON-NLS-1$
 				itemToBeDeleted)))
 		{
@@ -3928,7 +3949,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			loadLimit.append(" - ");
 			loadLimit.append(Globals.getGameModeUnitSet().displayWeightInUnitSet(limit));
-		} else
+		}
+		else
 		{
 			loadLimit.append("+ ");
 		}
@@ -4142,7 +4164,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			theCharacter.removeTemplate(template);
 			theCharacter.calcActiveBonuses();
 			templates.removeElement(template);
-		} else
+		}
+		else
 		{
 			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle.getString("in_irNotRemovable"));
 		}
@@ -4282,20 +4305,22 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * object are leaked to the outside world. This guarantees that the underlying reference
 	 * object will not changed after it is set.
 	 */
-	private static class RectangleReference extends DefaultReferenceFacade<Rectangle> {
+	private static class RectangleReference extends DefaultReferenceFacade<Rectangle>
+	{
 
 		/**
 		 * Create a new reference based on the supplied rectangle.
 		 * @param rect
 		 */
-		public RectangleReference(Rectangle rect) {
-			this.object = rect == null ? null : (Rectangle) rect.clone();
+		public RectangleReference(Rectangle rect)
+		{
+			super(rect == null ? null : (Rectangle) rect.clone());
 		}
 
 		@Override
 		public Rectangle getReference()
 		{
-			Rectangle rect = object;
+			Rectangle rect = super.getReference();
 			if (rect != null)
 			{
 				rect = (Rectangle) rect.clone();
@@ -4306,7 +4331,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		@Override
 		public void setReference(Rectangle rect)
 		{
-			if (ObjectUtils.equals(this.object, rect))
+			Rectangle old = getReference();
+			if (ObjectUtils.equals(old, rect))
 			{
 				return;
 			}
@@ -4314,7 +4340,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			{
 				rect = (Rectangle) rect.clone();
 			}
-			Rectangle old = this.object;
 			this.object = rect;
 			if (rect != null)
 			{

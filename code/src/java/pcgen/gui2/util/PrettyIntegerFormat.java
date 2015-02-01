@@ -40,7 +40,8 @@ public class PrettyIntegerFormat extends DecimalFormat
 	/**
 	 * It is usually better to use {@link #getFormat()} to use a single instance of the formatter in the whole program.
 	 */
-	public PrettyIntegerFormat() {
+	public PrettyIntegerFormat()
+	{
 		super();
 		// + and − should not need to be internationalized
 		DecimalFormatSymbols decimalFormatSymbols = getDecimalFormatSymbols();

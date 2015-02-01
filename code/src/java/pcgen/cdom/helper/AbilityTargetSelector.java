@@ -38,6 +38,8 @@ import pcgen.persistence.PersistenceLayerException;
  * 
  * This is generally used as the storage container when a selection has been
  * made from a token like ADD:FEAT
+ * 
+ * @param <T> The type of object that this AbilityTargetSelector can select
  */
 public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 		QualifyingObject, ChooseSelectionActor<T>
@@ -169,7 +171,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 		detailedApply(obj, ci, choice, pc);
 	}
 	
-	private <T> void detailedApply(ChooseDriver obj, ChooseInformation<T> ci,
+	private void detailedApply(ChooseDriver obj, ChooseInformation<T> ci,
 		T choice, PlayerCharacter pc)
 	{
 		String string = ci.encodeChoice(choice);
@@ -199,7 +201,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 		detailedRemove(obj, ci, choice, pc);
 	}
 	
-	private <T> void detailedRemove(ChooseDriver obj, ChooseInformation<T> ci,
+	private void detailedRemove(ChooseDriver obj, ChooseInformation<T> ci,
 		T choice, PlayerCharacter pc)
 	{
 		String string = ci.encodeChoice(choice);
@@ -219,7 +221,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	{
 		if (o instanceof AbilityTargetSelector)
 		{
-			AbilityTargetSelector other = (AbilityTargetSelector) o;
+			AbilityTargetSelector<?> other = (AbilityTargetSelector<?>) o;
 			return source.equals(other.source)
 					&& category.equals(other.category)
 					&& ability.equals(other.ability)
@@ -228,8 +230,10 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 		return false;
 	}
 
+	@Override
 	public Class<T> getChoiceClass()
 	{
-		return (Class<T>) ability.resolvesTo().get(ObjectKey.CHOOSE_INFO).getClassIdentity().getChoiceClass();
+		return (Class<T>) ability.resolvesTo().get(ObjectKey.CHOOSE_INFO)
+			.getClassIdentity().getChoiceClass();
 	}
 }

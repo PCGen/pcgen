@@ -20,7 +20,12 @@ package pcgen.rules.persistence.token;
 import pcgen.rules.context.LoadContext;
 
 /**
- * Does initial parsing of a token which should not be empty and is expected to have separators.
+ * Does initial parsing of a token which should not be empty and is expected to
+ * have separators.
+ * 
+ * @param <T>
+ *            The type of object on which this AbstractTokenWithSeparator can be
+ *            used
  */
 public abstract class AbstractTokenWithSeparator<T> extends AbstractNonEmptyToken<T>
 {

@@ -41,8 +41,14 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class SpringHelper
+public final class SpringHelper
 {
+	
+	private SpringHelper()
+	{
+		//Do not instantiate Utility Class
+	}
+
 	private static XmlBeanFactory beanFactory = null;
 
 	/**
@@ -79,7 +85,7 @@ public class SpringHelper
 		{
 			return null;
 		}
-		return beanFactory.getBean (beanNamesForType[0], cl);
+		return beanFactory.getBean(beanNamesForType[0], cl);
 	}
 	
 	public static Collection<AbstractStorageFacet> getStorageBeans()

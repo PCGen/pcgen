@@ -104,7 +104,7 @@ public class CoreViewFrame extends JFrame
 		getContentPane().add(pane);
 
 		setTitle("Core Debug View");
-		getContentPane().setSize(500,400);
+		getContentPane().setSize(500, 400);
 		pack();
 		Utility.centerFrame(this, true);
 	}

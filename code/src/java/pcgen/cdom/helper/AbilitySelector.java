@@ -149,6 +149,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 		return false;
 	}
 
+	@Override
 	public Class<AbilitySelection> getChoiceClass()
 	{
 		return AbilitySelection.class;

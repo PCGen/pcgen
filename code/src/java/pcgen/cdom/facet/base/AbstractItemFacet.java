@@ -28,7 +28,10 @@ import pcgen.util.Logging;
  * where the PlayerCharacter may possess more than one of that type of object
  * (e.g. Template, Language)
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
+ * @param <IDT>
+ *            The Type of identifier used in this AbstractItemFacet
+ * @param <T>
+ *            The Type of object stored in this AbstractItemFacet
  */
 public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 		AbstractDataFacet<IDT, T>

@@ -168,7 +168,7 @@ public class OptionsPathDialog extends JDialog
 		boolean selected = command.equals(selectedDir);
 		if (selected)
 		{
-			text += " (default)";//for i18n this will need to be handled differently
+			text += " (default)"; //for i18n this will need to be handled differently
 		}
 		JRadioButton rButton = new JRadioButton(text);
 		rButton.setActionCommand(command);

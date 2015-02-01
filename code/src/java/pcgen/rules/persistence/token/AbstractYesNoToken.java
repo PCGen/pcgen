@@ -21,6 +21,12 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.rules.context.LoadContext;
 
+/**
+ * Parses a token of the form: token:boolean
+ * 
+ * @param <T>
+ *            The type of object on which this AbstractYesNoToken can be used
+ */
 public abstract class AbstractYesNoToken<T extends CDOMObject> extends
 		AbstractNonEmptyToken<T>
 {

@@ -29,8 +29,13 @@ import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 
-public class CorePerspectiveDB
+public final class CorePerspectiveDB
 {
+
+	private CorePerspectiveDB()
+	{
+		//Do not construct utility class
+	}
 
 	private static DoubleKeyMap<CorePerspective, Object, FacetView<?>> map =
 			new DoubleKeyMap<CorePerspective, Object, FacetView<?>>();

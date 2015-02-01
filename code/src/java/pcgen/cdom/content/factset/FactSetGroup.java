@@ -73,7 +73,7 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 	 * 
 	 * @param context
 	 *            The LoadContext used to resolve references
-	 * @param fi
+	 * @param fsi
 	 *            The FactSetInfo indicating the underlying characteristics of
 	 *            the Fact that this FactSetGroup will check
 	 * @param value

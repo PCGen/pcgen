@@ -101,9 +101,9 @@ public final class TokenLibrary implements PluginLoader
 
 	public static <T> PrimitiveToken<T> getPrimitive(Class<T> cl, String tokKey)
 	{
-		for (Iterator<PrimitiveToken<T>> it =
-				new PrimitiveTokenIterator<T, PrimitiveToken<T>>(cl, tokKey); it
-			.hasNext();)
+		Iterator<PrimitiveToken<T>> it =
+				new PrimitiveTokenIterator<T, PrimitiveToken<T>>(cl, tokKey);
+		if (it.hasNext())
 		{
 			return it.next();
 		}
@@ -112,9 +112,9 @@ public final class TokenLibrary implements PluginLoader
 
 	public static <T> GroupDefinition<T> getGroup(Class<T> cl, String tokKey)
 	{
-		for (Iterator<GroupDefinition<T>> it =
-				new GroupIterator<T, GroupDefinition<T>>(cl, tokKey); it
-			.hasNext();)
+		Iterator<GroupDefinition<T>> it =
+				new GroupIterator<T, GroupDefinition<T>>(cl, tokKey);
+		if (it.hasNext())
 		{
 			return it.next();
 		}
@@ -160,14 +160,12 @@ public final class TokenLibrary implements PluginLoader
 		}
 	}
 
-	public static boolean addToTokenMap(Object newToken)
+	public static void addToTokenMap(Object newToken)
 	{
-		boolean found = false;
 		if (newToken instanceof PostDeferredToken)
 		{
 			PostDeferredToken<?> pdt = (PostDeferredToken<?>) newToken;
 			POST_DEFERRED_TOKENS.addToListFor(pdt.getPriority(), pdt);
-			found = true;
 		}
 		if (newToken instanceof CDOMCompatibilityToken)
 		{
@@ -188,17 +186,15 @@ public final class TokenLibrary implements PluginLoader
 				addToTokenMap(new ClassWrappedToken(
 						(CDOMCompatibilityToken<PCClass>) tok));
 			}
-			found = true;
 		}
-		return loadFamily(TokenFamily.CURRENT, newToken, found);
+		loadFamily(TokenFamily.CURRENT, newToken);
 	}
 
-	public static boolean loadFamily(TokenFamily family, Object newToken, boolean found)
+	public static void loadFamily(TokenFamily family, Object newToken)
 	{
 		if (newToken instanceof DeferredToken)
 		{
 			family.addDeferredToken((DeferredToken<?>) newToken);
-			found = true;
 		}
 		if (newToken instanceof CDOMPrimaryToken)
 		{
@@ -217,7 +213,6 @@ public final class TokenLibrary implements PluginLoader
 				addToTokenMap(new ClassWrappedToken(
 						(CDOMPrimaryToken<PCClass>) tok));
 			}
-			found = true;
 		}
 		if (newToken instanceof CDOMSecondaryToken)
 		{
@@ -232,7 +227,6 @@ public final class TokenLibrary implements PluginLoader
 					+ existingToken.getClass().getName() + " and "
 					+ newToken.getClass().getName());
 			}
-			found = true;
 		}
 		if (newToken instanceof PrerequisiteParserInterface)
 		{
@@ -272,7 +266,6 @@ public final class TokenLibrary implements PluginLoader
 						+ neg.getTokenName());
 				}
 			}
-			found = true;
 		}
 		if (newToken instanceof GroupDefinition)
 		{
@@ -288,9 +281,7 @@ public final class TokenLibrary implements PluginLoader
 					+ existingDef.getClass().getName() + " and "
 					+ newToken.getClass().getName());
 			}
-			found = true;
 		}
-		return found;
 	}
 
 	public static TokenLibrary getInstance()
@@ -305,28 +296,24 @@ public final class TokenLibrary implements PluginLoader
 	@Override
 	public void loadPlugin(Class<?> clazz) throws Exception
 	{
-		boolean found = false;
 		if (BonusObj.class.isAssignableFrom(clazz))
 		{
 			addBonusClass(clazz);
-			found = true;
 		}
 
 		Object token = clazz.newInstance();
 		if (LstToken.class.isAssignableFrom(clazz)
 			|| PrerequisiteParserInterface.class.isAssignableFrom(clazz))
 		{
-			found |= addToTokenMap(token);
+			addToTokenMap(token);
 		}
 		if (QualifierToken.class.isAssignableFrom(clazz))
 		{
 			addToQualifierMap((QualifierToken<?>) token);
-			found = true;
 		}
 		if (PrimitiveToken.class.isAssignableFrom(clazz))
 		{
 			addToPrimitiveMap((PrimitiveToken<?>) token);
-			found = true;
 		}
 		if (FormatManager.class.isAssignableFrom(clazz))
 		{

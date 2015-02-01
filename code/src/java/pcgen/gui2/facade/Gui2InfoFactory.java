@@ -178,7 +178,8 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			return EMPTY_STRING;
 		}
-		String[] favClass = Globals.getContext().unparseSubtoken((Race)race, "FAVCLASS");
+		String[] favClass =
+				Globals.getContext().unparseSubtoken((Race) race, "FAVCLASS");
 		return StringUtil.join(favClass, ", ");
 	}
 
@@ -1323,7 +1324,7 @@ public class Gui2InfoFactory implements InfoFactory
 			String targetName = charDisplay.getName();
 			if (tempBonus.getTarget() instanceof CDOMObject)
 			{
-				targetName = ((CDOMObject)tempBonus.getTarget()).getKeyName();
+				targetName = ((CDOMObject) tempBonus.getTarget()).getKeyName();
 			}
 
 			infoText.appendLineBreak();
@@ -1619,7 +1620,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (equipment instanceof Equipment)
 		{
-			return ((Equipment)equipment).getCost(pc).floatValue();
+			return ((Equipment) equipment).getCost(pc).floatValue();
 		}
 		return 0;
 	}
@@ -1629,7 +1630,7 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (equipment instanceof Equipment)
 		{
-			Float weight = ((Equipment)equipment).getWeight(pc);
+			Float weight = ((Equipment) equipment).getWeight(pc);
 			return (float) Globals.getGameModeUnitSet().convertWeightToUnitSet(weight);
 		}
 		return 0;

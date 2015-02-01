@@ -27,7 +27,14 @@ import pcgen.cdom.base.PCGenIdentifier;
  * method in the listener object is invoked, and the ScopeFacetChangeEvent is
  * passed to it.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
+ * @param <IDT>
+ *            The type of Identifier (e.g. CharID) used by this
+ *            ScopeFacetChangeListener
+ * @param <S>
+ *            The Type of object of the scope of the SubScopeFacetChangeListener
+ * @param <T>
+ *            The Type of object changed in the events received by a
+ *            ScopeFacetChangeListener
  */
 public interface ScopeFacetChangeListener<IDT extends PCGenIdentifier, S, T>
 		extends EventListener

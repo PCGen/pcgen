@@ -25,9 +25,9 @@ import pcgen.rules.types.FormatManager;
  * This is a Typesafe enumeration of legal FACTs of an object. It is designed to
  * act as an index to a specific facts within a CDOMObject.
  * 
- * @author Tom Parker <thpr@users.sourceforge.net>
+ * @param <T> The Type of object stored for the FactKey
  */
-public class FactKey<T>
+public final class FactKey<T>
 {
 
 	/**

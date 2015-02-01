@@ -49,21 +49,25 @@ public class PenaltyvarToken implements CDOMCompatibilityToken<PCStat>,
 		return PCStat.class;
 	}
 
+	@Override
 	public int compatibilityLevel()
 	{
 		return 6;
 	}
 
+	@Override
 	public int compatibilitySubLevel()
 	{
 		return 2;
 	}
 
+	@Override
 	public int compatibilityPriority()
 	{
 		return 2;
 	}
 
+	@Override
 	public String getMessage(CDOMObject obj, String value)
 	{
 		return getTokenName() + " is no longer supported";

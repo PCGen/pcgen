@@ -291,6 +291,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 		pc.removeAutoLanguage(l, obj);
 	}
 
+	@Override
 	public Class<Language> getChoiceClass()
 	{
 		return LANGUAGE_CLASS;

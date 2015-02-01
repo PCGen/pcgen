@@ -46,6 +46,7 @@ public class SingleSourceListFacetView<T> implements FacetView<T>
 		return Collections.singletonList(source);
 	}
 
+	@Override
 	public Object[] getChildren()
 	{
 		return facet.getDataFacetChangeListeners();

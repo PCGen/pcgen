@@ -279,7 +279,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			setFont(FontManipulation.title(table.getFont()));
 			setBackground(table.getBackground());
 			setForeground(table.getForeground());
-			setText((String)value);
+			setText((String) value);
 			return this;
 		}
 

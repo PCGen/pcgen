@@ -170,7 +170,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{// Filters
 				filterBar.addDisplayableFilter(new SearchFilterPanel());
 				FilterButton<CharacterFacade, EquipmentFacade> premadeFilter
-						= new FilterButton<CharacterFacade, EquipmentFacade>("EqQualified");//$NON-NLS-1$
+						= new FilterButton<CharacterFacade, EquipmentFacade>("EqQualified"); //$NON-NLS-1$
 				premadeFilter.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 				premadeFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
 				{
@@ -183,7 +183,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 				});
 				FilterButton<CharacterFacade, EquipmentFacade> customFilter
-						= new FilterButton<CharacterFacade, EquipmentFacade>("EqAffordable");//$NON-NLS-1$
+						= new FilterButton<CharacterFacade, EquipmentFacade>("EqAffordable"); //$NON-NLS-1$
 				customFilter.setText(LanguageBundle.getString("in_igAffordFilter")); //$NON-NLS-1$
 				customFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
 				{

@@ -96,6 +96,7 @@ public class ClassSkillListFacet extends
 		//ignore
 	}
 
+	@Override
 	public void dataAdded(ScopeFacetChangeEvent<CharID, PCClass, String> dfce)
 	{
 		PCClass cl = dfce.getScope();
@@ -108,6 +109,7 @@ public class ClassSkillListFacet extends
 		}
 	}
 
+	@Override
 	public void dataRemoved(ScopeFacetChangeEvent<CharID, PCClass, String> dfce)
 	{
 		PCClass cl = dfce.getScope();

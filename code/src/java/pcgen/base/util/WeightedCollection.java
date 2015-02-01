@@ -232,11 +232,10 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 			total += item.getWeight();
 			if (total > index)
 			{
-				// NOTE The return statement can't be 100% covered with a Sun
-				// compiler for code coverage stats.
-				// See
-				// http://sourceforge.net/tracker/index.php?func=detail&aid=1961021&group_id=25576&atid=1036937
-				// for details
+				/*
+				 * NOTE The return statement can't be 100% covered with a Sun
+				 * compiler for code coverage stats.
+				 */
 				return item.getElement();
 			}
 		}
@@ -577,7 +576,10 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		}
 	}
 
-	class WeightedIterator implements Iterator<E>
+	/**
+	 * A weighted Iterator for a WeightedCollection
+	 */
+	private class WeightedIterator implements Iterator<E>
 	{
 
 		private final Iterator<WeightedItem<E>> iter = theData.iterator();
@@ -626,6 +628,9 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		}
 	}
 
+	/**
+	 * A Unweighted Iterator for the WeightedCollection
+	 */
 	private class UnweightedIterator implements Iterator<E>
 	{
 		/** An iterator that iterates over the raw data elements. */

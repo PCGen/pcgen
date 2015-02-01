@@ -81,9 +81,9 @@ ABILITYCATEGORY:Rogue Advanced Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:Y
 
 ABILITYCATEGORY:Guided Hand Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal											ABILITYLIST:Guided Hand ~ Melee|Guided Hand ~ Ranged																											DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Gunslinger Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:GunslingerClassFeatures																																PLURAL:Gunslinger Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Ninja Class Feature					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:NinjaClassFeatures																																	PLURAL:Ninja Class Features			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Samurai Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SamuraiClassFeatures																																PLURAL:Samurai Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Gunslinger Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:GunslingerClassFeatures.Gunslinger Class Feature																																PLURAL:Gunslinger Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ninja Class Feature					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:NinjaClassFeatures.Ninja Class Feature																																	PLURAL:Ninja Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Samurai Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SamuraiClassFeatures.Samurai Class Feature 																																PLURAL:Samurai Class Features			DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Terrain Mastery					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Terrain Mastery																																	PLURAL:Terrain Mastery				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Magus Class Feature					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:MagusClassFeatures																																	PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features

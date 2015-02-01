@@ -236,12 +236,12 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			delegate.setDelegate(new DefaultListFacade<AbilityFacade>());
 			selectionModel.addListSelectionListener(this);
 
-			dataColumns = Arrays.asList(new DefaultDataViewColumn("in_type", String.class),//$NON-NLS-1$
-					new DefaultDataViewColumn("in_abColumnsMultiples", Boolean.class),//$NON-NLS-1$
-					new DefaultDataViewColumn("in_abColumnsStacks", Boolean.class),//$NON-NLS-1$
-					new DefaultDataViewColumn("in_abColumnsDescription", String.class),//$NON-NLS-1$
-					new DefaultDataViewColumn("in_abColumnsCost", Float.class),//$NON-NLS-1$
-					new DefaultDataViewColumn("in_abColumnsSource", String.class));//$NON-NLS-1$
+			dataColumns = Arrays.asList(new DefaultDataViewColumn("in_type", String.class), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_abColumnsMultiples", Boolean.class), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_abColumnsStacks", Boolean.class), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_abColumnsDescription", String.class), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_abColumnsCost", Float.class), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_abColumnsSource", String.class)); //$NON-NLS-1$
 
 		}
 

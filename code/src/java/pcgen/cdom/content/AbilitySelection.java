@@ -141,6 +141,7 @@ public class AbilitySelection extends Selection<Ability, String> implements
 		return sb.toString();
 	}
 
+	@Override
 	public int compareTo(AbilitySelection o)
 	{
 		int acompare = getObject().compareTo(o.getObject());

@@ -131,17 +131,17 @@ public final class LookAndFeelManager
 			String tooltip;
 			if (info.getClassName().equals(SYSTEM_LAF_CLASS))
 			{
-				name = "System";//TODO: internationalize this
+				name = "System"; //TODO: internationalize this
 				tooltip = "Sets the look to that of the System you are using";
 			}
 			else if (info.getClassName().equals(CROSS_LAF_CLASS))
 			{
-				name = "Java";//TODO: internationalize this
+				name = "Java"; //TODO: internationalize this
 				tooltip = "Sets the look to that of Java's cross platform look";
 			}
 			else
 			{
-				name = info.getName();//TODO: internationalize this
+				name = info.getName(); //TODO: internationalize this
 				tooltip = "Sets the look to " + name + " look";
 			}
 			LookAndFeelHandler handler = new LookAndFeelHandler(name, info.getClassName(), tooltip);

@@ -57,7 +57,8 @@ public class SourceSelectionPanel extends ConvertSubPanel
 
 	private JRadioButton radioButtons[];
 	
-	private enum SourceFolder {
+	private enum SourceFolder
+	{
 		DATA ("Data directory", ConfigurationSettings.getPccFilesDir()),
 		VENDORDATA ("Vendor data directory", PCGenSettings.getVendorDataDir()),
 		HOMEBREWDATA ("Homebrew data directory", PCGenSettings.getHomebrewDataDir()),

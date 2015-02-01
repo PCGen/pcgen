@@ -35,7 +35,14 @@ import pcgen.cdom.enumeration.CharID;
  * however, makes the guarantee that no modifications are made by
  * SubScopeFacetChangeEvent to the CDOMObject.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
+ * @param <S1>
+ *            The Type of object of the first scope of the
+ *            SubScopeFacetChangeEvent
+ * @param <S2>
+ *            The Type of object of the second scope of the
+ *            SubScopeFacetChangeEvent
+ * @param <T>
+ *            The Type of object changed in the SubScopeFacetChangeEvent
  */
 public class SubScopeFacetChangeEvent<S1, S2, T> extends EventObject
 {

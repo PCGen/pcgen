@@ -19,35 +19,68 @@ package pcgen.rules.types;
 
 import pcgen.base.util.CaseInsensitiveMap;
 
-public class FormatManagerLibrary
+/**
+ * A FormatManagerLibrary stores the FormatManagers that can be used. These are
+ * stored by their identifier String (e.g. "STRING" for StringManager).
+ */
+public final class FormatManagerLibrary
 {
+
+	private FormatManagerLibrary()
+	{
+		//Utility class must not be constructed
+	}
 
 	private static CaseInsensitiveMap<FormatManager<?>> managerMap =
 			new CaseInsensitiveMap<FormatManager<?>>();
 
+	/**
+	 * Gets the FormatManager for the given String identifying a format of
+	 * object.
+	 * 
+	 * @param idType
+	 *            The String identifying the format for which the FormatManager
+	 *            should be returned
+	 * @return The FormatManager for the given String identifying a format of
+	 *         object
+	 * @throws IllegalArgumentException
+	 *             if the given format does not have an associated FormatManager
+	 */
 	public static FormatManager<?> getFormatManager(String idType)
 	{
 		FormatManager<?> manager = managerMap.get(idType);
 		if (manager == null)
 		{
-			throw new IllegalArgumentException("No FormatManager available for "
-				+ idType);
+			throw new IllegalArgumentException(
+				"No FormatManager available for " + idType);
 		}
 		return manager;
 	}
 
-	public static void addFormatManager(FormatManager<?> tm)
+	/**
+	 * Adds a FormatManager to the FormatManagerLibrary.
+	 * 
+	 * @param fm The FormatManager to be added to this FormatManagerLibrary
+	 * @throws IllegalArgumentException
+	 *             if this FormatManagerLibrary already has a FormatManager with
+	 *             a matching identifier
+	 */
+	public static void addFormatManager(FormatManager<?> fm)
 	{
-		String idType = tm.getIdentifierType();
+		String idType = fm.getIdentifierType();
 		FormatManager<?> manager = managerMap.get(idType);
 		if (manager != null)
 		{
 			throw new IllegalArgumentException(
 				"Cannot set another Type Manager for " + idType);
 		}
-		managerMap.put(idType, tm);
+		managerMap.put(idType, fm);
 	}
 
+	/**
+	 * Resets the FormatManagerLibrary, to be used when a test needs a clean
+	 * FormatManagerLibrary.
+	 */
 	public static void reset()
 	{
 		managerMap.clear();

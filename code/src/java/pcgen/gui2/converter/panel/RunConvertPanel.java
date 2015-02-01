@@ -392,7 +392,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		}
 		else if (arg instanceof Exception)
 		{
-			final Exception e = (Exception)arg;
+			final Exception e = (Exception) arg;
 			Runnable doWork = new Runnable()
 			{
 				@Override
