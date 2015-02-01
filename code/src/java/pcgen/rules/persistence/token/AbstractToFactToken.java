@@ -22,6 +22,13 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
+/**
+ * This Token converts a simple String (what was likely a StringKey based token
+ * in the past) into a FACT.
+ * 
+ * @param <T>
+ *            The type of object on which this AbstractToFactToken can operate.
+ */
 public abstract class AbstractToFactToken<T extends Loadable> extends
 		AbstractNonEmptyToken<T> implements CDOMCompatibilityToken<T>
 {

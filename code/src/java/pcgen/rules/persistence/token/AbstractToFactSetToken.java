@@ -22,6 +22,14 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
+/**
+ * This Token converts a list (what was likely a ListKey based token storing
+ * strings or TypeSafeConstants in the past) into a FACTSET.
+ * 
+ * @param <T>
+ *            The type of object on which this AbstractToFactSetToken can
+ *            operate.
+ */
 public abstract class AbstractToFactSetToken<T extends Loadable> extends
 		AbstractNonEmptyToken<T> implements CDOMCompatibilityToken<T>
 {

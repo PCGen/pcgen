@@ -284,6 +284,14 @@ public final class TokenFamily implements Comparable<TokenFamily>
 		deferredTokenList.add(newToken);
 	}
 
+	/**
+	 * Adds a new GroupDefinition to this TokenFamily. A GroupDefinition can
+	 * produce an ObjectContainer (grouping of objects) based on an underlying
+	 * set of requirements (typically defined in the Data Control file).
+	 * 
+	 * @param def
+	 *            The GroupDefinition to be added to this TokenFamily.
+	 */
 	public void addGroupDefinition(GroupDefinition<?> def)
 	{
 		GroupDefinition<?> existingDef =
