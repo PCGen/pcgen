@@ -68,17 +68,17 @@ public class TempValueLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		if (!tok.nextToken().startsWith("MIN="))
 		{
-			return new ParseResult.Fail("COUNT:" + getTokenName()
+			return new ParseResult.Fail(getTokenName()
 				+ " first argument was not MIN=", context);
 		}
 		if (!tok.nextToken().startsWith("MAX="))
 		{
-			return new ParseResult.Fail("COUNT:" + getTokenName()
+			return new ParseResult.Fail(getTokenName()
 				+ " second argument was not MAX=", context);
 		}
 		if (!tok.nextToken().startsWith("TITLE="))
 		{
-			return new ParseResult.Fail("COUNT:" + getTokenName()
+			return new ParseResult.Fail(getTokenName()
 				+ " third argument was not TITLE=", context);
 		}
 		StringBuilder sb = new StringBuilder(value.length() + 20);
