@@ -44,6 +44,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
@@ -141,7 +142,8 @@ public class PCClass extends PObject implements ClassFacade
     @Override
 	public final String getAbbrev()
 	{
-		String abb = get(StringKey.ABB);
+		FactKey<String> fk = FactKey.valueOf("Abb");
+		String abb = getResolved(fk);
 		if (abb == null)
 		{
 			String name = getDisplayName();
@@ -367,7 +369,8 @@ public class PCClass extends PObject implements ClassFacade
     @Override
 	public final String getSpellType()
 	{
-		String castInfo = getSafe(StringKey.SPELLTYPE);
+		FactKey<String> fk = FactKey.valueOf("SpellType");
+		String castInfo = getResolved(fk);
 		return StringUtils.isEmpty(castInfo) ? Constants.NONE : castInfo;
 	}
 

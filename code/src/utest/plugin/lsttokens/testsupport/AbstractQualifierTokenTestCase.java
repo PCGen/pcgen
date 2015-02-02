@@ -23,6 +23,7 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
@@ -1902,6 +1903,11 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	protected void finishLoad()
 	{
+		BuildUtilities.createFact(primaryContext, "ClassType", getTargetClass());
+		FactDefinition<?, ?> fd =
+				BuildUtilities.createFact(primaryContext, "SpellType", getTargetClass());
+		fd.setSelectable(true);
+		SourceFileLoader.processFactDefinitions(primaryContext);
 		primaryContext.getReferenceContext().buildDeferredObjects();
 		primaryContext.getReferenceContext().buildDerivedObjects();
 		primaryContext.resolveDeferredTokens();

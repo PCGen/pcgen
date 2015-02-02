@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.PCStat;
@@ -107,7 +108,7 @@ public class TemplateToken extends Token
 			}
 			else if ("APPLIEDNAME".equals(aLabel))
 			{
-				retString = template.getAppliedName();
+				retString = getAppliedName(template);
 			}
 			else if ("SA".equals(aLabel))
 			{
@@ -144,6 +145,17 @@ public class TemplateToken extends Token
 		}
 
 		return retString;
+	}
+
+	private String getAppliedName(PCTemplate template)
+	{
+		FactKey<String> fk = FactKey.valueOf("AppliedName");
+		String retValue = template.getResolved(fk);
+		if (retValue == null)
+		{
+			retValue = template.toString();
+		}
+		return retValue;
 	}
 
 	/**

@@ -25,6 +25,7 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.DataSetID;
@@ -488,5 +489,11 @@ public abstract class LoadContextInst implements LoadContext
 	public void loadLocalToken(Object token)
 	{
 		support.loadLocalToken(token);
+	}
+
+	@Override
+	public GroupDefinition<?> getGroup(Class<?> cl, String s)
+	{
+		return support.getGroup(cl, s);
 	}
 }

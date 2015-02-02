@@ -29,7 +29,6 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -42,6 +41,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>OrCommandTest</code> tests the functioning of the jep or plugin
@@ -111,7 +111,7 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 
 		megaCasterClass = new PCClass();
 		megaCasterClass.setName("MegaCaster");
-		megaCasterClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(megaCasterClass, "SpellType", "Arcane");
 		Globals.getContext().unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
 		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
 		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);

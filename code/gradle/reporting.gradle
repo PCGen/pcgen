@@ -20,9 +20,13 @@ checkstyle {
 }
 
 pmd {
+    // turn off the default rules
+    ruleSets = []
 	ruleSetFiles = files('code/standards/pmdruleset.xml')
+	
 	ignoreFailures = true
 	sourceSets = [] // This ensures pmd does not run on a normal build, use pmdmain to execute
+	toolVersion = "5.1.0"
 }
 
 jdepend {

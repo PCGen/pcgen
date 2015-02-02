@@ -62,7 +62,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -313,7 +312,8 @@ public class Gui2InfoFactory implements InfoFactory
 
 		if (SettingsHandler.getGame().getTabShown(Tab.SPELLS))
 		{
-			aString = aClass.get(StringKey.SPELLTYPE);
+			FactKey<String> fk = FactKey.valueOf("SpellType");
+			aString = aClass.getResolved(fk);
 
 			if (isSubClass && aString == null)
 			{
@@ -574,21 +574,13 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendTitleElement(OutputNameFormatting.piString(aDeity, false));
 			infoText.appendLineBreak();
 
-			String aString = aDeity.get(StringKey.TITLE);
-			if (aString != null)
-			{
-				infoText.appendI18nFormattedElement("in_deityTitle", //$NON-NLS-1$
-					aString);
-				infoText.appendLineBreak();
-			}
-
 			infoText
 				.appendI18nFormattedElement(
 					"in_InfoDescription", DescriptionFormatting.piWrapDesc(aDeity, pc.getDescription(aDeity), false)); //$NON-NLS-1$
 			
 			appendFacts(infoText, aDeity);
 
-			aString = getPantheons(aDeity);
+			String aString = getPantheons(aDeity);
 			if (aString != null)
 			{
 				infoText.appendSpacer();
@@ -608,22 +600,6 @@ public class Gui2InfoFactory implements InfoFactory
 				infoText.appendI18nFormattedElement(
 					"in_deityFavWeap", //$NON-NLS-1$
 					ReferenceUtilities.joinLstFormat(dwp, "|"));
-			}
-
-			aString = aDeity.get(StringKey.HOLY_ITEM);
-			if (aString != null)
-			{
-				infoText.appendSpacer();
-				infoText.appendI18nFormattedElement("in_deityHolyIt", //$NON-NLS-1$
-					aString);
-			}
-
-			aString = aDeity.get(StringKey.WORSHIPPERS);
-			if (aString != null)
-			{
-				infoText.appendSpacer();
-				infoText.appendI18nFormattedElement("in_deityWorshippers", //$NON-NLS-1$
-					aString);
 			}
 
 			aString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
@@ -2033,10 +2009,14 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 		Deity deity = (Deity) deityFacade;
-		Set<String> set = new TreeSet<String>();
-		for (Pantheon p : deity.getSafeListFor(ListKey.PANTHEON))
+		Set<String> set = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
+		if (deity != null)
 		{
-			set.add(p.toString());
+			FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
+			for (ObjectContainer<String> oc : deity.getSafeSetFor(fk))
+			{
+				set.addAll(oc.getContainedObjects());
+			}
 		}
 		final StringBuilder piString = new StringBuilder(100);
 		piString.append(StringUtil.joinToStringBuilder(set, ",")); //$NON-NLS-1$

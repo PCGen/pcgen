@@ -39,6 +39,7 @@ import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreFeatParser;
 import plugin.pretokens.parser.PreSkillParser;
@@ -115,12 +116,12 @@ public class PreMultTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
 		context.unconditionallyProcess(pcClass, "SPELLSTAT", "CHA");
-		pcClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "CAST", "5,4");
 
 		final PCClass pcClass2 = context.getReferenceContext().constructCDOMObject(PCClass.class, "Other Class");
 		context.unconditionallyProcess(pcClass2, "SPELLSTAT", "INT");
-		pcClass2.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(pcClass2, "SpellType", "Arcane");
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
 		context.getReferenceContext().buildDerivedObjects();
 		context.getReferenceContext().resolveReferences(null);

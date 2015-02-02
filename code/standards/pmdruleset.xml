@@ -12,6 +12,10 @@
     xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 
                         http://pmd.sf.net/ruleset_xml_schema.xsd" >
 
+  <description>
+  PMD rules customised for PCGen's code. 
+  </description>
+  
     <rule ref="rulesets/java/logging-java.xml" />
     <rule ref="rulesets/java/basic.xml" />
     <rule ref="rulesets/java/braces.xml" />
@@ -21,4 +25,13 @@
         <exclude name="TooManyMethods" />
        -->
     </rule>
+    
+  <rule ref="rulesets/java/unnecessary.xml">
+    <exclude name="UselessParentheses"/>
+  </rule>
+  <rule ref="rulesets/java/optimizations.xml" >
+    <exclude name="RedundantFieldInitializer"/>
+    <exclude name="MethodArgumentCouldBeFinal" />
+    <exclude name="LocalVariableCouldBeFinal" />
+  </rule>
 </ruleset>

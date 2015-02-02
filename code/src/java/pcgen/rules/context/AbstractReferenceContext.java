@@ -31,9 +31,9 @@ import pcgen.cdom.base.CategorizedClassIdentity;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.ClassSkillList;
@@ -318,7 +318,8 @@ public abstract class AbstractReferenceContext
 			 * do that, please see TO-DO in SpellListFacet
 			 */
 			ClassSpellList csl = constructCDOMObject(CLASSSPELLLIST_CLASS, key);
-			String spelltype = pcc.get(StringKey.SPELLTYPE);
+			FactKey<String> fk = FactKey.valueOf("SpellType");
+			String spelltype = pcc.getResolved(fk);
 			if (spelltype != null)
 			{
 				csl.addType(Type.getConstant(spelltype));

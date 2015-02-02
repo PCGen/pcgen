@@ -71,4 +71,22 @@ public class FactSetKeyActorTest extends AbstractOutputTestCase
 		processThroughFreeMarker("${deity.booktype[1]}", expectedResult2);
 	}
 
+
+	public void testSetJoined()
+	{
+		Deity d = new Deity();
+		d.setName("Bob");
+		String expectedResult1 = "Magical";
+		String expectedResult2 = "Long";
+		df.set(id, d);
+		d.addToListFor(ListKey.BOOK_TYPE, expectedResult1);
+		d.addToListFor(ListKey.BOOK_TYPE, expectedResult2);
+		StringManager mgr = new StringManager();
+		FactSetKey<String> fsk = FactSetKey.getConstant("booktype", mgr);
+		d.addToSetFor(fsk, new BasicObjectContainer<>(mgr, expectedResult1));
+		d.addToSetFor(fsk, new BasicObjectContainer<>(mgr, expectedResult2));
+		FactSetKeyActor<?> lka = new FactSetKeyActor<>(fsk);
+		CDOMObjectWrapper.getInstance().load(d.getClass(), "booktype", lka);
+		processThroughFreeMarker("${deity.booktype?join(\", \")!}", "Magical, Long");
+	}
 }

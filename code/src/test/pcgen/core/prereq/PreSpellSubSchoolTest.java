@@ -38,6 +38,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 {
@@ -80,12 +81,12 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 	{
 		LoadContext context = Globals.getContext();
 		wiz = context.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
-		context.unconditionallyProcess(wiz, "SPELLTYPE", "ARCANE");
+		BuildUtilities.setFact(wiz, "SpellType", "Arcane");
 		context.unconditionallyProcess(wiz, "KNOWNSPELLS", "LEVEL=1|LEVEL=2");
 		context.unconditionallyProcess(wiz.getOriginalClassLevel(1), "CAST", "1,1");
 		context.unconditionallyProcess(wiz.getOriginalClassLevel(2), "CAST", "2,2,1");
 		cle = context.getReferenceContext().constructCDOMObject(PCClass.class, "Cleric");
-		context.unconditionallyProcess(cle, "SPELLTYPE", "DIVINE");
+		BuildUtilities.setFact(cle, "SpellType", "Divine");
 		context.unconditionallyProcess(cle, "KNOWNSPELLS", "LEVEL=1|LEVEL=2");
 		context.unconditionallyProcess(cle.getOriginalClassLevel(1), "CAST", "1,1");
 		context.unconditionallyProcess(cle.getOriginalClassLevel(2), "CAST", "1,1,1");
@@ -124,8 +125,6 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 		Globals.addToSpellMap(cure.getKeyName(), cure);
 		context.unconditionallyProcess(cure, "CLASSES", "Cleric=1");
 		context.unconditionallyProcess(cure, "SUBSCHOOL", "Useful");
-
-		context.getReferenceContext().buildDerivedObjects();
 	}
 
 	public void testSimpleSUBSCHOOL() throws Exception

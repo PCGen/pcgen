@@ -25,14 +25,15 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.enumeration.ListKey;
+import pcgen.base.util.BasicObjectContainer;
+import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import plugin.format.StringManager;
 
 /**
  * <code>PreDeityTest</code> tests that the PREDEITY tag is
@@ -243,6 +244,8 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		deity = new Deity();
 		deity.setName("Test Deity");
 		deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
-		deity.addToListFor(ListKey.PANTHEON, Pantheon.getConstant("Celtic"));
+		StringManager sm = new StringManager();
+		FactSetKey<String> fsk = FactSetKey.getConstant("Pantheon", sm);
+		deity.addToSetFor(fsk, new BasicObjectContainer<String>(sm, "Celtic"));
 	}
 }

@@ -47,9 +47,16 @@ public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void setUp() throws Exception
+	@Override
+	protected void additionalSetUp() throws Exception
 	{
-		super.setUp();
+		super.additionalSetUp();
+		LoadContext context = Globals.getContext();
+		Race rakshasha =
+				context.getReferenceContext().constructCDOMObject(Race.class, "Rakshasa");
+		context
+			.unconditionallyProcess(rakshasha, "ADD", "SPELLCASTER|Sorcerer");
+		context.getReferenceContext().constructCDOMObject(PCClass.class, "Sorcerer");
 	}
 
 	/**
@@ -62,12 +69,7 @@ public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 	{
 		LoadContext context = Globals.getContext();
 		Race rakshasha =
-				context.getReferenceContext().constructCDOMObject(Race.class, "Rakshasa");
-		context
-			.unconditionallyProcess(rakshasha, "ADD", "SPELLCASTER|Sorcerer");
-		PCClass sorcerer =
-				context.getReferenceContext().constructCDOMObject(PCClass.class, "Sorcerer");
-
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Rakshasa");
 		PlayerCharacter pc = getCharacter();
 		pc.setImporting(true);
 		PCGVer2Parser pcgParser = new PCGVer2Parser(pc);

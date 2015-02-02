@@ -44,6 +44,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.BonusSpellInfo;
 import pcgen.cdom.content.LevelCommandFactory;
+import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -67,6 +68,8 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
+import plugin.format.StringManager;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreVariableParser;
 
 /**
@@ -445,6 +448,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testGetPCCText() throws PersistenceLayerException
 	{
+		FactKey.getConstant("Abb", new StringManager());
 		// Test a basic class
 		String classPCCText = humanoidClass.getPCCText();
 		assertNotNull("PCC Text for race should not be null", classPCCText);
@@ -506,7 +510,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		PCClass megaCasterClass = new PCClass();
 		megaCasterClass.setName("MegaCaster");
-		megaCasterClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(megaCasterClass, "SpellType", "Arcane");
 		context.unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
 		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
 		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
@@ -573,7 +577,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		PCClass megaCasterClass = new PCClass();
 		megaCasterClass.setName("MegaCaster");
-		megaCasterClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(megaCasterClass, "SpellType", "Arcane");
 		context.unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
 		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
 		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
@@ -649,7 +653,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		PCClass megaCasterClass = new PCClass();
 		megaCasterClass.setName("MegaCasterOther");
-		megaCasterClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(megaCasterClass, "SpellType", "Arcane");
 		context.unconditionallyProcess(megaCasterClass, "SPELLSTAT", "OTHER");
 		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
 		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);

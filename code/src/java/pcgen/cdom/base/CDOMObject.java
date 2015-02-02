@@ -334,6 +334,10 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			return null;
 		}
 		Indirect<FT> indirect = (Indirect<FT>) factChar.get(key);
+		if (indirect == null)
+		{
+			return null;
+		}
 		return indirect.resolvesTo();
 	}
 
