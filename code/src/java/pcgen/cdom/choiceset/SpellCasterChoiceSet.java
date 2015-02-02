@@ -32,8 +32,8 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
+import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -240,13 +240,14 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	@Override
 	public Set<PCClass> getSet(PlayerCharacter pc)
 	{
+		FactKey<String> fk = FactKey.valueOf("SpellType");
 		Set<PCClass> returnSet = new HashSet<PCClass>();
 		if (types != null)
 		{
 			for (PCClass pcc : types.getSet(pc))
 			{
-				if ((pcc.get(StringKey.SPELLTYPE) != null)
-						&& (pc.getClassKeyed(pcc.getKeyName()) != null))
+				if ((pcc.get(fk) != null)
+					&& (pc.getClassKeyed(pcc.getKeyName()) != null))
 				{
 					returnSet.add(pcc);
 				}
@@ -262,7 +263,8 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 			{
 				TYPE: for (String type : spelltypes)
 				{
-					if (type.equalsIgnoreCase(pcc.get(StringKey.SPELLTYPE))
+					String spelltype = pcc.getResolved(fk);
+					if (type.equalsIgnoreCase(spelltype)
 							&& pc.getClassKeyed(pcc.getKeyName()) != null)
 					{
 						returnSet.add(pcc);

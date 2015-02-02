@@ -25,12 +25,15 @@
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
+import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.Pantheon;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -83,16 +86,15 @@ public final class Deity extends PObject implements DeityFacade
 	}
 
     @Override
-	public List<String> getPantheons()
+	public Collection<String> getPantheons()
 	{
-		List<String> pantheons = new ArrayList<String>();
-		for (Pantheon pantheon : getSafeListFor(ListKey.PANTHEON))
+		Set<String> charDeityPantheon = new TreeSet<String>();
+		FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
+		for (ObjectContainer<String> oc : getSafeSetFor(fk))
 		{
-			String string = pantheon.toString();
-			pantheons.add(string);
+			charDeityPantheon.addAll(oc.getContainedObjects());
 		}
-		
-		return pantheons;
+		return charDeityPantheon;
 	}
 
 }

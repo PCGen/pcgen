@@ -75,15 +75,15 @@ public class AbbTokenTest extends AbstractTokenTestCase<SizeAdjustment>
 	public void testValidInputs() throws PersistenceLayerException
 	{
 		assertTrue(parse("Nieder�sterreich"));
-		assertEquals("Nieder�sterreich", primaryProf.get(StringKey.ABB));
+		assertEquals("Nieder�sterreich", primaryProf.get(StringKey.ABB_KR));
 		assertTrue(parse("Finger Lakes"));
-		assertEquals("Finger Lakes", primaryProf.get(StringKey.ABB));
+		assertEquals("Finger Lakes", primaryProf.get(StringKey.ABB_KR));
 		assertTrue(parse("Rheinhessen"));
-		assertEquals("Rheinhessen", primaryProf.get(StringKey.ABB));
+		assertEquals("Rheinhessen", primaryProf.get(StringKey.ABB_KR));
 		assertTrue(parse("Languedoc-Roussillon"));
-		assertEquals("Languedoc-Roussillon", primaryProf.get(StringKey.ABB));
+		assertEquals("Languedoc-Roussillon", primaryProf.get(StringKey.ABB_KR));
 		assertTrue(parse("Yarra Valley"));
-		assertEquals("Yarra Valley", primaryProf.get(StringKey.ABB));
+		assertEquals("Yarra Valley", primaryProf.get(StringKey.ABB_KR));
 	}
 
 	@Test
@@ -176,6 +176,6 @@ public class AbbTokenTest extends AbstractTokenTestCase<SizeAdjustment>
 
 	private StringKey getStringKey()
 	{
-		return StringKey.ABB;
+		return StringKey.ABB_KR;
 	}
 }

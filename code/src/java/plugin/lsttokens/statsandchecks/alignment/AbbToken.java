@@ -58,14 +58,14 @@ public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements
 		{
 			return new ParseResult.Fail(e.getLocalizedMessage(), context);
 		}
-		context.getObjectContext().put(al, StringKey.ABB, value);
+		context.getObjectContext().put(al, StringKey.ABB_KR, value);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCAlignment al)
 	{
-		String abb = context.getObjectContext().getString(al, StringKey.ABB);
+		String abb = context.getObjectContext().getString(al, StringKey.ABB_KR);
 		if (abb == null)
 		{
 			return null;

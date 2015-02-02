@@ -28,6 +28,19 @@ import pcgen.rules.types.FormatManager;
  * provide the construction and other common underlying behavior of those
  * ObjectContainers.
  * 
+ * As an example, TYPE=Foo can be used to create an ObjectContainer (the
+ * CDOMGroupReference is the ObjectContainer). That would be a static grouping
+ * based on TYPE. A Primitive is also an ObjectContainer, that is loaded as a
+ * separate token (vs. being built-in like TYPE=)
+ * 
+ * GroupDefinition is useful for producing dynamic groupings. This "dynamic"
+ * behavior does not mean that the set can change after data is loaded - it
+ * can't based on the design of the system and the semantic definition of
+ * FACT/FACTSET, but that the grouping is not known until the Data Control file
+ * is loaded. Since they are not static tokens (like Primitives), we need
+ * another method to produce the ObjectContainer. The GroupDefinition provides
+ * that capability.
+ * 
  * @param <T>
  *            The type of object where this GroupDefinition is able to be used
  */

@@ -42,6 +42,7 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import plugin.exporttokens.SpellMemToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * Verify the correct functioning of the SPELLMEM token.
@@ -111,7 +112,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");
 		arcaneClass.put(StringKey.KEY_NAME, "KEY_TEST_ARCANE");
-		arcaneClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(arcaneClass, "SpellType", "Arcane");
 		context.unconditionallyProcess(arcaneClass, "SPELLSTAT", "CHA");
 		arcaneClass.put(ObjectKey.SPELLBOOK, false);
 		arcaneClass.put(ObjectKey.MEMORIZE_SPELLS, false);
@@ -122,7 +123,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		divineClass = new PCClass();
 		divineClass.setName("TestDivine");
 		divineClass.put(StringKey.KEY_NAME, "KEY_TEST_DIVINE");
-		divineClass.put(StringKey.SPELLTYPE, "DIVINE");
+		BuildUtilities.setFact(divineClass, "SpellType", "Divine");
 		context.unconditionallyProcess(divineClass, "SPELLSTAT", "WIS");
 		divineClass.put(ObjectKey.SPELLBOOK, false);
 		divineClass.put(ObjectKey.MEMORIZE_SPELLS, true);
@@ -131,7 +132,6 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		context.getReferenceContext().constructCDOMObject(Domain.class, "Fire");
 		
 		context.getReferenceContext().importObject(divineClass);
-		context.getReferenceContext().buildDerivedObjects();
 	}
 
 	/*

@@ -47,11 +47,11 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AssociationKey;
+import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
@@ -71,10 +71,12 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.core.spell.Spell;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
@@ -83,13 +85,11 @@ import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade;
 import pcgen.facade.core.UIDelegate;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
-import pcgen.facade.util.DefaultListFacade;
-import pcgen.facade.util.ListFacade;
-import pcgen.core.spell.Spell;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.ExportUtilities;
@@ -1168,7 +1168,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		Collection<PCClass> classes = charDisplay.getClassSet();
 		for (PCClass pcClass : classes)
 		{
-			if (pcClass.get(StringKey.SPELLTYPE) != null)
+			if (pcClass.get(FactKey.valueOf("SpellType")) != null)
 			{
 				SpellSupportForPCClass spellSupport = pc.getSpellSupport(pcClass);
 				if (spellSupport.canCastSpells(pc) || spellSupport.hasKnownList())

@@ -15,35 +15,27 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package plugin.lsttokens.deity;
+package plugin.lsttokens.deprecated;
 
-import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.Deity;
-import pcgen.rules.persistence.token.AbstractStringToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.core.PCClass;
+import pcgen.rules.persistence.token.AbstractToFactToken;
 
 /**
- * Class deals with APPEARANCE Token
+ * Class deals with SPELLTYPE Token
  */
-public class AppearanceToken extends AbstractStringToken<Deity> implements
-		CDOMPrimaryToken<Deity>
+public class SpelltypeToken extends AbstractToFactToken<PCClass>
 {
 
 	@Override
 	public String getTokenName()
 	{
-		return "APPEARANCE";
+		return "SPELLTYPE";
 	}
 
 	@Override
-	public Class<Deity> getTokenClass()
+	public Class<PCClass> getTokenClass()
 	{
-		return Deity.class;
+		return PCClass.class;
 	}
 
-	@Override
-	protected StringKey stringKey()
-	{
-		return StringKey.APPEARANCE;
-	}
 }

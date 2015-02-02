@@ -567,6 +567,15 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		setMaximum(countTotalFilesToLoad());
 
 		// Load using the new LstFileLoaders
+		if (dataDefFileList.isEmpty())
+		{
+			File defaultGameModeDir = new File(gameModeDir, "default");
+			File df = new File(defaultGameModeDir, "compatibilityDataControl.lst");
+			Campaign c = new Campaign();
+			c.setName("Default Data Control File");
+			CampaignSourceEntry cse = new CampaignSourceEntry(c, df.toURI());
+			dataDefFileList.add(cse);
+		}
 		dataControlLoader.loadLstFiles(context, dataDefFileList);
 		processFactDefinitions(context);
 

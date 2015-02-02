@@ -38,6 +38,7 @@ import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * The Class <code>PlayerCharacterSpellTest</code> checks the function of spell related
@@ -77,9 +78,10 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		domainSpell = TestHelper.makeSpell("domainSpell");
 
 		final String classLine =
-				"CLASS:MyClass	TYPE:Base.PC	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:YES	SPELLBOOK:NO";
+				"CLASS:MyClass	TYPE:Base.PC	SPELLSTAT:CHA	MEMORIZE:YES	SPELLBOOK:NO";
 		PCClassLoader classLoader = new PCClassLoader();
 		divineClass = classLoader.parseLine(context, null, classLine, source);
+		BuildUtilities.setFact(divineClass, "SpellType", "Divine");
 		classLoader.parseLine(context, divineClass, "CLASS:MyClass	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL", source);
 		classLoader.parseClassLevelLine(context, divineClass, 1, source, "CAST:5,4	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|DomainLVL|CL");
 		context.getReferenceContext().importObject(divineClass);
@@ -96,9 +98,6 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 					ref, classSpell);
 		edge.setAssociation(AssociationKey.SPELL_LEVEL, 1);
 		context.commit();
-
-		context.getReferenceContext().buildDerivedObjects();
-		context.resolveDeferredTokens();
 	}
 
 	/**

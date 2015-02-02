@@ -27,7 +27,6 @@ import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.MasterAvailableSpellFacet;
 import pcgen.core.AbilityCategory;
@@ -35,11 +34,12 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.spell.Spell;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.util.ListFacade;
-import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * SpellBuilderFacadeImplTest
@@ -71,14 +71,14 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		
 		wizardCls = TestHelper.makeClass("Wizard");
-		wizardCls.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(wizardCls, "SpellType", "Arcane");
 		context.unconditionallyProcess(wizardCls, "SPELLSTAT", "INT");
 		wizardCls.put(ObjectKey.SPELLBOOK, true);
 		wizardCls.put(ObjectKey.MEMORIZE_SPELLS, true);
 		context.unconditionallyProcess(wizardCls.getOriginalClassLevel(1), "CAST", "3,1,0");
 
 		divineCls = TestHelper.makeClass("DivineSpontaneous");
-		divineCls.put(StringKey.SPELLTYPE, "DIVINE");
+		BuildUtilities.setFact(divineCls, "SpellType", "Divine");
 		context.unconditionallyProcess(divineCls, "SPELLSTAT", "WIS");
 		divineCls.put(ObjectKey.SPELLBOOK, false);
 		divineCls.put(ObjectKey.MEMORIZE_SPELLS, false);

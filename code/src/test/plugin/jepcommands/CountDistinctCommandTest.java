@@ -27,7 +27,6 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -35,6 +34,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>CountDistinctCommandTest</code> tests the functioning of the jep 
@@ -131,7 +131,7 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 
         PCClass megaCasterClass = new PCClass();
 		megaCasterClass.setName("MegaCaster");
-		megaCasterClass.put(StringKey.SPELLTYPE, "ARCANE");
+		BuildUtilities.setFact(megaCasterClass, "SpellType", "Arcane");
 		Globals.getContext().unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
 		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
 		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
