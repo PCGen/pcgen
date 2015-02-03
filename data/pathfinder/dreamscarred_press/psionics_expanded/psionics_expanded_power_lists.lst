@@ -1,0 +1,391 @@
+# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: Cryptic power list
+# Spell Name				Classes of caster
+Call to Mind.MOD				CLASSES:Cryptic=1
+Chameleon.MOD				CLASSES:Cryptic=1
+Conceal Thoughts.MOD			CLASSES:Cryptic=1
+Deja Vu.MOD					CLASSES:Cryptic=1
+Elfsight.MOD				CLASSES:Cryptic=1
+Float.MOD					CLASSES:Cryptic=1
+Fortify.MOD					CLASSES:Cryptic=1
+Know Direction and Location.MOD	CLASSES:Cryptic=1
+Metamorphosis (Minor).MOD		CLASSES:Cryptic=1
+Precognition (Defensive).MOD		CLASSES:Cryptic=1
+Precognition (Offensive).MOD		CLASSES:Cryptic=1
+Prescience (Offensive).MOD		CLASSES:Cryptic=1
+Vigor.MOD					CLASSES:Cryptic=1
+
+Animal Affinity.MOD			CLASSES:Cryptic=2
+Body Adjustment.MOD			CLASSES:Cryptic=2
+Body Equilibrium.MOD			CLASSES:Cryptic=2
+Breach.MOD					CLASSES:Cryptic=2
+Cloud Mind.MOD				CLASSES:Cryptic=2
+Concealing Amorpha.MOD			CLASSES:Cryptic=2
+Control Sound.MOD				CLASSES:Cryptic=2
+Defy Gravity.MOD				CLASSES:Cryptic=2
+Detect Hostile Intent.MOD		CLASSES:Cryptic=2
+Energy Adaptation (Specified).MOD	CLASSES:Cryptic=2
+Heightened Vision.MOD			CLASSES:Cryptic=2
+Natural Linguist.MOD			CLASSES:Cryptic=2
+Psionic Scent.MOD				CLASSES:Cryptic=2
+Wall Walker.MOD				CLASSES:Cryptic=2
+
+Concealing Amorpha (Greater).MOD	CLASSES:Cryptic=3
+Danger Sense.MOD				CLASSES:Cryptic=3
+Dispel Psionics.MOD			CLASSES:Cryptic=3
+Escape Detection.MOD			CLASSES:Cryptic=3
+Evade Burst.MOD				CLASSES:Cryptic=3
+Sharpened Edge.MOD			CLASSES:Cryptic=3
+Ubiquitous Vision.MOD			CLASSES:Cryptic=3
+
+Energy Adaptation.MOD			CLASSES:Cryptic=4
+Fold Space.MOD				CLASSES:Cryptic=4
+Slip the Bonds.MOD			CLASSES:Cryptic=4
+Steadfast Perception.MOD		CLASSES:Cryptic=4
+
+Adapt Body.MOD				CLASSES:Cryptic=5
+Pierce the Veils.MOD			CLASSES:Cryptic=5
+Retrieve.MOD				CLASSES:Cryptic=5
+
+Aura Alteration.MOD			CLASSES:Cryptic=6
+Barred Mind (Personal).MOD		CLASSES:Cryptic=6
+Cosmic Awareness.MOD			CLASSES:Cryptic=6
+Ethereal Passage.MOD			CLASSES:Cryptic=6
+Hypercognition.MOD			CLASSES:Cryptic=6
+
+###Block: Dread power list
+# Spell Name			Classes of caster
+Biofeedback.MOD			CLASSES:Dread=1
+Conceal Thoughts.MOD		CLASSES:Dread=1
+Demoralize.MOD			CLASSES:Dread=1
+Distract.MOD			CLASSES:Dread=1
+Mind Thrust.MOD			CLASSES:Dread=1
+Mindlink.MOD			CLASSES:Dread=1
+Precognition (Defensive).MOD	CLASSES:Dread=1
+Precognition (Offensive).MOD	CLASSES:Dread=1
+Prescience (Offensive).MOD	CLASSES:Dread=1
+Telepathic Lash.MOD		CLASSES:Dread=1
+
+Concealing Amorpha.MOD		CLASSES:Dread=2
+Feat Leech.MOD			CLASSES:Dread=2
+Id Insinuation.MOD		CLASSES:Dread=2
+Mental Disruption.MOD		CLASSES:Dread=2
+Strength of My Enemy.MOD	CLASSES:Dread=2
+Thought Shield.MOD		CLASSES:Dread=2
+
+Ectoplasmic Form.MOD		CLASSES:Dread=3
+Mental Barrier.MOD		CLASSES:Dread=3
+
+Aura Sight.MOD			CLASSES:Dread=4
+Mindwipe.MOD			CLASSES:Dread=4
+Personality Parasite.MOD	CLASSES:Dread=4
+Power Leech.MOD			CLASSES:Dread=4
+
+Pierce the Veils.MOD		CLASSES:Dread=5
+Planar Travel.MOD			CLASSES:Dread=5
+Psychic Crush.MOD			CLASSES:Dread=5
+Schism.MOD				CLASSES:Dread=5
+
+Barred Mind (Personal).MOD	CLASSES:Dread=6
+Dream Travel.MOD			CLASSES:Dread=6
+Form of Doom.MOD			CLASSES:Dread=6
+Temporal Acceleration.MOD	CLASSES:Dread=6
+
+###Block: Marksman power list
+# Spell Name				Classes of caster
+Astral Traveler.MOD			CLASSES:Marksman=1
+Bolt.MOD					CLASSES:Marksman=1
+Burst.MOD					CLASSES:Marksman=1
+Catfall.MOD					CLASSES:Marksman=1
+Chameleon.MOD				CLASSES:Marksman=1
+Elfsight.MOD				CLASSES:Marksman=1
+Metaphysical Weapon.MOD			CLASSES:Marksman=1
+Precognition (Defensive).MOD		CLASSES:Marksman=1
+Precognition (Offensive).MOD		CLASSES:Marksman=1
+Prescience (Offensive).MOD		CLASSES:Marksman=1
+Prevenom Weapon.MOD			CLASSES:Marksman=1
+Vigor.MOD					CLASSES:Marksman=1
+
+Body Adjustment.MOD			CLASSES:Marksman=2
+Body Equilibrium.MOD			CLASSES:Marksman=2
+Body Purification.MOD			CLASSES:Marksman=2
+Cloud Mind.MOD				CLASSES:Marksman=2
+Concealing Amorpha.MOD			CLASSES:Marksman=2
+Defy Gravity.MOD				CLASSES:Marksman=2
+Detect Hostile Intent.MOD		CLASSES:Marksman=2
+Dissolving Weapon.MOD			CLASSES:Marksman=2
+Psionic Scent.MOD				CLASSES:Marksman=2
+Share Pain.MOD				CLASSES:Marksman=2
+Sustenance.MOD				CLASSES:Marksman=2
+Wall Walker.MOD				CLASSES:Marksman=2
+
+Concealing Amorpha (Greater).MOD	CLASSES:Marksman=3
+Control Air.MOD				CLASSES:Marksman=3
+Danger Sense.MOD				CLASSES:Marksman=3
+Dimension Slide.MOD			CLASSES:Marksman=3
+Energy Adaptation (Specified).MOD	CLASSES:Marksman=3
+Escape Detection.MOD			CLASSES:Marksman=3
+Heightened Vision.MOD			CLASSES:Marksman=3
+Hustle.MOD					CLASSES:Marksman=3
+Touchsight.MOD				CLASSES:Marksman=3
+Ubiquitous Vision.MOD			CLASSES:Marksman=3
+
+Aura Sight.MOD				CLASSES:Marksman=4
+Evade Burst.MOD				CLASSES:Marksman=4
+Inertial Barrier.MOD			CLASSES:Marksman=4
+Pierce the Veils.MOD			CLASSES:Marksman=4
+Sharpened Edge.MOD			CLASSES:Marksman=4
+Slip the Bonds.MOD			CLASSES:Marksman=4
+Steadfast Perception.MOD		CLASSES:Marksman=4
+Truevenom Weapon.MOD			CLASSES:Marksman=4
+
+###Block: Tactician power list
+# Spell Name				Classes of caster
+Call to Mind.MOD				CLASSES:Tactician=1
+Entangling Ectoplasm.MOD		CLASSES:Tactician=1
+Know Direction and Location.MOD	CLASSES:Tactician=1
+Precognition.MOD				CLASSES:Tactician=1
+Precognition (Defensive).MOD		CLASSES:Tactician=1
+Sense Link.MOD				CLASSES:Tactician=1
+
+Detect Hostile Intent.MOD		CLASSES:Tactician=2
+Dimension Swap.MOD			CLASSES:Tactician=2
+Empathic Transfer.MOD			CLASSES:Tactician=2
+Feat Leech.MOD				CLASSES:Tactician=2
+Missive (Mass).MOD			CLASSES:Tactician=2
+Read Thoughts.MOD				CLASSES:Tactician=2
+Share Pain.MOD				CLASSES:Tactician=2
+Strength of My Enemy.MOD		CLASSES:Tactician=2
+Sustenance.MOD				CLASSES:Tactician=2
+Thought Shield.MOD			CLASSES:Tactician=2
+
+Danger Sense.MOD				CLASSES:Tactician=3
+Empathic Transfer (Hostile).MOD	CLASSES:Tactician=3
+Share Pain (Forced).MOD			CLASSES:Tactician=3
+Solicit Psicrystal.MOD			CLASSES:Tactician=3
+
+Correspond.MOD				CLASSES:Tactician=4
+Empathic Feedback.MOD			CLASSES:Tactician=4
+Intellect Fortress.MOD			CLASSES:Tactician=4
+Psychic Reformation.MOD			CLASSES:Tactician=4
+Slip the Bonds.MOD			CLASSES:Tactician=4
+Wall of Ectoplasm.MOD			CLASSES:Tactician=4
+
+Adapt Body.MOD				CLASSES:Tactician=5
+Catapsi.MOD					CLASSES:Tactician=5
+Incarnate.MOD				CLASSES:Tactician=5
+Metaconcert.MOD				CLASSES:Tactician=5
+Power Resistance.MOD			CLASSES:Tactician=5
+Tower of Iron Will.MOD			CLASSES:Tactician=5
+
+CoOpt Concentration.MOD			CLASSES:Tactician=6
+Dispelling Buffer.MOD			CLASSES:Tactician=6
+Trigger Power.MOD				CLASSES:Tactician=6
+
+Barred Mind (Personal).MOD		CLASSES:Tactician=7
+Bend Reality.MOD				CLASSES:Tactician=7
+Cosmic Awareness.MOD			CLASSES:Tactician=7
+Divert Teleport.MOD			CLASSES:Tactician=7
+Evade Burst.MOD				CLASSES:Tactician=7
+
+Barred Mind.MOD				CLASSES:Tactician=8
+Hypercognition.MOD			CLASSES:Tactician=8
+
+Affinity Field.MOD			CLASSES:Tactician=9
+Assimilate.MOD				CLASSES:Tactician=9
+Fusion.MOD					CLASSES:Tactician=9
+Reality Revision.MOD			CLASSES:Tactician=9
+Timeless Body.MOD				CLASSES:Tactician=9
+
+###Block: Vitalist power list
+# Spell Name				Classes of caster
+Biofeedback.MOD				CLASSES:Vitalist=1
+Elfsight.MOD				CLASSES:Vitalist=1
+Missive.MOD					CLASSES:Vitalist=1
+Natural Healing.MOD			CLASSES:Vitalist=1
+Sense Link.MOD				CLASSES:Vitalist=1
+Synesthete.MOD				CLASSES:Vitalist=1
+Thicken Skin.MOD				CLASSES:Vitalist=1
+Vigor.MOD					CLASSES:Vitalist=1
+
+Animal Affinity.MOD			CLASSES:Vitalist=2
+Body Adjustment.MOD			CLASSES:Vitalist=2
+Body Equilibrium.MOD			CLASSES:Vitalist=2
+Cleanse Body.MOD				CLASSES:Vitalist=2
+Empathic Transfer.MOD			CLASSES:Vitalist=2
+Energy Adaptation (Specified).MOD	CLASSES:Vitalist=2
+Share Pain.MOD				CLASSES:Vitalist=2
+Sustenance.MOD				CLASSES:Vitalist=2
+
+Body Purification.MOD			CLASSES:Vitalist=3
+Danger Sense.MOD				CLASSES:Vitalist=3
+Empathic Transfer (Hostile).MOD	CLASSES:Vitalist=3
+Hustle.MOD					CLASSES:Vitalist=3
+Share Pain (Forced).MOD			CLASSES:Vitalist=3
+Solicit Psicrystal.MOD			CLASSES:Vitalist=3
+
+Empathic Feedback.MOD			CLASSES:Vitalist=4
+Energy Adaptation.MOD			CLASSES:Vitalist=4
+Evade Burst.MOD				CLASSES:Vitalist=4
+Immovability.MOD				CLASSES:Vitalist=4
+Inertial Barrier.MOD			CLASSES:Vitalist=4
+Psychic Drain.MOD				CLASSES:Vitalist=4
+Psychic Reformation.MOD			CLASSES:Vitalist=4
+
+Adapt Body.MOD				CLASSES:Vitalist=5
+Incarnate.MOD				CLASSES:Vitalist=5
+Leech Field.MOD				CLASSES:Vitalist=5
+Power Resistance.MOD			CLASSES:Vitalist=5
+Psionic Revivify.MOD			CLASSES:Vitalist=5
+Psychofeedback.MOD			CLASSES:Vitalist=5
+Restore Extremity.MOD			CLASSES:Vitalist=5
+Tower of Iron Will.MOD			CLASSES:Vitalist=5
+
+Aura Alteration.MOD			CLASSES:Vitalist=6
+Cleanse Spirit.MOD			CLASSES:Vitalist=6
+Fuse Flesh.MOD				CLASSES:Vitalist=6
+Suspend Life.MOD				CLASSES:Vitalist=6
+Trigger Power.MOD				CLASSES:Vitalist=6
+
+Barred Mind (Personal).MOD		CLASSES:Vitalist=7
+Bend Reality.MOD				CLASSES:Vitalist=7
+Crisis of Life.MOD			CLASSES:Vitalist=7
+Energy Conversion.MOD			CLASSES:Vitalist=7
+Oak Body.MOD				CLASSES:Vitalist=7
+
+Barred Mind.MOD				CLASSES:Vitalist=8
+Body of Iron.MOD				CLASSES:Vitalist=8
+True Metabolism.MOD			CLASSES:Vitalist=8
+
+Affinity Field.MOD			CLASSES:Vitalist=9
+Assimilate.MOD				CLASSES:Vitalist=9
+Fusion.MOD					CLASSES:Vitalist=9
+Psychic Chirurgery.MOD			CLASSES:Vitalist=9
+Timeless Body.MOD				CLASSES:Vitalist=9
+
+###Block: Sighted Seeker prestige class power list
+# Spell Name					Classes of caster
+Burst.MOD						CLASSES:Sighted Seeker=1
+Call to Mind.MOD					CLASSES:Sighted Seeker=1
+Call Weaponry.MOD					CLASSES:Sighted Seeker=1
+Chameleon.MOD					CLASSES:Sighted Seeker=1
+Circumstance Shield.MOD				CLASSES:Sighted Seeker=1
+Compression.MOD					CLASSES:Sighted Seeker=1
+Destiny Dissonance.MOD				CLASSES:Sighted Seeker=1
+Detect Psionics.MOD				CLASSES:Sighted Seeker=1
+Detect Teleportation.MOD			CLASSES:Sighted Seeker=1
+Grip of Iron.MOD					CLASSES:Sighted Seeker=1
+Precognition.MOD					CLASSES:Sighted Seeker=1
+Precognition (Defensive).MOD			CLASSES:Sighted Seeker=1
+Precognition (Offensive).MOD			CLASSES:Sighted Seeker=1
+Prescience (Offensive).MOD			CLASSES:Sighted Seeker=1
+Prevenom Weapon.MOD				CLASSES:Sighted Seeker=1
+
+Clairvoyant Sense.MOD				CLASSES:Sighted Seeker=2
+Heightened Vision.MOD				CLASSES:Sighted Seeker=2
+Feat Leech.MOD					CLASSES:Sighted Seeker=2
+Know Direction and Location.MOD		CLASSES:Sighted Seeker=2
+Object Reading.MOD				CLASSES:Sighted Seeker=2
+Prowess.MOD						CLASSES:Sighted Seeker=2
+Recall Agony.MOD					CLASSES:Sighted Seeker=2
+Sensitivity to Psychic Impressions.MOD	CLASSES:Sighted Seeker=2
+
+Danger Sense.MOD					CLASSES:Sighted Seeker=3
+Escape Detection.MOD				CLASSES:Sighted Seeker=3
+Fate Link.MOD					CLASSES:Sighted Seeker=3
+Mental Barrier.MOD				CLASSES:Sighted Seeker=3
+Ubiquitous Vision.MOD				CLASSES:Sighted Seeker=3
+
+Anchored Navigation.MOD				CLASSES:Sighted Seeker=4
+Augured Answer.MOD				CLASSES:Sighted Seeker=4
+Aura Sight.MOD					CLASSES:Sighted Seeker=4
+Detect Remote Viewing.MOD			CLASSES:Sighted Seeker=4
+Remote Viewing.MOD				CLASSES:Sighted Seeker=4
+Steadfast Perception.MOD			CLASSES:Sighted Seeker=4
+Trace Psychoport.MOD				CLASSES:Sighted Seeker=4
+
+###Block: Gifted Blade archetype power list
+# Spell Name				Classes of caster		Descriptor
+Astral Traveler.MOD			CLASSES:Gifted Blade=1
+Biofeedback.MOD				CLASSES:Gifted Blade=1
+Burst.MOD					CLASSES:Gifted Blade=1
+Call Weaponry.MOD				CLASSES:Gifted Blade=1
+Chameleon.MOD				CLASSES:Gifted Blade=1
+Conceal Thoughts.MOD			CLASSES:Gifted Blade=1
+Deaden Attack.MOD				CLASSES:Gifted Blade=1
+Detect Psionics.MOD			CLASSES:Gifted Blade=1
+Distract.MOD				CLASSES:Gifted Blade=1
+Elfsight.MOD				CLASSES:Gifted Blade=1
+Empty Mind.MOD				CLASSES:Gifted Blade=1
+Expansion.MOD				CLASSES:Gifted Blade=1
+Float.MOD					CLASSES:Gifted Blade=1
+Force Screen.MOD				CLASSES:Gifted Blade=1
+Fortify.MOD					CLASSES:Gifted Blade=1
+Grip of Iron.MOD				CLASSES:Gifted Blade=1
+Inertial Armor.MOD			CLASSES:Gifted Blade=1
+Metaphysical Weapon.MOD			CLASSES:Gifted Blade=1
+My Light.MOD				CLASSES:Gifted Blade=1
+Precognition (Defensive).MOD		CLASSES:Gifted Blade=1
+Precognition (Offensive).MOD		CLASSES:Gifted Blade=1
+Prescience (Offensive).MOD		CLASSES:Gifted Blade=1
+Prevenom Weapon.MOD			CLASSES:Gifted Blade=1
+Skate.MOD					CLASSES:Gifted Blade=1
+Synesthete.MOD				CLASSES:Gifted Blade=1
+Thicken Skin.MOD				CLASSES:Gifted Blade=1
+Vigor.MOD					CLASSES:Gifted Blade=1
+Precognition (Tactical).MOD		CLASSES:Gifted Blade=1
+
+Body Adjustment.MOD			CLASSES:Gifted Blade=2
+Body Equilibrium.MOD			CLASSES:Gifted Blade=2
+Body Purification.MOD			CLASSES:Gifted Blade=2
+Cloud Mind.MOD				CLASSES:Gifted Blade=2
+Concealing Amorpha.MOD			CLASSES:Gifted Blade=2
+Defy Gravity.MOD				CLASSES:Gifted Blade=2
+Detect Hostile Intent.MOD		CLASSES:Gifted Blade=2
+Dimension Swap.MOD			CLASSES:Gifted Blade=2
+Dissolving Weapon.MOD			CLASSES:Gifted Blade=2
+Energy Adaptation (Specified).MOD	CLASSES:Gifted Blade=2
+Feat Leech.MOD				CLASSES:Gifted Blade=2
+Heightened Vision.MOD			CLASSES:Gifted Blade=2
+Prowess.MOD					CLASSES:Gifted Blade=2
+Psionic Scent.MOD				CLASSES:Gifted Blade=2
+Sustenance.MOD				CLASSES:Gifted Blade=2
+Thought Shield.MOD			CLASSES:Gifted Blade=2
+Wall Walker.MOD				CLASSES:Gifted Blade=2
+
+Concealing Amorpha (Greater).MOD	CLASSES:Gifted Blade=3
+Dimension Slide.MOD			CLASSES:Gifted Blade=3
+Empathic Feedback.MOD			CLASSES:Gifted Blade=3
+Escape Detection.MOD			CLASSES:Gifted Blade=3
+Evade Burst.MOD				CLASSES:Gifted Blade=3
+Graft Armor.MOD				CLASSES:Gifted Blade=3
+Graft Weapon.MOD				CLASSES:Gifted Blade=3
+Hustle.MOD					CLASSES:Gifted Blade=3
+Mental Barrier.MOD			CLASSES:Gifted Blade=3
+Psionic Lion's Charge.MOD		CLASSES:Gifted Blade=3
+Sharpened Edge.MOD			CLASSES:Gifted Blade=3
+Ubiquitous Vision.MOD			CLASSES:Gifted Blade=3
+Vampiric Blade.MOD			CLASSES:Gifted Blade=3
+
+Energy Adaptation.MOD			CLASSES:Gifted Blade=4
+Fold Space.MOD				CLASSES:Gifted Blade=4
+Immovability.MOD				CLASSES:Gifted Blade=4
+Inertial Barrier.MOD			CLASSES:Gifted Blade=4
+Psychic Reformation.MOD			CLASSES:Gifted Blade=4
+Slip the Bonds.MOD			CLASSES:Gifted Blade=4
+Steadfast Perception.MOD		CLASSES:Gifted Blade=4
+Truevenom Weapon.MOD			CLASSES:Gifted Blade=4
+Weapon of Energy.MOD			CLASSES:Gifted Blade=4
+
+### Block: Old Powers gaining Network descriptor
+Dimension Swap.MOD							DESCRIPTOR:Network
+Empathic Transfer.MOD							DESCRIPTOR:Network
+Sense Link.MOD								DESCRIPTOR:Network
+
+#
+# End
+#
