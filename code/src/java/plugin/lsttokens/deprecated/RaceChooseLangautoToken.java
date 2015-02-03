@@ -46,7 +46,8 @@ public class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race>
 	{
 		if (!value.startsWith("LANGAUTO|"))
 		{
-			return new ParseResult.Fail(value + " Incompatible with CHOOSE:LANGAUTO replacement");
+			return new ParseResult.Fail(value
+				+ " Incompatible with CHOOSE:LANGAUTO replacement in Race: " + value);
 		}
 		Logging.deprecationPrint("CHOOSE:LANGAUTO is deprecated, "
 			+ "please use CHOOSE:LANG and AUTO:LANG|%LIST");
