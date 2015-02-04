@@ -10,6 +10,7 @@
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: "jacoco"
 
 group = 'net.sourceforge.pcgen'
 description = """PCGen base library"""
