@@ -100,7 +100,7 @@ Cheese (per lb)			OUTPUTNAME:Cheese (per lb.)			TYPE:Goods.Trade	COST:0.02	WT:1	
 Flour (per lb).MOD		OUTPUTNAME:Flour (per lb.)			TYPE:Goods.Trade	COST:0.02	WT:1		SOURCEPAGE:p.93
 Potatoes (per lb)			OUTPUTNAME:Potatoes (per lb.)			TYPE:Goods.Trade	COST:0.02	WT:1		SOURCEPAGE:p.93
 Turnips (per lb)			OUTPUTNAME:Turnips (per lb.)			TYPE:Goods.Trade	COST:0.02	WT:1		SOURCEPAGE:p.93
-Charcoal (per 20 lbs)		OUTPUTNAME: (per 20 lbs.)			TYPE:Goods.Trade	COST:0.03	WT:20		SOURCEPAGE:p.93
+Charcoal (per 20 lbs)		OUTPUTNAME:Charcoal (per 20 lbs.)		TYPE:Goods.Trade	COST:0.03	WT:20		SOURCEPAGE:p.93
 Citrus (per lb)			OUTPUTNAME:Citrus (per lb.)			TYPE:Goods.Trade	COST:0.03	WT:1		SOURCEPAGE:p.93
 Nuts (per lb)			OUTPUTNAME:Nuts (per lb.)			TYPE:Goods.Trade	COST:0.03	WT:1		SOURCEPAGE:p.93
 Peat (per 20 lbs)			OUTPUTNAME:Peat (per 20 lbs.)			TYPE:Goods.Trade	COST:0.03	WT:20		SOURCEPAGE:p.93
@@ -353,35 +353,35 @@ Musical Instrument (Pan Pipes).MOD																																			SOURCEPAGE:
 Musical Instrument (Recorder).MOD																																			SOURCEPAGE:p.78
 Musical Instrument (Trumpet).MOD																																			SOURCEPAGE:p.78
 Musical Instrument (Harpsichord).COPY=Musical Instrument (Harpsichord/Masterwork
-Musical Instrument (Harpsichord/Masterwork.MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Harpsichord/Masterwork.MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Musical Instrument (Piano).COPY=Musical Instrument (Piano/Masterwork)
-Musical Instrument (Piano/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Piano/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Musical Instrument (Pipe Organ).COPY=Musical Instrument (Pipe Organ/Masterwork)
-Musical Instrument (Pipe Organ/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Pipe Organ/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Musical Instrument (Bells).COPY=Musical Instrument (Bells/Masterwork)
-Musical Instrument (Bells/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Bells/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Musical Instrument (Chimes).COPY=Musical Instrument (Chimes/Masterwork)
-Musical Instrument (Chimes/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Chimes/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Musical Instrument (Drums).COPY=Musical Instrument (Drums/Masterwork)
-Musical Instrument (Drums/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Drums/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Musical Instrument (Gong).COPY=Musical Instrument (Gong/Masterwork)
-Musical Instrument (Gong/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Gong/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Musical Instrument (Fiddle).COPY=Musical Instrument (Fiddle/Masterwork)
-Musical Instrument (Fiddle/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Fiddle/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Musical Instrument (Harp).COPY=Musical Instrument (Harp/Masterwork)
-Musical Instrument (Harp/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Harp/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Musical Instrument (Lute).COPY=Musical Instrument (Lute/Masterwork)
-Musical Instrument (Lute/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Lute/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Musical Instrument (Mandolin).COPY=Musical Instrument (Mandolin/Masterwork)
-Musical Instrument (Mandolin/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Mandolin/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Musical Instrument (Flute).COPY=Musical Instrument (Flute/Masterwork)
-Musical Instrument (Flute/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Flute/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Musical Instrument (Pan Pipes).COPY=Musical Instrument (Pan Pipes/Masterwork)
-Musical Instrument (Pan Pipes/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Pan Pipes/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Musical Instrument (Recorder).COPY=Musical Instrument (Recorder/Masterwork)
-Musical Instrument (Recorder/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Recorder/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Musical Instrument (Trumpet).COPY=Musical Instrument (Trumpet/Masterwork)
-Musical Instrument (Trumpet/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Musical Instrument (Trumpet/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
 Parasol																				TYPE:Goods.Tools													COST:1	WT:2		SOURCEPAGE:p.78
 Parasol (Umbrella)																		TYPE:Goods.Tools													COST:2	WT:3		SOURCEPAGE:p.78
 Alchemist's Lab (Portable).MOD									OUTPUTNAME:Alchemist's Lab, Portable	TYPE:Goods.Tools.CraftToolsAlchemist									COST:75	WT:20		SOURCEPAGE:p.79
