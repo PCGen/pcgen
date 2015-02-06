@@ -1,13 +1,27 @@
+/*
+ * PCGen base build using the Gradle tool. This file specifies the core build tasks
+ * and refers to other files in the code/gradle directory for additional tasks
+ * for specific output.
+ *
+ * Developer build: gradle
+ * Incremental dev build: gradle build 
+ * Full build: gradle all 
+ */
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: "jacoco"
 
-sourceCompatibility = 1.6
-version = '1.0'
+group = 'net.sourceforge.pcgen'
+description = """PCGen base library"""
 
-jar {
-    manifest {
-        attributes 'Implementation-Title': 'PCGenBaseLibrary', 'Implementation-Version': 1.0
-    }
+defaultTasks 'clean', 'build'
+
+sourceCompatibility = 1.7
+
+ext {
+    majorVersion = 1
+    minorVersion = 0
 }
 
 repositories {
@@ -17,6 +31,19 @@ repositories {
 dependencies {
     compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
     testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'code/src/java'
+        }
+    }
+    test {
+        java {
+            srcDirs 'code/src/test'
+        }
+    }
 }
 
 test {
@@ -30,3 +57,27 @@ uploadArchives {
        }
     }
 }
+
+// Calculate the version number - runs in the parse phase
+allprojects {
+    ext.buildTimestamp = new Date().format('yyyy-MM-dd HH:mm:ss Z')
+    if (System.env.BUILD_NUMBER) {
+        project.version = "$majorVersion.$minorVersion.$System.env.BUILD_NUMBER"
+    }
+    else {
+        project.version = "$majorVersion.$minorVersion"
+    }
+}
+
+task echoVer() << {
+    println "${project.name} Version: ${project.version} ${buildTimestamp}"
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'PCGenBaseLibrary', 'Implementation-Version': project.version, 
+        	'Built-On': buildTimestamp 
+    }
+}
+
+apply from: 'gradle/reporting.gradle'
