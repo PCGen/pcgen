@@ -19,23 +19,21 @@ package pcgen.base.graph.core;
 
 import java.util.Arrays;
 
-import pcgen.base.graph.core.DefaultGraphEdge;
-import pcgen.base.graph.core.DefaultHyperEdge;
-import pcgen.base.graph.core.Graph;
-import pcgen.base.graph.core.Edge;
-import pcgen.base.graph.core.SimpleListMapGraph;
-
-public class SimpleListMapGraphTest extends AbstractGraphTestCase<Edge<Integer>> {
+public class SimpleListMapGraphTest extends
+		AbstractGraphTestCase<Edge<Integer>>
+{
 
 	private SimpleListMapGraph<Integer, Edge<Integer>> strategy;
 
 	@Override
-	protected DefaultHyperEdge<Integer> getLegalHyperEdge(Integer[] gna2) {
+	protected DefaultHyperEdge<Integer> getLegalHyperEdge(Integer[] gna2)
+	{
 		return new DefaultHyperEdge<Integer>(Arrays.asList(gna2));
 	}
 
 	@Override
-	protected Edge<Integer> getLegalEdge(Integer node1, Integer node2) {
+	protected Edge<Integer> getLegalEdge(Integer node1, Integer node2)
+	{
 		return new DefaultGraphEdge<Integer>(node1, node2);
 	}
 
@@ -46,7 +44,8 @@ public class SimpleListMapGraphTest extends AbstractGraphTestCase<Edge<Integer>>
 	 * @throws Exception
 	 */
 	@Override
-	protected void setUp() throws Exception {
+	protected void setUp() throws Exception
+	{
 		super.setUp();
 		strategy = new SimpleListMapGraph<Integer, Edge<Integer>>();
 	}
@@ -55,11 +54,13 @@ public class SimpleListMapGraphTest extends AbstractGraphTestCase<Edge<Integer>>
 	 * @return Returns the strategy.
 	 */
 	@Override
-	Graph<Integer, Edge<Integer>> getStrategy() {
+	Graph<Integer, Edge<Integer>> getStrategy()
+	{
 		return strategy;
 	}
 
-	public void testGetInternalizedNode() {
+	public void testGetInternalizedNode()
+	{
 		Integer node = new Integer(1);
 		Integer node2 = new Integer(2);
 		Integer falseNode1 = new Integer(1); //MUST NOT BE Integer.valueOf(1)!!!!!
@@ -72,14 +73,15 @@ public class SimpleListMapGraphTest extends AbstractGraphTestCase<Edge<Integer>>
 		assertNull(strategy.getInternalizedNode(node));
 		assertNull(strategy.getInternalizedNode(node2));
 		assertNull(strategy.getInternalizedNode(falseNode1));
-		
+
 		assertTrue(strategy.addNode(node));
 		assertTrue(strategy.containsNode(node));
 		assertFalse(strategy.containsNode(node2));
 		//Note that this returns true due to .equals()
 		assertTrue(strategy.containsNode(falseNode1));
 		//But that an instance test will fail
-		for (Integer i : strategy.getNodeList()) {
+		for (Integer i : strategy.getNodeList())
+		{
 			assertTrue(i == node || i == node2);
 			assertTrue(i != falseNode1);
 		}

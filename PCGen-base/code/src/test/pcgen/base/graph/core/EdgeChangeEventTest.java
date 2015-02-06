@@ -17,13 +17,10 @@
  */
 package pcgen.base.graph.core;
 
-import pcgen.base.graph.core.DefaultGraphEdge;
-import pcgen.base.graph.core.EdgeChangeEvent;
-import pcgen.base.graph.core.Edge;
-import pcgen.base.graph.core.SimpleListMapGraph;
 import junit.framework.TestCase;
 
-public class EdgeChangeEventTest extends TestCase {
+public class EdgeChangeEventTest extends TestCase
+{
 
 	/**
 	 * Sets up the fixture, for example, open a network connection. This method
@@ -32,33 +29,43 @@ public class EdgeChangeEventTest extends TestCase {
 	 * @throws Exception
 	 */
 	@Override
-	protected void setUp() throws Exception {
+	protected void setUp() throws Exception
+	{
 		// No setup required
 	}
 
-	public void testEdgeChangeEvent() {
-		try {
+	public void testEdgeChangeEvent()
+	{
+		try
+		{
 			new EdgeChangeEvent<Object, Edge<Object>>(null,
-					new DefaultGraphEdge<Object>(new Object(), new Object()),
-					EdgeChangeEvent.EDGE_ADDED);
+				new DefaultGraphEdge<Object>(new Object(), new Object()),
+				EdgeChangeEvent.EDGE_ADDED);
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			new EdgeChangeEvent<Object, Edge<Object>>(
-					new SimpleListMapGraph<Object, Edge<Object>>(), null,
-					EdgeChangeEvent.EDGE_REMOVED);
+				new SimpleListMapGraph<Object, Edge<Object>>(), null,
+				EdgeChangeEvent.EDGE_REMOVED);
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 	}
 
-	public void testGetGraphEdge() {
+	public void testGetGraphEdge()
+	{
 	}
 
-	public void testGetID() {
+	public void testGetID()
+	{
 	}
 
 }

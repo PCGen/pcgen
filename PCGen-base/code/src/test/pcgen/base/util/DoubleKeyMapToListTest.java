@@ -28,8 +28,6 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.base.util.DoubleKeyMapToList;
-import pcgen.base.util.MapToList;
 import pcgen.testsupport.NoPublicZeroArgConstructorMap;
 import pcgen.testsupport.NoZeroArgConstructorMap;
 import pcgen.testsupport.StrangeMap;
@@ -44,7 +42,7 @@ public class DoubleKeyMapToListTest extends TestCase
 	private static final char CONST_D = 'D';
 	private static final char CONST_B = 'B';
 	private static final char CONST_A = 'A';
-	DoubleKeyMapToList<Integer, Double, Character> dkm;
+	private DoubleKeyMapToList<Integer, Double, Character> dkm;
 
 	@Override
 	@Before

@@ -211,6 +211,7 @@ public interface Graph<N, ET extends Edge<N>>
 	 * 
 	 * @return the hashCode for this Graph.
 	 */
+	@Override
 	public int hashCode();
 
 	/**
@@ -223,6 +224,7 @@ public interface Graph<N, ET extends Edge<N>>
 	 * @return true if the given Object is a Graph that contains equal Nodes and
 	 *         Edges to this Graph; false otherwise
 	 */
+	@Override
 	public boolean equals(Object o);
 
 	/**

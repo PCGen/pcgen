@@ -30,14 +30,12 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.base.util.ListSet;
-
 public class ListSetTest extends TestCase
 {
 
-	ListSet<Integer> ls, ls2, ls3, ls4;
+	private ListSet<Integer> ls, ls2, ls3, ls4;
 
-	Comparator<Integer> c = new Comparator<Integer>()
+	private Comparator<Integer> c = new Comparator<Integer>()
 	{
 
         @Override

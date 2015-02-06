@@ -62,6 +62,7 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 	 * Stores the Class to be used as the underlying Map for the map from the
 	 * key to the contained lists.
 	 */
+	@SuppressWarnings("rawtypes")
 	private final Class<? extends Map> underlyingClass;
 
 	/**
@@ -76,6 +77,7 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 	 * @throws NullPointerException
 	 *             if the given Class is null
 	 */
+	@SuppressWarnings({"rawtypes", "unchecked"})
 	public GenericMapToList(Class<? extends Map> cl)
 		throws InstantiationException, IllegalAccessException
 	{
@@ -105,6 +107,7 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 	 * @throws NullPointerException
 	 *             if the given Class is null
 	 */
+	@SuppressWarnings("rawtypes")
 	public static <K, V> GenericMapToList<K, V> getMapToList(
 		Class<? extends Map> cl)
 	{

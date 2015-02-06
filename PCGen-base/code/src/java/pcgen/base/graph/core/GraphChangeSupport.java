@@ -93,6 +93,7 @@ public class GraphChangeSupport<N, ET extends Edge<N>>
 	 * @return An Array of GraphChangeListeners receiving Graph Change Events
 	 *         from the source Graph
 	 */
+	@SuppressWarnings("unchecked")
 	public synchronized GraphChangeListener<N, ET>[] getGraphChangeListeners()
 	{
 		return listenerList.getListeners(GraphChangeListener.class);
@@ -121,6 +122,7 @@ public class GraphChangeSupport<N, ET extends Edge<N>>
 	 *            An identifier indicating whether the given Edge was added to
 	 *            or removed from the source Graph
 	 */
+	@SuppressWarnings({"rawtypes", "unchecked", "PMD.AvoidInstantiatingObjectsInLoops"})
 	public void fireGraphEdgeChangeEvent(ET edge, int id)
 	{
 		GraphChangeListener[] listeners =
@@ -164,6 +166,7 @@ public class GraphChangeSupport<N, ET extends Edge<N>>
 	 *            An identifier indicating whether the given Node was added to
 	 *            or removed from the source Graph
 	 */
+	@SuppressWarnings({"rawtypes", "unchecked", "PMD.AvoidInstantiatingObjectsInLoops"})
 	public void fireGraphNodeChangeEvent(N node, int id)
 	{
 		GraphChangeListener[] listeners =

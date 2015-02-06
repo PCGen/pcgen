@@ -75,7 +75,7 @@ public class TripleKeyMapTest extends TestCase
 
 	private static final String S9 = "S9";
 
-	TripleKeyMap<Integer, Double, Character, String> tkm;
+	private TripleKeyMap<Integer, Double, Character, String> tkm;
 
 	public void populate(boolean allowNull)
 	{

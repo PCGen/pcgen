@@ -73,6 +73,7 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 	 *             if the given Class is null or does not have a public, zero
 	 *             argument constructor.
 	 */
+	@SuppressWarnings({"rawtypes", "unchecked"})
 	public <C extends Map> WrappedMapSet(Class<C> cl)
 	{
 		if (cl == null)
@@ -127,6 +128,7 @@ public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
+	@SuppressWarnings("rawtypes")
 	public <C extends Map> WrappedMapSet(Class<C> cl,
 		Collection<? extends T> collection)
 	{

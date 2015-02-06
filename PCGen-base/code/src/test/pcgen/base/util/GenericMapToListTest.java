@@ -22,7 +22,6 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import pcgen.base.util.GenericMapToList;
 import pcgen.testsupport.NoPublicZeroArgConstructorMap;
 import pcgen.testsupport.NoZeroArgConstructorMap;
 import pcgen.testsupport.StrangeMap;

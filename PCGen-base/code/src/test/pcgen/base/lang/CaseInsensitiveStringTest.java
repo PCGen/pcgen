@@ -21,8 +21,6 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import pcgen.base.lang.CaseInsensitiveString;
-
 public class CaseInsensitiveStringTest extends TestCase
 {
 

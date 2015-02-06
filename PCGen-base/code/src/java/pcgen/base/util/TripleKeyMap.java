@@ -62,6 +62,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 * third key of the TripleKeyMapToList to the value stored for the given
 	 * keys.
 	 */
+	@SuppressWarnings("rawtypes")
 	private final Class<? extends Map> thirdClass;
 
 	/**
@@ -101,6 +102,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 *             if any of the given Classes is null or does not have a public
 	 *             zero argument constructor
 	 */
+	@SuppressWarnings("rawtypes")
 	public TripleKeyMap(Class<? extends Map> cl1, Class<? extends Map> cl2,
 		Class<? extends Map> cl3)
 	{
@@ -346,6 +348,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 *             in the rare case that the super class actually throws the
 	 *             exception
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public TripleKeyMap<K1, K2, K3, V> clone()
 		throws CloneNotSupportedException
@@ -435,6 +438,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 * 
 	 * @return a new local map
 	 */
+	@SuppressWarnings("unchecked")
 	private Map<K3, V> createLocalMap()
 	{
 		try

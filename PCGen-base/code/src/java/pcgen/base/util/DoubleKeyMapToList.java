@@ -66,6 +66,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * Stores the Class to be used as the underlying Map for the map from the
 	 * first key of the DoubleKeyMapToList to the second underlying Map.
 	 */
+	@SuppressWarnings("rawtypes")
 	private final Class<? extends Map> firstClass;
 
 	/**
@@ -73,6 +74,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * second key of the DoubleKeyMapToList to the value stored for the given
 	 * keys.
 	 */
+	@SuppressWarnings("rawtypes")
 	private final Class<? extends Map> secondClass;
 
 	/**
@@ -104,6 +106,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 *             if one or both of the given Classes is null or does not have
 	 *             a public, zero argument constructor.
 	 */
+	@SuppressWarnings("rawtypes")
 	public DoubleKeyMapToList(Class<? extends Map> cl1, Class<? extends Map> cl2)
 	{
 		super();
@@ -465,6 +468,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * @throws CloneNotSupportedException
 	 *             (should not be thrown)
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public DoubleKeyMapToList<K1, K2, V> clone()
 		throws CloneNotSupportedException
@@ -558,6 +562,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * 
 	 * @return a new primary map
 	 */
+	@SuppressWarnings("unchecked")
 	private Map<K1, MapToList<K2, V>> createGlobalMap()
 	{
 		try

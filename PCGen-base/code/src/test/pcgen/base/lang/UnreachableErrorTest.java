@@ -17,12 +17,12 @@
  */
 package pcgen.base.lang;
 
-import org.junit.Test;
-
-import pcgen.base.lang.UnreachableError;
 import junit.framework.TestCase;
 
-public class UnreachableErrorTest extends TestCase {
+import org.junit.Test;
+
+public class UnreachableErrorTest extends TestCase
+{
 
 	@Test
 	public void testEmptyConstructor()
@@ -30,7 +30,7 @@ public class UnreachableErrorTest extends TestCase {
 		UnreachableError unreachableError = new UnreachableError();
 		assertNotNull(unreachableError);
 	}
-	
+
 	@Test
 	public void testMessageConstructor()
 	{
@@ -43,7 +43,8 @@ public class UnreachableErrorTest extends TestCase {
 	@Test
 	public void testCauseConstructor()
 	{
-		UnreachableError unreachableError = new UnreachableError(new NullPointerException());
+		UnreachableError unreachableError =
+				new UnreachableError(new NullPointerException());
 		Throwable result = unreachableError.getCause();
 		assertTrue(result instanceof NullPointerException);
 	}
@@ -52,7 +53,8 @@ public class UnreachableErrorTest extends TestCase {
 	public void testMessageAndCauseConstructor()
 	{
 		String expectedResult = "Foobar";
-		UnreachableError unreachableError = new UnreachableError("Foobar", new NullPointerException());
+		UnreachableError unreachableError =
+				new UnreachableError("Foobar", new NullPointerException());
 		String result = unreachableError.getMessage();
 		Throwable result2 = unreachableError.getCause();
 		assertTrue(result.equals(expectedResult));
@@ -60,4 +62,3 @@ public class UnreachableErrorTest extends TestCase {
 	}
 
 }
-

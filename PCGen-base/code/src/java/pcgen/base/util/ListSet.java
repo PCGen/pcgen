@@ -218,6 +218,7 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 	 *            The Object to be tested
 	 * @return true if the Object is present in this Set; false otherwise
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean contains(Object element)
 	{
@@ -255,6 +256,7 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 	 *            The Object to be removed from this Set.
 	 * @return true if the Object was removed from the Set; false otherwise
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean remove(Object element)
 	{

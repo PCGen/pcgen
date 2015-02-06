@@ -135,7 +135,6 @@ public class GridPoint
 					+ "Must be of the form: <num>,<num>");
 		}
 		Number width;
-		Number height;
 		try
 		{
 			String widthString = value.substring(0, commaLoc).trim();
@@ -146,6 +145,7 @@ public class GridPoint
 			throw new IllegalArgumentException(
 				"Misunderstood first value in GridPoint: " + value);
 		}
+		Number height;
 		try
 		{
 			String heightString = value.substring(commaLoc + 1).trim();

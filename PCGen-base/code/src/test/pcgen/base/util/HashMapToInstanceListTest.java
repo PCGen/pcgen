@@ -19,9 +19,6 @@ package pcgen.base.util;
 
 import org.junit.Test;
 
-import pcgen.base.util.AbstractMapToList;
-import pcgen.base.util.HashMapToInstanceList;
-
 public class HashMapToInstanceListTest extends HashMapToListTest
 {
 

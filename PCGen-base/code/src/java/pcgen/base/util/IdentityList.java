@@ -314,6 +314,7 @@ public class IdentityList<T> implements List<T>
 		return array;
 	}
 
+	@SuppressWarnings("unchecked")
 	private <V> void putIntoArray(Object[] source, V[] target)
 	{
 		for (int i = 0; i < source.length; i++)
@@ -326,6 +327,7 @@ public class IdentityList<T> implements List<T>
 	/**
 	 * @see java.util.List#toArray(Object[])
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public <V> V[] toArray(V[] newArray)
 	{

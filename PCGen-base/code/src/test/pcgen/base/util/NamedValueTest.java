@@ -21,8 +21,6 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import pcgen.base.util.NamedValue;
-
 public class NamedValueTest extends TestCase
 {
 

@@ -17,16 +17,12 @@
  */
 package pcgen.base.graph.core;
 
-import pcgen.base.graph.core.Graph;
-import pcgen.base.graph.core.GraphChangeSupport;
-import pcgen.base.graph.core.SimpleListGraph;
 import junit.framework.TestCase;
 
-public class GraphChangeSupportTest extends TestCase {
+public class GraphChangeSupportTest extends TestCase
+{
 
-	GraphChangeSupport support;
-
-	Graph source;
+	private Graph source;
 
 	/**
 	 * Sets up the fixture, for example, open a network connection. This method
@@ -35,38 +31,47 @@ public class GraphChangeSupportTest extends TestCase {
 	 * @throws Exception
 	 */
 	@Override
-	protected void setUp() throws Exception {
+	protected void setUp() throws Exception
+	{
 		source = new SimpleListGraph();
-		support = new GraphChangeSupport(source);
 	}
 
-	public void testGraphChangeSupport() {
-		try {
+	public void testGraphChangeSupport()
+	{
+		try
+		{
 			new GraphChangeSupport(null);
 			fail();
-		} catch (IllegalArgumentException npe) {
+		}
+		catch (IllegalArgumentException npe)
+		{
 			//OK
 		}
 		//NEEDTEST
 	}
 
-	public void testAddGraphChangeListener() {
+	public void testAddGraphChangeListener()
+	{
 		//NEEDTEST
 	}
 
-	public void testGetGraphChangeListeners() {
+	public void testGetGraphChangeListeners()
+	{
 		//NEEDTEST
 	}
 
-	public void testRemoveGraphChangeListener() {
+	public void testRemoveGraphChangeListener()
+	{
 		//NEEDTEST
 	}
 
-	public void testFireGraphEdgeChangeEvent() {
+	public void testFireGraphEdgeChangeEvent()
+	{
 		//NEEDTEST
 	}
 
-	public void testFireGraphNodeChangeEvent() {
+	public void testFireGraphNodeChangeEvent()
+	{
 		//NEEDTEST
 	}
 }

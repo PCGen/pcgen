@@ -22,12 +22,10 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.base.util.CaseInsensitiveMap;
-
 public class CaseInsensitiveMapTest extends TestCase
 {
 
-	CaseInsensitiveMap<Double> cim;
+	private CaseInsensitiveMap<Double> cim;
 
 	@Override
 	@Before

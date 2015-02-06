@@ -17,7 +17,6 @@
  */
 package pcgen.base.util;
 
-import pcgen.base.util.AbstractMapToList;
 
 
 public class HashMapToListTest extends AbstractMapToListTest

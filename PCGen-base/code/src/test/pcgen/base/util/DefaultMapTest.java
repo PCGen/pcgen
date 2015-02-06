@@ -22,12 +22,10 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.base.util.DefaultMap;
-
 public class DefaultMapTest extends TestCase
 {
 
-	DefaultMap<Object, Double> dm;
+	private DefaultMap<Object, Double> dm;
 
 	@Override
 	@Before

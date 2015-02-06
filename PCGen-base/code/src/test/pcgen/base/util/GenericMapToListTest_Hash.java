@@ -19,9 +19,6 @@ package pcgen.base.util;
 
 import java.util.HashMap;
 
-import pcgen.base.util.AbstractMapToList;
-import pcgen.base.util.GenericMapToList;
-
 public class GenericMapToListTest_Hash extends AbstractMapToListTest
 {
 

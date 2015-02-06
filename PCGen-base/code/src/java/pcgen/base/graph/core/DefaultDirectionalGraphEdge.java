@@ -69,6 +69,7 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.DirectionalEdge#getNodeInterfaceType(java.lang.Object)
 	 */
+	@Override
 	public int getNodeInterfaceType(N node)
 	{
 		int interfaceType = DirectionalEdge.UNCONNECTED;
@@ -95,6 +96,7 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.DirectionalEdge#getSourceNodes()
 	 */
+	@Override
 	public List<N> getSinkNodes()
 	{
 		return Collections.singletonList(getNodeAt(1));
@@ -112,6 +114,7 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.DirectionalEdge#getSourceNodes()
 	 */
+	@Override
 	public List<N> getSourceNodes()
 	{
 		return Collections.singletonList(getNodeAt(0));

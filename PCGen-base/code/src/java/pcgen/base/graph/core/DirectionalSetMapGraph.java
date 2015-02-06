@@ -84,6 +84,7 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 	 * 
 	 * @see pcgen.base.graph.core.DirectionalGraph#getInwardEdgeList(java.lang.Object)
 	 */
+	@Override
 	public List<ET> getInwardEdgeList(N v)
 	{
 		Set<ET> adjacentEdgeList = super.getAdjacentEdges(v);
@@ -113,6 +114,7 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 	 * 
 	 * @see pcgen.base.graph.core.DirectionalGraph#getOutwardEdgeList(java.lang.Object)
 	 */
+	@Override
 	public List<ET> getOutwardEdgeList(N v)
 	{
 		Set<ET> adjacentEdgeList = super.getAdjacentEdges(v);
@@ -136,6 +138,7 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 	 * 
 	 * @see pcgen.base.graph.core.DirectionalGraph#hasInwardEdge(java.lang.Object)
 	 */
+	@Override
 	public boolean hasInwardEdge(N v)
 	{
 		Set<ET> adjacentEdgeList = super.getAdjacentEdges(v);
@@ -159,6 +162,7 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 	 * 
 	 * @see pcgen.base.graph.core.DirectionalGraph#hasOutwardEdge(java.lang.Object)
 	 */
+	@Override
 	public boolean hasOutwardEdge(N v)
 	{
 		Set<ET> adjacentEdgeList = super.getAdjacentEdges(v);

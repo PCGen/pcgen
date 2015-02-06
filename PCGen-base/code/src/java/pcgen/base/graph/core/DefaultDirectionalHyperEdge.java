@@ -83,43 +83,8 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 			throw new IllegalArgumentException(
 				"Both Collections to DefaultDirectionalGraphEdge cannot be null");
 		}
-		/*
-		 * Copy before length check for thread safety
-		 */
-		if (sourceN == null || sourceN.isEmpty())
-		{
-			sourceNodes = null;
-		}
-		else
-		{
-			sourceNodes = new ArrayList<N>(sourceN.size());
-			sourceNodes.addAll(sourceN);
-			for (N node : sourceNodes)
-			{
-				if (node == null)
-				{
-					throw new IllegalArgumentException(
-						"Source Node List contains null");
-				}
-			}
-		}
-		if (sinkN == null || sinkN.isEmpty())
-		{
-			sinkNodes = null;
-		}
-		else
-		{
-			sinkNodes = new ArrayList<N>(sinkN.size());
-			sinkNodes.addAll(sinkN);
-			for (N node : sinkNodes)
-			{
-				if (node == null)
-				{
-					throw new IllegalArgumentException(
-						"Sink Node List contains null");
-				}
-			}
-		}
+		sourceNodes = setNodes(sourceN);
+		sinkNodes = setNodes(sinkN);
 		if (sourceNodes == null && sinkNodes == null)
 		{
 			throw new IllegalArgumentException(
@@ -127,11 +92,33 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 		}
 	}
 
+	private final List<N> setNodes(Collection<N> sourceN)
+	{
+		if (sourceN == null || sourceN.isEmpty())
+		{
+			return null;
+		}
+		/*
+		 * Copy before content check for thread safety
+		 */
+		List<N> returnList = new ArrayList<N>(sourceN.size());
+		returnList.addAll(sourceN);
+		for (N node : returnList)
+		{
+			if (node == null)
+			{
+				throw new IllegalArgumentException("List contains null");
+			}
+		}
+		return returnList;
+	}
+
 	/**
 	 * Returns the Node at the given index.
 	 * 
 	 * @see pcgen.base.graph.core.Edge#getNodeAt(int)
 	 */
+	@Override
 	public N getNodeAt(int i)
 	{
 		if (sourceNodes != null && i < sourceNodes.size())
@@ -158,6 +145,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.Edge#getAdjacentNodes()
 	 */
+	@Override
 	public List<N> getAdjacentNodes()
 	{
 		ArrayList<N> returnList = new ArrayList<N>(getAdjacentNodeCount());
@@ -178,6 +166,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.Edge#isAdjacentNode(java.lang.Object)
 	 */
+	@Override
 	public boolean isAdjacentNode(N gn)
 	{
 		if (sourceNodes != null && sourceNodes.contains(gn))
@@ -207,6 +196,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.Edge#getAdjacentNodeCount()
 	 */
+	@Override
 	public int getAdjacentNodeCount()
 	{
 		if (sourceNodes == null)
@@ -235,6 +225,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.DirectionalEdge#getNodeInterfaceType(java.lang.Object)
 	 */
+	@Override
 	public int getNodeInterfaceType(N node)
 	{
 		int type = 0;
@@ -261,6 +252,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.DirectionalEdge#getSinkNodes()
 	 */
+	@Override
 	public List<N> getSinkNodes()
 	{
 		return sinkNodes == null ? null : new ArrayList<N>(sinkNodes);
@@ -278,6 +270,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.DirectionalEdge#getSourceNodes()
 	 */
+	@Override
 	public List<N> getSourceNodes()
 	{
 		return sourceNodes == null ? null : new ArrayList<N>(sourceNodes);
@@ -293,6 +286,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * @see pcgen.base.graph.core.DirectionalHyperEdge#createReplacementEdge(java.util.Collection,
 	 *      java.util.Collection)
 	 */
+	@Override
 	public DefaultDirectionalHyperEdge<N> createReplacementEdge(
 		Collection<N> gn1, Collection<N> gn2)
 	{

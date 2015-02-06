@@ -124,6 +124,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * 
 	 * @see pcgen.base.graph.core.Graph#addNode(java.lang.Object)
 	 */
+	@Override
 	public boolean addNode(N v)
 	{
 		if (v == null)
@@ -169,6 +170,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * 
 	 * @see pcgen.base.graph.core.Graph#addEdge(java.lang.Object)
 	 */
+	@Override
 	public boolean addEdge(ET e)
 	{
 		if (e == null)
@@ -195,6 +197,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * 
 	 * @see pcgen.base.graph.core.Graph#containsNode(java.lang.Object)
 	 */
+	@Override
 	public boolean containsNode(Object v)
 	{
 		// This is presumably faster than searching through nodeList
@@ -206,6 +209,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * 
 	 * @see pcgen.base.graph.core.Graph#containsEdge(pcgen.base.graph.core.Edge)
 	 */
+	@Override
 	public boolean containsEdge(Edge<?> e)
 	{
 		return edgeSet.contains(e);
@@ -229,6 +233,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * 
 	 * @see pcgen.base.graph.core.Graph#getNodeList()
 	 */
+	@Override
 	public List<N> getNodeList()
 	{
 		return new ArrayList<N>(nodeMap.keySet());
@@ -245,6 +250,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * 
 	 * @see pcgen.base.graph.core.Graph#getEdgeList()
 	 */
+	@Override
 	public List<ET> getEdgeList()
 	{
 		return new ArrayList<ET>(edgeSet);
@@ -257,6 +263,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * 
 	 * @see pcgen.base.graph.core.Graph#removeNode(java.lang.Object)
 	 */
+	@Override
 	public boolean removeNode(N gn)
 	{
 		if (gn == null)
@@ -303,6 +310,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * 
 	 * @see pcgen.base.graph.core.Graph#removeEdge(java.lang.Object)
 	 */
+	@Override
 	public boolean removeEdge(ET ge)
 	{
 		if (ge == null)
@@ -343,6 +351,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * 
 	 * @see pcgen.base.graph.core.Graph#getAdjacentEdges(java.lang.Object)
 	 */
+	@Override
 	public Set<ET> getAdjacentEdges(N gn)
 	{
 		// implicitly returns null if gn is not in the nodeEdgeMap
@@ -356,6 +365,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * 
 	 * @see pcgen.base.graph.core.Graph#addGraphChangeListener(pcgen.base.graph.core.GraphChangeListener)
 	 */
+	@Override
 	public void addGraphChangeListener(GraphChangeListener<N, ET> arg0)
 	{
 		gcs.addGraphChangeListener(arg0);
@@ -372,6 +382,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * 
 	 * @see pcgen.base.graph.core.Graph#getGraphChangeListeners()
 	 */
+	@Override
 	public GraphChangeListener<N, ET>[] getGraphChangeListeners()
 	{
 		return gcs.getGraphChangeListeners();
@@ -383,6 +394,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * 
 	 * @see pcgen.base.graph.core.Graph#removeGraphChangeListener(pcgen.base.graph.core.GraphChangeListener)
 	 */
+	@Override
 	public void removeGraphChangeListener(GraphChangeListener<N, ET> arg0)
 	{
 		gcs.removeGraphChangeListener(arg0);
@@ -398,6 +410,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * @return true if the given Object is a Graph that contains equal Nodes and
 	 *         Edges to this Graph; false otherwise
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean equals(Object other)
 	{
@@ -481,6 +494,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * 
 	 * @return true if this Graph is empty; false otherwise
 	 */
+	@Override
 	public boolean isEmpty()
 	{
 		return nodeMap.isEmpty() && edgeSet.isEmpty();
@@ -491,6 +505,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * 
 	 * @return The number of nodes in the Graph, as an integer
 	 */
+	@Override
 	public int getNodeCount()
 	{
 		return nodeMap.size();
@@ -499,6 +514,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	/**
 	 * Clears this Graph, removing all Nodes and Edges from the Graph.
 	 */
+	@Override
 	public void clear()
 	{
 		/*

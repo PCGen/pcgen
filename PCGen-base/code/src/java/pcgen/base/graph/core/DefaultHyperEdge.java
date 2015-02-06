@@ -84,6 +84,7 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.Edge#getNodeAt(int)
 	 */
+	@Override
 	public N getNodeAt(int i)
 	{
 		return nodes.get(i);
@@ -100,6 +101,7 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.Edge#getAdjacentNodes()
 	 */
+	@Override
 	public List<N> getAdjacentNodes()
 	{
 		return new ArrayList<N>(nodes);
@@ -111,6 +113,7 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.Edge#isAdjacentNode(java.lang.Object)
 	 */
+	@Override
 	public boolean isAdjacentNode(N gn)
 	{
 		return nodes.contains(gn);
@@ -121,6 +124,7 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.Edge#getAdjacentNodeCount()
 	 */
+	@Override
 	public int getAdjacentNodeCount()
 	{
 		/*
@@ -138,8 +142,9 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.NonDirectionalEdge#createReplacementEdge(java.util.Collection)
 	 */
-	public DefaultHyperEdge<N> createReplacementEdge(Collection<N> nodes)
+	@Override
+	public DefaultHyperEdge<N> createReplacementEdge(Collection<N> nodeColl)
 	{
-		return new DefaultHyperEdge<N>(nodes);
+		return new DefaultHyperEdge<N>(nodeColl);
 	}
 }

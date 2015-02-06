@@ -27,7 +27,6 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.testsupport.NoPublicZeroArgConstructorMap;
 import pcgen.testsupport.NoZeroArgConstructorMap;
 import pcgen.testsupport.StrangeMap;
@@ -35,11 +34,10 @@ import pcgen.testsupport.StrangeMap;
 public class WrappedMapSetTest extends TestCase
 {
 
-	WrappedMapSet<Integer> ls;
-	Integer a1 = new Integer(1);
-	Integer a2 = new Integer(2);
-	Integer b1 = new Integer(1);
-	Integer b2 = new Integer(2);
+	private WrappedMapSet<Integer> ls;
+	private Integer a1 = new Integer(1);
+	private Integer a2 = new Integer(2);
+	private Integer b1 = new Integer(1);
 
 	@Override
 	@Before

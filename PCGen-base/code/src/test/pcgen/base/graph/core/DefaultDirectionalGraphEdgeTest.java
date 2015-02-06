@@ -19,17 +19,14 @@ package pcgen.base.graph.core;
 
 import java.util.List;
 
-import pcgen.base.graph.core.DefaultDirectionalGraphEdge;
-import pcgen.base.graph.core.DirectionalEdge;
-import pcgen.base.graph.core.GraphEdge;
-
 import junit.framework.TestCase;
 
-public class DefaultDirectionalGraphEdgeTest extends TestCase {
+public class DefaultDirectionalGraphEdgeTest extends TestCase
+{
 
-	Double node1, node2, node3, node4;
+	private Double node1, node2, node3, node4;
 
-	DefaultDirectionalGraphEdge<Double> edge1, edge2, edge3, edge4, edge5;
+	private DefaultDirectionalGraphEdge<Double> edge1, edge2, edge3, edge4, edge5;
 
 	/**
 	 * Sets up the fixture, for example, open a network connection. This method
@@ -38,7 +35,8 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase {
 	 * @throws Exception
 	 */
 	@Override
-	protected void setUp() throws Exception {
+	protected void setUp() throws Exception
+	{
 		node1 = new Double(1);
 		node2 = new Double(2);
 		node3 = new Double(5);
@@ -50,28 +48,39 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase {
 		edge5 = new DefaultDirectionalGraphEdge<Double>(node4, node4);
 	}
 
-	public void testDefaultGraphEdge() {
-		try {
+	public void testDefaultGraphEdge()
+	{
+		try
+		{
 			new DefaultDirectionalGraphEdge<Double>(node1, null);
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			new DefaultDirectionalGraphEdge<Double>(null, node3);
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			new DefaultDirectionalGraphEdge<Double>(null, null);
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
 	}
 
-	public void testGetNodeAt() {
+	public void testGetNodeAt()
+	{
 		assertEquals(node1, edge1.getNodeAt(0));
 		assertEquals(node2, edge2.getNodeAt(0));
 		assertEquals(node1, edge3.getNodeAt(0));
@@ -82,21 +91,28 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase {
 		assertEquals(node3, edge3.getNodeAt(1));
 		assertEquals(node3, edge4.getNodeAt(1));
 		assertEquals(node4, edge5.getNodeAt(1));
-		try {
+		try
+		{
 			assertEquals(node1, edge1.getNodeAt(2));
 			fail();
-		} catch (IndexOutOfBoundsException e) {
+		}
+		catch (IndexOutOfBoundsException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			assertEquals(node1, edge1.getNodeAt(-1));
 			fail();
-		} catch (IndexOutOfBoundsException e) {
+		}
+		catch (IndexOutOfBoundsException e)
+		{
 			// OK
 		}
 	}
 
-	public void testGetOppositeNode() {
+	public void testGetOppositeNode()
+	{
 		assertEquals(node1, edge1.getOppositeNode(node2));
 		assertEquals(node2, edge2.getOppositeNode(node1));
 		assertEquals(node1, edge3.getOppositeNode(node3));
@@ -111,7 +127,8 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase {
 		assertNull(edge1.getOppositeNode(node3));
 	}
 
-	public void testCreateReplacementEdgeNodeNode() {
+	public void testCreateReplacementEdgeNodeNode()
+	{
 		GraphEdge<Double> ge = edge1.createReplacementEdge(node3, node4);
 		assertTrue(ge instanceof DefaultDirectionalGraphEdge);
 		assertEquals(node3, ge.getNodeAt(0));
@@ -119,12 +136,14 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase {
 		assertEquals(2, ge.getAdjacentNodeCount());
 	}
 
-	public void testGetAdjacentNodeCount() {
+	public void testGetAdjacentNodeCount()
+	{
 		assertEquals(2, edge1.getAdjacentNodeCount());
 		assertEquals(2, edge2.getAdjacentNodeCount());
 	}
 
-	public void testIsAdjacentNode() {
+	public void testIsAdjacentNode()
+	{
 		assertTrue(edge3.isAdjacentNode(node1));
 		assertFalse(edge3.isAdjacentNode(node2));
 		assertTrue(edge3.isAdjacentNode(node3));
@@ -133,7 +152,8 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase {
 		assertFalse(edge2.isAdjacentNode(node3));
 	}
 
-	public void testGetSourceNode() {
+	public void testGetSourceNode()
+	{
 		List l;
 		l = edge1.getSourceNodes();
 		assertEquals(1, l.size());
@@ -152,7 +172,8 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase {
 		assertTrue(l.contains(node4));
 	}
 
-	public void testGetSinkNode() {
+	public void testGetSinkNode()
+	{
 		List l;
 		l = edge1.getSinkNodes();
 		assertEquals(1, l.size());
@@ -171,14 +192,15 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase {
 		assertTrue(l.contains(node4));
 	}
 
-	public void testGetNodeInterfaceType() {
+	public void testGetNodeInterfaceType()
+	{
 		assertEquals(DirectionalEdge.SOURCE, edge1.getNodeInterfaceType(node1));
 		assertEquals(DirectionalEdge.SINK, edge1.getNodeInterfaceType(node2));
-		assertEquals(DirectionalEdge.UNCONNECTED, edge1
-				.getNodeInterfaceType(node3));
-		assertEquals(DirectionalEdge.UNCONNECTED, edge1
-				.getNodeInterfaceType(null));
-		assertEquals(DirectionalEdge.SOURCE | DirectionalEdge.SINK, edge5
-				.getNodeInterfaceType(node4));
+		assertEquals(DirectionalEdge.UNCONNECTED,
+			edge1.getNodeInterfaceType(node3));
+		assertEquals(DirectionalEdge.UNCONNECTED,
+			edge1.getNodeInterfaceType(null));
+		assertEquals(DirectionalEdge.SOURCE | DirectionalEdge.SINK,
+			edge5.getNodeInterfaceType(node4));
 	}
 }

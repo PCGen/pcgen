@@ -28,16 +28,14 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.base.util.IdentityList;
-
 public class IdentityListTest extends TestCase
 {
 
-	IdentityList<Integer> ls;
-	Integer a1 = new Integer(1);
-	Integer a2 = new Integer(2);
-	Integer b1 = new Integer(1);
-	Integer b2 = new Integer(2);
+	private IdentityList<Integer> ls;
+	private Integer a1 = new Integer(1);
+	private Integer a2 = new Integer(2);
+	private Integer b1 = new Integer(1);
+	private Integer b2 = new Integer(2);
 
 	@Override
 	@Before

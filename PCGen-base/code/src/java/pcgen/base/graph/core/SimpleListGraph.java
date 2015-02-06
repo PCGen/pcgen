@@ -91,6 +91,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * @see pcgen.base.graph.core.Graph#addNode(java.lang.Object)
 	 */
+	@Override
 	public boolean addNode(N v)
 	{
 		if (v == null)
@@ -111,6 +112,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * @see rpgmapgen.map.graph.GraphStorageStrategy#addEdge(rpgmapgen.map.graph.Edge)
 	 */
+	@Override
 	public boolean addEdge(ET e)
 	{
 		if (e == null)
@@ -139,6 +141,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * @see pcgen.base.graph.core.Graph#containsNode(java.lang.Object)
 	 */
+	@Override
 	public boolean containsNode(Object v)
 	{
 		return nodeList.contains(v);
@@ -149,6 +152,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * @see pcgen.base.graph.core.Graph#containsEdge(pcgen.base.graph.core.Edge)
 	 */
+	@Override
 	public boolean containsEdge(Edge<?> e)
 	{
 		return edgeList.contains(e);
@@ -165,6 +169,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * @see pcgen.base.graph.core.Graph#getNodeList()
 	 */
+	@Override
 	public List<N> getNodeList()
 	{
 		return new ArrayList<N>(nodeList);
@@ -181,6 +186,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * @see pcgen.base.graph.core.Graph#getEdgeList()
 	 */
+	@Override
 	public List<ET> getEdgeList()
 	{
 		return new ArrayList<ET>(edgeList);
@@ -194,6 +200,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * @see pcgen.base.graph.core.Graph#removeNode(java.lang.Object)
 	 */
+	@Override
 	public boolean removeNode(N gn)
 	{
 		if (gn == null)
@@ -225,6 +232,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * @see pcgen.base.graph.core.Graph#removeEdge(pcgen.base.graph.core.Edge)
 	 */
+	@Override
 	public boolean removeEdge(ET ge)
 	{
 		if (ge == null)
@@ -251,6 +259,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * @see pcgen.base.graph.core.Graph#getAdjacentEdges(java.lang.Object)
 	 */
+	@Override
 	public Set<ET> getAdjacentEdges(N gn)
 	{
 		if (!containsNode(gn))
@@ -279,6 +288,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * @see pcgen.base.graph.core.Graph#addGraphChangeListener(pcgen.base.graph.core.GraphChangeListener)
 	 */
+	@Override
 	public void addGraphChangeListener(GraphChangeListener<N, ET> arg0)
 	{
 		gcs.addGraphChangeListener(arg0);
@@ -295,6 +305,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * @see pcgen.base.graph.core.Graph#getGraphChangeListeners()
 	 */
+	@Override
 	public GraphChangeListener<N, ET>[] getGraphChangeListeners()
 	{
 		return gcs.getGraphChangeListeners();
@@ -306,6 +317,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * @see pcgen.base.graph.core.Graph#removeGraphChangeListener(pcgen.base.graph.core.GraphChangeListener)
 	 */
+	@Override
 	public void removeGraphChangeListener(GraphChangeListener<N, ET> arg0)
 	{
 		gcs.removeGraphChangeListener(arg0);
@@ -321,6 +333,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * @return true if the given Object is a Graph that contains equal Nodes and
 	 *         Edges to this Graph; false otherwise
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean equals(Object other)
 	{
@@ -373,6 +386,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * @return true if this Graph is empty; false otherwise
 	 */
+	@Override
 	public boolean isEmpty()
 	{
 		return nodeList.isEmpty() && edgeList.isEmpty();
@@ -383,6 +397,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * 
 	 * @return The number of nodes in the Graph, as an integer
 	 */
+	@Override
 	public int getNodeCount()
 	{
 		return nodeList.size();
@@ -391,6 +406,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	/**
 	 * Clears this Graph, removing all Nodes and Edges from the Graph.
 	 */
+	@Override
 	public void clear()
 	{
 		/*

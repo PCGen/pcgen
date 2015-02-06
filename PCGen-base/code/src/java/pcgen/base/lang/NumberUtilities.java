@@ -40,6 +40,7 @@ public final class NumberUtilities
 	 * @throws NumberFormatException
 	 *             if the given String cannot be converted to a Number
 	 */
+	@SuppressWarnings("checkstyle:emptyblock")
 	public static Number getNumber(String number)
 	{
 		if (number.length() < 8)
@@ -68,6 +69,7 @@ public final class NumberUtilities
 	 * @throws NumberFormatException
 	 *             if the given String cannot be converted to a Number
 	 */
+	@SuppressWarnings("checkstyle:emptyblock")
 	public static Number getPreciseNumber(String number)
 	{
 		//CONSIDER is there a way to *reliably* know if a decimal can be stored in a Double?

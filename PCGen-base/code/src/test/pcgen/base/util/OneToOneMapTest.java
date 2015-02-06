@@ -26,12 +26,10 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.base.util.OneToOneMap;
-
 public class OneToOneMapTest extends TestCase
 {
 
-	OneToOneMap<Integer, Double> otom;
+	private OneToOneMap<Integer, Double> otom;
 
 	@Override
 	@Before

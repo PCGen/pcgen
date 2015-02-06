@@ -27,8 +27,6 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.base.util.GenericMapToList;
-
 public class GenericMapToListTest_Tree extends TestCase
 {
 
@@ -44,11 +42,12 @@ public class GenericMapToListTest_Tree extends TestCase
 
 	private static final Character CONST_A = 'A';
 
-	GenericMapToList<Integer, Character> dkm;
+	private GenericMapToList<Integer, Character> dkm;
 
 	@Override
 	@Before
-	public void setUp() {
+	public void setUp()
+	{
 		dkm = GenericMapToList.getMapToList(TreeMap.class);
 	}
 
@@ -361,7 +360,8 @@ public class GenericMapToListTest_Tree extends TestCase
 	@Test
 	public void testAddAllLists()
 	{
-		HashMapToList<Integer, Character> dkm2 = new HashMapToList<Integer, Character>();
+		HashMapToList<Integer, Character> dkm2 =
+				new HashMapToList<Integer, Character>();
 		populate();
 		dkm2.addAllLists(dkm);
 		assertTrue(dkm.removeFromListFor(Integer.valueOf(1), CONST_A));
@@ -374,6 +374,6 @@ public class GenericMapToListTest_Tree extends TestCase
 		assertFalse(dkm.containsListFor(Integer.valueOf(1)));
 		assertTrue(dkm2.containsListFor(Integer.valueOf(1)));
 	}
-	
+
 	// TODO Need to test iterator order
 }

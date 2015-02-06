@@ -21,7 +21,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
-public class NoPublicZeroArgConstructorMap<K, V> implements Map<K, V>
+public final class NoPublicZeroArgConstructorMap<K, V> implements Map<K, V>
 {
 
 	private NoPublicZeroArgConstructorMap()

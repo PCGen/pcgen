@@ -23,7 +23,6 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import junit.framework.TestCase;
-import pcgen.base.lang.StringUtil;
 import pcgen.testsupport.TestSupport;
 
 public class StringUtilTest extends TestCase

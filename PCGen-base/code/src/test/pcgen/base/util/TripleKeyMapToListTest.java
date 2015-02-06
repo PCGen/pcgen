@@ -29,8 +29,6 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.base.util.MapToList;
-import pcgen.base.util.TripleKeyMapToList;
 import pcgen.testsupport.NoPublicZeroArgConstructorMap;
 import pcgen.testsupport.NoZeroArgConstructorMap;
 import pcgen.testsupport.StrangeMap;
@@ -53,7 +51,7 @@ public class TripleKeyMapToListTest extends TestCase
 	private static final char CONST_D = 'D';
 	private static final char CONST_B = 'B';
 	private static final char CONST_A = 'A';
-	TripleKeyMapToList<Integer, Double, Long, Character> dkm;
+	private TripleKeyMapToList<Integer, Double, Long, Character> dkm;
 
 	@Override
 	@Before

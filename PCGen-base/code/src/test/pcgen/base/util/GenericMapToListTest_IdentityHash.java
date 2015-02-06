@@ -27,8 +27,6 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.base.util.GenericMapToList;
-
 public class GenericMapToListTest_IdentityHash extends TestCase
 {
 
@@ -52,7 +50,7 @@ public class GenericMapToListTest_IdentityHash extends TestCase
 
 	private static final Character CONST_A = 'A';
 
-	GenericMapToList<Integer, Character> dkm;
+	private GenericMapToList<Integer, Character> dkm;
 
 	@Override
 	@Before

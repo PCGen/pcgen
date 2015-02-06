@@ -21,15 +21,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import pcgen.base.graph.core.DefaultHyperEdge;
-
 import junit.framework.TestCase;
 
-public class DefaultHyperEdgeTest extends TestCase {
+public class DefaultHyperEdgeTest extends TestCase
+{
 
-	DefaultHyperEdge<Integer> edge1, edge2, edge3, edge4, edge5, edge6;
+	private DefaultHyperEdge<Integer> edge1, edge2, edge3, edge4, edge5, edge6;
 
-	Integer node3, node4, node5, node6;
+	private Integer node3, node4, node5, node6;
 
 	/**
 	 * Sets up the fixture, for example, open a network connection. This method
@@ -38,66 +37,91 @@ public class DefaultHyperEdgeTest extends TestCase {
 	 * @throws Exception
 	 */
 	@Override
-	protected void setUp() throws Exception {
+	protected void setUp() throws Exception
+	{
 		node3 = new Integer(3);
 		node4 = new Integer(4);
 		node5 = new Integer(5);
 		node6 = new Integer(6);
-		edge1 = new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[] {
-				node4, node3, node6 }));
-		edge2 = new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[] {
-				node6, node5 }));
-		edge3 = new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[] {
-				node6, node4, node3 }));
-		edge4 = new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[] {
-				node6, node3 }));
-		edge5 = new DefaultHyperEdge<Integer>(Arrays
-				.asList(new Integer[] { node6 }));
-		edge6 = new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[] {
-				node4, node6 }));
+		edge1 =
+				new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[]{
+					node4, node3, node6}));
+		edge2 =
+				new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[]{
+					node6, node5}));
+		edge3 =
+				new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[]{
+					node6, node4, node3}));
+		edge4 =
+				new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[]{
+					node6, node3}));
+		edge5 =
+				new DefaultHyperEdge<Integer>(
+					Arrays.asList(new Integer[]{node6}));
+		edge6 =
+				new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[]{
+					node4, node6}));
 	}
 
-	public void testDefaultHyperEdge() {
-		try {
+	public void testDefaultHyperEdge()
+	{
+		try
+		{
 			new DefaultHyperEdge<Integer>(null);
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			// OK
 		}
-		try {
-			new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[] {}));
+		try
+		{
+			new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[]{}));
 			fail();
-		} catch (IllegalArgumentException iae) {
+		}
+		catch (IllegalArgumentException iae)
+		{
 			// OK
 		}
-		try {
-			new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[] { node4,
-					null }));
+		try
+		{
+			new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[]{node4,
+				null}));
 			fail();
-		} catch (IllegalArgumentException iae) {
+		}
+		catch (IllegalArgumentException iae)
+		{
 			// OK
 		}
 	}
 
-	public void testGetNodeAt() {
+	public void testGetNodeAt()
+	{
 		assertEquals(node6, edge3.getNodeAt(0));
 		assertEquals(node4, edge3.getNodeAt(1));
 		assertEquals(node3, edge3.getNodeAt(2));
-		try {
+		try
+		{
 			edge3.getNodeAt(-1);
 			fail();
-		} catch (IndexOutOfBoundsException e) {
+		}
+		catch (IndexOutOfBoundsException e)
+		{
 			// OK
 		}
-		try {
+		try
+		{
 			edge3.getNodeAt(3);
 			fail();
-		} catch (IndexOutOfBoundsException e) {
+		}
+		catch (IndexOutOfBoundsException e)
+		{
 			// OK
 		}
 	}
 
-	public void testGetAdjacentNodes() {
+	public void testGetAdjacentNodes()
+	{
 		List<Integer> l = edge3.getAdjacentNodes();
 		assertEquals(3, l.size());
 		assertTrue(l.contains(node3));
@@ -108,7 +132,8 @@ public class DefaultHyperEdgeTest extends TestCase {
 		assertTrue(l.contains(node6));
 	}
 
-	public void testGetAdjacentNodeCount() {
+	public void testGetAdjacentNodeCount()
+	{
 		assertEquals(3, edge1.getAdjacentNodeCount());
 		assertEquals(2, edge2.getAdjacentNodeCount());
 		assertEquals(3, edge3.getAdjacentNodeCount());
@@ -117,29 +142,37 @@ public class DefaultHyperEdgeTest extends TestCase {
 		assertEquals(2, edge6.getAdjacentNodeCount());
 	}
 
-	public void testIsAdjacentEdge() {
+	public void testIsAdjacentEdge()
+	{
 		assertTrue(edge1.isAdjacentNode(node3));
 		assertTrue(edge1.isAdjacentNode(node4));
 		assertFalse(edge1.isAdjacentNode(node5));
 		assertTrue(edge1.isAdjacentNode(node6));
 	}
 
-	public void testCreateReplacementEdge() {
-		try {
+	public void testCreateReplacementEdge()
+	{
+		try
+		{
 			edge1.createReplacementEdge(null);
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			//OK
 		}
-		try {
+		try
+		{
 			edge1.createReplacementEdge(new ArrayList<Integer>());
 			fail();
-		} catch (IllegalArgumentException e) {
+		}
+		catch (IllegalArgumentException e)
+		{
 			//OK
 		}
-		DefaultHyperEdge<Integer> newEdge = edge1.createReplacementEdge(Arrays
-				.asList(new Integer[] { 4, 5 }));
-		assertTrue (newEdge.getClass().equals(edge1.getClass()));
+		DefaultHyperEdge<Integer> newEdge =
+				edge1.createReplacementEdge(Arrays.asList(new Integer[]{4, 5}));
+		assertTrue(newEdge.getClass().equals(edge1.getClass()));
 		List<Integer> l = newEdge.getAdjacentNodes();
 		assertEquals(2, l.size());
 		assertTrue(l.contains(4));

@@ -26,8 +26,6 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.base.util.TreeMapToList;
-
 public class TreeMapToListTest extends TestCase
 {
 
@@ -43,7 +41,7 @@ public class TreeMapToListTest extends TestCase
 
 	private static final Character CONST_A = 'A';
 
-	TreeMapToList<Integer, Character> dkm;
+	private TreeMapToList<Integer, Character> dkm;
 
 	@Override
 	@Before

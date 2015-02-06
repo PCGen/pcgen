@@ -78,6 +78,7 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.Edge#getNodeAt(int)
 	 */
+	@Override
 	public N getNodeAt(int i)
 	{
 		if (i == 0)
@@ -102,6 +103,7 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.GraphEdge#getOppositeNode(java.lang.Object)
 	 */
+	@Override
 	public N getOppositeNode(N gn)
 	{
 		if (firstNode.equals(gn))
@@ -125,6 +127,7 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	 * @see pcgen.base.graph.core.GraphEdge#createReplacementEdge(java.lang.Object,
 	 *      java.lang.Object)
 	 */
+	@Override
 	public DefaultGraphEdge<N> createReplacementEdge(N gn1, N gn2)
 	{
 		return new DefaultGraphEdge<N>(gn1, gn2);
@@ -141,6 +144,7 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.Edge#getAdjacentNodes()
 	 */
+	@Override
 	public List<N> getAdjacentNodes()
 	{
 		List<N> l = new LinkedList<N>();
@@ -155,6 +159,7 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.Edge#isAdjacentNode(java.lang.Object)
 	 */
+	@Override
 	public boolean isAdjacentNode(N gn)
 	{
 		return firstNode.equals(gn) || secondNode.equals(gn);
@@ -166,6 +171,7 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	 * 
 	 * @see pcgen.base.graph.core.Edge#getAdjacentNodeCount()
 	 */
+	@Override
 	public int getAdjacentNodeCount()
 	{
 		return 2;

@@ -26,8 +26,6 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.base.util.KeyMap;
-
 public class KeyMapTest extends TestCase
 {
 
@@ -41,7 +39,7 @@ public class KeyMapTest extends TestCase
 	private static final Double D5 = Double.valueOf(5);
 	private static final Double D6 = Double.valueOf(6);
 
-	KeyMap<Double> otom;
+	private KeyMap<Double> otom;
 
 	@Override
 	@Before
