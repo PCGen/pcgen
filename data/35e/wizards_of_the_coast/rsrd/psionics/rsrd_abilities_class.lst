@@ -2,6 +2,8 @@
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: TaluronIscandar
 
+Open Minded Skill	TYPE:Open Minded Skill	CATEGORY:Special Ability	CHOOSE:SKILL|!RANKS=MAXRANK,TYPE=Base	MULT:YES	STACK:YES	BONUS:SKILLRANK|%LIST|1
+
 ###Block: Monster Psion Casting Support
 # Ability Name		Category of Ability	List of Class Spells by Level
 Psion Egoist Class	CATEGORY:Internal		SPELLLEVEL:CLASS|Psion=2|Animal Affinity,Chameleon,Empathic Transfer|Psion=3|Ectoplasmic Form,Hustle|Psion=4|Metamorphosis,Psychic Vampire|Psion=5|Psionic Revivify,Psychofeedback,Restore Extremity|Psion=6|Restoration (Psionic)|Psion=8|Fusion|Psion=9|Metamorphosis (Greater)
