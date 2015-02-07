@@ -70,7 +70,7 @@ allprojects {
 }
 
 task echoVer() << {
-    println "${project.name} Version: ${project.version} ${buildTimestamp}"
+    println "${project.name} Version: ${project.version} (${buildTimestamp})"
 }
 
 jar {
