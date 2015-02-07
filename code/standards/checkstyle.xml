@@ -39,6 +39,9 @@
         <property name="basedir" value="${basedir}"/>
     -->
 
+    <!-- Allows SuppressWarnings to work -->
+    <module name="SuppressWarningsHolder"/>
+
     <!-- Checks whether files end with a new line.                        -->
     <!-- See http://checkstyle.sf.net/config_misc.html#NewlineAtEndOfFile -->
     <module name="NewlineAtEndOfFile"/>
@@ -139,7 +142,7 @@
         <!-- Modifier Checks                                    -->
         <!-- See http://checkstyle.sf.net/config_modifiers.html -->
         <module name="ModifierOrder"/>
-        <module name="RedundantModifier"/>
+        <!-- <module name="RedundantModifier"/> -->
 
 
         <!-- Checks for blocks. You know, those {}'s         -->
