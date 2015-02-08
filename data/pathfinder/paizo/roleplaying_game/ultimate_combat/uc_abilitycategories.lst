@@ -87,3 +87,8 @@ ABILITYCATEGORY:Samurai Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:N
 
 ABILITYCATEGORY:Terrain Mastery					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Terrain Mastery																																	PLURAL:Terrain Mastery				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Magus Class Feature					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:MagusClassFeatures																																	PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Controlled Rage Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Controlled Rage Choice																																							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Controlled Rage Allocation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Controlled Rage Allocation																																						DISPLAYLOCATION:Class Features
+
+
