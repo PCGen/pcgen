@@ -45,9 +45,9 @@ Multiattack			KEY:Companion ~ Multiattack			CATEGORY:Special Ability	TYPE:Specia
 Evasion			KEY:Companion ~ Evasion				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DESC:If an animal companion is subjected to an attack that normally allows a Reflex saving throw for half damage, it takes no damage if it makes a successful saving throw.																																																		ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion														SOURCEPAGE:p.53
 Improved Evasion		KEY:Companion ~ Improved Evasion		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DESC:When subjected to an attack that normally allows a Reflex saving throw for half damage, an animal companion takes no damage if it makes a successful saving throw and only half damage if the saving throw fails.																																											ABILITY:Special Ability|AUTOMATIC|Improved Evasion														SOURCEPAGE:p.53
 Spell Resistance		KEY:Companion ~ Spell Resistance		CATEGORY:Special Ability											DESC:%1|mastervar("SpecialMountLVL")+5	SR:mastervar("SpecialMountLVL")+5
-Companion ~ Armor Class	BONUS:COMBAT|AC|2*(MASTERVAR("SpecialMountLVL")/3)|TYPE=NaturalArmor.STACK
-Companion ~ Stat Bonus		BONUS:STAT|STR,DEX|(MASTERVAR("SpecialMountLVL")/3)	
-Companion ~ Stat Increase																																				BONUS:ABILITYPOOL|Companion Stat Increase|(MASTERVAR("SpecialMountLVL")+1)/5
+Armor Class			KEY:Companion ~ Armor Class			CATEGORY:Special Ability	BONUS:COMBAT|AC|2*(MASTERVAR("SpecialMountLVL")/3)|TYPE=NaturalArmor.STACK
+Stat Bonus			KEY:Companion ~ Stat Bonus			CATEGORY:Special Ability	BONUS:STAT|STR,DEX|(MASTERVAR("SpecialMountLVL")/3)	
+Stat Increase		KEY:Companion ~ Stat Increase			CATEGORY:Special Ability																																				BONUS:ABILITYPOOL|Companion Stat Increase|(MASTERVAR("SpecialMountLVL")+1)/5
 
 ###Block: Familiar Abilities
 # Ability Name				Unique Key							Category of Ability		Type								Description																																																																									Source Page
