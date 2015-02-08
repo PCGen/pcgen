@@ -28,31 +28,6 @@ FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Companion	HD:1																							
 FOLLOWER:AnimalCompanionLVL=19	TYPE:Animal Companion																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=20	TYPE:Animal Companion	HD:1																															BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-
-
-
-
-###Block: Size Mod -
-# Class of the Master	Type				Adjust PC Size
-#FOLLOWER:AnimalCompanionLVL=4	TYPE:Animal Companion
-#PREVAREQ:CompAdvancementLvlA,1
-#|PRERACE:1,Companion (Ape),Companion (Badger (Wolverine)),Companion (Bear),Companion (Boar),Companion (Crocodile (Alligator)),Companion (Cat (Small (Cheetah))),Companion (Cat (Small (Leopard))),Companion (Dinosaur (Deinonychus)),Companion (Dinosaur (Velociraptor)),Companion (Dog),Companion (Shark),Companion (Sanke (Constrictor)),Companion (Snake (Viper))
-#FOLLOWER:AnimalCompanionLVL=7	TYPE:Animal Companion
-#|PRERACE:1,Companion (Cat (Big (Lion))),Companion (Cat (Big (Tiger))),Companion (Dinosaur (Deinonychus)),Companion (Dinosaur (Velociraptor)),Companion (Wolf)
-
-###Block: Companion Choice
-#FOLLOWER:AnimalCompanionLVL=4	TYPE:Animal Companion
-#PRERACE:1,Companion (Ape),Companion (Badger (Wolverine)),Companion (Bear),Companion (Boar),Companion (Bird (Eagle)),Companion (Bird (Hawk)),Companion (Bird (Owl)),Companion (Camel),Companion (Crocodile (Alligator)),Companion (Cat (Small (Cheetah))),Companion (Cat (Small (Leopard))),Companion (Dinosaur (Deinonychus)),Companion (Dinosaur (Velociraptor)),Companion (Dog),Companion (Horse),Companion (Pony),Companion (Shark),Companion (Sanke (Constrictor)),Companion (Snake (Viper))
-#FOLLOWER:AnimalCompanionLVL=7	TYPE:Animal Companion
-#PRERACE:1,Companion (Cat (Big (Lion))),Companion (Cat (Big (Tiger))),Companion (Dinosaur (Deinonychus)),Companion (Dinosaur (Velociraptor)),Companion (Wolf)
-
-###Block: Bonus to Stat Instead of Ability
-#FOLLOWER:AnimalCompanionLVL=4	TYPE:Animal Companion
-#FOLLOWER:AnimalCompanionLVL=7	TYPE:Animal Companion
-
-###CLARIFY:Instead of taking the listed benefit at 4th or 7th level, you can instead choose to increase the companion's Dexterity and Constitution by 2.
-###CLARIFY:Does this mean Size Increase as well?
-
 ###Block:Special Mount - Same Table but slightly different animal list was warranted plus INT needs to be locked at 6
 # Class of the Master		Type				Hit Dice	Spell Res.					Ability																				Auto Armor Prof				Define			Define Stat				Bonus Ability Pool					Combat bonus					Stat bonus			Modify VAR			Main Race Type			Template
 FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount																														AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0	DEFINESTAT:MINVALUE|INT|6																				BONUS:VAR|MasterLevel|1	RACETYPE:Animal
@@ -78,9 +53,9 @@ FOLLOWER:SpecialMountLVL=18	TYPE:Special Mount	HD:1																													
 FOLLOWER:SpecialMountLVL=19	TYPE:Special Mount																																																																BONUS:VAR|MasterLevel|1
 FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount	HD:1																																												BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 
-###Block:Familiar - No apparent changes from RSRD
+###Block: Familiar
 # Class of the Master	Type			Spell Res.				Ability												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat				Combat bonus					Main Race Type
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES																				BONUS:COMBAT|TOHIT.Natural|DEX-STR|PREVARGTEQ:DEXSCORE,STRSCORE
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|Improved Evasion																		DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast
 FOLLOWER:FamiliarLVL=3	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Deliver Touch Spells																				DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:FamiliarLVL=5	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Master																				DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
@@ -100,21 +75,23 @@ FOLLOWER:FamiliarLVL=20	TYPE:Familiar
 ###Block: Specific Familiars
 # Class of the Master	Type			Required Race			Apply Kit
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Raven)	KIT:1|Raven Familiar Language
-#
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar			Type			Ability
-MASTERBONUSRACE:Familiar (Bat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bat)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Cat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Cat)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Bat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bat)		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Cat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Cat)		ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Hawk)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Hawk)	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Lizard)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Lizard)	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Monkey)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Monkey)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Owl)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Owl)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Rat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rat)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Owl)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Owl)		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Rat)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rat)		ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Raven)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Raven)	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Viper)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Viper)	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Toad)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Toad)	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Weasel)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Weasel)	ABILITY:FEAT|VIRTUAL|Alertness
+
+# Race of familiar				Type			Ability
+MASTERBONUSRACE:Familiar (Compsognathus)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Compsognathus)	ABILITY:FEAT|VIRTUAL|Alertness
 #
 
 # Class of the Master		Type				Copy Masters BAB		Copy Masters Checks	HP formula based on Master
@@ -128,5 +105,3 @@ FOLLOWER:NormalFollower=1	TYPE:Follower
 #
 # End
 #
-# Race of familiar				Type			Ability
-MASTERBONUSRACE:Familiar (Compsognathus)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Compsognathus)	ABILITY:FEAT|VIRTUAL|Alertness
