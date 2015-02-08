@@ -23,11 +23,11 @@ FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Companion	HD:1
 FOLLOWER:AnimalCompanionLVL=20	TYPE:Animal Companion	HD:1
 ###Block:
 FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Special Ability|AUTOMATIC|Companion ~ Link|!PREABILITY:1,CATEGORY=Archetype,CompanionLink	ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|!PREABILITY:1,CATEGORY=Archetype,CompanionShareSpells
-FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionEvasion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Armor Class|Companion ~ Stat Bonus
-FOLLOWER:AnimalCompanionLVL=4		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Stat Increase
+FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionEvasion
+FOLLOWER:AnimalCompanionLVL=4		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Animal Companion
 FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion|!PREABILITY:1,CATEGORY=Archetype,CompanionDevotion
 FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack|!PREABILITY:1,CATEGORY=Archetype,CompanionMultiattack
-FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Spell Resistance
+FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Spell Resistance (AC)
 FOLLOWER:AnimalCompanionLVL=16	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionImprovedEvasion
 
 ###Block:Special Mount - Same Table but slightly different animal list was warranted plus INT needs to be locked at 6
@@ -52,12 +52,12 @@ FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount	HD:1
 ###Block:
 # Class of the Master		Type				Ability																																				Main Race Type			Template
 FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Link|!PREABILITY:1,CATEGORY=Archetype,CompanionLink	ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|!PREABILITY:1,CATEGORY=Archetype,CompanionShareSpells
-FOLLOWER:SpecialMountLVL=3	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionEvasion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Armor Class|Companion ~ Stat Bonus
-FOLLOWER:SpecialMountLVL=4	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Stat Increase
+FOLLOWER:SpecialMountLVL=3	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionEvasion
+FOLLOWER:SpecialMountLVL=4	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Special Mount
 FOLLOWER:SpecialMountLVL=6	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion|!PREABILITY:1,CATEGORY=Archetype,CompanionDevotion
 FOLLOWER:SpecialMountLVL=9	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack|!PREABILITY:1,CATEGORY=Archetype,CompanionMultiattack
 FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount																																						RACETYPE:Animal/Magical Beast	TEMPLATE:Celestial Creature
-FOLLOWER:SpecialMountLVL=15	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Spell Resistance
+FOLLOWER:SpecialMountLVL=15	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Spell Resistance (SM)
 FOLLOWER:SpecialMountLVL=16	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,CompanionImprovedEvasion
 
 ###Block: Familiar

@@ -41,13 +41,14 @@ Link				KEY:Companion ~ Link				CATEGORY:Special Ability	TYPE:SpecialQuality.Ext
 Share Spells		KEY:Companion ~ Share Spells			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DESC:The master may cast a spell with a target of "You" on her animal companion (as a spell with a range of touch) instead of on herself. A master may cast spells on her animal companion even if the spells normally do not affect creatures of the companion's type (animal). Spells cast in this way must come from a class that grants an animal companion. This ability does not allow the animal to share abilities that are not spells, even if they function like spells.																							SOURCEPAGE:p.52
 Ability Score Increase	KEY:Companion ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DESC:The animal companion adds +1 to one of its ability scores.																																																																																										SOURCEPAGE:p.53
 Devotion			KEY:Companion ~ Devotion			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DESC:An animal companion gains a +4 morale bonus on Will saves against enchantment spells and effects.																																																																																			SOURCEPAGE:p.53
-Multiattack			KEY:Companion ~ Multiattack			CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:Multiattack|0	DESC:An animal companion gains Multiattack as a bonus feat if it has three or more natural attacks and does not already have that feat. If it does not have the requisite three or more natural attacks, the animal companion instead gains a second attack with one of its natural weapons, albeit at a -5 penalty.																											ABILITY:FEAT|AUTOMATIC|Multiattack													BONUS:VAR|Multiattack|1	SOURCEPAGE:p.53
+Multiattack			KEY:Companion ~ Multiattack			CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:Multiattack|0	DESC:An animal companion gains Multiattack as a bonus feat if it has three or more natural attacks and does not already have that feat. If it does not have the requisite three or more natural attacks, the animal companion instead gains a second attack with one of its natural weapons, albeit at a -5 penalty.																											ABILITY:FEAT|AUTOMATIC|Multiattack|PREVARGTEQ:NaturalAttacks,2								BONUS:VAR|Multiattack|1	SOURCEPAGE:p.53	ABILITY:Internal|AUTOMATIC|Companion Single Attack|PREVAREQ:NaturalAttacks,1
 Evasion			KEY:Companion ~ Evasion				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DESC:If an animal companion is subjected to an attack that normally allows a Reflex saving throw for half damage, it takes no damage if it makes a successful saving throw.																																																		ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion														SOURCEPAGE:p.53
 Improved Evasion		KEY:Companion ~ Improved Evasion		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary					DESC:When subjected to an attack that normally allows a Reflex saving throw for half damage, an animal companion takes no damage if it makes a successful saving throw and only half damage if the saving throw fails.																																											ABILITY:Special Ability|AUTOMATIC|Improved Evasion														SOURCEPAGE:p.53
-Spell Resistance		KEY:Companion ~ Spell Resistance		CATEGORY:Special Ability											DESC:%1|mastervar("SpecialMountLVL")+5	SR:mastervar("SpecialMountLVL")+5
-Armor Class			KEY:Companion ~ Armor Class			CATEGORY:Special Ability	BONUS:COMBAT|AC|2*(MASTERVAR("SpecialMountLVL")/3)|TYPE=NaturalArmor.STACK
-Stat Bonus			KEY:Companion ~ Stat Bonus			CATEGORY:Special Ability	BONUS:STAT|STR,DEX|(MASTERVAR("SpecialMountLVL")/3)	
-Stat Increase		KEY:Companion ~ Stat Increase			CATEGORY:Special Ability																																				BONUS:ABILITYPOOL|Companion Stat Increase|(MASTERVAR("SpecialMountLVL")+1)/5
+Spell Resistance		KEY:Companion ~ Spell Resistance (SM)	CATEGORY:Special Ability											DESC:%1|mastervar("SpecialMountLVL")+5	SR:mastervar("SpecialMountLVL")+5
+Spell Resistance		KEY:Companion ~ Spell Resistance (AC)	CATEGORY:Special Ability											DESC:%1|mastervar("AnimalCompanionLVL")+5	SR:mastervar("AnimalCompanionLVL")+5
+
+Special Mount		KEY:Companion ~ Special Mount			CATEGORY:Special Ability	BONUS:COMBAT|AC|2*(MASTERVAR("SpecialMountLVL")/3)|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|(MASTERVAR("SpecialMountLVL")/3)		BONUS:ABILITYPOOL|Companion Stat Increase|(MASTERVAR("SpecialMountLVL")+1)/5
+Animal Companion		KEY:Companion ~ Animal Companion		CATEGORY:Special Ability	BONUS:COMBAT|AC|2*(MASTERVAR("AnimalCompanionLVL")/3)|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|(MASTERVAR("AnimalCompanionLVL")/3)	BONUS:ABILITYPOOL|Companion Stat Increase|(MASTERVAR("AnimalCompanionLVL")+1)/5
 
 ###Block: Familiar Abilities
 # Ability Name				Unique Key							Category of Ability		Type								Description																																																																									Source Page
@@ -61,9 +62,10 @@ Spell Resistance				KEY:Familiar ~ Spell Resistance			CATEGORY:Special Ability	T
 
 
 ###Block:
-# Ability Name	Category of Ability		Type				Ability										Class Skill
-Companion Skills	CATEGORY:Special Ability	TYPE:Special													CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Stealth|Survival|Swim
-War Trained		CATEGORY:Special Ability	TYPE:SpecialQuality	ABILITY:Special Ability|AUTOMATIC|Animal Training ~ Combat Riding
+# Ability Name		Category of Ability		Type				Ability										Class Skill
+Companion Skills		CATEGORY:Special Ability	TYPE:Special													CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Stealth|Survival|Swim
+War Trained			CATEGORY:Special Ability	TYPE:SpecialQuality	ABILITY:Special Ability|AUTOMATIC|Animal Training ~ Combat Riding
+Companion Single Attack	CATEGORY:Internal																																	BONUS:VAR|BiteAttacks|1|PREVARGTEQ:BiteAttacks,1	BONUS:VAR|GoreAttacks|1|PREVARGTEQ:GoreAttacks,1	BONUS:VAR|PincersAttacks|1|PREVARGTEQ:PincersAttacks,1	BONUS:VAR|TailSlapAttacks|1|PREVARGTEQ:TailSlapAttacks,1	BONUS:VAR|ClawAttacks|1|PREVARGTEQ:ClawAttacks,1	BONUS:VAR|SlamAttacks|1|PREVARGTEQ:SlamAttacks,1	BONUS:VAR|StingAttacks|1|PREVARGTEQ:StingAttacks,1	BONUS:VAR|TalonsAttacks|1|PREVARGTEQ:TalonsAttacks,1	BONUS:VAR|HoofAttacks|1|PREVARGTEQ:HoofAttacks,1	BONUS:VAR|TentacleAttacks|1|PREVARGTEQ:TentacleAttacks,1	BONUS:VAR|WingAttacks|1|PREVARGTEQ:WingAttacks,1	ASPECT:CombatBonus|Companion gains a second attack - this second attack is at a -5 to hit (NOT CALCULATED)
 
 # Unique to Companions
 
