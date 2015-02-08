@@ -11,6 +11,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: "jacoco"
+apply plugin: 'ivy-publish'
 
 group = 'net.sourceforge.pcgen'
 description = """PCGen base library"""
@@ -76,7 +77,43 @@ task echoVer() << {
 jar {
     manifest {
         attributes 'Implementation-Title': 'PCGenBaseLibrary', 'Implementation-Version': project.version, 
-        	'Built-On': buildTimestamp 
+            'Built-On': buildTimestamp 
+    }
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.java
+    classifier "source"
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+// Rules for how we publish our artifacts in ivy compliant format
+publishing {
+    repositories {
+        ivy {
+            name "fileRepo"
+            url '/home/pcgen1/www/librepo'
+            //url 'D:/Projects/pcgen-base/librepo'
+        }
+    }
+    publications {
+        ivy(IvyPublication) {
+            from components.java
+            artifact(sourceJar) {
+                type "source"
+                conf "runtime"
+            }
+            artifact(javadocJar) {
+                type "javadoc"
+            }
+            descriptor.withXml {
+                asNode().info[0].appendNode('description', description)
+            }
+        }
     }
 }
 
