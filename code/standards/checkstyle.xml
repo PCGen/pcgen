@@ -39,9 +39,6 @@
         <property name="basedir" value="${basedir}"/>
     -->
 
-    <!-- Allows SuppressWarnings to work -->
-    <module name="SuppressWarningsHolder"/>
-
     <!-- Checks whether files end with a new line.                        -->
     <!-- See http://checkstyle.sf.net/config_misc.html#NewlineAtEndOfFile -->
     <module name="NewlineAtEndOfFile"/>
@@ -56,6 +53,9 @@
     <!-- <module name="RegexpHeader"/>                                -->
  
     <module name="TreeWalker">
+
+	    <!-- Allows SuppressWarnings to work -->
+    	<module name="SuppressWarningsHolder"/>
 
         <property name="cacheFile" value="checkstyle-cachefile"/>
         
