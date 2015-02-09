@@ -70,7 +70,7 @@ public class PreMultParserTest extends EnUsLocaleDependentTestCase
 			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "<prereq kind=\"profwitharmor\" key=\"TYPE.Medium\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"feat\" key=\"Armor Proficiency\" sub-key=\"Medium\" operator=\"GTEQ\" operand=\"1\" >\n"
+				+ "<prereq kind=\"ability\" category=\"FEAT\" key=\"Armor Proficiency\" sub-key=\"Medium\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
