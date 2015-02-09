@@ -182,36 +182,6 @@ public class OneToOneMap<K, V>
 	 */
 
 	/**
-	 * Copies the key/value combinations from the given Map into this
-	 * OneToOneMap.
-	 * 
-	 * If this OneToOneMap already contained a mapping for the any of the key
-	 * combinations in the given OneToOneMap, the previous value is overwritten.
-	 * 
-	 * If the given Map contains a Key or Value more than once, then the *last*
-	 * instance of that Key or Value in the Map (as determined by the iterator
-	 * of the given Map) will be stored in the OneToOneMap.
-	 * 
-	 * This method is both reference-semantic and value-semantic. It will not
-	 * modify or maintain a reference to the given Map. However, this
-	 * OneToOneMap will maintain a strong reference to both the key objects and
-	 * the objects contained in the given Map.
-	 * 
-	 * @param map
-	 *            The Map for which the key/value combinations should be placed
-	 *            into this OneToOneMap
-	 * @throws NullPointerException
-	 *             if the given Map is null
-	 */
-	public void putAll(Map<? extends K, ? extends V> map)
-	{
-		for (Map.Entry<? extends K, ? extends V> me : map.entrySet())
-		{
-			put(me.getKey(), me.getValue());
-		}
-	}
-
-	/**
 	 * Removes the value from OneToOneMap for the given key. Returns the value
 	 * that was removed from the OneToOneMap. If this OneToOneMap did not have a
 	 * mapping for the given key, null is returned.

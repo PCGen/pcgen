@@ -55,7 +55,6 @@
     <module name="TreeWalker">
 
 	    <module name="SuppressWarningsHolder"/>
-	    <module name="SuppressWarningsFilter"/>
 
         <property name="cacheFile" value="checkstyle-cachefile"/>
         
@@ -191,4 +190,6 @@
         <module name="UpperEll"/>
 
     </module>
+
+    <module name="SuppressWarningsFilter"/>
 </module>

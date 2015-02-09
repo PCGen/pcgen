@@ -20,6 +20,40 @@ import junit.framework.TestCase;
 
 public class GridPointTest extends TestCase
 {
+	public void testConstructorXNull()
+	{
+		try
+		{
+			new GridPoint(null, 4);
+			fail("null value should fail");
+		}
+		catch (NullPointerException e)
+		{
+			//ok
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok as well
+		}
+	}
+
+	public void testConstructorYNull()
+	{
+		try
+		{
+			new GridPoint(4, null);
+			fail("null value should fail");
+		}
+		catch (NullPointerException e)
+		{
+			//ok
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok as well
+		}
+	}
+
 	public void testValueOfNull()
 	{
 		try
@@ -89,7 +123,6 @@ public class GridPointTest extends TestCase
 		}
 	}
 
-
 	public void testValueOfBadFirstNumber()
 	{
 		try
@@ -112,7 +145,6 @@ public class GridPointTest extends TestCase
 		}
 	}
 
-
 	public void testValueOfBadSecondNumber()
 	{
 		try
@@ -134,7 +166,7 @@ public class GridPointTest extends TestCase
 			//ok
 		}
 	}
-	
+
 	public void testValueOf()
 	{
 		GridPoint gp = GridPoint.valueOf("4,6");
@@ -143,4 +175,30 @@ public class GridPointTest extends TestCase
 		assertEquals("4,6", gp.toString());
 	}
 
+	public void testEquals()
+	{
+		GridPoint gp1 = GridPoint.valueOf("4,6");
+		GridPoint gp2 = GridPoint.valueOf("4,6.0");
+		GridPoint gp3 = GridPoint.valueOf("4,6.1");
+		GridPoint gp4 = GridPoint.valueOf("4.0,6");
+		GridPoint gp5 = GridPoint.valueOf("4.0,6.0");
+		GridPoint gp6 = GridPoint.valueOf("4.0,6.1");
+		GridPoint gp7 = GridPoint.valueOf("4.1,6");
+		GridPoint gp8 = GridPoint.valueOf("4.1,6.0");
+		GridPoint gp9 = GridPoint.valueOf("4.1,6.1");
+		GridPoint gp1b = GridPoint.valueOf("4,6");
+		assertFalse(gp1.equals(gp2));
+		assertFalse(gp1.equals(gp3));
+		assertFalse(gp1.equals(gp4));
+		assertFalse(gp1.equals(gp5));
+		assertFalse(gp1.equals(gp6));
+		assertFalse(gp1.equals(gp7));
+		assertFalse(gp1.equals(gp8));
+		assertFalse(gp1.equals(gp9));
+		assertTrue(gp1.equals(gp1));
+		assertTrue(gp1.equals(gp1b));
+		assertTrue(gp1b.equals(gp1));
+		assertTrue(gp1b.hashCode() == gp1.hashCode());
+	}
+	
 }
