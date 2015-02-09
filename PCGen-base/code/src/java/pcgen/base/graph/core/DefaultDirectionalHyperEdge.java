@@ -300,12 +300,6 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 			throw new IllegalArgumentException(
 				"Outgoing Collection to createReplacementEdge in DefaultGraphEdge cannot be null");
 		}
-		// Not thread safe to test this before copying the list...
-		if (gn1.size() != 1 && gn2.size() != 1)
-		{
-			throw new IllegalArgumentException(
-				"Collection Lengths to createReplacementEdge in DefaultGraphEdge must be 1 each");
-		}
 		return new DefaultDirectionalHyperEdge<N>(gn1, gn2);
 	}
 }

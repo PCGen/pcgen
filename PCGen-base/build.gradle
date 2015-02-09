@@ -49,6 +49,9 @@ sourceSets {
 
 test {
     systemProperties 'property': 'value'
+    jacoco {
+    	excludes = ['*testsupport.*', '*.Abstract*TestCase', '*Test']
+    }
 }
 
 uploadArchives {
