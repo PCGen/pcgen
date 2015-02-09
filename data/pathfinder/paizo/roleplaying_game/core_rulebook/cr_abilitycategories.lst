@@ -217,5 +217,8 @@ ABILITYCATEGORY:Headband of Intellect Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES	
 
 ABILITYCATEGORY:Intelligence-Based Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability			TYPE:IntBaseSkill																				DISPLAYLOCATION:Class Features
 
+ABILITYCATEGORY:Raging Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:RageSelection																			DISPLAYLOCATION:Class Features
+
 # For keeping the output the same
 ABILITYCATEGORY:Sorcerer Draconic Bloodline		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Sorcerer Draconic Bloodline
+
