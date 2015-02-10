@@ -16,6 +16,8 @@
   PMD rules customised for PCGen's code. 
   </description>
   
+   <exclude-pattern>.*/test/.*</exclude-pattern>
+
     <rule ref="rulesets/java/logging-java.xml" />
     <rule ref="rulesets/java/basic.xml" />
     <rule ref="rulesets/java/braces.xml" />
