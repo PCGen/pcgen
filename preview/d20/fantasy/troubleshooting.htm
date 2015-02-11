@@ -533,13 +533,13 @@ To Hit:
 |ENDFOR|
 </blockquote>
 
-|IIF(count("ABILITIES";"CATEGORY=Language")==0)|
+|IIF(count("ABILITIES";"CATEGORY=Weapon")==0)|
 |ELSE|
-<b>Language Abilities</b>
+<b>Weapon Abilities</b>
 |ENDIF|
 <blockquote>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Language")-1,1,0|
-<b>|ABILITYALL.Language.%ability|</b> [<i>|ABILITYALL.Language.%ability.SOURCE|</i>]<br>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Weapon")-1,1,0|
+<b>|ABILITYALL.Weapon.%ability|</b> [<i>|ABILITYALL.Weapon.%ability.SOURCE|</i>]<br>
 |ENDFOR|
 </blockquote>
 
