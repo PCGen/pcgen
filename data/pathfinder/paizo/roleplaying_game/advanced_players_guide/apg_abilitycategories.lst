@@ -1,4 +1,4 @@
-# CVS $Revision: 21399 $ $Author: evilmynex $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: 21399 $ $Author: evilmynex $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 #SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher, Eric Smith (Maredudd) and Andrew Maitland
 
@@ -13,32 +13,32 @@ ABILITYCATEGORY:Summoner Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FR
 ABILITYCATEGORY:Witch Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:WitchArchetype		PLURAL:Witch Archetypes		DISPLAYLOCATION:Archetype
 
 ###Block: Base Class Feature Display
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Alchemist Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AlchemistClassFeatures.Alchemist Class Feature	PLURAL:Alchemist Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Cavalier Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:CavalierClassFeatures.Cavalier Class Feature	PLURAL:Cavalier Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Inquisitor Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:InquisitorClassFeatures.Inquisitor Class Feature	PLURAL:Inquisitor Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Oracle Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:OracleClassFeatures.Oracle Class Features	PLURAL:Oracle Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Summoner Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SummonerClassFeatures.Summoner Class Feature	PLURAL:Summoner Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Witch Class Feature			VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WitchClassFeatures.WitchClassFeatures		PLURAL:Witch Class Features		DISPLAYLOCATION:Class Features
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object								Plural description for UI		Display Location
+ABILITYCATEGORY:Alchemist Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AlchemistClassFeatures.Alchemist Class Feature		PLURAL:Alchemist Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cavalier Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:CavalierClassFeatures.Cavalier Class Feature		PLURAL:Cavalier Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Inquisitor Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:InquisitorClassFeatures.Inquisitor Class Feature		PLURAL:Inquisitor Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:OracleClassFeatures.Oracle Class Features			PLURAL:Oracle Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Summoner Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SummonerClassFeatures.Summoner Class Feature		PLURAL:Summoner Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Witch Class Feature			VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WitchClassFeatures.WitchClassFeatures			PLURAL:Witch Class Features		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Antipaladin Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AntipaladinClassFeatures.Antipaladin Class Feature	PLURAL:Antipaladin Class Features	DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Focused Arcane School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Focused Arcane School							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Focused Arcane School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Focused Arcane School												DISPLAYLOCATION:Class Features
 
 
 # Alchemist
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Alchemist Discovery			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AlchemistDiscovery		PLURAL:Alchemist Discoveries		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Alchemist Grand Discovery		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AlchemistGrandDiscovery	PLURAL:Alchemist Grand Discoveries	DISPLAYLOCATION:Class Features
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object								Plural description for UI		Display Location
+ABILITYCATEGORY:Alchemist Discovery			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AlchemistDiscovery							PLURAL:Alchemist Discoveries		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Alchemist Grand Discovery		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AlchemistGrandDiscovery						PLURAL:Alchemist Grand Discoveries	DISPLAYLOCATION:Class Features
 
 # Cavalier
-ABILITYCATEGORY:Tactician Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork			PLURAL:Tactician Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Cavalier Order			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CavalierOrder		PLURAL:Cavalier Orders			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Cavalier Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:CavalierFeat.Combat	PLURAL:Cavalier Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Tactician Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork								PLURAL:Tactician Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Cavalier Order			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CavalierOrder							PLURAL:Cavalier Orders			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cavalier Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:CavalierFeat.Combat						PLURAL:Cavalier Feats			DISPLAYLOCATION:Feats
 
 # Inquisitor Categories
-ABILITYCATEGORY:Inquisitor Domain Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorDomain		PLURAL:Inquisitor Domain Choices	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Inquisitor Judgment Effect	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorJudgment		PLURAL:Inquisitor Judgment Effects	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Teamwork Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork			PLURAL:Tactician Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Inquisitor Domain Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorDomain							PLURAL:Inquisitor Domain Choices	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Inquisitor Judgment Effect	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InquisitorJudgment							PLURAL:Inquisitor Judgment Effects	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Teamwork Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork								PLURAL:Tactician Feats			DISPLAYLOCATION:Feats
 
 ###Block: Oracular Ability Categories
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI		Display Location

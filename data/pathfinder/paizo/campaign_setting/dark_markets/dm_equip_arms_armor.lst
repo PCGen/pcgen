@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Dark Markets - A Guide to Katapesh	SOURCESHORT:DM	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
 # Original Entry by: Terry Milnes
 
@@ -15,5 +15,5 @@ Wood Lamellar		PROFICIENCY:ARMOR|Splint Mail	TYPE:Armor.Heavy.ArmorProfHeavy.Sui
 Wyvern Hide			PROFICIENCY:ARMOR|Chainmail	TYPE:Armor.Medium.ArmorProfMedium.Suit.Specific.Nonmetal	COST:100	WT:40		ACCHECK:-5		EQMOD:MWORKA			MAXDEX:2		SOURCEPAGE:p.30	SPELLFAILURE:30		BONUS:COMBAT|AC|5|TYPE=Armor
 
 ###Block: Weapons
-# Equipment Name	Required Weapon Proficiency	Type										Cost		Weight	Crit Mult	Crit Range	Damage	Modifier				Wield Category	Size		Source Page		Virtual Feat	Special Property
+# Equipment Name	Required Weapon Proficiency	Type										Cost		Weight	Crit Mult	Crit Range	Damage	Modifier				Wield Category	Size		Source Page		Ability				Special Property
 The Brazen Claw	PROFICIENCY:WEAPON|Scimitar	TYPE:Weapon.Resizable.Melee.Martial.Specific.Slashing.Sword	COST:15	WT:4		CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	EQMOD:PLUS2W.STEEL.VICIOUS	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.17	ABILITY:FEAT|VIRTUAL|Cleave	SPROP:If a gnoll wields the brazen claw, he takes no damage from the sword's vicious ability.

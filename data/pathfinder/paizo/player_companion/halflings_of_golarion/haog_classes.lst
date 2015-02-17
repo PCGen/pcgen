@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Halflings of Golarion	SOURCESHORT:HAOG	SOURCEWEB:http://paizo.com/products/btpy8i8p?Pathfinder-Player-Companion-Halflings-of-Golarion	SOURCEDATE:2010-12
 #ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
 #ORIGINAL ENTRY DATE: 2012/12/29
@@ -6,7 +6,7 @@ SOURCELONG:Halflings of Golarion	SOURCESHORT:HAOG	SOURCEWEB:http://paizo.com/pro
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Combat bonus											Save bonus																						Modify VAR
 CLASS:Opportunist	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Opp		MAXLEVEL:5	SOURCEPAGE:p.28	DEFINE:OpportunistLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:VAR|OpportunistLVL|CL
-# Class Name	Required Feat				Required Race					Required Skill
+# Class Name	Required Ability							Required Race					Required Skill
 CLASS:Opportunist	PREABILITY:1,CATEGORY=FEAT,Defensive Combat Training	PRERACE:1,Halfling,RACESUBTYPE=Halfling	PRESKILL:2,Stealth=5,Perception=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Opportunist	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Linguistics|Perception|TYPE=Perform|Sense Motive|Sleight of Hand|Stealth|Swim

@@ -1,4 +1,4 @@
-# CVS $Revision: 21591 $ $Author: amaitland $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: 21591 $ $Author: amaitland $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 
 # Equipment Name		Required Armor Proficiency			Type								Cost		Weight	AC Penalty Check	Modifier			Maximum DEX Bonus	% of Spell Failure	Combat bonus
@@ -503,7 +503,7 @@ Guisarme (Dragoncatch).MOD					OUTPUTNAME:Dragoncatch Guisarme																		
 Warhammer.COPY=Ghoul's Lament
 Ghoul's Lament.MOD																																																																																											EQMOD:DISRPT.GHOST.MAGIC_COST|35300.PLUS1W																	SOURCEPAGE:p.155																																																																																								SPROP:3/day can knock an undead creature prone (Fort DC 20 negates).
 Sword (Short).COPY=Gloom Blade
-Gloom Blade.MOD																																																																																															EQMOD:MAGIC_COST|8500.MWORKW																					SOURCEPAGE:p.155																																																																																								SPROP:+1 in dim light, +2 in darkness, and bestows Blind-Fight feat in supernatural darkness.
+Gloom Blade.MOD																																																																																												EQMOD:MAGIC_COST|8500.MWORKW																				SOURCEPAGE:p.155																																																																																								SPROP:+1 in dim light, +2 in darkness, and bestows Blind-Fight feat in supernatural darkness.
 Guarding Blade.MOD																																																																																																																			SOURCEPAGE:p.155
 Warhammer.COPY=Hammer (Dwarfbond)
 Hammer (Dwarfbond).MOD						OUTPUTNAME:Dwarfbond Hammer																																																																																	EQMOD:MAGIC_COST|25300.PLUS1W																				SOURCEPAGE:p.154																																																																										BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement|PRERACE:1,Dwarf,RACESUBTYPE=Dwarf	SPROP:When thrown will return just before thrower's next turn. Deals an extra 1d8 against creatures of the Giant subtype.|PRERACE:1,Dwarf,RACESUBTYPE=Dwarf

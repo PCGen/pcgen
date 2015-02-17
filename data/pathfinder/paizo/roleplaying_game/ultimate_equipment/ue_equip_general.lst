@@ -1,4 +1,4 @@
-# CVS $Revision: 14380 $ $Author: amaitland $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
+# CVS $Revision: 14380 $ $Author: amaitland $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 # Pathfinder RPG Entry by: Stefan Radermacher and Scott Meyer
 
@@ -248,159 +248,159 @@ Scribe (Map)			TYPE:Service		COST:10	SOURCEPAGE:p.99
 Valet (Per Day)			TYPE:Service		COST:1	SOURCEPAGE:p.99
 
 ###Block: Tools and Skill Kits
-# Equipment Name												Output Name						Type							Number of Pages	Page Usage				Cost		Weight	Source Page		Bonus to Situation							Bonus to skill
-Abacus.MOD																				TYPE:Goods.Tools													COST:2	WT:2		SOURCEPAGE:p.76
-Alchemist's Lab.MOD																																					SOURCEPAGE:p.76
-Alchemy Crafting Kit																		TYPE:Goods.Tools.CraftToolsAlchemist									COST:25	WT:50		SOURCEPAGE:p.76
-Antidote Kit																			TYPE:Goods.Tools													COST:100	WT:3		SOURCEPAGE:p.76
-Anvil (Blacksmith).MOD																		TYPE:Goods.Tools													COST:5	WT:100	SOURCEPAGE:p.76
-Anvil (Farrier).MOD																		TYPE:Goods.Tools													COST:5	WT:50		SOURCEPAGE:p.76
-Anvil (Goldsmith/Silversmith).MOD																TYPE:Goods.Tools													COST:5	WT:10		SOURCEPAGE:p.76
-Artisan's Tools (Armor).MOD																																				SOURCEPAGE:p.76
-Artisan's Tools (Baskets).MOD																																				SOURCEPAGE:p.76
-Artisan's Tools (Books).MOD																																				SOURCEPAGE:p.76
-Artisan's Tools (Bows).MOD																																				SOURCEPAGE:p.76
-Artisan's Tools (Calligraphy).MOD																																			SOURCEPAGE:p.76
-Artisan's Tools (Carpentry).MOD																																			SOURCEPAGE:p.76
-Artisan's Tools (Cloth).MOD																																				SOURCEPAGE:p.76
-Artisan's Tools (Clothing).MOD																																			SOURCEPAGE:p.76
-Artisan's Tools (Gemcutting).MOD																																			SOURCEPAGE:p.76
-Artisan's Tools (Glass).MOD																																				SOURCEPAGE:p.76
-Artisan's Tools (Jewelry).MOD																																				SOURCEPAGE:p.76
-Artisan's Tools (Leather).MOD																																				SOURCEPAGE:p.76
-Artisan's Tools (Locks).MOD																																				SOURCEPAGE:p.76
-Artisan's Tools (Paintings).MOD																																			SOURCEPAGE:p.76
-Artisan's Tools (Pottery).MOD																																				SOURCEPAGE:p.76
-Artisan's Tools (Sculptures).MOD																																			SOURCEPAGE:p.76
-Artisan's Tools (Ships).MOD																																				SOURCEPAGE:p.76
-Artisan's Tools (Shoes).MOD																																				SOURCEPAGE:p.76
-Artisan's Tools (Stonemasonry).MOD																																			SOURCEPAGE:p.76
-Artisan's Tools (Traps).MOD																																				SOURCEPAGE:p.76
-Artisan's Tools (Weaponsmithing).MOD																																		SOURCEPAGE:p.76
+# Equipment Name												Output Name						Type							Number of Pages	Page Usage				Cost		Weight	Modifier		Source Page		Bonus to Situation							Bonus to skill
+Abacus.MOD																				TYPE:Goods.Tools													COST:2	WT:2					SOURCEPAGE:p.76
+Alchemist's Lab.MOD																																								SOURCEPAGE:p.76
+Alchemy Crafting Kit																		TYPE:Goods.Tools.CraftToolsAlchemist									COST:25	WT:50					SOURCEPAGE:p.76
+Antidote Kit																			TYPE:Goods.Tools													COST:100	WT:3					SOURCEPAGE:p.76
+Anvil (Blacksmith).MOD																		TYPE:Goods.Tools													COST:5	WT:100				SOURCEPAGE:p.76
+Anvil (Farrier).MOD																		TYPE:Goods.Tools													COST:5	WT:50					SOURCEPAGE:p.76
+Anvil (Goldsmith/Silversmith).MOD																TYPE:Goods.Tools													COST:5	WT:10					SOURCEPAGE:p.76
+Artisan's Tools (Armor).MOD																																							SOURCEPAGE:p.76
+Artisan's Tools (Baskets).MOD																																							SOURCEPAGE:p.76
+Artisan's Tools (Books).MOD																																							SOURCEPAGE:p.76
+Artisan's Tools (Bows).MOD																																							SOURCEPAGE:p.76
+Artisan's Tools (Calligraphy).MOD																																						SOURCEPAGE:p.76
+Artisan's Tools (Carpentry).MOD																																						SOURCEPAGE:p.76
+Artisan's Tools (Cloth).MOD																																							SOURCEPAGE:p.76
+Artisan's Tools (Clothing).MOD																																						SOURCEPAGE:p.76
+Artisan's Tools (Gemcutting).MOD																																						SOURCEPAGE:p.76
+Artisan's Tools (Glass).MOD																																							SOURCEPAGE:p.76
+Artisan's Tools (Jewelry).MOD																																							SOURCEPAGE:p.76
+Artisan's Tools (Leather).MOD																																							SOURCEPAGE:p.76
+Artisan's Tools (Locks).MOD																																							SOURCEPAGE:p.76
+Artisan's Tools (Paintings).MOD																																						SOURCEPAGE:p.76
+Artisan's Tools (Pottery).MOD																																							SOURCEPAGE:p.76
+Artisan's Tools (Sculptures).MOD																																						SOURCEPAGE:p.76
+Artisan's Tools (Ships).MOD																																							SOURCEPAGE:p.76
+Artisan's Tools (Shoes).MOD																																							SOURCEPAGE:p.76
+Artisan's Tools (Stonemasonry).MOD																																						SOURCEPAGE:p.76
+Artisan's Tools (Traps).MOD																																							SOURCEPAGE:p.76
+Artisan's Tools (Weaponsmithing).MOD																																					SOURCEPAGE:p.76
 Artisan's Tools (Armor).COPY=Artisan's Tools (Armor/Masterwork)
-Artisan's Tools (Armor/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Armor)|2|TYPE=Circumstance
+Artisan's Tools (Armor/Masterwork).MOD																														COST:55																			BONUS:SKILL|Craft (Armor)|2|TYPE=Circumstance
 Artisan's Tools (Baskets).COPY=Artisan's Tools (Baskets/Masterwork)
-Artisan's Tools (Baskets/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Baskets)|2|TYPE=Circumstance
+Artisan's Tools (Baskets/Masterwork).MOD																														COST:55																			BONUS:SKILL|Craft (Baskets)|2|TYPE=Circumstance
 Artisan's Tools (Books).COPY=Artisan's Tools (Books/Masterwork)
-Artisan's Tools (Books/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Books)|2|TYPE=Circumstance
+Artisan's Tools (Books/Masterwork).MOD																														COST:55																			BONUS:SKILL|Craft (Books)|2|TYPE=Circumstance
 Artisan's Tools (Bows).COPY=Artisan's Tools (Bows/Masterwork)
-Artisan's Tools (Bows/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Bows)|2|TYPE=Circumstance
+Artisan's Tools (Bows/Masterwork).MOD																														COST:55																			BONUS:SKILL|Craft (Bows)|2|TYPE=Circumstance
 Artisan's Tools (Calligraphy).COPY=Artisan's Tools (Calligraphy/Masterwork)
-Artisan's Tools (Calligraphy/Masterwork).MOD																													COST:55																BONUS:SKILL|Craft (Calligraphy)|2|TYPE=Circumstance
+Artisan's Tools (Calligraphy/Masterwork).MOD																													COST:55																			BONUS:SKILL|Craft (Calligraphy)|2|TYPE=Circumstance
 Artisan's Tools (Carpentry).COPY=Artisan's Tools (Carpentry/Masterwork)
-Artisan's Tools (Carpentry/Masterwork).MOD																													COST:55																BONUS:SKILL|Craft (Carpentry)|2|TYPE=Circumstance
+Artisan's Tools (Carpentry/Masterwork).MOD																													COST:55																			BONUS:SKILL|Craft (Carpentry)|2|TYPE=Circumstance
 Artisan's Tools (Cloth).COPY=Artisan's Tools (Cloth/Masterwork)
-Artisan's Tools (Cloth/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Cloth)|2|TYPE=Circumstance
+Artisan's Tools (Cloth/Masterwork).MOD																														COST:55																			BONUS:SKILL|Craft (Cloth)|2|TYPE=Circumstance
 Artisan's Tools (Clothing).COPY=Artisan's Tools (Clothing/Masterwork)
-Artisan's Tools (Clothing/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Clothing)|2|TYPE=Circumstance
+Artisan's Tools (Clothing/Masterwork).MOD																														COST:55																			BONUS:SKILL|Craft (Clothing)|2|TYPE=Circumstance
 Artisan's Tools (Gemcutting).COPY=Artisan's Tools (Gemcutting/Masterwork)
-Artisan's Tools (Gemcutting/Masterwork).MOD																													COST:55																BONUS:SKILL|Craft (Gemcutting)|2|TYPE=Circumstance
+Artisan's Tools (Gemcutting/Masterwork).MOD																													COST:55																			BONUS:SKILL|Craft (Gemcutting)|2|TYPE=Circumstance
 Artisan's Tools (Glass).COPY=Artisan's Tools (Glass/Masterwork)
-Artisan's Tools (Glass/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Glass)|2|TYPE=Circumstance
+Artisan's Tools (Glass/Masterwork).MOD																														COST:55																			BONUS:SKILL|Craft (Glass)|2|TYPE=Circumstance
 Artisan's Tools (Jewelry).COPY=Artisan's Tools (Jewelry/Masterwork)
-Artisan's Tools (Jewelry/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Jewelry)|2|TYPE=Circumstance
+Artisan's Tools (Jewelry/Masterwork).MOD																														COST:55																			BONUS:SKILL|Craft (Jewelry)|2|TYPE=Circumstance
 Artisan's Tools (Leather).COPY=Artisan's Tools (Leather/Masterwork)
-Artisan's Tools (Leather/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Leather)|2|TYPE=Circumstance
+Artisan's Tools (Leather/Masterwork).MOD																														COST:55																			BONUS:SKILL|Craft (Leather)|2|TYPE=Circumstance
 Artisan's Tools (Locks).COPY=Artisan's Tools (Locks/Masterwork)
-Artisan's Tools (Locks/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Locks)|2|TYPE=Circumstance
+Artisan's Tools (Locks/Masterwork).MOD																														COST:55																			BONUS:SKILL|Craft (Locks)|2|TYPE=Circumstance
 Artisan's Tools (Paintings).COPY=Artisan's Tools (Paintings/Masterwork)
-Artisan's Tools (Paintings/Masterwork).MOD																													COST:55																BONUS:SKILL|Craft (Paintings)|2|TYPE=Circumstance
+Artisan's Tools (Paintings/Masterwork).MOD																													COST:55																			BONUS:SKILL|Craft (Paintings)|2|TYPE=Circumstance
 Artisan's Tools (Pottery).COPY=Artisan's Tools (Pottery/Masterwork)
-Artisan's Tools (Pottery/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Pottery)|2|TYPE=Circumstance
+Artisan's Tools (Pottery/Masterwork).MOD																														COST:55																			BONUS:SKILL|Craft (Pottery)|2|TYPE=Circumstance
 Artisan's Tools (Sculptures).COPY=Artisan's Tools (Sculptures/Masterwork)
-Artisan's Tools (Sculptures/Masterwork).MOD																													COST:55																BONUS:SKILL|Craft (Sculptures)|2|TYPE=Circumstance
+Artisan's Tools (Sculptures/Masterwork).MOD																													COST:55																			BONUS:SKILL|Craft (Sculptures)|2|TYPE=Circumstance
 Artisan's Tools (Ships).COPY=Artisan's Tools (Ships/Masterwork)
-Artisan's Tools (Ships/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Ships)|2|TYPE=Circumstance
+Artisan's Tools (Ships/Masterwork).MOD																														COST:55																			BONUS:SKILL|Craft (Ships)|2|TYPE=Circumstance
 Artisan's Tools (Shoes).COPY=Artisan's Tools (Shoes/Masterwork)
-Artisan's Tools (Shoes/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Shoes)|2|TYPE=Circumstance
+Artisan's Tools (Shoes/Masterwork).MOD																														COST:55																			BONUS:SKILL|Craft (Shoes)|2|TYPE=Circumstance
 Artisan's Tools (Stonemasonry).COPY=Artisan's Tools (Stonemasonry/Masterwork)
-Artisan's Tools (Stonemasonry/Masterwork).MOD																													COST:55																BONUS:SKILL|Craft (Stonemasonry)|2|TYPE=Circumstance
+Artisan's Tools (Stonemasonry/Masterwork).MOD																													COST:55																			BONUS:SKILL|Craft (Stonemasonry)|2|TYPE=Circumstance
 Artisan's Tools (Traps).COPY=Artisan's Tools (Traps/Masterwork)
-Artisan's Tools (Traps/Masterwork).MOD																														COST:55																BONUS:SKILL|Craft (Traps)|2|TYPE=Circumstance
+Artisan's Tools (Traps/Masterwork).MOD																														COST:55																			BONUS:SKILL|Craft (Traps)|2|TYPE=Circumstance
 Artisan's Tools (Weaponsmithing).COPY=Artisan's Tools (Weaponsmithing/Masterwork)
-Artisan's Tools (Weaponsmithing/Masterwork).MOD																													COST:55																BONUS:SKILL|Craft (Weapons)|2|TYPE=Circumstance
-Balancing Pole.MOD																		TYPE:Goods.Tools													COST:0.8	WT:12		SOURCEPAGE:p.76
-Bear Trap.MOD																			TYPE:Goods.Tools													COST:2	WT:10		SOURCEPAGE:p.76
-Bellows.MOD																				TYPE:Goods.Tools													COST:1	WT:3		SOURCEPAGE:p.76
-Climber's Kit.MOD																																						SOURCEPAGE:p.76
-Disguise Kit.MOD																																						SOURCEPAGE:p.76
-Footprint Book.MOD																		TYPE:Goods.Tools.Book												COST:50	WT:3		SOURCEPAGE:p.76
-Forger's Kit																			TYPE:Goods.Tools													COST:200	WT:6		SOURCEPAGE:p.77	BONUS:SITUATION|Linguistics=Forgery|2|TYPE=Circumstance
+Artisan's Tools (Weaponsmithing/Masterwork).MOD																													COST:55																			BONUS:SKILL|Craft (Weapons)|2|TYPE=Circumstance
+Balancing Pole.MOD																		TYPE:Goods.Tools													COST:0.8	WT:12					SOURCEPAGE:p.76
+Bear Trap.MOD																			TYPE:Goods.Tools													COST:2	WT:10					SOURCEPAGE:p.76
+Bellows.MOD																				TYPE:Goods.Tools													COST:1	WT:3					SOURCEPAGE:p.76
+Climber's Kit.MOD																																									SOURCEPAGE:p.76
+Disguise Kit.MOD																																									SOURCEPAGE:p.76
+Footprint Book.MOD																		TYPE:Goods.Tools.Book												COST:50	WT:3					SOURCEPAGE:p.76
+Forger's Kit																			TYPE:Goods.Tools													COST:200	WT:6					SOURCEPAGE:p.77	BONUS:SITUATION|Linguistics=Forgery|2|TYPE=Circumstance
 Spellbook (Wizard's/Blank).COPY=Formula Book (Alchemist's/Blank)
-Fortune-Teller's Deck (Common).MOD																TYPE:Goods.Tools													COST:1	WT:0.5	SOURCEPAGE:p.77
-Fortune-Teller's Deck (Quality).MOD																TYPE:Goods.Tools													COST:25	WT:1		SOURCEPAGE:p.77											BONUS:SKILL|Profession (Fortune-Teller)|1|TYPE=Circumstance
-Fortune-Teller's Deck (Masterwork).MOD															TYPE:Goods.Tools													COST:50	WT:1		SOURCEPAGE:p.77											BONUS:SKILL|Profession (Fortune-Teller)|2|TYPE=Circumstance
-Healer's Kit.MOD																																						SOURCEPAGE:p.77
-Juggler's Kit																			TYPE:Goods.Tools													COST:15	WT:10		SOURCEPAGE:p.77											BONUS:SKILL|Perform (Act),Perform (Comedy)|1|TYPE=Circumstance
-Leeching Kit.MOD																			TYPE:Goods.Tools													COST:5	WT:5		SOURCEPAGE:p.77
-Map Maker's Kit.MOD																		TYPE:Goods.Tools													COST:10	WT:2		SOURCEPAGE:p.78
+Fortune-Teller's Deck (Common).MOD																TYPE:Goods.Tools													COST:1	WT:0.5				SOURCEPAGE:p.77
+Fortune-Teller's Deck (Quality).MOD																TYPE:Goods.Tools													COST:25	WT:1					SOURCEPAGE:p.77											BONUS:SKILL|Profession (Fortune-Teller)|1|TYPE=Circumstance
+Fortune-Teller's Deck (Masterwork).MOD															TYPE:Goods.Tools													COST:50	WT:1					SOURCEPAGE:p.77											BONUS:SKILL|Profession (Fortune-Teller)|2|TYPE=Circumstance
+Healer's Kit.MOD																																									SOURCEPAGE:p.77
+Juggler's Kit																			TYPE:Goods.Tools													COST:15	WT:10					SOURCEPAGE:p.77											BONUS:SKILL|Perform (Act),Perform (Comedy)|1|TYPE=Circumstance
+Leeching Kit.MOD																			TYPE:Goods.Tools													COST:5	WT:5					SOURCEPAGE:p.77
+Map Maker's Kit.MOD																		TYPE:Goods.Tools													COST:10	WT:2					SOURCEPAGE:p.78
 #Masterwork tool 50 gp 1 lb.
-Scale (Merchant's).MOD																																					SOURCEPAGE:p.78
-Midwife's Kit																			TYPE:Goods.Tools													COST:10	WT:2		SOURCEPAGE:p.78
-Musical Instrument (Harpsichord).MOD																																		SOURCEPAGE:p.78
-Musical Instrument (Piano).MOD																																			SOURCEPAGE:p.78
-Musical Instrument (Pipe Organ).MOD																																			SOURCEPAGE:p.78
-Musical Instrument (Bells).MOD																																			SOURCEPAGE:p.78
-Musical Instrument (Chimes).MOD																																			SOURCEPAGE:p.78
-Musical Instrument (Drums).MOD																																			SOURCEPAGE:p.78
-Musical Instrument (Gong).MOD																																				SOURCEPAGE:p.78
-Musical Instrument (Fiddle).MOD																																			SOURCEPAGE:p.78
-Musical Instrument (Harp).MOD																																				SOURCEPAGE:p.78
-Musical Instrument (Lute).MOD																																				SOURCEPAGE:p.78
-Musical Instrument (Mandolin).MOD																																			SOURCEPAGE:p.78
-Musical Instrument (Flute).MOD																																			SOURCEPAGE:p.78
-Musical Instrument (Pan Pipes).MOD																																			SOURCEPAGE:p.78
-Musical Instrument (Recorder).MOD																																			SOURCEPAGE:p.78
-Musical Instrument (Trumpet).MOD																																			SOURCEPAGE:p.78
+Scale (Merchant's).MOD																																								SOURCEPAGE:p.78
+Midwife's Kit																			TYPE:Goods.Tools													COST:10	WT:2					SOURCEPAGE:p.78
+Musical Instrument (Harpsichord).MOD																																					SOURCEPAGE:p.78
+Musical Instrument (Piano).MOD																																						SOURCEPAGE:p.78
+Musical Instrument (Pipe Organ).MOD																																						SOURCEPAGE:p.78
+Musical Instrument (Bells).MOD																																						SOURCEPAGE:p.78
+Musical Instrument (Chimes).MOD																																						SOURCEPAGE:p.78
+Musical Instrument (Drums).MOD																																						SOURCEPAGE:p.78
+Musical Instrument (Gong).MOD																																							SOURCEPAGE:p.78
+Musical Instrument (Fiddle).MOD																																						SOURCEPAGE:p.78
+Musical Instrument (Harp).MOD																																							SOURCEPAGE:p.78
+Musical Instrument (Lute).MOD																																							SOURCEPAGE:p.78
+Musical Instrument (Mandolin).MOD																																						SOURCEPAGE:p.78
+Musical Instrument (Flute).MOD																																						SOURCEPAGE:p.78
+Musical Instrument (Pan Pipes).MOD																																						SOURCEPAGE:p.78
+Musical Instrument (Recorder).MOD																																						SOURCEPAGE:p.78
+Musical Instrument (Trumpet).MOD																																						SOURCEPAGE:p.78
 Musical Instrument (Harpsichord).COPY=Musical Instrument (Harpsichord/Masterwork
-Musical Instrument (Harpsichord/Masterwork.MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
+Musical Instrument (Harpsichord/Masterwork.MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Piano).COPY=Musical Instrument (Piano/Masterwork)
-Musical Instrument (Piano/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
+Musical Instrument (Piano/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Pipe Organ).COPY=Musical Instrument (Pipe Organ/Masterwork)
-Musical Instrument (Pipe Organ/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
+Musical Instrument (Pipe Organ/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Bells).COPY=Musical Instrument (Bells/Masterwork)
-Musical Instrument (Bells/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
+Musical Instrument (Bells/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Chimes).COPY=Musical Instrument (Chimes/Masterwork)
-Musical Instrument (Chimes/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
+Musical Instrument (Chimes/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Drums).COPY=Musical Instrument (Drums/Masterwork)
-Musical Instrument (Drums/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
+Musical Instrument (Drums/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Gong).COPY=Musical Instrument (Gong/Masterwork)
-Musical Instrument (Gong/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
+Musical Instrument (Gong/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Fiddle).COPY=Musical Instrument (Fiddle/Masterwork)
-Musical Instrument (Fiddle/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
+Musical Instrument (Fiddle/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Harp).COPY=Musical Instrument (Harp/Masterwork)
-Musical Instrument (Harp/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
+Musical Instrument (Harp/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Lute).COPY=Musical Instrument (Lute/Masterwork)
-Musical Instrument (Lute/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
+Musical Instrument (Lute/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Mandolin).COPY=Musical Instrument (Mandolin/Masterwork)
-Musical Instrument (Mandolin/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
+Musical Instrument (Mandolin/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Flute).COPY=Musical Instrument (Flute/Masterwork)
-Musical Instrument (Flute/Masterwork).MOD																																		SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
+Musical Instrument (Flute/Masterwork).MOD																																		EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Pan Pipes).COPY=Musical Instrument (Pan Pipes/Masterwork)
-Musical Instrument (Pan Pipes/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
+Musical Instrument (Pan Pipes/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Recorder).COPY=Musical Instrument (Recorder/Masterwork)
-Musical Instrument (Recorder/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
+Musical Instrument (Recorder/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
 Musical Instrument (Trumpet).COPY=Musical Instrument (Trumpet/Masterwork)
-Musical Instrument (Trumpet/Masterwork).MOD																																	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance	EQMOD:MWORKT
-Parasol																				TYPE:Goods.Tools													COST:1	WT:2		SOURCEPAGE:p.78
-Parasol (Umbrella)																		TYPE:Goods.Tools													COST:2	WT:3		SOURCEPAGE:p.78
-Alchemist's Lab (Portable).MOD									OUTPUTNAME:Alchemist's Lab, Portable	TYPE:Goods.Tools.CraftToolsAlchemist									COST:75	WT:20		SOURCEPAGE:p.79
-Portable Altar																			TYPE:Goods.Tools													COST:250	WT:40		SOURCEPAGE:p.79
-Portrait Book.MOD																			TYPE:Goods.Tools.Book												COST:10	WT:3		SOURCEPAGE:p.79
-Spell Component Pouch.MOD																																				SOURCEPAGE:p.79
-Spellbook (Wizard's/Blank).MOD																																			SOURCEPAGE:p.79
-Stretcher																				TYPE:Goods.Tools													COST:1	WT:10		SOURCEPAGE:p.79
-Surgeon's Tools																			TYPE:Goods.Tools													COST:20	WT:5		SOURCEPAGE:p.79
+Musical Instrument (Trumpet/Masterwork).MOD																																	EQMOD:MWORKT	SOURCEPAGE:p.78											BONUS:SKILL|TYPE=Perform|2|TYPE=Circumstance
+Parasol																				TYPE:Goods.Tools													COST:1	WT:2					SOURCEPAGE:p.78
+Parasol (Umbrella)																		TYPE:Goods.Tools													COST:2	WT:3					SOURCEPAGE:p.78
+Alchemist's Lab (Portable).MOD									OUTPUTNAME:Alchemist's Lab, Portable	TYPE:Goods.Tools.CraftToolsAlchemist									COST:75	WT:20					SOURCEPAGE:p.79
+Portable Altar																			TYPE:Goods.Tools													COST:250	WT:40					SOURCEPAGE:p.79
+Portrait Book.MOD																			TYPE:Goods.Tools.Book												COST:10	WT:3					SOURCEPAGE:p.79
+Spell Component Pouch.MOD																																							SOURCEPAGE:p.79
+Spellbook (Wizard's/Blank).MOD																																						SOURCEPAGE:p.79
+Stretcher																				TYPE:Goods.Tools													COST:1	WT:10					SOURCEPAGE:p.79
+Surgeon's Tools																			TYPE:Goods.Tools													COST:20	WT:5					SOURCEPAGE:p.79
 Surgeon's Tools.COPY=Surgeon's Tools (Small)
-Surgeon's Tools (Small).MOD																																		WT:1.25	SOURCEPAGE:p.79
-Symptom Kit.MOD																			TYPE:Goods.Tools													COST:25	WT:5		SOURCEPAGE:p.79
-Thieves' Tools.MOD																																					SOURCEPAGE:p.79
+Surgeon's Tools (Small).MOD																																		WT:1.25				SOURCEPAGE:p.79
+Symptom Kit.MOD																			TYPE:Goods.Tools													COST:25	WT:5					SOURCEPAGE:p.79
+Thieves' Tools.MOD																																								SOURCEPAGE:p.79
 Thieves' Tools.COPY=Thieves' Tools (Masterwork)
-Thieves' Tools (Masterwork).MOD																															COST:100	WT:2		SOURCEPAGE:p.79											BONUS:SKILL|Disable Device|2|TYPE=Circumstance
+Thieves' Tools (Masterwork).MOD																															COST:100	WT:2					SOURCEPAGE:p.79											BONUS:SKILL|Disable Device|2|TYPE=Circumstance
 Traveling Spellbook (Blank).COPY=Traveling Formula Book (Blank)
 Traveling Formula Book (Blank).MOD
-Traveling Spellbook (Blank).MOD																TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)	COST:10	WT:1		SOURCEPAGE:p.79
-Veterinarian's Kit																		TYPE:Goods.Tools													COST:10	WT:20		SOURCEPAGE:p.79	BONUS:SITUATION|Heal=Animal|3|TYPE=Circumstance			BONUS:SKILL|Heal|1|TYPE=Circumstance
+Traveling Spellbook (Blank).MOD																TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)	COST:10	WT:1					SOURCEPAGE:p.79
+Veterinarian's Kit																		TYPE:Goods.Tools													COST:10	WT:20					SOURCEPAGE:p.79	BONUS:SITUATION|Heal=Animal|3|TYPE=Circumstance			BONUS:SKILL|Heal|1|TYPE=Circumstance
 
 ###Block: Adventuring Gear
 # Equipment Name									Output Name						Type								Contains									Cost		Weight	Base Quantity	Source Page		Bonus to Situation																		Bonus to skill							Quality and value																			Special Property

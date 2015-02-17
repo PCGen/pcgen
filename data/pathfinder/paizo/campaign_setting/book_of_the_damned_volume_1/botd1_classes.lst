@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1	SOURCESHORT:BOTD1	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
 # Original Entry by: Stefan Radermacher
 
@@ -10,7 +10,7 @@ CLASS:Diabolist	PREALIGN:LN,LE,NE	PRELANG:1,Infernal	PRESKILL:3,Knowledge (Plane
 CLASS:Diabolist	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Planes)|Knowledge (Religion)|Sense Motive|Spellcraft
 1	BONUS:VAR|DiabolistDamnedLVL,DiabolistInfernalCharismaLVL|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Damned|Diabolist ~ Imp Companion|Diabolist ~ Infernal Charisma
 2												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Channel Hellfire|Diabolist ~ Infernal Bargain
-3	BONUS:VAR|DiabolistHeresyLVL|CL						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Heresey											ABILITY:FEAT|AUTOMATIC|Augment Summoning
+3	BONUS:VAR|DiabolistHeresyLVL|CL						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Heresey	ABILITY:FEAT|AUTOMATIC|Augment Summoning
 4												ADD:SPELLCASTER|ANY
 5												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Hellish Soul
 6												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Infernal Transport

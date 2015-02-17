@@ -1,18 +1,18 @@
-# CVS $Revision: 21637 $ $Author: amaitland $ -- Sun Jan 25 19:24:44 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: 21637 $ $Author: amaitland $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 # COMMENT: Everything in the Pathfinder GameMode is run off the Default Internal Ability, placing it in Core Essentials
 # COMMENT: Flight Maneuverability is crucial to all creatures with a fly speed, making it a default application if Fly is present.
 # COMMENT: Size_Master sets the Face and Reach - use 'RaceSizeIsLong' at a value of 1 for creatures that aren't 'Tall'
 
-# Ability Name		Category of Ability	Define																																																				Ability																																															Modify VAR
-Default			CATEGORY:Internal		DEFINE:Maneuverability|0	DEFINE:ArmorCheckPenalty|0	DEFINE:FireResistanceBonus|0	DEFINE:AcidResistanceBonus|0	DEFINE:ColdResistanceBonus|0	DEFINE:SonicResistanceBonus|0	DEFINE:ElectricityResistanceBonus|0	DEFINE:OverrideSubtypeLanguage|0	DEFINE:FastHealingRate|0	DEFINE:DefaultLanguageSetting|0	ABILITY:Internal|AUTOMATIC|Companion Tracker|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,1],[PREVARGTEQ:AnimalCompanionMasterLVL,1]	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|PREMOVE:1,Fly=1	ABILITY:Special Ability|AUTOMATIC|Fast Healing|PREVARGT:FastHealingRate,0	BONUS:VAR|Maneuverability|0	DEFINE:HasRacialVision|0
+# Ability Name		Category of Ability	Define																																																									Ability																																															Modify VAR
+Default			CATEGORY:Internal		DEFINE:Maneuverability|0	DEFINE:ArmorCheckPenalty|0	DEFINE:FireResistanceBonus|0	DEFINE:AcidResistanceBonus|0	DEFINE:ColdResistanceBonus|0	DEFINE:SonicResistanceBonus|0	DEFINE:ElectricityResistanceBonus|0	DEFINE:OverrideSubtypeLanguage|0	DEFINE:FastHealingRate|0	DEFINE:DefaultLanguageSetting|0	DEFINE:HasRacialVision|0	ABILITY:Internal|AUTOMATIC|Companion Tracker|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,1],[PREVARGTEQ:AnimalCompanionMasterLVL,1]	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|PREMOVE:1,Fly=1	ABILITY:Special Ability|AUTOMATIC|Fast Healing|PREVARGT:FastHealingRate,0	BONUS:VAR|Maneuverability|0
 
 #BONUS:ABILITYPOOL|Feat|-HD+1/2|PRERACE:1,RACETYPE=Companion
 
 # TODO: Move ALL races from 'Select Racial Traits' to individual calls from the race.
 Select Racial Traits	CATEGORY:Internal
-Companion Tracker		CATEGORY:Internal		DEFINE:AnimalCompanionLVL|0	DEFINE:FamiliarLVL|0																																																																																													BONUS:VAR|AnimalCompanionLVL|AnimalCompanionMasterLVL	BONUS:VAR|FamiliarLVL|FamiliarMasterLVL
+Companion Tracker		CATEGORY:Internal		DEFINE:AnimalCompanionLVL|0	DEFINE:FamiliarLVL|0																																																																																																		BONUS:VAR|AnimalCompanionLVL|AnimalCompanionMasterLVL	BONUS:VAR|FamiliarLVL|FamiliarMasterLVL
 ###Block: Vision Modes
 # Ability Name	Unique Key			Category of Ability		Type							Define				Description																																																																																																																																																																																																																																																									Modify VAR						Vision							Aspects
 Low-Light Vision	KEY:Low-Light Vision	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision	DEFINE:LowLightDistance|0	DESC:You can see x%1 as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-Light Vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.|LowLightDistance																																																																																																																																																																											BONUS:VAR|LowLightDistance|2|TYPE=Base	VISION:Low-Light Vision					ASPECT:Vision|Low-Light Vision

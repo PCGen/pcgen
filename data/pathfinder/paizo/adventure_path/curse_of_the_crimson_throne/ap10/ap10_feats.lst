@@ -1,6 +1,7 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Curse of the Crimson Throne, Chapter 4: A History of Ashes	SOURCESHORT:AP10	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82u9	SOURCEDATE:2008-07
 # Original Entry by: Paul Grosse
 
 # Feat Name		Type						Required Feat												Required Stat	Description												Weapon prof. bonus								Source Page
-Thunder and Fang	CATEGORY:FEAT	TYPE:General.Fighter.AttackOption	PREABILITY:3,CATEGORY=FEAT,Two Weapon Fighting,Weapon Focus (Earth breaker),Weapon Focus (Klar)	PRESTAT:1,STR=15	DESC:You have mastered the ancient Shoanti fighting style of Thunder and Fang	BONUS:WEAPONPROF=Klar|WIELDCATEGORY|-1|PREEQUIPTWOWEAPON:1,Klar	SOURCEPAGE:p.28
+# Ability Name	Category of Ability	Type						Required Ability														Required Stat	Description												Weapon prof. bonus								Source Page
+Thunder and Fang	CATEGORY:FEAT		TYPE:General.Fighter.AttackOption	PREABILITY:3,CATEGORY=FEAT,Two Weapon Fighting,Weapon Focus (Earth breaker),Weapon Focus (Klar)	PRESTAT:1,STR=15	DESC:You have mastered the ancient Shoanti fighting style of Thunder and Fang	BONUS:WEAPONPROF=Klar|WIELDCATEGORY|-1|PREEQUIPTWOWEAPON:1,Klar	SOURCEPAGE:p.28

@@ -1,5 +1,6 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Second Darkness, Chapter 4 - Endless Night	SOURCESHORT:AP16	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85er	SOURCEDATE:2008-11
 
 # Feat Name				Type			Required Class								Required Skill			Description														Source Page
+# Ability Name			Type			Required Class								Required Skill			Description														Source Page
 Brew Fleshcrafting Poison	TYPE:ItemCreation	PRECLASS:1,SPELLCASTER.Arcane=10,SPELLCASTER.Divine=10	PRESKILL:1,Craft (Alchemy)=8	DESC:You can create a fleshcrafting poison capable of mimicking one monster ability.	SOURCEPAGE:p.63

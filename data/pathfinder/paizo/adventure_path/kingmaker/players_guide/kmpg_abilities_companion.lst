@@ -1,11 +1,11 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Kingmaker Player's Guide	SOURCESHORT:KMPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/kingmaker/v5748btpy8dqh	SOURCEDATE:2010-03
 # Original Entry by: Stefan Radermacher
 
 ###Block: Companion Advancement abilities
-# Ability Name				Unique Key						Category of Ability		Type					Visible		Required Race				Ability								Combat bonus						Adjust PC Size		Natural Attacks
-Companion Advancement (Thylacine)	KEY:Companion Advancement ~ Thylacine	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Thylacine)										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Elk)		KEY:Companion Advancement ~ Elk		CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Elk)		ABILITY:Special Ability|AUTOMATIC|Powerful Charge	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1	ABILITY:Internal|AUTOMATIC|Hoof
+# Ability Name				Unique Key						Category of Ability		Type					Visible		Required Race				Ability														Combat bonus						Adjust PC Size
+Companion Advancement (Thylacine)	KEY:Companion Advancement ~ Thylacine	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Thylacine)																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Elk)		KEY:Companion Advancement ~ Elk		CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Elk)		ABILITY:Special Ability|AUTOMATIC|Powerful Charge	ABILITY:Internal|AUTOMATIC|Hoof	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1
 
 ###Block: Companion abilities
 # Ability Name	Unique Key				Category of Ability		Type						Description														Weapon prof. bonus

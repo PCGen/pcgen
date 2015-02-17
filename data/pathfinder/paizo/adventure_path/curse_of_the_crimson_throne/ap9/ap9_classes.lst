@@ -1,25 +1,25 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa	SOURCESHORT:AP9	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82t5	SOURCEDATE:2008-05
 
 # Class Name			Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus								Save bonus
 CLASS:Red Mantis Assassin	HD:8		TYPE:Prestige	CLASSTYPE:PC	ABB:RdMAs		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name			Required AL	Required Feat												Required Skill
-CLASS:Red Mantis Assassin	PREALIGN:LE	PREABILITY:3,CATEGORY=FEAT,3,Alertness,Weapon Finesse,Exotic Weapon Proficiency (Sawtooth Sabre)	PRESKILL:2,Intimidate=2,Stealth=5
+# Class Name			Required Ability															Required AL	Required Skill
+CLASS:Red Mantis Assassin	PREABILITY:3,CATEGORY=FEAT,3,Alertness,Weapon Finesse,Exotic Weapon Proficiency (Sawtooth Sabre)	PREALIGN:LE	PRESKILL:2,Intimidate=2,Stealth=5
 # Class Name			Skill Pts/Lvl
 CLASS:Red Mantis Assassin	STARTSKILLPTS:6
 # Class Name			Spell Type		Caster level
 CLASS:Red Mantis Assassin	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Red Mantis Assassin|CL
 ###Block: Level Progression
-1	BONUS:VAR|SneakAttackDice|1	ABILITY:FEAT|AUTOMATIC|Weapon Focus (Sawtooth Sabre)				ABILITY:Special Ability|AUTOMATIC|Sawtooth Mastery|Sneak Attack
-2																ABILITY:Special Ability|AUTOMATIC|Prayer Attack
-3																ABILITY:Special Ability|AUTOMATIC|Red Shroud
-4	BONUS:VAR|SneakAttackDice|1											ABILITY:Special Ability|AUTOMATIC|Call Mantis
-5						ABILITY:FEAT|AUTOMATIC|Weapon Specialization (Sawtooth Sabre)			ABILITY:Special Ability|AUTOMATIC|Resurrection Sense
-6																ABILITY:Special Ability|AUTOMATIC|Mantis Form
+1	BONUS:VAR|SneakAttackDice|1	ABILITY:FEAT|AUTOMATIC|Weapon Focus (Sawtooth Sabre)	ABILITY:Special Ability|AUTOMATIC|Sawtooth Mastery|Sneak Attack
+2						ABILITY:Special Ability|AUTOMATIC|Prayer Attack
+3						ABILITY:Special Ability|AUTOMATIC|Red Shroud
+4	BONUS:VAR|SneakAttackDice|1	ABILITY:Special Ability|AUTOMATIC|Call Mantis
+5						ABILITY:FEAT|AUTOMATIC|Weapon Specialization (Sawtooth Sabre)	ABILITY:Special Ability|AUTOMATIC|Resurrection Sense
+6						ABILITY:Special Ability|AUTOMATIC|Mantis Form
 7	BONUS:VAR|SneakAttackDice|1	ABILITY:FEAT|AUTOMATIC|Greater Weapon Focus (Sawtooth Sabre)
-8																ABILITY:Special Ability|AUTOMATIC|Blood Mantis Form|Fading
+8						ABILITY:Special Ability|AUTOMATIC|Blood Mantis Form|Fading
 9						ABILITY:FEAT|AUTOMATIC|Greater Weapon Specialization (Sawtooth Sabre)	ABILITY:Special Ability|AUTOMATIC|Mantis Doom
-10	BONUS:VAR|SneakAttackDice|1											ABILITY:Special Ability|AUTOMATIC|Death Mantis Form
+10	BONUS:VAR|SneakAttackDice|1	ABILITY:Special Ability|AUTOMATIC|Death Mantis Form
 ###Block: Spells
 1	CAST:0,0		KNOWN:0,2
 2	CAST:0,1		KNOWN:0,3

@@ -18,6 +18,7 @@
 #NAME:CraftItemPenalty			VAR:SYS_CIP		DEFAULT:Yes					DESC:Improper tools incure a -2 circumstance penalty
 NAME:LoadPenaltyToAcAndSkills		VAR:SYS_LDPACSK		DEFAULT:Yes					DESC:Apply Load Penalty to AC and Skills
 NAME:WeightPenaltyToSkill		VAR:SYS_WTPSK		DEFAULT:Yes					DESC:Apply Weight Penalty to Skills
+NAME:Misc_Skill_Modifier_Rule	VAR:Misc_Skill_Modifier_Rule	DEFAULT:No					DESC:Use GM Optional Rule to grant misc modifier to all skills.
 
 #
 # The following are all hardcoded in the java code
@@ -27,7 +28,7 @@ NAME:BonusSpellsKnown			PARM:BONUSSPELLKNOWN	DEFAULT:No					DESC:Add stat bonus 
 NAME:bypassClassPreReqs			PARM:CLASSPRE		DEFAULT:No					DESC:Bypass Class Prerequisites
 NAME:bypassFeatPreReqs			PARM:FEATPRE		DEFAULT:No					DESC:Bypass Feat Prerequisites
 NAME:bypassMaxSkillRanks		PARM:SKILLMAX		DEFAULT:No					DESC:Bypass Max Skill Ranks
-NAME:FreeClothesAtFirst			PARM:FREECLOTHES		DEFAULT:Yes					DESC:Ask For Free Clothing at First Level
+#NAME:FreeClothesAtFirst			PARM:FREECLOTHES		DEFAULT:Yes					DESC:Ask For Free Clothing at First Level
 NAME:IntBonusLang				PARM:INTBONUSLANG		DEFAULT:No					DESC:Allow Selection of Int bonus Languages after 1st level
 NAME:IncreaseIntBeforeLevel		PARM:INTBEFORE		DEFAULT:No					DESC:Increment STAT before calculating skill points when leveling
 NAME:IgnoreLevelCap			PARM:LEVELCAP		DEFAULT:No					DESC:Ignore Level Cap
@@ -38,3 +39,4 @@ NAME:WeaponSizebyObject			PARM:SIZEOBJ		DEFAULT:No	EXCLUDE:SIZECAT			DESC:Use 3.
 
 #
 # Done
+

@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1	SOURCESHORT:BOTD1	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
 ### Original Entry by: Andrew Maitland
 ### Entry Date: 09-2012
@@ -36,7 +36,7 @@ ABILITY:CATEGORY=FEAT|Improved Disarm
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Persuasive
-ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)	FREE:YES
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)		FREE:YES
 
 #GEAR:Scale Mail			SIZE:PC	LOCATION:Equipped
 #GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
