@@ -68,7 +68,6 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
-import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
@@ -688,28 +687,11 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		refContext.validate(validator);
 		refContext.resolveReferences(validator);
 		context.resolvePostDeferredTokens();
+		context.resolvePostValidationTokens();
 		ReferenceContextUtilities.validateAssociations(refContext, validator);
 		for (Equipment eq : refContext.getConstructedCDOMObjects(Equipment.class))
 		{
 			EqModAttachment.finishEquipment(eq);
-		}
-		validateSingleDefaultSize(context);
-	}
-
-	private void validateSingleDefaultSize(LoadContext context)
-	{
-		int defaults = getDefaultSizeAdjustmentCount(context);
-		if (defaults == 0)
-		{
-			Logging.log(Logging.LST_WARNING,
-						"Did not find a default size in Game Mode: " +
-					SettingsHandler.getGame().getName());
-		}
-		else if (defaults > 1)
-		{
-			Logging.log(Logging.LST_WARNING,
-						"Found more than one size claiming to be default in Game Mode: " +
-					SettingsHandler.getGame().getName());
 		}
 	}
 
@@ -1174,21 +1156,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		{
 			sendErrorMessage((Exception) arg);
 		}
-	}
-
-	public int getDefaultSizeAdjustmentCount(LoadContext context)
-	{
-		int i = 0;
-		for (SizeAdjustment s : context.getReferenceContext()
-				.getOrderSortedCDOMObjects(SizeAdjustment.class))
-		{
-			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
-			{
-				i++;
-			}
-		}
-	
-		return i;
 	}
 
 	private class LoadHandler extends Handler

@@ -169,6 +169,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		context.resolveDeferredTokens();
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 		context.resolvePostDeferredTokens();
+		context.resolvePostValidationTokens();
 		context.loadCampaignFacets();
 		pc = new PlayerCharacter();
 		setBoilerplate();

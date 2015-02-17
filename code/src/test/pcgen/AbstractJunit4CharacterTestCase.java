@@ -222,6 +222,9 @@ abstract public class AbstractJunit4CharacterTestCase
 		{
 			fail("Unconstructed References");
 		}
+		context.resolvePostDeferredTokens();
+		context.resolvePostValidationTokens();
+		context.loadCampaignFacets();
 
 		character = new PlayerCharacter();
 	}

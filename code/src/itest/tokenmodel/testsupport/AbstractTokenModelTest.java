@@ -139,6 +139,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		context.resolveDeferredTokens();
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 		context.resolvePostDeferredTokens();
+		context.resolvePostValidationTokens();
 		context.loadCampaignFacets();
 		pc = new PlayerCharacter();
 		id = pc.getCharID();
