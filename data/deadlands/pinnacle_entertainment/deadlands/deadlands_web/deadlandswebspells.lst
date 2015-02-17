@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Deadlands Web Enhancements	SOURCESHORT:DeadlndWeb	SOURCEWEB:http://www.peginc.com	SOURCEDATE:2003-01
-
-# Spell Name		Type		Classes of caster			School			Sub-School			Descriptor				Components	Casting Time		Range			Target Area or Effect				Duration				Save Info		Spell Resistance	Source URI							Description
-Control Terrormental	TYPE:Arcane	CLASSES:Black Magician=1	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting	COMPS:M	CASTTIME:1 action		RANGE:Medium	TARGETAREA:One attentive terrormental	DURATION:Until destroyed	SAVEINFO:None	SPELLRES:No		SOURCEWEB:/WeirdWest/Support/Adventures/HotWW	DESC:See text
-Summon Terrormental	TYPE:Arcane	CLASSES:Black Magician=1	SCHOOL:Conjuration	SUBSCHOOL:Summoning						COMPS:V,S,M	CASTTIME:20 minutes	RANGE:Close		TARGETAREA:One summoned terrormental	DURATION:Instantaneous		SAVEINFO:None	SPELLRES:No		SOURCEWEB:/WeirdWest/Support/Adventures/HotWW	DESC:See text

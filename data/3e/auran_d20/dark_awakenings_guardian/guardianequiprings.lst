@@ -1,8 +1,0 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
-SOURCELONG:Auran d20 - Dark Awakenings - Guardian	SOURCESHORT:Guardian	SOURCEWEB:http://www.auran.com/d20	SOURCEDATE:2000-01
-
-# Equipment Name		Type			Cost		Weight	Source Page		Save bonus								Special Property
-Ring of Halidara +1	TYPE:Magic.Ring	COST:2100	WT:0		SOURCEPAGE:p.78	BONUS:SAVE|Fortitude,Reflex,Will|1|TYPE=Resistance	SPROP:Bonus increases by +1 if save is against a spell or spell-like ability that target wearer specifically
-Ring of Halidara +2	TYPE:Magic.Ring	COST:6475	WT:0		SOURCEPAGE:p.78	BONUS:SAVE|Fortitude,Reflex,Will|2|TYPE=Resistance	SPROP:Bonus increases by +1 if save is against a spell or spell-like ability that target wearer specifically
-Ring of Halidara +3	TYPE:Magic.Ring	COST:13400	WT:0		SOURCEPAGE:p.78	BONUS:SAVE|Fortitude,Reflex,Will|3|TYPE=Resistance	SPROP:Bonus increases by +1 if save is against a spell or spell-like ability that target wearer specifically
-Ring of Halidara +4	TYPE:Magic.Ring	COST:34900	WT:0		SOURCEPAGE:p.78	BONUS:SAVE|Fortitude,Reflex,Will|4|TYPE=Resistance	SPROP:Bonus increases by +1 if save is against a spell or spell-like ability that target wearer specifically

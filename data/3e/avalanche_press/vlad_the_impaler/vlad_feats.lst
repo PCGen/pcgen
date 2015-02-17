@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Avalanche Press - Vlad the Impaler: Blood Prince of Wallachia	SOURCESHORT:Vlad	SOURCEWEB:http://www.avalanchepress.com/gameVlad.php	SOURCEDATE:2002-01
-# Original Entry by: Jerril
-
-# Feat Name			Type			Required Feat									Required Skill	PRETOTALAB		Description																											Auto Weapon Prof			Weapon prof. bonus						Source Page
-Amputate			CATEGORY:FEAT	TYPE:General												PRESKILL:1,Heal=8				DESC:This is the brutal but often necessary task of removing a shattered or sevearly injured limb either because it is ruined or to prevent the onset of gangrene.															SOURCEPAGE:p.33
-Behead			CATEGORY:FEAT	TYPE:General	PREABILITY:1,CATEGORY=FEAT,Power Attack	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (TYPE.Slashing)				PRETOTALAB:4	DESC:See Text																																								SOURCEPAGE:p.33
-Firearms Proficiency	CATEGORY:FEAT	TYPE:General																		DESC:The character is experienced in the use of an arquebuse.																		AUTO:WEAPONPROF|TYPE=Arquebus	BONUS:WEAPONPROF=Cannon|TOHIT|-2|TYPE=GunneryPenalty	SOURCEPAGE:p.33
-Gunnery			CATEGORY:FEAT	TYPE:General																		DESC:The character is trained in the use of field cannon for sieges.																	AUTO:WEAPONPROF|TYPE=Cannon	BONUS:WEAPONPROF=Cannon|TOHIT|0|TYPE=GunneryPenalty	SOURCEPAGE:p.33

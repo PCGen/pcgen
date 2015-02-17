@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
-
-
-# Equipment Name	Output Name			Required Weapon Proficiency	Type										Cost		Weight	Var. Min. Value			Crit Mult	Crit Range	Damage	Requires Modification?	Range		Size		Source Page				Bonus Weapon Mods																															Weapon prop. bonus
-Mind Blade		OUTPUTNAME:Mind-Blade	PROFICIENCY:WEAPON|Mind Blade	TYPE:Psionic.Weapon.Martial.Melee.Ranged.Standard.Slashing	COST:0	WT:0		PREVARGTEQ:MNDBLADEALLOWED,1	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	MODS:NO			RANGE:0	SIZE:S	SOURCEPAGE:srdpsionicclasses	BONUS:EQMWEAPON|RANGEADD|MindBladeRANGE|TYPE=PsionicWeapon|PREVARGT:MindBladeEnchantment,0	BONUS:EQMWEAPON|DAMAGESIZE|MindBladeDAMAGESIZEADJ|TYPE=PsionicWeapon|PREVARGT:MindBladeEnchantment,0	BONUS:WEAPON|DAMAGE,TOHIT|MindBladeEnchantment|TYPE=PsionicWeapon|PREVARGT:MindBladeEnchantment,0

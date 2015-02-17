@@ -1,7 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Bastion Press - Arms and Armor	SOURCESHORT:arms	SOURCEWEB:http://dragonwing.net/	SOURCEDATE:2001-01
-
-# Equipment Name	Required Weapon Proficiency			Type											Contains			Cost		Weight	Required Stat	Crit Mult	Crit Range	Damage	Modifier		Range		Size		Source Page		Weapon prop. bonus											Special Property
-Harp Bow		PROFICIENCY:WEAPON|Shortbow (Composite)	TYPE:Magic.Weapon.Martial.Ranged.Piercing.Specific.Container	CONTAINS:1|Arrow=1	COST:10325	WT:2					CRITMULT:x3	CRITRANGE:1	DAMAGE:1d6	EQMOD:WOOD		RANGE:70	SIZE:M	SOURCEPAGE:p.38	BONUS:WEAPON|DAMAGE|min(STR,2)	BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	SPROP:A successful Performance skill check (DC 10) allows the wielder to play the harp and fire arrows from it simultaneously.
-# BONUS:SKILL|Perform (Harp)|7|TYPE=Enhancement|PRESKILL:1,Perform (Harp)=1 - No such skill in 3e, it's ALL perform!
-Icicle Bow		PROFICIENCY:WEAPON|Longbow (Composite)	TYPE:Magic.Weapon.Martial.Ranged.Piercing.Specific.Container	CONTAINS:1|Arrow=1	COST:39380	WT:3		PRESTAT:1,STR=18	CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:PLUS4W	RANGE:110	SIZE:L	SOURCEPAGE:p.48	BONUS:WEAPON|DAMAGE|min(STR,4)									SPROP:Once per day the wielder can imbue a single arrow with the power to deal 10d6 points of damage on impact (Fortitude Save DC 17 Half).

@@ -48,8 +48,8 @@ DEITY:aeg_gods_deities_35e.lst
 DOMAIN:aeg_gods_domains_35e.lst
 EQUIPMENT:aeg_gods_equip_magic_35e.lst
 ABILITY:aeg_gods_feats_35e.lst
-
-EQUIPMOD:@/3e/wizards_of_the_coast/srd/basics/srd_equipmods_magic.lst|(INCLUDE:RING|ADAMANT_WONDROUS)
+EQUIPMOD:aeg_gods_equipmods_35e.lst
+#EQUIPMOD:@/3e/wizards_of_the_coast/srd/basics/srd_equipmods_magic.lst|(INCLUDE:RING|ADAMANT_WONDROUS)
 
 FORWARDREF:SPELL|Change Self,Circle of Doom,Emotion,Greater Command,Greater Planar Ally,Greater Restoration,Greater Scrying,Healing Circle,Invisibility to Animals,Lesser Geas,Magnificent Mansion,Mass Charm,Mass Heal,Mass Suggestion,Polymorph Other,Power Word (Blind),Power Word (Kill),Power Word (Stun),Resist Elements,Symbol
 FORWARDREF:SKILL|Perform,Scry,Wilderness Lore

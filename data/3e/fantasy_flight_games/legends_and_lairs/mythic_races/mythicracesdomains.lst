@@ -1,5 +1,0 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
-
-# Domain Name		Required Class			Source Page		Description
-Sktak Windrider Mount	PRECLASS:1,Sktak Windrider=1	SOURCEPAGE:p.145	DESC:The spells in this domain can only be cast on the Windrider's mount.

@@ -1,0 +1,4 @@
+
+Ring			KEY:RING		NAMEOPT:NORMAL	TYPE:BaseMaterial.Ring								COST:0	VISIBLE:QUALIFY													SOURCEPAGE:srdmagicitemsrings							!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
+
+Adamantine		KEY:ADAMANT_WONDROUS	TYPE:BaseMaterial.MasterworkQuality.Wondrous			VISIBLE:QUALIFY	ITYPE:Metal.Adamantine.Masterwork	REPLACES:STEEL,MWORKA	SOURCEPAGE:RSRD SpecialMaterials																																		SPROP:40hp/inch and 20 hardness

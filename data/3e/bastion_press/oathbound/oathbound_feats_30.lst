@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com	SOURCEDATE:2003-08
-# Input by Ruemere, email: ruemere@poczta.onet.pl
-
-# Feat Name				Type				Required Race	PRETOTALAB		Description		Multiple?	Choose																		Weapon prof. bonus										Source Page
-Weapon Finesse for Ceptu 30	CATEGORY:FEAT	TYPE:General.Fighter	PRERACE:1,Ceptu	PRETOTALAB:1	DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Finesseable]|EQUIPMENT[TYPE=Melee,WIELD=Light],PC|EQUIPMENT[TYPE=Natural]	BONUS:WEAPONPROF=%LIST|TOHIT|(max(INT,CHA)+SHIELDACCHECK)-INT|TYPE=NotRanged	SOURCEPAGE:Chap.5, Feat Descriptions

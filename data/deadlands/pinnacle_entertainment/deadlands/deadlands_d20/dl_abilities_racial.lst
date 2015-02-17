@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-
-# Ability Name	Category of Ability		Type				Define					Description						Multiple?	Choose				Bonus Ability Pool							Bonus to skill						Bonus to skill rank					Modify VAR
-Default		CATEGORY:Internal																											BONUS:ABILITYPOOL|Starting Language|1|PRECLASS:1,TYPE.PC=1
-
-Starting Language	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:StartingLanguageRankFix|0	DESC:%1 is your native language.|%LIST	MULT:YES	CHOOSE:SKILL|TYPE=Language											BONUS:SKILL|%LIST|2-StartingLanguageRankFix	BONUS:SKILLRANK|%LIST|4+StartingLanguageRankFix	BONUS:VAR|StartingLanguageRankFix|MIN((TL-1),2)

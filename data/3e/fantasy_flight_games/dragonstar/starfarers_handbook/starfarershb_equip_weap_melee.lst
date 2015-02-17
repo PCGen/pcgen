@@ -1,8 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
-
-#EBMOD: added PROFICIENCY entry for all weapons
-# Equipment Name	Required Weapon Proficiency		Type									Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page		Weapon prop. bonus			Special Property
-Bayonet		PROFICIENCY:WEAPON|Bayonet		TYPE:Weapon.Simple.Melee.Piercing				COST:20	WT:1		CRITMULT:x3	CRITRANGE:2	DAMAGE:1d6	RANGE:0	SIZE:M	SOURCEPAGE:p.97	BONUS:WEAPON|TOHIT|1|TYPE=Keenblade
-Stun Baton		PROFICIENCY:WEAPON|Stun Baton		TYPE:Weapon.Simple.Melee.Bludgeoning.Standard		COST:50	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:0	SIZE:S	SOURCEPAGE:p.103							SPROP:Fort save DC15 or stunned 1 round, electrical
-Stun Gauntlets	PROFICIENCY:WEAPON|Stun Gauntlets	TYPE:Weapon.Unarmed.Simple.Melee.Bludgeoning.Standard	COST:75	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:0	SIZE:S	SOURCEPAGE:p.103							SPROP:Fort save DC15 or stunned 1 round, electrical

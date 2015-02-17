@@ -1,8 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Faeries	SOURCESHORT:Faeries	SOURCEWEB:http://dragonwing.net/Faeries.htm	SOURCEDATE:2003-01
-#Original Entry: darkon_turas; clean up by Andrew Maitland
-
-# Domain Name	Innate Spells					Bonus DC			Source Page		Description																												List of Domain Spells by Level
-Dream										BONUS:DC|DOMAIN.Dream|1	SOURCEPAGE:p.90	DESC:You can cast dream domain spells ans those involving sleep at +1 caster level. You can also cast snooze as a 0-level spell.								SPELLLEVEL:DOMAIN|Dream=0|Snooze|Dream=1|Sleep|Dream=2|Dreamspeak|Dream=3|Nap|Dream=4|Fitful Sleep|Dream=5|Sleepwalking|Dream=6|Sleepless Curse|Dream=7|Improved Nap|Dream=8|Recurring Nightmare|Dream=9|Mind Blank
-Fey			SPELLS:Class|TIMES=CON|Bad Luck|Good Luck					SOURCEPAGE:p.90	DESC:You can cast bad luck or good luck a number of times equal to your Constitution modifier. These additional spells do not count against your daily allotment of spells.	SPELLLEVEL:DOMAIN|Fey=1|Bad Luck,Good Luck|Fey=2|Disrobe|Fey=3|Luck of the Fey|Fey=4|Discern Route|Fey=5|Ironblight|Fey=6|Energy Bubbles|Fey=7|Fey Decree|Fey=8|Fey Curtain|Fey=9|Miracle
-Fey Roads		SPELLS:Class|TIMES=ATWILL|Detect Doorway					SOURCEPAGE:p.90	DESC:You gain the ability to cast detect doorway at will. These additional spells do not count against your daily allotment of spells.							SPELLLEVEL:DOMAIN|Fey Roads=1|Detect Fey Doorway|Fey Roads=2|Locate Object|Fey Roads=3|Befriend Doorway Guardian|Fey Roads=4|Discern Route|Fey Roads=5|Fork Path|Fey Roads=6|Find the Path|Fey Roads=7|Create Doorway and Backroad,Stray from Path|Fey Roads=8|Create Doorway and Sideroad|Fey Roads=9|Gate

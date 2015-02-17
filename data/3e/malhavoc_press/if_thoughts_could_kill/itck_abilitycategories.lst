@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-# Ability Category			Visible		Editable?		Change Pool?	Category of Object		Specific choices list			Display Location
-ABILITYCATEGORY:Power Sequestration	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	ABILITYLIST:Power Sequestration	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Kuresh Feat		TYPE:Metapsionic.Psionic		CATEGORY:FEAT	DISPLAYLOCATION:Feats	EDITABLE:YES	EDITPOOL:NO	VISIBLE:QUALIFY
-
-ABILITYCATEGORY:Slayer ITCK Feat	CATEGORY:FEAT			DISPLAYLOCATION:Feats			EDITABLE:YES	EDITPOOL:NO	VISIBLE:QUALIFY	TYPE:General.Metapsionic.Psionic	
-ABILITYCATEGORY:Subdiscipline		CATEGORY:Special Ability	DISPLAYLOCATION:Class Abilities	EDITABLE:YES	EDITPOOL:NO	VISIBLE:QUALIFY	TYPE:Subdiscipline	
-
-

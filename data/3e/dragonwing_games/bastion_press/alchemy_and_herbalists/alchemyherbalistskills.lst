@@ -1,8 +1,0 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:21:45 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-#Original Entry By: Knightcrawler
-SOURCELONG:Alchemy and Herbalists	SOURCESHORT:AlchemyHrb	SOURCEWEB:http://dragonwing.net/	SOURCEDATE:2002-03
-
-# Skill Name			Define			Modify VAR
-Alchemy.MOD				DEFINE:AlchemyFeat|0	BONUS:VAR|AlchemyFeat|1|PRESKILLTOT:Alchemy=7|TYPE=NoStack	BONUS:VAR|AlchemyFeat|2|PRESKILLTOT:Alchemy=8|TYPE=NoStack	BONUS:VAR|AlchemyFeat|3|PRESKILLTOT:Alchemy=9|TYPE=NoStack
-Profession (Herbalist).MOD	DEFINE:AlchemyFeat|0	BONUS:VAR|AlchemyFeat|2|PRESKILLTOT:Profession (Herbalist)=6|TYPE=NoStack	BONUS:VAR|AlchemyFeat|3|PRESKILLTOT:Profession (Herbalist)=7|TYPE=NoStack	BONUS:VAR|ApothecaryFeat|1|PRESKILLTOT:Profession (Herbalist)=8|TYPE=NoStack
-Profession (Apothecary).MOD	DEFINE:ApothecaryFeat|0	BONUS:VAR|ApothecaryFeat|1|PRESKILLTOT:Profession (Apothecary)=6|TYPE=NoStack

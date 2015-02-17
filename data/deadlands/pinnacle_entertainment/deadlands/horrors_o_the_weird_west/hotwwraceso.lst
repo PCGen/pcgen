@@ -1,5 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
-# Race Name							Favored Class		Starting Feats	Size		Move			Reach		Bonus to skill																			Stat bonus														Auto Feat				Auto Language	Auto Weapon Prof		Special ABility								Define Stat			Monster Class Name and Starting Level	Main Race Type	Template		Challenge Rating	Source Page		Apply Kit
-Ornery Will and the Union Pride Ghost Train	FAVCLASS:Gunslinger	STARTFEATS:1	SIZE:M	MOVE:Walk,35	REACH:5	BONUS:SKILL|Bluff,Spot,Intimidate|6	BONUS:SKILL|Climb|4	BONUS:SKILL|Knowledge (Local),Ridicule|7	BONUS:SKILL|Ride|3	BONUS:STAT|STR|4	BONUS:STAT|DEX|6	BONUS:STAT|INT|-1	BONUS:STAT|WIS|1	BONUS:STAT|CHA|1	ABILITY:FEAT|AUTOMATIC|Two-Weapon Fighting	AUTO:LANG|English	AUTO:WEAPONPROF|Pistol	SAB:Fear(Su)	SAB:Undead(Su)	SAB:Spirit weapons(Su)	DEFINESTAT:NONSTAT|CON	MONSTERCLASS:Undead:3				RACETYPE:Undead	TEMPLATE:Undead	CR:3			SOURCEPAGE:p.100	KIT:1|CE
-#Colt Thunderer (Pistol/DA)

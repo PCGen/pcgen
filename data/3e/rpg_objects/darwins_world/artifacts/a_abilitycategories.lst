@@ -1,7 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-
-
-# Ability Category							Visible		Editable?		Change Pool?	Category of Object	Specific choices list
-ABILITYCATEGORY:Manual (Speak Language Computer)		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Feat		ABILITYLIST:Manual (Speak Language Computer)
-
-ABILITYCATEGORY:CBI (Education/Speak Language/Computer)	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Feat		ABILITYLIST:CBI (Education/Speak Language/Computer)

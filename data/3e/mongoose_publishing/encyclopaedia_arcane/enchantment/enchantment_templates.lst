@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-09
-
-# Template Name		Challenge Rating	Visible	Source Page		Special ABility											Define Stat			Bonus DR		Bonus to skill																	Stat bonus		Auto Feat							Removable?		Type
-Thrall			CR:1					SOURCEPAGE:p.49	SAB:Mind Leech	SAB:Master	SAB:Limited Mindlessness	SAB:Tireless	DEFINESTAT:NONSTAT|WIS	BONUS:DR|+1|5	BONUS:SKILL|TYPE=Intelligence|-1*(INT)	BONUS:SKILL|TYPE=Wisdom|-1*(WIS)	BONUS:SKILL|TYPE=Charisma|-1*(CHA)	BONUS:STAT|DEX|2	ABILITY:FEAT|AUTOMATIC|Endurance|Great Fortitude|Toughness	REMOVABLE:YES
-Dark Temptress Level 10				VISIBLE:NO																																																									TYPE:Outsider
