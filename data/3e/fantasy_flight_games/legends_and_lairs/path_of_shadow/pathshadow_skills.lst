@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
-# Original entry by: Blithwyn
-
-# The Knowledge (Lycanthropes) is not defined in Path of Shadow and I don't know what book
-# it comes from but it is required for the Night Hunter prestige class, so there ya go.
-
-# Skill Name			Key Stat	Untrained?		Type					Source Page
-Knowledge (Lycanthropes)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:Chap.1, Night Hunter prereq

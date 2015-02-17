@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
-# Original entry by: Blithwyn
-
-# Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Crit Mult	Crit Range	Damage	Size		Source Page						Virtual Feat				Combat bonus			Special Property
-Braid Blade		PROFICIENCY:WEAPON|Braid Blade	TYPE:Weapon.Exotic.Melee.Small.Finesseable.Standard.Metal.Slashing	COST:4	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	SIZE:T	SOURCEPAGE:Chap.4, The Rogue's Tools	ABILITY:FEAT|VIRTUAL|Weapon Finesse(Braid Blade)	BONUS:COMBAT|DAMAGE|-STR	SPROP:target is flat-footed first strike of a combat

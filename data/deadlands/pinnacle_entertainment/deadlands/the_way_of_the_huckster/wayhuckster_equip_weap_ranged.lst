@@ -1,5 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:The Way of the Huckster	SOURCESHORT:Huckster	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
-
-# Equipment Name		Required Weapon Proficiency	Type												Cost		Weight	Crit Mult	Crit Range	Damage		Range		Size		Source Page		Bonus to skill
-Luke Short's Derringer	PROFICIENCY:WEAPON|Pistol	TYPE:Magic.Weapon.Ranged.Firearm.Pistol.Derringer.SingleAction.Piercing	COST:658	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:2d6+1	RANGE:15	SIZE:T	SOURCEPAGE:p.51	BONUS:SKILL|Holdout|5

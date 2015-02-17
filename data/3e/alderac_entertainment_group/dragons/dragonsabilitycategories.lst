@@ -1,8 +1,0 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
-#SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20
-
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list																																																		Plural description for UI		Display Location
-ABILITYCATEGORY:Wyrmfoe Damage Resistance	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WyrmfoeDamageResistance																																																						PLURAL:Wyrmfoe Damage Resistance	DISPLAYLOCATION:Class Abilities
-
-
-ABILITYCATEGORY:Air Lord Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Alertness|Cleave|Far Shot|Great Cleave|Improved Bull Rush|Improved Critical|Improved Initiative|Mounted Archery|Point Blank Shot|Power Attack|Precise Shot|Quick Draw|Rapid Shot|Ride-By Attack|Shot on the Run|Skill Focus|Spirited Charge|Sunder|Trample|Weapon Finesse|Weapon Focus|Weapon Specialization							DISPLAYLOCATION:Class Abilities

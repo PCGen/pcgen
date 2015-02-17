@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-#Original entry by: Knightcrawler
-SOURCELONG:Fantasy Flight Games - Spells and Spellcraft	SOURCESHORT:Spellcraft	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-03
-
-# Equipment Name			Type					Cost		Weight	Source Page		Special Property
-Potion (Oil of Animation)	TYPE:Magic.Potion.Consumable	COST:1200	WT:0		SOURCEPAGE:p.168	SPROP:Weapon rubbed on becomes +1 dancing weapon for 5d4 rounds.

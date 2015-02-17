@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Mongoose Publishing - Slayer's Guide to Minotaurs	SOURCESHORT:SGtM	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
-
-# Feat Name		Type			Required Feat				Required Stat	PRETOTALAB		Description													Source Page
-Juggernaut		CATEGORY:FEAT	TYPE:Minotaur	PREABILITY:2,CATEGORY=FEAT,Improved Bull Rush,Run							DESC:You cannot be stopped while you are moving.						SOURCEPAGE:p.20
-Nose Breaker	CATEGORY:FEAT	TYPE:Minotaur							PRESTAT:1,STR=13	PRETOTALAB:3	DESC:You know how to use your skull to your best advantage while grappling.		SOURCEPAGE:p.20
-Running Tackle	CATEGORY:FEAT	TYPE:Minotaur	PREABILITY:1,CATEGORY=FEAT,Improved Trip						PRETOTALAB:3	DESC:You can throw your enemy to the ground by using your own weight and momentum.	SOURCEPAGE:p.20
-Stranglehold	CATEGORY:FEAT	TYPE:Minotaur							PRESTAT:1,STR=14				DESC:You possess a powerful, effective, grappling technique.				SOURCEPAGE:p.20
-Toss Aside		CATEGORY:FEAT	TYPE:Minotaur							PRESTAT:1,STR=16				DESC:You can throw enemies aside with your horns.						SOURCEPAGE:p.20

@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
-SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com	SOURCEDATE:2001-01
-
-# Skill Name		Key Stat	Untrained?		Classes					Type					Source Page		Bonus to skill
-Craft (Tattoo)		KEYSTAT:INT	USEUNTRAINED:NO							TYPE:Intelligence.Craft		SOURCEPAGE:p.128
-#EXCLUSIVE:YES
-Ritual Casting		KEYSTAT:CON	USEUNTRAINED:NO	CLASSES:Cleric|Sorcerer|Wizard	TYPE:Constitution			SOURCEPAGE:p.128	BONUS:SKILL|Ritual Casting|2|PRESKILL:1,Concentration=5
-Knowledge (Astrology)	KEYSTAT:INT	USEUNTRAINED:NO							TYPE:Intelligence.Knowledge	SOURCEPAGE:p.197
-Knowledge (Patron Lore)	KEYSTAT:INT	USEUNTRAINED:NO							TYPE:Intelligence.Knowledge	SOURCEPAGE:p.

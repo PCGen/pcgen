@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
-
-# Ability Name						Allowed Companions
-CATEGORY=Special Ability|Animal Companion.MOD	COMPANIONLIST:Animal Companion|Dire Rat	COMPANIONLIST:Animal Companion|Dire Badger,Dire Bat,Dire Weasel|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Dinosaur (Deinonychus),Dire Ape,Dire Boar,Dire Wolf,Dire Wolverine|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Dinosaur (Megaraptor),Dire Lion|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Dire Bear|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Dinosaur (Triceratops),Dinosaur (Tyrannosaurus),Dire Tiger|FOLLOWERADJUSTMENT:-15
-
-#
-# End
-#

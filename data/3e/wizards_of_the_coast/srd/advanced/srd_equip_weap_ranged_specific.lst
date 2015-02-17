@@ -1,7 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
-
-
-# Equipment Name		Required Weapon Proficiency	Type																	Contains			Cost		Weight	Slot Needed	Crit Mult	Crit Range	Damage	Modifier	Range		Size		Source Page					Weapon prop. bonus											Special Property
-Javelin of Lightning	PROFICIENCY:WEAPON|Javelin	TYPE:Enhancement.Weapon.Simple.Ranged.Piercing.Specific.Thrown.Javelin										COST:751	WT:2				CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:WOOD	RANGE:30	SIZE:M	SOURCEPAGE:srdmagicitemsweapons															SPROP:Becomes a 5d6 Lightning Bolt when thrown
-Oathbow			PROFICIENCY:WEAPON|Longbow	TYPE:Enhancement.Weapon.Martial.Ranged.Piercing.Specific.Wooden.Container.Projectile.Bow.Longbow	CONTAINS:UNLIM|Arrow=1	COST:27875	WT:3		SLOTS:2	CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:WOOD	RANGE:100	SIZE:L	SOURCEPAGE:srdmagicitemsweapons	BONUS:WEAPON|DAMAGE|min(STR,0)	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	SPROP:See text

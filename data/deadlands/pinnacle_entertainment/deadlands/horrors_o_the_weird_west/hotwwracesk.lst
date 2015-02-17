@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
-#Kangee Languages - until the Deadlands language coding is completed, Kangee has 4 languages listed as both skills and LANGAUTO.
-# - interesting.  Deadlands language coding?  - Tir Gwaith
-# Race Name	Starting Feats	Size		Move			Reach		Stat bonus																	Auto Language					Natural Attacks												Special ABility													Monster Class Name and Starting Level	Main Race Type	Hit Dice Advancement		Challenge Rating	Source Page		Apply Kit
-Kangee	STARTFEATS:1	SIZE:G	MOVE:Walk,30	REACH:20	BONUS:STAT|STR|11	BONUS:STAT|DEX|2	BONUS:STAT|CON|6	BONUS:STAT|INT|1	BONUS:STAT|WIS|3	BONUS:STAT|CHA|5	AUTO:LANG|Apache|English|Siouan|Spanish	NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Piercing.Slashing.Bludgeoning,*6,1d3	SAB:Fear(Ex)	SAB:Animal control(Su)	SAB:Surveillance(Su)	SAB:Vulnerability(Su)	MONSTERCLASS:Outsider:16			RACETYPE:Outsider	HITDICEADVANCEMENT:17,48	CR:10			SOURCEPAGE:p.62	KIT:1|CE

@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
-
-
-###Block: EQMODs Armor
-# Modifier Name	Unique Key		Type		Plus		Visible		Special Property
-Honorable		KEY:HONORABLE	TYPE:Armor	PLUS:2	VISIBLE:QUALIFY
-Kata Memory		KEY:KATAMEMORY	TYPE:Armor	PLUS:2	VISIBLE:QUALIFY
-Ki Funnel		KEY:KIFUNNEL	TYPE:Armor	PLUS:2	VISIBLE:QUALIFY
-Ki Light		KEY:KILIGHT		TYPE:Armor	PLUS:1	VISIBLE:QUALIFY	SPROP:Cherry Blossom Flare 2 Ki; Sun Streamer 5 Ki; Lunar Radiance 5 Ki

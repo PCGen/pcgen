@@ -1,5 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
-
-# Equipment Name	Type								Alt Type					Cost		Weight	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Size		Source Page		Weapon prop. bonus
-Reedstaff		TYPE:Weapon.Exotic.Melee.Bludgeoning.Double	ALTTYPE:Weapon.Melee.Bludgeoning	COST:20	WT:4		CRITMULT:x2	CRITRANGE:2	ALTCRITMULT:x2	ALTCRITRANGE:2	DAMAGE:1d6	ALTDAMAGE:1d6	SIZE:L	SOURCEPAGE:p.137	BONUS:WEAPON|TOHIT|-4|PREMULT:2,[PREWEAPONPROF:1,Reedstaff],[!PRESKILL:1,Perform=1]

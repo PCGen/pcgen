@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com	SOURCEDATE:2001-01
-# Original entry by wizofice2001
-
-# Equipment Name	Type		Cost		Weight	Source Page
-Coin (Corium)	TYPE:Coin	COST:1	WT:0.02	SOURCEPAGE:p.47

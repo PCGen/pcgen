@@ -1,7 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Battlefield Press - Cityscape	SOURCESHORT:Cityscape	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2002-11
-
-# Equipment Name	Required Weapon Proficiency		Type											Cost		Weight	Crit Mult	Crit Range	Damage	Range
-Knife (Bowie)	PROFICIENCY:WEAPON|Knife (Bowie)	TYPE:Weapon.Dagger.Simple.Melee.Ranged.Piercing.Standard.Metal	COST:300	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:10
-Baseball Bat	PROFICIENCY:WEAPON|Baseball Bat	TYPE:Weapon.Simple.Melee.Ranged.Bludgeoning.Standard.Wooden		COST:35	WT:7		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8
-Sword Cane		PROFICIENCY:WEAPON|Sword Cane		TYPE:Weapon.Simple.Melee.Slashing.Standard.Metal			COST:250	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6

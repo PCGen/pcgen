@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
-
-# Ability Name			Category of Ability		Visible	Move			Natural Attacks									Temporary Bonus
-Banderskin Armor Abilities	CATEGORY:Special Ability	VISIBLE:NO	MOVE:Burrow,20	NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d8
-
-Exoskeleton Equip Bonus		CATEGORY:Internal																			TEMPBONUS:PC|STAT|STR|2|TYPE=Enhancement
-Grant Five Perform Ranks	CATEGORY:Internal																			TEMPBONUS:PC|SKILLRANK|Perform|5
-Grant Six Perform Ranks		CATEGORY:Internal																			TEMPBONUS:PC|SKILLRANK|Perform|6
-Enhanced Spell Resisting	CATEGORY:Internal																			TEMPBONUS:PC|MISC|SR|10+CHA|PRESREQ:0	TEMPBONUS:PC|MISC|SR|5|PRESRGTEQ:1

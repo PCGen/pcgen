@@ -1,5 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Atlas Games - Penumbra - Modules - Backdrops	SOURCESHORT:Backdrops	SOURCEWEB:http://www.atlas-games.com/pen_index.html	SOURCEDATE:2002-01
-
-# Equipment Name		Output Name		Type					Cost		Weight	Source Page
-Poison (Severus' Oil)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:1000	WT:0		SOURCEPAGE:p.8

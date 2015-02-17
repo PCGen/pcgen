@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Atlas Games - Penumbra - Modules - Backdrops	SOURCESHORT:Backdrops	SOURCEWEB:http://www.atlas-games.com/pen_index.html	SOURCEDATE:2002-01
-#Original Entry by: Tir Gwaith
-
-# Race Name				Output Name						Size		Move			Face/Space	Reach		Vision			Combat bonus				Stat bonus																		Racial HD Class Skills						Auto Feat			Nb Legs	Natural Attacks									Special ABility																Monster Class Name and Starting Level	Main Race Type	Challenge Rating	Source Page		Apply Kit
-Horse (Light Noble/Kuzyaka)	OUTPUTNAME:Kuzyaka (Light Noble Horse)	SIZE:L	MOVE:Walk,60	FACE:5,10	REACH:5	VISION:Low-Light Vision	BONUS:COMBAT|AC|3|TYPE=NaturalArmor	BONUS:STAT|STR|2	BONUS:STAT|DEX|2	BONUS:STAT|CON|15|	BONUS:STAT|INT|-6	BONUS:STAT|WIS|4	BONUS:STAT|CHA|2	MONCSKILL:Intuit Direction|Listen|Sense Motive|Spot	ABILITY:FEAT|AUTOMATIC|Iron Will	LEGS:4	NATURALATTACKS:Hooves,Weapon.Natural.Melee.Bludgeoning,*1,1d4	SAB:Discern Lies (Sp)	SAB:Scent (Ex)	SAB:+8 racial bonus on Sense Motive checks to detect enchantment.	MONSTERCLASS:Animal:3				RACETYPE:Animal	CR:1			SOURCEPAGE:p.31	KIT:1|TN

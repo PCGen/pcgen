@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
-
-# Feat Name			Type				Min. nb of Hands	Required Movement Rate	Required Stat	Required Template			Description													Combat bonus						Class Skill			Source Page
-Flyby Attack		CATEGORY:FEAT	TYPE:General.Fighter				PREMOVE:1,Fly=1										DESC:A creature with this feat may attack on the wing.																	SOURCEPAGE:p.11
-Improved Control Shape	CATEGORY:FEAT	TYPE:Special												PRETEMPLATE:1,Lycanthrope	DESC:See Text																				CSKILL:Control Shape	SOURCEPAGE:srdmonsterstemplates
-Multidexterity		CATEGORY:FEAT	TYPE:General.Fighter	PREHANDSGT:2					PRESTAT:1,DEX=15						DESC:A creature with this feat is adept at using all its hands in combat.		BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|4					SOURCEPAGE:p.11
-Multiweapon Fighting	CATEGORY:FEAT	TYPE:General.Fighter	PREHANDSGT:2													DESC:A creature with this feat can fight with a weapon in each hand.			BONUS:COMBAT|TOHIT-PRIMARY,TOHIT-SECONDARY|2					SOURCEPAGE:p.11
-Multiattack			CATEGORY:FEAT	TYPE:General.Fighter	PREHANDSGT:2													DESC:A creatire with this feat is adept at using all its natural weapons at once.	BONUS:COMBAT|TOHIT-SECONDARY|3							SOURCEPAGE:p.11

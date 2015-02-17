@@ -1,5 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Atlas Games - Penumbra - Modules - Backdrops	SOURCESHORT:Backdrops	SOURCEWEB:http://www.atlas-games.com/pen_index.html	SOURCEDATE:2002-01
-
-# Equipment Name			Output Name					Type							Contains			Cost		Weight	Size		Source Page		Special Property
-Horse (Light Noble/Kuzyaka)	OUTPUTNAME:Noble Horse (Kuzyaka)	TYPE:Goods.Transportation.Mount.Container	CONTAINS:600|Any=600	COST:500	WT:0		SIZE:L	SOURCEPAGE:p.31	SPROP:See text

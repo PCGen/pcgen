@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Fantasy Flight Games - Seafarer's Handbook	SOURCESHORT:SFHB	SOURCEWEB:http://www.fantasyflightgames.com/llsh.html	SOURCEDATE:2002-01
-# Original Entry by: Eddy Anthony
-
-# Equipment Name		Required Weapon Proficiency	Type															Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page		Weapon prop. bonus					Special Property
-Trident of the Sea	PROFICIENCY:WEAPON|Trident	TYPE:Magic.Weapon.Martial.Melee.Ranged.Standard.Piercing.Metal.Thrown.Trident.Aquatic	COST:18000	WT:5		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	RANGE:20	SIZE:M	SOURCEPAGE:p.43	BONUS:WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement	SPROP:Returning	SPROP:+3 vs Intelligent Aquatic Creatures

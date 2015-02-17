@@ -1,5 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
-
-# Equipment Name	Type								Contains			Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page		Weapon prop. bonus
-Feybow		TYPE:Weapon.Exotic.Ranged.Piercing.Container	CONTAINS:UNLIM|Arrow=1	COST:30	WT:1		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d6	RANGE:60	SIZE:T	SOURCEPAGE:p.	BONUS:WEAPON|DAMAGE|min(STR,0)

@@ -1,7 +1,0 @@
-# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
-SOURCELONG:The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
-
-# Weapon Name	Type
-Acid Gun		TYPE:Exotic
-Gatling Rifle	TYPE:Exotic
-Gatling Shotgun	TYPE:Exotic
