@@ -139,6 +139,13 @@ public class IntegerKey
 
 	public static final IntegerKey MAX_VALUE = getConstant("MAX_VALUE", 1000);
 
+	//Input value for SizeAdjustment ordering (in LST file)
+	public static final IntegerKey SIZENUM = getConstant("SIZENUM");
+
+	//Derived value for SizeAdjustment ordering (derived to be sequential)
+	public static final IntegerKey SIZEORDER = getConstant("SIZEORDER");
+
+
 	/*
 	 * TODO Okay, this is a hack. This should probably be a FormulaKey rather
 	 * than an IntegerKey in order to properly handle this strange delegation.

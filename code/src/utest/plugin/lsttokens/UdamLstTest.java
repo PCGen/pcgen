@@ -52,40 +52,40 @@ public class UdamLstTest extends AbstractGlobalTokenTestCase
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		fine = BuildUtilities.createSize("Fine");
+		fine = BuildUtilities.createSize("Fine", 0);
 		primaryContext.getReferenceContext().importObject(fine);
 		secondaryContext.getReferenceContext().importObject(fine);
 
-		diminutive = BuildUtilities.createSize("Diminutive");
+		diminutive = BuildUtilities.createSize("Diminutive", 1);
 		primaryContext.getReferenceContext().importObject(diminutive);
 		secondaryContext.getReferenceContext().importObject(diminutive);
 		
-		tiny = BuildUtilities.createSize("Tiny");
+		tiny = BuildUtilities.createSize("Tiny", 2);
 		primaryContext.getReferenceContext().importObject(tiny);
 		secondaryContext.getReferenceContext().importObject(tiny);
 		
-		small = BuildUtilities.createSize("Small");
+		small = BuildUtilities.createSize("Small", 3);
 		primaryContext.getReferenceContext().importObject(small);
 		secondaryContext.getReferenceContext().importObject(small);
 		
-		medium = BuildUtilities.createSize("Medium");		
+		medium = BuildUtilities.createSize("Medium", 4);		
 		medium.put(ObjectKey.IS_DEFAULT_SIZE, true);
 		primaryContext.getReferenceContext().importObject(medium);
 		secondaryContext.getReferenceContext().importObject(medium);
 		
-		large = BuildUtilities.createSize("Large");
+		large = BuildUtilities.createSize("Large", 5);
 		primaryContext.getReferenceContext().importObject(large);
 		secondaryContext.getReferenceContext().importObject(large);
 		
-		huge = BuildUtilities.createSize("Huge");
+		huge = BuildUtilities.createSize("Huge", 6);
 		primaryContext.getReferenceContext().importObject(huge);
 		secondaryContext.getReferenceContext().importObject(huge);
 		
-		gargantuan = BuildUtilities.createSize("Gargantuan");
+		gargantuan = BuildUtilities.createSize("Gargantuan", 7);
 		primaryContext.getReferenceContext().importObject(gargantuan);
 		secondaryContext.getReferenceContext().importObject(gargantuan);
 		
-		colossal = BuildUtilities.createSize("Colossal");
+		colossal = BuildUtilities.createSize("Colossal", 8);
 		primaryContext.getReferenceContext().importObject(colossal);
 		secondaryContext.getReferenceContext().importObject(colossal);
 	}

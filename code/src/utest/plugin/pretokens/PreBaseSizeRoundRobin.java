@@ -46,7 +46,7 @@ public class PreBaseSizeRoundRobin extends AbstractComparatorRoundRobin
 		super.setUp();
 		TokenRegistration.register(new PreBaseSizeParser());
 		TokenRegistration.register(new PreBaseSizeWriter());
-		BuildUtilities.createSize("Fine");
+		BuildUtilities.createSize("Fine", 0);
 	}
 
 	public void testSimpleString()

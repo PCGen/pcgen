@@ -24,6 +24,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeEvent;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeListener;
@@ -75,15 +76,19 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 	public int racialSizeInt(CharID id)
 	{
 		SizeFacetInfo info = getInfo(id);
-		return info == null ? SizeUtilities.getDefaultSizeInt()
-				: info.racialSizeInt;
+		if (info == null)
+		{
+			return SizeUtilities.getDefaultSizeAdjustment().get(
+				IntegerKey.SIZEORDER);
+		}
+		return info.racialSizeInt;
 	}
 
 	private int calcRacialSizeInt(CharID id)
 	{
 		SizeFacetInfo info = getConstructingInfo(id);
 
-		int iSize = SizeUtilities.getDefaultSizeInt();
+		int iSize = SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
 		Race race = raceFacet.get(id);
 		if (race != null)
 		{
@@ -122,7 +127,12 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 	public int sizeInt(CharID id)
 	{
 		SizeFacetInfo info = getInfo(id);
-		return info == null ? SizeUtilities.getDefaultSizeInt() : info.sizeInt;
+		if (info == null)
+		{
+			return SizeUtilities.getDefaultSizeAdjustment().get(
+				IntegerKey.SIZEORDER);
+		}
+		return info.sizeInt;
 	}
 
 	/**
@@ -160,8 +170,10 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 
 		info.sizeInt = iSize;
 		SizeAdjustment oldSize = info.sizeAdj;
-		SizeAdjustment newSize = Globals.getContext().getReferenceContext().getItemInOrder(
-				SIZEADJUSTMENT_CLASS, sizeInt(id));
+		SizeAdjustment newSize =
+				Globals.getContext().getReferenceContext()
+					.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER)
+					.get(sizeInt(id));
 		info.sizeAdj = newSize;
 		if (oldSize != newSize)
 		{
