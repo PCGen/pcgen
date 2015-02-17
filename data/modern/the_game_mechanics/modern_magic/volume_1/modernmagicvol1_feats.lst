@@ -9,3 +9,9 @@ Armored Casting	CATEGORY:FEAT	TYPE:General.ArcaneSpecOp.Thaumaturgical	PREABILIT
 Combat Casting	CATEGORY:FEAT	TYPE:General.ArcaneSpecOp									PRESPELLTYPE:1,Arcane=4	DESC:You are adept at casting spells during combat.												SOURCEPAGE:p.31
 Fork Spell		CATEGORY:FEAT	TYPE:Metamagic.ArcaneSpecOp													DESC:You can double the number of targets your spell has.			ADDSPELLLEVEL:2						SOURCEPAGE:p.31
 Mass Spell		CATEGORY:FEAT	TYPE:Metamagic.ArcaneSpecOp			PREABILITY:1,CATEGORY=FEAT,Fork Spell							DESC:You can vastly increase the number of targets your spells affect.	ADDSPELLLEVEL:4						SOURCEPAGE:p.31
+
+
+
+# SRD
+Brew Potion				CATEGORY:FEAT	TYPE:ItemCreation.Wizard	PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3																																													DEFINE:BrewLevel|0								DESC:The character can create a potion of any spell of 3rd level or lower that the character knows and that targets a creature or creatures.																																																																																																																																																																			BONUS:VAR|BrewLevel|3																																			SOURCEPAGE:srdfeats
+Scribe Scroll			CATEGORY:FEAT	TYPE:ItemCreation.Wizard	PRECLASS:1,SPELLCASTER.Arcane=1,SPELLCASTER.Divine=1																																																								DESC:The character can create a scroll of any spell that the character knows.																																																																																																																																																																																																																				SOURCEPAGE:srdfeats
