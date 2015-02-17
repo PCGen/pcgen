@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: none
 # ORIGINAL ENTRY DATE: none
@@ -112,7 +112,7 @@ Bonus Skill Rank	KEY:Multitalented Mastery ~ Bonus Skill Point	CATEGORY:Special 
 
 
 ###Block: Half-Orc Racial Trait Abilities
-# Ability Name		Unique Key					Category of Ability		Type													Multiple Requirements																						Description																																										Auto Weapon Prof				Ability					Bonus to skill						Bonus to skill point/L		Add to vision			Vision								Cost		Source Page
+# Ability Name		Unique Key					Category of Ability		Type													Multiple Requirements																						Description																																										Auto Weapon Prof				Ability					Bonus to skill						Modify VAR				Add to vision			Vision								Cost		Source Page
 Acute Darkvision		KEY:Half-Orc ~ Acute Darkvision	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.HalfOrcRacialTrait.HalfOrcFerocity		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Half-Orc ~ Acute Darkvision],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity]		DESC:Some half-orcs have exceptionally sharp darkvision, gaining darkvision 90 feet.																																																						BONUS:VISION|Darkvision|30										COST:0	SOURCEPAGE:p.19
 #Beastmaster			KEY:Half-Orc ~ Beastmaster		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.HalfOrcRacialTrait.HalfOrcFerocity				PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Half-Orc ~ Beastmaster],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity]						DESC:Some half-orcs have a spiritual kinship with fantastical beasts, capturing them for sport or living and hunting with them. A half-orc with this trait treats whip and net as martial weapons and gains a +2 bonus on Handle Animal checks.																																							BONUS:SKILL|Handle Animal|2																												CHANGEPROF:Net,Whip=Martial										COST:0	SOURCEPAGE:p.19
 #Bestial			KEY:Half-Orc ~ Bestial			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.HalfOrcRacialTrait.HalfOrcFerocity				PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Half-Orc ~ Bestial],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity]							DESC:The orc blood of some half-orcs manifests in the form of particularly prominent orc features, exacerbating their bestial appearances but improving their already keen senses. They gain a +2 racial bonus on Perception checks.																																								BONUS:SKILL|Perception|2|TYPE=Racial																																								COST:0	SOURCEPAGE:p.19

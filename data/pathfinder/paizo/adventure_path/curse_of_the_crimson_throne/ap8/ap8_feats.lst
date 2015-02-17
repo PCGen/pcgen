@@ -1,5 +1,6 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOURCESHORT:AP8	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
 
 # Feat Name		Type
+# Ability Name	Type
 Skill Focus.MOD	TYPE:NosferatuSkillFocus

@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Curse of the Crimson Throne, Chapter 2 - Seven Days to the Grave	SOURCESHORT:AP8	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82qy	SOURCEDATE:2008-04
 
 # Template Name	Hit Dice Size	Challenge Rating	Damage Reduction		Level Adjustment	Template																																									Source Page		Required AL		Required Race								Bonus Ability Pool				Combat bonus					Bonus to skill											Stat bonus														Modify VAR																Ability																																																																	Main Race Type	Race Subtype		Vision
@@ -19,7 +19,7 @@ Nosferatu Claw (Colossal)	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Claw,Weapon.Nat
 ###Block: Custom Templates
 # Template Name			Visible	Special ABility					Clear Prereq.	Required Template						Prohibited Template				Combat bonus						Bonus to HP																							Stat bonus		Virtual Feat	Race Subtype			Vision
 # Note: remove the BONUS:HP|CURRENTMAX|(AnimalCon/2)*(TL-AnimalHD) when moving to the trunk
-# Template Name			Visible	Special ABility					Clear Prereq.	Required Template						Prohibited Template				Combat bonus					Bonus to HP																										Stat bonus		Virtual Feat	Race Subtype			Vision
+# Template Name			Visible	Special ABility					Clear Prereq.	Required Template						Prohibited Template				Combat bonus					Bonus to HP																										Stat bonus		Ability					Race Subtype			Vision
 Lycanthrope (Girrigz)		VISIBLE:NO	SAB:Alternate Form (Su)	SAB:Scent (Ex)																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:HP|CURRENTMAX|(AnimalCon/2)*(TL-AnimalHD)	BONUS:HP|CURRENTMAX|(AnimalCon/2)*AnimalHD|!PRETEMPLATE:1,Lycanthrope (Animal Form),Lycanthrope (Hybrid Form)	BONUS:STAT|WIS|2	ABILITY:FEAT|VIRTUAL|Iron Will	RACESUBTYPE:Shapechanger	VISION:Low-Light Vision
 Lycanthrope (Animal Form).MOD										PRE:.CLEAR		PRETEMPLATE:1,Lycanthrope,Lycanthrope (Girrigz)	!PRETEMPLATE:1,Lycanthrope (Hybrid Form)
 Lycanthrope (Hybrid Form).MOD										PRE:.CLEAR		PRETEMPLATE:1,Lycanthrope,Lycanthrope (Girrigz)	!PRETEMPLATE:1,Lycanthrope (Animal Form)

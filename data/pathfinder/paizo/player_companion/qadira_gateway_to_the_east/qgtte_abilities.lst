@@ -1,9 +1,10 @@
-# CVS $Revision: 19436 $ $Author: amaitland $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
+# CVS $Revision: 19436 $ $Author: amaitland $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGTTE	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy88zq	SOURCEDATE:2009-08
 # Original Entry by: Terry Milnes
 
 # These objects are temporary stand-ins for objects that will move to the dataset for the revised book
 # "Pathfinder Campaign Setting World Guide: The Inner Sea" upon release of that dataset.
+# Ability Name			Bonus Ability Pool
 CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 
 ###Block: Human Ethnicities
@@ -19,10 +20,10 @@ SOURCELONG:Qadira, Gateway to the East	SOURCESHORT:QGTTE	SOURCEWEB:http://paizo.
 # Original Entry by: Terry Milnes
 
 ###Block: Combat Traits
-# Ability Name		Unique Key					Product Identity?	Category of Ability		Type						Multiple Requirements																							Description																																																															Combat bonus					Source Page
-Strong Arm Supple Wrist	KEY:Trait ~ Strong Arm Supple Wrist				CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Strong Arm Supple Wrist],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CombatTrait]					DESC:You have been trained in the javelin and the spear, and know how to make the best use of your momentum. Whenever you move at least 10 feet before making an attack with a thrown weapon, you add 10 feet to the range increment of the weapon thrown. You can only gain this benefit once per round.																						SOURCEPAGE:p.9
+# Ability Name		Unique Key					Product Identity?	Category of Ability		Type						Multiple Requirements																									Description																																																															Combat bonus					Source Page
+Strong Arm Supple Wrist	KEY:Trait ~ Strong Arm Supple Wrist				CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Strong Arm Supple Wrist],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CombatTrait]							DESC:You have been trained in the javelin and the spear, and know how to make the best use of your momentum. Whenever you move at least 10 feet before making an attack with a thrown weapon, you add 10 feet to the range increment of the weapon thrown. You can only gain this benefit once per round.																						SOURCEPAGE:p.9
 Rider of Paresh		KEY:Trait ~ Rider of Paresh		NAMEISPI:YES	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Rider of Paresh],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CombatTrait],[PREABILITY:1,CATEGORY=FEAT,Mounted Combat]	DESC:You call the Plains of Paresh home, whether you were born among the plains' tribes or in the glittering towers of Katheer. The horses are your kin. When mounted and making a charge, your mount's speed is increased by 10 feet You must have the Mounted Combat feat to take this trait.																								SOURCEPAGE:p.9
-Watching Taldor		KEY:Trait ~ Watching Taldor		NAMEISPI:YES	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Rider of Paresh],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CombatTrait]						DESC:You have spent all of your adult life with eyes turned northward, waiting for the Taldan weaklings to give you an excuse to fight, ready to act at a moment's notice. You gain a +1 trait bonus to Initiative checks, and if you are able to act during the surprise round of an encounter, you can draw a weapon (but not a potion or magic item) as a free action during that round.	BONUS:COMBAT|INITIATIVE|1|TYPE=Trait	SOURCEPAGE:p.9
+Watching Taldor		KEY:Trait ~ Watching Taldor		NAMEISPI:YES	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.CombatTrait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Rider of Paresh],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CombatTrait]								DESC:You have spent all of your adult life with eyes turned northward, waiting for the Taldan weaklings to give you an excuse to fight, ready to act at a moment's notice. You gain a +1 trait bonus to Initiative checks, and if you are able to act during the surprise round of an encounter, you can draw a weapon (but not a potion or magic item) as a free action during that round.	BONUS:COMBAT|INITIATIVE|1|TYPE=Trait	SOURCEPAGE:p.9
 
 ###Block: Region Traits	###Block: Region Traits
 # Ability Name		Unique Key					Product Identity?	Category of Ability		Type					Multiple Requirements																			Required Region	Description																																																										Stackable?	Multiple?	Choose														Selections	Bonus to Situation							Bonus to skill					Class Skill		Source Page		Aspects

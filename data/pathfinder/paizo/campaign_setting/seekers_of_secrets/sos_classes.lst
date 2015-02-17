@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society	SOURCESHORT:SOS	SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society	SOURCEDATE:2009-10
 # Original Entry by: Terry Milnes & Paul Shipley (elro the onk)
 
@@ -20,7 +20,7 @@ CLASS:Pathfinder Delver	STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|D
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define		Combat bonus										Save bonus																						Modify VAR
 CLASS:Pathfinder Savant	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:PaS		MAXLEVEL:7	SOURCEPAGE:p.60	DEFINE:PaSLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|PaSLVL|CL
-# Class Name		Required Feat								Required Skill									Req. Spell Type
+# Class Name		Required Ability														Required Skill									Required Text
 CLASS:Pathfinder Savant	PREABILITY:1,CATEGORY=FEAT,Magical Aptitude	PREABILITY:1,CATEGORY=FEAT,TYPE=ItemCreation	PRESKILL:3,Knowledge (Arcana)=5,Spellcraft=5,Use Magic Device=5	PRETEXT:PRESPELLTYPE:1,Arcane=2,Divine=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Pathfinder Savant	STARTSKILLPTS:2	CSKILL:Appraise|TYPE=Craft|TYPE=Knowledge|Linguistics|Perception|TYPE=Profession|Spellcraft|Use Magic Device
@@ -34,7 +34,7 @@ CLASS:Pathfinder Savant	STARTSKILLPTS:2	CSKILL:Appraise|TYPE=Craft|TYPE=Knowledg
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define		Combat bonus										Save bonus																						Modify VAR
 CLASS:Student of War	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:SoW		MAXLEVEL:10	SOURCEPAGE:p.62	DEFINE:SoWLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|SoWLVL|CL
-# Class Name		Required Feat										Required Skill			Required Text																Req. Weapond Prof.
+# Class Name		Required Ability																Required Skill			Required Text																Req. Weapond Prof.
 CLASS:Student of War	PREABILITY:2,CATEGORY=FEAT,Combat Expertise,Dodge	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge%)	PRESKILL:2,TYPE.Knowledge=4	PRETEXT:Must have made successful Knowledge checks against five distinct creatures prior to defeating them	PREWEAPONPROF:2,TYPE.Martial,TYPE.Martial
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Student of War	STARTSKILLPTS:6	CSKILL:Climb|TYPE=Craft|Disable Device|Handle Animal|TYPE=Knowledge|Linguistics|Perception|TYPE=Profession|Sense Motive|Spellcraft|Survival|Swim

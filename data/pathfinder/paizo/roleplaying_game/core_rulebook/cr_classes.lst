@@ -1,4 +1,4 @@
-# CVS $Revision: 21663 $ $Author: amaitland $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: 21663 $ $Author: amaitland $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher and Eric C. Smith (Maredudd); Archetype work by Andrew Maitland
 
@@ -438,7 +438,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 19	CAST:0,4,3,3,2
 20	CAST:0,4,4,3,3
 ###Block: Archetype Support
-1	DEFINE:DisableRangerHuntersBond|0	BONUS:VAR|DisableRangerHuntersBond|1|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHuntersBond
+1	BONUS:VAR|DisableRangerHuntersBond|1|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHuntersBond	DEFINE:DisableRangerHuntersBond|0
 
 
 

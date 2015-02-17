@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
 ABILITYCATEGORY:Mythic Tier					VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MythicTier			PLURAL:Mythic Tiers		DISPLAYLOCATION:Mythic Abilities
@@ -18,4 +18,4 @@ ABILITYCATEGORY:Race Version					VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTION
 
 ABILITYCATEGORY:Mythic Aspect of the Beast Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MythicAspectsOfTheBeast						DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:MythicArcanePotency				TYPE:MythicArcanePotency	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			DISPLAYLOCATION:Mythic Abilities
+ABILITYCATEGORY:MythicArcanePotency				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MythicArcanePotency						DISPLAYLOCATION:Mythic Abilities

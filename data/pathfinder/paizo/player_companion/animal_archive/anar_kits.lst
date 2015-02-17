@@ -1,3 +1,4 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 
 STARTPACK:Default ~ Llama	VISIBLE:NO
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11

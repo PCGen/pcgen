@@ -1,10 +1,10 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/pathfinder/companion/35E/v5748btpy84en	SOURCEDATE:2008-08
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Liberator	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Liber		MAXLEVEL:10	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required AL				Required Feat						Required Skill						PRETOTALAB
-CLASS:Liberator	PREALIGN:NG,CG,TN,CN,NE,CE	PREABILITY:3,CATEGORY=FEAT,Improved Sunder,Power Attack,Stealthy	PRESKILL:2,Escape Artist=3,Disable Device=3	PRETOTALAB:5
+# Class Name	Required Ability									Required AL				Required Skill						PRETOTALAB
+CLASS:Liberator	PREABILITY:3,CATEGORY=FEAT,Improved Sunder,Power Attack,Stealthy	PREALIGN:NG,CG,TN,CN,NE,CE	PRESKILL:2,Escape Artist=3,Disable Device=3	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Liberator	STARTSKILLPTS:2	CSKILL:Diplomacy|Disable Device|Perception|Stealth
 

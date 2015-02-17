@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision$ $Author$ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny	SOURCEDATE:2012-04
 # ORIGINAL ENTRY: James Dempsey
 # ORIGINAL ENTRY DATE: 2014-06
@@ -30,13 +30,14 @@ Fighter Training			KEY:Kelpie's Wrath ~ Fighter Training	CATEGORY:Special Abilit
 Summon Draugr			KEY:Kelpie's Wrath ~ Summon Draugr		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																																																										DESC:level 7, 11-20 draugr [Bestiary 2] 100%%																																																																																																																																																																																																																																																			SOURCEPAGE:p.86
 
 ###Block:
-Familiar (Mongoose)	CATEGORY:Internal									BONUS:SAVE|Fortitude|2						
-Familiar (Osprey)		CATEGORY:Internal												BONUS:SKILL|Survival|3		
-Familiar (Parrot)		CATEGORY:Internal												BONUS:SKILL|Linguistics|3	
-Familiar (Toucan)		CATEGORY:Internal												BONUS:SKILL|Diplomacy|3		
-Familiar (Sea krait)	CATEGORY:Internal								BONUS:SAVE|Fortitude|2							
-Familiar (Snail kite)	CATEGORY:Internal												BONUS:SKILL|Fly|3			
-Familiar (Dodo)		CATEGORY:Internal	BONUS:COMBAT|INITIATIVE|4												
-Familiar (Dwarf Caiman)	CATEGORY:Internal												BONUS:SKILL|Stealth|3		
-Familiar (Giant Isopod)	CATEGORY:Internal	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK										
-Familiar (Seal)		CATEGORY:Internal												BONUS:SKILL|Swim|3		
+# Ability Name		Category of Ability	Combat bonus					Save bonus			Bonus to skill
+Familiar (Mongoose)	CATEGORY:Internal									BONUS:SAVE|Fortitude|2
+Familiar (Osprey)		CATEGORY:Internal													BONUS:SKILL|Survival|3
+Familiar (Parrot)		CATEGORY:Internal													BONUS:SKILL|Linguistics|3
+Familiar (Toucan)		CATEGORY:Internal													BONUS:SKILL|Diplomacy|3
+Familiar (Sea krait)	CATEGORY:Internal									BONUS:SAVE|Fortitude|2
+Familiar (Snail kite)	CATEGORY:Internal													BONUS:SKILL|Fly|3
+Familiar (Dodo)		CATEGORY:Internal		BONUS:COMBAT|INITIATIVE|4
+Familiar (Dwarf Caiman)	CATEGORY:Internal													BONUS:SKILL|Stealth|3
+Familiar (Giant Isopod)	CATEGORY:Internal		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+Familiar (Seal)		CATEGORY:Internal													BONUS:SKILL|Swim|3

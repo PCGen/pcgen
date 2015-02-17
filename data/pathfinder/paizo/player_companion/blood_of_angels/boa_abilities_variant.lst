@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/products/btpy8sa7?Pathfinder-Player-Companion-Blood-of-Angels	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Andrew Wilson (nuance)
 # ORIGINAL ENTRY DATE: 30 September 2013
 
-# Ability Name											Unique Key								SORTKEY						Category of Ability		Type							Define																											Innate Spells														Description																																					Multiple?	Choose			Selections	Move			Ability									Bonus Ability Pool					Save bonus					Bonus to skill						Stat bonus		Modify VAR																																Spell Res.				Damage Reduction	Natural Attacks												Aspects
+# Ability Name											Unique Key								SORTKEY						Category of Ability		Type							Define																											Innate Spells														Description																																					Multiple?	Choose			Selections	Move			Ability									Bonus Ability Pool					Save bonus					Bonus to skill						Stat bonus		Modify VAR																																Spell Res.				Damage Reduction	Aspects
 Unnatural Aura											KEY:Aasimar ~ Unnatural Aura												CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	DEFINE:UnnaturalAuraDC|0																																								DESC:Animals do not willingly approach you unless the animal's master makes a DC %1 Handle Animal, Ride, or wild empathy check.|UnnaturalAuraDC																																																													BONUS:VAR|UnnaturalAuraDC|25
 
 
@@ -211,12 +211,12 @@ CATEGORY=Special Ability|Aasimar ~ Fly speed.MOD																																
 CATEGORY=Special Ability|Aasimar ~ Two Variations.MOD																																																																													DESC:You may have two of these Variant Abilities.
 
 # need clarification of DC for this ability, I extrapolated from the Cleric version and the DC for Unnatural aura
-CATEGORY=Special Ability|Aasimar ~ Channel 1d6.MOD																																	DEFINE:AasimarChannelPositiveEnergyDC|0	DEFINE:AasimarChannelPositiveEnergyDice|0	DEFINE:AasimarChannelPositiveEnergyDieSize|0	DEFINE:AasimarChannelEnergyTimes|0																																																																																																					BONUS:VAR|AasimarChannelPositiveEnergyDice|1	BONUS:VAR|AasimarChannelPositiveEnergyDieSize|6	BONUS:VAR|AasimarChannelPositiveEnergyDC|10+(TL/2)+CHA	BONUS:VAR|AasimarChannelEnergyTimes|1																							ASPECT:Ability Benefit|(%1d%2, DC %3, %4/day)|AasimarChannelPositiveEnergyDice|AasimarChannelPositiveEnergyDieSize|AasimarChannelPositiveEnergyDC|AasimarChannelEnergyTimes	ASPECT:CheckCount|%1|AasimarChannelEnergyTimes	ASPECT:CheckType|Uses per day
+CATEGORY=Special Ability|Aasimar ~ Channel 1d6.MOD																																	DEFINE:AasimarChannelPositiveEnergyDC|0	DEFINE:AasimarChannelPositiveEnergyDice|0	DEFINE:AasimarChannelPositiveEnergyDieSize|0	DEFINE:AasimarChannelEnergyTimes|0																																																																																																					BONUS:VAR|AasimarChannelPositiveEnergyDice|1	BONUS:VAR|AasimarChannelPositiveEnergyDieSize|6	BONUS:VAR|AasimarChannelPositiveEnergyDC|10+(TL/2)+CHA	BONUS:VAR|AasimarChannelEnergyTimes|1									ASPECT:Ability Benefit|(%1d%2, DC %3, %4/day)|AasimarChannelPositiveEnergyDice|AasimarChannelPositiveEnergyDieSize|AasimarChannelPositiveEnergyDC|AasimarChannelEnergyTimes	ASPECT:CheckCount|%1|AasimarChannelEnergyTimes	ASPECT:CheckType|Uses per day
 CATEGORY=Special Ability|Aasimar ~ Stabilize 3/day.MOD																																																												SPELLS:Innate|TIMES=3|CASTERLEVEL=AasimarSpellLikeLVL|Stabilize
 CATEGORY=Special Ability|Aasimar ~ Halo.MOD
 CATEGORY=Special Ability|Aasimar ~ Holy water healing.MOD
 CATEGORY=Special Ability|Aasimar ~ Knowledge Religion.MOD
-CATEGORY=Special Ability|Aasimar ~ Talons.MOD																																																																																																																																																																																																											ABILITY:Internal|AUTOMATIC|Talons	BONUS:VAR|TalonAttacks|-1
+CATEGORY=Special Ability|Aasimar ~ Talons.MOD																																																																																																																															ABILITY:Internal|AUTOMATIC|Talons																														BONUS:VAR|TalonAttacks|-1
 CATEGORY=Special Ability|Aasimar ~ DR/evil.MOD																																																																																																																																																																																																								DR:2/evil
 CATEGORY=Special Ability|Aasimar ~ Charisma for breath.MOD
 CATEGORY=Special Ability|Aasimar ~ Racial STR Bonus.MOD																																																																																																																																																													BONUS:STAT|STR|2

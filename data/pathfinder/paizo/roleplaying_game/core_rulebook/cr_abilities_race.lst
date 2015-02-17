@@ -1,4 +1,4 @@
-# CVS $Revision: 21519 $ $Author: amaitland $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
+# CVS $Revision: 21519 $ $Author: amaitland $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher & Andrew Maitland
 
@@ -263,7 +263,7 @@ Water Traits		CATEGORY:Special Ability	VISIBLE:NO																															
 Swarm Traits		CATEGORY:Special Ability	VISIBLE:NO					TEMPLATE:Swarm																	ABILITY:Special Ability|AUTOMATIC|Swarm Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Can't Be Tripped|Immunity to Critical Hits|Immunity to Flanking|Immunity to Weapon Damage	ABILITY:Special Ability|AUTOMATIC|Distraction ~ Swarm|Swarm Traits																																																SOURCEPAGE:p.312
 Shapechanger Traits	CATEGORY:Special Ability	VISIBLE:NO																																																																																																																						SOURCEPAGE:p.312
 Reptilian Traits		CATEGORY:Special Ability	VISIBLE:NO																																																																																																																						SOURCEPAGE:p.312
-Orc Traits			CATEGORY:Special Ability	VISIBLE:NO																								ABILITY:Special Ability|AUTOMATIC|Light Sensitivity|!PRERACE:1,Half-Orc	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREABILITY:1,CATEGORY=Special Ability,TYPE.RacialVision																																																																							SOURCEPAGE:p.312
+Orc Traits			CATEGORY:Special Ability	VISIBLE:NO																								ABILITY:Special Ability|AUTOMATIC|Light Sensitivity|!PRERACE:1,Half-Orc	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREABILITY:1,CATEGORY=Special Ability,TYPE.RacialVision																																																																		SOURCEPAGE:p.312
 Oni Traits			CATEGORY:Special Ability	VISIBLE:NO					TEMPLATE:Native																	ABILITY:Special Ability|AUTOMATIC|Oni ~ Change Shape																																																																																						SOURCEPAGE:p.221
 Native Traits		CATEGORY:Special Ability	VISIBLE:NO																																																																																																																						SOURCEPAGE:p.312
 Lawful Traits		CATEGORY:Special Ability	VISIBLE:NO																								ABILITY:Special Ability|AUTOMATIC|Aligned (Lawful)																																																																																						SOURCEPAGE:p.312

@@ -1,7 +1,8 @@
-# CVS $Revision: 19395 $ $Author: zaister $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: 19395 $ $Author: zaister $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/products/btpy8pg0?Pathfinder-Player-Companion-Dragon-Empires-Primer	SOURCEDATE:2012-01
 # Original Entry by: Swiftbrook, Stefan Radermacher
 
+# Ability Name			Bonus Ability Pool
 CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 
 ###Block: Human Ethnicities

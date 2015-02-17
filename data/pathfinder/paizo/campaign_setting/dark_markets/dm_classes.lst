@@ -1,10 +1,10 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Dark Markets - A Guide to Katapesh	SOURCESHORT:DM	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
 # Original Entry by: Stefan Radermacher
 
 # Class Name				Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus										Save bonus
 CLASS:Balanced Scale of Abadar	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:BSA		MAXLEVEL:6	SOURCEPAGE:p.55	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name				Required Deity	Required Skill					Req. Spell Type
+# Class Name				Required Deity	Required Skill					Required Text
 CLASS:Balanced Scale of Abadar	PREDEITY:1,Abadar	PRESKILL:2,Appraise=4,Disable Device=4	PRETEXT:PRESPELLTYPE:1,Divine=3
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Balanced Scale of Abadar	STARTSKILLPTS:2	CSKILL:Appraise|TYPE=Craft|Diplomacy|Disable Device|Heal|Knowledge (Dungeoneering)|Knowledge (Local)|Knowledge (Religion)|Perception|TYPE=Profession|Spellcraft

@@ -1,6 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 
 
 ###Block: Note repeats WILL cause stacking issue! Using TYPE to prevent this issue.
+# Race of familiar				Type			Ability
 MASTERBONUSRACE:Familiar (Armadillo)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Armadillo)	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Platypus)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Platypus)	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Rabbit)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rabbit)	ABILITY:FEAT|VIRTUAL|Alertness

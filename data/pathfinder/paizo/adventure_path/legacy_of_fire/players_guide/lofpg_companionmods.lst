@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LOFPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb	SOURCEDATE:2009-02
 
 ###Block: Specific Familiars
@@ -6,9 +6,9 @@ SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LOFPG	SOURCEWEB:http://paiz
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak One Language	PRERACE:1,Familiar (Bustard)	ADD:LANGUAGE|TYPE=Spoken
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar					Type			
+# Race of familiar					Type			Ability
 MASTERBONUSRACE:Familiar (Fennec (Brushtail))	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Fennec (Brushtail))	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Bustard)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bustard)			ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Jerboa)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Jerboa)			ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Bustard)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bustard)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Jerboa)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Jerboa)	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Scorpion (Lashtail))	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Scorpion (Lashtail))	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Solifugid)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Solifugid)			ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Solifugid)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Solifugid)	ABILITY:FEAT|VIRTUAL|Alertness

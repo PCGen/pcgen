@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
+# CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny	SOURCEDATE:2012-04
 # ORIGINAL ENTRY: Vincent Lhote
 # ORIGINAL ENTRY DATE: 2012-08
@@ -16,15 +16,15 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Parrot)	KIT:1|Raven Fam
 #
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar				Type			
-MASTERBONUSRACE:Familiar (Mongoose)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Mongoose)		ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Osprey)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Osprey)		ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Parrot)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Parrot)		ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Toucan)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Toucan)		ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Sea krait)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Sea krait)		ABILITY:FEAT|VIRTUAL|Alertness
+# Race of familiar				Type			Ability
+MASTERBONUSRACE:Familiar (Mongoose)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Mongoose)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Osprey)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Osprey)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Parrot)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Parrot)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Toucan)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Toucan)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Sea krait)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Sea krait)	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Snail kite)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Snail kite)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Dodo)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Dodo)		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Dodo)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Dodo)	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Dwarf Caiman)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Dwarf Caiman)	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Giant Isopod)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Giant Isopod)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Seal)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Seal)		ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Seal)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Seal)	ABILITY:FEAT|VIRTUAL|Alertness
 #MASTERBONUSRACE:Familiar (Marine Iguana)	TYPE:Familiar	ABILITY:FEAT|VIRTUAL|Alertness	BONUS:SKILL|Swim|3
