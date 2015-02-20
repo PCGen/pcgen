@@ -17,14 +17,20 @@
  */
 package pcgen.rules.context;
 
+import java.lang.ref.WeakReference;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
+import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.CategorizedClassIdentity;
@@ -32,6 +38,7 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubClassCategory;
@@ -45,7 +52,9 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
+import pcgen.cdom.util.IntegerKeyComparator;
 import pcgen.core.Domain;
+import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.util.Logging;
@@ -58,6 +67,9 @@ public abstract class AbstractReferenceContext
 	private static final Class<ClassSkillList> CLASSSKILLLIST_CLASS = ClassSkillList.class;
 	private static final Class<ClassSpellList> CLASSSPELLLIST_CLASS = ClassSpellList.class;
 	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
+
+	private DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>> sortedMap =
+			new DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>>();
 
 	private final Map<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<CDOMObject, CDOMSingleRef<?>>();
 
@@ -465,6 +477,41 @@ public abstract class AbstractReferenceContext
 		{
 			return getManufacturer(cl);
 		}
+	}
+
+	public <T extends CDOMObject> List<T> getSortedList(Class<T> cl,
+		IntegerKey key)
+	{
+		List<T> returnList;
+		WeakReference<List<?>> wr = sortedMap.get(cl, key);
+		if ((wr == null) || ((returnList = (List<T>) wr.get()) == null))
+		{
+			returnList = generateList(cl, new IntegerKeyComparator(key));
+			sortedMap.put(cl, key, new WeakReference<List<?>>(returnList));
+		}
+		return Collections.unmodifiableList(returnList);
+	}
+
+	public <T extends CDOMObject> List<T> getSortOrderedList(Class<T> cl)
+	{
+		List<T> returnList;
+		Comparator<CDOMObject> comp = Globals.pObjectNameComp;
+		//We arbitrarily use the sort order comparator as the second key
+		WeakReference<List<?>> wr = sortedMap.get(cl, comp);
+		if ((wr == null) || ((returnList = (List<T>) wr.get()) == null))
+		{
+			returnList = generateList(cl, comp);
+			sortedMap.put(cl, comp, new WeakReference<List<?>>(returnList));
+		}
+		return Collections.unmodifiableList(returnList);
+	}
+
+	private <T extends CDOMObject> List<T> generateList(Class<T> cl,
+		Comparator<? super T> comp)
+	{
+		Set<T> tm = new TreeSet<T>(comp);
+		tm.addAll(getConstructedCDOMObjects(cl));
+		return new ArrayList<>(tm);
 	}
 
 	public abstract <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(

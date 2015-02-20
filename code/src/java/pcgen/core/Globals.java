@@ -49,12 +49,12 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.content.BaseDice;
 import pcgen.cdom.content.CNAbilityFactory;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
 import pcgen.core.spell.Spell;
@@ -138,7 +138,7 @@ public final class Globals
 			}
 		};
 
-	private static final Comparator<CDOMObject> pObjectNameComp = new Comparator<CDOMObject>()
+	public static final Comparator<CDOMObject> pObjectNameComp = new Comparator<CDOMObject>()
 		{
         @Override
 			public int compare(final CDOMObject o1, final CDOMObject o2)
@@ -1502,8 +1502,8 @@ public final class Globals
 		{
 			return aDamage;
 		}
-		int baseIndex = SizeUtilities.sizeInt(baseSize);
-		int newIndex =  SizeUtilities.sizeInt(newSize);
+		int baseIndex = baseSize.get(IntegerKey.SIZEORDER);
+		int newIndex =  newSize.get(IntegerKey.SIZEORDER);
 		return adjustDamage(aDamage, baseIndex, newIndex);
 	}
 

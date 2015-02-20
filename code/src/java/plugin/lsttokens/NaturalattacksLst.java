@@ -40,10 +40,10 @@ import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.SpecialProperty;
 import pcgen.core.WeaponProf;
-import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
@@ -427,8 +427,11 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				int isize =
 						sizeFormula.resolveStatic().intValue();
-				SizeAdjustment size = context.getReferenceContext().getItemInOrder(
-						SizeAdjustment.class, isize);
+				SizeAdjustment size =
+						context
+							.getReferenceContext()
+							.getSortedList(SizeAdjustment.class,
+								IntegerKey.SIZEORDER).get(isize);
 				for (Equipment e : natWeapons)
 				{
 					CDOMDirectSingleRef<SizeAdjustment> sizeRef = CDOMDirectSingleRef.getRef(size);
@@ -463,7 +466,13 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		Integer requiredSize = null;
 		for (Prerequisite prereq : sizePrereqs)
 		{
-			final int targetSize = SizeUtilities.sizeInt(prereq.getOperand());
+			SizeAdjustment sa =
+					Globals
+						.getContext()
+						.getReferenceContext()
+						.silentlyGetConstructedCDOMObject(SizeAdjustment.class,
+							prereq.getOperand());
+			final int targetSize = sa.get(IntegerKey.SIZEORDER);
 			if (requiredSize != null && requiredSize != targetSize)
 			{
 				return null;

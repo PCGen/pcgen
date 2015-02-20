@@ -65,29 +65,52 @@ public class SizeNumToken extends AbstractIntToken<SizeAdjustment> implements
 		Collection<? extends SizeAdjustment> obj)
 	{
 		boolean returnValue = true;
-		Map<Integer, SizeAdjustment> map =
-				new TreeMap<Integer, SizeAdjustment>();
+		Collection<SizeAdjustment> ordered;
+		boolean hasAny = false;
+		//First loop to detect deprecated case, remove in 6.7
 		for (SizeAdjustment sa : obj)
 		{
-			Integer sizenum = sa.get(IntegerKey.SIZENUM);
-			if (sizenum == null)
+			if (sa.get(IntegerKey.SIZENUM) != null)
 			{
-				Logging.errorPrint("Size: " + sa.getKeyName()
-					+ " did not have a SIZENUM (cannot be assumed)");
-				returnValue = false;
-				continue;
-			}
-			SizeAdjustment previous = map.put(sizenum, sa);
-			if (previous != null)
-			{
-				Logging.errorPrint("Size: " + sa.getKeyName() + " and size: "
-					+ previous.getKeyName() + " had identical SIZENUM: "
-					+ sizenum);
-				returnValue = false;
+				hasAny = true;
 			}
 		}
+		if (hasAny)
+		{
+			Map<Integer, SizeAdjustment> map =
+					new TreeMap<Integer, SizeAdjustment>();
+			for (SizeAdjustment sa : obj)
+			{
+				Integer sizenum = sa.get(IntegerKey.SIZENUM);
+				if (sizenum == null)
+				{
+					Logging.errorPrint("Size: " + sa.getKeyName()
+						+ " did not have a SIZENUM (cannot be assumed)");
+					returnValue = false;
+					continue;
+				}
+				SizeAdjustment previous = map.put(sizenum, sa);
+				if (previous != null)
+				{
+					Logging.errorPrint("Size: " + sa.getKeyName()
+						+ " and size: " + previous.getKeyName()
+						+ " had identical SIZENUM: " + sizenum);
+					returnValue = false;
+				}
+			}
+			ordered = map.values();
+		}
+		else
+		{
+			//Provide a fall back to avoid immediate failure
+			Logging.deprecationPrint(
+				"SizeAdjustment items must have a SIZENUM", context);
+			ordered =
+					context.getReferenceContext().getOrderSortedCDOMObjects(
+						SizeAdjustment.class);
+		}
 		int order = 0;
-		for (SizeAdjustment sa : map.values())
+		for (SizeAdjustment sa : ordered)
 		{
 			sa.put(IntegerKey.SIZEORDER, order++);
 		}

@@ -79,13 +79,14 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.character.WieldCategory;
-import pcgen.facade.core.EquipmentFacade;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.facade.core.EquipmentFacade;
 import pcgen.io.FileAccess;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.JEPResourceChecker;
 import pcgen.util.Logging;
@@ -3723,7 +3724,7 @@ public final class Equipment extends PObject implements Serializable,
 		setBase();
 
 		final int iOldSize = sizeInt();
-		int iNewSize = SizeUtilities.sizeInt(newSize);
+		int iNewSize = newSize.get(IntegerKey.SIZEORDER);
 
 		if (iNewSize != iOldSize)
 		{
@@ -3801,15 +3802,16 @@ public final class Equipment extends PObject implements Serializable,
 		//
 		if (hasPrerequisites())
 		{
-			int maxIndex =
-					Globals.getContext().getReferenceContext()
-						.getConstructedObjectCount(SizeAdjustment.class);
+			AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+			int maxIndex = ref.getConstructedObjectCount(SizeAdjustment.class);
 			for (Prerequisite aBonus : getPrerequisiteList())
 			{
 				if ("SIZE".equalsIgnoreCase(aBonus.getKind()))
 				{
-					final int iOldPre =
-							SizeUtilities.sizeInt(aBonus.getOperand());
+					SizeAdjustment sa =
+							ref.silentlyGetConstructedCDOMObject(
+								SizeAdjustment.class, aBonus.getOperand());
+					final int iOldPre = sa.get(IntegerKey.SIZEORDER);
 					iNewSize += (iOldPre - iOldSize);
 
 					if ((iNewSize >= 0) && (iNewSize <= maxIndex))
@@ -3818,9 +3820,10 @@ public final class Equipment extends PObject implements Serializable,
 						// Equipment, since it is returned
 						// by reference from the get above ... thus no need to
 						// perform a set
-						aBonus.setOperand(Globals.getContext().getReferenceContext()
-							.getItemInOrder(SizeAdjustment.class, iNewSize)
-							.getKeyName());
+						SizeAdjustment size =
+								ref.getSortedList(SizeAdjustment.class,
+									IntegerKey.SIZEORDER).get(iNewSize);
+						aBonus.setOperand(size.getKeyName());
 					}
 				}
 			}
@@ -3834,7 +3837,8 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public int sizeInt()
 	{
-		return SizeUtilities.sizeInt(getSafe(ObjectKey.SIZE).resolvesTo());
+		SizeAdjustment size = getSafe(ObjectKey.SIZE).resolvesTo();
+		return size.get(IntegerKey.SIZEORDER);
 	}
 
 	/**
@@ -5811,6 +5815,7 @@ public final class Equipment extends PObject implements Serializable,
 				iSize + (int) bonusTo(apc, "EQMWEAPON", "DAMAGESIZE", bPrimary);
 		iMod += (int) bonusTo(apc, "WEAPON", "DAMAGESIZE", bPrimary);
 
+		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		if (iMod < 0)
 		{
 			iMod = 0;
@@ -5818,16 +5823,15 @@ public final class Equipment extends PObject implements Serializable,
 		else
 		{
 			int maxIndex =
-					Globals.getContext().getReferenceContext()
-						.getConstructedObjectCount(SizeAdjustment.class) - 1;
+					ref.getConstructedObjectCount(SizeAdjustment.class) - 1;
 			if (iMod > maxIndex)
 			{
 				iMod = maxIndex;
 			}
 		}
 		SizeAdjustment sa =
-				Globals.getContext().getReferenceContext().getItemInOrder(SizeAdjustment.class,
-					iMod);
+				ref.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER)
+					.get(iMod);
 		return adjustDamage(dam, sa);
 	}
 

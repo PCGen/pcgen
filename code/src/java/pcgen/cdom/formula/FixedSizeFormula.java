@@ -18,11 +18,11 @@
 package pcgen.cdom.formula;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
-import pcgen.core.analysis.SizeUtilities;
 
 /**
  * A FixedSizeFormula is a Formula that returns a deterministic value, used to
@@ -172,6 +172,6 @@ public class FixedSizeFormula implements Formula
 	@Override
 	public Integer resolveStatic()
 	{
-		return SizeUtilities.sizeInt(size.resolvesTo().getKeyName());
+		return size.resolvesTo().get(IntegerKey.SIZEORDER);
 	}
 }

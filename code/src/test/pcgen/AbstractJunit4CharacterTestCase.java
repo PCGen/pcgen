@@ -201,16 +201,16 @@ abstract public class AbstractJunit4CharacterTestCase
 				BuildUtilities.createFact(context, "SpellType", PCClass.class);
 		fd.setSelectable(true);
 
-		fine = BuildUtilities.createSize("Fine");
-		diminutive = BuildUtilities.createSize("Diminutive");
-		tiny = BuildUtilities.createSize("Tiny");
-		small = BuildUtilities.createSize("Small");
-		medium = BuildUtilities.createSize("Medium");
+		fine = BuildUtilities.createSize("Fine", 0);
+		diminutive = BuildUtilities.createSize("Diminutive", 1);
+		tiny = BuildUtilities.createSize("Tiny", 2);
+		small = BuildUtilities.createSize("Small", 3);
+		medium = BuildUtilities.createSize("Medium", 4);
 		medium.put(ObjectKey.IS_DEFAULT_SIZE, true);
-		large = BuildUtilities.createSize("Large");
-		huge = BuildUtilities.createSize("Huge");
-		gargantuan = BuildUtilities.createSize("Gargantuan");
-		colossal = BuildUtilities.createSize("Colossal");
+		large = BuildUtilities.createSize("Large", 5);
+		huge = BuildUtilities.createSize("Huge", 6);
+		gargantuan = BuildUtilities.createSize("Gargantuan", 7);
+		colossal = BuildUtilities.createSize("Colossal", 8);
 
 		SourceFileLoader.createLangBonusObject(context);
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
@@ -222,8 +222,8 @@ abstract public class AbstractJunit4CharacterTestCase
 		{
 			fail("Unconstructed References");
 		}
-		context.resolvePostDeferredTokens();
 		context.resolvePostValidationTokens();
+		context.resolvePostDeferredTokens();
 		context.loadCampaignFacets();
 
 		character = new PlayerCharacter();

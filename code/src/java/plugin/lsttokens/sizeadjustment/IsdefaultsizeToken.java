@@ -60,7 +60,7 @@ public class IsdefaultsizeToken extends AbstractYesNoToken<SizeAdjustment>
 		boolean returnValue = true;
 		SizeAdjustment found = null;
 		for (SizeAdjustment s : context.getReferenceContext()
-			.getOrderSortedCDOMObjects(SizeAdjustment.class))
+			.getConstructedCDOMObjects(SizeAdjustment.class))
 		{
 			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
 			{
