@@ -32,4 +32,4 @@ WEAPONPROF:diadamon_prof_weapon.lst
 
 DEITY:diadamon_deity_35e.lst
 
-SPELL:@/3e/wizards_of_the_coast/srd/basics/srd_spells.lst|(INCLUDE:Emotion|Mass Suggestion|Power Word (Stun)|Symbol)
+#SPELL:@/3e/wizards_of_the_coast/srd/basics/srd_spells.lst|(INCLUDE:Emotion|Mass Suggestion|Power Word (Stun)|Symbol)

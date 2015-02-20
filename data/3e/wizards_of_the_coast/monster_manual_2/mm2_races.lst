@@ -1,7 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
-
-
-# Race Name		Starting Feats	Size		Move			Face/Space	Reach		Combat bonus					Stat bonus																	Modify VAR					Ability									Nb Hands	Natural Attacks																							Spell Res.	Damage Reduction	Monster Class Name and Starting Level	Main Race Type			Hit Dice Advancement		Challenge Rating	Source Page		Apply Kit
-Razor Boar		STARTFEATS:1	SIZE:L	MOVE:Walk,50	FACE:5,10	REACH:5	BONUS:COMBAT|AC|17|TYPE=NaturalArmor	BONUS:STAT|STR|16	BONUS:STAT|DEX|2	BONUS:STAT|CON|6	BONUS:STAT|INT|-8	BONUS:STAT|WIS|4	BONUS:STAT|CHA|-2	BONUS:VAR|FastHealingBonus|10		ABILITY:Internal|AUTOMATIC|Default Traits ~ Razor Boar			NATURALATTACKS:Gore,Weapon.Natural.Melee.Piercing,*1,1d8|Hooves,Weapon.Natural.Melee.Bludgeoning,*2,1d4|Bite,Weapon.Natural.Melee.Piercing,*1,1d8	SR:21		DR:20/+3		MONSTERCLASS:Beast:15				RACETYPE:Beast			HITDICEADVANCEMENT:30,45	CR:10			SOURCEPAGE:p.220	KIT:1|TN	KIT:1|Default Razor Boar
-
-Scorpionfolk	STARTFEATS:1	SIZE:L	MOVE:Walk,40	FACE:5,10	REACH:5	BONUS:COMBAT|AC|6|TYPE=NaturalArmor		BONUS:STAT|STR|8	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	BONUS:STAT|INT|-2	BONUS:STAT|WIS|4	BONUS:STAT|CHA|4	BONUS:VAR|FireResistanceBonus|5	ABILITY:Internal|AUTOMATIC|Default Traits ~ Scorpionfolk	HANDS:2	NATURALATTACKS:Sting,Weapon.Natural.Melee.Piercing.Poison,*1,1d8|Claws,Weapon.Natural.Melee.Slashing,*1,1d6								SR:18					MONSTERCLASS:Monstrous Humanoid:12		RACETYPE:Monstrous Humanoid						CR:7			SOURCEPAGE:p.221	KIT:1|Default Scorpionfolk

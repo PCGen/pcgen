@@ -1,5 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:The Way of the Huckster	SOURCESHORT:Huckster	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
-
-# Feat Name		Type			Req. Spell Type		Description																Source Page
-Arcane Prodigy	CATEGORY:FEAT	TYPE:Special	PRESPELLTYPE:1,Arcane=0	DESC:You learn a number of extra hexes equal to half your Intelligence bonus (rounded up) each level.	SOURCEPAGE:p.12

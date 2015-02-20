@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-# Original entry by: Knightcrawler
-# Errata (http://www.fantasyflightgames.com/llsserrata.html) applied
-SOURCELONG:Fantasy Flight Games - Spells and Spellcraft	SOURCESHORT:Spellcraft	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-03
-
-# Feat Name			Type			Required Class			Required Feat			Required Stat	Description													Source Page
-Weave Wards			CATEGORY:FEAT	TYPE:ItemCreation	PRECLASS:1,Spellcaster=5						PRESTAT:1,INT=13	DESC:You can create a variety of wards and protections on areas.				SOURCEPAGE:p.84
-Craft Glyph Egg		CATEGORY:FEAT	TYPE:ItemCreation	PRECLASS:1,Spellcaster=3									DESC:You can create Glyph Eggs.									SOURCEPAGE:p.150
-Craft Greater Glyph Egg	CATEGORY:FEAT	TYPE:ItemCreation	PRECLASS:1,Spellcaster=9	PREABILITY:1,CATEGORY=FEAT,Craft Glyph Egg				DESC:You can craft a glyph egg of any spell that you know and that targets an area.	SOURCEPAGE:p.150

@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology	SOURCESHORT:Demonology	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-01
-
-# Feat Name			Type			Required Feat		Required Skill					Required Stat	Description																						Stackable?	Multiple?	Choose		Source Page
-Change Instruction	CATEGORY:FEAT	TYPE:Special															DESC:You can change and modify the instructions of a demon in your service after the summoning ritual.													SOURCEPAGE:p.41
-Dismiss Demon		CATEGORY:FEAT	TYPE:Special					PRESKILL:1,Knowledge (Demonology)=10	PRESTAT:1,CHA=13	DESC:You may instantly dismiss ant demon you encounter, sending it back to the infernal planes.															SOURCEPAGE:p.41
-Permanent Control		CATEGORY:FEAT	TYPE:Special												PRESTAT:1,CHA=15	DESC:You are able to establish such an overriding magical bond over weaker deamons that they remain permanently under your control.		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.41
-Quicken Summoning		CATEGORY:FEAT	TYPE:Special					PRESKILL:1,Knowledge (Demonology)=8					DESC:You demonstat an incredible ability to perfom summoning rituals faster than normal while maintaining a very low margin of error.								SOURCEPAGE:p.41
-Strength of Personality	CATEGORY:FEAT	TYPE:Special	PREABILITY:1,CATEGORY=FEAT,Iron Will											DESC:You have an incredibly strong will and are able to dominate many demons with your words.															SOURCEPAGE:p.41

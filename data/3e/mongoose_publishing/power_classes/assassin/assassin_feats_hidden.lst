@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin	SOURCESHORT:Assassin	SOURCEWEB:http//www.mongoosepublishing.com	SOURCEDATE:2002-01
-#Original Entry by: Tir Gwaith
-
-# Feat Name						Type			Visible	Auto Weapon Prof
-Assassin (Mong) Weapon Proficiencies	CATEGORY:FEAT	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Sap|TYPE=Martial

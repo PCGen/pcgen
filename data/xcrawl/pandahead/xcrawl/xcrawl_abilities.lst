@@ -1,5 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
-
-
-# Ability Name	Category of Ability	Stackable?	Multiple?	Choose																	Bonus to skill
-Therefore I Am	CATEGORY:Internal		STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom	BONUS:SKILL|LIST|4

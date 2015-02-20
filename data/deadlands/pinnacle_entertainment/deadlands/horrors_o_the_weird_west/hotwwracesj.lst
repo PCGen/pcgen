@@ -1,5 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
-
-# Race Name		Favored Class		Starting Feats	Size		Move			Reach		Bonus Languages	Bonus to skill							Stat bonus											Auto Language	Auto Weapon Prof		Special ABility														Define Stat			Monster Class Name and Starting Level	Main Race Type	Template		Challenge Rating	Source Page		Apply Kit
-Joaquin Murieta	FAVCLASS:Gunslinger	STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	LANGBONUS:English	BONUS:SKILL|Climb,Intimidate,Ride,Sense Motive,Spot|6	BONUS:STAT|STR|4	BONUS:STAT|DEX|8	BONUS:STAT|WIS|3	BONUS:STAT|CHA|4	AUTO:LANG|Spanish	AUTO:WEAPONPROF|Pistol	SAB:Arcane weapons(Sp)	SAB:Decapitation(Ex)	SAB:Fear(Ex)	SAB:Undead(Su)	SAB:Coup	DEFINESTAT:NONSTAT|CON	MONSTERCLASS:Undead:7				RACETYPE:Undead	TEMPLATE:Undead	CR:7			SOURCEPAGE:p.61	KIT:1|CE

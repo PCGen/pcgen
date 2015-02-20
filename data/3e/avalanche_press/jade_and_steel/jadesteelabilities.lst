@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Avalanche Press - Jade and Steel	SOURCESHORT:JadeSteel	SOURCEWEB:http://www.avalanchepress.com	SOURCEDATE:2003-01
-
-# Ability Name				Category of Ability		Type			Visible	Var. Min. Value				Special ABility							Stackable?	Multiple?	Choose							Weapon prof. bonus			Source Page
-Superior Weapon Focus			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	PREVARGTEQ:GreatWeapFocusQualify,1	SAB:Superior Weapon Focus (Ex) (%CHOICE)			STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.20
-Superior Weapon Specialization	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	PREVARGTEQ:GreatWeapSpecQualify,1	SAB:Superior Weapon Specialization (Ex) (%CHOICE)			MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.21

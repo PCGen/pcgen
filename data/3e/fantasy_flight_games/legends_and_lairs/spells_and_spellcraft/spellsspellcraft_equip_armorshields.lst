@@ -1,7 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-#Original entry by: Knightcrawler
-SOURCELONG:Fantasy Flight Games - Spells and Spellcraft	SOURCESHORT:Spellcraft	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-03
-# Equipment Name				Required Armor Proficiency	Required Shield Proficiency		Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus			Special Property
-Schurke's Platemail			PROFICIENCY:ARMOR|Full Plate							TYPE:Magic.Armor.Heavy.Standard.Suit.Specific	COST:15350	WT:50		ACCHECK:-7		MAXDEX:0		SOURCEPAGE:p.167	SPELLFAILURE:40		BONUS:COMBAT|AC|9|TYPE=Armor	SPROP:If wearer is submerged in saltwater he becomes a shark.
-Shield of Zabeth (Small/Wooden)						PROFICIENCY:SHIELD|Shield (Light)	TYPE:Magic.Shield.Standard.Wooden.Specific	COST:20950	WT:5		ACCHECK:-1					SOURCEPAGE:p.167	SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor	SPROP:If wielder is fighter magic is +4 and can cast protection from normal arrows once per day at 5th level.
-Storm Shield (Small/Steel)							PROFICIENCY:SHIELD|Shield (Light)	TYPE:Magic.Shield.Standard.Specific			COST:14150	WT:6		ACCHECK:-1					SOURCEPAGE:p.167	SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor	SPROP:Grants +4 to saves against electricity
