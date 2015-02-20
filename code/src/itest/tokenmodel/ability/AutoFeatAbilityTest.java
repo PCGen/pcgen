@@ -25,6 +25,12 @@ public class AutoFeatAbilityTest extends AbstractAbilityGrantCheckTest
 {
 
 	@Override
+	protected String getGrantPrefix()
+	{
+		return "FEAT|";
+	}
+
+	@Override
 	protected CDOMToken<? super Ability> getGrantToken()
 	{
 		return AUTO_FEAT_TOKEN;

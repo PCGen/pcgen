@@ -149,18 +149,6 @@ public class PluginBuildTest extends PCGenTestCase
 	}
 	
 	/**
-	 * Check for the presence of all 'remove'
-	 * token parsing plugins.
-	 */
-	public void testLstRemovePlugins()
-	{
-		String jarPrefix = "RemoveLstToken-";
-		File sourceFolder = new File("code/src/java/plugin/lsttokens/remove");
-		File jarFolder = new File("plugins/lstplugins");
-		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
-	}
-	
-	/**
 	 * Check for the presence of all 'automatic'
 	 * token parsing plugins.
 	 */
