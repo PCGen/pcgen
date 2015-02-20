@@ -12,9 +12,9 @@ STATNAME:Charisma		SORTKEY:6	ABB:CHA	KEY:CHA	STATMOD:floor(SCORE/2)-5	DEFINE:MAX
 #
 #Currently the code supports exactly three checks. Will fix later.
 #
-CHECKNAME:Fortitude	BONUS:SAVE|Fortitude|CON
-CHECKNAME:Reflex		BONUS:SAVE|Reflex|DEX
-CHECKNAME:Will		BONUS:SAVE|Will|WIS
+CHECKNAME:Fortitude	SORTKEY:1	BONUS:SAVE|Fortitude|CON
+CHECKNAME:Reflex		SORTKEY:2	BONUS:SAVE|Reflex|DEX
+CHECKNAME:Will		SORTKEY:3	BONUS:SAVE|Will|WIS
 
 # get a bonus level 1 spell at score of 12 and every 8 points beyond that
 BONUSSPELLLEVEL:1	BASESTATSCORE:12	STATRANGE:8
