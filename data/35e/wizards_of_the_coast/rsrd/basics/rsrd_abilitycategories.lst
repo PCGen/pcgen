@@ -3,7 +3,8 @@
 
 
 # Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
-ABILITYCATEGORY:Special Ability	VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability
+ABILITYCATEGORY:Special Ability	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability
+ABILITYCATEGORY:Ability Focus		VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Ability Focus
 
 ABILITYCATEGORY:Animal Trick		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AnimalTrick	PLURAL:Animal Tricks		DISPLAYLOCATION:Class Features
 ###Block: Bonus FEATs and subgroups
