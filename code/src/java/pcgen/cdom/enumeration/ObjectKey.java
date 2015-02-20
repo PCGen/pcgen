@@ -325,6 +325,8 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Category<CompanionMod>> MOD_CATEGORY = new ObjectKey<Category<CompanionMod>>(null);
 
+	public static final ObjectKey<CDOMSingleRef<SizeAdjustment>> CUSTOMSIZE = new ObjectKey<CDOMSingleRef<SizeAdjustment>>(null);
+
 	/*
 	 * TODO Okay, this is a hack.
 	 */

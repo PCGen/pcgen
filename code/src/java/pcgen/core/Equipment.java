@@ -3274,33 +3274,6 @@ public final class Equipment extends PObject implements Serializable,
 	 * load a "line" i.e. a String and use its data to populate the attributes
 	 * of this Equipment
 	 * 
-	 * @param aLine The data to parse
-	 */
-	public void load(final String aLine)
-	{
-		load(aLine, "\t", ":");
-	}
-
-	/**
-	 * load a "line" i.e. a String and use its data to populate the attributes
-	 * of this Equipment
-	 * 
-	 * @param aLine
-	 *             The data to parse
-	 * @param sep
-	 *             The item separator used in the data
-	 * @param endPart
-	 *             The separator used between a label and its associated data
-	 */
-	private void load(final String aLine, final String sep, final String endPart)
-	{
-		load(aLine, sep, endPart, null);
-	}
-
-	/**
-	 * load a "line" i.e. a String and use its data to populate the attributes
-	 * of this Equipment
-	 * 
 	 * @param aLine
 	 *             The data to parse
 	 * @param sep  
@@ -3316,7 +3289,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		final StringTokenizer aTok = new StringTokenizer(aLine, sep);
 		final int endPartLen = endPart.length();
-		SizeAdjustment newSize = getSafe(ObjectKey.SIZE).resolvesTo();
+		CDOMSingleRef<SizeAdjustment> size = getSafe(ObjectKey.SIZE);
 		boolean firstSprop = true;
 		
 		while (aTok.hasMoreTokens())
@@ -3334,10 +3307,12 @@ public final class Equipment extends PObject implements Serializable,
 			}
 			else if (aString.startsWith("SIZE" + endPart))
 			{
-				newSize =
-						Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-							SizeAdjustment.class, aString
-								.substring(4 + endPartLen));
+				size =
+						Globals
+							.getContext()
+							.getReferenceContext()
+							.getCDOMReference(SizeAdjustment.class,
+								aString.substring(4 + endPartLen));
 			}
 			else if (aString.startsWith("EQMOD" + endPart))
 			{
@@ -3367,7 +3342,7 @@ public final class Equipment extends PObject implements Serializable,
 					.substring(9 + endPartLen)));
 			}
 		}
-		resizeItem(aPC, newSize);
+		put(ObjectKey.CUSTOMSIZE, size);
 	}
 
 	/**
