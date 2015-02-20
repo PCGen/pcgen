@@ -468,11 +468,11 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 * @throws CloneNotSupportedException
 	 *             (should not be thrown)
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public DoubleKeyMapToList<K1, K2, V> clone()
 		throws CloneNotSupportedException
 	{
+		@SuppressWarnings("unchecked")
 		DoubleKeyMapToList<K1, K2, V> dkm =
 				(DoubleKeyMapToList<K1, K2, V>) super.clone();
 		dkm.mtmtl = createGlobalMap();

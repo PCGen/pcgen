@@ -348,7 +348,6 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 *             in the rare case that the super class actually throws the
 	 *             exception
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public TripleKeyMap<K1, K2, K3, V> clone()
 		throws CloneNotSupportedException
@@ -359,6 +358,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 		 * TripleKeyMap with the proper Generic arguments. - Thomas Parker
 		 * 1/26/07
 		 */
+		@SuppressWarnings("unchecked")
 		TripleKeyMap<K1, K2, K3, V> tkm =
 				(TripleKeyMap<K1, K2, K3, V>) super.clone();
 		/*

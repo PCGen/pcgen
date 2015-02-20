@@ -333,7 +333,6 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * @return true if the given Object is a Graph that contains equal Nodes and
 	 *         Edges to this Graph; false otherwise
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public boolean equals(Object other)
 	{
@@ -341,6 +340,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 		{
 			return false;
 		}
+		@SuppressWarnings("unchecked")
 		Graph<N, ET> otherGraph = (Graph<N, ET>) other;
 		List<N> otherNodeList = otherGraph.getNodeList();
 		int thisNodeSize = nodeList.size();

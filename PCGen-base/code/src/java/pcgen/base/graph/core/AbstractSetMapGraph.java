@@ -410,7 +410,6 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * @return true if the given Object is a Graph that contains equal Nodes and
 	 *         Edges to this Graph; false otherwise
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public boolean equals(Object other)
 	{
@@ -418,6 +417,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 		{
 			return false;
 		}
+		@SuppressWarnings("unchecked")
 		Graph<N, ET> otherGraph = (Graph<N, ET>) other;
 		List<N> otherNodeList = otherGraph.getNodeList();
 		int thisNodeSize = nodeMap.size();

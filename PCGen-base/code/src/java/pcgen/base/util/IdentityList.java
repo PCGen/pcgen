@@ -314,11 +314,11 @@ public class IdentityList<T> implements List<T>
 		return array;
 	}
 
-	@SuppressWarnings("unchecked")
 	private <V> void putIntoArray(Object[] source, V[] target)
 	{
 		for (int i = 0; i < source.length; i++)
 		{
+			@SuppressWarnings("unchecked")
 			Identity<V> identity = (Identity<V>) source[i];
 			target[i] = identity == null ? null : identity.getUnderlying();
 		}

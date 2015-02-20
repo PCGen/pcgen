@@ -477,10 +477,11 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * @throws CloneNotSupportedException
 	 *             (should not be thrown)
 	 */
-	@SuppressWarnings({"unchecked", "PMD.AvoidInstantiatingObjectsInLoops"})
+	@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 	@Override
 	public DoubleKeyMap<K1, K2, V> clone() throws CloneNotSupportedException
 	{
+		@SuppressWarnings("unchecked")
 		DoubleKeyMap<K1, K2, V> dkm = (DoubleKeyMap<K1, K2, V>) super.clone();
 		dkm.map = createGlobalMap();
 		for (Map.Entry<K1, Map<K2, V>> me : map.entrySet())
