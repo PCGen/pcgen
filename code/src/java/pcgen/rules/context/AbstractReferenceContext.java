@@ -530,10 +530,10 @@ public abstract class AbstractReferenceContext
 
 	public <T> FormatManager<T> getFormatManager(Class<T> cl)
 	{
+		//TODO if Array
 		if (Categorized.class.isAssignableFrom(cl))
 		{
-			throw new IllegalArgumentException(
-				"Cannot support Categorized items");
+			throw new IllegalArgumentException("Cannot support Categorized items");
 		}
 		else if (Loadable.class.isAssignableFrom(cl))
 		{

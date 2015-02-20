@@ -20,11 +20,12 @@ package pcgen.output.actor;
 import pcgen.base.format.NumberManager;
 import pcgen.base.util.BasicIndirect;
 import pcgen.cdom.enumeration.FactKey;
+import pcgen.cdom.facet.CDOMWrapperInfoFacet;
+import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.core.Deity;
 import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
-import pcgen.output.wrapper.CDOMObjectWrapper;
 
 public class FactKeyActorTest extends AbstractOutputTestCase
 {
@@ -42,7 +43,6 @@ public class FactKeyActorTest extends AbstractOutputTestCase
 			classSetUp();
 			classSetUpRun = true;
 		}
-		CDOMObjectWrapper.getInstance().clear();
 	}
 
 	private void classSetUp()
@@ -61,7 +61,9 @@ public class FactKeyActorTest extends AbstractOutputTestCase
 		FactKey<Number> fk = FactKey.getConstant("cost", mgr);
 		d.put(fk, new BasicIndirect<Number>(mgr, expectedResult));
 		FactKeyActor<?> ika = new FactKeyActor<>(fk);
-		CDOMObjectWrapper.getInstance().load(d.getClass(), "cost", ika);
+		CDOMWrapperInfoFacet wiFacet =
+				FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
+		wiFacet.set(dsid, d.getClass(), "cost", ika);
 		processThroughFreeMarker("${deity.cost}", expectedResult.toString());
 	}
 
@@ -70,7 +72,9 @@ public class FactKeyActorTest extends AbstractOutputTestCase
 		NumberManager mgr = new NumberManager();
 		FactKey<Number> fk = FactKey.getConstant("cost", mgr);
 		FactKeyActor<?> ika = new FactKeyActor<>(fk);
-		CDOMObjectWrapper.getInstance().load(Deity.class, "cost", ika);
+		CDOMWrapperInfoFacet wiFacet =
+				FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
+		wiFacet.set(dsid, Deity.class, "cost", ika);
 		processThroughFreeMarker("${deity.cost!}", "");
 	}
 }

@@ -28,6 +28,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
@@ -46,7 +47,8 @@ import pcgen.facade.core.SkillFacade;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class Skill extends PObject implements SkillFacade, ChooseDriver
+public final class Skill extends PObject implements SkillFacade, ChooseDriver,
+		VarScoped
 {
 	public String getKeyStatAbb()
 	{
@@ -193,5 +195,17 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver
 	public Formula getNumChoices()
 	{
 		return getSafe(FormulaKey.NUMCHOICES);
+	}
+
+	@Override
+	public String getLocalScopeName()
+	{
+		return "SKILL";
+	}
+
+	@Override
+	public String getName()
+	{
+		return getKeyName();
 	}
 }

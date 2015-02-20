@@ -27,7 +27,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
 
 public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
-		extends AbstractTokenTestCase<T>
+		extends AbstractCDOMTokenTestCase<T>
 {
 
 	public abstract ObjectKey<BigDecimal> getObjectKey();

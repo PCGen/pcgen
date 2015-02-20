@@ -35,8 +35,8 @@ public abstract class AbstractGlobalFormulaTokenTestCase extends
 		assertEquals("Variable1", getFormula().toString());
 		assertTrue(parse("3"));
 		assertEquals("3", getFormula().toString());
-		assertTrue(parse("3+CL(\"Fighter\""));
-		assertEquals("3+CL(\"Fighter\"", getFormula().toString());
+		assertTrue(parse("3+CL(\"Fighter\")"));
+		assertEquals("3+CL(\"Fighter\")", getFormula().toString());
 	}
 
 	protected Formula getFormula()
@@ -75,13 +75,13 @@ public abstract class AbstractGlobalFormulaTokenTestCase extends
 	@Test
 	public void testRoundRobinFormula() throws PersistenceLayerException
 	{
-		runRoundRobin("3+CL(\"Fighter\"");
+		runRoundRobin("3+CL(\"Fighter\")");
 	}
 
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		return "3+CL(\"Fighter\"";
+		return "3+CL(\"Fighter\")";
 	}
 
 	@Override

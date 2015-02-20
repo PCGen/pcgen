@@ -30,7 +30,7 @@ import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
@@ -40,7 +40,7 @@ import plugin.pretokens.parser.PreSubClassParser;
 import plugin.pretokens.writer.PreRaceWriter;
 import plugin.pretokens.writer.PreSubClassWriter;
 
-public class ClassesTokenTest extends AbstractTokenTestCase<Spell>
+public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 {
 
 	static ClassesToken token = new ClassesToken();

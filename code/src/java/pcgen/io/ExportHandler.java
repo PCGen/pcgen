@@ -628,7 +628,6 @@ public final class ExportHandler
 			{
 				return new Class[]{Token.class};
 			}
-
 		};
 	}
 	

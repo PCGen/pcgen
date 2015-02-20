@@ -17,18 +17,9 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import java.math.BigDecimal;
-
 import pcgen.base.math.OrderedPair;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.model.RaceFacet;
-import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.core.PCTemplate;
-import pcgen.core.Race;
-import pcgen.output.publish.OutputDB;
 
 /**
  * FaceFacet is a Facet that tracks the Face of a Player Character (in game
@@ -39,12 +30,7 @@ import pcgen.output.publish.OutputDB;
  */
 public class FaceFacet implements ItemFacet<CharID, OrderedPair>
 {
-
-	private static final Integer ZERO = Integer.valueOf(0);
-	private static final Integer FIVE = Integer.valueOf(5);
-
-	private TemplateFacet templateFacet;
-	private RaceFacet raceFacet;
+	private ResultFacet resultFacet;
 
 	/**
 	 * Returns the Face of the Player Character represented by the given CharID.
@@ -60,62 +46,11 @@ public class FaceFacet implements ItemFacet<CharID, OrderedPair>
 	@Override
 	public OrderedPair get(CharID id)
 	{
-		final Race aRace = raceFacet.get(id);
-		// Default to 5' by 5'
-		OrderedPair face = new OrderedPair(FIVE, ZERO);
-		if (aRace != null)
-		{
-			OrderedPair rf = getFace(aRace);
-			if (rf != null)
-			{
-				face = rf;
-			}
-		}
-
-		// Scan templates for any overrides
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			OrderedPair tf = getFace(template);
-			if (tf != null)
-			{
-				face = tf;
-			}
-		}
-		return face;
+		return (OrderedPair) resultFacet.getGlobalVariable(id, "Face");
 	}
 
-	/**
-	 * Returns the Face for the Player Character as defined by a single
-	 * CDOMObject.
-	 * 
-	 * @param cdo
-	 *            The CDOMObject in which the Face information is stored
-	 * @return The Point2D indicating the Face as defined by the given
-	 *         CDOMObject.
-	 */
-	private OrderedPair getFace(CDOMObject cdo)
+	public void setResultFacet(ResultFacet resultFacet)
 	{
-		BigDecimal width = cdo.get(ObjectKey.FACE_WIDTH);
-		BigDecimal height = cdo.get(ObjectKey.FACE_HEIGHT);
-		if (width == null && height == null)
-		{
-			return null;
-		}
-		return new OrderedPair(width, height);
-	}
-
-	public void setTemplateFacet(TemplateFacet templateFacet)
-	{
-		this.templateFacet = templateFacet;
-	}
-
-	public void setRaceFacet(RaceFacet raceFacet)
-	{
-		this.raceFacet = raceFacet;
-	}
-
-	public void init()
-	{
-		OutputDB.register("face", this);
+		this.resultFacet = resultFacet;
 	}
 }

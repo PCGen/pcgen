@@ -25,7 +25,8 @@ import pcgen.base.util.FormatManager;
  * This is a Typesafe enumeration of legal FACTs of an object. It is designed to
  * act as an index to a specific facts within a CDOMObject.
  * 
- * @param <T> The Type of object stored for the FactSetKey
+ * @param <T>
+ *            The Type of object stored for the FactSetKey
  */
 public final class FactSetKey<T>
 {
@@ -43,20 +44,20 @@ public final class FactSetKey<T>
 
 	private final FormatManager<T> formatManager;
 
-	private FactSetKey(String name, FormatManager<T> mgr)
+	private FactSetKey(String name, FormatManager<T> fmtManager)
 	{
 		if (name == null)
 		{
 			throw new IllegalArgumentException(
 				"Name for FactSetKey cannot be null");
 		}
-		if (mgr == null)
+		if (fmtManager == null)
 		{
 			throw new IllegalArgumentException(
 				"FormatManager for FactSetKey cannot be null");
 		}
 		fieldName = name;
-		formatManager = mgr;
+		formatManager = fmtManager;
 	}
 
 	/**
@@ -80,19 +81,20 @@ public final class FactSetKey<T>
 	 *            The name of the FactSetKey to be returned
 	 * @return The FactSetKey for the given name
 	 */
-	public static <T> FactSetKey<T> getConstant(String name, FormatManager<T> cl)
+	public static <T> FactSetKey<T> getConstant(String name,
+		FormatManager<T> fmtManager)
 	{
 		FactSetKey<T> key = (FactSetKey<T>) typeMap.get(name);
 		if (key == null)
 		{
-			key = new FactSetKey<T>(name, cl);
+			key = new FactSetKey<T>(name, fmtManager);
 			typeMap.put(name, key);
 		}
-		else if (!key.formatManager.equals(cl))
+		else if (!key.formatManager.equals(fmtManager))
 		{
 			throw new IllegalArgumentException("FactSetKey: " + name
 				+ " does not store objects of "
-				+ cl.getManagedClass().getCanonicalName());
+				+ fmtManager.getManagedClass().getCanonicalName());
 		}
 		return key;
 	}
@@ -142,11 +144,24 @@ public final class FactSetKey<T>
 		typeMap.clear();
 	}
 
+	/**
+	 * Designed to appropriately cast an object fetched with this FactSetKey.
+	 * 
+	 * @param obj
+	 *            The object that should be cast to the format of item stored by
+	 *            this FactSetKey
+	 * @return An object cast to the format of item stored by this FactSetKey
+	 */
 	public T cast(Object obj)
 	{
 		return (T) obj;
 	}
 
+	/**
+	 * Returns the FormatManager used by this FactSetKey.
+	 * 
+	 * @return the FormatManager used by this FactSetKey
+	 */
 	public FormatManager<T> getFormatManager()
 	{
 		return formatManager;

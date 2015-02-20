@@ -104,11 +104,10 @@ public class ExclusiveQualifierTokenTest extends
 	public void testGetSet() throws PersistenceLayerException
 	{
 		setUpPC();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|EXCLUSIVE[ALL]"));
-
 		finishLoad();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);
@@ -132,11 +131,10 @@ public class ExclusiveQualifierTokenTest extends
 	public void testGetSetFiltered() throws PersistenceLayerException
 	{
 		setUpPC();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|EXCLUSIVE[TYPE=Masterful]"));
-
 		finishLoad();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);
@@ -152,11 +150,10 @@ public class ExclusiveQualifierTokenTest extends
 	public void testGetSetNegated() throws PersistenceLayerException
 	{
 		setUpPC();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|!EXCLUSIVE[TYPE=Masterful]"));
-
 		finishLoad();
+		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);

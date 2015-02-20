@@ -21,6 +21,7 @@ import java.net.URI;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.base.formula.base.ScopeInstance;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.GroupDefinition;
@@ -150,4 +151,10 @@ public interface LoadContext
 	public void loadLocalToken(Object token);
 	
 	public <T> GroupDefinition<T> getGroup(Class<T> cl, String s);
+
+	LoadContext dropIntoContext(String scope);
+
+	VariableContext getVariableContext();
+
+	public ScopeInstance getActiveScope();
 }

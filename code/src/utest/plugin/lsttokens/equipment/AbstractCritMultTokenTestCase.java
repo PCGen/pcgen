@@ -24,12 +24,12 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public abstract class AbstractCritMultTokenTestCase extends
-		AbstractTokenTestCase<Equipment>
+		AbstractCDOMTokenTestCase<Equipment>
 {
 
 	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();

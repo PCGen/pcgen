@@ -17,16 +17,25 @@
  */
 package plugin.lsttokens.editcontext.template;
 
+import java.net.URISyntaxException;
+
 import org.junit.Test;
 
+import pcgen.base.format.OrderedPairManager;
+import pcgen.base.math.OrderedPair;
+import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.template.FaceToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.modifier.orderedpair.SetModifierFactory;
 
 public class FaceIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
@@ -34,6 +43,25 @@ public class FaceIntegrationTest extends
 
 	static FaceToken token = new FaceToken();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+
+	static ModifierFactory<OrderedPair> m = new SetModifierFactory();
+	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
+
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		GlobalScope legalScope = new GlobalScope();
+		primaryContext.getVariableContext().getFormulaSetup()
+			.getLegalScopeLibrary().registerScope(legalScope);
+		secondaryContext.getVariableContext().getFormulaSetup()
+			.getLegalScopeLibrary().registerScope(legalScope);
+		TokenRegistration.register(m);
+		primaryContext.getVariableContext().assertLegalVariableID(
+			primaryContext.getActiveScope().getLegalScope(), opManager, "Face");
+		secondaryContext.getVariableContext().assertLegalVariableID(
+			secondaryContext.getActiveScope().getLegalScope(), opManager, "Face");
+	}
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

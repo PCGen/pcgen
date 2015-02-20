@@ -45,6 +45,11 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.formula.base.VarScoped;
+import pcgen.base.solver.AggressiveSolverManager;
+import pcgen.base.solver.SolverFactory;
+import pcgen.base.solver.SplitFormulaSetup;
+import pcgen.base.solver.SplitFormulaSetup.IndividualSetup;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.IdentityList;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -66,6 +71,7 @@ import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.content.Processor;
 import pcgen.cdom.content.RollMethod;
+import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
@@ -109,6 +115,8 @@ import pcgen.cdom.facet.EquipSetFacet;
 import pcgen.cdom.facet.EquipmentFacet;
 import pcgen.cdom.facet.EquippedEquipmentFacet;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.FormulaSetupFacet;
+import pcgen.cdom.facet.GlobalModifierFacet;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.HitPointFacet;
 import pcgen.cdom.facet.KitFacet;
@@ -120,11 +128,14 @@ import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.PrimaryWeaponFacet;
 import pcgen.cdom.facet.SaveableBonusFacet;
 import pcgen.cdom.facet.SavedAbilitiesFacet;
+import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SecondaryWeaponFacet;
 import pcgen.cdom.facet.SkillCostFacet;
 import pcgen.cdom.facet.SkillOutputOrderFacet;
 import pcgen.cdom.facet.SkillPoolFacet;
 import pcgen.cdom.facet.SkillRankFacet;
+import pcgen.cdom.facet.SolverFactoryFacet;
+import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.SourcedEquipmentFacet;
 import pcgen.cdom.facet.SpellBookFacet;
 import pcgen.cdom.facet.SpellListFacet;
@@ -139,6 +150,7 @@ import pcgen.cdom.facet.SubstitutionClassFacet;
 import pcgen.cdom.facet.TargetTrackingFacet;
 import pcgen.cdom.facet.TemplateFeatFacet;
 import pcgen.cdom.facet.UserEquipmentFacet;
+import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.cdom.facet.XPTableFacet;
 import pcgen.cdom.facet.analysis.AgeSetFacet;
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
@@ -154,6 +166,7 @@ import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.facet.analysis.NonStatStatFacet;
 import pcgen.cdom.facet.analysis.NonStatToStatFacet;
 import pcgen.cdom.facet.analysis.QualifyFacet;
+import pcgen.cdom.facet.analysis.ResultFacet;
 import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
 import pcgen.cdom.facet.analysis.StatLockFacet;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
@@ -219,6 +232,7 @@ import pcgen.cdom.helper.SAtoStringProcessor;
 import pcgen.cdom.helper.SpringHelper;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.inst.EquipmentHead;
+import pcgen.cdom.inst.GlobalModifiers;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.AbilityList;
@@ -256,6 +270,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -399,6 +414,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 	private SpellProhibitorFacet spellProhibitorFacet = FacetLibrary.getFacet(SpellProhibitorFacet.class);
 
+	private GlobalModifierFacet globalModifierFacet = FacetLibrary.getFacet(GlobalModifierFacet.class);
+
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
 	private BonusManager bonusManager = new BonusManager(this);
@@ -436,7 +453,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	private BonusSkillRankChangeFacet bonusSkillRankChangeFacet = FacetLibrary.getFacet(BonusSkillRankChangeFacet.class);
 
 	private LevelInfoFacet levelInfoFacet = FacetLibrary.getFacet(LevelInfoFacet.class);
+	private SolverManagerFacet solverManagerFacet = FacetLibrary.getFacet(SolverManagerFacet.class);
+	private SolverFactoryFacet solverFactoryFacet = FacetLibrary.getFacet(SolverFactoryFacet.class);
+	private FormulaSetupFacet formulaSetupFacet = FacetLibrary.getFacet(FormulaSetupFacet.class);
+	
+	private ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
 
+	private ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
+	private VariableStoreFacet variableStoreFacet = FacetLibrary.getFacet(VariableStoreFacet.class);
+	
 	private ClassSource defaultDomainSource;
 
 	private Map<String, Integer> autoEquipOutputOrderCache = new HashMap<String, Integer>();
@@ -527,6 +552,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public PlayerCharacter(boolean load, Collection<Campaign> loadedCampaigns)
 	{
 		id = CharID.getID(Globals.getContext().getDataSetID());
+		doFormulaSetup();
+		
 		display = new CharacterDisplay(id);
 		SA_TO_STRING_PROC = new SAtoStringProcessor(this);
 		SA_PROC = new SAProcessor(this);
@@ -538,13 +565,19 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		{
 			ageSetKitSelections[i] = false;
 		}
+		AbstractReferenceContext refContext = Globals.getContext().getReferenceContext();
+		GlobalModifiers gm =
+				refContext.constructNowIfNecessary(GlobalModifiers.class,
+					"Global Modifiers");
+		globalModifierFacet.set(id, gm);
+
 		//Do BilSet first, since required by Race
 		bioSetFacet.set(id, Globals.getBioSet());
 		//Set Race before Stat/Check due to Default object in Pathfinder/RSRD
 		setRace(Globals.s_EMPTYRACE);
 
-		statFacet.addAll(id, Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCStat.class));
-		checkFacet.addAll(id, Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCCheck.class));
+		statFacet.addAll(id, refContext.getOrderSortedCDOMObjects(PCStat.class));
+		checkFacet.addAll(id, refContext.getOrderSortedCDOMObjects(PCCheck.class));
 		campaignFacet.addAll(id, loadedCampaigns);
 
 		setGold(new BigDecimal(0));
@@ -557,6 +590,18 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		rollStats(SettingsHandler.getGame().getRollMethod());
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Constants.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
+	}
+	
+	private final void doFormulaSetup()
+	{
+		SplitFormulaSetup formulaSetup =
+				formulaSetupFacet.get(id.getDatasetID());
+		IndividualSetup mySetup = formulaSetup.getIndividualSetup("Global");
+		scopeFacet.set(id, mySetup.getInstanceFactory());
+		variableStoreFacet.set(id, mySetup.getVariableStore());
+		SolverFactory solverFactory = solverFactoryFacet.get(id.getDatasetID());
+		solverManagerFacet.set(id, new AggressiveSolverManager(
+			mySetup.getFormulaManager(), solverFactory, mySetup.getVariableStore()));
 	}
 
 	/**
@@ -10766,5 +10811,16 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public boolean hasAbilityInPool(AbilityCategory aCategory)
 	{
 		return grantedAbilityFacet.hasAbilityInPool(id, aCategory);
+	}
+
+	public <T> void addModifier(VarModifier<T> modifier, VarScoped vs,
+		Object source)
+	{
+		solverManagerFacet.addModifier(id, modifier, vs, source);
+	}
+
+	public Object getGlobal(String varName)
+	{
+		return resultFacet.getGlobalVariable(id, varName);
 	}
 }

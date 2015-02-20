@@ -28,7 +28,7 @@ import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 
 public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
-		extends AbstractTokenTestCase<T>
+		extends AbstractCDOMTokenTestCase<T>
 {
 
 	protected abstract boolean requiresPreconstruction();

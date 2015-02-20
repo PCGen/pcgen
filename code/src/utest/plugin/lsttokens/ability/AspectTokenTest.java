@@ -28,7 +28,7 @@ import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
@@ -42,7 +42,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
-public class AspectTokenTest extends AbstractTokenTestCase<Ability>
+public class AspectTokenTest extends AbstractCDOMTokenTestCase<Ability>
 {
 
 	/** The token being tested. */

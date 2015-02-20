@@ -131,7 +131,7 @@ public class LstUtils
 	/*
 	 * Probably useful elsewhere...
 	 */
-	static void processToken(LoadContext context, Loadable po,
+	static boolean processToken(LoadContext context, Loadable po,
 		Object source, String tok) throws PersistenceLayerException
 	{
 		final String token = tok.trim();
@@ -145,20 +145,21 @@ public class LstUtils
 							+ po.getClass().getSimpleName()
 							+ " "
 							+ po.getDisplayName() + " of " + source);
-			return;
+			return false;
 		}
 		else if (colonLoc == 0)
 		{
 			Logging.errorPrint("Invalid Token - starts with a colon: '"
 					+ token + "' in " + po.getClass().getSimpleName() + " "
 					+ po.getDisplayName() + " of " + source);
-			return;
+			return false;
 		}
 	
 		String key = token.substring(0, colonLoc).intern();
 		String value = (colonLoc == token.length() - 1) ? null : token
 				.substring(colonLoc + 1).intern();
-		if (context.processToken(po, key, value))
+		boolean successful = context.processToken(po, key, value);
+		if (successful)
 		{
 			context.commit();
 		}
@@ -168,5 +169,6 @@ public class LstUtils
 			Logging.replayParsedMessages();
 		}
 		Logging.clearParseMessages();
+		return successful;
 	}
 }

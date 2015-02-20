@@ -36,7 +36,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 
 public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
-		extends AbstractTokenTestCase<T>
+		extends AbstractCDOMTokenTestCase<T>
 {
 
 	public abstract CDOMSecondaryToken<?> getSubToken();

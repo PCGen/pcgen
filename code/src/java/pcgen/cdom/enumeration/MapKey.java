@@ -22,8 +22,10 @@
  */
 package pcgen.cdom.enumeration;
 
+import java.text.MessageFormat;
 import java.util.List;
 
+import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.helper.Aspect;
@@ -63,6 +65,8 @@ public final class MapKey<K, V>
 	public static final MapKey<String, KitTable> KIT_TABLE = new MapKey<String, KitTable>();
 	
 	public static final MapKey<String, Integer> CRMOD = new MapKey<String, Integer>();
+	public static final MapKey<CaseInsensitiveString, MessageFormat> INFO = new MapKey<CaseInsensitiveString, MessageFormat>();
+	public static final MapKey<CaseInsensitiveString, String[]> INFOVARS = new MapKey<CaseInsensitiveString, String[]>();
 
 	/**
 	 * Private constructor to prevent instantiation of this class.

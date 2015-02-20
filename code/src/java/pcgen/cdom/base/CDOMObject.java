@@ -30,6 +30,7 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.Indirect;
@@ -54,7 +55,7 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
-		Cloneable, BonusContainer, Loadable, Reducible
+		Cloneable, BonusContainer, Loadable, Reducible, VarScoped
 {
 
 	private URI sourceURI = null;
@@ -1220,4 +1221,34 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		return this;
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getLocalScopeName()
+	{
+		//I don't have one
+		return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public VarScoped getVariableParent()
+	{
+		//Fall back to Global
+		return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getName()
+	{
+		return getKeyName();
+	}
+
 }

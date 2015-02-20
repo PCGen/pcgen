@@ -84,7 +84,6 @@ public class TokenConverter
 							TokenProcessorPlugin.class
 						};
 			}
-
 		};
 	}
 
