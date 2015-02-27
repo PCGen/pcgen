@@ -1,6 +1,6 @@
 CAMPAIGN:Taldor, Echoes of Glory
-KEY:Taldor - Echoes of Glory
-GAMEMODE:Pathfinder
+KEY:Taldor - Echoes of Glory (35e)
+GAMEMODE:35e
 TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
@@ -8,7 +8,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
-PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+#PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -54,7 +54,7 @@ SPELL:teog_spells.lst
 # Updated to work with version: -
 # MINVER:6.5
 # MINDEVVER:6.05.1
-# COMMENTS:
+# COMMENTS: Has 35e skills in the class.
 
 
 #

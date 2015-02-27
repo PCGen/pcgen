@@ -8,6 +8,6 @@ Speak with Animals.COPY=Speak with Animals (pigs and boars only)
 Speak with Animals.COPY=Speak with Animals (rodents only)
 Charm Animal.COPY=Charm Animal (aquatic animals only)
 
-Speak with Animals (pigs and boars only).MOD	CLASSES:.CLEAR
-Speak with Animals (rodents only).MOD		CLASSES:.CLEAR
-Charm Animal (aquatic animals only).MOD		CLASSES:.CLEAR
+Speak with Animals (pigs and boars only).MOD	CLASSES:.CLEARALL
+Speak with Animals (rodents only).MOD		CLASSES:.CLEARALL
+Charm Animal (aquatic animals only).MOD		CLASSES:.CLEARALL
