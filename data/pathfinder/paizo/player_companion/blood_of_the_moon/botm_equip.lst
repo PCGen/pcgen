@@ -1,0 +1,28 @@
+
+Nose Ring Of Unearthly Scent	COST:11475	TYPE:SLOT_Head.Helm.Magic
+
+###Block: Gear & Alchemical
+Animal Disguise Kit		SOURCEPAGE:p.30	TYPE:Gear.Kit		COST:100	WT:8
+Memory Incense			SOURCEPAGE:p.30	TYPE:Gear.Alchemical	COST:50	WT:1		QUALITY:Craft DC|20
+Palm Paws				SOURCEPAGE:p.30	TYPE:Gear.Alchemical	COST:80	WT:2	
+Silver Drops			SOURCEPAGE:p.30	TYPE:Gear.Alchemical	COST:180			QUALITY:Craft DC|30
+Silvercloud Oil			SOURCEPAGE:p.30	TYPE:Gear.Alchemical	COST:60	WT:0.5	QUALITY:Craft DC|25
+
+###Block: Magic
+Amulet of the True Form		SOURCEPAGE:p.30	TYPE:Magic.SLOT_NECK.Amulet	COST:6500
+Corpse Puppet			SOURCEPAGE:p.31	TYPE:Magic	COST:250	
+Globe of Moonlight		SOURCEPAGE:p.31	TYPE:Magic	COST:700		WT:1
+Moon Clock				SOURCEPAGE:p.31	TYPE:Magic	COST:2650	
+Pelt of the Beast (Bat)		SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
+Pelt of the Beast (Bear)	SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
+Pelt of the Beast (Boar)	SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
+Pelt of the Beast (Crocodile)	SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
+Pelt of the Beast (Rat)		SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
+Pelt of the Beast (Shark)	SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
+Pelt of the Beast (Tiger)	SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
+Pelt of the Beast (Wolf)	SOURCEPAGE:p.31	TYPE:Magic.SLOT_Shoulders.Shoulders	COST:15600	WT:8
+Spell Totem				SOURCEPAGE:p.31	TYPE:Magic	COST:12000
+
+
+
+

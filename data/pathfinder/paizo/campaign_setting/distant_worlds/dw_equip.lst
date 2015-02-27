@@ -1,0 +1,7 @@
+
+Pressure Suit		SOURCEPAGE:p.55	QUALITY:Aura|faint abjuration; CL 5th	TYPE:Slot_body.Uses_helm_Slot	COST:4000	WT:30	SPROP:This magical full-body suit completely protects the wearer from temperature extremes (as if by endure elements) and pressure dangers of hard vacuum and all worlds in the system (save the sun), though it only carries enough air for 3 days before it must be recharged in breathable atmosphere (such as that inside a ship).	AUTO:EQUIP|Pressure Suit (Helm)
+Pressure Suit (Helm)	SOURCEPAGE:p.55	TYPE:Helm.Headgear
+
+Rifle.COPY=Shobhad longrifle
+Shobhad longrifle.MOD	RANGE:200	SIZE:L	SPROP:only works in the low gravity of Akiton and similar worlds.
+

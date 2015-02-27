@@ -1,0 +1,13 @@
+
+Accursed Glare	TYPE:Arcande.Divine	SOURCEPAGE:p.9	SCHOOL:Necromancy	DESCRIPTOR:Curse	CLASSES:Antipaladin=3|Sorcerer,Wizard,Witch=3	CASTTIME:1 Round	COMPS:V, S	RANGE:Close	TARGETAREA:One creature	DURATION:(CASTERLEVEL) days	SAVEINFO:Will negates	SPELLRES:YES	DESC:You channel a fell curse through your glare. If the target fails its saving throw, it begins to obsessively secondguess its actions and attract bad luck. Whenever the target attempts an attack roll or saving throw while the curse lasts, it must roll twice and take the lower result. While you cast this spell, an ally within range of the subject can attempt an Intimidate check as a move action [DC = save DC of this spell]; on a success, the ally adds its own glare to yours, granting you a +2 bonus on your caster level check to overcome spell resistance (if any). Multiple allies can attempt Intimidate checks; this bonus stacks.
+Share Skin		TYPE:Divine	SOURCEPAGE:p.11	SCHOOL:Necromancy	CLASSES:Druid,Witch=6	COMPS:V, S	RANGE:Touch	TARGETAREA:One animal touched	DURATION:(CASTERLEVEL) minutes or until you return to your body.	DESC:You can possess an animal's body in a manner that functions like magic jar, except as noted here. Your body vanishes while the effect lasts and you don't require a receptacle.
+Share Skin, Great	TYPE:Divine	SOURCEPAGE:p.11	KEY:Share Skin (Greater)	SCHOOL:Necromancy	CLASSES:Witch=8	COMPS:V, S	RANGE:Touch	TARGETAREA:One creature touched	DURATION:(CASTERLEVEL) minutes or until you return to your body.	DESC:You can possess an creature's body in a manner that functions like magic jar, except as noted here. Your body vanishes while the effect lasts and you don't require a receptacle.
+
+
+Speak with Animals.COPY=Speak with Animals (pigs and boars only)
+Speak with Animals.COPY=Speak with Animals (rodents only)
+Charm Animal.COPY=Charm Animal (aquatic animals only)
+
+Speak with Animals (pigs and boars only).MOD	CLASSES:.CLEARALL
+Speak with Animals (rodents only).MOD		CLASSES:.CLEARALL
+Charm Animal (aquatic animals only).MOD		CLASSES:.CLEARALL

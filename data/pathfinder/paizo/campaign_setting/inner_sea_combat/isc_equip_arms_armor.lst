@@ -1,0 +1,88 @@
+# CVS $Revision: $ $Author: $ -- Thu Jan 29 16:18:08 2015 -- reformated by prettylst.pl v1.51 (build 25712)
+
+# Armor
+# Equipment Name
+Splint Mail.COPY=Backbreaker Mail
+Armored Coat.COPY=Blackjacket
+Shield (Heavy/Wooden).COPY=Broadside Bulwark
+Full Plate.COPY=Crag Linnorm Plate
+Parade.COPY=Eagle Knight Dress Uniform
+Leaf Armor.COPY=Ekujae Jungle Armor
+Hellknight Plate.COPY=Gelugon Plate
+Hide.COPY=Ghoul Hide
+Shield (Tower).COPY=Guard of Man
+Klar.COPY=Lyrune-Quah Klar
+Hide.COPY=Mammoth Hide
+Studded Leather.COPY=Mosswater Stained Leather
+Breastplate.COPY=Numerian Resistance Plate
+Madu (Leather).COPY=Okeno Madu
+Leather.COPY=Scouting Leather
+Chain Shirt.COPY=Truefaith Vestments
+Stoneplate.COPY=Tunnel Defender Stoneplate
+Field Plate.COPY=War Commander's Field Plate
+Half-Plate.COPY=Xill Carapace Armor
+
+# Weapons
+Curve blade (Elven).COPY=Calistrian Kiss
+Sawtooth Sabre.COPY=Crimson Bluff
+Earth Breaker.COPY=Earth Breaker of Righted Injustice
+War Razor.COPY=Final Word
+Whip.COPY=Greenblood Scourge
+Starknife.COPY=Hunter's Starknife
+Temple Sword.COPY=Monastic Warden
+Pistol.COPY=Peacekeeping Pistol
+Falcata.COPY=Purging Falcata
+Quarterstaff.COPY=Quarterstaff of Contemplation
+Khopesh.COPY=Risen Blade
+Aldori Dueling Sword.COPY=Rostland Edge
+Bolas (Shoanti).COPY=Shadde-Quah Spirit Bolas
+Chain (Spiked).COPY=Shadowbound Chains
+Greatsword.COPY=Shearing Sword
+Urumi.COPY=Steadfast Urumi
+Bladed Scarf.COPY=Wanderer's Scarf
+Shortspear.COPY=Wendifisa Spear
+
+
+###Block: Armor Specific
+# Equipment Name					Modifier					Source, Long Desc.		Source, Short Desc.	Source Page
+Backbreaker Mail.MOD				EQMOD:PLUS2A.SPIKE_A			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.50
+Blackjacket.MOD					EQMOD:PLUS3A				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.50
+Broadside Bulwark.MOD				EQMOD:PLUS2S				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.50
+Crag Linnorm Plate.MOD				EQMOD:PLUS4A.DRACO			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.50
+Eagle Knight Dress Uniform.MOD		EQMOD:PLUS2A				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.50
+Ekujae Jungle Armor.MOD				EQMOD:PLUS1A.LEAF				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.51
+Gelugon Plate.MOD					EQMOD:PLUS3A				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.51
+Ghoul Hide.MOD					EQMOD:PLUS1A				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.51
+Guard of Man.MOD					EQMOD:PLUS2S.SPELL_RES_13		SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.51
+
+Lyrune-Quah Klar.MOD				EQMOD:PLUS2S				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.52
+Mammoth Hide.MOD					EQMOD:PLUS3A				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.52
+Mosswater Stained Leather.MOD			EQMOD:PLUS2A				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.52
+Numerian Resistance Plate.MOD			EQMOD:PLUS2A				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.52
+Okeno Madu.MOD					EQMOD:PLUS1S				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.52
+
+Scouting Leather.MOD				EQMOD:PLUS1A.EXPED.GLAM			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.53
+Truefaith Vestments.MOD				EQMOD:PLUS1A				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.53
+Tunnel Defender Stoneplate.MOD		EQMOD:PLUS3A				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.53
+War Commander's Field Plate.MOD		EQMOD:PLUS2A.CHAMP			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.53
+Xill Carapace Armor.MOD				EQMOD:PLUS1A.SPIKE_A			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.53
+
+# Weapons
+Calistrian Kiss.MOD				EQMOD:PLUS1W.HEARTSEEKER		SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.54
+Crimson Bluff.MOD					EQMOD:PLUS2W.SPEED			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.54
+Earth Breaker of Righted Injustice.MOD	EQMOD:PLUS2W.ANARCH.FLAME		SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.54
+Final Word.MOD					EQMOD:PLUS1W				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.54
+Greenblood Scourge.MOD				EQMOD:PLUS2W.CRRSVE			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.55
+Hunter's Starknife.MOD				EQMOD:PLUS2W.WOUND			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.55
+Monastic Warden.MOD				EQMOD:PLUS1W.KI				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.55
+Peacekeeping Pistol.MOD				EQMOD:PLUS1W.MERCY			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.55
+Purging Falcata.MOD				EQMOD:PLUS2W				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.55
+Quarterstaff of Contemplation.MOD		EQMOD:PLUS2W				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.56
+Risen Blade.MOD					EQMOD:PLUS2W.FLAME			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.56
+Rostland Edge.MOD					EQMOD:PLUS2W.COUNTERING.IMPERVIOUS	SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.56
+Shadde-Quah Spirit Bolas.MOD			EQMOD:PLUS1W				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.56
+Shadowbound Chains.MOD				EQMOD:PLUS1W.VICIOUS.VIRI_WEAP	SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.57
+Shearing Sword.MOD				EQMOD:PLUS1W				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.57
+Steadfast Urumi.MOD				EQMOD:PLUS1W.CLEAVE			SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.57
+Wanderer's Scarf.MOD				EQMOD:PLUS1W				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.57
+Wendifisa Spear.MOD				EQMOD:PLUS1W				SOURCELONG:Inner Sea Combat	SOURCESHORT:ISC		SOURCEPAGE:p.57

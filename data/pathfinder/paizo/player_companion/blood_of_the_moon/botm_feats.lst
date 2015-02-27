@@ -1,0 +1,53 @@
+
+Extra Feature			TYPE:General	SOURCEPAGE:p.7	PRETEXT:Prerequisites: Con 13 , skinwalker.	PRERACE:1,Skinwalker	PRESTAT:1,CON=13
+Fast Change				TYPE:General	SOURCEPAGE:p.7	PRETEXT:Prerequisites: Dex 13 , base attack bonus +6, skinwalker.		PRERACE:1,Skinwalker	PRESTAT:1,DEX=13	PRETOTALAB:6	
+Bat Shape				TYPE:General	SOURCEPAGE:p.9	PRETEXT:Prerequisites: Cha 13 , werebat-kin.	PRETEMPLATE:1,Werebat-Kin	PRESTAT:1,CHA=13		
+Bloodmarked Flight		TYPE:General	SOURCEPAGE:p.9	PRETEXT:Prerequisites: Base attack bonus +5, werebat-kin.	PRETOTALAB:5	PRETEMPLATE:1,Werebat-Kin	
+Dire Bat Shape			TYPE:General	SOURCEPAGE:p.9	PRETEXT:Prerequisites: Cha i3 , Bat Shape, base attack bonus +3 , were bat-kin.	PRESTAT:1,CHA=13	PRETOTALAB:3	PRETEMPLATE:1,Werebat-Kin	
+Bear Hug				TYPE:Combat		SOURCEPAGE:p.11	PRETEXT:Prerequisites: Str 17, Beartrap Bite, Weapon Focus (bite), base attack bonus +8.	PRESTAT:1,STR=17	PREFEAT:2,Beartrap Bite,Weapon Focus (Bite)	PRETOTALAB:6	
+Beartrap Bite			TYPE:Combat		SOURCEPAGE:p.11	PRETEXT:Prerequisites: Weapon Focus (bite), base attack bonus +6.	PREFEAT:1,Weapon Focus (Bite)	PRETOTALAB:6	
+Ferocious Loyalty			TYPE:Teamwork	SOURCEPAGE:p.11	ASPECT:CombatBonus|+1 morale bonus on attack rolls against any foe that currently threatens an ally who also has this feat. Whenever an ally with this feat is rendered helpless or killed within 30 feet of you, you gain a +2 morale bonus on attack rolls for 1 minute or until the foe responsible is rendered helpless or killed, whichever comes first.
+Swarm Scatter			TYPE:Teamwork	SOURCEPAGE:p.19
+Swarm Strike			TYPE:Teamwork	SOURCEPAGE:p.19
+Motivating Display		TYPE:Combat		SOURCEPAGE:p.23	PRETEXT:Prerequisites: Cha i3 , Dazzling Display, Weapon Focus.	PRESTAT:1,CHA=13	PREFEAT:2,Dazzling Display,Weapon Focus
+Surprising Combatant		TYPE:Combat		SOURCEPAGE:p.23	PRETEXT:Prerequisites: Improved Initiative, Bluff 3 ranks.					PREFEAT:1,Improved Initiative	PRESKILL:1,Bluff=3
+Violent Display			TYPE:Combat		SOURCEPAGE:p.23	PRETEXT:Prerequisites: Dazzling Display, Weapon Focus, base attack bonus +6.		PREFEAT:2,Dazzling Display,Weapon Focus	PRETOTALAB:6
+Wolf Savage				TYPE:Combat.Style	SOURCEPAGE:p.25
+Wolf Style				TYPE:Combat.Style	SOURCEPAGE:p.25
+Wolf Trip				TYPE:Combat.Style	SOURCEPAGE:p.25
+
+
+
+Extra Feature.MOD			DESC:You are an exceptional shapechanger.	
+Fast Change.MOD			DESC:You can change forms faster than most skinwalkers.	
+Bat Shape.MOD			DESC:Your powers of transformation have been honed to the point where you can wholly become a bat.	
+Bloodmarked Flight.MOD		DESC:Your attunement to your werebat ancestry has allowed you to master a crude form of flight.		
+Dire Bat Shape.MOD		DESC:You can become a dire bat.	
+Bear Hug.MOD			DESC:You can crush your foes with your powerful arms.	
+Beartrap Bite.MOD			DESC:You can hold your foes even if you do not manage to grapple them.	
+Ferocious Loyalty.MOD		DESC:You have a powerful sense of responsibility for your allies.	
+Swarm Scatter.MOD			DESC:You have studied the habits of swarming rats for defensive tactics.
+Swarm Strike.MOD			DESC:You and your allies have trained to overwhelm foes like a swarm of rodents.
+Motivating Display.MOD		DESC:You can empower your allies through their fear of you.
+Surprising Combatant.MOD	DESC:You can briefly trick your foes into discounting you as a combatant.
+Violent Display.MOD		DESC:You never miss an opportunity to cow foes.
+Wolf Savage.MOD			
+Wolf Style.MOD			
+Wolf Trip.MOD			
+
+Extra Feature.MOD			BENEFIT:When you change shape to your bestial form, you may choose one additional feature from those listed in your shapechange ability and gain that benefit while in bestial form. Special: You can gain this feat multiple times. Its effects stack.
+Fast Change.MOD			BENEFIT:You can assume your bestial form as a move action instead of a standard action.
+Bat Shape.MOD			BENEFIT:You can take the form of a bat whose appearance is static and cannot be changed each time you assume this form. You gain a +io racial bonus on Disguise checks to appear as a bat. Changing from werebat-kin to bat shape is a standard action. This ability otherwise functions as beast shape II, and your ability scores change accordingly. If you wear a bat pelt (see page 3 1), you may choose to adopt a form resembling the bat whose skin you wear instead of your normal bat form.
+Bloodmarked Flight.MOD		BENEFIT:As an additional bestial feature, you can use your change shape ability to gain a fly speed of 30 feet with poor maneuverability if carrying a light load and wearing no armor or light armor, or a fly speed of 20 feet with clumsy maneuverability if carrying a medium or heavy load or wearing medium or heavy armor.
+Dire Bat Shape.MOD		BENEFIT:When you use Bat Shape to become a bat, you can choose to become a bat or a dire bat.
+Bear Hug.MOD			BENEFIT:You can attempt to initiate a grapple against a foe trapped by your Beartrap Bite feat without provoking attacks of opportunity. You gain a +2 bonus on damage rolls against foes you are grappling.
+Beartrap Bite.MOD			BENEFIT:Whenever you confirm a critical hit against a foe with your bite attack, if your confirmation roll matches or exceeds your foe's CMD, you can clamp down on your foe to prevent it from moving away as a free action. The foe cannot move outside the area threatened by your bite attack unless it breaks free of your bite. It can attempt to free itself with a combat maneuver check or Escape Artist check as if you were grappling it, but neither of you gains the grappled condition. You cannot use your bite attack while you maintain your grip on your foe, but you can release the bite as a swift action to end the effect.
+Ferocious Loyalty.MOD		BENEFIT:You gain a +1 morale bonus on attack rolls against any foe that currently threatens an ally who also has this feat. Whenever an ally with this feat is rendered helpless or killed within 30 feet of you, you gain a +2 morale bonus on attack rolls for 1 minute or until the foe responsible is rendered helpless or killed, whichever comes first.
+Swarm Scatter.MOD			BENEFIT:For each ally who has this feat and is adjacent to you, you gain a +1 circumstance bonus to AC. As long as you have this bonus, you are immune to the swarm attack and distraction ability of rat swarms.
+Swarm Strike.MOD			BENEFIT:When ever a foe provokes an attack of opportunity from you, you gain a +1 bonus on your attack roll, plus an additional +1 bonus for each ally who also has this feat and currently threatens that foe.
+Motivating Display.MOD		BENEFIT:Whenever you use Dazzling Display to demoralize foes, you can motivate your allies to better serve you. In addition to possibly demoralizing foes within 30 feet, your Intimidate check while using Dazzling Display also applies to allies within 30 feet who can see you. The DC for this effect is the same as it would be to demoralize your allies. Each ally so affected gains a +1 morale bonus on attack rolls and skill checks for the duration that it would normally be shaken.
+Surprising Combatant.MOD	BENEFIT:At the beginning of combat, after initiative is rolled but before the first round of combat begins, you can attempt a Bluff check as a free action. Each opponent who is aware of you must succeed at a Sense Motive check (DC equal to the result of your Bluff check). Failure means that an opponent is treated as if it were not aware of you when determining whether it is aware combat has begun. If none of your opponents are aware of you, you may act during the surprise round. If an opponent is effectively unaware of any foes, it cannot act during the surprise round.
+Violent Display.MOD		BENEFIT:When you land a successful sneak attack or confirm a critical hit against a creature with a weapon with which you have Weapon Focus, you can use Dazzling Display as an immediate action.
+Wolf Savage.MOD			
+Wolf Style.MOD			
+Wolf Trip.MOD			
