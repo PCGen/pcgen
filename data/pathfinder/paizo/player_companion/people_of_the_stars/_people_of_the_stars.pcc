@@ -3,7 +3,7 @@ KEY:People of the Stars
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
-STATUS:ALPHA
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Campaign Setting
@@ -55,7 +55,7 @@ TEMPLATE:pots_templates.lst
 # LST MONKEY: Andrew Maitland
 # LICENSE MONKEY: Paul Grosse
 # RELEASE REVIEW #
-# BETA:
+# BETA: Andrew Maitland
 # RELEASE:
 # Built for PCGen Version: 6.04.01
 # Updated to work with version: -
