@@ -1,0 +1,4 @@
+
+Aggregate		PRETEXT:Robot	BONUS:MISC|CR|1	BONUS:COMBAT|INITIATIVE|INT-DEX	SAB:All-Around Vision when it is located in an area fitted with cameras or other sensors that are under the control of the base AI.
+# This template needs thought to implement... it's taking another creature and imposing it on another. Might be best as a AI as a Creature, and then a aggregate "robot" as a Companion
+

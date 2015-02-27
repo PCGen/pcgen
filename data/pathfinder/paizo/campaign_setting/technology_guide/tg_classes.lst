@@ -1,0 +1,23 @@
+
+CLASS:Technomancer	HD:6	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.14	DEFINE:TechnomancerLVL|0	BONUS:VAR|TechnomancerLVL|CL
+CLASS:Technomancer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE
+CLASS:Technomancer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Technomancer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Technomancer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Technomancer	PRETEXT:Feats: Skill Focus (Knowledge [engineering]), Technologist. Skills: Disable Device 6 ranks, Knowledge (engineering) 6 ranks, Spellcraft 6 ranks. Special: Ability to cast 3rd-level arcane spells.	PREFEAT:2,Skill Focus (Knowledge (Engineering)),Technologist	PRESKILL:3,Disable Device=6,Knowledge (engineering)=6,Spellcraft=6	PRESPELLTYPE:1,Arcane=3
+CLASS:Technomancer	STARTSKILLPTS:4	CSKILL:Appraise|TYPE=Craft|Disable Device|Fly|Intimidate|TYPE=Knowledge|Linguistics|Perception|TYPE=Profession|Spellcraft
+###Block
+2:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
+###Block
+1	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Weapon and Armor Proficiency	
+1	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Recondition			
+1	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Technical Expertise		
+2	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Efficient Construction		
+2	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Technic Spell Mastery		
+3	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Arcane Battery			
+3	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Study Technology			
+4	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Recycle Technology		
+5	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Command Robot			
+6	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Unified Energy			
+8	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Applied Learning			
+10	ABILITY:Technomancer Class Feature|AUTOMATIC|Technomancer ~ Field Improvisation		
