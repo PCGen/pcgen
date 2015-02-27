@@ -3,7 +3,7 @@ KEY:Iron Gods Player's Guide
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Iron Gods
 RANK:4
-STATUS:ALPHA
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
@@ -46,7 +46,7 @@ TEMPLATE:ig_templates.lst
 # LST MONKEY: Andrew (LegacyKing) Maitland (January 14th, 2015)
 # LICENSE MONKEY: Paul Grosse (January 16th, 2015)
 # RELEASE REVIEW #
-# BETA:
+# BETA: Andrew (LegacyKing) Maitland
 # RELEASE:
 # Built for PCGen Version: 6.04.01 (2015-01)
 # Updated to work with version: -
