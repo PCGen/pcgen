@@ -41,6 +41,7 @@ ABILITY:tg_abilities_feat.lst
 ABILITYCATEGORY:tg_abilitycategories.lst
 CLASS:tg_classes.lst
 EQUIPMENT:tg_equip.lst
+EQUIPMOD:tg_equipmods.lst
 ARMORPROF:tg_profs_armor.lst
 SHIELDPROF:tg_profs_shield.lst
 WEAPONPROF:tg_profs_weapon.lst

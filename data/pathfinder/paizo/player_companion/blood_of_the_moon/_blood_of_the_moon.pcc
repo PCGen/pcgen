@@ -39,7 +39,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Blood of th
 #EXTRAFILE:OGL.txt
 
 # Data files
-ABILITY:botm_abilities_traits.lst
+ABILITY:botm_abilities_trait.lst
 ABILITYCATEGORY:botm_abilitycategories.lst
 EQUIPMENT:botm_equip.lst
 FEAT:botm_feats.lst

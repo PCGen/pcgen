@@ -49,6 +49,7 @@ EQUIPMENT:pots_equip.lst
 LANGUAGE:pots_languages.lst
 WEAPONPROF:pots_profs_weapon.lst
 RACE:pots_races.lst
+SPELL:pots_spells.lst
 TEMPLATE:pots_templates.lst
 
 # ENTRY DATE: 2015-01
