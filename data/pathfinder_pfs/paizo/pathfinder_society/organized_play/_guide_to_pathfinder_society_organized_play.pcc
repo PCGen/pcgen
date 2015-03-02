@@ -152,6 +152,7 @@ PCC:@/pathfinder_pfs/paizo/player_companion/pfs_goblins_of_golarion/pfs_goblins_
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_halflings_of_golarion/pfs_halflings_of_golarion.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_inner_sea_primer/pfs_inner_sea_primer.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_orcs_of_golarion/pfs_orcs_of_golarion.pcc
+PCC:@/pathfinder_pfs/paizo/player_companion/pfs_people_of_the_stars/pfs_people_of_the_stars.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_pirates_of_the_inner_sea/pfs_pirates_of_the_inner_sea.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_qadira_gateway_to_the_east/pfs_qadira_gateway_to_the_east.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_sargava_the_lost_colony/pfs_sargava_the_lost_colony.pcc
@@ -179,7 +180,6 @@ PCC:@/pathfinder_pfs/paizo/player_companion/pfs_varisia_birthplace_of_legends/pf
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_people_of_the_north/pfs_people_of_the_north.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_people_of_the_river/pfs_people_of_the_river.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_people_of_the_sands/pfs_people_of_the_sands.pcc
-# PCC:@/pathfinder_pfs/paizo/player_companion/pfs_people_of_the_stars/pfs_people_of_the_stars.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_quests_and_campaigns/pfs_quests_and_campaigns.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_ranged_tactics_toolbox/pfs_ranged_tactics_toolbox.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_second_darkness/pfs_second_darkness.pcc

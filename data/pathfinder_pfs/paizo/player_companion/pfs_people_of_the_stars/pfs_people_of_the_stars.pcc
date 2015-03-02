@@ -1,0 +1,65 @@
+CAMPAIGN:People of the Stars (PFS)
+#GAMEMODE:Pathfinder
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
+RANK:3
+STATUS:ALPHA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Campaign Setting
+PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:People of the Stars
+SOURCESHORT:PotS
+#SOURCEWEB:http://paizo.com/products/xxx
+#SOURCEDATE:2009-01
+ISOGL:YES
+
+#COVER:xxx.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+#URL:Paizo Publishing|http://paizo.com/products/xxx|Buy this publication from Paizo Publishing!
+#DESC:
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+#COPYRIGHT:Pathfinder Companion: People of the Stars. xxx
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: People of the Stars" Copyright 2010-2015, PCGen Data team (Including, but not limited to Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Additional Resources
+# Last Updated Friday, January 9, 2015
+#
+# Pathfinder Player Companion: People of the Stars
+# Equipment: all equipment and magic items on page 19, 26-27, and 30-31 are legal for play, except steelbone frame and traveler's translator;
+# Feats: both feats on page 27 are legal for play;
+# Misc.: none of the races are legal for play;
+# Spells: all spells on pages 28-29 are legal for play;
+# Subdomains: both subdomains on page 23 are legal for play;
+# Traits: Lunar Birth, Offspring of the Ascension, Outer Dragon Blood, Skymetal Affinity, Sovyrian Intellectual, and Sun-blessed are legal for play.
+# All languages found in this book are available for a character to learn with the linguistics skill.
+
+# Data Files
+#ABILITY:pots_abilities.lst
+#ABILITY:pots_abilities_feat.lst
+#ABILITYCATEGORY:pots_abilitycategories.lst
+#EQUIPMENT:pots_equip.lst
+#LANGUAGE:pots_languages.lst
+#WEAPONPROF:pots_profs_weapon.lst
+#RACE:pots_races.lst
+#TEMPLATE:pots_templates.lst
+
+#CLASS:pots_classes.lst
+#EQUIPMOD:pots_equipmods.lst
+#FEAT:pots_feats.lst
+#SPELL:pots_spells.lst
+
+#
+# End
+#
