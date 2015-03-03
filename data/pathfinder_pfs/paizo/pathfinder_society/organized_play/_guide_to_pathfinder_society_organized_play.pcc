@@ -99,6 +99,7 @@ PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_dragon_empires_gazetteer/pfs_dra
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_guide_to_the_river_kingdoms/pfs_guide_to_the_river_kingdoms.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_heart_of_the_jungle/pfs_heart_of_the_jungle.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_bestiary/pfs_inner_sea_bestiary.pcc
+PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_combat/pfs_inner_sea_combat.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_world_guide/pfs_inner_sea_world_guide.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_pathfinder_society_field_guide/pfs_pathfinder_society_field_guide.pcc
 PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_seekers_of_secrets/pfs_seekers_of_secrets.pcc
@@ -116,7 +117,6 @@ PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_seekers_of_secrets/pfs_seekers_o
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_giants_revisited/pfs_giants_revisited.pcc
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_gods_and_magic/pfs_gods_and_magic.pcc
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_horseman_of_the_apocalypse/pfs_horseman_of_the_apocalypse.pcc
-# PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_combat/pfs_inner_sea_combat.pcc
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_gods/pfs_inner_sea_gods.pcc
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_inner_sea_magic/pfs_inner_sea_magic.pcc
 # PCC:@/pathfinder_pfs/paizo/campaign_setting/pfs_lands_of_the_linnorm_kings/pfs_lands_of_the_linnorm_kings.pcc
@@ -157,6 +157,7 @@ PCC:@/pathfinder_pfs/paizo/player_companion/pfs_people_of_the_stars/pfs_people_o
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_pirates_of_the_inner_sea/pfs_pirates_of_the_inner_sea.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_qadira_gateway_to_the_east/pfs_qadira_gateway_to_the_east.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_sargava_the_lost_colony/pfs_sargava_the_lost_colony.pcc
+#PCC:@/pathfinder_pfs/paizo/player_companion/pfs_taldor_echoes_of_glory/pfs_taldor_echoes_of_glory.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_varisia_birthplace_of_legends/pfs_varisia_birthplace_of_legends.pcc
 
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_advanced_class_origins/pfs_advanced_class_origins.pcc
@@ -183,7 +184,6 @@ PCC:@/pathfinder_pfs/paizo/player_companion/pfs_varisia_birthplace_of_legends/pf
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_quests_and_campaigns/pfs_quests_and_campaigns.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_ranged_tactics_toolbox/pfs_ranged_tactics_toolbox.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_second_darkness/pfs_second_darkness.pcc
-# PCC:@/pathfinder_pfs/paizo/player_companion/pfs_taldor_echoes_of_glory/pfs_taldor_echoes_of_glory.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_undead_slayers_handbook/pfs_undead_slayers_handbook.pcc
 
 #PCC:@/pathfinder_pfs/paizo/adventure_path/curse_of_the_crimson_throne/pfs_players_guide/pfs_curse_of_the_crimson_throne_players_guide.pcc
