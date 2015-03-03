@@ -1,0 +1,47 @@
+# CVS $Revision: $ $Author: $ -- Tue Jul 16 09:27:47 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: Psionic fighter 1st-level bonus feat
+# Feat Name			Type
+Psionic Fist.MOD		TYPE:PsionicFighterStartingFeat
+Psionic Shot.MOD		TYPE:PsionicFighterStartingFeat
+Psionic Weapon.MOD	TYPE:PsionicFighterStartingFeat
+
+###Block: Marksman bonus feats
+# Feat Name					Type
+Deadly Aim.MOD				TYPE:MarksmanBonus
+Far Shot.MOD				TYPE:MarksmanBonus
+Fell Shot.MOD				TYPE:MarksmanBonus
+Greater Psionic Shot.MOD		TYPE:MarksmanBonus
+Precise Shot.MOD				TYPE:MarksmanBonus
+Psionic Meditation.MOD			TYPE:MarksmanBonus
+Psionic Shot.MOD				TYPE:MarksmanBonus
+Quick Draw.MOD				TYPE:MarksmanBonus
+Return Shot.MOD				TYPE:MarksmanBonus
+Returning Throw.MOD			TYPE:MarksmanBonus
+Weapon Focus.MOD				TYPE:MarksmanBonus
+Improved Critical.MOD			TYPE:MarksmanBonus
+Exotic Weapon Proficiency.MOD		TYPE:MarksmanBonus
+Rapid Reload.MOD				TYPE:MarksmanBonus
+Greater Weapon Focus.MOD		TYPE:MarksmanBonus
+Weapon Specialization.MOD		TYPE:MarksmanBonus
+Greater Weapon Specialization.MOD	TYPE:MarksmanBonus
+Shot on the Run.MOD			TYPE:FinesseMarksmanBonus
+Throw Anything.MOD			TYPE:FinesseMarksmanBonus
+Greater Vital Strike.MOD		TYPE:SniperMarksmanBonus
+Improved Precise Shot.MOD		TYPE:SniperMarksmanBonus
+Improved Vital Strike.MOD		TYPE:SniperMarksmanBonus
+Pinpoint Targeting.MOD			TYPE:SniperMarksmanBonus
+Vital Strike.MOD				TYPE:SniperMarksmanBonus
+Manyshot.MOD				TYPE:VolleyMarksmanBonus
+Rapid Shot.MOD				TYPE:VolleyMarksmanBonus
+
+###Block: Vitalist bonus feat
+# Feat Name			Type
+Expanded Knowledge.MOD	TYPE:VitalistBonusFeat
+
+#
+# End
+#

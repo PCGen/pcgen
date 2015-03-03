@@ -1,0 +1,32 @@
+# CVS $Revision: $ $Author: $ -- Tue Jul 16 09:27:47 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+###Block: New conditional skills
+# Skill Name				Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value													Source Page		Bonus to skill												Bonus to skill rank
+#Intimidate (Demoralize)			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Intimidate (Demoralize).MISC"),var("SKILL.Intimidate.MISC")			SOURCEPAGE:p.14
+#Intimidate.MOD																																									BONUS:SKILL|Intimidate (Demoralize)|var("SKILL.Intimidate.MISC")				BONUS:SKILLRANK|Intimidate (Demoralize)|skillinfo("TOTALRANK", "Intimidate")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Intimidate (Demoralize).MISC"),var("SKILL.Intimidate.MISC")
+
+#Disable Device (Traps)			KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Disable Device (Traps).MISC"),var("SKILL.Disable Device.MISC")			SOURCEPAGE:p.42
+#Disable Device.MOD																																								BONUS:SKILL|Disable Device (Traps)|var("SKILL.Disable Device.MISC")			BONUS:SKILLRANK|Disable Device (Traps)|skillinfo("TOTALRANK", "Disable Device")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Disable Device (Traps).MISC"),var("SKILL.Disable Device.MISC")
+
+#Diplomacy (Dromites)			KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Dromites).MISC"),var("SKILL.Diplomacy.MISC")				SOURCEPAGE:p.42
+#Diplomacy.MOD																																									BONUS:SKILL|Diplomacy (Dromites)|var("SKILL.Diplomacy.MISC")				BONUS:SKILLRANK|Diplomacy (Dromites)|skillinfo("TOTALRANK", "Diplomacy")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Diplomacy (Dromites).MISC"),var("SKILL.Diplomacy.MISC")
+
+#Use Magic Device (activate item)	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Use Magic Device (activate item).MISC"),var("SKILL.Use Magic Device.MISC")	SOURCEPAGE:p.42
+#Use Magic Device.MOD																																								BONUS:SKILL|Use Magic Device (activate item)|var("SKILL.Use Magic Device.MISC")	BONUS:SKILLRANK|Use Magic Device (activate item)|skillinfo("TOTALRANK", "Use Magic Device")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Use Magic Device (activate item).MISC"),var("SKILL.Use Magic Device.MISC")
+
+#Acrobatics (on the ground)		KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Acrobatics (on the ground).MISC"),var("SKILL.Acrobatics.MISC")			SOURCEPAGE:p.42
+#Acrobatics.MOD																																									BONUS:SKILL|Acrobatics (on the ground)|var("SKILL.Acrobatics.MISC")			BONUS:SKILLRANK|Acrobatics (on the ground)|skillinfo("TOTALRANK", "Acrobatics")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Acrobatics (on the ground).MISC"),var("SKILL.Acrobatics.MISC")
+
+
+###Block: Skill for losing a skill point
+# Skill Name	Untrained?		Exclusive?		Visible
+Lost Skill Point	USEUNTRAINED:NO	EXCLUSIVE:YES	VISIBLE:DISPLAY|READONLY
+
+
+
+#
+# End
+#
