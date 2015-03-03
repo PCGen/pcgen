@@ -3,26 +3,26 @@ SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products
 # Pathfinder RPG Entry by: Stefan Radermacher and Scott Meyer
 
 ###Block: Transport
-# Equipment Name	Output Name		Type							Contains			Cost		Source Page
-Carriage.MOD																	SOURCEPAGE:p.86
-Cart.MOD																		SOURCEPAGE:p.86
-Chariot (Light)				TYPE:Goods.Transportation.Container		CONTAINS:UNLIM|Any	COST:50	SOURCEPAGE:p.86
-Chariot (Medium)				TYPE:Goods.Transportation.Container		CONTAINS:UNLIM|Any	COST:100	SOURCEPAGE:p.86
-Chariot (Heavy)				TYPE:Goods.Transportation.Container		CONTAINS:UNLIM|Any	COST:200	SOURCEPAGE:p.86
-Dog Sled.MOD				TYPE:Goods.Transportation.Container		CONTAINS:UNLIM|Any	COST:20	SOURCEPAGE:p.86
-Sled.MOD		OUTPUTNAME:Sleigh														SOURCEPAGE:p.86
-Wagon.MOD																		SOURCEPAGE:p.86
-Wagon (Medium)				TYPE:Goods.Transportation.Container		CONTAINS:UNLIM|Any	COST:75	SOURCEPAGE:p.86
-Wagon (Heavy)				TYPE:Goods.Transportation.Container		CONTAINS:UNLIM|Any	COST:100	SOURCEPAGE:p.86
-Galley.MOD																		SOURCEPAGE:p.86
-Junk						TYPE:Goods.Transportation.Ships.Container	CONTAINS:UNLIM|Any	COST:15000	SOURCEPAGE:p.87
-Keelboat.MOD																	SOURCEPAGE:p.87
-Longship.MOD																	SOURCEPAGE:p.87
-Raft						TYPE:Goods.Transportation.Ships.Container	CONTAINS:UNLIM|Any			SOURCEPAGE:p.87
-Rowboat.MOD																		SOURCEPAGE:p.87
-Sailing Ship.MOD																	SOURCEPAGE:p.87
-Ship's Boat					TYPE:Goods.Transportation.Ships.Container	CONTAINS:UNLIM|Any	COST:500	SOURCEPAGE:p.87
-Warship.MOD																		SOURCEPAGE:p.87
+# Equipment Name	Output Name		Type									Contains			Cost		Source Page
+Carriage.MOD																			SOURCEPAGE:p.86
+Cart.MOD																				SOURCEPAGE:p.86
+Chariot (Light)				TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:UNLIM|Any	COST:50	SOURCEPAGE:p.86
+Chariot (Medium)				TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:UNLIM|Any	COST:100	SOURCEPAGE:p.86
+Chariot (Heavy)				TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:UNLIM|Any	COST:200	SOURCEPAGE:p.86
+Dog Sled.MOD				TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:UNLIM|Any	COST:20	SOURCEPAGE:p.86
+Sled.MOD		OUTPUTNAME:Sleigh																SOURCEPAGE:p.86
+Wagon.MOD																				SOURCEPAGE:p.86
+Wagon (Medium)				TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:UNLIM|Any	COST:75	SOURCEPAGE:p.86
+Wagon (Heavy)				TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:UNLIM|Any	COST:100	SOURCEPAGE:p.86
+Galley.MOD																				SOURCEPAGE:p.86
+Junk						TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:UNLIM|Any	COST:15000	SOURCEPAGE:p.87
+Keelboat.MOD																			SOURCEPAGE:p.87
+Longship.MOD																			SOURCEPAGE:p.87
+Raft						TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:UNLIM|Any			SOURCEPAGE:p.87
+Rowboat.MOD																				SOURCEPAGE:p.87
+Sailing Ship.MOD																			SOURCEPAGE:p.87
+Ship's Boat					TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:UNLIM|Any	COST:500	SOURCEPAGE:p.87
+Warship.MOD																				SOURCEPAGE:p.87
 
 ###Block: Clothing
 # Equipment Name			Type							Contains			Cost		Weight	Source Page

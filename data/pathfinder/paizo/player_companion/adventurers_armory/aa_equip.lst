@@ -212,7 +212,7 @@ Cat																						TYPE:Goods.Animal.Pet									COST:0.03	WT:8											
 Cat (Osirion Wise-Eye)																			TYPE:Goods.Animal.Pet									COST:6	WT:8																SIZE:T	SOURCEPAGE:p.15
 Dog (Guard).MOD																				TYPE:Pet													WT:90																SIZE:S	SOURCEPAGE:p.15
 Dog (Riding).MOD																				TYPE:Pet													WT:120																	SOURCEPAGE:p.15
-Dog Sled																					TYPE:Goods.General.Transportation							COST:20	WT:300																	SOURCEPAGE:p.15
+Dog Sled																					TYPE:Goods.General.Transportation.Vehicle						COST:20	WT:300																	SOURCEPAGE:p.15
 Donkey Rat																					TYPE:Goods.Animal.Pet									COST:1	WT:50																SIZE:T	SOURCEPAGE:p.15
 Elephant																					TYPE:Goods.Transportation.Mount.Container	CONTAINS:*690|Any=UNLIM		COST:1000																	SIZE:H	SOURCEPAGE:p.16
 Falcon																					TYPE:Goods.Animal.Pet									COST:40	WT:20																SIZE:T	SOURCEPAGE:p.15
