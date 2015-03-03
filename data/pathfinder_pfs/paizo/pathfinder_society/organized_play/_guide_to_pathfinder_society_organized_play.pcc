@@ -140,6 +140,7 @@ PCC:@/pathfinder_pfs/paizo/player_companion/pfs_andoran_spirit_of_liberty/pfs_an
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_animal_archive/pfs_animal_archive.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_blood_of_angels/pfs_blood_of_angels.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_blood_of_fiends/pfs_blood_of_fiends.pcc
+PCC:@/pathfinder_pfs/paizo/player_companion/pfs_blood_of_the_moon/pfs_blood_of_the_moon.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_cheliax_empire_of_devils/pfs_cheliax_empire_of_devils.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_dragon_empires_primer/pfs_dragon_empires_primer.pcc
 PCC:@/pathfinder_pfs/paizo/player_companion/pfs_dungeoneers_handbook/pfs_dungeoneers_handbook.pcc
@@ -161,7 +162,6 @@ PCC:@/pathfinder_pfs/paizo/player_companion/pfs_varisia_birthplace_of_legends/pf
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_alchemy_manual/pfs_alchemy_manual.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_bastards_of_golarion/pfs_bastards_of_golarion.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_blood_of_the_elements/pfs_blood_of_the_elements.pcc
-# PCC:@/pathfinder_pfs/paizo/player_companion/pfs_blood_of_the_moon/pfs_blood_of_the_moon.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_blood_of_the_night/pfs_blood_of_the_night.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_champions_of_balance/pfs_champions_of_balance.pcc
 # PCC:@/pathfinder_pfs/paizo/player_companion/pfs_champions_of_purity/pfs_champions_of_purity.pcc
