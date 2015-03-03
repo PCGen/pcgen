@@ -47,10 +47,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Inner Sea M
 # feather token, mammoth hide, numerian resistance plate, shadowbound chains, and imperial army greathelm.
 
 # Data files
-ABILITY:pfs_isc_abilities_class.lst
-ABILITY:pfs_isc_abilities_feat.lst
-EQUIPMENT:pfs_isc_equip_arms_armor.lst
-EQUIPMENT:pfs_isc_equip_magic.lst
+ABILITY:pfs_isc_abilities_class.lst|PRECAMPAIGN:1,Inner Sea Combat
+ABILITY:pfs_isc_abilities_feat.lst|PRECAMPAIGN:1,Inner Sea Combat
+EQUIPMENT:pfs_isc_equip_arms_armor.lst|PRECAMPAIGN:1,Inner Sea Combat
+EQUIPMENT:pfs_isc_equip_magic.lst|PRECAMPAIGN:1,Inner Sea Combat
 
 #
 # End
