@@ -293,17 +293,17 @@ Stabling (Per Day)		TYPE:Goods.Mount										COST:0.5					SOURCEPAGE:p.159
 
 ###Block: Transport
 # Equipment Name	Type							Contains			Cost		Weight	Source Page
-Carriage		TYPE:Goods.Transportation.Container		CONTAINS:3120|Any		COST:100	WT:600	SOURCEPAGE:p.163
-Cart			TYPE:Goods.Transportation.Container		CONTAINS:3120|Any		COST:15	WT:200	SOURCEPAGE:p.163
-Galley		TYPE:Goods.Transportation.Ships.Container	CONTAINS:300000|Any	COST:30000			SOURCEPAGE:p.163
-Keelboat		TYPE:Goods.Transportation.Ships.Container	CONTAINS:100000|Any	COST:3000			SOURCEPAGE:p.163
-Longship		TYPE:Goods.Transportation.Ships.Container	CONTAINS:100000|Any	COST:10000			SOURCEPAGE:p.163
-Rowboat		TYPE:Goods.Transportation.Ships.Container	CONTAINS:600|Any		COST:50	WT:100	SOURCEPAGE:p.163
-Oar			TYPE:Goods.Transportation.Ships.Extra					COST:2	WT:10		SOURCEPAGE:p.159
-Sailing Ship	TYPE:Goods.Transportation.Ships.Container	CONTAINS:300000|Any	COST:10000			SOURCEPAGE:p.163
-Sled			TYPE:Goods.Transportation.Container		CONTAINS:2000|Any		COST:20	WT:300	SOURCEPAGE:p.163
-Wagon			TYPE:Goods.Transportation.Container		CONTAINS:4000|Any		COST:35	WT:400	SOURCEPAGE:p.163
-Warship		TYPE:Goods.Transportation.Ships.Container	CONTAINS:300000|Any	COST:25000			SOURCEPAGE:p.163
+Carriage		TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:3120|Any		COST:100	WT:600	SOURCEPAGE:p.163
+Cart			TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:3120|Any		COST:15	WT:200	SOURCEPAGE:p.163
+Galley		TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:300000|Any	COST:30000			SOURCEPAGE:p.163
+Keelboat		TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:100000|Any	COST:3000			SOURCEPAGE:p.163
+Longship		TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:100000|Any	COST:10000			SOURCEPAGE:p.163
+Rowboat		TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:600|Any		COST:50	WT:100	SOURCEPAGE:p.163
+Oar			TYPE:Goods.Transportation.Vehicle.Ships.Extra					COST:2	WT:10		SOURCEPAGE:p.159
+Sailing Ship	TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:300000|Any	COST:10000			SOURCEPAGE:p.163
+Sled			TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:2000|Any		COST:20	WT:300	SOURCEPAGE:p.163
+Wagon			TYPE:Goods.Transportation.Vehicle.Container		CONTAINS:4000|Any		COST:35	WT:400	SOURCEPAGE:p.163
+Warship		TYPE:Goods.Transportation.Vehicle.Ships.Container	CONTAINS:300000|Any	COST:25000			SOURCEPAGE:p.163
 
 ###Block: Spellcasting and services
 # Equipment Name			Type					Cost		Source Page
