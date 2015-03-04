@@ -27,13 +27,16 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Equipment;
-import pcgen.core.analysis.SizeUtilities;
+import pcgen.core.Globals;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.rules.context.AbstractReferenceContext;
 
 /**
  * @author wardc
@@ -48,7 +51,7 @@ public class PreSizeTester extends AbstractDisplayPrereqTest implements Prerequi
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
-		final int targetSize = SizeUtilities.sizeInt(prereq.getOperand());
+		final int targetSize = getTargetSizeInt(prereq.getOperand());
 
 		final int runningTotal =
 				prereq.getOperator().compare(display.sizeInt(), targetSize);
@@ -60,7 +63,7 @@ public class PreSizeTester extends AbstractDisplayPrereqTest implements Prerequi
 	public int passes(final Prerequisite prereq, final Equipment equipment,
 		CharacterDisplay display) throws PrerequisiteException
 	{
-		final int targetSize = SizeUtilities.sizeInt(prereq.getOperand());
+		final int targetSize = getTargetSizeInt(prereq.getOperand());
 
 		final int runningTotal =
 				prereq.getOperator().compare(equipment.sizeInt(), targetSize);
@@ -78,4 +81,12 @@ public class PreSizeTester extends AbstractDisplayPrereqTest implements Prerequi
 		return "SIZE"; //$NON-NLS-1$
 	}
 
+	private int getTargetSizeInt(String size)
+	{
+		AbstractReferenceContext ref =
+				Globals.getContext().getReferenceContext();
+		SizeAdjustment sa =
+				ref.silentlyGetConstructedCDOMObject(SizeAdjustment.class, size);
+		return sa.get(IntegerKey.SIZEORDER);
+	}
 }

@@ -96,6 +96,7 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase {
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
 		assertTrue(context.getReferenceContext().resolveReferences(null));
+		context.resolvePostValidationTokens();
 		context.resolvePostDeferredTokens();
 		context.loadCampaignFacets();
 	}
@@ -162,16 +163,16 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase {
 		ref.importObject(wis);
 		ref.importObject(cha);
 
-		fine = BuildUtilities.createSize("Fine");
-		diminutive = BuildUtilities.createSize("Diminutive");
-		tiny = BuildUtilities.createSize("Tiny");
-		small = BuildUtilities.createSize("Small");
-		medium = BuildUtilities.createSize("Medium");
+		fine = BuildUtilities.createSize("Fine", 0);
+		diminutive = BuildUtilities.createSize("Diminutive", 1);
+		tiny = BuildUtilities.createSize("Tiny", 2);
+		small = BuildUtilities.createSize("Small", 3);
+		medium = BuildUtilities.createSize("Medium", 4);
 		medium.put(ObjectKey.IS_DEFAULT_SIZE, true);
-		large = BuildUtilities.createSize("Large");
-		huge = BuildUtilities.createSize("Huge");
-		gargantuan = BuildUtilities.createSize("Gargantuan");
-		colossal = BuildUtilities.createSize("Colossal");
+		large = BuildUtilities.createSize("Large", 5);
+		huge = BuildUtilities.createSize("Huge", 6);
+		gargantuan = BuildUtilities.createSize("Gargantuan", 7);
+		colossal = BuildUtilities.createSize("Colossal", 8);
 
 		universal = ref.constructCDOMObject(Language.class, "Universal");
 		other = ref.constructCDOMObject(Language.class, "Other");

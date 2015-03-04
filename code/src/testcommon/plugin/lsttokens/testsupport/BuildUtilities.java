@@ -7,6 +7,7 @@ import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
@@ -28,7 +29,7 @@ public class BuildUtilities
 		return align;
 	}
 
-	public static SizeAdjustment createSize(String name)
+	public static SizeAdjustment createSize(String name, int order)
 	{
 		final String abb  = name.substring(0, 1);
 	
@@ -36,6 +37,7 @@ public class BuildUtilities
 	
 		sa.setName(name);
 		sa.setKeyName(abb);
+		sa.put(IntegerKey.SIZEORDER, order);
 	
 		Globals.getContext().getReferenceContext().importObject(sa);
 		return sa;

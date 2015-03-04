@@ -114,9 +114,10 @@ public class TestHelper
 			GameModeFileLoader.addDefaultTabInfo(gamemode);
 		}
 		SettingsHandler.setGame("3.5");
+		int count = 0;
 		while (aTok.hasMoreTokens())
 		{
-			SizeAdjustment sa = BuildUtilities.createSize(aTok.nextToken());
+			SizeAdjustment sa = BuildUtilities.createSize(aTok.nextToken(), count++);
 			Globals.getContext().getReferenceContext().importObject(sa);
 		}
 		Globals.getContext().getReferenceContext()
