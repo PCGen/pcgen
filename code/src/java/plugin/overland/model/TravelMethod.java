@@ -54,7 +54,7 @@ public interface TravelMethod
 	 * Returns the number of miles done in the specified time,
 	 * according to the selected pace, etc. selected by this model.
 	 * 
-	 * @param time time in days or hours (unit is based on model’s selected items)
+	 * @param time time in days or hours (unit is based on model's selected items)
 	 * @return null if lacking selection, a double? in other cases
 	 * @see TravelMethodListener#useDaysChanged(TravelSpeedEvent)
 	 */
@@ -64,7 +64,7 @@ public interface TravelMethod
 	 * Returns the number of kilometers done in the specified time,
 	 * according to the selected pace, etc. selected by this model.
 	 * 
-	 * @param time time in days or hours (unit is based on model’s selected items)
+	 * @param time time in days or hours (unit is based on model's selected items)
 	 * @return null if lacking selection, a double? in other cases
 	 * @see TravelMethodListener#useDaysChanged(TravelSpeedEvent)
 	 */

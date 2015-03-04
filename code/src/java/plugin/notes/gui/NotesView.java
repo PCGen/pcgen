@@ -212,7 +212,7 @@ public class NotesView extends JPanel
 	 */
 	public void handleOpen()
 	{
-		// TODO fix
+		// TODO fix
 		String sFile =
 				SettingsHandler.getGMGenOption(OPTION_NAME_LASTFILE, System.getProperty("user.dir"));
 		File defaultFile = new File(sFile);

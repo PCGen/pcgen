@@ -242,7 +242,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			Integer mod = (Integer) value;
 			if (mod.intValue() == 0 && column > 3)
 			{
-				// let’s use a pretty em dash instead of hyphen/minus.
+				// let's use a pretty em dash instead of hyphen/minus.
 				setText("\u2014");
 			}
 			else

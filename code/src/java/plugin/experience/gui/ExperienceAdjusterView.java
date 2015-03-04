@@ -397,7 +397,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		experienceMultSlider.setMaximum(10);
 		experienceMultSlider.setMinimum(-5);
 		experienceMultSlider.setValue(0);
-		// TODO the false value (the slider’s) should not be visible, only the real one should
+		// TODO the false value (the slider's) should not be visible, only the real one should
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 1;
