@@ -43,7 +43,7 @@ public class PrettyIntegerFormat extends DecimalFormat
 	public PrettyIntegerFormat()
 	{
 		super();
-		// + and − should not need to be internationalized
+		// + and - should not need to be internationalized
 		DecimalFormatSymbols decimalFormatSymbols = getDecimalFormatSymbols();
 		decimalFormatSymbols.setMinusSign('\u2212');
 		setDecimalFormatSymbols(decimalFormatSymbols);

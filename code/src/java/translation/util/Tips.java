@@ -57,7 +57,7 @@ public class Tips
 
 	private static final String DEFAULT_TIPS_FILENAME = "tips.txt"; //$NON-NLS-1$
 
-	/** true to add a message to tips that are not translated, false to copy them as is so they won’t appear */
+	/** true to add a message to tips that are not translated, false to copy them as is so they won't appear */
 	private static final boolean MARK_UNTRANSLATED = true;
 
 	public static void generatePOT(File rootDirectory, String potFilename)
