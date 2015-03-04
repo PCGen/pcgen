@@ -76,7 +76,7 @@ public class RaceTypeTokenTest extends AbstractTokenTestCase<PCClass>
 	@Test
 	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
-		runRoundRobin("Nieder�sterreich");
+		runRoundRobin("Niederösterreich");
 	}
 
 	@Test

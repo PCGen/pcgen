@@ -60,12 +60,12 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	public void testValidInputNonEnglish() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
-				"Nieder�sterreich");
+				"Niederösterreich");
 		List<?> coll;
-		assertTrue(parse("Nieder�sterreich"));
+		assertTrue(parse("Niederösterreich"));
 		coll = getUnparseTarget().getListFor(getListKey());
 		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Nieder�sterreich")));
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
 		assertCleanConstruction();
 	}
 
@@ -110,14 +110,14 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	public void testValidInputList() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
-				"Nieder�sterreich");
+				"Niederösterreich");
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Finger Lakes");
 		List<?> coll;
-		assertTrue(parse("Nieder�sterreich" + getJoinCharacter()
+		assertTrue(parse("Niederösterreich" + getJoinCharacter()
 				+ "Finger Lakes"));
 		coll = getUnparseTarget().getListFor(getListKey());
 		assertEquals(2, coll.size());
-		assertTrue(coll.contains(getConstant("Nieder�sterreich")));
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
 		assertTrue(coll.contains(getConstant("Finger Lakes")));
 		assertCleanConstruction();
 	}
@@ -126,13 +126,13 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	public void testValidInputMultList() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
-				"Nieder�sterreich");
+				"Niederösterreich");
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Finger Lakes");
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		List<?> coll;
-		assertTrue(parse("Nieder�sterreich" + getJoinCharacter()
+		assertTrue(parse("Niederösterreich" + getJoinCharacter()
 				+ "Finger Lakes"));
 		assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
 				+ "Rheinhessen"));
@@ -140,7 +140,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		assertEquals(clearsByDefault() ? 2 : 4, coll.size());
 		if (!clearsByDefault())
 		{
-			assertTrue(coll.contains(getConstant("Nieder�sterreich")));
+			assertTrue(coll.contains(getConstant("Niederösterreich")));
 			assertTrue(coll.contains(getConstant("Finger Lakes")));
 		}
 		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
@@ -215,10 +215,10 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
-				"Nieder�sterreich");
+				"Niederösterreich");
 		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
-				"Nieder�sterreich");
-		runRoundRobin("Nieder�sterreich");
+				"Niederösterreich");
+		runRoundRobin("Niederösterreich");
 	}
 
 	@Test

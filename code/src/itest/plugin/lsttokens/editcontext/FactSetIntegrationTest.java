@@ -112,7 +112,7 @@ public class FactSetIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, PROP_1 + "|Languedoc-Roussillon");
-		commit(modCampaign, tc, PROP_1 + "|Finger Lakes|Nieder�sterreich");
+		commit(modCampaign, tc, PROP_1 + "|Finger Lakes|Niederösterreich");
 		completeRoundRobin(tc);
 	}
 
@@ -121,8 +121,8 @@ public class FactSetIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, PROP_1 + "|Nieder�sterreich");
-		commit(modCampaign, tc, PROP_1 + "|Nieder�sterreich");
+		commit(testCampaign, tc, PROP_1 + "|Niederösterreich");
+		commit(modCampaign, tc, PROP_1 + "|Niederösterreich");
 		completeRoundRobin(tc);
 	}
 
@@ -132,7 +132,7 @@ public class FactSetIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, PROP_1 + "|Nieder�sterreich");
+		commit(modCampaign, tc, PROP_1 + "|Niederösterreich");
 		completeRoundRobin(tc);
 	}
 

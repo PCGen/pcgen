@@ -98,10 +98,10 @@ public class LicenseTokenTest extends AbstractTokenTestCase<Campaign>
 		if (listKey != null)
 		{
 			List<?> coll;
-			assertTrue(parse("Nieder�sterreich"));
+			assertTrue(parse("Niederösterreich"));
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
-			assertTrue(coll.contains("Nieder�sterreich"));
+			assertTrue(coll.contains("Niederösterreich"));
 			assertCleanConstruction();
 		}
 	}
@@ -158,11 +158,11 @@ public class LicenseTokenTest extends AbstractTokenTestCase<Campaign>
 		if (listKey != null)
 		{
 			List<?> coll;
-			assertTrue(parse("Nieder�sterreich"));
+			assertTrue(parse("Niederösterreich"));
 			assertTrue(parse("Finger Lakes"));
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(2, coll.size());
-			assertTrue(coll.contains("Nieder�sterreich"));
+			assertTrue(coll.contains("Niederösterreich"));
 			assertTrue(coll.contains("Finger Lakes"));
 			assertCleanConstruction();
 		}
@@ -175,13 +175,13 @@ public class LicenseTokenTest extends AbstractTokenTestCase<Campaign>
 		if (listKey != null)
 		{
 			List<?> coll;
-			assertTrue(parse("Nieder�sterreich"));
+			assertTrue(parse("Niederösterreich"));
 			assertTrue(parse("Finger Lakes"));
 			assertTrue(parse("Languedoc-Roussillon"));
 			assertTrue(parse("Rheinhessen"));
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(4, coll.size());
-			assertTrue(coll.contains("Nieder�sterreich"));
+			assertTrue(coll.contains("Niederösterreich"));
 			assertTrue(coll.contains("Finger Lakes"));
 			assertTrue(coll.contains("Languedoc-Roussillon"));
 			assertTrue(coll.contains("Rheinhessen"));
@@ -220,7 +220,7 @@ public class LicenseTokenTest extends AbstractTokenTestCase<Campaign>
 	@Test
 	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
-		runRoundRobin("Nieder�sterreich");
+		runRoundRobin("Niederösterreich");
 	}
 
 	@Test
@@ -287,7 +287,7 @@ public class LicenseTokenTest extends AbstractTokenTestCase<Campaign>
 	public void testRoundRobinNonEnglishAndNFile()
 			throws PersistenceLayerException
 	{
-		runRoundRobin("FILE=@data/Nieder�sterreich");
+		runRoundRobin("FILE=@data/Niederösterreich");
 	}
 
 	@Test

@@ -66,7 +66,7 @@ public class ItemIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "[Languedoc-Roussillon]");
-		commit(modCampaign, tc, "[Nieder�sterreich]");
+		commit(modCampaign, tc, "[Niederösterreich]");
 		completeRoundRobin(tc);
 	}
 
@@ -107,7 +107,7 @@ public class ItemIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, "[Nieder�sterreich]");
+		commit(modCampaign, tc, "[Niederösterreich]");
 		completeRoundRobin(tc);
 	}
 

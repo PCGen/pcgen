@@ -74,8 +74,8 @@ public class AbbTokenTest extends AbstractTokenTestCase<SizeAdjustment>
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("Nieder�sterreich"));
-		assertEquals("Nieder�sterreich", primaryProf.get(StringKey.ABB_KR));
+		assertTrue(parse("Niederösterreich"));
+		assertEquals("Niederösterreich", primaryProf.get(StringKey.ABB_KR));
 		assertTrue(parse("Finger Lakes"));
 		assertEquals("Finger Lakes", primaryProf.get(StringKey.ABB_KR));
 		assertTrue(parse("Rheinhessen"));
@@ -111,7 +111,7 @@ public class AbbTokenTest extends AbstractTokenTestCase<SizeAdjustment>
 	@Test
 	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
-		runRoundRobin("Nieder�sterreich");
+		runRoundRobin("Niederösterreich");
 	}
 
 	@Test

@@ -50,10 +50,10 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	public void testValidInputNonEnglish() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("Nieder�sterreich"));
+		assertTrue(parse("Niederösterreich"));
 		coll = primaryProf.getListFor(getListKey());
 		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Nieder�sterreich")));
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
 	}
 
 	@Test
@@ -90,11 +90,11 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	public void testValidInputList() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("Nieder�sterreich" + getJoinCharacter()
+		assertTrue(parse("Niederösterreich" + getJoinCharacter()
 				+ "Finger Lakes"));
 		coll = primaryProf.getListFor(getListKey());
 		assertEquals(2, coll.size());
-		assertTrue(coll.contains(getConstant("Nieder�sterreich")));
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
 		assertTrue(coll.contains(getConstant("Finger Lakes")));
 	}
 
@@ -102,13 +102,13 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	public void testValidInputMultList() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("Nieder�sterreich" + getJoinCharacter()
+		assertTrue(parse("Niederösterreich" + getJoinCharacter()
 				+ "Finger Lakes"));
 		assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
 				+ "Rheinhessen"));
 		coll = primaryProf.getListFor(getListKey());
 		assertEquals(4, coll.size());
-		assertTrue(coll.contains(getConstant("Nieder�sterreich")));
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
 		assertTrue(coll.contains(getConstant("Finger Lakes")));
 		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
 		assertTrue(coll.contains(getConstant("Rheinhessen")));
@@ -172,7 +172,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	@Test
 	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
-		runRoundRobin("Nieder�sterreich");
+		runRoundRobin("Niederösterreich");
 	}
 
 	@Test
@@ -196,7 +196,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 
 	public static String[] getConstants()
 	{
-		return new String[] { "Nieder�sterreich", "Finger Lakes",
+		return new String[] { "Niederösterreich", "Finger Lakes",
 				"Languedoc-Roussillon", "Rheinhessen", "Yarra Valley" };
 	}
 

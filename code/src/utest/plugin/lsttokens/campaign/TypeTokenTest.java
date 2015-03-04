@@ -108,7 +108,7 @@ public class TypeTokenTest extends AbstractTokenTestCase<Campaign>
 	@Test
 	public void testRoundRobinWithSpaceInternational() throws PersistenceLayerException
 	{
-		runRoundRobin("Finger Lakes.Nieder�sterreich");
+		runRoundRobin("Finger Lakes.Niederösterreich");
 	}
 
 	@Test
@@ -120,7 +120,7 @@ public class TypeTokenTest extends AbstractTokenTestCase<Campaign>
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		return "Finger Lakes.Nieder�sterreich";
+		return "Finger Lakes.Niederösterreich";
 	}
 
 	@Override

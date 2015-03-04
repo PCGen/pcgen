@@ -121,8 +121,8 @@ public class FactIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, PROP_1 + "|Nieder�sterreich");
-		commit(modCampaign, tc, PROP_1 + "|Nieder�sterreich");
+		commit(testCampaign, tc, PROP_1 + "|Niederösterreich");
+		commit(modCampaign, tc, PROP_1 + "|Niederösterreich");
 		completeRoundRobin(tc);
 	}
 
@@ -132,7 +132,7 @@ public class FactIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, PROP_1 + "|Nieder�sterreich");
+		commit(modCampaign, tc, PROP_1 + "|Niederösterreich");
 		completeRoundRobin(tc);
 	}
 
