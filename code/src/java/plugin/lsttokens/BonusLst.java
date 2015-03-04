@@ -73,8 +73,9 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		}
 		if (value.indexOf("PREAPPLY:") != -1)
 		{
-			return new ParseResult.Fail("Use of PREAPPLY prohibited a BONUS , "
-				+ "please use TEMPBONUS with: " + value);
+			return new ParseResult.Fail(
+				"Use of PREAPPLY prohibited on a BONUS , "
+					+ "please use TEMPBONUS with: " + value);
 		}
 		final String v =
 				value.replaceAll(Pattern.quote("<this>"), obj.getKeyName());
