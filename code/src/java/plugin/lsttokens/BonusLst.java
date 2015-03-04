@@ -31,7 +31,6 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.PCClass;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
@@ -74,70 +73,9 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 		}
 		if (value.indexOf("PREAPPLY:") != -1)
 		{
-			Logging
-				.deprecationPrint("Use of PREAPPLY on a BONUS is deprecated, "
+			return new ParseResult.Fail(
+				"Use of PREAPPLY prohibited on a BONUS , "
 					+ "please use TEMPBONUS with: " + value);
-			String[] components = value.split("\\|");
-			StringBuilder bonus = new StringBuilder(100);
-			StringBuilder submit = new StringBuilder(100);
-			for (String s : components)
-			{
-				if ("PREAPPLY:ANYPC".equals(s))
-				{
-					if (submit.length() != 0)
-					{
-						return new ParseResult.Fail(
-							"Found BONUS with more than one PREAPPLY: " + value);
-					}
-					submit.append("ANYPC");
-				}
-				else if ("PREAPPLY:PC".equals(s))
-				{
-					if (submit.length() != 0)
-					{
-						return new ParseResult.Fail(
-							"Found BONUS with more than one PREAPPLY: " + value);
-					}
-					submit.append("PC");
-				}
-				else if (s.startsWith("PREAPPLY:"))
-				{
-					if (submit.length() != 0)
-					{
-						return new ParseResult.Fail(
-							"Found BONUS with more than one PREAPPLY: " + value);
-					}
-					submit.append("EQ|");
-					submit.append(s.substring(9));
-				}
-				else
-				{
-					//We want the leading | since this will be appended to "submit"
-					bonus.append('|');
-					bonus.append(s);
-				}
-			}
-			submit.append(bonus);
-			boolean pr;
-			try
-			{
-				pr = context.processToken(obj, "TEMPBONUS", submit.toString());
-			}
-			catch (PersistenceLayerException e)
-			{
-				Logging.addParseMessage(
-					Logging.LST_ERROR,
-					"Failed in parsing : " + submit + " "
-						+ e.getLocalizedMessage());
-				return ParseResult.INTERNAL_ERROR;
-			}
-			if (!pr)
-			{
-				Logging.addParseMessage(Logging.LST_ERROR,
-					"Failed in parsing : " + submit);
-				return ParseResult.INTERNAL_ERROR;
-			}
-			return ParseResult.SUCCESS;
 		}
 		final String v =
 				value.replaceAll(Pattern.quote("<this>"), obj.getKeyName());
