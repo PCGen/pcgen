@@ -35,6 +35,24 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.util.Logging;
 
+/**
+ * AbilityToken implements the Ability primitive, e.g.:
+ * 
+ * CHOOSE:SKILL|ABILITY=FEAT[SkillChoiceThingy]
+ * 
+ * The "ABILITY=Category[Key]" section of the CHOOSE above is implemented in
+ * this class.
+ * 
+ * The contents of this primitive refer to selections made in another object. In
+ * the case of the example CHOOSE above, any selections made in the CHOOSE:SKILL
+ * present in the Feat "SkillChoiceThingy" will be available for selection in
+ * the object on which the example CHOOSE is present. (In practice this is often
+ * used in things like Weapon Mastery)
+ * 
+ * @param <T>
+ *            The type of object on which this Primitive can be used (in this
+ *            case, CDOMObject, i.e. anywhere CHOOSE is legal)
+ */
 public class AbilityToken<T> implements PrimitiveToken<T>
 {
 
