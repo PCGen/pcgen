@@ -114,7 +114,7 @@ public class HidetypeTokenTest extends AbstractTokenTestCase<Campaign>
 	@Test
 	public void testRoundRobinFeat() throws PersistenceLayerException
 	{
-		runRoundRobin("FEAT|Nieder�sterreich|Finger Lakes");
+		runRoundRobin("FEAT|Niederösterreich|Finger Lakes");
 	}
 
 	@Override

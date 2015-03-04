@@ -66,7 +66,7 @@ public abstract class AbstractTextPropertyIntegrationTestCase<T extends CDOMObje
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Languedoc-Roussillon");
-		commit(modCampaign, tc, "Nieder�sterreich");
+		commit(modCampaign, tc, "Niederösterreich");
 		completeRoundRobin(tc);
 	}
 
@@ -75,8 +75,8 @@ public abstract class AbstractTextPropertyIntegrationTestCase<T extends CDOMObje
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Nieder�sterreich");
-		commit(modCampaign, tc, "Nieder�sterreich");
+		commit(testCampaign, tc, "Niederösterreich");
+		commit(modCampaign, tc, "Niederösterreich");
 		completeRoundRobin(tc);
 	}
 

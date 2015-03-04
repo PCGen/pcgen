@@ -58,7 +58,7 @@ public class AspectIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Quality Name|Quality Value");
-		commit(modCampaign, tc, "Nieder�sterreich Quality|Nieder�sterreich");
+		commit(modCampaign, tc, "Niederösterreich Quality|Niederösterreich");
 		completeRoundRobin(tc);
 	}
 
@@ -67,8 +67,8 @@ public class AspectIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Nieder�sterreich Quality|Nieder�sterreich");
-		commit(modCampaign, tc, "Nieder�sterreich Quality|Nied");
+		commit(testCampaign, tc, "Niederösterreich Quality|Niederösterreich");
+		commit(modCampaign, tc, "Niederösterreich Quality|Nied");
 		completeRoundRobin(tc);
 	}
 

@@ -88,10 +88,10 @@ public class RaceSubtypeTokenTest extends
 			throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse(".REMOVE.Nieder�sterreich"));
+		assertTrue(parse(".REMOVE.Niederösterreich"));
 		coll = primaryProf.getListFor(ListKey.REMOVED_RACESUBTYPE);
 		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Nieder�sterreich")));
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
 	}
 
 	@Test
@@ -118,11 +118,11 @@ public class RaceSubtypeTokenTest extends
 	public void testValidRemoveInputList() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse(".REMOVE.Nieder�sterreich" + getJoinCharacter()
+		assertTrue(parse(".REMOVE.Niederösterreich" + getJoinCharacter()
 				+ ".REMOVE.Finger Lakes"));
 		coll = primaryProf.getListFor(ListKey.REMOVED_RACESUBTYPE);
 		assertEquals(2, coll.size());
-		assertTrue(coll.contains(getConstant("Nieder�sterreich")));
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
 		assertTrue(coll.contains(getConstant("Finger Lakes")));
 	}
 
@@ -130,13 +130,13 @@ public class RaceSubtypeTokenTest extends
 	public void testValidInputMultRemoveList() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse(".REMOVE.Nieder�sterreich" + getJoinCharacter()
+		assertTrue(parse(".REMOVE.Niederösterreich" + getJoinCharacter()
 				+ ".REMOVE.Finger Lakes"));
 		assertTrue(parse(".REMOVE.Languedoc-Roussillon" + getJoinCharacter()
 				+ ".REMOVE.Rheinhessen"));
 		coll = primaryProf.getListFor(ListKey.REMOVED_RACESUBTYPE);
 		assertEquals(4, coll.size());
-		assertTrue(coll.contains(getConstant("Nieder�sterreich")));
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
 		assertTrue(coll.contains(getConstant("Finger Lakes")));
 		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
 		assertTrue(coll.contains(getConstant("Rheinhessen")));
@@ -194,7 +194,7 @@ public class RaceSubtypeTokenTest extends
 	public void testRemoveRoundRobinNonEnglish()
 			throws PersistenceLayerException
 	{
-		runRoundRobin(".REMOVE.Nieder�sterreich");
+		runRoundRobin(".REMOVE.Niederösterreich");
 	}
 
 	@Test

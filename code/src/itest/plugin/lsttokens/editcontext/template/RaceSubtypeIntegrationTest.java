@@ -119,7 +119,7 @@ public class RaceSubtypeIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".REMOVE.Nieder�sterreich"
+		commit(testCampaign, tc, ".REMOVE.Niederösterreich"
 				+ getJoinCharacter() + ".REMOVE.Finger Lakes");
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
@@ -130,7 +130,7 @@ public class RaceSubtypeIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, ".REMOVE.Nieder�sterreich"
+		commit(testCampaign, tc, ".REMOVE.Niederösterreich"
 				+ getJoinCharacter() + ".REMOVE.Finger Lakes");
 		commit(modCampaign, tc, ".REMOVE.Languedoc-Roussillon"
 				+ getJoinCharacter() + ".REMOVE.Rheinhessen");
@@ -143,8 +143,8 @@ public class RaceSubtypeIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, ".REMOVE.Finger Lakes" + getJoinCharacter()
-				+ "Nieder�sterreich");
-		commit(modCampaign, tc, ".REMOVE.Nieder�sterreich" + getJoinCharacter()
+				+ "Niederösterreich");
+		commit(modCampaign, tc, ".REMOVE.Niederösterreich" + getJoinCharacter()
 				+ "Finger Lakes");
 		completeRoundRobin(tc);
 	}

@@ -135,7 +135,7 @@ public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 	@Test
 	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
-		runRoundRobin("Nieder�sterreich");
+		runRoundRobin("Niederösterreich");
 	}
 
 	@Test

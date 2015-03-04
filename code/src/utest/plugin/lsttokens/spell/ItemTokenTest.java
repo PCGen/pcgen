@@ -110,10 +110,10 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 			throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("[Nieder�sterreich]"));
+		assertTrue(parse("[Niederösterreich]"));
 		coll = primaryProf.getListFor(getNegativeListKey());
 		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Nieder�sterreich")));
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
 	}
 
 	@Test
@@ -140,11 +140,11 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	public void testValidInputNegativeList() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("[Nieder�sterreich]" + getJoinCharacter()
+		assertTrue(parse("[Niederösterreich]" + getJoinCharacter()
 				+ "[Finger Lakes]"));
 		coll = primaryProf.getListFor(getNegativeListKey());
 		assertEquals(2, coll.size());
-		assertTrue(coll.contains(getConstant("Nieder�sterreich")));
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
 		assertTrue(coll.contains(getConstant("Finger Lakes")));
 	}
 
@@ -153,13 +153,13 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 			throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("[Nieder�sterreich]" + getJoinCharacter()
+		assertTrue(parse("[Niederösterreich]" + getJoinCharacter()
 				+ "[Finger Lakes]"));
 		assertTrue(parse("[Languedoc-Roussillon]" + getJoinCharacter()
 				+ "[Rheinhessen]"));
 		coll = primaryProf.getListFor(getNegativeListKey());
 		assertEquals(4, coll.size());
-		assertTrue(coll.contains(getConstant("Nieder�sterreich")));
+		assertTrue(coll.contains(getConstant("Niederösterreich")));
 		assertTrue(coll.contains(getConstant("Finger Lakes")));
 		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
 		assertTrue(coll.contains(getConstant("Rheinhessen")));
@@ -273,10 +273,10 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 			throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
-				"Nieder�sterreich");
+				"Niederösterreich");
 		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
-				"Nieder�sterreich");
-		runRoundRobin("[Nieder�sterreich]");
+				"Niederösterreich");
+		runRoundRobin("[Niederösterreich]");
 	}
 
 	@Test

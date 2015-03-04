@@ -37,8 +37,8 @@ public abstract class AbstractGlobalStringTokenTestCase extends
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("Nieder�sterreich"));
-		assertEquals("Nieder�sterreich", primaryProf.get(getStringKey()));
+		assertTrue(parse("Niederösterreich"));
+		assertEquals("Niederösterreich", primaryProf.get(getStringKey()));
 		assertTrue(parse("Finger Lakes"));
 		assertEquals("Finger Lakes", primaryProf.get(getStringKey()));
 		assertTrue(parse("Rheinhessen"));
@@ -66,7 +66,7 @@ public abstract class AbstractGlobalStringTokenTestCase extends
 	@Test
 	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
-		runRoundRobin("Nieder�sterreich");
+		runRoundRobin("Niederösterreich");
 	}
 
 	@Test

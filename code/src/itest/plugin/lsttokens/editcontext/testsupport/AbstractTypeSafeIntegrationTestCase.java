@@ -65,12 +65,12 @@ public abstract class AbstractTypeSafeIntegrationTestCase<T extends CDOMObject>
 	{
 		if (requiresPreconstruction())
 		{
-			getConstant("Nieder�sterreich");
+			getConstant("Niederösterreich");
 		}
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Nieder�sterreich");
-		commit(modCampaign, tc, "Nieder�sterreich");
+		commit(testCampaign, tc, "Niederösterreich");
+		commit(modCampaign, tc, "Niederösterreich");
 		completeRoundRobin(tc);
 	}
 
@@ -79,12 +79,12 @@ public abstract class AbstractTypeSafeIntegrationTestCase<T extends CDOMObject>
 	{
 		if (requiresPreconstruction())
 		{
-			getConstant("Nieder�sterreich");
+			getConstant("Niederösterreich");
 		}
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, "Nieder�sterreich");
+		commit(modCampaign, tc, "Niederösterreich");
 		completeRoundRobin(tc);
 	}
 
