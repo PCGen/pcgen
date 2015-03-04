@@ -1,0 +1,8 @@
+
+
+ABILITYCATEGORY:Lion Blade Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Lion Blade Class Feature	PLURAL:Lion Blade Class Features	DISPLAYLOCATION:Class Features
+
+
+ABILITYCATEGORY:Dilettante Artist Class Skill	POOL:DilettanteArtistClassSkill	CATEGORY:Internal	TYPE:Dilettante Artist Class Skill		DISPLAYLOCATION:Race Abilities	EDITABLE:YES	EDITPOOL:NO	VISIBLE:QUALIFY
+ABILITYCATEGORY:Dilettante Artist Perform Skill	POOL:DilettanteArtistPerformSkill	CATEGORY:Internal	TYPE:Dilettante Artist Perform Skill	DISPLAYLOCATION:Race Abilities	EDITABLE:YES	EDITPOOL:NO	VISIBLE:QUALIFY
+
