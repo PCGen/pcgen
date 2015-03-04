@@ -86,7 +86,7 @@ public enum State {
 			return LanguageBundle.getString("in_plugin_state_disabled"); //$NON-NLS-1$
 		}
 	},
-	/* XXX Seems to be checked for at one place but never put to that value… */
+	/* XXX Seems to be checked for at one place but never put to that value... */
 	Defeated {
 		@Override
 		public String toString() {

@@ -280,7 +280,7 @@ public class DataSet implements DataSetFacade
 		BigDecimal halfPrice = new BigDecimal(50.0);
 		BigDecimal free = BigDecimal.ZERO;
 		gearBuySellSchemes = new DefaultListFacade<GearBuySellFacade>();
-		// TODO i18n this
+		// TODO i18n this
 		gearBuySellSchemes.addElement(new GearBuySellScheme("Market price", fullPrice, halfPrice, fullPrice));
 		gearBuySellSchemes.addElement(new GearBuySellScheme("Character build", fullPrice, fullPrice, fullPrice));
 		gearBuySellSchemes.addElement(new GearBuySellScheme("Cashless", free, free, free));

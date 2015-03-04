@@ -198,7 +198,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
 		panel.add(lCR2, gridBagConstraints);
 
-		// TODO tCR should be internationalized
+		// TODO tCR should be internationalized
 		tCR.setText("1.0");
 		tCR.addActionListener(new java.awt.event.ActionListener()
 		{

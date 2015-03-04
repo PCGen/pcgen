@@ -24,7 +24,7 @@ import org.junit.Before;
 
 /**
  * Abstract TestCase framework for tests that are US Locale dependent. Before the tests this automatically switch the
- * locale, and also does at the end. Manually calling the methods, or the super classes’, especially {@link #before},
+ * locale, and also does at the end. Manually calling the methods, or the super classes', especially {@link #before},
  * will break the locale for further tests. 
  * 
  * @author Vincent Lhote

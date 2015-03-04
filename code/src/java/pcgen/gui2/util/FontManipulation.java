@@ -24,7 +24,7 @@ import java.awt.Font;
 /**
  * This class regroups font manipulation methods, like having bold on a label.
  * Font manipulation should be done in very few cases because it usually breaks
- * the Look-and-feel. Using fixed point value for font shouldn’t be done because
+ * the Look-and-feel. Using fixed point value for font shouldn't be done because
  * it might make text unreadable on system where default size is quite big (or
  * small).
  * <p>
