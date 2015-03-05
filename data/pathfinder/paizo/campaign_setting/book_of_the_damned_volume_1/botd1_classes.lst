@@ -10,7 +10,7 @@ CLASS:Diabolist	PREALIGN:LN,LE,NE	PRELANG:1,Infernal	PRESKILL:3,Knowledge (Plane
 CLASS:Diabolist	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Planes)|Knowledge (Religion)|Sense Motive|Spellcraft
 1	BONUS:VAR|DiabolistDamnedLVL,DiabolistInfernalCharismaLVL|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Damned|Diabolist ~ Imp Companion|Diabolist ~ Infernal Charisma
 2												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Channel Hellfire|Diabolist ~ Infernal Bargain
-3	BONUS:VAR|DiabolistHeresyLVL|CL						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Heresey	ABILITY:FEAT|AUTOMATIC|Augment Summoning
+3	BONUS:VAR|DiabolistHeresyLVL|CL						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Heresy	ABILITY:FEAT|AUTOMATIC|Augment Summoning
 4												ADD:SPELLCASTER|ANY
 5												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Hellish Soul
 6												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Diabolist ~ Infernal Transport
