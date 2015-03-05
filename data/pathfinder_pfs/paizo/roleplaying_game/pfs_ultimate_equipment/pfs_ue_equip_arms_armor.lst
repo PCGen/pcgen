@@ -12,7 +12,7 @@ Rifle (Pepperbox).MOD			TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
 Shotgun.MOD					TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
 Metal Cartridge.MOD			TYPE:PFSNotLegal		!PRECHARACTERTYPE:1,PC
 
-#   The scorpion whip found in this book is no longer legal. Please refer to the Adventurer’s Armory for the legal version.
+#   The scorpion whip found in this book is no longer legal. Please refer to the Adventurer's Armory for the legal version.
 Scorpion Whip.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC	DESC:.CLEAR	DESC:This item is no longer approved for PFS. See Adventurer's Armory for the legal version.
 
 #   All specific magic armor on pages 124-129, except breastplate of vanishing, catskin leather, demon armor, enchanted eelskin, hamatula hide, mail of malevolence, morlock hide, otyugh hide, scarab breastplate, and warden of the woods are legal for play.
