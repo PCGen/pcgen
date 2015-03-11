@@ -1404,7 +1404,7 @@ Stampede		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary						DESC:A 
 -2 Wisdom		KEY:-2 Wisdom ~ Class Level		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentMinus2	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,+4 Wisdom ~ Class Level,+2 Wisdom ~ Class Level			BONUS:STAT|WIS|-2
 -2 Charisma		KEY:-2 Charisma ~ Class Level		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentMinus2	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,+4 Charisma ~ Class Level,+2 Charisma ~ Class Level		BONUS:STAT|CHA|-2
 
-Disable the Creature with Class Level Bonus		CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentMinus2.ClassLevelAdjustmentPlus2.ClassLevelAdjustmentPlus4	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE.ClassLevelAdjustmentMinus2,TYPE.ClassLevelAdjustmentPlus2,TYPE.ClassLevelAdjustmentPlus4	BONUS:ABILITYPOOL|Class Level +4 Ability Adjustment|-2	BONUS:ABILITYPOOL|Class Level +2 Ability Adjustment|-2	BONUS:ABILITYPOOL|Class Level -2 Ability Adjustment|-1
+Disable the Creature with Class Level Bonus	COST:0	CATEGORY:Special Ability	TYPE:ClassLevelAdjustmentMinus2.ClassLevelAdjustmentPlus2.ClassLevelAdjustmentPlus4	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,TYPE.ClassLevelAdjustmentMinus2,TYPE.ClassLevelAdjustmentPlus2,TYPE.ClassLevelAdjustmentPlus4	BONUS:ABILITYPOOL|Class Level +4 Ability Adjustment|-2	BONUS:ABILITYPOOL|Class Level +2 Ability Adjustment|-2	BONUS:ABILITYPOOL|Class Level -2 Ability Adjustment|-1
 
 #
 # End
