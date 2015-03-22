@@ -99,8 +99,8 @@ CLASS:Death Mage	SPELLSTAT:CHA	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 CLASS:Magister	HD:6		TYPE:Base.PC	ABB:Mgr		MAXLEVEL:20	SOURCEPAGE:p.24	DEFINE:MagisterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|MagisterLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Magister	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Fly|Knowledge (Arcana)|Knowledge (History)|Knowledge (Local)|Knowledge (Planes)|Knowledge (Religion)|Perform (Oratory)|Perform (Sing)|TYPE=Profession|Spellcraft|Use Magic Device
-# Class Name	Spell Stat		Spell Type																							Memorize	Caster level
-CLASS:Magister	SPELLSTAT:WIS	SPELLTYPE:Arcane|PREABILITY:1,CATEGORY=Special Ability,Arcane Magister	SPELLTYPE:Divine|PREABILITY:1,CATEGORY=Special Ability,Divine Magister	MEMORIZE:NO	BONUS:CASTERLEVEL|Magister|CL
+# Class Name	Spell Stat		Spell Type			Memorize	Caster level
+CLASS:Magister	SPELLSTAT:WIS	SPELLTYPE:Arcane.Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Magister|CL
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Magister Weapon Proficiency
 1																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
