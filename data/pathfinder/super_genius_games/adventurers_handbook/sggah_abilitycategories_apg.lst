@@ -1,0 +1,10 @@
+#SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+#	Chooser based Feats
+ABILITYCATEGORY:Disrupting Shot		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:FEAT	DISPLAYLOCATION:Feats	ABILITYLIST:Disrupting Shot
+ABILITYCATEGORY:Shield Specialization	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:FEAT	DISPLAYLOCATION:Feats	ABILITYLIST:Shield Specialization
+
+#
+# End
+#
