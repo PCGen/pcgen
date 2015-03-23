@@ -6,7 +6,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 # Class of the Master			Type				Hit Dice	Ability																				Define							Bonus Ability Pool					Combat bonus					Stat bonus			Modify VAR							Main Race Type
 ###Block:
 # Class of the Master		Type				Define							Modify VAR																		Main Race Type
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0	BONUS:VAR|MasterLevel|MASTERVAR("AnimalCompanionLVL")	BONUS:VAR|BonusTricks|MASTERVAR("AnimalCompanionLVL")/3	RACETYPE:Animal
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0	BONUS:VAR|MasterLevel|MASTERVAR("AnimalCompanionLVL")	BONUS:VAR|BonusTricks|1+MASTERVAR("AnimalCompanionLVL")/3	RACETYPE:Animal
 ###Block: HD
 # Class of the Master			Type				Hit Dice
 FOLLOWER:AnimalCompanionLVL=2		TYPE:Animal Companion	HD:1
