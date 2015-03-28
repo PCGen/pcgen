@@ -18,6 +18,13 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created on 18-Dec-2003
+ *
+ * Current Ver: $Revision: 5492 $
+ *
+ * Last Editor: $Author: thpr $
+ *
+ * Last Edited: $Date: 2008-03-07 23:26:20 +0100 (Fr, 07 Mar 2008) $
+ *
  */
 package plugin.pretokens.writer;
 

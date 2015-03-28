@@ -20,7 +20,7 @@
  *
  * Current Ver: $Revision: 5645 $
  * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2008-03-20 13:57:06 +0100 (Do, 20 Mär 2008) $
+ * Last Edited: $Date: 2008-03-20 13:57:06 +0100 (Do, 20 Mar 2008) $
  *
  */
 package plugin.exporttokens;

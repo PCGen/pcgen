@@ -50,6 +50,8 @@ ABILITY:sggah_abilities_class_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 ABILITY:sggah_abilities_feats.lst
 ABILITY:sggah_abilities_racial.lst
 ABILITYCATEGORY:sggah_abilitycategories.lst
+ABILITYCATEGORY:sggah_abilitycategories_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITYCATEGORY:sggah_abilitycategories_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 CLASS:sggah_classes_base.lst
 CLASS:sggah_classes_mod.lst
 COMPANIONMOD:sggah_companion_mods.lst

@@ -51,7 +51,7 @@ OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
 
 # TODO: p.8 All characters gain Common as a free language.
 # You gain free languages granted by your race, ethnicity (for humans), and class (e.g., Druidic for druids).
-# If you have a high Intelligence modifier, you may select bonus languages from those listed in your race’s entry in the Core Rulebook and the Modern Human Languages list (The Inner Sea World Guide 251).
+# If you have a high Intelligence modifier, you may select bonus languages from those listed in your race's entry in the Core Rulebook and the Modern Human Languages list (The Inner Sea World Guide 251).
 # Certain classes grant access to additional bonus languages (e.g., Draconic for wizards).
 # Humans and half-elves with high Intelligence scores may learn all the above languages as bonus languages as well as any other language except Druidic and the languages listed under Ancient Languages on page 251 of The Inner Sea World Guide.
 # All languages except Druidic are available by putting a skill rank in Linguistics (see below).

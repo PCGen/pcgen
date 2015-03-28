@@ -10,12 +10,12 @@ CLASS:Demoniac	PREABILITY:2,CATEGORY=FEAT,Iron Will,Demonic Obedience	PREALIGN:C
 CLASS:Demoniac	STARTSKILLPTS:2	CSKILL:Bluff|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Sense Motive|Spellcraft|Stealth
 1																ABILITY:Special Ability|AUTOMATIC|Demoniac ~ Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
 1																ABILITY:Special Ability|AUTOMATIC|Demoniac ~ Damned|Demoniac ~ Demonic Mark|Demoniac ~ Obedience
-2							BONUS:VAR|DemoniacEnergumen|2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Demoniac ~ Energumen
+2							BONUS:VAR|DemoniacEnergumen|1	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Demoniac ~ Energumen
 3							BONUS:VAR|DemoniacBoon|1	ADD:SPELLCASTER|ANY
 4												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Demoniac ~ Summon Demon I
-5							BONUS:VAR|DemoniacEnergumen|2	ADD:SPELLCASTER|ANY
+5							BONUS:VAR|DemoniacEnergumen|1	ADD:SPELLCASTER|ANY
 6							BONUS:VAR|DemoniacBoon|1	ADD:SPELLCASTER|ANY
-7							BONUS:VAR|DemoniacEnergumen|2	ADD:SPELLCASTER|ANY
+7							BONUS:VAR|DemoniacEnergumen|1	ADD:SPELLCASTER|ANY
 8												ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Demoniac ~ Summon Demon II
 9							BONUS:VAR|DemoniacBoon|1	ADD:SPELLCASTER|ANY
 10	BONUS:ABILITYPOOL|Demonic Form|1						ADD:SPELLCASTER|ANY
