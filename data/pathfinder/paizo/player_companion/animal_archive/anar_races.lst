@@ -21,7 +21,7 @@ Rabbit	STARTFEATS:1	SIZE:T	MOVE:Walk,50																	BONUS:SITUATION|Arcobati
 #Skunk		SOURCEPAGE:p.30	STARTFEATS:1
 Squirrel	STARTFEATS:1	SIZE:D	MOVE:Walk,20,Climb,20																																									ABILITY:FEAT|AUTOMATIC|Acrobatic																														MONSTERCLASS:Animal:1				RACETYPE:Animal				SOURCEPAGE:p.31	KIT:1|Default ~ Squirrel
 # From B3 as referenced
-Skunk		STARTFEATS:1	SIZE:T	MOVE:Walk,30		FACE:2	REACH:0	VISION:Low-Light Vision															BONUS:STAT|STR|-8	BONUS:STAT|DEX|4	BONUS:STAT|CON|-2	BONUS:STAT|INT|-8	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-4	ABILITY:Special Ability|AUTOMATIC|Scent	ABILITY:Internal|AUTOMATIC|Race Traits ~ Skunk	ABILITY:Internal|AUTOMATIC|Bite|Claws			NATURALATTACKS:Spray (Touch),Natural.Ranged.Weapon,*1,0		MONSTERCLASS:Animal:1				RACETYPE:Animal	CR:1/4		SOURCEPAGE:p.246	KIT:2|TN|Skunk Default
+Skunk		STARTFEATS:1	SIZE:T	MOVE:Walk,30		FACE:2	REACH:0	VISION:Low-Light Vision															BONUS:STAT|STR|-8	BONUS:STAT|DEX|4	BONUS:STAT|CON|-2	BONUS:STAT|INT|-8	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-4	ABILITY:Special Ability|AUTOMATIC|Scent	ABILITY:Internal|AUTOMATIC|Race Traits ~ Skunk	ABILITY:Internal|AUTOMATIC|Bite|Claw			NATURALATTACKS:Spray (Touch),Natural.Ranged.Weapon,*1,0		MONSTERCLASS:Animal:1				RACETYPE:Animal	CR:1/4		SOURCEPAGE:p.246	KIT:2|TN|Skunk Default
 
 ###Block: Familiar "Versions"
 # Race Name					SORTKEY			Bonus to skill				Race Subtype								Type
