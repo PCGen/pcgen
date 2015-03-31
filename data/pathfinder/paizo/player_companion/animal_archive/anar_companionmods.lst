@@ -8,3 +8,5 @@ MASTERBONUSRACE:Familiar (Platypus)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Fa
 MASTERBONUSRACE:Familiar (Rabbit)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rabbit)	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Skunk)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Skunk)	ABILITY:FEAT|VIRTUAL|Alertness
 MASTERBONUSRACE:Familiar (Squirrel)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Squirrel)	ABILITY:FEAT|VIRTUAL|Alertness
+
+FOLLOWER:FamiliarLVL=1				TYPE:Familiar	ABILITY:Familiar Archetype|AUTOMATIC|Archetype Familiar
