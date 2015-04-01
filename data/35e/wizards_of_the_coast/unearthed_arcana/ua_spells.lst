@@ -150,3 +150,6 @@ Analyze Dweomer.MOD			CLASSES:Cleric (Cloistered Cleric)=6
 Sequester.MOD				CLASSES:Cleric (Cloistered Cleric)=7
 #9th-
 Vision.MOD					CLASSES:Cleric (Cloistered Cleric)=9
+
+
+Alarm.MOD					CLASSES:Savage Bard=1
