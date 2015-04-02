@@ -12,23 +12,30 @@ CLASS:Barbarian.MOD	BONUS:ABILITYPOOL|Totem Barbarian|1	BONUS:ABILITYPOOL|Barbar
 ###Block: Bard
 
 # Class Name
-CLASS:Bard.COPY=Bardic Sage
+#CLASS:Bard.COPY=Bardic Sage
 
 # Class Name
-CLASS:Bard.COPY=Divine Bard
+#CLASS:Bard.COPY=Divine Bard
 
 # Class Name
-CLASS:Bard.COPY=Savage Bard
+#CLASS:Bard.COPY=Savage Bard
 
 # Class Name	Prohibited Class
 CLASS:Bard.MOD	!PRECLASS:1,Bardic Sage=1,Divine Bard=1,Savage Bard=1
 
 # Class Name		Abbreviation	Source Page		Save bonus
-CLASS:Bardic Sage.MOD	ABB:BrdSge		SOURCEPAGE:p.49	BONUS:SAVE|BASE.Reflex|floor(classlevel("APPLIEDAS=NONEPIC")/3)-floor(classlevel("APPLIEDAS=NONEPIC")/2+2)
+CLASS:Bardic Sage	ABB:BrdSge		SOURCEPAGE:p.49		HD:6		TYPE:Base.PC	CLASSTYPE:PC		BONUS:SAVE|BASE.Reflex|floor(classlevel("APPLIEDAS=NONEPIC")/3)-floor(classlevel("APPLIEDAS=NONEPIC")/2+2)		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Clear Prereq.	Required AL		Prohibited Class
-CLASS:Bardic Sage.MOD	PRE:.CLEAR		PREALIGN:NG,TN,NE	!PRECLASS:1,Bard=1,Divine Bard=1,Savage Bard=1
+CLASS:Bardic Sage	PREALIGN:NG,TN,NE	!PRECLASS:1,Bard=1,Divine Bard=1,Savage Bard=1
+CLASS:Bardic Sage	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
 # Class Name		Spell Stat		Spell Stat Bonus		Caster level				Bonus DC					Use Spell List
-CLASS:Bardic Sage.MOD	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic Sage|CL	BONUS:DC|CLASS.Bardic Sage|CHA-INT	SPELLLIST:2|Bard|Bardic Sage
+CLASS:Bardic Sage	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic Sage|CL		SPELLLIST:2|Bard|Bardic Sage
+# BONUS:DC|CLASS.Bardic Sage|CHA-INT
+###Block:
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BardProficiencies
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Spells
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicKnowledge
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Music|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicMusic
 ###Block: spells
 1	SPELLLEVEL:CLASS|Bardic Sage=1|Detect Chaos,Detect Evil,Detect Good,Detect Law
 1	SPELLLEVEL:CLASS|Bardic Sage=2|Zone of Truth
@@ -49,6 +56,27 @@ CLASS:Bardic Sage.MOD	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic 
 1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=4|1
 1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=5|1
 1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=6|1
+###Block: Level progression
+1	CAST:2			KNOWN:4
+2	CAST:3,0			KNOWN:5,2
+3	CAST:3,1			KNOWN:6,3
+4	CAST:3,2,0			KNOWN:6,3,2
+5	CAST:3,3,1			KNOWN:6,4,3
+6	CAST:3,3,2			KNOWN:6,4,3
+7	CAST:3,3,2,0		KNOWN:6,4,4,2
+8	CAST:3,3,3,1		KNOWN:6,4,4,3
+9	CAST:3,3,3,2		KNOWN:6,4,4,3
+10	CAST:3,3,3,2,0		KNOWN:6,4,4,4,2
+11	CAST:3,3,3,3,1		KNOWN:6,4,4,4,3
+12	CAST:3,3,3,3,2		KNOWN:6,4,4,4,3
+13	CAST:3,3,3,3,2,0		KNOWN:6,4,4,4,4,2
+14	CAST:4,3,3,3,3,1		KNOWN:6,4,4,4,4,3
+15	CAST:4,4,3,3,3,2		KNOWN:6,4,4,4,4,3
+16	CAST:4,4,4,3,3,2,0	KNOWN:6,5,4,4,4,4,2
+17	CAST:4,4,4,4,3,3,1	KNOWN:6,5,5,4,4,4,3
+18	CAST:4,4,4,4,4,3,2	KNOWN:6,5,5,5,4,4,3
+19	CAST:4,4,4,4,4,4,3	KNOWN:6,5,5,5,5,4,4
+20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
 
 #Spellcasting
 #
@@ -61,11 +89,18 @@ CLASS:Bardic Sage.MOD	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic 
 
 
 # Class Name		Abbreviation	Source Page
-CLASS:Divine Bard.MOD	ABB:DvnBrd		SOURCEPAGE:p.50
+CLASS:Divine Bard	ABB:DvnBrd		SOURCEPAGE:p.50		HD:6		TYPE:Base.PC	CLASSTYPE:PC		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Prohibited Class
-CLASS:Divine Bard.MOD	!PRECLASS:1,Bard=1,Bardic Sage=1,Savage Bard=1
+CLASS:Divine Bard	!PRECLASS:1,Bard=1,Bardic Sage=1,Savage Bard=1
+CLASS:Divine Bard		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
 # Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Caster level				Bonus DC					Use Spell List
-CLASS:Divine Bard.MOD	SPELLSTAT:WIS	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Divine Bard|CL	BONUS:DC|CLASS.Divine Bard|CHA-WIS	SPELLLIST:1|Bard
+CLASS:Divine Bard		SPELLSTAT:WIS	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Divine Bard|CL		SPELLLIST:2|Bard|Divine Bard
+# BONUS:DC|CLASS.Divine Bard|CHA-WIS
+###Block:
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BardProficiencies
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Spells
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicKnowledge
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Music|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicMusic
 ###Block: Expanded spell list options
 1	SPELLLEVEL:CLASS|Divine Bard=0|Create Water,Cure Minor Wounds
 1	SPELLLEVEL:CLASS|Divine Bard=1|Detect Evil,Detect Good,Detect Law,Protection from Evil,Protection from Good,Protection from Law
@@ -79,20 +114,47 @@ CLASS:Divine Bard.MOD	SPELLSTAT:WIS	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CA
 1	PROHIBITSPELL:DESCRIPTOR.Chaotic|PREALIGN:TN
 1	PROHIBITSPELL:DESCRIPTOR.Good|PREALIGN:NE,CE,TN
 1	PROHIBITSPELL:DESCRIPTOR.Evil|PREALIGN:NG,CG,TN
+###Block: Level progression
+1	CAST:2			KNOWN:4
+2	CAST:3,0			KNOWN:5,2
+3	CAST:3,1			KNOWN:6,3
+4	CAST:3,2,0			KNOWN:6,3,2
+5	CAST:3,3,1			KNOWN:6,4,3
+6	CAST:3,3,2			KNOWN:6,4,3
+7	CAST:3,3,2,0		KNOWN:6,4,4,2
+8	CAST:3,3,3,1		KNOWN:6,4,4,3
+9	CAST:3,3,3,2		KNOWN:6,4,4,3
+10	CAST:3,3,3,2,0		KNOWN:6,4,4,4,2
+11	CAST:3,3,3,3,1		KNOWN:6,4,4,4,3
+12	CAST:3,3,3,3,2		KNOWN:6,4,4,4,3
+13	CAST:3,3,3,3,2,0		KNOWN:6,4,4,4,4,2
+14	CAST:4,3,3,3,3,1		KNOWN:6,4,4,4,4,3
+15	CAST:4,4,3,3,3,2		KNOWN:6,4,4,4,4,3
+16	CAST:4,4,4,3,3,2,0	KNOWN:6,5,4,4,4,4,2
+17	CAST:4,4,4,4,3,3,1	KNOWN:6,5,5,4,4,4,3
+18	CAST:4,4,4,4,4,3,2	KNOWN:6,5,5,5,4,4,3
+19	CAST:4,4,4,4,4,4,3	KNOWN:6,5,5,5,5,4,4
+20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
 
 
 # Class Name		Abbreviation	Source Page		Save bonus
-CLASS:Savage Bard.MOD	ABB:SvgBrd		SOURCEPAGE:p.50	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3-floor(classlevel("APPLIEDAS=NONEPIC")/2+2)	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2-floor(classlevel("APPLIEDAS=NONEPIC")/3)
+CLASS:Savage Bard	ABB:SvgBrd	HD:6		TYPE:Base.PC	CLASSTYPE:PC		SOURCEPAGE:p.50	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Prohibited Class
-CLASS:Savage Bard.MOD	PREALIGN:CG,CN,CE	!PRECLASS:1,Bard=1,Bardic Sage=1,Divine Bard=1
+CLASS:Savage Bard	PREALIGN:CG,CN,CE	!PRECLASS:1,Bard=1,Bardic Sage=1,Divine Bard=1
 # Class Name		Remove Class Skill						Class Skill
-CLASS:Savage Bard.MOD	CSKILL:.CLEAR.Decipher Script|.CLEAR.Speak Language	CSKILL:Survival
+CLASS:Savage Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Swim|Tumble|Use Magic Device|Survival
 # Class Name		Caster level				Use Spell List
-CLASS:Savage Bard.MOD	BONUS:CASTERLEVEL|Savage Bard|CL	SPELLLIST:1|Savage Bard
+CLASS:Savage Bard	BONUS:CASTERLEVEL|Savage Bard|Savage_BardLVL	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	DEFINE:Savage_BardLVL|0	BONUS:VAR|Savage_BardLVL|CL	ROLE:Bard
 ###Block: Illiteracy
 # (Copy this line and include the hidden feat for any other Illiterate class.)
 #	Currently, this does not take into account the removal using Skill points.
 1	BONUS:VAR|IllteracyLVL|CL	DEFINE:IllteracyLVL|0	ABILITY:Special Ability|VIRTUAL|Barbarian ~ Illiteracy|PREVAREQ:TL,IlliteracyLVL
+###Block:
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BardProficiencies
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Spells
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicKnowledge
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Music|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicMusic
+
 ###Block: Spell List
 # This doesn't take into accound Bard spells from other sources.  No way to 'Remove spells from a spell list'
 1	SPELLLEVEL:CLASS|Savage Bard=0|Dancing Lights,Daze,Detect Magic,Flare,Ghost Sound,Know Direction,Light,Lullaby,Mage Hand,Mending,Message,Open/Close,Resistance,Summon Instrument
@@ -102,6 +164,27 @@ CLASS:Savage Bard.MOD	BONUS:CASTERLEVEL|Savage Bard|CL	SPELLLIST:1|Savage Bard
 1	SPELLLEVEL:CLASS|Savage Bard=4|Break Enchantment,Cure Critical Wounds,Detect Scrying,Dimension Door,Dominate Person,Freedom of Movement,Hallucinatory Terrain,Hold Monster,Insect Plague,Invisibility (Greater),Legend Lore,Locate Creature,Modify Memory,Neutralize Poison,Rainbow Pattern,Repel Vermin,Secure Shelter,Shadow Conjuration,Shout,Speak with Plants,Summon Nature's Ally IV,Zone of Silence
 1	SPELLLEVEL:CLASS|Savage Bard=5|Commune with Nature,Cure Light Wounds (Mass),Dispel Magic (Greater),Dream,False Vision,Heroism (Greater),Mind Fog,Mirage Arcana,Mislead,Nightmare,Persistent Image,Seeming,Shadow Evocation,Shadow Walk,Song of Discord,Suggestion (Mass),Summon Nature's Ally V
 1	SPELLLEVEL:CLASS|Savage Bard=6|Analyze Dweomer,Animate Objects,Cat's Grace (Mass),Charm Monster (Mass),Creeping Doom,Eagle's Splendor (Mass),Eyebite,Find the Path,Fox's Cunning (Mass),Geas/Quest,Heroes' Feast,Irresistible Dance,Permanent Image,Programmed Image,Project Image,Reincarnate,Scrying (Greater),Summon Nature's Ally VI,Sympathetic Vibration,Veil
+###Block: Level progression
+1	CAST:2			KNOWN:4
+2	CAST:3,0			KNOWN:5,2
+3	CAST:3,1			KNOWN:6,3
+4	CAST:3,2,0			KNOWN:6,3,2
+5	CAST:3,3,1			KNOWN:6,4,3
+6	CAST:3,3,2			KNOWN:6,4,3
+7	CAST:3,3,2,0		KNOWN:6,4,4,2
+8	CAST:3,3,3,1		KNOWN:6,4,4,3
+9	CAST:3,3,3,2		KNOWN:6,4,4,3
+10	CAST:3,3,3,2,0		KNOWN:6,4,4,4,2
+11	CAST:3,3,3,3,1		KNOWN:6,4,4,4,3
+12	CAST:3,3,3,3,2		KNOWN:6,4,4,4,3
+13	CAST:3,3,3,3,2,0		KNOWN:6,4,4,4,4,2
+14	CAST:4,3,3,3,3,1		KNOWN:6,4,4,4,4,3
+15	CAST:4,4,3,3,3,2		KNOWN:6,4,4,4,4,3
+16	CAST:4,4,4,3,3,2,0	KNOWN:6,5,4,4,4,4,2
+17	CAST:4,4,4,4,3,3,1	KNOWN:6,5,5,4,4,4,3
+18	CAST:4,4,4,4,4,3,2	KNOWN:6,5,5,5,4,4,3
+19	CAST:4,4,4,4,4,4,3	KNOWN:6,5,5,5,5,4,4
+20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
 
 
 # From Page 58, "Other class variants.

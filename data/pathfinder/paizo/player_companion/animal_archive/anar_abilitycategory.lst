@@ -7,4 +7,5 @@ ABILITYCATEGORY:Companion Class Feature	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	
 ###Block: Archetype Buckets
 # Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object		Plural description for UI	Display Location
 ABILITYCATEGORY:Companion Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:CompanionArchetype	PLURAL:Companion Archetypes	DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Familiar Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:FamiliarArchetype	PLURAL:Familiar Archetypes	DISPLAYLOCATION:Archetype
 ABILITYCATEGORY:EqSlot			VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO						CATEGORY:EqSlot
