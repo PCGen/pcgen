@@ -291,7 +291,7 @@
 						</xsl:choose>
 					</xsl:variable>
 					<xsl:if test="string-length(./*[name()=$name.tag]) &gt; 1">
-						<fo:table-row keep-with-next.within-column="always">
+						<fo:table-row>	<!--	 keep-with-next.within-column="always"	-->
 							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
 							<xsl:choose>
 								<xsl:when test="source!=''">
@@ -313,7 +313,7 @@
 						</fo:table-row>
 
 						<xsl:if test="$desc.tag!=''">
-							<fo:table-row keep-with-next.within-column="always">
+							<fo:table-row>	<!--	 keep-with-next.within-column="always"	-->
 								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
 								<fo:table-cell padding="1pt" number-columns-spanned="3">
 									<fo:block font-size="7pt" text-align="justify" text-indent="5pt">
@@ -326,7 +326,7 @@
 						</xsl:if>
 
 						<xsl:if test="$benefit.tag!=''">
-							<fo:table-row keep-with-next.within-column="always">
+							<fo:table-row>	<!--	 keep-with-next.within-column="always"	-->
 								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
 								<fo:table-cell padding="1pt" number-columns-spanned="3">
 									<fo:block font-size="7pt" text-align="justify" text-indent="5pt">
