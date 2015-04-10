@@ -36,6 +36,8 @@ public class TempBonusLst extends AbstractNonEmptyToken<CDOMObject> implements
 	public String getTokenName()
 	{
 		return "TEMPBONUS";
+		// This is a test
+		
 	}
 
 	@Override
