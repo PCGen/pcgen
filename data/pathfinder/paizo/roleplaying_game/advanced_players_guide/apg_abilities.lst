@@ -315,6 +315,10 @@ Spark			CATEGORY:Spell-Like Ability	TYPE:ClassAbility.SpellLike.SpecialQuality	V
 # Ability Name	SORTKEY		Category of Ability		Type					Description					Multiple?	Choose								Ability						Cost
 +1 Trait		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 Trait.	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Trait	ABILITY:Special Ability|VIRTUAL|%LIST	COST:0
 
+
+# Feat Support
+Aspect ~ Steel Soul	CATEGORY:Internal	TYPE:DwarfHardy	ASPECT:SaveBonus|+2 vs. poison; +4 vs. spells, and spell-like abilities
+
 #
 # End
 #
