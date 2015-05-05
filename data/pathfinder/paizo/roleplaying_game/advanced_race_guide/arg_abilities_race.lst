@@ -7,10 +7,13 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 ##Block: Core Racial Abilities
 ##
 # Ability Name						Category of Ability	Template						Ability
-CATEGORY=Internal|Race Traits ~ Kitsune.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Kitsune|!PREVAREQ:DefaultLanguageSetting,0
-CATEGORY=Internal|Race Traits ~ Nagaji.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Nagaji|!PREVAREQ:DefaultLanguageSetting,0
-CATEGORY=Internal|Race Traits ~ Samsaran.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Samsaran|!PREVAREQ:DefaultLanguageSetting,0
-CATEGORY=Internal|Race Traits ~ Wayang.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Wayang|!PREVAREQ:DefaultLanguageSetting,0
+Default Language Setting				KEY:Setting Language ~ Default	CATEGORY:Internal		TYPE:RaceLanguageSelection	DESC:Grants the race the default race language of the core supplements.
+#
+
+CATEGORY=Internal|Race Traits ~ Kitsune.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Kitsune|PREMULT:1,[PREVAREQ:DefaultLanguageSetting,0],[PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default]	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
+CATEGORY=Internal|Race Traits ~ Nagaji.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Nagaji|PREMULT:1,[PREVAREQ:DefaultLanguageSetting,0],[PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default]	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
+CATEGORY=Internal|Race Traits ~ Samsaran.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Samsaran|PREMULT:1,[PREVAREQ:DefaultLanguageSetting,0],[PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default]	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
+CATEGORY=Internal|Race Traits ~ Wayang.MOD												ABILITY:Internal|AUTOMATIC|Default Language ~ Wayang|PREMULT:1,[PREVAREQ:DefaultLanguageSetting,0],[PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default]	BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
 
 Default Language ~ Kitsune				CATEGORY:Internal		TEMPLATE:Default Language ~ Kitsune
 Default Language ~ Nagaji				CATEGORY:Internal		TEMPLATE:Default Language ~ Nagaji
