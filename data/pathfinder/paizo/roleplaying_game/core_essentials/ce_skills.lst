@@ -158,6 +158,7 @@ Spellcraft.MOD			SITUATION:Identify Curse or Emotion
 Spellcraft.MOD			SITUATION:Identify Enchantment
 Spellcraft.MOD			SITUATION:Identify Magic Auras and Items
 Spellcraft.MOD			SITUATION:Identify magic item
+Stealth.MOD				SITUATION:concealed in metal objects or debris
 Stealth.MOD				SITUATION:Darkness or smoke
 Stealth.MOD				SITUATION:In ambush
 Stealth.MOD				SITUATION:In bright light

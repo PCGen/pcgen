@@ -341,6 +341,14 @@ Corrupting Gaze				CATEGORY:Ability Focus	TYPE:Ability Focus
 Consume Flesh				CATEGORY:Ability Focus	TYPE:Ability Focus
 Hungry Gaze					CATEGORY:Ability Focus	TYPE:Ability Focus
 Voice of the Ancients			CATEGORY:Ability Focus	TYPE:Ability Focus
+
+# BotD Vol 1
+Evangelization				CATEGORY:Ability Focus	TYPE:Ability Focus
+Ohrwurm					CATEGORY:Ability Focus	TYPE:Ability Focus
+
+
+
+
 ###Block: Domain Choice
 #Domain			CATEGORY:Domain	TYPE:Domain
 

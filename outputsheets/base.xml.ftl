@@ -1183,13 +1183,15 @@
 		</layonhands>
 		</#if>
 
-		<#if (pcvar("VAR.LayOnHandsTimes") >= 1) > <!-- Pathfinder -->
+<!-- Pathfinder 
+		<#if (pcvar("VAR.LayOnHandsTimes") >= 1) > 
 		<layonhands>
 			<hp_per_day>${pcstring('VAR.LayOnHandsTimes.INTVAL')}</hp_per_day>
 			<hp_per_day.title>Uses per day</hp_per_day.title>
 			<description>cure ${pcstring('VAR.LayOnHandsDice.INTVAL')}d6 per use</description>
 		</layonhands>
 		</#if>
+		-->
 
 		<#if (pcvar("VAR.WildshapeTimes") >= 1) >
 		<wildshape>
