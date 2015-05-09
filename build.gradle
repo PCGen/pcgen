@@ -292,6 +292,7 @@ task datatest(type: Test, dependsOn: 'jar') {
     include 'pcgen/persistence/lst/DataTest.class'
     include 'pcgen/persistence/lst/DataLoadTest.class'
     ignoreFailures=ignoreTestFailures
+    maxHeapSize = "512m"
     testLogging {
         exceptionFormat = 'full'
     }
