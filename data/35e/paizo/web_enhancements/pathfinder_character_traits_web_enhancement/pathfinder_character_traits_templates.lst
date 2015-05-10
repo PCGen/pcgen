@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Pathfinder Character Traits Web Enhancement	SOURCESHORT:PCT	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-02
-
-###Block: Campaign PC Template
-# Template Name		Visible		Bonus Ability Pool
-Player Character Traits	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Traits|2
