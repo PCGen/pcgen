@@ -420,6 +420,7 @@ public class TempBonusHelper
 
 		String aChoice = source.getSafe(StringKey.TEMPVALUE);
 		StringTokenizer aTok = new StringTokenizer(aChoice, "|"); //$NON-NLS-1$
+		aTok.nextToken(); // skip TEMPVALUE
 
 		String minString = aTok.nextToken().substring(4); //Take off MIN=
 		String maxString = aTok.nextToken().substring(4); //Take off MAX=
