@@ -40,8 +40,8 @@ import pcgen.core.analysis.SkillRankControl;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
+import plugin.pretokens.parser.PreAbilityParser;
 import plugin.pretokens.parser.PreClassParser;
-import plugin.pretokens.parser.PreFeatParser;
 import plugin.pretokens.parser.PreSkillParser;
 
 /**
@@ -190,7 +190,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = getCharacter();
 
-		final PreFeatParser producer = new PreFeatParser();
+		final PreAbilityParser producer = new PreAbilityParser();
 
 		final Prerequisite prereq =
 				producer.parse("FEAT", "3,TYPE=Metamagic,TYPE=ItemCreation",

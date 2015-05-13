@@ -35,14 +35,17 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+import plugin.lsttokens.AbilityLst;
 import plugin.lsttokens.ability.MultToken;
-import plugin.lsttokens.auto.FeatToken;
 import plugin.lsttokens.choose.LangToken;
+import plugin.lsttokens.deprecated.AutoFeatToken;
+import plugin.lsttokens.testsupport.TokenRegistration;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 {
-	private static FeatToken token = new FeatToken();
+	private static AutoFeatToken token = new AutoFeatToken();
+	private static AbilityLst abLst = new AbilityLst();
 
 	@Test
 	public void testFromTemplate() throws PersistenceLayerException
@@ -69,7 +72,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
-		result = token.parseToken(context, source, "Granted (%LIST)");
+		result = token.parseToken(context, source, "FEAT|Granted (%LIST)");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
@@ -117,7 +120,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
-		result = token.parseToken(context, source, "Granted (%LIST)");
+		result = token.parseToken(context, source, "FEAT|Granted (%LIST)");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
@@ -176,6 +179,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 	{
 		super.setUp();
 		directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
+		TokenRegistration.register(abLst);
 	}
 
 	protected Ability createGrantedObject()
