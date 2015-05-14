@@ -24,7 +24,7 @@ ABILITYCATEGORY:Shark Shaman Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YE
 
 ###Block: Magus ability categories
 # Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI	Display Location
-ABILITYCATEGORY:Magus Arcana		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MagusArcana				PLURAL:Magus Arcana		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Magus Arcana		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MagusArcana				PLURAL:Magus Arcana		DISPLAYLOCATION:Class Features	POOL:Pool_Magus_Arcana
 ABILITYCATEGORY:Magus Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.ItemCreation.Metamagic	PLURAL:Magus Bonus Feats	DISPLAYLOCATION:Feats
 
 ###Block: Summoner/Eidolon ability categories

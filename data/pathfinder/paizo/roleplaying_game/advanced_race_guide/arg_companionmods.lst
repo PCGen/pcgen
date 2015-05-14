@@ -102,3 +102,7 @@ FOLLOWER:EidolonLVL=12			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolu
 FOLLOWER:EidolonLVL=16			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
 FOLLOWER:EidolonLVL=20			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
 FOLLOWER:IsWildCallerEidolon=1	TYPE:Eidolon	ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Wild Caller Eidolon
+
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	BONUS:SAVE|ALL|MASTERVAR("Bonus_Animal_Companion_Save")	
+
+	
