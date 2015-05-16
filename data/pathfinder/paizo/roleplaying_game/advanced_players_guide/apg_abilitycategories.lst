@@ -17,9 +17,9 @@ ABILITYCATEGORY:Witch Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACT
 ABILITYCATEGORY:Alchemist Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AlchemistClassFeatures.Alchemist Class Feature		PLURAL:Alchemist Class Features	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Cavalier Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:CavalierClassFeatures.Cavalier Class Feature		PLURAL:Cavalier Class Features	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Inquisitor Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:InquisitorClassFeatures.Inquisitor Class Feature		PLURAL:Inquisitor Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Oracle Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:OracleClassFeatures.Oracle Class Features			PLURAL:Oracle Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:OracleClassFeatures.Oracle Class Feature			PLURAL:Oracle Class Features		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Summoner Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SummonerClassFeatures.Summoner Class Feature		PLURAL:Summoner Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Witch Class Feature			VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WitchClassFeatures.WitchClassFeatures			PLURAL:Witch Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Witch Class Feature			VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WitchClassFeatures.Witch Class Feature			PLURAL:Witch Class Features		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Antipaladin Class Feature		VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AntipaladinClassFeatures.Antipaladin Class Feature	PLURAL:Antipaladin Class Features	DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Focused Arcane School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Focused Arcane School												DISPLAYLOCATION:Class Features
