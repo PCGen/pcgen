@@ -121,7 +121,7 @@ ABILITYCATEGORY:Crossblooded Bonus Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL
 ABILITYCATEGORY:Crossblooded Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat										PLURAL:Crossblooded Feats			DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Magus Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability		TYPE:MagusClassFeatures										PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Magus Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability		TYPE:MagusClassFeatures.Magus Class Feature										PLURAL:Magus Class Features			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Forbidden Rites Domain			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability		TYPE:ForbiddenRiteSDomain									PLURAL:Forbidden Rites Domains		DISPLAYLOCATION:Class Features
 
 

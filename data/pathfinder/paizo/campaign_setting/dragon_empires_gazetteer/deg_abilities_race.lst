@@ -18,10 +18,6 @@ Dragon Empire ~ Tengu													CATEGORY:Internal																			TEMPLATE:D
 Dragon Empire ~ Wayang													CATEGORY:Internal																			TEMPLATE:Dragon Empire ~ Wayang
 
 
-
-
-
-
 Race Traits ~ Kitsune													CATEGORY:Internal
 #
 CATEGORY=Internal|Race Traits ~ Kitsune.MOD																																				ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Change Shape|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneChangeShape
