@@ -1,6 +1,7 @@
 # CVS $Revision$ $Author$ -- Mon Sep 15 21:55:54 2014 -- reformated by prettylst.pl v1.51 (build 25129)
 SOURCELONG:Pathfinder Character Traits Web Enhancement	SOURCESHORT:PCT	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-02
 
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Traits|2|PRECHARACTERTYPE:1,PC
 
 #Combat Traits
 # Ability Name			Unique Key						Category of Ability		Type					Description																																																							Stackable?	Multiple?	Choose														Selections	Caster level				Combat bonus					Misc bonus			Save bonus					Bonus to skill													Modify VAR						Class Skill				Apply Kit			Source Page
@@ -50,6 +51,9 @@ Natural-Born Leader		KEY:Natural-Born Leader_Trait			CATEGORY:Special Ability	TY
 Poverty-Stricken			KEY:Poverty-Stricken_Trait			CATEGORY:Special Ability	TYPE:Trait.SpecialQuality	DESC:Your childhood was tough, and your parents had to make every copper piece count. Hunger was your constant companion, and you often had to live off the land or sleep in the wild.																																																																						BONUS:SKILL|Survival|1|TYPE=Trait																	CSKILL:Survival							SOURCEPAGE:p.6
 Rich Parents			KEY:Rich Parents_Trait				CATEGORY:Special Ability	TYPE:Trait.SpecialQuality	DESC:You were born into a rich family, perhaps even the nobility.																																																																																																																					KIT:1|Rich Parents	SOURCEPAGE:p.6
 Suspicious				KEY:Suspicious_Trait				CATEGORY:Special Ability	TYPE:Trait.SpecialQuality	DESC:You discovered at an early age that someone you trusted, perhaps an older sibling or a parent, had lied to you, and often, about something you had taken for granted, leaving you quick to question the claims of others.																																																															BONUS:SKILL|Sense Motive|1|TYPE=Trait																CSKILL:Sense Motive						SOURCEPAGE:p.6
+
+No Selection			KEY:Trait ~ No Selection			CATEGORY:Special Ability	TYPE:Trait				DESC:Removes a trait point.	MULT:YES	CHOOSE:NOCHOICE
+
 
 #
 # End
