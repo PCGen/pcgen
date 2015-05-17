@@ -6,25 +6,25 @@
 # The above will handle all files NOT found below
 #
 # These files are text and should be normalized (Convert crlf => lf)
-*.bat           text
-*.css           text
-*.df            text
-*.htm           text
-*.html          text
-*.java          text
-*.js            text
-*.json          text
-*.jsp           text
-*.jspf          text
-*.md            text
-*.properties    text
-*.sh            text
-*.tld           text
-*.txt           text
-*.xml           text
-*.lst           text
-*.ftl           text
-*.gradle        text
+*.bat           text=auto
+*.css           text=auto
+*.df            text=auto
+*.htm           text=auto
+*.html          text=auto
+*.java          text=auto
+*.js            text=auto
+*.json          text=auto
+*.jsp           text=auto
+*.jspf          text=auto
+*.md            text=auto
+*.properties    text=auto
+*.sh            text=auto
+*.tld           text=auto
+*.txt           text=auto
+*.xml           text=auto
+*.lst           text=auto
+*.ftl           text=auto
+*.gradle        text=auto
 
 # These files are binary and should be left untouched
 # (binary is a macro for -text -diff)
@@ -47,14 +47,14 @@
 *.PDF	 diff=astextplain
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
-*.md text
-*.adoc text
-*.textile text
-*.mustache text
-*.csv text
-*.tab text
-*.tsv text
-*.sql text
+*.md text=auto
+*.adoc text=auto
+*.textile text=auto
+*.mustache text=auto
+*.csv text=auto
+*.tab text=auto
+*.tsv text=auto
+*.sql text=auto
 
 # Graphics
 *.png binary
@@ -62,9 +62,9 @@
 *.jpeg binary
 *.gif binary
 *.ico binary
-*.svg text
+*.svg text=auto
 
 
 # git config
-.gitattributes text
-.gitignore text
+.gitattributes text=auto
+.gitignore text=auto
