@@ -4,8 +4,8 @@ SOURCELONG:Kingmaker Player's Guide	SOURCESHORT:KMPG	SOURCEWEB:http://paizo.com/
 
 ###Block: Companion Advancement abilities
 # Ability Name				Unique Key						Category of Ability		Type					Visible		Required Race				Ability														Combat bonus						Adjust PC Size
-Companion Advancement (Thylacine)	KEY:Companion Advancement ~ Thylacine	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Thylacine)																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Elk)		KEY:Companion Advancement ~ Elk		CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Elk)		ABILITY:Special Ability|AUTOMATIC|Powerful Charge	ABILITY:Internal|AUTOMATIC|Hoof	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Thylacine)	KEY:Companion Advancement ~ Thylacine	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Thylacine)																BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.REPLACE	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Elk)		KEY:Companion Advancement ~ Elk		CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Elk)		ABILITY:Special Ability|AUTOMATIC|Powerful Charge	ABILITY:Internal|AUTOMATIC|Hoof	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.REPLACE	BONUS:SIZEMOD|NUMBER|1
 
 ###Block: Companion abilities
 # Ability Name	Unique Key				Category of Ability		Type						Description														Weapon prof. bonus

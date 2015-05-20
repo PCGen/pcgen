@@ -12,7 +12,7 @@ Spear of Manhunting	PROFICIENCY:WEAPON|Spear (Boar)	TYPE:Weapon.Melee.TwoHanded.
 # Equipment Name				Type						Cost		Weight	Source Page		Combat bonus				Bonus to skill					Special Property
 Attentive Mirror				TYPE:Magic.Wondrous			COST:1700	WT:.5		SOURCEPAGE:p.60
 Cauldron of Overwhelming Allies	TYPE:Magic.Wondrous			COST:4500	WT:5		SOURCEPAGE:p.60														SPROP:Once per day, when used as focus for Summon Monster or Summon Nature's Ally, summons 1d3 additional creatures of the same kind from the next lower level list.
-Cloak of the Yeti				TYPE:Magic.Wondrous.Cloak		COST:4000	WT:5		SOURCEPAGE:p.60	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:SKILL|Intimidate|2|TYPE=Competence	SPROP:provides constant Endure Elements in cold weather
+Cloak of the Yeti				TYPE:Magic.Wondrous.Cloak		COST:4000	WT:5		SOURCEPAGE:p.60	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base	BONUS:SKILL|Intimidate|2|TYPE=Competence	SPROP:provides constant Endure Elements in cold weather
 Ice Floe Elixir				TYPE:Magic.Wondrous.Consumable	COST:2250			SOURCEPAGE:p.60
 Snowshoes of Northern Pursuit		TYPE:Magic.Wondrous.Boot		COST:4300	WT:4		SOURCEPAGE:p.61
 Spiteful Cookie				TYPE:Magic.Wondrous.Consumable	COST:750			SOURCEPAGE:p.61
