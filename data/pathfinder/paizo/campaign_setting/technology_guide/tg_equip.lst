@@ -96,11 +96,11 @@ Cybernetic Arm		TYPE:Cybertech.CyberSlot_Arm		SOURCEPAGE:p.36	COST:4750
 Cybernetic Ears		TYPE:Cybertech.CyberSlot_Ears		SOURCEPAGE:p.37	COST:4000
 Cybernetic Eyes		TYPE:Cybertech.CyberSlot_Eyes		SOURCEPAGE:p.37	COST:4000
 Cybernetic Legs		TYPE:Cybertech.CyberSlot_Legs		SOURCEPAGE:p.37	COST:8500
-Dermal Plating (Mark I)		TYPE:Cybertech.CyberSlot_Body		SOURCEPAGE:p.37	COST:4000		BONUS:VAR|AC_Natural_Armor|1|TYPE=BaseEnhancement
-Dermal Plating (Mark II)	TYPE:Cybertech.CyberSlot_Body		SOURCEPAGE:p.37	COST:16000		BONUS:VAR|AC_Natural_Armor|2|TYPE=BaseEnhancement
-Dermal Plating (Mark III)	TYPE:Cybertech.CyberSlot_Body		SOURCEPAGE:p.37	COST:36000		BONUS:VAR|AC_Natural_Armor|3|TYPE=BaseEnhancement
-Dermal Plating (Mark IV)	TYPE:Cybertech.CyberSlot_Body		SOURCEPAGE:p.37	COST:64000		BONUS:VAR|AC_Natural_Armor|4|TYPE=BaseEnhancement
-Dermal Plating (Mark V)		TYPE:Cybertech.CyberSlot_Body		SOURCEPAGE:p.37	COST:100000		BONUS:VAR|AC_Natural_Armor|5|TYPE=BaseEnhancement
+Dermal Plating (Mark I)		TYPE:Cybertech.CyberSlot_Body		SOURCEPAGE:p.37	COST:4000		BONUS:COMBAT|AC|1|TYPE=NaturalArmorEnhancement
+Dermal Plating (Mark II)	TYPE:Cybertech.CyberSlot_Body		SOURCEPAGE:p.37	COST:16000		BONUS:COMBAT|AC|2|TYPE=NaturalArmorEnhancement
+Dermal Plating (Mark III)	TYPE:Cybertech.CyberSlot_Body		SOURCEPAGE:p.37	COST:36000		BONUS:COMBAT|AC|3|TYPE=NaturalArmorEnhancement
+Dermal Plating (Mark IV)	TYPE:Cybertech.CyberSlot_Body		SOURCEPAGE:p.37	COST:64000		BONUS:COMBAT|AC|4|TYPE=NaturalArmorEnhancement
+Dermal Plating (Mark V)		TYPE:Cybertech.CyberSlot_Body		SOURCEPAGE:p.37	COST:100000		BONUS:COMBAT|AC|5|TYPE=NaturalArmorEnhancement
 Frenzychip			TYPE:Cybertech.CyberSlot_Brain	SOURCEPAGE:p.37	COST:36400
 Implanted Weaponry	TYPE:Cybertech.CyberSlot_Arm		SOURCEPAGE:p.38	COST:10000
 Skillslot			TYPE:Cybertech.CyberSlot_Brain	SOURCEPAGE:p.38	COST:2000
