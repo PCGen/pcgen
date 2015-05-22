@@ -12,7 +12,7 @@ CATEGORY=Internal|Default.MOD	DEFINE:KatanaExoticUse|0	BONUS:VAR|KatanaExoticUse
 CATEGORY=Internal|Default.MOD					DEFINE:MerformBeltMerfolkForm|0					ABILITY:Internal|AUTOMATIC|Merform Belt Merfolk Form|PREVARGTEQ:MerformBeltMerfolkForm,1
 
 # Ability Name			Category of Ability	Define					Move				Ability														Combat bonus
-Merform Belt Merfolk Form	CATEGORY:Internal								MOVE:Swim,30,Walk,5																BONUS:COMBAT|AC|2|TYPE=NaturalArmor
+Merform Belt Merfolk Form	CATEGORY:Internal								MOVE:Swim,30,Walk,5																BONUS:VAR|AC_Natural_Armor|2|TYPE=Base
 #TODO: How to reduce walk to 5?
 
 ###Block: Modifier to make Splash Weapon proficiency available to all classes

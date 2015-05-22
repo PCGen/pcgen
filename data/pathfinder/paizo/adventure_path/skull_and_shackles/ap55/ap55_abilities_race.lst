@@ -39,5 +39,5 @@ Familiar (Sea krait)	CATEGORY:Internal									BONUS:SAVE|Fortitude|2
 Familiar (Snail kite)	CATEGORY:Internal													BONUS:SKILL|Fly|3
 Familiar (Dodo)		CATEGORY:Internal		BONUS:COMBAT|INITIATIVE|4
 Familiar (Dwarf Caiman)	CATEGORY:Internal													BONUS:SKILL|Stealth|3
-Familiar (Giant Isopod)	CATEGORY:Internal		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+Familiar (Giant Isopod)	CATEGORY:Internal		BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK
 Familiar (Seal)		CATEGORY:Internal													BONUS:SKILL|Swim|3

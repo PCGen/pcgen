@@ -48,10 +48,10 @@ Companion Advancement (Crab (Giant))	KEY:Companion Advancement ~ Crab (Giant)		C
 # COMMENT: Lesser Strength gain might be a typo?
 Companion Advancement (Leech (Giant))	KEY:Companion Advancement ~ Leech (Giant)		CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Leech (Giant))																											BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR|-2															VISION:Blindsight (30')
 Companion Advancement (Mantis (Giant))	KEY:Companion Advancement ~ Mantis (Giant)	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Mantis (Giant))	ABILITY:Special Ability|AUTOMATIC|Giant Mantis Companion ~ Mandibles|Giant Mantis Companion ~ Sudden Strike								BONUS:SIZEMOD|NUMBER|1
-Companion Advancement (Scorpion (Giant))	KEY:Companion Advancement ~ Scorpion (Giant)	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Scorpion (Giant))																			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1													BONUS:VISION|Tremorsense|30
+Companion Advancement (Scorpion (Giant))	KEY:Companion Advancement ~ Scorpion (Giant)	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Scorpion (Giant))																			BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK	BONUS:SIZEMOD|NUMBER|1													BONUS:VISION|Tremorsense|30
 # COMMENT: The stat mods look more like a small->medium version.
 Companion Advancement (Slug (Giant))	KEY:Companion Advancement ~ Slug (Giant)		CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Slug (Giant))																											BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR|-6	BONUS:STAT|CON|-2	BONUS:VAR|SpitAcidDamageDieSize|2						VISION:Blindsight (30')
-Companion Advancement (Spider (Giant))	KEY:Companion Advancement ~ Spider (Giant)	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Spider (Giant))																			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:SIZEMOD|NUMBER|1
+Companion Advancement (Spider (Giant))	KEY:Companion Advancement ~ Spider (Giant)	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Spider (Giant))																			BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK	BONUS:SIZEMOD|NUMBER|1
 Companion Advancement (Wasp (Giant))	KEY:Companion Advancement ~ Wasp (Giant)		CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Wasp (Giant))																											BONUS:SIZEMOD|NUMBER|1
 
 
@@ -253,4 +253,4 @@ Familiar (Crab (Giant King))		CATEGORY:Internal																							BONUS:VAR|
 Familiar (Pig)				CATEGORY:Internal																BONUS:SKILL|Diplomacy|3|TYPE=Familiar
 Familiar (Spider (Scarlet))		CATEGORY:Internal																BONUS:SKILL|Climb|3|TYPE=Familiar
 Familiar (Thrush)				CATEGORY:Internal																BONUS:SKILL|Diplomacy|3|TYPE=Familiar
-Familiar (Turtle)				CATEGORY:Internal		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+Familiar (Turtle)				CATEGORY:Internal		BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK
