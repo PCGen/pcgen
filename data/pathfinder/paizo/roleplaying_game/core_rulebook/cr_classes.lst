@@ -45,7 +45,7 @@ CLASS:Bard		HD:8		TYPE:Base.PC.SpontaneousArcane.Spontaneous	CLASSTYPE:PC	ABB:Br
 # Class Name	Skill Pts/Lvl
 CLASS:Bard		STARTSKILLPTS:6
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
+CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|Bard_Caster_Level	DEFINE:Bard_Caster_Level|0	BONUS:VAR|Bard_Caster_Level|CL+CasterLevelBonus	BONUS:VAR|CasterLevel_Highest|Bard_Caster_Level|TYPE=Base
 ###Block:Proficiencies
 1	ABILITY:Bard Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
@@ -88,7 +88,7 @@ CLASS:Cleric	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:p.3
 # Class Name	Skill Pts/Lvl
 CLASS:Cleric	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
+CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|Cleric_Caster_Level	DEFINE:Cleric_Caster_Level|0	BONUS:VAR|Cleric_Caster_Level|CL+CasterLevelBonus	BONUS:VAR|CasterLevel_Highest|Cleric_Caster_Level|TYPE=Base
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Aura
@@ -318,7 +318,7 @@ CLASS:Paladin	PREALIGN:LG
 # Class Name	Skill Pts/Lvl
 CLASS:Paladin	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
-CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Paladin|CL-3|PRECLASS:1,Paladin=4
+CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Paladin|Paladin_Caster_Level	DEFINE:Paladin_Caster_Level|0	BONUS:VAR|Paladin_Caster_Level|CL+CasterLevelBonus	BONUS:VAR|CasterLevel_Highest|Paladin_Caster_Level|TYPE=Base-3|PRECLASS:1,Paladin=4
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy,TYPE.PaladinArmorProficiencyLight,TYPE.PaladinArmorProficiencyMedium,TYPE.PaladinArmorProficiency,TYPE.PaladinShieldProf,TYPE.PaladinShieldProficiency
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies
@@ -385,7 +385,7 @@ CLASS:Ranger	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:p.
 # Class Name	Skill Pts/Lvl
 CLASS:Ranger	STARTSKILLPTS:6
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
-CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|CL-3|PRECLASS:1,Ranger=4
+CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|Ranger_Caster_Level	DEFINE:Ranger_Caster_Level|0	BONUS:VAR|Ranger_Caster_Level|CL+CasterLevelBonus	BONUS:VAR|CasterLevel_Highest|Ranger_Caster_Level|TYPE=Base-3|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Ranger|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerWeaponProficiency,TYPE.RangerArmorProficiencies,TYPE.RangerMediumArmorProficiency,TYPE.RangerLightArmorProficiency,TYPE.RangerShieldProficiency
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWeaponProficiency,TYPE.RangerWeaponProficiencies
@@ -473,7 +473,7 @@ CLASS:Sorcerer	HD:6		TYPE:Base.PC.SpontaneousArcane.Spontaneous	CLASSTYPE:PC	ABB
 # Class Name	Skill Pts/Lvl
 CLASS:Sorcerer	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL
+CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|Sorcerer_Caster_Level	DEFINE:Sorcerer_Caster_Level|0	BONUS:VAR|Sorcerer_Caster_Level|CL+CasterLevelBonus	BONUS:VAR|CasterLevel_Highest|Sorcerer_Caster_Level|TYPE=Base
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Sorcerer|!PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererWeaponProficiencies
@@ -511,7 +511,7 @@ CLASS:Wizard	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wiz		MAXLEVEL:20	ALLOWBASECLASS
 # Class Name	Skill Pts/Lvl
 CLASS:Wizard	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level
-CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
+CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|Wizard_Caster_Level	DEFINE:Wizard_Caster_Level|0	BONUS:VAR|Wizard_Caster_Level|CL+CasterLevelBonus	BONUS:VAR|CasterLevel_Highest|Wizard_Caster_Level|TYPE=Base
 #
 SUBCLASS:Abjurer		COST:0	CHOICE:SCHOOL|Abjuration
 SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Abjuration School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
@@ -800,7 +800,7 @@ CLASS:Adept		HD:6		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Adp		MAXLEVEL:20	SOURCEPAGE:p
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Adept		STARTSKILLPTS:2	CSKILL:TYPE=Craft|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft|Survival
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level			Use Spell List
-CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Adept|CL	SPELLLIST:1|Adept
+CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Adept|Adept_Caster_Level	DEFINE:Adept_Caster_Level|0	BONUS:VAR|Adept_Caster_Level|CL+CasterLevelBonus	BONUS:VAR|CasterLevel_Highest|Adept_Caster_Level|TYPE=Base	SPELLLIST:1|Adept
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Adept=0|Create Water,Detect Magic,Ghost Sound,Guidance,Light,Mending,Purify Food and Drink,Read Magic,Stabilize,Touch of Fatigue
 1	SPELLLEVEL:CLASS|Adept=1|Bless,Burning Hands,Cause Fear,Command,Comprehend Languages,Cure Light Wounds,Detect Chaos,Detect Evil,Detect Good,Detect Law,Endure Elements,Obscuring Mist,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Sleep
