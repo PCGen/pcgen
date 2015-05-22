@@ -4,4 +4,4 @@ SOURCELONG:Second Darkness, Chapter 5: A Memory of Darkness	SOURCESHORT:AP17	SOU
 #Imported from rSRD 3.5 Epic Feats File
 # Feat Name		Type		Required Class			Required Lvl	Required Skill			Description																					Stackable?	Multiple?	Choose														Source Page
 # Ability Name	Type		Required Class			Required Lvl	Required Skill			Description																					Stackable?	Multiple?	Choose														Source Page
-Spell Stowaway	TYPE:Epic	PRECLASS:1,Spellcaster=12	PRELEVEL:MIN=21	PRESKILL:1,Spellcraft=24	DESC:If another spellcaster within 300 feet of you uses the ability you selected, you also immediately gains the magic's effect.	STACK:NO	MULT:YES	CHOOSE:SPELLS|SPELLBOOK=Innate|SPELLTYPE=Arcane[KNOWN=YES]|SPELLTYPE=Divine[KNOWN=YES]	SOURCEPAGE:EpicFeats
+Spell Stowaway	TYPE:Epic	PREMULT:1,[PRECLASS:1,SPELLCASTER=12],[PREVARGTEQ:CasterLevel_Highest,12]	PRELEVEL:MIN=21	PRESKILL:1,Spellcraft=24	DESC:If another spellcaster within 300 feet of you uses the ability you selected, you also immediately gains the magic's effect.	STACK:NO	MULT:YES	CHOOSE:SPELLS|SPELLBOOK=Innate|SPELLTYPE=Arcane[KNOWN=YES]|SPELLTYPE=Divine[KNOWN=YES]	SOURCEPAGE:EpicFeats
