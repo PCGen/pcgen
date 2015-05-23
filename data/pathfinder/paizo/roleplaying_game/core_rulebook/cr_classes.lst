@@ -318,7 +318,7 @@ CLASS:Paladin	PREALIGN:LG
 # Class Name	Skill Pts/Lvl
 CLASS:Paladin	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
-CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Paladin|Paladin_Caster_Level	DEFINE:Paladin_Caster_Level|0	BONUS:VAR|Paladin_Caster_Level|CL+CasterLevelBonus	BONUS:VAR|CasterLevel_Highest|Paladin_Caster_Level|TYPE=Base-3|PRECLASS:1,Paladin=4
+CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Paladin|Paladin_Caster_Level	DEFINE:Paladin_Caster_Level|0	BONUS:VAR|Paladin_Caster_Level|CL+CasterLevelBonus-3|PRECLASS:1,Paladin=4	BONUS:VAR|CasterLevel_Highest|Paladin_Caster_Level|TYPE=Base
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy,TYPE.PaladinArmorProficiencyLight,TYPE.PaladinArmorProficiencyMedium,TYPE.PaladinArmorProficiency,TYPE.PaladinShieldProf,TYPE.PaladinShieldProficiency
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies
@@ -385,7 +385,7 @@ CLASS:Ranger	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:p.
 # Class Name	Skill Pts/Lvl
 CLASS:Ranger	STARTSKILLPTS:6
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
-CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|Ranger_Caster_Level	DEFINE:Ranger_Caster_Level|0	BONUS:VAR|Ranger_Caster_Level|CL+CasterLevelBonus	BONUS:VAR|CasterLevel_Highest|Ranger_Caster_Level|TYPE=Base-3|PRECLASS:1,Ranger=4
+CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|Ranger_Caster_Level	DEFINE:Ranger_Caster_Level|0	BONUS:VAR|Ranger_Caster_Level|CL+CasterLevelBonus-3|PRECLASS:1,Ranger=4	BONUS:VAR|CasterLevel_Highest|Ranger_Caster_Level|TYPE=Base
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Ranger|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerWeaponProficiency,TYPE.RangerArmorProficiencies,TYPE.RangerMediumArmorProficiency,TYPE.RangerLightArmorProficiency,TYPE.RangerShieldProficiency
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWeaponProficiency,TYPE.RangerWeaponProficiencies
