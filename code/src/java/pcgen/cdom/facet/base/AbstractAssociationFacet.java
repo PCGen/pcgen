@@ -123,7 +123,11 @@ public abstract class AbstractAssociationFacet<S, A> extends
 		if (map != null)
 		{
 			A old = map.remove(obj);
-			fireScopeFacetChangeEvent(id, obj, old, DataFacetChangeEvent.DATA_REMOVED);
+			if (old != null)
+			{
+				// Only send out notifications if we really removed something.
+				fireScopeFacetChangeEvent(id, obj, old, DataFacetChangeEvent.DATA_REMOVED);
+			}
 		}
 	}
 
