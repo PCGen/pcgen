@@ -79,8 +79,6 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 			LanguageBundle.getString("in_Prefs_showSkillRanksBreakdown"); //$NON-NLS-1$
 //	private static String in_showToolBar =
 //			LanguageBundle.getString("in_Prefs_showToolBar");
-	private static String in_showFeatDescription =
-			LanguageBundle.getString("in_Prefs_showFeatDesciption"); //$NON-NLS-1$
 	private static String in_singleChoiceOption =
 			LanguageBundle.getString("in_Prefs_singleChoiceOption"); //$NON-NLS-1$
 	private static String in_cmNone =
@@ -92,7 +90,6 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	private static String[] singleChoiceMethods =
 			{in_cmNone, in_cmSelect, in_cmSelectExit};
 
-	private JCheckBox featDescriptionShown = new JCheckBox();
 //	private JCheckBox showToolbar = new JCheckBox();
 	private JCheckBox showSkillModifier = new JCheckBox();
 	private JCheckBox showSkillRanks = new JCheckBox();
@@ -131,7 +128,6 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		final SortedMap<String, JComponent> options =
 				new TreeMap<String, JComponent>();
 
-		options.put(in_showFeatDescription, featDescriptionShown);
 //		options.put(in_showMemory, showMemory);
 //		options.put(in_showImagePreview, showImagePreview);
 		options.put(in_showSkillModifierBreakdown, showSkillModifier);
@@ -209,9 +205,6 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		UIPropertyContext.setSingleChoiceAction(cmbChoiceMethods
 			.getSelectedIndex());
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
-			PCGenSettings.OPTION_SHOW_FEAT_BENEFIT_NOT_DESC,
-			!featDescriptionShown.isSelected());
-		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
 			PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN,
 			showSkillModifier.isSelected());
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
@@ -227,8 +220,6 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	{
 		cmbChoiceMethods.setSelectedIndex(UIPropertyContext
 			.getSingleChoiceAction());
-		featDescriptionShown.setSelected(!PCGenSettings.OPTIONS_CONTEXT.getBoolean(
-			PCGenSettings.OPTION_SHOW_FEAT_BENEFIT_NOT_DESC, false));
 //		showMemory.setSelected(SettingsHandler.isShowMemoryArea());
 //		showImagePreview.setSelected(SettingsHandler.isShowImagePreview());
 		showSkillModifier.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
