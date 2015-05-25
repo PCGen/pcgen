@@ -53,7 +53,6 @@ public class PCGenSettings extends PropertyContext
 	public static final String OPTION_SHOW_SKILL_MOD_BREAKDOWN = "showSkillModBreakdown";
 	public static final String OPTION_SHOW_SKILL_RANK_BREAKDOWN = "showSkillRankBreakdown";
 	public static final String OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS = "showOutputNameForOtherItems";
-	public static final String OPTION_SHOW_FEAT_BENEFIT_NOT_DESC = "showFeatBenefitNotDesc";
 	public static final String OPTION_AUTOLOAD_SOURCES_AT_START = "autoloadSourcesAtStart";
 	public static final String OPTION_AUTOLOAD_SOURCES_WITH_PC = "autoloadSourcesWithPC";
 	public static final String OPTION_AUTOCREATE_MW_MAGIC_EQUIP = "autoCreateMagicMwEquip";

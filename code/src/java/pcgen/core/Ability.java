@@ -191,12 +191,6 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 	@Override
 	public ListKey<Description> getDescriptionKey()
 	{
-		boolean showFeatBenefitNotDesc = PCGenSettings.OPTIONS_CONTEXT.getBoolean(
-			PCGenSettings.OPTION_SHOW_FEAT_BENEFIT_NOT_DESC, false);
-		if (showFeatBenefitNotDesc && containsListFor(ListKey.BENEFIT))
-		{
-			return ListKey.BENEFIT;
-		}
 		return ListKey.DESCRIPTION;
 	}
 
