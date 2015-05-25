@@ -4,7 +4,7 @@
 # Class Name			Hit Dice	Type			Max Level	Source Page		Define					Combat bonus										Save bonus																														Modify VAR
 CLASS:Pure Legion Enforcer	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.32	DEFINE:Pure_Legion_EnforcerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")+3/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+3/2	BONUS:VAR|Pure_Legion_EnforcerLVL|CL
 # Class Name			Required Ability						Required AL		Prohibited Class				Prohibited Deity	Required Skill							!PRESPELLTYPE			Required Text
-CLASS:Pure Legion Enforcer	PREABILITY:1,CATEGORY=FEAT,Godless Healing	PREALIGN:LG,LN,LE	!PRECLASS:1,SPELLCASTER.Divine=1	!PREDEITY:1,ANY	PRESKILL:2,Knowledge (religion)=5,Sense Motive=4	!PRESPELLTYPE:1,Divine=1	PRETEXT:Alignment: Any lawful. Deity: Cannot worship a deity. Feats: Godless Healing. Skills: Knowledge (religion) 5 ranks, Sense Motive 4 ranks. Special: Cannot cast divine spells.
+CLASS:Pure Legion Enforcer	PREABILITY:1,CATEGORY=FEAT,Godless Healing	PREALIGN:LG,LN,LE	PREMULT:1,[!PRECLASS:1,SPELLCASTER.Divine=1],[PREVARLT:Caster_Level_Highest__Divine,1]	PREMULT:1,[!PREDEITY:1,ANY],[PREDEITY:1,None]	PRESKILL:2,Knowledge (religion)=5,Sense Motive=4	!PRESPELLTYPE:1,Divine=1	PRETEXT:Alignment: Any lawful. Deity: Cannot worship a deity. Feats: Godless Healing. Skills: Knowledge (religion) 5 ranks, Sense Motive 4 ranks. Special: Cannot cast divine spells.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Pure Legion Enforcer	STARTSKILLPTS:4	CSKILL:Diplomacy|Heal|Intimidate|Knowledge (local)|Knowledge (religion)|Perception|Sense Motive|Spellcraft|Survival
 ###Block

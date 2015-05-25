@@ -1,5 +1,22 @@
 # CVS $Revision$ $Author$ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 
+###Block: Caster Level Tracking
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Arcane|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Divine|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Bonus|0
+# Combined to get Highest Arcane or Divine caster level
+CATEGORY=Internal|Default.MOD	BONUS:VAR|Caster_Level_Highest|max(Caster_Level_Highest__Arcane,Caster_Level_Highest__Divine)
+
+#	This system is designed to be expandable to new classes. Each class is designated as either "Arcane" or "Divine".
+#	BONUS:CASTERLEVEL|ClassName|ClassName_Caster_Level	DEFINE:ClassName_Caster_Level|0	BONUS:VAR|ClassName_Caster_Level|CL+Caster_Level_Bonus	BONUS:VAR|Caster_Level_Highest__Divine|ClassName_Caster_Level|TYPE=Base
+#	You can then determine Caster level for any class "ClassName_Caster_Level" or meet prereqs based upon Highest Caster Level for Arcane or Divine.
+#	PREVARGTEQ:Caster_Level_Highest,x
+#	PREVARGTEQ:Caster_Level_Highest__Arcane,x
+#	PREVARGTEQ:Caster_Level_Highest__Divine,x
+
+
+
 ###SPells Temp Spot - Move these to the originating book or set up control list
 ###Block: Spell Like Abilities - Make it easier to manage spells individually
 

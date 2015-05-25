@@ -9,8 +9,26 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 #					Ability Pool
 # Ability Name			Define											Bonus Ability Pool
 CATEGORY=Internal|Default.MOD	DEFINE:Divine_Bond_Mount|0	DEFINE:Hunters_Bond_Animal_Companion|0	BONUS:ABILITYPOOL|Favored Class|1|PREPCLEVEL:MIN=1	
-CATEGORY=Internal|Default.MOD	DEFINE:CasterLevel_Highest|0	DEFINE:CasterLevelBonus|0
+# Keep defines for Caster level in one location for easier modification - for classes outside the core, the DEFINES will be with their classes. 
+# Due to a Code Bug, had to use BL_Stripped_Class to make this system work consistently.
+# Core Rule Book
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Bard|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Cleric|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Druid|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Paladin|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Ranger|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Sorcerer|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Wizard|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Adept|0
 
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_BL_Stripped_Bard|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_BL_Stripped_Cleric|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_BL_Stripped_Druid|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_BL_Stripped_Paladin|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_BL_Stripped_Ranger|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_BL_Stripped_Sorcerer|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_BL_Stripped_Wizard|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_BL_Stripped_Adept|0
 
 ###Block: Favored Classes
 # Ability Name	Category of Ability		Type			Visible		Stackable?	Multiple?	Bonus Ability Pool
