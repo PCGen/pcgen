@@ -8,7 +8,7 @@ CLASS:Magus		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mag		MAXLEVEL:20	SOURCEPAGE:p.9
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Magus		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Planes)|TYPE=Profession|Ride|Spellcraft|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
-CLASS:Magus		SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Magus|Caster_Level_BL_Stripped_Magus	BONUS:VAR|Caster_Level_BL_Stripped_Magus|Caster_Level_Magus-CasterLevelBLMagus	BONUS:VAR|Caster_Level_Magus|CL+Caster_Level_Bonus+CasterLevelBLMagus	DEFINE:CasterLevelBLMagus|0	BONUS:VAR|CasterLevelBLMagus|var("BL=Magus")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Magus|TYPE=Base	DEFINE:Caster_Level_Magus|0	DEFINE:Caster_Level_BL_Stripped_Magus|0
+CLASS:Magus		SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Magus|Caster_Level_BL_Stripped_Magus	BONUS:VAR|Caster_Level_BL_Stripped_Magus|Caster_Level_Magus-CasterLevelBLMagus	BONUS:VAR|Caster_Level_Magus|CL+Caster_Level_Bonus+CasterLevelBLMagus	DEFINE:CasterLevelBLMagus|0	BONUS:VAR|CasterLevelBLMagus|charbonusto("PCLEVEL","Magus")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Magus|TYPE=Base	DEFINE:Caster_Level_Magus|0	DEFINE:Caster_Level_BL_Stripped_Magus|0
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
 1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusLightArmorProficiency|PREVARGTEQ:MagusArmorProficiencyLVL,1
