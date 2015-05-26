@@ -1163,10 +1163,10 @@ Sorcerer Bloodline	KEY:Sorcerer ~ Sorcerer Bloodline	CATEGORY:Special Ability	TY
 Eschew Materials		KEY:Sorcerer ~ Eschew Materials	CATEGORY:Special Ability	TYPE:SorcererClassFeatures.Internal																																																										ABILITY:FEAT|AUTOMATIC|Eschew Materials
 
 ###Block: 
-CATEGORY=Special Ability|Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFeatCount|(BloodlineFeatProgression-1)/6	BONUS:VAR|BloodlineFeatProgression|BloodlineLVL|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererBloodlineFeats
-CATEGORY=Special Ability|Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFeatCount|-1|PREVARGTEQ:BloodlineFeatProgression,7|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererBloodlineFeat7
-CATEGORY=Special Ability|Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFeatCount|-1|PREVARGTEQ:BloodlineFeatProgression,13|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererBloodlineFeat13
-CATEGORY=Special Ability|Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFeatCount|-1|PREVARGTEQ:BloodlineFeatProgression,19|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererBloodlineFeat19
+CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFeatCount|(BloodlineFeatProgression-1)/6	BONUS:VAR|BloodlineFeatProgression|BloodlineLVL|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererBloodlineFeats
+CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFeatCount|-1|PREVARGTEQ:BloodlineFeatProgression,7|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererBloodlineFeat7
+CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFeatCount|-1|PREVARGTEQ:BloodlineFeatProgression,13|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererBloodlineFeat13
+CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFeatCount|-1|PREVARGTEQ:BloodlineFeatProgression,19|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererBloodlineFeat19
 #CATEGORY=Special Ability|Sorcerer Bloodline.MOD	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|1|PREVARGTEQ:BloodlineCasterLVL,11
 #CATEGORY=Special Ability|Sorcerer Bloodline.MOD	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|1|PREVARGTEQ:BloodlineCasterLVL,13
 #CATEGORY=Special Ability|Sorcerer Bloodline.MOD	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|1|PREVARGTEQ:BloodlineCasterLVL,15
