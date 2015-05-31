@@ -1072,3 +1072,5 @@ Hippopotamus Companion Advancement		SIZE:L	VISIBLE:NO	SOURCEPAGE:p.157	BONUS:VAR
 Awakened Animal					PRERACE:1,RACETYPE=Animal,TYPE=Animal	!PRESTAT:1,INT=3									ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	ADDLEVEL:Animal|2
 Awakened Vermin	DEFINESTAT:STAT|INT	PRERACE:1,RACETYPE=Vermin,TYPE=Vermin	!PRESTAT:1,INT=3					BONUS:VAR|Mindless|-1	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Vermin	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	ADDLEVEL:Vermin|2
 Awakened Tree	DEFINESTAT:STAT|INT								!PRESTAT:1,INT=3	PRETEXT:Inanimate Tree	BONUS:VAR|Mindless|-1	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Tree	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Plant
+
+Monster is a PC		BONUS:VAR|IsPC|1
