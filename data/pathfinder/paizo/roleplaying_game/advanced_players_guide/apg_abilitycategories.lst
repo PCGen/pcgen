@@ -42,7 +42,7 @@ ABILITYCATEGORY:Teamwork Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACT
 
 ###Block: Oracular Ability Categories
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI		Display Location
-ABILITYCATEGORY:Oracle Curse				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleCurse					PLURAL:Oracle's Curses			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Curse				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleCurse					PLURAL:Oracle Curses			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Oracle Mystery			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleMystery				PLURAL:Oracle Mysteries			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Battle Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BattleRevelation.GeneralRevelation	PLURAL:Battle Mystery Revelations	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Bone Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BoneRevelation.GeneralRevelation	PLURAL:Bone Mystery Revelations	DISPLAYLOCATION:Class Features
@@ -58,6 +58,7 @@ ABILITYCATEGORY:Soothsayer Revelation		VISIBLE:NO		EDITABLE:YES	EDITPOOL:YES	FRA
 ABILITYCATEGORY:Oracle Maneuver Mastery		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleManeuverMastery			PLURAL:Oracle Maneuver Masteries	DISPLAYLOCATION:Class Features
 #ABILITYCATEGORY:Oracle Weapon Mastery		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OracleWeaponMastery			PLURAL:Oracle Weapon Masteries	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Oracle Spell Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleSpellChoice				PLURAL:Oracle Spell Choices		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Oracle Tongues Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OracleTonguesChoice			PLURAL:Oracle Tongues Choices		DISPLAYLOCATION:Class Features
 
 # Summoner Aspect Choices
 ABILITYCATEGORY:Summoner Aspect			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SummonerAspect				PLURAL:Summoner Aspects			DISPLAYLOCATION:Class Features
