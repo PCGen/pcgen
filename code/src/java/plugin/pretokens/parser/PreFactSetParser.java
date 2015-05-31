@@ -114,7 +114,7 @@ public class PreFactSetParser extends AbstractPrerequisiteListParser
 		}
 
 		String filetype = elements[1];
-		String[] fileElements  = filetype.split(".");
+		String[] fileElements  = filetype.split("\\.");
 		if (!OutputDB.isLegal(fileElements[0]))
 		{
 			throw new PersistenceLayerException("'" + elements[1]
@@ -132,11 +132,11 @@ public class PreFactSetParser extends AbstractPrerequisiteListParser
 		}
 		prereq.setOperand(elements[0]);
 
-		if (elements.length == 2)
+		if (elements.length == 3)
 		{
 			// We only have a number of prereqs to pass, and a single prereq so we do not want a
 			// wrapper prereq around a list of 1 element.
-			// i.e. 2,TYPE=ItemCreation
+			// i.e. 1,DEITY,PANTHEONS=Greek
 			prereq.setKey(elements[2]);
 		}
 		else
