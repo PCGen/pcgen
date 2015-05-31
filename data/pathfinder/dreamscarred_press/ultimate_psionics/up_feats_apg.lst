@@ -3,10 +3,10 @@ SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.c
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2013/07/08
 
-# Feat Name			Type
-Parting Shot.MOD		TYPE:MarksmanBonus
-Disrupting Shot.MOD	TYPE:FinesseMarksmanBonus
-Crossbow Mastery.MOD	TYPE:VolleyMarksmanBonus
+# Feat Name					Type
+CATEGORY=FEAT|Parting Shot.MOD	TYPE:MarksmanBonus
+CATEGORY=FEAT|Disrupting Shot.MOD	TYPE:FinesseMarksmanBonus
+CATEGORY=FEAT|Crossbow Mastery.MOD	TYPE:VolleyMarksmanBonus
 
 #
 # End
