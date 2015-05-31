@@ -95,4 +95,26 @@ public class BasicIndirect<T> implements Indirect<T>
 	{
 		return manager.unconvert(object);
 	}
+
+	@Override
+	public String toString()
+	{
+		return String.valueOf(object);
+	}
+
+	@SuppressWarnings("rawtypes")
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj instanceof BasicIndirect)
+		{
+			BasicIndirect other = (BasicIndirect) obj;
+			if (object == null)
+			{
+				return other.object == null;
+			}
+			return object.equals(other.object);
+		}
+		return false;
+	}
 }

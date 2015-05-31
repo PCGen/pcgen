@@ -48,7 +48,7 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 	public int passes(final Prerequisite prereq, final PlayerCharacter aPC, CDOMObject source) throws PrerequisiteException
 	{
 		String location = prereq.getCategoryName();
-		String[] locationElements  = location.split(".");
+		String[] locationElements  = location.split("\\.");
 		String test = prereq.getKey();
 		String[] factinfo = test.split("=");
 		String factid = factinfo[0];

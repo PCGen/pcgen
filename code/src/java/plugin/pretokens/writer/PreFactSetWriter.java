@@ -70,7 +70,7 @@ public class PreFactSetWriter extends AbstractPrerequisiteWriter implements
 			writer.write("PREFACTSET:" + (prereq.isOverrideQualify() ? "Q:":""));
 			writer.write(prereq.getOperand());
 			writer.write(',');
-			writer.write("ID=" + prereq.getCategoryName() + ",");
+			writer.write(prereq.getCategoryName() + ",");
 			writer.write(prereq.getKey());
 		}
 		catch (IOException e)

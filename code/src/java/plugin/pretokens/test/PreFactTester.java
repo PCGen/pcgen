@@ -19,6 +19,7 @@ package plugin.pretokens.test;
 
 import java.util.Map;
 
+import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.core.Globals;
@@ -46,7 +47,7 @@ public class PreFactTester extends AbstractPrerequisiteTest implements Prerequis
 	public int passes(final Prerequisite prereq, final PlayerCharacter aPC, CDOMObject source) throws PrerequisiteException
 	{
 		String location = prereq.getCategoryName();
-		String[] locationElements  = location.split(".");
+		String[] locationElements  = location.split("\\.");
 		String test = prereq.getKey();
 		String[] factinfo = test.split("=");
 		String factid = factinfo[0];
@@ -79,12 +80,13 @@ public class PreFactTester extends AbstractPrerequisiteTest implements Prerequis
 		}
 		Iterable<CDOMObject> objModel = (Iterable<CDOMObject>) m;
 		FactKey<?> fk = FactKey.valueOf(factid);
-		Object targetVal = fk.getFormatManager().convert(Globals.getContext(), factval);
+		Object targetVal = fk.getFormatManager().convertIndirect(Globals.getContext(), factval);
 		
 		int runningTotal = 0;
 		for (CDOMObject cdo : objModel)
 		{
-			if (targetVal.equals(cdo.get(fk)))
+			Indirect<?> cdoVal = cdo.get(fk);
+			if (targetVal.equals(cdoVal))
 			{
 				runningTotal++;
 			}
