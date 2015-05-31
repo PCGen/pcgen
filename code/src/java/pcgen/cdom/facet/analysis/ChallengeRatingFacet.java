@@ -87,10 +87,11 @@ public class ChallengeRatingFacet
 			{
 				return null;
 			}
-			/*
-			 * BUG calcRaceCR can return null, cause NPE
-			 */
-			cr += calcRaceCR(id);
+			Integer raceCR = calcRaceCR(id);
+			if (raceCR != null)
+			{
+				cr += raceCR;
+			}
 			cr += classRaceCR;
 		}
 		
