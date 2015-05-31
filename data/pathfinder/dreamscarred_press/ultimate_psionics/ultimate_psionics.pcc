@@ -7,6 +7,8 @@ RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:None
+# By Elro - necessary at least for Core Essentials setup
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 !PRECAMPAIGN:1,INCLUDES=DSP - Psionics Unleashed,INCLUDES=DSP - Psionics Expanded
 STATUS:BETA
 PUBNAMELONG:Dreamscarred Press
