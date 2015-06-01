@@ -15,20 +15,20 @@ Revelation Quill (Minor Artifact)	TYPE:Magic.Artifact.Minor.Quill.Wondrous			WT:
 #Block: Staves ------------------------------------------------------------------------------------------
 Staff of Hungry Shadows			TYPE:Staff.Magic					COST:65000			EQMOD:CHARGED_ITEM_50|CHARGES[50]
 #Aura Strong conjuration, evocation, and necromancy; CL 13th
-#� ray of enfeeblement (1 charge)
-#� darkness (1 charge)
-#� vampiric touch (1 charge)
-#� enervation (2 charges)
-#� summon shadow (as summon monster V but summons 1 shadow, 2 charges)
-#� call devourer (as planar binding but calls 1 devourer, 3 charges)
+#' ray of enfeeblement (1 charge)
+#' darkness (1 charge)
+#' vampiric touch (1 charge)
+#' enervation (2 charges)
+#' summon shadow (as summon monster V but summons 1 shadow, 2 charges)
+#' call devourer (as planar binding but calls 1 devourer, 3 charges)
 
 
 Staff of Mithral Might			TYPE:Staff.Magic					COST:46500			EQMOD:PLUS2W	EQMOD:CHARGED_ITEM_50|CHARGES[50]												BONUS:STAT|INT|2|TYPE=Enhancement
 #Aura Strong transmutation; CL 12th
-#� bull's strength (1 charge)
-#� enlarge person (1 charge)
-#� telekinesis (3 charges)
-#� flesh to stone (4 charges)
+#' bull's strength (1 charge)
+#' enlarge person (1 charge)
+#' telekinesis (3 charges)
+#' flesh to stone (4 charges)
 
 #Block: Runes ------------------------------------------------------------------------------------------------
 Rune of Resistance			TYPE:Magic.Rune					COST:45000																													SPROP:Resistance 10 to two energy types chosen at the time that the rune is inscribed.
