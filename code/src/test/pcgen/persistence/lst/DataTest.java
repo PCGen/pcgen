@@ -279,6 +279,7 @@ public class DataTest
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_KIT));
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_BIO_SET));
+		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_DATACTRL));
 		return cseList;
 	}
 	
