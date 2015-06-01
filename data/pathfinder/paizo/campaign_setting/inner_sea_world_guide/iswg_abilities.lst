@@ -8,6 +8,7 @@ CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Backgrou
 ###Block: Human Ethnicities
 # Ability Name	Product Identity?	Category of Ability	Type				Visible		Template						Bonus Ability Pool			Source Page
 Azlanti		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Azlanti)								SOURCEPAGE:p.12
+Azlanti Pureblood	NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Azlanti)		BONUS:ABILITYPOOL|Ability Bonus|-1	SOURCEPAGE:p.12	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|2
 Chelaxian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Chelaxian)							SOURCEPAGE:p.13
 Garundi		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Garundi)								SOURCEPAGE:p.14
 Keleshite		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Keleshite)							SOURCEPAGE:p.15
