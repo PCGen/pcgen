@@ -255,7 +255,7 @@ RESIZABLEEQUIPTYPE:Armor|Shield|Ammunition|Resizable
 # Character Types:
 CHARACTERTYPE:PC|NPC
 
-DEFAULTDATASET:MSRD - Basics,MSRD - Arcana,MSRD - Future,MSRD - Menaces|MSRD
+#DEFAULTDATASET:MSRD - Basics|MSRD - Arcana|MSRD - Future|MSRD - Menaces|MSRD
 
 #
 # End
