@@ -1,0 +1,95 @@
+# Created January, 2015 Tom Parker
+# This file represents a conversion mechanism for items that were previously
+# stand-alone tokens, but are now handled internally as FACT or FACTSET.
+#
+# This file does not need to be referenced by a set of data or game mode
+# unless that data uses a data control file (DATACONTROL: in a PCC file)
+#
+# Once a dataset takes on the responsibility of a DATACONTROL file, then it 
+# MUST include these entries (or something near equivalent [additional
+# SELECT-ability would be legal]) in one of the DATACONTROL files.
+
+# This MUST be included if you enable the datacontrol file....
+
+FACTDEF:ABILITY|AppliedName	DATAFORMAT:String		VISIBLE:YES
+
+FACTDEF:CLASS|Abb			DATAFORMAT:String		VISIBLE:YES
+FACTDEF:CLASS|ClassType		DATAFORMAT:String		VISIBLE:YES
+FACTDEF:CLASS|SpellType		DATAFORMAT:String		VISIBLE:YES	SELECTABLE:YES
+
+FACTDEF:DEITY|Symbol			DATAFORMAT:String		VISIBLE:YES
+FACTDEF:DEITY|Worshippers		DATAFORMAT:String		VISIBLE:YES
+FACTDEF:DEITY|Title			DATAFORMAT:String		VISIBLE:YES
+FACTDEF:DEITY|Appearance		DATAFORMAT:String		VISIBLE:YES
+
+FACTDEF:EQUIPMENT|RateOfFire	DATAFORMAT:String		VISIBLE:YES
+
+FACTDEF:TEMPLATE|AppliedName	DATAFORMAT:String		VISIBLE:YES
+
+FACTSETDEF:DEITY|Pantheon		DATAFORMAT:String		VISIBLE:YES	SELECTABLE:YES
+FACTSETDEF:DEITY|Race			DATAFORMAT:String		VISIBLE:YES
+
+
+
+
+#FACTDEF:CHECKS|MAINSTAT		DATAFORMAT:STRING	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:MAINSTAT		EXPLANATION:Abbreviation of Stat that is used for the Check (Save)
+
+# This is my attempt to implement the FACT system to replicate the deprecated PRETYPE to determine whether a given race is initially allowed traits
+FACTDEF:RACE|IsPC		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a PC to begin with.
+
+FACTDEF:ABILITY|IsPC		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a PC to begin with.
+
+
+
+
+
+
+
+
+###Block: Each Class Archetype has two FACTS it must have - 
+#	CF is meant to disable a Class Feature, or a portion of one.
+#	Archetype is meant to prevent another Archetype of the same class from affecting the same feature
+
+# Barbarian Archetype
+FACTDEF:ABILITY|Barbarian_Archetype_Rage					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage					EXPLANATION:Determines whether a race is a PC to begin with.
+FACTDEF:ABILITY|Barbarian_Archetype_Fast_Movement			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Fast_Movement			EXPLANATION:Determines whether a race is a PC to begin with.
+FACTDEF:ABILITY|Barbarian_Archetype_Rage_Powers				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Powers				EXPLANATION:Determines whether a race is a PC to begin with.
+FACTDEF:ABILITY|Barbarian_Archetype_Trap_Sense				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Trap_Sense				EXPLANATION:Determines whether a race is a PC to begin with.
+FACTDEF:ABILITY|Barbarian_Archetype_Damage_Reduction			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Damage_Reduction			EXPLANATION:Determines whether a race is a PC to begin with.
+FACTDEF:ABILITY|Barbarian_Archetype_Greater_Rage			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Greater_Rage			EXPLANATION:Determines whether a race is a PC to begin with.
+FACTDEF:ABILITY|Barbarian_Archetype_Indomitable_Will			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Indomitable_Will			EXPLANATION:Determines whether a race is a PC to begin with.
+FACTDEF:ABILITY|Barbarian_Archetype_Tireless_Rage			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Tireless_Rage			EXPLANATION:Determines whether a race is a PC to begin with.
+FACTDEF:ABILITY|Barbarian_Archetype_Mighty_Rage				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Mighty_Rage				EXPLANATION:Determines whether a race is a PC to begin with.
+
+# Barbarian Class Feature Alterations
+FACTDEF:ABILITY|Barbarian_CF_Rage					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage					EXPLANATION:Barbarian Rage removed
+FACTDEF:ABILITY|Barbarian_CF_Fast_Movement			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Fast_Movement			EXPLANATION:Barbarian Fast Movement removed
+FACTDEF:ABILITY|Barbarian_CF_Rage_Powers				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Powers				EXPLANATION:Barbarian Rage Powers removed
+FACTDEF:ABILITY|Barbarian_CF_Rage_Power2				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Power2				EXPLANATION:Barbarian Rage Power at level 2 removed
+FACTDEF:ABILITY|Barbarian_CF_Rage_Power4				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Power4				EXPLANATION:Barbarian Rage Power at level 4 removed
+FACTDEF:ABILITY|Barbarian_CF_Rage_Power6				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Power6				EXPLANATION:Barbarian Rage Power at level 6 removed
+FACTDEF:ABILITY|Barbarian_CF_Rage_Power8				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Power8				EXPLANATION:Barbarian Rage Power at level 8 removed
+FACTDEF:ABILITY|Barbarian_CF_Rage_Power10				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Power10				EXPLANATION:Barbarian Rage Power at level 10 removed
+FACTDEF:ABILITY|Barbarian_CF_Rage_Power12				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Power12				EXPLANATION:Barbarian Rage Power at level 12 removed
+FACTDEF:ABILITY|Barbarian_CF_Rage_Power14				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Power14				EXPLANATION:Barbarian Rage Power at level 14 removed
+FACTDEF:ABILITY|Barbarian_CF_Rage_Power16				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Power16				EXPLANATION:Barbarian Rage Power at level 16 removed
+FACTDEF:ABILITY|Barbarian_CF_Rage_Power18				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Power18				EXPLANATION:Barbarian Rage Power at level 18 removed
+FACTDEF:ABILITY|Barbarian_CF_Rage_Power20				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Power20				EXPLANATION:Barbarian Rage Power at level 20 removed
+FACTDEF:ABILITY|Barbarian_CF_Trap_Sense				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Trap_Sense				EXPLANATION:Barbarian Trap Sense removed
+FACTDEF:ABILITY|Barbarian_CF_Trap_Sense1				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Trap_Sense1				EXPLANATION:Barbarian Trap Sense increase at 1 removed
+FACTDEF:ABILITY|Barbarian_CF_Trap_Sense2				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Trap_Sense2				EXPLANATION:Barbarian Trap Sense increase at 2 removed
+FACTDEF:ABILITY|Barbarian_CF_Trap_Sense3				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Trap_Sense3				EXPLANATION:Barbarian Trap Sense increase at 3 removed
+FACTDEF:ABILITY|Barbarian_CF_Trap_Sense4				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Trap_Sense4				EXPLANATION:Barbarian Trap Sense increase at 4 removed
+FACTDEF:ABILITY|Barbarian_CF_Trap_Sense5				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Trap_Sense5				EXPLANATION:Barbarian Trap Sense increase at 5 removed
+FACTDEF:ABILITY|Barbarian_CF_Trap_Sense6				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Trap_Sense6				EXPLANATION:Barbarian Trap Sense increase at 6 removed
+FACTDEF:ABILITY|Barbarian_CF_Damage_Reduction			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Damage_Reduction			EXPLANATION:Barbarian Damage Reduction completely removed
+FACTDEF:ABILITY|Barbarian_CF_Damage_Reduction1			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Damage_Reduction1			EXPLANATION:Barbarian Damage Reduction 1 removed
+FACTDEF:ABILITY|Barbarian_CF_Damage_Reduction2			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Damage_Reduction2			EXPLANATION:Barbarian Damage Reduction 2 removed
+FACTDEF:ABILITY|Barbarian_CF_Damage_Reduction3			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Damage_Reduction3			EXPLANATION:Barbarian Damage Reduction 3 removed
+FACTDEF:ABILITY|Barbarian_CF_Damage_Reduction4			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Damage_Reduction4			EXPLANATION:Barbarian Damage Reduction 4 removed
+FACTDEF:ABILITY|Barbarian_CF_Damage_Reduction5			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Damage_Reduction5			EXPLANATION:Barbarian Damage Reduction 5 removed
+FACTDEF:ABILITY|Barbarian_CF_Greater_Rage				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Greater_Rage				EXPLANATION:Barbarian Greater Rage removed
+FACTDEF:ABILITY|Barbarian_CF_Indomitable_Will			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Indomitable_Will			EXPLANATION:Barbarian Indomitable Will removed
+FACTDEF:ABILITY|Barbarian_CF_Tireless_Rage			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Tireless_Rage			EXPLANATION:Barbarian Tireless Rage removed
+FACTDEF:ABILITY|Barbarian_CF_Mighty_Rage				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Mighty_Rage				EXPLANATION:Barbarian Mighty Rage removed
+

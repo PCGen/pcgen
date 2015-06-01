@@ -44,7 +44,7 @@ ABILITYCATEGORY:Shadowdancer Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 
 ###Block: Character Traits
 # Ability Category		Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI		Display Location
-ABILITYCATEGORY:Traits		VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Trait		PLURAL:Traits				DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Traits		VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Trait		PLURAL:Traits				DISPLAYLOCATION:Traits	POOL:Pool_Traits
 
 # Archetypes
 ABILITYCATEGORY:Archetype	VISIBLE:NO		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype

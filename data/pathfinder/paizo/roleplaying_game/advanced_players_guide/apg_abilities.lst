@@ -4,7 +4,7 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 ###Block: Modify default ability
 # Add traits for PCs only
 # Ability Name			Bonus Ability Pool
-CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Traits|2|PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Default.MOD	BONUS:VAR|Pool_Traits|2|PREVARGTEQ:IsPC,1|PRECHARACTERTYPE:1,PC	BONUS:VAR|IsPC|1|PREFACT:1,RACE,IsPC=TRUE
 
 ###Block: Basic Traits: Combat Traits
 # Ability Name	Unique Key				Category of Ability		Type						Multiple Requirements																			Description																																																																					Combat bonus					Misc bonus			Save bonus					Source Page		Aspects

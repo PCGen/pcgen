@@ -3,17 +3,17 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 # ORIGINAL ENTRY: none
 # ORIGINAL ENTRY DATE: none
 # Race Name	SORTKEY		Starting Feats	Size		Move				Face/Space	Reach		Required Gender	Bonus Languages									Stat bonus						Modify VAR				Auto Language			Ability																	Define				Main Race Type	Race Subtype				Type				Challenge Rating	Source Page		Bonus language
-Changeling				STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5	PREGENDER:F		LANGBONUS:Aklo,Draconic,Dwarven,Elven,Giant,Gnoll,Goblin,Orc	BONUS:STAT|WIS,CHA|2	BONUS:STAT|CON|-2						AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Race Traits ~ Changeling															RACETYPE:Humanoid	RACESUBTYPE:Changeling			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.184	BONUS:LANGUAGES|NUMBER|1
-Gillman				STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5				LANGBONUS:Aklo,Aquan,Draconic,Elven						BONUS:STAT|CON,CHA|2	BONUS:STAT|WIS|-2						AUTO:LANG|Common|Aboleth	ABILITY:Internal|AUTOMATIC|Race Traits ~ Gillman															RACETYPE:Humanoid							TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.188
+Changeling				STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5	PREGENDER:F		LANGBONUS:Aklo,Draconic,Dwarven,Elven,Giant,Gnoll,Goblin,Orc	BONUS:STAT|WIS,CHA|2	BONUS:STAT|CON|-2						AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Race Traits ~ Changeling															RACETYPE:Humanoid	RACESUBTYPE:Changeling			TYPE:Base.PC.Uncommon	CR:1/2		FACT:IsPC|True	SOURCEPAGE:p.184	BONUS:LANGUAGES|NUMBER|1	
+Gillman				STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5				LANGBONUS:Aklo,Aquan,Draconic,Elven						BONUS:STAT|CON,CHA|2	BONUS:STAT|WIS|-2						AUTO:LANG|Common|Aboleth	ABILITY:Internal|AUTOMATIC|Race Traits ~ Gillman															RACETYPE:Humanoid							TYPE:Base.PC.Uncommon	CR:1/2		FACT:IsPC|True	SOURCEPAGE:p.188
 # COMMENT: Bonus languages include "any human language".
-Kitsune				STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5															BONUS:STAT|DEX,CHA|2	BONUS:STAT|STR|-2											ABILITY:Internal|AUTOMATIC|Race Traits ~ Kitsune															RACETYPE:Humanoid	RACESUBTYPE:Kitsune|Shapechanger	TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.192
-Nagaji				STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5															BONUS:STAT|STR,CHA|2	BONUS:STAT|INT|-2											ABILITY:Internal|AUTOMATIC|Race Traits ~ Nagaji																RACETYPE:Humanoid	RACESUBTYPE:Reptilian			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.196
+Kitsune				STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5															BONUS:STAT|DEX,CHA|2	BONUS:STAT|STR|-2											ABILITY:Internal|AUTOMATIC|Race Traits ~ Kitsune															RACETYPE:Humanoid	RACESUBTYPE:Kitsune|Shapechanger	TYPE:Base.PC.Uncommon	CR:1/2		FACT:IsPC|True	SOURCEPAGE:p.192
+Nagaji				STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5															BONUS:STAT|STR,CHA|2	BONUS:STAT|INT|-2											ABILITY:Internal|AUTOMATIC|Race Traits ~ Nagaji																RACETYPE:Humanoid	RACESUBTYPE:Reptilian			TYPE:Base.PC.Uncommon	CR:1/2		FACT:IsPC|True	SOURCEPAGE:p.196
 # COMMENT: Bonus languages include "any human language".
 # COMMENT: Bonus languages include Nagaji; not even the Nagaji speak Nagaji.  Removed from list until further clarification.
 #Samsaran										STARTFEATS:1				SIZE:M			MOVE:Walk,30					FACE:5	REACH:5																				LANGBONUS:Abyssal,Aquan,Auran,Celestial,Draconic,Giant,Ignan,Infernal,Tengu,Terran																																																														BONUS:STAT|WIS,CHA|2																																																													AUTO:LANG|Common|Samsaran																																ABILITY:Internal|AUTOMATIC|Race Traits ~ Samsaran																																																																																				RACETYPE:Humanoid			RACESUBTYPE:Samsaran							TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.198
-Strix					STARTFEATS:1	SIZE:M	MOVE:Walk,30,Fly,60	FACE:5	REACH:5				LANGBONUS:Auran,Common,Draconic,Giant,Gnome,Goblin,Infernal		BONUS:STAT|DEX|2	BONUS:STAT|CHA|-2		BONUS:VAR|Maneuverability|3	AUTO:LANG|Strix			ABILITY:Internal|AUTOMATIC|Race Traits ~ Strix	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	DEFINE:Maneuverability|0	RACETYPE:Humanoid	RACESUBTYPE:Strix				TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.200
+Strix					STARTFEATS:1	SIZE:M	MOVE:Walk,30,Fly,60	FACE:5	REACH:5				LANGBONUS:Auran,Common,Draconic,Giant,Gnome,Goblin,Infernal		BONUS:STAT|DEX|2	BONUS:STAT|CHA|-2		BONUS:VAR|Maneuverability|3	AUTO:LANG|Strix			ABILITY:Internal|AUTOMATIC|Race Traits ~ Strix	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	DEFINE:Maneuverability|0	RACETYPE:Humanoid	RACESUBTYPE:Strix				TYPE:Base.PC.Uncommon	CR:1/2		FACT:IsPC|True	SOURCEPAGE:p.200
 # COMMENT: Bonus languages include Nagaji; not even the Nagaji speak Nagaji.  Removed from list until further clarification.
-Wayang				STARTFEATS:1	SIZE:S	MOVE:Walk,20		FACE:5	REACH:5															BONUS:STAT|DEX,INT|2	BONUS:STAT|WIS|-2											ABILITY:Internal|AUTOMATIC|Race Traits ~ Wayang																RACETYPE:Humanoid	RACESUBTYPE:Wayang			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.210
+Wayang				STARTFEATS:1	SIZE:S	MOVE:Walk,20		FACE:5	REACH:5															BONUS:STAT|DEX,INT|2	BONUS:STAT|WIS|-2											ABILITY:Internal|AUTOMATIC|Race Traits ~ Wayang																RACETYPE:Humanoid	RACESUBTYPE:Wayang			TYPE:Base.PC.Uncommon	CR:1/2		FACT:IsPC|True	SOURCEPAGE:p.210
 
 # Race Name	Starting Feats	Size		Move				Face/Space	Reach		Required Gender	Bonus Languages												Stat bonus						Automatically Gained Language	Ability									Define				Main Race Type	Race Subtype				Type				Challenge Rating	Source Page		More language			SORTKEY
 #Changeling	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5	PREGENDER:F		LANGBONUS:Aklo,Draconic,Dwarven,Elven,Giant,Gnoll,Goblin,Orc				BONUS:STAT|WIS,CHA|2	BONUS:STAT|CON|-2	AUTO:LANG|Common																		RACETYPE:Humanoid	RACESUBTYPE:Changeling			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.184	BONUS:LANGUAGES|NUMBER|1	SORTKEY:a_base_pc
@@ -23,7 +23,7 @@ Wayang				STARTFEATS:1	SIZE:S	MOVE:Walk,20		FACE:5	REACH:5															BONUS:S
 #Nagaji	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5				LANGBONUS:Abyssal,Aklo,Celestial,Draconic,Giant,Infernal,Sylvan				BONUS:STAT|STR,CHA|2	BONUS:STAT|INT|-2	AUTO:LANG|Common|Draconic																RACETYPE:Humanoid	RACESUBTYPE:Reptilian			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.196						SORTKEY:a_base_pc
 # COMMENT: Bonus languages include "any human language".
 # COMMENT: Bonus languages include Nagaji; not even the Nagaji speak Nagaji.  Removed from list until further clarification.
-Samsaran	SORTKEY:a_base_pc	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5															BONUS:STAT|WIS,INT|2	BONUS:STAT|CON|-2											ABILITY:Internal|AUTOMATIC|Race Traits ~ Samsaran															RACETYPE:Humanoid	RACESUBTYPE:Samsaran			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.198
+Samsaran	SORTKEY:a_base_pc	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5															BONUS:STAT|WIS,INT|2	BONUS:STAT|CON|-2											ABILITY:Internal|AUTOMATIC|Race Traits ~ Samsaran															RACETYPE:Humanoid	RACESUBTYPE:Samsaran			TYPE:Base.PC.Uncommon	CR:1/2		FACT:IsPC|True	SOURCEPAGE:p.198
 #Strix		STARTFEATS:1	SIZE:M	MOVE:Walk,30,Fly,60	FACE:5	REACH:5				LANGBONUS:Auran,Common,Draconic,Giant,Gnome,Goblin,Infernal					BONUS:STAT|DEX|2	BONUS:STAT|CHA|-2		AUTO:LANG|Strix			ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|3	RACETYPE:Humanoid	RACESUBTYPE:Strix				TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.200						SORTKEY:a_base_pc
 #Suli		STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5				LANGBONUS:Aquan,Auran,Draconic,Ignan,Terran							BONUS:STAT|STR,CHA|2	BONUS:STAT|INT|-2	AUTO:LANG|Common																		RACETYPE:Outsider	RACESUBTYPE:Native			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.202						SORTKEY:a_base_pc
 #Vanara	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5				LANGBONUS:Aklo,Celestial,Elven,Gnome,Goblin,Sylvan						BONUS:STAT|DEX,WIS|2	BONUS:STAT|CHA|-2	AUTO:LANG|Common|Vanaran																RACETYPE:Humanoid	RACESUBTYPE:Vanara			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.206						SORTKEY:a_base_pc
@@ -41,11 +41,11 @@ Samsaran	SORTKEY:a_base_pc	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5					
 
 ###Block: Mods to change the sort order
 # Race Name		SORTKEY
-Duergar.MOD		SORTKEY:a_base_pc
-Grippli.MOD		SORTKEY:a_base_pc
-Merfolk.MOD		SORTKEY:a_base_pc
-Svirfneblin.MOD	SORTKEY:a_base_pc
-Tiefling.MOD	SORTKEY:a_base_pc
+Duergar.MOD		SORTKEY:a_base_pc	FACT:IsPC|True
+Grippli.MOD		SORTKEY:a_base_pc	FACT:IsPC|True
+Merfolk.MOD		SORTKEY:a_base_pc	FACT:IsPC|True
+Svirfneblin.MOD	SORTKEY:a_base_pc	FACT:IsPC|True
+Tiefling.MOD	SORTKEY:a_base_pc	FACT:IsPC|True
 # Bestiary III - Remove once B3 is completed.
 # Race Name	Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages											Stat bonus						Automatically Gained Language	Main Race Type	Race Subtype		Type				Challenge Rating	Source Page		SORTKEY
 #Catfolk	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Elven,Gnoll,Gnome,Goblin,Halfling,Orc,Sylvan				BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common|Catfolk	RACETYPE:Humanoid	RACESUBTYPE:Catfolk	ABILITY:Internal|AUTOMATIC|Race Traits ~ Catfolk	TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.91	SORTKEY:a_base_pc
@@ -75,4 +75,4 @@ Tiefling.MOD	SORTKEY:a_base_pc
 # Race Name		SORTKEY
 
 # Race Name		Unique Key	Starting Feats	Move			Ability
-Race Builder	KEY:Race	STARTFEATS:1	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Rules ~ Use Race Builder System
+Race Builder	KEY:Race	STARTFEATS:1	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Rules ~ Use Race Builder System	FACT:IsPC|True
