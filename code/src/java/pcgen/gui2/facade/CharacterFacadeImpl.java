@@ -2937,7 +2937,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return;
 		}
 		theCharacter.setXP(xp);
-		checkForNewLevel();
 	}
 
 	/* (non-Javadoc)
