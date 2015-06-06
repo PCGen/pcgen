@@ -741,6 +741,9 @@ Shillelagh.MOD																																																																		
 Stoneskin.MOD																																																																				TEMPDESC:Grants DR 10/adamantine for a total of 10 points of damage per caster level (maximum 150 points).														TEMPBONUS:ANYPC|DR|Adamantine|10
 Unholy Aura.MOD																																																																				TEMPDESC:Grants a +4 deflection bonus to AC and a +4 resistance bonus on saves																		TEMPBONUS:ANYPC|SAVE|ALL|4|TYPE=Resistance	TEMPBONUS:ANYPC|COMBAT|AC|4|TYPE=Deflection
 
+Prayer.MOD	TEMPDESC:+1 luck to attack, damage, saves and skills	TEMPBONUS:ANYPC|COMBAT|TOHIT,DAMAGE|1|TYPE=Luck	TEMPBONUS:ANYPC|SAVE|ALL|1|TYPE=Luck	TEMPBONUS:ANYPC|SKILL|TYPE=Base|1|TYPE=Luck	
+
+
 ###Block: Righteous Might (because it is so loooong)
 # Spell Name			Choose									Temporary Bonus
 Righteous Might.MOD												TEMPBONUS:ANYPC|SIZEMOD|NUMBER|1
