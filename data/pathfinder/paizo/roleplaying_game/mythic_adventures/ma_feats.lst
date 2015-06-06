@@ -184,7 +184,6 @@ Weapon Specialization (Mythic)	KEY:Mythic Feat ~ Weapon Specialization		CATEGORY
 Witch Knife (Mythic)			KEY:Mythic Feat ~ Witch Knife				CATEGORY:FEAT		TYPE:MythicFeat	PREABILITY:1,CATEGORY=FEAT,Witch Knife																											PREVARGTEQ:MythicLevel,1																																																		DESC:Use your witch knife as a focus for all spells, not just patron spells																																																																																																																																																																									BENEFIT:You can use your witch knife as an additional focus component for all your witch spells, not just your patron spells, adding 1 to their DC. This bonus stacks with the bonus to patron spells granted by Witch Knife, granting your patron spells a total +2 bonus to their DC.
 
 
-
 #Mythic Guided Hand
 Mythic Guided Hand ~ Melee										CATEGORY:Internal		TYPE:Guided Hand																																																																																																																			MULT:YES	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON,TYPE=Melee																																																																																																																					BONUS:WEAPONPROF=%LIST|DAMAGE|WIS-STR
 Mythic Guided Hand ~ Ranged										CATEGORY:Internal		TYPE:Guided Hand																																																																																																																			MULT:YES	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON,TYPE=Ranged																																																																																																																				BONUS:WEAPONPROF=%LIST|DAMAGE|WIS-DEX
@@ -195,3 +194,5 @@ Mythic Guided Hand ~ Ranged										CATEGORY:Internal		TYPE:Guided Hand								
 #Mythic Power Attack (One-Handed)
 #Mythic Power Attack (Two-Handed)
 #Mythic Power Attack (Flurry)
+
+Gain a Non-Mythic Feat			KEY:Mythic Feat ~ Non-Mythic Feat			CATEGORY:FEAT		TYPE:MythicFeat	BONUS:ABILITYPOOL|FEAT|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Gain a Non-Mythic Feat	SORTKEY:1
