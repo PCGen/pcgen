@@ -38,6 +38,7 @@ COPYRIGHT:PCGen dataset conversion for "Mythic Adventures" Copyright 2013, PCGen
 # Data files
 ABILITY:ma_abilities.lst
 ABILITYCATEGORY:ma_abilitycategories.lst
+COMPANIONMOD:ma_companionmods.lst
 EQUIPMENT:ma_equip.lst
 EQUIPMOD:ma_equipmods.lst
 ABILITY:ma_feats.lst
