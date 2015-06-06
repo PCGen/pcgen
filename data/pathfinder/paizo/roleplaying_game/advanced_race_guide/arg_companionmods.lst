@@ -66,7 +66,7 @@ MASTERBONUSRACE:Familiar (Weasel)	TYPE:Demonic Familiar					BONUS:SAVE|Reflex|2	
 ###Block Base Eidolon modded for Shaitan Binder
 # Base Eidolon
 # Class of the Master			Type					Hit Dice	Ability																				Define											Bonus Ability Pool													Combat bonus					Stat bonus			Modify VAR
-FOLLOWER:ShaitanBinderEidolonLVL=1	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Link~Eidolon														DEFINE:EidMaxAttacks|0	DEFINE:EidUsedAttacks|0	DEFINE:MasterLevel|0	BONUS:ABILITYPOOL|Eidolon Evolution|3	BONUS:ABILITYPOOL|Eidolon Skill|4															BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|3
+FOLLOWER:ShaitanBinderEidolonLVL=1	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Link													DEFINE:EidMaxAttacks|0	DEFINE:EidUsedAttacks|0	DEFINE:MasterLevel|0	BONUS:ABILITYPOOL|Eidolon Evolution|3	BONUS:ABILITYPOOL|Eidolon Skill|4															BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|3
 FOLLOWER:ShaitanBinderEidolonLVL=2	TYPE:Shaitan Binder Eidolon	HD:1		ABILITY:Special Ability|AUTOMATIC|Evasion																											BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:ShaitanBinderEidolonLVL=3	TYPE:Shaitan Binder Eidolon	HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|1																					BONUS:VAR|MasterLevel|1
 FOLLOWER:ShaitanBinderEidolonLVL=4	TYPE:Shaitan Binder Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|2																					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
@@ -87,11 +87,11 @@ FOLLOWER:ShaitanBinderEidolonLVL=18	TYPE:Shaitan Binder Eidolon	HD:1												
 FOLLOWER:ShaitanBinderEidolonLVL=19	TYPE:Shaitan Binder Eidolon	HD:1																																			BONUS:ABILITYPOOL|Eidolon Evolution|2																					BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
 FOLLOWER:ShaitanBinderEidolonLVL=20	TYPE:Shaitan Binder Eidolon																																				BONUS:ABILITYPOOL|Eidolon Evolution|1										BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:ShaitanBinderEidolonLVL=1	TYPE:Shaitan Binder Eidolon																																				BONUS:ABILITYPOOL|Shaitan Binder Eidolon Stat Bonus|1|PRERACE:1,Shaitan Binder Eidolon (Biped)
-FOLLOWER:ShaitanBinderEidolonLVL=4	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Evolution_Basic_Magic
-FOLLOWER:ShaitanBinderEidolonLVL=6	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Evolution_Minor_Magic
-FOLLOWER:ShaitanBinderEidolonLVL=8	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Evolution_Major_Magic
-FOLLOWER:ShaitanBinderEidolonLVL=10	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Earth Glide ~ Shaitan Binder Eidolon|PREABILITY:1,CATEGORY=Special Ability,Evolution_Burrow
-FOLLOWER:ShaitanBinderEidolonLVL=12	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Evolution_Ultimate_Magic
+FOLLOWER:ShaitanBinderEidolonLVL=4	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Evolution ~ Basic Magic
+FOLLOWER:ShaitanBinderEidolonLVL=6	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Evolution ~ Minor Magic
+FOLLOWER:ShaitanBinderEidolonLVL=8	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Evolution ~ Major Magic
+FOLLOWER:ShaitanBinderEidolonLVL=10	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Earth Glide ~ Shaitan Binder Eidolon|PREABILITY:1,CATEGORY=Special Ability,Evolution ~ Burrow
+FOLLOWER:ShaitanBinderEidolonLVL=12	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Evolution ~ Ultimate Magic
 FOLLOWER:ShaitanBinderEidolonLVL=20	TYPE:Shaitan Binder Eidolon			ABILITY:Special Ability|AUTOMATIC|Noble Eidolon ~ Shaitan Binder Eidolon
 
 ###Block Base Eidolon mods for Wild Caller

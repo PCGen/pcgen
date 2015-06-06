@@ -121,10 +121,10 @@ Field Repair						CATEGORY:FEAT		TYPE:General																																			
 #      "typically equal to the amount of damage caused by the creature's melee attack."
 Final Embrace						CATEGORY:FEAT		TYPE:Combat																																																																								PREMULT:1,[PRERACE:1,Naga,Serpentfolk],[PREABILITY:1,CATEGORY=Special Ability,Constrict]																																																																																														PRESTAT:2,STR=13,INT=3											PRETOTALAB:3																																DESC:Your coils are particularly deadly, allowing you to constrict opponents of your size or smaller.																																																	ABILITY:Special Ability|AUTOMATIC|Grab	ABILITY:Special Ability|AUTOMATIC|Constrict|!PREABILITY:1,CATEGORY=Special Ability,Constrict																																																																																												SOURCEPAGE:p.101	BENEFIT:You gain the constrict and grab special attacks. Your constrict attack deals damage equal to your unarmed strike or primary natural weapon melee attack. Further, you can grab and constrict opponents up to your size. &nl; [Normal] You can grab and constrict creatures one size smaller than you.
 #Constrict
-#				KEY:Evolution_Constrict
+#				KEY:Evolution ~ Constrict
 #				CATEGORY:Special Ability
 #				TYPE:SpecialQuality.EvolutionChoice.Extraordinary
-#				PREABILITY:1,CATEGORY=Special Ability,Evolution_Grab
+#				PREABILITY:1,CATEGORY=Special Ability,Evolution ~ Grab
 #				PRERACE:1,Eidolon (Serpentine)
 #				ABILITY:Special Ability|AUTOMATIC|Constrict
 #				BONUS:VAR|ConstrictDieSize|4|PRESIZEEQ:S

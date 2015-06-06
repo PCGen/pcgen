@@ -6,44 +6,44 @@
 STARTPACK:Eidolon (Aquatic)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Aquatic)]
 RACE:Eidolon (Aquatic)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution_Bite
-ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution_Improved_Natural_Armor
-ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution_Gills
-ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution_Swim
-ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution_Improved_Swim
+ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution ~ Bite
+ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution ~ Improved Natural Armor
+ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution ~ Gills
+ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution ~ Swim
+ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution ~ Improved Swim
 
 ###Block: Eidolon kits
 STARTPACK:Fused Eidolon (Aquatic)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fused Eidolon (Aquatic)]
 RACE:Fused Eidolon (Aquatic)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
-ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution_Bite
-ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution_Improved_Natural_Armor
-ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution_Gills
-ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution_Swim
-ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution_Improved_Swim
+ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution ~ Bite
+ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution ~ Improved Natural Armor
+ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution ~ Gills
+ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution ~ Swim
+ABILITY:CATEGORY=Eidolon Aquatic Evolution|Evolution ~ Improved Swim
 
 STARTPACK:Fused Eidolon (Quadruped)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fused Eidolon (Quadruped)]
 RACE:Fused Eidolon (Quadruped)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
-ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Legs
-ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Legs
-ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Bite
+ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution ~ Legs
+ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution ~ Legs
+ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution ~ Bite
 
 STARTPACK:Fused Eidolon (Biped)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fused Eidolon (Biped)]
 RACE:Fused Eidolon (Biped)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
-ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Arms
-ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Legs
-ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Clawed_Hands
+ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution ~ Arms
+ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution ~ Legs
+ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution ~ Clawed Hands
 
 STARTPACK:Fused Eidolon (Serpentine)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fused Eidolon (Serpentine)]
 RACE:Fused Eidolon (Serpentine)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
-ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Bite
-ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Tail
-ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Climb
-ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Reach (Bite)
-ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Tail_Slap
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Bite
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Tail
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Climb
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Reach (Bite)
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Tail Slap
 
 ###Block: Vermin Companion kits
 STARTPACK:Companion ~ Giant Ant	TYPE:Companion	VISIBLE:NO

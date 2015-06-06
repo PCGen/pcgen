@@ -2693,19 +2693,214 @@ ABILITY:Special Ability|Black Motes ~ Eldritch Heritage							MAXVER:6.4.01	NEWK
 ABILITY:Special Ability|Warp Touch ~ Eldritch Heritage							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Warp Touch			
 
 
+# 6.05.03 Updates
+ABILITY:Special Ability|Link~Eidolon							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Eidolon ~ Link		
+ABILITY:Special Ability|Share Spells~Eidolon						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Eidolon ~ Share Spells	
+ABILITY:Special Ability|Skills~Eidolon							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Eidolon ~ Skills		
+ABILITY:Special Ability|Evolution_Small							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Small
+ABILITY:Special Ability|Evolution_Bite							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Bite							
+ABILITY:Special Ability|Evolution_Improved_Bite						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Bite						
+ABILITY:Special Ability|Evolution_Clawed_Hands						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Clawed Hands						
+ABILITY:Special Ability|Evolution_Clawed_Feet						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Clawed Feet						
+ABILITY:Special Ability|Evolution_Climb							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Climb							
+ABILITY:Special Ability|Evolution_Improved_Climb					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Climb					
+ABILITY:Special Ability|Evolution_Gills							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Gills							
+ABILITY:Special Ability|Evolution_Improved_Damage					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Damage					
+ABILITY:Special Ability|Evolution_Improved_Natural_Armor				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Natural Armor				
+ABILITY:Special Ability|Evolution_Magic_Attacks						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Magic Attacks						
+ABILITY:Special Ability|Evolution_Mount							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Mount							
+ABILITY:Special Ability|Evolution_Pincers							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Pincers							
+ABILITY:Special Ability|Evolution_Pounce							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Pounce							
+ABILITY:Special Ability|Evolution_Pull							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Pull							
+ABILITY:Special Ability|Evolution_Push							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Push							
+ABILITY:Special Ability|Evolution_Reach							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Reach							
+ABILITY:Special Ability|Evolution_Resist_Acid						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Resist Acid						
+ABILITY:Special Ability|Evolution_Resist_Cold						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Resist Cold						
+ABILITY:Special Ability|Evolution_Resist_Elect						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Resist Electricity					
+ABILITY:Special Ability|Evolution_Resist_Fire						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Resist Fire						
+ABILITY:Special Ability|Evolution_Resist_Sonic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Resist Sonic						
+ABILITY:Special Ability|Evolution_Scent							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Scent							
+ABILITY:Special Ability|Evolution_Skilled							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Skilled							
+ABILITY:Special Ability|Evolution_Slam							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Slam							
+ABILITY:Special Ability|Evolution_Sting							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Sting							
+ABILITY:Special Ability|Evolution_Swim							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Swim							
+ABILITY:Special Ability|Evolution_Improved_Swim						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Swim						
+ABILITY:Special Ability|Evolution_Tail							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Tail							
+ABILITY:Special Ability|Evolution_Tail_Slap						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Tail Slap						
+ABILITY:Special Ability|Evolution_Tentacle						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Tentacle						
+ABILITY:Special Ability|Evolution_Wing_Buffet						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Wing Buffet						
+ABILITY:Special Ability|Evolution_Aspect							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Aspect							
+ABILITY:Special Ability|Evolution_Aspect_Greater					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Aspect Greater					
+ABILITY:Special Ability|Evolution_Ability_Inc_Str_SM					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Str SM				
+ABILITY:Special Ability|Evolution_Ability_Inc_Str_LH					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Str LH				
+ABILITY:Special Ability|Evolution_Ability_Inc_Dex					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Dex				
+ABILITY:Special Ability|Evolution_Ability_Inc_Con_SM					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Con SM				
+ABILITY:Special Ability|Evolution_Ability_Inc_Con_LH					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Con LH				
+ABILITY:Special Ability|Evolution_Ability_Inc_Int					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Int				
+ABILITY:Special Ability|Evolution_Ability_Inc_Wis					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Wis				
+ABILITY:Special Ability|Evolution_Ability_Inc_Cha					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Cha				
+ABILITY:Special Ability|Evolution_Constrict						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Constrict						
+ABILITY:Special Ability|Evolution_Energy_Attack_Acid					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Energy Attack Acid					
+ABILITY:Special Ability|Evolution_Energy_Attack_Cold					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Energy Attack Cold					
+ABILITY:Special Ability|Evolution_Energy_Attack_Fire					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Energy Attack Fire					
+ABILITY:Special Ability|Evolution_Energy_Attack_Electricity				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Energy Attack Electricity				
+ABILITY:Special Ability|Evolution_Flight_Winged						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Flight Winged						
+ABILITY:Special Ability|Evolution_Flight_Magic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Flight Magic						
+ABILITY:Special Ability|Evolution_Improved_Flight					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Flight					
+ABILITY:Special Ability|Evolution_Gore							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Gore							
+ABILITY:Special Ability|Evolution_Grab							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Grab							
+ABILITY:Special Ability|Evolution_Immune_Acid						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Immune Acid						
+ABILITY:Special Ability|Evolution_Immune_Cold						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Immune Cold						
+ABILITY:Special Ability|Evolution_Immune_Fire						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Immune Fire						
+ABILITY:Special Ability|Evolution_Immune_Elect						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Immune Electricity					
+ABILITY:Special Ability|Evolution_Immune_Sonic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Immune Sonic						
+ABILITY:Special Ability|Evolution_Imp_DR_Lawful						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved DR Lawful					
+ABILITY:Special Ability|Evolution_Imp_DR_Good						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved DR Good					
+ABILITY:Special Ability|Evolution_Imp_DR_Chaotic					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved DR Chaotic					
+ABILITY:Special Ability|Evolution_Imp_DR_Evil						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved DR Evil					
+ABILITY:Special Ability|Evolution_Arms							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Arms							
+ABILITY:Special Ability|Evolution_Legs							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Legs							
+ABILITY:Special Ability|Evolution_Poison_Str						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Poison Str						
+ABILITY:Special Ability|Evolution_Poison_Con						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Poison Con						
+ABILITY:Special Ability|Evolution_Rake							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Rake							
+ABILITY:Special Ability|Evolution_Rend							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Rend							
+ABILITY:Special Ability|Evolution_Trample							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Trample							
+ABILITY:Special Ability|Evolution_Tremorsense						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Tremorsense						
+ABILITY:Special Ability|Evolution_Trip							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Trip							
+ABILITY:Special Ability|Evolution_Weap_Simple						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Weapon Simple						
+ABILITY:Special Ability|Evolution_Weap_Martial						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Weapon Martial					
+ABILITY:Special Ability|Evolution_Blindsense						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Blindsense						
+ABILITY:Special Ability|Evolution_Burrow							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Burrow							
+ABILITY:Special Ability|Evolution_DR_Lawful						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ DR Lawful						
+ABILITY:Special Ability|Evolution_DR_Good							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ DR Good							
+ABILITY:Special Ability|Evolution_DR_Chaotic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ DR Chaotic						
+ABILITY:Special Ability|Evolution_DR_Evil							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ DR Evil							
+ABILITY:Special Ability|Evolution_Fright_Pres						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Frightful Presence					
+ABILITY:Special Ability|Evolution_Swallow_Whole						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Swallow Whole						
+ABILITY:Special Ability|Evolution_Web							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Web							
+ABILITY:Special Ability|Evolution_Blindsight						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Blindsight						
+ABILITY:Special Ability|Evolution_Fast_Healing						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Fast Healing						
+ABILITY:Special Ability|Evolution_Improved_Fast_Healing				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Fast Healing				
+ABILITY:Special Ability|Evolution_Large							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Large							
+ABILITY:Special Ability|Evolution_Huge							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Huge							
+ABILITY:Special Ability|Evolution_SR							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ SR							
+ABILITY:Special Ability|Evolution_Breath_Weap_Cone_Acid				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Cone of Acid)			
+ABILITY:Special Ability|Evolution_Extra_BW_Cone_Acid					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Cone Acid			
+ABILITY:Special Ability|Evolution_Breath_Weap_Cone_Cold				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Cone of Cold)			
+ABILITY:Special Ability|Evolution_Extra_BW_Cone_Cold					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Cone Cold			
+ABILITY:Special Ability|Evolution_Breath_Weap_Cone_Electricity			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Cone of Electricity)		
+ABILITY:Special Ability|Evolution_Extra_BW_Cone_Electricity				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Cone Electricity		
+ABILITY:Special Ability|Evolution_Breath_Weap_Cone_Fire				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Cone of Fire)			
+ABILITY:Special Ability|Evolution_Extra_BW_Cone_Fire					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Cone Fire			
+ABILITY:Special Ability|Evolution_Breath_Weap_Line_Acid				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Line of Acid)			
+ABILITY:Special Ability|Evolution_Extra_BW_Line_Acid					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Line Acid			
+ABILITY:Special Ability|Evolution_Breath_Weap_Line_Cold				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Line of Cold)			
+ABILITY:Special Ability|Evolution_Extra_BW_Line_Cold					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Line Cold			
+ABILITY:Special Ability|Evolution_Breath_Weap_Line_Fire				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Line of Fire)			
+ABILITY:Special Ability|Evolution_Extra_BW_Line_Fire					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Line Fire			
+ABILITY:Special Ability|Evolution_Breath_Weap_Line_Electricity			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Line of Electricity)		
+ABILITY:Special Ability|Evolution_Extra_BW_Line_Electricity				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Line Electricity		
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+ABILITY:Special Ability|Evolution_Hooved_Hands						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Hooved Hands				
+ABILITY:Special Ability|Evolution_Hooved_Feet						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Hooved Feet				
+ABILITY:Special Ability|Evolution_Low-Light							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Low-Light				
+ABILITY:Special Ability|Evolution_Unnatural_Aura						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Unnatural Aura			
+ABILITY:Special Ability|Evolution_Channel_Resistance					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Channel Resistance			
+ABILITY:Special Ability|Evolution_Improved_Channel_Resistance				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Channel Resistance	
+ABILITY:Special Ability|Evolution_Head							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Head					
+ABILITY:Special Ability|Evolution_Keen_Scent						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Keen Scent				
+ABILITY:Special Ability|Evolution_Undead_Appearance					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Undead Appearance			
+ABILITY:Special Ability|Evolution_See_in_Darkness						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ See in Darkness			
+ABILITY:Special Ability|Evolution_Dimension_Door						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Dimension Door			
+ABILITY:Special Ability|Evolution_Incorporeal_Form					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Incorporeal Form			
+ABILITY:Special Ability|Evolution_Lifesense							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Lifesense				
+ABILITY:Special Ability|Evolution_No_Breath							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ No Breath				
+ABILITY:Special Ability|Evolution_Basic_Magic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Basic Magic				
+ABILITY:Special Ability|Evolution_Minor_Magic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Magic				
+ABILITY:Special Ability|Evolution_Major_Magic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Magic				
+ABILITY:Special Ability|Evolution_Ultimate_Magic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Magic			
+ABILITY:Special Ability|Evolution_Magic_Upgrade						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Magic Upgrade				
+ABILITY:Special Ability|Evolution_BM_Acid_Splash_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Acid Splash 1			
+ABILITY:Special Ability|Evolution_BM_Dancing_Lights_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Dancing Lights 1			
+ABILITY:Special Ability|Evolution_BM_Daze_1							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Daze 1				
+ABILITY:Special Ability|Evolution_BM_Detect_Magic_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Detect Magic 1			
+ABILITY:Special Ability|Evolution_BM_Flare_1						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Flare 1				
+ABILITY:Special Ability|Evolution_BM_Ghost_Sound_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Ghost Sound 1			
+ABILITY:Special Ability|Evolution_BM_Light_1						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Light 1				
+ABILITY:Special Ability|Evolution_BM_Mage Hand_1						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Mage Hand 1			
+ABILITY:Special Ability|Evolution_BM_Ray_of_Frost_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Ray of Frost 1			
+ABILITY:Special Ability|Evolution_BM_Stabilize_1						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Stabilize 1			
+ABILITY:Special Ability|Evolution_BM_Touch_of_Fatigue_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Touch of Fatigue 1		
+ABILITY:Special Ability|Evolution_BM_Acid_Splash_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Acid Splash 3			
+ABILITY:Special Ability|Evolution_BM_Dancing_Lights_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Dancing Lights 3			
+ABILITY:Special Ability|Evolution_BM_Daze_3							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Daze 3				
+ABILITY:Special Ability|Evolution_BM_Detect_Magic_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Detect Magic 3			
+ABILITY:Special Ability|Evolution_BM_Flare_3						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Flare 3				
+ABILITY:Special Ability|Evolution_BM_Ghost_Sound_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Ghost Sound 3			
+ABILITY:Special Ability|Evolution_BM_Light_3						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Light 3				
+ABILITY:Special Ability|Evolution_BM_Mage Hand_3						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Mage Hand 3			
+ABILITY:Special Ability|Evolution_BM_Ray_of_Frost_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Ray of Frost 3			
+ABILITY:Special Ability|Evolution_BM_Stabilize_3						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Stabilize 3			
+ABILITY:Special Ability|Evolution_BM_Touch_of_Fatigue_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Touch of Fatigue 3		
+ABILITY:Special Ability|Evolution_Minor_Burning_Hands_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Burning Hands 1		
+ABILITY:Special Ability|Evolution_Minor_Burning_Hands_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Burning Hands 3		
+ABILITY:Special Ability|Evolution_Minor_Comprehend_Languages_1			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Comprehend Languages 1	
+ABILITY:Special Ability|Evolution_Minor_Comprehend_Languages_3			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Comprehend Languages 3	
+ABILITY:Special Ability|Evolution_Minor_Cure_Light_Wounds_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Cure Light Wounds 1		
+ABILITY:Special Ability|Evolution_Minor_Cure_Light_Wounds_3				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Cure Light Wounds 3		
+ABILITY:Special Ability|Evolution_Minor_Detect_Chaos_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Chaos 1		
+ABILITY:Special Ability|Evolution_Minor_Detect_Chaos_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Chaos 3		
+ABILITY:Special Ability|Evolution_Minor_Detect_Evil_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Evil 1			
+ABILITY:Special Ability|Evolution_Minor_Detect_Evil_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Evil 3			
+ABILITY:Special Ability|Evolution_Minor_Detect_Good_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Good 1			
+ABILITY:Special Ability|Evolution_Minor_Detect_Good_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Good 3			
+ABILITY:Special Ability|Evolution_Minor_Detect_Law_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Law 1			
+ABILITY:Special Ability|Evolution_Minor_Detect_Law_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Law 3			
+ABILITY:Special Ability|Evolution_Minor_Magic_Missile_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Magic Missile 1		
+ABILITY:Special Ability|Evolution_Minor_Magic_Missile_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Magic Missile 3		
+ABILITY:Special Ability|Evolution_Minor_Obscuring_Mist_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Obscuring Mist 1		
+ABILITY:Special Ability|Evolution_Minor_Obscuring_Mist_3				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Obscuring Mist 3		
+ABILITY:Special Ability|Evolution_Minor_Silent_Image_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Silent Image 1		
+ABILITY:Special Ability|Evolution_Minor_Silent_Image_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Silent Image 3		
+ABILITY:Special Ability|Evolution_Minor_Vanish_1						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Vanish 1			
+ABILITY:Special Ability|Evolution_Minor_Vanish_3						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Vanish 3			
+ABILITY:Special Ability|Evolution_Minor_Ventriloquism_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Ventriloquism 1		
+ABILITY:Special Ability|Evolution_Minor_Ventriloquism_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Ventriloquism 3		
+ABILITY:Special Ability|Evolution_Major_Acid_Arrow_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Acid Arrow 1			
+ABILITY:Special Ability|Evolution_Major_Acid_Arrow_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Acid Arrow 3			
+ABILITY:Special Ability|Evolution_Major_Cure_Moderate_Wounds_1			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Cure Moderate Wounds 1	
+ABILITY:Special Ability|Evolution_Major_Cure_Moderate_Wounds_3			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Cure Moderate Wounds 3	
+ABILITY:Special Ability|Evolution_Major_Darkness_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Darkness 1			
+ABILITY:Special Ability|Evolution_Major_Darkness_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Darkness 3			
+ABILITY:Special Ability|Evolution_Major_Daze_Monster_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Daze Monster 1		
+ABILITY:Special Ability|Evolution_Major_Daze_Monster_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Daze Monster 3		
+ABILITY:Special Ability|Evolution_Major_Glide_1						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Glide 1				
+ABILITY:Special Ability|Evolution_Major_Glide_3						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Glide 3				
+ABILITY:Special Ability|Evolution_Major_Invisibility_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Invisibility 1		
+ABILITY:Special Ability|Evolution_Major_Invisibility_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Invisibility 3		
+ABILITY:Special Ability|Evolution_Major_Lesser_Restoration_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Lesser Restoration 1	
+ABILITY:Special Ability|Evolution_Major_Lesser_Restoration_3				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Lesser Restoration 3	
+ABILITY:Special Ability|Evolution_Major_Levitate_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Levitate 1			
+ABILITY:Special Ability|Evolution_Major_Levitate_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Levitate 3			
+ABILITY:Special Ability|Evolution_Major_Minor_Image_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Minor Image 1			
+ABILITY:Special Ability|Evolution_Major_Minor_Image_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Minor Image 3			
+ABILITY:Special Ability|Evolution_Major_Scorching_Ray_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Scorching Ray 1		
+ABILITY:Special Ability|Evolution_Major_Scorching_Ray_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Scorching Ray 3		
+ABILITY:Special Ability|Evolution_Major_See_Invisibility_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major See Invisibility 1		
+ABILITY:Special Ability|Evolution_Major_See_Invisibility_3				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major See Invisibility 3		
+ABILITY:Special Ability|Evolution_Major_Spider_Climb_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Spider Climb 1		
+ABILITY:Special Ability|Evolution_Major_Spider_Climb_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Spider Climb 3		
+ABILITY:Special Ability|Evolution_Ultimate_Arcane_Sight_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Arcane Sight 1		
+ABILITY:Special Ability|Evolution_Ultimate_Create_Food_and_Water_1			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Create Food and Water 1
+ABILITY:Special Ability|Evolution_Ultimate_Cure_Serious_Wounds_1			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Cure Serious Wounds 1	
+ABILITY:Special Ability|Evolution_Ultimate_Daylight_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Daylight 1			
+ABILITY:Special Ability|Evolution_Ultimate_Fireball_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Fireball 1			
+ABILITY:Special Ability|Evolution_Ultimate_Fly_1						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Fly 1			
+ABILITY:Special Ability|Evolution_Ultimate_Gaseous_Form_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Gaseous Form 1		
+ABILITY:Special Ability|Evolution_Ultimate_Lightning_Bolt_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Lightning Bolt 1		
+ABILITY:Special Ability|Evolution_Ultimate_Major_Image_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Major Image 1		
+ABILITY:Special Ability|Evolution_Ultimate_Stinking_Cloud_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Stinking Cloud 1		
+ABILITY:Special Ability|Evolution_Ultimate_Tongues_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Tongues 1			
+ABILITY:Special Ability|Evolution_Ultimate_Water_Breathing_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Water Breathing 1	

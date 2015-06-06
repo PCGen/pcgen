@@ -33,46 +33,46 @@ STAT:STR=15|DEX=10|CON=12|INT=2|WIS=12|CHA=7
 STARTPACK:Shaitan Binder Eidolon (Quadruped)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shaitan Binder Eidolon (Quadruped)]
 RACE:Shaitan Binder Eidolon (Quadruped)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Legs
-ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Legs
-ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Bite
+ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution ~ Legs
+ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution ~ Legs
+ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution ~ Bite
 
 STARTPACK:Shaitan Binder Eidolon (Biped)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shaitan Binder Eidolon (Biped)]
 RACE:Shaitan Binder Eidolon (Biped)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Arms
-ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Legs
-ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Clawed_Hands
+ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution ~ Arms
+ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution ~ Legs
+ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution ~ Clawed Hands
 
 STARTPACK:Shaitan Binder Eidolon (Serpentine)	TYPE:Companion	VISIBLE:NO	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shaitan Binder Eidolon (Serpentine)]
 RACE:Shaitan Binder Eidolon (Serpentine)	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Bite
-ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Tail
-ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Climb
-ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Reach (Bite)
-ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Tail_Slap
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Bite
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Tail
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Climb
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Reach (Bite)
+ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Tail Slap
 
 ###Block: Wild Caller Eidolon Kits
 #STARTPACK:Wild Caller Eidolon (Quadruped)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wild Caller Eidolon (Quadruped)]
 #RACE:Wild Caller Eidolon (Quadruped)	!PRERACE:1,%
 #STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-#ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Legs
-#ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Legs
-#ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution_Bite
+#ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution ~ Legs
+#ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution ~ Legs
+#ABILITY:CATEGORY=Eidolon Quadruped Evolution|Evolution ~ Bite
 
 #STARTPACK:Wild Caller Eidolon (Biped)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wild Caller Eidolon (Biped)]
 #RACE:Wild Caller Eidolon (Biped)	!PRERACE:1,%
 #STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-#ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Arms
-#ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Legs
-#ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution_Clawed_Hands
+#ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution ~ Arms
+#ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution ~ Legs
+#ABILITY:CATEGORY=Eidolon Biped Evolution|Evolution ~ Clawed Hands
 
 #STARTPACK:Wild Caller Eidolon (Serpentine)	TYPE:Companion	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wild Caller Eidolon (Serpentine)]
 #RACE:Wild Caller Eidolon (Serpentine)	!PRERACE:1,%
 #STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-#ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Bite
-#ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Tail
-#ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Climb
-#ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Reach (Bite)
-#ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution_Tail_Slap
+#ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Bite
+#ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Tail
+#ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Climb
+#ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Reach (Bite)
+#ABILITY:CATEGORY=Eidolon Serpentine Evolution|Evolution ~ Tail Slap

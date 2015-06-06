@@ -21,4 +21,4 @@ Trip (2 CP)						KEY:Animated Object ~ Trip					CATEGORY:Special Ability	TYPE:Sp
 
 ###Block: New Aquatic Eidolon.
 # Ability Name	Unique Key				Category of Ability	Type					QUALIFY:ABILITY						Ability																								Stat bonus									Modify VAR								Source Page
-Aquatic		KEY:Eidolon Type ~ Aquatic	CATEGORY:Internal		TYPE:EidolonTypeSelection	QUALIFY:ABILITY=Special Ability|Evolution_Mount	ABILITY:Eidolon Aquatic Evolution|AUTOMATIC|Evolution_Bite|Evolution_Gills|Evolution_Improved_Natural_Armor|Evolution_Improved_Swim|Evolution_Swim	BONUS:STAT|STR|6|TYPE=Race	BONUS:STAT|DEX|2|TYPE=Race	BONUS:VAR|EidolonFortitudeGood,EidolonReflexGood|1	SOURCEPAGE:p.56
+Aquatic		KEY:Eidolon Type ~ Aquatic	CATEGORY:Internal		TYPE:EidolonTypeSelection	QUALIFY:ABILITY=Special Ability|Evolution ~ Mount	ABILITY:Eidolon Aquatic Evolution|AUTOMATIC|Evolution ~ Bite|Evolution ~ Gills|Evolution ~ Improved Natural Armor|Evolution ~ Improved Swim|Evolution ~ Swim	BONUS:STAT|STR|6|TYPE=Race	BONUS:STAT|DEX|2|TYPE=Race	BONUS:VAR|EidolonFortitudeGood,EidolonReflexGood|1	SOURCEPAGE:p.56

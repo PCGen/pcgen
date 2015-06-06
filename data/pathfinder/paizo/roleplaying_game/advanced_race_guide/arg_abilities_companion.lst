@@ -15,13 +15,13 @@ Eidolon ~ Wild Caller Eidolon							CATEGORY:Special Ability	TYPE:Internal						
 
 ###Block: Shaitan Binder Eidolon Abilities
 # Ability Name						Unique Key							Category of Ability		Type									Required Ability												Required Race					Required Stat	Var. Min. Value			Define						Innate Spells																Description																																																																																								Modify VAR							Cost		Source, Long Desc.	Source, Short Desc.	Source Page
-Major Magic ~ Glitterdust (1/day)			KEY:Evolution_Major_Glitterdust_1			CATEGORY:Special Ability	TYPE:SpellLike.EidMajorMagic																			PRERACE:1,RACETYPE=Shaitan Binder Eidolon	PRESTAT:1,CHA=12	PREVARGTEQ:MasterLevel,7	DEFINE:GlitterdustEidSLAPerDay|0		SPELLS:Innate|TIMES=GlitterdustEidSLAPerDay|CASTERLEVEL=(max(HD,1))|Glitterdust,10+CHA																																																																																													BONUS:VAR|GlitterdustEidSLAPerDay|1													SOURCEPAGE:p.146
-Major Magic ~ Soften Earth and Stone (1/day)	KEY:Evolution_Major_Soften_Earth_and_Stone_1	CATEGORY:Special Ability	TYPE:SpellLike.EidMajorMagic																			PRERACE:1,RACETYPE=Shaitan Binder Eidolon	PRESTAT:1,CHA=12	PREVARGTEQ:MasterLevel,7	DEFINE:SoftenEarthandStoneEidSLAPerDay|0	SPELLS:Innate|TIMES=SoftenEarthandStoneEidSLAPerDay|CASTERLEVEL=(max(HD,1))|Soften Earth and Stone,10+CHA																																																																																										BONUS:VAR|SoftenEarthandStoneEidSLAPerDay|1											SOURCEPAGE:p.146
-Major Magic ~ Glitterdust (3/day)			KEY:Evolution_Major_Glitterdust_3			CATEGORY:Special Ability	TYPE:SpellLike.EidMagicUpgrade				PREABILITY:1,CATEGORY=Special Ability,Evolution_Major_Glitterdust_1			PRERACE:1,RACETYPE=Shaitan Binder Eidolon	PRESTAT:1,CHA=12	PREVARGTEQ:MasterLevel,10																																																																																																																			BONUS:VAR|GlitterdustEidSLAPerDay|2													SOURCEPAGE:p.146
-Major Magic ~ Soften Earth and Stone (3/day)	KEY:Evolution_Major_Soften_Earth_and_Stone_3	CATEGORY:Special Ability	TYPE:SpellLike.EidMagicUpgrade				PREABILITY:1,CATEGORY=Special Ability,Evolution_Major_Soften_Earth_and_Stone_1	PRERACE:1,RACETYPE=Shaitan Binder Eidolon	PRESTAT:1,CHA=12	PREVARGTEQ:MasterLevel,10																																																																																																																			BONUS:VAR|SoftenEarthandStoneEidSLAPerDay|2											SOURCEPAGE:p.146
-Ultimate Magic ~ Meld Into Stone (1/day)		KEY:Evolution_Ultimate_Meld_Into_Stone_1		CATEGORY:Special Ability	TYPE:SpellLike.EidUltimateMagic																		PRERACE:1,RACETYPE=Shaitan Binder Eidolon	PRESTAT:1,CHA=13	PREVARGTEQ:MasterLevel,11								SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(HD-2,1))|Meld Into Stone,10+HD/2+CHA																																																																																																																	SOURCEPAGE:p.146
-Ultimate Magic ~ Stone Shape (1/day)		KEY:Evolution_Ultimate_Stone_Shape_1		CATEGORY:Special Ability	TYPE:SpellLike.EidUltimateMagic																		PRERACE:1,RACETYPE=Shaitan Binder Eidolon	PRESTAT:1,CHA=13	PREVARGTEQ:MasterLevel,11								SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(HD-2,1))|Stone Shape,10+HD/2+CHA																																																																																																																		SOURCEPAGE:p.146
-Stone Curse							KEY:Evolution_Stone_Curse				CATEGORY:Special Ability	TYPE:EvolutionChoice.SpecialQuality.SpellLike																PRERACE:1,RACETYPE=Shaitan Binder Eidolon				PREVARGTEQ:MasterLevel,18																										DESC:If an Eidolon with this ability wins a bull rush check by 5 or more and pushes its target into a stone barrier, the target must make a DC %1 Reflex save or be forced into the barrier as if the target had cast meld into stone until the victim makes a successful DC %1 Fortitude save as a full-round action to exit the stone.|10+HD/2+STR																																									COST:4									SOURCEPAGE:p.146
+Major Magic ~ Glitterdust (1/day)			KEY:Evolution ~ Major Glitterdust 1			CATEGORY:Special Ability	TYPE:SpellLike.EidMajorMagic																			PRERACE:1,RACETYPE=Shaitan Binder Eidolon	PRESTAT:1,CHA=12	PREVARGTEQ:MasterLevel,7	DEFINE:GlitterdustEidSLAPerDay|0		SPELLS:Innate|TIMES=GlitterdustEidSLAPerDay|CASTERLEVEL=(max(HD,1))|Glitterdust,10+CHA																																																																																													BONUS:VAR|GlitterdustEidSLAPerDay|1													SOURCEPAGE:p.146
+Major Magic ~ Soften Earth and Stone (1/day)	KEY:Evolution ~ Major Soften Earth and Stone 1	CATEGORY:Special Ability	TYPE:SpellLike.EidMajorMagic																			PRERACE:1,RACETYPE=Shaitan Binder Eidolon	PRESTAT:1,CHA=12	PREVARGTEQ:MasterLevel,7	DEFINE:SoftenEarthandStoneEidSLAPerDay|0	SPELLS:Innate|TIMES=SoftenEarthandStoneEidSLAPerDay|CASTERLEVEL=(max(HD,1))|Soften Earth and Stone,10+CHA																																																																																										BONUS:VAR|SoftenEarthandStoneEidSLAPerDay|1											SOURCEPAGE:p.146
+Major Magic ~ Glitterdust (3/day)			KEY:Evolution ~ Major Glitterdust 3			CATEGORY:Special Ability	TYPE:SpellLike.EidMagicUpgrade				PREABILITY:1,CATEGORY=Special Ability,Evolution ~ Major Glitterdust 1			PRERACE:1,RACETYPE=Shaitan Binder Eidolon	PRESTAT:1,CHA=12	PREVARGTEQ:MasterLevel,10																																																																																																																			BONUS:VAR|GlitterdustEidSLAPerDay|2													SOURCEPAGE:p.146
+Major Magic ~ Soften Earth and Stone (3/day)	KEY:Evolution ~ Major Soften Earth and Stone 3	CATEGORY:Special Ability	TYPE:SpellLike.EidMagicUpgrade				PREABILITY:1,CATEGORY=Special Ability,Evolution ~ Major Soften Earth and Stone 1	PRERACE:1,RACETYPE=Shaitan Binder Eidolon	PRESTAT:1,CHA=12	PREVARGTEQ:MasterLevel,10																																																																																																																			BONUS:VAR|SoftenEarthandStoneEidSLAPerDay|2											SOURCEPAGE:p.146
+Ultimate Magic ~ Meld Into Stone (1/day)		KEY:Evolution ~ Ultimate Meld Into Stone 1		CATEGORY:Special Ability	TYPE:SpellLike.EidUltimateMagic																		PRERACE:1,RACETYPE=Shaitan Binder Eidolon	PRESTAT:1,CHA=13	PREVARGTEQ:MasterLevel,11								SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(HD-2,1))|Meld Into Stone,10+HD/2+CHA																																																																																																																	SOURCEPAGE:p.146
+Ultimate Magic ~ Stone Shape (1/day)		KEY:Evolution ~ Ultimate Stone Shape 1		CATEGORY:Special Ability	TYPE:SpellLike.EidUltimateMagic																		PRERACE:1,RACETYPE=Shaitan Binder Eidolon	PRESTAT:1,CHA=13	PREVARGTEQ:MasterLevel,11								SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(HD-2,1))|Stone Shape,10+HD/2+CHA																																																																																																																		SOURCEPAGE:p.146
+Stone Curse							KEY:Evolution ~ Stone Curse				CATEGORY:Special Ability	TYPE:EvolutionChoice.SpecialQuality.SpellLike																PRERACE:1,RACETYPE=Shaitan Binder Eidolon				PREVARGTEQ:MasterLevel,18																										DESC:If an Eidolon with this ability wins a bull rush check by 5 or more and pushes its target into a stone barrier, the target must make a DC %1 Reflex save or be forced into the barrier as if the target had cast meld into stone until the victim makes a successful DC %1 Fortitude save as a full-round action to exit the stone.|10+HD/2+STR																																									COST:4									SOURCEPAGE:p.146
 Noble Eidolon						KEY:Noble Eidolon ~ Shaitan Binder Eidolon	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																			PRERACE:1,RACETYPE=Shaitan Binder Eidolon																SPELLS:Innate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=MasterLevel|Limited Wish							DESC:A shaitan binder's eidolon gains the ability to grant its summoner's wishes. Once per day, the eidolon can cast limited wish as a spelllike ability. The eidolon's caster level is %1. The wish must be spoken aloud by the shaitan binder, beginning with the words "I wish," and cannot duplicate a wish the eidolon has granted within the past 24 hours. If the eidolon uses this ability to duplicate a spell with a costly material component, the shaitan binder must provide that component.|MasterLevel																								SOURCEPAGE:p.146
 Earth Glide							KEY:Earth Glide ~ Shaitan Binder Eidolon		CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyMovement.Extraordinary																																																							DESC:A burrowing Shaitan Binder Eidolon can pass through dirt, gravel, or other loose or porous solid matter as easily as a fish swims through water.  It cannot use this ability to pass through a solid barrier such as a stone or brick wall.  Its burrowing leaves behind no tunnel or hole, nor does it create any ripple or other sign of its presence.  A move earth spell cast on an area containing a burrowing Eidolon flings the Eidolon back 30 feet, stunning the creature for 1 round unless it succeeds on a DC 15 Fortitude save.											SOURCELONG:Bestiary	SOURCESHORT:B1		SOURCEPAGE:p.120
 
@@ -55,43 +55,43 @@ Companion Advancement (Sapling Treant)		KEY:Companion Advancement ~ Sapling Trea
 
 ###Block: Wild Caller Eidolon ability mods
 # Ability Name										Unique Key			Category of Ability		Type									Required Var. value			Stackable?	Multiple?	Choose													Bonus to skill
-CATEGORY=Special Ability|Evolution_Magic_Attacks.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Skilled.MOD																							PREVAREQ:IsWildCallerEidolon,0
-Skilled											KEY:WCEvolution_Skilled	CATEGORY:Special Ability	TYPE:SpecialQuality.EvolutionChoice.Extraordinary	PREVAREQ:IsWildCallerEidolon,1	STACK:NO	MULT:YES	CHOOSE:SKILL|Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Survival|Swim	BONUS:SKILL|LIST|8|TYPE=Racial
-CATEGORY=Special Ability|Evolution_Energy_Attack_Acid.MOD																					PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Energy_Attack_Cold.MOD																					PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Energy_Attack_Fire.MOD																					PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Energy_Attack_Electricity.MOD																				PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Immune_Acid.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Immune_Cold.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Immune_Fire.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Immune_Elect.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Immune_Sonic.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Weap_Simple.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Weap_Martial.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_DR_Lawful.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_DR_Good.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_DR_Chaotic.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_DR_Evil.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Fright_Pres.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Breath_Weap_Cone_Acid.MOD																				PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Breath_Weap_Cone_Cold.MOD																				PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Breath_Weap_Cone_Electricity.MOD																			PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Breath_Weap_Cone_Fire.MOD																				PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Breath_Weap_Line_Acid.MOD																				PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Breath_Weap_Line_Cold.MOD																				PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Breath_Weap_Line_Fire.MOD																				PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Breath_Weap_Line_Electricity.MOD																			PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_SR.MOD																								PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Unnatural_Aura.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Channel_Resistance.MOD																					PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Head.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Undead_Appearance.MOD																					PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Dimension_Door.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Incorporeal_Form.MOD																					PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Lifesense.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_No_Breath.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Basic_Magic.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Minor_Magic.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Major_Magic.MOD																						PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution_Ultimate_Magic.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Magic Attacks.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Skilled.MOD																							PREVAREQ:IsWildCallerEidolon,0
+Skilled											KEY:WCEvolution ~ Skilled	CATEGORY:Special Ability	TYPE:SpecialQuality.EvolutionChoice.Extraordinary	PREVAREQ:IsWildCallerEidolon,1	STACK:NO	MULT:YES	CHOOSE:SKILL|Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Survival|Swim	BONUS:SKILL|LIST|8|TYPE=Racial
+CATEGORY=Special Ability|Evolution ~ Energy Attack Acid.MOD																					PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Energy Attack Cold.MOD																					PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Energy Attack Fire.MOD																					PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Energy Attack Electricity.MOD																				PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Immune Acid.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Immune Cold.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Immune Fire.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Immune Electricity.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Immune Sonic.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Weapon Simple.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Weapon Martial.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ DR Lawful.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ DR Good.MOD																							PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ DR Chaotic.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ DR Evil.MOD																							PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Frightful Presence.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Cone of Acid).MOD																				PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Cone of Cold).MOD																				PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Cone of Electricity).MOD																			PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Cone of Fire).MOD																				PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Line of Acid).MOD																				PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Line of Cold).MOD																				PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Line of Fire).MOD																				PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Line of Electricity).MOD																			PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ SR.MOD																								PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Unnatural Aura.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Channel Resistance.MOD																					PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Head.MOD																							PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Undead Appearance.MOD																					PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Dimension Door.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Incorporeal Form.MOD																					PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Lifesense.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ No Breath.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Basic Magic.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Minor Magic.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Major Magic.MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Ultimate Magic.MOD																						PREVAREQ:IsWildCallerEidolon,0

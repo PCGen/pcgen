@@ -288,6 +288,12 @@ Threefold Aspect (Young Adult)	PRESPELL:1,Threefold Aspect	TEMPBONUS:ANYPC|STAT|
 Threefold Aspect (Adulthood)		PRESPELL:1,Threefold Aspect	TEMPBONUS:ANYPC|STAT|WIS,INT|2|TYPE=Enhancement	TEMPBONUS:PC|STAT|DEX|-2
 Threefold Aspect (Elderly)		PRESPELL:1,Threefold Aspect	TEMPBONUS:ANYPC|STAT|WIS,INT|4|TYPE=Enhancement	TEMPBONUS:PC|STAT|STR,DEX|-2
 
+
+Evolution Surge.MOD		TEMPDESC:Grants eidolon an evolution worth up to 4 evolution points.						TEMPBONUS:ANYPC|VAR|TempBonus_EvolutionSurge|1
+Evolution Surge (Greater).MOD	TEMPDESC:Grants eidolon any two evolutions whose total cost does not exceed 6 evolution points.		TEMPBONUS:ANYPC|VAR|TempBonus_EvolutionSurgeGreater|1
+Evolution Surge (Lesser).MOD	TEMPDESC:Grants eidolon an evolution worth up to 2 evolution points.						TEMPBONUS:ANYPC|VAR|TempBonus_EvolutionSurgeLesser|1
+
+
 ###BLOCK: .Mod Spells
 #Inquisitor Spells
 # Spell Name				Classes of caster
