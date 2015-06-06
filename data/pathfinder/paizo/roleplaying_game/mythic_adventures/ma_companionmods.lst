@@ -1,0 +1,7 @@
+
+###Block: Impervious Companion Support
+FOLLOWER:MythicImperviousBody_Animal_Companion=1	TYPE:Animal Companion		DR:mastervar("MythicImperviousBodyDR")/epic
+FOLLOWER:MythicImperviousBody_Animal_Companion=1	TYPE:Samurai Mount		DR:mastervar("MythicImperviousBodyDR")/epic
+FOLLOWER:MythicImperviousBody_Eidolon=1			TYPE:Eidolon			DR:mastervar("MythicImperviousBodyDR")/epic
+FOLLOWER:MythicImperviousBody_Familiar=1			TYPE:Familiar			DR:mastervar("MythicImperviousBodyDR")/epic
+FOLLOWER:MythicImperviousBody_Bonded_Mount=1		TYPE:Special Mount		DR:mastervar("MythicImperviousBodyDR")/epic
