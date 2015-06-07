@@ -5,10 +5,11 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class			Source Page		Ability																		Define			Combat bonus										Save bonus																						Modify VAR				Monster Role
 CLASS:Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex-Barbarian	SOURCEPAGE:p.31	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills	DEFINE:BarbarianLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|BarbarianLVL|CL	ROLE:Combat.Skill
 # Class Name	Restricted AL
-CLASS:Barbarian	!PREALIGN:LG,LN,LE
+CLASS:Barbarian	PREMULT:1,[!PREALIGN:LG,LN,LE],[PREVAREQ:BypassClassAlignment_Barbarian,1]
 # Class Name	Skill Pts/Lvl
 CLASS:Barbarian	STARTSKILLPTS:4
 ###Block:Proficiencies
+1	ABILITY:Class|AUTOMATIC|Barbarian
 1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
@@ -84,11 +85,16 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|Ca
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Bonus Languages					Group of Prohibited Spells																																																																			Ability																	Define								Combat bonus											Add domain number					Save bonus																					Modify VAR													Monster Role
-CLASS:Cleric	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:p.38	LANGBONUS:Abyssal,Celestial,Infernal	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE	ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericClassSkills	DEFINE:ClericLVL|0	DEFINE:ClericDomainCount|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|ClericDomainCount	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClericLVL|CL	BONUS:VAR|DomainLVL|ClericLVL	BONUS:VAR|ClericDomainCount|2	ROLE:Cleric
+CLASS:Cleric	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:p.38	LANGBONUS:Abyssal,Celestial,Infernal	ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericClassSkills	DEFINE:ClericLVL|0	DEFINE:ClericDomainCount|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|ClericDomainCount	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClericLVL|CL	BONUS:VAR|DomainLVL|ClericLVL	BONUS:VAR|ClericDomainCount|2	ROLE:Cleric
 # Class Name	Skill Pts/Lvl
 CLASS:Cleric	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|Caster_Level_BL_Stripped_Cleric	BONUS:VAR|Caster_Level_BL_Stripped_Cleric|Caster_Level_Cleric-CasterLevelBLCleric	BONUS:VAR|Caster_Level_Cleric|CL+Caster_Level_Bonus+CasterLevelBLCleric	DEFINE:CasterLevelBLCleric|0	BONUS:VAR|CasterLevelBL_x_Cleric|charbonusto("PCLEVEL","Cleric")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Cleric|TYPE=Base
+###Block: Spell Alignment Restrictions
+1	PROHIBITSPELL:ALIGNMENT.Good|PREVAREQ:ProhibitSpell_Alignment_Good,1		
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREVAREQ:ProhibitSpell_Alignment_Evil,1		
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREVAREQ:ProhibitSpell_Alignment_Lawful,1	
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREVAREQ:ProhibitSpell_Alignment_Chaotic,1	
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Aura
@@ -124,20 +130,21 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Bonus Languages	Ability																	Define		Auto Language	Combat bonus											Save bonus																					Modify VAR			Monster Role
 CLASS:Druid		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:p.48	LANGBONUS:Sylvan	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidClassSkills	DEFINE:DruidLVL|0	AUTO:LANG|Druidic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|DruidLVL|CL	ROLE:Druid
 # Class Name	Required AL
-CLASS:Druid		PREALIGN:NG,LN,TN,CN,NE
+CLASS:Druid		PREMULT:1,[PREALIGN:NG,LN,TN,CN,NE],[PREVAREQ:BypassClassAlignment_Druid,1]
 # Class Name	Skill Pts/Lvl
 CLASS:Druid		STARTSKILLPTS:4
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid|Caster_Level_BL_Stripped_Druid	BONUS:VAR|Caster_Level_BL_Stripped_Druid|Caster_Level_Druid-CasterLevelBLDruid	BONUS:VAR|Caster_Level_Druid|CL+Caster_Level_Bonus+CasterLevelBLDruid	DEFINE:CasterLevelBLDruid|0	BONUS:VAR|CasterLevelBL_x_Druid|charbonusto("PCLEVEL","Druid")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Druid|TYPE=Base
 ###Block:Proficiencies
+1	ABILITY:Class|AUTOMATIC|Druid
 1	ABILITY:Druid Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidArmorProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWeaponProficiencies
 ###Block: Spell Alignment Restrictions
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
-1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
+1	PROHIBITSPELL:ALIGNMENT.Good|PREVAREQ:ProhibitSpell_Alignment_Good,1		
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREVAREQ:ProhibitSpell_Alignment_Evil,1		
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREVAREQ:ProhibitSpell_Alignment_Lawful,1	
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREVAREQ:ProhibitSpell_Alignment_Chaotic,1	
 ###Block: Level Progression Abilities
 1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Orisons
 1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Spontaneous Casting|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidSpontaneousCasting
@@ -166,7 +173,6 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	BONUS:VAR|AnimalCompanionMasterLVL|DruidLVL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidAnimalCompanion
 1	BONUS:VAR|DomainLVL|DruidLVL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomain
 1	BONUS:VAR|DruidWildShape|DruidLVL
-1
 ###Block: Level progression
 1	CAST:3,1
 2	CAST:4,2
@@ -231,10 +237,11 @@ CLASS:Fighter	STARTSKILLPTS:2
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define															Combat bonus											Save bonus													Modify VAR																Monster Role
 CLASS:Monk		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:p.56	DEFINE:FlurryOfBlows|0	DEFINE:MonkLVL|0	DEFINE:KiPoolWis|0	DEFINE:MonkFeatQualify|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|FlurryOfBlows|1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|KiPoolWis|1	BONUS:VAR|KiPool|1	ROLE:None
 # Class Name	Multiple Requirements
-CLASS:Monk		PREMULT:1,[PREALIGN:LG,LN,LE],[PREABILITY:1,CATEGORY=Archetype,TYPE.MonkAlignment]
+CLASS:Monk		PREMULT:1,[PREALIGN:LG,LN,LE],[PREVAREQ:BypassClassAlignment_Monk,1]
 # Class Name	Skill Pts/Lvl
 CLASS:Monk		STARTSKILLPTS:4
 ###Block:Proficiencies
+1	ABILITY:Class|AUTOMATIC|Monk
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkClassSkills
@@ -314,12 +321,14 @@ CLASS:Monk		STARTSKILLPTS:4
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class			Source Page		Ability																	Visible	Define								Combat bonus										Add domain number					Save bonus																					Modify VAR			Monster Role
 CLASS:Paladin	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Pld		MAXLEVEL:20	EXCLASS:Ex-Paladin	SOURCEPAGE:p.60	ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinClassSkills	VISIBLE:YES	DEFINE:PaladinLVL|0	DEFINE:PaladinDomainCount|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|PaladinDomainCount	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|PaladinLVL|CL	ROLE:None
 # Class Name	Required AL
-CLASS:Paladin	PREALIGN:LG
+#CLASS:Paladin	PREALIGN:LG
+CLASS:Paladin	PREMULT:1,[PREALIGN:LG],[PREVAREQ:BypassClassAlignment_Paladin,1]
 # Class Name	Skill Pts/Lvl
 CLASS:Paladin	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Paladin|Caster_Level_BL_Stripped_Paladin|PRECLASS:1,Paladin=4	BONUS:VAR|Caster_Level_BL_Stripped_Paladin|Caster_Level_Paladin-CasterLevelBLPaladin	BONUS:VAR|Caster_Level_Paladin|CL+Caster_Level_Bonus-3+CasterLevelBLPaladin	DEFINE:CasterLevelBLPaladin|0	BONUS:VAR|CasterLevelBL_x_Paladin|charbonusto("PCLEVEL","Paladin")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Paladin|TYPE=Base
 ###Block:Proficiencies
+1	ABILITY:Class|AUTOMATIC|Paladin
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy,TYPE.PaladinArmorProficiencyLight,TYPE.PaladinArmorProficiencyMedium,TYPE.PaladinArmorProficiency,TYPE.PaladinShieldProf,TYPE.PaladinShieldProficiency
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Heavy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy
@@ -605,7 +614,7 @@ CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:Perception|Ride|Stealth|Survival
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define				Combat bonus										Save bonus																						Modify VAR
 CLASS:Arcane Trickster	HD:6		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Art		MAXLEVEL:10	SOURCEPAGE:p.376	DEFINE:ArcaneTricksterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:VAR|ArcaneTricksterLVL|CL
 # Class Name		Required AL				Required Skill									Req. Known Spell		Required Text				Var. Min. Value
-CLASS:Arcane Trickster	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:3,Disable Device=4,Escape Artist=4,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRETEXT:PRESPELLTYPE:1,Arcane=2	PREVARGTEQ:SneakAttackDice,2
+CLASS:Arcane Trickster	PREMULT:1,[PREALIGN:NG,TN,NE,CG,CN,CE],[PREVAREQ:BypassClassAlignment_Arcane_Trickster,1]	PRESKILL:3,Disable Device=4,Escape Artist=4,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRETEXT:PRESPELLTYPE:1,Arcane=2	PREVARGTEQ:SneakAttackDice,2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE=Knowledge|Perception|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Swim
 ###Block:
@@ -620,6 +629,7 @@ CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Bluff|Climb|Di
 9	ADD:SPELLCASTER|ANY
 10	ADD:SPELLCASTER|ANY
 ###Block:
+1	ABILITY:CLASS|AUTOMATIC|Arcane Trickster
 1	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Ranged Legerdemain
 2	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Sneak Attack
 3	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Impromptu Sneak Attack
@@ -633,10 +643,11 @@ CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Bluff|Climb|Di
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Combat bonus											Save bonus																							Modify VAR
 CLASS:Assassin	HD:8		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Asn		MAXLEVEL:10	SOURCEPAGE:p.378	DEFINE:AssassinLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|AssassinLVL|CL
 # Class Name	Required AL		Required Skill
-CLASS:Assassin	PREALIGN:LE,NE,CE	PRESKILL:2,Disguise=2,Stealth=5
+CLASS:Assassin	PREMULT:1,[PREALIGN:LE,NE,CE],[PREVAREQ:BypassClassAlignment_Assassin,1]	PRESKILL:2,Disguise=2,Stealth=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
 ###Block: Normal Level Progression
+1	ABILITY:CLASS|AUTOMATIC|Assassin
 1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Weapon and Armor Proficiency
 1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Death Attack|Assassin ~ Poison Use|Assassin ~ Sneak Attack
 2	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Save against Poisons|Assassin ~ Uncanny Dodge
