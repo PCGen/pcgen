@@ -103,10 +103,10 @@ CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf
 1												AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
 ###Block: Alignment Restrictions
-1	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]]	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]]
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]]	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]]
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]]	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]]
-1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]]	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:2,[PREVAREQ:IgnoreAlignmentRestrictions,0],[PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]]
+1	PROHIBITSPELL:ALIGNMENT.Good|PREVAREQ:ProhibitSpell_Alignment_Good,1		
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREVAREQ:ProhibitSpell_Alignment_Evil,1		
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREVAREQ:ProhibitSpell_Alignment_Lawful,1	
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREVAREQ:ProhibitSpell_Alignment_Chaotic,1	
 ###Block: Level progression
 ###Block: Class Abilities
 1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Domains|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
@@ -346,12 +346,13 @@ CLASS:Eidolon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|TYPE=Craft|Knowledg
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class			Source Page		Define			Combat bonus										Save bonus																					Modify VAR
 CLASS:Antipaladin	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Apl		MAXLEVEL:20	EXCLASS:Ex-Antipaladin	SOURCEPAGE:p.118	DEFINE:AntipaladinLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|AntiPaladinLVL|CL
 # Class Name	Required AL
-CLASS:Antipaladin	PREALIGN:CE
+CLASS:Antipaladin	PREMULT:1,[PREALIGN:CE],[PREVAREQ:BypassClassAlignment_Antipaladin,1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Disguise|Handle Animal|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Antipaladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Antipaladin|Caster_Level_BL_Stripped_Antipaladin|PRECLASS:1,Antipaladin=4	BONUS:VAR|Caster_Level_BL_Stripped_Antipaladin|Caster_Level_Antipaladin-CasterLevelBLAntipaladin	BONUS:VAR|Caster_Level_Antipaladin|CL-3+Caster_Level_Bonus+CasterLevelBLAntipaladin	DEFINE:CasterLevelBLAntipaladin|0	BONUS:VAR|CasterLevelBL_x_Antipaladin|charbonusto("PCLEVEL","Antipaladin")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Antipaladin|TYPE=Base	DEFINE:Caster_Level_Antipaladin|0	DEFINE:Caster_Level_BL_Stripped_Antipaladin|0
 ###Block: Proficiencies
+1	ABILITY:CLASS|AUTOMATIC|Antipaladin
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProf
 ###Block: Var Trackers
 1	BONUS:VAR|DetectGoodLVL|CL
