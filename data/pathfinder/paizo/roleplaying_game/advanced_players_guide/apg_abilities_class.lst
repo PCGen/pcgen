@@ -2,7 +2,9 @@
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher & Andrew Maitland
 
-Antipaladin	CATEGORY:Class		DEFINE:BypassClassAlignment_Antipaladin|0		BONUS:VAR|BypassClassAlignment_Antipaladin|BypassClassAlignment_All_Class|TYPE=Bypass
+CATEGORY=Internal|Default.MOD		DEFINE:BypassClassAlignment_Antipaladin|0		BONUS:VAR|BypassClassAlignment_Antipaladin|BypassClassAlignment_All_Class|TYPE=Bypass
+
+Antipaladin	CATEGORY:Class	
 
 ###Block: Wizard Cantrips
 # Ability Name						List of Known Class Spells by Level

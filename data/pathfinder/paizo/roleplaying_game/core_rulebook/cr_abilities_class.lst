@@ -37,6 +37,16 @@ CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_BL_Stripped_Sorcerer|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_BL_Stripped_Wizard|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_BL_Stripped_Adept|0
 
+
+CATEGORY=Internal|Default.MOD		DEFINE:BypassClassAlignment_Barbarian|0		BONUS:VAR|BypassClassAlignment_Barbarian|BypassClassAlignment_All_Class|TYPE=Bypass		
+CATEGORY=Internal|Default.MOD		DEFINE:BypassClassAlignment_Druid|0			BONUS:VAR|BypassClassAlignment_Druid|BypassClassAlignment_All_Class|TYPE=Bypass
+CATEGORY=Internal|Default.MOD		DEFINE:BypassClassAlignment_Monk|0			BONUS:VAR|BypassClassAlignment_Monk|BypassClassAlignment_All_Class|TYPE=Bypass	BONUS:VAR|BypassClassAlignment_Monk|1|TYPE=Bypass|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkAlignment
+CATEGORY=Internal|Default.MOD		DEFINE:BypassClassAlignment_Paladin|0		BONUS:VAR|BypassClassAlignment_Paladin|BypassClassAlignment_All_Class|TYPE=Bypass
+
+CATEGORY=Internal|Default.MOD		DEFINE:BypassClassAlignment_Arcane_Trickster|0	BONUS:VAR|BypassClassAlignment_Arcane_Trickster|BypassClassAlignment_All_Class|TYPE=Bypass	
+CATEGORY=Internal|Default.MOD		DEFINE:BypassClassAlignment_Assassin|0		BONUS:VAR|BypassClassAlignment_Assassin|BypassClassAlignment_All_Class|TYPE=Bypass
+
+
 ###Block: Favored Classes
 # Ability Name	Category of Ability		Type			Visible		Stackable?	Multiple?	Bonus Ability Pool
 Barbarian		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|BarbarianLVL
@@ -63,22 +73,23 @@ Warrior		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MUL
 Bonus Hit Point			KEY:Favored Class Bonus ~ Hit Point		CATEGORY:Special Ability	TYPE:FavoredClassBonus												VISIBLE:DISPLAY																																																																																																																																																																																																																																																																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																						BONUS:HP|CURRENTMAX|1
 Bonus Skill Rank			KEY:Favored Class Bonus ~ Skill Rank	CATEGORY:Special Ability	TYPE:FavoredClassBonus												VISIBLE:DISPLAY																																																																																																																																																																																																																																																																									STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom																																					BONUS:SKILLRANK|LIST|1
 
+
+
 ###Block: Actual Base Class	These will eventually become FLAG in the new system
-Barbarian		CATEGORY:Class	DEFINE:BypassClassAlignment_Barbarian|0		BONUS:VAR|BypassClassAlignment_Barbarian|BypassClassAlignment_All_Class|TYPE=Bypass
+Barbarian		CATEGORY:Class
 Bard			CATEGORY:Class	
 Cleric		CATEGORY:Class	
-Druid			CATEGORY:Class	DEFINE:BypassClassAlignment_Druid|0		BONUS:VAR|BypassClassAlignment_Druid|BypassClassAlignment_All_Class|TYPE=Bypass
+Druid			CATEGORY:Class
 Fighter		CATEGORY:Class	
-Monk			CATEGORY:Class	DEFINE:BypassClassAlignment_Monk|0			BONUS:VAR|BypassClassAlignment_Monk|BypassClassAlignment_All_Class|TYPE=Bypass	BONUS:VAR|BypassClassAlignment_Monk|1|TYPE=Bypass|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkAlignment
-Paladin		CATEGORY:Class	DEFINE:BypassClassAlignment_Paladin|0		BONUS:VAR|BypassClassAlignment_Paladin|BypassClassAlignment_All_Class|TYPE=Bypass
+Monk			CATEGORY:Class	
+Paladin		CATEGORY:Class	
 Ranger		CATEGORY:Class	
 Rogue			CATEGORY:Class	
 Sorcerer		CATEGORY:Class	
 Wizard		CATEGORY:Class	
 
-
-Arcane Trickster	CATEGORY:Class	DEFINE:BypassClassAlignment_Arcane_Trickster|0	BONUS:VAR|BypassClassAlignment_Arcane_Trickster|BypassClassAlignment_All_Class|TYPE=Bypass
-Assassin		CATEGORY:Class	DEFINE:BypassClassAlignment_Assassin|0		BONUS:VAR|BypassClassAlignment_Assassin|BypassClassAlignment_All_Class|TYPE=Bypass
+Arcane Trickster	CATEGORY:Class	
+Assassin		CATEGORY:Class
 
 
 ###Block: Homebrew and expansion support
