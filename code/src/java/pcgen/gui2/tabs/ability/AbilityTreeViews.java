@@ -158,6 +158,7 @@ public class AbilityTreeViews
 		{
 			if (path.size() > 20)
 			{
+				
 				Logging.errorPrint("Found probable ability prereq cycle ["
 					+ StringUtils.join(path, ",") + "] with prereqs ["
 					+ StringUtils.join(preAbilities, ",") + "]. Skipping.");
@@ -171,6 +172,7 @@ public class AbilityTreeViews
 				List<AbilityFacade> preAbilities2 = dataset.getPrereqAbilities(preAbility);
 				// Don't include self references in the path
 				preAbilities2.remove(preAbility);
+				preAbilities2.removeAll(pathclone);
 				if (preAbilities2.isEmpty())
 				{
 					abilityPaths.add(pathclone);

@@ -63,6 +63,7 @@ import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.enumeration.View;
 
@@ -316,7 +317,8 @@ public class DataSet implements DataSetFacade
 	private List<AbilityFacade> getAbilitiesFromPrereq(Prerequisite prereq, Category<Ability> cat)
 	{
 		List<AbilityFacade> prereqList = new ArrayList<AbilityFacade>();
-		if (prereq == null)
+		// Exclude negated prereqs
+		if (prereq == null || (prereq.getOperator() == PrerequisiteOperator.LT && "1".equals(prereq.getOperand())))
 		{
 			return prereqList;
 		}
