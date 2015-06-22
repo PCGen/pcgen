@@ -1,0 +1,35 @@
+# CVS $Revision: $ $Author: $ -- Thu May 28 23:13:52 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
+# Original Entry by: Douglas Limmer
+# Original Entry Date: 13 February 2015
+
+# --- Item Abilities --- #
+###Block: Iron Collar of the Unbound Coven
+# Ability Name			Unique Key											Category of Ability		Type				Description																	Source Page
+Champion of the Unbound Coven	KEY:Iron Collar of the Unbound Coven ~ Champion of the Unbound Coven	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Your coven can ignore the requirement to have at least one hag as a member.					SOURCEPAGE:p.231
+Dreadful Gaze			KEY:Iron Collar of the Unbound Coven ~ Dreadful Gaze				CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:3/day 30-foot range gaze attack paralyze with terror (as hold person, Will DC 15, mind-affecting fear)	SOURCEPAGE:p.231
+Hag Form				KEY:Iron Collar of the Unbound Coven ~ Hag Form					CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:1/day transformation (as the spell), appearing as mix of annis, green, and sea hags.				SOURCEPAGE:p.232
+
+# --- Feat Abilities --- #
+###Block: Believer's Hands
+# Ability Name	Unique Key					Category of Ability		Type										Define												Description																																																																																																																	Modify VAR						Source Page		Aspects
+Lay on Hands	KEY:Believer's Hands ~ Lay on Hands	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.LayOnHands.Lay on Hands	DEFINE:LayOnHandsTimes|0	DEFINE:LayOnHandsDice|0	DEFINE:LayOnHandsLVL|0	DESC:You can heal wounds (your own or those of others) by touch. Each day you can use this ability %1 times per day. With one use of this ability, you can heal %2d6 hit points of damage. Using this ability is a standard action, unless you target yourself, in which case it is a swift action. Despite the name of this ability, you only need one free hand to use this ability. Alternatively, you can use this healing power to deal damage to undead creatures, dealing %2d6 points of damage. Using Lay on Hands in this way requires a melee touch attack and doesn't provide an attack of opportunity. Undead do not receive a saving throw against this damage.|LayOnHandsTimes|LayOnHandsDice	BONUS:VAR|LayOnHandsDice|max(1,TL/4)	SOURCEPAGE:p.142	ASPECT:CheckType|Uses per Day	ASPECT:CheckCount|%1|LayOnHandsTimes	ASPECT:MasterAbility|Lay on Hands
+
+# NEEDS DATA WORK: Taking the eldritch heritage feat doesn't give access to the raging blood bloodline; I can't see why.  The sorcerer bloodline does work.
+###Block: Raging Blood
+# Ability Name		Unique Key				Category of Ability		Type					Required Ability																	Ability
+Aberrant Bloodline	KEY:Raging Blood ~ Aberrant	CATEGORY:Special Ability	TYPE:RagingBloodBloodline	PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Aberrant,Eldritch Heritage Bloodline ~ Aberrant		ABILITY:Special Ability|AUTOMATIC|Aberrant Bloodrager ~ Staggering Strike
+Abyssal Bloodline		KEY:Raging Blood ~ Abyssal	CATEGORY:Special Ability	TYPE:RagingBloodBloodline	PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Abyssal,Eldritch Heritage Bloodline ~ Abyssal		ABILITY:Special Ability|AUTOMATIC|Abyssal Bloodrager ~ Claws
+Arcane Bloodline		KEY:Raging Blood ~ Arcane	CATEGORY:Special Ability	TYPE:RagingBloodBloodline	PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Arcane,Eldritch Heritage Bloodline ~ Arcane		ABILITY:Special Ability|AUTOMATIC|Arcane Bloodrager ~ Disruptive Bloodrage
+Celestial Bloodline	KEY:Raging Blood ~ Celestial	CATEGORY:Special Ability	TYPE:RagingBloodBloodline	PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Celestial,Eldritch Heritage Bloodline ~ Celestial	ABILITY:Special Ability|AUTOMATIC|Celestial Bloodrager ~ Angelic Attacks
+Destined Bloodline	KEY:Raging Blood ~ Destined	CATEGORY:Special Ability	TYPE:RagingBloodBloodline	PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Destined,Eldritch Heritage Bloodline ~ Destined		ABILITY:Special Ability|AUTOMATIC|Destined Bloodrager ~ Destined Strike
+Draconic Bloodline	KEY:Raging Blood ~ Draconic	CATEGORY:Special Ability	TYPE:RagingBloodBloodline	PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Draconic,Eldritch Heritage Bloodline ~ Draconic		ABILITY:Special Ability|AUTOMATIC|Draconic Bloodrager ~ Claws
+Elemental Bloodline	KEY:Raging Blood ~ Elemental	CATEGORY:Special Ability	TYPE:RagingBloodBloodline	PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Elemental,Eldritch Heritage Bloodline ~ Elemental	ABILITY:Special Ability|AUTOMATIC|Elemental Bloodrager ~ Elemental Strikes
+Fey Bloodline		KEY:Raging Blood ~ Fey		CATEGORY:Special Ability	TYPE:RagingBloodBloodline	PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Fey,Eldritch Heritage Bloodline ~ Fey			ABILITY:Special Ability|AUTOMATIC|Fey Bloodrager ~ Confusing Critical
+Infernal Bloodline	KEY:Raging Blood ~ Infernal	CATEGORY:Special Ability	TYPE:RagingBloodBloodline	PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Infernal,Eldritch Heritage Bloodline ~ Infernal		ABILITY:Special Ability|AUTOMATIC|Infernal Bloodrager ~ Hellfire Strike
+Undead Bloodline		KEY:Raging Blood ~ Undead	CATEGORY:Special Ability	TYPE:RagingBloodBloodline	PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Undead,Eldritch Heritage Bloodline ~ Undead		ABILITY:Special Ability|AUTOMATIC|Undead Bloodrager ~ Frightful Charger
+
+
+#
+# End
+#
