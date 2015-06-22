@@ -5030,6 +5030,24 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Dagger	LOCATION:Equipped	EQMOD:MWORKW
 
+STARTPACK:Serpentfolk (Degenerate) Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Serpentfolk (Degenerate)]	SOURCEPAGE:p.242
+RACE:Serpentfolk (Degenerate)	!PRERACE:1,%
+NAME:Serpentfolk (Degenerate)
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:5
+SKILL:Disguise			RANK:5
+SKILL:Escape Artist		RANK:5
+SKILL:Knowledge (Arcana)	RANK:5
+SKILL:Perception			RANK:5
+SKILL:Sense Motive		RANK:5
+SKILL:Spellcraft			RANK:5
+SKILL:Use Magic Device		RANK:5
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+GEAR:Dagger	LOCATION:Equipped	EQMOD:MWORKW
+
 STARTPACK:Seugathi Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Seugathi]	SOURCEPAGE:p.243
 RACE:Seugathi	!PRERACE:1,%
 NAME:Seugathi
