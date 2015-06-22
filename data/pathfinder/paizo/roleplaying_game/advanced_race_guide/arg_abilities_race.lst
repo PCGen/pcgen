@@ -1225,3 +1225,12 @@ Bonus Bard Spell Known Illusion	KEY:Favored Class Bonus ~ Bard ~ Wayang		CATEGOR
 Bonus Oracle Illusion Wizard Spell	KEY:Favored Class Bonus ~ Oracle ~ Wayang		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle	PRECLASS:1,Oracle=1	PRERACE:1,Wayang,RACESUBTYPE=Wayang	DESC:Oracle: Add one spell known from the wizard's illusion school spell list. This spell must be at least one level below the highest spell level the oracle can cast. That spell is treated as one level higher unless it is also on the oracle spell list.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE									SOURCEPAGE:p.210
 Bonus Sorcerer Shadow Damage		KEY:Favored Class Bonus ~ Sorcerer ~ Wayang	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer	PRECLASS:1,Sorcerer=1	PRERACE:1,Wayang,RACESUBTYPE=Wayang	DESC:Sorcerer: Add +1/2 point of damage to any illusion spells of the shadow subschool cast by the sorcerer.																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE									SOURCEPAGE:p.210
 Bonus Summoner Eidolon Skill Point	KEY:Favored Class Bonus ~ Summoner ~ Wayang	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner	PRECLASS:1,Summoner=1	PRERACE:1,Wayang,RACESUBTYPE=Wayang	DESC:Summoner: Add +1 skill rank to the summoner's eidolon.																																		STACK:YES	MULT:YES	CHOOSE:NOCHOICE									SOURCEPAGE:p.210
+
+
+
+
+###Block: ARG Race Builder Examples:
+Racial Traits ~ Kasatha	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Builder Racial Trait ~ Defensive Training (Greater)|Builder Racial Trait ~ Desert Runner|Builder Racial Trait ~ Stalker|Builder Racial Trait ~ Jumper|Builder Racial Trait ~ Multi-Armed|Builder Racial Trait ~ Multi-Armed
+Racial Traits ~ Trox	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Builder Racial Trait ~ Frenzy|Builder Racial Trait ~ Grappling Appendages
+Racial Traits ~ Wyvaran	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Builder Racial Trait ~ Slapping Tail
+
