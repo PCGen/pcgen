@@ -674,6 +674,7 @@ CLASS:Stalwart Defender	PREABILITY:5,CATEGORY=FEAT,Dodge,Endurance,Toughness,Arm
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Stalwart Defender	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Perception|Sense Motive
 ##Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ AC Bonus
 1	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Defensive Stance
 2	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Defensive Powers
 3	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Uncanny Dodge
