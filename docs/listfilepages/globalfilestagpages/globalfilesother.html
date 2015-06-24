@@ -1243,6 +1243,10 @@
     </p>
     <p class="indent2">Works in Ability, Class and Template files.</p>
     <hr />
+	<h3>SAB - 'special ability'</h3>
+	
+	<p><em>Displays a text string in the 'special abilities' section of the character sheet.</em></p>
+	
     <p class="lststatus">
       <a name="SAB" id="SAB">*** Updated 5.13.6</a>
     </p>
@@ -1254,14 +1258,19 @@
     <strong>Variables Used (x):</strong>.CLEAR</p>
     <p>
     <strong>Variables Used (x):</strong>.CLEAR.Text (Special Ability Name)</p>
-    <p class="indent1">
-      <strong>What it does:</strong>
-    </p>
-    <ul class="indent2">
+    <h4>What it does</h4>
+    <ul>
       <li>This grants the character a Special Ability that will get listed together with all other special abilities the character has.</li>
-      <li>The &quot;%&quot; tag will fill in a number from a variable listed after a pipe (|).</li>
-      <li>This can be done numerous times, with each successive percent sign (%) relating to the next variable listed after another pipe (|).</li>
-      <li>This can be specified via number of &quot;%#&quot;, with each successive numbered &quot;%&quot; relating to the next variable listed after another pipe (|). The count starts at zero and counts up.</li>
+      <li>The 
+      <code>%</code> tag will fill in a number from a variable listed after a pipe 
+      <code>|</code>.</li>
+      <li>This can be done numerous times, with each successive percent sign 
+      <code>%</code> relating to the next variable listed after another pipe 
+      <code>|</code>.</li>
+      <li>This can be specified via number of 
+      <code>%#</code>, with each successive numbered 
+      <code>%</code> relating to the next variable listed after another pipe 
+      <code>|</code>. The count starts at zero and counts up.</li>
       <li>Each variable needs to be defined (via the global 
       <code>DEFINE</code> tag.)</li>
       <li>The Special Ability will not be displayed if the last variable or formula equals zero.</li>
@@ -1275,54 +1284,116 @@
       <code>SAB:.CLEAR.Text</code> must include the exact text of the Special Ability to be removed but only the exact text up to the first open-parentheses. The 
       <code>CLEAR</code> and Replace tags should be at the end of the line, so the new and old tags are not.</li>
       <li>SAB tags can be qualified with 
-      <a href="globalfilesprexxx.html">PRExxx</a> tags.</li>
+      <code>[PRExxx](globalfilesprexxx.html)</code> tags.</li>
       <li>SAB tags can be used with 
-      <code>%CHOICE</code> tags to display the result of a CHOOSE result.</li>
+      <code>%CHOICE</code> tags to display the result of a 
+      <code>CHOOSE</code> result.</li>
     </ul>
-    <p class="indent1">
-      <strong>Examples:</strong>
+    <h4>Examples</h4>
+    <ol>
+      <li>
+        <p>
+          <code>SAB:Fire in the Hole</code>
+        </p>
+        <p>Grants the special ability &quot;Fire in the Hole&quot;.</p>
+      </li>
+      <li>
+        <p>
+          <code>SAB:Sneak Attack +%d%|Sneak Attack|Sneak Attack Die</code>
+        </p>
+        <p>If the PC&#39;s 
+        <code>Sneak Attack</code> variable had value 
+        <code>2</code>, and the PC&#39;s 
+        <code>Sneak Attack Die</code> variable had value 
+        <code>6</code>, this would grant the special ability 
+        <code>Sneak Attack +2d6</code>.</p>
+      </li>
+      <li>
+        <p>
+          <code>SAB:.CLEAR.+1d6 to natural weapons → SAB:+1d8 to natural weapons</code>
+        </p>
+        <p>Clears the &quot;Natural Weapons&quot; value and makes it +1d8 instead.</p>
+      </li>
+      <li>
+        <p>
+          <code>SAB:Banana toss|PRERACE:monkey</code>
+        </p>
+        <p>Grants the special ability &quot;Banana toss&quot; if the character&#39;s race is &quot;monkey&quot;.</p>
+      </li>
+      <li>
+        <p>
+          <code>SAB:Banana toss via elemental power of (%CHOICE) → STACK:NO → MULT:YES → CHOOSE:Air|Earth|Fire|Water</code>
+        </p>
+        <p>Offers a Choice between the elemental powers of 
+        <code>Air</code>, 
+        <code>Earth</code>, 
+        <code>Fire</code> and 
+        <code>Water</code> for banana tossing. The same ability may be taken multiple times, but a different element must be chosen each time.</p>
+      </li>
+      <li>
+        <p>
+          <code>SAB:.CLEAR.Poison</code>
+        </p>
+        <p>Clears the 
+        <code>Poison</code> value and replaces it with nothing.</p>
+      </li>
+      <li>
+        <p>Within a class definition in a 
+        <a href="../datafilestagpages/datafilesclasses.html">Class file</a>:</p>
+        <pre>
+<code> CLASS:Basketweaver        
+ 1  →  SAB:Basket Toss
+ 5  →  SAB:.CLEAR.Basket Toss  →  SAB:Greater Basket Toss</code>
+</pre>
+        <p>Replaces the 
+        <code>Basket Toss</code> ability with the 
+        <code>Greater Basket Toss</code> ability at 
+        <code>Basketweaver</code> class level 5.</p>
+      </li>
+      <li>
+        <p>Within a class definition in a 
+        <a href="../datafilestagpages/datafilesclasses.html">Class file</a>:</p>
+        <pre>
+<code>CLASS:Basketweaver
+1  →  SAB:Basket Toss|PREVARLT:CL,5
+5  →  SAB:Greater Basket Toss</code>
+</pre>
+        <p>Another way of replacing the 
+        <code>Basket Toss</code> ability with the 
+        <code>Greater Basket Toss</code> ability at 
+        <code>Basketweaver</code> class level 5.</p>
+      </li>
+    </ol>
+    <h4>Remarks</h4>
+    <p>The 
+    <code>SAB</code> tag has no effect on calculations. Its sole purpose is to display a short ability description under the 
+    <i>Special Abilities</i> section of the character sheet. An example for 
+    <code>SAB:Plays nice with others.</code> is shown below.</p>
+    <p>
+      <img src="../../images/tags/SAB_1.png" />
     </p>
-    <p class="indent2">
-      <code>SAB:Fire in the Hole</code>
-    </p>
-    <p class="indent3">Grants the special ability &quot;Fire in the Hole&quot;.</p>
-    <p class="indent2">
-      <code>SAB:Sneak Attack +%d%|Sneak Attack|Sneak Attack Die</code>
-    </p>
-    <p class="indent3">If the PCs &lt;Sneak Attack&gt; was 5 and &lt;Sneak Attack Die&gt; was 6, this would grant the special ability &quot;Sneak Attack&quot; at +5d6.</p>
-    <p class="indent2">
-      <code>SAB:.CLEAR.+1d6 to natural weapons &lt;tab&gt; SAB:+1d8 to natural weapons</code>
-    </p>
-    <p class="indent3">Clears the &quot;Natural Weapons&quot; value and makes it +1d8 instead.</p>
-    <p class="indent2">
-      <code>SAB:Banana toss|PRERACE:monkey</code>
-    </p>
-    <p class="indent3">Grants the special ability &quot;Banana toss&quot; if the character&#39;s race is &quot;monkey&quot;.</p>
-    <p class="indent2">
-      <code>SAB:Banana toss via (%CHOICE) &lt;tab&gt; STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:Air|Earth|Fire|Water</code>
-    </p>
-    <p class="indent3">Offers a Choice between Air/Earth/Fire/Water for banana tossing, may be used multiple times, but selected only once.</p>
-    <p class="indent2">
-      <code>4 &lt;tab&gt; SAB:.CLEAR.Shield Brother (full round action) &lt;tab&gt; SAB:Shield Brother (standard action)</code>
-    </p>
-    <p class="indent3">Clears the 4th level value and makes it &quot;Shield Brother (standard action)&quot; instead.</p>
-    <p class="indent2">
-      <code>SAB:.CLEAR.Poison</code>
-    </p>
-    <p class="indent3">Clears the &quot;Poison&quot; value and replaces it with nothing.</p>
-    <p class="indent2">
-      <code>CLASS:Toto</code>
-    </p>
-    <p class="indent2">
-      <code>1 SAB:Big Papa|PREVARLT:CL,3</code>
-    </p>
-    <p class="indent2">
-      <code>2 SAB:Big Mama</code>
-    </p>
-    <p class="indent2">
-      <code>3 SAB:Very Big Papa</code>
-    </p>
-    <p class="indent3">Causes the special ability &quot;Big Papa&quot; to be removed at 3rd level while adding the special ability &quot;Very Big Papa&quot;.</p>
+    <p>The 
+    <code>ASPECT</code> tag can be used to display similar pieces of text in the other boxes, 
+    <em>Conditional Save Modifiers</em>, 
+    <em>Conditional Combat Modifiers</em>, and 
+    <em>Conditional Skill Modifiers</em>.</p>
+    <ul>
+      <li>Conditional combat bonus: 
+      <code>ASPECT:CombatBonus|+2 to attack and damage vs. elves.</code></li>
+      <li>Conditional saving throw bonus: 
+      <code>ASPECT:SaveBonus|-2 penalty on saving throws vs. fear effects.</code></li>
+      <li>Conditional skill bonus: 
+      <code>ASPECT:SkillBonus|+2 Competence bonus on Climb checks when climbing trees.</code></li>
+    </ul>
+    <p>Example code for an Ability list file:</p>
+    <pre>
+<code>My Ability Name
+  →  CATEGORY:Special Ability
+  →  ASPECT:CombatBonus|+2 to attack and damage vs. elves.
+  →  ASPECT:SaveBonus|-2 penalty on saving throws vs. fear effects.
+  →  ASPECT:SkillBonus|+2 Competence bonus on Climb checks when climbing trees.
+</code>
+</pre>
     <hr />
     <p class="lststatus">
       <a name="SELECT" id="SELECT">*** New 5.13.9</a>
@@ -2166,13 +2237,13 @@
       <code>Skill Focus.MOD</code>
     </p>
     <p class="indent3">Modifies the 
-    <strong>Skill Focus</strong> feat (
+    <strong>Skill Focus</strong> feat ( 
     <span class="lstfile">in feat.lst</span> file)</p>
     <p class="indent2">
       <code>BOWSTR.MOD</code>
     </p>
     <p class="indent3">Modifies the 
-    <strong>BOWSTR</strong> eqmod (
+    <strong>BOWSTR</strong> eqmod ( 
     <span class="lstfile">in eqmod.lst</span> file)</p>
     <p class="indent2">
       <code>CATEGORY=Mutation|Weak Immune System.MOD</code>
