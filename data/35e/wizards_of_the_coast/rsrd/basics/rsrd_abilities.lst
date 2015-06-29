@@ -1,92 +1,93 @@
-# CVS $Revision$ $Author$ -- Sun Jun 28 23:32:02 2015 -- reformated by PCGen PrettyLST v6.05.01
+# CVS $Revision$ $Author$ -- Mon Jun 29 00:56:04 2015 -- reformated by PCGen PrettyLST v6.05.01
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Revised Updated Entry by: Collaborative Effort by Andrew Maitland and BD
 
 
 
 # COMMENT: Default is an Automatically Applied Ability, upon it all other functions of automation are possible.
-# Ability Name			Category of Ability	Define									Modify VAR
+# Ability Name			Category of Ability	Define										Modify VAR
 Default				CATEGORY:Internal		DEFINE:RaceSizeIsLong|0	DEFINE:DisableDeityNoneDomains|0
 
-
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Display|0						BONUS:VAR|Max_Rank_Display|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Appraise|0						BONUS:VAR|Max_Rank_Appraise|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Balance|0						BONUS:VAR|Max_Rank_Balance|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Bluff|0							BONUS:VAR|Max_Rank_Bluff|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Climb|0							BONUS:VAR|Max_Rank_Climb|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Concentration|0					BONUS:VAR|Max_Rank_Concentration|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Control_Shape|0					BONUS:VAR|Max_Rank_Control_Shape|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Alchemy|0					BONUS:VAR|Max_Rank_Craft_Alchemy|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Armorsmithing|0				BONUS:VAR|Max_Rank_Craft_Armorsmithing|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Bowmaking|0					BONUS:VAR|Max_Rank_Craft_Bowmaking|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Blacksmithing|0				BONUS:VAR|Max_Rank_Craft_Blacksmithing|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Carpentry|0					BONUS:VAR|Max_Rank_Craft_Carpentry|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Leatherworking|0				BONUS:VAR|Max_Rank_Craft_Leatherworking|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Painting|0					BONUS:VAR|Max_Rank_Craft_Painting|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Pottery|0					BONUS:VAR|Max_Rank_Craft_Pottery|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Sculpting|0					BONUS:VAR|Max_Rank_Craft_Sculpting|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Shipmaking|0					BONUS:VAR|Max_Rank_Craft_Shipmaking|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Stonemasonry|0				BONUS:VAR|Max_Rank_Craft_Stonemasonry|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Trapmaking|0					BONUS:VAR|Max_Rank_Craft_Trapmaking|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Weaponsmithing|0				BONUS:VAR|Max_Rank_Craft_Weaponsmithing|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Woodworking|0					BONUS:VAR|Max_Rank_Craft_Woodworking|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Untrained|0					BONUS:VAR|Max_Rank_Craft_Untrained|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Decipher_Script|0					BONUS:VAR|Max_Rank_Decipher_Script|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Diplomacy|0						BONUS:VAR|Max_Rank_Diplomacy|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Disable_Device|0					BONUS:VAR|Max_Rank_Disable_Device|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Disguise|0						BONUS:VAR|Max_Rank_Disguise|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Escape_Artist|0					BONUS:VAR|Max_Rank_Escape_Artist|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Forgery|0						BONUS:VAR|Max_Rank_Forgery|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Gather_Information|0				BONUS:VAR|Max_Rank_Gather_Information|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Handle_Animal|0					BONUS:VAR|Max_Rank_Handle_Animal|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Heal|0							BONUS:VAR|Max_Rank_Heal|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Hide|0							BONUS:VAR|Max_Rank_Hide|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Intimidate|0						BONUS:VAR|Max_Rank_Intimidate|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Jump|0							BONUS:VAR|Max_Rank_Jump|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Knowledge_Arcana|0					BONUS:VAR|Max_Rank_Knowledge_Arcana|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Knowledge_Architecture_and_Engineering|0	BONUS:VAR|Max_Rank_Knowledge_Architecture_and_Engineering|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Knowledge_Dungeoneering|0				BONUS:VAR|Max_Rank_Knowledge_Dungeoneering|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Knowledge_Geography|0				BONUS:VAR|Max_Rank_Knowledge_Geography|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Knowledge_History|0					BONUS:VAR|Max_Rank_Knowledge_History|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Knowledge_Local|0					BONUS:VAR|Max_Rank_Knowledge_Local|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Knowledge_Nature|0					BONUS:VAR|Max_Rank_Knowledge_Nature|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Knowledge_Nobility_and_Royalty|0		BONUS:VAR|Max_Rank_Knowledge_Nobility_and_Royalty|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Knowledge_Religion|0				BONUS:VAR|Max_Rank_Knowledge_Religion|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Knowledge_The_Planes|0				BONUS:VAR|Max_Rank_Knowledge_The_Planes|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Listen|0						BONUS:VAR|Max_Rank_Listen|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Literacy|0						BONUS:VAR|Max_Rank_Literacy|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Move_Silently|0					BONUS:VAR|Max_Rank_Move_Silently|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Open_Lock|0						BONUS:VAR|Max_Rank_Open_Lock|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Perform_Untrained|0					BONUS:VAR|Max_Rank_Perform_Untrained|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Perform_Act|0						BONUS:VAR|Max_Rank_Perform_Act|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Perform_Comedy|0					BONUS:VAR|Max_Rank_Perform_Comedy|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Perform_Dance|0					BONUS:VAR|Max_Rank_Perform_Dance|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Perform_Keyboard_Instruments|0			BONUS:VAR|Max_Rank_Perform_Keyboard_Instruments|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Perform_Oratory|0					BONUS:VAR|Max_Rank_Perform_Oratory|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Perform_Percussion_Instruments|0		BONUS:VAR|Max_Rank_Perform_Percussion_Instruments|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Perform_String_Instruments|0			BONUS:VAR|Max_Rank_Perform_String_Instruments|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Perform_Wind_Instruments|0			BONUS:VAR|Max_Rank_Perform_Wind_Instruments|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Perform_Sing|0					BONUS:VAR|Max_Rank_Perform_Sing|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Profession_Hunter|0					BONUS:VAR|Max_Rank_Profession_Hunter|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Profession_Miner|0					BONUS:VAR|Max_Rank_Profession_Miner|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Profession_Siege_Engineer|0			BONUS:VAR|Max_Rank_Profession_Siege_Engineer|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Ride|0							BONUS:VAR|Max_Rank_Ride|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Search|0						BONUS:VAR|Max_Rank_Search|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Sense_Motive|0					BONUS:VAR|Max_Rank_Sense_Motive|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Sleight_of_Hand|0					BONUS:VAR|Max_Rank_Sleight_of_Hand|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Speak_Language|0					BONUS:VAR|Max_Rank_Speak_Language|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Spellcraft|0						BONUS:VAR|Max_Rank_Spellcraft|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Spot|0							BONUS:VAR|Max_Rank_Spot|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Survival|0						BONUS:VAR|Max_Rank_Survival|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Swim|0							BONUS:VAR|Max_Rank_Swim|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Tumble|0						BONUS:VAR|Max_Rank_Tumble|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Use_Magic_Device|0					BONUS:VAR|Max_Rank_Use_Magic_Device|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Use_Rope|0						BONUS:VAR|Max_Rank_Use_Rope|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Dreamweaving|0				BONUS:VAR|Max_Rank_Craft_Dreamweaving|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Gemcutting|0					BONUS:VAR|Max_Rank_Craft_Gemcutting|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Metalworking|0				BONUS:VAR|Max_Rank_Craft_Metalworking|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Craft_Stoneworking|0				BONUS:VAR|Max_Rank_Craft_Stoneworking|MaxRank-10
-CATEGORY=Internal|Default.MOD					DEFINE:Max_Rank_Profession_Bookkeeper|0				BONUS:VAR|Max_Rank_Profession_Bookkeeper|MaxRank-10
+CATEGORY=Internal|Default.MOD					DEFINE:SkillRankCap|0								BONUS:VAR|SkillRankCap|TL+13|TYPE=Base
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Display|0						BONUS:VAR|Skill_Rank_Cap_Display|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_CrossSkillDisplay|0					BONUS:VAR|Skill_Rank_Cap_CrossSkillDisplay|Skill_Rank_Cap_Display/2
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Appraise|0						BONUS:VAR|Skill_Rank_Cap_Appraise|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Balance|0						BONUS:VAR|Skill_Rank_Cap_Balance|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Bluff|0							BONUS:VAR|Skill_Rank_Cap_Bluff|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Climb|0							BONUS:VAR|Skill_Rank_Cap_Climb|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Concentration|0					BONUS:VAR|Skill_Rank_Cap_Concentration|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Control_Shape|0					BONUS:VAR|Skill_Rank_Cap_Control_Shape|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Alchemy|0					BONUS:VAR|Skill_Rank_Cap_Craft_Alchemy|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Armorsmithing|0				BONUS:VAR|Skill_Rank_Cap_Craft_Armorsmithing|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Bowmaking|0					BONUS:VAR|Skill_Rank_Cap_Craft_Bowmaking|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Blacksmithing|0				BONUS:VAR|Skill_Rank_Cap_Craft_Blacksmithing|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Carpentry|0					BONUS:VAR|Skill_Rank_Cap_Craft_Carpentry|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Leatherworking|0				BONUS:VAR|Skill_Rank_Cap_Craft_Leatherworking|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Painting|0					BONUS:VAR|Skill_Rank_Cap_Craft_Painting|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Pottery|0					BONUS:VAR|Skill_Rank_Cap_Craft_Pottery|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Sculpting|0					BONUS:VAR|Skill_Rank_Cap_Craft_Sculpting|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Shipmaking|0					BONUS:VAR|Skill_Rank_Cap_Craft_Shipmaking|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Stonemasonry|0				BONUS:VAR|Skill_Rank_Cap_Craft_Stonemasonry|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Trapmaking|0					BONUS:VAR|Skill_Rank_Cap_Craft_Trapmaking|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Weaponsmithing|0				BONUS:VAR|Skill_Rank_Cap_Craft_Weaponsmithing|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Woodworking|0					BONUS:VAR|Skill_Rank_Cap_Craft_Woodworking|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Untrained|0					BONUS:VAR|Skill_Rank_Cap_Craft_Untrained|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Decipher_Script|0					BONUS:VAR|Skill_Rank_Cap_Decipher_Script|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Diplomacy|0						BONUS:VAR|Skill_Rank_Cap_Diplomacy|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Disable_Device|0					BONUS:VAR|Skill_Rank_Cap_Disable_Device|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Disguise|0						BONUS:VAR|Skill_Rank_Cap_Disguise|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Escape_Artist|0					BONUS:VAR|Skill_Rank_Cap_Escape_Artist|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Forgery|0						BONUS:VAR|Skill_Rank_Cap_Forgery|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Gather_Information|0				BONUS:VAR|Skill_Rank_Cap_Gather_Information|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Handle_Animal|0					BONUS:VAR|Skill_Rank_Cap_Handle_Animal|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Heal|0							BONUS:VAR|Skill_Rank_Cap_Heal|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Hide|0							BONUS:VAR|Skill_Rank_Cap_Hide|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Intimidate|0						BONUS:VAR|Skill_Rank_Cap_Intimidate|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Jump|0							BONUS:VAR|Skill_Rank_Cap_Jump|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Knowledge_Arcana|0					BONUS:VAR|Skill_Rank_Cap_Knowledge_Arcana|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Knowledge_Architecture_and_Engineering|0	BONUS:VAR|Skill_Rank_Cap_Knowledge_Architecture_and_Engineering|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Knowledge_Dungeoneering|0				BONUS:VAR|Skill_Rank_Cap_Knowledge_Dungeoneering|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Knowledge_Geography|0				BONUS:VAR|Skill_Rank_Cap_Knowledge_Geography|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Knowledge_History|0					BONUS:VAR|Skill_Rank_Cap_Knowledge_History|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Knowledge_Local|0					BONUS:VAR|Skill_Rank_Cap_Knowledge_Local|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Knowledge_Nature|0					BONUS:VAR|Skill_Rank_Cap_Knowledge_Nature|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Knowledge_Nobility_and_Royalty|0		BONUS:VAR|Skill_Rank_Cap_Knowledge_Nobility_and_Royalty|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Knowledge_Religion|0				BONUS:VAR|Skill_Rank_Cap_Knowledge_Religion|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Knowledge_The_Planes|0				BONUS:VAR|Skill_Rank_Cap_Knowledge_The_Planes|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Listen|0						BONUS:VAR|Skill_Rank_Cap_Listen|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Literacy|0						BONUS:VAR|Skill_Rank_Cap_Literacy|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Move_Silently|0					BONUS:VAR|Skill_Rank_Cap_Move_Silently|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Open_Lock|0						BONUS:VAR|Skill_Rank_Cap_Open_Lock|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Perform_Untrained|0					BONUS:VAR|Skill_Rank_Cap_Perform_Untrained|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Perform_Act|0						BONUS:VAR|Skill_Rank_Cap_Perform_Act|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Perform_Comedy|0					BONUS:VAR|Skill_Rank_Cap_Perform_Comedy|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Perform_Dance|0					BONUS:VAR|Skill_Rank_Cap_Perform_Dance|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Perform_Keyboard_Instruments|0			BONUS:VAR|Skill_Rank_Cap_Perform_Keyboard_Instruments|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Perform_Oratory|0					BONUS:VAR|Skill_Rank_Cap_Perform_Oratory|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Perform_Percussion_Instruments|0		BONUS:VAR|Skill_Rank_Cap_Perform_Percussion_Instruments|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Perform_String_Instruments|0			BONUS:VAR|Skill_Rank_Cap_Perform_String_Instruments|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Perform_Wind_Instruments|0			BONUS:VAR|Skill_Rank_Cap_Perform_Wind_Instruments|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Perform_Sing|0					BONUS:VAR|Skill_Rank_Cap_Perform_Sing|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Profession_Hunter|0					BONUS:VAR|Skill_Rank_Cap_Profession_Hunter|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Profession_Miner|0					BONUS:VAR|Skill_Rank_Cap_Profession_Miner|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Profession_Siege_Engineer|0			BONUS:VAR|Skill_Rank_Cap_Profession_Siege_Engineer|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Ride|0							BONUS:VAR|Skill_Rank_Cap_Ride|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Search|0						BONUS:VAR|Skill_Rank_Cap_Search|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Sense_Motive|0					BONUS:VAR|Skill_Rank_Cap_Sense_Motive|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Sleight_of_Hand|0					BONUS:VAR|Skill_Rank_Cap_Sleight_of_Hand|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Speak_Language|0					BONUS:VAR|Skill_Rank_Cap_Speak_Language|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Spellcraft|0						BONUS:VAR|Skill_Rank_Cap_Spellcraft|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Spot|0							BONUS:VAR|Skill_Rank_Cap_Spot|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Survival|0						BONUS:VAR|Skill_Rank_Cap_Survival|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Swim|0							BONUS:VAR|Skill_Rank_Cap_Swim|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Tumble|0						BONUS:VAR|Skill_Rank_Cap_Tumble|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Use_Magic_Device|0					BONUS:VAR|Skill_Rank_Cap_Use_Magic_Device|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Use_Rope|0						BONUS:VAR|Skill_Rank_Cap_Use_Rope|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Dreamweaving|0				BONUS:VAR|Skill_Rank_Cap_Craft_Dreamweaving|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Gemcutting|0					BONUS:VAR|Skill_Rank_Cap_Craft_Gemcutting|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Metalworking|0				BONUS:VAR|Skill_Rank_Cap_Craft_Metalworking|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Craft_Stoneworking|0				BONUS:VAR|Skill_Rank_Cap_Craft_Stoneworking|SkillRankCap-10
+CATEGORY=Internal|Default.MOD					DEFINE:Skill_Rank_Cap_Profession_Bookkeeper|0				BONUS:VAR|Skill_Rank_Cap_Profession_Bookkeeper|SkillRankCap-10
 
 ###Block:
 # Ability Name			Category of Ability	Type			Required Var. value	Var. Min. Value			Define				Template			Ability																																			Modify VAR						Cost		Aspects

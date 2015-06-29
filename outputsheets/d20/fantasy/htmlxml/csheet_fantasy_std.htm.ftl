@@ -968,7 +968,13 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
      <td colspan="4" height="30" bgcolor="black" align="center"></td>
      <td height="30" bgcolor="black" align="right" ></td>
      <td height="30" bgcolor="black" align="center"><font style="font-size: x-small" color="white" >MAX<br />RANKS</font></td>
-     <td colspan="2" height="30"  bgcolor="white" align="center" class="skl"><b>${pcstring('MAXSKILLLEVEL')}/${pcstring('MAXCCSKILLLEVEL')}</b></td>
+     <td colspan="2" height="30"  bgcolor="white" align="center" class="skl"><b>
+ 		<#if (pcvar("VAR.Skill_Rank_Cap_Display") > 0)>
+			${pcstring('VAR.Skill_Rank_Cap_Display.INTVAL')}/${pcstring('VAR.Skill_Rank_Cap_CrossSkillDisplay.INTVAL')}
+		<#else>
+			${pcstring('MAXSKILLLEVEL')}/${pcstring('MAXCCSKILLLEVEL')}
+		</#if>
+	</b></td>
     </tr>
     <tr>
      <td colspan="2" align="center" width="40%" class="border6">SKILL NAME</td>
