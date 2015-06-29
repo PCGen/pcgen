@@ -390,12 +390,13 @@
 			<eclipse_total>${pcstring('VAR.CharacterSkillPts.INTVAL')}</eclipse_total>
 		</skillpoints>
 		<list_mods>${pcstring('SKILLLISTMODS')}</list_mods>
-		<#if (pcvar("VAR.Max_Rank_Display") > 0)>
-			<max_class_skill_level>${pcstring('VAR.Max_Rank_Display')}</max_class_skill_level>
+		<#if (pcvar("VAR.Skill_Rank_Cap_Display") > 0)>
+			<max_class_skill_level>${pcstring('VAR.Skill_Rank_Cap_Display.INTVAL')}</max_class_skill_level>
+			<max_cross_class_skill_level>${pcstring('VAR.Skill_Rank_Cap_CrossSkillDisplay.INTVAL')}</max_cross_class_skill_level>
 		<#else>
 			<max_class_skill_level>${pcstring('MAXSKILLLEVEL')}</max_class_skill_level>
+			<max_cross_class_skill_level>${pcstring('MAXCCSKILLLEVEL')}</max_cross_class_skill_level>
 		</#if>
-		<max_cross_class_skill_level>${pcstring('MAXCCSKILLLEVEL')}</max_cross_class_skill_level>
 	<@loop from=0 to=pcvar('count("SKILLSIT", "VIEW=VISIBLE_EXPORT")')-1 ; skill ,skill_has_next>
 		<skill>
 			<name>${pcstring('SKILLSIT.${skill}')}</name>
