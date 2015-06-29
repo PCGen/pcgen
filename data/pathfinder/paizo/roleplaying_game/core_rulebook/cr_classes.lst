@@ -171,7 +171,6 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 0	DOMAIN:Water|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Water
 0	DOMAIN:Weather|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Weather
 ###Block: Vars
-1	BONUS:VAR|AnimalCompanionMasterLVL|DruidLVL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidAnimalCompanion
 1	BONUS:VAR|DomainLVL|DruidLVL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomain
 1	BONUS:VAR|DruidWildShape|DruidLVL
 ###Block: Level progression
@@ -410,7 +409,6 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 1	BONUS:VAR|TrackLVL|CL
 2	BONUS:VAR|CombatStyleLVL|CL
 4	BONUS:VAR|HuntersBondLVL|CL
-4	BONUS:VAR|AnimalCompanionMasterLVL|CL-3
 20	BONUS:VAR|MasterHunterLVL|CL
 ###Block: Progression Abilities
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Enemy|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy
