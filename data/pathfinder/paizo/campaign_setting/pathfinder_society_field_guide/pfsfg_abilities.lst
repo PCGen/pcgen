@@ -176,5 +176,8 @@ Jade			KEY:Prestige Award ~ Jade			SORTKEY:PrestigeAward_2	CATEGORY:Special Abil
 Messenger		KEY:Prestige Award ~ Messenger		SORTKEY:PrestigeAward_2	CATEGORY:Special Ability	TYPE:Prestige Award Display.Vanity Prestige Award					VISIBLE:YES	DESC:A wayfinder casts message instead of light.																																																																																																																																																																																							COST:5	SOURCEPAGE:p.63
 Trapped		KEY:Prestige Award ~ Trapper			SORTKEY:PrestigeAward_2	CATEGORY:Special Ability	TYPE:Prestige Award Display.Vanity Prestige Award					VISIBLE:YES	DESC:A wayfinder is trapped.																																																																																																																																																																																											COST:4	SOURCEPAGE:p.63
 
+###Block: Amulet of Mighty Fist Support
+Unarmed Agile	KEY:Unarmed Agile	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|dex bonus to damage using Weapon Finesse and Finessable weapon
+
 #
 ###END
