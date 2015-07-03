@@ -67,7 +67,7 @@ OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
 # PFS Additional Resources #
 ############################
 
-#PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/advanced_class_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_guide.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary/bestiary.pcc
