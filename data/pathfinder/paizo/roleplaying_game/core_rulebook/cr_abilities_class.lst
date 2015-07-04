@@ -75,23 +75,6 @@ Bonus Skill Rank			KEY:Favored Class Bonus ~ Skill Rank	CATEGORY:Special Ability
 
 
 
-###Block: Actual Base Class	These will eventually become FLAG in the new system
-Barbarian		CATEGORY:Class
-Bard			CATEGORY:Class	
-Cleric		CATEGORY:Class	
-Druid			CATEGORY:Class
-Fighter		CATEGORY:Class	
-Monk			CATEGORY:Class	
-Paladin		CATEGORY:Class	
-Ranger		CATEGORY:Class	
-Rogue			CATEGORY:Class	
-Sorcerer		CATEGORY:Class	
-Wizard		CATEGORY:Class	
-
-Arcane Trickster	CATEGORY:Class	
-Assassin		CATEGORY:Class
-
-
 ###Block: Homebrew and expansion support
 Bypass Paladin Alignment	CATEGORY:Internal	VISIBLE:DISPLAY	BONUS:VAR|BypassClassAlignment_Paladin|1|TYPE=Bypass
 
@@ -121,35 +104,39 @@ Indomitable Will				KEY:Barbarian ~ Indomitable Will			CATEGORY:Special Ability	
 Uncanny Dodge				KEY:Barbarian ~ Uncanny Dodge				CATEGORY:Special Ability	TYPE:BarbarianClassFeatures.Uncanny Dodge																																																																																																																																																																																																																																																																																																																											BONUS:VAR|UncannyDodgeFlankingLevel|BarbarianLVL|TYPE=EachClass.REPLACE
 Improved Uncanny Dodge			KEY:Barbarian ~ Improved Uncanny Dodge		CATEGORY:Special Ability	TYPE:BarbarianClassFeatures.Uncanny Dodge.Improved Uncanny Dodge
 #
-Barbarian ~ Uncanny Dodge Tracker									CATEGORY:Special Ability	TYPE:BarbarianClassFeatures																																																																																																																																																																																																																																																																																																																													BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:BarbarianLVL,2|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianUncannyDodge	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:BarbarianLVL,5|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianImprovedUncannyDodge
+Barbarian ~ Uncanny Dodge Tracker									CATEGORY:Special Ability	TYPE:BarbarianClassFeatures	
+
 
 ###Block: Archetype Support
-# Ability Name								Modify VAR
-CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD		BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,1|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense1
-CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD		BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,2|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense2
-CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD		BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,3|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense3
-CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD		BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,4|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense4
-CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD		BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,5|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense5
-CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD		BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,6|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense6
+# Ability Name									Modify VAR
+CATEGORY=Special Ability|Barbarian ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:BarbarianLVL,2|PREVAREQ:Barbarian_CF_Uncanny_Dodge,0	
+CATEGORY=Special Ability|Barbarian ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:BarbarianLVL,5|PREVAREQ:Barbarian_CF_Improved_Uncanny_Dodge,0
 
-CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD	BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,1|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction1
-CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD	BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,2|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction2
-CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD	BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,3|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction3
-CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD	BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,4|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction4
-CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD	BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,5|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction5
+CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,1|PREVAREQ:Barbarian_CF_Trap_Sense1,0
+CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,2|PREVAREQ:Barbarian_CF_Trap_Sense2,0
+CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,3|PREVAREQ:Barbarian_CF_Trap_Sense3,0
+CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,4|PREVAREQ:Barbarian_CF_Trap_Sense4,0
+CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,5|PREVAREQ:Barbarian_CF_Trap_Sense5,0
+CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,6|PREVAREQ:Barbarian_CF_Trap_Sense6,0
+
+CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,1|PREVAREQ:Barbarian_CF_Damage_Reduction1,0
+CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,2|PREVAREQ:Barbarian_CF_Damage_Reduction2,0
+CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,3|PREVAREQ:Barbarian_CF_Damage_Reduction3,0
+CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,4|PREVAREQ:Barbarian_CF_Damage_Reduction4,0
+CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,5|PREVAREQ:Barbarian_CF_Damage_Reduction5,0
 
 ###Block:
 # Ability Name							Bonus Ability Pool
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,2|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower2
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,4|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower4
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,6|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower6
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,8|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower8
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,10|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower10
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,12|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower12
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,14|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower14
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,16|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower16
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,18|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower18
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,20|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower20
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,2|PREVAREQ:Barbarian_CF_Rage_Power2,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,4|PREVAREQ:Barbarian_CF_Rage_Power4,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,6|PREVAREQ:Barbarian_CF_Rage_Power6,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,8|PREVAREQ:Barbarian_CF_Rage_Power8,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,10|PREVAREQ:Barbarian_CF_Rage_Power10,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,12|PREVAREQ:Barbarian_CF_Rage_Power12,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,14|PREVAREQ:Barbarian_CF_Rage_Power14,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,16|PREVAREQ:Barbarian_CF_Rage_Power16,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,18|PREVAREQ:Barbarian_CF_Rage_Power18,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,20|PREVAREQ:Barbarian_CF_Rage_Power20,0
 
 
 ###Block: Barbarian Rage Powers
@@ -2042,3 +2029,117 @@ Stabilize			KEY:Spell ~ Stabilize			CATEGORY:Internal		TYPE:SLA_LVL0.Druid_SLA_L
 Summon Instrument		KEY:Spell ~ Summon Instrument		CATEGORY:Internal		TYPE:SLA_LVL0.Bard_SLA_LVL0									ABILITY:Spell-Like Ability|AUTOMATIC|Summon Instrument
 Touch of Fatigue		KEY:Spell ~ Touch of Fatigue		CATEGORY:Internal		TYPE:SLA_LVL0.Wizard_SLA_LVL0									ABILITY:Spell-Like Ability|AUTOMATIC|Touch of Fatigue
 Virtue			KEY:Spell ~ Virtue			CATEGORY:Internal		TYPE:SLA_LVL0.Druid_SLA_LVL0.Cleric_SLA_LVL0						ABILITY:Spell-Like Ability|AUTOMATIC|Virtue
+
+###--------------------------------------------###
+##	New Formula Parser Support Mechanisms	##
+###--------------------------------------------###
+
+###Block: Actual Base Class	
+# COMMENT: These will eventually become FLAG in the new system
+# COMMENT: Currently Double System to make transition easier
+# COMMENT: Archetype Support inline
+# COMMENT: Class will hold everything that is pertaining to that class, this prevents having over-processing for the old JEP system.
+# COMMENT: When the New Formula Parser BOOLEAN is implemented, these will be moved to the correct file.
+# COMMENT: Using ONE LINE per item for EASE of debugging and reading. This will make this file exceedingly lengthy.
+Barbarian		CATEGORY:Class		
+Bard			CATEGORY:Class	
+Cleric		CATEGORY:Class	
+Druid			CATEGORY:Class
+Fighter		CATEGORY:Class	
+Monk			CATEGORY:Class	
+Paladin		CATEGORY:Class	
+Ranger		CATEGORY:Class	
+Rogue			CATEGORY:Class	
+Sorcerer		CATEGORY:Class	
+Wizard		CATEGORY:Class	
+
+Arcane Trickster	CATEGORY:Class	
+Assassin		CATEGORY:Class
+
+
+
+
+###Block: Class Specifics
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage|0			
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Fast_Movement|0	
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Powers|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power2|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power4|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power6|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power8|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power10|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power12|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power14|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power16|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power18|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power20|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Trap_Sense|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Trap_Sense1|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Trap_Sense2|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Trap_Sense3|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Trap_Sense4|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Trap_Sense5|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Trap_Sense6|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Damage_Reduction|0	
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Damage_Reduction1|0	
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Damage_Reduction2|0	
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Damage_Reduction3|0	
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Damage_Reduction4|0	
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Damage_Reduction5|0	
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Greater_Rage|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Indomitable_Will|0	
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Tireless_Rage|0	
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Mighty_Rage|0		
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Proficiencies|0
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Uncanny_Dodge|0
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Improved_Uncanny_Dodge|0
+CATEGORY=Class|Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|PREVAREQ:Barbarian_CF_Proficiencies,0
+CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|PREVAREQ:Barbarian_CF_Proficiencies,0|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
+CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|PREVAREQ:Barbarian_CF_Proficiencies,0|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Proficiencies=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRage				
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Fast_Movement|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Fast_Movement=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement		
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Powers|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Powers=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePowers			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power2=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower2			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power4=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower4			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power6=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower6			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power8=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower8			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power10=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower10			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power12=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower12			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power14=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower14			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power16=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower16			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power18=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower18			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power20=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower20			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense1=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense1			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense2=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense2			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense3=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense3			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense4=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense4			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense5=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense5			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense6=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense6			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction		
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction1=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction1		
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction2=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction2		
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction3=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction3		
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction4=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction4		
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction5=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction5		
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Greater_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Greater_Rage=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianGreaterRage			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Indomitable_Will|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Indomitable_Will=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianIndomitableWill		
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Tireless_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Tireless_Rage=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTirelessRage		
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Mighty_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Mighty_Rage=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianMightyRage			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Uncanny_Dodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Uncanny_Dodge=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianUncannyDodge			
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Improved_Uncanny_Dodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Improved_Uncanny_Dodge=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianImprovedUncannyDodge			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
