@@ -2093,9 +2093,12 @@ CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Mighty_Rage|0
 CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Proficiencies|0
 CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Uncanny_Dodge|0
 CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Improved_Uncanny_Dodge|0
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Class_Skills|0
 CATEGORY=Class|Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|PREVAREQ:Barbarian_CF_Proficiencies,0
 CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|PREVAREQ:Barbarian_CF_Proficiencies,0|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
 CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|PREVAREQ:Barbarian_CF_Proficiencies,0|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
+CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|PREVAREQ:Barbarian_CF_Barbarian_Class_Skills,0
+CATEGORY=Class|Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Uncanny Dodge Tracker
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Proficiencies=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRage				
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Fast_Movement|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Fast_Movement=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement		
@@ -2129,7 +2132,7 @@ CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Tireless_Rage|1|TYPE=Boolean
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Mighty_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Mighty_Rage=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianMightyRage			
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Uncanny_Dodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Uncanny_Dodge=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianUncannyDodge			
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Improved_Uncanny_Dodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Improved_Uncanny_Dodge=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianImprovedUncannyDodge			
-
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Class_Skills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Class_Skills=True|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills			
 
 
 

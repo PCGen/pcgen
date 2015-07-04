@@ -63,6 +63,7 @@ FACTDEF:ABILITY|Barbarian_Archetype_Mighty_Rage				DATAFORMAT:BOOLEAN	VISIBLE:YE
 FACTDEF:ABILITY|Barbarian_Archetype_Proficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Mighty_Rage				EXPLANATION:Determines whether the archetype affects - Mighty_Rage		
 FACTDEF:ABILITY|Barbarian_Archetype_Uncanny_Dodge			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Uncanny_Dodge			EXPLANATION:Determines whether the archetype affects - Uncanny_Dodge				
 FACTDEF:ABILITY|Barbarian_Archetype_Improved_Uncanny_Dodge		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Improved_Uncanny_Dodge		EXPLANATION:Determines whether the archetype affects - Improved_Uncanny_Dodge			
+FACTDEF:ABILITY|Barbarian_Archetype_Class_Skills			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Class_Skills			EXPLANATION:Determines whether the archetype affects - Class_Skills			
 
 # Barbarian Class Feature Alterations
 FACTDEF:ABILITY|Barbarian_CF_Rage					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage					EXPLANATION:Barbarian Rage removed
@@ -98,4 +99,5 @@ FACTDEF:ABILITY|Barbarian_CF_Mighty_Rage				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELEC
 FACTDEF:ABILITY|Barbarian_CF_Proficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Barbarian Proficiencies removed
 FACTDEF:ABILITY|Barbarian_CF_Uncanny_Dodge			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Uncanny_Dodge			EXPLANATION:Barbarian Uncanny Dodge removed
 FACTDEF:ABILITY|Barbarian_CF_Improved_Uncanny_Dodge		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Improved_Uncanny_Dodge		EXPLANATION:Barbarian Improved Uncanny Dodge removed
+FACTDEF:ABILITY|Barbarian_CF_Class_Skills				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Class_Skills			EXPLANATION:Barbarian Class_Skills removed
 
