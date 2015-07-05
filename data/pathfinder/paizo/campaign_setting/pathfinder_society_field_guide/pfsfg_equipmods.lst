@@ -16,6 +16,10 @@ Guardian		KEY:GUARDIAN	TYPE:Weapon.Melee	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.5
 
 #Agile bonus to add dex to weapon damage instead of str, but not increased for two-handed weapons though still reduced for off-hand weapons
 
+
+# Supposedly legal...
+Agile			KEY:Agile_AMF								TYPE:AmuletOfMightyFists	PLUS:1						VISIBLE:QUALIFY											BONUS:WEAPONPROF=TYPE.Natural|DAMAGE|(max(STR,DEX)-STR)|TYPE=NotRanged	SPROP:dex bonus to damage using Weapon Finesse and Finessable weapon	SOURCEPAGE:p.50	PRETYPE:1,EQMOD=MightyFist_AMF			ABILITY:Special Ability|AUTOMATIC|Unarmed Agile																																																																																															SORTKEY:+1
+
 #
 ###END
 #

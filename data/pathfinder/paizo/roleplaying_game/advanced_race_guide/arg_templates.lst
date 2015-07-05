@@ -92,8 +92,8 @@ Mystic Past Life ~ CHA 23				PREVAREQ:CHASCORE,23	BONUS:VAR|MysticPastLifeScoreC
 Mystic Past Life ~ CHA 24				PREVAREQ:CHASCORE,24	BONUS:VAR|MysticPastLifeScoreCHA|24|TYPE=BASE																				REMOVABLE:NO
 
 Default Language ~ Kitsune		VISIBLE:NO													AUTO:LANG|Common|Sylvan		LANGBONUS:Aklo,Celestial,Elven,Gnome,Tengu
-Default Language ~ Nagaji		VISIBLE:NO													AUTO:LANG|Common|Draconic	LANGBONUS:Abyssal,Aklo,Celestial,Draconic,Giant,Infernal,Sylvan
-Default Language ~ Samsaran		VISIBLE:NO													AUTO:LANG|Common|Samsaran	LANGBONUS:Abyssal,Aquan,Auran,Celestial,Draconic,Giant,Ignan,Infernal,Tengu,Terran
+Default Language ~ Nagaji		VISIBLE:NO													AUTO:LANG|Common|Draconic	LANGBONUS:Abyssal,Aklo,Celestial,Draconic,Giant,Infernal,Sylvan,TYPE=ModernHumanLanguage
+Default Language ~ Samsaran		VISIBLE:NO													AUTO:LANG|Common|Samsaran	LANGBONUS:Abyssal,Aquan,Auran,Celestial,Draconic,Giant,Ignan,Infernal,Tengu,Terran,TYPE=ModernHumanLanguage
 Default Language ~ Wayang		VISIBLE:NO													AUTO:LANG|Common|Wayang		LANGBONUS:Abyssal,Aklo,Draconic,Goblin,Infernal,Samsaran,Tengu
 
 

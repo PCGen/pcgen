@@ -25,13 +25,15 @@ FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Companion	HD:1
 FOLLOWER:AnimalCompanionLVL=20	TYPE:Animal Companion	HD:1
 ###Block:
 # Class of the Master			Type				Ability
-FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	ABILITY:Special Ability|AUTOMATIC|Companion ~ Link|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionLink	ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionShareSpells
-FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionEvasion
+FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training	
+FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Link|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionLink
+FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionShareSpells
+FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionEvasion
 FOLLOWER:AnimalCompanionLVL=4		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Animal Companion
-FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionDevotion
-FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionMultiattack
+FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionDevotion
+FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionMultiattack
 FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Spell Resistance (AC)
-FOLLOWER:AnimalCompanionLVL=16	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionImprovedEvasion
+FOLLOWER:AnimalCompanionLVL=16	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionImprovedEvasion
 
 ###Block:Special Mount - Same Table but slightly different animal list was warranted plus INT needs to be locked at 6
 # Class of the Master		Type				Auto Armor Prof				Define			Define Stat				Modify VAR								Main Race Type
@@ -54,14 +56,15 @@ FOLLOWER:SpecialMountLVL=18	TYPE:Special Mount	HD:1
 FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount	HD:1
 ###Block:
 # Class of the Master		Type				Ability																																			Main Race Type			Template
-FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Link|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionLink	ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionShareSpells
-FOLLOWER:SpecialMountLVL=3	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionEvasion
+FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Link|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionLink
+FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionShareSpells
+FOLLOWER:SpecialMountLVL=3	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionEvasion
 FOLLOWER:SpecialMountLVL=4	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Special Mount
-FOLLOWER:SpecialMountLVL=6	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionDevotion
-FOLLOWER:SpecialMountLVL=9	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionMultiattack
+FOLLOWER:SpecialMountLVL=6	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionDevotion
+FOLLOWER:SpecialMountLVL=9	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionMultiattack
 FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount																																					RACETYPE:Animal/Magical Beast	TEMPLATE:Celestial Creature
 FOLLOWER:SpecialMountLVL=15	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Spell Resistance (SM)
-FOLLOWER:SpecialMountLVL=16	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionImprovedEvasion
+FOLLOWER:SpecialMountLVL=16	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionImprovedEvasion
 
 ###Block: Familiar
 # Class of the Master	Type			Ability												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat									Combat bonus										Main Race Type
