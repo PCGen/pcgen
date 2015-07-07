@@ -208,10 +208,12 @@ CATEGORY=Internal|Base Size ~ Colossal.MOD																																						
 # COMMENT: Rules for standard creatures based upon Size - Just Grant the Base Internal Attack Mode and the correct Damage will be assigned
 # COMMENT: Switched to using PREBASESIZE as BONUS:SIZEMOD|NUMBER also was acting as a TYPE.Natural Dice Boost. This won't affect Dragons since they use a different system.
 ###Block:		Damage						Type		# of Attacks by default
+#			F  D   T   S   M   L   H   G   C
 # Bite -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B/S/P	Primary	x1	(Max set up is 7 for Eidolon support) - completed
 # Gore -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 P		Primary	x1	(Max set up is 7 for Eidolon support)
 # Pincers -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B		Secondary	x2	(Max set up is 7 - though pairs is normal)
 # Tail Slap -	1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B		Secondary	x1	(Max set up is 7 for Eidolon support)
+#			D  T   S   M   L   H   G   C
 # Claw -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S		Primary	x2	(Max set up is 7 for Eidolon support)
 # Slam -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Primary	x1	(Max set up is 7 for Eidolon support)
 # Sting -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 P		Primary	x1	(Max set up is 7 for Eidolon support)
