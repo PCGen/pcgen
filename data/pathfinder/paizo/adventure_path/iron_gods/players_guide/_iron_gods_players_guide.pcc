@@ -38,6 +38,7 @@ ABILITY:ig_abilities.lst
 ABILITY:ig_abilities_feat.lst
 ABILITYCATEGORY:ig_abilitycategories.lst
 LANGUAGE:ig_languages.lst
+SKILL:ig_skills.lst
 TEMPLATE:ig_templates.lst
 # Android mentioned in sidebar, but lacks details
 
