@@ -228,8 +228,8 @@ CLASS:Fighter	STARTSKILLPTS:2
 ###Block:
 1	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Bonus Feats|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeats
 2	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Bravery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBravery
-3	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Armor Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining_ALL
-5	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Weapon Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining_ALL
+3	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Armor Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining_ALL,TYPE.FighterArmorTraining
+5	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Weapon Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining_ALL,TYPE.FighterWeaponTraining
 19	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Armor Mastery|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorMastery
 ###Block:
 20	BONUS:ABILITYPOOL|Weapon Mastery|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponMastery
