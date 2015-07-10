@@ -63,7 +63,17 @@ Spell Focus		TYPE:SpellComponent.Focus		COST:0	WT:0				MODS:REQUIRED
 Art			TYPE:Art					COST:0	WT:0				MODS:REQUIRED
 Gem			TYPE:Gem					COST:0	WT:0				MODS:REQUIRED
 
-
+###Block: Tattoo Slot Support
+Tattoo Head				TYPE:TattooHead		COST:0	WT:0				MODS:REQUIRED
+Tattoo Shoulders			TYPE:TattooShoulders	COST:0	WT:0				MODS:REQUIRED
+Tattoo Neck				TYPE:TattooNeck		COST:0	WT:0				MODS:REQUIRED
+Tattoo Chest			TYPE:TattooChest		COST:0	WT:0				MODS:REQUIRED
+Tattoo Body				TYPE:TattooBody		COST:0	WT:0				MODS:REQUIRED
+Tattoo Belt				TYPE:TattooBelt		COST:0	WT:0				MODS:REQUIRED
+Tattoo Wrist			TYPE:TattooWrist		COST:0	WT:0				MODS:REQUIRED
+Tattoo Hands			TYPE:TattooHands		COST:0	WT:0				MODS:REQUIRED
+Tattoo Ring				TYPE:TattooRing		COST:0	WT:0				MODS:REQUIRED
+Tattoo Feet				TYPE:TattooFeet		COST:0	WT:0				MODS:REQUIRED
 
 ###Block: Trade Goods
 # Equipment Name	Output Name				Type			Cost		Weight	Source Page
@@ -236,19 +246,19 @@ Unholy Symbol (Wooden)			TYPE:Goods.Tools.SpellComponent.DivineFocus												
 Unholy Symbol (Silver)			TYPE:Goods.Tools.SpellComponent.DivineFocus													COST:25	WT:1								SOURCEPAGE:p.161
 
 ###Block: Clothing
-# Equipment Name		Output Name				Type							Cost		Weight	Source Page		Special Property
-Outfit (Artisan's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1	WT:4		SOURCEPAGE:p.161
-Vestments (Cleric's)	OUTPUTNAME:[NAME] Vestments	TYPE:Goods.Clothing.Resizable.Starting	COST:5	WT:6		SOURCEPAGE:p.161
-Outfit (Cold-Weather)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:8	WT:7		SOURCEPAGE:p.161	SPROP: +5 circumstance bonus on Fortitude saves vs cold weather
-Outfit (Courtier's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable			COST:30	WT:6		SOURCEPAGE:p.161
-Outfit (Entertainer's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:3	WT:4		SOURCEPAGE:p.161
-Outfit (Explorer's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:10	WT:8		SOURCEPAGE:p.161
-Outfit (Monk's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:5	WT:2		SOURCEPAGE:p.162
-Outfit (Noble's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable			COST:75	WT:10		SOURCEPAGE:p.162
-Outfit (Peasant's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:0.1	WT:2		SOURCEPAGE:p.162
-Outfit (Royal)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable			COST:200	WT:15		SOURCEPAGE:p.162
-Outfit (Scholar's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:5	WT:6		SOURCEPAGE:p.162
-Outfit (Traveler's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1	WT:5		SOURCEPAGE:p.162
+# Equipment Name													Output Name				Type							Cost		Weight	Source Page		Special Property
+Outfit (Artisan's)	KEY:Outfit (Artisan's)		SORTKEY:Outfit (Artisan's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1	WT:4		SOURCEPAGE:p.161
+Vestments (Cleric's)	KEY:Vestments (Cleric's)	SORTKEY:Vestments (Cleric's)		OUTPUTNAME:[NAME] Vestments	TYPE:Goods.Clothing.Resizable.Starting	COST:5	WT:6		SOURCEPAGE:p.161
+Outfit (Cold-Weather)	KEY:Outfit (Cold-Weather)	SORTKEY:Outfit (Cold-Weather)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:8	WT:7		SOURCEPAGE:p.161	SPROP: +5 circumstance bonus on Fortitude saves vs cold weather
+Outfit (Courtier's)	KEY:Outfit (Courtier's)		SORTKEY:Outfit (Courtier's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable			COST:30	WT:6		SOURCEPAGE:p.161
+Outfit (Entertainer's)	KEY:Outfit (Entertainer's)	SORTKEY:Outfit (Entertainer's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:3	WT:4		SOURCEPAGE:p.161
+Outfit (Explorer's)	KEY:Outfit (Explorer's)		SORTKEY:Outfit (Explorer's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:10	WT:8		SOURCEPAGE:p.161
+Outfit (Monk's)		KEY:Outfit (Monk's)		SORTKEY:Outfit (Monk's)			OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:5	WT:2		SOURCEPAGE:p.162
+Outfit (Noble's)		KEY:Outfit (Noble's)		SORTKEY:Outfit (Noble's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable			COST:75	WT:10		SOURCEPAGE:p.162
+Outfit (Peasant's)	KEY:Outfit (Peasant's)		SORTKEY:Outfit (Peasant's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:0.1	WT:2		SOURCEPAGE:p.162
+Outfit (Royal)		KEY:Outfit (Royal)		SORTKEY:Outfit (Royal)			OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable			COST:200	WT:15		SOURCEPAGE:p.162
+Outfit (Scholar's)	KEY:Outfit (Scholar's)		SORTKEY:Outfit (Scholar's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:5	WT:6		SOURCEPAGE:p.162
+Outfit (Traveler's)	KEY:Outfit (Traveler's)		SORTKEY:Outfit (Traveler's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1	WT:5		SOURCEPAGE:p.162
 
 ###Block:Food, Drink, and Lodging
 # Equipment Name		Type							Cost		Weight	Source Page
