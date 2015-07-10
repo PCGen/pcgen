@@ -1,6 +1,21 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
 
+# Class Feature Blank
+#	KEY:xxx ~ 
+#	CATEGORY:Special Ability
+#	TYPE:xxx Class Feature.SpecialQuality
+#	SOURCEPAGE:p.
+#	DESC:
+
+# Race or Racial Trait Blank
+#	KEY:xxx ~ 
+#	CATEGORY:Special Ability
+#	TYPE:xxx Race Trait.Race Trait.SpecialQuality
+#	SOURCEPAGE:p.
+#	DESC:
+
+
 #insert your data here
 
 #Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up

@@ -48,3 +48,29 @@ PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/ultimate_magic.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc
 # Using new file style
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_guide.pcc
+
+# ENTRY DATE: 2015-01
+# LST MONKEY: PCGen Team
+# LICENSE MONKEY: N/A
+# RELEASE REVIEW #
+# BETA:
+# RELEASE:
+# Built for PCGen Version: 6.05.03
+# Updated to work with version: -
+# MINVER:6.5
+# MINDEVVER:6.05.3
+# COMMENTS: 
+# Includes the following Books
+# Core Rulebook
+# Bestiary
+# Bestiary 2
+# Bestiary 3
+# Advanced Player's Guide
+# Advanced Race Guide
+# Advanced Class Guide
+# Ultimate Combat
+# Ultimate Magic
+# Ultimate Campaign
+# Ultimate Equipment
+
