@@ -1,6 +1,27 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
 
+# Blank Class Template - Has all the normal tags, plus anything extra
+#	CLASS:xxx	HD:	TYPE:Base.PC.Prestige.Monster	
+#	MAXLEVEL:
+#	ROLE:
+#	CLASSTYPE:
+#	SOURCEPAGE:p.	DEFINE:xxxLVL|0	BONUS:VAR|xxxLVL|CL
+#	CLASS:xxx	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+#	CLASS:xxx	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+#			BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+#	CLASS:xxx	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")
+#	CLASS:xxx	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")
+#	CLASS:xxx	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")
+
+#	CLASS:xxx	PRETEXT:
+#	CLASS:xxx	STARTSKILLPTS:	CSKILL:
+#	CLASS:xxx	BONUS:CASTERLEVEL|xxx|CL+CasterLevelBonus	SPELLTYPE:	SPELLSTAT:	MEMORIZE:
+#		ADD:SPELLCASTER|
+###Block
+#		ABILITY:xxx Class Feature|AUTOMATIC|
+# NOTE: CLASSTYPE, SPELLTYPE & ABB are being PHASED OUT and Replaced with FACT:x (with x being the previous name)
+
 #insert your data here
 
 #Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
