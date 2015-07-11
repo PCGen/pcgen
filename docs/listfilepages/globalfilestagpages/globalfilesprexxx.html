@@ -200,16 +200,14 @@
 <h4 id="status">Status</h4>
 <ul>
 <li>Updated 6.03.00.<ul>
-<li><a href="http://jira.pcgen.org/browse/NEWTAG-423">JIRA issue NEWTAG-423</a> - Eliminate use of ANY for a Category in PREABILITY.</li></ul>
+<li>The syntax <code>PREABILITY:N,CATEGORY=ability_category,ALL</code> was deleted. (Formerly used to require <code>N</code> abilities from <code>ability_category</code>. Removed because it was too broad.)</li><li>Refer <a href="http://jira.pcgen.org/browse/NEWTAG-423">JIRA issue NEWTAG-423</a> - Eliminate use of ANY for a Category in PREABILITY.</li></ul>
 </li></ul>
 <h4 id="syntax">Syntax</h4>
 <ol>
-<li><p><code>PREABILITY:N,CATEGORY=ability_category,ALL</code></p>
-<p> Requires the character to have at least <code>N</code> abilities from <code>ability_category</code>.</p>
-</li><li><p><code>PREABILITY:N,CATEGORY=ability_category,TYPE.ability_type_1,TYPE.ability_type_2,...</code></p>
-<p> Requires the character to have at least <code>N</code> abilities from <code>ability_category</code>, of the specific type(s) <code>ability_type_1</code>, <code>ability_type_2</code>, and so on.</p>
+<li><p><code>PREABILITY:N,CATEGORY=ability_category,TYPE.ability_type_1,TYPE.ability_type_2,...</code></p>
+<p>Requires the character to have at least <code>N</code> abilities from <code>ability_category</code>, of the specific type(s) <code>ability_type_1</code>, <code>ability_type_2</code>, and so on.</p>
 </li><li><p><code>PREABILITY:N,CATEGORY=ability_category,ability_name_1,ability_name_2,...</code></p>
-<p> Requires the character to have at least <code>N</code> abilities from a specific list of abilities: <code>ability_name_1</code>, <code>ability_name_2</code>, and so on.</p>
+<p>Requires the character to have at least <code>N</code> abilities from a specific list of abilities: <code>ability_name_1</code>, <code>ability_name_2</code>, and so on.</p>
 </li></ol>
 <p>It is possible to combine the <code>TYPE.ability_type1</code> and the <code>ability_name_1</code> syntax:</p>
 <pre><code>PREABILITY:N,CATEGORY=ability_category,TYPE.ability_type_1,specific_ability_2,...  
@@ -217,16 +215,11 @@
 <ul>
 <li><p>The <code>CATEGORY</code> tag will only accept &quot;parent&quot; categories.</p>
 </li><li><p>Square brackets around an ability name, <code>[ability_name_1]</code>, means that the character must <strong>not</strong> have <code>ability_name_1</code>.</p>
-</li><li><p>Square brackets around an ability type, <code>[TYPE.ability_type_1]</code>, means that the character must <strong>not</strong> have any ability of the type <code>ability_type_1</code>. </p>
+</li><li><p>Square brackets around an ability type, <code>[TYPE.ability_type_1]</code>, means that the character must <strong>not</strong> have any ability of the type <code>ability_type_1</code>.</p>
 </li></ul>
 <h4 id="examples">Examples</h4>
 <ul>
-<li><p>Examples of the <code>ALL</code> syntax</p>
-<ul>
-<li><p><code>PREABILITY:1,CATEGORY=Bloodline,ALL</code></p>
-<p>Requires that the character has at least one ability from the <code>Bloodline</code> category. No particular bloodline is required.</p>
-</li></ul>
-</li><li><p>Examples using specifically named abilities</p>
+<li><p>Examples using specifically named abilities</p>
 <ul>
 <li><p><code>PREABILITY:1,CATEGORY=Feat,Dodge</code></p>
 <p>Requires the <code>Dodge</code> feat. (Prerequisite for <a href="http://www.d20srd.org/srd/feats.htm#mobility">d20 SRD Mobility</a>.)</p>
