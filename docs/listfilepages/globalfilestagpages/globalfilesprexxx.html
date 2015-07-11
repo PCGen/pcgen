@@ -1122,29 +1122,27 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PRESIZE">Tag Name:</a></strong> PRESIZEx:y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> EQ (Equals).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> GT (Greater Than).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> GTEQ (Greater Than or Equal to).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> LT (Less Than).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> LTEQ (Less Than or Equal to).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> NEQ (Not Equal to).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> F (Fine size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> D (Dimunitive size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> T (Tiny Size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> S (Small size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> M (Medium Size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> L (Large size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> H (Huge size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> G (Gargantuan size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> C (Colossal size).</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Makes a character's physical size a prerequisite.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PRESIZEEQ:H</code></p>
-	<p class="indent3">Character must be &quot;Huge&quot; in size.</p>
-	<p></p>
-
+<h3 id="PRESIZE">PRESIZE</h3>
+<p>Require the character is a particular size category, or in a particular range of size categories.</p>
+<h4 id="status">Status</h4>
+<h4 id="syntax">Syntax</h4>
+<p><code>PRESIZE:operator,size</code></p>
+<p><code>operator</code> is one of the following:</p>
+<ul>
+<li><code>EQ</code> - equals</li><li><code>GT</code> - greater than</li><li><code>GTEQ</code> - greater than or equal to</li><li><code>LT</code> - less than</li><li><code>LTEQ</code> - less than or equal to</li><li><code>NEQ</code> - not equal to</li></ul>
+<p><code>size</code> is one of the sizes defined in the &quot;game mode&quot;, i.e. <code>/system/gameModes/35e/sizeAdjustment.lst</code>. For the <code>35e</code> game mode the sizes are:</p>
+<ul>
+<li><code>F</code> - fine</li><li><code>D</code> - diminutive </li><li><code>T</code> - tiny</li><li><code>S</code> - small</li><li><code>M</code> - medium</li><li><code>L</code> - large</li><li><code>H</code> - huge</li><li><code>G</code> - gargantuan</li><li><code>C</code> - colossal</li><li><code>P</code> - larger than colossal</li></ul>
+<h4 id="examples">Examples</h4>
+<ol>
+<li><p><code>PRESIZE:GTEQ,S</code></p>
+<p>Require the character is at least small-sized.</p>
+</li><li><p><code>PRESIZE:LT,S</code></p>
+<p>Require that the character is fine, diminutive, or tiny.</p>
+</li><li><p><code>PREMULT:2,[PRESIZE:GTEQ,S],[PRESIZE:LTEQ,L]</code></p>
+<p>Require the character to be small, medium, or large.</p>
+<p>Alternately, <code>PREMULT:1,[PRESIZE:EQ,S],[PRESIZE:EQ,M],[PRESIZE:EQ,L]</code> would do the same thing.</p>
+</li></ol>
 <hr>
 
 	<p class="indent0"><strong><a name="PRESKILL">Tag Name:</a></strong> PRESKILL:x,y=z,y=z</p>
