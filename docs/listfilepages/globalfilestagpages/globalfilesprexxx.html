@@ -62,6 +62,138 @@
 
 	<p></p>
 
+	
+	<h2 id="general-notes">General notes</h2>
+    <h3 id="boolean-logic">Boolean logic</h3>
+    <h4 id="not">NOT</h4>
+    <p>Logical negation of any pre-requisite is obtained by pre-pending an exclamation mark, 
+    <code>!</code>, to the 
+    <code>PRE</code> tag.</p>
+    <ul>
+      <li>
+      <code>PREALIGN:LG</code>, 
+      <strong>without</strong> the 
+      <code>!</code>, requires that the character&#39;s alignment 
+      <strong>is</strong> lawful good.</li>
+      <li>
+      <code>!PREALIGN:LG</code>, 
+      <strong>with</strong> the 
+      <code>!</code>, requires that the character 
+      <strong>is not</strong> lawful good.</li>
+    </ul>
+    <h4 id="or">OR</h4>
+    <p>Use 
+    <code>PREMULT:1,[sub_prereq1],[sub_prereq2]...</code> to require 
+    <strong>at least one</strong> of the sub-prerequisites 
+    <code>[sub_prereq1]</code>, 
+    <code>[sub_prereq2]</code>, ... to be true.</p>
+    <ul>
+      <li>
+        <p>2-variable OR: 
+        <code>PREMULT:1,[PREALIGN:LG],[PREGENDER:M]</code></p>
+        <p>Must have lawful good alignment OR male gender.</p>
+      </li>
+      <li>
+        <p>3-variable OR: 
+        <code>PREMULT:1,[PREALIGN:LG],[PREGENDER:M],[PREATT:10]</code></p>
+        <p>Must have lawful good alignment OR male gender OR a base attack bonus of at least 10.</p>
+      </li>
+    </ul>
+    <h4 id="and">AND</h4>
+    <p>Use 
+    <code>PREMULT:N,[sub_prereq1],[sub_prereq2]...</code>, where 
+    <code>N</code> is the number of sub-prerequisites, to require that 
+    <strong>all</strong> of the sub-prerequisites 
+    <code>[sub_prereq1]</code>, 
+    <code>[sub_prereq2]</code>, ... are true.</p>
+    <ul>
+      <li>
+        <p>2-variable AND: 
+        <code>PREMULT:2,[PREALIGN:LG],[PREGENDER:M]</code></p>
+        <p>Must have lawful good alignment AND male gender.</p>
+      </li>
+      <li>
+        <p>3-variable AND: 
+        <code>PREMULT:3,[PREALIGN:LG],[PREGENDER:M],[PREATT:10]</code></p>
+        <p>Must have lawful good alignment AND male gender AND a base attack bonus of at least 10.</p>
+      </li>
+    </ul>
+    <h4 id="nor-and-nand">NOR and NAND</h4>
+    <p>The 
+    <code>NOR</code> (
+    <code>not OR</code>) and 
+    <code>NAND</code> (
+    <code>not AND</code>) functions are produced by prefixing 
+    <code>!</code>, giving the 
+    <code>!PREMULT</code> tag.</p>
+    <ul>
+      <li>
+        <p>2-variable NOR: 
+        <code>!PREMULT:1,[PREALIGN:LG],[PREGENDER:M]</code></p>
+        <p>Must NOT have (lawful good alignment OR male gender).</p>
+      </li>
+      <li>
+        <p>2-variable NAND: 
+        <code>!PREMULT:2,[PREALIGN:LG],[PREGENDER:M]</code></p>
+        <p>Must NOT have (lawful good alignment AND male gender).</p>
+      </li>
+    </ul>
+    <h4 id="nested-functions">Nested functions</h4>
+    <p>It is possible to nest the 
+    <code>PREMULT</code> tag within other 
+    <code>PREMULT</code> tags, allowing logic functions like 
+    <code>(A OR B) AND (C OR D)</code> to be realised.</p>
+    <h3 id="comparison-operators">Comparison Operators</h3>
+    <p>Tags which deal with numbers or ordered sequences (i.e. creature sizes - small, medium, large ...) allow the following comparison operators.</p>
+    <ul>
+      <li>
+      <code>EQ</code> - equals</li>
+      <li>
+      <code>GT</code> - greater than</li>
+      <li>
+      <code>GTEQ</code> - greater than or equal to</li>
+      <li>
+      <code>LT</code> - less than</li>
+      <li>
+      <code>LTEQ</code> - less than or equal to</li>
+      <li>
+      <code>NEQ</code> - not equal to</li>
+    </ul>
+    <p>The tags which use this syntax include:</p>
+    <ul>
+      <li>
+        <code>PREBASESIZE</code>
+      </li>
+      <li>
+        <code>PREHANDS</code>
+      </li>
+      <li>
+        <code>PRELEGS</code>
+      </li>
+      <li>
+        <code>PREREACH</code>
+      </li>
+      <li>
+        <code>PRESIZE</code>
+      </li>
+      <li>
+        <code>PRESR</code>
+      </li>
+      <li>
+        <code>PREVAR</code>
+      </li>
+    </ul>
+    <p>The comparison operator is written 
+    <strong>as a part of the tag name</strong>. i.e. 
+    <code>PREVARNEQ</code> or 
+    <code>PREREACHLTEQ</code>.</p>
+    <p>(Not as 
+    <code>PREVAR:EQ</code> or 
+    <code>PREREACH:LTEQ</code>.)</p>
+	
+	
+	
+	
 <hr>
 <h3 id="PREABILITY">PREABILITY</h3>
 <p><em>Require that the character has at least <code>N</code> abilities from a given <code>ability_category</code>. A type of ability can be specified, or individual abilities can be specified by name.</em></p>
