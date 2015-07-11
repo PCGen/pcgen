@@ -63,34 +63,63 @@
 	<p></p>
 
 <hr>
-
-	<p class="lstupnew"><a name="PREABILITY">*** Updated 6.03.00</a></p>
-	<p class="indent0"><strong>Tag Name:</strong>PREABILITY:x,CATEGORY=y,z,z</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>Number (Number of abilities needed).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong>Text (Category name).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong>Text (Ability name).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong>TYPE.Text (Ability TYPE).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong>ALL</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>Checks for the required number of Abilities.</li>
-		<li>The <code>CATEGORY</code> tag will take only &quot;parent&quot; categories.</li>
-		<li>The list of abilities, by name and/or type, is a comma-delimited (,) list.</li>
-		<li>Enclosing and ability specified, by name or type, in square brackets ([z]) is used to identify 
-			abilities that the character must not have.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PREABILITY:1,CATEGORY=Special Quality,Night Vision,Acid Blast</code></p>
-	<p class="indent3">Requires the Night Vision or Acid Blast Special Quality</p>
-	<p class="indent2"><code>PREABILITY:3,CATEGORY=Mutation,ANY</code></p>
-	<p class="indent3">Requires any 3 Mutation category Abilities.</p>
-	<p class="indent2"><code>PREABILITY:2,CATEGORY=Mutation,TYPE.MajorMutation</code></p>
-	<p class="indent3">Requires 2 Mutation category Abilities of type MajorMutation.</p>
-	<p class="indent2"><code>PREABILITY:1,CATEGORY=Special Ability,Wild Shape(Small Plant),Wild Shape(Medium Plant),[Wild Shape(Large Plant)]</code></p>
-	<p class="indent3">Requires the character has either &quot;Wild Shape(Small Plant)&quot; or 
-		&quot;Wild Shape(Medium Plant)&quot; but does not have &quot;Wild Shape(Large Plant)&quot;.</p>
-	<p></p>
-
+<h3 id="PREABILITY">PREABILITY</h3>
+<p><em>Require that the character has at least <code>N</code> abilities from a given <code>ability_category</code>. A type of ability can be specified, or individual abilities can be specified by name.</em></p>
+<h4 id="status">Status</h4>
+<ul>
+<li>Updated 6.03.00.<ul>
+<li><a href="http://jira.pcgen.org/browse/NEWTAG-423">JIRA issue NEWTAG-423</a> - Eliminate use of ANY for a Category in PREABILITY.</li></ul>
+</li></ul>
+<h4 id="syntax">Syntax</h4>
+<ol>
+<li><p><code>PREABILITY:N,CATEGORY=ability_category,ALL</code></p>
+<p> Requires the character to have at least <code>N</code> abilities from <code>ability_category</code>.</p>
+</li><li><p><code>PREABILITY:N,CATEGORY=ability_category,TYPE.ability_type_1,TYPE.ability_type_2,...</code></p>
+<p> Requires the character to have at least <code>N</code> abilities from <code>ability_category</code>, of the specific type(s) <code>ability_type_1</code>, <code>ability_type_2</code>, and so on.</p>
+</li><li><p><code>PREABILITY:N,CATEGORY=ability_category,ability_name_1,ability_name_2,...</code></p>
+<p> Requires the character to have at least <code>N</code> abilities from a specific list of abilities: <code>ability_name_1</code>, <code>ability_name_2</code>, and so on.</p>
+</li></ol>
+<p>It is possible to combine the <code>TYPE.ability_type1</code> and the <code>ability_name_1</code> syntax:</p>
+<pre><code>PREABILITY:N,CATEGORY=ability_category,TYPE.ability_type_1,specific_ability_2,...  
+</code></pre><h4 id="notes">Notes</h4>
+<ul>
+<li><p>The <code>CATEGORY</code> tag will only accept &quot;parent&quot; categories.</p>
+</li><li><p>Square brackets around an ability name, <code>[ability_name_1]</code>, means that the character must <strong>not</strong> have <code>ability_name_1</code>.</p>
+</li><li><p>Square brackets around an ability type, <code>[TYPE.ability_type_1]</code>, means that the character must <strong>not</strong> have any ability of the type <code>ability_type_1</code>. </p>
+</li></ul>
+<h4 id="examples">Examples</h4>
+<ul>
+<li><p>Examples of the <code>ALL</code> syntax</p>
+<ul>
+<li><p><code>PREABILITY:1,CATEGORY=Bloodline,ALL</code></p>
+<p>Requires that the character has at least one ability from the <code>Bloodline</code> category. No particular bloodline is required.</p>
+</li></ul>
+</li><li><p>Examples using specifically named abilities</p>
+<ul>
+<li><p><code>PREABILITY:1,CATEGORY=Feat,Dodge</code></p>
+<p>Requires the <code>Dodge</code> feat. (Prerequisite for <a href="http://www.d20srd.org/srd/feats.htm#mobility">d20 SRD Mobility</a>.)</p>
+</li><li><p><code>PREABILITY:2,CATEGORY=Feat,Dodge,Mobility</code></p>
+<p>Requires two of the <code>Dodge</code> and <code>Mobility</code> feats, i.e. both are required. (Prerequisite for <a href="http://www.d20srd.org/srd/feats.htm#springAttack">d20 SRD Spring Attack</a>.)</p>
+</li><li><p><code>PREABILITY:2,CATEGORY=Feat,Improved Disarm,Improved Feint,Improved Trip</code></p>
+<p>Requires any two of the three feats specified.</p>
+</li></ul>
+</li><li><p>Examples using ability types</p>
+<ul>
+<li><p><code>PREABILITY:1,Category=Feat,TYPE.SpellFocus</code></p>
+<p>Requires at least one <code>SpellFocus</code> type feat.</p>
+</li><li><p><code>PREABILITY:3,Category=Feat,TYPE.Metamagic</code></p>
+<p>Requires at least three <code>Metamagic</code> type feats.</p>
+</li></ul>
+</li><li><p>Examples of excluding abilities</p>
+<ul>
+<li><p><code>PREABILITY:1,Category=SpecialQuality,[Night Vision]</code></p>
+<p>Requires that the creature does <strong>not</strong> have the <code>Night Vision</code> special quality.</p>
+<p>Note that the <code>!</code> syntax could also be used, i.e.</p>
+<p><code>!PREABILITY:1,Category=SpecialQuality,Night Vision</code>.</p>
+</li><li><p><code>PREABILITY:1,CATEGORY=Feat,Power Attack,[Weapon Finesse]</code></p>
+<p>Requires that the creature has the <code>Power Attack</code> feat, and does <strong>not</strong> have the <code>Weapon Finesse</code> feat.</p>
+</li></ul>
+</li></ul>
 <hr>
 
 	<p class="lststatus"><a name="PREAGESET">*** Updated 5.13.12</a></p>
