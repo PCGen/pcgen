@@ -1601,27 +1601,51 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PREVAR">Tag Name:</a></strong> PREVARx:y,z</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> EQ (Equals).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> GT (Greater Than).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> GTEQ (Greater Than or Equal to).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> LT (Less Than).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> LTEQ (Less Than or Equal to).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> NEQ (Not Equal to).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text
-		(The name of a variable - as used in a DEFINE: or BONUS:VAR statement).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number (The value the variable is to be compared to).</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets requirements based on user defined variables.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PREVARGT:Rage,4</code></p>
-	<p class="indent3">Character must must have a variable 'Rage' with a value greater than four.</p>
-	<p class="indent2"><code>PREVARGT:SneakAttack,5</code></p>
-	<p class="indent3">Character must have a variable 'Sneak Attack' with a value greater than five.</p>
-	<p class="indent2"><code>PREVARGT:SneakAttack,5,Rage,4</code></p>
-	<p class="indent3">Character must have a variable 'SneakAttack' with a value greater than five and 
-		a variable 'Rage' with a value greater than four.</p>
-	<p></p>
+<h3 id="PREVAR">PREVAR</h3>
+    <p>Requires that a 
+    <code>VAR</code> variable has a certain value or range of values.</p>
+    <h4 id="status">Status</h4>
+    <h4 id="syntax">Syntax</h4>
+    <p>
+      <code>PREVARoperator:varname,value</code>
+    </p>
+    <p>
+    <code>operator</code> is a comparison operator from the list 
+    <code>EQ</code>, 
+    <code>LT</code>, 
+    <code>LTEQ</code>, 
+    <code>GT</code>, 
+    <code>GTEQ</code>, or 
+    <code>NEQ</code>. The comparison operator is written as part of the tag name, i.e. 
+    <code>PREVARLTEQ</code>. See 
+    <a href="#comparison-operators">comparison operators</a> for more details.</p>
+    <p>
+    <code>varname</code> is the name of a variable - as used in a 
+    <code>DEFINE:</code> or 
+    <code>BONUS:VAR</code> statement.</p>
+    <p>
+    <code>value</code> is the value the variable is to be compared to.</p>
+    <h4 id="examples">Examples</h4>
+    <ol>
+      <li>
+        <p>
+          <code>PREVARGT:Rage,4</code>
+        </p>
+        <p>Character must must have a variable &#39;Rage&#39; with a value greater than four.</p>
+      </li>
+      <li>
+        <p>
+          <code>PREVARGT:SneakAttack,5</code>
+        </p>
+        <p>Character must have a variable &#39;Sneak Attack&#39; with a value greater than five.</p>
+      </li>
+      <li>
+        <p>
+          <code>PREVARGT:SneakAttack,5,Rage,4</code>
+        </p>
+        <p>Character must have a variable &#39;SneakAttack&#39; with a value greater than five and a variable &#39;Rage&#39; with a value greater than four.</p>
+      </li>
+    </ol>
 
 <hr>
 
