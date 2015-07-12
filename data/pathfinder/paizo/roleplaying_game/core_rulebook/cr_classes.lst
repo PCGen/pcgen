@@ -267,7 +267,7 @@ CLASS:Monk		STARTSKILLPTS:4
 #	The Special Ability then grants the actual feat as a virtual feat, See the rsrd_abilities_class.lst file to see how these are coded.
 # MonkBonusFeatLVL is used as a prerequisite for when a specific bonus feat can be taken
 ###Block: Monk Bonus Feats
-1	ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
+1	ABILITY:FEAT|VIRTUAL|Improved Unarmed Strike
 ###Block:
 1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Flurry of Blows|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkFlurryOfBlows
 1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Monk Bonus Feat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeats
