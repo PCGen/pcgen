@@ -62,22 +62,152 @@
 
 	<p></p>
 
+	
+	<h2 id="general-notes">General notes</h2>
+    <h3 id="boolean-logic">Boolean logic</h3>
+    <h4 id="not">NOT</h4>
+    <p>Logical negation of any pre-requisite is obtained by pre-pending an exclamation mark, 
+    <code>!</code>, to the 
+    <code>PRE</code> tag.</p>
+    <ul>
+      <li>
+      <code>PREALIGN:LG</code>, 
+      <strong>without</strong> the 
+      <code>!</code>, requires that the character&#39;s alignment 
+      <strong>is</strong> lawful good.</li>
+      <li>
+      <code>!PREALIGN:LG</code>, 
+      <strong>with</strong> the 
+      <code>!</code>, requires that the character 
+      <strong>is not</strong> lawful good.</li>
+    </ul>
+    <h4 id="or">OR</h4>
+    <p>Use 
+    <code>PREMULT:1,[sub_prereq1],[sub_prereq2]...</code> to require 
+    <strong>at least one</strong> of the sub-prerequisites 
+    <code>[sub_prereq1]</code>, 
+    <code>[sub_prereq2]</code>, ... to be true.</p>
+    <ul>
+      <li>
+        <p>2-variable OR: 
+        <code>PREMULT:1,[PREALIGN:LG],[PREGENDER:M]</code></p>
+        <p>Must have lawful good alignment OR male gender.</p>
+      </li>
+      <li>
+        <p>3-variable OR: 
+        <code>PREMULT:1,[PREALIGN:LG],[PREGENDER:M],[PREATT:10]</code></p>
+        <p>Must have lawful good alignment OR male gender OR a base attack bonus of at least 10.</p>
+      </li>
+    </ul>
+    <h4 id="and">AND</h4>
+    <p>Use 
+    <code>PREMULT:N,[sub_prereq1],[sub_prereq2]...</code>, where 
+    <code>N</code> is the number of sub-prerequisites, to require that 
+    <strong>all</strong> of the sub-prerequisites 
+    <code>[sub_prereq1]</code>, 
+    <code>[sub_prereq2]</code>, ... are true.</p>
+    <ul>
+      <li>
+        <p>2-variable AND: 
+        <code>PREMULT:2,[PREALIGN:LG],[PREGENDER:M]</code></p>
+        <p>Must have lawful good alignment AND male gender.</p>
+      </li>
+      <li>
+        <p>3-variable AND: 
+        <code>PREMULT:3,[PREALIGN:LG],[PREGENDER:M],[PREATT:10]</code></p>
+        <p>Must have lawful good alignment AND male gender AND a base attack bonus of at least 10.</p>
+      </li>
+    </ul>
+    <h4 id="nor-and-nand">NOR and NAND</h4>
+    <p>The 
+    <code>NOR</code> (
+    <code>not OR</code>) and 
+    <code>NAND</code> (
+    <code>not AND</code>) functions are produced by prefixing 
+    <code>!</code>, giving the 
+    <code>!PREMULT</code> tag.</p>
+    <ul>
+      <li>
+        <p>2-variable NOR: 
+        <code>!PREMULT:1,[PREALIGN:LG],[PREGENDER:M]</code></p>
+        <p>Must NOT have (lawful good alignment OR male gender).</p>
+      </li>
+      <li>
+        <p>2-variable NAND: 
+        <code>!PREMULT:2,[PREALIGN:LG],[PREGENDER:M]</code></p>
+        <p>Must NOT have (lawful good alignment AND male gender).</p>
+      </li>
+    </ul>
+    <h4 id="nested-functions">Nested functions</h4>
+    <p>It is possible to nest the 
+    <code>PREMULT</code> tag within other 
+    <code>PREMULT</code> tags, allowing logic functions like 
+    <code>(A OR B) AND (C OR D)</code> to be realised.</p>
+    <h3 id="comparison-operators">Comparison Operators</h3>
+    <p>Tags which deal with numbers or ordered sequences (i.e. creature sizes - small, medium, large ...) allow the following comparison operators.</p>
+    <ul>
+      <li>
+      <code>EQ</code> - equals</li>
+      <li>
+      <code>GT</code> - greater than</li>
+      <li>
+      <code>GTEQ</code> - greater than or equal to</li>
+      <li>
+      <code>LT</code> - less than</li>
+      <li>
+      <code>LTEQ</code> - less than or equal to</li>
+      <li>
+      <code>NEQ</code> - not equal to</li>
+    </ul>
+    <p>The tags which use this syntax include:</p>
+    <ul>
+      <li>
+        <code>PREBASESIZE</code>
+      </li>
+      <li>
+        <code>PREHANDS</code>
+      </li>
+      <li>
+        <code>PRELEGS</code>
+      </li>
+      <li>
+        <code>PREREACH</code>
+      </li>
+      <li>
+        <code>PRESIZE</code>
+      </li>
+      <li>
+        <code>PRESR</code>
+      </li>
+      <li>
+        <code>PREVAR</code>
+      </li>
+    </ul>
+    <p>The comparison operator is written 
+    <strong>as a part of the tag name</strong>. i.e. 
+    <code>PREVARNEQ</code> or 
+    <code>PREREACHLTEQ</code>.</p>
+    <p>(Not as 
+    <code>PREVAR:EQ</code> or 
+    <code>PREREACH:LTEQ</code>.)</p>
+	
+	
+	
+	
 <hr>
 <h3 id="PREABILITY">PREABILITY</h3>
 <p><em>Require that the character has at least <code>N</code> abilities from a given <code>ability_category</code>. A type of ability can be specified, or individual abilities can be specified by name.</em></p>
 <h4 id="status">Status</h4>
 <ul>
 <li>Updated 6.03.00.<ul>
-<li><a href="http://jira.pcgen.org/browse/NEWTAG-423">JIRA issue NEWTAG-423</a> - Eliminate use of ANY for a Category in PREABILITY.</li></ul>
+<li>The syntax <code>PREABILITY:N,CATEGORY=ability_category,ALL</code> was deleted. (Formerly used to require <code>N</code> abilities from <code>ability_category</code>. Removed because it was too broad.)</li><li>Refer <a href="http://jira.pcgen.org/browse/NEWTAG-423">JIRA issue NEWTAG-423</a> - Eliminate use of ANY for a Category in PREABILITY.</li></ul>
 </li></ul>
 <h4 id="syntax">Syntax</h4>
 <ol>
-<li><p><code>PREABILITY:N,CATEGORY=ability_category,ALL</code></p>
-<p> Requires the character to have at least <code>N</code> abilities from <code>ability_category</code>.</p>
-</li><li><p><code>PREABILITY:N,CATEGORY=ability_category,TYPE.ability_type_1,TYPE.ability_type_2,...</code></p>
-<p> Requires the character to have at least <code>N</code> abilities from <code>ability_category</code>, of the specific type(s) <code>ability_type_1</code>, <code>ability_type_2</code>, and so on.</p>
+<li><p><code>PREABILITY:N,CATEGORY=ability_category,TYPE.ability_type_1,TYPE.ability_type_2,...</code></p>
+<p>Requires the character to have at least <code>N</code> abilities from <code>ability_category</code>, of the specific type(s) <code>ability_type_1</code>, <code>ability_type_2</code>, and so on.</p>
 </li><li><p><code>PREABILITY:N,CATEGORY=ability_category,ability_name_1,ability_name_2,...</code></p>
-<p> Requires the character to have at least <code>N</code> abilities from a specific list of abilities: <code>ability_name_1</code>, <code>ability_name_2</code>, and so on.</p>
+<p>Requires the character to have at least <code>N</code> abilities from a specific list of abilities: <code>ability_name_1</code>, <code>ability_name_2</code>, and so on.</p>
 </li></ol>
 <p>It is possible to combine the <code>TYPE.ability_type1</code> and the <code>ability_name_1</code> syntax:</p>
 <pre><code>PREABILITY:N,CATEGORY=ability_category,TYPE.ability_type_1,specific_ability_2,...  
@@ -85,16 +215,11 @@
 <ul>
 <li><p>The <code>CATEGORY</code> tag will only accept &quot;parent&quot; categories.</p>
 </li><li><p>Square brackets around an ability name, <code>[ability_name_1]</code>, means that the character must <strong>not</strong> have <code>ability_name_1</code>.</p>
-</li><li><p>Square brackets around an ability type, <code>[TYPE.ability_type_1]</code>, means that the character must <strong>not</strong> have any ability of the type <code>ability_type_1</code>. </p>
+</li><li><p>Square brackets around an ability type, <code>[TYPE.ability_type_1]</code>, means that the character must <strong>not</strong> have any ability of the type <code>ability_type_1</code>.</p>
 </li></ul>
 <h4 id="examples">Examples</h4>
 <ul>
-<li><p>Examples of the <code>ALL</code> syntax</p>
-<ul>
-<li><p><code>PREABILITY:1,CATEGORY=Bloodline,ALL</code></p>
-<p>Requires that the character has at least one ability from the <code>Bloodline</code> category. No particular bloodline is required.</p>
-</li></ul>
-</li><li><p>Examples using specifically named abilities</p>
+<li><p>Examples using specifically named abilities</p>
 <ul>
 <li><p><code>PREABILITY:1,CATEGORY=Feat,Dodge</code></p>
 <p>Requires the <code>Dodge</code> feat. (Prerequisite for <a href="http://www.d20srd.org/srd/feats.htm#mobility">d20 SRD Mobility</a>.)</p>
@@ -252,26 +377,15 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PREBASESIZE">Tag Name:</a></strong> PREBASESIZEx:y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>EQ (Equals).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>GT (Greater Than).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>GTEQ (Greater Than or Equal to).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>LT (Less Than).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>LTEQ (Less Than or Equal to).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong>NEQ (Not Equal to).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong>Text (Size name).</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>Allows characters to be limited or allowed access to certain things
-		only if their physical stature meets selected criteria.</li>
-		<li>The &quot;Size name&quot; is defined in the gameMode <em>sizeAdjustment.lst</em> file.</li>
-		<li>The default sizes in PCGen are: Fine, Diminutive, Tiny, Small, Medium, Large, Huge, Gargantuan, and Colossal</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>BONUS:COMBAT|AC|2|PREBASESIZELTEQ:Medium|TYPE=NaturalArmor.STACK</code></p>
-	<p class="indent3">This would apply the combat AC bonus of 2 that stacks with Natural Armor
-		if the  PC's size is less than or equal to &quot;medium&quot;.</p>
-	<p></p>
+<h3 id="PREBASESIZE">PREBASESIZE</h3>
+<p>Require the character&#39;s base size is a particular size category, or in a particular range of size categories.</p>
+<h4 id="status">Status</h4>
+<p>Changed: <code>size</code> used to be specified as the size name in words, i.e. <code>Small</code>. Now is is specified as the <code>SIZENAME</code>, i.e. <code>S</code>.</p>
+<h4 id="syntax">Syntax</h4>
+<p><code>PREBASESIZEoperator:size</code></p>
+<p><code>operator</code> and <code>size</code> are as per the <a href="#PRESIZE"><code>PRESIZE</code> tag</a>.</p>
+<h4 id="examples">Examples</h4>
+<p>As per the <a href="#PRESIZE"><code>PRESIZE</code> tag</a></p>
 
 <hr>
 
@@ -1122,28 +1236,26 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PRESIZE">Tag Name:</a></strong> PRESIZEx:y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> EQ (Equals).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> GT (Greater Than).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> GTEQ (Greater Than or Equal to).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> LT (Less Than).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> LTEQ (Less Than or Equal to).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> NEQ (Not Equal to).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> F (Fine size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> D (Dimunitive size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> T (Tiny Size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> S (Small size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> M (Medium Size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> L (Large size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> H (Huge size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> G (Gargantuan size).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> C (Colossal size).</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Makes a character's physical size a prerequisite.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PRESIZEEQ:H</code></p>
-	<p class="indent3">Character must be &quot;Huge&quot; in size.</p>
-	<p></p>
+<h3 id="PRESIZE">PRESIZE</h3>
+<p>Require the character is a particular size category, or in a particular range of size categories.</p>
+<h4 id="status">Status</h4>
+<h4 id="syntax">Syntax</h4>
+<p><code>PRESIZEoperator:size</code></p>
+<p><code>operator</code> is a comparison operator from the list <code>EQ</code>, <code>LT</code>, <code>LTEQ</code>, <code>GT</code>, <code>GTEQ</code>, or <code>NEQ</code>. The comparison operator is written as part of the tag name, i.e. <code>PRESIZELTEQ</code>. See <a href="#comparison-operators">comparison operators</a><br> for more details.</p>
+<p>The <code>operator</code> is written as part of the tag name, i.e. <code>PRESIZENEQ</code> or <code>PRESIZEGTEQ</code>.</p>
+<p><code>size</code> is one of the <code>SIZENAME</code>s defined in the &quot;game mode&quot;, i.e. <code>/system/gameModes/35e/sizeAdjustment.lst</code>. For the <code>35e</code> game mode the <code>SIZENAMES</code> are:</p>
+<ul>
+<li><code>F</code> - fine</li><li><code>D</code> - diminutive</li><li><code>T</code> - tiny</li><li><code>S</code> - small</li><li><code>M</code> - medium</li><li><code>L</code> - large</li><li><code>H</code> - huge</li><li><code>G</code> - gargantuan</li><li><code>C</code> - colossal</li><li><code>P</code> - larger than colossal</li></ul>
+<h4 id="examples">Examples</h4>
+<ol>
+<li><p><code>PRESIZEGTEQ:S</code></p>
+<p>Require the character is at least small-sized.</p>
+</li><li><p><code>PRESIZELT:S</code></p>
+<p>Require that the character is fine, diminutive, or tiny.</p>
+</li><li><p><code>PREMULT:2,[PRESIZEGTEQ:S],[PRESIZELTEQ:L]</code></p>
+<p>Require the character to be small, medium, or large.</p>
+<p>Alternately, <code>PREMULT:1,[PRESIZEEQ:S],[PRESIZEEQ:M],[PRESIZEEQ:L]</code> would do the same thing.</p>
+</li></ol>
 
 <hr>
 
@@ -1489,27 +1601,51 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PREVAR">Tag Name:</a></strong> PREVARx:y,z</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> EQ (Equals).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> GT (Greater Than).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> GTEQ (Greater Than or Equal to).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> LT (Less Than).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> LTEQ (Less Than or Equal to).</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> NEQ (Not Equal to).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text
-		(The name of a variable - as used in a DEFINE: or BONUS:VAR statement).</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number (The value the variable is to be compared to).</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets requirements based on user defined variables.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>PREVARGT:Rage,4</code></p>
-	<p class="indent3">Character must must have a variable 'Rage' with a value greater than four.</p>
-	<p class="indent2"><code>PREVARGT:SneakAttack,5</code></p>
-	<p class="indent3">Character must have a variable 'Sneak Attack' with a value greater than five.</p>
-	<p class="indent2"><code>PREVARGT:SneakAttack,5,Rage,4</code></p>
-	<p class="indent3">Character must have a variable 'SneakAttack' with a value greater than five and 
-		a variable 'Rage' with a value greater than four.</p>
-	<p></p>
+<h3 id="PREVAR">PREVAR</h3>
+    <p>Requires that a 
+    <code>VAR</code> variable has a certain value or range of values.</p>
+    <h4 id="status">Status</h4>
+    <h4 id="syntax">Syntax</h4>
+    <p>
+      <code>PREVARoperator:varname,value</code>
+    </p>
+    <p>
+    <code>operator</code> is a comparison operator from the list 
+    <code>EQ</code>, 
+    <code>LT</code>, 
+    <code>LTEQ</code>, 
+    <code>GT</code>, 
+    <code>GTEQ</code>, or 
+    <code>NEQ</code>. The comparison operator is written as part of the tag name, i.e. 
+    <code>PREVARLTEQ</code>. See 
+    <a href="#comparison-operators">comparison operators</a> for more details.</p>
+    <p>
+    <code>varname</code> is the name of a variable - as used in a 
+    <code>DEFINE:</code> or 
+    <code>BONUS:VAR</code> statement.</p>
+    <p>
+    <code>value</code> is the value the variable is to be compared to.</p>
+    <h4 id="examples">Examples</h4>
+    <ol>
+      <li>
+        <p>
+          <code>PREVARGT:Rage,4</code>
+        </p>
+        <p>Character must must have a variable &#39;Rage&#39; with a value greater than four.</p>
+      </li>
+      <li>
+        <p>
+          <code>PREVARGT:SneakAttack,5</code>
+        </p>
+        <p>Character must have a variable &#39;Sneak Attack&#39; with a value greater than five.</p>
+      </li>
+      <li>
+        <p>
+          <code>PREVARGT:SneakAttack,5,Rage,4</code>
+        </p>
+        <p>Character must have a variable &#39;SneakAttack&#39; with a value greater than five and a variable &#39;Rage&#39; with a value greater than four.</p>
+      </li>
+    </ol>
 
 <hr>
 
