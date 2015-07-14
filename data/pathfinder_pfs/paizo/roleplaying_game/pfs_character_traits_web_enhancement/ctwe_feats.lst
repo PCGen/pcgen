@@ -1,0 +1,10 @@
+# CVS $Revision: 9484 $ $Author: eddyanthony $ -- Tue Feb 24 21:28:17 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-02
+
+
+# Feat Name		Type			Category		Description						Bonus Variable			Source Page
+Additional Traits	TYPE:General	CATEGORY:FEAT	DESC:You have more traits than normal	BONUS:VAR|Pool_Traits|2		SOURCEPAGE:p.6
+
+#
+# End
+#
