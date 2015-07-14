@@ -1,0 +1,57 @@
+# CVS $Revision: 18010 $ $Author: zaister $ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+CAMPAIGN:Character Traits Web Enhancement
+KEY:PFS - Character Traits Web Enhancement
+RANK:6
+GAMEMODE:Pathfinder_PFS
+GENRE:Fantasy
+BOOKTYPE:Supplement
+TYPE:Paizo Publishing.Web Enhancement
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Character Traits Web Enhancement
+SOURCESHORT:CTWE
+SOURCEWEB:http://paizo.com/traits
+SOURCEDATE:2009-02
+ISOGL:YES
+ISLICENSED:NO
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Character Traits Web Enhancement, Copyright 2009, Paizo Publishing, LLC. Author: James Jacobs and F. Wesley Schneider.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Character Traits Web Enhancement" Copyright 2009, PCGen Data Team (including, but not limited to Eddy Anthony, updated to 6.05 by Andrew Maitland)
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COVER:@/publisher_logos/pathfinder_logo.png
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://www.paizo.com/traits|Download Pathfinder Character Traits Web Enhancement from Paizo Publishing!
+DESC:This free web enhancement details Character Trait rules first presented in Pathfinder Companion: Second Darkness Player's Guide
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+ABILITY:*\pathfinder\paizo\roleplaying_game\advanced_players_guide\apg_abilities.lst|(INCLUDE:Trait ~ Anatomist|Trait ~ Armor Expert|Trait ~ Bullied|Trait ~ Courageous|Trait ~ Deft Dodger|Trait ~ Dirty Fighter|Trait ~ Fencer|Trait ~ Killer|Trait ~ Reactionary|Trait ~ Resilient|Trait ~ Birthmark|Trait ~ Caretaker|Trait ~ Child of the Temple|Trait ~ Devotee of the Green|Trait ~ Ease of Faith|Trait ~ History of Heresy|Trait ~ Indomitable Faith|Trait ~ Sacred Conduit|Trait ~ Sacred Touch|Trait ~ Scholar of the Great Beyond|Trait ~ Classically Schooled|Trait ~ Dangerously Curious|Trait ~ Focused Mind|Trait ~ Gifted Adept|Trait ~ Hedge Magician|Trait ~ Magical Knack|Trait ~ Magical Lineage|Trait ~ Magical Talent|Trait ~ Mathematical Prodigy|Trait ~ Skeptic|Trait ~ Adopted|Trait ~ Bully|Trait ~ Canter|Trait ~ Charming|Trait ~ Child of the Streets|Trait ~ Fast-Talker|Trait ~ Natural-Born Leader|Trait ~ Poverty-Stricken|Trait ~ Rich Parents|Trait ~ Suspicious|Adoptive Race ~ Dwarf|Adoptive Race ~ Elf|Adoptive Race ~ Gnome|Adoptive Race ~ Half-Elf|Adoptive Race ~ Half-Orc|Adoptive Race ~ Halfling|Adoptive Race ~ Human|Magical Knack ~ Sorcerer|Magical Knack ~ Wizard|Magical Knack ~ Bard|Magical Knack ~ Cleric|Magical Knack ~ Paladin|Magical Knack ~ Ranger|Magical Knack ~ Alchemist|Magical Knack ~ Inquisitor|Magical Knack ~ Witch|Magical Knack ~ Oracle|Magical Knack ~ Magus|Magical Lineage ~ Metamagic)
+
+ABILITY:ctwe_abilities.lst
+ABILITY:ctwe_feats.lst
+KIT:ctwe_kits.lst
+
+
+# ENTRY DATE: 2015-07
+# LST MONKEY: Andrew Maitland
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE: Andrew Maitland
+# Built for PCGen Version: 6.05.03
+# Updated to work with version: -
+# MINVER:6.5
+# MINDEVVER:6.05.3
+# COMMENTS: Re-Entered to help the PFS only game rules. This pulls the traits from APG as valid Web Enhancements using the latest version. And then applies the source info from Web Enhancements.
+
+#
+# End
+#
+
