@@ -237,6 +237,11 @@ Wing			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	D
 
 Rake			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:RakeAttacks|0		BONUS:VAR|RakeAttacks|2	BONUS:VAR|NaturalAttacks|0		BONUS:WEAPONPROF=Rake|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
 
+
+# Hair -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B		Secondary	x1	(Max set up is 7 - though pairs is normal)
+Hair			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:HairAttacks|0		BONUS:VAR|HairAttacks|1	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Hair|TOHIT|-5
+
+
 #Other - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S/P Secondary	Dragon Tail Sweep and Crush	Note: Dragons break the secondary attack rules...
 Tail Sweep		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0						BONUS:VAR|NaturalAttacks|1						BONUS:WEAPONPROF=Tail Sweep|DAMAGE|(STR/2)
 Crush			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0						BONUS:VAR|NaturalAttacks|1						BONUS:WEAPONPROF=Crush|DAMAGE|(STR/2)
@@ -257,6 +262,8 @@ CATEGORY=Internal|Wing.MOD		BONUS:WEAPONPROF=Wing|WIELDCATEGORY|SizeIncrease
 
 CATEGORY=Internal|Rake.MOD		BONUS:WEAPONPROF=Rake|WIELDCATEGORY|SizeIncrease
 
+CATEGORY=Internal|Hair.MOD		BONUS:WEAPONPROF=Hair|WIELDCATEGORY|SizeIncrease
+
 ###Block: The Grantors
 # Ability Name				Ability
 CATEGORY=Internal|Bite.MOD		ABILITY:Internal|AUTOMATIC|Bite 1 (Fine)|PREBASESIZEEQ:F|PREVAREQ:BiteAttacks,1	ABILITY:Internal|AUTOMATIC|Bite 1 (Diminutive)|PREBASESIZEEQ:D|PREVAREQ:BiteAttacks,1	ABILITY:Internal|AUTOMATIC|Bite 1 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:BiteAttacks,1	ABILITY:Internal|AUTOMATIC|Bite 1 (Small)|PREBASESIZEEQ:S|PREVAREQ:BiteAttacks,1	ABILITY:Internal|AUTOMATIC|Bite 1 (Medium)|PREBASESIZEEQ:M|PREVAREQ:BiteAttacks,1	ABILITY:Internal|AUTOMATIC|Bite 1 (Large)|PREBASESIZEEQ:L|PREVAREQ:BiteAttacks,1	ABILITY:Internal|AUTOMATIC|Bite 1 (Huge)|PREBASESIZEEQ:H|PREVAREQ:BiteAttacks,1	ABILITY:Internal|AUTOMATIC|Bite 1 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:BiteAttacks,1	ABILITY:Internal|AUTOMATIC|Bite 1 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:BiteAttacks,1	ABILITY:Internal|AUTOMATIC|Bite 2 (Fine)|PREBASESIZEEQ:F|PREVAREQ:BiteAttacks,2	ABILITY:Internal|AUTOMATIC|Bite 2 (Diminutive)|PREBASESIZEEQ:D|PREVAREQ:BiteAttacks,2	ABILITY:Internal|AUTOMATIC|Bite 2 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:BiteAttacks,2	ABILITY:Internal|AUTOMATIC|Bite 2 (Small)|PREBASESIZEEQ:S|PREVAREQ:BiteAttacks,2	ABILITY:Internal|AUTOMATIC|Bite 2 (Medium)|PREBASESIZEEQ:M|PREVAREQ:BiteAttacks,2	ABILITY:Internal|AUTOMATIC|Bite 2 (Large)|PREBASESIZEEQ:L|PREVAREQ:BiteAttacks,2	ABILITY:Internal|AUTOMATIC|Bite 2 (Huge)|PREBASESIZEEQ:H|PREVAREQ:BiteAttacks,2	ABILITY:Internal|AUTOMATIC|Bite 2 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:BiteAttacks,2	ABILITY:Internal|AUTOMATIC|Bite 2 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:BiteAttacks,2	ABILITY:Internal|AUTOMATIC|Bite 3 (Fine)|PREBASESIZEEQ:F|PREVAREQ:BiteAttacks,3	ABILITY:Internal|AUTOMATIC|Bite 3 (Diminutive)|PREBASESIZEEQ:D|PREVAREQ:BiteAttacks,3	ABILITY:Internal|AUTOMATIC|Bite 3 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:BiteAttacks,3	ABILITY:Internal|AUTOMATIC|Bite 3 (Small)|PREBASESIZEEQ:S|PREVAREQ:BiteAttacks,3	ABILITY:Internal|AUTOMATIC|Bite 3 (Medium)|PREBASESIZEEQ:M|PREVAREQ:BiteAttacks,3	ABILITY:Internal|AUTOMATIC|Bite 3 (Large)|PREBASESIZEEQ:L|PREVAREQ:BiteAttacks,3	ABILITY:Internal|AUTOMATIC|Bite 3 (Huge)|PREBASESIZEEQ:H|PREVAREQ:BiteAttacks,3	ABILITY:Internal|AUTOMATIC|Bite 3 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:BiteAttacks,3	ABILITY:Internal|AUTOMATIC|Bite 3 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:BiteAttacks,3	ABILITY:Internal|AUTOMATIC|Bite 4 (Fine)|PREBASESIZEEQ:F|PREVAREQ:BiteAttacks,4	ABILITY:Internal|AUTOMATIC|Bite 4 (Diminutive)|PREBASESIZEEQ:D|PREVAREQ:BiteAttacks,4	ABILITY:Internal|AUTOMATIC|Bite 4 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:BiteAttacks,4	ABILITY:Internal|AUTOMATIC|Bite 4 (Small)|PREBASESIZEEQ:S|PREVAREQ:BiteAttacks,4	ABILITY:Internal|AUTOMATIC|Bite 4 (Medium)|PREBASESIZEEQ:M|PREVAREQ:BiteAttacks,4	ABILITY:Internal|AUTOMATIC|Bite 4 (Large)|PREBASESIZEEQ:L|PREVAREQ:BiteAttacks,4	ABILITY:Internal|AUTOMATIC|Bite 4 (Huge)|PREBASESIZEEQ:H|PREVAREQ:BiteAttacks,4	ABILITY:Internal|AUTOMATIC|Bite 4 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:BiteAttacks,4	ABILITY:Internal|AUTOMATIC|Bite 4 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:BiteAttacks,4	ABILITY:Internal|AUTOMATIC|Bite 5 (Fine)|PREBASESIZEEQ:F|PREVAREQ:BiteAttacks,5	ABILITY:Internal|AUTOMATIC|Bite 5 (Diminutive)|PREBASESIZEEQ:D|PREVAREQ:BiteAttacks,5	ABILITY:Internal|AUTOMATIC|Bite 5 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:BiteAttacks,5	ABILITY:Internal|AUTOMATIC|Bite 5 (Small)|PREBASESIZEEQ:S|PREVAREQ:BiteAttacks,5	ABILITY:Internal|AUTOMATIC|Bite 5 (Medium)|PREBASESIZEEQ:M|PREVAREQ:BiteAttacks,5	ABILITY:Internal|AUTOMATIC|Bite 5 (Large)|PREBASESIZEEQ:L|PREVAREQ:BiteAttacks,5	ABILITY:Internal|AUTOMATIC|Bite 5 (Huge)|PREBASESIZEEQ:H|PREVAREQ:BiteAttacks,5	ABILITY:Internal|AUTOMATIC|Bite 5 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:BiteAttacks,5	ABILITY:Internal|AUTOMATIC|Bite 5 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:BiteAttacks,5	ABILITY:Internal|AUTOMATIC|Bite 6 (Fine)|PREBASESIZEEQ:F|PREVAREQ:BiteAttacks,6	ABILITY:Internal|AUTOMATIC|Bite 6 (Diminutive)|PREBASESIZEEQ:D|PREVAREQ:BiteAttacks,6	ABILITY:Internal|AUTOMATIC|Bite 6 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:BiteAttacks,6	ABILITY:Internal|AUTOMATIC|Bite 6 (Small)|PREBASESIZEEQ:S|PREVAREQ:BiteAttacks,6	ABILITY:Internal|AUTOMATIC|Bite 6 (Medium)|PREBASESIZEEQ:M|PREVAREQ:BiteAttacks,6	ABILITY:Internal|AUTOMATIC|Bite 6 (Large)|PREBASESIZEEQ:L|PREVAREQ:BiteAttacks,6	ABILITY:Internal|AUTOMATIC|Bite 6 (Huge)|PREBASESIZEEQ:H|PREVAREQ:BiteAttacks,6	ABILITY:Internal|AUTOMATIC|Bite 6 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:BiteAttacks,6	ABILITY:Internal|AUTOMATIC|Bite 6 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:BiteAttacks,6	ABILITY:Internal|AUTOMATIC|Bite 7 (Fine)|PREBASESIZEEQ:F|PREVAREQ:BiteAttacks,7	ABILITY:Internal|AUTOMATIC|Bite 7 (Diminutive)|PREBASESIZEEQ:D|PREVAREQ:BiteAttacks,7	ABILITY:Internal|AUTOMATIC|Bite 7 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:BiteAttacks,7	ABILITY:Internal|AUTOMATIC|Bite 7 (Small)|PREBASESIZEEQ:S|PREVAREQ:BiteAttacks,7	ABILITY:Internal|AUTOMATIC|Bite 7 (Medium)|PREBASESIZEEQ:M|PREVAREQ:BiteAttacks,7	ABILITY:Internal|AUTOMATIC|Bite 7 (Large)|PREBASESIZEEQ:L|PREVAREQ:BiteAttacks,7	ABILITY:Internal|AUTOMATIC|Bite 7 (Huge)|PREBASESIZEEQ:H|PREVAREQ:BiteAttacks,7	ABILITY:Internal|AUTOMATIC|Bite 7 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:BiteAttacks,7	ABILITY:Internal|AUTOMATIC|Bite 7 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:BiteAttacks,7
@@ -275,6 +282,9 @@ CATEGORY=Internal|Rake.MOD		ABILITY:Internal|AUTOMATIC|Rake 2 (Diminutive)|PREBA
 
 CATEGORY=Internal|Tentacle.MOD	ABILITY:Internal|AUTOMATIC|Tail Sweep (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Tail Sweep (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Tail Sweep (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Tail Sweep (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Tail Sweep (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Tail Sweep (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Tail Sweep (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Tail Sweep (Colossal)|PREBASESIZEEQ:C
 CATEGORY=Internal|Wing.MOD		ABILITY:Internal|AUTOMATIC|Crush (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Crush (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Crush (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Crush (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Crush (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Crush (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Crush (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Crush (Colossal)|PREBASESIZEEQ:C
+
+CATEGORY=Internal|Hair.MOD		ABILITY:Internal|AUTOMATIC|Hair 1 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Small)|PREBASESIZEEQ:S|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Medium)|PREBASESIZEEQ:M|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Large)|PREBASESIZEEQ:L|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Huge)|PREBASESIZEEQ:H|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 2 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Small)|PREBASESIZEEQ:S|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Medium)|PREBASESIZEEQ:M|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Large)|PREBASESIZEEQ:L|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Huge)|PREBASESIZEEQ:H|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 3 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Small)|PREBASESIZEEQ:S|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Medium)|PREBASESIZEEQ:M|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Large)|PREBASESIZEEQ:L|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Huge)|PREBASESIZEEQ:H|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 4 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Small)|PREBASESIZEEQ:S|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Medium)|PREBASESIZEEQ:M|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Large)|PREBASESIZEEQ:L|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Huge)|PREBASESIZEEQ:H|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:HairAttacks,4
+
 
 ###Block: Grants Natural Attacks
 # Bite -  1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B/S/P Primary
@@ -1049,6 +1059,38 @@ Rake 2 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:
 Rake 2 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Rake 2 (Gargantuan)
 Rake 2 (Colossal)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Rake 2 (Colossal)
 
+# Hair - Witch Support
+Hair 1 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Hair 1 (Tiny)
+Hair 1 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Hair 1 (Small)
+Hair 1 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Hair 1 (Medium)
+Hair 1 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Hair 1 (Large)
+Hair 1 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Hair 1 (Huge)
+Hair 1 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Hair 1 (Gargantuan)
+Hair 1 (Colossal)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Hair 1 (Colossal)
+
+Hair 2 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Hair 2 (Tiny)
+Hair 2 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Hair 2 (Small)
+Hair 2 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Hair 2 (Medium)
+Hair 2 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Hair 2 (Large)
+Hair 2 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Hair 2 (Huge)
+Hair 2 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Hair 2 (Gargantuan)
+Hair 2 (Colossal)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Hair 2 (Colossal)
+
+Hair 3 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Hair 3 (Tiny)
+Hair 3 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Hair 3 (Small)
+Hair 3 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Hair 3 (Medium)
+Hair 3 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Hair 3 (Large)
+Hair 3 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Hair 3 (Huge)
+Hair 3 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Hair 3 (Gargantuan)
+Hair 3 (Colossal)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Hair 3 (Colossal)
+
+Hair 4 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Hair 4 (Tiny)
+Hair 4 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Hair 4 (Small)
+Hair 4 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Hair 4 (Medium)
+Hair 4 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Hair 4 (Large)
+Hair 4 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Hair 4 (Huge)
+Hair 4 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Hair 4 (Gargantuan)
+Hair 4 (Colossal)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Hair 4 (Colossal)
 
 ###BLOCK: Dragons
 # Natural Armor For Wyrmling is a variable based upon type, but always increases by 3 thereafter
