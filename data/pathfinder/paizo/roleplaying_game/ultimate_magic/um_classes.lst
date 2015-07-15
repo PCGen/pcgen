@@ -4,7 +4,7 @@ SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRP
 # ORIGINAL ENTRY DATE: Unknown
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define		Combat bonus											Save bonus																					Modify VAR			Monster Role
-CLASS:Magus		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mag		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:MagusLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|MagusLVL|CL	ROLE:Combat
+CLASS:Magus		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mag		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:MagusLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|MagusLVL|CL	ROLE:Combat	DEFINE:MagusHighestSpellLVL|0	BONUS:VAR|MagusHighestSpellLVL|1+(MagusLVL>=4)+(MagusLVL>=7)+(MagusLVL>=10)+(MagusLVL>=13)+(MagusLVL>=16)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Magus		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Planes)|TYPE=Profession|Ride|Spellcraft|Swim|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level

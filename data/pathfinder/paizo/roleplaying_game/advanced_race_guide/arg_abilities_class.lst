@@ -967,3 +967,64 @@ Stone Shield			KEY:Ki Power ~ Stone Shield			CATEGORY:Special Ability	TYPE:Speci
 Dispel Magic	KEY:Umbral Scion Spell ~ Dispel Magic	CATEGORY:Special Ability	TYPE:Umbral Scion Spell	ABILITY:Spell-Like Ability|AUTOMATIC|Dispel Magic	BONUS:VAR|DispelMagicTimes|1|TYPE=Base	BONUS:VAR|DispelMagicLVL|TL|TYPE=Base
 Divine Favor	KEY:Umbral Scion Spell ~ Divine Favor	CATEGORY:Special Ability	TYPE:Umbral Scion Spell	ABILITY:Spell-Like Ability|AUTOMATIC|Divine Favor	BONUS:VAR|DivineFavorTimes|1|TYPE=Base	BONUS:VAR|DivineFavorLVL|TL|TYPE=Base
 Suggestion		KEY:Umbral Scion Spell ~ Suggestion		CATEGORY:Special Ability	TYPE:Umbral Scion Spell	ABILITY:Spell-Like Ability|AUTOMATIC|Suggestion		BONUS:VAR|SuggestionTimes|1|TYPE=Base	BONUS:VAR|SuggestionLVL|TL|TYPE=Base
+
+###Block: Magus Spellblend
+Blend					KEY:Magus Spellblend ~ Blend						CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Blend						
+Death From Below			KEY:Magus Spellblend ~ Death From Below				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Death From Below											
+Jitterbugs				KEY:Magus Spellblend ~ Jitterbugs					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Jitterbugs												
+Major Phantom Object		KEY:Magus Spellblend ~ Major Phantom Object			CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL5	SPELLKNOWN:CLASS|Magus=5|Major Phantom Object											
+Minor Dream				KEY:Magus Spellblend ~ Minor Dream					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Minor Dream									
+Minor Phantom Object		KEY:Magus Spellblend ~ Minor Phantom Object			CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Minor Phantom Object											
+Recharge Innate Magic		KEY:Magus Spellblend ~ Recharge Innate Magic			CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Recharge Innate Magic			
+Forgetful Slumber			KEY:Magus Spellblend ~ Forgetful Slumber				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Forgetful Slumber								
+Resilient Reservoir		KEY:Magus Spellblend ~ Resilient Reservoir			CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Resilient Reservoir						
+Urban Grace				KEY:Magus Spellblend ~ Urban Grace					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Urban Grace							
+Ghost Wolf				KEY:Magus Spellblend ~ Ghost Wolf					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Ghost Wolf									
+Half-Blood Extraction		KEY:Magus Spellblend ~ Half-Blood Extraction			CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL5	SPELLKNOWN:CLASS|Magus=5|Half-Blood Extraction				
+Escaping Ward			KEY:Magus Spellblend ~ Escaping Ward				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Escaping Ward				
+Fearsome Duplicate		KEY:Magus Spellblend ~ Fearsome Duplicate				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Fearsome Duplicate					
+Village Veil			KEY:Magus Spellblend ~ Village Veil					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL5	SPELLKNOWN:CLASS|Magus=5|Village Veil						
+Bestow Insight			KEY:Magus Spellblend ~ Bestow Insight				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Bestow Insight				
+Truespeak				KEY:Magus Spellblend ~ Truespeak					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL5	SPELLKNOWN:CLASS|Magus=5|Truespeak					
+Steal Breath			KEY:Magus Spellblend ~ Steal Breath					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Steal Breath				
+Ancestral Regression		KEY:Magus Spellblend ~ Ancestral Regression			CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Ancestral Regression			
+Web Bolt				KEY:Magus Spellblend ~ Web Bolt					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Web Bolt									
+Web Cloud				KEY:Magus Spellblend ~ Web Cloud					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Web Cloud										
+Gloomblind Bolts			KEY:Magus Spellblend ~ Gloomblind Bolts				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Gloomblind Bolts				
+Shadowy Haven			KEY:Magus Spellblend ~ Shadowy Haven				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Shadowy Haven						
+Fire Trail				KEY:Magus Spellblend ~ Fire Trail					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Fire Trail							
+Mudball				KEY:Magus Spellblend ~ Mudball					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Mudball						
+Vomit Twin				KEY:Magus Spellblend ~ Vomit Twin					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Vomit Twin					
+Chains of Fire			KEY:Magus Spellblend ~ Chains of Fire				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL6	SPELLKNOWN:CLASS|Magus=6|Chains of Fire								
+Firestream				KEY:Magus Spellblend ~ Firestream					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Firestream									
+Scorching Ash Form		KEY:Magus Spellblend ~ Scorching Ash Form				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Scorching Ash Form							
+Touch of Combustion		KEY:Magus Spellblend ~ Touch of Combustion			CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Touch of Combustion			
+Improve Trap			KEY:Magus Spellblend ~ Improve Trap					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Improve Trap				
+Blood Blaze				KEY:Magus Spellblend ~ Blood Blaze					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Blood Blaze								
+Blood Scent				KEY:Magus Spellblend ~ Blood Scent					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Blood Scent					
+Sentry Skull			KEY:Magus Spellblend ~ Sentry Skull					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Sentry Skull										
+Raging Rubble			KEY:Magus Spellblend ~ Raging Rubble				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Raging Rubble					
+Alchemical Tinkering		KEY:Magus Spellblend ~ Alchemical Tinkering			CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Alchemical Tinkering								
+Absorbing Inhalation		KEY:Magus Spellblend ~ Absorbing Inhalation			CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Absorbing Inhalation				
+Cloud Shape				KEY:Magus Spellblend ~ Cloud Shape					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Cloud Shape						
+Gusting Sphere			KEY:Magus Spellblend ~ Gusting Sphere				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Gusting Sphere					
+Miasmatic Form			KEY:Magus Spellblend ~ Miasmatic Form				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Miasmatic Form						
+Path of the Winds			KEY:Magus Spellblend ~ Path of the Winds				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL6	SPELLKNOWN:CLASS|Magus=6|Path of the Winds						
+Wind Blades				KEY:Magus Spellblend ~ Wind Blades					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL5	SPELLKNOWN:CLASS|Magus=5|Wind Blades					
+Windy Escape			KEY:Magus Spellblend ~ Windy Escape					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Windy Escape				
+Theft Ward				KEY:Magus Spellblend ~ Theft Ward					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Theft Ward						
+Winter Feathers			KEY:Magus Spellblend ~ Winter Feathers				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Winter Feathers				
+Damnation Stride			KEY:Magus Spellblend ~ Damnation Stride				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL5	SPELLKNOWN:CLASS|Magus=5|Damnation Stride				
+Hellmouth Lash			KEY:Magus Spellblend ~ Hellmouth Lash				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Hellmouth Lash						
+Marid's Mastery			KEY:Magus Spellblend ~ Marid's Mastery				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Marid's Mastery				
+Nixie's Lure			KEY:Magus Spellblend ~ Nixie's Lure					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Nixie's Lure				
+Undine's Curse			KEY:Magus Spellblend ~ Undine's Curse				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Undine's Curse							
+Sow Thought				KEY:Magus Spellblend ~ Sow Thought					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Sow Thought					
+Aboleth's Lung			KEY:Magus Spellblend ~ Aboleth's Lung				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Aboleth's Lung				
+Fins to Feet			KEY:Magus Spellblend ~ Fins to Feet					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Fins to Feet				
+Strong Wings			KEY:Magus Spellblend ~ Strong Wings					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Strong Wings				
+Imbue With Elemental Might	KEY:Magus Spellblend ~ Imbue With Elemental Might		CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Imbue With Elemental Might		
+Earth Glide				KEY:Magus Spellblend ~ Earth Glide					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Earth Glide					
+Prehensile Pilfer			KEY:Magus Spellblend ~ Prehensile Pilfer				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Prehensile Pilfer				
+Squeeze				KEY:Magus Spellblend ~ Squeeze					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Squeeze					
+Shadow Anchor			KEY:Magus Spellblend ~ Shadow Anchor				CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Shadow Anchor			
