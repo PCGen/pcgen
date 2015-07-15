@@ -1,7 +1,7 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
-<html>
-  <!--
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
     PCGen Documentation Project
 
     $Author: karianna $
@@ -14,48 +14,49 @@
     Description:
     Provides information on FreeMarker based Character Output Sheets.
   -->
-  <head>
-    <title>FreeMarker Output</title>
-    <link rel="stylesheet" type="text/css" href="../pcgen.css" >
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  </head>
-
-  <body>
-    <h1>Introduction to FreeMarker</h1>
-
-
-	<p><a rel="nofollow" class="external text" href="http://freemarker.org/">FreeMarker</a> is a template engine 
-		that has now been incorporated into PCGen's export system as an alternative to our venerable export syntax. 
-		The FreeMarker engine brings some important benefits:</p>
-	<ul>
-		<li> Industry standard syntax</li>
-		<li> Support for macros to output parameterised blocks</li>
-		<li> Improved flow-control and logic instructions</li>
-		<li> Support for including other files, e.g. macro libraries or common blocks</li>
-		<li> Calculations and state within the output template</li>
-		<li> Built-in syntax support in <a rel="nofollow" class="external text" href="http://freemarker.org/editors.html">many text editors</a></li>
-	</ul>
-
-	<p>Here's a simple example FreeMarker PCGen template</p>
-
-	<pre class="code">
+<head>
+<meta name="generator" content=
+"HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" />
+<title>FreeMarker Output</title>
+<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=us-ascii" />
+</head>
+<body>
+<h1>Introduction to FreeMarker</h1>
+<p><a rel="nofollow" class="external text" href=
+"http://freemarker.org/">FreeMarker</a> is a template engine that
+has now been incorporated into PCGen's export system as an
+alternative to our venerable export syntax. The FreeMarker engine
+brings some important benefits:</p>
+<ul>
+<li>Industry standard syntax</li>
+<li>Support for macros to output parameterised blocks</li>
+<li>Improved flow-control and logic instructions</li>
+<li>Support for including other files, e.g. macro libraries or
+common blocks</li>
+<li>Calculations and state within the output template</li>
+<li>Built-in syntax support in <a rel="nofollow" class=
+"external text" href="http://freemarker.org/editors.html">many text
+editors</a></li>
+</ul>
+<p>Here's a simple example FreeMarker PCGen template</p>
+<pre class="code">
 &lt;!-- Produced on ${.now?date} at ${.now?time} using template ${.template_name} --&gt;
-&lt;h1&gt;Freemarker Sheet for &lt;@pcstring tag=&quot;NAME&quot;/&gt; - ${.now?date}&lt;/h1&gt;
+&lt;h1&gt;Freemarker Sheet for &lt;@pcstring tag="NAME"/&gt; - ${.now?date}&lt;/h1&gt;
 
-&lt;p&gt; Character Name: &lt;@pcstring tag=&quot;NAME&quot;/&gt; &lt;/p&gt;
-&lt;p&gt; Player Name: &lt;@pcstring tag=&quot;PLAYERNAME&quot;/&gt; &lt;/p&gt;
+&lt;p&gt; Character Name: &lt;@pcstring tag="NAME"/&gt; &lt;/p&gt;
+&lt;p&gt; Player Name: &lt;@pcstring tag="PLAYERNAME"/&gt; &lt;/p&gt;
 
-&lt;p&gt; Fighter: ${pcvar(&quot;CL=Fighter&quot;)} &lt;/p&gt;
-&lt;p&gt; Rogue: ${pcvar(&quot;CL=Rogue&quot;)} &lt;/p&gt;
+&lt;p&gt; Fighter: ${pcvar("CL=Fighter")} &lt;/p&gt;
+&lt;p&gt; Rogue: ${pcvar("CL=Rogue")} &lt;/p&gt;
 
-&lt;p&gt;&lt;@loop from=0 to=pcvar('countdistinct(&quot;CLASSES&quot;)')-1 ; class , class_has_next &gt;
-	&lt;@pcstring tag=&quot;CLASSABB.${class}&quot;/&gt; &lt;#t&gt;
-	&lt;@pcstring tag=&quot;CLASS.${class}.LEVEL&quot;/&gt;&lt;#if class_has_next&gt;,&lt;/#if&gt;&lt;#t&gt;
+&lt;p&gt;&lt;@loop from=0 to=pcvar('countdistinct("CLASSES")')-1 ; class , class_has_next &gt;
+        &lt;@pcstring tag="CLASSABB.${class}"/&gt; &lt;#t&gt;
+        &lt;@pcstring tag="CLASS.${class}.LEVEL"/&gt;&lt;#if class_has_next&gt;,&lt;/#if&gt;&lt;#t&gt;
 &lt;/@loop&gt;&lt;/p&gt;
 </pre>
-
-<p>which produces the output
-</p>
+<p>which produces the output</p>
 <pre class="code">
 &lt;!-- Produced on 29/10/2013 at 9:44:47 PM using template csheet_test-html.ftl --&gt;
 &lt;h1&gt;Freemarker Sheet for Ronald 'Surefingers' Millbridge - 29/10/2013&lt;/h1&gt;
@@ -68,13 +69,8 @@
 
 &lt;p&gt;Rog 11,Wiz 2&lt;/p&gt;
 </pre>
-
-  <p>
-  
-  <a href="http://validator.w3.org/check?uri=referer"><img
-        src="../images/system/valid-html401.png"
-        alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-  </p>
+<p><a href="http://validator.w3.org/check?uri=referer"><img src=
+"../images/system/valid-html401.png" alt="Valid HTML 4.01 Strict"
+height="31" width="88" /></a></p>
 </body>
-
 </html>

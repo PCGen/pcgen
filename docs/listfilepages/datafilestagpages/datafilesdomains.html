@@ -1,95 +1,105 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+                PCGen Documentation Project
 
-<html>
-	<!--
-		PCGen Documentation Project
+                $Author$
+                $Date$
+                $Revision$
 
-		$Author$
-		$Date$
-		$Revision$
+                Contributors:
+                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+                Eddy Anthony - eddybaATmindspringDOTcom
+                Eric C Smith - mareduddATblackrootDOTorg
 
-		Contributors:
-		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		Eddy Anthony - eddybaATmindspringDOTcom
-		Eric C Smith - mareduddATblackrootDOTorg
-
-		Description:
-		Provides information on the content of PCGen Domain Files.
-	-->
+                Description:
+                Provides information on the content of PCGen Domain Files.
+        -->
 <head>
-	<title>Domain Files</title>
-	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content=
+"HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" />
+<title>Domain Files</title>
+<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=us-ascii" />
 </head>
-
 <body>
-
-	<h1>Domain Files</h1>
-	<p class="indent0">The Domain files are used to specify domain pertinent information.</p>
-	<p class="indent1">The following tags are described in this sections:</p>
-	<p class="indent2"><a href="#FEAT">FEAT</a></p>
-	
-<hr>
-
-	<h2>How to Build a Domain</h2>	
-	<p class="indent1">The first field in the domain line is the &quot;Domain Name&quot;. This 
-		is a required field and does not have a tag.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>Holy</code></p>
-	<p class="indent3">The domain named &quot;Holy&quot; is to be created.</p>
-	<p class="indent2"><code>Travel.MOD</code></p>
-	<p class="indent3">The domain named &quot;Travel&quot; is to be modified.</p>
-	<p></p>
-	<p class="indent1">For more information on building domains, visit 
-		<a href="lstfileclass/lfc_lesson15_domains1.html">Lesson #15: Basic Domain Creation</a> and
-		<a href="lstfileclass/lfc_lesson16_domains2.html">Lesson #16: Advanced Domain Topics</a></p>
-
-<hr>
-
-	<h2><a name="tagdictionary">Domain File Tag Dictionary</a></h2>
-
-<hr>
-
-	<p class="lststatus"><a name="FEAT">*** Updated 5.17.4</a></p>
-	<p class="indent0"><strong>Tag Name:</strong> FEAT:x,x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This is a comma-delimited (,) list of feats granted to a character.</li>
-		<li>The hyphen (-) is used only in the <code>OUTPUTNAME</code> of feats and should NOT be used in the feat list 
-			for this tag. (See example below.)</li>
-		<li>When including a feat with an internal chooser, subchoices can be handled one of two ways.</li>
-		<ul>
-			<li>Subchoices must be specified within the tag. (e.g. Weapon Focus (Longsword)).<br>
-				or</li>
-			<li>Used in conjunction with the <code>CHOOSE</code> tag, <code>%LIST</code> 
-				can be used with this tag to provide the required choice.</li>
-		<li><strong>.MOD Behavior:</strong> When modifying a domain with the <code>.MOD</code> tag, given an existing <code>FEAT</code> 
-			tag, the data included in a new <code>FEAT</code> tag will be appended to the existing tag data.</li>
-		</ul>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>FEAT:Blind Fight,Alertness</code></p>
-	<p class="indent3">The &quot;Blind-Fight&quot; &amp; &quot;Alertness&quot; bonus feats are granted to clerics
-		with this domain.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROFS|LIST &lt;tab&gt; FEAT:Weapon Focus (%LIST)</code></p>
-	<p class="indent3">The feat &quot;Weapon Focus&quot; is granted as an automatic feat with the weapon chosen with the <code>CHOOSE</code> tag.</p>
-	<p class="indent1"><strong>.MOD Example:</strong></p>
-	<p class="indent2">Initial Domain: <code>Space Monkey &lt;tab&gt; FEAT:Alertness</code>
-	<p class="indent2">Modified By: <code>Space Monkey.MOD &lt;tab&gt; FEAT:Blind Fight</code></p>
-	<p class="indent2">Is Equivalent To: <code>Space Monkey &lt;tab&gt; FEAT:Alertness,Blind Fight</code>.</p>
-	<p class="indent3">The &quot;Alertness&quot; &amp; &quot;Blind-Fight&quot; bonus feats are granted to clerics
-		with this domain.</p>
-	<p></p>
-
-<hr>
-
-	<p>
-	<a href="http://validator.w3.org/check?uri=referer"><img
-       	src="../../images/system/valid-html401.png"
-       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-	</p>
-
-	</body>
-
+<h1>Domain Files</h1>
+<p class="indent0">The Domain files are used to specify domain
+pertinent information.</p>
+<p class="indent1">The following tags are described in this
+sections:</p>
+<p class="indent2"><a href="#FEAT">FEAT</a></p>
+<hr />
+<h2>How to Build a Domain</h2>
+<p class="indent1">The first field in the domain line is the
+"Domain Name". This is a required field and does not have a
+tag.</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2"><code>Holy</code></p>
+<p class="indent3">The domain named "Holy" is to be created.</p>
+<p class="indent2"><code>Travel.MOD</code></p>
+<p class="indent3">The domain named "Travel" is to be modified.</p>
+<p class="indent1">For more information on building domains, visit
+<a href="lstfileclass/lfc_lesson15_domains1.html">Lesson #15: Basic
+Domain Creation</a> and <a href=
+"lstfileclass/lfc_lesson16_domains2.html">Lesson #16: Advanced
+Domain Topics</a></p>
+<hr />
+<h2><a name="tagdictionary" id="tagdictionary">Domain File Tag
+Dictionary</a></h2>
+<hr />
+<p class="lststatus"><a name="FEAT" id="FEAT">*** Updated
+5.17.4</a></p>
+<p class="indent0"><strong>Tag Name:</strong> FEAT:x,x</p>
+<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat
+Name)</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<ul class="indent2">
+<li>This is a comma-delimited (,) list of feats granted to a
+character.</li>
+<li>The hyphen (-) is used only in the <code>OUTPUTNAME</code> of
+feats and should NOT be used in the feat list for this tag. (See
+example below.)</li>
+<li>When including a feat with an internal chooser, subchoices can
+be handled one of two ways.</li>
+<li style="list-style: none; display: inline">
+<ul>
+<li>Subchoices must be specified within the tag. (e.g. Weapon Focus
+(Longsword)).<br />
+or</li>
+<li>Used in conjunction with the <code>CHOOSE</code> tag,
+<code>%LIST</code> can be used with this tag to provide the
+required choice.</li>
+<li><strong>.MOD Behavior:</strong> When modifying a domain with
+the <code>.MOD</code> tag, given an existing <code>FEAT</code> tag,
+the data included in a new <code>FEAT</code> tag will be appended
+to the existing tag data.</li>
+</ul>
+</li>
+</ul>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2"><code>FEAT:Blind Fight,Alertness</code></p>
+<p class="indent3">The "Blind-Fight" &amp; "Alertness" bonus feats
+are granted to clerics with this domain.</p>
+<p class="indent2"><code>CHOOSE:WEAPONPROFS|LIST &lt;tab&gt;
+FEAT:Weapon Focus (%LIST)</code></p>
+<p class="indent3">The feat "Weapon Focus" is granted as an
+automatic feat with the weapon chosen with the <code>CHOOSE</code>
+tag.</p>
+<p class="indent1"><strong>.MOD Example:</strong></p>
+<p class="indent2">Initial Domain: <code>Space Monkey &lt;tab&gt;
+FEAT:Alertness</code></p>
+<p class="indent2">Modified By: <code>Space Monkey.MOD &lt;tab&gt;
+FEAT:Blind Fight</code></p>
+<p class="indent2">Is Equivalent To: <code>Space Monkey &lt;tab&gt;
+FEAT:Alertness,Blind Fight</code>.</p>
+<p class="indent3">The "Alertness" &amp; "Blind-Fight" bonus feats
+are granted to clerics with this domain.</p>
+<hr />
+<p><a href="http://validator.w3.org/check?uri=referer"><img src=
+"../../images/system/valid-html401.png" alt=
+"Valid HTML 4.01 Strict" height="31" width="88" /></a></p>
+</body>
 </html>

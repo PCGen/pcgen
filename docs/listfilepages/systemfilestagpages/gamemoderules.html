@@ -1,73 +1,81 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+                PCGen Documentation Project
 
-<html>
-	<!--
-		PCGen Documentation Project
 
 
+                Contributors:
+                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+                Eddy Anthony - eddybaATmindspringDOTcom
+                Terry FitzSimons - fitzsimonsATmintelDOTnet
 
-		Contributors:
-		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		Eddy Anthony - eddybaATmindspringDOTcom
-		Terry FitzSimons - fitzsimonsATmintelDOTnet
-
-		Description:
-		Provides information on the use of PCGen Game Mode:Rules List.
-	-->
-	<head>
-			<title>Game Mode:Rules List</title>
-	 <link rel="stylesheet" type="text/css" href="../../pcgen.css">
-	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	</head>
-
-	<body>
-		<h1>Game Mode: rules.lst</h1>
-
-		<p>This file contains Rule Checks that the user can turn on/off in the GUI.</p>
-
-		<p class="indent0"><strong>Format is:</strong></p>
-
-		<p class="indent0"><code> Name:aName &lt;tab&gt; VAR:/PARM:aKey &lt;tab&gt;
-		DEFAULT:YES/NO &lt;tab&gt; EXCLUDE:aKey &lt;tab&gt; DESC:optional description</code></p>
-
-		<p></p><hr>
-		<p class="indent1"><strong><a name="Name">Tag Name:</a></strong> Name:aName</p>
-		<p class="indent2"><strong>Variables Used (aName):</strong> Text (Name)</p>
-		<p class="indent2"><strong>What it does:</strong></p>
-		<p class="indent3">aName is used to search the Language.properties file for a DESC to display in the GUI.</p>
-
-		<p></p><hr>
-		<p class="indent1"><strong><a name="VAR">Tag Name:</a></strong> VAR:/PARM:aKey</p>
-		<p class="indent2"><strong>Variables Used (aKey):</strong> Text (unique key)</p>
-		<p class="indent2"><strong>What it does:</strong></p>
-		<p class="indent3">aKey is the unique key used to store and reference this Rule.</p>
-		<p class="indent3">VAR:aKey can be referenced in .lst files.</p>
-		<p class="indent3">PARM:aKey means it's hardcoded into the Java code.</p>
-
-		<p></p><hr>
-		<p class="indent1"><strong><a name="DEFAULT">Tag Name:</a></strong> DEFAULT:x</p>
-		<p class="indent2"><strong>Variables Used (x):</strong> Boolean (YES or NO)</p>
-		<p class="indent2"><strong>What it does:</strong></p>
-		<p class="indent3">Sets the initial state of the rule. Yes for on, no for off.</p>
-
-		<p></p><hr>
-		<p class="indent1"><strong><a name="EXCLUDE">Tag Name:</a></strong> EXCLUDE:aKey</p>
-		<p class="indent2"><strong>Variables Used (aKey):</strong> Text (unique key)</p>
-		<p class="indent2"><strong>What it does:</strong></p>
-		<p class="indent3">prevents two rules from being active at the same time.
-		It also creates a Radio button in the GUI to choose between the two rules.</p>
-
-		<p></p><hr>
-		<p class="indent1"><strong><a name="DESC">Tag Name:</a></strong> DESC:x</p>
-		<p class="indent2"><strong>Variables Used (x):</strong> Text (optional description)</p>
-		<p class="indent2"><strong>What it does:</strong></p>
-		<p class="indent3">Optional description and is overridden by the Language.properties file from the java code.</p>
-
-	<p>
-	<a href="http://validator.w3.org/check?uri=referer"><img
-       	src="../../images/system/valid-html401.png"
-       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-	</p>
-	</body>
-
+                Description:
+                Provides information on the use of PCGen Game Mode:Rules List.
+        -->
+<head>
+<meta name="generator" content=
+"HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" />
+<title>Game Mode:Rules List</title>
+<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=us-ascii" />
+</head>
+<body>
+<h1>Game Mode: rules.lst</h1>
+<p>This file contains Rule Checks that the user can turn on/off in
+the GUI.</p>
+<p class="indent0"><strong>Format is:</strong></p>
+<p class="indent0"><code>Name:aName &lt;tab&gt; VAR:/PARM:aKey
+&lt;tab&gt; DEFAULT:YES/NO &lt;tab&gt; EXCLUDE:aKey &lt;tab&gt;
+DESC:optional description</code></p>
+<hr />
+<p class="indent1"><strong><a name="Name" id="Name">Tag
+Name:</a></strong> Name:aName</p>
+<p class="indent2"><strong>Variables Used (aName):</strong> Text
+(Name)</p>
+<p class="indent2"><strong>What it does:</strong></p>
+<p class="indent3">aName is used to search the Language.properties
+file for a DESC to display in the GUI.</p>
+<hr />
+<p class="indent1"><strong><a name="VAR" id="VAR">Tag
+Name:</a></strong> VAR:/PARM:aKey</p>
+<p class="indent2"><strong>Variables Used (aKey):</strong> Text
+(unique key)</p>
+<p class="indent2"><strong>What it does:</strong></p>
+<p class="indent3">aKey is the unique key used to store and
+reference this Rule.</p>
+<p class="indent3">VAR:aKey can be referenced in .lst files.</p>
+<p class="indent3">PARM:aKey means it's hardcoded into the Java
+code.</p>
+<hr />
+<p class="indent1"><strong><a name="DEFAULT" id="DEFAULT">Tag
+Name:</a></strong> DEFAULT:x</p>
+<p class="indent2"><strong>Variables Used (x):</strong> Boolean
+(YES or NO)</p>
+<p class="indent2"><strong>What it does:</strong></p>
+<p class="indent3">Sets the initial state of the rule. Yes for on,
+no for off.</p>
+<hr />
+<p class="indent1"><strong><a name="EXCLUDE" id="EXCLUDE">Tag
+Name:</a></strong> EXCLUDE:aKey</p>
+<p class="indent2"><strong>Variables Used (aKey):</strong> Text
+(unique key)</p>
+<p class="indent2"><strong>What it does:</strong></p>
+<p class="indent3">prevents two rules from being active at the same
+time. It also creates a Radio button in the GUI to choose between
+the two rules.</p>
+<hr />
+<p class="indent1"><strong><a name="DESC" id="DESC">Tag
+Name:</a></strong> DESC:x</p>
+<p class="indent2"><strong>Variables Used (x):</strong> Text
+(optional description)</p>
+<p class="indent2"><strong>What it does:</strong></p>
+<p class="indent3">Optional description and is overridden by the
+Language.properties file from the java code.</p>
+<p><a href="http://validator.w3.org/check?uri=referer"><img src=
+"../../images/system/valid-html401.png" alt=
+"Valid HTML 4.01 Strict" height="31" width="88" /></a></p>
+</body>
 </html>

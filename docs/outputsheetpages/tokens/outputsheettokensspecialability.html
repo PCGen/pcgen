@@ -1,93 +1,108 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
-<html>
-	<!--
-		PCGen Documentation Project
-		
-		$Author$
-		$Date$
-		$Revision$
-		
-		Contributors:
-		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		Sigurdur H. Olafsson - shoATtnDOTis
-		
-		Description:
-		Provides information on the use of Output Sheet Tokens: Special Ability Related.
-	-->
-	<head>
-		<title>Special Ability Related Output Sheet Tokens</title>
-		<link rel="stylesheet" type="text/css" href="../../pcgen.css">
-  		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	</head>
-	
-	<body>
-		<h1>Special Ability Related Output Sheet Tokens</h1>
-
-		<p></p><hr>
-		<p class="indent0"><strong><a name="CLASS">Token Name:</a></strong> CLASS.x.SALIST</p>
-		<p class="indent1"><strong> Variables Used (x):</strong> Number (The x-th class in the character's class list - 0-based index).</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays the Special Abilities granted by the x-th class.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>CLASS.0.SALIST</code></p>
-		<p class="indent3">Displays the Special Abilities granted by the characters 1<sup>st</sup> class.</p>
-
-		<p></p><hr>
-		<p class="indent0"><strong><a name="PROHIBITEDLIST">Token Name:</a></strong> PROHIBITEDLIST</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">A Specialist Wizard must choose some prohibited schools. The selected school will be displayed in this list.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>PROHIBITEDLIST</code></p>
-		<p class="indent3">Displays a comma delimited list of prohibitions</p>
-
-		<p></p><hr>
-		<p class="indent0"><strong><a name="RACE.ABILITYLIST">Token Name:</a></strong> RACE.ABILITYLIST</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays a comma delimited list of the characters racial special abilities.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>RACE.ABILITYLIST</code></p>
-		<p class="indent3">Displays a comma delimited list of the characters racial special abilities.</p>
-
-		<p></p><hr>
-		<p class="indent0"><strong><a name="SPECIALLIST">Token Name:</a></strong> SPECIALLIST</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays a comma delimited list of the characters special abilities.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SPECIALLIST</code></p>
-		<p class="indent3">Displays a comma delimited list of the characters special abilities.</p>
-
-		<p></p><hr>
-		<p class="indent0"><strong><a name="SPECIALABILITY">Token Name:</a></strong> SPECIALABILITY.x.y</p>
-		<p class="indent1"><strong> Variables Used (x):</strong> Text (The x-th special ability in the character's special 
-		ability list - 0-based index).</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Text (Property).</p>
-		<ul class="indent2">
-			<li>None - Displays the name of the x-th special ability in the character's special ability list.</li>
-			<li>DESCRIPTION - Displays the description of the x-th special ability in the character's special ability list.</li>
-		</ul>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays the name or description of a character's special abilities.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SPECIALABILITY.0.DESCRIPTION</code></p>
-		<p class="indent3">Displays the description of the 1<sup>st</sup> special ability in the character's special ability list.</p>
-
-		<p></p><hr>
-		<p class="indent0"><strong><a name="TEMP">Token Name:</a></strong> TEMP.x</p>
-		<p class="indent1"><strong> Variables Used (x):</strong> Number (The special ability's position in the character's 
-		special ability list - 0-based index).</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays the name of the characters x-th Special Ability.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>TEMP.0</code></p>
-		<p class="indent3">Displays the name of the characters 1<sup>st</sup> Special Ability.</p>
-
-	<p>
-	<a href="http://validator.w3.org/check?uri=referer"><img
-       	src="../../images/system/valid-html401.png"
-       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-	</p>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+                PCGen Documentation Project
+                
+                $Author$
+                $Date$
+                $Revision$
+                
+                Contributors:
+                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+                Sigurdur H. Olafsson - shoATtnDOTis
+                
+                Description:
+                Provides information on the use of Output Sheet Tokens: Special Ability Related.
+        -->
+<head>
+<meta name="generator" content=
+"HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" />
+<title>Special Ability Related Output Sheet Tokens</title>
+<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=us-ascii" />
+</head>
+<body>
+<h1>Special Ability Related Output Sheet Tokens</h1>
+<hr />
+<p class="indent0"><strong><a name="CLASS" id="CLASS">Token
+Name:</a></strong> CLASS.x.SALIST</p>
+<p class="indent1"><strong>Variables Used (x):</strong> Number (The
+x-th class in the character's class list - 0-based index).</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<p class="indent2">Displays the Special Abilities granted by the
+x-th class.</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2"><code>CLASS.0.SALIST</code></p>
+<p class="indent3">Displays the Special Abilities granted by the
+characters 1<sup>st</sup> class.</p>
+<hr />
+<p class="indent0"><strong><a name="PROHIBITEDLIST" id=
+"PROHIBITEDLIST">Token Name:</a></strong> PROHIBITEDLIST</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<p class="indent2">A Specialist Wizard must choose some prohibited
+schools. The selected school will be displayed in this list.</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2"><code>PROHIBITEDLIST</code></p>
+<p class="indent3">Displays a comma delimited list of
+prohibitions</p>
+<hr />
+<p class="indent0"><strong><a name="RACE.ABILITYLIST" id=
+"RACE.ABILITYLIST">Token Name:</a></strong> RACE.ABILITYLIST</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<p class="indent2">Displays a comma delimited list of the
+characters racial special abilities.</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2"><code>RACE.ABILITYLIST</code></p>
+<p class="indent3">Displays a comma delimited list of the
+characters racial special abilities.</p>
+<hr />
+<p class="indent0"><strong><a name="SPECIALLIST" id=
+"SPECIALLIST">Token Name:</a></strong> SPECIALLIST</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<p class="indent2">Displays a comma delimited list of the
+characters special abilities.</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2"><code>SPECIALLIST</code></p>
+<p class="indent3">Displays a comma delimited list of the
+characters special abilities.</p>
+<hr />
+<p class="indent0"><strong><a name="SPECIALABILITY" id=
+"SPECIALABILITY">Token Name:</a></strong> SPECIALABILITY.x.y</p>
+<p class="indent1"><strong>Variables Used (x):</strong> Text (The
+x-th special ability in the character's special ability list -
+0-based index).</p>
+<p class="indent1"><strong>Variables Used (y):</strong> Text
+(Property).</p>
+<ul class="indent2">
+<li>None - Displays the name of the x-th special ability in the
+character's special ability list.</li>
+<li>DESCRIPTION - Displays the description of the x-th special
+ability in the character's special ability list.</li>
+</ul>
+<p class="indent1"><strong>What it does:</strong></p>
+<p class="indent2">Displays the name or description of a
+character's special abilities.</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2"><code>SPECIALABILITY.0.DESCRIPTION</code></p>
+<p class="indent3">Displays the description of the 1<sup>st</sup>
+special ability in the character's special ability list.</p>
+<hr />
+<p class="indent0"><strong><a name="TEMP" id="TEMP">Token
+Name:</a></strong> TEMP.x</p>
+<p class="indent1"><strong>Variables Used (x):</strong> Number (The
+special ability's position in the character's special ability list
+- 0-based index).</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<p class="indent2">Displays the name of the characters x-th Special
+Ability.</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2"><code>TEMP.0</code></p>
+<p class="indent3">Displays the name of the characters
+1<sup>st</sup> Special Ability.</p>
+<p><a href="http://validator.w3.org/check?uri=referer"><img src=
+"../../images/system/valid-html401.png" alt=
+"Valid HTML 4.01 Strict" height="31" width="88" /></a></p>
 </body>
-
 </html>

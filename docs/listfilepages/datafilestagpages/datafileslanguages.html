@@ -1,61 +1,60 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+                PCGen Documentation Project
 
-<html>
-	<!--
-		PCGen Documentation Project
+                $Author$
+                $Date$
+                $Revision$
 
-		$Author$
-		$Date$
-		$Revision$
+                Contributors:
+                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+                Eddy Anthony - eddybaATmindspringDOTcom
+                Sigurdur H. Olafsson - shoATitnDOTis
 
-		Contributors:
-		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		Eddy Anthony - eddybaATmindspringDOTcom
-		Sigurdur H. Olafsson - shoATitnDOTis
-
-		Description:
-		Provides information on the content of PCGen Language Files.
-	-->
+                Description:
+                Provides information on the content of PCGen Language Files.
+        -->
 <head>
-	<title>Language Files</title>
-	<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content=
+"HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" />
+<title>Language Files</title>
+<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=us-ascii" />
 </head>
-
 <body>
-
-	<h1>Language Files</h1>
-	<p class="lststatus">*** Updated 5.13.6</p>
-	<p>Most languages contain only two fields, the 'name' field which has no
-		tag label and the TYPE tag. The Languages list file is used with the
-		xxxskills.lst file for the CHOOSE:Language(&gt;list of names&lt;) tag. This file
-		also tells PCGen what languages are available for races to choose from with
-		their bonus languages based on their primary language stat (usually
-		Intelligence). Languages, like many other objects in PCGen, can be qualified
-		with PRExxx tags. For example the Druidic language may only be learned by Druids
-		so the Druidic entry contains a <code>PREVARGTEQ:DruidicLanguage,1</code> tag which
-		prevents the language from appearing in chooser lists for the language skill or
-		bonus languages. Any Class or Race which grants Druidic as a bonus language must place a
-		<code>DEFINE:DruidicLanguage|1</code> tag in it to meet the prerequisite. This is not needed
-		if the language is granted automatically by the LANGAUTO tag because it bypasses any
-		prerequisites on the language.</p>
-	<p></p>
-	<p class="indent2"><code>Terran</code></p>
-	<p class="indent3">The language named &quot;Terran&quot; is to be created.</p>
-	<p class="indent2"><code>Celestial.MOD</code></p>
-	<p class="indent3">The language named &quot;Celestial&quot; is to be modified.</p>
-	<p class="indent2"><code>Common.FORGET</code></p>
-	<p class="indent3">The language named &quot;Common&quot; is to be forgotten.</p>
-	<p></p>
-
-<hr>
-
-	<p>
-	<a href="http://validator.w3.org/check?uri=referer"><img
-       	src="../../images/system/valid-html401.png"
-       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-	</p>
-
+<h1>Language Files</h1>
+<p class="lststatus">*** Updated 5.13.6</p>
+<p>Most languages contain only two fields, the 'name' field which
+has no tag label and the TYPE tag. The Languages list file is used
+with the xxxskills.lst file for the CHOOSE:Language(&gt;list of
+names&lt;) tag. This file also tells PCGen what languages are
+available for races to choose from with their bonus languages based
+on their primary language stat (usually Intelligence). Languages,
+like many other objects in PCGen, can be qualified with PRExxx
+tags. For example the Druidic language may only be learned by
+Druids so the Druidic entry contains a
+<code>PREVARGTEQ:DruidicLanguage,1</code> tag which prevents the
+language from appearing in chooser lists for the language skill or
+bonus languages. Any Class or Race which grants Druidic as a bonus
+language must place a <code>DEFINE:DruidicLanguage|1</code> tag in
+it to meet the prerequisite. This is not needed if the language is
+granted automatically by the LANGAUTO tag because it bypasses any
+prerequisites on the language.</p>
+<p class="indent2"><code>Terran</code></p>
+<p class="indent3">The language named "Terran" is to be
+created.</p>
+<p class="indent2"><code>Celestial.MOD</code></p>
+<p class="indent3">The language named "Celestial" is to be
+modified.</p>
+<p class="indent2"><code>Common.FORGET</code></p>
+<p class="indent3">The language named "Common" is to be
+forgotten.</p>
+<hr />
+<p><a href="http://validator.w3.org/check?uri=referer"><img src=
+"../../images/system/valid-html401.png" alt=
+"Valid HTML 4.01 Strict" height="31" width="88" /></a></p>
 </body>
-
 </html>
