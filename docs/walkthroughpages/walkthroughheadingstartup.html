@@ -1,102 +1,128 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
-<html>
-	<!--
-		PCGen Documentation Project
-		
-	$Author$
-		$Date$
-		$Revision$
-		
-		Contributors:
-		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		Eric C Smith - mareduddATblackrootDOTorg
-		
-		Description:
-		PCGen Walkthrough - Initial Start up.
-	-->
-	<head>
-		<title>Initial Start Up</title>
-		<link rel="stylesheet" type="text/css" href="../pcgen.css">
-  		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	</head>
-	
-	<body>
-		<h1>Initial Start Up</h1>
-
-		<h2>Standard Startup</h2>
-		
-		<p>Whether you use <span class="lstfile">pcgen.exe</span> or <span class="lstfile">pcgen.jar</span> to start up PCGen, the first thing you will see is the 
-		splash screen with Da Vinci's Vitruvian Man logo and the words PCGen written above it.</p>
-
-		<p class="center"><img src="../images/system/pcgen_main_logo.jpg" alt="Man &amp; Machine DaVinci Image"/></p>	
-	
-		<p>From there, PCGen will load and take you to the Source Material Screen where you can get started 
-		making your characters!</p>
-
-<hr>
-
-		<h2><a name="CLI">Command Line Startup</a></h2>
-		
-		<p class="indent0">With the release of PCGen 5.17.11 PCGen added a new <strong>Command Line Interface</strong>. To access the new 
-			command line interface you will use your computer's <strong>Terminal</strong> program/application just as you would for any 
-			command line interface. You will also need to change the current directory to the pcgen directory.</p>
-
-		<p class="indent0">The features included with the new Command Line interface are as follows:</p>
-
-		<p class="indent0"><strong>Command Syntax:</strong> pcgen [-G] [-V] [-D [&lt;character_sheet&gt;]] [-v] [-s &lt;settings_dir&gt;] [-m &lt;campaign&gt;] [-p &lt;party_file&gt;] [-c &lt;character_file&gt;] [-E [&lt;character_sheet&gt;]]</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+                PCGen Documentation Project
+                
+        $Author$
+                $Date$
+                $Revision$
+                
+                Contributors:
+                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+                Eric C Smith - mareduddATblackrootDOTorg
+                
+                Description:
+                PCGen Walkthrough - Initial Start up.
+        -->
+<head>
+<meta name="generator" content=
+"HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" />
+<title>Initial Start Up</title>
+<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=us-ascii" />
+</head>
+<body>
+<h1>Initial Start Up</h1>
+<h2>Standard Startup</h2>
+<p>Whether you use <span class="lstfile">pcgen.exe</span> or
+<span class="lstfile">pcgen.jar</span> to start up PCGen, the first
+thing you will see is the splash screen with Da Vinci's Vitruvian
+Man logo and the words PCGen written above it.</p>
+<p class="center"><img src="../images/system/pcgen_main_logo.jpg"
+alt="Man &amp; Machine DaVinci Image" /></p>
+<p>From there, PCGen will load and take you to the Source Material
+Screen where you can get started making your characters!</p>
+<hr />
+<h2><a name="CLI" id="CLI">Command Line Startup</a></h2>
+<p class="indent0">With the release of PCGen 5.17.11 PCGen added a
+new <strong>Command Line Interface</strong>. To access the new
+command line interface you will use your computer's
+<strong>Terminal</strong> program/application just as you would for
+any command line interface. You will also need to change the
+current directory to the pcgen directory.</p>
+<p class="indent0">The features included with the new Command Line
+interface are as follows:</p>
+<p class="indent0"><strong>Command Syntax:</strong> pcgen [-G] [-V]
+[-D [&lt;character_sheet&gt;]] [-v] [-s &lt;settings_dir&gt;] [-m
+&lt;campaign&gt;] [-p &lt;party_file&gt;] [-c
+&lt;character_file&gt;] [-E [&lt;character_sheet&gt;]]</p>
 <!--  This block has been hidden until the N feature is activated.
-		<p class="indent0"><strong>Command Syntax:</strong> pcgen [-G] [-V] [-N] [-D [&lt;character_sheet&gt;]] [-v] [-s &lt;settings_dir&gt;] [-m &lt;campaign&gt;] [-p &lt;party_file&gt;] [-c &lt;character_file&gt;] [-E [&lt;character_sheet&gt;]]</p>
+                <p class="indent0"><strong>Command Syntax:</strong> pcgen [-G] [-V] [-N] [-D [&lt;character_sheet&gt;]] [-v] [-s &lt;settings_dir&gt;] [-m &lt;campaign&gt;] [-p &lt;party_file&gt;] [-c &lt;character_file&gt;] [-E [&lt;character_sheet&gt;]]</p>
 -->
-		<p class="indent1"><strong>Option:</strong> -V (Print Version and exit)</p>
-		<p class="indent1"><strong>Option:</strong> -G (Start in GMGen Mode)</p>
+<p class="indent1"><strong>Option:</strong> -V (Print Version and
+exit)</p>
+<p class="indent1"><strong>Option:</strong> -G (Start in GMGen
+Mode)</p>
 <!--  This block has been hidden until the N feature is activated.
-		<p class="indent1"><strong>Option:</strong> -N (Start in NPC Generator Mode)</p>
+                <p class="indent1"><strong>Option:</strong> -N (Start in NPC Generator Mode)</p>
 -->
-		<p class="indent1"><strong>Option:</strong> -D &lt;character_sheet&gt; (Start in Character Sheet Mode. Will use default character sheet if not specified.)</p>
-		<p class="indent1"><strong>Option:</strong> -v (Set Logging Level to debug)</p>
-		<p class="indent1"><strong>Option:</strong> -s &lt;settings directory&gt; (Use alternate settings directory instead of the default)</p>
-		<p class="indent1"><strong>Option:</strong> -m &lt;campaign mode&gt; (Load specified Campaign)</p>
-		<p class="indent1"><strong>Option:</strong> -o &lt;file name&gt; (Output to specified file. If not specified a default file name will be generated.)</p>
-		<p class="indent1"><strong>Option:</strong> -p &lt;party file&gt; (Loaded specified PCGen Party)</p>
-		<p class="indent1"><strong>Option:</strong> -c &lt;character file&gt; (Loaded specified PCGen Character)</p>
-		<p class="indent1"><strong>Option:</strong> -E &lt;character sheet&gt; (Export character or party and exit. Will use default character sheet if not specified.)
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>Alters PCGen's initial configuration and launches as per the Standard Startup method, taking you to the Source Material Screen, 
-				unless the following options are used:
-				<ul>
-					<li>If <strong>-E</strong> or <strong>-V</strong> are included PCGen will process the request and exit without starting the user interface.</li>
-					<li>If <strong>-G</strong> or <strong>-m</strong> are specified PCGen will bypass the Source Material Screen.</li>
-				</ul>
-			</li>
-			<li>All parameters are optional.</li>
-			<li>Allows PCGen to be used as a batch character sheet generator.</li> 
-			<li>Both <strong>-D</strong> and <strong>-E</strong> require that either <strong>-c</strong> or <strong>-p</strong> be included.</li>
-			<li>When providing file names with an option, the file-path should begin in the pcgen folder.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>pcgen -E outputsheets/d20/fantasy/pdf/csheet_fantasy_std_blue.xslt -c &quot;characters/Test Bard.pcg&quot;</code></p>
-		<p class="indent3">Output the character <span class="lstfile">characters/Test Bard.pcg</span> to a PDF file using the <span class="lstfile">csheet_fantasy_std_blue.xslt sheet</span>.</p>
-		<p class="indent2"><code>pcgen -E outputsheets/d20/fantasy/htmlxml/psheet_fantasy_std_PFRPG.htm -p &quot;characters/The Testers.pcp&quot; </code></p>
-		<p class="indent3">Output the listed party to html.</p>
-		<p class="indent2"><code>pcgen -v -m &quot;Pathfinder RPG for Players - Advanced&quot;</code></p>
-		<p class="indent3">Startup with debug logging and load the <strong>Pathfinder RPG for Players - Advanced</strong> set.</p>
-		<p class="indent1"><strong>Linux System Example:</strong></p>
-		<p class="indent2"><code>pcgen.sh -- -v -m &quot;Pathfinder RPG for Players - Advanced&quot;</code></p>
-		<p class="indent3">Startup with debug logging and load the <strong>Pathfinder RPG for Players - Advanced</strong> set.</p>
-		<p></p>
-
-		<p></p>
-
-<hr>
-
-	<p>
-	<a href="http://validator.w3.org/check?uri=referer"><img
-       	src="../images/system/valid-html401.png"
-       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-	</p>
-
+<p class="indent1"><strong>Option:</strong> -D
+&lt;character_sheet&gt; (Start in Character Sheet Mode. Will use
+default character sheet if not specified.)</p>
+<p class="indent1"><strong>Option:</strong> -v (Set Logging Level
+to debug)</p>
+<p class="indent1"><strong>Option:</strong> -s &lt;settings
+directory&gt; (Use alternate settings directory instead of the
+default)</p>
+<p class="indent1"><strong>Option:</strong> -m &lt;campaign
+mode&gt; (Load specified Campaign)</p>
+<p class="indent1"><strong>Option:</strong> -o &lt;file name&gt;
+(Output to specified file. If not specified a default file name
+will be generated.)</p>
+<p class="indent1"><strong>Option:</strong> -p &lt;party file&gt;
+(Loaded specified PCGen Party)</p>
+<p class="indent1"><strong>Option:</strong> -c &lt;character
+file&gt; (Loaded specified PCGen Character)</p>
+<p class="indent1"><strong>Option:</strong> -E &lt;character
+sheet&gt; (Export character or party and exit. Will use default
+character sheet if not specified.)</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<ul class="indent2">
+<li>Alters PCGen's initial configuration and launches as per the
+Standard Startup method, taking you to the Source Material Screen,
+unless the following options are used:
+<ul>
+<li>If <strong>-E</strong> or <strong>-V</strong> are included
+PCGen will process the request and exit without starting the user
+interface.</li>
+<li>If <strong>-G</strong> or <strong>-m</strong> are specified
+PCGen will bypass the Source Material Screen.</li>
+</ul>
+</li>
+<li>All parameters are optional.</li>
+<li>Allows PCGen to be used as a batch character sheet
+generator.</li>
+<li>Both <strong>-D</strong> and <strong>-E</strong> require that
+either <strong>-c</strong> or <strong>-p</strong> be included.</li>
+<li>When providing file names with an option, the file-path should
+begin in the pcgen folder.</li>
+</ul>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2"><code>pcgen -E
+outputsheets/d20/fantasy/pdf/csheet_fantasy_std_blue.xslt -c
+"characters/Test Bard.pcg"</code></p>
+<p class="indent3">Output the character <span class=
+"lstfile">characters/Test Bard.pcg</span> to a PDF file using the
+<span class="lstfile">csheet_fantasy_std_blue.xslt
+sheet</span>.</p>
+<p class="indent2"><code>pcgen -E
+outputsheets/d20/fantasy/htmlxml/psheet_fantasy_std_PFRPG.htm -p
+"characters/The Testers.pcp"</code></p>
+<p class="indent3">Output the listed party to html.</p>
+<p class="indent2"><code>pcgen -v -m "Pathfinder RPG for Players -
+Advanced"</code></p>
+<p class="indent3">Startup with debug logging and load the
+<strong>Pathfinder RPG for Players - Advanced</strong> set.</p>
+<p class="indent1"><strong>Linux System Example:</strong></p>
+<p class="indent2"><code>pcgen.sh -- -v -m "Pathfinder RPG for
+Players - Advanced"</code></p>
+<p class="indent3">Startup with debug logging and load the
+<strong>Pathfinder RPG for Players - Advanced</strong> set.</p>
+<hr />
+<p><a href="http://validator.w3.org/check?uri=referer"><img src=
+"../images/system/valid-html401.png" alt="Valid HTML 4.01 Strict"
+height="31" width="88" /></a></p>
 </body>
-
 </html>

@@ -1,194 +1,217 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+                PCGen Documentation Project
 
-<html>
-	<!--
-		PCGen Documentation Project
+                $Author$
+                $Date$
+                $Revision$
 
-		$Author$
-		$Date$
-		$Revision$
+                Contributors:
+                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+                Eddy Anthony - eddybaATmindspringDOTcom
+                Terry FitzSimons - fitzsimonsATmintelDOTnet
 
-		Contributors:
-		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		Eddy Anthony - eddybaATmindspringDOTcom
-		Terry FitzSimons - fitzsimonsATmintelDOTnet
-
-		Description:
-		Provides information on the use of PCGen System File: Size Adjustment.
-	-->
-	<head>
-			<title>System File: Size Adjustment</title>
-			<link rel="stylesheet" type="text/css" href="../../pcgen.css">
-  			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	</head>
-
-	<body>
-		<h1>Game Mode: sizeAdjustment.lst</h1>
-
-
-		<p>This file sets the various bonuses and penalties of the character size categories used in the gameMode.</p>
-
-		<p>In the fantasy gameModes the nine categories are: (from smallest to largest)
-			Fine, Diminutive, Tiny, Small, Medium, Large, Huge, Gargantuan and Colossal.</p>
-
-
-		<p></p>
-
-<hr>
-
-		<p class="indent0"><strong><a name="ABB">Tag Name:</a></strong> ABB:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This is a 1 letter abbreviation of the size designation.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>ABB:F</code></p>
-		<p class="indent3">The size abbreviation is &quot;F&quot; for &quot;Fine&quot;.</p>
-		<p></p>
-
-<hr>
-
-		<p class="indent0"><strong><a name="ISDEFAULTSIZE">Tag Name:</a></strong> ISDEFAULTSIZE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>This is a boolean &quot;YES/NO&quot;, or &quot;Y/N&quot;, that identifies the default size for the gamemode.</li>
-			<li>One size must be identified as the default in any gamemode and only one such default is allowed per gamemode.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SIZENAME:Medium &lt;tab&gt; ISDEFAULTSIZE:Y</code></p>
-		<p class="indent3">&quot;Medium&quot; size is the default size for this gamemode.</p>
-		<p></p>
-
-<hr>
-
-		<p class="status"><a name="SIZENAME">*** New 5.10.1</a></p>
-		<p class="indent0"><strong>Tag Name:</strong> SIZENAME|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Name of size</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Identifies the Size Class</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SIZENAME:Fine</code></p>
-		<p class="indent2"><code>SIZENAME:Diminutive</code></p>
-		<p class="indent2"><code>SIZENAME:Tiny</code></p>
-		<p class="indent2"><code>SIZENAME:Small</code></p>
-		<p class="indent2"><code>SIZENAME:Medium</code></p>
-		<p class="indent2"><code>SIZENAME:Large</code></p>
-		<p class="indent2"><code>SIZENAME:Huge</code></p>
-		<p class="indent2"><code>SIZENAME:Gargantuan</code></p>
-		<p class="indent2"><code>SIZENAME:Colossal</code></p>
-		<p class="indent3">This sizeAdjustment line changes the tags contained based on the associated size.</p>
-		<p class="indent3">These six categories must be included in all Game Mode: sizeAdjustment.lst.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
-		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
-		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code></p>
-		<p class="indent3">Example of some of the entries.</p>
-		<p></p>
-
-<hr>
-
-		<h2>Exclusive BONUS Tags</h2>
-
-		<p>The following <code>BONUS</code> tags function only in the <span class="lstfile">sizeAdjustment.lst</span> file.</p>
-		<p></p>
-
-<hr>
-
-		<p class="status"><a name="BONUSACVALUE">*** New 5.10.1</a></p>
-		<p class="indent0"><strong>Tag Name:</strong> BONUS:ACVALUE|TYPE.x,TYPE.x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Changes the AC of TYPE= based on the size of the character</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|0.5</code></p>
-		<p class="indent3">Reduces the AC by half for Armor and Shields</p>
-		<p class="indent2"><code>BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|2</code></p>
-		<p class="indent3">Increases the AC by double for Armor and Shields</p>
-		<p class="indent2"><code>SIZENAME:Large &lt;tab&gt; BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
-		BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt; BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
-		BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code></p>
-		<p class="indent3">This sizeAdjustment line changes the tags contained based on the size of the SIZENAME:.</p>
-		<p></p>
-<hr>
-
-		<p class="status"><a name="BONUSITEMCAPACITY">*** New 5.10.1</a></p>
-		<p class="indent0"><strong>Tag Name:</strong> BONUS:ITEMCAPACITY|TYPE=x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Changes the item carrying capacity based on the size of the character</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>BONUS:ITEMCAPACITY|TYPE=Goods|0.25</code></p>
-		<p class="indent3">Reduces the carrying capacity of TYPE=Goods to .25</p>
-		<p class="indent2"><code>BONUS:ITEMCAPACITY|TYPE=Goods|2</code></p>
-		<p class="indent3">Increases the carrying capacity of TYPE=Goods to double</p>
-		<p></p>
-
-<hr>
-
-		<p class="status"><a name="BONUSITEMCOST">*** New 5.10.1</a></p>
-		<p class="indent0"><strong>Tag Name:</strong> BONUS:ITEMCOST|TYPE=x,TYPE=x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Changes the cost of items assigned to TYPE= by amount listed in x based on the
-		size of the character.</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>BONUS:ITEMCOST|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|0.5</code></p>
-		<p class="indent3">Reduces cost of all Ammunition, Armor, Shield, Weapon by 0.5.</p>
-		<p class="indent2"><code>BONUS:ITEMCOST|TYPE=Scrolls,TYPE=Potents|1</code></p>
-		<p class="indent3">Costs of all Scrolls, Potents are unchanged.</p>
-		<p class="indent2"><code>BONUS:ITEMCOST|TYPE=Alchemical,TYPE=Liquid,TYPE=Clothing,TYPE=Food|2</code></p>
-		<p class="indent3">Increases all costs of all Alchemical, Liquid, Clothing, Food by 2</p>
-		<p></p>
-
-<hr>
-
-		<p class="status"><a name="BONUSITEMWEIGHT">*** New 5.10.1</a></p>
-		<p class="indent0"><strong>Tag Name:</strong> BONUS:ITEMWEIGHT|TYPE=x,TYPE=x|y</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Changes the weight of an item by the amount of y based on the size of the character</p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>ITEMWEIGHT|TYPE=Goods|0.25</code></p>
-		<p class="indent3">Reduces the weight to .25</p>
-		<p class="indent2"><code>BONUS:ITEMWEIGHT|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|1</code></p>
-		<p class="indent3">Changes the weight by nothing</p>
-		<p></p>
-
-<hr>
-
-		<p class="status"><a name="BONUSLOADMULT">*** New 5.10.1</a></p>
-		<p class="indent0"><strong>Tag Name:</strong> BONUS:LOADMULT|TYPE=SIZE|x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Number</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>This tag modifies the <code>SIZEMULT</code> value as defined in the <span class="lstfile">load.lst</span> gamemode file.</li>
-			<li>This tag is used on the <code>SIZENAME</code> line.</li>
-			<li>This tag will take both <code>TYPE</code> and <code>PRExxx</code> tags appended at the end as with all other <code>BONUS</code> tags do.</li>
-		</ul>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>BONUS:LOADMULT|TYPE=SIZE|0.125|PRELEGSGTEQ:4</code></p>
-		<p class="indent3">Reduces the amount carried by .125 if the character had 4 or more legs</p>
-		<p class="indent2"><code>BONUS:LOADMULT|TYPE=SIZE|0.25|PRELEGSGTEQ:4</code></p>
-		<p class="indent3">Reduces the amount carried by .25 if the character had 4 or more legs</p>
-		<p class="indent2"><code>BONUS:LOADMULT|TYPE=SIZE|0.5|PRELEGSGTEQ:2</code></p>
-		<p class="indent3">Reduces the amount carried by .5 if the character had 2 or more legs</p>
-		<p class="indent2"><code>BONUS:LOADMULT|TYPE=SIZE|3|PREHANDSGTEQ:4</code></p>
-		<p class="indent3">Increases the amount carried by 3 if the character had 4 or more hands</p>
-		<p class="indent2"><code>BONUS:LOADMULT|TYPE=SIZE|2</code></p>
-		<p class="indent3">Increases the amount carried by 2</p>
-
-<hr>
-		
-	<p>
-	<a href="http://validator.w3.org/check?uri=referer"><img
-       	src="../../images/system/valid-html401.png"
-       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-	</p>
-
+                Description:
+                Provides information on the use of PCGen System File: Size Adjustment.
+        -->
+<head>
+<meta name="generator" content=
+"HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" />
+<title>System File: Size Adjustment</title>
+<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=us-ascii" />
+</head>
+<body>
+<h1>Game Mode: sizeAdjustment.lst</h1>
+<p>This file sets the various bonuses and penalties of the
+character size categories used in the gameMode.</p>
+<p>In the fantasy gameModes the nine categories are: (from smallest
+to largest) Fine, Diminutive, Tiny, Small, Medium, Large, Huge,
+Gargantuan and Colossal.</p>
+<hr />
+<p class="indent0"><strong><a name="ABB" id="ABB">Tag
+Name:</a></strong> ABB:x</p>
+<p class="indent1"><strong>Variables Used (x):</strong> Text</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<p class="indent2">This is a 1 letter abbreviation of the size
+designation.</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2"><code>ABB:F</code></p>
+<p class="indent3">The size abbreviation is "F" for "Fine".</p>
+<hr />
+<p class="indent0"><strong><a name="ISDEFAULTSIZE" id=
+"ISDEFAULTSIZE">Tag Name:</a></strong> ISDEFAULTSIZE:x</p>
+<p class="indent1"><strong>Variables Used (x):</strong> Text</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<ul class="indent2">
+<li>This is a boolean "YES/NO", or "Y/N", that identifies the
+default size for the gamemode.</li>
+<li>One size must be identified as the default in any gamemode and
+only one such default is allowed per gamemode.</li>
+</ul>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2"><code>SIZENAME:Medium &lt;tab&gt;
+ISDEFAULTSIZE:Y</code></p>
+<p class="indent3">"Medium" size is the default size for this
+gamemode.</p>
+<hr />
+<p class="status"><a name="SIZENAME" id="SIZENAME">*** New
+5.10.1</a></p>
+<p class="indent0"><strong>Tag Name:</strong> SIZENAME|x</p>
+<p class="indent1"><strong>Variables Used (x):</strong> Name of
+size</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<p class="indent2">Identifies the Size Class</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2"><code>SIZENAME:Fine</code></p>
+<p class="indent2"><code>SIZENAME:Diminutive</code></p>
+<p class="indent2"><code>SIZENAME:Tiny</code></p>
+<p class="indent2"><code>SIZENAME:Small</code></p>
+<p class="indent2"><code>SIZENAME:Medium</code></p>
+<p class="indent2"><code>SIZENAME:Large</code></p>
+<p class="indent2"><code>SIZENAME:Huge</code></p>
+<p class="indent2"><code>SIZENAME:Gargantuan</code></p>
+<p class="indent2"><code>SIZENAME:Colossal</code></p>
+<p class="indent3">This sizeAdjustment line changes the tags
+contained based on the associated size.</p>
+<p class="indent3">These six categories must be included in all
+Game Mode: sizeAdjustment.lst.</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2"><code>SIZENAME:Large &lt;tab&gt;
+BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
+BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt;
+BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
+BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code></p>
+<p class="indent3">Example of some of the entries.</p>
+<hr />
+<h2>Exclusive BONUS Tags</h2>
+<p>The following <code>BONUS</code> tags function only in the
+<span class="lstfile">sizeAdjustment.lst</span> file.</p>
+<hr />
+<p class="status"><a name="BONUSACVALUE" id="BONUSACVALUE">*** New
+5.10.1</a></p>
+<p class="indent0"><strong>Tag Name:</strong>
+BONUS:ACVALUE|TYPE.x,TYPE.x|y</p>
+<p class="indent1"><strong>Variables Used (x):</strong>
+TYPE=Text</p>
+<p class="indent1"><strong>Variables Used (y):</strong> Number</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<p class="indent2">Changes the AC of TYPE= based on the size of the
+character</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2">
+<code>BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|0.5</code></p>
+<p class="indent3">Reduces the AC by half for Armor and Shields</p>
+<p class="indent2">
+<code>BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|2</code></p>
+<p class="indent3">Increases the AC by double for Armor and
+Shields</p>
+<p class="indent2"><code>SIZENAME:Large &lt;tab&gt;
+BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1 &lt;tab&gt;
+BONUS:COMBAT|AC|-1|TYPE=Size &lt;tab&gt;
+BONUS:COMBAT|TOHIT|-1|TYPE=SIZE &lt;tab&gt;
+BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size</code></p>
+<p class="indent3">This sizeAdjustment line changes the tags
+contained based on the size of the SIZENAME:.</p>
+<hr />
+<p class="status"><a name="BONUSITEMCAPACITY" id=
+"BONUSITEMCAPACITY">*** New 5.10.1</a></p>
+<p class="indent0"><strong>Tag Name:</strong>
+BONUS:ITEMCAPACITY|TYPE=x|y</p>
+<p class="indent1"><strong>Variables Used (x):</strong>
+TYPE=Text</p>
+<p class="indent1"><strong>Variables Used (y):</strong> Number</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<p class="indent2">Changes the item carrying capacity based on the
+size of the character</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2">
+<code>BONUS:ITEMCAPACITY|TYPE=Goods|0.25</code></p>
+<p class="indent3">Reduces the carrying capacity of TYPE=Goods to
+.25</p>
+<p class="indent2"><code>BONUS:ITEMCAPACITY|TYPE=Goods|2</code></p>
+<p class="indent3">Increases the carrying capacity of TYPE=Goods to
+double</p>
+<hr />
+<p class="status"><a name="BONUSITEMCOST" id="BONUSITEMCOST">***
+New 5.10.1</a></p>
+<p class="indent0"><strong>Tag Name:</strong>
+BONUS:ITEMCOST|TYPE=x,TYPE=x|y</p>
+<p class="indent1"><strong>Variables Used (x):</strong>
+TYPE=Text</p>
+<p class="indent1"><strong>Variables Used (y):</strong> Number</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<p class="indent2">Changes the cost of items assigned to TYPE= by
+amount listed in x based on the size of the character.</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2">
+<code>BONUS:ITEMCOST|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|0.5</code></p>
+<p class="indent3">Reduces cost of all Ammunition, Armor, Shield,
+Weapon by 0.5.</p>
+<p class="indent2">
+<code>BONUS:ITEMCOST|TYPE=Scrolls,TYPE=Potents|1</code></p>
+<p class="indent3">Costs of all Scrolls, Potents are unchanged.</p>
+<p class="indent2">
+<code>BONUS:ITEMCOST|TYPE=Alchemical,TYPE=Liquid,TYPE=Clothing,TYPE=Food|2</code></p>
+<p class="indent3">Increases all costs of all Alchemical, Liquid,
+Clothing, Food by 2</p>
+<hr />
+<p class="status"><a name="BONUSITEMWEIGHT" id=
+"BONUSITEMWEIGHT">*** New 5.10.1</a></p>
+<p class="indent0"><strong>Tag Name:</strong>
+BONUS:ITEMWEIGHT|TYPE=x,TYPE=x|y</p>
+<p class="indent1"><strong>Variables Used (x):</strong>
+TYPE=Text</p>
+<p class="indent1"><strong>Variables Used (y):</strong> Number</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<p class="indent2">Changes the weight of an item by the amount of y
+based on the size of the character</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2"><code>ITEMWEIGHT|TYPE=Goods|0.25</code></p>
+<p class="indent3">Reduces the weight to .25</p>
+<p class="indent2">
+<code>BONUS:ITEMWEIGHT|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|1</code></p>
+<p class="indent3">Changes the weight by nothing</p>
+<hr />
+<p class="status"><a name="BONUSLOADMULT" id="BONUSLOADMULT">***
+New 5.10.1</a></p>
+<p class="indent0"><strong>Tag Name:</strong>
+BONUS:LOADMULT|TYPE=SIZE|x</p>
+<p class="indent1"><strong>Variables Used (x):</strong> Number</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<ul class="indent2">
+<li>This tag modifies the <code>SIZEMULT</code> value as defined in
+the <span class="lstfile">load.lst</span> gamemode file.</li>
+<li>This tag is used on the <code>SIZENAME</code> line.</li>
+<li>This tag will take both <code>TYPE</code> and
+<code>PRExxx</code> tags appended at the end as with all other
+<code>BONUS</code> tags do.</li>
+</ul>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2">
+<code>BONUS:LOADMULT|TYPE=SIZE|0.125|PRELEGSGTEQ:4</code></p>
+<p class="indent3">Reduces the amount carried by .125 if the
+character had 4 or more legs</p>
+<p class="indent2">
+<code>BONUS:LOADMULT|TYPE=SIZE|0.25|PRELEGSGTEQ:4</code></p>
+<p class="indent3">Reduces the amount carried by .25 if the
+character had 4 or more legs</p>
+<p class="indent2">
+<code>BONUS:LOADMULT|TYPE=SIZE|0.5|PRELEGSGTEQ:2</code></p>
+<p class="indent3">Reduces the amount carried by .5 if the
+character had 2 or more legs</p>
+<p class="indent2">
+<code>BONUS:LOADMULT|TYPE=SIZE|3|PREHANDSGTEQ:4</code></p>
+<p class="indent3">Increases the amount carried by 3 if the
+character had 4 or more hands</p>
+<p class="indent2"><code>BONUS:LOADMULT|TYPE=SIZE|2</code></p>
+<p class="indent3">Increases the amount carried by 2</p>
+<hr />
+<p><a href="http://validator.w3.org/check?uri=referer"><img src=
+"../../images/system/valid-html401.png" alt=
+"Valid HTML 4.01 Strict" height="31" width="88" /></a></p>
 </body>
-
 </html>

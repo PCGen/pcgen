@@ -1,60 +1,64 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+                PCGen Documentation Project
 
-<html>
-	<!--
-		PCGen Documentation Project
+                $Author: maredudd800 $
+                $Date: 2012-03-07 23:19:59 -0500 (Wed, 07 Mar 2012) $
+                $Revision: 16447 $
 
-		$Author: maredudd800 $
-		$Date: 2012-03-07 23:19:59 -0500 (Wed, 07 Mar 2012) $
-		$Revision: 16447 $
+                Contributors:
+                Eric C Smith - mareduddATblackrootDOTorg
 
-		Contributors:
-		Eric C Smith - mareduddATblackrootDOTorg
-
-		Description:
-		Provides information on the use of PCGen Game Mode:Equipment Icons List.
-	-->
-	<head>
-		<title>Game Mode:Equip Icons List</title>
-		<link rel="stylesheet" type="text/css" href="../../pcgen.css" >
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	</head>
-
-	<body>
-		<h1>Game Mode: equipicons.lst</h1>
-		<p>The <span class="lstfile">equipicons.lst</span> sets the icon used for each equipment by specific equipment type.</p>
-
-		<p></p>
-
-<hr>
-
-		<p class="lststatus"><a name="ICON">*** New 5.17.7 - Updated 5.17.14</a></p>
-		<p class="indent0"><strong><a name="ICON">Tag Name:</a></strong> ICON:x|y|z</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Equipment Type)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number (File Path)</p>
-		<p class="indent1"><strong>Variables Used (z):</strong> Number (Priority. Optional. Default is 10)</p>
-		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">This links an equipment type to an icon. It sets the path to the default 
-			icon to be used for any item of equipment of the specified type. The path is relative to the pcgen 
-			install folder. The priority allows icons to be chosen where an equipment item has multiple types. 
-			The default is 10 and higher numbers mean higher priority. </p>
-		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code>ICON:Eyegear|system/icons/eyegear.png</code></p>
-		<p class="indent3">The default icon for this type will be <span class="lstfile">system/icons/eyegear.png</span> 
-			relative to the program install directory. Priority will be 10.</p>
-		<p class="indent2"><code>ICON:Container|system/icons/container.png|3</code></p>
-		<p class="indent3">The default icon for this type will be <span class="lstfile">system/icons/container.png</span> 
-			relative to the program install directory. Priority will be 3 (a low priority).</p>
-		<p></p>
-
-<hr>
-
-		<p>
-		<a href="http://validator.w3.org/check?uri=referer"><img
-       		src="../../images/system/valid-html401.png"
-       		alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-		</p>
-
-	</body>
-
+                Description:
+                Provides information on the use of PCGen Game Mode:Equipment Icons List.
+        -->
+<head>
+<meta name="generator" content=
+"HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" />
+<title>Game Mode:Equip Icons List</title>
+<link rel="stylesheet" type="text/css" href="../../pcgen.css" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=us-ascii" />
+</head>
+<body>
+<h1>Game Mode: equipicons.lst</h1>
+<p>The <span class="lstfile">equipicons.lst</span> sets the icon
+used for each equipment by specific equipment type.</p>
+<hr />
+<p class="lststatus"><a name="ICON" id="ICON">*** New 5.17.7 -
+Updated 5.17.14</a></p>
+<p class="indent0"><strong><a name="ICON" id="ICON">Tag
+Name:</a></strong> ICON:x|y|z</p>
+<p class="indent1"><strong>Variables Used (x):</strong> Text
+(Equipment Type)</p>
+<p class="indent1"><strong>Variables Used (y):</strong> Number
+(File Path)</p>
+<p class="indent1"><strong>Variables Used (z):</strong> Number
+(Priority. Optional. Default is 10)</p>
+<p class="indent1"><strong>What it does:</strong></p>
+<p class="indent2">This links an equipment type to an icon. It sets
+the path to the default icon to be used for any item of equipment
+of the specified type. The path is relative to the pcgen install
+folder. The priority allows icons to be chosen where an equipment
+item has multiple types. The default is 10 and higher numbers mean
+higher priority.</p>
+<p class="indent1"><strong>Example:</strong></p>
+<p class="indent2">
+<code>ICON:Eyegear|system/icons/eyegear.png</code></p>
+<p class="indent3">The default icon for this type will be
+<span class="lstfile">system/icons/eyegear.png</span> relative to
+the program install directory. Priority will be 10.</p>
+<p class="indent2">
+<code>ICON:Container|system/icons/container.png|3</code></p>
+<p class="indent3">The default icon for this type will be
+<span class="lstfile">system/icons/container.png</span> relative to
+the program install directory. Priority will be 3 (a low
+priority).</p>
+<hr />
+<p><a href="http://validator.w3.org/check?uri=referer"><img src=
+"../../images/system/valid-html401.png" alt=
+"Valid HTML 4.01 Strict" height="31" width="88" /></a></p>
+</body>
 </html>

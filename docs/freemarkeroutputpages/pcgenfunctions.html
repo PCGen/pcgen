@@ -1,7 +1,7 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
-<html>
-  <!--
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
     PCGen Documentation Project
 
     $Author: karianna $
@@ -14,174 +14,147 @@
     Description:
     Provides information on FreeMarker based Character Output Sheets.
   -->
-  <head>
-    <title>FreeMarker Output</title>
-    <link rel="stylesheet" type="text/css" href="../pcgen.css" >
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  </head>
-
-  <body>
-    <h1>PCGen Functions</h1>
-
-
-	<p>To provide output of PCGen characters we need to be able to access the character 
-		data and the output tags. In the FreeMarker documentation they talk about the data model, 
-		plus directives and functions. At this time, PCGen does not provide a data model, but 
-		instead provides a number of directives and functions that allow access to the character
-		data. Current work is examining the provision of a data model to access characters.</p>
-
-	<p>A <b>directive</b> produces output to the output file, or controls the flow of the output process.
-		FreeMarker directives start with &lt;# while PCGen directives start with &lt;@ </p>
-
-	<p>A <b>function</b> allows a value to be extracting into a variable (or directly output). Both
-		PCGen and FreeMarker functions are enclosed in ${ } . Functions may also be referred to 
-		directly wherever a formula or variable is used.</p>
-
-
-	<h3>pcstring</h3>
-
-	<p>This tag evaluates a PCGen export token for the current character and returns the value 
-		as a string. It may be called as a directive (with a single parameter named 'tag') or as a 
-		function (with a single unnamed parameter).</p>
-
-	<p><i>Examples</i></p>
-
-	<pre class="code">
-&lt;@pcstring tag=&quot;PLAYERNAME&quot;/&gt;
-&lt;@pcstring tag=&quot;CLASSABB.${class}&quot;/&gt;
+<head>
+<meta name="generator" content=
+"HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" />
+<title>FreeMarker Output</title>
+<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=us-ascii" />
+</head>
+<body>
+<h1>PCGen Functions</h1>
+<p>To provide output of PCGen characters we need to be able to
+access the character data and the output tags. In the FreeMarker
+documentation they talk about the data model, plus directives and
+functions. At this time, PCGen does not provide a data model, but
+instead provides a number of directives and functions that allow
+access to the character data. Current work is examining the
+provision of a data model to access characters.</p>
+<p>A <b>directive</b> produces output to the output file, or
+controls the flow of the output process. FreeMarker directives
+start with &lt;# while PCGen directives start with &lt;@</p>
+<p>A <b>function</b> allows a value to be extracting into a
+variable (or directly output). Both PCGen and FreeMarker functions
+are enclosed in ${ } . Functions may also be referred to directly
+wherever a formula or variable is used.</p>
+<h3>pcstring</h3>
+<p>This tag evaluates a PCGen export token for the current
+character and returns the value as a string. It may be called as a
+directive (with a single parameter named 'tag') or as a function
+(with a single unnamed parameter).</p>
+<p><i>Examples</i></p>
+<pre class="code">
+&lt;@pcstring tag="PLAYERNAME"/&gt;
+&lt;@pcstring tag="CLASSABB.${class}"/&gt;
 ${pcstring('CLASSABB.${class}')}
 &lt;#if (pcstring('SPELLLISTCLASS.${class}')?length &gt; 0)&gt;present&lt;/#if&gt;
-	</pre>
+        
+</pre>
+<h3>pcvar</h3>
+<p>This function allows character variable values to be exported to
+a FreeMarker template. It evaluates a variable for the current
+character and returns the value as a number.</p>
+<p><i>Examples</i></p>
+<pre class="code">
+&lt;#assign numClasses=pcvar('countdistinct("CLASSES")')/&gt;
+${pcvar('count("ABILITIES","CATEGORY=FEAT","TYPE=Metamagic",
+        "VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")')}
+${pcvar("CL=Fighter")}
 
-
-	<h3> pcvar </h3>
-
-	<p>This function allows character variable values to be exported to a FreeMarker template. It evaluates 
-		a variable for the current character and returns the value as a number.</p>
-
-	<p><i>Examples</i></p>
-
-	<pre class="code">
-&lt;#assign numClasses=pcvar('countdistinct(&quot;CLASSES&quot;)')/&gt;
-${pcvar('count(&quot;ABILITIES&quot;,&quot;CATEGORY=FEAT&quot;,&quot;TYPE=Metamagic&quot;,
-	&quot;VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY&quot;)')}
-${pcvar(&quot;CL=Fighter&quot;)}
-
-	</pre>
-
-
-	<h3>pcboolean</h3>
-
-	<p>The pcboolean function allows character boolean values to be exported to a FreeMarker template. It evaluates 
-		an export token for the current character and returns the value as a boolean.</p>
-
-	<p><i>Examples</i></p>
-
-	<pre class="code">
+        
+</pre>
+<h3>pcboolean</h3>
+<p>The pcboolean function allows character boolean values to be
+exported to a FreeMarker template. It evaluates an export token for
+the current character and returns the value as a boolean.</p>
+<p><i>Examples</i></p>
+<pre class="code">
 &lt;#if pcboolean('WEAPON.${weap}.ISTYPE.Double')&gt;
 &lt;#if (pcboolean('VAR.HASFEAT:CMB Output')) &gt;
-	</pre>
-
-
-	<h3>pchasvar</h3>
-
-	<p>The pchasvar function allows the presence of variables to be tested in the output sheet.</p>
-
-	<p><i>Examples</i></p>
-
-	<pre class="code">
+        
+</pre>
+<h3>pchasvar</h3>
+<p>The pchasvar function allows the presence of variables to be
+tested in the output sheet.</p>
+<p><i>Examples</i></p>
+<pre class="code">
 &lt;#if pchasvar('Foo')&gt;
 &lt;#if (pchasvar("Manifester") || pchasvar('PsychicWarriorManifester')) &gt;
-	</pre>
-
-
-	<h3>loop</h3>
-
-	<p>The loop directive provides a way to repeat content a certain number of times. Unlike the inbuilt list directive it can loop zero times.</p>
-	
-	<p><b>Parameters</b></p>
-	<ul>
-		<li> from (optional) - The starting value, defaults to 0.</li>
-		<li> to - The ending value (inclusive). If this is less than from then the contents will not be output.</li>
-		<li> step (optional) - The amount to increment b each loop, defaults to 1.</li>
-	</ul>
-
-	<p>In addition up to two loopvars may be specified. The first will be populated with the current index value of 
-		the loop and the second will be a boolean indicating if there are more iterations of the loop to go. We recommend 
-		that the second variable, if present, is named after the first variable with _has_next added. e.g. class, class_has_next. 
-		This is in order to match the list directive, which provides a similarly named variable automatically.</p>
-
-	<p><i>Example</i></p>
-
-	<pre class="code">
-&lt;@loop from=0 to=pcvar('countdistinct(&quot;CLASSES&quot;)')-1 ; class , class_has_next &gt;
-	&lt;@pcstring tag=&quot;CLASSABB.${class}&quot;/&gt;
-	&lt;@pcstring tag=&quot;CLASS.${class}.LEVEL&quot;/&gt;&lt;#if class_has_next&gt;,&lt;/#if&gt;
+        
+</pre>
+<h3>loop</h3>
+<p>The loop directive provides a way to repeat content a certain
+number of times. Unlike the inbuilt list directive it can loop zero
+times.</p>
+<p><b>Parameters</b></p>
+<ul>
+<li>from (optional) - The starting value, defaults to 0.</li>
+<li>to - The ending value (inclusive). If this is less than from
+then the contents will not be output.</li>
+<li>step (optional) - The amount to increment b each loop, defaults
+to 1.</li>
+</ul>
+<p>In addition up to two loopvars may be specified. The first will
+be populated with the current index value of the loop and the
+second will be a boolean indicating if there are more iterations of
+the loop to go. We recommend that the second variable, if present,
+is named after the first variable with _has_next added. e.g. class,
+class_has_next. This is in order to match the list directive, which
+provides a similarly named variable automatically.</p>
+<p><i>Example</i></p>
+<pre class="code">
+&lt;@loop from=0 to=pcvar('countdistinct("CLASSES")')-1 ; class , class_has_next &gt;
+        &lt;@pcstring tag="CLASSABB.${class}"/&gt;
+        &lt;@pcstring tag="CLASS.${class}.LEVEL"/&gt;&lt;#if class_has_next&gt;,&lt;/#if&gt;
 &lt;/@loop&gt;
-	</pre>
-
-	<p>might produce</p>
-
-	<pre>
+        
+</pre>
+<p>might produce</p>
+<pre>
 Rog 11, Wiz 5
-	</pre>
-
-	<h3>equipsetloop</h3>
-
-	<p>The equipsetloop directive provides a way to repeat content for each of a character's equipment sets.</p>
-
-	<p><b>Parameters</b></p>
-
-	<p>None</p>
-
-	<p><i>Example</i></p>
-
-	<pre class="code">
+        
+</pre>
+<h3>equipsetloop</h3>
+<p>The equipsetloop directive provides a way to repeat content for
+each of a character's equipment sets.</p>
+<p><b>Parameters</b></p>
+<p>None</p>
+<p><i>Example</i></p>
+<pre class="code">
 &lt;@equipsetloop&gt;
-  &lt;b&gt;Equipment Set : &lt;/b&gt; ${pcstring(&quot;EQSET.NAME&quot;)}. Equipment:
+  &lt;b&gt;Equipment Set : &lt;/b&gt; ${pcstring("EQSET.NAME")}. Equipment:
   &lt;@loop from=0 to=pcvar('COUNT[EQUIPMENT.MERGELOC]')-1 ; equip , equip_has_next &gt;
-    ${pcstring(&quot;EQ.MERGELOC.${equip}.NAME&quot;)}&lt;#if equip_has_next&gt;, &lt;/#if&gt;
+    ${pcstring("EQ.MERGELOC.${equip}.NAME")}&lt;#if equip_has_next&gt;, &lt;/#if&gt;
   &lt;/@loop&gt;&lt;#lt&gt;&lt;#-- Equipment --&gt;
   &lt;/equipmentset&gt;&lt;br/&gt;
 &lt;/@equipsetloop&gt;
-	</pre>
-
-	<p>might produce</p>
-
-	<pre class="code">
+        
+</pre>
+<p>might produce</p>
+<pre class="code">
 &lt;b&gt;Equipment Set : &lt;/b&gt; Travelling Gear. Equipment: Backpack, Longsword, Traveller's Outfit&lt;br/&gt;
 &lt;b&gt;Equipment Set : &lt;/b&gt; Council. Equipment: Coin purse, Noble's Outfit, Rapier&lt;br/&gt;
-	</pre>
-
-	<p><br />
-
-	<h2>FreeMarker Variables</h2>
-
-	<p>PCGen also provides some in built variables which can be used in FreeMarker. These are referred to
-		in the same way as any user defined variables.</p>
-
-	<h3>gameodename</h3>
-
-	<p>This is the name of the current game mode.</p>
-
-	<p><i>Example</i></p>
-
-	<pre class="code">
-&lt#if (gamemodename = "Modern" || gamemodename = "Darwins_World_2" || gamemodename = "Sidewinder") &gt;
+        
+</pre>
+<p><br /></p>
+<h2>FreeMarker Variables</h2>
+<p>PCGen also provides some in built variables which can be used in
+FreeMarker. These are referred to in the same way as any user
+defined variables.</p>
+<h3>gameodename</h3>
+<p>This is the name of the current game mode.</p>
+<p><i>Example</i></p>
+<pre class="code">
+&lt;#if (gamemodename = "Modern" || gamemodename = "Darwins_World_2" || gamemodename = "Sidewinder") &gt;
   ${gamemodename}
 &lt;/#if&gt;
-	</pre>
-
-	<p><br /></p>
-
-<hr>
-
-  <p>
-  <a href="http://validator.w3.org/check?uri=referer"><img
-        src="../images/system/valid-html401.png"
-        alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-  </p>
-
-	</body>
-
+        
+</pre>
+<p><br /></p>
+<hr />
+<p><a href="http://validator.w3.org/check?uri=referer"><img src=
+"../images/system/valid-html401.png" alt="Valid HTML 4.01 Strict"
+height="31" width="88" /></a></p>
+</body>
 </html>
