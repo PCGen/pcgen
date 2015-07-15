@@ -13,15 +13,15 @@ CLASS:Stim Freak	HD:10		TYPE:Advanced.PC	ABB:StFrk		MAXLEVEL:10	BONUS:COMBAT|BAS
 CLASS:Stim Freak	PRECHECKBASE:1,Fortitude=2	PREABILITY:1,CATEGORY=FEAT,Brawl	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Stim Freak	STARTSKILLPTS:3	CSKILL:Climb|Craft (Structural)|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Profession|Read/Write Language|Repair|SPEAK LANGUAGE|Spot|Swim
-1																						ADD:FEAT|Shot in the Arm
+1																						ADD:ABILITY|Special Ability|VIRTUAL|Shot in the Arm
 2	SAB:Relentless
-3																						ADD:FEAT|TYPE=StimFreak
+3																						ADD:ABILITY|Special Ability|VIRTUAL|TYPE=StimFreak
 4																						BONUS:ABILITYPOOL|Weapon Focus|1
 5	SAB:A shot in the arm
-6																						ADD:FEAT|TYPE=StimFreak
+6																						ADD:ABILITY|Special Ability|VIRTUAL|TYPE=StimFreak
 7					BONUS:ABILITYPOOL|Weapon Specialization|1	BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0
 8	SAB:F'ing Crazy									BONUS:VAR|WeapSpecQualify|-1
-9																						ADD:FEAT|TYPE=StimFreak
+9																						ADD:ABILITY|Special Ability|VIRTUAL|TYPE=StimFreak
 10	SAB:Ultimate Weapon
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Combat bonus							Save bonus																														Modify VAR
@@ -30,16 +30,16 @@ CLASS:Super Soldier	HD:10		TYPE:Advanced.PC	ABB:SSldr		MAXLEVEL:10	BONUS:COMBAT|
 CLASS:Super Soldier	PREABILITY:2,CATEGORY=FEAT,Combat Martial Arts,Personal Firearms Proficiency	PRESKILL:1,Knowledge (Tactics)=6	PRETEXT:The character must be part of an organization with the technology to continue to alter her DNA. Should she lose this status, she can no longer advance in this advanced class, but keeps any abilities she has already gained.	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Super Soldier	STARTSKILLPTS:3	CSKILL:Climb|Craft (Structural)|Intimidate|Jump|Knowledge (Current Events)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Profession|Read/Write Language|Repair|SPEAK LANGUAGE|Spot|Swim
-1	ADD:FEAT|TYPE=PhysicalEnhancement
-2	ADD:FEAT|TYPE=MentalEnhancement
-3	ADD:FEAT|TYPE=SuperSoldier
-4	ADD:FEAT|TYPE=PhysicalEnhancement
-5	ADD:FEAT|TYPE=MentalEnhancement
-6	ADD:FEAT|TYPE=SuperSoldier
-7	ADD:FEAT|TYPE=PhysicalEnhancement
-8	ADD:FEAT|TYPE=MentalEnhancement
-9	ADD:FEAT|TYPE=SuperSoldier
-10	ADD:FEAT|TYPE=PhysicalEnhancement
+1	ADD:ABILITY|Special Ability|VIRTUAL|TYPE=PhysicalEnhancement
+2	ADD:ABILITY|Special Ability|VIRTUAL|TYPE=MentalEnhancement
+3	ADD:ABILITY|Special Ability|VIRTUAL|TYPE=SuperSoldier
+4	ADD:ABILITY|Special Ability|VIRTUAL|TYPE=PhysicalEnhancement
+5	ADD:ABILITY|Special Ability|VIRTUAL|TYPE=MentalEnhancement
+6	ADD:ABILITY|Special Ability|VIRTUAL|TYPE=SuperSoldier
+7	ADD:ABILITY|Special Ability|VIRTUAL|TYPE=PhysicalEnhancement
+8	ADD:ABILITY|Special Ability|VIRTUAL|TYPE=MentalEnhancement
+9	ADD:ABILITY|Special Ability|VIRTUAL|TYPE=SuperSoldier
+10	ADD:ABILITY|Special Ability|VIRTUAL|TYPE=PhysicalEnhancement
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Combat bonus											Save bonus																						Modify VAR
 CLASS:Eldritch Monk	HD:8		TYPE:Advanced.PC	ABB:EldMk		MAXLEVEL:10	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3)/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+3)*2/5	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
@@ -53,14 +53,14 @@ CLASS:Eldritch Monk	SPELLSTAT:CHA	SPELLTYPE:Any	BONUS:CASTERLEVEL|Eldritch Monk|
 1	SPELLLEVEL:CLASS|Eldritch Monk=0|Cure Minor Wounds,Detect Magical Aura,Read Magic,Resistance,Virtue|Eldritch Monk=1|Change Self,Comprehend Languages,Cure Light Wounds,Feather Fall,Jump,Mage Armor,Magic Weapon,Shield,True Strike|Eldritch Monk=2|Aid,Blur,Cure Moderate Wounds,Darkvision,Delay Poison,Enhance Ability,Lesser Restoration,Protection from Arrows/Bullets,Remove Paralysis,Resist Energy,See Invisibility,Spider Climb|Eldritch Monk=3|Displacement,Greater Magic Weapon,Haste,Keen Edge,Remove Disease,Tongues,Water Breathing|Eldritch Monk=4|Dimension Door,Freedom of Movement,Neutralize Poison,Stoneskin
 ###Block: Standard block
 1	CAST:2		KNOWN:3		SAB:Magic Skills
-2	CAST:2,1		KNOWN:4,1						ADD:FEAT|TYPE=EldritchAbility
-3	CAST:3,1		KNOWN:4,2						ADD:FEAT|TYPE=EldritchMonk
+2	CAST:2,1		KNOWN:4,1						ADD:ABILITY|Special Ability|VIRTUAL|TYPE=EldritchAbility
+3	CAST:3,1		KNOWN:4,2						ADD:ABILITY|Special Ability|VIRTUAL|TYPE=EldritchMonk
 4	CAST:3,2		KNOWN:4,3		SAB:Scribe Tattoo
-5	CAST:3,2,1		KNOWN:5,3,2						ADD:FEAT|TYPE=EldritchAbility
-6	CAST:4,2,1		KNOWN:5,4,3						ADD:FEAT|TYPE=EldritchMonk
+5	CAST:3,2,1		KNOWN:5,3,2						ADD:ABILITY|Special Ability|VIRTUAL|TYPE=EldritchAbility
+6	CAST:4,2,1		KNOWN:5,4,3						ADD:ABILITY|Special Ability|VIRTUAL|TYPE=EldritchMonk
 7	CAST:4,3,2,1	KNOWN:5,4,3,2	SAB:Combat Casting
-8	CAST:4,3,2,1	KNOWN:5,4,4,3					ADD:FEAT|TYPE=EldritchAbility
-9	CAST:5,4,3,2	KNOWN:5,5,4,3					ADD:FEAT|TYPE=EldritchMonk
+8	CAST:4,3,2,1	KNOWN:5,4,4,3					ADD:ABILITY|Special Ability|VIRTUAL|TYPE=EldritchAbility
+9	CAST:5,4,3,2	KNOWN:5,5,4,3					ADD:ABILITY|Special Ability|VIRTUAL|TYPE=EldritchMonk
 10	CAST:5,4,3,2,1	KNOWN:5,5,4,4,2	SAB:Counterstrike
 
 # Class Name		Output Name			Hit Dice	Type			Abbreviation	Max Level	Combat bonus			Save bonus																															Modify VAR
@@ -70,14 +70,14 @@ CLASS:Explorer (Dk_Inh)	PREABILITY:1,CATEGORY=FEAT,Athletic	PRESKILL:2,Gather In
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Explorer (Dk_Inh)	STARTSKILLPTS:5	CSKILL:Balance|Climb|Decipher Script|Drive|Gather Information|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Earth and Life Sciences)|Listen|Pilot|Profession|Read/Write Language|Search|SPEAK LANGUAGE|Spot|Survival|Treat Injury
 1	SAB:Survive Extremes
-2														ADD:FEAT|Favored Terrain
-3														ADD:FEAT|TYPE=Explorer_DI
+2														ADD:ABILITY|Special Ability|VIRTUAL|Favored Terrain
+3														ADD:ABILITY|Special Ability|VIRTUAL|TYPE=Explorer_DI
 4	SAB:Legend Lore							CSKILL:Use Magic Device
 5	SAB:Outland Contact (low-level)
-6														ADD:FEAT|TYPE=Explorer_DI
-7														ADD:FEAT|Favored Terrain,Improved Favored Terrain
+6														ADD:ABILITY|Special Ability|VIRTUAL|TYPE=Explorer_DI
+7														ADD:ABILITY|Special Ability|VIRTUAL|Favored Terrain,Improved Favored Terrain
 8	SAB:Outland Contact (mid-level)
-9														ADD:FEAT|TYPE=Explorer_DI
+9														ADD:ABILITY|Special Ability|VIRTUAL|TYPE=Explorer_DI
 10	SAB:Damage Threshold +%|var("CL=Explorer (Dk_Inh)")
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Combat bonus										Save bonus																					Modify VAR
@@ -90,13 +90,13 @@ CLASS:Initiate	STARTSKILLPTS:7	CSKILL:Computer Use|Concentration|Craft (Writing)
 CLASS:Initiate	SPELLSTAT:INT	SPELLTYPE:Any	SPELLBOOK:YES	BONUS:CASTERLEVEL|Initiate|CL	SPELLLIST:2|Acolyte|Mage
 1	CAST:4,1		SAB:Magical Skills
 2	CAST:4,2		SAB:Eldritch Protection
-3	CAST:4,2,1							ADD:FEAT|TYPE=Initiate
+3	CAST:4,2,1							ADD:ABILITY|Special Ability|VIRTUAL|TYPE=Initiate
 4	CAST:5,3,2		SAB:Sacrificial Spell
 5	CAST:5,3,2,1	SAB:Eldritch Defense %/day|CL
-6	CAST:5,3,3,2						ADD:FEAT|TYPE=Initiate
+6	CAST:5,3,3,2						ADD:ABILITY|Special Ability|VIRTUAL|TYPE=Initiate
 7	CAST:6,4,3,2,1	SAB:Combat Casting
 8	CAST:6,4,3,3,2	SAB:Sacrificial Reach
-9	CAST:6,4,4,3,2,1						ADD:FEAT|TYPE=Initiate
+9	CAST:6,4,4,3,2,1						ADD:ABILITY|Special Ability|VIRTUAL|TYPE=Initiate
 10	CAST:7,5,4,3,3,2	SAB:Sacrificial Heighten
 
 # Class Name		Output Name		Hit Dice	Type			Abbreviation	Max Level	Combat bonus										Save bonus																					Modify VAR
@@ -109,13 +109,13 @@ CLASS:Mystic (Dk_Inh)	STARTSKILLPTS:5	CSKILL:Concentration|Craft (Structural)|Cr
 CLASS:Mystic (Dk_Inh)	SPELLSTAT:WIS	SPELLTYPE:Any	PROHIBITED:Conjuration,Evocation,Illusion,Necromancy,Transmutation	BONUS:CASTERLEVEL|Mystic (Dk_Inh)|CL	SPELLLIST:2|Acolyte|Mage
 1	CAST:3,2		SAB:Magical Skills
 2	CAST:4,3		SAB:Arcane Sense
-3	CAST:4,3,2						ADD:FEAT|TYPE=Mystic_DI
+3	CAST:4,3,2						ADD:ABILITY|Special Ability|VIRTUAL|TYPE=Mystic_DI
 4	CAST:5,4,3										SPELLS:Class|TIMES=3|CASTERLEVEL=var("CL=Mystic (Dk_Inh)")|Lesser Mindlink,10+var("CL=Mystic (Dk_Inh)")
 5	CAST:5,4,3,2									SPELLS:Class|TIMES=1|CASTERLEVEL=var("CL=Mystic (Dk_Inh)")|Clairaudience/Clairvoyance,10+var("CL=Mystic (Dk_Inh)")
-6	CAST:5,4,4,3					ADD:FEAT|TYPE=Mystic_DI
+6	CAST:5,4,4,3					ADD:ABILITY|Special Ability|VIRTUAL|TYPE=Mystic_DI
 7	CAST:6,5,4,3,2	SAB:Arcane Sight
 8	CAST:6,5,4,4,3	SAB:Combat Casting
-9	CAST:6,5,5,4,3,2					ADD:FEAT|TYPE=Mystic_DI
+9	CAST:6,5,5,4,3,2					ADD:ABILITY|Special Ability|VIRTUAL|TYPE=Mystic_DI
 10	CAST:6,5,5,4,4,3									SPELLS:Class|TIMES=1|CASTERLEVEL=var("CL=Mystic (Dk_Inh)")|Mindlink,10+var("CL=Mystic (Dk_Inh)")
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Combat bonus										Save bonus																					Modify VAR
@@ -124,16 +124,16 @@ CLASS:Crusading Advocate	HD:8		TYPE:Advanced.PC	ABB:CrAdv		MAXLEVEL:10	BONUS:COM
 CLASS:Crusading Advocate	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREMULT:2,[PRESKILL:1,Diplomacy=6],[PRESKILL:1,TYPE.Knowledge=6,TYPE.Craft=6]
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Crusading Advocate	STARTSKILLPTS:5	CSKILL:Bluff|Computer Use|TYPE=Craft|Diplomacy|Gather Information|Investigate|TYPE=Knowledge|Profession|Read/Write Language|Research|Sense Motive|SPEAK LANGUAGE
-1											ADD:FEAT|Driven
+1											ADD:ABILITY|Special Ability|VIRTUAL|Driven
 2	SAB:Higher Cause
-3											ADD:FEAT|TYPE=CrusadingAdvocate
-4											ADD:FEAT|Crusading Advocate Skill Mastery
-5											ADD:FEAT|TYPE=MinorSuccess
-6											ADD:FEAT|TYPE=CrusadingAdvocate
+3											ADD:ABILITY|Special Ability|VIRTUAL|TYPE=CrusadingAdvocate
+4											ADD:ABILITY|Special Ability|VIRTUAL|Crusading Advocate Skill Mastery
+5											ADD:ABILITY|Special Ability|VIRTUAL|TYPE=MinorSuccess
+6											ADD:ABILITY|Special Ability|VIRTUAL|TYPE=CrusadingAdvocate
 7	SAB:Dedicated Survival
 8	SAB:Voice of Conviction %/day, up to % people|CHA|CHA+CL
-9											ADD:FEAT|TYPE=CrusadingAdvocate
-10											ADD:FEAT|TYPE=MajorSuccess
+9											ADD:ABILITY|Special Ability|VIRTUAL|TYPE=CrusadingAdvocate
+10											ADD:ABILITY|Special Ability|VIRTUAL|TYPE=MajorSuccess
 
 ###Prestige Classes
 
