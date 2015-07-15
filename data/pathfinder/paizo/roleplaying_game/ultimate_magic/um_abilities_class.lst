@@ -2730,7 +2730,7 @@ Simulacrum						KEY:Magus Spellblend ~ Simulacrum							CATEGORY:Internal	TYPE:M
 Sleep							KEY:Magus Spellblend ~ Sleep								CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Sleep							
 Sleet Storm						KEY:Magus Spellblend ~ Sleet Storm							CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Sleet Storm						
 Slow							KEY:Magus Spellblend ~ Slow								CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL3	SPELLKNOWN:CLASS|Magus=3|Slow							
-olid Fog						KEY:Magus Spellblend ~ olid Fog							CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|olid Fog						
+Solid Fog						KEY:Magus Spellblend ~ Solid Fog							CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL4	SPELLKNOWN:CLASS|Magus=4|Solid Fog						
 Soul Bind						KEY:Magus Spellblend ~ Soul Bind							CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL9	SPELLKNOWN:CLASS|Magus=9|Soul Bind						
 Spectral Hand					KEY:Magus Spellblend ~ Spectral Hand						CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Spectral Hand					
 Spell Turning					KEY:Magus Spellblend ~ Spell Turning						CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL7	SPELLKNOWN:CLASS|Magus=7|Spell Turning					
