@@ -967,24 +967,25 @@ Ranger Favored Terrain	KEY:Ranger ~ Favored Terrain	CATEGORY:Special Ability	TYP
 # BONUS:VAR|rangerfeat|1 to activate, by default it is in active.
 # PREVARGTEQ:CombatSyleLVL,x is applied to when the Feat would be granted - 6th, or 10th
 
+
 ###Block: Set the Feat "Allowed" Defines
 # Ability Name							Define
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Far_Shot|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Point_Blank_Shot|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Precise_Shot|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Rapid_Shot|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Precise_Shot|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Manyshot|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Pinpoint_Targeting|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Shot_on_the_Run|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Double_Slice|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Shield_Bash|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Quick_Draw|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Two_Weapon_Fighting|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Two_Weapon_Fighting|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Two_Weapon_Defense|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Greater_Two_Weapon_Fighting|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Two_Weapon_Rend|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Far_Shot|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Point_Blank_Shot|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Precise_Shot|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Rapid_Shot|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Precise_Shot|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Manyshot|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Pinpoint_Targeting|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Shot_on_the_Run|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Double_Slice|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Shield_Bash|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Quick_Draw|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Two_Weapon_Fighting|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Two_Weapon_Fighting|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Two_Weapon_Defense|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Greater_Two_Weapon_Fighting|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Two_Weapon_Rend|0
 
 ###Block: Archetype Support
 # Ranger Combat Style

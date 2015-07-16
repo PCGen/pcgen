@@ -2134,42 +2134,42 @@ Shining Light		KEY:Warrior of the Holy Light ~ Shining Light	CATEGORY:Special Ab
 #------------------#
 ###Block: New Ranger Bonus Feats
 # Ability Name							Define
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Deadly_Aim|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Focused_Shot|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Point_Blank_Master|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Rapid_Reload|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Crossbow_Mastery|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Mounted_Combat|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Mounted_Archery|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Ride_By_Attack|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Trick_Riding|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Mounted_Shield|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Spirited_Charge|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Mounted_Skirmisher|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Unseat|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Aspect_of_the_Beast|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Natural_Attack|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Rending_Claws|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Weapon_Focus|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Eldritch_Claws|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Vital_Strike|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Multiattack|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Vital_Strike|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Cleave|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Power_Attack|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Pushing_Assault|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Shield_of_Swings|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Furious_Focus|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Great_Cleave|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Dreadful_Carnage|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Sunder|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Shield_Focus|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Shield_Proficiency|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Shield_Slam|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Saving_Shield|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Shield_Master|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Bashing_Finish|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:Ranger_Bonus_Feat_Greater_Shield_Focus|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Deadly_Aim|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Focused_Shot|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Point_Blank_Master|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Rapid_Reload|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Crossbow_Mastery|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Mounted_Combat|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Mounted_Archery|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Ride_By_Attack|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Trick_Riding|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Mounted_Shield|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Spirited_Charge|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Mounted_Skirmisher|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Unseat|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Aspect_of_the_Beast|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Natural_Attack|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Rending_Claws|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Weapon_Focus|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Eldritch_Claws|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Vital_Strike|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Multiattack|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Vital_Strike|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Cleave|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Power_Attack|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Pushing_Assault|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Shield_of_Swings|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Furious_Focus|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Great_Cleave|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Dreadful_Carnage|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Sunder|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Shield_Focus|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Shield_Proficiency|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Shield_Slam|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Saving_Shield|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Shield_Master|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Bashing_Finish|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Greater_Shield_Focus|0
 
 
 ###Block: Ranger Combat Styles ----------------------------------------------------------------------------------------------------------------------------------
@@ -2182,13 +2182,13 @@ Weapon and Shield	KEY:Ranger Combat Style ~ Weapon and Shield	CATEGORY:Special A
 
 ###Block: Master Changes
 # Ability Name							Define								Modify VAR
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:RangerCombatStyleArcheryAllowed|0			BONUS:VAR|RangerCombatStyleArcheryAllowed|RangerDefaultCombatStyle
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:RangerCombatStyleTwoWeaponAllowed|0		BONUS:VAR|RangerCombatStyleTwoWeaponAllowed|RangerDefaultCombatStyle
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:RangerCombatStyleWeaponAndShieldAllowed|0	BONUS:VAR|RangerCombatStyleWeaponAndShieldAllowed|RangerDefaultCombatStyle
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:RangerCombatStyleTwoHandedWeaponAllowed|0	BONUS:VAR|RangerCombatStyleTwoHandedWeaponAllowed|RangerDefaultCombatStyle
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:RangerCombatStyleNaturalWeaponAllowed|0		BONUS:VAR|RangerCombatStyleNaturalWeaponAllowed|RangerDefaultCombatStyle
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:RangerCombatStyleMountedCombatAllowed|0		BONUS:VAR|RangerCombatStyleMountedCombatAllowed|RangerDefaultCombatStyle
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD	DEFINE:RangerCombatStyleCrossbowAllowed|0			BONUS:VAR|RangerCombatStyleCrossbowAllowed|RangerDefaultCombatStyle
+CATEGORY=Internal|Default.MOD	DEFINE:RangerCombatStyleArcheryAllowed|0			BONUS:VAR|RangerCombatStyleArcheryAllowed|RangerDefaultCombatStyle
+CATEGORY=Internal|Default.MOD	DEFINE:RangerCombatStyleTwoWeaponAllowed|0		BONUS:VAR|RangerCombatStyleTwoWeaponAllowed|RangerDefaultCombatStyle
+CATEGORY=Internal|Default.MOD	DEFINE:RangerCombatStyleWeaponAndShieldAllowed|0	BONUS:VAR|RangerCombatStyleWeaponAndShieldAllowed|RangerDefaultCombatStyle
+CATEGORY=Internal|Default.MOD	DEFINE:RangerCombatStyleTwoHandedWeaponAllowed|0	BONUS:VAR|RangerCombatStyleTwoHandedWeaponAllowed|RangerDefaultCombatStyle
+CATEGORY=Internal|Default.MOD	DEFINE:RangerCombatStyleNaturalWeaponAllowed|0		BONUS:VAR|RangerCombatStyleNaturalWeaponAllowed|RangerDefaultCombatStyle
+CATEGORY=Internal|Default.MOD	DEFINE:RangerCombatStyleMountedCombatAllowed|0		BONUS:VAR|RangerCombatStyleMountedCombatAllowed|RangerDefaultCombatStyle
+CATEGORY=Internal|Default.MOD	DEFINE:RangerCombatStyleCrossbowAllowed|0			BONUS:VAR|RangerCombatStyleCrossbowAllowed|RangerDefaultCombatStyle
 
 ###Block: Main Core Combat Styles
 # Ability Name										Var. Min. Value						Define								Modify VAR
@@ -2203,26 +2203,26 @@ CATEGORY=Special Ability|Ranger Combat Style ~ Two-Weapon Combat.MOD	PREVARGTEQ:
 #	RangerCombatStyleNaturalWeaponAllowed
 #	RangerCombatStyleTwoHandedWeaponAllowed
 #	RangerCombatStyleWeaponAndShieldAllowed
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Deadly_Aim|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Focused_Shot|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Point_Blank_Master|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Rapid_Reload|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Crossbow_Mastery|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Mounted_Combat|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Mounted_Archery|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Ride_By_Attack|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Trick_Riding|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Mounted_Shield|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Spirited_Charge|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Mounted_Skirmisher|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Unseat|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Aspect_of_the_Beast|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Improved_Natural_Attack|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Rending_Claws|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Weapon_Focus|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Eldritch_Claws|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Vital_Strike|0
-CATEGORY=Special Ability|Ranger ~ Combat Style.MOD												DEFINE:Ranger_Bonus_Feat_Multiattack|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Deadly_Aim|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Focused_Shot|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Point_Blank_Master|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Rapid_Reload|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Crossbow_Mastery|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Mounted_Combat|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Mounted_Archery|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Ride_By_Attack|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Trick_Riding|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Mounted_Shield|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Spirited_Charge|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Mounted_Skirmisher|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Unseat|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Aspect_of_the_Beast|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Improved_Natural_Attack|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Rending_Claws|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Weapon_Focus|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Eldritch_Claws|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Vital_Strike|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Multiattack|0
 
 ###Block: Special Requirement
 # Ability Name										Required Ability
