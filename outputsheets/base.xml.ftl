@@ -1227,7 +1227,7 @@
 		</#if>
 		</#if>
 			<header>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT=CheckType')}</header>
-			<description>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.DESC')}</description>
+			<description>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.ASPECT.DESC')}</description>
 			<type>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.TYPE')}</type>
 			<source>${pcstring('ABILITYALL.Special Ability.VISIBLE.${ability}.ASPECT=CheckType.SOURCE')}</source>
 			<check_count>${pcstring('ABILITYALL.Special Ability.${ability}.ASPECT=CheckType.ASPECT.CheckCount.INTVAL')}</check_count>
