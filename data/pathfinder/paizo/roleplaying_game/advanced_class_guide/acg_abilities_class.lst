@@ -3039,7 +3039,7 @@ Whip of Spiders				KEY:Magus Spellblend ~ Whip of Spiders				CATEGORY:Internal	T
 
 ###Block:
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Display Combined Grit Panache Luck|PREABILITY:2,CATEGORY=Special Ability,TYPE.GritShared
-Grit, Panache & Luck			KEY:Display Combined Grit Panache Luck						CATEGORY:SpecialQuality	TYPE:SpecialQuality	DESC: Shared Pool = %1|GritPanacheLuckPoints	ASPECT:CheckType|Points	ASPECT:CheckCount|%1|GritPanacheLuckPoints	DEFINE:GritPanacheLuckPoints|0	BONUS:VAR|GritPanacheLuckPoints|Panache_Max		BONUS:VAR|GritPanacheLuckPoints|GritMax
+Grit, Panache & Luck			KEY:Display Combined Grit Panache Luck						CATEGORY:Special Ability	TYPE:SpecialQuality	DESC: Shared Pool = %1|GritPanacheLuckPoints	ASPECT:CheckType|Points	ASPECT:CheckCount|%1|GritPanacheLuckPoints	DEFINE:GritPanacheLuckPoints|0	BONUS:VAR|GritPanacheLuckPoints|Panache_Max		BONUS:VAR|GritPanacheLuckPoints|GritMax
 
 #
 # End
