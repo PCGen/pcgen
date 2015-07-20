@@ -3,7 +3,7 @@ SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:200
 
 ###Block: Hidden Abilities
 # Ability Name			Unique Key			Category of Ability		Type						Visible	Special ABility																						Define																									Description						Stackable?	Multiple?	Choose				Modify VAR
-Rebuke Giants							CATEGORY:Special Ability	TYPE:Turning.TurnGiant			VISIBLE:NO	SAB:Rebuke Giant (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesGiant|TurnLevelGiant|TurnDiceGiant|TurnDieSizeGiant|TurnDamagePlusGiant	DEFINE:TurnTimesGiant|0	DEFINE:TurnLevelGiant|0	DEFINE:TurnDiceGiant|0	DEFINE:TurnDieSizeGiant|0	DEFINE:TurnDamagePlusGiant|0	DEFINE:TurnCheckGiant|0																	BONUS:VAR|TurnTimesGiant|TurnTimesBase	BONUS:VAR|TurnLevelGiant|TurnLevelBase	BONUS:VAR|TurnDiceGiant|TurnDiceBase	BONUS:VAR|TurnDieSizeGiant|TurnDieSizeBase	BONUS:VAR|TurnDamagePlusGiant|TurnDamagePlusBase	BONUS:VAR|TurnCheckGiant|TurnCheckBase
+Rebuke Giants							CATEGORY:Special Ability	TYPE:Turning.TurnGiant			VISIBLE:NO	DESC:%1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesGiant|TurnLevelGiant|TurnDiceGiant|TurnDieSizeGiant|TurnDamagePlusGiant	DEFINE:TurnTimesGiant|0	DEFINE:TurnLevelGiant|0	DEFINE:TurnDiceGiant|0	DEFINE:TurnDieSizeGiant|0	DEFINE:TurnDamagePlusGiant|0	DEFINE:TurnCheckGiant|0																	BONUS:VAR|TurnTimesGiant|TurnTimesBase	BONUS:VAR|TurnLevelGiant|TurnLevelBase	BONUS:VAR|TurnDiceGiant|TurnDiceBase	BONUS:VAR|TurnDieSizeGiant|TurnDieSizeBase	BONUS:VAR|TurnDamagePlusGiant|TurnDamagePlusBase	BONUS:VAR|TurnCheckGiant|TurnCheckBase
 
 #Voice of Thunder	CATEGORY:Special Ability	TYPE:SpecialQuality
 Bounty of Vendak							CATEGORY:Special Ability	TYPE:SpecialQuality
