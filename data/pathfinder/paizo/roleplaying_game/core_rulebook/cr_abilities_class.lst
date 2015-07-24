@@ -2045,7 +2045,7 @@ Barbarian		CATEGORY:Class
 Bard			CATEGORY:Class	
 Cleric		CATEGORY:Class	
 Druid			CATEGORY:Class
-Fighter		CATEGORY:Class	
+Fighter		CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterClassSkills
 Monk			CATEGORY:Class	
 Paladin		CATEGORY:Class	
 Ranger		CATEGORY:Class	
@@ -2099,40 +2099,40 @@ CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|We
 CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|PREVAREQ:Barbarian_CF_Proficiencies,0|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
 CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|PREVAREQ:Barbarian_CF_Barbarian_Class_Skills,0
 CATEGORY=Class|Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Uncanny Dodge Tracker
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Proficiencies=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Fast_Movement|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Fast_Movement=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Powers|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Powers=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power2=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power4=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power6=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power8=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power10=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power12=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power14=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power16=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power18=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power20=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense1=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense2=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense3=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense4=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense5=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense6=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction1=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction2=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction3=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction4=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction5=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Greater_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Greater_Rage=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Indomitable_Will|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Indomitable_Will=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Tireless_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Tireless_Rage=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Mighty_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Mighty_Rage=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Uncanny_Dodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Uncanny_Dodge=True
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Improved_Uncanny_Dodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Improved_Uncanny_Dodge=TRUE
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Class_Skills|1|TYPE=Boolean|PREFACT:1,ABILITIES,BarbarianCFClassSkills=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Proficiencies=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Fast_Movement|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Fast_Movement=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Powers|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Powers=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power2=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power4=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power6=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power8=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power10=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power12=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power14=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power16=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power18=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power20=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense1=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense2=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense3=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense4=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense5=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense6=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction1=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction2=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction3=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction4=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction5=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Greater_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Greater_Rage=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Indomitable_Will|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Indomitable_Will=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Tireless_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Tireless_Rage=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Mighty_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Mighty_Rage=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Uncanny_Dodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Uncanny_Dodge=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Improved_Uncanny_Dodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Improved_Uncanny_Dodge=TRUE
+#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Class_Skills|1|TYPE=Boolean|PREFACT:1,ABILITIES,BarbarianCFClassSkills=True
 # Old Type System
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Proficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRage				
@@ -2170,7 +2170,7 @@ CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Improved_Uncanny_Dodge|1|TYP
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Class_Skills|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills			
 
 # The TEST, issue with this here
-CATEGORY=Class|Barbarian.MOD	BONUS:COMBAT|AC|1|PREFACT:1,ABILITIES,Barbarian_CF_Improved_Uncanny_Dodge=True
+#	CATEGORY=Class|Barbarian.MOD	BONUS:COMBAT|AC|1|PREFACT:1,ABILITIES,Barbarian_CF_Improved_Uncanny_Dodge=True
 
 
 
@@ -2189,15 +2189,15 @@ CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_WellVersed|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_LoreMaster|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_JackOfAllTrades|0
 # Boolean
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicKnowledge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_BardicKnowledge=True
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_CounterSong|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_CounterSong=True
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicPerformance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_BardicPerformance=True
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_ArmoredCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_ArmoredCasting=True
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_Cantrips=True
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_VersatilePerformance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_VersatilePerformance=True
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_WellVersed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_WellVersed=True
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_LoreMaster|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_LoreMaster=True
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_JackOfAllTrades|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_JackOfAllTrades=True
+#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicKnowledge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_BardicKnowledge=True
+#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_CounterSong|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_CounterSong=True
+#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicPerformance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_BardicPerformance=True
+#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_ArmoredCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_ArmoredCasting=True
+#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_Cantrips=True
+#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_VersatilePerformance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_VersatilePerformance=True
+#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_WellVersed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_WellVersed=True
+#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_LoreMaster|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_LoreMaster=True
+#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_JackOfAllTrades|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_JackOfAllTrades=True
 
 # Old TYPE version Support
 CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicKnowledge|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicKnowledge		

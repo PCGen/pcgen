@@ -102,6 +102,22 @@ FACTDEF:ABILITY|Barbarian_CF_Improved_Uncanny_Dodge		DATAFORMAT:BOOLEAN	VISIBLE:
 FACTDEF:ABILITY|Barbarian_CF_Class_Skills				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Class_Skills			EXPLANATION:Barbarian Class_Skills removed
 FACTDEF:ABILITY|BarbarianCFClassSkills				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Class_Skills			EXPLANATION:Barbarian Class_Skills removed
 
+# Bard
+FACTDEF:ABILITY|Barbarian_Archetype_Rage					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage					EXPLANATION:Determines whether the archetype affects - Rage			
+FACTDEF:ABILITY|Barbarian_Archetype_Fast_Movement			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Fast_Movement			EXPLANATION:Determines whether the archetype affects - Fast_Movement	
+FACTDEF:ABILITY|Barbarian_Archetype_Rage_Powers				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Powers				EXPLANATION:Determines whether the archetype affects - Rage_Powers		
+FACTDEF:ABILITY|Barbarian_Archetype_Trap_Sense				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Trap_Sense				EXPLANATION:Determines whether the archetype affects - Trap_Sense		
+FACTDEF:ABILITY|Barbarian_Archetype_Damage_Reduction			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Damage_Reduction			EXPLANATION:Determines whether the archetype affects - Damage_Reduction	
+FACTDEF:ABILITY|Barbarian_Archetype_Greater_Rage			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Greater_Rage			EXPLANATION:Determines whether the archetype affects - Greater_Rage	
+FACTDEF:ABILITY|Barbarian_Archetype_Indomitable_Will			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Indomitable_Will			EXPLANATION:Determines whether the archetype affects - Indomitable_Will	
+FACTDEF:ABILITY|Barbarian_Archetype_Tireless_Rage			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Tireless_Rage			EXPLANATION:Determines whether the archetype affects - Tireless_Rage	
+FACTDEF:ABILITY|Barbarian_Archetype_Mighty_Rage				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Mighty_Rage				EXPLANATION:Determines whether the archetype affects - Mighty_Rage		
+FACTDEF:ABILITY|Barbarian_Archetype_Proficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
+FACTDEF:ABILITY|Barbarian_Archetype_Uncanny_Dodge			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Uncanny_Dodge			EXPLANATION:Determines whether the archetype affects - Uncanny_Dodge				
+FACTDEF:ABILITY|Barbarian_Archetype_Improved_Uncanny_Dodge		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Improved_Uncanny_Dodge		EXPLANATION:Determines whether the archetype affects - Improved_Uncanny_Dodge			
+FACTDEF:ABILITY|Barbarian_Archetype_Class_Skills			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Class_Skills			EXPLANATION:Determines whether the archetype affects - Class_Skills			
+
+
 # Bard Archetype Section
 FACTDEF:ABILITY|Bard_Archetype_BardicKnowledge				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BardicKnowledge					EXPLANATION:Determines whether the archetype affects - BardicKnowledge		
 FACTDEF:ABILITY|Bard_Archetype_CounterSong				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:CounterSong						EXPLANATION:Determines whether the archetype affects - CounterSong		
