@@ -37,12 +37,40 @@ FACTSETDEF:DEITY|Race			DATAFORMAT:String		VISIBLE:YES
 # This is my attempt to implement the FACT system to replicate the deprecated PRETYPE to determine whether a given race is initially allowed traits
 FACTDEF:RACE|IsPC		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a PC to begin with.
 
-FACTDEF:ABILITY|IsPC		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a PC to begin with.
+FACTDEF:RACE|Hands			DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Hands.
+FACTDEF:RACE|Legs				DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Legs.
+
+FACTDEF:RACE|BaseMove_Walk		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Walk.
+FACTDEF:RACE|BaseMove_Fly		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Fly.
+FACTDEF:RACE|BaseMove_Climb		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Climb.
+FACTDEF:RACE|BaseMove_Swim		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Swim.
+FACTDEF:RACE|BaseMove_Burrow		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Burrow.
+
+FACTDEF:ABILITY|IsPC			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a PC to begin with.
 
 
 
 
 
+###Block: RACE "TYPE" replacement
+# Currently we use PRERACETYPE - A CLASS tag only - to allow a changed creature RACETYPE to still access their original racial HD class.
+# This transition aims to remove that reliance. Switching to a simple Boolean based upon the starting racetype "FACT"
+FACTDEF:RACE|RACETYPE								DATAFORMAT:String	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:RaceType							EXPLANATION:Determines what the 'RACE TYPE' is.
+
+#	FACTDEF:RACE|Aberration							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Aberration							EXPLANATION:Determines whether the race started as - Aberration		
+#	FACTDEF:RACE|Animal								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Animal							EXPLANATION:Determines whether the race started as - Animal			
+#	FACTDEF:RACE|Construct							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Construct							EXPLANATION:Determines whether the race started as - Construct		
+#	FACTDEF:RACE|Dragon								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Dragon							EXPLANATION:Determines whether the race started as - Dragon			
+#	FACTDEF:RACE|Fey								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Fey								EXPLANATION:Determines whether the race started as - Fey			
+#	FACTDEF:RACE|Humanoid							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Humanoid							EXPLANATION:Determines whether the race started as - Humanoid		
+#	FACTDEF:RACE|Magical_Beast						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Magical_Beast						EXPLANATION:Determines whether the race started as - Magical_Beast	
+#	FACTDEF:RACE|Monstrous_Humanoid						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Monstrous_Humanoid					EXPLANATION:Determines whether the race started as - Monstrous_Humanoid	
+#	FACTDEF:RACE|Ooze								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Ooze								EXPLANATION:Determines whether the race started as - Ooze			
+#	FACTDEF:RACE|Outsider							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Outsider							EXPLANATION:Determines whether the race started as - Outsider		
+#	FACTDEF:RACE|Plant								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Plant								EXPLANATION:Determines whether the race started as - Plant			
+#	FACTDEF:RACE|Undead								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Undead							EXPLANATION:Determines whether the race started as - Undead			
+#	FACTDEF:RACE|Vermin								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Vermin							EXPLANATION:Determines whether the race started as - Vermin			
+#FACTDEF:RACETYPE|Aberration								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:RACETYPE					EXPLANATION:Determines whether the race started as - Rage			
 
 
 
@@ -51,6 +79,7 @@ FACTDEF:ABILITY|IsPC		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	D
 #	Archetype is meant to prevent another Archetype of the same class from affecting the same feature
 
 # Barbarian Archetype
+FACTDEF:ABILITY|Barbarian_Archetype_Class_Skills			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Class_Skills			EXPLANATION:Determines whether the archetype affects - Class_Skills			
 FACTDEF:ABILITY|Barbarian_Archetype_Rage					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage					EXPLANATION:Determines whether the archetype affects - Rage			
 FACTDEF:ABILITY|Barbarian_Archetype_Fast_Movement			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Fast_Movement			EXPLANATION:Determines whether the archetype affects - Fast_Movement	
 FACTDEF:ABILITY|Barbarian_Archetype_Rage_Powers				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Powers				EXPLANATION:Determines whether the archetype affects - Rage_Powers		
@@ -63,9 +92,9 @@ FACTDEF:ABILITY|Barbarian_Archetype_Mighty_Rage				DATAFORMAT:BOOLEAN	VISIBLE:YE
 FACTDEF:ABILITY|Barbarian_Archetype_Proficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
 FACTDEF:ABILITY|Barbarian_Archetype_Uncanny_Dodge			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Uncanny_Dodge			EXPLANATION:Determines whether the archetype affects - Uncanny_Dodge				
 FACTDEF:ABILITY|Barbarian_Archetype_Improved_Uncanny_Dodge		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Improved_Uncanny_Dodge		EXPLANATION:Determines whether the archetype affects - Improved_Uncanny_Dodge			
-FACTDEF:ABILITY|Barbarian_Archetype_Class_Skills			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Class_Skills			EXPLANATION:Determines whether the archetype affects - Class_Skills			
 
 # Barbarian Class Feature Alterations
+FACTDEF:ABILITY|Barbarian_CF_Class_Skills				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Class_Skills			EXPLANATION:Barbarian Class_Skills removed
 FACTDEF:ABILITY|Barbarian_CF_Rage					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage					EXPLANATION:Barbarian Rage removed
 FACTDEF:ABILITY|Barbarian_CF_Fast_Movement			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Fast_Movement			EXPLANATION:Barbarian Fast Movement removed
 FACTDEF:ABILITY|Barbarian_CF_Rage_Powers				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage_Powers				EXPLANATION:Barbarian Rage Powers removed
@@ -99,8 +128,6 @@ FACTDEF:ABILITY|Barbarian_CF_Mighty_Rage				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELEC
 FACTDEF:ABILITY|Barbarian_CF_Proficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Barbarian Proficiencies removed
 FACTDEF:ABILITY|Barbarian_CF_Uncanny_Dodge			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Uncanny_Dodge			EXPLANATION:Barbarian Uncanny Dodge removed
 FACTDEF:ABILITY|Barbarian_CF_Improved_Uncanny_Dodge		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Improved_Uncanny_Dodge		EXPLANATION:Barbarian Improved Uncanny Dodge removed
-FACTDEF:ABILITY|Barbarian_CF_Class_Skills				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Class_Skills			EXPLANATION:Barbarian Class_Skills removed
-FACTDEF:ABILITY|BarbarianCFClassSkills				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Class_Skills			EXPLANATION:Barbarian Class_Skills removed
 
 # Bard Archetype Section
 FACTDEF:ABILITY|Bard_Archetype_BardicKnowledge				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BardicKnowledge					EXPLANATION:Determines whether the archetype affects - BardicKnowledge		
@@ -113,6 +140,7 @@ FACTDEF:ABILITY|Bard_Archetype_WellVersed					DATAFORMAT:BOOLEAN	VISIBLE:YES	SEL
 FACTDEF:ABILITY|Bard_Archetype_LoreMaster					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:LoreMaster						EXPLANATION:Determines whether the archetype affects - LoreMaster			
 FACTDEF:ABILITY|Bard_Archetype_JackOfAllTrades				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:JackOfAllTrades					EXPLANATION:Determines whether the archetype affects - JackOfAllTrades		
 
+
 # Bard Class Feature Section
 FACTDEF:ABILITY|Bard_CF_BardicKnowledge				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BardicKnowledge					EXPLANATION:Remove Bard BardicKnowledge		
 FACTDEF:ABILITY|Bard_CF_CounterSong					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:CounterSong					EXPLANATION:Remove Bard CounterSong		
@@ -123,3 +151,258 @@ FACTDEF:ABILITY|Bard_CF_VersatilePerformance			DATAFORMAT:BOOLEAN	VISIBLE:YES	SE
 FACTDEF:ABILITY|Bard_CF_WellVersed					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WellVersed						EXPLANATION:Remove Bard WellVersed			
 FACTDEF:ABILITY|Bard_CF_LoreMaster					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:LoreMaster						EXPLANATION:Remove Bard LoreMaster			
 FACTDEF:ABILITY|Bard_CF_JackOfAllTrades				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:JackOfAllTrades					EXPLANATION:Remove Bard JackOfAllTrades		
+
+
+# Cleric Archetype Section
+FACTDEF:ABILITY|Cleric_Archetype_ChannelEnergy						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ChannelEnergy							EXPLANATION:Determines whether the archetype affects - ChannelEnergy				
+FACTDEF:ABILITY|Cleric_Archetype_Orisons							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Orisons								EXPLANATION:Determines whether the archetype affects - Orisons					
+FACTDEF:ABILITY|Cleric_Archetype_SpontaneousCasting					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting					EXPLANATION:Determines whether the archetype affects - SpontaneousCasting		
+
+
+# Cleric Class Feature
+FACTDEF:ABILITY|Cleric_CF_ChannelEnergy				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ChannelEnergy				EXPLANATION:Remove Cleric _ChannelEnergy		
+FACTDEF:ABILITY|Cleric_CF_Orisons					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Orisons					EXPLANATION:Remove Cleric Orisons		
+FACTDEF:ABILITY|Cleric_CF_SpontaneousCasting			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting			EXPLANATION:Remove Cleric SpontaneousCasting		
+
+
+# Druid Archetype Section
+FACTDEF:ABILITY|Druid_Archetype_SpontaneousCasting				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting					EXPLANATION:Determines whether the archetype affects - SpontaneousCasting					
+FACTDEF:ABILITY|Druid_Archetype_NatureSense					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:NatureSense						EXPLANATION:Determines whether the archetype affects - NatureSense						
+FACTDEF:ABILITY|Druid_Archetype_WildEmpathy					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WildEmpathy						EXPLANATION:Determines whether the archetype affects - WildEmpathy						
+FACTDEF:ABILITY|Druid_Archetype_WoodlandStride					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WoodlandStride						EXPLANATION:Determines whether the archetype affects - WoodlandStride						
+FACTDEF:ABILITY|Druid_Archetype_TracklessStep					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TracklessStep						EXPLANATION:Determines whether the archetype affects - TracklessStep						
+FACTDEF:ABILITY|Druid_Archetype_WildShape					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WildShape							EXPLANATION:Determines whether the archetype affects - WildShape							
+FACTDEF:ABILITY|Druid_Archetype_ResistNaturesLure				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ResistNaturesLure					EXPLANATION:Determines whether the archetype affects - ResistNaturesLure					
+FACTDEF:ABILITY|Druid_Archetype_VenomImmunity					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:VenomImmunity						EXPLANATION:Determines whether the archetype affects - VenomImmunity						
+FACTDEF:ABILITY|Druid_Archetype_AThousandFaces					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AThousandFaces						EXPLANATION:Determines whether the archetype affects - AThousandFaces						
+FACTDEF:ABILITY|Druid_Archetype_TimelessBody					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TimelessBody						EXPLANATION:Determines whether the archetype affects - TimelessBody						
+
+
+# Druid Class Feature
+FACTDEF:ABILITY|Druid_CF_SpontaneousCasting		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting						EXPLANATION:Remove Druid SpontaneousCasting			
+FACTDEF:ABILITY|Druid_CF_NatureSense			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:NatureSense							EXPLANATION:Remove Druid NatureSense				
+FACTDEF:ABILITY|Druid_CF_WildEmpathy			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WildEmpathy							EXPLANATION:Remove Druid WildEmpathy				
+FACTDEF:ABILITY|Druid_CF_WoodlandStride			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WoodlandStride						EXPLANATION:Remove Druid WoodlandStride			
+FACTDEF:ABILITY|Druid_CF_TracklessStep			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TracklessStep						EXPLANATION:Remove Druid TracklessStep			
+FACTDEF:ABILITY|Druid_CF_WildShape				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WildShape							EXPLANATION:Remove Druid WildShape				
+FACTDEF:ABILITY|Druid_CF_ResistNaturesLure		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ResistNaturesLure						EXPLANATION:Remove Druid ResistNaturesLure			
+FACTDEF:ABILITY|Druid_CF_VenomImmunity			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:VenomImmunity						EXPLANATION:Remove Druid VenomImmunity			
+FACTDEF:ABILITY|Druid_CF_AThousandFaces			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AThousandFaces						EXPLANATION:Remove Druid AThousandFaces			
+FACTDEF:ABILITY|Druid_CF_TimelessBody			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TimelessBody							EXPLANATION:Remove Druid TimelessBody				
+
+
+# Fighter Archetype Section
+FACTDEF:ABILITY|Fighter_Archetype_BonusFeats						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeats							EXPLANATION:Determines whether the archetype affects - BonusFeats							
+FACTDEF:ABILITY|Fighter_Archetype_Bravery							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Bravery								EXPLANATION:Determines whether the archetype affects - Bravery								
+FACTDEF:ABILITY|Fighter_Archetype_ArmorTraining						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArmorTraining							EXPLANATION:Determines whether the archetype affects - ArmorTraining							
+FACTDEF:ABILITY|Fighter_Archetype_WeaponTraining					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponTraining							EXPLANATION:Determines whether the archetype affects - WeaponTraining							
+FACTDEF:ABILITY|Fighter_Archetype_ArmorMastery						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArmorMastery							EXPLANATION:Determines whether the archetype affects - ArmorMastery							
+FACTDEF:ABILITY|Fighter_Archetype_WeaponMastery						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponMastery							EXPLANATION:Determines whether the archetype affects - WeaponMastery							
+
+# Fighter Class Feature
+FACTDEF:ABILITY|Fighter_CF_BonusFeats		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeats								EXPLANATION:Remove Fighter BonusFeats					
+FACTDEF:ABILITY|Fighter_CF_Bravery			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Bravery								EXPLANATION:Remove Fighter Bravery					
+FACTDEF:ABILITY|Fighter_CF_ArmorTraining		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArmorTraining							EXPLANATION:Remove Fighter ArmorTraining				
+FACTDEF:ABILITY|Fighter_CF_WeaponTraining		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponTraining							EXPLANATION:Remove Fighter WeaponTraining				
+FACTDEF:ABILITY|Fighter_CF_ArmorMastery		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArmorMastery							EXPLANATION:Remove Fighter ArmorMastery				
+FACTDEF:ABILITY|Fighter_CF_WeaponMastery		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponMastery							EXPLANATION:Remove Fighter WeaponMastery				
+
+FACTDEF:ABILITY|Fighter_CF_ArmorTraining1		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArmorTraining1								EXPLANATION:Remove Fighter ArmorTraining1					
+FACTDEF:ABILITY|Fighter_CF_ArmorTraining2		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArmorTraining2								EXPLANATION:Remove Fighter ArmorTraining2					
+FACTDEF:ABILITY|Fighter_CF_ArmorTraining3		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArmorTraining3								EXPLANATION:Remove Fighter ArmorTraining3					
+FACTDEF:ABILITY|Fighter_CF_ArmorTraining4		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArmorTraining4								EXPLANATION:Remove Fighter ArmorTraining4					
+FACTDEF:ABILITY|Fighter_CF_BonusFeat1		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat1								EXPLANATION:Remove Fighter BonusFeat1					
+FACTDEF:ABILITY|Fighter_CF_BonusFeat2		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat2								EXPLANATION:Remove Fighter BonusFeat2					
+FACTDEF:ABILITY|Fighter_CF_BonusFeat4		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat4								EXPLANATION:Remove Fighter BonusFeat4					
+FACTDEF:ABILITY|Fighter_CF_BonusFeat6		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat6								EXPLANATION:Remove Fighter BonusFeat6					
+FACTDEF:ABILITY|Fighter_CF_BonusFeat8		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat8								EXPLANATION:Remove Fighter BonusFeat8					
+FACTDEF:ABILITY|Fighter_CF_BonusFeat10		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat10								EXPLANATION:Remove Fighter BonusFeat10					
+FACTDEF:ABILITY|Fighter_CF_BonusFeat12		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat12								EXPLANATION:Remove Fighter BonusFeat12					
+FACTDEF:ABILITY|Fighter_CF_BonusFeat14		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat14								EXPLANATION:Remove Fighter BonusFeat14					
+FACTDEF:ABILITY|Fighter_CF_BonusFeat16		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat16								EXPLANATION:Remove Fighter BonusFeat16					
+FACTDEF:ABILITY|Fighter_CF_BonusFeat18		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat18								EXPLANATION:Remove Fighter BonusFeat18					
+FACTDEF:ABILITY|Fighter_CF_BonusFeat20		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat20								EXPLANATION:Remove Fighter BonusFeat20					
+
+#FACTDEF:ABILITY|Fighter_CF_		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:								EXPLANATION:Remove Fighter 					
+#FACTDEF:ABILITY|Fighter_CF_		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:								EXPLANATION:Remove Fighter 					
+#FACTDEF:ABILITY|Fighter_CF_		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:								EXPLANATION:Remove Fighter 					
+#FACTDEF:ABILITY|Fighter_CF_		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:								EXPLANATION:Remove Fighter 					
+#FACTDEF:ABILITY|Fighter_CF_		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:								EXPLANATION:Remove Fighter 					
+#FACTDEF:ABILITY|Fighter_CF_		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:								EXPLANATION:Remove Fighter 					
+
+#1	ABILITY:Fighter Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies,TYPE.FighterArmorProficiencies,TYPE.FighterHeavyArmorProficiency,TYPE.FighterMediumArmorProficiency,TYPE.FighterLightArmorProficiency,TYPE.FighterShieldProficiency,TYPE.FighterTowerShieldProficiency
+#1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies
+#1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Heavy|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterHeavyArmorProficiency
+#1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Medium|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterMediumArmorProficiency
+#1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterLightArmorProficiency
+#1	ABILITY:Internal|AUTOMATIC|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterShieldProficiency
+#1	ABILITY:Internal|AUTOMATIC|Shield Prof ~ Tower|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterTowerShieldProficiency
+
+
+
+# Monk Archetype Section
+FACTDEF:ABILITY|Monk_Archetype_FlurryOfBlows						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FlurryOfBlows								EXPLANATION:Determines whether the archetype affects - FlurryOfBlows							
+FACTDEF:ABILITY|Monk_Archetype_BonusFeats							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeats									EXPLANATION:Determines whether the archetype affects - BonusFeats									
+FACTDEF:ABILITY|Monk_Archetype_ACBonus							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ACBonus									EXPLANATION:Determines whether the archetype affects - ACBonus									
+FACTDEF:ABILITY|Monk_Archetype_StunningFist						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:StunningFist								EXPLANATION:Determines whether the archetype affects - StunningFist								
+FACTDEF:ABILITY|Monk_Archetype_Evasion							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Evasion									EXPLANATION:Determines whether the archetype affects - Evasion									
+FACTDEF:ABILITY|Monk_Archetype_FastMovement						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FastMovement								EXPLANATION:Determines whether the archetype affects - FastMovement								
+FACTDEF:ABILITY|Monk_Archetype_ManeuverTraining						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ManeuverTraining								EXPLANATION:Determines whether the archetype affects - ManeuverTraining							
+FACTDEF:ABILITY|Monk_Archetype_StillMind							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:StillMind									EXPLANATION:Determines whether the archetype affects - StillMind									
+FACTDEF:ABILITY|Monk_Archetype_KiPool							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:KiPool									EXPLANATION:Determines whether the archetype affects - KiPool									
+FACTDEF:ABILITY|Monk_Archetype_SlowFall							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SlowFall									EXPLANATION:Determines whether the archetype affects - SlowFall									
+FACTDEF:ABILITY|Monk_Archetype_HighJump							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HighJump									EXPLANATION:Determines whether the archetype affects - HighJump									
+FACTDEF:ABILITY|Monk_Archetype_PurityOfBody						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:PurityOfBody								EXPLANATION:Determines whether the archetype affects - PurityOfBody								
+FACTDEF:ABILITY|Monk_Archetype_WholenessOfBody						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WholenessOfBody								EXPLANATION:Determines whether the archetype affects - WholenessOfBody							
+FACTDEF:ABILITY|Monk_Archetype_ImprovedEvasion						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ImprovedEvasion								EXPLANATION:Determines whether the archetype affects - ImprovedEvasion								
+FACTDEF:ABILITY|Monk_Archetype_DiamondBody						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DiamondBody									EXPLANATION:Determines whether the archetype affects - DiamondBody									
+FACTDEF:ABILITY|Monk_Archetype_AbundantStep						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AbundantStep								EXPLANATION:Determines whether the archetype affects - AbundantStep								
+FACTDEF:ABILITY|Monk_Archetype_DiamondSoul						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DiamondSoul									EXPLANATION:Determines whether the archetype affects - DiamondSoul									
+FACTDEF:ABILITY|Monk_Archetype_QuiveringPalm						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:QuiveringPalm								EXPLANATION:Determines whether the archetype affects - QuiveringPalm								
+FACTDEF:ABILITY|Monk_Archetype_TongueOfTheSunAndMoon					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TongueOfTheSunAndMoon							EXPLANATION:Determines whether the archetype affects - TongueOfTheSunAndMoon						
+FACTDEF:ABILITY|Monk_Archetype_TimelessBody						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TimelessBody								EXPLANATION:Determines whether the archetype affects - TimelessBody								
+FACTDEF:ABILITY|Monk_Archetype_EmptyBody							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EmptyBody									EXPLANATION:Determines whether the archetype affects - EmptyBody									
+FACTDEF:ABILITY|Monk_Archetype_PerfectSelf						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:PerfectSelf									EXPLANATION:Determines whether the archetype affects - PerfectSelf									
+
+# Monk Class Feature
+FACTDEF:ABILITY|Monk_CF_FlurryOfBlows			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FlurryOfBlows								EXPLANATION:Remove Monk FlurryOfBlows				
+FACTDEF:ABILITY|Monk_CF_BonusFeats				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeats									EXPLANATION:Remove Monk BonusFeats				
+FACTDEF:ABILITY|Monk_CF_ACBonus				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ACBonus									EXPLANATION:Remove Monk ACBonus				
+FACTDEF:ABILITY|Monk_CF_StunningFist			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:StunningFist								EXPLANATION:Remove Monk StunningFist			
+FACTDEF:ABILITY|Monk_CF_Evasion				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Evasion									EXPLANATION:Remove Monk Evasion				
+FACTDEF:ABILITY|Monk_CF_FastMovement			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FastMovement								EXPLANATION:Remove Monk FastMovement			
+FACTDEF:ABILITY|Monk_CF_ManeuverTraining			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ManeuverTraining								EXPLANATION:Remove Monk ManeuverTraining				
+FACTDEF:ABILITY|Monk_CF_StillMind				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:StillMind									EXPLANATION:Remove Monk StillMind				
+FACTDEF:ABILITY|Monk_CF_KiPool				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:KiPool									EXPLANATION:Remove Monk KiPool				
+FACTDEF:ABILITY|Monk_CF_SlowFall				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SlowFall									EXPLANATION:Remove Monk SlowFall				
+FACTDEF:ABILITY|Monk_CF_HighJump				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HighJump									EXPLANATION:Remove Monk HighJump				
+FACTDEF:ABILITY|Monk_CF_PurityOfBody			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:PurityOfBody								EXPLANATION:Remove Monk PurityOfBody			
+FACTDEF:ABILITY|Monk_CF_WholenessOfBody			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WholenessOfBody								EXPLANATION:Remove Monk WholenessOfBody				
+FACTDEF:ABILITY|Monk_CF_ImprovedEvasion			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ImprovedEvasion								EXPLANATION:Remove Monk ImprovedEvasion			
+FACTDEF:ABILITY|Monk_CF_DiamondBody				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DiamondBody									EXPLANATION:Remove Monk DiamondBody				
+FACTDEF:ABILITY|Monk_CF_AbundantStep			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AbundantStep								EXPLANATION:Remove Monk AbundantStep			
+FACTDEF:ABILITY|Monk_CF_DiamondSoul				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DiamondSoul									EXPLANATION:Remove Monk DiamondSoul				
+FACTDEF:ABILITY|Monk_CF_QuiveringPalm			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:QuiveringPalm								EXPLANATION:Remove Monk QuiveringPalm			
+FACTDEF:ABILITY|Monk_CF_TongueOfTheSunAndMoon		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TongueOfTheSunAndMoon							EXPLANATION:Remove Monk TongueOfTheSunAndMoon			
+FACTDEF:ABILITY|Monk_CF_TimelessBody			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TimelessBody								EXPLANATION:Remove Monk TimelessBody			
+FACTDEF:ABILITY|Monk_CF_EmptyBody				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EmptyBody									EXPLANATION:Remove Monk EmptyBody				
+FACTDEF:ABILITY|Monk_CF_PerfectSelf				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:PerfectSelf									EXPLANATION:Remove Monk PerfectSelf				
+
+# Paladin Archetype Section
+FACTDEF:ABILITY|Paladin_Archetype_AuraOfGood								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfGood											EXPLANATION:Determines whether the archetype affects - AuraOfGood											
+FACTDEF:ABILITY|Paladin_Archetype_DetectEvil								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DetectEvil											EXPLANATION:Determines whether the archetype affects - DetectEvil											
+FACTDEF:ABILITY|Paladin_Archetype_SmiteEvil								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SmiteEvil											EXPLANATION:Determines whether the archetype affects - SmiteEvil											
+FACTDEF:ABILITY|Paladin_Archetype_DivineGrace								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DivineGrace											EXPLANATION:Determines whether the archetype affects - DivineGrace											
+FACTDEF:ABILITY|Paladin_Archetype_LayOnHands								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:LayOnHands											EXPLANATION:Determines whether the archetype affects - LayOnHands											
+FACTDEF:ABILITY|Paladin_Archetype_AuraOfCourage								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfCourage											EXPLANATION:Determines whether the archetype affects - AuraOfCourage											
+FACTDEF:ABILITY|Paladin_Archetype_DivineHealth								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DivineHealth											EXPLANATION:Determines whether the archetype affects - DivineHealth											
+FACTDEF:ABILITY|Paladin_Archetype_Mercy									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Mercy												EXPLANATION:Determines whether the archetype affects - Mercy												
+FACTDEF:ABILITY|Paladin_Archetype_ChannelPositiveEnergy						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ChannelPositiveEnergy												EXPLANATION:Determines whether the archetype affects - ChannelPositiveEnergy												
+FACTDEF:ABILITY|Paladin_Archetype_DivineBond								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DivineBond											EXPLANATION:Determines whether the archetype affects - DivineBond											
+FACTDEF:ABILITY|Paladin_Archetype_AuraOfResolve								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfResolve											EXPLANATION:Determines whether the archetype affects - AuraOfResolve											
+FACTDEF:ABILITY|Paladin_Archetype_AuraOfJustice								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfJustice											EXPLANATION:Determines whether the archetype affects - AuraOfJustice											
+FACTDEF:ABILITY|Paladin_Archetype_AuraOfFaith								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfFaith											EXPLANATION:Determines whether the archetype affects - AuraOfFaith											
+FACTDEF:ABILITY|Paladin_Archetype_AuraOfRighteousness							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfRighteousness										EXPLANATION:Determines whether the archetype affects - AuraOfRighteousness										
+FACTDEF:ABILITY|Paladin_Archetype_HolyChampion								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HolyChampion											EXPLANATION:Determines whether the archetype affects - HolyChampion											
+
+# Paladin Class Feature
+FACTDEF:ABILITY|Paladin_CF_AuraOfGood				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfGood									EXPLANATION:Remove Paladin AuraOfGood				
+FACTDEF:ABILITY|Paladin_CF_DetectEvil				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DetectEvil									EXPLANATION:Remove Paladin DetectEvil				
+FACTDEF:ABILITY|Paladin_CF_SmiteEvil				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SmiteEvil									EXPLANATION:Remove Paladin SmiteEvil				
+FACTDEF:ABILITY|Paladin_CF_DivineGrace				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DivineGrace									EXPLANATION:Remove Paladin DivineGrace					
+FACTDEF:ABILITY|Paladin_CF_LayOnHands				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:LayOnHands									EXPLANATION:Remove Paladin LayOnHands				
+FACTDEF:ABILITY|Paladin_CF_AuraOfCourage			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfCourage								EXPLANATION:Remove Paladin AuraOfCourage			
+FACTDEF:ABILITY|Paladin_CF_DivineHealth			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DivineHealth								EXPLANATION:Remove Paladin DivineHealth			
+FACTDEF:ABILITY|Paladin_CF_Mercy					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Mercy										EXPLANATION:Remove Paladin Mercy				
+FACTDEF:ABILITY|Paladin_CF_ChannelPositiveEnergy				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ChannelPositiveEnergy									EXPLANATION:Remove Paladin ChannelPositiveEnergy			
+FACTDEF:ABILITY|Paladin_CF_DivineBond				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DivineBond									EXPLANATION:Remove Paladin DivineBond			
+FACTDEF:ABILITY|Paladin_CF_AuraOfResolve			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfResolve								EXPLANATION:Remove Paladin AuraOfResolve		
+FACTDEF:ABILITY|Paladin_CF_AuraOfJustice			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfJustice								EXPLANATION:Remove Paladin AuraOfJustice		
+FACTDEF:ABILITY|Paladin_CF_AuraOfFaith				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfFaith									EXPLANATION:Remove Paladin AuraOfFaith				
+FACTDEF:ABILITY|Paladin_CF_AuraOfRighteousness		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfRighteousness							EXPLANATION:Remove Paladin AuraOfRighteousness		
+FACTDEF:ABILITY|Paladin_CF_HolyChampion			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HolyChampion								EXPLANATION:Remove Paladin HolyChampion				
+
+# Ranger Archetype Section
+FACTDEF:ABILITY|Ranger_Archetype_HuntersBond							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HuntersBond										EXPLANATION:Determines whether the archetype affects - HuntersBond										
+FACTDEF:ABILITY|Ranger_Archetype_FavoredEnemy							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FavoredEnemy										EXPLANATION:Determines whether the archetype affects - FavoredEnemy										
+FACTDEF:ABILITY|Ranger_Archetype_FavoredTerrain							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FavoredTerrain										EXPLANATION:Determines whether the archetype affects - FavoredTerrain										
+FACTDEF:ABILITY|Ranger_Archetype_Track								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Track											EXPLANATION:Determines whether the archetype affects - Track											
+FACTDEF:ABILITY|Ranger_Archetype_WildEmpathy							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WildEmpathy										EXPLANATION:Determines whether the archetype affects - WildEmpathy										
+FACTDEF:ABILITY|Ranger_Archetype_CombatStyle							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:CombatStyle										EXPLANATION:Determines whether the archetype affects - CombatStyle										
+FACTDEF:ABILITY|Ranger_Archetype_WoodlandStride							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WoodlandStride										EXPLANATION:Determines whether the archetype affects - WoodlandStride										
+FACTDEF:ABILITY|Ranger_Archetype_SwiftTracker							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SwiftTracker										EXPLANATION:Determines whether the archetype affects - SwiftTracker										
+FACTDEF:ABILITY|Ranger_Archetype_Evasion								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Evasion											EXPLANATION:Determines whether the archetype affects - Evasion											
+FACTDEF:ABILITY|Ranger_Archetype_Quarry								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Quarry											EXPLANATION:Determines whether the archetype affects - Quarry											
+FACTDEF:ABILITY|Ranger_Archetype_Camoflage								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Camoflage											EXPLANATION:Determines whether the archetype affects - Camoflage											
+FACTDEF:ABILITY|Ranger_Archetype_Evasion								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Evasion											EXPLANATION:Determines whether the archetype affects - Evasion											
+FACTDEF:ABILITY|Ranger_Archetype_HideInPlainSight						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HideInPlainSight									EXPLANATION:Determines whether the archetype affects - HideInPlainSight									
+FACTDEF:ABILITY|Ranger_Archetype_Quarry								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Quarry											EXPLANATION:Determines whether the archetype affects - Quarry											
+FACTDEF:ABILITY|Ranger_Archetype_MasterHunter							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:MasterHunter										EXPLANATION:Determines whether the archetype affects - MasterHunter										
+FACTDEF:ABILITY|Ranger_Archetype_Endurance								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Endurance											EXPLANATION:Determines whether the archetype affects - Endurance											
+
+# Ranger Class Feature
+FACTDEF:ABILITY|Ranger_CF_HuntersBond		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HuntersBond								EXPLANATION:Remove Ranger HuntersBond				
+FACTDEF:ABILITY|Ranger_CF_FavoredEnemy		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FavoredEnemy								EXPLANATION:Remove Ranger FavoredEnemy				
+FACTDEF:ABILITY|Ranger_CF_FavoredTerrain		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FavoredTerrain								EXPLANATION:Remove Ranger FavoredTerrain			
+FACTDEF:ABILITY|Ranger_CF_Track				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Track										EXPLANATION:Remove Ranger Track					
+FACTDEF:ABILITY|Ranger_CF_WildEmpathy			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WildEmpathy									EXPLANATION:Remove Ranger WildEmpathy				
+FACTDEF:ABILITY|Ranger_CF_CombatStyle			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:CombatStyle									EXPLANATION:Remove Ranger CombatStyle				
+FACTDEF:ABILITY|Ranger_CF_WoodlandStride		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WoodlandStride								EXPLANATION:Remove Ranger WoodlandStride			
+FACTDEF:ABILITY|Ranger_CF_SwiftTracker		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SwiftTracker								EXPLANATION:Remove Ranger SwiftTracker				
+FACTDEF:ABILITY|Ranger_CF_Evasion			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Evasion									EXPLANATION:Remove Ranger Evasion				
+FACTDEF:ABILITY|Ranger_CF_Quarry			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Quarry									EXPLANATION:Remove Ranger Quarry				
+FACTDEF:ABILITY|Ranger_CF_Camoflage			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Camoflage									EXPLANATION:Remove Ranger Camoflage				
+FACTDEF:ABILITY|Ranger_CF_Evasion			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Evasion									EXPLANATION:Remove Ranger Evasion				
+FACTDEF:ABILITY|Ranger_CF_HideInPlainSight		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HideInPlainSight								EXPLANATION:Remove Ranger HideInPlainSight			
+FACTDEF:ABILITY|Ranger_CF_Quarry			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Quarry									EXPLANATION:Remove Ranger Quarry					
+FACTDEF:ABILITY|Ranger_CF_MasterHunter		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:MasterHunter								EXPLANATION:Remove Ranger MasterHunter			
+FACTDEF:ABILITY|Ranger_CF_Endurance			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Endurance									EXPLANATION:Remove Ranger Endurance				
+
+# Rogue Archetype Section
+FACTDEF:ABILITY|Rogue_Archetype_UncannyDodge								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:UncannyDodge											EXPLANATION:Determines whether the archetype affects - UncannyDodge											
+FACTDEF:ABILITY|Rogue_Archetype_ImprovedUncannyDodge							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ImprovedUncannyDodge										EXPLANATION:Determines whether the archetype affects - ImprovedUncannyDodge										
+FACTDEF:ABILITY|Rogue_Archetype_SneakAttack								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SneakAttack											EXPLANATION:Determines whether the archetype affects - SneakAttack											
+FACTDEF:ABILITY|Rogue_Archetype_Trapfinding								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Trapfinding											EXPLANATION:Determines whether the archetype affects - Trapfinding											
+FACTDEF:ABILITY|Rogue_Archetype_Evasion									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Evasion												EXPLANATION:Determines whether the archetype affects - Evasion												
+FACTDEF:ABILITY|Rogue_Archetype_Talents									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Talents												EXPLANATION:Determines whether the archetype affects - Talents												
+FACTDEF:ABILITY|Rogue_Archetype_TrapSense									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TrapSense												EXPLANATION:Determines whether the archetype affects - TrapSense												
+FACTDEF:ABILITY|Rogue_Archetype_MasterStrike								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:MasterStrike											EXPLANATION:Determines whether the archetype affects - MasterStrike											
+
+# Rogue Class Feature
+FACTDEF:ABILITY|Rogue_CF_UncannyDodge			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:UncannyDodge									EXPLANATION:Remove Rogue UncannyDodge				
+FACTDEF:ABILITY|Rogue_CF_ImprovedUncannyDodge		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ImprovedUncannyDodge								EXPLANATION:Remove Rogue ImprovedUncannyDodge				
+FACTDEF:ABILITY|Rogue_CF_SneakAttack				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SneakAttack										EXPLANATION:Remove Rogue SneakAttack					
+FACTDEF:ABILITY|Rogue_CF_Trapfinding				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Trapfinding										EXPLANATION:Remove Rogue Trapfinding					
+FACTDEF:ABILITY|Rogue_CF_Evasion				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Evasion										EXPLANATION:Remove Rogue Evasion					
+FACTDEF:ABILITY|Rogue_CF_Talents				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Talents										EXPLANATION:Remove Rogue Talents					
+FACTDEF:ABILITY|Rogue_CF_TrapSense				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TrapSense										EXPLANATION:Remove Rogue TrapSense					
+FACTDEF:ABILITY|Rogue_CF_MasterStrike			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:MasterStrike									EXPLANATION:Remove Rogue MasterStrike					
+
+# Sorcerer Archetype Section
+FACTDEF:ABILITY|Sorcerer_Archetype_WeaponProficiencies							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies										EXPLANATION:Determines whether the archetype affects - WeaponProficiencies										
+FACTDEF:ABILITY|Sorcerer_Archetype_EschewMaterials							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials										EXPLANATION:Determines whether the archetype affects - EschewMaterials										
+
+# Sorcerer Class Feature
+FACTDEF:ABILITY|Sorcerer_CF_WeaponProficiencies		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies							EXPLANATION:Remove Sorcerer WeaponProficiencies	
+FACTDEF:ABILITY|Sorcerer_CF_EschewMaterials			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials								EXPLANATION:Remove Sorcerer EschewMaterials			
+
+# Wizard Archetype Section
+FACTDEF:ABILITY|Wizard_Archetype_ArcaneSchool								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArcaneSchool											EXPLANATION:Determines whether the archetype affects - ArcaneSchool											
+FACTDEF:ABILITY|Wizard_Archetype_WeaponProficiencies							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies										EXPLANATION:Determines whether the archetype affects - WeaponProficiencies										
+FACTDEF:ABILITY|Wizard_Archetype_ScribeScroll								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ScribeScroll											EXPLANATION:Determines whether the archetype affects - ScribeScroll											
+FACTDEF:ABILITY|Wizard_Archetype_ArcaneBond								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArcaneBond											EXPLANATION:Determines whether the archetype affects - ArcaneBond											
+FACTDEF:ABILITY|Wizard_Archetype_Cantrips									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Cantrips												EXPLANATION:Determines whether the archetype affects - Cantrips												
+FACTDEF:ABILITY|Wizard_Archetype_BonusFeats								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeats											EXPLANATION:Determines whether the archetype affects - BonusFeats											
+FACTDEF:ABILITY|Wizard_Archetype_SpellBook									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpellBook												EXPLANATION:Determines whether the archetype affects - SpellBook												
+
+# Wizard Class Feature
+FACTDEF:ABILITY|Wizard_CF_ArcaneSchool		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArcaneSchool									EXPLANATION:Remove Wizard ArcaneSchool				
+FACTDEF:ABILITY|Wizard_CF_WeaponProficiencies	DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies									EXPLANATION:Remove Wizard WeaponProficiencies				
+FACTDEF:ABILITY|Wizard_CF_ScribeScroll		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ScribeScroll							EXPLANATION:Remove Wizard ScribeScroll			
+FACTDEF:ABILITY|Wizard_CF_ArcaneBond		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArcaneBond								EXPLANATION:Remove Wizard ArcaneBond			
+FACTDEF:ABILITY|Wizard_CF_Cantrips			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Cantrips								EXPLANATION:Remove Wizard Cantrips			
+FACTDEF:ABILITY|Wizard_CF_BonusFeats		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeats								EXPLANATION:Remove Wizard BonusFeats			
+FACTDEF:ABILITY|Wizard_CF_SpellBook			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpellBook								EXPLANATION:Remove Wizard SpellBook			
+
+
+#FACTDEF:ABILITY|Wizard_Archetype_						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:									EXPLANATION:Determines whether the archetype affects - 									

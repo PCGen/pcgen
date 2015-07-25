@@ -474,12 +474,12 @@ CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, th
 
 ###Block: Wild Shape creature abilities copied from bestiary
 # Ability Name	Unique Key						Category of Ability		Type												Define			Description																																																	Move			Ability						Modify VAR												Source Page		Aspects
-Ink Cloud		KEY:Ink Cloud ~ Octopus Wild Shape		CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialQuality.Extraordinary.Defensive						DESC:An octopus can emit a 10ft radius sphere of ink once per minute as a free action. The ink provides total concealment in water, and persists for 1 minute.																																															SOURCEPAGE:p.219
-Jet			KEY:Jet ~ Octopus Wild Shape			CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialQuality.Extraordinary.ModifyMovement					DESC:An octopus can jet backward once per round as a full-round action, at a speed of 200 ft. It must move in a straight line while jetting, and does not provoke attacks of opportunity when it does so.																	MOVE:Jet,200																					SOURCEPAGE:p.219
-Poison		KEY:Poison ~ Lizard Monitor Wild Shape	CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialAttack.Extraordinary				DEFINE:PoisonSaveDC|0	DESC:Bite--injury; save Fort DC %1; onset 1 minute; frequency 1/hour for 6 hours; effect 1d2 Dexterity damage; cure 1 save.|PoisonSaveDC																															ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)	SOURCEPAGE:p.194	ASPECT:Ability Benefit|(DC %1)|PoisonSaveDC
-Poison		KEY:Poison ~ Octopus Wild Shape		CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialAttack.Extraordinary								DESC:Bite-injury; save Fort DC 13; frequency 1/round for 6 rounds; effect 1 Str; cure 1 save.																																																										SOURCEPAGE:p.219
-Sprint		KEY:Sprint ~ Cheetah Wild Shape		CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialQuality.Extraordinary.ModifyMovement					DESC:Once per hour, a cheetah can move at 10 times its normal speed (500 feet) when it makes a charge.																																																								SOURCEPAGE:p.40
-Tongue		KEY:Tongue ~ Giant Frog Wild Shape		CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialAttack.Extraordinary								DESC:A giant frog's tongue is a primary attack with reach equal to three times the frog's normal reach (15 feet for a Medium giant frog). A giant frog's tongue deals no damage on a hit, but can be used to grab. A giant frog does not gain the grappled condition while using its tongue in this manner.																								SOURCEPAGE:p.135
+Ink Cloud		KEY:Octopus Wild Shape ~ Ink Cloud		CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialQuality.Extraordinary.Defensive						DESC:An octopus can emit a 10ft radius sphere of ink once per minute as a free action. The ink provides total concealment in water, and persists for 1 minute.																																															SOURCEPAGE:p.219
+Jet			KEY:Octopus Wild Shape ~ Jet			CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialQuality.Extraordinary.ModifyMovement					DESC:An octopus can jet backward once per round as a full-round action, at a speed of 200 ft. It must move in a straight line while jetting, and does not provoke attacks of opportunity when it does so.																	MOVE:Jet,200																					SOURCEPAGE:p.219
+Poison		KEY:Octopus Wild Shape ~ Poison		CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialAttack.Extraordinary								DESC:Bite-injury; save Fort DC 13; frequency 1/round for 6 rounds; effect 1 Str; cure 1 save.																																																										SOURCEPAGE:p.219
+Poison		KEY:Lizard Monitor Wild Shape ~ Poison 	CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialAttack.Extraordinary				DEFINE:PoisonSaveDC|0	DESC:Bite--injury; save Fort DC %1; onset 1 minute; frequency 1/hour for 6 hours; effect 1d2 Dexterity damage; cure 1 save.|PoisonSaveDC																															ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)	SOURCEPAGE:p.194	ASPECT:Ability Benefit|(DC %1)|PoisonSaveDC
+Sprint		KEY:Cheetah Wild Shape ~ Sprint		CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialQuality.Extraordinary.ModifyMovement					DESC:Once per hour, a cheetah can move at 10 times its normal speed (500 feet) when it makes a charge.																																																								SOURCEPAGE:p.40
+Tongue		KEY:Giant Frog Wild Shape ~ Tongue		CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialAttack.Extraordinary								DESC:A giant frog's tongue is a primary attack with reach equal to three times the frog's normal reach (15 feet for a Medium giant frog). A giant frog's tongue deals no damage on a hit, but can be used to grab. A giant frog does not gain the grappled condition while using its tongue in this manner.																								SOURCEPAGE:p.135
 
 ###Block: Druid Wild Shape
 # Ability Name			Category of Ability		Type			Visible	Define			Modify VAR
@@ -514,30 +514,36 @@ Bonus Feats				KEY:Fighter ~ Bonus Feats	CATEGORY:Special Ability	TYPE:FighterCl
 
 ###Block: Archetype Armor Training
 # Ability Name							Modify VAR
-CATEGORY=Special Ability|Fighter ~ Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining1|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,1]
-CATEGORY=Special Ability|Fighter ~ Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining2|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,2]
-CATEGORY=Special Ability|Fighter ~ Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining3|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,3]
-CATEGORY=Special Ability|Fighter ~ Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorTraining4|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,4]
+CATEGORY=Special Ability|Fighter ~ Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREVAREQ:Fighter_CF_ArmorTraining1,1|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,1]
+CATEGORY=Special Ability|Fighter ~ Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREVAREQ:Fighter_CF_ArmorTraining2,1|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,2]
+CATEGORY=Special Ability|Fighter ~ Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREVAREQ:Fighter_CF_ArmorTraining3,1|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,3]
+CATEGORY=Special Ability|Fighter ~ Armor Training.MOD	BONUS:VAR|ArmorTrainingTier|-1|PREVAREQ:Fighter_CF_ArmorTraining4,1|PREMULT:2,[PREEQUIP:1,TYPE=Armor],[PREVARGTEQ:ArmorTraining,4]
 
 ###Block:
 # Ability Name							Bonus Ability Pool
-CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat1
-CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,2|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat2
-CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,4|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat4
-CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,6|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat6
-CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,8|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat8
-CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,10|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat10
-CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,12|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat12
-CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,14|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat14
-CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,16|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat16
-CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,18|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat18
-CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,20|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat20
+CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,1|PREVAREQ:Fighter_CF_BonusFeat1,1
+CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,2|PREVAREQ:Fighter_CF_BonusFeat2,1
+CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,4|PREVAREQ:Fighter_CF_BonusFeat4,1
+CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,6|PREVAREQ:Fighter_CF_BonusFeat6,1
+CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,8|PREVAREQ:Fighter_CF_BonusFeat8,1
+CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,10|PREVAREQ:Fighter_CF_BonusFeat10,1
+CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,12|PREVAREQ:Fighter_CF_BonusFeat12,1
+CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,14|PREVAREQ:Fighter_CF_BonusFeat14,1
+CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,16|PREVAREQ:Fighter_CF_BonusFeat16,1
+CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,18|PREVAREQ:Fighter_CF_BonusFeat18,1
+CATEGORY=Special Ability|Fighter ~ Bonus Feats.MOD	BONUS:ABILITYPOOL|Fighter Bonus Feat|-1|PREVARGTEQ:FighterLvl,20|PREVAREQ:Fighter_CF_BonusFeat20,1
+
+###Block:
+CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	BONUS:ABILITYPOOL|Weapon Training I|-1|PREVAREQ:Fighter_CF_WeaponTraining1,1|PREVARGTEQ:FighterWeaponTrainingLVL,5
+CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	BONUS:ABILITYPOOL|Weapon Training II|-1|PREVAREQ:Fighter_CF_WeaponTraining2,1|PREVARGTEQ:FighterWeaponTrainingLVL,9
+CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	BONUS:ABILITYPOOL|Weapon Training III|-1|PREVAREQ:Fighter_CF_WeaponTraining3,1|PREVARGTEQ:FighterWeaponTrainingLVL,13
+CATEGORY=Special Ability|Fighter ~ Weapon Training.MOD	BONUS:ABILITYPOOL|Weapon Training IV|-1|PREVAREQ:Fighter_CF_WeaponTraining4,1|PREVARGTEQ:FighterWeaponTrainingLVL,17
+
 
 
 ###Block: Fighter Weapon Training Abilities
 # Ability Name	Unique Key				Category of Ability		Type										Visible		Define										Description																																																																																																																																																																																																						Bonus Ability Pool																																																																																																																																																Modify VAR					Source Page
-Weapon Training	KEY:Fighter ~ Weapon Training	CATEGORY:Special Ability	TYPE:FighterClassFeatures.SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:WeaponTrainingBase|0	DEFINE:FighterWeaponTrainingLVL|0	DESC:Attacks with a weapon from listed groups, gain a bonus on attack and damage rolls. (Included in weapon blocks)	DESC:Axes +%1|WeaponTrainingAxes|PREVARGT:WeaponTrainingAxes,0	DESC:Heavy Blades +%1|WeaponTrainingBladesHeavy|PREVARGT:WeaponTrainingBladesHeavy,0	DESC:Light Blades +%1|WeaponTrainingBladesLight|PREVARGT:WeaponTrainingBladesLight,0	DESC:Bows +%1|WeaponTrainingBows|PREVARGT:WeaponTrainingBows,0	DESC:Close Weapons +%1|WeaponTrainingClose|PREVARGT:WeaponTrainingClose,0	DESC:Crossbows +%1|WeaponTrainingCrossbows|PREVARGT:WeaponTrainingCrossbows,0	DESC:Double Weapons +%1|WeaponTrainingDouble|PREVARGT:WeaponTrainingDouble,0	DESC:Flails +%1|WeaponTrainingFlails|PREVARGT:WeaponTrainingFlails,0	DESC:Hammers +%1|WeaponTrainingHammers|PREVARGT:WeaponTrainingHammers,0	DESC:Monk Weapons +%1|WeaponTrainingMonk|PREVARGT:WeaponTrainingMonk,0	DESC:Natural Weapons +%1|WeaponTrainingNatural|PREVARGT:WeaponTrainingNatural,0	DESC:Pole Arms +%1|WeaponTrainingPoleArms|PREVARGT:WeaponTrainingPoleArms,0	DESC:Spears +%1|WeaponTrainingSpears|PREVARGT:WeaponTrainingSpears,0	DESC:Thrown Weapons +%1|WeaponTrainingThrown|PREVARGT:WeaponTrainingThrown,0	BONUS:ABILITYPOOL|Weapon Training I|1|PREVARGTEQ:FighterWeaponTrainingLVL,5	BONUS:ABILITYPOOL|Weapon Training II|1|PREVARGTEQ:FighterWeaponTrainingLVL,9	BONUS:ABILITYPOOL|Weapon Training III|1|PREVARGTEQ:FighterWeaponTrainingLVL,13	BONUS:ABILITYPOOL|Weapon Training IV|1|PREVARGTEQ:FighterWeaponTrainingLVL,17	BONUS:ABILITYPOOL|Weapon Training I|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining1|PREVARGTEQ:FighterWeaponTrainingLVL,5	BONUS:ABILITYPOOL|Weapon Training II|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining2|PREVARGTEQ:FighterWeaponTrainingLVL,9	BONUS:ABILITYPOOL|Weapon Training III|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining3|PREVARGTEQ:FighterWeaponTrainingLVL,13	BONUS:ABILITYPOOL|Weapon Training IV|-1|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponTraining4|PREVARGTEQ:FighterWeaponTrainingLVL,17	BONUS:VAR|WeaponTrainingBase|1	SOURCEPAGE:p.56
-
+Weapon Training	KEY:Fighter ~ Weapon Training	CATEGORY:Special Ability	TYPE:FighterClassFeatures.SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:WeaponTrainingBase|0	DEFINE:FighterWeaponTrainingLVL|0	DESC:Attacks with a weapon from listed groups, gain a bonus on attack and damage rolls. (Included in weapon blocks)	DESC:Axes +%1|WeaponTrainingAxes|PREVARGT:WeaponTrainingAxes,0	DESC:Heavy Blades +%1|WeaponTrainingBladesHeavy|PREVARGT:WeaponTrainingBladesHeavy,0	DESC:Light Blades +%1|WeaponTrainingBladesLight|PREVARGT:WeaponTrainingBladesLight,0	DESC:Bows +%1|WeaponTrainingBows|PREVARGT:WeaponTrainingBows,0	DESC:Close Weapons +%1|WeaponTrainingClose|PREVARGT:WeaponTrainingClose,0	DESC:Crossbows +%1|WeaponTrainingCrossbows|PREVARGT:WeaponTrainingCrossbows,0	DESC:Double Weapons +%1|WeaponTrainingDouble|PREVARGT:WeaponTrainingDouble,0	DESC:Flails +%1|WeaponTrainingFlails|PREVARGT:WeaponTrainingFlails,0	DESC:Hammers +%1|WeaponTrainingHammers|PREVARGT:WeaponTrainingHammers,0	DESC:Monk Weapons +%1|WeaponTrainingMonk|PREVARGT:WeaponTrainingMonk,0	DESC:Natural Weapons +%1|WeaponTrainingNatural|PREVARGT:WeaponTrainingNatural,0	DESC:Pole Arms +%1|WeaponTrainingPoleArms|PREVARGT:WeaponTrainingPoleArms,0	DESC:Spears +%1|WeaponTrainingSpears|PREVARGT:WeaponTrainingSpears,0	DESC:Thrown Weapons +%1|WeaponTrainingThrown|PREVARGT:WeaponTrainingThrown,0		BONUS:ABILITYPOOL|Weapon Training I|1|PREVARGTEQ:FighterWeaponTrainingLVL,5		BONUS:ABILITYPOOL|Weapon Training II|1|PREVARGTEQ:FighterWeaponTrainingLVL,9		BONUS:ABILITYPOOL|Weapon Training III|1|PREVARGTEQ:FighterWeaponTrainingLVL,13		BONUS:ABILITYPOOL|Weapon Training IV|1|PREVARGTEQ:FighterWeaponTrainingLVL,17		BONUS:VAR|WeaponTrainingBase|1	SOURCEPAGE:p.56
 
 ###Block:
 # Ability Name								Define					Modify VAR
@@ -715,7 +721,7 @@ Empty Body				KEY:Monk ~ Empty Body				CATEGORY:Special Ability	TYPE:MonkClassFe
 Perfect Self			KEY:Monk ~ Perfect Self				CATEGORY:Special Ability	TYPE:MonkClassFeatures.SpecialQuality																											DESC:You are treated as an Outsider for the purpose of spells and magical effects. Additionally gain Damage Reduction 10/Chaotic. Unlike other outsiders, you can still be brought back from the dead as if you were a member of your previous creature type.																																																																																																																																																																																																																																																																																															DR:10/Chaotic	SOURCEPAGE:p.60
 Evasion				KEY:Monk ~ Evasion				CATEGORY:Special Ability	TYPE:MonkClassFeatures.Evasion																																																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Evasion
 Improved Evasion			KEY:Monk ~ Improved Evasion			CATEGORY:Special Ability	TYPE:MonkClassFeatures.Improved Evasion																																																																																																																																																																																																									ABILITY:Special Ability|AUTOMATIC|Improved Evasion
-Timeless Body			KEY:Monk ~ Timeless Body			CATEGORY:Special Ability	TYPE:MonkClassFeatures.Timeless Body																																																																																																																																																																																																									ABILITY:Special Ability|AUTOMATIC|Timeless Body
+Timeless Body			KEY:Monk ~ Timeless Body			CATEGORY:Special Ability	TYPE:MonkClassFeatures.Timeless Body																																																																																																																																																																																																									ABILITY:Special Ability|AUTOMATIC|Timeless Body			TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable
 #
 Ki Pool Tracker										CATEGORY:Internal																				DEFINE:KiPoints|0	DEFINE:KiPoolLVL|0																																																																																																																																																																																								ABILITY:Internal|AUTOMATIC|Ki Stat Choice ~ Wisdom|PREVAREQ:KiPool,1,KiPoolWis,1	ABILITY:Internal|AUTOMATIC|Ki Stat Choice ~ Charisma|PREVAREQ:KiPool,1,KiPoolCha,1	ABILITY:Internal|AUTOMATIC|Ki Stat Choice ~ Intelligence|PREVAREQ:KiPool,1,KiPoolInt,1	BONUS:ABILITYPOOL|Ki Pool Stat Choice|1|PREVARGTEQ:KiPool,2																																																					BONUS:VAR|KiPoints|KiPoolLVL/2
 
@@ -857,14 +863,15 @@ Monk Unarmed Damage LVL 20 (Colossal)	CATEGORY:Internal		UDAM:12d8		UMULT:2			BO
 
 ###Block: Paladin abilities
 # Ability Name		Unique Key						Category of Ability		Type																				Visible	Serves As														Define																						Innate Spells										Description																																																																																																																																																																									Bonus Ability Pool			Bonus DR		Save bonus				Modify VAR																										Source Page		Aspects
-Detect Evil			KEY:Paladin ~ Detect Evil			CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpecialQuality.SpellLike.Detect Evil																											DEFINE:DetectEvilLVL|0																				SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=DetectEvilLVL|Detect Evil,11+WIS	DESC:At will, you can use Detect Evil, as the Spell. You can, as a move action, concentrate on a single individual or item within 60 feet and determine if it is evil, learning the strength of its aura as if having studied it for 3 rounds. While focusing on one individual or object, you do not detect evil in any other object or individual within range.																																																																																																																																																									SOURCEPAGE:p.60
-Smite Evil			KEY:Paladin ~ Smite Evil			CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpecialAttack.Supernatural.Smite Evil																											DEFINE:SmiteEvilTimes|0	DEFINE:SmiteEvilAttackBonus|0	DEFINE:SmiteEvilDamageBonus|0	DEFINE:SmiteEvilACBonus|0	DEFINE:SmiteEvilLVL|0													DESC:You can call out to the powers of good to aid you in your struggle against evil %1 times per day. As a swift action, you choose one target within sight to smite. If this target is evil, you add +%2 to your attack rolls and +%3 to all damage rolls made against the target of your smite. If the target of Smite Evil is an outsider with the evil subtype, an evil-aligned dragon, or an undead creature, the bonus to damage on the first successful attack increases to +%4. Regardless of the target, Smite Evil attacks automatically bypass any DR the creature might possess. In addition, while smite evil is in effect, you gain a +%5 deflection bonus to your AC against attacks made by the target of the smite. If you target a creature that is not evil, the smite is wasted with no effect. The Smite Evil effect remains until the target of the smite is dead or the next time you rest and regain your uses of this ability.|SmiteEvilTimes|SmiteEvilAttackBonus|SmiteEvilDamageBonus|SmiteEvilDamageBonus*2|SmiteEvilACBonus															BONUS:VAR|SmiteEvilTimes|min((SmiteEvilLVL+2)/3,7)	BONUS:VAR|SmiteEvilAttackBonus,SmiteEvilACBonus|max(CHA,0)	BONUS:VAR|SmiteEvilDamageBonus|SmiteEvilLVL	SOURCEPAGE:p.60	ASPECT:CheckCount|%1|SmiteEvilTimes	ASPECT:CheckType|Uses per day
+Aura of Good		KEY:Paladin ~ Aura of Good			CATEGORY:Special Ability	TYPE:PaladinClassFeatures																																																																																																																																																																																																																																																																																																																	ABILITY:Special Ability|AUTOMATIC|Aura of Good
+Detect Evil			KEY:Paladin ~ Detect Evil			CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpecialQuality.SpellLike.Detect Evil																											DEFINE:DetectEvilLVL|0																				SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=DetectEvilLVL|Detect Evil,11+WIS	DESC:At will, you can use Detect Evil, as the Spell. You can, as a move action, concentrate on a single individual or item within 60 feet and determine if it is evil, learning the strength of its aura as if having studied it for 3 rounds. While focusing on one individual or object, you do not detect evil in any other object or individual within range.																																																																																																																																																									SOURCEPAGE:p.60		BONUS:VAR|DetectEvilLVL|PaladinLVL
+Smite Evil			KEY:Paladin ~ Smite Evil			CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpecialAttack.Supernatural.Smite Evil																											DEFINE:SmiteEvilTimes|0	DEFINE:SmiteEvilAttackBonus|0	DEFINE:SmiteEvilDamageBonus|0	DEFINE:SmiteEvilACBonus|0	DEFINE:SmiteEvilLVL|0													DESC:You can call out to the powers of good to aid you in your struggle against evil %1 times per day. As a swift action, you choose one target within sight to smite. If this target is evil, you add +%2 to your attack rolls and +%3 to all damage rolls made against the target of your smite. If the target of Smite Evil is an outsider with the evil subtype, an evil-aligned dragon, or an undead creature, the bonus to damage on the first successful attack increases to +%4. Regardless of the target, Smite Evil attacks automatically bypass any DR the creature might possess. In addition, while smite evil is in effect, you gain a +%5 deflection bonus to your AC against attacks made by the target of the smite. If you target a creature that is not evil, the smite is wasted with no effect. The Smite Evil effect remains until the target of the smite is dead or the next time you rest and regain your uses of this ability.|SmiteEvilTimes|SmiteEvilAttackBonus|SmiteEvilDamageBonus|SmiteEvilDamageBonus*2|SmiteEvilACBonus															BONUS:VAR|SmiteEvilTimes|min((SmiteEvilLVL+2)/3,7)	BONUS:VAR|SmiteEvilAttackBonus,SmiteEvilACBonus|max(CHA,0)	BONUS:VAR|SmiteEvilDamageBonus|SmiteEvilLVL	SOURCEPAGE:p.60		BONUS:VAR|SmiteEvilLVL|PaladinLVL	ASPECT:CheckCount|%1|SmiteEvilTimes	ASPECT:CheckType|Uses per day
 Divine Grace		KEY:Paladin ~ Divine Grace			CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpecialQuality.Supernatural												VISIBLE:NO																DEFINE:DivineGrace|0																																																																																																																																																																																																																			BONUS:SAVE|ALL|DivineGrace	BONUS:VAR|DivineGrace|max(CHA,0)																						SOURCEPAGE:p.61
-Lay on Hands		KEY:Paladin ~ Lay on Hands			CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpecialQuality.Supernatural.LayOnHands.Lay on Hands																									DEFINE:LayOnHandsTimes|0	DEFINE:LayOnHandsDice|0	DEFINE:LayOnHandsLVL|0																							DESC:You can heal wounds (your own or those of others) by touch. Each day you can use this ability %1 times per day. With one use of this ability, you can heal %2d6 hit points of damage. Using this ability is a standard action, unless you target yourself, in which case it is a swift action. Despite the name of this ability, you only need one free hand to use this ability. Alternatively, you can use this healing power to deal damage to undead creatures, dealing %2d6 points of damage. Using Lay on Hands in this way requires a melee touch attack and doesn't provide an attack of opportunity. Undead do not receive a saving throw against this damage.|LayOnHandsTimes|LayOnHandsDice																																																																							BONUS:VAR|LayOnHandsDice|LayOnHandsLVL/2	BONUS:VAR|LayOnHandsTimes|(LayOnHandsLVL/2)+CHA													SOURCEPAGE:p.61	ASPECT:CheckType|Uses per Day	ASPECT:CheckCount|%1|LayOnHandsTimes	ASPECT:MasterAbility|Lay on Hands
+Lay on Hands		KEY:Paladin ~ Lay on Hands			CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpecialQuality.Supernatural.LayOnHands.Lay on Hands																									DEFINE:LayOnHandsTimes|0	DEFINE:LayOnHandsDice|0	DEFINE:LayOnHandsLVL|0																							DESC:You can heal wounds (your own or those of others) by touch. Each day you can use this ability %1 times per day. With one use of this ability, you can heal %2d6 hit points of damage. Using this ability is a standard action, unless you target yourself, in which case it is a swift action. Despite the name of this ability, you only need one free hand to use this ability. Alternatively, you can use this healing power to deal damage to undead creatures, dealing %2d6 points of damage. Using Lay on Hands in this way requires a melee touch attack and doesn't provide an attack of opportunity. Undead do not receive a saving throw against this damage.|LayOnHandsTimes|LayOnHandsDice																																																																							BONUS:VAR|LayOnHandsDice|LayOnHandsLVL/2	BONUS:VAR|LayOnHandsTimes|(LayOnHandsLVL/2)+CHA													SOURCEPAGE:p.61	ASPECT:CheckType|Uses per Day	ASPECT:CheckCount|%1|LayOnHandsTimes	ASPECT:MasterAbility|Lay on Hands		BONUS:VAR|LayOnHandsLVL|PaladinLVL
 Divine Health		KEY:Paladin ~ Divine Health			CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpecialQuality.Extraordinary																																																															DESC:You are immune to all diseases, including supernatural and magical diseases, including mummy rot.																																																																																																																																																																																																		SOURCEPAGE:p.61
-Mercy				KEY:Paladin ~ Mercy				CATEGORY:Special Ability	TYPE:PaladinClassFeatures.Internal.ClassFeatures.Mercy											VISIBLE:NO																DEFINE:Mercies|0	DEFINE:MercyLVL|0																																																																																																																																																																																																								BONUS:ABILITYPOOL|Mercy|Mercies									BONUS:VAR|Mercies|min(MercyLVL/3,6)
-Channel Positive Energy	KEY:Paladin ~ Channel Positive Energy	CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpecialAttack.Supernatural.Channel Energy.Channel Energy Positive.Channel Positive Energy			SERVESAS:ABILITY=Special Ability|Cleric ~ Channel Energy|Cleric ~ Channel Positive Energy	DEFINE:PaladinChannelDC|0	DEFINE:PaladinChannelDice|0	DEFINE:PaladinChannelDieSize|0	DEFINE:PaladinChannelLVL|0															DESC:You can unleash a wave of positive energy dealing %1d%2 (DC %3 for half) %4/day.|PaladinChannelDice|PaladinChannelDieSize|PaladinChannelDC	DESC:You can unleash a wave of positive energy. You must choose to deal %1d%2 points of positive energy damage to undead creatures or to heal living creatures of %1d%2 points of damage. Creatures that take damage from channeled energy receive a DC %3 Will save to halve the damage. Using this ability consumes two uses of her lay on hands ability.|PaladinChannelDice|PaladinChannelDieSize|PaladinChannelDC																																																																																													BONUS:VAR|PaladinChannelDieSize|6	BONUS:VAR|PaladinChannelDice|(PaladinChannelLVL+1)/2	BONUS:VAR|PaladinChannelDC|10+(PaladinChannelLVL/2)+CHA						ASPECT:ChildAbility|Lay on Hands	ASPECT:Ability Benefit|(%1d%2, DC %3)|PaladinChannelDice|PaladinChannelDieSize|PaladinChannelDC
-Holy Champion		KEY:Paladin ~ Holy Champion			CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpecialQuality.Supernatural																													DEFINE:HolyChampionCasterLevel|0	DEFINE:HolyChampionLVL|0																									DESC:You are a conduit for the power of your god. Your DR increases to 10/Evil. Whenever you use Smite Evil and successfully strike an evil outsider, the outsider is also subject to a Banishment at caster level %1 (your weapon and holy symbol automatically count as objects that the subject hates). After the Banishment effect and the damage from the attack is resolved, the smite immediately ends. In addition, whenever you channel positive energy or uses Lay on Hands to heal a creature, you heal the maximum possible amount.|HolyChampionCasterLevel																																																																																					BONUS:DR|Evil|5						BONUS:VAR|HolyChampionCasterLevel|HolyChampionLVL																			SOURCEPAGE:p.63
+Mercy				KEY:Paladin ~ Mercy				CATEGORY:Special Ability	TYPE:PaladinClassFeatures.Internal.ClassFeatures.Mercy											VISIBLE:NO																DEFINE:Mercies|0	DEFINE:MercyLVL|0																																																																																																																																																																																																								BONUS:ABILITYPOOL|Mercy|Mercies									BONUS:VAR|Mercies|min(MercyLVL/3,6)		BONUS:VAR|MercyLVL|PaladinLVL
+Channel Positive Energy	KEY:Paladin ~ Channel Positive Energy	CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpecialAttack.Supernatural.Channel Energy.Channel Energy Positive.Channel Positive Energy			SERVESAS:ABILITY=Special Ability|Cleric ~ Channel Energy|Cleric ~ Channel Positive Energy	DEFINE:PaladinChannelDC|0	DEFINE:PaladinChannelDice|0	DEFINE:PaladinChannelDieSize|0	DEFINE:PaladinChannelLVL|0															DESC:You can unleash a wave of positive energy dealing %1d%2 (DC %3 for half) %4/day.|PaladinChannelDice|PaladinChannelDieSize|PaladinChannelDC	DESC:You can unleash a wave of positive energy. You must choose to deal %1d%2 points of positive energy damage to undead creatures or to heal living creatures of %1d%2 points of damage. Creatures that take damage from channeled energy receive a DC %3 Will save to halve the damage. Using this ability consumes two uses of her lay on hands ability.|PaladinChannelDice|PaladinChannelDieSize|PaladinChannelDC																																																																																													BONUS:VAR|PaladinChannelDieSize|6	BONUS:VAR|PaladinChannelDice|(PaladinChannelLVL+1)/2	BONUS:VAR|PaladinChannelDC|10+(PaladinChannelLVL/2)+CHA						ASPECT:ChildAbility|Lay on Hands	ASPECT:Ability Benefit|(%1d%2, DC %3)|PaladinChannelDice|PaladinChannelDieSize|PaladinChannelDC		BONUS:VAR|PaladinChannelLVL|PaladinLVL
+Holy Champion		KEY:Paladin ~ Holy Champion			CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpecialQuality.Supernatural																													DEFINE:HolyChampionCasterLevel|0	DEFINE:HolyChampionLVL|0																									DESC:You are a conduit for the power of your god. Your DR increases to 10/Evil. Whenever you use Smite Evil and successfully strike an evil outsider, the outsider is also subject to a Banishment at caster level %1 (your weapon and holy symbol automatically count as objects that the subject hates). After the Banishment effect and the damage from the attack is resolved, the smite immediately ends. In addition, whenever you channel positive energy or uses Lay on Hands to heal a creature, you heal the maximum possible amount.|HolyChampionCasterLevel																																																																																					BONUS:DR|Evil|5						BONUS:VAR|HolyChampionCasterLevel|HolyChampionLVL																			SOURCEPAGE:p.63	BONUS:VAR|HolyChampionLVL|PaladinLVL
 
 ###Block: Archetype Support - Mercy
 # Ability Name						Bonus Ability Pool
@@ -886,7 +893,7 @@ Aura of Righteousness	KEY:Paladin ~ Aura of Righteousness	CATEGORY:Special Abili
 
 ###Block: Paladin Divine Bond
 # Ability Name	Unique Key					Category of Ability		Type																		Visible	Restricted Ability							Define																			Description																																																																																																																																																																																																																																																															Ability																															Bonus Ability Pool			Modify VAR																											Allow Follower			Source Page
-Divine Bond		KEY:Paladin ~ Divine Bond		CATEGORY:Special Ability	TYPE:PaladinClassFeatures.Internal.ClassFeatures.Divine Bond								VISIBLE:NO											DEFINE:DivineBondLVL|0	DEFINE:DivineBondTimes|0																																																																																																																																																																																																																																																																																																												BONUS:ABILITYPOOL|Divine Bond|1	BONUS:VAR|DivineBondTimes|min((DivineBondLVL-1)/4,4)
+Divine Bond		KEY:Paladin ~ Divine Bond		CATEGORY:Special Ability	TYPE:PaladinClassFeatures.Internal.ClassFeatures.Divine Bond								VISIBLE:NO											DEFINE:DivineBondLVL|0	DEFINE:DivineBondTimes|0																																																																																																																																																																																																																																																																																																												BONUS:ABILITYPOOL|Divine Bond|1	BONUS:VAR|DivineBondTimes|min((DivineBondLVL-1)/4,4)	BONUS:VAR|DivineBondLVL|PaladinLVL
 Celestial Spirit	KEY:Divine Bond ~ Celestial Spirit	CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpecialQuality.SpellLike.DivineBond.Divine Bond								!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinBondedWeapon	DEFINE:CelestialSpiritDuration|0	DEFINE:CelestialSpiritBonus|0										DESC:Your divine bond allows you to enhance your weapon as a standard action by calling upon the aid of a celestial spirit for %1 minutes. When called, the spirit causes the weapon to shed light as a torch. This spirit grants the weapon a +%2 enhancement bonus. This bonus can be added to the weapon, stacking with existing weapon bonuses to a maximum of +5, or it can be used to add any of the following weapon properties: defending, flaming, keen, merciful (+1), axiomatic, disruption, flaming burst, holy (+2), speed (+3), and brilliant energy (+4). Adding these properties consumes an amount of bonus equal to the property's cost. These bonuses are added to any properties the weapon already has, but duplicate abilities do not stack. If the weapon is not magical, at least a +1 enhancement bonus must be added before any other properties can be added. The bonus and properties granted by the spirit are determined when the spirit is called and cannot be changed until the spirit is called again. The celestial spirit imparts no bonuses if the weapon is held by anyone other than you but resumes giving bonuses if returned to you. These bonuses apply to only one end of a double weapon. You can use this ability %3 times per day. If a weapon bonded with a celestial spirit is destroyed, you lose the use of this ability for 30 days, or until you gain a level, whichever comes first. During this 30-day period, you take a -1 penalty on attack and weapon damage rolls.|CelestialSpiritDuration|CelestialSpiritBonus|DivineBondTimes																																							BONUS:VAR|CelestialSpiritDuration|DivineBondLVL	BONUS:VAR|CelestialSpiritBonus|min((1+((DivineBondLVL-5)/3)),6)															SOURCEPAGE:p.63
 Special Mount	KEY:Divine Bond ~ Special Mount	CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpecialQuality.SpellLike.DivineBond.Divine Bond.Special Mount.Divine Bond Mount			!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinBondedMount	DEFINE:SpecialMountLVL|0	DEFINE:SpecialMountSpellLevel|0	DEFINE:SpecialMountSR|0	DEFINE:Divine_Bond_Mount|0	DESC:Your divine bond allows you to gain the service of an unusually intelligent, strong, and loyal steed to serve you in your crusade against evil.																																																																																																																																																																																																																																								ABILITY:Special Mount Choice|AUTOMATIC|Special Mount ~ Standard Choices|!PREABILITY:1,CATEGORY=Internal,TYPE.SpecialMountAlternate|PREABILITY:1,CATEGORY=Special Ability,TYPE.Special Mount								BONUS:VAR|SpecialMountSpellLevel|DivineBondLVL/3	BONUS:VAR|SpecialMountSR|DivineBondLVL+11	BONUS:VAR|Divine_Bond_Mount|1		ABILITY:Internal|AUTOMATIC|Companion ~ Special Mount|PREVAREQ:CompanionDisable_PaladinMount,0		SOURCEPAGE:p.63	BONUS:VAR|SpecialMountLVL|CompanionMasterLVL_Paladin|PREVAREQ:CompanionDisable_PaladinMount,0		DEFINE:CompanionDisable_PaladinMount|0	DEFINE:CompanionMasterLVL_Paladin|0		BONUS:VAR|CompanionMasterLVL_Paladin|DivineBondLVL
 ###Block:
@@ -2029,185 +2036,4 @@ Stabilize			KEY:Spell ~ Stabilize			CATEGORY:Internal		TYPE:SLA_LVL0.Druid_SLA_L
 Summon Instrument		KEY:Spell ~ Summon Instrument		CATEGORY:Internal		TYPE:SLA_LVL0.Bard_SLA_LVL0									ABILITY:Spell-Like Ability|AUTOMATIC|Summon Instrument
 Touch of Fatigue		KEY:Spell ~ Touch of Fatigue		CATEGORY:Internal		TYPE:SLA_LVL0.Wizard_SLA_LVL0									ABILITY:Spell-Like Ability|AUTOMATIC|Touch of Fatigue
 Virtue			KEY:Spell ~ Virtue			CATEGORY:Internal		TYPE:SLA_LVL0.Druid_SLA_LVL0.Cleric_SLA_LVL0						ABILITY:Spell-Like Ability|AUTOMATIC|Virtue
-
-###--------------------------------------------###
-##	New Formula Parser Support Mechanisms	##
-###--------------------------------------------###
-
-###Block: Actual Base Class	
-# COMMENT: These will eventually become FLAG in the new system
-# COMMENT: Currently Double System to make transition easier
-# COMMENT: Archetype Support inline
-# COMMENT: Class will hold everything that is pertaining to that class, this prevents having over-processing for the old JEP system.
-# COMMENT: When the New Formula Parser BOOLEAN is implemented, these will be moved to the correct file.
-# COMMENT: Using ONE LINE per item for EASE of debugging and reading. This will make this file exceedingly lengthy.
-Barbarian		CATEGORY:Class		
-Bard			CATEGORY:Class	
-Cleric		CATEGORY:Class	
-Druid			CATEGORY:Class
-Fighter		CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterClassSkills
-Monk			CATEGORY:Class	
-Paladin		CATEGORY:Class	
-Ranger		CATEGORY:Class	
-Rogue			CATEGORY:Class	
-Sorcerer		CATEGORY:Class	
-Wizard		CATEGORY:Class	
-
-Arcane Trickster	CATEGORY:Class	
-Assassin		CATEGORY:Class
-
-
-
-
-###Block: Class Specifics
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage|0			
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Fast_Movement|0	
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Powers|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power2|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power4|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power6|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power8|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power10|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power12|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power14|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power16|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power18|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage_Power20|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Trap_Sense|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Trap_Sense1|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Trap_Sense2|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Trap_Sense3|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Trap_Sense4|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Trap_Sense5|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Trap_Sense6|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Damage_Reduction|0	
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Damage_Reduction1|0	
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Damage_Reduction2|0	
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Damage_Reduction3|0	
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Damage_Reduction4|0	
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Damage_Reduction5|0	
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Greater_Rage|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Indomitable_Will|0	
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Tireless_Rage|0	
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Mighty_Rage|0		
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Proficiencies|0
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Uncanny_Dodge|0
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Improved_Uncanny_Dodge|0
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Class_Skills|0
-CATEGORY=Class|Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|PREVAREQ:Barbarian_CF_Proficiencies,0
-CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|PREVAREQ:Barbarian_CF_Proficiencies,0|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
-CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|PREVAREQ:Barbarian_CF_Proficiencies,0|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
-CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|PREVAREQ:Barbarian_CF_Barbarian_Class_Skills,0
-CATEGORY=Class|Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Uncanny Dodge Tracker
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Proficiencies=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Fast_Movement|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Fast_Movement=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Powers|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Powers=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power2=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power4=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power6=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power8=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power10=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power12=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power14=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power16=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power18=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage_Power20=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense1=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense2=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense3=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense4=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense5=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Trap_Sense6=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction1=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction2=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction3=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction4=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Damage_Reduction5=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Greater_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Greater_Rage=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Indomitable_Will|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Indomitable_Will=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Tireless_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Tireless_Rage=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Mighty_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Mighty_Rage=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Uncanny_Dodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Uncanny_Dodge=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Improved_Uncanny_Dodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Improved_Uncanny_Dodge=TRUE
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Class_Skills|1|TYPE=Boolean|PREFACT:1,ABILITIES,BarbarianCFClassSkills=True
-# Old Type System
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Proficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRage				
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Fast_Movement|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement		
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Powers|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePowers			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power2|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower2			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power4|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower4			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power6|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower6			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power8|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower8			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power10|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower10			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power12|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower12			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power14|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower14			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power16|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower16			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power18|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower18			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage_Power20|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePower20			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense1|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense1			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense2|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense2			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense3|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense3			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense4|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense4			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense5|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense5			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Trap_Sense6|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense6			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction		
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction1|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction1		
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction2|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction2		
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction3|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction3		
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction4|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction4		
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Damage_Reduction5|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction5		
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Greater_Rage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianGreaterRage			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Indomitable_Will|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianIndomitableWill		
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Tireless_Rage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTirelessRage		
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Mighty_Rage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianMightyRage			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Uncanny_Dodge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianUncannyDodge			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Improved_Uncanny_Dodge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianImprovedUncannyDodge			
-CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Class_Skills|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills			
-
-# The TEST, issue with this here
-#	CATEGORY=Class|Barbarian.MOD	BONUS:COMBAT|AC|1|PREFACT:1,ABILITIES,Barbarian_CF_Improved_Uncanny_Dodge=True
-
-
-
-# Bard
-CATEGORY=Class|Bard.MOD	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardClassSkills
-CATEGORY=Class|Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
-CATEGORY=Class|Bard.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
-CATEGORY=Class|Bard.MOD	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies
-CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_BardicKnowledge|0
-CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_CounterSong|0
-CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_BardicPerformance|0
-CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_ArmoredCasting|0
-CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_Cantrips|0
-CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_VersatilePerformance|0
-CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_WellVersed|0
-CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_LoreMaster|0
-CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_JackOfAllTrades|0
-# Boolean
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicKnowledge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_BardicKnowledge=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_CounterSong|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_CounterSong=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicPerformance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_BardicPerformance=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_ArmoredCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_ArmoredCasting=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_Cantrips=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_VersatilePerformance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_VersatilePerformance=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_WellVersed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_WellVersed=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_LoreMaster|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_LoreMaster=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_JackOfAllTrades|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_JackOfAllTrades=True
-
-# Old TYPE version Support
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicKnowledge|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicKnowledge		
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_CounterSong|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCounterSong		
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicPerformance|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicPerformance	
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_ArmoredCasting|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmoredCasting		
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_Cantrips|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCantrips			
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_VersatilePerformance|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardVersatilePerformance	
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_WellVersed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWellVersed			
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_LoreMaster|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardLoreMaster			
-CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_JackOfAllTrades|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardJackOfAllTrades		
-
 
