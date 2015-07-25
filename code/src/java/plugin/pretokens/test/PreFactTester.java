@@ -17,10 +17,9 @@
  */
 package plugin.pretokens.test;
 
-import java.util.Map;
-
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Reducible;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -31,8 +30,6 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.output.publish.OutputDB;
 import pcgen.system.LanguageBundle;
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * The Class <code>PreFactTester</code> is responsible for testing FACT values on an object.
@@ -46,13 +43,6 @@ public class PreFactTester extends AbstractPrerequisiteTest implements Prerequis
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter aPC, CDOMObject source) throws PrerequisiteException
 	{
-		String location = prereq.getCategoryName();
-		String[] locationElements  = location.split("\\.");
-		String test = prereq.getKey();
-		String[] factinfo = test.split("=");
-		String factid = factinfo[0];
-		String factval = factinfo[1];
-
 		final int number;
 		try
 		{
@@ -64,28 +54,24 @@ public class PreFactTester extends AbstractPrerequisiteTest implements Prerequis
 				"PreFact.error", prereq.toString())); //$NON-NLS-1$
 		}
 
-		Map<String, Object> model = OutputDB.buildDataModel(aPC.getCharID());
-		Object m = model.get(locationElements[0].toLowerCase());
-		if (locationElements.length > 1)
+		String location = prereq.getCategoryName();
+		String[] locationElements  = location.split("\\.");
+		Iterable<Reducible> objModel =
+				(Iterable<Reducible>) OutputDB.getIterable(aPC.getCharID(),
+					locationElements);
+		if (objModel == null)
 		{
-			TemplateHashModel thm = (TemplateHashModel) m;
-			try
-			{
-				m = thm.get(locationElements[1]);
-			}
-			catch (TemplateModelException e)
-			{
-				throw new PrerequisiteException(e.getMessage());
-			}
+			throw new PrerequisiteException("Output System does not have model for: " + location);
 		}
-		Iterable<CDOMObject> objModel = (Iterable<CDOMObject>) m;
-		FactKey<?> fk = FactKey.valueOf(factid);
-		Object targetVal = fk.getFormatManager().convertIndirect(Globals.getContext(), factval);
-		
+
+		String[] factinfo = prereq.getKey().split("=");
+		FactKey<?> fk = FactKey.valueOf(factinfo[0]);
+		Object targetVal = fk.getFormatManager().convertIndirect(Globals.getContext(), factinfo[1]);
+
 		int runningTotal = 0;
-		for (CDOMObject cdo : objModel)
+		for (Reducible r : objModel)
 		{
-			Indirect<?> cdoVal = cdo.get(fk);
+			Indirect<?> cdoVal = r.getCDOMObject().get(fk);
 			if (targetVal.equals(cdoVal))
 			{
 				runningTotal++;
