@@ -3346,6 +3346,26 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
+	 * Sets this Equipment to the size defined in ObjectKey.CUSTOMSIZE. This
+	 * should be done after equipment load but before use of the Equipment.
+	 * 
+	 * Note that this *should not* be done until full data load is complete to
+	 * ensure that there is not a race condition on resolving sizes.
+	 */
+	public void setToCustomSize(PlayerCharacter pc)
+	{
+		CDOMSingleRef<SizeAdjustment> csr = get(ObjectKey.CUSTOMSIZE);
+		if (csr != null)
+		{
+			SizeAdjustment customSize = csr.resolvesTo();
+			if (!getSafe(ObjectKey.SIZE).equals(customSize))
+			{
+				resizeItem(pc, customSize);
+			}
+		}
+	}
+
+	/**
 	 * Get the long name of this piece of equipment
 	 * 
 	 * @return the verbose name

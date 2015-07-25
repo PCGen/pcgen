@@ -124,13 +124,13 @@ import pcgen.core.character.SpellInfo;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.core.display.BonusDisplay;
-import pcgen.facade.core.CampaignFacade;
-import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.facade.core.CampaignFacade;
+import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.io.migration.AbilityMigration;
 import pcgen.io.migration.AbilityMigration.CategorisedKey;
 import pcgen.io.migration.EquipSetMigration;
@@ -5181,6 +5181,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							}
 							aEquip.setBase();
 							aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$ //$NON-NLS-2$
+							aEquip.setToCustomSize(thePC);
 						}
 						else
 						{
@@ -5212,6 +5213,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 									aEquip.setBase();
 									aEquip.load(customProperties,
 										"$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
+									aEquip.setToCustomSize(thePC);
 									aEquip.remove(StringKey.OUTPUT_NAME);
 									if (!aEquip.isType(Constants.TYPE_CUSTOM))
 									{

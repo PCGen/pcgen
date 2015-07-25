@@ -692,15 +692,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		ReferenceContextUtilities.validateAssociations(refContext, validator);
 		for (Equipment eq : refContext.getConstructedCDOMObjects(Equipment.class))
 		{
-			CDOMSingleRef<SizeAdjustment> csr = eq.get(ObjectKey.CUSTOMSIZE);
-			if (csr != null)
-			{
-				SizeAdjustment customSize = csr.resolvesTo();
-				if (!eq.getSafe(ObjectKey.SIZE).equals(customSize))
-				{
-					eq.resizeItem(null, customSize);
-				}
-			}
+			eq.setToCustomSize(null);
 			EqModAttachment.finishEquipment(eq);
 		}
 		validateSingleDefaultSize(context);
