@@ -175,7 +175,7 @@ public final class OutputDB
 	public static Iterable<?> getIterable(CharID id, String... keys)
 	{
 		String k1 = keys[0];
-		String k2 = (keys.length == 1) ? keys[1] : "";
+		String k2 = (keys.length > 1) ? keys[1] : "";
 		ModelFactory modelFactory = outModels.get(k1, k2);
 		if (modelFactory == null)
 		{
