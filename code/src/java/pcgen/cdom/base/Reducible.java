@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2015.
+ * Copyright (c) 2015 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,27 +15,21 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.output.base;
-
-import pcgen.cdom.enumeration.CharID;
-import freemarker.template.TemplateModel;
+package pcgen.cdom.base;
 
 /**
- * A ModelFactory is a class that can generate TemplateModel objects when given
- * a CharID. Typically these will contain a Facet and the combination of the
- * Facet and the CharID is sufficient to produce the necessary information to
- * build a TemplateModel.
+ * Reducible is a universal container that allows both CDOMObjects and other
+ * containers for CDOMObjects to quickly refer back to the CDOMObject. This
+ * allows code which relies on the underlying CDOMObject (for fetching FACTs for
+ * example) to solely rely on this interface rather than having to do a cast or
+ * other special case when it encounters things like a CNAbilitySelection.
  */
-public interface ModelFactory
+public interface Reducible
 {
 	/**
-	 * Generates a TemplateModel for the given CharID.
+	 * Returns the CDOMObject underlying this object.
 	 * 
-	 * @param id
-	 *            The CharID for which a TemplateModel should be produced by
-	 *            this ModelFactory
-	 * @return A TemplateModel produced by this ModelFactory for the given
-	 *         CharID
+	 * @return The CDOMObject underlying this object
 	 */
-	public <T extends TemplateModel & Iterable<?>> T generate(CharID id);
+	public CDOMObject getCDOMObject();
 }

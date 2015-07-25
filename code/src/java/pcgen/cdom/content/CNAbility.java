@@ -20,12 +20,14 @@ package pcgen.cdom.content;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.QualifyingObject;
+import pcgen.cdom.base.Reducible;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -36,7 +38,7 @@ import pcgen.core.Ability;
  * An CNAbility represents an "unresolved" (categorized) Ability & Nature.
  */
 public class CNAbility extends ConcretePrereqObject implements
-		QualifyingObject, Comparable<CNAbility>, ChooseDriver
+		QualifyingObject, Comparable<CNAbility>, ChooseDriver, Reducible
 {
 
 	private final Category<Ability> category;
@@ -230,5 +232,14 @@ public class CNAbility extends ConcretePrereqObject implements
 	public String getDisplayName()
 	{
 		return ability.getDisplayName();
+	}
+
+	/**
+	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
+	 */
+	@Override
+	public CDOMObject getCDOMObject()
+	{
+		return ability;
 	}
 }

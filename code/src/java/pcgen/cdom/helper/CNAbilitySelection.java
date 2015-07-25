@@ -19,9 +19,11 @@ package pcgen.cdom.helper;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.QualifyingObject;
+import pcgen.cdom.base.Reducible;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
@@ -32,7 +34,7 @@ import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 
 public class CNAbilitySelection extends ConcretePrereqObject implements
-		QualifyingObject
+		QualifyingObject, Reducible
 {
 
 	private final CNAbility cna;
@@ -221,5 +223,14 @@ public class CNAbilitySelection extends ConcretePrereqObject implements
 			return cna.equals(other.cna);
 		}
 		return false;
+	}
+
+	/**
+	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
+	 */
+	@Override
+	public CDOMObject getCDOMObject()
+	{
+		return cna.getCDOMObject();
 	}
 }
