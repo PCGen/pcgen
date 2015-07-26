@@ -213,8 +213,26 @@ Blows|PREMULT:2,[PRESTAT:1,DEX=15],[PRECLASS:1,Monk=1]</code></p>
 equipment item if the character has a level of Monk and a DEX score
 of 15 or better.</p>
 <hr />
-<p class="lstupnew"><a name="AUTOFEAT" id="AUTOFEAT">*** Updated
-5.17.4</a></p>
+<h3 id="AUTOFEAT">AUTO:FEAT</h3>
+<ul>
+<li>6.05.04 (July 2015): JIRA <a href=
+"http://jira.pcgen.org/browse/NEWTAG-477">NEWTAG-477</a> / Github
+<a href="https://github.com/PCGen/pcgen/pull/380">PR #380</a></li>
+<li style="list-style: none; display: inline">
+<ul class="incremental">
+<li><code>AUTO:FEAT</code> is deprecated. Use <a href=
+"#ABILITY"><code>ABILITY:FEAT|AUTOMATIC|</code></a> instead.</li>
+<li>All <code>FEAT</code> tags have been
+<strong>deprecated</strong> and replaced by the
+<code>ABILITY</code> system, which is more general. The
+<code>ABILITY</code> system can model feats, racial features, class
+features, traits, flaws, temporary bonuses, and so on, all using a
+common format.</li>
+</ul>
+</li>
+</ul>
+<div class="deprecated">
+<p class="lstupnew">*** Updated 5.17.4</p>
 <p class="indent0"><strong>Tag Name:</strong> AUTO:FEAT|x|x</p>
 <p class="indent1"><strong>Variables Used (x):</strong> Text (Feat
 name)</p>
@@ -258,6 +276,7 @@ tag.</p>
 AUTO:FEAT|Alertness</code></p>
 <p class="indent3">The feat "Dodge" is cleared and the feat
 "Alertness" is granted as an automatic feat.</p>
+</div>
 <hr />
 <p class="lstnew"><a name="AUTOLANG" id="AUTOLANG">*** New
 5.17.14</a></p>
@@ -1113,8 +1132,24 @@ Region3 as the character's region.</p>
 <p class="indent2"><code>REGION:1|Timbuktu</code></p>
 <p class="indent3">The PC is from the "Timbuktu" region.</p>
 <hr />
-<p class="lststatus"><a name="REMOVE" id="REMOVE">*** New
-5.11.13</a></p>
+<h3 id="REMOVE">REMOVE:FEAT</h3>
+<ul>
+<li>6.05.04 (July 2015): JIRA <a href=
+"http://jira.pcgen.org/browse/NEWTAG-477">NEWTAG-477</a> / Github
+<a href="https://github.com/PCGen/pcgen/pull/380">PR #380</a></li>
+<li style="list-style: none; display: inline">
+<ul class="incremental">
+<li>All <code>FEAT</code> tags have been
+<strong>deprecated</strong> and replaced by the
+<code>ABILITY</code> system, which is more general. The
+<code>ABILITY</code> system can model feats, racial features, class
+features, traits, flaws, temporary bonuses, and so on, all using a
+common format.</li>
+</ul>
+</li>
+</ul>
+<div class="deprecated">
+<p class="lststatus">*** New 5.11.13</p>
 <p class="indent0"><strong>Tag Name:</strong> REMOVE:FEAT|x|y,y</p>
 <p class="indent1"><strong>Variables Used (x):</strong> Number
 (Number of feats, Optional)</p>
@@ -1153,6 +1188,7 @@ associated with it, it returns that cost to the feat pool.</p>
 by the Paladin Class.</p>
 <p class="indent1"><strong>Where it can be used:</strong></p>
 <p class="indent2">Works in Ability, Class and Template files.</p>
+</div>
 <hr />
 <h3>SAB - 'special ability'</h3>
 <p><em>Displays a text string in the 'special abilities' section of
@@ -1832,8 +1868,26 @@ negate both the encumbrance and armor penalties.</p>
 Dwarves ignore encumbrance penalties to movement for heavy armor
 and heavy loads.</p>
 <hr />
-<p class="lststatus"><a name="VFEAT" id="VFEAT">*** Updated
-5.17.4</a></p>
+<h3 id="VFEAT">VFEAT</h3>
+<ul>
+<li>6.05.04 (July 2015): JIRA <a href=
+"http://jira.pcgen.org/browse/NEWTAG-477">NEWTAG-477</a> / Github
+<a href="https://github.com/PCGen/pcgen/pull/380">PR #380</a></li>
+<li style="list-style: none; display: inline">
+<ul class="incremental">
+<li><code>VFEAT</code> is deprecated. Use <a href=
+"#ABILITY"><code>ABILITY:FEAT|VIRTUAL|</code></a> instead.</li>
+<li>All <code>FEAT</code> tags have been
+<strong>deprecated</strong> and replaced by the
+<code>ABILITY</code> system, which is more general. The
+<code>ABILITY</code> system can model feats, racial features, class
+features, traits, flaws, temporary bonuses, and so on, all using a
+common format.</li>
+</ul>
+</li>
+</ul>
+<div class="deprecated">
+<p class="lststatus">*** Updated 5.17.4</p>
 <p class="indent0"><strong>Tag Name:</strong> VFEAT:x|x</p>
 <p class="indent1"><strong>Variables Used (x):</strong> Text (Name
 of feat)</p>
@@ -1891,6 +1945,7 @@ Monkey=1</code></p>
 <p class="indent3">The character gains "Banana Barrage" as a
 virtual feat only if they have at least one level of "Ninja
 Monkey".</p>
+</div>
 <hr />
 <p class="indent0"><strong><a name="VISION" id="VISION">Tag
 Name:</a></strong> VISION:x (y)|x (y)</p>
