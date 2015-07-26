@@ -49,7 +49,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
