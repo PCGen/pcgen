@@ -19,14 +19,10 @@ package pcgen.cdom.facet.fact;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.IdentityHashMap;
 import java.util.List;
-import java.util.Set;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
-import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.ChronicleEntry;
 import pcgen.util.Logging;
 
