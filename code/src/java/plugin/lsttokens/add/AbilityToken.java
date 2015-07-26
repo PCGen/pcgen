@@ -202,6 +202,12 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, ABILITY_CATEGORY_CLASS, first);
+		if (rm == null)
+		{
+			return new ParseResult.Fail(
+				"Could not get Reference Manufacturer for Category: " + first,
+				context);
+		}
 
 		while (tok.hasNext())
 		{

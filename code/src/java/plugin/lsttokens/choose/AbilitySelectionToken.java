@@ -163,7 +163,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		}
 
 		StringBuilder sb = new StringBuilder();
-		sb.append(((CategorizedAbilitySelectionChooseInformation) tc).getCategory());
+		sb.append(((CategorizedAbilitySelectionChooseInformation) tc).getCategory().getLSTformat(false));
 		sb.append('|');
 		sb.append(tc.getLSTformat());
 		String title = tc.getTitle();
@@ -255,6 +255,12 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		ReferenceManufacturer<Ability> rm =
 				context.getReferenceContext().getManufacturer(ABILITY_CLASS,
 					ABILITY_CATEGORY_CLASS, cat);
+		if (rm == null)
+		{
+			return new ParseResult.Fail(
+				"Could not get Reference Manufacturer for Category: " + cat,
+				context);
+		}
 		return parseTokenWithSeparator(context, rm, acRef, obj, abilities);
 	}
 

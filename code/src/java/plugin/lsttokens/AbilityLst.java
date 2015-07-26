@@ -193,6 +193,12 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 
 		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, ABILITY_CATEGORY_CLASS, cat);
+		if (rm == null)
+		{
+			return new ParseResult.Fail(
+				"Could not get Reference Manufacturer for Category: " + cat,
+				context);
+		}
 
 		boolean prereqsAllowed = true;
 

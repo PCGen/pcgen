@@ -115,6 +115,12 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 
 		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, ABILITY_CATEGORY_CLASS, acName);
+		if (rm == null)
+		{
+			return new ParseResult.Fail(
+				"Could not get Reference Manufacturer for Category: " + acName,
+				context);
+		}
 
 		while (st.hasMoreTokens())
 		{
