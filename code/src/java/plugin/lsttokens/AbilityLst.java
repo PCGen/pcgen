@@ -36,7 +36,6 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
@@ -187,7 +186,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		ArrayList<PrereqObject> edgeList = new ArrayList<PrereqObject>();
 
 		CDOMReference<AbilityList> abilList =
-				AbilityList.getAbilityListReference(category, nature);
+				AbilityList.getAbilityListReference(acRef, nature);
 
 		boolean first = true;
 		boolean removed = false;
@@ -372,7 +371,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				CDOMDirectSingleRef<AbilityList> dr = (CDOMDirectSingleRef<AbilityList>) ref;
 				AbilityList al = dr.resolvesTo();
 				StringBuilder sb = new StringBuilder();
-				sb.append(al.getCategory().getLSTformat()).append(Constants.PIPE);
+				sb.append(al.getCategory().getLSTformat(false)).append(Constants.PIPE);
 				sb.append(al.getNature()).append(Constants.PIPE);
 				sb.append(Constants.LST_DOT_CLEAR);
 				returnSet.add(sb.toString());
