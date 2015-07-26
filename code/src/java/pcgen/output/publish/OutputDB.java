@@ -160,6 +160,31 @@ public final class OutputDB
 	}
 
 	/**
+	 * Returns a specific portion of the PlayerCharacter data model for the
+	 * given CharID and selection string.
+	 * 
+	 * @param id
+	 *            The CharID for which the data model should be built
+	 * @param keys
+	 *            A String (or array) of keys identifying the portion of the
+	 *            data model to be built
+	 * @return An Iterable for the portion of the data model identified by the
+	 *         given Strings and the PlayerCharacter identified by the given
+	 *         CharID
+	 */
+	public static Iterable<?> getIterable(CharID id, String... keys)
+	{
+		String k1 = keys[0];
+		String k2 = (keys.length > 1) ? keys[1] : "";
+		ModelFactory modelFactory = outModels.get(k1, k2);
+		if (modelFactory == null)
+		{
+			return null;
+		}
+		return modelFactory.generate(id);
+	}
+	
+	/**
 	 * Returns true if the given interpolation is legal based on the items
 	 * registered with OutputDB.
 	 * 

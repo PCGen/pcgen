@@ -813,11 +813,7 @@ Immune
 			<td align="center" bgcolor="black" width="15%" class="ablableb" height="20">TOTAL ATTACK BONUS</td>
 			<td align="center" bgcolor="black" width="15%" class="ablableb">DAMAGE</td>
 			<td align="center" bgcolor="black" width="15%" class="ablableb">CRIT / MULT</td>
-|IIF(ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.HASASPECT.NaturalAttackRange:Y)|
-			<td align="center" bgcolor="black" width="15%" class="ablableb">RANGE</td>
-|ELSE|
 			<td align="center" bgcolor="black" width="15%" class="ablableb">REACH</td>
-|ENDIF|
 		</tr>
 		<tr>
 			<td class="border10c" height="20">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackToHit|</td>
@@ -825,11 +821,7 @@ Immune
 <!-->			<td class="border10c">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackDamage||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackDamageBonus.SIGN|</td>
 -->
 			<td class="border10c">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackThreatRange||ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackCritMult|</td>
-|IIF(ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.HASASPECT.NaturalAttackRange:Y)|
-			<td class="border10c">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackRange|</td>
-|ELSE|
 			<td class="border10c">|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackReach|</td>
-|ENDIF|
 		</tr>
 |IIF(ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.DESC:YES)|
 		<tr>

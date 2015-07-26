@@ -49,6 +49,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
@@ -691,6 +692,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		ReferenceContextUtilities.validateAssociations(refContext, validator);
 		for (Equipment eq : refContext.getConstructedCDOMObjects(Equipment.class))
 		{
+			eq.setToCustomSize(null);
 			EqModAttachment.finishEquipment(eq);
 		}
 		validateSingleDefaultSize(context);
@@ -789,7 +791,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 					{
 						aEq = aEq.clone();
 						aEq.setBase();
-						aEq.load(aLine);
+						aEq.load(aLine, "\t", ":", null);
 						if (!aEq.isType(Constants.TYPE_CUSTOM))
 						{
 							aEq.addType(Type.CUSTOM);

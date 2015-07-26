@@ -105,7 +105,7 @@ ABILITYCATEGORY:Shaman Witch Hex				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FR
 
 ABILITYCATEGORY:Slayer Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:SlayerTalent										PLURAL:Slayer Talents					DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Swashbuckler Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:Combat											PLURAL:Swashbuckler Bonus Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Swashbuckler Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:Combat											PLURAL:Swashbuckler Bonus Feats			DISPLAYLOCATION:Feats			POOL:Pool_Swashbuckler_Feat
 
 ###Block: Class Feature Categories
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
@@ -122,6 +122,12 @@ ABILITYCATEGORY:Elf Shaman Hex Range Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITP
 ABILITYCATEGORY:Halfling Skald Critial Confirmation Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingSkaldCritialConfirmationChoice	DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Skald Bonus Spell Known Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BonusSpellKnownSkald				DISPLAYLOCATION:Class Features
+
+
+ABILITYCATEGORY:Dare							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dare							DISPLAYLOCATION:Class Features	POOL:Pool_Dare
+ABILITYCATEGORY:Swashbuckler Bonus Feat Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Swashbuckler Bonus Feat Selection		DISPLAYLOCATION:Feats			POOL:Pool_SwashbucklerBonusFeat
+
+
 
 
 ###Block: Feat categories

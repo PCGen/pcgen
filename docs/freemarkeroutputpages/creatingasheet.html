@@ -1,7 +1,7 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
-<html>
-  <!--
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
     PCGen Documentation Project
 
     $Author: karianna $
@@ -14,75 +14,80 @@
     Description:
     Provides information on FreeMarker based Character Output Sheets.
   -->
-  <head>
-    <title>FreeMarker Output</title>
-    <link rel="stylesheet" type="text/css" href="../pcgen.css" >
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  </head>
-
-  <body>
-    <h1>Creating a FreeMarker Output Sheet</h1>
-
-	<p>FreeMarker sheets are detected by PCGen by their file name suffix. A 
-		template ending in <b>.ftl</b> will be processed by FreeMarker rather than by 
-		PCGen's legacy output engine.</p>
-	
-	<p>The extension of the file to be produced 
-		should be immediately before that and preceded by a . or -. So a template 
-		to produce html output might be named csheet-first.html.ftl or 
-		chseet-compact-html.ftl and PCGen would pick up that it was a template to be 
-		processed by FreeMarker template that would produce output of a html file.</p>
-
-	<p>Inside the sheet, the file is just a text file, with functions or directives 
-		included when needed to produce dynamic output. It is often simplest to start 
-		with a static file that looks like the output you want and then gradually 
-		introduce FreeMarker tags to make the sheet show the character info.</p>
-
-	<h3>FreeMarker Documentation</h3>
-
-	<p>FreeMarker has quite thorough documentation. The main references output sheet authors will use are:</p>
-	<ol>
-		<li> <a rel="nofollow" class="external text" href="http://freemarker.org/docs/dgui.html">Template Author's Guide</a></li>
-		<li> <a rel="nofollow" class="external text" href="http://freemarker.org/docs/ref.html">Reference Guide</a></li>
-		<li> <a rel="nofollow" class="external text" href="http://freemarker.org/">Main FreeMarker page</a></li>
-	</ol>
-
-	<p>In addition, see testsuite/base-xml.ftl for a fully worked example of xml output.</p>
-
-	<h3>Conversion from Legacy Output Engine</h3>
-
-	<p>A Groovy script is available to convert a legacy PCGen sheet to FreeMarker. Get the script 
-		from <a href="http://sourceforge.net/p/pcgen/code/HEAD/tree/Trunk/pcgen/code/convfreemarker.groovy?format=raw">subversion</a> .
-		You will also need to <a href="http://groovy.codehaus.org/">download Groovy</a> .</p>
-
-	<p>The script is run using the command
-	<pre>groovy convfreemarker.groovy sheetname [outputtemplatename]</pre>
-	where <em>sheetname</em> is the path to the sheet you wish to convert and <em>outputtemplatename</em>
-	is the nameof the FreeMarker template file to be created. If an outputtemplatename is not
-	supplied, the output template will be the same name as the sheetname but with .ftl appended 
-	to it. e.g. groovy convfreemarker.groovy base.xml would produce base.xml.ftl </p>
-	<p></p>
-
-	<p>The following are the main steps that need to be made for manual conversion:</p>
-	<ol>
-		<li>Replace FOR loops with @loop directives. e.g. |FOR,%class,0,COUNT[CLASSES]-1,1,0| 
-		becomes &lt;@loop from=0 to=pcvar('count("CLASSES")')-1 ; class , class_has_next &gt;</li>
-		<li>Replace IF tests with FreeMarker if tests. This will often need the use of pcvar and pcboolean functions to access character information.</li>
-		<li>Replace filters with FreeMarker if tests.</li>
-		<li>Replace each old tag with a call to pcstring. e.g. |PLAYERNAME| becomes ${pcstring('PLAYERNAME')}</li>
-		<li>Replace loop variables in tags with variable references. e.g. |CLASSABB.%class| becomes ${pcstring('CLASSABB.${class}')}</li>
-	</ol>
-
-	<p>Manual tidy up will then be required including extracting repeated content to macros.</p>
-
-<hr>
-
-	<p>
-  		<a href="http://validator.w3.org/check?uri=referer"><img
-        	src="../images/system/valid-html401.png"
-        	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-  	</p>
-
-	</body>
-
+<head>
+<meta name="generator" content=
+"HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" />
+<title>FreeMarker Output</title>
+<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=us-ascii" />
+</head>
+<body>
+<h1>Creating a FreeMarker Output Sheet</h1>
+<p>FreeMarker sheets are detected by PCGen by their file name
+suffix. A template ending in <b>.ftl</b> will be processed by
+FreeMarker rather than by PCGen's legacy output engine.</p>
+<p>The extension of the file to be produced should be immediately
+before that and preceded by a . or -. So a template to produce html
+output might be named csheet-first.html.ftl or
+chseet-compact-html.ftl and PCGen would pick up that it was a
+template to be processed by FreeMarker template that would produce
+output of a html file.</p>
+<p>Inside the sheet, the file is just a text file, with functions
+or directives included when needed to produce dynamic output. It is
+often simplest to start with a static file that looks like the
+output you want and then gradually introduce FreeMarker tags to
+make the sheet show the character info.</p>
+<h3>FreeMarker Documentation</h3>
+<p>FreeMarker has quite thorough documentation. The main references
+output sheet authors will use are:</p>
+<ol>
+<li><a rel="nofollow" class="external text" href=
+"http://freemarker.org/docs/dgui.html">Template Author's
+Guide</a></li>
+<li><a rel="nofollow" class="external text" href=
+"http://freemarker.org/docs/ref.html">Reference Guide</a></li>
+<li><a rel="nofollow" class="external text" href=
+"http://freemarker.org/">Main FreeMarker page</a></li>
+</ol>
+<p>In addition, see testsuite/base-xml.ftl for a fully worked
+example of xml output.</p>
+<h3>Conversion from Legacy Output Engine</h3>
+<p>A Groovy script is available to convert a legacy PCGen sheet to
+FreeMarker. Get the script from <a href=
+"https://raw.githubusercontent.com/PCGen/pcgen/master/code/convfreemarker.groovy">
+GitHub</a>. You will also need to <a href=
+"http://groovy.codehaus.org/">download Groovy</a> .</p>
+<p>The script is run using the command</p>
+<pre>
+groovy convfreemarker.groovy sheetname [outputtemplatename]
+</pre>
+where <em>sheetname</em> is the path to the sheet you wish to
+convert and <em>outputtemplatename</em> is the nameof the
+FreeMarker template file to be created. If an outputtemplatename is
+not supplied, the output template will be the same name as the
+sheetname but with .ftl appended to it. e.g. groovy
+convfreemarker.groovy base.xml would produce base.xml.ftl
+<p>The following are the main steps that need to be made for manual
+conversion:</p>
+<ol>
+<li>Replace FOR loops with @loop directives. e.g.
+|FOR,%class,0,COUNT[CLASSES]-1,1,0| becomes &lt;@loop from=0
+to=pcvar('count("CLASSES")')-1 ; class , class_has_next &gt;</li>
+<li>Replace IF tests with FreeMarker if tests. This will often need
+the use of pcvar and pcboolean functions to access character
+information.</li>
+<li>Replace filters with FreeMarker if tests.</li>
+<li>Replace each old tag with a call to pcstring. e.g. |PLAYERNAME|
+becomes ${pcstring('PLAYERNAME')}</li>
+<li>Replace loop variables in tags with variable references. e.g.
+|CLASSABB.%class| becomes ${pcstring('CLASSABB.${class}')}</li>
+</ol>
+<p>Manual tidy up will then be required including extracting
+repeated content to macros.</p>
+<hr />
+<p><a href="http://validator.w3.org/check?uri=referer"><img src=
+"../images/system/valid-html401.png" alt="Valid HTML 4.01 Strict"
+height="31" width="88" /></a></p>
+</body>
 </html>

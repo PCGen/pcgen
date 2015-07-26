@@ -52,7 +52,7 @@ Literacy								USEUNTRAINED:NO				TYPE:None.Language.Literacy													SOURC
 Move Silently					KEYSTAT:DEX				ACHECK:YES		TYPE:Dexterity.Standard.Base.Move Silently										SOURCEPAGE:SkillsII
 Open Lock						KEYSTAT:DEX	USEUNTRAINED:NO				TYPE:Dexterity.Standard.Base.Open Lock											SOURCEPAGE:SkillsII																																																								TEMPDESC:Attempting an Open Lock check without a set of thieves' tools imposes a -2 circumstance penalty on the check				TEMPBONUS:PC|SKILL|Open Lock|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ThiefTools
 #
-Perform (Untrained)				KEYSTAT:CHA	USEUNTRAINED:YES				TYPE:Charisma.Perform.Perform (Untrained)								VISIBLE:EXPORT	SOURCEPAGE:SkillsII
+Perform (Untrained)				KEYSTAT:CHA	USEUNTRAINED:YES				TYPE:Charisma.Perform.Standard.Base.Perform (Untrained)					VISIBLE:EXPORT	SOURCEPAGE:SkillsII
 Perform (Act)					KEYSTAT:CHA	USEUNTRAINED:NO				TYPE:Charisma.Perform.Standard.Base.Perform (Act)						VISIBLE:DISPLAY	SOURCEPAGE:SkillsII
 Perform (Comedy)					KEYSTAT:CHA	USEUNTRAINED:NO				TYPE:Charisma.Perform.Standard.Base.Perform (Comedy)						VISIBLE:DISPLAY	SOURCEPAGE:SkillsII
 Perform (Dance)					KEYSTAT:CHA	USEUNTRAINED:NO				TYPE:Charisma.Perform.Standard.Base.Perform (Dance)						VISIBLE:DISPLAY	SOURCEPAGE:SkillsII

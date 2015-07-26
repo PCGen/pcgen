@@ -56,6 +56,14 @@ public class WieldCategoryToken implements PrimitiveToken<Equipment>, PrimitiveF
 		{
 			category = EqWield.TwoHanded;
 		}
+		else if ("onehanded".equalsIgnoreCase(value))
+		{
+			category = EqWield.OneHanded;
+		}
+		else if ("twohanded".equalsIgnoreCase(value))
+		{
+			category = EqWield.TwoHanded;
+		}
 		else
 		{
 			Logging.errorPrint("Unable to understand Wield Category: " + value);

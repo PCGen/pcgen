@@ -1,0 +1,54 @@
+# CVS $Revision: 17892 $ $Author: amaitland $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-02
+
+CATEGORY=Internal|Default.MOD	BONUS:VAR|Pool_Traits|2|TYPE=Base|PREVARGTEQ:IsPC,1|PRECHARACTERTYPE:1,PC	BONUS:VAR|IsPC|1|TYPE=Base|PREFACT:1,RACE,IsPC=TRUE
+
+
+#Combat Traits
+CATEGORY=Special Ability|Trait ~ Anatomist.MOD				SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.3
+CATEGORY=Special Ability|Trait ~ Armor Expert.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.3
+CATEGORY=Special Ability|Trait ~ Bullied.MOD				SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.4
+CATEGORY=Special Ability|Trait ~ Courageous.MOD				SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.4
+CATEGORY=Special Ability|Trait ~ Deft Dodger.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.4
+CATEGORY=Special Ability|Trait ~ Dirty Fighter.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.4
+CATEGORY=Special Ability|Trait ~ Fencer.MOD				SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.4
+CATEGORY=Special Ability|Trait ~ Killer.MOD				SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.4
+CATEGORY=Special Ability|Trait ~ Reactionary.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.4
+CATEGORY=Special Ability|Trait ~ Resilient.MOD				SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.4
+# Faith Traits
+CATEGORY=Special Ability|Trait ~ Birthmark.MOD				SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.4
+CATEGORY=Special Ability|Trait ~ Caretaker.MOD				SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.4
+CATEGORY=Special Ability|Trait ~ Child of the Temple.MOD		SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.4
+CATEGORY=Special Ability|Trait ~ Devotee of the Green.MOD		SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.4
+CATEGORY=Special Ability|Trait ~ Ease of Faith.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.4
+CATEGORY=Special Ability|Trait ~ History of Heresy.MOD		SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.4
+CATEGORY=Special Ability|Trait ~ Indomitable Faith.MOD		SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.5
+CATEGORY=Special Ability|Trait ~ Sacred Conduit.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.5
+CATEGORY=Special Ability|Trait ~ Sacred Touch.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.5
+CATEGORY=Special Ability|Trait ~ Scholar of the Great Beyond.MOD	SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.5
+# Magic Traits
+CATEGORY=Special Ability|Trait ~ Classically Schooled.MOD		SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.5
+CATEGORY=Special Ability|Trait ~ Dangerously Curious.MOD		SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.5
+CATEGORY=Special Ability|Trait ~ Focused Mind.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.5
+CATEGORY=Special Ability|Trait ~ Gifted Adept.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.5
+CATEGORY=Special Ability|Trait ~ Hedge Magician.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.5
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.5
+CATEGORY=Special Ability|Trait ~ Magical Lineage.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.5
+CATEGORY=Special Ability|Trait ~ Magical Talent.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.5
+CATEGORY=Special Ability|Trait ~ Mathematical Prodigy.MOD		SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.5
+CATEGORY=Special Ability|Trait ~ Skeptic.MOD				SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.5
+# Social Traits
+CATEGORY=Special Ability|Trait ~ Adopted.MOD				SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Trait ~ Bully.MOD				SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Trait ~ Canter.MOD				SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Trait ~ Charming.MOD				SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Trait ~ Child of the Streets.MOD		SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Trait ~ Fast-Talker.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Trait ~ Natural-Born Leader.MOD		SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Trait ~ Poverty-Stricken.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Trait ~ Rich Parents.MOD			SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Trait ~ Suspicious.MOD				SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEPAGE:p.6
+
+#
+# End
+#

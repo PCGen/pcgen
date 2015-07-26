@@ -36,3 +36,4 @@ PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
 
 FORWARDREF:RACE|Orc
+FORWARDREF:CLASSSPELLLIST|Magus

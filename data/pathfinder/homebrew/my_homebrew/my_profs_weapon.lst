@@ -29,4 +29,4 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #####
 #This example has an additional tag HANDS. HANDS:2 means that it must be wielded with 2 hands. Other than the name and the
 #TYPE, the HANDS tag is not mandatory for a weapon proficiency. It can be used when necessary.
-#
+# HANDS is being PHASED OUT. Equipment should dictate number of Slots used.

@@ -1,17 +1,18 @@
 # CVS $Revision$ $Author$ -- Wed Dec  3 12:59:23 2014 -- reformated by prettylst.pl v1.51 (build 25490)
 # COMMENT: Method to track first assigned class.
 # Ability Name				Unique Key							Category of Ability		Type						Visible		Serves As						Define																																															Description											Multiple?	Choose							Template				Auto Weapon Prof																									Ability																																																																																							Bonus to skill							Modify VAR										Temporary Bonus
-CATEGORY=Internal|Default.MOD																																																																																																																																					ABILITY:Internal|AUTOMATIC|Defines Required	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREABILITY:1,CATEGORY=Special Ability,TYPE.Uncanny Dodge	ABILITY:Internal|AUTOMATIC|Temp Bonus Aspect ~ Inspire Courage|PREVARGTEQ:OtherInspireCourageSaves,1
+CATEGORY=Internal|Default.MOD																																																																																																																																					ABILITY:Internal|AUTOMATIC|Defines Required	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREABILITY:1,CATEGORY=Special Ability,TYPE.Uncanny Dodge	ABILITY:Internal|AUTOMATIC|Temp Bonus Aspect ~ Inspire Courage|PREVARGTEQ:OtherInspireCourageSaves,1		
 
 #	ABILITY:Internal|AUTOMATIC|First Base Class|PRECLASS:1,TYPE.Base=1
 
 #COMMENT: Holds Global DEFINES
 
 # All Hidden Abilities ~ Granted Abilities:
-Defines Required												CATEGORY:Internal																			DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:ActivateSizeMaster|0	DEFINE:RaceSizeIsLong|0																																																																																																																																																																																		BONUS:VAR|RaceSizeIsLong|1|PRELEGSGTEQ:4|PREVAREQ:OverrideReach,0
-#
-Bardic Inspire Courage			KEY:Temp Bonus ~ Bardic Inspire Courage		CATEGORY:Internal																			DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0	DEFINE:OtherInspireCourageBonus|0															CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Bonus Granted																																																																																																																																														TEMPBONUS:ANYPC|COMBAT|TOHIT|OtherInspireCourageAttack|TYPE=Morale	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|OtherInspireCourageDamage|TYPE=Morale	TEMPBONUS:ANYPC|VAR|OtherInspireCourageSaves,OtherInspireCourageAttack,OtherInspireCourageDamage|OtherInspireCourageBonus	TEMPBONUS:ANYPC|VAR|OtherInspireCourageBonus|%CHOICE		
-Bardic Inspire Competence		KEY:Temp Bonus ~ Bardic Inspire Competence	CATEGORY:Internal																			DEFINE:OtherInspireCompetenceBonus|0																																																																																																																																																																																								BONUS:SKILL|TYPE.Standard|OtherInspireCompetenceBonus	BONUS:VAR|OtherInspireCompetenceBonus|2
+Defines Required												CATEGORY:Internal																			DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:ActivateSizeMaster|0	DEFINE:RaceSizeIsLong|0			DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0	DEFINE:OtherInspireCourageBonus|0	DEFINE:OtherInspireCompetenceBonus|0																																																																																																																																																																																BONUS:VAR|RaceSizeIsLong|1|PRELEGSGTEQ:4|PREVAREQ:OverrideReach,0
+###Block:
+# TEMP BONUS - When using TEMPBONUS and the ability is not granted to the PC, remember that other tags will be considered on that ability.
+Bardic Inspire Courage			KEY:Temp Bonus ~ Bardic Inspire Courage		CATEGORY:Internal	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Bonus Granted	TEMPBONUS:ANYPC|COMBAT|TOHIT|OtherInspireCourageAttack|TYPE=Morale	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|OtherInspireCourageDamage|TYPE=Morale	TEMPBONUS:ANYPC|VAR|OtherInspireCourageSaves,OtherInspireCourageAttack,OtherInspireCourageDamage|OtherInspireCourageBonus	TEMPBONUS:ANYPC|VAR|OtherInspireCourageBonus|%CHOICE
+Bardic Inspire Competence		KEY:Temp Bonus ~ Bardic Inspire Competence	CATEGORY:Internal	TEMPBONUS:ANYPC|SKILL|TYPE=Standard|2
 
 # Must be added to display - set in default
 Temp Bonus Aspect ~ Inspire Courage	CATEGORY:Internal	ASPECT:SaveBonus|+%1 Morale bonus to Will saving throw vs. fear and charm effects.|OtherInspireCourageSaves
@@ -19,6 +20,7 @@ Temp Bonus Aspect ~ Inspire Courage	CATEGORY:Internal	ASPECT:SaveBonus|+%1 Moral
 # COMMENT: Experimental Multiclass Barbarian Support
 First Base Class												CATEGORY:Internal																																																																																									TEMPLATE:First Base Class
 
+###Block:
 # COMMENT: PCGen Standard Ability -
 #Displayed Name	KEY:<GrantingObject> ~ <Name>	SORTKEY:Class_<class> (OR) Race	CATEGORY:<Cat>	TYPE:ClassFeatures.<ClassName>ClassFeatures.SpecialQuality(Or)SpecialAttack.<Ex/Su/Sp/Ps if appropriate>	DESC:Full Body of Text
 # COMMENT: Due to Substitution Class Support, strive to keep all variables within the originating ability i.e. class feature. Use of CL should be replaced by "<ClassName>LVL"
@@ -479,7 +481,7 @@ Familiar (Default)			KEY:Standard Selection ~ Familiar				CATEGORY:Internal		TYP
 # Special Mount
 Special Mount (Default)			KEY:Standard Selection ~ Special Mount			CATEGORY:Internal		TYPE:SpecialMountSelection					!PREABILITY:1,CATEGORY=Internal,TYPE.SpecialMountAlternate								COMPANIONLIST:Special Mount|Companion ~ Horse (Warhorse Heavy),Companion ~ Shark (Large)|PRESIZELTEQ:M	COMPANIONLIST:Special Mount|Companion ~ Dog (Riding),Companion ~ Pony (War)|PRESIZELTEQ:S
 # COMMENT: Expanded Selection is in place for Homebrew Users
-Expanded Selection			KEY:Expanded Selection ~ Special Mount			CATEGORY:Internal		TYPE:SpecialMountSelection.SpecialMountAlternate																		COMPANIONLIST:Special Mount|Companion ~ Horse (Warhorse Heavy),Companion ~ Shark (Large)|PRESIZELTEQ:M	COMPANIONLIST:Special Mount|Companion ~ Dog (Riding),Companion ~ Pony (War)|PRESIZELTEQ:S																																																																																																																																																																																																																																																																																																																																																							COST:0
+Expanded Selection			KEY:Expanded Selection ~ Special Mount			CATEGORY:Internal		TYPE:SpecialMountSelection.SpecialMountAlternate																		COMPANIONLIST:Special Mount|ANY																																																																																																																																																																																																																																																																																																																																																																																		COST:0
 
 
 

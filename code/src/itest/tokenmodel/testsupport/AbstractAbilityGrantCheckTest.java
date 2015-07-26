@@ -28,19 +28,29 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.choose.NoChoiceToken;
+import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTest
 {
 
-	protected static final plugin.lsttokens.auto.FeatToken AUTO_FEAT_TOKEN =
-			new plugin.lsttokens.auto.FeatToken();
-	private static final plugin.lsttokens.choose.FeatSelectionToken CHOOSE_FEATSELECTION_TOKEN =
-			new plugin.lsttokens.choose.FeatSelectionToken();
+	private static final plugin.lsttokens.AbilityLst ABILITY_TOKEN =
+			new plugin.lsttokens.AbilityLst();
+	protected static final plugin.lsttokens.deprecated.AutoFeatToken AUTO_FEAT_TOKEN =
+			new plugin.lsttokens.deprecated.AutoFeatToken();
+	private static final plugin.lsttokens.deprecated.ChooseFeatSelectionToken CHOOSE_FEATSELECTION_TOKEN =
+			new plugin.lsttokens.deprecated.ChooseFeatSelectionToken();
 	private static final plugin.lsttokens.TypeLst TYPE_TOKEN =
 			new plugin.lsttokens.TypeLst();
 	private static final StackToken ABILITY_STACK_TOKEN = new StackToken();
 	private static final NoChoiceToken CHOOSE_NOCHOICE_TOKEN =
 			new NoChoiceToken();
+
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		TokenRegistration.register(ABILITY_TOKEN);
+	}
 
 	public Ability getMultNo(String s)
 	{
@@ -59,7 +69,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 	{
 		Ability a = create(Ability.class, s);
 		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
-		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "%LIST");
+		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "FEAT|%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
@@ -84,7 +94,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 	{
 		Ability a = create(Ability.class, s);
 		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
-		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "%LIST");
+		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "FEAT|%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();

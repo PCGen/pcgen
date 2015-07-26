@@ -513,15 +513,15 @@ CLASS:Sensate of Savona	!PREALIGN:LG,LN,LE	PREDEITY:1,Larissa	PREABILITY:2,CATEG
 CLASS:Sensate of Savona	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Arcana|TYPE=Religion|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 1														ABILITY:Special Ability|AUTOMATIC|Alertness Ability|A Toast to Larissa|The Life of the Party
 1:REPEATLEVEL:2								BONUS:VAR|ToastTimes|1
-2			UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6					ABILITY:Special Ability|AUTOMATIC|Stumble|Tolerance
-3			UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6					ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge Ability
-4			UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6					ABILITY:Special Ability|AUTOMATIC|Bar Room Brawler|Mobility Ability
-5			UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-6			UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8					ABILITY:Special Ability|AUTOMATIC|Lurch|That's the Good Stuff
-7			UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-8			UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6					ABILITY:Special Ability|AUTOMATIC|Spring Attack Ability
-9			UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6					ABILITY:Special Ability|AUTOMATIC|Avoidance Ability
-10			UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6					ABILITY:Special Ability|AUTOMATIC|Blindsense|Just One More
+2			UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,6d6					ABILITY:Special Ability|AUTOMATIC|Stumble|Tolerance
+3			UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,6d6					ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge Ability
+4			UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,6d6					ABILITY:Special Ability|AUTOMATIC|Bar Room Brawler|Mobility Ability
+5			UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8,6d8
+6			UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8,6d8					ABILITY:Special Ability|AUTOMATIC|Lurch|That's the Good Stuff
+7			UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8,6d8
+8			UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6,8d6					ABILITY:Special Ability|AUTOMATIC|Spring Attack Ability
+9			UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6,8d6					ABILITY:Special Ability|AUTOMATIC|Avoidance Ability
+10			UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6,8d6					ABILITY:Special Ability|AUTOMATIC|Blindsense|Just One More
 
 ##############################################################################################################################################################################################################################################################################################################################################
 

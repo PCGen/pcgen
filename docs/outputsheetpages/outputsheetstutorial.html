@@ -1,749 +1,754 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
-<html>
-	<!--
-		PCGen Documentation Project
-
-		$Author$
-		$Date$
-		$Revision$
-
-		Contributors:
-		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		Chris Chandler (aka Barak)
-
-		Description:
-		Provides information on Creating Character Sheet Templates.
-	-->
-	<head>
-		<title>Creating Character Sheet Templates</title>
-		<link rel="stylesheet" type="text/css" href="../pcgen.css" >
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	</head>
-
-	<body>
-		<h1>Creating Character Sheet Templates</h1>
-
-		<h2>Preface</h2>
-
-		<p>This guide is in the main going to focus on using the tokens effectively and appropriately. For
-		simplicity, we will primarily use HTML examples, some of which may be fairly complicated.</p>
-
-		<p>If you need help with HTML or XML/XSL you should visit <a href="http://www.w3c.org/">http://www.w3c.org</a>
-		and read their tutorials. For information about FOP (.fo file	processing), visit
-		<a href="http://www.apache.org/">http://www.apache.org</a>.</p>
-
-		<p>After going over the basics, I will be taking you through the steps I used
-		  to	create a sheet to display a character's weapons and equipment.</p>
-
-
-		<h2>Introduction</h2>
-
-		<p>You will need to have a basic understanding of how PCGen uses character sheet templates to
-		create them.</p>
-
-		<p>When you &quot;Export&quot; a character, the program will ask you which template you would
-		like to use. PCGen starts by reading that template into memory. PCGen scans for special character
-		sets called &quot;tokens&quot; as it reads the template. These tokens represent various bits of
-		information about the character you are exporting. When PCGen encounters one of these tokens,
-		it retrieves the information from the character file and inserts the information into the spot
-		where the token was. PCGen writes the file out to disk with the information in place of
-		the tokens once it has completely loaded the file.</p>
-
-		<p>A sample line in an HTML template file might be:</p>
-
-		<p class="indent1"><code>&lt;i&gt;Character Name:&lt;/i&gt; |NAME|</code></p>
-
-		<p>If you open the template with an HTML browser you would see:</p>
-
-		<p class="indent1"><em>Character Name:</em> |NAME|</p>
-
-		<p>When you open the output file after exporting a character named &quot;Mad Monkey
-	  Mynex&quot; using that template you	would see:</p>
-
-		<p class="indent1"><em>Character Name:</em> Mad Monkey Mynex</p>
-
-		<p>The bodies of the templates themselves can be done in HTML or XML/XSL:FO
-		for PDF. In either case, the tokens used to get information from PCGen into the
-		sheet are the same. A word of warning: PCGen only changes the token,
-		nothing else. If you put in bad HTML or XML/XSL code, bad HTML or XML/XSL
-		code will come out.</p>
-
-		<p>The first and most important thing I want to stress is to read the documentation
-		on the individual output tokens. Then read them again. There are many subtleties in
-		the use of the tokens contained there that cannot be covered in a quick walkthrough.</p>
-
-		<p>Through some frustrating trial and error when I began doing character sheets for PCGen, I
-		learned a few important things regarding basic Character Sheet design:</p>
-
-		<ol class="indent2">
-			<li>Decide on a specific purpose/use for your template. There are LOTS of tokens and
-				there is no need to try and use them all.<br /></li>
-
-			<li>Figure out what's going to go on the sheet. Are you just going to show the main
-				AC? Are you going to want to show all the modifiers that make up the
-				total AC? Do you want spell lists? Etc.<br /></li>
-
-			<li>Identify most of your tokens beforehand. Once you have decided what you want on
-				the sheet, it's time to start figuring out what tokens you need to use.
-				It is easiest to sketch a simple layout on a sheet of paper and fill in what
-				tokens go where so you have a quick reference. You don't have to get them
-				all right now, but it is very helpful to have them right there so you don't have
-				to go digging around through the documentation looking for the proper token
-				when you're actually trying to type in the sheet.</li>
-
-			<li>Remember that tokens do not like whitespace in front of them!  It will make your sheets
-				go wonky, without you knowing why...<br /></li>
-		</ol>
-
-		<h2>Tokens</h2>
-
-		<p>Now down to the true nuts and bolts, the tokens. First, some general notes:</p>
-
-		<ol class="indent2">
-			<li>All tokens are CAPITALIZED. There may be variables or options that are not, but the
-				token itself will be.<br /></li>
-
-			<li>All tokens are delimited (set apart) from the rest of the text on the character sheets by
-				either the | (pipe) character, a \ (single backslash) or a \\ (double backslash), depending
-				on where the token is used. There are no spaces between the beginning and end of the token
-				and the delimiter characters. The token documentation has the delimiter characters left out
-				for ease of reading<br /></li>
-
-			<li>Some tokens output a single item, some output comma delimited lists.<br /></li>
-
-			<li>Not all tokens make PCGen output something. Some are control commands that make
-				comparisons, cause loops or apply filters. We will discuss these shortly.<br /></li>
-
-			<li>Many tokens use	variables so you can get at certain aspects. Variables come immediately
-				after the token with a period &quot;.&quot; between them. For example the token
-				<code>EXPORT</code> can provide date and time information on a sheet using <code>EXPORT.DATE</code>
-				and <code>EXPORT.TIME</code>. The variables that may be used with each token are listed in
-				the output sheet token documentation. Not all variables are capitalized. Some numeric variables
-				start at zero (0) but those should be noted in the documentation for the token.</li>
-		</ol>
-
-		<h2>Control Tokens</h2>
-
-		<h3>Filter Tokens</h3>
-
-		<p>The first and easiest to understand of the control tokens are the filter tokens. These are used
-		to stop the normal output if the filter condition is not met. Filters all begin with a % (percent)
-		sign and will run from the moment they are invoked until they encounter a different filter or until
-		they encounter the end of filter token, which is a single % symbol (E.g. <code>|%|</code>) In case this wasn't
-		clear, what it essentially means is that one, and only one, filter may be active at any time.
-		Nested filters are not supported.</p>
-
-		<p>The simplest ones are in the form <code>|%TOKEN|</code>. Here PCGen simply checks to see if the character has
-		the appropriate data. A good use of these simple filters is to suppress spell list blocks for
-		non-spellcasters so you can use the same character sheet for both types of characters and not have
-		an empty spell list cluttering things up for a non-spellcaster. Examples of these types of tokens
-		would be <code>|%SPELLISTBOOK|</code> or <code>|%BIO|</code>.</p>
-
-		<p>Some slightly more complex filters are in the form of <code>|%ARMORx|</code> and <code>|%WEAPONx|</code>.
-		In these filters x represents the number of appropriate items (armor type or weapon type for the above examples)
-		that the character must have in order for the filter to allow output. For example: <code>|%WEAPON3|</code> means
-		that there would be no output after the filter until it reaches the next filter or filter end token unless
-		the character has at least three weapons. If the character has three weapons the output would proceed as
-		normal.</p>
-
-		<p>The next form a filter may take is that of classname=level or SPELLLISTCLASSx=level. For
-		example, <code>|%BARD=3|</code> would filter output if the character did not have at least
-		three Bard levels. <code>|%SPELLLISTCLASS0=2|</code> would filter output if the
-		character did not have at least two levels in his first spellcasting
-		class. <code>SPELLLISTCLASS</code> is one of the tokens that starts at zero as
-		mentioned earlier. These filters are usually used to put class specific
-		information on a sheet and keep it from appearing unless you are of the
-		appropriate class and level. (Barbarian Rage is a good example here).</p>
-
-		<p>The final form of filter is one that uses variables. They all start with %VAR and take the
-		form of <code>|%VAR.name.label.value|</code>. The &quot;name&quot; is the name of any variable
-		that has been set up in the LST files using the VAR tag. The label is a comparator and must be
-		one of the following: </p>
-
-		<ul class="indent 1">
-			<li><code>EQ</code> (equals).</li>
-			<li><code>NEQ</code> (not equal).</li>
-			<li><code>LT</code> (less than).</li>
-			<li><code>LTEQ</code> (less than or equal to).</li>
-			<li><code>GT</code> (greater than).</li>
-			<li><code>GTEQ</code> (greater than or equal to).</li>
-		</ul>
-
-		<p>An example using the variable TOTALPOWERPOINTS defined in a LST from the Psionic
-		Handbook would be: <code>|%VAR.TOTALPOWERPOINTS.GTEQ.1|</code>. This would filter
-		output unless the variable TOTALPOWERPOINTS was greater than or equal to 1.</p>
-
-		<p>All of the available filters are listed in the output sheet token documentation with the exception
-		of the VAR ones which are too numerous to include since every VAR in every LST
-		can be used as a filter. </p>
-
-		<h3>Count Tokens</h3>
-
-		<p>The second special token is the COUNT token. This token also takes a variable, but in a
-		slightly different form. The variable for the COUNT token goes inside a set of [] (square brackets).
-		This token returns the number of items of the variable type given. <code>|COUNT[CLASSES]|</code> would
-		return the number of classes a character has. While this has some limited use as an actual output token,
-		these tags are more often used to set the lower or upper limit in a FOR loop, which will be explained
-		shortly.</p>
-
-		<p>All of the available variables for the COUNT token are listed in the output sheet token documentation.</p>
-
-		<h3>IF Tokens</h3>
-
-		<p>The next set tokens in our review of control tokens are the IIF/OIF tokens. The simpler of
-		the two is the OIF token. It is used to evaluate an expression and return a value (text or number).
-		This token is in the form <code>|OIF(expr,true,false)|</code>. There are only certain expressions
-		that may be used, and they are listed in the output sheet token documentation. The &quot;true&quot;
-		and &quot;false&quot; parts may be anything you want them to be. <code>|OIF(SPELLCASTER0=PREPARE,Yes,No)|</code>
-		would return &quot;Yes&quot; if the character's first spellcasting class had to prepare spells and
-		&quot;No&quot; if it didn't.</p>
-
-		<p>The IIF token has a much broader range and does not return output itself. The IIF statement
-		takes the form of:</p>
-
-		<p class="indent1"><code>|IIF(expr)|</code></p>
-		<p class="indent1"><code>&lt;true actions&gt;</code></p>
-		<p class="indent1"><code>|ELSE|</code></p>
-		<p class="indent1"><code>&lt;false actions&gt;</code></p>
-		<p class="indent1"><code>|ENDIF|</code></p>
-
-		<p>The IIF token, like the OIF token, can only take the expressions listed in the output sheet
-		documentation as usable with IF tokens. The power of this token is in the ability to perform a
-		whole series of actions based upon the evaluation of the expression. An example of the IIF token
-		could be:</p>
-
-		<p class="indent1"><code>|IIF(SKILL0.UNTRAINED)|</code></p>
-
-		<p class="indent1"><code>*</code></p>
-
-		<p class="indent1"><code>|ELSE|</code></p>
-
-		<p class="indent1"><code>x</code></p>
-
-		<p class="indent1"><code>|ENDIF|</code></p>
-
-		<p>This bit would check to see if your first skill (SKILL0) is usable untrained. If the skill is,
-		it outputs an &quot;*&quot; otherwise it outputs an &quot;x&quot;.</p>
-
-		<p class="new">*** Update - Additional functionality has been added so that you may compare
-		(exact match only) the result of <strong>any</strong> token to an expected result. AND and
-		OR functionality has also been added.</p>
-
-		<p><code>|IIF(SPELLLISTCLASS.%class:Psychic Warrior.OR.SPELLLISTCLASS.%class:Psion)|</code> would trigger if
-		the class number represented by %class was either a Psychic Warrior OR a Psion. </p>
-
-		<h3>Loop Tokens</h3>
-
-		<p>The last set of control tokens we need to cover are the FOR/DFOR tokens. These tokens
-		provide loop capabilities for creating lists on character sheets. These
-		lists can include equipment, classes, skills, spells, etc.</p>
-
-		<p>The FOR loops come in three forms. The format of the first is:</p>
-
-		<p class="indent1"><code>|FOR,%var,min,max,step,exists|</code></p>
-		<p class="indent1"><code>&lt;character sheet stuff&gt;</code></p>
-		<p class="indent1"><code>|ENDFOR|</code></p>
-
-		<p>In this token, %var is a variable name that you assign when you create a
-		loop. It should not/cannot be the same as a variable defined in a LST by
-		the VAR tag.</p>
-
-		<p>Whenever you use that variable within that loop, it will be
-		evaluated and return the current iteration number. The min and max values
-		are the start and end points for the loop. It is normal to start the
-		loops at zero because most of the arrays in PCGen are zero indexed.</p>
-
-		<p>You may also use a COUNT statement here, or any token that returns a number.
-		You may use the <code>COUNT[xxx]</code> token in the max field to
-		tell the loop when to stop, or any token that normally returns a number.
-		The step field is how much you want it to increment the variable each time it
-		goes through the loop (this is usually 1).</p>
-
-		<p>The exists field controls how the loop acts if it runs out of data before the max value is
-		reached. There are only three valid values for the exists field: 0, 1 or 2. If the exists field is a 0,
-		the loop will continue processing until the max is reached. If it is a 1, then the loop
-		will stop processing the contents of the loop and continue on through the sheet
-		as if the loop had reached the max. If exists is 2 and the character sheet is currently within a filter,
-		PCGen will not print anything else until the end of the filter <code>|%|</code> is reached or another
-		filter is begun.</p>
-
-		<p>The <code>|ENDFOR|</code> token tells the program where the loop ends and is required when you
-		use a |FOR, loop.</p>
-
-		<p>Here is an example demonstrating a FOR loop:</p>
-
-		<p class="indent1"><code>|FOR,%eqp,0,COUNT[EQUIPMENT]-1,1,1|</code></p>
-		<p class="indent1"><code>|EQ%eqp.NAME|&lt;br&gt;</code></p>
-		<p class="indent1"><code>|ENDFOR|</code></p>
-
-		<p>This loop will generate a list of the names of all of your equipment, one item to a line using
-		the EQx.Name token, where x is the current count in the loop. (The &lt;br&gt; is an HTML line break.)</p>
-
-		<p>Example output for a typical starting fighter would be:</p>
-
-		<p class="indent1"><code>
-		Half-Plate<br />
-		Outfit (Explorer's)<br />
-		Shield (Large/Steel)<br />
-		Battleaxe</code></p>
-
-		<p>The variable in the above loop is %eqp. The min is 0. The max is <code>COUNT[EQUIPMENT]-1</code>.
-		I subtracted 1 because we are going to cycle through the equipment list and the equipment list array
-		starts at 0 while the COUNT statement starts at 1. Because of this we need to reduce the actual count
-		by 1. The increment is going to be 1 and the loop will exit immediately if it runs out of items before
-		the max is reached.</p>
-
-		<p>Notice the use of the variable %eqp to define the equipment number each time through. Using loop
-		variables properly, you can accomplish the creation of large lists with relatively little effort.
-		This is the main reason to use loops.</p>
-
-		<p>One last thing to know about these kinds of loops is that they may be nested. For example:</p>
-
-		<p class="indent1"><code>|FOR,%spbk,0,COUNT[SPELLBOOKS]-1,1,1|</code></p>
-		<p class="indent1"><code>|SPELLBOOKNAME%spbk|</code></p>
-		<p class="indent1"><code>|FOR,%lvl,0,9,1,1|</code></p>
-		<p class="indent1"><code>|SPELLLISTBOOK%spbk.%lvl|</code></p>
-		<p class="indent1"><code>|ENDFOR|</code></p>
-		<p class="indent1"><code>|ENDFOR|</code></p>
-
-		<p>This would create a list of spells for each of your spellbooks (by level). </p>
-
-		<p>The spell list loop is said to be nested inside of the spell book loop. This allows us to use
-		two variables. If you need more variables, you may nest more loops. Notice that each loop needs
-		its own <code>|ENDFOR|</code> statement.</p>
-
-		<p>The format for the	next kind of FOR loop looks like this:</p>
-
-		<p><code>|FOR.min,max,perLine,phrase,startLine,endLine,exists|</code></p>
-
-		<p>This kind of FOR loop can be used to generate multi-column lists. Notice that the
-		character following the FOR is a period instead of a comma. There is no
-		variable name in this kind of loop; to get the current increment of the FOR
-		loop you would use the &quot;%&quot; (percent) symbol.</p>
-
-		<p>The min and max variables are the start and end points for the loop. The perLine
-		variable is how many phrases will be repeated before the endLine
-		is printed (e.g. 3 if you wanted a 3-column list). The phrase is the code
-		that is parsed for tokens.</p>
-
-		<p>You must use &quot;\&quot; (backslash) characters instead of &quot;|&quot; (pipe) characters to delimit tokens
-		within a FOR loop phrase. The startLine will be output at the beginning
-		of the loop and after the endLine. The endLine variable will be printed every perLine
-		times through the loop. </p>
-
-		<p>This type of FOR loop does not require an |ENDFOR| tag. This type
-		of FOR loop cannot be nested, <strong><em>except</em></strong> when doing a party
-		sheet. Nesting in this manner will be covered in the section dealing with
-		party sheets.</p>
-
-		<p><strong>NOTE:</strong> If you are using this type of FOR loop to create a party sheet (psheet*.*)
-		you must use a &quot;\\&quot; double backslash to delimit the tokens within the
-		phrase. Party sheets will be covered elsewhere, but it is important to be
-		aware of it. </p>
-
-		<p>A real example (for a single character sheet):</p>
-
-		<p class="indent1"><code>&lt;table&gt;</code></p>
-		<p class="indent1"><code>|FOR.0,COUNT[EQUIPMENT]-1,2,&lt;td&gt;\EQ%.NAME\&lt;/td&gt;,&lt;tr&gt;,&lt;/tr&gt;,1|</code></p>
-		<p class="indent1"><code>&lt;/table&gt;</code></p>
-
-		<p>HTML note: The	&lt;table&gt; and &lt;/table&gt; are the HTML table opening and closing
-		commands &lt;tr&gt; and	&lt;/tr&gt; open and close a table row respectively	and &lt;td&gt;
-		and &lt;/td&gt; open and close a single piece of data in the table.</p>
-
-		<p>This would produce a table of two columns listing the names of all your equipment.</p>
-
-		<p>Example Output:</p>
-		<p class="indent1"><code>
-		Half-Plate<br />
-		Outfit (Explorer's)<br />
-		Shield (Large/Steel)<br />
-		Battleaxe</code></p>
-
-		<p>There is no named variable in this loop. The min is 0. The max is <code>COUNT[EQUIPMENT]-1</code>.
-		The perLine is 2, so there will be two phrases output before the endLine. The phrase is
-		<code>&lt;td&gt;\EQ%.NAME\&lt;/td&gt;</code>. The startLine is <code>&lt;tr&gt;</code> (to start the
-		row) and the endLine is <code>&lt;/tr&gt;</code> (to end the row).</p>
-
-		<p>The final type of for loop is the DFOR loop. While the format of the loop itself is fairly
-		complicated, what it does isn't. Instead of creating a table of elements
-		across and then down, it creates a table of elements down and then across.</p>
-
-		<p>To illustrate the difference between the different loops: </p>
-
-		<table>
-			<thead>
-				<tr>
-					<td class="center"><code>FOR,</code> Loop Output</td>
-					<td class="center"><code>FOR.</code> Loop Output</td>
-					<td class="center"><code>DFOR</code> Loop Output</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td class="center">1</td>
-					<td class="center">1 2 3</td>
-					<td class="center">1 4</td>
-				</tr>
-				<tr>
-					<td class="center">2</td>
-					<td class="center">4 5 6</td>
-					<td class="center">2 5</td>
-				</tr>
-				<tr>
-					<td class="center">3</td>
-					<td class="center"></td>
-					<td class="center">3 6</td>
-				</tr>
-				<tr>
-					<td class="center">5</td>
-					<td class="center"></td>
-					<td class="center"></td>
-				</tr>
-				<tr>
-					<td class="center">6</td>
-					<td class="center"></td>
-					<td class="center"></td>
-				</tr>
-			</tbody>
-		</table>
-
-		<p>The format for the DFOR loop:</p>
-
-		<p><code>|DFOR.min,maxDown,stepNextLine,totalMax,stepInLine,phrase,startLine,endLine,exists|</code></p>
-
-		<p>Explanation coming shortly (as soon as I figure out the best way to turn this into Human English :p)</p>
-
-		<h3>Math</h3>
-
-		<p>Simple mathematical operations are supported in the character sheets.</p>
-
-		<p>The operators +, -, *, /, @ and ^ may be used and you may set the order of operations using ().</p>
-
-		<p>You must use at least two operands. These operands can be valid tokens (that return numbers),
-		or they can both be hard-coded numbers or a token and a number.</p>
-
-		<p>@ and / are both used for division, but the first one returns only the integer portion of the
-		operation.</p>
-
-		<p>Do not use spaces between the operands and the operator. Doing so will cause the
-		math operation to fail.</p>
-
-		<p>Math can also be performed on attack routines without any extra effort. For example: Say
-		you use the token <code>|WEAPON%.TOTALHIT|</code> and it returns &quot;+6/+1&quot;. Were you
-		to use <code>|WEAPON%.TOTALHIT+2</code>|, the output would be &quot;+8/+3&quot;.</p>
-
-		<p>There are several variables you may append to a math operation (using a &quot;.&quot; As a delimiter) that
-		will change the format of the output. These variables are:</p>
-
-		<ul>
-			<li>INTVAL - Displays just the integer portion of the result operation.</li>
-			<li>NOZERO - Displays blank if the result is zero, otherwise displays the result.</li>
-			<li>SIGN - Prepends the appropriate sign (+ or -) to the result.</li>
-			<li>TRUNC - Displays the result to the first decimal place.</li>
-		</ul>
-
-		<p>These variables may be used in combination with each other. For example:<br />
-		<code>|(VAR.Turn Level+STAT5.MOD).INTVAL.SIGN|</code> would add the variable &quot;Turn Level&quot;
-		and the Wisdom Modifier together, return only the integer portion of that operation and prepend the
-		appropriate sign to it.</p>
-
-		<h2>Creating a new OS:</h2>
-
-		<p>It has to be in the same directory as the other Output Sheets and the name has to start with
-		"csheet_". Then it will show up in the export list.</p>
-		<ul>
-		<li><p>The standard file naming standard is "csheet_genre_identifier".</p></li>
-
-		<li><p>In <a href="outputsheetsstd.html">docs\outputsheetpages\outputsheetsstd.html</a> a
-		description of what makes your os sheet special if its html/xml in standard versions. In
-		<a href="outputsheetspdf.html">docs\outputsheetpages\outputsheetspdf.html</a> a
-		description of what makes your os sheet special if its xslt/.fo in PDF. In
-		<a href="outputsheetstxt.html">docs\outputsheetpages\outputsheetstxt.html</a> a
-		description of what makes your os sheet special if its plain txt.</p></li>
-
-		<li><p>To get your sheet added to the repository and into the next distribution as soon as possible.
-		Upload to the <a href="http://groups.yahoo.com/group/pcgen_experimental/files/">http://groups.yahoo.com/group/pcgen_experimental/files/</a>
-		in file section "2) Step 2 -PRE-ALPHA, COMPLETED DATASETS GO HERE", don't forget to check the  box
-		at the box at the bottom of the upload box to let others know its there. Either wait for the notice
-		to appear on PcGen Experimental newsgroup and reply with the description as to what is special about
-		the new csheet, or you can email it to the newsgroup.</p>
-		
-			<p class="sidebar1">Note: It is PCGen's policy to not put author's web links, whether commercial or personal, 
-				on output sheets submitted for inclusion within PCGen.  Author's of such pages will have their names added 
-				to the list of volunteers that have contributed to PCGen. Additionally, if requested, PCGen will place the 
-				author's name in the comments section of the sheet as the original author.</p>
-		</li>
-
-		<li><p>If you need assistance with tags, ask on <a href="PCGenListFileHelp@yahoogroups.com">PCGenListFileHelp@yahoogroups.com</a>.
-		Closed Content items are not discussed as such. Check the front of the book for the OGL disclaimer and
-		see if what you need help with is Closed Content. If it is then ask about a "Foo" skill/fead/class/device
-		that has the following capabilities, limited by the following and what you have tried to get the effect
-		you are interested in.</p></li>
-		</ul>
-		<h2>Character Sheet Creation</h2>
-
-		<p>Now on to the actual process of creating a character sheet. The first thing to do
-		is to decide what our sheet is for. As a not too simple and not too
-		difficult one I will go through creating a complete equipment list with the
-		weapons separated out of it. We'll put the weapons on one side and the
-		equipment on the other.</p>
-
-		<p>Now that we've	decided what our sheet is for we need to decide exactly what is going to be
-		displayed on it.</p>
-
-		<p>We should have some way of identifying the character the sheet goes with, and the player playing
-		the character. The class listing and level could be helpful too. If
-		you are anything like me, you have multiple printed copies of your character
-		floating around all the time in the various stages of their development, so
-		these last couple bits of information can be invaluable.</p>
-
-		<p>For the weapons we should display all of the standard attributes you usually see on character
-		sheets; Weapon name, to hit, damage, hand, range, type, size, any special
-		properties and critical hit information.</p>
-
-		<p>For the rest of the equipment we can get away with a lot less information. We would want the
-		equipment name (lets make it bold if it's a magic item), the location it's
-		carried or equipped at, its weight, how many of it we have and any special
-		properties it might have.</p>
-
-		<p>The tokens for the above list (in the order I listed them above) are;</p>
-
-		<p>For the identification we have: <code>NAME</code>, <code>PLAYERNAME</code>, <code>CLASSLIST</code>,
-		<code>TOTALLEVELS</code></p>
-
-		<p>For the weapons we have:
-		<code>WEAPONx.NAME</code>, <code>WEAPONx.TOTALHIT</code>,
-		<code>WEAPONx.DAMAGE</code>, <code>WEAPONx.HAND</code>,
-		<code>WEAPONx.RANGE</code>, <code>WEAPONx.TYPE</code>,
-		<code>WEAPONx.SIZE</code>, <code>WEAPONx.SPROP</code>,
-		<code>WEAPONx.CRIT</code>, <code>WEAPONx.MULT</code></p>
-
-		<p>For the equipment we have:
-		<code>EQx.NAME.MAGIC~&lt;b&gt;~&lt;/b&gt;</code>, <code>EQx.EQUIPPED</code>, <code>EQx.WT</code>,
-		<code>EQx.QTY</code>, <code>EQx.SPROP</code></p>
-
-		<p>The &quot;x&quot; in all of the tokens above will actually be a variable of some type (%weapon or
-		%equipment perhaps). We'll cover that in more depth shortly.</p>
-
-		<p>Next up is to decide on the actual layout. It is best to sketch what you're looking to
-		do as a quick reference, and then begin your HTML and craft it to fit the
-		visualization you sketched out. </p>
-
-		<p>While you may use an HTML editor such a Frontpage to create sheets, I
-		personally prefer to use a simple text editor and do it by hand. </p>
-
-		<p>Construction of character sheets for PCGen is done almost entirely through the use of tables
-		for both the .html and the .fo files. Some of the tables are simple, some of
-		them are deeply nested tables within tables.</p>
-
-		<p>We need to start the HTML sheet and set a few basic parameters like a white background, and a title
-		to be displayed in the title bar of the browser when the final sheet is opened.</p>
-
-		<p class="indent1"><code>&lt;html&gt;<br />
-		&lt;head&gt;<br />
-		&lt;title&gt;|NAME|'s Weapons and Equipment&lt;/title&gt;<br />
-		&lt;/head&gt;<br />
-		&lt;body bgcolor=&quot;white&quot;&gt;</code></p>
-
-		<p>Our first table will hold the identification and appear at the top of the sheet. The HTML
-		for this would look as follows (<em>note that for the sake of space here I have
-		removed several bits of formatting information regarding font's, etc. that you
-		will see in the actual sheet this is referring to</em>):</p>
-
-		<p class="indent1"><code>&lt;!-- Start Character Info Table --&gt;<br />
-		&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;4&quot; border=&quot;0&quot; width=&quot;100%&quot;&gt;<br />
-		&lt;tr&gt;<br />
-		&lt;td width=&quot;35%&quot;&gt;|NAME|&lt;/td&gt;<br />
-		&lt;td width=&quot;20%&quot;&gt;|CLASSLIST|&lt;/td&gt;<br />
-		&lt;td width=&quot;10%&quot;&gt;|TOTALLEVELS|&lt;/td&gt;<br />
-		&lt;td width=&quot;35%&quot;&gt;|PLAYERNAME|&lt;/td&gt;<br />
-		&lt;/tr&gt;<br />
-		&lt;tr&gt;<br />
-		&lt;td&gt;CHARACTER	NAME&lt;/td&gt;<br />
-		&lt;td&gt;CLASS&lt;/td&gt;<br />
-		&lt;td&gt;LEVEL&lt;/td&gt;<br />
-		&lt;td&gt;PLAYER&lt;/td&gt;<br />
-		&lt;/tr&gt;<br />
-		&lt;/table&gt;</code></p>
-
-		<p>The <code>&lt;tr&gt;</code> and <code>&lt;/tr&gt;</code> are the opening and closing tags for a table
-		row. The <code>&lt;td&gt;</code> and <code>&lt;/td&gt;</code> are the opening and closing
-		tags for each piece of table data (basically an individual cell to think in
-		spreadsheet terms).</p>
-
-		<p>What we've done here is put our tokens in the top row, and then in the row underneath put
-		labels for the various tokens.</p>
-
-		<p>Note the comments and indentation. These can be very helpful when you are in a deeply
-		nested table and need to keep track of where you are.</p>
-
-		<p>Next we get into the aforementioned nested tables. Since we want to divide the rest of the
-		sheet in half, with one half being for the weapons and the other half for the
-		rest of the equipment, we start another table.</p>
-
-		<p class="indent1"><code>&lt;!-- Start Main Sheet Table --&gt;<br />
-		&lt;table cellpadding=&quot;0&quot; width=&quot;100%&quot; cellspacing=&quot;5&quot; border=&quot;0&quot;&gt;<br />
-		&lt;tr&gt;<br />
-		&lt;td valign=&quot;top&quot;	width=&quot;50%&quot;&gt;</code></p>
-
-		<p>This opens the table we will use as the main container for the rest of the tables on the
-		sheet. We've created the table, started the first row and told it that we
-		want the first data field to take up half of the available page width.</p>
-
-		<p>Our next task is to put the weapons tables into this data area. We'll start with a simple
-		table to put a banner across half the page with a label describing what
-		information the tables following it contain.</p>
-
-		<p class="indent1"><code>&lt;!-- Start Weapon Tables --&gt;<br />
-		&lt;table cellpadding=&quot;0&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; border=&quot;0&quot;&gt;<br />
-		&lt;tr&gt;<br />
-		&lt;td align=&quot;center&quot;&gt;WEAPONS&lt;/td&gt;<br />
-		&lt;/tr&gt;<br />
-		&lt;/table&gt;</code></p>
-
-		<p>The next step is to start the actual weapons tables. The first step in this process is to
-		craft the loop to cycle through the weapons. For the sake of simplicity, we'll
-		use the most basic kind of FOR loop that I described first. </p>
-
-		<p>We'll call our variable %weap just so it's easy to remember what
-		we're using it for. Then, because the equipment arrays are 0 indexed, we
-		want our start number to be 0. To get the max number we will use <code>COUNT[EQTYPE.WEAPON]-1</code>
-		(remember the loop starts at 0 so we need to end it one step early, hence the -1 on the end). We
-		want it to step through the loop one at a time so we set the step parameter to 1 and we
-		want it to continue through to the end of the loop, so we set the exists parameter to 0.
-		What it took and entire paragraph to write out boils down to the following: </p>
-
-		<p class="indent1"><code>|FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|</code></p>
-
-		<p>Our weapons information will be contained in two tables, one immediately following the
-		other. We do this so that we can have different numbers of columns in
-		each table. While it is possible to achieve this look with a single
-		table, it is much more involved to try and produce.</p>
-
-		<p>The first table will have the weapons name, attack bonus, damage and critical hit
-		information. The HTML would look like this:</p>
-
-		<p class="indent1"><code>&lt;table cellpadding=&quot;0&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot;
-		border=&quot;0&quot;&gt;<br />
-		&lt;tr&gt;<br />
-		&lt;td align=&quot;center&quot; height=&quot;15&quot; rowspan=&quot;2&quot;
-		width=&quot;40%&quot;&gt;|WEAPON.%weap.NAME|&lt;/td&gt;<br />
-		&lt;td align=&quot;center&quot; width=&quot;20%&quot; height=&quot;15&quot;&gt;TOTAL
-		ATTACK BONUS&lt;/td&gt;<br />
-		&lt;td align=&quot;center&quot; width=&quot;20%&quot;
-		height=&quot;15&quot;&gt;DAMAGE&lt;/td&gt;<br />
-		&lt;td align=&quot;center&quot; width=&quot;20%&quot;
-		height=&quot;15&quot;&gt;CRITICAL&lt;/td&gt;<br />
-		&lt;/tr&gt;<br />
-		&lt;tr&gt;<br />
-		&lt;td align=&quot;center&quot;&gt;&lt;b&gt;|WEAPON.%weap.TOTALHIT|&lt;/td&gt;<br />
-		&lt;td align=&quot;center&quot;&gt;&lt;b&gt;|WEAPON.%weap.DAMAGE|&lt;/td&gt;<br />
-		&lt;td align=&quot;center&quot;&gt;&lt;b&gt;|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|&lt;/td&gt;<br />
-		&lt;/tr&gt;<br />
-		&lt;/table&gt;</code></p>
-
-		<p>Immediately following this will be another table that contains the rest of the weapon
-		information (hand, range, type, size and special properties). That portion of the weapon
-		display would look like this:</p>
-
-		<p class="indent1"><code>&lt;table cellpadding=&quot;0&quot;
-		cellspacing=&quot;0&quot; border=&quot;0&quot; width=&quot;100%&quot;&gt;<br />
-		&lt;tr&gt;<br />
-		&lt;td align=&quot;center&quot; height=&quot;15&quot; width=&quot;15%&quot;&gt;HAND&lt;/td&gt;<br />
-		&lt;td align=&quot;center&quot; height=&quot;15&quot; width=&quot;15%&quot;&gt;RANGE&lt;/td&gt;<br />
-		&lt;td align=&quot;center&quot; width=&quot;15%&quot; height=&quot;15&quot;&gt;TYPE&lt;/td&gt;<br />
-		&lt;td align=&quot;center&quot; width=&quot;15%&quot; height=&quot;15&quot;&gt;SIZE&lt;/td&gt;<br />
-		&lt;td align=&quot;center&quot; width=&quot;40%&quot; height=&quot;15&quot;SPECIAL
-		PROPERTIES&lt;/td&gt;<br />
-		&lt;/tr&gt;<br />
-		&lt;tr&gt;<br />
-		&lt;td align=&quot;center&quot;&gt;|WEAPON.%weap.HAND|&lt;/td&gt;<br />
-		&lt;td align=&quot;center&quot;&gt;|WEAPON.%weap.RANGE|&lt;/td&gt;<br />
-		&lt;td align=&quot;center&quot;&gt;|WEAPON.%weap.TYPE|&lt;/td&gt;<br />
-		&lt;td align=&quot;center&quot;&gt;|WEAPON.%weap.SIZE|&lt;/td&gt;<br />
-		&lt;td align=&quot;center&quot;&gt;|WEAPON.%weap.SPROP|&lt;/td&gt;<br />
-		&lt;/tr&gt;<br />
-		&lt;/table&gt;</code></p>
-
-		<p>We then need to end the weapons loop and jump to the other half of the sheet to do our other
-		equipment, so after the above tables would be the following:</p>
-
-		<p class="indent1"><code>|ENDFOR|<br />
-		&lt;!-- End Weapon Tables --&gt;<br />
-		&lt;/td&gt;<br />
-		&lt;td valign=&quot;top&quot; width=&quot;50%&quot;&gt;</code></p>
-
-		<p>Once again, we need to	start a new table to contain our next group of data. As before, we'll put
-		a title identifying the information the section will contain, as well as headers.</p>
-
-		<p class="indent1"><code>&lt;!-- Start Equipment Tables --&gt;<br />
-		&lt;table cellpadding=&quot;0&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; border=&quot;0&quot;&gt;<br />
-		&lt;tr&gt;<br />
-		&lt;td align=&quot;center&quot;&gt;Equipment&lt;/td&gt;<br />
-		&lt;/tr&gt;<br />
-		&lt;tr&gt;<br />
-		&lt;td width=&quot;60%&quot;&gt;&lt;b&gt;ITEM&lt;/b&gt;&lt;/td&gt;<br />
-		&lt;td width=&quot;10%&quot; align=&quot;center&quot;&gt;&lt;b&gt;EQUIPPED&lt;/b&gt;&lt;/td&gt;<br />
-		&lt;td width=&quot;10%&quot; align=&quot;center&quot;&gt;&lt;b&gt;QTY&lt;/b&gt;&lt;/td&gt;<br />
-		&lt;td width=&quot;10%&quot; align=&quot;center&quot;&gt;&lt;b&gt;WT.&lt;/b&gt;&lt;/td&gt;<br />
-		&lt;td width=&quot;10%&quot; align=&quot;center&quot;&gt;&lt;b&gt;GP COST&lt;/b&gt;&lt;/td&gt;<br />
-		&lt;/tr&gt;</code></p>
-
-		<p>As we did for the weapons, we need to devise a loop to go through all the equipment we have.</p>
-
-		<p>We'll call our	variable %eqp just so it's easy to remember what
-		we're using it for. Then, because the equipment arrays are 0 indexed, we
-		want our start number to be 0. To get the max number we will use <code>COUNT[EQ.NOT.Weapon]-1</code>
-		(remember	the loop starts at 0 so we need to end it one step early, hence the -1 on the
-		end). We want it to step through the loop one at a time so we set the step parameter to 1 and
-		we want it to continue through to the end of the loop, so we set the exists parameter to 0.
-		What once again took an entire paragraph to write out boils down to the following:</p>
-
-		<p class="indent1"><code>|FOR,%eqp,0,COUNT[EQUIPMENT.Not.Weapon]-1,1,0|</code></p>
-
-		<p>Unlike the weapons, the equipment will all be in one table, which is a continuation of the title
-		and header we did above. We just need to get the proper information to
-		line up under the proper header. The next section looks like this:</p>
-
-		<p class="indent1"><code>&lt;tr&gt;<br />
-		 &lt;td class=&quot;border&quot;&gt;|EQ.NOT.Weapon.%eqp.NAME.MAGIC~&lt;b&gt;~&lt;/b&gt;|&lt;br/&gt;
-		 |EQ.NOT.Weapon.%eqp.SPROP|&lt;/font&gt;&lt;/td&gt;<br />
-		 &lt;td class=&quot;border&quot;&gt;|EQ.NOT.Weapon.%eqp.EQUIPPED|&lt;br /&gt;&lt;/td&gt;<br />
-		 &lt;td class=&quot;border&quot;&gt;|EQ.NOT.Weapon.%eqp.QTY|&lt;br /&gt;&lt;/td&gt;<br />
-		 &lt;td class=&quot;border&quot;&gt;|EQ.NOT.Weapon.%eqp.WT|&lt;br /&gt;&lt;/td&gt;<br />
-		 &lt;td class=&quot;border&quot;&gt;|EQ.NOT.Weapon.%eqp.COST|&lt;br /&gt;&lt;/td&gt;<br />
-		&lt;/tr&gt;</code></p>
-
-		<p>We now need to end the equipment loop and close out the equipment table. </p>
-
-		<p class="indent1"><code>|ENDFOR|<br />
-		&lt;/table&gt;<br />
-		&lt;!-- End Equipment Table --&gt;</code></p>
-
-		<p>Since our sheet is	done at this point, we also need to close the master table and the html
-		page. The last bits of our character sheet should look like this:</p>
-
-		<p class="indent1"><code>&lt;/td&gt;<br />
-		&lt;/tr&gt;<br />
-		&lt;/table&gt;<br />
-		&lt;!-- End Main Sheet Table --&gt;<br />
-		&lt;/body&gt;<br />
-		&lt;/html&gt;</code></p>
-
-		<p>That about covers it. More complex sheets are simply using more tables, sometimes nesting
-		three or four deep. If you need help, visit the PCGen mailing list at
-		<a href="http://groups.yahoo.com/group/pcgen/"> http://groups.yahoo.com/group/pcgen/</a></p>
-
-<hr>
-
-	<p>
-	<a href="http://validator.w3.org/check?uri=referer"><img
-       	src="../images/system/valid-html401.png"
-       	alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
-	</p>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+                PCGen Documentation Project
+
+                $Author$
+                $Date$
+                $Revision$
+
+                Contributors:
+                Shane Molnar - shaneATcliftonmotelDOTcomDOTau
+                Chris Chandler (aka Barak)
+
+                Description:
+                Provides information on Creating Character Sheet Templates.
+        -->
+<head>
+<meta name="generator" content=
+"HTML Tidy for Cygwin (vers 25 March 2009), see www.w3.org" />
+<title>Creating Character Sheet Templates</title>
+<link rel="stylesheet" type="text/css" href="../pcgen.css" />
+<meta http-equiv="Content-Type" content=
+"text/html; charset=us-ascii" />
+</head>
+<body>
+<h1>Creating Character Sheet Templates</h1>
+<h2>Preface</h2>
+<p>This guide is in the main going to focus on using the tokens
+effectively and appropriately. For simplicity, we will primarily
+use HTML examples, some of which may be fairly complicated.</p>
+<p>If you need help with HTML or XML/XSL you should visit <a href=
+"http://www.w3c.org/">http://www.w3c.org</a> and read their
+tutorials. For information about FOP (.fo file processing), visit
+<a href="http://www.apache.org/">http://www.apache.org</a>.</p>
+<p>After going over the basics, I will be taking you through the
+steps I used to create a sheet to display a character's weapons and
+equipment.</p>
+<h2>Introduction</h2>
+<p>You will need to have a basic understanding of how PCGen uses
+character sheet templates to create them.</p>
+<p>When you "Export" a character, the program will ask you which
+template you would like to use. PCGen starts by reading that
+template into memory. PCGen scans for special character sets called
+"tokens" as it reads the template. These tokens represent various
+bits of information about the character you are exporting. When
+PCGen encounters one of these tokens, it retrieves the information
+from the character file and inserts the information into the spot
+where the token was. PCGen writes the file out to disk with the
+information in place of the tokens once it has completely loaded
+the file.</p>
+<p>A sample line in an HTML template file might be:</p>
+<p class="indent1"><code>&lt;i&gt;Character Name:&lt;/i&gt;
+|NAME|</code></p>
+<p>If you open the template with an HTML browser you would see:</p>
+<p class="indent1"><em>Character Name:</em> |NAME|</p>
+<p>When you open the output file after exporting a character named
+"Mad Monkey Mynex" using that template you would see:</p>
+<p class="indent1"><em>Character Name:</em> Mad Monkey Mynex</p>
+<p>The bodies of the templates themselves can be done in HTML or
+XML/XSL:FO for PDF. In either case, the tokens used to get
+information from PCGen into the sheet are the same. A word of
+warning: PCGen only changes the token, nothing else. If you put in
+bad HTML or XML/XSL code, bad HTML or XML/XSL code will come
+out.</p>
+<p>The first and most important thing I want to stress is to read
+the documentation on the individual output tokens. Then read them
+again. There are many subtleties in the use of the tokens contained
+there that cannot be covered in a quick walkthrough.</p>
+<p>Through some frustrating trial and error when I began doing
+character sheets for PCGen, I learned a few important things
+regarding basic Character Sheet design:</p>
+<ol class="indent2">
+<li>Decide on a specific purpose/use for your template. There are
+LOTS of tokens and there is no need to try and use them
+all.<br /></li>
+<li>Figure out what's going to go on the sheet. Are you just going
+to show the main AC? Are you going to want to show all the
+modifiers that make up the total AC? Do you want spell lists?
+Etc.<br /></li>
+<li>Identify most of your tokens beforehand. Once you have decided
+what you want on the sheet, it's time to start figuring out what
+tokens you need to use. It is easiest to sketch a simple layout on
+a sheet of paper and fill in what tokens go where so you have a
+quick reference. You don't have to get them all right now, but it
+is very helpful to have them right there so you don't have to go
+digging around through the documentation looking for the proper
+token when you're actually trying to type in the sheet.</li>
+<li>Remember that tokens do not like whitespace in front of them!
+It will make your sheets go wonky, without you knowing
+why...<br /></li>
+</ol>
+<h2>Tokens</h2>
+<p>Now down to the true nuts and bolts, the tokens. First, some
+general notes:</p>
+<ol class="indent2">
+<li>All tokens are CAPITALIZED. There may be variables or options
+that are not, but the token itself will be.<br /></li>
+<li>All tokens are delimited (set apart) from the rest of the text
+on the character sheets by either the | (pipe) character, a \
+(single backslash) or a \\ (double backslash), depending on where
+the token is used. There are no spaces between the beginning and
+end of the token and the delimiter characters. The token
+documentation has the delimiter characters left out for ease of
+reading<br /></li>
+<li>Some tokens output a single item, some output comma delimited
+lists.<br /></li>
+<li>Not all tokens make PCGen output something. Some are control
+commands that make comparisons, cause loops or apply filters. We
+will discuss these shortly.<br /></li>
+<li>Many tokens use variables so you can get at certain aspects.
+Variables come immediately after the token with a period "."
+between them. For example the token <code>EXPORT</code> can provide
+date and time information on a sheet using <code>EXPORT.DATE</code>
+and <code>EXPORT.TIME</code>. The variables that may be used with
+each token are listed in the output sheet token documentation. Not
+all variables are capitalized. Some numeric variables start at zero
+(0) but those should be noted in the documentation for the
+token.</li>
+</ol>
+<h2>Control Tokens</h2>
+<h3>Filter Tokens</h3>
+<p>The first and easiest to understand of the control tokens are
+the filter tokens. These are used to stop the normal output if the
+filter condition is not met. Filters all begin with a % (percent)
+sign and will run from the moment they are invoked until they
+encounter a different filter or until they encounter the end of
+filter token, which is a single % symbol (E.g. <code>|%|</code>) In
+case this wasn't clear, what it essentially means is that one, and
+only one, filter may be active at any time. Nested filters are not
+supported.</p>
+<p>The simplest ones are in the form <code>|%TOKEN|</code>. Here
+PCGen simply checks to see if the character has the appropriate
+data. A good use of these simple filters is to suppress spell list
+blocks for non-spellcasters so you can use the same character sheet
+for both types of characters and not have an empty spell list
+cluttering things up for a non-spellcaster. Examples of these types
+of tokens would be <code>|%SPELLISTBOOK|</code> or
+<code>|%BIO|</code>.</p>
+<p>Some slightly more complex filters are in the form of
+<code>|%ARMORx|</code> and <code>|%WEAPONx|</code>. In these
+filters x represents the number of appropriate items (armor type or
+weapon type for the above examples) that the character must have in
+order for the filter to allow output. For example:
+<code>|%WEAPON3|</code> means that there would be no output after
+the filter until it reaches the next filter or filter end token
+unless the character has at least three weapons. If the character
+has three weapons the output would proceed as normal.</p>
+<p>The next form a filter may take is that of classname=level or
+SPELLLISTCLASSx=level. For example, <code>|%BARD=3|</code> would
+filter output if the character did not have at least three Bard
+levels. <code>|%SPELLLISTCLASS0=2|</code> would filter output if
+the character did not have at least two levels in his first
+spellcasting class. <code>SPELLLISTCLASS</code> is one of the
+tokens that starts at zero as mentioned earlier. These filters are
+usually used to put class specific information on a sheet and keep
+it from appearing unless you are of the appropriate class and
+level. (Barbarian Rage is a good example here).</p>
+<p>The final form of filter is one that uses variables. They all
+start with %VAR and take the form of
+<code>|%VAR.name.label.value|</code>. The "name" is the name of any
+variable that has been set up in the LST files using the VAR tag.
+The label is a comparator and must be one of the following:</p>
+<ul class="indent 1">
+<li><code>EQ</code> (equals).</li>
+<li><code>NEQ</code> (not equal).</li>
+<li><code>LT</code> (less than).</li>
+<li><code>LTEQ</code> (less than or equal to).</li>
+<li><code>GT</code> (greater than).</li>
+<li><code>GTEQ</code> (greater than or equal to).</li>
+</ul>
+<p>An example using the variable TOTALPOWERPOINTS defined in a LST
+from the Psionic Handbook would be:
+<code>|%VAR.TOTALPOWERPOINTS.GTEQ.1|</code>. This would filter
+output unless the variable TOTALPOWERPOINTS was greater than or
+equal to 1.</p>
+<p>All of the available filters are listed in the output sheet
+token documentation with the exception of the VAR ones which are
+too numerous to include since every VAR in every LST can be used as
+a filter.</p>
+<h3>Count Tokens</h3>
+<p>The second special token is the COUNT token. This token also
+takes a variable, but in a slightly different form. The variable
+for the COUNT token goes inside a set of [] (square brackets). This
+token returns the number of items of the variable type given.
+<code>|COUNT[CLASSES]|</code> would return the number of classes a
+character has. While this has some limited use as an actual output
+token, these tags are more often used to set the lower or upper
+limit in a FOR loop, which will be explained shortly.</p>
+<p>All of the available variables for the COUNT token are listed in
+the output sheet token documentation.</p>
+<h3>IF Tokens</h3>
+<p>The next set tokens in our review of control tokens are the
+IIF/OIF tokens. The simpler of the two is the OIF token. It is used
+to evaluate an expression and return a value (text or number). This
+token is in the form <code>|OIF(expr,true,false)|</code>. There are
+only certain expressions that may be used, and they are listed in
+the output sheet token documentation. The "true" and "false" parts
+may be anything you want them to be.
+<code>|OIF(SPELLCASTER0=PREPARE,Yes,No)|</code> would return "Yes"
+if the character's first spellcasting class had to prepare spells
+and "No" if it didn't.</p>
+<p>The IIF token has a much broader range and does not return
+output itself. The IIF statement takes the form of:</p>
+<p class="indent1"><code>|IIF(expr)|</code></p>
+<p class="indent1"><code>&lt;true actions&gt;</code></p>
+<p class="indent1"><code>|ELSE|</code></p>
+<p class="indent1"><code>&lt;false actions&gt;</code></p>
+<p class="indent1"><code>|ENDIF|</code></p>
+<p>The IIF token, like the OIF token, can only take the expressions
+listed in the output sheet documentation as usable with IF tokens.
+The power of this token is in the ability to perform a whole series
+of actions based upon the evaluation of the expression. An example
+of the IIF token could be:</p>
+<p class="indent1"><code>|IIF(SKILL0.UNTRAINED)|</code></p>
+<p class="indent1"><code>*</code></p>
+<p class="indent1"><code>|ELSE|</code></p>
+<p class="indent1"><code>x</code></p>
+<p class="indent1"><code>|ENDIF|</code></p>
+<p>This bit would check to see if your first skill (SKILL0) is
+usable untrained. If the skill is, it outputs an "*" otherwise it
+outputs an "x".</p>
+<p class="new">*** Update - Additional functionality has been added
+so that you may compare (exact match only) the result of
+<strong>any</strong> token to an expected result. AND and OR
+functionality has also been added.</p>
+<p><code>|IIF(SPELLLISTCLASS.%class:Psychic
+Warrior.OR.SPELLLISTCLASS.%class:Psion)|</code> would trigger if
+the class number represented by %class was either a Psychic Warrior
+OR a Psion.</p>
+<h3>Loop Tokens</h3>
+<p>The last set of control tokens we need to cover are the FOR/DFOR
+tokens. These tokens provide loop capabilities for creating lists
+on character sheets. These lists can include equipment, classes,
+skills, spells, etc.</p>
+<p>The FOR loops come in three forms. The format of the first
+is:</p>
+<p class="indent1"><code>|FOR,%var,min,max,step,exists|</code></p>
+<p class="indent1"><code>&lt;character sheet stuff&gt;</code></p>
+<p class="indent1"><code>|ENDFOR|</code></p>
+<p>In this token, %var is a variable name that you assign when you
+create a loop. It should not/cannot be the same as a variable
+defined in a LST by the VAR tag.</p>
+<p>Whenever you use that variable within that loop, it will be
+evaluated and return the current iteration number. The min and max
+values are the start and end points for the loop. It is normal to
+start the loops at zero because most of the arrays in PCGen are
+zero indexed.</p>
+<p>You may also use a COUNT statement here, or any token that
+returns a number. You may use the <code>COUNT[xxx]</code> token in
+the max field to tell the loop when to stop, or any token that
+normally returns a number. The step field is how much you want it
+to increment the variable each time it goes through the loop (this
+is usually 1).</p>
+<p>The exists field controls how the loop acts if it runs out of
+data before the max value is reached. There are only three valid
+values for the exists field: 0, 1 or 2. If the exists field is a 0,
+the loop will continue processing until the max is reached. If it
+is a 1, then the loop will stop processing the contents of the loop
+and continue on through the sheet as if the loop had reached the
+max. If exists is 2 and the character sheet is currently within a
+filter, PCGen will not print anything else until the end of the
+filter <code>|%|</code> is reached or another filter is begun.</p>
+<p>The <code>|ENDFOR|</code> token tells the program where the loop
+ends and is required when you use a |FOR, loop.</p>
+<p>Here is an example demonstrating a FOR loop:</p>
+<p class="indent1">
+<code>|FOR,%eqp,0,COUNT[EQUIPMENT]-1,1,1|</code></p>
+<p class="indent1"><code>|EQ%eqp.NAME|&lt;br&gt;</code></p>
+<p class="indent1"><code>|ENDFOR|</code></p>
+<p>This loop will generate a list of the names of all of your
+equipment, one item to a line using the EQx.Name token, where x is
+the current count in the loop. (The &lt;br&gt; is an HTML line
+break.)</p>
+<p>Example output for a typical starting fighter would be:</p>
+<p class="indent1"><code>Half-Plate<br />
+Outfit (Explorer's)<br />
+Shield (Large/Steel)<br />
+Battleaxe</code></p>
+<p>The variable in the above loop is %eqp. The min is 0. The max is
+<code>COUNT[EQUIPMENT]-1</code>. I subtracted 1 because we are
+going to cycle through the equipment list and the equipment list
+array starts at 0 while the COUNT statement starts at 1. Because of
+this we need to reduce the actual count by 1. The increment is
+going to be 1 and the loop will exit immediately if it runs out of
+items before the max is reached.</p>
+<p>Notice the use of the variable %eqp to define the equipment
+number each time through. Using loop variables properly, you can
+accomplish the creation of large lists with relatively little
+effort. This is the main reason to use loops.</p>
+<p>One last thing to know about these kinds of loops is that they
+may be nested. For example:</p>
+<p class="indent1">
+<code>|FOR,%spbk,0,COUNT[SPELLBOOKS]-1,1,1|</code></p>
+<p class="indent1"><code>|SPELLBOOKNAME%spbk|</code></p>
+<p class="indent1"><code>|FOR,%lvl,0,9,1,1|</code></p>
+<p class="indent1"><code>|SPELLLISTBOOK%spbk.%lvl|</code></p>
+<p class="indent1"><code>|ENDFOR|</code></p>
+<p class="indent1"><code>|ENDFOR|</code></p>
+<p>This would create a list of spells for each of your spellbooks
+(by level).</p>
+<p>The spell list loop is said to be nested inside of the spell
+book loop. This allows us to use two variables. If you need more
+variables, you may nest more loops. Notice that each loop needs its
+own <code>|ENDFOR|</code> statement.</p>
+<p>The format for the next kind of FOR loop looks like this:</p>
+<p>
+<code>|FOR.min,max,perLine,phrase,startLine,endLine,exists|</code></p>
+<p>This kind of FOR loop can be used to generate multi-column
+lists. Notice that the character following the FOR is a period
+instead of a comma. There is no variable name in this kind of loop;
+to get the current increment of the FOR loop you would use the "%"
+(percent) symbol.</p>
+<p>The min and max variables are the start and end points for the
+loop. The perLine variable is how many phrases will be repeated
+before the endLine is printed (e.g. 3 if you wanted a 3-column
+list). The phrase is the code that is parsed for tokens.</p>
+<p>You must use "\" (backslash) characters instead of "|" (pipe)
+characters to delimit tokens within a FOR loop phrase. The
+startLine will be output at the beginning of the loop and after the
+endLine. The endLine variable will be printed every perLine times
+through the loop.</p>
+<p>This type of FOR loop does not require an |ENDFOR| tag. This
+type of FOR loop cannot be nested, <strong><em>except</em></strong>
+when doing a party sheet. Nesting in this manner will be covered in
+the section dealing with party sheets.</p>
+<p><strong>NOTE:</strong> If you are using this type of FOR loop to
+create a party sheet (psheet*.*) you must use a "\\" double
+backslash to delimit the tokens within the phrase. Party sheets
+will be covered elsewhere, but it is important to be aware of
+it.</p>
+<p>A real example (for a single character sheet):</p>
+<p class="indent1"><code>&lt;table&gt;</code></p>
+<p class="indent1">
+<code>|FOR.0,COUNT[EQUIPMENT]-1,2,&lt;td&gt;\EQ%.NAME\&lt;/td&gt;,&lt;tr&gt;,&lt;/tr&gt;,1|</code></p>
+<p class="indent1"><code>&lt;/table&gt;</code></p>
+<p>HTML note: The &lt;table&gt; and &lt;/table&gt; are the HTML
+table opening and closing commands &lt;tr&gt; and &lt;/tr&gt; open
+and close a table row respectively and &lt;td&gt; and &lt;/td&gt;
+open and close a single piece of data in the table.</p>
+<p>This would produce a table of two columns listing the names of
+all your equipment.</p>
+<p>Example Output:</p>
+<p class="indent1"><code>Half-Plate<br />
+Outfit (Explorer's)<br />
+Shield (Large/Steel)<br />
+Battleaxe</code></p>
+<p>There is no named variable in this loop. The min is 0. The max
+is <code>COUNT[EQUIPMENT]-1</code>. The perLine is 2, so there will
+be two phrases output before the endLine. The phrase is
+<code>&lt;td&gt;\EQ%.NAME\&lt;/td&gt;</code>. The startLine is
+<code>&lt;tr&gt;</code> (to start the row) and the endLine is
+<code>&lt;/tr&gt;</code> (to end the row).</p>
+<p>The final type of for loop is the DFOR loop. While the format of
+the loop itself is fairly complicated, what it does isn't. Instead
+of creating a table of elements across and then down, it creates a
+table of elements down and then across.</p>
+<p>To illustrate the difference between the different loops:</p>
+<table>
+<thead>
+<tr>
+<td class="center"><code>FOR,</code> Loop Output</td>
+<td class="center"><code>FOR.</code> Loop Output</td>
+<td class="center"><code>DFOR</code> Loop Output</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="center">1</td>
+<td class="center">1 2 3</td>
+<td class="center">1 4</td>
+</tr>
+<tr>
+<td class="center">2</td>
+<td class="center">4 5 6</td>
+<td class="center">2 5</td>
+</tr>
+<tr>
+<td class="center">3</td>
+<td class="center"></td>
+<td class="center">3 6</td>
+</tr>
+<tr>
+<td class="center">5</td>
+<td class="center"></td>
+<td class="center"></td>
+</tr>
+<tr>
+<td class="center">6</td>
+<td class="center"></td>
+<td class="center"></td>
+</tr>
+</tbody>
+</table>
+<p>The format for the DFOR loop:</p>
+<p>
+<code>|DFOR.min,maxDown,stepNextLine,totalMax,stepInLine,phrase,startLine,endLine,exists|</code></p>
+<p>Explanation coming shortly (as soon as I figure out the best way
+to turn this into Human English :p)</p>
+<h3>Math</h3>
+<p>Simple mathematical operations are supported in the character
+sheets.</p>
+<p>The operators +, -, *, /, @ and ^ may be used and you may set
+the order of operations using ().</p>
+<p>You must use at least two operands. These operands can be valid
+tokens (that return numbers), or they can both be hard-coded
+numbers or a token and a number.</p>
+<p>@ and / are both used for division, but the first one returns
+only the integer portion of the operation.</p>
+<p>Do not use spaces between the operands and the operator. Doing
+so will cause the math operation to fail.</p>
+<p>Math can also be performed on attack routines without any extra
+effort. For example: Say you use the token
+<code>|WEAPON%.TOTALHIT|</code> and it returns "+6/+1". Were you to
+use <code>|WEAPON%.TOTALHIT+2</code>|, the output would be
+"+8/+3".</p>
+<p>There are several variables you may append to a math operation
+(using a "." As a delimiter) that will change the format of the
+output. These variables are:</p>
+<ul>
+<li>INTVAL - Displays just the integer portion of the result
+operation.</li>
+<li>NOZERO - Displays blank if the result is zero, otherwise
+displays the result.</li>
+<li>SIGN - Prepends the appropriate sign (+ or -) to the
+result.</li>
+<li>TRUNC - Displays the result to the first decimal place.</li>
+</ul>
+<p>These variables may be used in combination with each other. For
+example:<br />
+<code>|(VAR.Turn Level+STAT5.MOD).INTVAL.SIGN|</code> would add the
+variable "Turn Level" and the Wisdom Modifier together, return only
+the integer portion of that operation and prepend the appropriate
+sign to it.</p>
+<h2>Creating a new OS:</h2>
+<p>It has to be in the same directory as the other Output Sheets
+and the name has to start with "csheet_". Then it will show up in
+the export list.</p>
+<ul>
+<li>
+<p>The standard file naming standard is
+"csheet_genre_identifier".</p>
+</li>
+<li>
+<p>In <a href=
+"outputsheetsstd.html">docs\outputsheetpages\outputsheetsstd.html</a>
+a description of what makes your os sheet special if its html/xml
+in standard versions. In <a href=
+"outputsheetspdf.html">docs\outputsheetpages\outputsheetspdf.html</a>
+a description of what makes your os sheet special if its xslt/.fo
+in PDF. In <a href=
+"outputsheetstxt.html">docs\outputsheetpages\outputsheetstxt.html</a>
+a description of what makes your os sheet special if its plain
+txt.</p>
+</li>
+<li>
+<p>To get your sheet added to the repository and into the next
+distribution as soon as possible. Upload to the <a href=
+"http://groups.yahoo.com/group/pcgen_experimental/files/">http://groups.yahoo.com/group/pcgen_experimental/files/</a>
+in file section "2) Step 2 -PRE-ALPHA, COMPLETED DATASETS GO HERE",
+don't forget to check the box at the box at the bottom of the
+upload box to let others know its there. Either wait for the notice
+to appear on PcGen Experimental newsgroup and reply with the
+description as to what is special about the new csheet, or you can
+email it to the newsgroup.</p>
+<p class="sidebar1">Note: It is PCGen's policy to not put author's
+web links, whether commercial or personal, on output sheets
+submitted for inclusion within PCGen. Author's of such pages will
+have their names added to the list of volunteers that have
+contributed to PCGen. Additionally, if requested, PCGen will place
+the author's name in the comments section of the sheet as the
+original author.</p>
+</li>
+<li>
+<p>If you need assistance with tags, ask on <a href=
+"PCGenListFileHelp@yahoogroups.com">PCGenListFileHelp@yahoogroups.com</a>.
+Closed Content items are not discussed as such. Check the front of
+the book for the OGL disclaimer and see if what you need help with
+is Closed Content. If it is then ask about a "Foo"
+skill/fead/class/device that has the following capabilities,
+limited by the following and what you have tried to get the effect
+you are interested in.</p>
+</li>
+</ul>
+<h2>Character Sheet Creation</h2>
+<p>Now on to the actual process of creating a character sheet. The
+first thing to do is to decide what our sheet is for. As a not too
+simple and not too difficult one I will go through creating a
+complete equipment list with the weapons separated out of it. We'll
+put the weapons on one side and the equipment on the other.</p>
+<p>Now that we've decided what our sheet is for we need to decide
+exactly what is going to be displayed on it.</p>
+<p>We should have some way of identifying the character the sheet
+goes with, and the player playing the character. The class listing
+and level could be helpful too. If you are anything like me, you
+have multiple printed copies of your character floating around all
+the time in the various stages of their development, so these last
+couple bits of information can be invaluable.</p>
+<p>For the weapons we should display all of the standard attributes
+you usually see on character sheets; Weapon name, to hit, damage,
+hand, range, type, size, any special properties and critical hit
+information.</p>
+<p>For the rest of the equipment we can get away with a lot less
+information. We would want the equipment name (lets make it bold if
+it's a magic item), the location it's carried or equipped at, its
+weight, how many of it we have and any special properties it might
+have.</p>
+<p>The tokens for the above list (in the order I listed them above)
+are;</p>
+<p>For the identification we have: <code>NAME</code>,
+<code>PLAYERNAME</code>, <code>CLASSLIST</code>,
+<code>TOTALLEVELS</code></p>
+<p>For the weapons we have: <code>WEAPONx.NAME</code>,
+<code>WEAPONx.TOTALHIT</code>, <code>WEAPONx.DAMAGE</code>,
+<code>WEAPONx.HAND</code>, <code>WEAPONx.RANGE</code>,
+<code>WEAPONx.TYPE</code>, <code>WEAPONx.SIZE</code>,
+<code>WEAPONx.SPROP</code>, <code>WEAPONx.CRIT</code>,
+<code>WEAPONx.MULT</code></p>
+<p>For the equipment we have:
+<code>EQx.NAME.MAGIC~&lt;b&gt;~&lt;/b&gt;</code>,
+<code>EQx.EQUIPPED</code>, <code>EQx.WT</code>,
+<code>EQx.QTY</code>, <code>EQx.SPROP</code></p>
+<p>The "x" in all of the tokens above will actually be a variable
+of some type (%weapon or %equipment perhaps). We'll cover that in
+more depth shortly.</p>
+<p>Next up is to decide on the actual layout. It is best to sketch
+what you're looking to do as a quick reference, and then begin your
+HTML and craft it to fit the visualization you sketched out.</p>
+<p>While you may use an HTML editor such a Frontpage to create
+sheets, I personally prefer to use a simple text editor and do it
+by hand.</p>
+<p>Construction of character sheets for PCGen is done almost
+entirely through the use of tables for both the .html and the .fo
+files. Some of the tables are simple, some of them are deeply
+nested tables within tables.</p>
+<p>We need to start the HTML sheet and set a few basic parameters
+like a white background, and a title to be displayed in the title
+bar of the browser when the final sheet is opened.</p>
+<p class="indent1"><code>&lt;html&gt;<br />
+&lt;head&gt;<br />
+&lt;title&gt;|NAME|'s Weapons and Equipment&lt;/title&gt;<br />
+&lt;/head&gt;<br />
+&lt;body bgcolor="white"&gt;</code></p>
+<p>Our first table will hold the identification and appear at the
+top of the sheet. The HTML for this would look as follows (<em>note
+that for the sake of space here I have removed several bits of
+formatting information regarding font's, etc. that you will see in
+the actual sheet this is referring to</em>):</p>
+<p class="indent1"><code>&lt;!-- Start Character Info Table
+--&gt;<br />
+&lt;table cellpadding="0" cellspacing="4" border="0"
+width="100%"&gt;<br />
+&lt;tr&gt;<br />
+&lt;td width="35%"&gt;|NAME|&lt;/td&gt;<br />
+&lt;td width="20%"&gt;|CLASSLIST|&lt;/td&gt;<br />
+&lt;td width="10%"&gt;|TOTALLEVELS|&lt;/td&gt;<br />
+&lt;td width="35%"&gt;|PLAYERNAME|&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr&gt;<br />
+&lt;td&gt;CHARACTER NAME&lt;/td&gt;<br />
+&lt;td&gt;CLASS&lt;/td&gt;<br />
+&lt;td&gt;LEVEL&lt;/td&gt;<br />
+&lt;td&gt;PLAYER&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;/table&gt;</code></p>
+<p>The <code>&lt;tr&gt;</code> and <code>&lt;/tr&gt;</code> are the
+opening and closing tags for a table row. The
+<code>&lt;td&gt;</code> and <code>&lt;/td&gt;</code> are the
+opening and closing tags for each piece of table data (basically an
+individual cell to think in spreadsheet terms).</p>
+<p>What we've done here is put our tokens in the top row, and then
+in the row underneath put labels for the various tokens.</p>
+<p>Note the comments and indentation. These can be very helpful
+when you are in a deeply nested table and need to keep track of
+where you are.</p>
+<p>Next we get into the aforementioned nested tables. Since we want
+to divide the rest of the sheet in half, with one half being for
+the weapons and the other half for the rest of the equipment, we
+start another table.</p>
+<p class="indent1"><code>&lt;!-- Start Main Sheet Table
+--&gt;<br />
+&lt;table cellpadding="0" width="100%" cellspacing="5"
+border="0"&gt;<br />
+&lt;tr&gt;<br />
+&lt;td valign="top" width="50%"&gt;</code></p>
+<p>This opens the table we will use as the main container for the
+rest of the tables on the sheet. We've created the table, started
+the first row and told it that we want the first data field to take
+up half of the available page width.</p>
+<p>Our next task is to put the weapons tables into this data area.
+We'll start with a simple table to put a banner across half the
+page with a label describing what information the tables following
+it contain.</p>
+<p class="indent1"><code>&lt;!-- Start Weapon Tables --&gt;<br />
+&lt;table cellpadding="0" width="100%" cellspacing="0"
+border="0"&gt;<br />
+&lt;tr&gt;<br />
+&lt;td align="center"&gt;WEAPONS&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;/table&gt;</code></p>
+<p>The next step is to start the actual weapons tables. The first
+step in this process is to craft the loop to cycle through the
+weapons. For the sake of simplicity, we'll use the most basic kind
+of FOR loop that I described first.</p>
+<p>We'll call our variable %weap just so it's easy to remember what
+we're using it for. Then, because the equipment arrays are 0
+indexed, we want our start number to be 0. To get the max number we
+will use <code>COUNT[EQTYPE.WEAPON]-1</code> (remember the loop
+starts at 0 so we need to end it one step early, hence the -1 on
+the end). We want it to step through the loop one at a time so we
+set the step parameter to 1 and we want it to continue through to
+the end of the loop, so we set the exists parameter to 0. What it
+took and entire paragraph to write out boils down to the
+following:</p>
+<p class="indent1">
+<code>|FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,0|</code></p>
+<p>Our weapons information will be contained in two tables, one
+immediately following the other. We do this so that we can have
+different numbers of columns in each table. While it is possible to
+achieve this look with a single table, it is much more involved to
+try and produce.</p>
+<p>The first table will have the weapons name, attack bonus, damage
+and critical hit information. The HTML would look like this:</p>
+<p class="indent1"><code>&lt;table cellpadding="0" width="100%"
+cellspacing="0" border="0"&gt;<br />
+&lt;tr&gt;<br />
+&lt;td align="center" height="15" rowspan="2"
+width="40%"&gt;|WEAPON.%weap.NAME|&lt;/td&gt;<br />
+&lt;td align="center" width="20%" height="15"&gt;TOTAL ATTACK
+BONUS&lt;/td&gt;<br />
+&lt;td align="center" width="20%"
+height="15"&gt;DAMAGE&lt;/td&gt;<br />
+&lt;td align="center" width="20%"
+height="15"&gt;CRITICAL&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr&gt;<br />
+&lt;td
+align="center"&gt;&lt;b&gt;|WEAPON.%weap.TOTALHIT|&lt;/td&gt;<br />
+&lt;td
+align="center"&gt;&lt;b&gt;|WEAPON.%weap.DAMAGE|&lt;/td&gt;<br />
+&lt;td
+align="center"&gt;&lt;b&gt;|WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|&lt;/td&gt;<br />
+
+&lt;/tr&gt;<br />
+&lt;/table&gt;</code></p>
+<p>Immediately following this will be another table that contains
+the rest of the weapon information (hand, range, type, size and
+special properties). That portion of the weapon display would look
+like this:</p>
+<p class="indent1"><code>&lt;table cellpadding="0" cellspacing="0"
+border="0" width="100%"&gt;<br />
+&lt;tr&gt;<br />
+&lt;td align="center" height="15"
+width="15%"&gt;HAND&lt;/td&gt;<br />
+&lt;td align="center" height="15"
+width="15%"&gt;RANGE&lt;/td&gt;<br />
+&lt;td align="center" width="15%"
+height="15"&gt;TYPE&lt;/td&gt;<br />
+&lt;td align="center" width="15%"
+height="15"&gt;SIZE&lt;/td&gt;<br />
+&lt;td align="center" width="40%" height="15"SPECIAL
+PROPERTIES&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr&gt;<br />
+&lt;td align="center"&gt;|WEAPON.%weap.HAND|&lt;/td&gt;<br />
+&lt;td align="center"&gt;|WEAPON.%weap.RANGE|&lt;/td&gt;<br />
+&lt;td align="center"&gt;|WEAPON.%weap.TYPE|&lt;/td&gt;<br />
+&lt;td align="center"&gt;|WEAPON.%weap.SIZE|&lt;/td&gt;<br />
+&lt;td align="center"&gt;|WEAPON.%weap.SPROP|&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;/table&gt;</code></p>
+<p>We then need to end the weapons loop and jump to the other half
+of the sheet to do our other equipment, so after the above tables
+would be the following:</p>
+<p class="indent1"><code>|ENDFOR|<br />
+&lt;!-- End Weapon Tables --&gt;<br />
+&lt;/td&gt;<br />
+&lt;td valign="top" width="50%"&gt;</code></p>
+<p>Once again, we need to start a new table to contain our next
+group of data. As before, we'll put a title identifying the
+information the section will contain, as well as headers.</p>
+<p class="indent1"><code>&lt;!-- Start Equipment Tables
+--&gt;<br />
+&lt;table cellpadding="0" width="100%" cellspacing="0"
+border="0"&gt;<br />
+&lt;tr&gt;<br />
+&lt;td align="center"&gt;Equipment&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr&gt;<br />
+&lt;td width="60%"&gt;&lt;b&gt;ITEM&lt;/b&gt;&lt;/td&gt;<br />
+&lt;td width="10%"
+align="center"&gt;&lt;b&gt;EQUIPPED&lt;/b&gt;&lt;/td&gt;<br />
+&lt;td width="10%"
+align="center"&gt;&lt;b&gt;QTY&lt;/b&gt;&lt;/td&gt;<br />
+&lt;td width="10%"
+align="center"&gt;&lt;b&gt;WT.&lt;/b&gt;&lt;/td&gt;<br />
+&lt;td width="10%" align="center"&gt;&lt;b&gt;GP
+COST&lt;/b&gt;&lt;/td&gt;<br />
+&lt;/tr&gt;</code></p>
+<p>As we did for the weapons, we need to devise a loop to go
+through all the equipment we have.</p>
+<p>We'll call our variable %eqp just so it's easy to remember what
+we're using it for. Then, because the equipment arrays are 0
+indexed, we want our start number to be 0. To get the max number we
+will use <code>COUNT[EQ.NOT.Weapon]-1</code> (remember the loop
+starts at 0 so we need to end it one step early, hence the -1 on
+the end). We want it to step through the loop one at a time so we
+set the step parameter to 1 and we want it to continue through to
+the end of the loop, so we set the exists parameter to 0. What once
+again took an entire paragraph to write out boils down to the
+following:</p>
+<p class="indent1">
+<code>|FOR,%eqp,0,COUNT[EQUIPMENT.Not.Weapon]-1,1,0|</code></p>
+<p>Unlike the weapons, the equipment will all be in one table,
+which is a continuation of the title and header we did above. We
+just need to get the proper information to line up under the proper
+header. The next section looks like this:</p>
+<p class="indent1"><code>&lt;tr&gt;<br />
+&lt;td
+class="border"&gt;|EQ.NOT.Weapon.%eqp.NAME.MAGIC~&lt;b&gt;~&lt;/b&gt;|&lt;br/&gt;
+|EQ.NOT.Weapon.%eqp.SPROP|&lt;/font&gt;&lt;/td&gt;<br />
+&lt;td class="border"&gt;|EQ.NOT.Weapon.%eqp.EQUIPPED|&lt;br
+/&gt;&lt;/td&gt;<br />
+&lt;td class="border"&gt;|EQ.NOT.Weapon.%eqp.QTY|&lt;br
+/&gt;&lt;/td&gt;<br />
+&lt;td class="border"&gt;|EQ.NOT.Weapon.%eqp.WT|&lt;br
+/&gt;&lt;/td&gt;<br />
+&lt;td class="border"&gt;|EQ.NOT.Weapon.%eqp.COST|&lt;br
+/&gt;&lt;/td&gt;<br />
+&lt;/tr&gt;</code></p>
+<p>We now need to end the equipment loop and close out the
+equipment table.</p>
+<p class="indent1"><code>|ENDFOR|<br />
+&lt;/table&gt;<br />
+&lt;!-- End Equipment Table --&gt;</code></p>
+<p>Since our sheet is done at this point, we also need to close the
+master table and the html page. The last bits of our character
+sheet should look like this:</p>
+<p class="indent1"><code>&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;/table&gt;<br />
+&lt;!-- End Main Sheet Table --&gt;<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;</code></p>
+<p>That about covers it. More complex sheets are simply using more
+tables, sometimes nesting three or four deep. If you need help,
+visit the PCGen mailing list at <a href=
+"http://groups.yahoo.com/group/pcgen/">http://groups.yahoo.com/group/pcgen/</a></p>
+<hr />
+<p><a href="http://validator.w3.org/check?uri=referer"><img src=
+"../images/system/valid-html401.png" alt="Valid HTML 4.01 Strict"
+height="31" width="88" /></a></p>
 </body>
-
 </html>

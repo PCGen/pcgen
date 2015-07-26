@@ -54,7 +54,7 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject implements
-		Cloneable, BonusContainer, Loadable
+		Cloneable, BonusContainer, Loadable, Reducible
 {
 
 	private URI sourceURI = null;
@@ -1207,5 +1207,14 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public boolean isInternal()
 	{
 		return getSafe(ObjectKey.INTERNAL).booleanValue();
+	}
+
+	/**
+	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
+	 */
+	@Override
+	public CDOMObject getCDOMObject()
+	{
+		return this;
 	}
 }

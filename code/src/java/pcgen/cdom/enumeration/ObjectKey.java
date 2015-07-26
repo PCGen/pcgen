@@ -325,6 +325,8 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Category<CompanionMod>> MOD_CATEGORY = new ObjectKey<Category<CompanionMod>>(null);
 
+	public static final ObjectKey<CDOMSingleRef<SizeAdjustment>> CUSTOMSIZE = new ObjectKey<CDOMSingleRef<SizeAdjustment>>(null);
+
 	/*
 	 * TODO Okay, this is a hack.
 	 */
@@ -341,7 +343,7 @@ public class ObjectKey<T>
 			}
 
 		};
-		map.put(BASESIZE.toString(), BASESIZE);
+		map.put("BASESIZE", BASESIZE);
 		SIZE = new ObjectKey<CDOMSingleRef<SizeAdjustment>>(null)
 		{
 			@Override
@@ -351,7 +353,7 @@ public class ObjectKey<T>
 			}
 
 		};
-		map.put(SIZE.toString(), SIZE);
+		map.put("SIZE", SIZE);
 	}
 
 	private final T defaultValue;
