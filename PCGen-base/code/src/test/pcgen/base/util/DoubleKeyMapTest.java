@@ -597,9 +597,12 @@ public class DoubleKeyMapTest extends TestCase
 	@Test
 	public void testGetMap()
 	{
+		Map<Double, Character> map = dkm.getMapFor(Integer.valueOf(7));
+		assertNotNull(map);
+		assertTrue(map.isEmpty());
 		assertNull(dkm.get(Integer.valueOf(1), Double.valueOf(1)));
 		populate();
-		Map<Double, Character> map = dkm.getMapFor(Integer.valueOf(1));
+		map = dkm.getMapFor(Integer.valueOf(1));
 		assertNotNull(map);
 		assertFalse(map.isEmpty());
 		Set<Double> keys = map.keySet();

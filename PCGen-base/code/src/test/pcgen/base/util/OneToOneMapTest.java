@@ -79,6 +79,7 @@ public class OneToOneMapTest extends TestCase
 		{
 			//yep
 		}
+		assertNull(otom.remove(null));
 	}
 
 	@Test
