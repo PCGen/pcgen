@@ -19,10 +19,14 @@ package pcgen.cdom.facet.fact;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Set;
 
+import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
+import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.ChronicleEntry;
 import pcgen.util.Logging;
 
@@ -58,5 +62,19 @@ public class ChronicleEntryFacet extends
 		}
 		return newCopies;
 	}
+
+	/**
+	 * Overrides the default behavior of AbstractListFacet, since we need to
+	 * ensure we are storing all chronicle entries (otherwise duplicate blanks
+	 * are skipped, see CODE-2861)
+	 * 
+	 * @see pcgen.cdom.facet.base.AbstractListFacet#getComponentSet()
+	 */
+	@Override
+	protected List<ChronicleEntry> getComponentSet()
+	{
+		return new ArrayList<ChronicleEntry>();
+	}
+
 
 }
