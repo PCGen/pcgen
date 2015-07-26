@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 (C) Thomas Parker <thpr@users.sourceforge.net>
+ * Copyright 2010-15 (C) Thomas Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -23,6 +23,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.GroupingState;
@@ -34,10 +35,32 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.util.Logging;
 
-public class FeatToken<T> implements PrimitiveToken<T>
+/**
+ * AbilityToken implements the Ability primitive, e.g.:
+ * 
+ * CHOOSE:SKILL|ABILITY=FEAT[SkillChoiceThingy]
+ * 
+ * The "ABILITY=Category[Key]" section of the CHOOSE above is implemented in
+ * this class.
+ * 
+ * The contents of this primitive refer to selections made in another object. In
+ * the case of the example CHOOSE above, any selections made in the CHOOSE:SKILL
+ * present in the Feat "SkillChoiceThingy" will be available for selection in
+ * the object on which the example CHOOSE is present. (In practice this is often
+ * used in things like Weapon Mastery)
+ * 
+ * @param <T>
+ *            The type of object on which this Primitive can be used (in this
+ *            case, CDOMObject, i.e. anywhere CHOOSE is legal)
+ */
+public class AbilityToken<T> implements PrimitiveToken<T>
 {
 
+	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
+
 	private CDOMSingleRef<Ability> ref;
+	
+	private Category<Ability> category;
 
 	private Class<T> refClass;
 
@@ -45,14 +68,16 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	public boolean initialize(LoadContext context, Class<T> cl, String value,
 			String args)
 	{
-		Logging.deprecationPrint("FEAT=x is deprecated in CHOOSE, "
-			+ "please use ABILITY=FEAT[x]");
-		if (args != null)
+		if (args == null)
 		{
+			Logging.errorPrint("Syntax for ABILITY primitive is ABILITY=category[key]");
 			return false;
 		}
-		ref = context.getReferenceContext().getCDOMReference(Ability.class, AbilityCategory.FEAT,
-				value);
+		Category<Ability> cat = context.getReferenceContext()
+				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, value);
+		category = cat;
+		ref = context.getReferenceContext().getCDOMReference(Ability.class, cat,
+				args);
 		refClass = cl;
 		return true;
 	}
@@ -60,7 +85,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	@Override
 	public String getTokenName()
 	{
-		return "FEAT";
+		return "ABILITY";
 	}
 
 	@Override
@@ -79,7 +104,8 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return "ABILITY=FEAT[" + ref.getLSTformat(useAny) + "]";
+		return "ABILITY=" + category.getLSTformat() + "["
+			+ ref.getLSTformat(useAny) + "]";
 	}
 
 	private <R> List<R> getList(PlayerCharacter pc, Ability a)
@@ -112,9 +138,9 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		{
 			return true;
 		}
-		if (obj instanceof FeatToken)
+		if (obj instanceof AbilityToken)
 		{
-			FeatToken<?> other = (FeatToken<?>) obj;
+			AbilityToken<?> other = (AbilityToken<?>) obj;
 			if (ref == null)
 			{
 				return (other.ref == null) && (refClass == null)

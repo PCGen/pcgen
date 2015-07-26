@@ -44,8 +44,8 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 
 	static ChooseLst token = new ChooseLst();
 	static SchoolsToken subtoken = new SchoolsToken();
-	static plugin.primitive.pobject.FeatToken<?> featprim =
-			new plugin.primitive.pobject.FeatToken();
+	static plugin.primitive.pobject.AbilityToken<?> abprim =
+			new plugin.primitive.pobject.AbilityToken();
 	static CDOMTokenLoader<CDOMObject> loader =
 			new CDOMTokenLoader<CDOMObject>();
 
@@ -54,7 +54,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	{
 		super.setUp();
 		TokenRegistration.register(subtoken);
-		TokenRegistration.register(featprim);
+		TokenRegistration.register(abprim);
 	}
 
 	@Override
@@ -120,7 +120,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 				secondaryContext.getReferenceContext().constructCDOMObject(Ability.class,
 					"School Stuff");
 		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ss);
-		runRoundRobin("SCHOOLS|FEAT=School Stuff");
+		runRoundRobin("SCHOOLS|ABILITY=FEAT[School Stuff]");
 	}
 
 	@Test
