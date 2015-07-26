@@ -37,6 +37,8 @@ Longsword				PROFICIENCY:WEAPON|Longsword													TYPE:Weapon.Melee.Sword			
 Longsword.COPY=Test Gear
 Test Gear.MOD																				TYPE:Gear
 
+Mount			TYPE:Mount.Transportation
+Transportation	TYPE:Transportation
 
 
 # Armor Basic Test
