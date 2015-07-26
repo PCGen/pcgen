@@ -109,34 +109,34 @@ Barbarian ~ Uncanny Dodge Tracker									CATEGORY:Special Ability	TYPE:Barbaria
 
 ###Block: Archetype Support
 # Ability Name									Modify VAR
-CATEGORY=Special Ability|Barbarian ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:BarbarianLVL,2|PREVAREQ:Barbarian_CF_Uncanny_Dodge,0	
-CATEGORY=Special Ability|Barbarian ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:BarbarianLVL,5|PREVAREQ:Barbarian_CF_Improved_Uncanny_Dodge,0
+CATEGORY=Special Ability|Barbarian ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:BarbarianLVL,2|PREVAREQ:Barbarian_CF_UncannyDodge,0	
+CATEGORY=Special Ability|Barbarian ~ Uncanny Dodge Tracker.MOD	BONUS:VAR|UncannyDodgeLVL|1|PREVARGTEQ:BarbarianLVL,5|PREVAREQ:Barbarian_CF_ImprovedUncannyDodge,0
 
-CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,1|PREVAREQ:Barbarian_CF_Trap_Sense1,0
-CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,2|PREVAREQ:Barbarian_CF_Trap_Sense2,0
-CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,3|PREVAREQ:Barbarian_CF_Trap_Sense3,0
-CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,4|PREVAREQ:Barbarian_CF_Trap_Sense4,0
-CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,5|PREVAREQ:Barbarian_CF_Trap_Sense5,0
-CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,6|PREVAREQ:Barbarian_CF_Trap_Sense6,0
+CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,1|PREVAREQ:Barbarian_CF_TrapSense1,0
+CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,2|PREVAREQ:Barbarian_CF_TrapSense2,0
+CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,3|PREVAREQ:Barbarian_CF_TrapSense3,0
+CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,4|PREVAREQ:Barbarian_CF_TrapSense4,0
+CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,5|PREVAREQ:Barbarian_CF_TrapSense5,0
+CATEGORY=Special Ability|Barbarian ~ Trap Sense.MOD			BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,6|PREVAREQ:Barbarian_CF_TrapSense6,0
 
-CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,1|PREVAREQ:Barbarian_CF_Damage_Reduction1,0
-CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,2|PREVAREQ:Barbarian_CF_Damage_Reduction2,0
-CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,3|PREVAREQ:Barbarian_CF_Damage_Reduction3,0
-CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,4|PREVAREQ:Barbarian_CF_Damage_Reduction4,0
-CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,5|PREVAREQ:Barbarian_CF_Damage_Reduction5,0
+CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,1|PREVAREQ:Barbarian_CF_DamageReduction1,0
+CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,2|PREVAREQ:Barbarian_CF_DamageReduction2,0
+CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,3|PREVAREQ:Barbarian_CF_DamageReduction3,0
+CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,4|PREVAREQ:Barbarian_CF_DamageReduction4,0
+CATEGORY=Special Ability|Barbarian ~ Damage Reduction.MOD		BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,5|PREVAREQ:Barbarian_CF_DamageReduction5,0
 
 ###Block:
 # Ability Name							Bonus Ability Pool
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,2|PREVAREQ:Barbarian_CF_Rage_Power2,0
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,4|PREVAREQ:Barbarian_CF_Rage_Power4,0
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,6|PREVAREQ:Barbarian_CF_Rage_Power6,0
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,8|PREVAREQ:Barbarian_CF_Rage_Power8,0
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,10|PREVAREQ:Barbarian_CF_Rage_Power10,0
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,12|PREVAREQ:Barbarian_CF_Rage_Power12,0
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,14|PREVAREQ:Barbarian_CF_Rage_Power14,0
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,16|PREVAREQ:Barbarian_CF_Rage_Power16,0
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,18|PREVAREQ:Barbarian_CF_Rage_Power18,0
-CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,20|PREVAREQ:Barbarian_CF_Rage_Power20,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,2|PREVAREQ:Barbarian_CF_RagePower2,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,4|PREVAREQ:Barbarian_CF_RagePower4,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,6|PREVAREQ:Barbarian_CF_RagePower6,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,8|PREVAREQ:Barbarian_CF_RagePower8,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,10|PREVAREQ:Barbarian_CF_RagePower10,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,12|PREVAREQ:Barbarian_CF_RagePower12,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,14|PREVAREQ:Barbarian_CF_RagePower14,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,16|PREVAREQ:Barbarian_CF_RagePower16,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,18|PREVAREQ:Barbarian_CF_RagePower18,0
+CATEGORY=Special Ability|Barbarian ~ Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,20|PREVAREQ:Barbarian_CF_RagePower20,0
 
 
 ###Block: Barbarian Rage Powers

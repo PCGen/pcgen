@@ -12,14 +12,14 @@ CLASS:Barbarian	STARTSKILLPTS:4
 1	ABILITY:Class|AUTOMATIC|Barbarian
 ###Block: Level Progression
 1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage|PREVAREQ:Barbarian_CF_Rage,0
-1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|PREVAREQ:Barbarian_CF_Fast_Movement,0
-2	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage Powers|PREVAREQ:Barbarian_CF_Rage_Powers,0
-3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|PREVAREQ:Barbarian_CF_Trap_Sense,0
-7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|PREVAREQ:Barbarian_CF_Damage_Reduction,0
-11	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Greater Rage|PREVAREQ:Barbarian_CF_Greater_Rage,0
-14	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Will|PREVAREQ:Barbarian_CF_Indomitable_Will,0
-17	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Tireless Rage|PREVAREQ:Barbarian_CF_Tireless_Rage,0
-20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Mighty Rage|PREVAREQ:Barbarian_CF_Mighty_Rage,0
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|PREVAREQ:Barbarian_CF_FastMovement,0
+2	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage Powers|PREVAREQ:Barbarian_CF_RagePowers,0
+3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|PREVAREQ:Barbarian_CF_TrapSense,0
+7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|PREVAREQ:Barbarian_CF_DamageReduction,0
+11	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Greater Rage|PREVAREQ:Barbarian_CF_GreaterRage,0
+14	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Will|PREVAREQ:Barbarian_CF_IndomitableWill,0
+17	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Tireless Rage|PREVAREQ:Barbarian_CF_TirelessRage,0
+20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Mighty Rage|PREVAREQ:Barbarian_CF_MightyRage,0
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Visible	Define			Combat bonus										Save bonus																						Modify VAR				Monster Role
 CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	VISIBLE:NO	DEFINE:BarbarianLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|BarbarianLVL|CL	ROLE:Combat.Skill
@@ -28,10 +28,10 @@ CLASS:Ex-Barbarian	STARTSKILLPTS:4
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Barbarian
 ###Block: Level Progression
-1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|PREVAREQ:Barbarian_CF_Fast_Movement,0
-3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|PREVAREQ:Barbarian_CF_Trap_Sense,0
-7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|PREVAREQ:Barbarian_CF_Damage_Reduction,0
-14	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Will|PREVAREQ:Barbarian_CF_Indomitable_Will,0
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|PREVAREQ:Barbarian_CF_FastMovement,0
+3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|PREVAREQ:Barbarian_CF_TrapSense,0
+7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|PREVAREQ:Barbarian_CF_DamageReduction,0
+14	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Will|PREVAREQ:Barbarian_CF_IndomitableWill,0
 
 
 # Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Source Page		Ability																Define		Combat bonus											Save bonus																					Modify VAR			Monster Role
@@ -389,23 +389,23 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 4	BONUS:VAR|HuntersBondLVL|CL
 20	BONUS:VAR|MasterHunterLVL|CL
 ###Block: Progression Abilities
-1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Enemy|PREVAREQ:Ranger_CF_FavoredEnemy
-1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Terrain|PREVAREQ:Ranger_CF_FavoredTerrain
-1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Track|PREVAREQ:Ranger_CF_Track
-1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Wild Empathy|PREVAREQ:Ranger_CF_WildEmpathy
-2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Combat Style|PREVAREQ:Ranger_CF_CombatStyle
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Enemy|PREVAREQ:Ranger_CF_FavoredEnemy,0
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Terrain|PREVAREQ:Ranger_CF_FavoredTerrain,0
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Track|PREVAREQ:Ranger_CF_Track,0
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Wild Empathy|PREVAREQ:Ranger_CF_WildEmpathy,0
+2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Combat Style|PREVAREQ:Ranger_CF_CombatStyle,0
 4	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hunter's Bond|PREVAREQ:Ranger_CF_HuntersBond,0
-7	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Woodland Stride|PREVAREQ:Ranger_CF_WoodlandStride
-8	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Swift Tracker|PREVAREQ:Ranger_CF_SwiftTracker
-9	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Evasion|PREVAREQ:Ranger_CF_Evasion
-11	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Quarry|PREVAREQ:Ranger_CF_Quarry
-12	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Camouflage|PREVAREQ:Ranger_CF_Camoflage
-16	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Improved Evasion|PREVAREQ:Ranger_CF_Evasion
-17	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hide in Plain Sight|PREVAREQ:Ranger_CF_HideInPlainSight
-19	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Improved Quarry|PREVAREQ:Ranger_CF_Quarry
-20	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Master Hunter|PREVAREQ:Ranger_CF_MasterHunter
+7	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Woodland Stride|PREVAREQ:Ranger_CF_WoodlandStride,0
+8	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Swift Tracker|PREVAREQ:Ranger_CF_SwiftTracker,0
+9	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Evasion|PREVAREQ:Ranger_CF_Evasion,0
+11	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Quarry|PREVAREQ:Ranger_CF_Quarry,0
+12	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Camouflage|PREVAREQ:Ranger_CF_Camoflage,0
+16	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Improved Evasion|PREVAREQ:Ranger_CF_Evasion,0
+17	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hide in Plain Sight|PREVAREQ:Ranger_CF_HideInPlainSight,0
+19	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Improved Quarry|PREVAREQ:Ranger_CF_Quarry,0
+20	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Master Hunter|PREVAREQ:Ranger_CF_MasterHunter,0
 ###Block:
-3	ABILITY:FEAT|AUTOMATIC|Endurance|PREVAREQ:Ranger_CF_Endurance
+3	ABILITY:FEAT|AUTOMATIC|Endurance|PREVAREQ:Ranger_CF_Endurance,0
 ###Block: Level progression
 4	CAST:0,0
 5	CAST:0,1
@@ -442,17 +442,17 @@ CLASS:Rogue		STARTSKILLPTS:8
 2	BONUS:VAR|RogueTalentLVL|CL
 3	BONUS:VAR|RogueTrapSenseLVL|CL
 4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
-4	BONUS:VAR|UncannyDodgeLVL|1|PREVAREQ:RogueUncannyDodge
-8	BONUS:VAR|UncannyDodgeLVL|1|PREVAREQ:RogueImprovedUncannyDodge
+4	BONUS:VAR|UncannyDodgeLVL|1|PREVAREQ:RogueUncannyDodge,0
+8	BONUS:VAR|UncannyDodgeLVL|1|PREVAREQ:RogueImprovedUncannyDodge,0
 20	BONUS:VAR|MasterStrikeLVL|CL
 ###Block:
-1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Sneak Attack|PREVAREQ:Rogue_CF_SneakAttack
-1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trapfinding|PREVAREQ:Rogue_CF_Trapfinding
-2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Evasion|PREVAREQ:Rogue_CF_Evasion
-2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Rogue Talents|PREVAREQ:Rogue_CF_Talents
-3	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trap Sense|PREVAREQ:Rogue_CF_TrapSense
+1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Sneak Attack|PREVAREQ:Rogue_CF_SneakAttack,0
+1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trapfinding|PREVAREQ:Rogue_CF_Trapfinding,0
+2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Evasion|PREVAREQ:Rogue_CF_Evasion,0
+2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Rogue Talents|PREVAREQ:Rogue_CF_Talents,0
+3	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trap Sense|PREVAREQ:Rogue_CF_TrapSense,0
 4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
-20	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Master Strike|PREVAREQ:Rogue_CF_MasterStrike
+20	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Master Strike|PREVAREQ:Rogue_CF_MasterStrike,0
 
 
 # Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Source Page		Ability																	Define			Combat bonus										Save bonus																					Modify VAR				Monster Role
@@ -462,14 +462,14 @@ CLASS:Sorcerer	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|Caster_Level_BL_Stripped_Sorcerer	BONUS:VAR|Caster_Level_BL_Stripped_Sorcerer|Caster_Level_Sorcerer-CasterLevelBLSorcerer	BONUS:VAR|Caster_Level_Sorcerer|CL+Caster_Level_Bonus+CasterLevelBLSorcerer	DEFINE:CasterLevelBLSorcerer|0	BONUS:VAR|CasterLevelBL_x_Sorcerer|charbonusto("PCLEVEL","Sorcerer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Sorcerer|TYPE=Base
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Sorcerer|PREVAREQ:Sorcerer_CF_WeaponProficiencies
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|PREVAREQ:Sorcerer_CF_WeaponProficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Sorcerer|PREVAREQ:Sorcerer_CF_WeaponProficiencies,0
+1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|PREVAREQ:Sorcerer_CF_WeaponProficiencies,0
 ###Block: Bloodline
 1	BONUS:VAR|BloodlineLVL,BloodlineCasterLVL|CL
 ###Block:
 1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Sorcerer Bloodline
 1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Cantrips
-1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Eschew Materials|PREVAREQ:Sorcerer_CF_EschewMaterials
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Eschew Materials|PREVAREQ:Sorcerer_CF_EschewMaterials,0
 ###Block: Level progression
 1	CAST:0,3				KNOWN:4,2
 2	CAST:0,4				KNOWN:5,2

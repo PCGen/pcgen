@@ -126,7 +126,7 @@ CLASS:Undead	STARTSKILLPTS:0+BaseClassSkillPts	MODTOSKILLS:NO			CSKILL:Climb|Dis
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability																	Define				Combat bonus								Save bonus															Modify VAR
 CLASS:Vermin	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.310	ABILITY:Special Ability|AUTOMATIC|Vermin Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	DEFINE:BaseClassSkillPts|0	BONUS:COMBAT|BASEAB|classlevel()*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel()/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel()/3	BONUS:VAR|BaseClassSkillPts|MAX(1,2+INT)|!PRETEMPLATE:1,No Intelligence Score
 # Class Name	Reg. Race Type
-CLASS:Vermin	PREVAREQ:RaceType_Vermin,1,1	PRERACETYPE:Vermin
+CLASS:Vermin	PREVAREQ:RaceType_Vermin,1	PRERACETYPE:Vermin
 # Class Name	Skill Pts/Lvl				Add INT to Skill Points?
 CLASS:Vermin	STARTSKILLPTS:0+BaseClassSkillPts	MODTOSKILLS:NO
 3:REPEATLEVEL:2	BONUS:ABILITYPOOL|FEAT|-1|PRETEMPLATE:1,No Intelligence Score
