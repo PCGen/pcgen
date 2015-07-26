@@ -830,7 +830,26 @@ Domain.</p>
 <p class="indent3">Character gains access to three additional
 Domains.</p>
 <hr />
-<p class="lststatus"><a name="FEATPOOL" id="FEATPOOL">*** New
+<h3 id="FEATPOOL">FEATPOOL</h3>
+<ul>
+<li>6.05.04 (July 2015): JIRA <a href=
+"http://jira.pcgen.org/browse/NEWTAG-477">NEWTAG-477</a> / Github
+<a href="https://github.com/PCGen/pcgen/pull/380">PR #380</a></li>
+<li style="list-style: none; display: inline">
+<ul class="incremental">
+<li>The <code>FEATPOOL</code> tag is deprecated. Use <a href=
+"#ABILITYPOOL"><code>ABILITYPOOL</code></a> instead.</li>
+<li>All <code>FEAT</code> tags have been
+<strong>deprecated</strong> and replaced by the
+<code>ABILITY</code> system, which is more general. The
+<code>ABILITY</code> system can model feats, racial features, class
+features, traits, flaws, temporary bonuses, and so on, all using a
+common format.</li>
+</ul>
+</li>
+</ul>
+<div class="deprecated">
+<p class="lststatus"><a id="FEATPOOL" name="FEATPOOL">*** New
 5.7.6</a></p>
 <p class="indent0"><strong>Tag Name:</strong> BONUS:FEAT|POOL|x</p>
 <p class="indent1"><strong>Variables Used (x):</strong> Number,
@@ -850,6 +869,7 @@ stack with other BONUS:FEAT|POOL tags with TYPE=Enhancement.</p>
 <code>BONUS:FEAT|POOL|-1|PREFEAT:1,Alertness</code></p>
 <p class="indent3">Decreases the feat pool by one if the character
 has the feat Alertness.</p>
+</div>
 <hr />
 <p class="lststatus"><a name="FOLLOWERS" id="FOLLOWERS">*** New
 5.10.1+</a></p>

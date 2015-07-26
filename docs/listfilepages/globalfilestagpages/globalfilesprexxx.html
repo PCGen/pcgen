@@ -1021,8 +1021,26 @@ one of two weapons for two weapon fighting.</p>
 <p class="indent3">Must have a light weapon equipped for two weapon
 fighting.</p>
 <hr />
-<p class="indent0"><strong><a name="PREFEAT" id="PREFEAT">Tag
-Name:</a></strong> PREFEAT:x,y,z</p>
+<h3 id="PREFEAT">PREFEAT</h3>
+<ul>
+<li>6.05.04 (July 2015): JIRA <a href=
+"http://jira.pcgen.org/browse/NEWTAG-477">NEWTAG-477</a> / Github
+<a href="https://github.com/PCGen/pcgen/pull/380">PR #380</a></li>
+<li style="list-style: none; display: inline">
+<ul class="incremental">
+<li><code>PREFEAT</code> is deprecated. Use <a href=
+"#PREABILITY"><code>PREABILITY</code></a> instead.</li>
+<li>All <code>FEAT</code> tags have been
+<strong>deprecated</strong> and replaced by the
+<code>ABILITY</code> system, which is more general. The
+<code>ABILITY</code> system can model feats, racial features, class
+features, traits, flaws, temporary bonuses, and so on, all using a
+common format.</li>
+</ul>
+</li>
+</ul>
+<div class="deprecated">
+<p class="indent0"><strong>Tag Name:</strong> PREFEAT:x,y,z</p>
 <p class="indent1"><strong>Variables Used (x):</strong> Number
 (Number of required feats)</p>
 <p class="indent1"><strong>Variables Used (y):</strong> CHECKMULT
@@ -1082,6 +1100,7 @@ Focus(Knowledge%)</code></p>
 !PREFEAT:1,Untapped Potential</code></p>
 <p class="indent3">Character must not (!) have one feat called
 "Untapped Potential".</p>
+</div>
 <hr />
 <p class="indent0"><strong><a name="PREGENDER" id="PREGENDER">Tag
 Name:</a></strong> PREGENDER:x</p>
