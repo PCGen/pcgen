@@ -23,9 +23,13 @@
 package plugin.lsttokens;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.util.Logging;
 
 /**
  * The Class <code>SortKeyLst</code> implements the global SORTKEY tag, which 
@@ -39,7 +43,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  * @version $Revision$
  */
 public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+		CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
 {
 
 	@Override
@@ -58,5 +62,25 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 	protected StringKey stringKey()
 	{
 		return StringKey.SORT_KEY;
+	}
+
+	@Override
+	public boolean process(LoadContext context, CDOMObject obj)
+	{
+		if ((obj instanceof SortKeyRequired) && (obj.get(stringKey()) == null))
+		{
+			Logging.deprecationPrint("Objects of type "
+				+ obj.getClass().getName() + " will require a SORTKEY "
+				+ "in the next version of PCGen.  "
+				+ "Use without a SORTKEY is deprecated", context);
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public Class<CDOMObject> getDeferredTokenClass()
+	{
+		return CDOMObject.class;
 	}
 }
