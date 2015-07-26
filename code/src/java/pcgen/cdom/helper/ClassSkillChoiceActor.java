@@ -155,7 +155,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	@Override
 	public boolean allow(Skill choice, PlayerCharacter pc, boolean allowStack)
 	{
-		return !pc.isClassSkill(choice);
+		return !pc.isClassSkill(source, choice);
 	}
 
 	/**
