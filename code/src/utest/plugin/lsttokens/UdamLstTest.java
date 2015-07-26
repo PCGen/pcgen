@@ -17,21 +17,78 @@
  */
 package plugin.lsttokens;
 
+import java.net.URISyntaxException;
+
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
+import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class UdamLstTest extends AbstractGlobalTokenTestCase
 {
-	static CDOMPrimaryToken<CDOMObject> token = new UdamLst();
+	static UdamLst token = new UdamLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+
+	protected SizeAdjustment colossal;
+	protected SizeAdjustment gargantuan;
+	protected SizeAdjustment huge;
+	protected SizeAdjustment large;
+	protected SizeAdjustment medium;
+	protected SizeAdjustment small;
+	protected SizeAdjustment tiny;
+	protected SizeAdjustment diminutive;
+	protected SizeAdjustment fine;
+
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		fine = BuildUtilities.createSize("Fine");
+		primaryContext.getReferenceContext().importObject(fine);
+		secondaryContext.getReferenceContext().importObject(fine);
+
+		diminutive = BuildUtilities.createSize("Diminutive");
+		primaryContext.getReferenceContext().importObject(diminutive);
+		secondaryContext.getReferenceContext().importObject(diminutive);
+		
+		tiny = BuildUtilities.createSize("Tiny");
+		primaryContext.getReferenceContext().importObject(tiny);
+		secondaryContext.getReferenceContext().importObject(tiny);
+		
+		small = BuildUtilities.createSize("Small");
+		primaryContext.getReferenceContext().importObject(small);
+		secondaryContext.getReferenceContext().importObject(small);
+		
+		medium = BuildUtilities.createSize("Medium");		
+		medium.put(ObjectKey.IS_DEFAULT_SIZE, true);
+		primaryContext.getReferenceContext().importObject(medium);
+		secondaryContext.getReferenceContext().importObject(medium);
+		
+		large = BuildUtilities.createSize("Large");
+		primaryContext.getReferenceContext().importObject(large);
+		secondaryContext.getReferenceContext().importObject(large);
+		
+		huge = BuildUtilities.createSize("Huge");
+		primaryContext.getReferenceContext().importObject(huge);
+		secondaryContext.getReferenceContext().importObject(huge);
+		
+		gargantuan = BuildUtilities.createSize("Gargantuan");
+		primaryContext.getReferenceContext().importObject(gargantuan);
+		secondaryContext.getReferenceContext().importObject(gargantuan);
+		
+		colossal = BuildUtilities.createSize("Colossal");
+		primaryContext.getReferenceContext().importObject(colossal);
+		secondaryContext.getReferenceContext().importObject(colossal);
+	}
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()
@@ -54,15 +111,15 @@ public class UdamLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidNotEnoughValues() throws PersistenceLayerException
 	{
-		assertFalse(parse("1,2,3,4,5,6,7,8"));
-		assertNoSideEffects();
+		assertTrue(parse("1,2,3,4,5,6,7,8"));
+		assertFalse(token.process(primaryContext, primaryProf));
 	}
 
 	@Test
 	public void testInvalidTooManyValues() throws PersistenceLayerException
 	{
-		assertFalse(parse("1,2,3,4,5,6,7,8,9,0"));
-		assertNoSideEffects();
+		assertTrue(parse("1,2,3,4,5,6,7,8,9,0"));
+		assertFalse(token.process(primaryContext, primaryProf));
 	}
 
 	@Test
