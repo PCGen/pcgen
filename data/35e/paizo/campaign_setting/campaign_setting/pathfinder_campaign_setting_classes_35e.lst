@@ -88,7 +88,7 @@ SUBSTITUTIONLEVEL:1	BONUS:VAR|MonkMoveLVL|CL								ABILITY:Special Ability|AUTO
 SUBSTITUTIONLEVEL:1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL,StunningFistMonkLVL|MonkLVL	ABILITY:Special Ability|AUTOMATIC|Flurry of Blows	ABILITY:Special Ability|VIRTUAL|Greater Flurry of Blows|PREVARGTEQ:GreaterFlurry,1	DEFINE:MonkLVL|0
 SUBSTITUTIONLEVEL:1	BONUS:VAR|MonkBonusFeatLVL|CL																															DEFINE:MonkBonusFeatLVL|0
 ###Block: Level progression
-SUBSTITUTIONLEVEL:1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6	UMULT:2	ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
+SUBSTITUTIONLEVEL:1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,4d6	UMULT:2	ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
 
 
 # Class Name
