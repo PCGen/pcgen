@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.helper;
 
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
@@ -29,6 +28,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 
@@ -47,7 +47,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 
 	private final String source;
 
-	private final Category<Ability> category;
+	private final CDOMSingleRef<AbilityCategory> category;
 
 	/**
 	 * The Ability that this AbilitySelection represents
@@ -69,7 +69,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	 *            The Nature of the given Ability as it should be applied to a
 	 *            PlayerCharacter
 	 */
-	public AbilityTargetSelector(String token, Category<Ability> cat,
+	public AbilityTargetSelector(String token, CDOMSingleRef<AbilityCategory> cat,
 			CDOMSingleRef<Ability> abil, Nature nat)
 	{
 		category = cat;
@@ -93,7 +93,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	 * 
 	 * @return The Category for the Ability in this AbilitySelection.
 	 */
-	public Category<Ability> getAbilityCategory()
+	public CDOMSingleRef<AbilityCategory> getAbilityCategory()
 	{
 		return category;
 	}
@@ -176,7 +176,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	{
 		String string = ci.encodeChoice(choice);
 		CNAbilitySelection appliedSelection = new CNAbilitySelection(
-				CNAbilityFactory.getCNAbility(category, nature, ability.resolvesTo()), string);
+				CNAbilityFactory.getCNAbility(category.resolvesTo(), nature, ability.resolvesTo()), string);
 		appliedSelection.addAllPrerequisites(getPrerequisiteList());
 		pc.addAbility(appliedSelection, obj, this);
 	}
@@ -206,7 +206,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	{
 		String string = ci.encodeChoice(choice);
 		CNAbilitySelection appliedSelection = new CNAbilitySelection(
-				CNAbilityFactory.getCNAbility(category, nature, ability.resolvesTo()), string);
+				CNAbilityFactory.getCNAbility(category.resolvesTo(), nature, ability.resolvesTo()), string);
 		pc.removeAbility(appliedSelection, obj, this);
 	}
 

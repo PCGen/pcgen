@@ -141,13 +141,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		String cat = tok.nextToken();
-		Category<Ability> category = context.getReferenceContext()
-				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, cat);
-		if (category == null)
-		{
-			return new ParseResult.Fail(getTokenName()
-				+ " refers to invalid Ability Category: " + cat, context);
-		}
+		CDOMSingleRef<AbilityCategory> acRef = context.getReferenceContext()
+				.getCDOMReference(ABILITY_CATEGORY_CLASS, cat);
 		if (!tok.hasMoreTokens())
 		{
 			return new ParseResult.Fail(getTokenName() + " must have a Nature, "
@@ -198,7 +193,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		boolean removed = false;
 
 		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, category);
+				ABILITY_CLASS, ABILITY_CATEGORY_CLASS, cat);
 
 		boolean prereqsAllowed = true;
 
@@ -228,14 +223,14 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				AssociatedPrereqObject assoc = context.getListContext()
 						.removeFromList(getTokenName(), obj, abilList, ref);
 				assoc.setAssociation(AssociationKey.NATURE, nature);
-				assoc.setAssociation(AssociationKey.CATEGORY, category);
+				assoc.setAssociation(AssociationKey.CATEGORY, acRef);
 				removed = true;
 			}
 			else if (Constants.LST_PERCENT_LIST.equals(token))
 			{
 				prereqsAllowed = false;
 				AbilitySelector as =
-						new AbilitySelector(getTokenName(), category, nature);
+						new AbilitySelector(getTokenName(), acRef, nature);
 				context.getObjectContext().addToList(obj,
 					ListKey.NEW_CHOOSE_ACTOR, as);
 			}
@@ -260,7 +255,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 						{
 							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
 							AbilityTargetSelector ats = new AbilityTargetSelector(
-									getTokenName(), category, ref, nature);
+									getTokenName(), acRef, ref, nature);
 							context.getObjectContext().addToList(obj, ListKey.GA_CAKEYS,
 								lk);
 							context.getObjectContext().addToList(obj, lk, ats);
@@ -274,7 +269,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 					AssociatedPrereqObject assoc = context.getListContext()
 							.addToList(getTokenName(), obj, abilList, ability);
 					assoc.setAssociation(AssociationKey.NATURE, nature);
-					assoc.setAssociation(AssociationKey.CATEGORY, category);
+					assoc.setAssociation(AssociationKey.CATEGORY, acRef);
 					if (choices != null)
 					{
 						assoc.setAssociation(AssociationKey.ASSOC_CHOICES, choices);
@@ -333,10 +328,10 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		Changes<ListKey<ChooseSelectionActor<?>>> actors = context.getObjectContext()
 				.getListChanges(obj, ListKey.GA_CAKEYS);
 		Set<String> returnSet = new TreeSet<String>();
-		TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> m =
-				new TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
-		TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> clear =
-				new TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
+		TripleKeyMapToList<Nature, CDOMSingleRef<AbilityCategory>, List<Prerequisite>, CDOMReference<Ability>> m =
+				new TripleKeyMapToList<Nature, CDOMSingleRef<AbilityCategory>, List<Prerequisite>, CDOMReference<Ability>>();
+		TripleKeyMapToList<Nature, CDOMSingleRef<AbilityCategory>, List<Prerequisite>, CDOMReference<Ability>> clear =
+				new TripleKeyMapToList<Nature, CDOMSingleRef<AbilityCategory>, List<Prerequisite>, CDOMReference<Ability>>();
 
 		Changes<ChooseSelectionActor<?>> listChanges =
 				context.getObjectContext().getListChanges(obj,
@@ -352,7 +347,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 					{
 						AbilitySelector as = (AbilitySelector) csa;
 						StringBuilder sb = new StringBuilder();
-						sb.append(as.getAbilityCategory().getLSTformat()).append(Constants.PIPE);
+						sb.append(as.getAbilityCategory().getLSTformat(false)).append(Constants.PIPE);
 						sb.append(as.getNature()).append(Constants.PIPE);
 						sb.append(as.getLstFormat());
 						returnSet.add(sb.toString());
@@ -392,7 +387,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 					{
 						Nature nature =
 								assoc.getAssociation(AssociationKey.NATURE);
-						Category<Ability> cat =
+						CDOMSingleRef<AbilityCategory> cat =
 								assoc.getAssociation(AssociationKey.CATEGORY);
 						m.addToListFor(nature, cat,
 							assoc.getPrerequisiteList(), ab);
@@ -408,7 +403,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 					{
 						Nature nature = assoc
 								.getAssociation(AssociationKey.NATURE);
-						Category<Ability> cat = assoc
+						CDOMSingleRef<AbilityCategory> cat = assoc
 								.getAssociation(AssociationKey.CATEGORY);
 						clear.addToListFor(nature, cat, assoc
 								.getPrerequisiteList(), ab);
@@ -419,13 +414,13 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 
 		for (Nature nature : m.getKeySet())
 		{
-			for (Category<Ability> category : m.getSecondaryKeySet(nature))
+			for (CDOMSingleRef<AbilityCategory> category : m.getSecondaryKeySet(nature))
 			{
 				for (List<Prerequisite> prereqs : m.getTertiaryKeySet(nature,
 					category))
 				{
 					StringBuilder sb = new StringBuilder();
-					sb.append(category.getLSTformat()).append(Constants.PIPE);
+					sb.append(category.getLSTformat(false)).append(Constants.PIPE);
 					sb.append(nature);
 					List<CDOMReference<Ability>> clearList = clear
 							.removeListFor(nature, category, prereqs);
@@ -450,13 +445,13 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		for (Nature nature : clear.getKeySet())
 		{
-			for (Category<Ability> category : clear.getSecondaryKeySet(nature))
+			for (CDOMSingleRef<AbilityCategory> category : clear.getSecondaryKeySet(nature))
 			{
 				for (List<Prerequisite> prereqs : clear.getTertiaryKeySet(
 						nature, category))
 				{
 					StringBuilder sb = new StringBuilder();
-					sb.append(category.getLSTformat()).append(Constants.PIPE);
+					sb.append(category.getLSTformat(false)).append(Constants.PIPE);
 					sb.append(nature).append(Constants.PIPE).append(
 							Constants.LST_DOT_CLEAR_DOT);
 					sb.append(ReferenceUtilities.joinLstFormat(clear
@@ -487,7 +482,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 							AbilityTargetSelector ats =
 									(AbilityTargetSelector) cra;
 							StringBuilder sb = new StringBuilder();
-							sb.append(ats.getAbilityCategory().getLSTformat())
+							sb.append(ats.getAbilityCategory().getLSTformat(false))
 								.append(Constants.PIPE);
 							sb.append(ats.getNature()).append(Constants.PIPE)
 								.append(cra.getLstFormat());

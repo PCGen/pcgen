@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.helper;
 
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.ConcretePrereqObject;
@@ -26,7 +25,8 @@ import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.core.Ability;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
@@ -44,7 +44,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 
 	private final String source;
 
-	private final Category<Ability> category;
+	private final CDOMSingleRef<AbilityCategory> category;
 
 	/**
 	 * The Nature of the Ability as it should be applied to a PlayerCharacter
@@ -63,7 +63,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	 *            The Nature of the given Ability as it should be applied to a
 	 *            PlayerCharacter
 	 */
-	public AbilitySelector(String token, Category<Ability> cat, Nature nat)
+	public AbilitySelector(String token, CDOMSingleRef<AbilityCategory> cat, Nature nat)
 	{
 		category = cat;
 		nature = nat;
@@ -75,7 +75,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	 * 
 	 * @return The Category for the Ability in this AbilitySelection.
 	 */
-	public Category<Ability> getAbilityCategory()
+	public CDOMSingleRef<AbilityCategory> getAbilityCategory()
 	{
 		return category;
 	}
@@ -96,7 +96,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	public void applyChoice(ChooseDriver obj, AbilitySelection as,
 		PlayerCharacter pc)
 	{
-		CNAbility cna = CNAbilityFactory.getCNAbility(category, nature, as.getObject());
+		CNAbility cna = CNAbilityFactory.getCNAbility(category.resolvesTo(), nature, as.getObject());
 		CNAbilitySelection cnas = new CNAbilitySelection(cna, as.getSelection());
 		pc.associateSelection(as, cnas);
 		pc.addAbility(cnas, obj, this);
