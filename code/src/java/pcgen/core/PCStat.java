@@ -21,6 +21,7 @@
 package pcgen.core;
 
 import pcgen.cdom.base.NonInteractive;
+import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -32,7 +33,8 @@ import pcgen.facade.core.StatFacade;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class PCStat extends PObject implements StatFacade, NonInteractive
+public final class PCStat extends PObject implements StatFacade,
+		NonInteractive, SortKeyRequired
 {
 	@Override
 	public int getMinValue()
