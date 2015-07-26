@@ -34,7 +34,6 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
-import pcgen.system.PCGenSettings;
 
 /**
  * Definition and games rules for an Ability.
