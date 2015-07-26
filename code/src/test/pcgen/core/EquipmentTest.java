@@ -386,6 +386,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		String customProperties = "NAME=Falchion +1 (Small)$SIZE=S$EQMOD=PLUS1W";
 		PlayerCharacter thePC = getCharacter();
 		aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
+		aEquip.setToCustomSize(thePC);
 		assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());
 		assertEquals("Equip size", "S", aEquip.getSize());
 		assertEquals("Equip eqmod", "PLUS1W", aEquip.getEqModifierList(true).get(0).getKeyName());
@@ -407,6 +408,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		String customProperties = "NAME=Falchion +1 (Small)$SIZE=S$EQMOD=PLUS1W";
 		PlayerCharacter thePC = getCharacter();
 		aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
+		aEquip.setToCustomSize(thePC);
 		assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());
 		assertEquals("Equip size", "S", aEquip.getSize());
 		assertEquals("Equip eqmod", "PLUS1W", aEquip.getEqModifierList(true).get(0).getKeyName());
