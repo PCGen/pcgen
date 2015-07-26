@@ -29,8 +29,8 @@ import java.util.Collection;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -91,20 +91,18 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 				"No category found.  ABILITY token "
 					+ "in a Kit requires CATEGORY=<cat>|<abilities>", context);
 		}
-		Category<Ability> ac = context.getReferenceContext().silentlyGetConstructedCDOMObject(
-				ABILITY_CATEGORY_CLASS, catString.substring(9));
-		if (ac == null)
-		{
-			return new ParseResult.Fail(
-					"Ability Category " + catString.substring(9) + " not found", context);
-		}
+		String acName = catString.substring(9);
+		
+		CDOMSingleRef<AbilityCategory> acRef =
+				context.getReferenceContext().getCDOMReference(
+					ABILITY_CATEGORY_CLASS, acName);
 		/*
 		 * CONSIDER In the future it would be nice to not have to do this cast,
 		 * but that should be reserved for the time when the Pool nature of
 		 * AbilityCategory is separated from the Organizational nature of
 		 * AbilityCategory
 		 */
-		kitAbil.setCategory((AbilityCategory) ac);
+		kitAbil.setCategory(acRef);
 
 		String rest = value.substring(pipeLoc + 1);
 		if (isEmpty(rest) || hasIllegalSeparator('|', rest))
@@ -116,7 +114,7 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 		StringTokenizer st = new StringTokenizer(rest, Constants.PIPE);
 
 		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, ac);
+				ABILITY_CLASS, ABILITY_CATEGORY_CLASS, acName);
 
 		while (st.hasMoreTokens())
 		{
@@ -149,7 +147,7 @@ public class AbilityToken extends AbstractNonEmptyToken<KitAbilities> implements
 		}
 		StringBuilder result = new StringBuilder();
 		result.append("CATEGORY=");
-		result.append(kitAbil.getCategory().getKeyName());
+		result.append(kitAbil.getCategory().getLSTformat(false));
 		for (CDOMReference<Ability> ref : references)
 		{
 			result.append(Constants.PIPE);

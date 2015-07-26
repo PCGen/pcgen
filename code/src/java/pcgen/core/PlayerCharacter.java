@@ -8601,7 +8601,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				for (AssociatedPrereqObject apo : assoc)
 				{
 					Nature nature = apo.getAssociation(AssociationKey.NATURE);
-					Category<Ability> cat = apo.getAssociation(AssociationKey.CATEGORY);
+					CDOMSingleRef<AbilityCategory> acRef = apo.getAssociation(AssociationKey.CATEGORY);
+					AbilityCategory cat = acRef.resolvesTo();
 					if (ab.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 					{
 						List<String> choices = apo.getAssociation(AssociationKey.ASSOC_CHOICES);

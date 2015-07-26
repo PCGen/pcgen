@@ -32,7 +32,6 @@ import java.util.List;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
 import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.Constants;
@@ -48,6 +47,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -167,13 +167,8 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 					+ value, context);
 		}
 
-		Category<Ability> category = context.getReferenceContext()
-				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, first);
-		if (category == null)
-		{
-			return new ParseResult.Fail(getFullName() + ": Invalid ability category: "
-					+ first, context);
-		}
+		CDOMSingleRef<AbilityCategory> acRef = context.getReferenceContext()
+				.getCDOMReference(ABILITY_CATEGORY_CLASS, first);
 
 		Nature nature = Nature.valueOf(second);
 		if (nature == null)
@@ -206,7 +201,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		int dupChoices = 0;
 
 		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, category);
+				ABILITY_CLASS, ABILITY_CATEGORY_CLASS, first);
 
 		while (tok.hasNext())
 		{
@@ -274,7 +269,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 					+ ": Contains no ability reference: " + value, context);
 		}
 
-		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs,
+		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(acRef, refs,
 				nature);
 		if (!rcs.getGroupingState().isValid())
 		{
@@ -288,7 +283,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			title.append(nature.toString());
 			title.append(' ');
 		}
-		title.append(category.getDisplayName());
+		title.append(first);
 		title.append(" Choice");
 		cs.setTitle(title.toString());
 		PersistentTransitionChoice<CNAbilitySelection> tc =
@@ -349,7 +344,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					sb.append(f).append(Constants.PIPE);
 				}
-				sb.append(ascs.getCategory().getKeyName());
+				sb.append(ascs.getCategory().getLSTformat(false));
 				sb.append(Constants.PIPE);
 				sb.append(ascs.getNature());
 				sb.append(Constants.PIPE);

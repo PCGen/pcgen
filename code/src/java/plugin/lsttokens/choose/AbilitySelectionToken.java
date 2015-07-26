@@ -26,7 +26,6 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedAbilitySelectionChooseInformation;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
@@ -37,6 +36,7 @@ import pcgen.cdom.choiceset.CollectionToAbilitySelection;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -73,7 +73,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	}
 	
 	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		ReferenceManufacturer<Ability> rm, Category<Ability> category,
+		ReferenceManufacturer<Ability> rm, CDOMSingleRef<AbilityCategory> acRef,
 		CDOMObject obj, String value)
 	{
 		int pipeLoc = value.lastIndexOf('|');
@@ -119,7 +119,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 				+ ": Contains ANY and a specific reference: " + value, context);
 		}
 		CollectionToAbilitySelection pcs =
-				new CollectionToAbilitySelection(category, prim);
+				new CollectionToAbilitySelection(acRef, prim);
 		CategorizedAbilitySelectionChooseInformation tc =
 				new CategorizedAbilitySelectionChooseInformation(
 					getTokenName(), pcs);
@@ -248,19 +248,14 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 				+ " requires a CATEGORY and arguments : " + value, context);
 		}
 		String cat = value.substring(0, barLoc);
-		Category<Ability> category =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
+		CDOMSingleRef<AbilityCategory> acRef =
+				context.getReferenceContext().getCDOMReference(
 					ABILITY_CATEGORY_CLASS, cat);
-		if (category == null)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " found invalid CATEGORY: " + cat + " in value: " + value,
-				context);
-		}
 		String abilities = value.substring(barLoc + 1);
-		return parseTokenWithSeparator(context,
-			context.getReferenceContext().getManufacturer(ABILITY_CLASS, category), category,
-			obj, abilities);
+		ReferenceManufacturer<Ability> rm =
+				context.getReferenceContext().getManufacturer(ABILITY_CLASS,
+					ABILITY_CATEGORY_CLASS, cat);
+		return parseTokenWithSeparator(context, rm, acRef, obj, abilities);
 	}
 
 	@Override
