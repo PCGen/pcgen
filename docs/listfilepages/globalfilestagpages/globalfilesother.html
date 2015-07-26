@@ -1733,27 +1733,58 @@ PREAPPLY tag.</p>
 <p class="indent2"><code>TEMPLATE:Lycanthrope.REMOVE</code></p>
 <p class="indent3">Removes the "Lycanthrope" template..</p>
 <hr />
-<p class="indent0"><strong><a name="UDAM" id="UDAM">Tag
-Name:</a></strong> UDAM:x,x,x,x,x,x,x,x,x</p>
-<p class="indent1"><strong>Variables Used (x):</strong> Text
-(Damage)</p>
-<p class="indent1"><strong>What it does:</strong></p>
-<ul class="indent2">
-<li>This tag indicates the unarmed damage the character does by
-size category.</li>
-<li>If nine (9) fields are included, they will represent the damage
-done for each size, from left to right, "Fine" to "Colossal".</li>
-<li>If only one (1) field is included, it will represent the damage
-done irrespective of the creature's size.</li>
+<h3 id="UDAM">UDAM</h3>
+<p>Sets the the character&#39;s unarmed damage.</p>
+<h4>Status:</h4>
+<ul class="incremental">
+<li>6.05.04 - JIRA issue 
+<a href="http://jira.pcgen.org/browse/CODE-2866">CODE-2866</a> / Github 
+<a href="https://github.com/PCGen/pcgen/pull/385">PR #385</a>
+<ul class="incremental">
+<li>The &#39;damage by size category&#39; syntax, with multiple arguments, now
+takes as many arguments as there are size categories in the 
+<code>sizeAdjustment.lst</code>. 
+<em>Typically</em> this is nine arguments. (Formerly took 
+<em>exactly</em> nine arguments, ignoring 
+<code>sizeAdjustment.lst</code>.)</li>
+</ul></li>
 </ul>
-<p class="indent1"><strong>Example:</strong></p>
-<p class="indent2">
-<code>UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8</code></p>
-<p class="indent3">This sets unarmed damage done to "1" for size
-"Fine" to "2d8" for size "Colossal".</p>
-<p class="indent2"><code>UDAM:2d8</code></p>
-<p class="indent3">This sets unarmed damage done to "2d8"
-irrespective of size.</p>
+<h4>Syntax</h4>
+<ul class="incremental">
+<li>
+<code>UDAM:XdY</code>
+<ul class="incremental">
+<li>Sets the character&#39;s unarmed attack damage to 
+<code>XdY</code> regardless of the character&#39;s current size.</li>
+</ul>
+</li>
+<li>
+<code>UDAM:XdY,XdY, ... ,XdY</code>
+<ul class="incremental">
+<li>Sets the character&#39;s unarmed attack damage by size.</li>
+<li>The arguments 
+<code>XdY</code> are in ascending order of size.</li>
+<li>The number of arguments 
+<code>XdY</code> must match the number of sizes listed in the game mode&#39;s 
+<code>sizeAdjustment.lst</code>.</li>
+<li>For the 
+<code>35e</code> game mode, there are nine sizes - 
+<em>fine, diminutive, tiny, small, medium, large, huge, gargantuan, colossal,
+colossal+</em>.</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ol class="incremental">
+<li>
+<code>UDAM:1d3</code> - sets un-armed damage to be 
+<code>1d3</code>, no matter what size the creature is.</li>
+<li>
+<code>UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8</code> - sets a damage
+progression for nine creature sizes, increasing from 
+<code>1</code> point at the smallest size, to 
+<code>2d8</code> at the largest size.</li>
+</ol>
 <hr />
 <p class="indent0"><strong><a name="UMULT" id="UMULT">Tag
 Name:</a></strong> UMULT</p>
