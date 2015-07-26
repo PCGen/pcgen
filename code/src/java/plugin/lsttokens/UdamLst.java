@@ -30,17 +30,22 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
+import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 /**
  * @author djones4
  *
  */
-public class UdamLst implements CDOMPrimaryToken<CDOMObject>
+public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObject>,
+		DeferredToken<CDOMObject>
 {
 
 	@Override
@@ -93,14 +98,13 @@ public class UdamLst implements CDOMPrimaryToken<CDOMObject>
 		}
 		else
 		{
+			pr = checkForIllegalSeparator(',', value);
+			if (!pr.passed())
+			{
+				return pr;
+			}
 			final StringTokenizer tok = new StringTokenizer(value,
 					Constants.COMMA);
-			if (tok.countTokens() != 9 && tok.countTokens() != 1)
-			{
-				return new ParseResult.Fail(getTokenName()
-					+ " requires either a single value or 9 comma separated values",
-					context);
-			}
 			if (context.getObjectContext().containsListFor(obj,
 					ListKey.UNARMED_DAMAGE))
 			{
@@ -152,6 +156,34 @@ public class UdamLst implements CDOMPrimaryToken<CDOMObject>
 
 	@Override
 	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
+	@Override
+	public boolean process(LoadContext context, CDOMObject obj)
+	{
+		List<String> changes = obj.getListFor(ListKey.UNARMED_DAMAGE);
+		if (changes == null)
+		{
+			return true;
+		}
+		int gameModeSizeCount =
+				context.getReferenceContext().getConstructedObjectCount(
+					SizeAdjustment.class);
+		if (changes.size() != gameModeSizeCount && changes.size() != 1)
+		{
+			Logging.log(Logging.LST_ERROR,
+				"Unarmed Damage " + StringUtil.join(changes, ", ") + " had "
+					+ changes.size() + " entries, but must be 1 or "
+					+ gameModeSizeCount);
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public Class<CDOMObject> getDeferredTokenClass()
 	{
 		return CDOMObject.class;
 	}
