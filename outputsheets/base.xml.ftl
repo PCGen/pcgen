@@ -421,21 +421,22 @@
 	<!-- Skills -->
 	</skills>
 	<!--
-	  ====================================
-	  ====================================
+	====================================
+	====================================
 			SAVING THROWS
-	  ====================================
-	  ====================================-->
+	====================================
+	====================================-->
 	<saving_throws>
 		<conditional_modifiers>
-		<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SaveBonus")-1') ; ability , ability_has_next>
-			<savebonus>
-				<description>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus.ASPECT.SaveBonus')}</description>
-			</savebonus>
-		</@loop>
+			<@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SaveBonus")-1') ; ability , ability_has_next>
+				<savebonus>
+					<description>${pcstring('ABILITYALL.ANY.${ability}.ASPECT=SaveBonus.ASPECT.SaveBonus')}</description>
+				</savebonus>
+			</@loop>
 		</conditional_modifiers>
-		<@loop from=0 to=pcvar('COUNT[CHECKS]-1') ; check , check_has_next>
-		<#assign checkName = pcstring('CHECK.${check}.NAME')?lower_case />
+		<#assign checknum = 0 />
+		<#list pc.checks as check>
+		<#assign checkName = pcstring('CHECK.${checknum}.NAME')?lower_case />
 		<#assign checkShortName = checkName />
 		<#if (checkName = 'reflex')>
 			<#assign checkShortName = checkName?substring(0,3) />
@@ -456,18 +457,19 @@
 			<#else>
 				<ability></ability>
 			</#if>
-			<total>${pcstring('CHECK.${check}.TOTAL')}</total>
-			<base>${pcstring('CHECK.${check}.BASE')}</base>
-			<abil_mod>${pcstring('CHECK.${check}.STATMOD')}</abil_mod>
-			<feats>${pcstring('CHECK.${check}.FEATS')}</feats>
-			<magic_mod>${pcstring('CHECK.${check}.MAGIC')}</magic_mod>
-			<misc_mod>${pcstring('CHECK.${check}.MISC.NOMAGIC.NOSTAT')}</misc_mod>
-			<misc_w_magic_mod>${pcstring('CHECK.${check}.MISC.NOSTAT')}</misc_w_magic_mod>
-			<race>${pcstring('CHECK.${check}.RACE')}</race>
-			<epic_mod>${pcstring('CHECK.${check}.EPIC')}</epic_mod>
+			<total>${pcstring('CHECK.${checknum}.TOTAL')}</total>
+			<base>${pcstring('CHECK.${checknum}.BASE')}</base>
+			<abil_mod>${pcstring('CHECK.${checknum}.STATMOD')}</abil_mod>
+			<feats>${pcstring('CHECK.${checknum}.FEATS')}</feats>
+			<magic_mod>${pcstring('CHECK.${checknum}.MAGIC')}</magic_mod>
+			<misc_mod>${pcstring('CHECK.${checknum}.MISC.NOMAGIC.NOSTAT')}</misc_mod>
+			<misc_w_magic_mod>${pcstring('CHECK.${checknum}.MISC.NOSTAT')}</misc_w_magic_mod>
+			<race>${pcstring('CHECK.${checknum}.RACE')}</race>
+			<epic_mod>${pcstring('CHECK.${checknum}.EPIC')}</epic_mod>
 			<temp_mod/>
 		</saving_throw>
-		</@loop>
+		<#assign checknum = checknum + 1 />
+		</#list>
 	</saving_throws>
 	<!--
 	  ====================================
