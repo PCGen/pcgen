@@ -225,7 +225,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 		DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<DomainSpellList>> dkmtl =
 				new DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<DomainSpellList>>();
 		List<String> list = new ArrayList<String>();
-		Changes<CDOMReference> masterChanges = context.getListContext()
+		Changes<CDOMReference<DomainSpellList>> masterChanges = context.getListContext()
 				.getMasterListChanges(getTokenName(), spell, SPELLLIST_CLASS);
 		if (masterChanges.includesGlobalClear())
 		{

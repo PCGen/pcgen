@@ -327,7 +327,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedLists =
+		Collection<CDOMReference<? extends CDOMList<?>>> changedLists =
 				context.getListContext()
 					.getChangedLists(obj, AbilityList.class);
 		Changes<ListKey<ChooseSelectionActor<?>>> actors = context.getObjectContext()

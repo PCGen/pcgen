@@ -65,6 +65,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 			throw new InternalError(cl
 					+ " is categorized but was fetched without a category");
 		}
+		@SuppressWarnings("unchecked")
 		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map.get(cl);
 		if (mfg == null)
 		{
@@ -90,6 +91,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Class<? extends Category<T>> catClass, String cat)
 	{
+		@SuppressWarnings("unchecked")
 		TransparentCategorizedReferenceManufacturer<T> mfg = (TransparentCategorizedReferenceManufacturer<T>) catmap
 				.get(cl, cat);
 		if (mfg == null)
@@ -110,7 +112,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
-		Class<? extends Category<T>> catClass = (Class<? extends Category<T>>) cat.getClass();
+		Class<? extends Category<T>> catClass = getGenericClass(cat);
 		return getManufacturer(cl, catClass, cat.getKeyName());
 	}
 

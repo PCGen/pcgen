@@ -74,14 +74,15 @@ public final class TokenFamily implements Comparable<TokenFamily>
 	private final List<DeferredToken<? extends Loadable>> deferredTokenList =
 			new ArrayList<DeferredToken<? extends Loadable>>();
 
-	private final DoubleKeyMap<Class<?>, String, GroupDefinition> groupDefinitionMap =
-			new DoubleKeyMap<Class<?>, String, GroupDefinition>(HashMap.class, CaseInsensitiveMap.class);
+	private final DoubleKeyMap<Class<?>, String, GroupDefinition<?>> groupDefinitionMap =
+			new DoubleKeyMap<Class<?>, String, GroupDefinition<?>>(HashMap.class, CaseInsensitiveMap.class);
 	
 	public TokenFamily(Revision r)
 	{
 		rev = r;
 	}
 
+	@SuppressWarnings("unchecked")
 	public <T> CDOMToken<T> putToken(CDOMToken<T> tok)
 	{
 		if (tok.getTokenClass() == null)
@@ -103,21 +104,29 @@ public final class TokenFamily implements Comparable<TokenFamily>
 		return tokenMap.values(cl);
 	}
 
+	@SuppressWarnings("unchecked")
 	public <U, T extends CDOMSecondaryToken<U>> CDOMSecondaryToken<U> putSubToken(T tok)
 	{
+		if (tok.getTokenClass() == null)
+		{
+			Logging.errorPrint("Cannot load token "
+				+ tok.getClass().getSimpleName() + " with no token class");
+		}
 		return (CDOMSecondaryToken<U>) subTokenMap.put(tok.getTokenClass(), tok
 				.getParentToken(), tok.getTokenName(), tok);
 	}
 
-	public <T> CDOMSubToken<T> getSubToken(Class<? extends T> cl, String token,
+	@SuppressWarnings("unchecked")
+	public <T> CDOMSubToken<? super T> getSubToken(Class<? extends T> cl, String token,
 			String key)
 	{
-		return (CDOMSubToken<T>) subTokenMap.get(cl, token, key);
+		return (CDOMSubToken<? super T>) subTokenMap.get(cl, token, key);
 	}
 
-	public Set<CDOMSecondaryToken<?>> getSubTokens(Class<?> cl, String token)
+	@SuppressWarnings("unchecked")
+	public <T> Set<CDOMSecondaryToken<? super T>> getSubTokens(Class<? super T> cl, String token)
 	{
-		return subTokenMap.values(cl, token);
+		return (Set) subTokenMap.values(cl, token);
 	}
 
 	public void putPrerequisiteToken(PrerequisiteParserInterface token)
@@ -307,8 +316,9 @@ public final class TokenFamily implements Comparable<TokenFamily>
 		}
 	}
 	
-	public GroupDefinition<?> getGroup(Class<?> cl, String name)
+	@SuppressWarnings("unchecked")
+	public <T> GroupDefinition<T> getGroup(Class<T> cl, String name)
 	{
-		return groupDefinitionMap.get(cl, name);
+		return (GroupDefinition<T>) groupDefinitionMap.get(cl, name);
 	}
 }

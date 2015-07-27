@@ -38,7 +38,7 @@ public interface MasterListInterface
 	 * 
 	 * @return A Set of all Active Lists defined in the MasterListInterface.
 	 */
-	public Set<CDOMReference> getActiveLists();
+	public Set<CDOMReference<? extends CDOMList<?>>> getActiveLists();
 
 	/**
 	 * Returns a Collection of AssociatedPrereqObjects containing the

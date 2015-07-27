@@ -84,7 +84,10 @@ public class TokenFamilyIterator<C> implements
 			CDOMToken<?> tok = subIterator.next();
 			if (tok instanceof CDOMPrimaryToken)
 			{
-				return (CDOMPrimaryToken<? super C>) tok;
+				@SuppressWarnings("unchecked")
+				CDOMPrimaryToken<? super C> pt =
+						(CDOMPrimaryToken<? super C>) tok;
+				return pt;
 			}
 		}
 		if (OBJECT_CLASS.equals(actingClass))

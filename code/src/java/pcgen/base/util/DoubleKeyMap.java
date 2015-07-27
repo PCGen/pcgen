@@ -74,12 +74,14 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * Stores the Class to be used as the underlying Map for the map from the
 	 * first key of the DoubleKeyMap to the second underlying Map.
 	 */
+	@SuppressWarnings("rawtypes")
 	private final Class<? extends Map> firstClass;
 
 	/**
 	 * Stores the Class to be used as the underlying Map for the map from the
 	 * second key of the DoubleKeyMap to the value stored for the given keys.
 	 */
+	@SuppressWarnings("rawtypes")
 	private final Class<? extends Map> secondClass;
 
 	/**
@@ -128,7 +130,8 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 *             if one or both of the given Classes is null or does not have
 	 *             a public, zero argument constructor.
 	 */
-	public DoubleKeyMap(Class<? extends Map> cl1, Class<? extends Map> cl2)
+	public DoubleKeyMap(@SuppressWarnings("rawtypes") Class<? extends Map> cl1,
+		@SuppressWarnings("rawtypes") Class<? extends Map> cl2)
 	{
 		super();
 		if (cl1 == null)
@@ -560,7 +563,9 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	{
 		try
 		{
-			return secondClass.newInstance();
+			@SuppressWarnings("unchecked")
+			Map <K2, V> inst = secondClass.newInstance();
+			return inst;
 		}
 		catch (InstantiationException e)
 		{
@@ -586,7 +591,9 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	{
 		try
 		{
-			return firstClass.newInstance();
+			@SuppressWarnings("unchecked")
+			Map<K1, Map<K2, V>> inst = firstClass.newInstance();
+			return inst;
 		}
 		catch (InstantiationException e)
 		{

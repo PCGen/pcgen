@@ -58,6 +58,7 @@ public class MapKeyMap
 	 * comment in that class for the full explanation.
 	 */
 	/** The internal storage of this MapKeyMap. */
+	@SuppressWarnings("rawtypes")
 	private final DoubleKeyMap map = new DoubleKeyMap();
 
 	/**
@@ -81,6 +82,7 @@ public class MapKeyMap
 	 * @throws NullPointerException
 	 *             if the given MapKeyMap is null
 	 */
+	@SuppressWarnings("unchecked")
 	public final void putAll(MapKeyMap mkm)
 	{
 		map.putAll(mkm.map);
@@ -102,6 +104,7 @@ public class MapKeyMap
 	 * @param value
 	 *            The value to be added to the List for the given key.
 	 */
+	@SuppressWarnings("unchecked")
 	public <K, V> V addToMapFor(MapKey<K, V> key1, K key2, V value)
 	{
 		return (V) map.put(key1, key2, value);
@@ -119,6 +122,7 @@ public class MapKeyMap
 	 * @return true if this MapKeyMap contains a Map for the given key; false
 	 *         otherwise.
 	 */
+	@SuppressWarnings("unchecked")
 	public boolean containsMapFor(MapKey<?, ?> key)
 	{
 		return map.containsKey(key);
@@ -140,6 +144,7 @@ public class MapKeyMap
 	 * @return a copy of the List contained in this MapKeyMap for the given key;
 	 *         null if the given key is not a key in this MapKeyMap.
 	 */
+	@SuppressWarnings("unchecked")
 	public <K, V> V get(MapKey<K, V> key1, K key2)
 	{
 		return (V) map.get(key1, key2);
@@ -159,6 +164,7 @@ public class MapKeyMap
 	 * @return a copy of the List contained in this MapKeyMap for the given key;
 	 *         null if the given key is not a key in this MapKeyMap.
 	 */
+	@SuppressWarnings("unchecked")
 	public <K, V> Map<K, V> getMapFor(MapKey<K, V> key)
 	{
 		return map.getMapFor(key);
@@ -178,6 +184,7 @@ public class MapKeyMap
 	 * @return A <tt>Set</tt> of secondary key objects for the given primary
 	 *         key.
 	 */
+	@SuppressWarnings("unchecked")
 	public <K, V> Set<K> getKeysFor(MapKey<K, V> key)
 	{
 		return map.getSecondaryKeySet(key);
@@ -197,6 +204,7 @@ public class MapKeyMap
 	 * @return true if the key and its associated value were successfully
 	 *         removed from the map; false otherwise
 	 */
+	@SuppressWarnings("unchecked")
 	public <K, V> boolean removeFromMapFor(MapKey<K, V> key1, K key2)
 	{
 		return map.remove(key1, key2) != null;
@@ -211,6 +219,7 @@ public class MapKeyMap
 	 * 
 	 * @return The Map which this MapKeyMap previous mapped the given key
 	 */
+	@SuppressWarnings("unchecked")
 	public <K, V> Map<K, V> removeMapFor(MapKey<K, V> key)
 	{
 		return map.removeAll(key);
@@ -230,6 +239,7 @@ public class MapKeyMap
 	 * 
 	 * @return a Set containing the keys in this MapKeyMap
 	 */
+	@SuppressWarnings("unchecked")
 	public Set<MapKey<?, ?>> getKeySet()
 	{
 		return map.getKeySet();

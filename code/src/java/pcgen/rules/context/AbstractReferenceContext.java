@@ -62,6 +62,7 @@ import pcgen.util.Logging;
 public abstract class AbstractReferenceContext
 {
 
+	@SuppressWarnings("rawtypes")
 	private static final Class<CategorizedCDOMObject> CATEGORIZED_CDOM_OBJECT_CLASS = CategorizedCDOMObject.class;
 	private static final Class<DomainSpellList> DOMAINSPELLLIST_CLASS = DomainSpellList.class;
 	private static final Class<ClassSkillList> CLASSSKILLLIST_CLASS = ClassSkillList.class;
@@ -127,13 +128,17 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(c, cat).getTypeReference(val);
 	}
 
-	public <T extends Loadable> T constructCDOMObject(Class<T> c, String val)
+	public <T extends Loadable, U extends Loadable & CategorizedCDOMObject<U>> T constructCDOMObject(Class<T> c, String val)
 	{
 		T obj;
 		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(c))
 		{
-			Class cl = c;
-			obj = (T) getManufacturer(cl, (Category) null).constructObject(val);
+			@SuppressWarnings("unchecked")
+			Class<U> cl = (Class<U>) c;
+			Category<U> cat = null;
+			@SuppressWarnings("unchecked")
+			T to = (T) getManufacturer(cl, cat).constructObject(val);
+			obj = to;
 		}
 		else
 		{
@@ -152,43 +157,32 @@ public abstract class AbstractReferenceContext
 	public <T extends Loadable> CDOMSingleRef<T> getCDOMReference(Class<T> c,
 			String val)
 	{
-		/*
-		 * Keeping this generic (not inlined as the other methods in this class)
-		 * is required by bugs in Sun's Java 5 compiler.
-		 */
-		ReferenceManufacturer manufacturer = getManufacturer(c);
-		return manufacturer.getReference(val);
+		return getManufacturer(c).getReference(val);
 	}
 
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T> getCDOMReference(
 			Class<T> c, Category<T> cat, String val)
 	{
-		/*
-		 * Keeping this generic (not inlined as the other methods in this class)
-		 * is required by bugs in Sun's Java 5 compiler.
-		 */
-		ReferenceManufacturer manufacturer = getManufacturer(c, cat);
-		return manufacturer.getReference(val);
+		return getManufacturer(c, cat).getReference(val);
 	}
 
-	public <T extends Loadable> void reassociateKey(String key, T obj)
+	public <T extends Loadable, U extends Loadable & CategorizedCDOMObject<U>> void reassociateKey(
+		String key, T obj)
 	{
+		Class<T> cl = getGenericClass(obj);
 		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(obj.getClass()))
 		{
-			Class cl = obj.getClass();
-			reassociateCategorizedKey(key, obj, cl);
+			@SuppressWarnings("unchecked")
+			U catObj = (U) obj;
+			@SuppressWarnings("unchecked")
+			Class<U> catCl = (Class<U>) cl;
+			getManufacturer(catCl, catObj.getCDOMCategory()).renameObject(key,
+				catObj);
 		}
 		else
 		{
-			getManufacturer((Class<T>) obj.getClass()).renameObject(key, obj);
+			getManufacturer(cl).renameObject(key, obj);
 		}
-	}
-
-	private <T extends Loadable & CategorizedCDOMObject<T>> void reassociateCategorizedKey(
-			String key, Loadable orig, Class<T> cl)
-	{
-		T obj = (T) orig;
-		getManufacturer(cl, obj.getCDOMCategory()).renameObject(key, obj);
 	}
 
 	public <T extends Loadable> T silentlyGetConstructedCDOMObject(
@@ -213,7 +207,13 @@ public abstract class AbstractReferenceContext
 			Logging.errorPrint("Worthless Category change encountered: "
 					+ obj.getDisplayName() + " " + oldCat);
 		}
-		reassociateCategory((Class<T>) obj.getClass(), obj, oldCat, cat);
+		reassociateCategory(getGenericClass(obj), obj, oldCat, cat);
+	}
+
+	@SuppressWarnings("unchecked")
+	protected <T> Class<T> getGenericClass(T obj)
+	{
+		return (Class<T>) obj.getClass();
 	}
 
 	private <T extends CDOMObject & CategorizedCDOMObject<T>> void reassociateCategory(
@@ -224,47 +224,45 @@ public abstract class AbstractReferenceContext
 		getManufacturer(cl, cat).addObject(obj, obj.getKeyName());
 	}
 
-	public <T extends Loadable> void importObject(T orig)
+	public <T extends Loadable, U extends Loadable & CategorizedCDOMObject<U>> void importObject(
+		T obj)
 	{
-		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(orig.getClass()))
-		{
-			Class cl = orig.getClass();
-			importCategorized(orig, cl);
-		}
-		else
-		{
-			getManufacturer((Class<T>) orig.getClass()).addObject(orig,
-					orig.getKeyName());
-		}
-	}
-
-	private <T extends Loadable & CategorizedCDOMObject<T>> void importCategorized(
-			Loadable orig, Class<T> cl)
-	{
-		T obj = (T) orig;
-		getManufacturer(cl, obj.getCDOMCategory()).addObject(obj,
-				obj.getKeyName());
-	}
-
-	public <T extends Loadable> boolean forget(T obj)
-	{
+		Class<T> cl = getGenericClass(obj);
 		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(obj.getClass()))
 		{
-			Class cl = obj.getClass();
-			CategorizedCDOMObject cdo = (CategorizedCDOMObject) obj;
-			if (hasManufacturer(cl, cdo.getCDOMCategory()))
-			{
-                // Work around a bug in the Eclipse 3.7.0/1 compiler by explicitly extracting a Category<?>
-                return getManufacturer(cl, (Category<?>) cdo.getCDOMCategory()).forgetObject(obj);
-			}
+			@SuppressWarnings("unchecked")
+			U catObj = (U) obj;
+			@SuppressWarnings("unchecked")
+			Class<U> catCl = (Class<U>) cl;
+			getManufacturer(catCl, catObj.getCDOMCategory()).addObject(catObj,
+				catObj.getKeyName());
 		}
 		else
 		{
-			if (hasManufacturer((Class<T>) obj.getClass()))
+			getManufacturer(cl).addObject(obj, obj.getKeyName());
+		}
+	}
+
+	public <T extends Loadable, U extends CDOMObject & CategorizedCDOMObject<U>> boolean forget(
+		T obj)
+	{
+		Class<T> cl = getGenericClass(obj);
+		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(cl))
+		{
+			@SuppressWarnings("unchecked")
+			U catObj = (U) obj;
+			@SuppressWarnings("unchecked")
+			Class<U> catCl = (Class<U>) cl;
+			Category<U> cdomCategory = catObj.getCDOMCategory();
+			if (hasManufacturer(catCl, cdomCategory))
 			{
-				return getManufacturer((Class<T>) obj.getClass()).forgetObject(
-						obj);
+				return getManufacturer(catCl, cdomCategory)
+					.forgetObject(catObj);
 			}
+		}
+		else if (hasManufacturer(cl))
+		{
+			return getManufacturer(cl).forgetObject(obj);
 		}
 		return false;
 	}
@@ -345,7 +343,7 @@ public abstract class AbstractReferenceContext
 			if (pcc.containsListFor(ListKey.SUB_CLASS))
 			{
 				SubClassCategory cat = SubClassCategory.getConstant(key);
-				boolean needSelf = pcc.getSafe(ObjectKey.ALLOWBASECLASS);
+				boolean needSelf = pcc.getSafe(ObjectKey.ALLOWBASECLASS).booleanValue();
 				for (SubClass subcl : pcc.getListFor(ListKey.SUB_CLASS))
 				{
 					String subKey = subcl.getKeyName();
@@ -391,12 +389,13 @@ public abstract class AbstractReferenceContext
 
 	public <T extends CDOMObject> CDOMSingleRef<T> getCDOMDirectReference(T obj)
 	{
-		CDOMSingleRef<?> ref = directRefCache.get(obj);
+		@SuppressWarnings("unchecked")
+		CDOMSingleRef<T> ref = (CDOMSingleRef<T>) directRefCache.get(obj);
 		if (ref == null)
 		{
 			ref = new CDOMDirectSingleRef<T>(obj);
 		}
-		return (CDOMSingleRef<T>) ref;
+		return ref;
 	}
 
 	URI getExtractURI()
@@ -463,15 +462,21 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(cl).getItemInOrder(item);
 	}
 
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
-			ClassIdentity<T> identity)
+	public <T extends Loadable, U extends Loadable & CategorizedCDOMObject<U>> ReferenceManufacturer<T> getManufacturer(
+		ClassIdentity<T> identity)
 	{
-		Class cl = identity.getChoiceClass();
+		Class<T> cl = identity.getChoiceClass();
 		if (CategorizedCDOMObject.class.isAssignableFrom(cl))
 		{
 			//Do categorized.
-			Category category = ((CategorizedClassIdentity) identity).getCategory();
-			return getManufacturer(cl, category);
+			@SuppressWarnings("unchecked")
+			CategorizedClassIdentity<U> catCI = (CategorizedClassIdentity<U>) identity;
+			Category<U> category = catCI.getCategory();
+			@SuppressWarnings("unchecked")
+			Class<U> catCl = (Class<U>) cl;
+			@SuppressWarnings("unchecked")
+			ReferenceManufacturer<T> rmt = (ReferenceManufacturer<T>) getManufacturer(catCl, category);
+			return rmt;
 		}
 		else
 		{

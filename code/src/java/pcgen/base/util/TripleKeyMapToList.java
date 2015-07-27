@@ -57,6 +57,7 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	 * third key of the TripleKeyMapToList to the value stored for the given
 	 * keys.
 	 */
+	@SuppressWarnings("rawtypes")
 	private final Class<? extends Map> thirdClass;
 
 	/**
@@ -98,8 +99,10 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	 *             if any of the given Classes is null or does not have a zero
 	 *             argument constructor
 	 */
-	public TripleKeyMapToList(Class<? extends Map> cl1,
-			Class<? extends Map> cl2, Class<? extends Map> cl3)
+	public TripleKeyMapToList(
+		@SuppressWarnings("rawtypes") Class<? extends Map> cl1,
+		@SuppressWarnings("rawtypes") Class<? extends Map> cl2,
+		@SuppressWarnings("rawtypes") Class<? extends Map> cl3)
 	{
 		super();
 		map = new DoubleKeyMap<K1, K2, MapToList<K3, V>>(cl1, cl2);

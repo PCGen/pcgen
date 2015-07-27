@@ -339,8 +339,8 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			// Zero indicates no Token (and no global clear, so nothing to do)
 			return null;
 		}
-		TripleKeyMapToList<Set<Prerequisite>, CDOMReference<? extends CDOMList<? extends CDOMObject>>, Integer, CDOMReference<Race>> m =
-				new TripleKeyMapToList<Set<Prerequisite>, CDOMReference<? extends CDOMList<? extends CDOMObject>>, Integer, CDOMReference<Race>>();
+		TripleKeyMapToList<Set<Prerequisite>, CDOMReference<? extends CDOMList<?>>, Integer, CDOMReference<Race>> m =
+				new TripleKeyMapToList<Set<Prerequisite>, CDOMReference<? extends CDOMList<?>>, Integer, CDOMReference<Race>>();
 		for (FollowerOption fo : added)
 		{
 			m.addToListFor(new HashSet<Prerequisite>(fo.getPrerequisiteList()),
@@ -356,7 +356,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 				prereqString = getPrerequisiteString(context, prereqs);
 			}
 
-			for (CDOMReference<? extends CDOMList<? extends CDOMObject>> cl : m
+			for (CDOMReference<? extends CDOMList<?>> cl : m
 					.getSecondaryKeySet(prereqs))
 			{
 				for (Integer fa : m.getTertiaryKeySet(prereqs, cl))

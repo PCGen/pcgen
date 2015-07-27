@@ -23,7 +23,6 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.CDOMToken;
 
 public class TokenFamilySubIterator<C> implements
 		Iterator<CDOMSecondaryToken<? super C>>
@@ -31,9 +30,9 @@ public class TokenFamilySubIterator<C> implements
 	private static final Class<Object> OBJECT_CLASS = Object.class;
 	private CDOMSecondaryToken<? super C> nextToken = null;
 	private boolean needNewToken = true;
-	private Class<?> actingClass;
+	private Class<? super C> actingClass;
 	private final String parentToken;
-	private Iterator<CDOMSecondaryToken<?>> subIterator;
+	private Iterator<CDOMSecondaryToken<? super C>> subIterator;
 	private final Set<String> used = new HashSet<String>();
 
 	public TokenFamilySubIterator(Class<C> cl, String parentName)
@@ -84,19 +83,17 @@ public class TokenFamilySubIterator<C> implements
 		needNewToken = false;
 		while (subIterator.hasNext())
 		{
-			CDOMToken<?> tok = subIterator.next();
-			if (tok instanceof CDOMSecondaryToken)
-			{
-				return (CDOMSecondaryToken<? super C>) tok;
-			}
+			CDOMSecondaryToken<? super C> tok = subIterator.next();
+			return tok;
 		}
 		if (OBJECT_CLASS.equals(actingClass))
 		{
 			return null;
 		}
 		actingClass = actingClass.getSuperclass();
-		subIterator = TokenFamily.CURRENT
-				.getSubTokens(actingClass, parentToken).iterator();
+		Set<CDOMSecondaryToken<? super C>> st =
+				TokenFamily.CURRENT.getSubTokens(actingClass, parentToken);
+		subIterator = st.iterator();
 		return getNext();
 	}
 
