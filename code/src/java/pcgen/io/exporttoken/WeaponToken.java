@@ -34,6 +34,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
@@ -691,11 +692,11 @@ public class WeaponToken extends Token
 	public static String getHeft(PlayerCharacter pc, Equipment eq)
 	{
 		String retString = "";
-		if (pc.getDisplay().sizeInt() > SizeUtilities.sizeInt(eq.getSize()))
+		if (pc.getDisplay().sizeInt() > eq.sizeInt())
 		{
 			retString = "LIGHT";
 		}
-		else if (pc.getDisplay().sizeInt() == SizeUtilities.sizeInt(eq.getSize()))
+		else if (pc.getDisplay().sizeInt() == eq.sizeInt())
 		{
 			retString = "MEDIUM";
 		}
@@ -2688,7 +2689,7 @@ public class WeaponToken extends Token
 				final SizeAdjustment defAdj = SizeUtilities.getDefaultSizeAdjustment();
 				if (defAdj != null)
 				{
-					eqSize = SizeUtilities.sizeInt(defAdj.getKeyName());
+					eqSize = defAdj.get(IntegerKey.SIZEORDER);
 				}
 			}
 

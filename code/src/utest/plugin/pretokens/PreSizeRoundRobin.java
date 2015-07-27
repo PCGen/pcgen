@@ -50,7 +50,7 @@ public class PreSizeRoundRobin extends AbstractComparatorRoundRobin
 		super.setUp();
 		TokenRegistration.register(new PreSizeParser());
 		TokenRegistration.register(new PreSizeWriter());
-		medium = BuildUtilities.createSize("Medium");
+		medium = BuildUtilities.createSize("Medium", 1);
 		medium.put(ObjectKey.IS_DEFAULT_SIZE, true);
 	}
 

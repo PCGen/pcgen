@@ -64,13 +64,13 @@ public class SizeTokenTest extends AbstractTokenTestCase<Equipment>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		ps = BuildUtilities.createSize("Small");
+		ps = BuildUtilities.createSize("Small", 0);
 		primaryContext.getReferenceContext().importObject(ps);
-		SizeAdjustment pm = BuildUtilities.createSize("Medium");
+		SizeAdjustment pm = BuildUtilities.createSize("Medium", 1);
 		primaryContext.getReferenceContext().importObject(pm);
-		SizeAdjustment ss = BuildUtilities.createSize("Small");
+		SizeAdjustment ss = BuildUtilities.createSize("Small", 0);
 		secondaryContext.getReferenceContext().importObject(ss);
-		SizeAdjustment sm = BuildUtilities.createSize("Medium");
+		SizeAdjustment sm = BuildUtilities.createSize("Medium", 1);
 		secondaryContext.getReferenceContext().importObject(sm);
 	}
 

@@ -25,6 +25,7 @@ import java.util.Set;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
@@ -118,8 +119,10 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<St
 		int iSize = formulaResolvingFacet.resolve(id, race.getSafe(FormulaKey.SIZE),
 				race.getQualifiedKey()).intValue();
 		SizeAdjustment defAdj = SizeUtilities.getDefaultSizeAdjustment();
-		SizeAdjustment sizAdj = Globals.getContext().getReferenceContext().getItemInOrder(
-				SizeAdjustment.class, iSize);
+		SizeAdjustment sizAdj =
+				Globals.getContext().getReferenceContext()
+					.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER)
+					.get(iSize);
 		if (sizAdj != null)
 		{
 			return Globals.adjustDamage("1d3", defAdj, sizAdj);

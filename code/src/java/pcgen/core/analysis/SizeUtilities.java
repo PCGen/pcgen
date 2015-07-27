@@ -17,61 +17,12 @@
  */
 package pcgen.core.analysis;
 
-import java.util.List;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.SizeAdjustment;
 
 public class SizeUtilities
 {
-
-	/**
-	 * Get size as an integer
-	 * @param aSize
-	 * @param defaultValue
-	 * @return size as an int
-	 */
-	public static int sizeInt(final String aSize, final int defaultValue)
-	{
-		List<SizeAdjustment> list = Globals.getContext().getReferenceContext()
-				.getOrderSortedCDOMObjects(SizeAdjustment.class);
-		for (int i = 0; i < list.size(); i++)
-		{
-			if (aSize.equals(list.get(i).getKeyName()))
-			{
-				return i;
-			}
-		}
-	
-		return defaultValue;
-	}
-
-	public static int sizeInt(final SizeAdjustment aSize)
-	{
-		List<SizeAdjustment> list = Globals.getContext().getReferenceContext()
-				.getOrderSortedCDOMObjects(SizeAdjustment.class);
-		for (int i = 0; i < list.size(); i++)
-		{
-			if (aSize.equals(list.get(i)))
-			{
-				return i;
-			}
-		}
-	
-		return -1;
-	}
-
-	/**
-	 * Get size as an int
-	 * @param aSize
-	 * @return size as an int
-	 */
-	public static int sizeInt(final String aSize)
-	{
-		return sizeInt(aSize, 0);
-	}
-
 	/**
 	 * Get the default size adjustment
 	 * @return the default size adjustment
@@ -79,7 +30,7 @@ public class SizeUtilities
 	public static SizeAdjustment getDefaultSizeAdjustment()
 	{
 		for (SizeAdjustment s : Globals.getContext().getReferenceContext()
-				.getOrderSortedCDOMObjects(SizeAdjustment.class))
+			.getConstructedCDOMObjects(SizeAdjustment.class))
 		{
 			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
 			{
@@ -88,21 +39,5 @@ public class SizeUtilities
 		}
 	
 		return null;
-	}
-
-	public static int getDefaultSizeInt()
-	{
-		List<SizeAdjustment> list = Globals.getContext().getReferenceContext()
-				.getOrderSortedCDOMObjects(SizeAdjustment.class);
-		for (int i = 0; i < list.size(); i++)
-		{
-			SizeAdjustment s = list.get(i);
-			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
-			{
-				return i;
-			}
-		}
-
-		return -1;
 	}
 }
