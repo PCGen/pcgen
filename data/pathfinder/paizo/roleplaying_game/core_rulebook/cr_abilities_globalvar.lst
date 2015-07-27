@@ -1,6 +1,6 @@
 
 ###--------------------------------------------###
-##	New Formula Parser Support Mechanisms	##
+#New Formula Parser Support Mechanisms	##
 ###--------------------------------------------###
 
 ###Block: Actual Base Class	
@@ -75,46 +75,46 @@ CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_MightyRage|0
 CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Proficiencies|0
 CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_UncannyDodge|0
 CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_ImprovedUncannyDodge|0
-CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Class_Skills|0
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_ClassSkills|0
 CATEGORY=Class|Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|PREVAREQ:Barbarian_CF_Proficiencies,0
 CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|PREVAREQ:Barbarian_CF_Proficiencies,0|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
 CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|PREVAREQ:Barbarian_CF_Proficiencies,0|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
-CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|PREVAREQ:Barbarian_CF_Class_Skills,0
+CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|PREVAREQ:Barbarian_CF_ClassSkills,0
 CATEGORY=Class|Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Uncanny Dodge Tracker
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Proficiencies=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_FastMovement|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_FastMovement=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePowers|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePowers=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower2=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower4=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower6=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower8=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower10=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower12=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower14=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower16=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower18=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower20=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TrapSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TrapSense=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TrapSense1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TrapSense1=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TrapSense2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TrapSense2=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TrapSense3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TrapSense3=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TrapSense4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TrapSense4=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TrapSense5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TrapSense5=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TrapSense6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TrapSense6=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_DamageReduction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_DamageReduction=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_DamageReduction1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_DamageReduction1=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_DamageReduction2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_DamageReduction2=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_DamageReduction3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_DamageReduction3=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_DamageReduction4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_DamageReduction4=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_DamageReduction5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_DamageReduction5=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_GreaterRage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_GreaterRage=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_IndomitableWill|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_IndomitableWill=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TirelessRage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TirelessRage=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_MightyRage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_MightyRage=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_UncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_UncannyDodge=True
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_ImprovedUncannyDodge=TRUE
-#	CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,BarbarianCFClassSkills=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Proficiencies=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_FastMovement|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_FastMovement=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePowers|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePowers=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower2=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower4=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower6=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower8=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower10=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower12=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower14=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower16=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower18=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_RagePower20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePower20=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TrapSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TrapSense=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TrapSense1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TrapSense1=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TrapSense2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TrapSense2=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TrapSense3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TrapSense3=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TrapSense4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TrapSense4=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TrapSense5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TrapSense5=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TrapSense6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TrapSense6=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_DamageReduction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_DamageReduction=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_DamageReduction1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_DamageReduction1=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_DamageReduction2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_DamageReduction2=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_DamageReduction3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_DamageReduction3=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_DamageReduction4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_DamageReduction4=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_DamageReduction5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_DamageReduction5=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_GreaterRage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_GreaterRage=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_IndomitableWill|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_IndomitableWill=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_TirelessRage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_TirelessRage=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_MightyRage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_MightyRage=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_UncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_UncannyDodge=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_ImprovedUncannyDodge=TRUE
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_ClassSkills=True
 # Old Type System
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Proficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies,TYPE.BarbarianWeaponProficiencies
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRage				
@@ -152,7 +152,7 @@ CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_ImprovedUncannyDodge|1|TYPE=
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_ClassSkills|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills			
 
 # The TEST, issue with this here
-#	CATEGORY=Class|Barbarian.MOD	BONUS:COMBAT|AC|1|PREFACT:1,ABILITIES,Barbarian_CF_ImprovedUncannyDodge=True
+CATEGORY=Class|Barbarian.MOD	BONUS:COMBAT|AC|1|PREFACT:1,ABILITIES,Barbarian_CF_ImprovedUncannyDodge=True
 
 
 
@@ -171,15 +171,15 @@ CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_WellVersed|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_LoreMaster|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_JackOfAllTrades|0
 # Boolean
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicKnowledge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_BardicKnowledge=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_CounterSong|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_CounterSong=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicPerformance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_BardicPerformance=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_ArmoredCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_ArmoredCasting=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_Cantrips=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_VersatilePerformance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_VersatilePerformance=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_WellVersed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_WellVersed=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_LoreMaster|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_LoreMaster=True
-#	CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_JackOfAllTrades|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_JackOfAllTrades=True
+CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicKnowledge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_BardicKnowledge=True
+CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_CounterSong|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_CounterSong=True
+CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicPerformance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_BardicPerformance=True
+CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_ArmoredCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_ArmoredCasting=True
+CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_Cantrips=True
+CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_VersatilePerformance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_VersatilePerformance=True
+CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_WellVersed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_WellVersed=True
+CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_LoreMaster|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_LoreMaster=True
+CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_JackOfAllTrades|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_JackOfAllTrades=True
 
 # Old TYPE version Support
 CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicKnowledge|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicKnowledge		
@@ -197,9 +197,9 @@ CATEGORY=Class|Cleric.MOD	DEFINE:Cleric_CF_ChannelEnergy|0
 CATEGORY=Class|Cleric.MOD	DEFINE:Cleric_CF_Orisons|0
 CATEGORY=Class|Cleric.MOD	DEFINE:Cleric_CF_SpontaneousCasting|0
 # New Boolean Method
-#	CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_ChannelEnergy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cleric_CF_ChannelEnergy=True
-#	CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_Orisons|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cleric_CF_Orisons=True
-#	CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_SpontaneousCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cleric_CF_SpontaneousCasting=True
+CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_ChannelEnergy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cleric_CF_ChannelEnergy=True
+CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_Orisons|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cleric_CF_Orisons=True
+CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_SpontaneousCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cleric_CF_SpontaneousCasting=True
 # Old Style
 CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_ChannelEnergy|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericChannelEnergy		
 CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_Orisons|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericOrisons			
@@ -220,16 +220,16 @@ CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_ResistNaturesLure|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_VenomImmunity|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_AThousandFaces|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_TimelessBody|0
-#	CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_SpontaneousCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_SpontaneousCasting=True
-#	CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_NatureSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_NatureSense=True
-#	CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_WildEmpathy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildEmpathy=True
-#	CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_WoodlandStride|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WoodlandStride=True
-#	CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_TracklessStep|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_TracklessStep=True
-#	CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_WildShape|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShape=True
-#	CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_ResistNaturesLure|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_ResistNaturesLure=True
-#	CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_VenomImmunity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_VenomImmunity=True
-#	CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_AThousandFaces|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_AThousandFaces=True
-#	CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_TimelessBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_TimelessBody=True
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_SpontaneousCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_SpontaneousCasting=True
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_NatureSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_NatureSense=True
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_WildEmpathy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildEmpathy=True
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_WoodlandStride|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WoodlandStride=True
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_TracklessStep|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_TracklessStep=True
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_WildShape|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShape=True
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_ResistNaturesLure|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_ResistNaturesLure=True
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_VenomImmunity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_VenomImmunity=True
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_AThousandFaces|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_AThousandFaces=True
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_TimelessBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_TimelessBody=True
 # Old Style
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_SpontaneousCasting|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidSpontaneousCasting	
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_NatureSense|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureSense		
@@ -264,27 +264,27 @@ CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeat16|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeat18|0	
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeat20|0	
 
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeats=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_Bravery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_Bravery=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorTraining=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_WeaponTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_WeaponTraining=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorMastery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorMastery=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_WeaponMastery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_WeaponMastery=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorTraining1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorTraining1=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorTraining2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorTraining2=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorTraining3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorTraining3=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorTraining4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorTraining4=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat1=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat2=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat4=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat6=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat8=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat10=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat12=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat14=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat16=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat18=True
-#	CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat20=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeats=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_Bravery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_Bravery=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorTraining=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_WeaponTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_WeaponTraining=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorMastery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorMastery=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_WeaponMastery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_WeaponMastery=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorTraining1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorTraining1=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorTraining2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorTraining2=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorTraining3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorTraining3=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorTraining4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorTraining4=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat1=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat2=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat4=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat6=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat8=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat10=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat12=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat14=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat16=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat18=True
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeat20=True
 # Old Style
 CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeats|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeats	
 CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_Bravery|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBravery		
@@ -337,28 +337,28 @@ CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_TongueOfTheSunAndMoon|0
 CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_TimelessBody|0
 CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_EmptyBody|0
 CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_PerfectSelf|0
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_FlurryOfBlows|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_FlurryOfBlows=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_BonusFeats=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_ACBonus|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_ACBonus=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_StunningFist|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_StunningFist=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_Evasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_Evasion=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_FastMovement|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_FastMovement=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_ManeuverTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_ManeuverTraining=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_StillMind|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_StillMind=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_KiPool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPool=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_SlowFall|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_SlowFall=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_HighJump|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_HighJump=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_PurityOfBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_PurityOfBody=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_WholenessOfBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_WholenessOfBody=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_ImprovedEvasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_ImprovedEvasion=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_DiamondBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_DiamondBody=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_AbundantStep|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_AbundantStep=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_DiamondSoul|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_DiamondSoul=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_QuiveringPalm|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_QuiveringPalm=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_TongueOfTheSunAndMoon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_TongueOfTheSunAndMoon=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_TimelessBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_TimelessBody=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_EmptyBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_EmptyBody=True
-#	CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_PerfectSelf|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_PerfectSelf=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_FlurryOfBlows|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_FlurryOfBlows=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_BonusFeats=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_ACBonus|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_ACBonus=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_StunningFist|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_StunningFist=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_Evasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_Evasion=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_FastMovement|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_FastMovement=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_ManeuverTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_ManeuverTraining=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_StillMind|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_StillMind=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_KiPool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPool=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_SlowFall|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_SlowFall=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_HighJump|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_HighJump=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_PurityOfBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_PurityOfBody=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_WholenessOfBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_WholenessOfBody=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_ImprovedEvasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_ImprovedEvasion=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_DiamondBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_DiamondBody=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_AbundantStep|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_AbundantStep=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_DiamondSoul|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_DiamondSoul=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_QuiveringPalm|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_QuiveringPalm=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_TongueOfTheSunAndMoon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_TongueOfTheSunAndMoon=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_TimelessBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_TimelessBody=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_EmptyBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_EmptyBody=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_PerfectSelf|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_PerfectSelf=True
 # Old style
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_FlurryOfBlows|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkFlurryOfBlows		
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_BonusFeats|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeats			
@@ -399,21 +399,21 @@ CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfFaith|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfRighteousness|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_HolyChampion|0
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|AlignmentAuraLVL|PaladinLVL		BONUS:VAR|AllowHolyAvenger|1	DEFINE:AllowHolyAvenger|0
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfGood|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfGood=True
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_DetectEvil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DetectEvil=True
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_SmiteEvil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_SmiteEvil=True
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_DivineGrace|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DivineGrace=True
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_LayOnHands|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_LayOnHands=True
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfCourage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfCourage=True
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_DivineHealth|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DivineHealth=True
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_Mercy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy=True
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_ChannelPositiveEnergy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ChannelPositiveEnergy=True
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_DivineBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DivineBond=True
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfResolve|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfResolve=True
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfJustice|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfJustice=True
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfFaith|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfFaith=True
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfRighteousness|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfRighteousness=True
-#	CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_HolyChampion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_HolyChampion=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfGood|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfGood=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_DetectEvil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DetectEvil=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_SmiteEvil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_SmiteEvil=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_DivineGrace|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DivineGrace=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_LayOnHands|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_LayOnHands=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfCourage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfCourage=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_DivineHealth|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DivineHealth=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_Mercy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_ChannelPositiveEnergy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ChannelPositiveEnergy=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_DivineBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DivineBond=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfResolve|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfResolve=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfJustice|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfJustice=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfFaith|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfFaith=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfRighteousness|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfRighteousness=True
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_HolyChampion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_HolyChampion=True
 # Old Style
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfGood|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfGood		
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_DetectEvil|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectEvil		
@@ -447,22 +447,22 @@ CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_HideInPlainSight|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_Quarry|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_MasterHunter|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_Endurance|0
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_HuntersBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_HuntersBond=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_FavoredEnemy=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredTerrain|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_FavoredTerrain=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Track|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Track=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_WildEmpathy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_WildEmpathy=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyle|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_CombatStyle=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_WoodlandStride|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_WoodlandStride=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_SwiftTracker|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_SwiftTracker=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Evasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Evasion=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Quarry|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Quarry=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Camoflage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Camoflage=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Evasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Evasion=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_HideInPlainSight|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_HideInPlainSight=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Quarry|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Quarry=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_MasterHunter|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_MasterHunter=True
-#	CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Endurance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Endurance=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_HuntersBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_HuntersBond=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_FavoredEnemy=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredTerrain|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_FavoredTerrain=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Track|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Track=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_WildEmpathy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_WildEmpathy=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyle|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_CombatStyle=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_WoodlandStride|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_WoodlandStride=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_SwiftTracker|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_SwiftTracker=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Evasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Evasion=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Quarry|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Quarry=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Camoflage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Camoflage=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Evasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Evasion=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_HideInPlainSight|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_HideInPlainSight=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Quarry|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Quarry=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_MasterHunter|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_MasterHunter=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Endurance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Endurance=True
 # Old Style
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_HuntersBond|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHuntersBond	
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy	
@@ -489,14 +489,14 @@ CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_Evasion|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_Talents|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_MasterStrike|0
-#	CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_UncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_UncannyDodge=True
-#	CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_ImprovedUncannyDodge=True
-#	CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_SneakAttack|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_SneakAttack=True
-#	CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_Trapfinding|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_Trapfinding=True
-#	CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_Evasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_Evasion=True
-#	CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_Talents|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_Talents=True
-#	CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_TrapSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense=True
-#	CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_MasterStrike|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_MasterStrike=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_UncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_UncannyDodge=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_ImprovedUncannyDodge=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_SneakAttack|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_SneakAttack=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_Trapfinding|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_Trapfinding=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_Evasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_Evasion=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_Talents|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_Talents=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_TrapSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_MasterStrike|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_MasterStrike=True
 # Old Style
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_UncannyDodge|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge		
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_ImprovedUncannyDodge|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueImprovedUncannyDodge	
@@ -509,8 +509,8 @@ CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_MasterStrike|1|TYPE=Boolean|!PREABIL
 
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_WeaponProficiencies|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_EschewMaterials|0
-#	CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_WeaponProficiencies=True
-#	CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_EschewMaterials|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_EschewMaterials=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_WeaponProficiencies=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_EschewMaterials|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_EschewMaterials=True
 # Old Style
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_WeaponProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererWeaponProficiencies	
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_EschewMaterials|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererEschewMaterials	
@@ -522,13 +522,13 @@ CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ArcaneBond|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_Cantrips|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BonusFeats|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_SpellBook|0
-#	CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_ArcaneSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ArcaneSchool=True
-#	CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_WeaponProficiencies=True
-#	CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_ScribeScroll|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ScribeScroll=True
-#	CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_ArcaneBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ArcaneBond=True
-#	CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_Cantrips=True
-#	CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BonusFeats=True
-#	CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_SpellBook|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_SpellBook=True
+CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_ArcaneSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ArcaneSchool=True
+CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_WeaponProficiencies=True
+CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_ScribeScroll|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ScribeScroll=True
+CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_ArcaneBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ArcaneBond=True
+CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_Cantrips=True
+CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BonusFeats=True
+CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_SpellBook|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_SpellBook=True
 # Old Style	
 CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_ArcaneSchool|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool		
 CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_WeaponProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies	
