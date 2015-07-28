@@ -49,7 +49,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
@@ -69,7 +68,6 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.ShieldProf;
-import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
@@ -688,30 +686,13 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		LoadValidator validator = new LoadValidator(aSelectedCampaignsList);
 		refContext.validate(validator);
 		refContext.resolveReferences(validator);
+		context.resolvePostValidationTokens();
 		context.resolvePostDeferredTokens();
 		ReferenceContextUtilities.validateAssociations(refContext, validator);
 		for (Equipment eq : refContext.getConstructedCDOMObjects(Equipment.class))
 		{
 			eq.setToCustomSize(null);
 			EqModAttachment.finishEquipment(eq);
-		}
-		validateSingleDefaultSize(context);
-	}
-
-	private void validateSingleDefaultSize(LoadContext context)
-	{
-		int defaults = getDefaultSizeAdjustmentCount(context);
-		if (defaults == 0)
-		{
-			Logging.log(Logging.LST_WARNING,
-						"Did not find a default size in Game Mode: " +
-					SettingsHandler.getGame().getName());
-		}
-		else if (defaults > 1)
-		{
-			Logging.log(Logging.LST_WARNING,
-						"Found more than one size claiming to be default in Game Mode: " +
-					SettingsHandler.getGame().getName());
 		}
 	}
 
@@ -1176,21 +1157,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		{
 			sendErrorMessage((Exception) arg);
 		}
-	}
-
-	public int getDefaultSizeAdjustmentCount(LoadContext context)
-	{
-		int i = 0;
-		for (SizeAdjustment s : context.getReferenceContext()
-				.getOrderSortedCDOMObjects(SizeAdjustment.class))
-		{
-			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
-			{
-				i++;
-			}
-		}
-	
-		return i;
 	}
 
 	private class LoadHandler extends Handler

@@ -79,6 +79,7 @@ FACTDEF:RACE|RACETYPE								DATAFORMAT:String	VISIBLE:YES	SELECTABLE:NO	REQUIRE
 #	Archetype is meant to prevent another Archetype of the same class from affecting the same feature
 
 # Barbarian Archetype
+FACTDEF:ABILITY|Barbarian_Archetype_Proficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
 FACTDEF:ABILITY|Barbarian_Archetype_Class_Skills			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills			
 FACTDEF:ABILITY|Barbarian_Archetype_Rage					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage					EXPLANATION:Determines whether the archetype affects - Rage			
 FACTDEF:ABILITY|Barbarian_Archetype_FastMovement			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FastMovement			EXPLANATION:Determines whether the archetype affects - FastMovement	
@@ -89,11 +90,17 @@ FACTDEF:ABILITY|Barbarian_Archetype_GreaterRage				DATAFORMAT:BOOLEAN	VISIBLE:YE
 FACTDEF:ABILITY|Barbarian_Archetype_IndomitableWill			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IndomitableWill			EXPLANATION:Determines whether the archetype affects - IndomitableWill	
 FACTDEF:ABILITY|Barbarian_Archetype_TirelessRage			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TirelessRage			EXPLANATION:Determines whether the archetype affects - TirelessRage	
 FACTDEF:ABILITY|Barbarian_Archetype_MightyRage				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:MightyRage				EXPLANATION:Determines whether the archetype affects - MightyRage		
-FACTDEF:ABILITY|Barbarian_Archetype_Proficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
 FACTDEF:ABILITY|Barbarian_Archetype_UncannyDodge			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:UncannyDodge			EXPLANATION:Determines whether the archetype affects - UncannyDodge				
 FACTDEF:ABILITY|Barbarian_Archetype_ImprovedUncannyDodge		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ImprovedUncannyDodge		EXPLANATION:Determines whether the archetype affects - ImprovedUncannyDodge			
 
 # Barbarian Class Feature Alterations
+FACTDEF:ABILITY|Barbarian_CF_Proficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Barbarian Proficiencies removed
+
+FACTDEF:ABILITY|Barbarian_CF_WeaponProficiencies		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Barbarian Proficiencies removed
+FACTDEF:ABILITY|Barbarian_CF_ArmorProficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Barbarian Proficiencies removed
+
+
+
 FACTDEF:ABILITY|Barbarian_CF_ClassSkills				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills			EXPLANATION:Barbarian ClassSkills removed
 FACTDEF:ABILITY|Barbarian_CF_Rage					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage					EXPLANATION:Barbarian Rage removed
 FACTDEF:ABILITY|Barbarian_CF_FastMovement				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FastMovement			EXPLANATION:Barbarian Fast Movement removed
@@ -125,11 +132,12 @@ FACTDEF:ABILITY|Barbarian_CF_GreaterRage				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELEC
 FACTDEF:ABILITY|Barbarian_CF_IndomitableWill			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IndomitableWill			EXPLANATION:Barbarian Indomitable Will removed
 FACTDEF:ABILITY|Barbarian_CF_TirelessRage				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TirelessRage			EXPLANATION:Barbarian Tireless Rage removed
 FACTDEF:ABILITY|Barbarian_CF_MightyRage				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:MightyRage				EXPLANATION:Barbarian Mighty Rage removed
-FACTDEF:ABILITY|Barbarian_CF_Proficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Barbarian Proficiencies removed
 FACTDEF:ABILITY|Barbarian_CF_UncannyDodge				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:UncannyDodge			EXPLANATION:Barbarian Uncanny Dodge removed
 FACTDEF:ABILITY|Barbarian_CF_ImprovedUncannyDodge		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ImprovedUncannyDodge		EXPLANATION:Barbarian Improved Uncanny Dodge removed
 
 # Bard Archetype Section
+FACTDEF:ABILITY|Bard_Archetype_Proficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Determines whether the archetype affects - Proficiencies		
+FACTDEF:ABILITY|Bard_Archetype_Class_Skills			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills			
 FACTDEF:ABILITY|Bard_Archetype_BardicKnowledge				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BardicKnowledge					EXPLANATION:Determines whether the archetype affects - BardicKnowledge		
 FACTDEF:ABILITY|Bard_Archetype_CounterSong				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:CounterSong						EXPLANATION:Determines whether the archetype affects - CounterSong		
 FACTDEF:ABILITY|Bard_Archetype_BardicPerformance			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BardicPerformance					EXPLANATION:Determines whether the archetype affects - BardicPerformance	
@@ -142,6 +150,9 @@ FACTDEF:ABILITY|Bard_Archetype_JackOfAllTrades				DATAFORMAT:BOOLEAN	VISIBLE:YES
 
 
 # Bard Class Feature Section
+FACTDEF:ABILITY|Bard_CF_WeaponProficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bard Proficiencies removed
+FACTDEF:ABILITY|Bard_CF_ArmorProficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Bard Proficiencies removed
+FACTDEF:ABILITY|Bard_CF_ClassSkills				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills			EXPLANATION:Bard ClassSkills removed
 FACTDEF:ABILITY|Bard_CF_BardicKnowledge				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BardicKnowledge					EXPLANATION:Remove Bard BardicKnowledge		
 FACTDEF:ABILITY|Bard_CF_CounterSong					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:CounterSong					EXPLANATION:Remove Bard CounterSong		
 FACTDEF:ABILITY|Bard_CF_BardicPerformance				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BardicPerformance				EXPLANATION:Remove Bard BardicPerformance	

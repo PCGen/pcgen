@@ -871,8 +871,25 @@ file specified.</p>
 <p class="indent1"><strong>Example:</strong></p>
 <p class="indent2"><code>EQUIPMOD:fooequipmods.lst</code></p>
 <hr />
-<p class="indent0"><strong><a name="FEAT" id="FEAT">Tag
-Name:</a></strong> FEAT:x</p>
+<h3 id="FEAT">FEAT</h3>
+<ul class="incremental">
+<li>6.05.04 (July 2015): JIRA <a href=
+"http://jira.pcgen.org/browse/NEWTAG-477">NEWTAG-477</a> / Github
+<a href="https://github.com/PCGen/pcgen/pull/380">PR #380</a>
+<ul class="incremental">
+<li>The <code>FEAT</code> file is deprecated. Use <a href=
+"#ABILITYPCC"><code>ABILITY</code></a> instead.</li>
+<li>All <code>FEAT</code> tags have been
+<strong>deprecated</strong> and replaced by the
+<code>ABILITY</code> system, which is more general. The
+<code>ABILITY</code> system can model feats, racial features, class
+features, traits, flaws, temporary bonuses, and so on, all using a
+common format.</li>
+</ul>
+</li>
+</ul>
+<div class="deprecated">
+<p class="indent0"><strong>Tag Name:</strong> FEAT:x</p>
 <p class="indent1"><strong>Variables Used (x):</strong>Text (File
 path)</p>
 <p class="indent1"><strong>What it does:</strong></p>
@@ -880,6 +897,7 @@ path)</p>
 specified.</p>
 <p class="indent1"><strong>Example:</strong></p>
 <p class="indent2"><code>FEAT:foofeats.lst</code></p>
+</div>
 <hr />
 <p class="indent0"><strong><a name="KIT" id="KIT">Tag
 Name:</a></strong> KIT:x</p>

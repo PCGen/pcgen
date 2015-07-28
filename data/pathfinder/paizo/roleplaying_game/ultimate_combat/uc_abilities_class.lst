@@ -339,7 +339,7 @@ Rage Powers				KEY:Titan Mauler ~ Rage Powers				CATEGORY:Special Ability	TYPE:B
 
 # True Primitive
 Weapon and Armor Proficiency	KEY:True Primitive ~ Weapon and Armor Proficiency	CATEGORY:Special Ability	TYPE:BarbarianClassFeatures.ArchetypeAbility.SpecialQuality																	DESC:A true primitive is proficient with hide armor and armors made from bone (see page 146). A true primitive is also proficient with bone shields and the following weapons - battleaxe, blowgun, club, greatclub, handaxe, longspear, shortspear, sling, and spear.																																																																																																																																																																									AUTO:ARMORPROF|Hide			AUTO:WEAPONPROF|Battleaxe|Blowgun|Club|Greatclub|Handaxe|Longspear|Shortspear|Sling|Spear																																																																																																																																																		SOURCEPAGE:p.30
-# COMMENT: Causes Load Issues	- Should make it user self policing.	|ARMORTYPE=Bone	AUTO:SHIELDPROF|SHIELDTYPE=Bone
+# COMMENT: Causes Load Issues	- Should make it user self policing.|ARMORTYPE=Bone	AUTO:SHIELDPROF|SHIELDTYPE=Bone
 Illiteracy				KEY:True Primitive ~ Illiteracy				CATEGORY:Special Ability	TYPE:BarbarianClassFeatures.ArchetypeAbility.SpecialQuality																	DESC:A true primitive cannot read or write, and her superstition about such things leads her to refuse to ever learn to read or write, even if she multiclasses into other classes.																																																																																																																																																																																																																																																																																																																																																													SOURCEPAGE:p.30
 Favored Terrain			KEY:True Primitive ~ Favored Terrain			CATEGORY:Special Ability	TYPE:BarbarianClassFeatures.Extraordinary.ArchetypeAbility.SpecialQuality														DESC:A true primitive has a favored terrain representing her native homeland. This ability functions as the ranger class feature, and the true primitive's bonuses in that terrain improve by +2 at 5th level and every five levels thereafter. However, she does not gain any additional favored terrains. This ability replaces fast movement.																																																																																																																																																																																	ABILITY:Special Ability|AUTOMATIC|Basic Favored Terrain	BONUS:ABILITYPOOL|Favored Terrain|1									BONUS:VAR|FavoredTerrainBase|2|PREVARGTEQ:classlevel("Barbarian"),5	BONUS:VAR|FavoredTerrainBase|2|PREVARGTEQ:classlevel("Barbarian"),10	BONUS:VAR|FavoredTerrainBase|2|PREVARGTEQ:classlevel("Barbarian"),15	BONUS:VAR|FavoredTerrainBase|2|PREVARGTEQ:classlevel("Barbarian"),20																																																																										SOURCEPAGE:p.30
 Trophy Fetish			KEY:True Primitive ~ Trophy Fetish				CATEGORY:Special Ability	TYPE:BarbarianClassFeatures.Extraordinary.ArchetypeAbility.SpecialQuality	DEFINE:TrophyFetishCount|0									DESC:A true primitive collects teeth, bones, hair, and other trophies from vanquished enemies, representing their power and strength. At 3rd level, a true primitive can attach a trophy fetish to one of the traditional true primitive weapons listed above. When wielding that weapon, the true primitive gains a +1 morale bonus on damage rolls. Furthermore, if that weapon has the fragile property, once per day, the true primitive can ignore the effects of a single natural 1 roll. A trophy fetish can also be attached to a suit of hide armor, granting the true primitive a +1 morale bonus on saving throws. Furthermore, if that armor has the fragile property, once per day, the true primitive can chose not to have the armor break on the confirmation of a critical hit made against her. Every five levels beyond 3rd, a true primitive can use an additional trophy fetish. Multiple trophy fetishes can be attached to the same armor or weapon; their effects stack. A trophy fetish can be sundered (hardness 5, 1 hit point) but is not damaged by area attacks or attacks that do not specifically target it. It has no effect if attached to other types of weapons or armor. This ability replaces trap sense.	DESC:(currently have %1)|TrophyFetishCount|PREVARGT:TrophyFetishCount,0																																														BONUS:VAR|TrophyFetishCount|1|PREVARGTEQ:classlevel("Barbarian"),3	BONUS:VAR|TrophyFetishCount|1|PREVARGTEQ:classlevel("Barbarian"),8	BONUS:VAR|TrophyFetishCount|1|PREVARGTEQ:classlevel("Barbarian"),13	BONUS:VAR|TrophyFetishCount|1|PREVARGTEQ:classlevel("Barbarian"),18																																																																										SOURCEPAGE:p.31
@@ -1632,4 +1632,133 @@ Walk through Space									KEY:Magus Spellblend ~ Walk through Space					CATEGOR
 Warding Weapon										KEY:Magus Spellblend ~ Warding Weapon					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL2	SPELLKNOWN:CLASS|Magus=2|Warding Weapon				
 Weaken Powder										KEY:Magus Spellblend ~ Weaken Powder					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL1	SPELLKNOWN:CLASS|Magus=1|Weaken Powder				
 Wreath of Blades										KEY:Magus Spellblend ~ Wreath of Blades					CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL5	SPELLKNOWN:CLASS|Magus=5|Wreath of Blades				
+
+###Block: New FACT Archetype System
+Gunslinger	CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Gunslinger ~ Class Skill|PREVAREQ:Gunslinger_CF_ClassSkills,0
+Ninja		CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Ninja ~ Class Skill|PREVAREQ:Ninja_CF_ClassSkills,0
+Samurai	CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Samurai ~ Class Skill|PREVAREQ:Samurai_CF_ClassSkills,0
+
+
+###Block:
+Gunslinger ~ Class Skill	CATEGORY:Internal	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (Local)|Perception|TYPE=Profession|Ride|Sleight of Hand|Survival|Swim
+Ninja ~ Class Skill		CATEGORY:Internal	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
+Samurai ~ Class Skill		CATEGORY:Internal	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
+
+# COMMENT: TODO - Put the Weapon and Armor Proficiency stuff in a proper ability.
+
+###Block:
+CATEGORY=Class|Gunslinger.MOD	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Exotic Weapon Proficiency (Firearms)|Martial Weapon Proficiency Output|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Firearm
+CATEGORY=Class|Gunslinger.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
+
+
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_Proficiencies|0		
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_ClassSkills|0		
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_Gunsmith|0		
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_Deeds|		
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_Grit|		
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_Nimble|		
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_BonusFeat|		
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_GunTraining|	
+CATEGORY=Class|Gunslinger.MOD	DEFINE:Gunslinger_CF_TrueGrit|		
+# Boolean
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Proficiencies|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Gunslinger_CF_Proficiencies=True		
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_ClassSkills|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Gunslinger_CF_ClassSkills=True		
+
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Gunsmith|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Gunslinger_CF_Gunsmith=True		
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Deeds|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Gunslinger_CF_Deeds=True			
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Grit|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Gunslinger_CF_Grit=True			
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Nimble|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Gunslinger_CF_Nimble=True		
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_BonusFeat|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Gunslinger_CF_BonusFeat=True		
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Gunslinger_CF_GunTraining=True		
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_TrueGrit|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Gunslinger_CF_TrueGrit=True		
+# TYPE
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Gunsmith|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunsmith		
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Deeds|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeeds			
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Grit|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGrit			
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Nimble|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerNimble		
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_BonusFeat|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerBonusFeat		
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining		
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_TrueGrit|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerTrueGrit		
+
+
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_PoisonUse|0	
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_SneakAttack|0	
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick|0	
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_KiPool|0		
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NoTrace|0		
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_LightSteps|0	
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_HiddenMaster|0	
+
+# Boolean
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_PoisonUse|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Ninja_CF_Poison=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_SneakAttack|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Ninja_CF_SneakAttack=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Ninja_CF_Trick=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_KiPool|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Ninja_CF_KiPool=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NoTrace|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Ninja_CF_NoTrace=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_LightSteps|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Ninja_CF_LightSteps=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_HiddenMaster|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Ninja_CF_HiddenMaster=True
+# Type
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_PoisonUse|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaPoison
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_SneakAttack|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaSneakAttack
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaTrick
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_KiPool|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaKiPool
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NoTrace|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaNoTrace
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_LightSteps|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaLightSteps
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_HiddenMaster|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaHiddenMaster
+
+
+
+
+#1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+#1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|Samurai Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
+#1	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
+#1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyHeavy
+#1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyLight
+#1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyMedium
+#1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiShieldProficiency
+###Block: Level progression
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_Challenge|0		
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_Mount|0			
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_Order|0			
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_Resolve|0			
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_WeaponExpertise|0	
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_MountedArcher|0		
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_Banner|0			
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_BonusFeat|0		
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_GreaterResolve|0	
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_HonorableStand|0	
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_DemandingChallenge|0	
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_GreaterBanner|0		
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_TrueResolve|0		
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_LastStand|0		
+# Boolean
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Challenge|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Samurai_CF_Challenge=True				
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Mount|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Samurai_CF_Mount=True					
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Order|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Samurai_CF_Order=True					
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Resolve|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Samurai_CF_Resolve=True					
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_WeaponExpertise|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Samurai_CF_WeaponExpertise=True			
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_MountedArcher|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Samurai_CF_MountedArcher=True				
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Banner|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Samurai_CF_Banner=True					
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_BonusFeat|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Samurai_CF_BonusFeats=True				
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_GreaterResolve|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Samurai_CF_GreaterResolve=True			
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_HonorableStand|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Samurai_CF_HonorableStand=True			
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_DemandingChallenge|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Samurai_CF_DemandingChallenge=True			
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_GreaterBanner|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Samurai_CF_GreaterBanner=True				
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_TrueResolve|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Samurai_CF_TrueResolve=True				
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_LastStand|1|TYPE=Boolean|!PREFACT:1,ABILITIES,Samurai_CF_LastStand=True				
+# Type
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Challenge|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiChallenge				
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Mount|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMount					
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Order|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiOrder					
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Resolve|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiResolve					
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_WeaponExpertise|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponExpertise			
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_MountedArcher|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMountedArcher				
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Banner|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiBanner					
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_BonusFeat|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiBonusFeats				
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_GreaterResolve|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterResolve			
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_HonorableStand|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiHonorableStand			
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_DemandingChallenge|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiDemandingChallenge			
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_GreaterBanner|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterBanner				
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_TrueResolve|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiTrueResolve				
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_LastStand|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiLastStand				
 

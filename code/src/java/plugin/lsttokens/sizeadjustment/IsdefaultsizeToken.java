@@ -17,16 +17,22 @@
  */
 package plugin.lsttokens.sizeadjustment;
 
+import java.util.Collection;
+
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.SizeAdjustment;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.PostValidationToken;
+import pcgen.util.Logging;
 
 /**
  * Class deals with ISDEFAULTSIZE Token
  */
-public class IsdefaultsizeToken extends AbstractYesNoToken<SizeAdjustment> implements
-		CDOMPrimaryToken<SizeAdjustment>
+public class IsdefaultsizeToken extends AbstractYesNoToken<SizeAdjustment>
+		implements CDOMPrimaryToken<SizeAdjustment>,
+		PostValidationToken<SizeAdjustment>
 {
 
 	@Override
@@ -45,5 +51,48 @@ public class IsdefaultsizeToken extends AbstractYesNoToken<SizeAdjustment> imple
 	public Class<SizeAdjustment> getTokenClass()
 	{
 		return SizeAdjustment.class;
+	}
+
+	@Override
+	public boolean process(LoadContext context,
+		Collection<? extends SizeAdjustment> obj)
+	{
+		boolean returnValue = true;
+		SizeAdjustment found = null;
+		for (SizeAdjustment s : context.getReferenceContext()
+			.getConstructedCDOMObjects(SizeAdjustment.class))
+		{
+			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
+			{
+				if (found != null)
+				{
+					Logging
+						.errorPrint("Found more than one size claiming to be default: "
+							+ found.getKeyName()
+							+ " and "
+							+ s.getKeyName());
+					returnValue = false;
+				}
+				found = s;
+			}
+		}
+		if (found == null)
+		{
+			Logging.errorPrint("Did not find a default size");
+			returnValue = false;
+		}
+		return returnValue;
+	}
+
+	@Override
+	public Class<SizeAdjustment> getValidationTokenClass()
+	{
+		return SizeAdjustment.class;
+	}
+
+	@Override
+	public int getPriority()
+	{
+		return 0;
 	}
 }

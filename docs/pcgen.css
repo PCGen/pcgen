@@ -324,3 +324,26 @@ div.figure p{
 	font-style: italic;
 	text-align: center;
 }
+
+div.deprecated {
+	color: gray;
+	border: 1px solid silver;
+	border-radius: 0.5em;
+	background-color: #eee;
+	margin: 1em;
+	padding: 1em;
+}
+
+div.deprecated::before{
+	content:"Deprecated";
+	font-weight: bold;
+	font-size: 1.2em;
+	color: red;
+}
+
+div.deprecated::after{
+	content:"Deprecated";
+	font-weight: bold;
+	font-size: 1.2em;
+	color: red;
+}
