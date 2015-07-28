@@ -406,3 +406,81 @@ CLASS:Paladin
 
 # Class Name
 CLASS:Ranger
+
+
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class			Source Page		Ability																		Define			Combat bonus										Save bonus																						Modify VAR				Monster Role
+CLASS:Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex-Barbarian	SOURCEPAGE:p.31		DEFINE:BarbarianLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|BarbarianLVL|CL	ROLE:Combat.Skill
+# Class Name	Restricted AL
+CLASS:Barbarian	PREMULT:1,[!PREALIGN:LG,LN,LE],[PREVAREQ:BypassClassAlignment_Barbarian,1]
+# Class Name	Skill Pts/Lvl
+CLASS:Barbarian	STARTSKILLPTS:4
+###Block:Proficiencies
+1	ABILITY:Class|AUTOMATIC|Barbarian
+###Block: Level Progression
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage|PREVAREQ:Barbarian_CF_Rage,0
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|PREVAREQ:Barbarian_CF_Fast_Movement,0
+2	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage Powers|PREVAREQ:Barbarian_CF_Rage_Powers,0
+3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|PREVAREQ:Barbarian_CF_Trap_Sense,0
+7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|PREVAREQ:Barbarian_CF_Damage_Reduction,0
+11	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Greater Rage|PREVAREQ:Barbarian_CF_Greater_Rage,0
+14	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Will|PREVAREQ:Barbarian_CF_Indomitable_Will,0
+17	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Tireless Rage|PREVAREQ:Barbarian_CF_Tireless_Rage,0
+20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Mighty Rage|PREVAREQ:Barbarian_CF_Mighty_Rage,0
+
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Visible	Define			Combat bonus										Save bonus																						Modify VAR				Monster Role
+CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	VISIBLE:NO	DEFINE:BarbarianLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|BarbarianLVL|CL	ROLE:Combat.Skill
+# Class Name		Skill Pts/Lvl
+CLASS:Ex-Barbarian	STARTSKILLPTS:4
+###Block:Proficiencies
+1	ABILITY:Class|AUTOMATIC|Barbarian
+###Block: Level Progression
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|PREVAREQ:Barbarian_CF_Fast_Movement,0
+3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|PREVAREQ:Barbarian_CF_Trap_Sense,0
+7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|PREVAREQ:Barbarian_CF_Damage_Reduction,0
+14	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Will|PREVAREQ:Barbarian_CF_Indomitable_Will,0
+
+# Class Name	Hit Dice	Type								Class Type		Abbreviation	Max Level	Source Page		Ability																Define		Combat bonus											Save bonus																					Modify VAR			Monster Role
+CLASS:Bard		HD:8		TYPE:Base.PC.SpontaneousArcane.Spontaneous	CLASSTYPE:PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:p.34	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardClassSkills	DEFINE:BardLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|BardLVL|CL	ROLE:Skill
+# Class Name	Skill Pts/Lvl
+CLASS:Bard		STARTSKILLPTS:6
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|Caster_Level_BL_Stripped_Bard	BONUS:VAR|Caster_Level_BL_Stripped_Bard|Caster_Level_Bard-CasterLevelBLBard	BONUS:VAR|Caster_Level_Bard|CL+Caster_Level_Bonus+CasterLevelBLBard	DEFINE:CasterLevelBLBard|0	BONUS:VAR|CasterLevelBL_x_Bard|charbonusto("PCLEVEL","Bard")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Bard|TYPE=Base
+###Block:Proficiencies
+1	ABILITY:Bard Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
+1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
+1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies
+###Block: Level progression
+1	CAST:0,1			KNOWN:4,2
+2	CAST:0,2			KNOWN:5,3
+3	CAST:0,3			KNOWN:6,4
+4	CAST:0,3,1			KNOWN:6,4,2
+5	CAST:0,4,2			KNOWN:6,4,3
+6	CAST:0,4,3			KNOWN:6,4,4
+7	CAST:0,4,3,1		KNOWN:6,5,4,2
+8	CAST:0,4,4,2		KNOWN:6,5,4,3
+9	CAST:0,5,4,3		KNOWN:6,5,4,4
+10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2
+11	CAST:0,5,4,4,2		KNOWN:6,6,5,4,3
+12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4
+13	CAST:0,5,5,4,3,1		KNOWN:6,6,5,5,4,2
+14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3
+15	CAST:0,5,5,5,4,3		KNOWN:6,6,6,5,4,4
+16	CAST:0,5,5,5,4,3,1	KNOWN:6,6,6,5,5,4,2
+17	CAST:0,5,5,5,4,4,2	KNOWN:6,6,6,6,5,4,3
+18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4
+19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4
+20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
+###Block:
+1	ABILITY:Class|AUTOMATIC|Bard
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|PREVAREQ:Bard_CF_BardicKnowledge,0
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Countersong|PREVAREQ:Bard_CF_CounterSong,0
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Performance|PREVAREQ:Bard_CF_BardicPerformance,0
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Armored Casting|PREVAREQ:Bard_CF_ArmoredCasting,0
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Cantrips|PREVAREQ:Bard_CF_Cantrips,0
+2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Versatile Performance|PREVAREQ:Bard_CF_VersatilePerformance,0
+2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Well-Versed|PREVAREQ:Bard_CF_WellVersed,0
+5	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Lore Master|PREVAREQ:Bard_CF_LoreMaster,0
+10	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Jack of All Trades|PREVAREQ:Bard_CF_JackOfAllTrades,0
+
+
+
