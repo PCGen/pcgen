@@ -52,9 +52,9 @@ public class BaseSizeTokenTest extends
 	{
 		super.setUp();
 		TokenRegistration.register(BASESIZE_TOKEN);
-		SizeAdjustment ps = BuildUtilities.createSize("Small");
+		SizeAdjustment ps = BuildUtilities.createSize("Small", 0);
 		primaryContext.getReferenceContext().importObject(ps);
-		SizeAdjustment ss = BuildUtilities.createSize("Small");
+		SizeAdjustment ss = BuildUtilities.createSize("Small", 0);
 		secondaryContext.getReferenceContext().importObject(ss);
 	}
 

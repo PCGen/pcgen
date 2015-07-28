@@ -825,8 +825,10 @@ public class PCClass extends PObject implements ClassFacade
 		// resize the damage as if it were a weapon
 		if (adjustForPCSize)
 		{
-			aDamage = Globals.adjustDamage(aDamage, SizeUtilities
-					.getDefaultSizeInt(), pcSize);
+			int defSize =
+					SizeUtilities.getDefaultSizeAdjustment().get(
+						IntegerKey.SIZEORDER);
+			aDamage = Globals.adjustDamage(aDamage, defSize, pcSize);
 		}
 
 		//

@@ -82,16 +82,16 @@ public class SizeFacetTest extends TestCase
 		{
 			SettingsHandler.getGame().clearLoadContext();
 			AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-			t = BuildUtilities.createSize("Tiny");
+			t = BuildUtilities.createSize("Tiny", 0);
 			ref.importObject(t);
-			s = BuildUtilities.createSize("Small");
+			s = BuildUtilities.createSize("Small", 1);
 			ref.importObject(s);
-			m = BuildUtilities.createSize("Medium");
+			m = BuildUtilities.createSize("Medium", 2);
 			m.put(ObjectKey.IS_DEFAULT_SIZE, true);
 			ref.importObject(m);
-			l = BuildUtilities.createSize("Large");
+			l = BuildUtilities.createSize("Large", 3);
 			ref.importObject(l);
-			h = BuildUtilities.createSize("Huge");
+			h = BuildUtilities.createSize("Huge", 4);
 			ref.importObject(h);
 			staticDone = true;
 		}

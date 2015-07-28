@@ -74,6 +74,8 @@ public interface LoadContext
 
 	public void resolvePostDeferredTokens();
 
+	public void resolvePostValidationTokens();
+
 	public <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(
 		SelectionCreator<T> sc, String value);
 

@@ -33,12 +33,14 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.EquipmentChoiceDriver;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 
@@ -520,7 +522,8 @@ public class EquipmentList {
 			// creatures weren't being catered for (and therefore an OutOfBounds exception
 			// was being thrown) - Bug 937586
 			//
-			for ( final Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class) )
+			AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+			for (final Race race : ref.getConstructedCDOMObjects(Race.class))
 			{
 				/*
 				 * SIZE: in Race LST files enforces that the formula is fixed,
@@ -536,13 +539,14 @@ public class EquipmentList {
 			Set<SizeAdjustment> gensizes = new HashSet<SizeAdjustment>();
 			for (Integer i : gensizesid)
 			{
-				gensizes.add(Globals.getContext().getReferenceContext().getItemInOrder(SizeAdjustment.class, i));
+				gensizes.add(ref.getSortedList(SizeAdjustment.class,
+					IntegerKey.SIZEORDER).get(i));
 			}
 			// skip over default size
 			gensizes.remove(defaultSize);
 
 			PlayerCharacter dummyPc = new PlayerCharacter();
-			for (Equipment eq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
+			for (Equipment eq : ref.getConstructedCDOMObjects(Equipment.class))
 			{
 				//
 				// Only apply to Armor, Shield and resizable items

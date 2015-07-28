@@ -54,6 +54,7 @@ import pcgen.rules.persistence.TokenSupport;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
+import pcgen.rules.persistence.token.PostValidationToken;
 import pcgen.util.Logging;
 import freemarker.template.ObjectWrapper;
 
@@ -257,6 +258,31 @@ public abstract class LoadContextInst implements LoadContext
 					this.setSourceURI(po.getSourceURI());
 					token.process(this, po);
 				}
+			}
+		}
+	}
+
+	@Override
+	public void resolvePostValidationTokens()
+	{
+		Collection<? extends ReferenceManufacturer> mfgs = getReferenceContext()
+				.getAllManufacturers();
+		for (PostValidationToken<? extends Loadable> token : TokenLibrary.getPostValidationTokens())
+		{
+			processPostVal(token, mfgs);
+		}
+	}
+
+	private <T extends Loadable> void processPostVal(PostValidationToken<T> token,
+			Collection<? extends ReferenceManufacturer> mfgs)
+	{
+		Class<T> cl = token.getValidationTokenClass();
+		for (ReferenceManufacturer<? extends T> rm : mfgs)
+		{
+			if (cl.isAssignableFrom(rm.getReferenceClass()))
+			{
+				setSourceURI(null);
+				token.process(this, rm.getAllObjects());
 			}
 		}
 	}
