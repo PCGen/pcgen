@@ -78,3 +78,4 @@ HIDETYPE:FEAT|Trait|BasicTrait|RevelationTargetOneOnly
 #SPELL:apg_spells_heropoints.lst|PRERULE:1,HEROPOINTS
 
 # Implement Pharasma-Friendly Souls Subdomain from http://paizo.com/paizo/blog/v5748dyo5lbvp
+FORWARDREF:CLASSSPELLLIST|Magus

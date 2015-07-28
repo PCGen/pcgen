@@ -361,6 +361,7 @@ CLASS:Ex-Paladin	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:XPal		MAXLEVEL:20	VISIBLE:
 # Class Name	Skill Pts/Lvl
 CLASS:Ex-Paladin	STARTSKILLPTS:2
 ###Block:Proficiencies
+1	ABILITY:Class|AUTOMATIC|Paladin
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy,TYPE.PaladinArmorProficiencyLight,TYPE.PaladinArmorProficiencyMedium,TYPE.PaladinArmorProficiency,TYPE.PaladinShieldProf,TYPE.PaladinShieldProficiency
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Heavy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy
@@ -375,6 +376,7 @@ CLASS:Ranger	STARTSKILLPTS:6
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|Caster_Level_BL_Stripped_Ranger|PRECLASS:1,Ranger=4	BONUS:VAR|Caster_Level_BL_Stripped_Ranger|Caster_Level_Ranger-CasterLevelBLRanger	BONUS:VAR|Caster_Level_Ranger|CL+Caster_Level_Bonus-3+CasterLevelBLRanger	DEFINE:CasterLevelBLRanger|0	BONUS:VAR|CasterLevelBL_x_Ranger|charbonusto("PCLEVEL","Ranger")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Ranger|TYPE=Base
 ###Block:Proficiencies
+1	ABILITY:Class|AUTOMATIC|Ranger
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Ranger|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerWeaponProficiency,TYPE.RangerArmorProficiencies,TYPE.RangerMediumArmorProficiency,TYPE.RangerLightArmorProficiency,TYPE.RangerShieldProficiency
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWeaponProficiency,TYPE.RangerWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArmorProficiencies,TYPE.RangerLightArmorProficiency
@@ -437,6 +439,7 @@ CLASS:Rogue		STARTSKILLPTS:8
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies,TYPE.RogueLightArmor,TYPE.RogueArmorProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueLightArmor,TYPE.RogueArmorProficiencies
+1	ABILITY:Class|AUTOMATIC|Rogue
 ###Block: Level progression
 1	BONUS:VAR|RogueSneakAttackLVL|CL	BONUS:VAR|TrapfindingLVL|CL
 2	BONUS:VAR|RogueTalentLVL|CL
@@ -462,6 +465,7 @@ CLASS:Sorcerer	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|Caster_Level_BL_Stripped_Sorcerer	BONUS:VAR|Caster_Level_BL_Stripped_Sorcerer|Caster_Level_Sorcerer-CasterLevelBLSorcerer	BONUS:VAR|Caster_Level_Sorcerer|CL+Caster_Level_Bonus+CasterLevelBLSorcerer	DEFINE:CasterLevelBLSorcerer|0	BONUS:VAR|CasterLevelBL_x_Sorcerer|charbonusto("PCLEVEL","Sorcerer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Sorcerer|TYPE=Base
 ###Block:Proficiencies
+1	ABILITY:Class|AUTOMATIC|Sorcerer
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Sorcerer|PREVAREQ:Sorcerer_CF_WeaponProficiencies,0
 1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|PREVAREQ:Sorcerer_CF_WeaponProficiencies,0
 ###Block: Bloodline
@@ -525,6 +529,7 @@ SUBCLASS:Transmuter	COST:0	CHOICE:SCHOOL|Transmutation
 SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmutation School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 SUBCLASS:Universalist	COST:0
 SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
+1	ABILITY:Class|AUTOMATIC|Wizard
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
