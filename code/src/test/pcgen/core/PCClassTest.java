@@ -56,6 +56,7 @@ import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.Qualifier;
 import pcgen.core.analysis.PCClassKeyChange;
 import pcgen.core.bonus.Bonus;
@@ -757,8 +758,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 		ab2.setCDOMCategory(cat);
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
+		CDOMSingleRef<AbilityCategory> acRef =
+				context.getReferenceContext().getCDOMReference(
+					AbilityCategory.class, "TestCat");
 		assertTrue(context.getReferenceContext().resolveReferences(null));
-		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(cat, Nature.AUTOMATIC);
+		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> mods = pcclass.getListMods(autoList);
 		assertEquals(1, mods.size());
 		CDOMReference<Ability> ref = mods.iterator().next();

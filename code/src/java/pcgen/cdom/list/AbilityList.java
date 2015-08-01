@@ -24,10 +24,11 @@ import java.util.List;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 
 /**
  * AbilityList is a CDOMListObject designed to reference a List of Ability
@@ -36,15 +37,15 @@ import pcgen.core.Ability;
 public class AbilityList extends CDOMListObject<Ability>
 {
 
-	private Category<Ability> category;
+	private CDOMSingleRef<AbilityCategory> category;
 	private Nature nature;
 
 	/**
 	 * Stores references to the "master" set of lists that are unique for a
 	 * given Category/Nature combination.
 	 */
-	public static final DoubleKeyMap<Category<Ability>, Nature, CDOMReference<AbilityList>> MASTER_MAP =
-			new DoubleKeyMap<Category<Ability>, Nature, CDOMReference<AbilityList>>();
+	public static final DoubleKeyMap<CDOMSingleRef<AbilityCategory>, Nature, CDOMReference<AbilityList>> MASTER_MAP =
+			new DoubleKeyMap<CDOMSingleRef<AbilityCategory>, Nature, CDOMReference<AbilityList>>();
 
 	/**
 	 * Returns the Ability Class object (Ability.class)
@@ -81,7 +82,7 @@ public class AbilityList extends CDOMListObject<Ability>
 	 *         combination.
 	 */
 	public static CDOMReference<AbilityList> getAbilityListReference(
-			Category<Ability> category, Nature nature)
+		CDOMSingleRef<AbilityCategory> category, Nature nature)
 	{
 		CDOMReference<AbilityList> ref = MASTER_MAP.get(category, nature);
 		if (ref == null)
@@ -116,14 +117,14 @@ public class AbilityList extends CDOMListObject<Ability>
 	public static Collection<CDOMReference<AbilityList>> getAbilityLists()
 	{
 		List<CDOMReference<AbilityList>> list = new ArrayList<CDOMReference<AbilityList>>();
-		for (Category<Ability> cat : MASTER_MAP.getKeySet())
+		for (CDOMSingleRef<AbilityCategory> cat : MASTER_MAP.getKeySet())
 		{
 			list.addAll(MASTER_MAP.values(cat));
 		}
 		return list;
 	}
 
-	public Category<Ability> getCategory()
+	public CDOMSingleRef<AbilityCategory> getCategory()
 	{
 		return category;
 	}

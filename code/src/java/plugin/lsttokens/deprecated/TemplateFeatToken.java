@@ -37,6 +37,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
@@ -243,7 +244,7 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 		if (list != null && !list.isEmpty())
 		{
 			AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(
-					AbilityCategory.FEAT, list, Nature.NORMAL);
+				CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), list, Nature.NORMAL);
 			ChoiceSet<CNAbilitySelection> cs = new ChoiceSet<CNAbilitySelection>(
 					getTokenName(), rcs);
 			cs.setTitle("Feat Choice");

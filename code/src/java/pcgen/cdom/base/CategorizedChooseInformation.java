@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
@@ -47,7 +48,7 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 	 */
 	private final PrimitiveChoiceSet<T> pcs;
 
-	private final Category<T> category;
+	private final CDOMSingleRef<? extends Category<T>> category;
 
 	/**
 	 * The name of this ChoiceSet
@@ -79,8 +80,9 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 	 * @throws IllegalArgumentException
 	 *             if the given name or PrimitiveChoiceSet is null
 	 */
-	public CategorizedChooseInformation(String name, Category<T> cat,
-			PrimitiveChoiceSet<T> choice, Class<T> objClass)
+	public CategorizedChooseInformation(String name,
+		CDOMSingleRef<? extends Category<T>> cat, PrimitiveChoiceSet<T> choice,
+		Class<T> objClass)
 	{
 		if (name == null)
 		{
@@ -161,7 +163,7 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 		if (choiceActor instanceof CategorizedChooser)
 		{
 			return ((CategorizedChooser<T>) choiceActor).decodeChoice(context,
-				choiceStr, category);
+				choiceStr, category.resolvesTo());
 		}
 		return choiceActor.decodeChoice(context, choiceStr);
 	}
@@ -230,7 +232,7 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 	@Override
 	public ClassIdentity<T> getClassIdentity()
 	{
-		return CategorizedClassIdentity.getInstance(underlyingClass, category);
+		return CategorizedClassIdentity.getInstance(underlyingClass, category.resolvesTo());
 	}
 
 	/**
@@ -296,7 +298,7 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 		return pcs.getGroupingState();
 	}
 
-	public Category<T> getCategory()
+	public CDOMSingleRef<? extends Category<T>> getCategory()
 	{
 		return category;
 	}
