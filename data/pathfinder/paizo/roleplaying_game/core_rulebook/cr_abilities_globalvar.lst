@@ -1,6 +1,6 @@
 
 ###--------------------------------------------###
-#New Formula Parser Support Mechanisms	##
+##	New Formula Parser Support Mechanisms	##
 ###--------------------------------------------###
 
 ###Block: Actual Base Class	
@@ -12,7 +12,7 @@
 # COMMENT: Using ONE LINE per item for EASE of debugging and reading. This will make this file exceedingly lengthy.
 # COMMENT: This will be moved into the GLOBALVARs file when it exists.
 Barbarian			CATEGORY:Class		
-Bard				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardClassSkills
+Bard				CATEGORY:Class	
 Cleric			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericClassSkills
 Druid				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidClassSkills
 Fighter			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterClassSkills
@@ -76,9 +76,13 @@ CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Proficiencies|0
 CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_UncannyDodge|0
 CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_ImprovedUncannyDodge|0
 CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_ClassSkills|0
+
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_WeaponProficiencies|0
+CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_ArmorProficiencies|0
+
 CATEGORY=Class|Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|PREVAREQ:Barbarian_CF_Proficiencies,0
-CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|PREVAREQ:Barbarian_CF_Proficiencies,0|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
-CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|PREVAREQ:Barbarian_CF_Proficiencies,0|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
+CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|PREVAREQ:Barbarian_CF_Weapon_Proficiencies,0
+CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|PREVAREQ:Barbarian_CF_Armor_Proficiencies,0
 CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|PREVAREQ:Barbarian_CF_ClassSkills,0
 CATEGORY=Class|Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Uncanny Dodge Tracker
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Proficiencies=True
@@ -116,6 +120,8 @@ CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_MightyRage|1|TYPE=Boolean|PR
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_UncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_UncannyDodge=True
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_ImprovedUncannyDodge=TRUE
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_ClassSkills=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_WeaponProficiencies=True
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_ArmorProficiencies=True
 # Old Type System
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Proficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies,TYPE.BarbarianWeaponProficiencies
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Rage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRage				
@@ -151,17 +157,15 @@ CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_MightyRage|1|TYPE=Boolean|PR
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_UncannyDodge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianUncannyDodge			
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianImprovedUncannyDodge			
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_ClassSkills|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills			
-
-# The TEST, issue with this here
-CATEGORY=Class|Barbarian.MOD	BONUS:COMBAT|AC|1|PREFACT:1,ABILITIES,Barbarian_CF_ImprovedUncannyDodge=True
-
-
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_WeaponProficiencies|1|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
+CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_ArmorProficiencies|1|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
 
 # Bard
-CATEGORY=Class|Bard.MOD	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardClassSkills
-CATEGORY=Class|Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
+CATEGORY=Class|Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Bard|PREVAREQ:Bard_CF_Proficiencies,0
 CATEGORY=Class|Bard.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
 CATEGORY=Class|Bard.MOD	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies
+CATEGORY=Class|Bard.MOD	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|PREVAREQ:Bard_CF_ClassSkills,0
+
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_BardicKnowledge|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_CounterSong|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_BardicPerformance|0
@@ -171,6 +175,8 @@ CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_VersatilePerformance|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_WellVersed|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_LoreMaster|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_JackOfAllTrades|0
+CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_ClassSkills|0
+CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_Proficiencies|0
 # Boolean
 CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicKnowledge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_BardicKnowledge=True
 CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_CounterSong|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_CounterSong=True
@@ -181,6 +187,8 @@ CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_VersatilePerformance|1|TYPE=Boolean|PR
 CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_WellVersed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_WellVersed=True
 CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_LoreMaster|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_LoreMaster=True
 CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_JackOfAllTrades|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_JackOfAllTrades=True
+CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_ClassSkills=True
+CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bard_CF_Proficiencies=True
 
 # Old TYPE version Support
 CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_BardicKnowledge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicKnowledge		
@@ -194,6 +202,9 @@ CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_LoreMaster|1|TYPE=Boolean|PREABILITY:1
 CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_JackOfAllTrades|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BardJackOfAllTrades		
 CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_ClassSkills|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BardClassSkills
 CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_Proficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies,TYPE.BardWeaponProficiencies
+
+
+	
 
 # Cleric
 CATEGORY=Class|Cleric.MOD	DEFINE:Cleric_CF_ChannelEnergy|0
