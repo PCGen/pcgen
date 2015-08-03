@@ -43,7 +43,7 @@ BIO
 			<favoredweapon>Crossbow (Light)</favoredweapon>
 			<holyitem></holyitem>
 			<pantheonlist>Pathfinder Chronicles</pantheonlist>
-			<source>Paizo Inc. - Advanced Player&#39;s Guide, p.91</source>
+			<source>Paizo Inc. - Advanced Player's Guide, p.91</source>
 			<special_abilities></special_abilities>
 			<appearance></appearance>
 			<title></title>
@@ -3071,6 +3071,17 @@ BIO
 			<name>Aura of Good</name>
 			<description>You project a strong good aura.</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY.AURA.CLERICCLASSFEATURES.PALADINCLASSFEATURES</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Aura of Good</name>
+			<description></description>
+			<type>PALADINCLASSFEATURES</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
