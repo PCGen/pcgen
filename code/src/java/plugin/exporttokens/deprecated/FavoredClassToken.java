@@ -23,7 +23,7 @@
  * Last Edited: $Date: 2006-12-17 05:36:01 +0100 (Sun, 17 Dec 2006) $
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
 import java.util.SortedSet;
 
