@@ -1,5 +1,5 @@
 /*
- * SizeToken.java
+ * SizeLongToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -23,16 +23,17 @@
  * Last Edited: $Date$
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
+import pcgen.core.SizeAdjustment;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * SIZE token for export
+ * SIZELONG for export
  */
-public class SizeToken extends AbstractExportToken
+public class SizeLongToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -40,9 +41,10 @@ public class SizeToken extends AbstractExportToken
 	@Override
 	public String getTokenName()
 	{
-		return "SIZE";
+		return "SIZELONG";
 	}
 
+	//TODO: this really should be in the Size token as SIZE.LONG
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
@@ -50,6 +52,11 @@ public class SizeToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return display.getSize();
+		final SizeAdjustment sadj = display.getSizeAdjustment();
+		if (sadj != null)
+		{
+			return sadj.getDisplayName();
+		}
+		return "";
 	}
 }
