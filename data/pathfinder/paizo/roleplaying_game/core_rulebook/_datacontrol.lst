@@ -394,6 +394,22 @@ FACTDEF:ABILITY|Sorcerer_Archetype_EschewMaterials							DATAFORMAT:BOOLEAN	VISI
 FACTDEF:ABILITY|Sorcerer_CF_WeaponProficiencies		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies							EXPLANATION:Remove Sorcerer WeaponProficiencies	
 FACTDEF:ABILITY|Sorcerer_CF_EschewMaterials			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials								EXPLANATION:Remove Sorcerer EschewMaterials			
 
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusSpell1		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell1								EXPLANATION:Remove Sorcerer BloodlineBonusSpell1			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusSpell2		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell2								EXPLANATION:Remove Sorcerer BloodlineBonusSpell2			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusSpell3		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell3								EXPLANATION:Remove Sorcerer BloodlineBonusSpell3			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusSpell4		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell4								EXPLANATION:Remove Sorcerer BloodlineBonusSpell4			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusSpell5		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell5								EXPLANATION:Remove Sorcerer BloodlineBonusSpell5			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusSpell6		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell6								EXPLANATION:Remove Sorcerer BloodlineBonusSpell6			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusSpell7		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell7								EXPLANATION:Remove Sorcerer BloodlineBonusSpell7			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusSpell8		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell8								EXPLANATION:Remove Sorcerer BloodlineBonusSpell8			
+FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusSpell9		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell9								EXPLANATION:Remove Sorcerer BloodlineBonusSpell9			
+
+
+
+
+
+
+
 # Wizard Archetype Section
 FACTDEF:ABILITY|Wizard_Archetype_ArcaneSchool								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArcaneSchool											EXPLANATION:Determines whether the archetype affects - ArcaneSchool											
 FACTDEF:ABILITY|Wizard_Archetype_WeaponProficiencies							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies										EXPLANATION:Determines whether the archetype affects - WeaponProficiencies										
