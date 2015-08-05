@@ -518,27 +518,27 @@ CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_MasterStrike|1|TYPE=Boolean|PREABILI
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_WeaponProficiencies|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_EschewMaterials|0
 
-CATEGORY=Class|Sorcerer.MOD	DEFINE:BloodlineBonusSpell1|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:BloodlineBonusSpell2|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:BloodlineBonusSpell3|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:BloodlineBonusSpell4|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:BloodlineBonusSpell5|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:BloodlineBonusSpell6|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:BloodlineBonusSpell7|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:BloodlineBonusSpell8|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:BloodlineBonusSpell9|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell1|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell2|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell3|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell4|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell5|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell6|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell7|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell8|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell9|0
 
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_WeaponProficiencies=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_EschewMaterials|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_EschewMaterials=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell1|1|TYPE=Boolean|PREFACT:1,ABILITIES,BloodlineBonusSpell1=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell2|1|TYPE=Boolean|PREFACT:1,ABILITIES,BloodlineBonusSpell2=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell3|1|TYPE=Boolean|PREFACT:1,ABILITIES,BloodlineBonusSpell3=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell4|1|TYPE=Boolean|PREFACT:1,ABILITIES,BloodlineBonusSpell4=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell5|1|TYPE=Boolean|PREFACT:1,ABILITIES,BloodlineBonusSpell5=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell6|1|TYPE=Boolean|PREFACT:1,ABILITIES,BloodlineBonusSpell6=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell7|1|TYPE=Boolean|PREFACT:1,ABILITIES,BloodlineBonusSpell7=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell8|1|TYPE=Boolean|PREFACT:1,ABILITIES,BloodlineBonusSpell8=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell9|1|TYPE=Boolean|PREFACT:1,ABILITIES,BloodlineBonusSpell9=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell1=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell2=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell3=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell4=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell5=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell6=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell7=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell8=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell9=True
 
 # Old Style
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererWeaponProficiencies	
