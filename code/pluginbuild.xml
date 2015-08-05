@@ -6475,6 +6475,13 @@ jar-all-plugins - Generate the plugin jar files
 			</fileset>
 		</jar>
 		<!-- Paper tokens-->
+		<jar jarfile="${systemlstplugins.dir}/Paper-SORTKEY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/paper/SortKeyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${systemlstplugins.dir}/Paper-HEIGHT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
