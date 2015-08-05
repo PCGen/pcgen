@@ -38,7 +38,7 @@ public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 		{
 			TokenRegistration.register(new plugin.lsttokens.deprecated.TemplateFeatToken());
 			TokenRegistration.register(new plugin.lsttokens.ability.StackToken());
-			TokenRegistration.register(new plugin.exporttokens.TemplateToken());
+			TokenRegistration.register(new plugin.exporttokens.deprecated.TemplateToken());
 		}
 		catch (PersistenceLayerException e)
 		{
