@@ -3,7 +3,6 @@
 # Weapon Name			Type
 Brawler's Flurry			TYPE:Special.Light.Melee.Unarmed.Bludgeoning
 
-
 # CR
 Dagger.MOD				TYPE:Weapon Group Melee Light Piercing
 Dagger (Punching).MOD		TYPE:Weapon Group Melee Light Piercing
@@ -27,31 +26,24 @@ Whip.MOD				TYPE:Weapon Group Melee OneHanded Slashing
 
 # APG
 Cestus.MOD				TYPE:Weapon Group Melee Light Piercing
-#Stake (Wood).MOD									TYPE:Weapon Group Melee Light Piercing
-#Spirit Blade.MOD									TYPE:Weapon Group Melee Light Piercing
-#Guarding Blade.MOD								TYPE:Weapon Group Melee Light Piercing
-#Starknife (Sparkwake).MOD							TYPE:Weapon Group Melee Light Piercing
+Stake.MOD									TYPE:Weapon Group Melee Light Piercing
+Starknife.MOD							TYPE:Weapon Group Melee Light Piercing
 Sword Cane.MOD			TYPE:Weapon Group Melee OneHanded Piercing
-#Trident of Stability.MOD							TYPE:Weapon Group Melee OneHanded Piercing
+Trident.MOD							TYPE:Weapon Group Melee OneHanded Piercing
 
 # ACG
 # COMMENTS: wrong name?
-#Rending Claw Blades.MOD	TYPE:Weapon Group Melee Light Piercing
-#Gloom Blade.MOD	TYPE:Weapon Group Melee Light Piercing
-#Tail Attachment (Spiked).MOD	TYPE:Weapon Group Melee Light Piercing
-#Sea-Knife.MOD	TYPE:Weapon Group Melee Light Piercing
-#Spirit Blade.MOD									TYPE:Weapon Group Melee Light Slashing
+Claw Blades (Catfolk).MOD	TYPE:Weapon Group Melee Light Piercing
+Kobold Tail Attachment.MOD	TYPE:Weapon Group Melee Light Piercing
+Sea-Knife.MOD	TYPE:Weapon Group Melee Light Piercing
 Falcata.MOD				TYPE:Weapon Group Melee OneHanded Slashing
 Khopesh.MOD				TYPE:Weapon Group Melee OneHanded Slashing
 Sword (Temple).MOD		TYPE:Weapon Group Melee OneHanded Slashing
-#Axe (Undercutting).MOD								TYPE:Weapon Group Melee OneHanded Slashing
 
 # UC
 Gladius.MOD				TYPE:Weapon Group Melee Light Piercing
 Emei Piercer.MOD			TYPE:Weapon Group Melee Light Piercing
 Fighting Fan.MOD			TYPE:Weapon Group Melee Light Piercing
-#Madu (Leather).MOD								TYPE:Weapon Group Melee Light Piercing
-#Madu (Steel).MOD									TYPE:Weapon Group Melee Light Piercing
 Madu.MOD				TYPE:Weapon Group Melee Light Piercing
 Pata.MOD				TYPE:Weapon Group Melee Light Piercing
 Quadrens.MOD			TYPE:Weapon Group Melee Light Piercing
@@ -81,32 +73,27 @@ Taiaha.MOD				TYPE:Weapon Group Melee OneHanded Piercing
 Double Chicken Saber.MOD	TYPE:Weapon Group Melee OneHanded Slashing
 Broadsword (Nine Ring).MOD	TYPE:Weapon Group Melee OneHanded Slashing
 Terbutje.MOD			TYPE:Weapon Group Melee OneHanded Slashing
-#Great Terbutje.MOD	TYPE:Weapon Group Melee OneHanded Slashing
+Great Terbutje.MOD	TYPE:Weapon Group Melee OneHanded Slashing
 Hooked Axe.MOD			TYPE:Weapon Group Melee OneHanded Slashing
 Katana.MOD				TYPE:Weapon Group Melee OneHanded Slashing
-#Rhoka Sword.MOD	TYPE:Weapon Group Melee OneHanded Slashing
-#Sawtooth Sabre.MOD	TYPE:Weapon Group Melee OneHanded Slashing
-#Temple Sword.MOD	TYPE:Weapon Group Melee OneHanded Slashing
+Rhoka Sword.MOD	TYPE:Weapon Group Melee OneHanded Slashing
+Sawtooth Sabre.MOD	TYPE:Weapon Group Melee OneHanded Slashing
+Temple Sword.MOD	TYPE:Weapon Group Melee OneHanded Slashing
 Urumi.MOD				TYPE:Weapon Group Melee OneHanded Slashing
-#Cursed Sword (-2).MOD	TYPE:Weapon Group Melee OneHanded Slashing
-#Biting Battleaxe.MOD	TYPE:Weapon Group Melee OneHanded Slashing
-#Demon Prince Armor Claw Attack.MOD	TYPE:Weapon Group Melee OneHanded Slashing
 
 # UM
 Scroll Blade.MOD			TYPE:Weapon Group Melee Light Piercing
 
 # ARG
-#Rending Claw Blades.MOD	TYPE:Weapon Group Melee Light Piercing
-#Gloom Blade.MOD	TYPE:Weapon Group Melee Light Piercing
-#Tail Attachment (Spiked).MOD	TYPE:Weapon Group Melee Light Piercing
-#Sea-Knife.MOD	TYPE:Weapon Group Melee Light Piercing
-#Waraxe (Dwarven Double).MOD	TYPE:Weapon Group Melee OneHanded Slashing
-#Dogslicer.MOD	TYPE:Weapon Group Melee OneHanded Slashing
+Claw Blades (Catfolk).MOD	TYPE:Weapon Group Melee Light Piercing
+Kobold Tail Attachment.MOD	TYPE:Weapon Group Melee Light Piercing
+Sea-Knife.MOD	TYPE:Weapon Group Melee Light Piercing
+Waraxe (Dwarven Double).MOD	TYPE:Weapon Group Melee OneHanded Slashing
+Dogslicer.MOD	TYPE:Weapon Group Melee OneHanded Slashing
 
 # B2
-#Rhoka Sword.MOD	TYPE:Weapon Group Melee OneHanded Piercing
+Rhoka Sword.MOD	TYPE:Weapon Group Melee OneHanded Piercing
 
 # B3
-#Dagger (Chain).MOD	TYPE:Weapon Group Melee Light Piercing
-#Binding Contract.MOD	TYPE:Weapon Group Melee OneHanded Slashing
-#Shears.MOD	TYPE:Weapon Group Melee OneHanded Slashing
+Dagger (Chain).MOD	TYPE:Weapon Group Melee Light Piercing
+Binding Contract.MOD	TYPE:Weapon Group Melee OneHanded Slashing
