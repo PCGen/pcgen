@@ -73,17 +73,18 @@ public class SortKeyToken extends AbstractNonEmptyToken<PaperInfo> implements
 		Set<String> keys = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
 		for (PaperInfo pi : c)
 		{
-			if (pi.getKeyName() == null)
+			String keyName = pi.getKeyName();
+			if (keyName == null)
 			{
 				Logging.errorPrint("PaperInfo: " + pi.getDisplayName()
 					+ " requires a SortKey, but was null", context);
 				returnValue = false;
 			}
-			if (!keys.add(pi.getKeyName()))
+			else if (!keys.add(keyName))
 			{
 				Logging.errorPrint(
 					"Found more than one PaperInfo with (case insensitive) Sort Key: "
-						+ pi.getKeyName(), context);
+						+ keyName, context);
 				returnValue = false;
 			}
 		}
