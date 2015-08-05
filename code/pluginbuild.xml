@@ -1073,10 +1073,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${outputplugins.dir}/ExportToken-WEAPONPROFS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+		<jar jarfile="${outputplugins.dir}/ExportToken-DEPRECATED-WEAPONPROFS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/exporttokens/WeaponProfsToken.class" />
+					<include name="plugin/exporttokens/deprecated/WeaponProfsToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
