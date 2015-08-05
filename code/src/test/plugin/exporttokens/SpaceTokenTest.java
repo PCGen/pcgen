@@ -26,6 +26,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.display.CharacterDisplay;
+import plugin.exporttokens.deprecated.SpaceToken;
 
 /**
  * <code>SpaceTokenTest</code> - Unit test for the SPACE output token

@@ -1,5 +1,5 @@
 /*
- * PipeToken.java
+ * PaperInfoToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,19 +18,21 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * Current Ver: $Revision: 18611 $
+ * Last Editor: $Author: thpr $
+ * Last Edited: $Date: 2012-12-11 00:27:59 +0100 (Di, 11 Dez 2012) $
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
+import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.util.Logging;
 
-//PIPE
-public class PipeToken extends AbstractExportToken
+//PAPERINFO
+public class InvalidTextToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -38,7 +40,7 @@ public class PipeToken extends AbstractExportToken
 	@Override
 	public String getTokenName()
 	{
-		return "PIPE";
+		return "INVALIDTEXT";
 	}
 
 	/**
@@ -48,6 +50,20 @@ public class PipeToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return "|";
+		String sourceText = tokenSource.substring(12);
+		
+		if (sourceText.equals("TOHIT"))
+		{
+			return SettingsHandler.getInvalidToHitText(); 
+		}
+		else if (sourceText.equals("DAMAGE"))
+		{
+			return SettingsHandler.getInvalidDmgText();
+		}
+		else
+		{
+			Logging.errorPrint("Invalid INVALIDTEXT token:" + tokenSource);
+			return "";
+		}
 	}
 }

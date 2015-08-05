@@ -1,6 +1,6 @@
 /*
- * EndManualWhitespaceToken.java
- * Copyright 2006 (C) James Dempsey <jdempsey@users.sourceforge.net>
+ * PipeToken.java
+ * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,21 +16,21 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 6/05/2006
+ * Created on December 15, 2003, 12:21 PM
  *
- * $Id:  $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
-/**
- * Token that represents the end of author controlled whitespace
- */
-public class EndManualWhitespaceToken extends AbstractExportToken
+//PIPE
+public class PipeToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -38,7 +38,7 @@ public class EndManualWhitespaceToken extends AbstractExportToken
 	@Override
 	public String getTokenName()
 	{
-		return "ENDMANUALWHITESPACE";
+		return "PIPE";
 	}
 
 	/**
@@ -48,8 +48,6 @@ public class EndManualWhitespaceToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		eh.setManualWhitespace(false);
-		return "";
+		return "|";
 	}
-
 }
