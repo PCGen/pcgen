@@ -31,6 +31,13 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostValidationToken;
 import pcgen.util.Logging;
 
+/**
+ * Processes the SORTKEY token for PaperInfo objects (Game Mode), loading it
+ * into the SortKey field of the PaperInfo.
+ * 
+ * Note: While the intent is the same, this is necessary as a separate token
+ * from the "Global" SortKey since PaperInfo does not extend CDOMObject.
+ */
 public class SortKeyToken extends AbstractNonEmptyToken<PaperInfo> implements
 		CDOMPrimaryToken<PaperInfo>, PostValidationToken<PaperInfo>
 {
