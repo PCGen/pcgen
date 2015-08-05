@@ -17,9 +17,11 @@
  */
 package plugin.lsttokens.paper;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import pcgen.core.PaperInfo;
 import pcgen.rules.context.LoadContext;
@@ -70,7 +72,8 @@ public class SortKeyToken extends AbstractNonEmptyToken<PaperInfo> implements
 		Collection<? extends PaperInfo> c)
 	{
 		boolean returnValue = true;
-		Set<String> keys = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
+		Map<String, PaperInfo> keys =
+				new TreeMap<String, PaperInfo>(String.CASE_INSENSITIVE_ORDER);
 		for (PaperInfo pi : c)
 		{
 			String keyName = pi.getKeyName();
@@ -80,13 +83,25 @@ public class SortKeyToken extends AbstractNonEmptyToken<PaperInfo> implements
 					+ " requires a SortKey, but was null", context);
 				returnValue = false;
 			}
-			else if (!keys.add(keyName))
+			else if (keys.put(keyName, pi) != null)
 			{
 				Logging.errorPrint(
 					"Found more than one PaperInfo with (case insensitive) Sort Key: "
 						+ keyName, context);
 				returnValue = false;
 			}
+		}
+		List<PaperInfo> coll = new ArrayList<PaperInfo>(keys.values());
+		List<PaperInfo> sorted =
+				context.getReferenceContext().getOrderSortedCDOMObjects(
+					PaperInfo.class);
+		//Remove this check after 6.6
+		if (!coll.equals(sorted))
+		{
+			Logging.errorPrint(
+				"SORTKEY sorting in PaperInfo did not match file order",
+				context);
+			returnValue = false;
 		}
 		return returnValue;
 	}
