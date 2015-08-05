@@ -19,8 +19,10 @@ package pcgen.cdom.facet.fact;
 
 import java.math.BigDecimal;
 
+import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.output.publish.OutputDB;
 
 /**
  * GoldFacet is a Facet to track Gold in a simple, single monetary unit game
@@ -28,7 +30,8 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class GoldFacet extends AbstractItemFacet<CharID, BigDecimal>
+public class GoldFacet extends AbstractItemFacet<CharID, BigDecimal> implements
+		ItemFacet<CharID, BigDecimal>
 {
 
 	/**
@@ -60,4 +63,8 @@ public class GoldFacet extends AbstractItemFacet<CharID, BigDecimal>
 		set(id, newGold);
 	}
 
+	public void init()
+	{
+		OutputDB.register("gold", this);
+	}
 }
