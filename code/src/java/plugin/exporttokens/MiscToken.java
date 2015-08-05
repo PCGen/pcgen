@@ -1,7 +1,7 @@
 package plugin.exporttokens;
 
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -45,18 +45,18 @@ public class MiscToken extends Token
 		String headTokens[] = tokenHead.split("\\.");
 		String subToken = headTokens[1];
 
-		StringKey key;
+		PCStringKey key;
 		if ("FUNDS".equals(subToken))
 		{
-			key = StringKey.MISC_ASSETS;
+			key = PCStringKey.ASSETS;
 		}
 		else if ("COMPANIONS".equals(subToken))
 		{
-			key = StringKey.MISC_COMPANIONS;
+			key = PCStringKey.COMPANIONS;
 		}
 		else if ("MAGIC".equals(subToken))
 		{
-			key = StringKey.MISC_MAGIC;
+			key = PCStringKey.MAGIC;
 		}
 		else
 		{

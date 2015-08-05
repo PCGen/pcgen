@@ -80,6 +80,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.SkillFilter;
@@ -590,7 +591,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setBio(final String bio)
 	{
-		setStringFor(StringKey.BIO, bio);
+		setStringFor(PCStringKey.BIO, bio);
 	}
 
 	/**
@@ -600,7 +601,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setBirthday(final String birthday)
 	{
-		setStringFor(StringKey.BIRTHDAY, birthday);
+		setStringFor(PCStringKey.BIRTHDAY, birthday);
 	}
 
 	/**
@@ -610,7 +611,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setBirthplace(final String birthPlace)
 	{
-		setStringFor(StringKey.BIRTHPLACE, birthPlace);
+		setStringFor(PCStringKey.BIRTHPLACE, birthPlace);
 	}
 
 	/**
@@ -843,7 +844,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setCatchPhrase(final String phrase)
 	{
-		setStringFor(StringKey.CATCH_PHRASE, phrase);
+		setStringFor(PCStringKey.CATCHPHRASE, phrase);
 	}
 
 	/**
@@ -914,7 +915,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setCurrentEquipSetName(final String aName)
 	{
-		setStringFor(StringKey.CURRENT_EQUIP_SET_NAME, aName);
+		setStringFor(PCStringKey.CURRENT_EQUIP_SET_NAME, aName);
 	}
 
 	/**
@@ -934,7 +935,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setDescription(final String aString)
 	{
-		setStringFor(StringKey.DESCRIPTION, aString);
+		setStringFor(PCStringKey.DESCRIPTION, aString);
 	}
 
 	/**
@@ -1229,7 +1230,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setEyeColor(final String aString)
 	{
-		setStringFor(StringKey.EYE_COLOR, aString);
+		setStringFor(PCStringKey.EYECOLOR, aString);
 	}
 
 	/**
@@ -1342,7 +1343,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setFileName(final String newFileName)
 	{
-		setStringFor(StringKey.FILE_NAME, newFileName);
+		setStringFor(PCStringKey.FILE_NAME, newFileName);
 	}
 
 	/**
@@ -1352,7 +1353,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public String getFileName()
 	{
-		return getSafeStringFor(StringKey.FILE_NAME);
+		return getSafeStringFor(PCStringKey.FILE_NAME);
 	}
 
 	/**
@@ -1444,7 +1445,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setHairColor(final String aString)
 	{
-		setStringFor(StringKey.HAIR_COLOR, aString);
+		setStringFor(PCStringKey.HAIRCOLOR, aString);
 	}
 
 	/**
@@ -1455,7 +1456,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setHairStyle(final String aString)
 	{
-		setStringFor(StringKey.HAIR_STYLE, aString);
+		setStringFor(PCStringKey.HAIRSTYLE, aString);
 	}
 
 	/**
@@ -1516,7 +1517,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setInterests(final String aString)
 	{
-		setStringFor(StringKey.INTERESTS, aString);
+		setStringFor(PCStringKey.INTERESTS, aString);
 	}
 
 	/**
@@ -1537,7 +1538,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setLocation(final String aString)
 	{
-		setStringFor(StringKey.LOCATION, aString);
+		setStringFor(PCStringKey.LOCATION, aString);
 	}
 
 	/**
@@ -1912,7 +1913,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setName(final String aString)
 	{
-		setStringFor(StringKey.NAME, aString);
+		setStringFor(PCStringKey.NAME, aString);
 	}
 
 	/**
@@ -1922,7 +1923,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public String getName()
 	{
-		return getSafeStringFor(StringKey.NAME);
+		return getSafeStringFor(PCStringKey.NAME);
 	}
 
 	/**
@@ -1955,7 +1956,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setPhobias(final String aString)
 	{
-		setStringFor(StringKey.PHOBIAS, aString);
+		setStringFor(PCStringKey.PHOBIAS, aString);
 	}
 
 	/**
@@ -1966,7 +1967,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setPlayersName(final String aString)
 	{
-		setStringFor(StringKey.PLAYERS_NAME, aString);
+		setStringFor(PCStringKey.PLAYERSNAME, aString);
 	}
 
 	/**
@@ -1995,7 +1996,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setPortraitPath(final String newPortraitPath)
 	{
-		setStringFor(StringKey.PORTRAIT_PATH, newPortraitPath);
+		setStringFor(PCStringKey.PORTRAIT_PATH, newPortraitPath);
 	}
 
 	/**
@@ -2034,7 +2035,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setResidence(final String aString)
 	{
-		setStringFor(StringKey.RESIDENCE, aString);
+		setStringFor(PCStringKey.RESIDENCE, aString);
 	}
 
 	/**
@@ -2153,7 +2154,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setSkinColor(final String colour)
 	{
-		setStringFor(StringKey.SKIN_COLOR, colour);
+		setStringFor(PCStringKey.SKINCOLOR, colour);
 	}
 
 	/**
@@ -2243,7 +2244,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setSpeechTendency(final String tendency)
 	{
-		setStringFor(StringKey.SPEECH_TENDENCY, tendency);
+		setStringFor(PCStringKey.SPEECHTENDENCY, tendency);
 	}
 
 	/**
@@ -2254,7 +2255,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setSpellBookNameToAutoAddKnown(final String aString)
 	{
-		setStringFor(StringKey.SPELLBOOK_AUTO_ADD_KNOWN, aString);
+		setStringFor(PCStringKey.SPELLBOOK_AUTO_ADD_KNOWN, aString);
 	}
 
 	/**
@@ -2264,7 +2265,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public String getSpellBookNameToAutoAddKnown()
 	{
-		return getSafeStringFor(StringKey.SPELLBOOK_AUTO_ADD_KNOWN);
+		return getSafeStringFor(PCStringKey.SPELLBOOK_AUTO_ADD_KNOWN);
 	}
 
 	/**
@@ -2349,7 +2350,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setTabName(final String name)
 	{
-		setStringFor(StringKey.TAB_NAME, name);
+		setStringFor(PCStringKey.TABNAME, name);
 	}
 
 	/**
@@ -2420,7 +2421,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setTrait1(final String aString)
 	{
-		setStringFor(StringKey.TRAIT1, aString);
+		setStringFor(PCStringKey.PERSONALITY1, aString);
 	}
 
 	/**
@@ -2430,7 +2431,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 */
 	public void setTrait2(final String aString)
 	{
-		setStringFor(StringKey.TRAIT2, aString);
+		setStringFor(PCStringKey.PERSONALITY2, aString);
 	}
 
 	/**
@@ -7824,7 +7825,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * @param key
 	 * @param s
 	 */
-	public void setStringFor(StringKey key, String s)
+	public void setStringFor(PCStringKey key, String s)
 	{
 		String currValue = factFacet.get(id, key);
 		if ((currValue == null && s != null)
@@ -8268,7 +8269,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * @param key
 	 * @return a 'safe' String
 	 */
-	public String getSafeStringFor(StringKey key)
+	public String getSafeStringFor(PCStringKey key)
 	{
 		String s = factFacet.get(id, key);
 		if (s == null)

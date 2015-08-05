@@ -29,7 +29,7 @@ package pcgen.core.term;
 import java.util.Arrays;
 import java.util.List;
 
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.display.CharacterDisplay;
 
 public class PCCountMiscFundsTermEvaluator
@@ -43,7 +43,7 @@ public class PCCountMiscFundsTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		String fundString = display.getSafeStringFor(StringKey.MISC_ASSETS);
+		String fundString = display.getSafeStringFor(PCStringKey.ASSETS);
 		List<String> funds = Arrays.asList(fundString.split("\r?\n"));
 		return (float) funds.size();
 	}

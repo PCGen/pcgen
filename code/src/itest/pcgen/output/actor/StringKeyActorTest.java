@@ -54,17 +54,17 @@ public class StringKeyActorTest extends AbstractOutputTestCase
 		d.setName("Bob");
 		String expectedResult = "Magical";
 		df.set(id, d);
-		d.put(StringKey.BIRTHDAY, expectedResult);
-		StringKeyActor ska = new StringKeyActor(StringKey.BIRTHDAY);
-		CDOMObjectWrapper.getInstance().load(d.getClass(), "birthday", ska);
-		processThroughFreeMarker("${deity.birthday}", expectedResult);
+		d.put(StringKey.DAMAGE, expectedResult);
+		StringKeyActor ska = new StringKeyActor(StringKey.DAMAGE);
+		CDOMObjectWrapper.getInstance().load(d.getClass(), "damage", ska);
+		processThroughFreeMarker("${deity.damage}", expectedResult);
 	}
 
 	public void testListKeyActorMissingSafe()
 	{
-		StringKeyActor ska = new StringKeyActor(StringKey.BIRTHDAY);
-		CDOMObjectWrapper.getInstance().load(Deity.class, "birthday", ska);
-		processThroughFreeMarker("${deity.birthday!}", "");
+		StringKeyActor ska = new StringKeyActor(StringKey.DAMAGE);
+		CDOMObjectWrapper.getInstance().load(Deity.class, "damage", ska);
+		processThroughFreeMarker("${deity.damage!}", "");
 	}
 
 }

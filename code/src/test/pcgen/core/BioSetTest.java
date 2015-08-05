@@ -37,6 +37,7 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.display.CharacterDisplay;
@@ -193,14 +194,14 @@ public class BioSetTest extends AbstractCharacterTestCase
 		assertTrue("Generated weight " + pc.getDisplay().getWeight()
 			+ " is not in required range.", (pc.getDisplay().getWeight() >= 120 && pc
 					.getDisplay().getWeight() <= 280));
-		assertTrue("Generated eye colour " + pc.getSafeStringFor(StringKey.EYE_COLOR)
-			+ " is not valid.", ("Blue".equals(pc.getSafeStringFor(StringKey.EYE_COLOR))));
-		assertTrue("Generated hair colour " + pc.getSafeStringFor(StringKey.HAIR_COLOR)
-			+ " is not valid.", ("Blond".equals(pc.getSafeStringFor(StringKey.HAIR_COLOR)) || "Brown"
-			.equals(pc.getSafeStringFor(StringKey.HAIR_COLOR))));
-		assertTrue("Generated skin colour " + pc.getSafeStringFor(StringKey.SKIN_COLOR)
-			+ " is not valid.", ("Pasty".equals(pc.getSafeStringFor(StringKey.SKIN_COLOR)) || "Tanned"
-			.equals(pc.getSafeStringFor(StringKey.SKIN_COLOR))));
+		assertTrue("Generated eye colour " + pc.getSafeStringFor(PCStringKey.EYECOLOR)
+			+ " is not valid.", ("Blue".equals(pc.getSafeStringFor(PCStringKey.EYECOLOR))));
+		assertTrue("Generated hair colour " + pc.getSafeStringFor(PCStringKey.HAIRCOLOR)
+			+ " is not valid.", ("Blond".equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR)) || "Brown"
+			.equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR))));
+		assertTrue("Generated skin colour " + pc.getSafeStringFor(PCStringKey.SKINCOLOR)
+			+ " is not valid.", ("Pasty".equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR)) || "Tanned"
+			.equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR))));
 	}
 
 	/**
