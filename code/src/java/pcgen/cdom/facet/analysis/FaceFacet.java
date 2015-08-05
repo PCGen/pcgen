@@ -17,16 +17,18 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import java.awt.geom.Point2D;
 import java.math.BigDecimal;
 
+import pcgen.base.geom.GridPoint;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+import pcgen.output.publish.OutputDB;
 
 /**
  * FaceFacet is a Facet that tracks the Face of a Player Character (in game
@@ -35,8 +37,11 @@ import pcgen.core.Race;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class FaceFacet
+public class FaceFacet implements ItemFacet<CharID, GridPoint>
 {
+
+	private static final Integer ZERO = Integer.valueOf(0);
+	private static final Integer FIVE = Integer.valueOf(5);
 
 	private TemplateFacet templateFacet;
 	private RaceFacet raceFacet;
@@ -52,14 +57,15 @@ public class FaceFacet
 	 *            Face will be returned
 	 * @return The Face of the Player Character represented by the given CharID
 	 */
-	public Point2D.Double getFace(CharID id)
+	@Override
+	public GridPoint get(CharID id)
 	{
 		final Race aRace = raceFacet.get(id);
 		// Default to 5' by 5'
-		Point2D.Double face = new Point2D.Double(5, 0);
+		GridPoint face = new GridPoint(FIVE, ZERO);
 		if (aRace != null)
 		{
-			Point2D.Double rf = getFace(aRace);
+			GridPoint rf = getFace(aRace);
 			if (rf != null)
 			{
 				face = rf;
@@ -69,7 +75,7 @@ public class FaceFacet
 		// Scan templates for any overrides
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
-			Point2D.Double tf = getFace(template);
+			GridPoint tf = getFace(template);
 			if (tf != null)
 			{
 				face = tf;
@@ -87,7 +93,7 @@ public class FaceFacet
 	 * @return The Point2D indicating the Face as defined by the given
 	 *         CDOMObject.
 	 */
-	private Point2D.Double getFace(CDOMObject cdo)
+	private GridPoint getFace(CDOMObject cdo)
 	{
 		BigDecimal width = cdo.get(ObjectKey.FACE_WIDTH);
 		BigDecimal height = cdo.get(ObjectKey.FACE_HEIGHT);
@@ -95,7 +101,7 @@ public class FaceFacet
 		{
 			return null;
 		}
-		return new Point2D.Double(width.doubleValue(), height.doubleValue());
+		return new GridPoint(width, height);
 	}
 
 	public void setTemplateFacet(TemplateFacet templateFacet)
@@ -106,5 +112,10 @@ public class FaceFacet
 	public void setRaceFacet(RaceFacet raceFacet)
 	{
 		this.raceFacet = raceFacet;
+	}
+
+	public void init()
+	{
+		OutputDB.register("face", this);
 	}
 }

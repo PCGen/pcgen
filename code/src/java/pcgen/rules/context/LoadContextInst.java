@@ -45,6 +45,7 @@ import pcgen.output.wrapper.CDOMReferenceWrapper;
 import pcgen.output.wrapper.CNAbilitySelectionWrapper;
 import pcgen.output.wrapper.CategoryWrapper;
 import pcgen.output.wrapper.EnumWrapper;
+import pcgen.output.wrapper.GridPointWrapper;
 import pcgen.output.wrapper.TypeSafeConstantWrapper;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -99,6 +100,7 @@ public abstract class LoadContextInst implements LoadContext
 		owl.add(new CNAbilitySelectionWrapper());
 		owl.add(new CategoryWrapper());
 		owl.add(new EnumWrapper());
+		owl.add(new GridPointWrapper());
 	}
 
 	public LoadContextInst(AbstractReferenceContext rc, AbstractListContext lc, AbstractObjectContext oc)

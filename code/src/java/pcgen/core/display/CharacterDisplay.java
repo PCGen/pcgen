@@ -18,7 +18,6 @@
 package pcgen.core.display;
 
 import java.awt.Rectangle;
-import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -31,6 +30,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.geom.GridPoint;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
@@ -749,9 +749,9 @@ public class CharacterDisplay
 		return handedFacet.getHanded(id);
 	}
 
-	public Point2D.Double getFace()
+	public GridPoint getFace()
 	{
-		return faceFacet.getFace(id);
+		return faceFacet.get(id);
 	}
 
 	public SortedSet<WeaponProf> getSortedWeaponProfs()
