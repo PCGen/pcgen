@@ -17,19 +17,22 @@
  */
 package pcgen.cdom.facet.fact;
 
+import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
+import pcgen.output.publish.OutputDB;
 
 /**
  * GenderFacet is a Facet that tracks the Gender of a Player Character.
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class GenderFacet extends AbstractItemFacet<CharID, Gender>
+public class GenderFacet extends AbstractItemFacet<CharID, Gender> implements
+		ItemFacet<CharID, Gender>
 {
 
 	private TemplateFacet templateFacet;
@@ -143,5 +146,16 @@ public class GenderFacet extends AbstractItemFacet<CharID, Gender>
 	public void setTemplateFacet(TemplateFacet templateFacet)
 	{
 		this.templateFacet = templateFacet;
+	}
+
+	/**
+	 * Initializes the connections for GenderFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the GenderFacet.
+	 */
+	public void init()
+	{
+		OutputDB.register("gender", this);
 	}
 }
