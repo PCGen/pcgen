@@ -17,13 +17,20 @@
  */
 package pcgen.cdom.facet.fact;
 
+import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.output.publish.OutputDB;
 
 /**
  * CharacterTypeFacet is a Facet that tracks the character type 
  * of a character.
  */
 public class CharacterTypeFacet extends AbstractItemFacet<CharID, String>
+		implements ItemFacet<CharID, String>
 {
+	public void init()
+	{
+		OutputDB.register("charactertype", this);
+	}
 }

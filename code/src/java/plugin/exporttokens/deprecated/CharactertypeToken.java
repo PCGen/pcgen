@@ -23,7 +23,7 @@
  * Last Edited: $Date: 2008-03-20 13:57:06 +0100 (Do, 20 Mar 2008) $
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;

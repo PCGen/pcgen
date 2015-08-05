@@ -247,10 +247,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${outputplugins.dir}/ExportToken-CHARACTERTYPE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+		<jar jarfile="${outputplugins.dir}/ExportToken-DEPRECATED-CHARACTERTYPE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/exporttokens/CharactertypeToken.class" />
+					<include name="plugin/exporttokens/deprecated/CharactertypeToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
