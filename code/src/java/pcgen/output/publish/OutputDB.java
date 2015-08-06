@@ -253,14 +253,22 @@ public final class OutputDB
 			throw new IllegalArgumentException(
 				"Preference Name may not be null or empty: " + pref);
 		}
-		BooleanOptionModel bom = new BooleanOptionModel(pref, defaultValue);
-		TemplateModel old = globalModels.put(pref, bom);
+		addGlobalModel(new BooleanOptionModel(pref, defaultValue));
+	}
+
+	/**
+	 * Directly adds a new NamedModel as part of the "Global" Models in OutputDB.
+	 * 
+	 * @param model The NamedModel to be added to the global models
+	 */
+	public static void addGlobalModel(NamedModel model)
+	{
+		TemplateModel old = globalModels.put(model.getModelName(), model);
 		if (old != null)
 		{
 			throw new UnsupportedOperationException(
-				"Cannot have two Preference Output Models using the same name: "
-					+ pref);
+				"Cannot have two Global Output Models using the same name: "
+					+ model.getModelName());
 		}
 	}
-
 }
