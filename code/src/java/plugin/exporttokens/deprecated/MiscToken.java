@@ -1,4 +1,4 @@
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.PCStringKey;
