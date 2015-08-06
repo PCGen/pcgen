@@ -240,10 +240,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${outputplugins.dir}/ExportToken-CATCHPHRASE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+		<jar jarfile="${outputplugins.dir}/ExportToken-DEPRECATED-CATCHPHRASE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/exporttokens/CatchPhraseToken.class" />
+					<include name="plugin/exporttokens/deprecated/CatchPhraseToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
