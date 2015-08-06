@@ -336,9 +336,11 @@ public final class ExportHandler
 
 			// data-model
 			Map<String, Object> pc = OutputDB.buildDataModel(aPC.getCharID());
+			Map<String, Object> mode = OutputDB.buildModeDataModel();
 			Map<String, Object> input = new HashMap<String, Object>();
 			input.put("pcgen", OutputDB.getGlobal());
 			input.put("pc", ObjectWrapper.DEFAULT_WRAPPER.wrap(pc));
+			input.put("gamemode", mode);
 			input.put("gamemodename", SettingsHandler.getGame().getName());
 
 			// Process the template
