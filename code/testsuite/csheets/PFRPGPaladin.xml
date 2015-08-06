@@ -3102,6 +3102,17 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Channel Positive Energy</name>
+			<description></description>
+			<type>INTERNAL.CHANNEL POSITIVE ENERGY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Channel Positive Energy</name>
 			<description>You can unleash a wave of positive energy dealing 3d6 (DC 15 for half) /day. You can unleash a wave of positive energy. You must choose to deal 3d6 points of positive energy damage to undead creatures or to heal living creatures of 3d6 points of damage. Creatures that take damage from channeled energy receive a DC 15 Will save to halve the damage. Using this ability consumes two uses of her lay on hands ability.</description>
 			<type>PALADINCLASSFEATURES.SPECIALATTACK.SUPERNATURAL.CHANNEL ENERGY.CHANNEL ENERGY POSITIVE.CHANNEL POSITIVE ENERGY</type>
 			<associated></associated>
