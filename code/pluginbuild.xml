@@ -506,10 +506,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${outputplugins.dir}/ExportToken-HANDED.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+		<jar jarfile="${outputplugins.dir}/ExportToken-DEPRECATED-HANDED.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/exporttokens/HandedToken.class" />
+					<include name="plugin/exporttokens/deprecated/HandedToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
