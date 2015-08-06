@@ -132,15 +132,16 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 		 * in the files (PCGen 6.5/6.6)
 		 */
 		List<CDOMObject> sortKeySort = new ArrayList<CDOMObject>(map.values());
-		List<? extends CDOMObject> baseSort =
+		List<? extends CDOMObject> orderSort =
 				context.getReferenceContext().getOrderSortedCDOMObjects(cl);
-		if (!baseSort.equals(sortKeySort))
+		//This IF is order sensitive ... want to have ArrayList first to use its .equals()
+		if (!sortKeySort.equals(orderSort))
 		{
 			Logging.log(
 				Logging.LST_ERROR,
 				"For " + sample.getClass().getSimpleName()
 					+ ", the file order was: "
-					+ StringUtil.join(baseSort, ", ")
+					+ StringUtil.join(new ArrayList<CDOMObject>(orderSort), ", ")
 					+ " while the order based on SORTKEY was: "
 					+ StringUtil.join(sortKeySort, ", ")
 					+ ".  These lists must match.");
