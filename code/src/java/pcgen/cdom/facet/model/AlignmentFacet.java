@@ -21,6 +21,7 @@ import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.core.PCAlignment;
+import pcgen.output.publish.OutputDB;
 
 /**
  * AlignmentFacet is a Facet that tracks the Alignment of a Player Character.
@@ -28,5 +29,8 @@ import pcgen.core.PCAlignment;
 public class AlignmentFacet extends AbstractItemFacet<CharID, PCAlignment>
 		implements ItemFacet<CharID, PCAlignment>
 {
-
+	public void init()
+	{
+		OutputDB.register("alignment", this);
+	}
 }
