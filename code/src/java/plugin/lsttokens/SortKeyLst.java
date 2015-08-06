@@ -73,16 +73,17 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 	public boolean process(LoadContext context,
 		Collection<? extends CDOMObject> c)
 	{
-		Map<String, CDOMObject> map = new TreeMap<String, CDOMObject>();
 		if (c.isEmpty())
 		{
 			return true;
 		}
-		CDOMObject sample = c.iterator().next();
 
+		CDOMObject sample = c.iterator().next();
 		Class<? extends CDOMObject> cl = sample.getClass();
 		//This Interface tag is placed on classes where SORTKEY is required
 		boolean sortKeyRequired = sample instanceof SortKeyRequired;
+
+		Map<String, CDOMObject> map = new TreeMap<String, CDOMObject>();
 		for (CDOMObject obj : c)
 		{
 			String sortkey = obj.get(stringKey());
