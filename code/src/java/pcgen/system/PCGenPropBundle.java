@@ -29,6 +29,8 @@ import java.util.ResourceBundle;
 
 import org.apache.commons.lang.StringUtils;
 
+import pcgen.output.model.DirectScalarModel;
+import pcgen.output.publish.OutputDB;
 import pcgen.util.Logging;
 
 /**
@@ -102,6 +104,9 @@ public class PCGenPropBundle
 			Logging.errorPrint("Failed to load autobuild.properties", e);
 			svnProperties = null;
 		}
+		//Safe as d_properties was constructed earlier in this block
+		OutputDB.addGlobalModel(DirectScalarModel.getModel("version",
+			getVersionNumber()));
 	}
 
 	/**
