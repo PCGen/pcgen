@@ -31,6 +31,7 @@ import pcgen.output.base.ModeModelFactory;
 import pcgen.output.base.ModelFactory;
 import pcgen.output.factory.ItemModelFactory;
 import pcgen.output.factory.SetModelFactory;
+import pcgen.output.factory.UnitSetModelFactory;
 import freemarker.template.TemplateModel;
 
 /**
@@ -266,6 +267,19 @@ public final class OutputDB
 	{
 		outModels.clear();
 		modeModels.clear();
+	}
+
+	/*
+	 * Initialize the preferences we want to export to FreeMarker
+	 */
+	static
+	{
+		triggerLoad();
+	}
+
+	private static void triggerLoad()
+	{
+		registerMode("unitset", new UnitSetModelFactory());
 	}
 
 }
