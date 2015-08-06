@@ -59,6 +59,16 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 		return StringKey.SORT_KEY;
 	}
 
+	/**
+	 * Enforces that SORTKEY exists on any object which carries the
+	 * SortKeyRequired interface.
+	 * 
+	 * All such objects must have a SORTKEY and in PCGen 6.5/6.6, the file order
+	 * must match the SORTKEY order.
+	 * 
+	 * @see pcgen.rules.persistence.token.PostValidationToken#process(pcgen.rules.context.LoadContext,
+	 *      java.util.Collection)
+	 */
 	@Override
 	public boolean process(LoadContext context,
 		Collection<? extends CDOMObject> c)
@@ -114,7 +124,7 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 
 		/*
 		 * Per the transition rules, the sort key must match the existing order
-		 * in the files
+		 * in the files (PCGen 6.5/6.6)
 		 */
 		List<CDOMObject> sortKeySort = new ArrayList<CDOMObject>(map.values());
 		List<? extends CDOMObject> baseSort =
@@ -134,12 +144,18 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 		return true;
 	}
 
+	/**
+	 * @see pcgen.rules.persistence.token.PostValidationToken#getValidationTokenClass()
+	 */
 	@Override
 	public Class<CDOMObject> getValidationTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+	/**
+	 * @see pcgen.rules.persistence.token.PostValidationToken#getPriority()
+	 */
 	@Override
 	public int getPriority()
 	{
