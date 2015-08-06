@@ -21,7 +21,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.core.Ability;
+import pcgen.core.ArmorProf;
+import pcgen.core.Campaign;
+import pcgen.core.Deity;
+import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.Kit;
+import pcgen.core.Language;
+import pcgen.core.PCAlignment;
+import pcgen.core.PCCheck;
+import pcgen.core.PCClass;
+import pcgen.core.PCStat;
+import pcgen.core.PCTemplate;
+import pcgen.core.Race;
+import pcgen.core.ShieldProf;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.WeaponProf;
 import pcgen.output.actor.KeyActor;
+import pcgen.output.actor.OutputNameActor;
 import pcgen.output.actor.SourceActor;
 import pcgen.output.base.OutputActor;
 import pcgen.output.model.CDOMObjectModel;
@@ -147,5 +165,22 @@ public final class CDOMObjectWrapper implements ObjectWrapper
 	{
 		INSTANCE.load(CDOMObject.class, "source", new SourceActor());
 		INSTANCE.load(CDOMObject.class, "key", new KeyActor());
+		INSTANCE.load(Ability.class, "outputname", new OutputNameActor());
+		INSTANCE.load(ArmorProf.class, "outputname", new OutputNameActor());
+		INSTANCE.load(Campaign.class, "outputname", new OutputNameActor());
+		INSTANCE.load(Deity.class, "outputname", new OutputNameActor());
+		INSTANCE.load(Domain.class, "outputname", new OutputNameActor());
+		INSTANCE.load(Equipment.class, "outputname", new OutputNameActor());
+		INSTANCE.load(Kit.class, "outputname", new OutputNameActor());
+		INSTANCE.load(Language.class, "outputname", new OutputNameActor());
+		INSTANCE.load(PCAlignment.class, "outputname", new OutputNameActor());
+		INSTANCE.load(PCCheck.class, "outputname", new OutputNameActor());
+		INSTANCE.load(PCClass.class, "outputname", new OutputNameActor());
+		INSTANCE.load(PCStat.class, "outputname", new OutputNameActor());
+		INSTANCE.load(PCTemplate.class, "outputname", new OutputNameActor());
+		INSTANCE.load(Race.class, "outputname", new OutputNameActor());
+		INSTANCE.load(ShieldProf.class, "outputname", new OutputNameActor());
+		INSTANCE.load(SizeAdjustment.class, "outputname", new OutputNameActor());
+		INSTANCE.load(WeaponProf.class, "outputname", new OutputNameActor());
 	}
 }
