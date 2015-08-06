@@ -849,10 +849,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${outputplugins.dir}/ExportToken-SPEECHTENDANCY.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+		<jar jarfile="${outputplugins.dir}/ExportToken-DEPRECATED-SPEECHTENDANCY.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/exporttokens/SpeechTendancyToken.class" />
+					<include name="plugin/exporttokens/deprecated/SpeechTendancyToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
