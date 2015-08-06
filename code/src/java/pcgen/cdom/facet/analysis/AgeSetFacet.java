@@ -19,6 +19,7 @@ package pcgen.cdom.facet.analysis;
 
 import java.util.List;
 
+import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.facet.base.AbstractItemFacet;
@@ -38,7 +39,7 @@ import pcgen.core.Race;
  * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet> implements
-		DataFacetChangeListener<CharID, Object>
+		DataFacetChangeListener<CharID, Object>, ItemFacet<CharID, AgeSet>
 {
 	private AgeFacet ageFacet;
 

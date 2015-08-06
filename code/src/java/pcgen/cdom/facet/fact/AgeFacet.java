@@ -17,15 +17,18 @@
  */
 package pcgen.cdom.facet.fact;
 
+import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.output.publish.OutputDB;
 
 /**
  * AgeFacet stores the age of the Player Character.
  * 
  * @author Tom Parker (thpr [at] yahoo.com)
  */
-public class AgeFacet extends AbstractItemFacet<CharID, Integer>
+public class AgeFacet extends AbstractItemFacet<CharID, Integer> implements
+		ItemFacet<CharID, Integer>
 {
 
 	/**
@@ -45,5 +48,10 @@ public class AgeFacet extends AbstractItemFacet<CharID, Integer>
 	{
 		Integer age = get(id);
 		return age == null ? 0 : age;
+	}
+
+	public void init()
+	{
+		OutputDB.register("age", this);
 	}
 }
