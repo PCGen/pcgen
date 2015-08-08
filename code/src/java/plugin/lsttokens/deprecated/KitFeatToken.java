@@ -31,6 +31,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
@@ -80,7 +81,7 @@ public class KitFeatToken extends AbstractTokenWithSeparator<KitAbilities>
 	{
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 
-		kitAbil.setCategory(AbilityCategory.FEAT);
+		kitAbil.setCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
 
 		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
 				ABILITY_CLASS, AbilityCategory.FEAT);

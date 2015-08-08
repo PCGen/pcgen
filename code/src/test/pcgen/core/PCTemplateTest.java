@@ -41,6 +41,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.list.AbilityList;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
@@ -139,8 +140,11 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PCTemplate template = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
+		CDOMSingleRef<AbilityCategory> acRef =
+				context.getReferenceContext().getCDOMReference(
+					AbilityCategory.class, "TestCat");
 		assertTrue(context.getReferenceContext().resolveReferences(null));
-		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(cat, Nature.AUTOMATIC);
+		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
 		assertEquals(2, listMods.size());
 		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
@@ -198,8 +202,11 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PCTemplate template = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
+		CDOMSingleRef<AbilityCategory> acRef =
+				context.getReferenceContext().getCDOMReference(
+					AbilityCategory.class, "Feat");
 		assertTrue(context.getReferenceContext().resolveReferences(null));
-		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(AbilityCategory.FEAT, Nature.AUTOMATIC);
+		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
 		assertEquals(2, listMods.size());
 		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
@@ -262,8 +269,11 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PCTemplate template = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
+		CDOMSingleRef<AbilityCategory> acRef =
+				context.getReferenceContext().getCDOMReference(
+					AbilityCategory.class, "TestCat");
 		assertTrue(context.getReferenceContext().resolveReferences(null));
-		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(cat, Nature.AUTOMATIC);
+		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
 		assertEquals(1, listMods.size());
 		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
@@ -342,8 +352,11 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PCTemplate template = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
+		CDOMSingleRef<AbilityCategory> acRef =
+				context.getReferenceContext().getCDOMReference(
+					AbilityCategory.class, "Feat");
 		assertTrue(context.getReferenceContext().resolveReferences(null));
-		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(AbilityCategory.FEAT, Nature.AUTOMATIC);
+		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
 		assertEquals(1, listMods.size());
 		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
