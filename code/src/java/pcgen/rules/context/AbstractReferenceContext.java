@@ -282,7 +282,7 @@ public abstract class AbstractReferenceContext
 		// }
 	}
 
-	public <T extends CDOMObject> List<T> getOrderSortedCDOMObjects(Class<T> c)
+	public <T extends Loadable> List<T> getOrderSortedCDOMObjects(Class<T> c)
 	{
 		return getManufacturer(c).getOrderSortedObjects();
 	}
