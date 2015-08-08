@@ -83,20 +83,20 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 	 */
 	@Override
 	public boolean process(LoadContext context,
-		Collection<? extends CDOMObject> c)
+		Collection<? extends CDOMObject> allObjects)
 	{
-		if (c.isEmpty())
+		if (allObjects.isEmpty())
 		{
 			return true;
 		}
 
-		CDOMObject sample = c.iterator().next();
+		CDOMObject sample = allObjects.iterator().next();
 		Class<? extends CDOMObject> cl = sample.getClass();
 		//This Interface tag is placed on classes where SORTKEY is required
 		boolean sortKeyRequired = sample instanceof SortKeyRequired;
 
 		Map<String, CDOMObject> map = new TreeMap<String, CDOMObject>();
-		for (CDOMObject obj : c)
+		for (CDOMObject obj : allObjects)
 		{
 			String sortkey = obj.get(stringKey());
 			if (sortkey == null)
@@ -110,7 +110,7 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 					//This becomes an error in PCGen 6.7
 					Logging.deprecationPrint("Objects of type "
 						+ obj.getClass().getName() + " will require a SORTKEY "
-						+ "in the next version of PCGen.  "
+						+ "in the next version of PCGen (6.7).  "
 						+ "Use without a SORTKEY is deprecated", context);
 				}
 			}
@@ -133,6 +133,12 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 				}
 			}
 		}
+		/*
+		 * This is likely permanent, as certain objects (e.g. Alignment/Stat)
+		 * will "always" need a sort unique from the order in the file, and this
+		 * is a good nudge to indicate to data writers that the items are sort
+		 * order sensitive.
+		 */
 		if (!sortKeyRequired)
 		{
 			//Break out now if these aren't SortKeyRequired objects
