@@ -22,10 +22,21 @@
  */
 package plugin.lsttokens;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.PostValidationToken;
+import pcgen.util.Logging;
 
 /**
  * The Class <code>SortKeyLst</code> implements the global SORTKEY tag, which 
@@ -39,7 +50,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  * @version $Revision$
  */
 public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+		CDOMPrimaryToken<CDOMObject>, PostValidationToken<CDOMObject>
 {
 
 	@Override
@@ -58,5 +69,120 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 	protected StringKey stringKey()
 	{
 		return StringKey.SORT_KEY;
+	}
+
+	/**
+	 * Enforces that SORTKEY exists on any object which carries the
+	 * SortKeyRequired interface.
+	 * 
+	 * All such objects must have a SORTKEY and in PCGen 6.5/6.6, the file order
+	 * must match the SORTKEY order.
+	 * 
+	 * @see pcgen.rules.persistence.token.PostValidationToken#process(pcgen.rules.context.LoadContext,
+	 *      java.util.Collection)
+	 */
+	@Override
+	public boolean process(LoadContext context,
+		Collection<? extends CDOMObject> allObjects)
+	{
+		if (allObjects.isEmpty())
+		{
+			return true;
+		}
+
+		CDOMObject sample = allObjects.iterator().next();
+		Class<? extends CDOMObject> cl = sample.getClass();
+		//This Interface tag is placed on classes where SORTKEY is required
+		boolean sortKeyRequired = sample instanceof SortKeyRequired;
+
+		Map<String, CDOMObject> map = new TreeMap<String, CDOMObject>();
+		for (CDOMObject obj : allObjects)
+		{
+			String sortkey = obj.get(stringKey());
+			if (sortkey == null)
+			{
+				/*
+				 * Do not join IFs, we want sortkey == null and not required to
+				 * not process the map
+				 */
+				if (sortKeyRequired)
+				{
+					//This becomes an error in PCGen 6.7
+					Logging.deprecationPrint("Objects of type "
+						+ obj.getClass().getName() + " will require a SORTKEY "
+						+ "in the next version of PCGen (6.7).  "
+						+ "Use without a SORTKEY is deprecated", context);
+				}
+			}
+			else
+			{
+				CDOMObject prev = map.put(sortkey, obj);
+				/*
+				 * This is a universal check, not just SortKeyRequired - if
+				 * we're going to use a SortKey it really should work
+				 */
+				if (prev != null)
+				{
+					Logging.log(Logging.LST_WARNING, obj.getClass()
+						.getSimpleName()
+						+ " "
+						+ obj.getKeyName()
+						+ " and "
+						+ prev.getKeyName()
+						+ " should not have the same SORTKEY: " + sortkey);
+				}
+			}
+		}
+		/*
+		 * This is likely permanent, as certain objects (e.g. Alignment/Stat)
+		 * will "always" need a sort unique from the order in the file, and this
+		 * is a good nudge to indicate to data writers that the items are sort
+		 * order sensitive.
+		 */
+		if (!sortKeyRequired)
+		{
+			//Break out now if these aren't SortKeyRequired objects
+			return true;
+		}
+
+		/*
+		 * Per the transition rules, the sort key must match the existing order
+		 * in the files (PCGen 6.5/6.6)
+		 */
+		List<CDOMObject> sortKeySort = new ArrayList<CDOMObject>(map.values());
+		List<? extends CDOMObject> orderSort =
+				context.getReferenceContext().getOrderSortedCDOMObjects(cl);
+		//This IF is order sensitive ... want to have ArrayList first to use its .equals()
+		if (!sortKeySort.equals(orderSort))
+		{
+			Logging.log(
+				Logging.LST_ERROR,
+				"For " + sample.getClass().getSimpleName()
+					+ ", the file order was: "
+					+ StringUtil.join(new ArrayList<CDOMObject>(orderSort), ", ")
+					+ " while the order based on SORTKEY was: "
+					+ StringUtil.join(sortKeySort, ", ")
+					+ ".  These lists must match.");
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * @see pcgen.rules.persistence.token.PostValidationToken#getValidationTokenClass()
+	 */
+	@Override
+	public Class<CDOMObject> getValidationTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
+	/**
+	 * @see pcgen.rules.persistence.token.PostValidationToken#getPriority()
+	 */
+	@Override
+	public int getPriority()
+	{
+		return 11;
 	}
 }
