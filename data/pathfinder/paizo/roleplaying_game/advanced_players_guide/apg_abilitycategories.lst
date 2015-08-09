@@ -72,13 +72,13 @@ ABILITYCATEGORY:Witch Patron	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONA
 
 # These have been moved to the CORE.
 ###Block: Alternate Racial Traits categories
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
-ABILITYCATEGORY:Eidolon Biped Evolution		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionBiped		PLURAL:Eidolon Biped Evolutions		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Eidolon Quadruped Evolution	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionQuadruped		PLURAL:Eidolon Quadruped Evolutions		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Eidolon Serpentine Evolution	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionSerpentine	PLURAL:Eidolon Serpentine Evolutions	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Eidolon Evolution			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionChoice		PLURAL:Eidolon Evolutions			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Eidolon Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SkillChoice			PLURAL:Eidolon Skills				DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Eidolon Bonus Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredClassSkillBonus	PLURAL:Eidolon Bonus Skills			DISPLAYLOCATION:Racial Abilities
+# Ability Category					Pool				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
+ABILITYCATEGORY:Eidolon Biped Evolution						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionBiped		PLURAL:Eidolon Biped Evolutions		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Eidolon Quadruped Evolution					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionQuadruped		PLURAL:Eidolon Quadruped Evolutions		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Eidolon Serpentine Evolution					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionSerpentine	PLURAL:Eidolon Serpentine Evolutions	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Eidolon Evolution							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionChoice		PLURAL:Eidolon Evolutions			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Eidolon Skill				POOL:Pool_EidolonSkill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SkillChoice			PLURAL:Eidolon Skills				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Eidolon Bonus Skill							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredClassSkillBonus	PLURAL:Eidolon Bonus Skills			DISPLAYLOCATION:Racial Abilities
 
 ###Block: Class Bonus Feat Categories
 # Ability Category								Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list								Plural description for UI						Display Location
@@ -265,3 +265,7 @@ ABILITYCATEGORY:Arcane Talent Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:N
 
 
 ABILITYCATEGORY:Temp Eidolon Evolution	POOL:Pool_Temp_Eidolon_Evolution		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:TempEvolutionChoice									DISPLAYLOCATION:Racial Abilities
+
+###
+ABILITYCATEGORY:Summoner Class Selection	POOL:Pool_Summoner_Class_Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Class			TYPE:Summoner Class Selection									DISPLAYLOCATION:Class Features	
+
