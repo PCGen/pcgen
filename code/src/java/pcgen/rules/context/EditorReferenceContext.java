@@ -21,7 +21,6 @@ import java.net.URI;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CategorizedCDOMObject;
 import pcgen.cdom.base.Loadable;
 
 public class EditorReferenceContext extends RuntimeReferenceContext
@@ -78,8 +77,7 @@ public class EditorReferenceContext extends RuntimeReferenceContext
 	}
 
 	@Override
-	public <T extends Loadable, U extends CDOMObject & CategorizedCDOMObject<U>> boolean forget(
-		T obj)
+	public <T extends Loadable> boolean forget(T obj)
 	{
 		/*
 		 * Don't want to call super. here as that only deals with abbreviations
