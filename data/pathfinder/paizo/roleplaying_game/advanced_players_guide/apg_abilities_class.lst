@@ -3100,15 +3100,15 @@ Wandering Star Motes		KEY:Magus Spellblend ~ Wandering Star Motes	CATEGORY:Inter
 Winds of Vengeance		KEY:Magus Spellblend ~ Winds of Vengeance		CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL9	SPELLKNOWN:CLASS|Magus=9|Winds of Vengeance								
 World Wave				KEY:Magus Spellblend ~ World Wave			CATEGORY:Internal	TYPE:MagusSpellblend.MagusSpellBlendLVL9	SPELLKNOWN:CLASS|Magus=9|World Wave											
 
-###Block: Demo of Summoner Update
-
+###Block: Unchained Summoner Update
 # CFP = "Class Feature Progression"
+# Forces an irreversible choice at level 1 - this is required to 1) Force a Selection by the user (More visibility), 2) Spells will not work to refresh until Level up or reload which is unacceptable. The Choice propogates the correct spells at level 1.
+Summoner	CATEGORY:Class	DEFINE:Summoner_CFP_Level|0	BONUS:VAR|Summoner_CFP_Level|classlevel("Summoner")	DEFINE:StandardSummonerAllowed|0	TEMPLATE:Class ~ Summoner
 
-# Set "Standard" as default, allow Unchained to swap it out. Makes this less intrusive for users.
-Summoner	CATEGORY:Class	DEFINE:Summoner_CFP_Level|0	BONUS:VAR|Summoner_CFP_Level|classlevel("Summoner")	DEFINE:Pool_Summoner_Class_Selection|0	ABILITY:Summoner Class Selection|AUTOMATIC|Summoner ~ Standard Class|!PREABILITY:1,CATEGORY=Class,TYPE.SummonerAlternative
+# ABILITY:Summoner Class Selection|AUTOMATIC|Summoner ~ Standard Class|PREVAREQ:StandardSummonerAllowed,0|PREVAREQ:SummonerClassHasAlternative,0	BONUS:VAR|Pool_Summoner_Class_Selection|1|TYPE=Base|PREVARNEQ:SummonerClassHasAlternative,0	DEFINE:Pool_Summoner_Class_Selection|0	DEFINE:SummonerClassHasAlternative|0
 
 # Summoner Archetype Placeholder moved to "Standard Class" to only be used when the Standard Class is used. If an Unchained version is required, then it's own placeholder and category can be created.
-Standard	KEY:Summoner ~ Standard Class		TYPE:Summoner Class Selection	CATEGORY:Class	CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device		ABILITY:Summoner Archetype|AUTOMATIC|Archetype Summoner	DEFINE:StandardSummoner|0	BONUS:VAR|StandardSummoner|1	
+Standard	KEY:Summoner ~ Standard Class	COST:1	TYPE:Summoner Class Selection	CATEGORY:Class	CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device		ABILITY:Summoner Archetype|AUTOMATIC|Archetype Summoner	DEFINE:StandardSummoner|0	BONUS:VAR|StandardSummoner|1	PREVAREQ:StandardSummonerAllowed,0
 #	SpellName.MOD	CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
 
 # Class Skills can either go directly on the Ability, or make a separate call if the class skills can be altered.

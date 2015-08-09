@@ -113,3 +113,6 @@ Mental Acuity 17	VISIBLE:NO	PREVAREQ:OracleLVL,17	BONUS:VAR|MentalAcuityLVL|17	T
 Mental Acuity 18	VISIBLE:NO	PREVAREQ:OracleLVL,18	BONUS:VAR|MentalAcuityLVL|18	TYPE:MentalAcuityOracleLevel
 Mental Acuity 19	VISIBLE:NO	PREVAREQ:OracleLVL,19	BONUS:VAR|MentalAcuityLVL|19	TYPE:MentalAcuityOracleLevel
 Mental Acuity 20	VISIBLE:NO	PREVAREQ:OracleLVL,20	BONUS:VAR|MentalAcuityLVL|20	TYPE:MentalAcuityOracleLevel
+
+###BLOCK:
+Class ~ Summoner	CHOOSE:ABILITYSELECTION|CLASS|QUALIFIED[TYPE=Summoner Class Selection]	ABILITY:Summoner Class Selection|AUTOMATIC|%LIST
