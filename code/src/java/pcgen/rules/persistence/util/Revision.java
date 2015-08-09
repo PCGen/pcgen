@@ -17,19 +17,47 @@
  */
 package pcgen.rules.persistence.util;
 
+/**
+ * A Revision represents a version number of PCGen (e.g. 6.5.1)
+ */
 public class Revision implements Comparable<Revision>
 {
+	/**
+	 * The primary/major version number
+	 */
 	private final int primarySequence;
+
+	/**
+	 * The secondary/minor version number
+	 */
 	private final int secondarySequence;
+
+	/**
+	 * The tertiary/patch version number
+	 */
 	private final int tertiarySequence;
 
-	public Revision(int a, int b, int c)
+	/**
+	 * Constructs a new Revision with the given major, minor, and patch version
+	 * numbers
+	 * 
+	 * @param major
+	 *            The major version number of this Revision
+	 * @param minor
+	 *            The minor version number of this Revision
+	 * @param patch
+	 *            The patch version number of this Revision
+	 */
+	public Revision(int major, int minor, int patch)
 	{
-		primarySequence = a;
-		secondarySequence = b;
-		tertiarySequence = c;
+		primarySequence = major;
+		secondarySequence = minor;
+		tertiarySequence = patch;
 	}
 
+	/**
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
 	@Override
 	public int compareTo(Revision r)
 	{
@@ -60,25 +88,33 @@ public class Revision implements Comparable<Revision>
 		return 0;
 	}
 
+	/**
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString()
 	{
 		return primarySequence + "." + secondarySequence + "-"
-				+ tertiarySequence;
+			+ tertiarySequence;
 	}
 
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj)
 	{
 		return obj == this || obj instanceof Revision
-				&& compareTo((Revision) obj) == 0;
+			&& compareTo((Revision) obj) == 0;
 	}
 
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode()
 	{
 		return primarySequence * secondarySequence + tertiarySequence;
 	}
-	
-	
+
 }

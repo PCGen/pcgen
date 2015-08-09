@@ -24,7 +24,6 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -60,19 +59,19 @@ public class AvailableSpellInputFacet implements
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> listrefs =
+		Collection<CDOMReference<? extends CDOMList<?>>> listrefs =
 				cdo.getModifiedLists();
 		CharID id = dfce.getCharID();
-		for (CDOMReference<? extends CDOMList<? extends PrereqObject>> ref : listrefs)
+		for (CDOMReference<? extends CDOMList<?>> ref : listrefs)
 		{
 			processListRef(id, cdo, ref);
 		}
 	}
 
 	private void processListRef(CharID id, CDOMObject cdo,
-		CDOMReference<? extends CDOMList<? extends PrereqObject>> listref)
+		CDOMReference<? extends CDOMList<?>> listref)
 	{
-		for (CDOMList<? extends PrereqObject> list : listref
+		for (CDOMList<?> list : listref
 			.getContainedObjects())
 		{
 			if (!(list instanceof ClassSpellList)
@@ -86,8 +85,7 @@ public class AvailableSpellInputFacet implements
 	}
 
 	private void processList(CharID id, CDOMList<Spell> spelllist,
-		CDOMReference<? extends CDOMList<? extends PrereqObject>> listref,
-		CDOMObject cdo)
+		CDOMReference<? extends CDOMList<?>> listref, CDOMObject cdo)
 	{
 		for (CDOMReference<Spell> objref : cdo
 			.getListMods((CDOMReference<? extends CDOMList<Spell>>) listref))

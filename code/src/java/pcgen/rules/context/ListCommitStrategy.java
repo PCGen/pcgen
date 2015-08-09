@@ -24,7 +24,6 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.PrereqObject;
 
 public interface ListCommitStrategy
 {
@@ -50,8 +49,8 @@ public interface ListCommitStrategy
 			CDOMObject owner, CDOMReference<? extends CDOMList<T>> list,
 			T allowed);
 
-	public Changes<CDOMReference> getMasterListChanges(
-		String tokenName, CDOMObject owner, Class<? extends CDOMList<?>> cl);
+	public <T extends CDOMList<?>> Changes<CDOMReference<T>> getMasterListChanges(
+		String tokenName, CDOMObject owner, Class<T> cl);
 
 	public boolean hasMasterLists();
 
@@ -59,21 +58,21 @@ public interface ListCommitStrategy
 		String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<T>> swl);
 
-	public <T extends PrereqObject> AssociatedPrereqObject addToList(
+	public <T extends CDOMObject> AssociatedPrereqObject addToList(
 		String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<? super T>> list, CDOMReference<T> allowed);
 
-	public Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> getChangedLists(
+	public Collection<CDOMReference<? extends CDOMList<?>>> getChangedLists(
 		CDOMObject owner, Class<? extends CDOMList<?>> cl);
 
 	public void removeAllFromList(String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<?>> swl);
 
-	public <T extends PrereqObject> AssociatedPrereqObject removeFromList(String tokenName,
+	public <T extends CDOMObject> AssociatedPrereqObject removeFromList(String tokenName,
 		CDOMObject owner, CDOMReference<? extends CDOMList<? super T>> swl,
 		CDOMReference<T> ref);
 
-	public <T extends PrereqObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
+	public <T extends CDOMObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
 		String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<T>> swl);
 

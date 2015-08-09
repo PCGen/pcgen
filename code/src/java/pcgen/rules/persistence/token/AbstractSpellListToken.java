@@ -35,7 +35,6 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.AssociatedChanges;
@@ -67,19 +66,20 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 	 * @param knownSpells Should this scan be for known spells
 	 * @return the map
 	 */
-	protected TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> getMap(
+	protected TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> getMap(
 		LoadContext context,
 		CDOMObject obj,
-		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedLists,
+		Collection<CDOMReference<? extends CDOMList<?>>> changedLists,
 		boolean knownSpells)
 	{
-		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> map =
-				new TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>>();
+		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> map =
+				new TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>>();
 
 		for (CDOMReference listRef : changedLists)
 		{
-			AssociatedChanges changes = context.getListContext()
-					.getChangesInList(getTokenName(), obj, listRef);
+			AssociatedChanges<CDOMReference<Spell>> changes =
+					context.getListContext().getChangesInList(getTokenName(),
+						obj, listRef);
 			Collection<?> removedItems = changes.getRemoved();
 			if (removedItems != null && !removedItems.isEmpty()
 					|| changes.includesGlobalClear())
@@ -105,7 +105,7 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 					String prereqString = getPrerequisiteString(context, assoc
 							.getPrerequisiteList());
 					Boolean known = assoc.getAssociation(AssociationKey.KNOWN);
-					boolean isKnown = known !=null && known;
+					boolean isKnown = known != null && known.booleanValue();
 					if (knownSpells == isKnown)
 					{
 						map.addToListFor(prereqString, lvl, listRef, added);
@@ -125,13 +125,13 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 	 *
 	 * @return the string builder
 	 */
-	protected StringBuilder processUnparse(String type, TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> domainMap, String prereqs)
+	protected StringBuilder processUnparse(String type, TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> domainMap, String prereqs)
 	{
 		StringBuilder sb = new StringBuilder(type);
 		Set<Integer> levels = domainMap.getSecondaryKeySet(prereqs);
 		for (Integer level : new TreeSet<Integer>(levels))
 		{
-			for (CDOMReference<? extends CDOMList<? extends PrereqObject>> list : domainMap
+			for (CDOMReference<? extends CDOMList<?>> list : domainMap
 					.getTertiaryKeySet(prereqs, level))
 			{
 				sb.append(Constants.PIPE);

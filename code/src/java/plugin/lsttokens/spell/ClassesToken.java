@@ -233,7 +233,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 		DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<ClassSpellList>> dkmtl =
 				new DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<ClassSpellList>>();
 		List<String> list = new ArrayList<String>();
-		Changes<CDOMReference> masterChanges = context.getListContext()
+		Changes<CDOMReference<ClassSpellList>> masterChanges = context.getListContext()
 				.getMasterListChanges(getTokenName(), spell, SPELLLIST_CLASS);
 		if (masterChanges.includesGlobalClear())
 		{

@@ -58,7 +58,6 @@ import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.content.CNAbility;
@@ -4400,7 +4399,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		final HashMapToList<CDOMList<Spell>, Integer> domainMap = getSpellLevelInfo(aSpell);
 		if (domainMap != null)
 		{
-			for (CDOMList<?> spellList : domainMap.getKeySet())
+			for (CDOMList<Spell> spellList : domainMap.getKeySet())
 			{
 				if (spellList instanceof DomainSpellList)
 				{
@@ -8568,10 +8567,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return grantedAbilityFacet.hasAbilityVisibleTo(id, aCategory, view);
 	}
 
-	private <A extends PrereqObject> void processAbilityListsOnAdd(CDOMObject cdo,
-			CDOMReference<? extends CDOMList<A>> ref)
+	private void processAbilityListsOnAdd(CDOMObject cdo,
+		CDOMReference<? extends CDOMList<?>> ref)
 	{
-		for (CDOMList<A> list : ref.getContainedObjects())
+		for (CDOMList<?> list : ref.getContainedObjects())
 		{
 			if (list instanceof AbilityList)
 			{

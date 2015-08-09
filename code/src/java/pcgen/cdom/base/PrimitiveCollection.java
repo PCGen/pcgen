@@ -25,6 +25,7 @@ import pcgen.core.PlayerCharacter;
 
 public interface PrimitiveCollection<T>
 {
+	
 	PrimitiveCollection INVALID = new PrimitiveCollection()
 	{
 
@@ -84,4 +85,25 @@ public interface PrimitiveCollection<T>
 	 *         storing in an LST file.
 	 */
 	public String getLSTformat(boolean useAny);
+
+	/**
+	 * Implemented as a similar result as Collections.emptyList() vs.
+	 * Collections.EMPTY_LIST. The former allows one to avoid generic warnings
+	 * in "runtime" code, as FIXED.invalid() would here.
+	 */
+	public static PrimLibrary FIXED = new PrimLibrary()
+	{
+		@SuppressWarnings("unchecked")
+		@Override
+		public <PCT> PrimitiveCollection<PCT> invalid()
+		{
+			return INVALID;
+		}
+	};
+
+	public interface PrimLibrary
+	{
+		<PCT> PrimitiveCollection<PCT> invalid();
+	}
+
 }

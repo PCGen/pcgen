@@ -18,7 +18,6 @@
 package pcgen.output.actor;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.output.base.OutputActor;
 import freemarker.template.ObjectWrapper;
@@ -58,11 +57,6 @@ public class IntegerKeyActor implements OutputActor<CDOMObject>
 	@Override
 	public TemplateModel process(CDOMObject d) throws TemplateModelException
 	{
-		Integer integer = d.getSafe(ik);
-		if (integer == null)
-		{
-			return ObjectWrapper.DEFAULT_WRAPPER.wrap(Constants.EMPTY_STRING);
-		}
-		return ObjectWrapper.DEFAULT_WRAPPER.wrap(integer);
+		return ObjectWrapper.DEFAULT_WRAPPER.wrap(Integer.valueOf(d.getSafe(ik)));
 	}
 }

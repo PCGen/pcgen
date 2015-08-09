@@ -107,7 +107,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * match the integration tests that we perform, and their current behavior.
 	 * Not sure if this is really the best solution?
 	 */
-	private DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject> cdomListMods =
+	private DoubleKeyMapToList<CDOMReference<? extends CDOMList<?>>, CDOMReference<?>, AssociatedPrereqObject> cdomListMods =
 			null;
 
 	public final boolean containsKey(IntegerKey key)
@@ -841,22 +841,21 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return true;
 	}
 
-	public final <T extends PrereqObject> void putToList(
-			CDOMReference<? extends CDOMList<? extends PrereqObject>> listRef,
-			CDOMReference<T> granted, AssociatedPrereqObject associations)
+	public final <T extends CDOMObject> void putToList(
+		CDOMReference<? extends CDOMList<?>> listRef, CDOMReference<T> granted,
+		AssociatedPrereqObject associations)
 	{
 		if (cdomListMods == null)
 		{
 			cdomListMods =
-					new DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject>(
+					new DoubleKeyMapToList<CDOMReference<? extends CDOMList<?>>, CDOMReference<?>, AssociatedPrereqObject>(
 						HashMap.class, LinkedHashMap.class);
 		}
 		cdomListMods.addToListFor(listRef, granted, associations);
 	}
 
-	public final <T extends PrereqObject> void removeFromList(
-			CDOMReference<? extends CDOMList<? extends PrereqObject>> listRef,
-			CDOMReference<T> granted)
+	public final <T extends CDOMObject> void removeFromList(
+		CDOMReference<? extends CDOMList<?>> listRef, CDOMReference<T> granted)
 	{
 		if (cdomListMods != null)
 		{
@@ -870,16 +869,21 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	}
 
 	public final boolean hasListMods(
-			CDOMReference<? extends CDOMList<? extends PrereqObject>> listRef)
+		CDOMReference<? extends CDOMList<?>> listRef)
 	{
 		return cdomListMods == null ? false : cdomListMods.containsListFor(listRef);
 	}
 
-	// TODO Is there a way to get type safety here?
-	public final <BT extends PrereqObject> Collection<CDOMReference<BT>> getListMods(
-			CDOMReference<? extends CDOMList<BT>> listRef)
+	public final <BT extends CDOMObject, L extends CDOMList<BT>> Collection<CDOMReference<BT>> getListMods(
+		CDOMReference<L> listRef)
 	{
-		Set set = cdomListMods == null ? null : cdomListMods.getSecondaryKeySet(listRef);
+		if (cdomListMods == null)
+		{
+			return null;
+		}
+		Collection<CDOMReference<BT>> set =
+				(Collection<CDOMReference<BT>>) (Set<?>) cdomListMods
+					.getSecondaryKeySet(listRef);
 		if (set == null || set.isEmpty())
 		{
 			return null;
@@ -899,8 +903,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	}
 
 	public final Collection<AssociatedPrereqObject> getListAssociations(
-			CDOMReference<? extends CDOMList<? extends PrereqObject>> listRef,
-			CDOMReference<?> key)
+		CDOMReference<? extends CDOMList<?>> listRef, CDOMReference<?> key)
 	{
 		return cdomListMods == null ? null : cdomListMods.getListFor(listRef, key);
 	}
@@ -908,11 +911,11 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	/**
 	 * @return A list of references to the global lists that this CDOM Object has modified
 	 */
-	public final Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> getModifiedLists()
+	public final Collection<CDOMReference<? extends CDOMList<?>>> getModifiedLists()
 	{
 		return cdomListMods == null
 			? Collections
-				.<CDOMReference<? extends CDOMList<? extends PrereqObject>>> emptySet()
+				.<CDOMReference<? extends CDOMList<?>>> emptySet()
 			: cdomListMods.getKeySet();
 	}
 
@@ -1002,7 +1005,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			if (cdomListMods == null)
 			{
 				cdomListMods =
-						new DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject>(
+						new DoubleKeyMapToList<CDOMReference<? extends CDOMList<?>>, CDOMReference<?>, AssociatedPrereqObject>(
 							HashMap.class, LinkedHashMap.class);
 			}
 			cdomListMods.addAll(cdo.cdomListMods);

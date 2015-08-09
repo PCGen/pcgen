@@ -132,17 +132,23 @@ public final class CorePerspectiveDB
 	public static <T> FacetView<T> getView(CorePerspective perspective,
 		Object location)
 	{
-		return (FacetView<T>) map.get(perspective, location);
+		@SuppressWarnings("unchecked")
+		FacetView<T> facetView = (FacetView<T>) map.get(perspective, location);
+		return facetView;
 	}
 
 	public static <T> FacetView<T> getRootFacet(CorePerspective perspective)
 	{
-		return (FacetView<T>) rootmap.get(perspective);
+		@SuppressWarnings("unchecked")
+		FacetView<T> facetView = (FacetView<T>) rootmap.get(perspective);
+		return facetView;
 	}
 
 	public static <T> FacetView<T> getViewOfFacet(Object o)
 	{
-		return (FacetView<T>) facetToView.get(o);
+		@SuppressWarnings("unchecked")
+		FacetView<T> facetView = (FacetView<T>) facetToView.get(o);
+		return facetView;
 	}
 
 	public static <T> CorePerspective getPerspectiveOfFacet(Object o)
