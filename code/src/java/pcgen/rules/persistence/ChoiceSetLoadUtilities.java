@@ -298,13 +298,12 @@ public final class ChoiceSetLoadUtilities
 	private static <T extends Loadable> PrimitiveCollection<T> getDynamicGroup(
 		LoadContext context, PrimitiveInfo pi, Class<T> refClass)
 	{
-		GroupDefinition<?> fgd = context.getGroup(refClass, pi.tokKey);
+		GroupDefinition<T> fgd = context.getGroup(refClass, pi.tokKey);
 		if (fgd == null)
 		{
 			return null;
 		}
-		ObjectContainer<T> p =
-				(ObjectContainer<T>) fgd.getPrimitive(context, pi.tokValue);
+		ObjectContainer<T> p = fgd.getPrimitive(context, pi.tokValue);
 		return new ObjectContainerPrimitive<T>(p);
 	}
 	

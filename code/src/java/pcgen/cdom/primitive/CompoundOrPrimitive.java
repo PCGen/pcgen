@@ -59,7 +59,7 @@ public class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
 				Logging.log(Level.WARNING, "Found duplicate item in "
 						+ pcfCollection);
 			}
-			primCollection.add(PrimitiveCollection.INVALID);
+			primCollection.add(PrimitiveCollection.FIXED.<T>invalid());
 		}
 		for (PrimitiveCollection<T> pcf : primCollection)
 		{

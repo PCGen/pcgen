@@ -21,6 +21,7 @@
 package pcgen.core;
 
 import pcgen.cdom.base.NonInteractive;
+import pcgen.cdom.base.SortKeyRequired;
 import pcgen.facade.core.AlignmentFacade;
 
 /**
@@ -30,6 +31,6 @@ import pcgen.facade.core.AlignmentFacade;
  * @version $Revision$
  */
 public final class PCAlignment extends PObject implements AlignmentFacade,
-		NonInteractive
+		NonInteractive, SortKeyRequired
 {
 }

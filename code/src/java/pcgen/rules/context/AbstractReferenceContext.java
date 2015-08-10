@@ -62,6 +62,7 @@ import pcgen.util.Logging;
 public abstract class AbstractReferenceContext
 {
 
+	@SuppressWarnings("rawtypes")
 	private static final Class<CategorizedCDOMObject> CATEGORIZED_CDOM_OBJECT_CLASS = CategorizedCDOMObject.class;
 	private static final Class<DomainSpellList> DOMAINSPELLLIST_CLASS = DomainSpellList.class;
 	private static final Class<ClassSkillList> CLASSSKILLLIST_CLASS = ClassSkillList.class;
@@ -152,23 +153,13 @@ public abstract class AbstractReferenceContext
 	public <T extends Loadable> CDOMSingleRef<T> getCDOMReference(Class<T> c,
 			String val)
 	{
-		/*
-		 * Keeping this generic (not inlined as the other methods in this class)
-		 * is required by bugs in Sun's Java 5 compiler.
-		 */
-		ReferenceManufacturer manufacturer = getManufacturer(c);
-		return manufacturer.getReference(val);
+		return getManufacturer(c).getReference(val);
 	}
 
 	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T> getCDOMReference(
 			Class<T> c, Category<T> cat, String val)
 	{
-		/*
-		 * Keeping this generic (not inlined as the other methods in this class)
-		 * is required by bugs in Sun's Java 5 compiler.
-		 */
-		ReferenceManufacturer manufacturer = getManufacturer(c, cat);
-		return manufacturer.getReference(val);
+		return getManufacturer(c, cat).getReference(val);
 	}
 
 	public <T extends Loadable> void reassociateKey(String key, T obj)
@@ -213,7 +204,13 @@ public abstract class AbstractReferenceContext
 			Logging.errorPrint("Worthless Category change encountered: "
 					+ obj.getDisplayName() + " " + oldCat);
 		}
-		reassociateCategory((Class<T>) obj.getClass(), obj, oldCat, cat);
+		reassociateCategory(getGenericClass(obj), obj, oldCat, cat);
+	}
+
+	@SuppressWarnings("unchecked")
+	protected <T> Class<T> getGenericClass(T obj)
+	{
+		return (Class<T>) obj.getClass();
 	}
 
 	private <T extends CDOMObject & CategorizedCDOMObject<T>> void reassociateCategory(
@@ -282,7 +279,7 @@ public abstract class AbstractReferenceContext
 		// }
 	}
 
-	public <T extends CDOMObject> List<T> getOrderSortedCDOMObjects(Class<T> c)
+	public <T extends Loadable> List<T> getOrderSortedCDOMObjects(Class<T> c)
 	{
 		return getManufacturer(c).getOrderSortedObjects();
 	}
@@ -345,7 +342,7 @@ public abstract class AbstractReferenceContext
 			if (pcc.containsListFor(ListKey.SUB_CLASS))
 			{
 				SubClassCategory cat = SubClassCategory.getConstant(key);
-				boolean needSelf = pcc.getSafe(ObjectKey.ALLOWBASECLASS);
+				boolean needSelf = pcc.getSafe(ObjectKey.ALLOWBASECLASS).booleanValue();
 				for (SubClass subcl : pcc.getListFor(ListKey.SUB_CLASS))
 				{
 					String subKey = subcl.getKeyName();
@@ -391,12 +388,13 @@ public abstract class AbstractReferenceContext
 
 	public <T extends CDOMObject> CDOMSingleRef<T> getCDOMDirectReference(T obj)
 	{
-		CDOMSingleRef<?> ref = directRefCache.get(obj);
+		@SuppressWarnings("unchecked")
+		CDOMSingleRef<T> ref = (CDOMSingleRef<T>) directRefCache.get(obj);
 		if (ref == null)
 		{
 			ref = new CDOMDirectSingleRef<T>(obj);
 		}
-		return (CDOMSingleRef<T>) ref;
+		return ref;
 	}
 
 	URI getExtractURI()

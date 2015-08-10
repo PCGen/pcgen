@@ -200,8 +200,8 @@ public class TokenSupport
 				}
 			}
 		}
-		Set<CDOMSecondaryToken<?>> local = localTokens.getSubTokens(cl, tokenName);
-		for (CDOMSecondaryToken token : local)
+		Set<CDOMSecondaryToken<? super T>> local = localTokens.getSubTokens(cl, tokenName);
+		for (CDOMSecondaryToken<? super T> token : local)
 		{
 			String[] s = token.unparse(context, cdo);
 			if (s != null)
@@ -258,7 +258,7 @@ public class TokenSupport
 	 */
 	public <T> String[] unparseToken(LoadContext loadContext, T cdo, String tokenName)
 	{
-		Class<?> cl = cdo.getClass();
+		Class<? super T> cl = (Class<T>) cdo.getClass();
 		CDOMToken<?> token = null;
 		while (token == null)
 		{
@@ -276,7 +276,9 @@ public class TokenSupport
 		List<String> result = new ArrayList<String>();
 		if (CDOMPrimaryToken.class.isAssignableFrom(token.getClass()))
 		{
-			CDOMPrimaryToken<? super T> primaryToken = (CDOMPrimaryToken<? super T>) token;
+			@SuppressWarnings("unchecked")
+			CDOMPrimaryToken<? super T> primaryToken =
+					(CDOMPrimaryToken<? super T>) token;
 			String[] s = primaryToken.unparse(loadContext, cdo);
 			if (s != null)
 			{
@@ -288,6 +290,10 @@ public class TokenSupport
 		}
 		else
 		{
+			/*
+			 * This is catching any compatibility tokens that were (incorrectly)
+			 * placed into CURRENT
+			 */
 			throw new IllegalArgumentException(
 				"Expected a primary token in unparseToken, but " + tokenName
 					+ " - " + token.getClass().getName() + " is not a CDOMPrimaryToken.");
@@ -313,7 +319,7 @@ public class TokenSupport
 		TokenLibrary.loadFamily(localTokens, token);
 	}
 
-	public GroupDefinition<?> getGroup(Class<?> cl, String s)
+	public <T> GroupDefinition<T> getGroup(Class<T> cl, String s)
 	{
 		return localTokens.getGroup(cl, s);
 	}

@@ -142,6 +142,7 @@ public final class OutputDB
 				else
 				{
 					ensureMap(input, k1String);
+					@SuppressWarnings("unchecked")
 					Map<Object, Object> m =
 							(Map<Object, Object>) input.get(k1String);
 					m.put(k2.toString(), model);

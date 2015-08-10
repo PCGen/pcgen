@@ -858,7 +858,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 
 	private void createTC(List<CDOMReference<Ability>> refs, Formula count)
 	{
-		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(AbilityCategory.FEAT,
+		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT),
 				refs, Nature.NORMAL);
 		// TODO: Should this be present for the unit tests?
 		//assertTrue("Invalid grouping state " + rcs.getGroupingState(), rcs.getGroupingState().isValid());
@@ -961,7 +961,7 @@ public class AbilityTokenTest extends AbstractTokenTestCase<CDOMObject>
 	public void testUnparseComplex() throws PersistenceLayerException
 	{
 		List<CDOMReference<Ability>> refs = createSingle("TestWP1");
-		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(AbilityCategory.FEAT,
+		AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT),
 				refs, Nature.VIRTUAL);
 		assert (rcs.getGroupingState().isValid());
 		AbilityChoiceSet cs = new AbilityChoiceSet(

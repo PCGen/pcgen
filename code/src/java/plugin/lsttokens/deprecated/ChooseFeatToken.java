@@ -30,6 +30,7 @@ import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.choiceset.CollectionToChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -112,7 +113,7 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 		//Tricky for compatibility...
 		CategorizedChooseInformation<Ability> tc =
 				new CategorizedChooseInformation<Ability>("ABILITY",
-					AbilityCategory.FEAT, pcs, Ability.class);
+						CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), pcs, Ability.class);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);

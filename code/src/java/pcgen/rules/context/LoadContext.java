@@ -149,5 +149,5 @@ public interface LoadContext
 	 */
 	public void loadLocalToken(Object token);
 	
-	public GroupDefinition<?> getGroup(Class<?> cl, String s);
+	public <T> GroupDefinition<T> getGroup(Class<T> cl, String s);
 }
