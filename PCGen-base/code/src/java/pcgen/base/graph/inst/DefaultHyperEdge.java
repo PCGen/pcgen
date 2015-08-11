@@ -66,13 +66,13 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 		 * Copy before length check for thread safety
 		 */
 		this.nodes = new ArrayList<N>(nodes.size());
-		nodes.addAll(nodes);
-		if (nodes.isEmpty())
+		this.nodes.addAll(nodes);
+		if (this.nodes.isEmpty())
 		{
 			throw new IllegalArgumentException(
 				"GraphNode List of DefaultHyperEdge cannot be empty");
 		}
-		for (N node : nodes)
+		for (N node : this.nodes)
 		{
 			if (node == null)
 			{

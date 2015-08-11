@@ -124,15 +124,14 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	@Override
 	public N getNodeAt(int index)
 	{
-		int sourceNodeCount = sourceNodes.size();
-		if (sourceNodes != null && index < sourceNodeCount)
+		if (sourceNodes != null && index < sourceNodes.size())
 		{
 			return sourceNodes.get(index);
 		}
 		if (sinkNodes != null)
 		{
 			int sinkIndex =
-					sourceNodes == null ? index : index - sourceNodeCount;
+					sourceNodes == null ? index : index - sourceNodes.size();
 			return sinkNodes.get(sinkIndex);
 		}
 		throw new IndexOutOfBoundsException();
