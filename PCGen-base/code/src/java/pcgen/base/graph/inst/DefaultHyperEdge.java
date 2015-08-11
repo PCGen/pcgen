@@ -145,8 +145,8 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 	 * @see pcgen.base.graph.base.NonDirectionalEdge#createReplacementEdge(java.util.Collection)
 	 */
 	@Override
-	public DefaultHyperEdge<N> createReplacementEdge(Collection<N> nodes)
+	public DefaultHyperEdge<N> createReplacementEdge(Collection<N> newNodes)
 	{
-		return new DefaultHyperEdge<N>(nodes);
+		return new DefaultHyperEdge<N>(newNodes);
 	}
 }
