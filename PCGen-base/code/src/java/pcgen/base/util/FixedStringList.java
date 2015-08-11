@@ -295,8 +295,8 @@ public class FixedStringList extends AbstractList<String> implements
 		}
 		for (int i = 0; i < thisArrayLength; i++)
 		{
-			String thisItem = array[i];
-			if (thisItem == null)
+			String element = array[i];
+			if (element == null)
 			{
 				if (otherArray[i] != null)
 				{
@@ -305,7 +305,7 @@ public class FixedStringList extends AbstractList<String> implements
 			}
 			else
 			{
-				if (!thisItem.equalsIgnoreCase(otherArray[i]))
+				if (!element.equalsIgnoreCase(otherArray[i]))
 				{
 					return false;
 				}
@@ -327,36 +327,36 @@ public class FixedStringList extends AbstractList<String> implements
 		String[] thisArray = fsl1.array;
 		int thisArrayLength = thisArray.length;
 		String[] otherArray = fsl2.array;
-		int otherLength = otherArray.length;
-		if (thisArrayLength < otherLength)
+		int otherArrayLength = otherArray.length;
+		if (thisArrayLength < otherArrayLength)
 		{
 			return -1;
 		}
-		else if (thisArrayLength > otherLength)
+		else if (thisArrayLength > otherArrayLength)
 		{
 			return 1;
 		}
 
 		for (int i = 0; i < thisArrayLength; i++)
 		{
-			String thisItem = thisArray[i];
-			String otherItem = otherArray[i];
-			if (thisItem == null)
+			String thisElement = thisArray[i];
+			String otherElement = otherArray[i];
+			if (thisElement == null)
 			{
-				if (otherItem != null)
+				if (otherElement != null)
 				{
 					// null sorts first
 					return -1;
 				}
 			}
-			else if (otherItem == null)
+			else if (otherElement == null)
 			{
 				// null sorts first
 				return 1;
 			}
 			else
 			{
-				int compare = comparator.compare(thisItem, otherItem);
+				int compare = comparator.compare(thisElement, otherElement);
 				if (compare != 0)
 				{
 					return compare;

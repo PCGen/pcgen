@@ -17,10 +17,10 @@
  */
 package pcgen.base.graph.testsupport;
 
-import pcgen.base.graph.core.EdgeChangeEvent;
-import pcgen.base.graph.core.GraphChangeListener;
-import pcgen.base.graph.core.Edge;
-import pcgen.base.graph.core.NodeChangeEvent;
+import pcgen.base.graph.base.Edge;
+import pcgen.base.graph.base.EdgeChangeEvent;
+import pcgen.base.graph.base.GraphChangeListener;
+import pcgen.base.graph.base.NodeChangeEvent;
 
 public class TestGraphChangeListener<T, ET extends Edge<T>> implements
 		GraphChangeListener<T, ET>

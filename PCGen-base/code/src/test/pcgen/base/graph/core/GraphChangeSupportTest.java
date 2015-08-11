@@ -17,6 +17,9 @@
  */
 package pcgen.base.graph.core;
 
+import pcgen.base.graph.base.Graph;
+import pcgen.base.graph.inst.GraphChangeSupport;
+import pcgen.base.graph.inst.SimpleListGraph;
 import junit.framework.TestCase;
 
 public class GraphChangeSupportTest extends TestCase

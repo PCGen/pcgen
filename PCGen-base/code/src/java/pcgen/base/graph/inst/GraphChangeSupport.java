@@ -17,9 +17,15 @@
  * 
  * Created on Aug 28, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.inst;
 
 import javax.swing.event.EventListenerList;
+
+import pcgen.base.graph.base.Edge;
+import pcgen.base.graph.base.EdgeChangeEvent;
+import pcgen.base.graph.base.Graph;
+import pcgen.base.graph.base.GraphChangeListener;
+import pcgen.base.graph.base.NodeChangeEvent;
 
 /**
  * A GraphChangeSupport object is an object which is designed to assist in

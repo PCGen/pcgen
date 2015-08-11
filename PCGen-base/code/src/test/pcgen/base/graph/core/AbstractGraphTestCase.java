@@ -22,6 +22,10 @@ import java.util.Collection;
 import java.util.List;
 
 import junit.framework.TestCase;
+import pcgen.base.graph.base.Edge;
+import pcgen.base.graph.base.Graph;
+import pcgen.base.graph.base.GraphChangeListener;
+import pcgen.base.graph.inst.SimpleListGraph;
 import pcgen.base.graph.testsupport.TestGraphChangeListener;
 
 public abstract class AbstractGraphTestCase<T extends Edge<Integer>> extends

@@ -17,7 +17,7 @@
  * 
  * Created on Jan 8, 2005
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.base;
 
 import java.util.List;
 

@@ -17,7 +17,7 @@
  * 
  * Created on Aug 28, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.base;
 
 import java.util.EventObject;
 
@@ -72,20 +72,20 @@ public class NodeChangeEvent<N> extends EventObject
 	 * 
 	 * @param graph
 	 *            The Graph in which this NodeChangeEvent took place
-	 * @param gn
+	 * @param node
 	 *            The Node which was added to or removed from the Graph
 	 * @param id
 	 *            An integer identifying whether the given Node was added or
 	 *            removed from the Graph
 	 */
-	public NodeChangeEvent(Graph<N, ?> graph, N gn, int id)
+	public NodeChangeEvent(Graph<N, ?> graph, N node, int id)
 	{
 		super(graph);
-		if (gn == null)
+		if (node == null)
 		{
 			throw new IllegalArgumentException("GraphNode cannot be null");
 		}
-		node = gn;
+		this.node = node;
 		eventID = id;
 	}
 

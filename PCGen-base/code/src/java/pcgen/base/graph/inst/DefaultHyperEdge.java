@@ -17,11 +17,13 @@
  * 
  * Created on Aug 26, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.inst;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import pcgen.base.graph.base.NonDirectionalEdge;
 
 /**
  * A DefaultHyperEdge is a default implementation of a non-directional
@@ -48,14 +50,14 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 	 * Creates a new DefaultHyperEdge connected to the Nodes in the given
 	 * Collection. The Collection must not be empty or null.
 	 * 
-	 * @param nodeList
+	 * @param nodes
 	 *            The Collection of Nodes to which this DefaultHyperEdge is
 	 *            connected
 	 */
-	public DefaultHyperEdge(Collection<N> nodeList)
+	public DefaultHyperEdge(Collection<N> nodes)
 	{
 		super();
-		if (nodeList == null)
+		if (nodes == null)
 		{
 			throw new IllegalArgumentException(
 				"GraphNode List of DefaultHyperEdge cannot be null");
@@ -63,8 +65,8 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 		/*
 		 * Copy before length check for thread safety
 		 */
-		this.nodes = new ArrayList<N>(nodeList.size());
-		nodes.addAll(nodeList);
+		this.nodes = new ArrayList<N>(nodes.size());
+		nodes.addAll(nodes);
 		if (nodes.isEmpty())
 		{
 			throw new IllegalArgumentException(
@@ -82,12 +84,12 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 	/**
 	 * Returns the node at the given index.
 	 * 
-	 * @see pcgen.base.graph.core.Edge#getNodeAt(int)
+	 * @see pcgen.base.graph.base.Edge#getNodeAt(int)
 	 */
 	@Override
-	public N getNodeAt(int i)
+	public N getNodeAt(int index)
 	{
-		return nodes.get(i);
+		return nodes.get(index);
 	}
 
 	/**
@@ -99,7 +101,7 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 	 * modification of the returned Nodes will modify the nodes contained within
 	 * the DefaultHyperEdge.
 	 * 
-	 * @see pcgen.base.graph.core.Edge#getAdjacentNodes()
+	 * @see pcgen.base.graph.base.Edge#getAdjacentNodes()
 	 */
 	@Override
 	public List<N> getAdjacentNodes()
@@ -111,18 +113,18 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 	 * Returns true if the given Node is adjacent (connected) to this
 	 * DefaultHyperEdge; false otherwise.
 	 * 
-	 * @see pcgen.base.graph.core.Edge#isAdjacentNode(java.lang.Object)
+	 * @see pcgen.base.graph.base.Edge#isAdjacentNode(java.lang.Object)
 	 */
 	@Override
-	public boolean isAdjacentNode(N gn)
+	public boolean isAdjacentNode(N node)
 	{
-		return nodes.contains(gn);
+		return nodes.contains(node);
 	}
 
 	/**
 	 * Returns the number of Nodes to which this DefaultHyperEdge is connected.
 	 * 
-	 * @see pcgen.base.graph.core.Edge#getAdjacentNodeCount()
+	 * @see pcgen.base.graph.base.Edge#getAdjacentNodeCount()
 	 */
 	@Override
 	public int getAdjacentNodeCount()
@@ -140,11 +142,11 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 	 * the replacement connected to the Nodes in the given Collection. The
 	 * Collection must not be empty or null.
 	 * 
-	 * @see pcgen.base.graph.core.NonDirectionalEdge#createReplacementEdge(java.util.Collection)
+	 * @see pcgen.base.graph.base.NonDirectionalEdge#createReplacementEdge(java.util.Collection)
 	 */
 	@Override
-	public DefaultHyperEdge<N> createReplacementEdge(Collection<N> nodeColl)
+	public DefaultHyperEdge<N> createReplacementEdge(Collection<N> nodes)
 	{
-		return new DefaultHyperEdge<N>(nodeColl);
+		return new DefaultHyperEdge<N>(nodes);
 	}
 }

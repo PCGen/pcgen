@@ -17,7 +17,10 @@
  * 
  * Created on Aug 26, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.inst;
+
+import pcgen.base.graph.base.Edge;
+import pcgen.base.graph.base.Graph;
 
 /**
  * This Graph uses redundant storage to improve query speed for certain methods.

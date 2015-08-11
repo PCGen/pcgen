@@ -17,7 +17,7 @@
  * 
  * Created on Aug 26, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.base;
 
 import java.util.List;
 
@@ -41,43 +41,43 @@ public interface DirectionalGraph<N, ET extends DirectionalEdge<N>> extends
 	 * Returns a List of the Edges for which the given Node is a sink Node in
 	 * this DirectionalGraph.
 	 * 
-	 * @param v
+	 * @param node
 	 *            The Node for which to return the inward Edges.
 	 * @return The List of Edges for which the given Node is a sink Node.
 	 */
-	public List<ET> getInwardEdgeList(N v);
+	public List<ET> getInwardEdgeList(N node);
 
 	/**
 	 * Returns a List of the Edges for which the given Node is a source Node in
 	 * this DirectionalGraph.
 	 * 
-	 * @param v
+	 * @param node
 	 *            The Node for which to return the outward Edges.
 	 * @return The List of Edges for which the given Node is a source Node.
 	 */
-	public List<ET> getOutwardEdgeList(N v);
+	public List<ET> getOutwardEdgeList(N node);
 
 	/**
 	 * Returns true if the given Node is connected to any Edge in this
 	 * DirectionalGraph as a sink Node. Returns false if the given Node is not
 	 * in this DirectionalGraph.
 	 * 
-	 * @param v
+	 * @param node
 	 *            The Node for which to check for inward Edges.
 	 * @return true if the given Node is connected to any Edge in this
 	 *         DirectionalGraph as a sink Node; false otherwise
 	 */
-	public boolean hasInwardEdge(N v);
+	public boolean hasInwardEdge(N node);
 
 	/**
 	 * Returns true if the given Node is connected to any Edge in this
 	 * DirectionalGraph as a source Node. Returns false if the given Node is not
 	 * in this DirectionalGraph.
 	 * 
-	 * @param v
+	 * @param node
 	 *            The Node for which to check for outward Edges.
 	 * @return true if the given Node is connected to any Edge in this
 	 *         DirectionalGraph as a source Node; false otherwise
 	 */
-	public boolean hasOutwardEdge(N v);
+	public boolean hasOutwardEdge(N node);
 }

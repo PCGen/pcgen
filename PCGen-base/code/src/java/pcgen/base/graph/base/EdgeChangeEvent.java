@@ -17,7 +17,7 @@
  * 
  * Created on Aug 28, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.base;
 
 import java.util.EventObject;
 
@@ -74,20 +74,20 @@ public class EdgeChangeEvent<N, ET extends Edge<N>> extends EventObject
 	 * 
 	 * @param graph
 	 *            The Graph in which this EdgeChangeEvent took place
-	 * @param ge
+	 * @param edge
 	 *            The Edge which was added to or removed from the Graph
 	 * @param id
 	 *            An integer identifying whether the given Edge was added or
 	 *            removed from the Graph
 	 */
-	public EdgeChangeEvent(Graph<N, ET> graph, ET ge, int id)
+	public EdgeChangeEvent(Graph<N, ET> graph, ET edge, int id)
 	{
 		super(graph);
-		if (ge == null)
+		if (edge == null)
 		{
 			throw new IllegalArgumentException("Edge cannot be null");
 		}
-		edge = ge;
+		this.edge = edge;
 		eventID = id;
 	}
 

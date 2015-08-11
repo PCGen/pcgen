@@ -17,7 +17,7 @@
  * 
  * Created on Aug 31, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.base;
 
 /**
  * A GraphEdge represents an edge in a Graph which connects to two, and only
@@ -34,13 +34,13 @@ public interface GraphEdge<N> extends Edge<N>
 	 * Returns the node connected to the GraphEdge that is opposite of the given
 	 * Node. Returns null if the given Node is not connected to the GraphEdge.
 	 * 
-	 * @param gn
+	 * @param node
 	 *            The Node for which the opposite Node should be returned.
 	 * 
 	 * @return The node connected to the GraphEdge that is opposite of the given
 	 *         Node. null if the given Node is not connected to the GraphEdge.
 	 */
-	public N getOppositeNode(N gn);
+	public N getOppositeNode(N node);
 
 	/**
 	 * Creates a replacement edge for the current GraphEdge given two Nodes.
@@ -51,11 +51,11 @@ public interface GraphEdge<N> extends Edge<N>
 	 * The replacement GraphEdge should be of the same class as the original
 	 * GraphEdge on which this method is called.
 	 * 
-	 * @param gn1
+	 * @param node1
 	 *            The first Node to be connected to the replacement GraphEdge.
-	 * @param gn2
+	 * @param node2
 	 *            The second Node to be connected to the replacement GraphEdge.
 	 * @return The replacement GraphEdge.
 	 */
-	public GraphEdge<N> createReplacementEdge(N gn1, N gn2);
+	public GraphEdge<N> createReplacementEdge(N node1, N node2);
 }

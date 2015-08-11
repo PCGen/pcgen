@@ -95,9 +95,9 @@ public class IdentityList<T> implements List<T>
 	@Override
 	public final boolean addAll(Collection<? extends T> collection)
 	{
-		for (T t : collection)
+		for (T element : collection)
 		{
-			add(t);
+			add(element);
 		}
 		return true;
 	}
@@ -109,9 +109,9 @@ public class IdentityList<T> implements List<T>
 	public boolean addAll(int index, Collection<? extends T> collection)
 	{
 		int location = index;
-		for (T t : collection)
+		for (T element : collection)
 		{
-			add(location++, t);
+			add(location++, element);
 		}
 		return true;
 	}
@@ -140,9 +140,9 @@ public class IdentityList<T> implements List<T>
 	@Override
 	public boolean containsAll(Collection<?> collection)
 	{
-		for (Object o : collection)
+		for (Object element : collection)
 		{
-			if (!embeddedList.contains(getIdentity(o)))
+			if (!embeddedList.contains(getIdentity(element)))
 			{
 				return false;
 			}

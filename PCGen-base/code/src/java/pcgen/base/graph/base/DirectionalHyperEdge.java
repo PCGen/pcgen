@@ -17,7 +17,7 @@
  * 
  * Created on Aug 26, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.base;
 
 import java.util.Collection;
 
@@ -41,16 +41,16 @@ public interface DirectionalHyperEdge<N> extends DirectionalEdge<N>
 	 * 
 	 * At least one of the two given Collections must not be empty or null.
 	 * 
-	 * @param gn1
+	 * @param sourceNodes
 	 *            The Collection indicating the source Nodes of the replacement
 	 *            DirectionalHyperEdge
-	 * @param gn2
+	 * @param sinkNodes
 	 *            The Collection indicating the sink Nodes of the replacement
 	 *            DirectionalHyperEdge
 	 * @return A Replacement DirectionalHyperEdge connected to the given Nodes
 	 */
-	public DirectionalHyperEdge<N> createReplacementEdge(Collection<N> gn1,
-		Collection<N> gn2);
+	public DirectionalHyperEdge<N> createReplacementEdge(
+		Collection<N> sourceNodes, Collection<N> sinkNodes);
 
 	/*
 	 * Note to users of DirectionalHyperEdge: It is assumed that when the

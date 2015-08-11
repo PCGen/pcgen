@@ -17,7 +17,7 @@
  * 
  * Created on Aug 27, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.base;
 
 import java.util.Collection;
 import java.util.List;
@@ -62,11 +62,11 @@ public interface Graph<N, ET extends Edge<N>>
 	 * Returns true if the given Node was added to the Graph. Returns false if
 	 * the Node was not added to the Graph or if the given parameter was null.
 	 * 
-	 * @param v
+	 * @param node
 	 *            The Node to add to the Graph
 	 * @return true if the given Node was added to the Graph; false otherwise
 	 */
-	public boolean addNode(N v);
+	public boolean addNode(N node);
 
 	/**
 	 * Adds the given Edge to the Graph.
@@ -85,34 +85,34 @@ public interface Graph<N, ET extends Edge<N>>
 	 * Returns true if the given Edge was added to the Graph. Returns false if
 	 * the Edge was not added to the Graph or if the given parameter was null.
 	 * 
-	 * @param e
+	 * @param edge
 	 *            The Edge to add to the Graph
 	 * @return true if the given Edge was added to the Graph; false otherwise
 	 */
-	public boolean addEdge(ET e);
+	public boolean addEdge(ET edge);
 
 	/**
 	 * Returns true if this Graph contains the given Object as a Node in the
 	 * Graph.
 	 * 
-	 * @param v
+	 * @param obj
 	 *            The Object to be tested to determine if it is a Node in the
 	 *            Graph.
 	 * @return true if this Graph contains the given Object as a Node in the
 	 *         Graph; false otherwise.
 	 */
-	public boolean containsNode(Object v);
+	public boolean containsNode(Object obj);
 
 	/**
 	 * Returns true if this Graph contains the given Edge in the Graph.
 	 * 
-	 * @param e
+	 * @param edge
 	 *            The Edge to be tested to determine if it is a Edge in the
 	 *            Graph.
 	 * @return true if this Graph contains the given Edge in the Graph; false
 	 *         otherwise.
 	 */
-	public boolean containsEdge(Edge<?> e);
+	public boolean containsEdge(Edge<?> edge);
 
 	/**
 	 * Returns a Count of the Nodes in this Graph.
@@ -149,11 +149,11 @@ public interface Graph<N, ET extends Edge<N>>
 	 * removing a Node until there are no Edges connected to the Node in the
 	 * Graph.
 	 * 
-	 * @param gn
+	 * @param node
 	 *            The Node to remove from the Graph
 	 * @return true if the given Node removed from to the Graph; false otherwise
 	 */
-	public boolean removeNode(N gn);
+	public boolean removeNode(N node);
 
 	/**
 	 * Removes the given Edge from the Graph.
@@ -162,22 +162,22 @@ public interface Graph<N, ET extends Edge<N>>
 	 * if the Edge was not present in the Graph to be removed, or if the given
 	 * parameter was null.
 	 * 
-	 * @param ge
+	 * @param edge
 	 *            The Edge to remove from the Graph
 	 * @return true if the given Edge removed from to the Graph; false otherwise
 	 */
-	public boolean removeEdge(ET ge);
+	public boolean removeEdge(ET edge);
 
 	/**
 	 * Returns a Set of the Edges that are adjacent (connected) to the given
 	 * Node. Returns null if the given Node is not present in the Graph.
 	 * 
-	 * @param v
+	 * @param node
 	 *            The Node for which the adjacent Edges should be returned.
 	 * @return A Set of the Edges that are adjacent (connected) to the given
 	 *         Node.
 	 */
-	public Collection<ET> getAdjacentEdges(N v);
+	public Collection<ET> getAdjacentEdges(N node);
 
 	/**
 	 * Adds a new GraphChangeListener to receive GraphChangeEvents

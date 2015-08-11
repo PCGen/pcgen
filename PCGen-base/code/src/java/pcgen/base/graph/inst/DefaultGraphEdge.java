@@ -17,10 +17,12 @@
  * 
  * Created on Aug 26, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.inst;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import pcgen.base.graph.base.GraphEdge;
 
 /**
  * Represents a default implementation of GraphEdge. A GraphEdge is an edge of a
@@ -76,23 +78,23 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	/**
 	 * Returns the node at the given index.
 	 * 
-	 * @see pcgen.base.graph.core.Edge#getNodeAt(int)
+	 * @see pcgen.base.graph.base.Edge#getNodeAt(int)
 	 */
 	@Override
-	public N getNodeAt(int i)
+	public N getNodeAt(int index)
 	{
-		if (i == 0)
+		if (index == 0)
 		{
 			return firstNode;
 		}
-		else if (i == 1)
+		else if (index == 1)
 		{
 			return secondNode;
 		}
 		else
 		{
 			throw new IndexOutOfBoundsException(
-				"GraphEdge does not contain a Node at " + i);
+				"GraphEdge does not contain a Node at " + index);
 		}
 	}
 
@@ -101,16 +103,16 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	 * Node. Returns null if the given Node is not adjacent (connected) to this
 	 * DefaultGraphEdge.
 	 * 
-	 * @see pcgen.base.graph.core.GraphEdge#getOppositeNode(java.lang.Object)
+	 * @see pcgen.base.graph.base.GraphEdge#getOppositeNode(java.lang.Object)
 	 */
 	@Override
-	public N getOppositeNode(N gn)
+	public N getOppositeNode(N node)
 	{
-		if (firstNode.equals(gn))
+		if (firstNode.equals(node))
 		{
 			return secondNode;
 		}
-		else if (secondNode.equals(gn))
+		else if (secondNode.equals(node))
 		{
 			return firstNode;
 		}
@@ -124,13 +126,13 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	 * Creates a replacement DefaultGraphEdge for this DefaultGraphEdge, with
 	 * the replacement connected to the two given Nodes.
 	 * 
-	 * @see pcgen.base.graph.core.GraphEdge#createReplacementEdge(java.lang.Object,
+	 * @see pcgen.base.graph.base.GraphEdge#createReplacementEdge(java.lang.Object,
 	 *      java.lang.Object)
 	 */
 	@Override
-	public DefaultGraphEdge<N> createReplacementEdge(N gn1, N gn2)
+	public DefaultGraphEdge<N> createReplacementEdge(N node1, N node2)
 	{
-		return new DefaultGraphEdge<N>(gn1, gn2);
+		return new DefaultGraphEdge<N>(node1, node2);
 	}
 
 	/**
@@ -142,7 +144,7 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	 * modification of the returned Nodes will modify the nodes contained within
 	 * the DefaultGraphEdge.
 	 * 
-	 * @see pcgen.base.graph.core.Edge#getAdjacentNodes()
+	 * @see pcgen.base.graph.base.Edge#getAdjacentNodes()
 	 */
 	@Override
 	public List<N> getAdjacentNodes()
@@ -157,19 +159,19 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	 * Returns true if the given Node is adjacent (connected) to this
 	 * DefaultGraphEdge; false otherwise.
 	 * 
-	 * @see pcgen.base.graph.core.Edge#isAdjacentNode(java.lang.Object)
+	 * @see pcgen.base.graph.base.Edge#isAdjacentNode(java.lang.Object)
 	 */
 	@Override
-	public boolean isAdjacentNode(N gn)
+	public boolean isAdjacentNode(N node)
 	{
-		return firstNode.equals(gn) || secondNode.equals(gn);
+		return firstNode.equals(node) || secondNode.equals(node);
 	}
 
 	/**
 	 * Returns 2: the number of Nodes to which this DefaultGraphEdge is
 	 * connected.
 	 * 
-	 * @see pcgen.base.graph.core.Edge#getAdjacentNodeCount()
+	 * @see pcgen.base.graph.base.Edge#getAdjacentNodeCount()
 	 */
 	@Override
 	public int getAdjacentNodeCount()

@@ -17,7 +17,7 @@
  * 
  * Created on Jan 8, 2005
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.base;
 
 import java.util.Collection;
 
@@ -40,11 +40,11 @@ public interface NonDirectionalEdge<N> extends Edge<N>
 	 * 
 	 * The given collection must be non-null and non-empty.
 	 * 
-	 * @param gn1
+	 * @param nodes
 	 *            The collection of Nodes to which the replacement Edge will be
 	 *            connected
 	 * @return A 'replacement' Edge for this NonDirectionalEdge which is
 	 *         connected to the given Nodes.
 	 */
-	public NonDirectionalEdge<N> createReplacementEdge(Collection<N> gn1);
+	public NonDirectionalEdge<N> createReplacementEdge(Collection<N> nodes);
 }

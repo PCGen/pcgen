@@ -17,12 +17,18 @@
  * 
  * Created on Aug 26, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.inst;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import pcgen.base.graph.base.Edge;
+import pcgen.base.graph.base.EdgeChangeEvent;
+import pcgen.base.graph.base.Graph;
+import pcgen.base.graph.base.GraphChangeListener;
+import pcgen.base.graph.base.NodeChangeEvent;
 
 /**
  * This class is a simple Graph which stores a List of the nodes and edges in
@@ -89,7 +95,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	/**
 	 * Add the given Node to the Graph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#addNode(java.lang.Object)
+	 * @see pcgen.base.graph.base.Graph#addNode(java.lang.Object)
 	 */
 	@Override
 	public boolean addNode(N v)
@@ -139,7 +145,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	/**
 	 * Returns true if the Graph contains the given Object as a Node.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#containsNode(java.lang.Object)
+	 * @see pcgen.base.graph.base.Graph#containsNode(java.lang.Object)
 	 */
 	@Override
 	public boolean containsNode(Object v)
@@ -150,7 +156,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	/**
 	 * Returns true if the Graph contains the given Object as an Edge.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#containsEdge(pcgen.base.graph.core.Edge)
+	 * @see pcgen.base.graph.base.Graph#containsEdge(pcgen.base.graph.base.Edge)
 	 */
 	@Override
 	public boolean containsEdge(Edge<?> e)
@@ -167,7 +173,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * modification of the returned Nodes will modify the nodes contained within
 	 * the SimpleListGraph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#getNodeList()
+	 * @see pcgen.base.graph.base.Graph#getNodeList()
 	 */
 	@Override
 	public List<N> getNodeList()
@@ -184,7 +190,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * modification of the returned Edges will modify the Edges contained within
 	 * the SimpleListGraph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#getEdgeList()
+	 * @see pcgen.base.graph.base.Graph#getEdgeList()
 	 */
 	@Override
 	public List<ET> getEdgeList()
@@ -198,7 +204,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * As a side effect, any Edges contained within the Graph which are
 	 * connected to the given Node are also removed from the Graph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#removeNode(java.lang.Object)
+	 * @see pcgen.base.graph.base.Graph#removeNode(java.lang.Object)
 	 */
 	@Override
 	public boolean removeNode(N gn)
@@ -230,7 +236,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	/**
 	 * Removes the given Edge from the Graph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#removeEdge(pcgen.base.graph.core.Edge)
+	 * @see pcgen.base.graph.base.Graph#removeEdge(pcgen.base.graph.base.Edge)
 	 */
 	@Override
 	public boolean removeEdge(ET ge)
@@ -257,7 +263,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * modification of the returned Edges will modify the Edges contained within
 	 * the SimpleListGraph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#getAdjacentEdges(java.lang.Object)
+	 * @see pcgen.base.graph.base.Graph#getAdjacentEdges(java.lang.Object)
 	 */
 	@Override
 	public Set<ET> getAdjacentEdges(N gn)
@@ -286,7 +292,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * Adds the given GraphChangeListener as a GraphChangeListener of this
 	 * Graph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#addGraphChangeListener(pcgen.base.graph.core.GraphChangeListener)
+	 * @see pcgen.base.graph.base.Graph#addGraphChangeListener(pcgen.base.graph.base.GraphChangeListener)
 	 */
 	@Override
 	public void addGraphChangeListener(GraphChangeListener<N, ET> arg0)
@@ -303,7 +309,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * REFERENCE, and care should be taken with modifying those
 	 * GraphChangeListeners.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#getGraphChangeListeners()
+	 * @see pcgen.base.graph.base.Graph#getGraphChangeListeners()
 	 */
 	@Override
 	public GraphChangeListener<N, ET>[] getGraphChangeListeners()
@@ -315,7 +321,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	 * Removes the given GraphChangeListener as a GraphChangeListener of this
 	 * Graph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#removeGraphChangeListener(pcgen.base.graph.core.GraphChangeListener)
+	 * @see pcgen.base.graph.base.Graph#removeGraphChangeListener(pcgen.base.graph.base.GraphChangeListener)
 	 */
 	@Override
 	public void removeGraphChangeListener(GraphChangeListener<N, ET> arg0)

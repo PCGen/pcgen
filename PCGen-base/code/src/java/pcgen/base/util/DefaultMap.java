@@ -67,11 +67,11 @@ public class DefaultMap<K, V> extends HashMap<K, V>
 	 * Sets the default value (what is returned by the get method if a key is
 	 * not contained in the Map).
 	 * 
-	 * @param defaultVal
+	 * @param defaultValue
 	 *            the new default value for this Map
 	 */
-	public void setDefaultValue(V defaultVal)
+	public void setDefaultValue(V defaultValue)
 	{
-		defaultValue = defaultVal;
+		this.defaultValue = defaultValue;
 	}
 }

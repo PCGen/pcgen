@@ -17,7 +17,7 @@
  * 
  * Created on Aug 31, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.base;
 
 import java.util.List;
 
@@ -59,9 +59,9 @@ public interface Edge<N>
 	 * Returns true if the given Node is adjacent to this Edge. Returns false if
 	 * the given Node is not adjacent to this Edge or if the given Node is null.
 	 * 
-	 * @param gn
+	 * @param node
 	 *            The Node to be tested
 	 * @return true if the given Node is adjacent to this Edge; false otherwise.
 	 */
-	public boolean isAdjacentNode(N gn);
+	public boolean isAdjacentNode(N node);
 }

@@ -17,7 +17,7 @@
  * 
  * Created on Aug 26, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.inst;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,6 +25,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import pcgen.base.graph.base.Edge;
+import pcgen.base.graph.base.EdgeChangeEvent;
+import pcgen.base.graph.base.Graph;
+import pcgen.base.graph.base.GraphChangeListener;
+import pcgen.base.graph.base.NodeChangeEvent;
 
 /**
  * This Graph uses redundant storage to improve query speed for certain methods.
@@ -122,23 +128,23 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * successfully added. Because the Nodes in this Graph are a Set, this
 	 * method will return false if a Node is already present in the Graph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#addNode(java.lang.Object)
+	 * @see pcgen.base.graph.base.Graph#addNode(java.lang.Object)
 	 */
 	@Override
-	public boolean addNode(N v)
+	public boolean addNode(N node)
 	{
-		if (v == null)
+		if (node == null)
 		{
 			return false;
 		}
-		if (nodeMap.containsKey(v))
+		if (nodeMap.containsKey(node))
 		{
 			// Node already in this Graph
 			return false;
 		}
-		nodeMap.put(v, v);
-		nodeEdgeMap.put(v, new HashSet<ET>());
-		gcs.fireGraphNodeChangeEvent(v, NodeChangeEvent.NODE_ADDED);
+		nodeMap.put(node, node);
+		nodeEdgeMap.put(node, new HashSet<ET>());
+		gcs.fireGraphNodeChangeEvent(node, NodeChangeEvent.NODE_ADDED);
 		return true;
 	}
 
@@ -148,18 +154,18 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * (to avoid storing a Node that is .equal but not == in an edge that will
 	 * be placed into the Graph).
 	 * 
-	 * @param v
+	 * @param node
 	 *            The Node to be internalized.
 	 * @return The internalized version of the Node, relative to this Graph.
 	 */
-	public N getInternalizedNode(N v)
+	public N getInternalizedNode(N node)
 	{
-		if (v == null)
+		if (node == null)
 		{
 			return null;
 		}
 		// TODO Consider whether to return null or v... if not in the Graph?
-		return nodeMap.get(v);
+		return nodeMap.get(node);
 	}
 
 	/**
@@ -168,51 +174,51 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * to the Graph. Because the Edges in this Graph are a Set, this method will
 	 * return false if an Edges is already present in the Graph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#addEdge(java.lang.Object)
+	 * @see pcgen.base.graph.base.Graph#addEdge(java.lang.Object)
 	 */
 	@Override
-	public boolean addEdge(ET e)
+	public boolean addEdge(ET edge)
 	{
-		if (e == null)
+		if (edge == null)
 		{
 			return false;
 		}
-		boolean added = edgeSet.add(e);
+		boolean added = edgeSet.add(edge);
 		if (!added)
 		{
 			return false;
 		}
-		List<N> graphNodes = e.getAdjacentNodes();
+		List<N> graphNodes = edge.getAdjacentNodes();
 		for (N node : graphNodes)
 		{
 			addNode(node);
-			nodeEdgeMap.get(node).add(e);
+			nodeEdgeMap.get(node).add(edge);
 		}
-		gcs.fireGraphEdgeChangeEvent(e, EdgeChangeEvent.EDGE_ADDED);
+		gcs.fireGraphEdgeChangeEvent(edge, EdgeChangeEvent.EDGE_ADDED);
 		return true;
 	}
 
 	/**
 	 * Returns true if this Graph contains the given Node.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#containsNode(java.lang.Object)
+	 * @see pcgen.base.graph.base.Graph#containsNode(java.lang.Object)
 	 */
 	@Override
-	public boolean containsNode(Object v)
+	public boolean containsNode(Object node)
 	{
 		// This is presumably faster than searching through nodeList
-		return nodeEdgeMap.containsKey(v);
+		return nodeEdgeMap.containsKey(node);
 	}
 
 	/**
 	 * Returns true if this Graph contains the given Edge.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#containsEdge(pcgen.base.graph.core.Edge)
+	 * @see pcgen.base.graph.base.Graph#containsEdge(pcgen.base.graph.base.Edge)
 	 */
 	@Override
-	public boolean containsEdge(Edge<?> e)
+	public boolean containsEdge(Edge<?> edge)
 	{
-		return edgeSet.contains(e);
+		return edgeSet.contains(edge);
 	}
 
 	/**
@@ -231,7 +237,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * must not alter the hash code (as returned by the Node's .hashCode()
 	 * method) for AbstractSetMapGraph to maintain proper operation.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#getNodeList()
+	 * @see pcgen.base.graph.base.Graph#getNodeList()
 	 */
 	@Override
 	public List<N> getNodeList()
@@ -248,7 +254,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * modification of the returned Edges will modify the Edges contained within
 	 * the AbstractSetMapGraph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#getEdgeList()
+	 * @see pcgen.base.graph.base.Graph#getEdgeList()
 	 */
 	@Override
 	public List<ET> getEdgeList()
@@ -261,16 +267,16 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * this removal, all Edges connected to the Node will also be removed from
 	 * the Graph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#removeNode(java.lang.Object)
+	 * @see pcgen.base.graph.base.Graph#removeNode(java.lang.Object)
 	 */
 	@Override
-	public boolean removeNode(N gn)
+	public boolean removeNode(N node)
 	{
-		if (gn == null)
+		if (node == null)
 		{
 			return false;
 		}
-		if (!containsNode(gn))
+		if (!containsNode(node))
 		{
 			return false;
 		}
@@ -289,7 +295,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 		 * ConcurrentModificationException (since the set for GraphNode gn would
 		 * be modified by removeEdge while inside this Iterator).
 		 */
-		for (ET edge : nodeEdgeMap.remove(gn))
+		for (ET edge : nodeEdgeMap.remove(node))
 		{
 			// FUTURE Consider Check of return values here to ensure success??
 			removeEdge(edge);
@@ -300,24 +306,24 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 		 * must happen after removeEdge above, as removeEdge may trigger side
 		 * effects that will expect this Node to still be present in the Graph.
 		 */
-		nodeMap.remove(gn);
-		gcs.fireGraphNodeChangeEvent(gn, NodeChangeEvent.NODE_REMOVED);
+		nodeMap.remove(node);
+		gcs.fireGraphNodeChangeEvent(node, NodeChangeEvent.NODE_REMOVED);
 		return true;
 	}
 
 	/**
 	 * Removes the given Edge from the AbstractSetMapGraph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#removeEdge(java.lang.Object)
+	 * @see pcgen.base.graph.base.Graph#removeEdge(java.lang.Object)
 	 */
 	@Override
-	public boolean removeEdge(ET ge)
+	public boolean removeEdge(ET edge)
 	{
-		if (ge == null)
+		if (edge == null)
 		{
 			return false;
 		}
-		boolean removed = edgeSet.remove(ge);
+		boolean removed = edgeSet.remove(edge);
 		if (!removed)
 		{
 			return false;
@@ -325,17 +331,17 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 		/*
 		 * Must be present in the Graph if we made it to this point
 		 */
-		List<N> graphNodes = ge.getAdjacentNodes();
+		List<N> graphNodes = edge.getAdjacentNodes();
 		for (N node : graphNodes)
 		{
-			Set<ET> thing = nodeEdgeMap.get(node);
+			Set<ET> adjacentEdges = nodeEdgeMap.get(node);
 			// Could be null due to side effects
-			if (thing != null)
+			if (adjacentEdges != null)
 			{
-				thing.remove(ge);
+				adjacentEdges.remove(edge);
 			}
 		}
-		gcs.fireGraphEdgeChangeEvent(ge, EdgeChangeEvent.EDGE_REMOVED);
+		gcs.fireGraphEdgeChangeEvent(edge, EdgeChangeEvent.EDGE_REMOVED);
 		return true;
 	}
 
@@ -349,13 +355,13 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * modification of the returned Edges will modify the Edges contained within
 	 * the AbstractSetMapGraph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#getAdjacentEdges(java.lang.Object)
+	 * @see pcgen.base.graph.base.Graph#getAdjacentEdges(java.lang.Object)
 	 */
 	@Override
-	public Set<ET> getAdjacentEdges(N gn)
+	public Set<ET> getAdjacentEdges(N node)
 	{
 		// implicitly returns null if gn is not in the nodeEdgeMap
-		Set<ET> s = nodeEdgeMap.get(gn);
+		Set<ET> s = nodeEdgeMap.get(node);
 		return s == null ? null : new HashSet<ET>(s);
 	}
 
@@ -363,12 +369,12 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * Adds the given GraphChangeListener as a GraphChangeListener of this
 	 * Graph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#addGraphChangeListener(pcgen.base.graph.core.GraphChangeListener)
+	 * @see pcgen.base.graph.base.Graph#addGraphChangeListener(pcgen.base.graph.base.GraphChangeListener)
 	 */
 	@Override
-	public void addGraphChangeListener(GraphChangeListener<N, ET> arg0)
+	public void addGraphChangeListener(GraphChangeListener<N, ET> listener)
 	{
-		gcs.addGraphChangeListener(arg0);
+		gcs.addGraphChangeListener(listener);
 	}
 
 	/**
@@ -380,7 +386,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * REFERENCE, and care should be taken with modifying those
 	 * GraphChangeListeners.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#getGraphChangeListeners()
+	 * @see pcgen.base.graph.base.Graph#getGraphChangeListeners()
 	 */
 	@Override
 	public GraphChangeListener<N, ET>[] getGraphChangeListeners()
@@ -392,12 +398,12 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	 * Removes the given GraphChangeListener as a GraphChangeListener of this
 	 * Graph.
 	 * 
-	 * @see pcgen.base.graph.core.Graph#removeGraphChangeListener(pcgen.base.graph.core.GraphChangeListener)
+	 * @see pcgen.base.graph.base.Graph#removeGraphChangeListener(pcgen.base.graph.base.GraphChangeListener)
 	 */
 	@Override
-	public void removeGraphChangeListener(GraphChangeListener<N, ET> arg0)
+	public void removeGraphChangeListener(GraphChangeListener<N, ET> listener)
 	{
-		gcs.removeGraphChangeListener(arg0);
+		gcs.removeGraphChangeListener(listener);
 	}
 
 	/**

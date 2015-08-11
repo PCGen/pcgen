@@ -17,6 +17,9 @@
  */
 package pcgen.base.graph.core;
 
+import pcgen.base.graph.base.Edge;
+import pcgen.base.graph.base.NodeChangeEvent;
+import pcgen.base.graph.inst.SimpleListMapGraph;
 import junit.framework.TestCase;
 
 public class NodeChangeEventTest extends TestCase

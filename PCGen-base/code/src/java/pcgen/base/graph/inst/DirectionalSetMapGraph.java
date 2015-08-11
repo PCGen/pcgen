@@ -17,12 +17,15 @@
  * 
  * Created on May 18, 2005
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.inst;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+
+import pcgen.base.graph.base.DirectionalEdge;
+import pcgen.base.graph.base.DirectionalGraph;
 
 /**
  * A DirectionalSetMapGraph is a DirectionalGraph. Thus, it requires that all
@@ -82,12 +85,12 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 	 * modification of the returned Edges will modify the Edges contained within
 	 * the DirectionalSetMapGraph.
 	 * 
-	 * @see pcgen.base.graph.core.DirectionalGraph#getInwardEdgeList(java.lang.Object)
+	 * @see pcgen.base.graph.base.DirectionalGraph#getInwardEdgeList(java.lang.Object)
 	 */
 	@Override
-	public List<ET> getInwardEdgeList(N v)
+	public List<ET> getInwardEdgeList(N node)
 	{
-		Set<ET> adjacentEdgeList = super.getAdjacentEdges(v);
+		Set<ET> adjacentEdgeList = super.getAdjacentEdges(node);
 		if (adjacentEdgeList == null)
 		{
 			return null;
@@ -95,7 +98,7 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 		List<ET> inwardEdgeList = new LinkedList<ET>();
 		for (ET edge : adjacentEdgeList)
 		{
-			if ((edge.getNodeInterfaceType(v) & DirectionalEdge.SINK) != 0)
+			if ((edge.getNodeInterfaceType(node) & DirectionalEdge.SINK) != 0)
 			{
 				inwardEdgeList.add(edge);
 			}
@@ -112,12 +115,12 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 	 * modification of the returned Edges will modify the Edges contained within
 	 * the DirectionalSetMapGraph.
 	 * 
-	 * @see pcgen.base.graph.core.DirectionalGraph#getOutwardEdgeList(java.lang.Object)
+	 * @see pcgen.base.graph.base.DirectionalGraph#getOutwardEdgeList(java.lang.Object)
 	 */
 	@Override
-	public List<ET> getOutwardEdgeList(N v)
+	public List<ET> getOutwardEdgeList(N node)
 	{
-		Set<ET> adjacentEdgeList = super.getAdjacentEdges(v);
+		Set<ET> adjacentEdgeList = super.getAdjacentEdges(node);
 		if (adjacentEdgeList == null)
 		{
 			return null;
@@ -125,7 +128,7 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 		List<ET> outwardEdgeList = new ArrayList<ET>();
 		for (ET edge : adjacentEdgeList)
 		{
-			if ((edge.getNodeInterfaceType(v) & DirectionalEdge.SOURCE) != 0)
+			if ((edge.getNodeInterfaceType(node) & DirectionalEdge.SOURCE) != 0)
 			{
 				outwardEdgeList.add(edge);
 			}
@@ -136,19 +139,19 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 	/**
 	 * Returns true if the given Node is connected to any edges as a sink Node.
 	 * 
-	 * @see pcgen.base.graph.core.DirectionalGraph#hasInwardEdge(java.lang.Object)
+	 * @see pcgen.base.graph.base.DirectionalGraph#hasInwardEdge(java.lang.Object)
 	 */
 	@Override
-	public boolean hasInwardEdge(N v)
+	public boolean hasInwardEdge(N node)
 	{
-		Set<ET> adjacentEdgeList = super.getAdjacentEdges(v);
+		Set<ET> adjacentEdgeList = super.getAdjacentEdges(node);
 		if (adjacentEdgeList == null)
 		{
 			return false;
 		}
 		for (ET edge : adjacentEdgeList)
 		{
-			if ((edge.getNodeInterfaceType(v) & DirectionalEdge.SINK) != 0)
+			if ((edge.getNodeInterfaceType(node) & DirectionalEdge.SINK) != 0)
 			{
 				return true;
 			}
@@ -160,19 +163,19 @@ public class DirectionalSetMapGraph<N, ET extends DirectionalEdge<N>> extends
 	 * Returns true if the given Node is connected to any edges as a source
 	 * Node.
 	 * 
-	 * @see pcgen.base.graph.core.DirectionalGraph#hasOutwardEdge(java.lang.Object)
+	 * @see pcgen.base.graph.base.DirectionalGraph#hasOutwardEdge(java.lang.Object)
 	 */
 	@Override
-	public boolean hasOutwardEdge(N v)
+	public boolean hasOutwardEdge(N node)
 	{
-		Set<ET> adjacentEdgeList = super.getAdjacentEdges(v);
+		Set<ET> adjacentEdgeList = super.getAdjacentEdges(node);
 		if (adjacentEdgeList == null)
 		{
 			return false;
 		}
 		for (ET edge : adjacentEdgeList)
 		{
-			if ((edge.getNodeInterfaceType(v) & DirectionalEdge.SOURCE) != 0)
+			if ((edge.getNodeInterfaceType(node) & DirectionalEdge.SOURCE) != 0)
 			{
 				return true;
 			}

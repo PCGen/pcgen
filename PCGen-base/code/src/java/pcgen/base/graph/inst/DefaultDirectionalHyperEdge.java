@@ -17,11 +17,14 @@
  * 
  * Created on Aug 26, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.inst;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import pcgen.base.graph.base.DirectionalEdge;
+import pcgen.base.graph.base.DirectionalHyperEdge;
 
 /**
  * A DefaultDirectionalHyperEdge is a default implementation of a
@@ -67,24 +70,24 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * null or empty. (A DefaultDirectionalHyperEdge must connect to at least
 	 * one Node)
 	 * 
-	 * @param sourceN
+	 * @param sourceNode
 	 *            The Collection of source Nodes for this
 	 *            DefaultDirectionalHyperEdge.
-	 * @param sinkN
+	 * @param sinkNode
 	 *            The Collection of source Nodes for this
 	 *            DefaultDirectionalHyperEdge.
 	 */
-	public DefaultDirectionalHyperEdge(Collection<N> sourceN,
-		Collection<N> sinkN)
+	public DefaultDirectionalHyperEdge(Collection<N> sourceNode,
+		Collection<N> sinkNode)
 	{
 		super();
-		if (sourceN == null && sinkN == null)
+		if (sourceNode == null && sinkNode == null)
 		{
 			throw new IllegalArgumentException(
 				"Both Collections to DefaultDirectionalGraphEdge cannot be null");
 		}
-		sourceNodes = setNodes(sourceN);
-		sinkNodes = setNodes(sinkN);
+		sourceNodes = setNodes(sourceNode);
+		sinkNodes = setNodes(sinkNode);
 		if (sourceNodes == null && sinkNodes == null)
 		{
 			throw new IllegalArgumentException(
@@ -92,17 +95,17 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 		}
 	}
 
-	private final List<N> setNodes(Collection<N> sourceN)
+	private final List<N> setNodes(Collection<N> sourceNodes)
 	{
-		if (sourceN == null || sourceN.isEmpty())
+		if (sourceNodes == null || sourceNodes.isEmpty())
 		{
 			return null;
 		}
 		/*
 		 * Copy before content check for thread safety
 		 */
-		List<N> returnList = new ArrayList<N>(sourceN.size());
-		returnList.addAll(sourceN);
+		List<N> returnList = new ArrayList<N>(sourceNodes.size());
+		returnList.addAll(sourceNodes);
 		for (N node : returnList)
 		{
 			if (node == null)
@@ -116,19 +119,21 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	/**
 	 * Returns the Node at the given index.
 	 * 
-	 * @see pcgen.base.graph.core.Edge#getNodeAt(int)
+	 * @see pcgen.base.graph.base.Edge#getNodeAt(int)
 	 */
 	@Override
-	public N getNodeAt(int i)
+	public N getNodeAt(int index)
 	{
-		if (sourceNodes != null && i < sourceNodes.size())
+		int sourceNodeCount = sourceNodes.size();
+		if (sourceNodes != null && index < sourceNodeCount)
 		{
-			return sourceNodes.get(i);
+			return sourceNodes.get(index);
 		}
 		if (sinkNodes != null)
 		{
-			int index = sourceNodes == null ? i : i - sourceNodes.size();
-			return sinkNodes.get(index);
+			int sinkIndex =
+					sourceNodes == null ? index : index - sourceNodeCount;
+			return sinkNodes.get(sinkIndex);
 		}
 		throw new IndexOutOfBoundsException();
 	}
@@ -143,7 +148,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * returned BY REFERENCE, and modification of the returned Edges will modify
 	 * the Edges contained within the DefaultDirectionalHyperEdge.
 	 * 
-	 * @see pcgen.base.graph.core.Edge#getAdjacentNodes()
+	 * @see pcgen.base.graph.base.Edge#getAdjacentNodes()
 	 */
 	@Override
 	public List<N> getAdjacentNodes()
@@ -164,16 +169,16 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * Returns true if the given Node is adjacent (connected) to this
 	 * DefaultDirectionalHyperEdge.
 	 * 
-	 * @see pcgen.base.graph.core.Edge#isAdjacentNode(java.lang.Object)
+	 * @see pcgen.base.graph.base.Edge#isAdjacentNode(java.lang.Object)
 	 */
 	@Override
-	public boolean isAdjacentNode(N gn)
+	public boolean isAdjacentNode(N node)
 	{
-		if (sourceNodes != null && sourceNodes.contains(gn))
+		if (sourceNodes != null && sourceNodes.contains(node))
 		{
 			return true;
 		}
-		if (sinkNodes != null && sinkNodes.contains(gn))
+		if (sinkNodes != null && sinkNodes.contains(node))
 		{
 			return true;
 		}
@@ -194,7 +199,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * Returns a count of the number of adjacent (connected) Nodes to this
 	 * DefaultDirectionalHyperEdge.
 	 * 
-	 * @see pcgen.base.graph.core.Edge#getAdjacentNodeCount()
+	 * @see pcgen.base.graph.base.Edge#getAdjacentNodeCount()
 	 */
 	@Override
 	public int getAdjacentNodeCount()
@@ -223,7 +228,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * Returns a bitmask indicating the interface type of the given Node with
 	 * respect to this DefaultDirectionalHyperEdge.
 	 * 
-	 * @see pcgen.base.graph.core.DirectionalEdge#getNodeInterfaceType(java.lang.Object)
+	 * @see pcgen.base.graph.base.DirectionalEdge#getNodeInterfaceType(java.lang.Object)
 	 */
 	@Override
 	public int getNodeInterfaceType(N node)
@@ -250,7 +255,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * returned BY REFERENCE, and modification of the returned Edges will modify
 	 * the Edges contained within the DefaultDirectionalHyperEdge.
 	 * 
-	 * @see pcgen.base.graph.core.DirectionalEdge#getSinkNodes()
+	 * @see pcgen.base.graph.base.DirectionalEdge#getSinkNodes()
 	 */
 	@Override
 	public List<N> getSinkNodes()
@@ -268,7 +273,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * returned BY REFERENCE, and modification of the returned Nodes will modify
 	 * the Nodes contained within the DefaultDirectionalHyperEdge.
 	 * 
-	 * @see pcgen.base.graph.core.DirectionalEdge#getSourceNodes()
+	 * @see pcgen.base.graph.base.DirectionalEdge#getSourceNodes()
 	 */
 	@Override
 	public List<N> getSourceNodes()
@@ -283,23 +288,23 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	 * be null or empty. (A DefaultDirectionalHyperEdge must connect to at least
 	 * one Node)
 	 * 
-	 * @see pcgen.base.graph.core.DirectionalHyperEdge#createReplacementEdge(java.util.Collection,
+	 * @see pcgen.base.graph.base.DirectionalHyperEdge#createReplacementEdge(java.util.Collection,
 	 *      java.util.Collection)
 	 */
 	@Override
 	public DefaultDirectionalHyperEdge<N> createReplacementEdge(
-		Collection<N> gn1, Collection<N> gn2)
+		Collection<N> newSourceNodes, Collection<N> newSinkNodes)
 	{
-		if (gn1 == null)
+		if (newSourceNodes == null)
 		{
 			throw new IllegalArgumentException(
 				"Incoming Collection to createReplacementEdge in DefaultGraphEdge cannot be null");
 		}
-		if (gn2 == null)
+		if (newSinkNodes == null)
 		{
 			throw new IllegalArgumentException(
 				"Outgoing Collection to createReplacementEdge in DefaultGraphEdge cannot be null");
 		}
-		return new DefaultDirectionalHyperEdge<N>(gn1, gn2);
+		return new DefaultDirectionalHyperEdge<N>(newSourceNodes, newSinkNodes);
 	}
 }

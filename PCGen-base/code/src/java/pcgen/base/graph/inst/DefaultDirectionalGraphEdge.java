@@ -17,10 +17,12 @@
  * 
  * Created on Aug 26, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.inst;
 
 import java.util.Collections;
 import java.util.List;
+
+import pcgen.base.graph.base.DirectionalEdge;
 
 /**
  * Represents a default implementation of a Directional GraphEdge. A GraphEdge
@@ -54,7 +56,7 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 	 * DefaultDirectionalGraphEdge, with the replacement connected to the two
 	 * given Nodes.
 	 * 
-	 * @see pcgen.base.graph.core.GraphEdge#createReplacementEdge(java.lang.Object,
+	 * @see pcgen.base.graph.base.GraphEdge#createReplacementEdge(java.lang.Object,
 	 *      java.lang.Object)
 	 */
 	@Override
@@ -67,7 +69,7 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 	 * Returns a bitmask indicating the interface type of the given Node with
 	 * respect to this DefaultDirectionalGraphEdge.
 	 * 
-	 * @see pcgen.base.graph.core.DirectionalEdge#getNodeInterfaceType(java.lang.Object)
+	 * @see pcgen.base.graph.base.DirectionalEdge#getNodeInterfaceType(java.lang.Object)
 	 */
 	@Override
 	public int getNodeInterfaceType(N node)
@@ -94,7 +96,7 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 	 * returned BY REFERENCE, and modification of the returned Nodes will modify
 	 * the Nodes contained within the DefaultDirectionalGraphEdge.
 	 * 
-	 * @see pcgen.base.graph.core.DirectionalEdge#getSourceNodes()
+	 * @see pcgen.base.graph.base.DirectionalEdge#getSourceNodes()
 	 */
 	@Override
 	public List<N> getSinkNodes()
@@ -112,7 +114,7 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 	 * returned BY REFERENCE, and modification of the returned Nodes will modify
 	 * the Nodes contained within the DefaultDirectionalGraphEdge.
 	 * 
-	 * @see pcgen.base.graph.core.DirectionalEdge#getSourceNodes()
+	 * @see pcgen.base.graph.base.DirectionalEdge#getSourceNodes()
 	 */
 	@Override
 	public List<N> getSourceNodes()

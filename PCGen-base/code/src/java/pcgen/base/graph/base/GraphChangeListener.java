@@ -17,7 +17,7 @@
  * 
  * Created on Aug 27, 2004
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.base;
 
 import java.util.EventListener;
 
@@ -42,38 +42,38 @@ public interface GraphChangeListener<N, ET extends Edge<N>> extends
 	 * GraphChangeListener has been added as a GraphChangeListener to the source
 	 * Graph.
 	 * 
-	 * @param gce
+	 * @param event
 	 *            The NodeChangeEvent that occurred.
 	 */
-	public void nodeAdded(NodeChangeEvent<N> gce);
+	public void nodeAdded(NodeChangeEvent<N> event);
 
 	/**
 	 * Method called when a Node has been removed from a Graph and this
 	 * GraphChangeListener has been added as a GraphChangeListener to the source
 	 * Graph.
 	 * 
-	 * @param gce
+	 * @param event
 	 *            The NodeChangeEvent that occurred.
 	 */
-	public void nodeRemoved(NodeChangeEvent<N> gce);
+	public void nodeRemoved(NodeChangeEvent<N> event);
 
 	/**
 	 * Method called when an Edge has been added to a Graph and this
 	 * GraphChangeListener has been added as a GraphChangeListener to the source
 	 * Graph.
 	 * 
-	 * @param gce
+	 * @param event
 	 *            The EdgeChangeEvent that occurred.
 	 */
-	public void edgeAdded(EdgeChangeEvent<N, ET> gce);
+	public void edgeAdded(EdgeChangeEvent<N, ET> event);
 
 	/**
 	 * Method called when an Edge has been removed from a Graph and this
 	 * GraphChangeListener has been added as a GraphChangeListener to the source
 	 * Graph.
 	 * 
-	 * @param gce
+	 * @param event
 	 *            The EdgeChangeEvent that occurred.
 	 */
-	public void edgeRemoved(EdgeChangeEvent<N, ET> gce);
+	public void edgeRemoved(EdgeChangeEvent<N, ET> event);
 }
