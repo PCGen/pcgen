@@ -25,13 +25,12 @@ package plugin.lsttokens;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -95,7 +94,6 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 		//This Interface tag is placed on classes where SORTKEY is required
 		boolean sortKeyRequired = sample instanceof SortKeyRequired;
 
-		Map<String, CDOMObject> map = new TreeMap<String, CDOMObject>();
 		for (CDOMObject obj : allObjects)
 		{
 			String sortkey = obj.get(stringKey());
@@ -112,24 +110,6 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 						+ obj.getClass().getName() + " will require a SORTKEY "
 						+ "in the next version of PCGen (6.7).  "
 						+ "Use without a SORTKEY is deprecated", context);
-				}
-			}
-			else
-			{
-				CDOMObject prev = map.put(sortkey, obj);
-				/*
-				 * This is a universal check, not just SortKeyRequired - if
-				 * we're going to use a SortKey it really should work
-				 */
-				if (prev != null)
-				{
-					Logging.log(Logging.LST_WARNING, obj.getClass()
-						.getSimpleName()
-						+ " "
-						+ obj.getKeyName()
-						+ " and "
-						+ prev.getKeyName()
-						+ " should not have the same SORTKEY: " + sortkey);
 				}
 			}
 		}
@@ -149,9 +129,11 @@ public class SortKeyLst extends AbstractStringToken<CDOMObject> implements
 		 * Per the transition rules, the sort key must match the existing order
 		 * in the files (PCGen 6.5/6.6)
 		 */
-		List<CDOMObject> sortKeySort = new ArrayList<CDOMObject>(map.values());
+		AbstractReferenceContext refContext = context.getReferenceContext();
+		List<? extends CDOMObject> sortKeySort =
+				new ArrayList<>(refContext.getSortOrderedList(cl));
 		List<? extends CDOMObject> orderSort =
-				context.getReferenceContext().getOrderSortedCDOMObjects(cl);
+				refContext.getOrderSortedCDOMObjects(cl);
 		//This IF is order sensitive ... want to have ArrayList first to use its .equals()
 		if (!sortKeySort.equals(orderSort))
 		{
