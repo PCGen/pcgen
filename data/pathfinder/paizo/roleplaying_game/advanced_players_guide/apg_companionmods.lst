@@ -70,7 +70,7 @@ FOLLOWER:CompanionBondLVL=5	TYPE:Animal Companion						ABILITY:Special Ability|A
 
 
 # Favored Class Eidolon HP Bonus
-FOLLOWER:EidolonLVL=1		TYPE:Eidolon																			DEFINE:EidolonHP|0																																		BONUS:HP|CURRENTMAX|var("EidolonHP")
+FOLLOWER:EidolonCompanionLVL=1		TYPE:Eidolon																			DEFINE:EidolonHP|0																																		BONUS:HP|CURRENTMAX|var("EidolonHP")
 
 FOLLOWER:EidolonHP=1		TYPE:Eidolon																																																																			BONUS:VAR|EidolonHP|1
 FOLLOWER:EidolonHP=2		TYPE:Eidolon																																																																			BONUS:VAR|EidolonHP|1
@@ -94,7 +94,7 @@ FOLLOWER:EidolonHP=19		TYPE:Eidolon																																													
 FOLLOWER:EidolonHP=20		TYPE:Eidolon																																																																			BONUS:VAR|EidolonHP|1
 
 # Favored Class Eidolon Skill Bonus
-FOLLOWER:EidolonLVL=1		TYPE:Eidolon																			DEFINE:EidolonSP|0									BONUS:ABILITYPOOL|Eidolon Bonus Skill|var("EidolonSP")
+FOLLOWER:EidolonCompanionLVL=1		TYPE:Eidolon																			DEFINE:EidolonSP|0									BONUS:ABILITYPOOL|Eidolon Bonus Skill|var("EidolonSP")
 
 FOLLOWER:EidolonSP=1		TYPE:Eidolon																																																																			BONUS:VAR|EidolonSP|1
 FOLLOWER:EidolonSP=2		TYPE:Eidolon																																																																			BONUS:VAR|EidolonSP|1
@@ -130,26 +130,26 @@ FOLLOWER:EidolonAspect=2	TYPE:Eidolon																															BONUS:ABILIT
 FOLLOWER:EidolonAspect=3	TYPE:Eidolon																															BONUS:ABILITYPOOL|Eidolon Evolution|-1
 
 # Base Eidolon
-FOLLOWER:EidolonLVL=1		TYPE:Eidolon							ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Link|Eidolon ~ Share Spells	DEFINE:EidMaxAttacks|0	DEFINE:EidUsedAttacks|0	DEFINE:MasterLevel|0	BONUS:ABILITYPOOL|Eidolon Evolution|3	BONUS:ABILITYPOOL|Eidolon Skill|4																								BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|3
-FOLLOWER:EidolonLVL=2		TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|Evasion																		BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=3		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1																														BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=4		TYPE:Eidolon																															BONUS:ABILITYPOOL|Eidolon Evolution|2																														BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:EidolonLVL=5		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=6		TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion															BONUS:ABILITYPOOL|Eidolon Evolution|1																														BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=7		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=8		TYPE:Eidolon																															BONUS:ABILITYPOOL|Eidolon Evolution|1																														BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=9		TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack															BONUS:ABILITYPOOL|Eidolon Evolution|2																														BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:EidolonLVL=10		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=11		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1																														BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=12		TYPE:Eidolon																															BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=13		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1																														BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=14		TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|Improved Evasion																BONUS:ABILITYPOOL|Eidolon Evolution|2																														BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:EidolonLVL=15		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=16		TYPE:Eidolon																															BONUS:ABILITYPOOL|Eidolon Evolution|1																														BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=17		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=18		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1																														BONUS:VAR|MasterLevel|1
-FOLLOWER:EidolonLVL=19		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|2																														BONUS:VAR|MasterLevel|1	BONUS:VAR|EidMaxAttacks|1
-FOLLOWER:EidolonLVL=20		TYPE:Eidolon																															BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
+FOLLOWER:EidolonCompanionLVL=1		TYPE:Eidolon							ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Link|Eidolon ~ Share Spells	DEFINE:EidMaxAttacks|0	DEFINE:EidUsedAttacks|0	DEFINE:MasterLevel|0	BONUS:ABILITYPOOL|Eidolon Evolution|3	BONUS:ABILITYPOOL|Eidolon Skill|4																					BONUS:VAR|MasterLevel|mastervar("EidolonCompanionLVL")	BONUS:VAR|EidMaxAttacks|3
+FOLLOWER:EidolonCompanionLVL=2		TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|Evasion																		BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	
+FOLLOWER:EidolonCompanionLVL=3		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1																														
+FOLLOWER:EidolonCompanionLVL=4		TYPE:Eidolon																															BONUS:ABILITYPOOL|Eidolon Evolution|2																															BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:EidolonCompanionLVL=5		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	
+FOLLOWER:EidolonCompanionLVL=6		TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion															BONUS:ABILITYPOOL|Eidolon Evolution|1																														
+FOLLOWER:EidolonCompanionLVL=7		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	
+FOLLOWER:EidolonCompanionLVL=8		TYPE:Eidolon																															BONUS:ABILITYPOOL|Eidolon Evolution|1																														
+FOLLOWER:EidolonCompanionLVL=9		TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack															BONUS:ABILITYPOOL|Eidolon Evolution|2																															BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:EidolonCompanionLVL=10		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	
+FOLLOWER:EidolonCompanionLVL=11		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1																														
+FOLLOWER:EidolonCompanionLVL=12		TYPE:Eidolon																															BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	
+FOLLOWER:EidolonCompanionLVL=13		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1																														
+FOLLOWER:EidolonCompanionLVL=14		TYPE:Eidolon		HD:1					ABILITY:Special Ability|AUTOMATIC|Improved Evasion																BONUS:ABILITYPOOL|Eidolon Evolution|2																															BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:EidolonCompanionLVL=15		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1	BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	
+FOLLOWER:EidolonCompanionLVL=16		TYPE:Eidolon																															BONUS:ABILITYPOOL|Eidolon Evolution|1																														
+FOLLOWER:EidolonCompanionLVL=17		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	
+FOLLOWER:EidolonCompanionLVL=18		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|1																														
+FOLLOWER:EidolonCompanionLVL=19		TYPE:Eidolon		HD:1																													BONUS:ABILITYPOOL|Eidolon Evolution|2																															BONUS:VAR|EidMaxAttacks|1
+FOLLOWER:EidolonCompanionLVL=20		TYPE:Eidolon																															BONUS:ABILITYPOOL|Eidolon Evolution|1									BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK											BONUS:STAT|STR,DEX|1	
 
 ###Block: Favored Class Cavalier Mount HP Bonus
 # Class of the Master		Type				Define				Bonus to HP								Modify VAR
