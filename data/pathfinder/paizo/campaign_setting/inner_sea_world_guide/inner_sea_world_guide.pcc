@@ -7,7 +7,7 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Bestiary
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -71,8 +71,10 @@ EQUIPMENT:iswg_equip_magic_items.lst
 EQUIPMOD:iswg_equipmods.lst
 ABILITY:iswg_feats.lst
 KIT:iswg_kits_race.lst
+KIT:iswg_kits_bestiary.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
 LANGUAGE:iswg_languages.lst
 RACE:iswg_races.lst
+RACE:iswg_races_bestiary.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
 SKILL:iswg_skills.lst
 SPELL:iswg_spells.lst
 TEMPLATE:iswg_templates.lst
