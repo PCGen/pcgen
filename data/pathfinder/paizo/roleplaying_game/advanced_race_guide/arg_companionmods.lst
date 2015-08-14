@@ -96,11 +96,11 @@ FOLLOWER:ShaitanBinderEidolonLVL=20	TYPE:Shaitan Binder Eidolon			ABILITY:Specia
 
 ###Block Base Eidolon mods for Wild Caller
 # Class of the Master			Type			Ability										Bonus Ability Pool
-FOLLOWER:EidolonLVL=4			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonLVL=8			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonLVL=12			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonLVL=16			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
-FOLLOWER:EidolonLVL=20			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonCompanionLVL=4			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonCompanionLVL=8			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonCompanionLVL=12			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonCompanionLVL=16			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
+FOLLOWER:EidolonCompanionLVL=20			TYPE:Eidolon												BONUS:ABILITYPOOL|Eidolon Evolution|1|PREVAREQ:IsWildCallerEidolon,1
 FOLLOWER:IsWildCallerEidolon=1	TYPE:Eidolon	ABILITY:Special Ability|AUTOMATIC|Eidolon ~ Wild Caller Eidolon
 
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	BONUS:SAVE|ALL|MASTERVAR("Bonus_Animal_Companion_Save")	
