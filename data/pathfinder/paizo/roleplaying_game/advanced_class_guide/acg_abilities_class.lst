@@ -324,7 +324,6 @@ Bloodrager ~ Uncanny Dodge Tracker							CATEGORY:Special Ability	TYPE:Bloodrage
 
 ###Block: Bloodrager Bloodline Bonus Feats
 # Ability Name							Modify VAR
-CATEGORY=Special Ability|Bloodrager ~ Bloodline.MOD	BONUS:VAR|BloodlineBonusFeats|1|PREVARGTEQ:BloodlineFeatProgression,3|!PREABILITY,CATEGORY=Archetype,TYPE.BloodragerBloodlineFeat3
 CATEGORY=Special Ability|Bloodrager ~ Bloodline.MOD	BONUS:VAR|BloodlineBonusFeats|1|PREVARGTEQ:BloodlineFeatProgression,6|!PREABILITY,CATEGORY=Archetype,TYPE.BloodragerBloodlineFeat6
 CATEGORY=Special Ability|Bloodrager ~ Bloodline.MOD	BONUS:VAR|BloodlineBonusFeats|1|PREVARGTEQ:BloodlineFeatProgression,9|!PREABILITY,CATEGORY=Archetype,TYPE.BloodragerBloodlineFeat9
 CATEGORY=Special Ability|Bloodrager ~ Bloodline.MOD	BONUS:VAR|BloodlineBonusFeats|1|PREVARGTEQ:BloodlineFeatProgression,12|!PREABILITY,CATEGORY=Archetype,TYPE.BloodragerBloodlineFeat12
