@@ -109,7 +109,7 @@ public class NoRankQualifierTokenTest extends
 		finishLoad();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
-		pc.classSet.add(cl1);
+		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
 		assertFalse(set.isEmpty());
 		assertEquals(4, set.size());
@@ -136,7 +136,7 @@ public class NoRankQualifierTokenTest extends
 		finishLoad();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
-		pc.classSet.add(cl1);
+		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
 		assertEquals(2, set.size());
 		assertTrue(set.contains(s2));

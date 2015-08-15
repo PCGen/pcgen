@@ -110,7 +110,7 @@ public class CrossClassQualifierTokenTest extends
 		finishLoad();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
-		pc.classSet.add(cl1);
+		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
 		assertFalse(set.isEmpty());
 		assertEquals(4, set.size());
@@ -137,35 +137,64 @@ public class CrossClassQualifierTokenTest extends
 		assertTrue(set.contains(primaryProf));
 	}
 
-	@Test
-	public void testGetSetFiltered() throws PersistenceLayerException
-	{
-		setUpPC();
-		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
-		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|CROSSCLASS[TYPE=Masterful]"));
+		@Test
+		public void testGetSetFiltered() throws PersistenceLayerException
+		{
+			setUpPC();
+			TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
+			initializeObjects();
+			assertTrue(parse(getSubTokenName() + "|CROSSCLASS[TYPE=Masterful]"));
 
-		finishLoad();
+			finishLoad();
 
-		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
-		pc.classSet.add(cl1);
-		Collection<?> set = info.getSet(pc);
-		assertEquals(2, set.size());
-		assertTrue(set.contains(s2));
-		assertTrue(set.contains(s3));
-		pc.skillCostMap.put(s2, cl1, SkillCost.CLASS);
-		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(1, set.size());
-		assertTrue(set.contains(s3));
-		pc.skillCostMap.put(s4, cl1, SkillCost.CROSS_CLASS);
-		pc.skillCostMap.put(s5, cl1, SkillCost.CROSS_CLASS);
-		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(2, set.size());
-		assertTrue(set.contains(s3));
-		assertTrue(set.contains(s4));
-	}
+			ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
+			pc.classMap.put(cl1, 1);
+			Collection<?> set = info.getSet(pc);
+			assertEquals(2, set.size());
+			assertTrue(set.contains(s2));
+			assertTrue(set.contains(s3));
+			pc.skillCostMap.put(s2, cl1, SkillCost.CLASS);
+			set = info.getSet(pc);
+			assertFalse(set.isEmpty());
+			assertEquals(1, set.size());
+			assertTrue(set.contains(s3));
+			pc.skillCostMap.put(s4, cl1, SkillCost.CROSS_CLASS);
+			pc.skillCostMap.put(s5, cl1, SkillCost.CROSS_CLASS);
+			set = info.getSet(pc);
+			assertFalse(set.isEmpty());
+			assertEquals(2, set.size());
+			assertTrue(set.contains(s3));
+			assertTrue(set.contains(s4));
+		}
+
+		@Test
+		public void testGetSetNegated() throws PersistenceLayerException
+		{
+			setUpPC();
+			TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
+			initializeObjects();
+			assertTrue(parse(getSubTokenName() + "|!CROSSCLASS[TYPE=Masterful]"));
+
+			finishLoad();
+
+			ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
+			pc.classMap.put(cl1, 1);
+			Collection<?> set = info.getSet(pc);
+			assertEquals(1, set.size());
+			assertTrue(set.contains(s4));
+			pc.skillCostMap.put(s2, cl1, SkillCost.CLASS);
+			set = info.getSet(pc);
+			assertFalse(set.isEmpty());
+			assertEquals(2, set.size());
+			assertTrue(set.contains(s2));
+			assertTrue(set.contains(s4));
+			pc.skillCostMap.put(s4, cl1, SkillCost.CROSS_CLASS);
+			pc.skillCostMap.put(s5, cl1, SkillCost.CROSS_CLASS);
+			set = info.getSet(pc);
+			assertFalse(set.isEmpty());
+			assertEquals(1, set.size());
+			assertTrue(set.contains(s2));
+		}
 
 	private void initializeObjects()
 	{
