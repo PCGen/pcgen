@@ -15,46 +15,50 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.base.geom;
+package pcgen.base.math;
 
 import pcgen.base.lang.NumberUtilities;
 
 /**
- * A GridPoint is an arbitrary precision, immutable peer of Point2D.
+ * An OrderedPair is a pair of ordered, numeric values. They are thought of much
+ * like a point or area, with the two values being x and y.
+ * 
+ * It is effectively an arbitrary precision, immutable peer of Point2D, but is
+ * intended for use beyond geometry.
  * 
  * This is distinguished from Point2D.Double in at least two ways.
  * 
  * First, this object is arbitrary precision, in that it stores a Number, which
  * could be a Double, Integer or any other Number. This allows the object using
- * the GridPoint to determine the necessary amount of precision.
+ * the OrderedPair to determine the necessary amount of precision.
  * 
  * Second, this is an immutable object. There is no setter for the internal
  * values and the fields are private.
  */
-public class GridPoint
+public class OrderedPair
 {
 
 	/**
-	 * Stores the x value of this GridPoint
+	 * Stores the x value of this OrderedPair
 	 */
 	private Number x;
 
 	/**
-	 * Stores the y value of this GridPoint
+	 * Stores the y value of this OrderedPair
 	 */
 	private Number y;
 
 	/**
-	 * Constructs a new GridPoint from the given Numbers
+	 * Constructs a new OrderedPair from the given Numbers
 	 * 
 	 * @param x
-	 *            The x value of the GridPoint
+	 *            The x value of the OrderedPair
 	 * @param y
-	 *            The y value of the GridPoint
+	 *            The y value of the OrderedPair
 	 * @throws IllegalArgumentException
 	 *             if either the x or y value is null
 	 */
-	public GridPoint(Number x, Number y)
+	public OrderedPair(Number x, Number y)
 	{
 		if (x == null)
 		{
@@ -69,14 +73,14 @@ public class GridPoint
 	}
 
 	/**
-	 * Returns the x value of this GridPoint at full (original) precision. This
-	 * means the incoming Number is returned.
+	 * Returns the x value of this OrderedPair at full (original) precision.
+	 * This means the incoming Number is returned.
 	 * 
 	 * Note: This makes no attempt to clone the Number being returned. It is
 	 * assumed that the Number provided at construction is Immutable or meant to
 	 * be shared with objects calling this method.
 	 * 
-	 * @return the x value of this GridPoint in full (original) precision.
+	 * @return the x value of this OrderedPair in full (original) precision.
 	 */
 	public Number getPreciseX()
 	{
@@ -84,14 +88,14 @@ public class GridPoint
 	}
 
 	/**
-	 * Returns the y value of this GridPoint at full (original) precision. This
-	 * means the incoming Number is returned.
+	 * Returns the y value of this OrderedPair at full (original) precision.
+	 * This means the incoming Number is returned.
 	 * 
 	 * Note: This makes no attempt to clone the Number being returned. It is
 	 * assumed that the Number provided at construction is Immutable or meant to
 	 * be shared with objects calling this method.
 	 * 
-	 * @return the y value of this GridPoint in full (original) precision.
+	 * @return the y value of this OrderedPair in full (original) precision.
 	 */
 	public Number getPreciseY()
 	{
@@ -99,39 +103,41 @@ public class GridPoint
 	}
 
 	/**
-	 * Converts a String representation of a GridPoint into a GridPoint object.
+	 * Converts a String representation of a OrderedPair into a OrderedPair
+	 * object.
 	 * 
 	 * @param value
-	 *            The String representation to be converted into a GridPoint
-	 * @return a GridPoint object with the x and y values defined by the given
+	 *            The String representation to be converted into a OrderedPair
+	 * @return a OrderedPair object with the x and y values defined by the given
 	 *         String
 	 * @throws IllegalArgumentException
-	 *             if the given String does not represent a valid GridPoint
+	 *             if the given String does not represent a valid OrderedPair
 	 */
-	public static GridPoint valueOf(String value)
+	public static OrderedPair valueOf(String value)
 	{
 		int commaLoc = value.indexOf(',');
 		if (commaLoc != value.lastIndexOf(','))
 		{
 			throw new IllegalArgumentException(
-				"GridPoint must have only one comma.  "
+				"OrderedPair must have only one comma.  "
 					+ "Must be of the form: <num>,<num>");
 		}
 		if (commaLoc == -1)
 		{
-			throw new IllegalArgumentException("GridPoint must have a comma.  "
-				+ "Must be of the form: <num>,<num>");
+			throw new IllegalArgumentException(
+				"OrderedPair must have a comma.  "
+					+ "Must be of the form: <num>,<num>");
 		}
 		if (commaLoc == 0)
 		{
 			throw new IllegalArgumentException(
-				"GridPoint should not start with a comma.  "
+				"OrderedPair should not start with a comma.  "
 					+ "Must be of the form: <num>,<num>");
 		}
 		if (commaLoc == value.length() - 1)
 		{
 			throw new IllegalArgumentException(
-				"GridPoint should not end with a comma.  "
+				"OrderedPair should not end with a comma.  "
 					+ "Must be of the form: <num>,<num>");
 		}
 		Number width;
@@ -143,7 +149,7 @@ public class GridPoint
 		catch (NumberFormatException nfe)
 		{
 			throw new IllegalArgumentException(
-				"Misunderstood first value in GridPoint: " + value);
+				"Misunderstood first value in OrderedPair: " + value);
 		}
 		Number height;
 		try
@@ -154,24 +160,24 @@ public class GridPoint
 		catch (NumberFormatException ne)
 		{
 			throw new IllegalArgumentException(
-				"Misunderstood second value in GridPoint: " + value);
+				"Misunderstood second value in OrderedPair: " + value);
 		}
-		return new GridPoint(width, height);
+		return new OrderedPair(width, height);
 	}
 
 	/**
-	 * Returns a String representation of this GridPoint.
+	 * Returns a String representation of this OrderedPair.
 	 * 
 	 * This String representation is also meant to be a human-readable
-	 * "serialization" of the GridPoint which can be converted by the valueOf
-	 * method of GridPoint into a GridPoint.
+	 * "serialization" of the OrderedPair which can be converted by the valueOf
+	 * method of OrderedPair into a OrderedPair.
 	 * 
 	 * Note: This will return an arbitrary-precision number for the x and y
-	 * values of this GridPoint. No attempt is made to format it for display. If
-	 * formatting is required, it is advised that you use getPreciseX() and
+	 * values of this OrderedPair. No attempt is made to format it for display.
+	 * If formatting is required, it is advised that you use getPreciseX() and
 	 * getPreciseY() and do the formatting as necessary.
 	 * 
-	 * @return A String representation of this GridPoint.
+	 * @return A String representation of this OrderedPair.
 	 */
 	@Override
 	public String toString()
@@ -198,9 +204,9 @@ public class GridPoint
 		{
 			return true;
 		}
-		if (o instanceof GridPoint)
+		if (o instanceof OrderedPair)
 		{
-			GridPoint other = (GridPoint) o;
+			OrderedPair other = (OrderedPair) o;
 			return other.x.equals(x) && other.y.equals(y);
 		}
 		return false;
