@@ -6,7 +6,7 @@ SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pa
 # COMMENT: Size_Master sets the Face and Reach - use 'RaceSizeIsLong' at a value of 1 for creatures that aren't 'Tall'
 
 # Ability Name		Category of Ability	Define																																																									Ability																																															Modify VAR
-Default			CATEGORY:Internal		DEFINE:Maneuverability|0	DEFINE:ArmorCheckPenalty|0	DEFINE:FireResistanceBonus|0	DEFINE:AcidResistanceBonus|0	DEFINE:ColdResistanceBonus|0	DEFINE:SonicResistanceBonus|0	DEFINE:ElectricityResistanceBonus|0	DEFINE:OverrideSubtypeLanguage|0	DEFINE:FastHealingRate|0	DEFINE:DefaultLanguageSetting|0	DEFINE:HasRacialVision|0	ABILITY:Internal|AUTOMATIC|Companion Tracker|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,1],[PREVARGTEQ:AnimalCompanionMasterLVL,1]	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|PREMOVE:1,Fly=1	ABILITY:Special Ability|AUTOMATIC|Fast Healing|PREVARGT:FastHealingRate,0	BONUS:VAR|Maneuverability|0	
+Default			CATEGORY:Internal		DEFINE:Maneuverability|0	DEFINE:ArmorCheckPenalty|0	DEFINE:FireResistanceBonus|0	DEFINE:AcidResistanceBonus|0	DEFINE:ColdResistanceBonus|0	DEFINE:SonicResistanceBonus|0	DEFINE:ElectricityResistanceBonus|0	DEFINE:OverrideSubtypeLanguage|0	DEFINE:FastHealingRate|0	DEFINE:DefaultLanguageSetting|0	DEFINE:HasRacialVision|0	ABILITY:Internal|AUTOMATIC|Companion Tracker|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,1],[PREVARGTEQ:AnimalCompanionMasterLVL,1]	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|PREMULT:1,[PREMOVE:1,Fly=1],[PREVARGT:Maneuverability,0]	ABILITY:Special Ability|AUTOMATIC|Fast Healing|PREVARGT:FastHealingRate,0	BONUS:VAR|Maneuverability|0	
 
 
 #BONUS:ABILITYPOOL|Feat|-HD+1/2|PRERACE:1,RACETYPE=Companion
@@ -223,7 +223,7 @@ CATEGORY=Internal|Base Size ~ Colossal.MOD																																						
 # Wing -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Secondary	x2	(Max set up is 7)
 
 # Ability Name	Category of Ability	Type					Define								Modify VAR											Weapon prof. bonus
-Bite			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:BiteAttacks|0		BONUS:VAR|BiteAttacks|1	BONUS:VAR|NaturalAttacks|1				BONUS:WEAPONPROF=Bite|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Bite			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:BiteAttacks|0		BONUS:VAR|BiteAttacks|1	BONUS:VAR|NaturalAttacks|1		DEFINE:BiteOnlyAttack|0		ABILITY:Internal|AUTOMATIC|Bite Damage Increase|PREVAREQ:BiteOnlyAttack,1	BONUS:VAR|BiteOnlyAttack|1|TYPE=Base|PREVARLT:NaturalAttacks,2
 Gore			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:GoreAttacks|0		BONUS:VAR|GoreAttacks|1	BONUS:VAR|NaturalAttacks|1				BONUS:WEAPONPROF=Gore|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
 Pincers		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:PincersAttacks|0		BONUS:VAR|PincersAttacks|2	BONUS:VAR|NaturalAttacks|1			BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)
 Tail Slap		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:TailSlapAttacks|0	BONUS:VAR|TailSlapAttacks|1	BONUS:VAR|NaturalAttacks|1			BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)
@@ -234,9 +234,8 @@ Talons		CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DE
 Hoof			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:HoofAttacks|0		BONUS:VAR|HoofAttacks|2	BONUS:VAR|NaturalAttacks|1				BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)
 Tentacle		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:TentacleAttacks|0	BONUS:VAR|TentacleAttacks|2	BONUS:VAR|NaturalAttacks|1			BONUS:WEAPONPROF=Tentacle|TOHIT|-5	BONUS:WEAPONPROF=Tentacle|DAMAGE|-(STR/2)
 Wing			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:WingAttacks|0		BONUS:VAR|WingAttacks|2	BONUS:VAR|NaturalAttacks|1				BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)
-
+# Rake is a byproduct of Claws, does not count as a natural attack
 Rake			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:RakeAttacks|0		BONUS:VAR|RakeAttacks|2	BONUS:VAR|NaturalAttacks|0				BONUS:WEAPONPROF=Rake|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
-
 
 # Hair -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B		Secondary	x1	(Max set up is 7 - though pairs is normal)
 Hair			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:HairAttacks|0		BONUS:VAR|HairAttacks|1	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Hair|TOHIT|-5
@@ -245,6 +244,11 @@ Hair			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	D
 #Other - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S/P Secondary	Dragon Tail Sweep and Crush	Note: Dragons break the secondary attack rules...
 Tail Sweep		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0						BONUS:VAR|NaturalAttacks|1						BONUS:WEAPONPROF=Tail Sweep|DAMAGE|(STR/2)
 Crush			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0						BONUS:VAR|NaturalAttacks|1						BONUS:WEAPONPROF=Crush|DAMAGE|(STR/2)
+
+
+###Block: Mechanism to Grant STR 1-1/2 damage by other non-stacking means
+Bite Damage Increase	CATEGORY:Internal	BONUS:WEAPONPROF=Bite|DAMAGE|MAX(STR/2,0)
+
 
 ###Block: Mechanism to fix Wield Category Alterations by SIZEMOD
 # Ability Name				Weapon prof. bonus

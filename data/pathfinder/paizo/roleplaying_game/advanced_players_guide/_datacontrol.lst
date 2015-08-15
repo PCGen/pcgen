@@ -1,0 +1,3 @@
+
+
+FACTDEF:ABILITY|SummonerSelectionMade		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Summoner Selection Made		EXPLANATION:Only method to grant spells and such if older PC.

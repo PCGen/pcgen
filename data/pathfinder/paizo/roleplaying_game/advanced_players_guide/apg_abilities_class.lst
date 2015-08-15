@@ -3109,17 +3109,26 @@ CATEGORY=Internal|Default.MOD	BONUS:VAR|StandardSummonerAllowed|1
 
 # DEFINE:Rule_SeasonLVL|0
 
-Summoner	CATEGORY:Class	DEFINE:Summoner_CFP_Level|0	BONUS:VAR|Summoner_CFP_Level|classlevel("Summoner")	BONUS:VAR|Pool_Summoner_Class_Selection|1	DEFINE:Pool_Summoner_Class_Selection|0	
-#	TEMPLATE:Class ~ Summoner	
+Summoner	CATEGORY:Class	DEFINE:Summoner_CFP_Level|0	BONUS:VAR|Summoner_CFP_Level|classlevel("Summoner")		DEFINE:StandardSummoner|0	BONUS:VAR|StandardSummoner|1|!PREABILITY:1,CATEGORY=Class,TYPE.Summoner Class Selection	BONUS:VAR|Pool_Summoner_Class_Selection|1|TYPE=Base	DEFINE:Pool_Summoner_Class_Selection|0	DEFINE:SummonerClassHasAlternative|0		ABILITY:Summoner Archetype|AUTOMATIC|Archetype Summoner
+
+#CATEGORY=Class|Summoner|.MOD	ABILITY:Summoner Class Selection|AUTOMATIC|Summoner ~ Standard Class|PREVAREQ:NoSummonerSelection,1
+# Template:Class ~ Summoner	Forces a Choice to prompt the spell list before the Level 1 is applied.
+
+#	
+
 # ABILITY:Summoner Class Selection|AUTOMATIC|Summoner ~ Standard Class|PREVAREQ:StandardSummonerAllowed,0|PREVAREQ:SummonerClassHasAlternative,0	BONUS:VAR|Pool_Summoner_Class_Selection|1|TYPE=Base|PREVARNEQ:SummonerClassHasAlternative,0	DEFINE:Pool_Summoner_Class_Selection|0	DEFINE:SummonerClassHasAlternative|0
 
 # Summoner Archetype Placeholder moved to "Standard Class" to only be used when the Standard Class is used. If an Unchained version is required, then it's own placeholder and category can be created.
-Standard	KEY:Summoner ~ Standard Class	COST:1	TYPE:Summoner Class Selection	CATEGORY:Class	CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device		ABILITY:Summoner Archetype|AUTOMATIC|Archetype Summoner	DEFINE:StandardSummoner|0	BONUS:VAR|StandardSummoner|1	PREVAREQ:StandardSummonerAllowed,1
+
+# Redirection Necessary to allow old summoners work
 #	SpellName.MOD	CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
+#	TEMPLATE:Class ~ Summoner
 
 # Class Skills can either go directly on the Ability, or make a separate call if the class skills can be altered.
 
 # COMMENT: Next to tackle, fixing the Summoner class feature set up.
+
+Standard	KEY:Summoner ~ Standard Class	COST:1	TYPE:Summoner Class Selection	CATEGORY:Class		CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device		DEFINE:StandardSummoner|0	BONUS:VAR|StandardSummoner|1	PREVAREQ:StandardSummonerAllowed,1
 
 # Class Feature Progression
 CATEGORY=Class|Summoner ~ Standard Class.MOD	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|PREVARGTEQ:Summoner_CFP_Level,1|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLightArmor,TYPE.SummonerArmorProficiencies
