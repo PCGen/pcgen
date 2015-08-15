@@ -14,6 +14,7 @@
 
 import bs4 # Requires package `beautifulsoup4` for HTML parsing
 import os
+import codecs
 
 def list_all_html_files():
     html_files = list()
@@ -49,7 +50,7 @@ def process_one_file(html_filename):
             t.extract() # delete tag
 
     with open(html_filename, "r") as fh:
-        soup = bs4.BeautifulSoup(fh)
+        soup = bs4.BeautifulSoup(fh)#, from_encoding="utf-8")
 
         for tag in soup.find_all(True):
             lowercase_id_name(tag)
@@ -57,11 +58,15 @@ def process_one_file(html_filename):
 
         # print soup.prettify()
 
-    with open(html_filename, "w") as fh:
-        fh.write(soup.prettify())
+    with codecs.open(html_filename, encoding="utf-8", mode="w") as fh:
+        output_html = soup.prettify()
+        fh.write(output_html)
 
 
 
 # print list_all_html_files()
 
-process_one_file("../listfilepages\\globalfilestagpages\\globalfilesprexxx.html")
+# process_one_file("../listfilepages\\globalfilestagpages\\globalfilesprexxx.html")
+
+for f in list_all_html_files():
+    process_one_file(f)
