@@ -1364,8 +1364,7 @@ between Craft and (Metalworking),Craft (Metalworking))</p>
 <p class="indent3">Adds 2 to Charisma type skills.</p>
 <p class="indent2">
 <code>BONUS:SKILL|Spot|5|!PRESKILL:1,Spot=1</code></p>
-<p class="indent3">Adds 5 to Spot skill if you don't already have
-it. Otherwise adds one to get you started.</p>
+<p class="indent3">Gain a +5 bonus to Spot, provided you have zero ranks in Spot.</p>
 <p class="indent2">
 <code>BONUS:SKILL|Hide|1|TYPE=Talent.STACK</code></p>
 <p class="indent3">Adds 1 to Hide skill due to Talent and does
@@ -1377,7 +1376,7 @@ Synergy Bonus.</p>
 <p class="indent2"><code>BONUS:SKILL|STAT.STR|1</code></p>
 <p class="indent3">Adds one to all "Strength" based skills.</p>
 <p class="indent2"><code>BONUS:SKILL|LIST|2</code></p>
-<p class="indent3">Adds two to selected "Strength" skill.</p>
+<p class="indent3">Adds a +2 bonus, to a skill selected by a <a href="./globalfileschoose.html#SKILL"><code>CHOOSE:SKILL</code> tag</a>. The word <code>LIST</code> is a placeholder for the skill chosen by the player.</p>
 <p class="indent2"><code>CHOOSE:SKILLSNAMEDTOCSKILL|2 &lt;tab&gt;
 BONUS:SKILL|LIST|6|TYPE=Legendary</code></p>
 <p class="indent3">Adds six to the two selected Class Skills skill
