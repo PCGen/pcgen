@@ -178,7 +178,7 @@ CATEGORY=Internal|Default.MOD	DEFINE:CLASS_SummonerAllowed|0	BONUS:VAR|CLASS_Sum
 #		DEFINE:UnchainedSummoner|0	BONUS:VAR|UnchainedSummoner|1
 
 ###Block: Unchained Version Selections
-Unchained Summoner	KEY:Summoner ~ Unchained Class	TYPE:Summoner Class Selection.SummonerAlternative	BONUS:VAR|NoSummonerSelection|-1	COST:0	CATEGORY:Class	FACT:SummonerSelectionMade|True
+Unchained Summoner	KEY:Summoner ~ Unchained Class	TYPE:Summoner Class Selection.SummonerAlternative	BONUS:VAR|NoSummonerSelection|-1	COST:1	CATEGORY:Class	FACT:SummonerSelectionMade|True
 
 #	PREVAREQ:UnchainedSummonerAllowed,1
 
