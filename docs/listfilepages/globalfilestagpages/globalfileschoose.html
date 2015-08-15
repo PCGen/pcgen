@@ -871,8 +871,7 @@ number of "selections" that can be made.</li>
 modes distributed with PCGen do not use stat types.</p>
 <p class="indent1"><strong>Example:</strong></p>
 <p class="indent2"><code>CHOOSE:STAT|DEX|CON</code></p>
-<p class="indent3">This will produce a list of stats consisting of
-STR, DEX, and CON.</p>
+<p class="indent3">Un-intuitively, this produces a list of all stats <em>except</em> <code>DEX</code> and <code>CON</code>. Due to the potential for confusion, the <code>CHOOSE:STAT</code> syntax has been replaced by the <code>CHOOSE:PCSTAT</code> syntax below.</p>
 <p class="indent1"><strong>Example Conversion to New
 Syntax:</strong></p>
 <p class="indent2"><code>CHOOSE:STAT|STR|CON</code> becomes
