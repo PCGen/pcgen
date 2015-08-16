@@ -64,6 +64,9 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
+import pcgen.core.PCAlignment;
+import pcgen.core.PCCheck;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
@@ -112,6 +115,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	/*
 	 * File lists
 	 */
+	private final List<CampaignSourceEntry> savesFileList = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> alignmentFileList = new ArrayList<CampaignSourceEntry>();
+	private final List<CampaignSourceEntry> statsFileList = new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> bioSetFileList = new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> abilityCategoryFileList = new ArrayList<CampaignSourceEntry>();
 	private final List<CampaignSourceEntry> classFileList = new ArrayList<CampaignSourceEntry>();
@@ -155,6 +161,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private GenericLoader<ShieldProf> sProfLoader = new GenericLoader<ShieldProf>(ShieldProf.class);
 	private GenericLoader<Deity> deityLoader = new GenericLoader<Deity>(Deity.class);
 	private GenericLoader<Domain> domainLoader = new GenericLoader<Domain>(Domain.class);
+	private GenericLoader<PCCheck> savesLoader = new GenericLoader<PCCheck>(PCCheck.class);
+	private GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<PCAlignment>(PCAlignment.class);
+	private GenericLoader<PCStat> statLoader = new GenericLoader<PCStat>(PCStat.class);
 	private CDOMControlLoader dataControlLoader = new CDOMControlLoader();
 
 	/*
@@ -209,6 +218,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		wProfLoader.addObserver(this);
 		aProfLoader.addObserver(this);
 		sProfLoader.addObserver(this);
+		savesLoader.addObserver(this);
+		alignmentLoader.addObserver(this);
+		statLoader.addObserver(this);
 		dataControlLoader.addObserver(this);
 	}
 
@@ -303,6 +315,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		count += weaponProfFileList.size();
 		count += armorProfFileList.size();
 		count += shieldProfFileList.size();
+		count += savesFileList.size();
+		count += alignmentFileList.size();
+		count += statsFileList.size();
 		count += dataDefFileList.size();
 
 		return count;
@@ -550,7 +565,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 //		}
 		File gameModeDir = new File(ConfigurationSettings.getSystemsDir(), "gameModes");
 		File specificGameModeDir = new File(gameModeDir, gamemode.getFolderName());
-
+		
 		// Sort the campaigns
 		sortCampaignsByRank(aSelectedCampaignsList);
 
@@ -578,14 +593,19 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		dataControlLoader.loadLstFiles(context, dataDefFileList);
 		processFactDefinitions(context);
 
+		//Load items that used to be only in the game mode
 		// load ability categories first as they used to only be at the game mode
 		abilityCategoryLoader.loadLstFiles(context, abilityCategoryFileList);
-		//validateAbilityCategories(gamemode);
 
 		for (Campaign c : loaded)
 		{
 			c.applyTo(context.getReferenceContext());
 		}
+
+		//Now load PCC stat, check, alignment
+		statLoader.loadLstFiles(context, statsFileList);
+		savesLoader.loadLstFiles(context, savesFileList);
+		alignmentLoader.loadLstFiles(context, alignmentFileList);
 
 		// load weapon profs first
 		wProfLoader.loadLstFiles(context, weaponProfFileList);
@@ -982,6 +1002,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			addQualifiedSources(templateFileList, campaign.getSafeListFor(ListKey.FILE_TEMPLATE));
 			addQualifiedSources(equipmodFileList, campaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));
 			addQualifiedSources(kitFileList, campaign.getSafeListFor(ListKey.FILE_KIT));
+			addQualifiedSources(savesFileList, campaign.getSafeListFor(ListKey.FILE_SAVES));
+			addQualifiedSources(alignmentFileList, campaign.getSafeListFor(ListKey.FILE_ALIGNMENT));
+			addQualifiedSources(statsFileList, campaign.getSafeListFor(ListKey.FILE_STAT));
 			addQualifiedSources(bioSetFileList, campaign.getSafeListFor(ListKey.FILE_BIO_SET));
 			addQualifiedSources(dataDefFileList, campaign.getSafeListFor(ListKey.FILE_DATACTRL));
 			loadedSet.add(campaign);
@@ -1096,6 +1119,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		stripLstExcludes(templateFileList);
 		stripLstExcludes(equipmodFileList);
 		stripLstExcludes(kitFileList);
+		stripLstExcludes(statsFileList);
+		stripLstExcludes(alignmentFileList);
+		stripLstExcludes(savesFileList);
 		stripLstExcludes(bioSetFileList);
 		stripLstExcludes(dataDefFileList);
 	}
