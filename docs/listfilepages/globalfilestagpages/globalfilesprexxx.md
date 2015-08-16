@@ -81,13 +81,13 @@ Tags which deal with numbers or ordered sequences (i.e. creature sizes - small, 
 
 The tags which use this syntax include:
 
--   `      PREBASESIZE     `
--   `      PREHANDS     `
--   `      PRELEGS     `
--   `      PREREACH     `
--   `      PRESIZE     `
--   `      PRESR     `
--   `      PREVAR     `
+-   [`PREBASESIZE`](#prebasesize)
+-   [`PREHANDS`](#prehands)
+-   [`PRELEGS`](#prelegs)
+-   [`PREREACH`](#prereach)
+-   [`PRESIZE`](#presize)
+-   [`PRESR`](#presr)
+-   [`PREVAR`](#prevar)
 
 The comparison operator is written **as a part of the tag name** . i.e. `     PREVARNEQ    ` or `     PREREACHLTEQ    ` .
 
@@ -204,44 +204,44 @@ Requires the PC to be "Middle Age" but not older.
 
 ------------------------------------------------------------------------
 
-<span id="prealign"></span> \*\*\* Updated 5.7.6
+### PREALIGN
 
-**Tag Name:** PREALIGN:x,x
+Requires the character to have some particular alignment(s).
 
-**Variables Used (x):** LG,LN,LE,NG,TN,NE,CG,CN,CE,Deity (Alignment abbreviation).
+#### Status
 
-**Variables Used (x):** 0,1,2,3,4,5,6,7,8,10 (Alignment array number).
+Updated 5.7.6
 
-**What it does:**
+#### Syntax
 
--   Requires the PC be one of the specified alignments.
--   Alignment names are defined in the *statsandchecks.lst* gameMode file.
--   The Alignment abbreviation is the prefered method of identifying the required alignments.
--   The Alignment array number, based on the order the Alignments are presented in the *statsandchecks.lst* file with the first one being 0.
--   If NO alignments are defined in GameMode, all PREALIGN tags will return TRUE.
--   In the 3e and 35e gameModes these are the listed Alignments: 0=LG, 1=LN, 2=LE, 3=NG, 4=TN, 5=NE, 6=CG, 7=CN, 8=CE, 9=None, 10 Deity's Alignment.
+`PREALIGN:alignment_1,alignment_2,...`
 
-**Example:**
+The `alignment_1`, `alignment_2`, ... may be identified either by abbreviation or by numerical index.
 
-`     PREALIGN:LG,NG,CG    `
+* By abbreviation (preferred):
+	* `LG` is lawful good, `TN` is true neutral, `CE` is chaotic evil, and so on: `LG, LN, LE, NG, TN, NE, CG, CN, CE`.
+	* As a special case, the abbreviation `Deity` refers to the alignment of the character's deity.
+* By numerical index (legacy; not recommended):
+	* `0, 1, 2, 3, 4, 5, 6, 7, 8, 10` - based on the order in which alignments are listed in the `statsandchecks.lst` game mode file.
+	* In the 3e and 3.5e game modes, 0=LG, 1=LN, 2=LE, 3=NG, 4=TN, 5=NE, 6=CG, 7=CN, 8=CE, 9=None, 10 Deity's Alignment.
 
-Requires any Good alignment.
+The abbreviations, i.e. `TN`, are preferred, as this doesn't depend on the ordering of lines in the `statsandchecks.lst` file.
 
-`     PREALIGN:2,5,8    `
+#### Notes
+*   If no alignments are defined in `statsandchecks.lst`, then all `PREALIGN` tags will return TRUE.
 
-Requires any evil alignment.
+#### Examples
 
-`     PREALIGN:LG,Deity    `
+* `PREALIGN:LG,NG,CG` - require any good alignment.
 
-Requires Lawful Good or the character's chosen Deity's alignment.
+* `!PREALIGN:LE,NE,CE` - require any non-evil alignment.
 
-`     !PREALIGN:LG,NG,CG    `
-
-Requires the PC not be of "Good" alignment.
+* `PREALIGN:TN,Deity` - require either true neutral, or the character's deity's alignment.
 
 ------------------------------------------------------------------------
 
 <span id="preapply"></span> \*\*\* deprecated 6.1.1 - Remove for 6.4 - Use [TEMPBONUS](globalfilesbonus.html#tempbonus)
+
 
 **Tag Name:** PREAPPLY:x,x
 
@@ -1032,31 +1032,27 @@ Character's gender must start with "M".
 
 ------------------------------------------------------------------------
 
-**<span id="prehands"></span> Tag Name:** PREHANDSx:y
+### PREHANDS
 
-**Variables Used (x):** EQ (Equals).
+Requires a creature to have a certain number of hands.
 
-**Variables Used (x):** GT (Greater Than).
+See also <a href="#prelegs">PRELEGS</a>.
 
-**Variables Used (x):** GTEQ (Greater Than or Equal to).
+#### Syntax
 
-**Variables Used (x):** LT (Less Than).
+`     PREHANDSoperator:number_of_hands    `
 
-**Variables Used (x):** LTEQ (Less Than or Equal to).
+`     operator    ` is a comparison operator from the list `     EQ    ` , `     LT    ` , `     LTEQ    ` , `     GT    ` , `     GTEQ    ` , or `     NEQ    ` . The comparison operator is written as part of the tag name, i.e. `     PREHANDSLTEQ    ` . See [comparison operators](#comparison-operators) for more details.
 
-**Variables Used (x):** NEQ (Not Equal to).
+The `     operator    ` is written as part of the tag name, i.e. `     PREHANDSNEQ    ` or `     PREHANDSGTEQ    ` .
 
-**Variables Used (y):** Number (The number of hands to be compared to).
+`number_of_hands` is the required number of hands.
 
-**What it does:**
+#### Examples
 
-Makes the amount of hands a character has a prerequisite.
+`     PRELEGSGTEQ:4    `
 
-**Example:**
-
-`     PREHANDSGT:2    `
-
-Character must have a number of hands greater than 2.
+Character must have at least 4 hands.
 
 ------------------------------------------------------------------------
 
@@ -1212,27 +1208,23 @@ Character must be able to speak any four languages that can be spoken.
 
 ------------------------------------------------------------------------
 
-**<span id="prelegs"></span> Tag Name:** PRELEGSx:y
+### PRELEGS
 
-**Variables Used (x):** EQ (Equals).
+Requires a creature to have a certain number of legs.
 
-**Variables Used (x):** GT (Greater Than).
+See also <a href="#prehands">PREHANDS</a>.
 
-**Variables Used (x):** GTEQ (Greater Than or Equal to).
+#### Syntax
 
-**Variables Used (x):** LT (Less Than).
+`     PRELEGSoperator:number_of_legs    `
 
-**Variables Used (x):** LTEQ (Less Than or Equal to).
+`     operator    ` is a comparison operator from the list `     EQ    ` , `     LT    ` , `     LTEQ    ` , `     GT    ` , `     GTEQ    ` , or `     NEQ    ` . The comparison operator is written as part of the tag name, i.e. `     PRELEGSLTEQ    ` . See [comparison operators](#comparison-operators) for more details.
 
-**Variables Used (x):** NEQ (Not Equal to).
+The `     operator    ` is written as part of the tag name, i.e. `     PRELEGSNEQ    ` or `     PRELEGSGTEQ    ` .
 
-**Variables Used (y):** Number (The number of legs to be compared to).
+`number_of_legs` is the required number of legs.
 
-**What it does:**
-
-Makes the amount of legs a character has a prerequisite.
-
-**Example:**
+#### Examples
 
 `     PRELEGSGTEQ:4    `
 
@@ -1546,37 +1538,34 @@ This will pass if no Human race has been selected.
 
 ------------------------------------------------------------------------
 
-<span id="prereach"></span> \*\*\* New 5.11.6
+### PREREACH
 
-**Tag Name:** PREREACHx:y
+Makes the character's [reach](http://www.d20srd.org/srd/combat/movementPositionAndDistance.htm#bigandLittleCreaturesInCombat) a pre-requisite. (See also [d20 SRD - Reach Weapons](http://www.d20srd.org/srd/equipment/weapons.htm#reachWeapons).)
 
-**Variables Used (x):** EQ (Equals).
+#### Status
 
-**Variables Used (x):** GT (Greater Than).
+New 5.11.6.
 
-**Variables Used (x):** GTEQ (Greater Than or Equal to).
+#### Syntax
 
-**Variables Used (x):** LT (Less Than).
+`     PREREACHoperator:reach    `
 
-**Variables Used (x):** LTEQ (Less Than or Equal to).
+`     operator    ` is a comparison operator from the list `     EQ    ` , `     LT    ` , `     LTEQ    ` , `     GT    ` , `     GTEQ    ` , or `     NEQ    ` . The comparison operator is written as part of the tag name, i.e. `     PREREACHLTEQ    ` . See [comparison operators](#comparison-operators)
+ for more details.
 
-**Variables Used (x):** NEQ (Not Equal to).
+The `     operator    ` is written as part of the tag name, i.e. `     PREREACHNEQ    ` or `     PREREACHGTEQ    ` .
 
-**Variables Used (y):** Number (The reach to be compared to).
+`reach` is the creature's required reach, usually in feet.
 
-**What it does:**
+#### Examples
 
-Makes the character's reach a prerequisite.
+`     PREREACHGTEQ:10    `
 
-**Example:**
-
-`     PREREACH:10    `
-
-Character must have at least a reach of 10 ft..
+Character must have at least a reach of 10 feet.
 
 `     PREREACHEQ:5    `
 
-Character must have a reach of exactly 5 ft..
+Character must have a reach of exactly 5 feet.
 
 ------------------------------------------------------------------------
 
@@ -1978,25 +1967,17 @@ Character must have at least one 3rd level "Arcane" type spell and one 3rd level
 
 ------------------------------------------------------------------------
 
-**<span id="presr"></span> Tag Name:** PRESRx:y
-
-**Variables Used (x):** EQ (Equals).
-
-**Variables Used (x):** GT (Greater Than).
-
-**Variables Used (x):** GTEQ (Greater Than or Equal to).
-
-**Variables Used (x):** LT (Less Than).
-
-**Variables Used (x):** LTEQ (Less Than or Equal to).
-
-**Variables Used (x):** NEQ (Not Equal to).
-
-**Variables Used (y):** Number (The minimum Spell Resistance required).
-
-**What it does:**
+### PRESR
 
 Makes a character's spell resistance (not including SR from equipment) a prerequisite.
+
+#### Syntax
+
+`     PRESRoperator:spell_resistance    `
+
+`     operator    ` is a comparison operator from the list `     EQ    ` , `     LT    ` , `     LTEQ    ` , `     GT    ` , `     GTEQ    ` , or `     NEQ    ` . The comparison operator is written as part of the tag name, i.e. `     PREVARLTEQ    ` . See [comparison operators](#comparison-operators) for more details.
+
+`     spell_resistance    ` is the required spell resistance, before equipment bonuses to SR.
 
 **Example:**
 
