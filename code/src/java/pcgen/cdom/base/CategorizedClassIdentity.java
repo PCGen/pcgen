@@ -17,8 +17,8 @@
  */
 package pcgen.cdom.base;
 
-public class CategorizedClassIdentity<T extends Loadable & CategorizedCDOMObject<T>>
-		implements ClassIdentity<T>
+public class CategorizedClassIdentity<T extends Categorized<T>> implements
+		ClassIdentity<T>
 {
 
 	private final Class<T> underlyingClass;
@@ -31,7 +31,7 @@ public class CategorizedClassIdentity<T extends Loadable & CategorizedCDOMObject
 			throw new IllegalArgumentException(
 				"Class for BasicClassIdentity cannot be null");
 		}
-		if (!CategorizedCDOMObject.class.isAssignableFrom(cl))
+		if (!Categorized.class.isAssignableFrom(cl))
 		{
 			throw new InternalError(cl
 					+ " is not categorized but was identified with a category");
@@ -57,7 +57,7 @@ public class CategorizedClassIdentity<T extends Loadable & CategorizedCDOMObject
 		return underlyingClass;
 	}
 
-	public static <T extends Loadable & CategorizedCDOMObject<T>> ClassIdentity<T> getInstance(
+	public static <T extends Categorized<T>> ClassIdentity<T> getInstance(
 		Class<T> cl, Category<T> cat)
 	{
 		return new CategorizedClassIdentity<T>(cl, cat);

@@ -17,10 +17,9 @@
  */
 package pcgen.cdom.reference;
 
-import pcgen.cdom.base.CategorizedCDOMObject;
-import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.Categorized;
 
-public class TransparentCategorizedFactory<T extends Loadable & CategorizedCDOMObject<T>>
+public class TransparentCategorizedFactory<T extends Categorized<T>>
 		implements ManufacturableFactory<T>
 {
 
