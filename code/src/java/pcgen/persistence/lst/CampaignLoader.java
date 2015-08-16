@@ -176,6 +176,9 @@ public class CampaignLoader extends LstLineFileLoader
         baseCampaign.addAllToListFor(ListKey.FILE_EQUIP_MOD, subCampaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));
         baseCampaign.addAllToListFor(ListKey.FILE_KIT, subCampaign.getSafeListFor(ListKey.FILE_KIT));
         baseCampaign.addAllToListFor(ListKey.FILE_BIO_SET, subCampaign.getSafeListFor(ListKey.FILE_BIO_SET));
+        baseCampaign.addAllToListFor(ListKey.FILE_ALIGNMENT, subCampaign.getSafeListFor(ListKey.FILE_ALIGNMENT));
+        baseCampaign.addAllToListFor(ListKey.FILE_STAT, subCampaign.getSafeListFor(ListKey.FILE_STAT));
+        baseCampaign.addAllToListFor(ListKey.FILE_SAVES, subCampaign.getSafeListFor(ListKey.FILE_SAVES));
         baseCampaign.addAllToListFor(ListKey.FILE_DATACTRL, subCampaign.getSafeListFor(ListKey.FILE_DATACTRL));
     }
 
