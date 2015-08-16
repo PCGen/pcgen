@@ -109,6 +109,7 @@ import pcgen.rules.context.LoadValidator;
 import pcgen.rules.context.ReferenceContextUtilities;
 import pcgen.rules.context.VariableContext;
 import pcgen.rules.persistence.CDOMControlLoader;
+import pcgen.rules.persistence.DynamicLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -159,6 +160,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private VariableLoader variableLoader = new VariableLoader();
 	private GlobalModifierLoader globalModifierLoader =
 			new GlobalModifierLoader();
+	private DynamicLoader dynamicLoader = new DynamicLoader();
 
 	/*
 	 * Other properties
@@ -223,6 +225,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		alignmentLoader.addObserver(this);
 		statLoader.addObserver(this);
 		dataControlLoader.addObserver(this);
+		dynamicLoader.addObserver(this);
 	}
 
 	@Override
@@ -584,6 +587,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		dataControlLoader.loadLstFiles(context, dataDefFileList);
 		processFactDefinitions(context);
 
+		dynamicLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_DYNAMIC));
 		//Load Variables (foundation for other items)
 		variableLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_VARIABLE));
 		defineBuiltinVariables(context);
