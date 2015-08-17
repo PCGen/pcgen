@@ -5,25 +5,25 @@ SOURCELONG:Clash of Arms - Cavalry	SOURCESHORT:CoA-C	SOURCEWEB:http://www.rpgnow
 
 ###BLOCK: Cavalryman abilities
 # Ability Name							Category of Ability		Type						Visible		Special ABility							Define				Choose												Modify VAR					Temporary effect description																					Temporary Bonus
-Elite Discipline							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	SAB:Elite Discipline +%|EliteDiscipline			DEFINE:EliteDiscipline|0
-Formation Combat							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	SAB:Formation Combat
-Eye for Horseflesh						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	SAB:Eye for Horseflesh
-Warrior's Mount							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:DISPLAY	SAB:Warrior's Mount (Ex)					DEFINE:CavalryMountLevel|0
+Elite Discipline							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	ASPECT:NAME|Elite Discipline +%1|EliteDiscipline			DEFINE:EliteDiscipline|0
+Formation Combat							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	
+Eye for Horseflesh						CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	
+Warrior's Mount							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:DISPLAY						DEFINE:CavalryMountLevel|0
 Cavalryman Level Adjuster					CATEGORY:Special Ability							VISIBLE:NO																CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Set the level at where the Mount was aquired							TEMPDESC:If the cavalrymans mount was not aquired at level 1 use this to set the level it was aquired and the benefits will be adjusted accordingly.	TEMPBONUS:PC|VAR|CavalryMountLevel|-(%CHOICE)
-Mounted Tank							CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC		VISIBLE:DISPLAY	SAB:Mounted Tank +%|MountedTank				DEFINE:MountedTank|0															BONUS:VAR|MountedTank|1			TEMPDESC:While mounted the heavy cavalryman adds this bonus to the armor penalty and maximum Dexterity modifier of any armor he wears.			TEMPBONUS:PC|MISC|MAXDEX|MountedTank|TYPE=MountedTank	TEMPBONUS:PC|MISC|ACCHECK|MountedTank|TYPE=MountedTank
-Mounted Combat							CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	SAB:Mounted Combat +%|MountedCombat				DEFINE:MountedCombat|0															BONUS:VAR|MountedCombat|1		TEMPDESC:While mounted the heavy cavalryman adds this bonus to melee attack rolls.												TEMPBONUS:PC|COMBAT|TOHIT|MountedCombat|TYPE=MountedCombat
-Power Charge							CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Power Charge
-Terrifying Charge							CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Terrifying Charge ~ Will DC %|TerrifyingCharge	DEFINE:TerrifyingCharge|0														BONUS:VAR|TerrifyingCharge|15+CHA
+Mounted Tank							CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC		VISIBLE:DISPLAY	ASPECT:NAME|Mounted Tank +%1|MountedTank				DEFINE:MountedTank|0															BONUS:VAR|MountedTank|1			TEMPDESC:While mounted the heavy cavalryman adds this bonus to the armor penalty and maximum Dexterity modifier of any armor he wears.			TEMPBONUS:PC|MISC|MAXDEX|MountedTank|TYPE=MountedTank	TEMPBONUS:PC|MISC|ACCHECK|MountedTank|TYPE=MountedTank
+Mounted Combat							CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	ASPECT:NAME|Mounted Combat +%1|MountedCombat				DEFINE:MountedCombat|0															BONUS:VAR|MountedCombat|1		TEMPDESC:While mounted the heavy cavalryman adds this bonus to melee attack rolls.												TEMPBONUS:PC|COMBAT|TOHIT|MountedCombat|TYPE=MountedCombat
+Power Charge							CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	
+Terrifying Charge							CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	DESC:Will DC %1|TerrifyingCharge	DEFINE:TerrifyingCharge|0														BONUS:VAR|TerrifyingCharge|15+CHA
 Terrifying Charge ~ Formation					CATEGORY:Special Ability							VISIBLE:DISPLAY																																																											TEMPBONUS:PC|VAR|TerrifyingCharge|5
 Terrifying Charge ~ Formation and Terrifying Charge	CATEGORY:Special Ability							VISIBLE:DISPLAY																																																											TEMPBONUS:PC|VAR|TerrifyingCharge|10
-Dragoon								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	SAB:Dragoon
-Mounted Archer							CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	SAB:Mounted Archery +%|MountedArchery			DEFINE:MountedArchery|0															BONUS:VAR|MountedArchery|1		TEMPDESC:While mounted the horse archer adds this bonus to ranged attack rolls.												TEMPBONUS:PC|COMBAT|TOHIT.RANGED|MountedArchery|TYPE=MountedArchery
-Spur									CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	SAB:Spur +% ft|SpurMount					DEFINE:SpurMount|0															BONUS:VAR|SpurMount|5
-Shot on the Run ~ Mounted					CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Shot on the Run (mounted only)
-Manyshot ~ Mounted						CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Manyshot (mounted only)
-Lightning Attack							CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	SAB:Lightning Attack +%|LightningAttack			DEFINE:LightningAttack|0														BONUS:VAR|LightningAttack|2
-Lightning Rider							CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC		VISIBLE:DISPLAY	SAB:Lightning Rider +%|LightningRider			DEFINE:LightningRider|0															BONUS:VAR|LightningRider|2		TEMPDESC:The cavalryman gains the listed bonus to armor class, initiative and Reflex saving throws while mounted.							TEMPBONUS:PC|SAVE|Reflex|LightningRider|TYPE=LightningRider	TEMPBONUS:PC|COMBAT|AC|LightningRider|TYPE=LightningRider	TEMPBONUS:PC|COMBAT|INITIATIVE|LightningRider|TYPE=LightningRider
-Fog of War								CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:DISPLAY	SAB:Fog of War ~ Will DC %|FogOfWar				DEFINE:FogOfWar|0																BONUS:VAR|FogOfWar|15+CHA
+Dragoon								CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	
+Mounted Archer							CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption	VISIBLE:DISPLAY	ASPECT:NAME|Mounted Archery +%|MountedArchery			DEFINE:MountedArchery|0															BONUS:VAR|MountedArchery|1		TEMPDESC:While mounted the horse archer adds this bonus to ranged attack rolls.												TEMPBONUS:PC|COMBAT|TOHIT.RANGED|MountedArchery|TYPE=MountedArchery
+Spur									CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:DISPLAY	ASPECT:NAME|Spur +% ft|SpurMount					DEFINE:SpurMount|0															BONUS:VAR|SpurMount|5
+Shot on the Run ~ Mounted					CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	
+Manyshot ~ Mounted						CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	
+Lightning Attack							CATEGORY:Special Ability	TYPE:SpecialAttack.AttackOption	VISIBLE:DISPLAY	ASPECT:NAME|Lightning Attack +%1|LightningAttack			DEFINE:LightningAttack|0														BONUS:VAR|LightningAttack|2
+Lightning Rider							CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC		VISIBLE:DISPLAY	ASPECT:NAME|Lightning Rider +%1|LightningRider			DEFINE:LightningRider|0															BONUS:VAR|LightningRider|2		TEMPDESC:The cavalryman gains the listed bonus to armor class, initiative and Reflex saving throws while mounted.							TEMPBONUS:PC|SAVE|Reflex|LightningRider|TYPE=LightningRider	TEMPBONUS:PC|COMBAT|AC|LightningRider|TYPE=LightningRider	TEMPBONUS:PC|COMBAT|INITIATIVE|LightningRider|TYPE=LightningRider
+Fog of War								CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:DISPLAY	DESC:Fog of War ~ Will DC %1|FogOfWar				DEFINE:FogOfWar|0																BONUS:VAR|FogOfWar|15+CHA
 
 ###BLOCK: heavy cavalry
 # Ability Name						Category of Ability		Type				Visible		Required Ability											Required Feat										Prohibited Feat					Ability								Modify VAR

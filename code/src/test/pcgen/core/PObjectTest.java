@@ -43,6 +43,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.AbilityList;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -53,9 +54,6 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.TestHelper;
-import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.RandomChooser;
 import plugin.format.StringManager;
 
 /**
@@ -387,8 +385,11 @@ public class PObjectTest extends AbstractCharacterTestCase
 				"Race1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
+		CDOMSingleRef<AbilityCategory> acRef =
+				context.getReferenceContext().getCDOMReference(
+					AbilityCategory.class, "TestCat");
 		assertTrue(context.getReferenceContext().resolveReferences(null));
-		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(cat, Nature.AUTOMATIC);
+		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = race.getListMods(autoList);
 		assertEquals(2, listMods.size());
 		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
@@ -409,36 +410,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		assertTrue("Character should have ability2.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab2));
 	}
-	
-	/**
-	 * Test the REMOVE:FEAT functions  
-	 */
-	public void testRemoveFeat()
-	{
-		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
-		Ability alertness = TestHelper.makeAbility("Alertness", AbilityCategory.FEAT, "General");
-		Race arRace = TestHelper.makeRace("AddRemove");
-		LoadContext context = Globals.getContext();
-		context.unconditionallyProcess(arRace, "ADD", "FEAT|KEY_Alertness");
-		PCClass pcClass = TestHelper.makeClass("Remove Feat Test");
-		context.unconditionallyProcess(pcClass.getOriginalClassLevel(2), "REMOVE",
-				"FEAT|KEY_Alertness");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
-		PlayerCharacter pc = getCharacter();
-		pc.setRace(arRace);
-		assertEquals("Initial number of feats, including racial bonus feat",
-			1.0, pc.getRemainingFeatPoolPoints(), 0.1);
-		
-		pc.incrementClassLevel(1, pcClass);
-		assertEquals("Number of feats at 1st level", 1.0, pc.getRemainingFeatPoolPoints(), 0.1);
-		assertNotNull("Has feat", pc.getAbilityKeyed(AbilityCategory.FEAT, alertness.getKeyName()));
-		
-		pc.incrementClassLevel(2, pcClass);
-		assertEquals("Number of feats at 2nd level", 2.0, pc.getRemainingFeatPoolPoints(), 0.1);
-		assertNull("No longer has feat", pc.getAbilityKeyed(AbilityCategory.FEAT, alertness.getKeyName()));
-		ChooserFactory.popChooserClassname();
-	}
-	
+
 	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */

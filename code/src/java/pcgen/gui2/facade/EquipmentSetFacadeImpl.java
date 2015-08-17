@@ -1723,6 +1723,10 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 				{
 					return 2;
 				}
+				if (Constants.EQUIP_LOCATION_DOUBLE.equals(slotName))
+				{
+					return 2;
+				}
 				return node.singleOnly ? 1 : node.getSlot().getSlotCount()
 					+ (int) theCharacter.getTotalBonusTo("SLOTS", node
 						.getSlot().getSlotName());

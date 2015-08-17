@@ -79,13 +79,14 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.character.WieldCategory;
-import pcgen.facade.core.EquipmentFacade;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.facade.core.EquipmentFacade;
 import pcgen.io.FileAccess;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.JEPResourceChecker;
 import pcgen.util.Logging;
@@ -3274,33 +3275,6 @@ public final class Equipment extends PObject implements Serializable,
 	 * load a "line" i.e. a String and use its data to populate the attributes
 	 * of this Equipment
 	 * 
-	 * @param aLine The data to parse
-	 */
-	public void load(final String aLine)
-	{
-		load(aLine, "\t", ":");
-	}
-
-	/**
-	 * load a "line" i.e. a String and use its data to populate the attributes
-	 * of this Equipment
-	 * 
-	 * @param aLine
-	 *             The data to parse
-	 * @param sep
-	 *             The item separator used in the data
-	 * @param endPart
-	 *             The separator used between a label and its associated data
-	 */
-	private void load(final String aLine, final String sep, final String endPart)
-	{
-		load(aLine, sep, endPart, null);
-	}
-
-	/**
-	 * load a "line" i.e. a String and use its data to populate the attributes
-	 * of this Equipment
-	 * 
 	 * @param aLine
 	 *             The data to parse
 	 * @param sep  
@@ -3316,7 +3290,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		final StringTokenizer aTok = new StringTokenizer(aLine, sep);
 		final int endPartLen = endPart.length();
-		SizeAdjustment newSize = getSafe(ObjectKey.SIZE).resolvesTo();
+		CDOMSingleRef<SizeAdjustment> size = getSafe(ObjectKey.SIZE);
 		boolean firstSprop = true;
 		
 		while (aTok.hasMoreTokens())
@@ -3334,10 +3308,12 @@ public final class Equipment extends PObject implements Serializable,
 			}
 			else if (aString.startsWith("SIZE" + endPart))
 			{
-				newSize =
-						Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-							SizeAdjustment.class, aString
-								.substring(4 + endPartLen));
+				size =
+						Globals
+							.getContext()
+							.getReferenceContext()
+							.getCDOMReference(SizeAdjustment.class,
+								aString.substring(4 + endPartLen));
 			}
 			else if (aString.startsWith("EQMOD" + endPart))
 			{
@@ -3367,7 +3343,27 @@ public final class Equipment extends PObject implements Serializable,
 					.substring(9 + endPartLen)));
 			}
 		}
-		resizeItem(aPC, newSize);
+		put(ObjectKey.CUSTOMSIZE, size);
+	}
+
+	/**
+	 * Sets this Equipment to the size defined in ObjectKey.CUSTOMSIZE. This
+	 * should be done after equipment load but before use of the Equipment.
+	 * 
+	 * Note that this *should not* be done until full data load is complete to
+	 * ensure that there is not a race condition on resolving sizes.
+	 */
+	public void setToCustomSize(PlayerCharacter pc)
+	{
+		CDOMSingleRef<SizeAdjustment> csr = get(ObjectKey.CUSTOMSIZE);
+		if (csr != null)
+		{
+			SizeAdjustment customSize = csr.resolvesTo();
+			if (!getSafe(ObjectKey.SIZE).equals(customSize))
+			{
+				resizeItem(pc, customSize);
+			}
+		}
 	}
 
 	/**
@@ -3723,7 +3719,7 @@ public final class Equipment extends PObject implements Serializable,
 		setBase();
 
 		final int iOldSize = sizeInt();
-		int iNewSize = SizeUtilities.sizeInt(newSize);
+		int iNewSize = newSize.get(IntegerKey.SIZEORDER);
 
 		if (iNewSize != iOldSize)
 		{
@@ -3801,15 +3797,16 @@ public final class Equipment extends PObject implements Serializable,
 		//
 		if (hasPrerequisites())
 		{
-			int maxIndex =
-					Globals.getContext().getReferenceContext()
-						.getConstructedObjectCount(SizeAdjustment.class);
+			AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+			int maxIndex = ref.getConstructedObjectCount(SizeAdjustment.class);
 			for (Prerequisite aBonus : getPrerequisiteList())
 			{
 				if ("SIZE".equalsIgnoreCase(aBonus.getKind()))
 				{
-					final int iOldPre =
-							SizeUtilities.sizeInt(aBonus.getOperand());
+					SizeAdjustment sa =
+							ref.silentlyGetConstructedCDOMObject(
+								SizeAdjustment.class, aBonus.getOperand());
+					final int iOldPre = sa.get(IntegerKey.SIZEORDER);
 					iNewSize += (iOldPre - iOldSize);
 
 					if ((iNewSize >= 0) && (iNewSize <= maxIndex))
@@ -3818,9 +3815,10 @@ public final class Equipment extends PObject implements Serializable,
 						// Equipment, since it is returned
 						// by reference from the get above ... thus no need to
 						// perform a set
-						aBonus.setOperand(Globals.getContext().getReferenceContext()
-							.getItemInOrder(SizeAdjustment.class, iNewSize)
-							.getKeyName());
+						SizeAdjustment size =
+								ref.getSortedList(SizeAdjustment.class,
+									IntegerKey.SIZEORDER).get(iNewSize);
+						aBonus.setOperand(size.getKeyName());
 					}
 				}
 			}
@@ -3834,7 +3832,8 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public int sizeInt()
 	{
-		return SizeUtilities.sizeInt(getSafe(ObjectKey.SIZE).resolvesTo());
+		SizeAdjustment size = getSafe(ObjectKey.SIZE).resolvesTo();
+		return size.get(IntegerKey.SIZEORDER);
 	}
 
 	/**
@@ -5811,6 +5810,7 @@ public final class Equipment extends PObject implements Serializable,
 				iSize + (int) bonusTo(apc, "EQMWEAPON", "DAMAGESIZE", bPrimary);
 		iMod += (int) bonusTo(apc, "WEAPON", "DAMAGESIZE", bPrimary);
 
+		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		if (iMod < 0)
 		{
 			iMod = 0;
@@ -5818,16 +5818,15 @@ public final class Equipment extends PObject implements Serializable,
 		else
 		{
 			int maxIndex =
-					Globals.getContext().getReferenceContext()
-						.getConstructedObjectCount(SizeAdjustment.class) - 1;
+					ref.getConstructedObjectCount(SizeAdjustment.class) - 1;
 			if (iMod > maxIndex)
 			{
 				iMod = maxIndex;
 			}
 		}
 		SizeAdjustment sa =
-				Globals.getContext().getReferenceContext().getItemInOrder(SizeAdjustment.class,
-					iMod);
+				ref.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER)
+					.get(iMod);
 		return adjustDamage(dam, sa);
 	}
 

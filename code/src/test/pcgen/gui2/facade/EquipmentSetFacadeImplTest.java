@@ -255,7 +255,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		testNode = nodeMap.get("Double Weapon");
 		assertNotNull("Double Weapon should be present", testNode);
 		assertEquals("Double Weapon type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
-		assertEquals("Double Weapon count", 1, esfi.getQuantity(testNode));
+		assertEquals("Double Weapon count", 2, esfi.getQuantity(testNode));
 
 		testNode = nodeMap.get("Both Hands");
 		assertNotNull("Both Hands should be present", testNode);

@@ -36,6 +36,7 @@ import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -59,7 +60,7 @@ public final class KitAbilities extends BaseKit
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
 	private transient List<CNAbilitySelection> abilitiesToAdd = null;
-	private AbilityCategory category;
+	private CDOMSingleRef<AbilityCategory> catRef;
 
 	/**
 	 * Set whether the kit is free.
@@ -169,6 +170,7 @@ public final class KitAbilities extends BaseKit
 		 * the new Ability Pools are going to work
 		 */
 
+		AbilityCategory category = catRef.resolvesTo();
 		boolean tooManyAbilities = false;
 		// Don't allow choosing of more than allotted number of abilities
 		int maxChoices =
@@ -256,6 +258,7 @@ public final class KitAbilities extends BaseKit
 			
 			if (isFree())
 			{
+				AbilityCategory category = catRef.resolvesTo();
 				aPC.adjustAbilities(category, new BigDecimal(1));
 			}
 		}
@@ -349,13 +352,13 @@ public final class KitAbilities extends BaseKit
 		}
 	}
 
-	public void setCategory(AbilityCategory ac)
+	public void setCategory(CDOMSingleRef<AbilityCategory> ac)
 	{
-		category = ac;
+		catRef = ac;
 	}
 
-	public AbilityCategory getCategory()
+	public CDOMSingleRef<AbilityCategory> getCategory()
 	{
-		return category;
+		return catRef;
 	}
 }

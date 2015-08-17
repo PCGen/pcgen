@@ -1,6 +1,25 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
 
+# Pathfinder version of Skills and how we handle Skill Focus
+#Skill Blank					
+#	KEYSTAT:
+#	ACHECK:YES/NO
+#	TYPE:AttributeName.Base
+#	SOURCEPAGE:p.#
+#	BONUS:SKILL|Skill Blank|3|TYPE=ClassSkill|PRECSKILL:1,Skill Blank|PRESKILL:1,Skill Blank=1
+#Skill Blank.MOD					
+#	BONUS:SKILL|Skill Blank|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Skill Blank)	
+#	BONUS:SKILL|Skill Blank|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Skill Blank)|PRESKILL:1,Skill Blank=10
+
+
+# Example of Acrobatics
+#Acrobatics		KEYSTAT:DEX		ACHECK:YES		TYPE:Dexterity.Base	SOURCEPAGE:p.87	BONUS:SKILL|Acrobatics|3|TYPE=ClassSkill|PRECSKILL:1,Acrobatics|PRESKILL:1,Acrobatics=1
+#Acrobatics.MOD	BONUS:SKILL|Acrobatics|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Acrobatics)
+#Acrobatics.MOD	BONUS:SKILL|Acrobatics|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Acrobatics)|PRESKILL:1,Acrobatics=10
+
+
+
 #insert your data here
 
 #Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up

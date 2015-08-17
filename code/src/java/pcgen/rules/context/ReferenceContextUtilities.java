@@ -19,6 +19,7 @@ package pcgen.rules.context;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
@@ -107,7 +108,7 @@ public final class ReferenceContextUtilities
 		return validator != null && validator.allow(cl, key);
 	}
 
-	public static ReferenceManufacturer<? extends Loadable> getManufacturer(
+	public static <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<? extends Loadable> getManufacturer(
 		AbstractReferenceContext refContext, String firstToken)
 	{
 		int equalLoc = firstToken.indexOf('=');
@@ -146,10 +147,12 @@ public final class ReferenceContextUtilities
 				+ className);
 			return null;
 		}
-		Class catClass = StringPClassUtil.getCategoryClassFor(className);
 		ReferenceManufacturer<? extends Loadable> rm;
 		if (CategorizedCDOMObject.class.isAssignableFrom(c))
 		{
+			Class<? extends Category<T>> catClass =
+					(Class<? extends Category<T>>) StringPClassUtil
+						.getCategoryClassFor(className);
 			if (categoryName == null)
 			{
 				Logging
@@ -164,7 +167,7 @@ public final class ReferenceContextUtilities
 			}
 
 			rm =
-					refContext.getManufacturer(((Class) c), catClass,
+					refContext.getManufacturer((Class<T>) c, catClass,
 						categoryName);
 			if (rm == null)
 			{

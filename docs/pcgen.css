@@ -301,3 +301,49 @@ pre.code {
 	padding-left: 5px; 
 	background-color: beige;	
 }
+
+div#TOC::before{
+	content:"Table of Contents";
+	font-weight: bold;
+}
+
+div#TOC{
+	border: 1px solid #eef;
+	background-color: #f8f8ff;
+	padding: 1em 2em 1em 1em;
+	display: table;
+}
+
+div.figure img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.figure p{
+	font-style: italic;
+	text-align: center;
+}
+
+div.deprecated {
+	color: gray;
+	border: 1px solid silver;
+	border-radius: 0.5em;
+	background-color: #eee;
+	margin: 1em;
+	padding: 1em;
+}
+
+div.deprecated::before{
+	content:"Deprecated";
+	font-weight: bold;
+	font-size: 1.2em;
+	color: red;
+}
+
+div.deprecated::after{
+	content:"Deprecated";
+	font-weight: bold;
+	font-size: 1.2em;
+	color: red;
+}

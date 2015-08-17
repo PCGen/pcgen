@@ -68,6 +68,7 @@ public class ListKeyMapToList
 	/**
 	 * The internal storage of this ListKeyMapToList
 	 */
+	@SuppressWarnings("rawtypes")
 	private final HashMapToList map = new HashMapToList();
 
 	/**
@@ -95,6 +96,7 @@ public class ListKeyMapToList
 	 * @throws NullPointerException
 	 *             if the specified ListKeyMapToList is null.
 	 */
+	@SuppressWarnings("unchecked")
 	public void addAllLists(ListKeyMapToList lcs)
 	{
 		map.addAllLists(lcs.map);
@@ -117,6 +119,7 @@ public class ListKeyMapToList
 	 *            A List containing the items to be added to the List for the
 	 *            given key.
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> void addAllToListFor(ListKey<T> key, Collection<T> values)
 	{
 		map.addAllToListFor(key, values);
@@ -138,6 +141,7 @@ public class ListKeyMapToList
 	 * @param valueElement
 	 *            The value to be added to the List for the given key.
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> void addToListFor(ListKey<T> key, T valueElement)
 	{
 		map.addToListFor(key, valueElement);
@@ -156,6 +160,7 @@ public class ListKeyMapToList
 	 * @return true if this ListKeyMapToList contains a List for the given key;
 	 *         false otherwise.
 	 */
+	@SuppressWarnings("unchecked")
 	public boolean containsListFor(ListKey<?> key)
 	{
 		return map.containsListFor(key);
@@ -176,6 +181,7 @@ public class ListKeyMapToList
 	 *         given key; null if the given key is not a key in this
 	 *         ListKeyMapToList.
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> List<T> getListFor(ListKey<T> key)
 	{
 		return map.getListFor(key);
@@ -195,6 +201,7 @@ public class ListKeyMapToList
 	 * @return The Object at the given position within the list for the given
 	 *         key.
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> T getElementInList(ListKey<T> key, int index)
 	{
 		return (T) map.getElementInList(key, index);
@@ -211,6 +218,7 @@ public class ListKeyMapToList
 	 *            The ListKey for which a List should be initialized in this
 	 *            ListKeyMapToList.
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> void initializeListFor(ListKey<T> key)
 	{
 		map.initializeListFor(key);
@@ -230,6 +238,7 @@ public class ListKeyMapToList
 	 * @return true if the value was successfully removed from the list for the
 	 *         given key; false otherwise
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> boolean removeFromListFor(ListKey<T> key, T valueElement)
 	{
 		return map.removeFromListFor(key, valueElement);
@@ -248,6 +257,7 @@ public class ListKeyMapToList
 	 * @return The List which this ListKeyMapToList previous mapped the given
 	 *         key
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> List<T> removeListFor(ListKey<T> key)
 	{
 		return map.removeListFor(key);
@@ -265,6 +275,7 @@ public class ListKeyMapToList
 	 *            The key being tested.
 	 * @return the number of objects in the List for the given key
 	 */
+	@SuppressWarnings("unchecked")
 	public int sizeOfListFor(ListKey<?> key)
 	{
 		return map.sizeOfListFor(key);
@@ -285,6 +296,7 @@ public class ListKeyMapToList
 	 * @return true if this ListKeyMapToList contains a List for the given key
 	 *         AND that list contains the given value; false otherwise.
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> boolean containsInList(ListKey<T> key, T valueElement)
 	{
 		return map.containsInList(key, valueElement);
@@ -308,6 +320,7 @@ public class ListKeyMapToList
 	 *         AND that list contains one or more of the given values; false
 	 *         otherwise.
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> boolean containsAnyInList(ListKey<T> key, Collection<T> values)
 	{
 		return map.containsAnyInList(key, values);
@@ -327,6 +340,7 @@ public class ListKeyMapToList
 	 * 
 	 * @return a Set containing the keys in this ListKeyMapToList
 	 */
+	@SuppressWarnings("unchecked")
 	public Set<ListKey<?>> getKeySet()
 	{
 		return map.getKeySet();

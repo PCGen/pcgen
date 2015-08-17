@@ -121,8 +121,8 @@ public class GridPoint extends Point2D
 	@Override
 	public void setLocation(double x, double y)
 	{
-		this.x = x;
-		this.y = y;
+		this.x = java.lang.Double.valueOf(x);
+		this.y = java.lang.Double.valueOf(y);
 	}
 
 	/**

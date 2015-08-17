@@ -41,6 +41,7 @@ public class PCToken extends AbstractPCQualifierToken<Ability>
 			boolean negate)
 	{
 		ReferenceManufacturer<Ability> rm = (ReferenceManufacturer<Ability>) sc;
+		@SuppressWarnings("unchecked")
 		CategorizedCreator<Ability> fac = (CategorizedCreator<Ability>) rm.getFactory();
 		category = fac.getCategory();
 		return super.initialize(context, sc, condition, value, negate);

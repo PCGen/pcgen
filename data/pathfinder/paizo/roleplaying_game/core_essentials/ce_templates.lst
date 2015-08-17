@@ -769,6 +769,38 @@ Rake 2 (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G		BONUS:VAR|PrimaryAttackDamageDice|2
 Rake 2 (Colossal)			VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Rake,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d8
 #Other - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S/P Secondary
 
+Hair 1 (Tiny)			VISIBLE:NO	PRESIZEEQ:T																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1
+Hair 1 (Small)			VISIBLE:NO	PRESIZEEQ:S																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d2
+Hair 1 (Medium)			VISIBLE:NO	PRESIZEEQ:M																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d3
+Hair 1 (Large)			VISIBLE:NO	PRESIZEEQ:L																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4
+Hair 1 (Huge)			VISIBLE:NO	PRESIZEEQ:H																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
+Hair 1 (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8
+Hair 1 (Colossal)			VISIBLE:NO	PRESIZEEQ:C																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6
+
+Hair 2 (Tiny)			VISIBLE:NO	PRESIZEEQ:T																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1
+Hair 2 (Small)			VISIBLE:NO	PRESIZEEQ:S																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d2
+Hair 2 (Medium)			VISIBLE:NO	PRESIZEEQ:M																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d3
+Hair 2 (Large)			VISIBLE:NO	PRESIZEEQ:L																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d4
+Hair 2 (Huge)			VISIBLE:NO	PRESIZEEQ:H																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d6
+Hair 2 (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,1d8
+Hair 2 (Colossal)			VISIBLE:NO	PRESIZEEQ:C																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*2,2d6
+
+Hair 3 (Tiny)			VISIBLE:NO	PRESIZEEQ:T																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*3,1
+Hair 3 (Small)			VISIBLE:NO	PRESIZEEQ:S																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*3,1d2
+Hair 3 (Medium)			VISIBLE:NO	PRESIZEEQ:M																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*3,1d3
+Hair 3 (Large)			VISIBLE:NO	PRESIZEEQ:L																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*3,1d4
+Hair 3 (Huge)			VISIBLE:NO	PRESIZEEQ:H																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*3,1d6
+Hair 3 (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*3,1d8
+Hair 3 (Colossal)			VISIBLE:NO	PRESIZEEQ:C																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*3,2d6
+
+Hair 4 (Tiny)			VISIBLE:NO	PRESIZEEQ:T																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*4,1
+Hair 4 (Small)			VISIBLE:NO	PRESIZEEQ:S																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*4,1d2
+Hair 4 (Medium)			VISIBLE:NO	PRESIZEEQ:M																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*4,1d3
+Hair 4 (Large)			VISIBLE:NO	PRESIZEEQ:L																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*4,1d4
+Hair 4 (Huge)			VISIBLE:NO	PRESIZEEQ:H																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*4,1d6
+Hair 4 (Gargantuan)		VISIBLE:NO	PRESIZEEQ:G																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*4,1d8
+Hair 4 (Colossal)			VISIBLE:NO	PRESIZEEQ:C																		NATURALATTACKS:Hair,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*4,2d6
+
 
 # Dragon Support Only
 #Tail Sweep			ABILITY:Internal|AUTOMATIC|Tail Sweep (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Tail Sweep (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Tail Sweep (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Tail Sweep (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Tail Sweep (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Tail Sweep (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Tail Sweep (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Tail Sweep (Colossal)|PREBASESIZEEQ:C

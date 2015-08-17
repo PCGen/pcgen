@@ -2,14 +2,16 @@ package pcgen.cdom.content;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Reducible;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
 
 public class AbilitySelection extends Selection<Ability, String> implements
-		Comparable<AbilitySelection>
+		Comparable<AbilitySelection>, Reducible
 {
 
 	public AbilitySelection(Ability obj, String sel)
@@ -160,5 +162,14 @@ public class AbilitySelection extends Selection<Ability, String> implements
 			return -1;
 		}
 		return selection.compareTo(oselection);
+	}
+
+	/**
+	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
+	 */
+	@Override
+	public CDOMObject getCDOMObject()
+	{
+		return getObject();
 	}
 }

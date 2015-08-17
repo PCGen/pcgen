@@ -225,6 +225,7 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 		{
 			return list.contains(element);
 		}
+		@SuppressWarnings("unchecked")
 		T comp = (T) element;
 		for (Iterator<T> it = list.iterator(); it.hasNext();)
 		{
@@ -262,6 +263,7 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 		{
 			return list.remove(element);
 		}
+		@SuppressWarnings("unchecked")
 		T comp = (T) element;
 		for (Iterator<T> it = list.iterator(); it.hasNext();)
 		{

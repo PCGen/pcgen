@@ -62,6 +62,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 * third key of the TripleKeyMapToList to the value stored for the given
 	 * keys.
 	 */
+	@SuppressWarnings("rawtypes")
 	private final Class<? extends Map> thirdClass;
 
 	/**
@@ -101,8 +102,9 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 *             if any of the given Classes is null or does not have a public
 	 *             zero argument constructor
 	 */
-	public TripleKeyMap(Class<? extends Map> cl1, Class<? extends Map> cl2,
-			Class<? extends Map> cl3)
+	public TripleKeyMap(@SuppressWarnings("rawtypes") Class<? extends Map> cl1,
+		@SuppressWarnings("rawtypes") Class<? extends Map> cl2,
+		@SuppressWarnings("rawtypes") Class<? extends Map> cl3)
 	{
 		super();
 		map = new DoubleKeyMap<K1, K2, Map<K3, V>>(cl1, cl2);
@@ -350,12 +352,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	public TripleKeyMap<K1, K2, K3, V> clone()
 			throws CloneNotSupportedException
 	{
-		/*
-		 * This cast will cause a Generic type safety warning. This is
-		 * impossible to avoid, given that super.clone() will not return a
-		 * TripleKeyMap with the proper Generic arguments. - Thomas Parker
-		 * 1/26/07
-		 */
+		@SuppressWarnings("unchecked")
 		TripleKeyMap<K1, K2, K3, V> tkm = (TripleKeyMap<K1, K2, K3, V>) super
 				.clone();
 		/*
@@ -439,7 +436,9 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	{
 		try
 		{
-			return thirdClass.newInstance();
+			@SuppressWarnings("unchecked")
+			Map<K3, V> inst = thirdClass.newInstance();
+			return inst;
 		}
 		catch (InstantiationException e)
 		{

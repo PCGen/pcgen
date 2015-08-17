@@ -40,6 +40,7 @@ public final class PaperInfo implements Loadable
 {
 	private URI sourceURI;
 	private String infoName;
+	private String sortKey;
 
 	/** Array of 6 paper information variables to keep hold of */
 	private final String[] paperInfo = new String[7];
@@ -157,6 +158,20 @@ public final class PaperInfo implements Loadable
 	public boolean isType(String type)
 	{
 		return false;
+	}
+
+	public void setSortKey(String value)
+	{
+		if (value == null)
+		{
+			throw new IllegalArgumentException("SortKey cannot be null");
+		}
+		sortKey = value;
+	}
+
+	public String getSortKey()
+	{
+		return sortKey;
 	}
 
 }

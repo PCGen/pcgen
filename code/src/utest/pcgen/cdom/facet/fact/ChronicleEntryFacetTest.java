@@ -17,6 +17,10 @@
  */
 package pcgen.cdom.facet.fact;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.testsupport.AbstractListFacetTest;
@@ -42,6 +46,79 @@ public class ChronicleEntryFacetTest extends
 		ChronicleEntry ce = new ChronicleEntry();
 		ce.setChronicle("Chr: " + n++);
 		return ce;
+	}
+
+	@Override
+	public void testAddSingleTwiceGet()
+	{
+		ChronicleEntry t1 = getObject();
+		getFacet().add(id, t1);
+		assertEquals(1, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		assertNotNull(getFacet().getSet(id));
+		assertEquals(1, getFacet().getSet(id).size());
+		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		assertEventCount(1, 0);
+		// Add same, now there twice (LIST not SET)
+		getFacet().add(id, t1);
+		assertEquals(2, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		assertNotNull(getFacet().getSet(id));
+		assertEquals(2, getFacet().getSet(id).size());
+		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		assertEventCount(2, 0);
+	}
+
+	@Override
+	public void testAddAllTwice()
+	{
+		ChronicleEntry t1 = getObject();
+		List<ChronicleEntry> pct = new ArrayList<ChronicleEntry>();
+		pct.add(t1);
+		pct.add(t1);
+		getFacet().addAll(id, pct);
+		assertEquals(2, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		Collection<ChronicleEntry> setofone = getFacet().getSet(id);
+		assertNotNull(setofone);
+		assertEquals(2, setofone.size());
+		assertTrue(setofone.contains(t1));
+		assertEventCount(2, 0);
+	}
+
+	@Override
+	public void testAddSingleTwiceRemove()
+	{
+		ChronicleEntry t1 = getObject();
+		getFacet().add(id, t1);
+		assertEquals(1, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		assertNotNull(getFacet().getSet(id));
+		assertEquals(1, getFacet().getSet(id).size());
+		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		assertEventCount(1, 0);
+		// Add same, now twice in list
+		getFacet().add(id, t1);
+		assertEquals(2, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		assertNotNull(getFacet().getSet(id));
+		assertEquals(2, getFacet().getSet(id).size());
+		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		assertEventCount(2, 0);
+		// Only requires one Remove (internally a Set, not List)
+		getFacet().remove(id, t1);
+		assertEquals(1, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		assertNotNull(getFacet().getSet(id));
+		assertEquals(1, getFacet().getSet(id).size());
+		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		assertEventCount(2, 1);
+		// Second has no effect
+		getFacet().remove(id, t1);
+		testListUnsetZeroCount();
+		testListUnsetEmpty();
+		testListUnsetEmptySet();
+		assertEventCount(2, 2);
 	}
 
 }

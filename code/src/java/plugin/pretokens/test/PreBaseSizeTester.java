@@ -27,14 +27,15 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Globals;
-import pcgen.core.analysis.SizeUtilities;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.system.LanguageBundle;
+import pcgen.rules.context.AbstractReferenceContext;
 
 /**
  * @author wardc
@@ -55,13 +56,12 @@ public class PreBaseSizeTester extends AbstractDisplayPrereqTest implements Prer
 		if ((display.getRace() != null)
 			&& !display.getRace().equals(Globals.s_EMPTYRACE))
 		{
-			final int targetSize = SizeUtilities.sizeInt(prereq.getOperand(), -1);
-			if (targetSize < 0)
-			{
-				throw new PrerequisiteException(LanguageBundle
-					.getFormattedString(
-						"PreBaseSize.error.bad_size", prereq.getOperand())); //$NON-NLS-1$
-			}
+			AbstractReferenceContext ref =
+					Globals.getContext().getReferenceContext();
+			SizeAdjustment sa =
+					ref.silentlyGetConstructedCDOMObject(SizeAdjustment.class,
+						prereq.getOperand());
+			int targetSize = sa.get(IntegerKey.SIZEORDER);
 			runningTotal =
 					prereq.getOperator().compare(display.racialSizeInt(),
 						targetSize);

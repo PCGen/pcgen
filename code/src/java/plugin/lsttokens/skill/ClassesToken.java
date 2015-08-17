@@ -138,7 +138,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 	@Override
 	public String[] unparse(LoadContext context, Skill skill)
 	{
-		Changes<CDOMReference> masterChanges = context.getListContext()
+		Changes<CDOMReference<ClassSkillList>> masterChanges = context.getListContext()
 				.getMasterListChanges(getTokenName(), skill, SKILLLIST_CLASS);
 		if (masterChanges.includesGlobalClear())
 		{

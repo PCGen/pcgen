@@ -216,7 +216,7 @@ Bonus Wizard Spell					KEY:Favored Class Bonus ~ Wizard Spell					CATEGORY:Speci
 # Alchemist
 # Ability Name				Unique Key						Category of Ability		Type						Visible	Var. Min. Value												Var. Must Be Lower					Define										Stackable?	Multiple?	Choose		Bonus Ability Pool																												Add to base move																												Bonus to spell known/L					Modify VAR
 Bonus Bomb Tracker										CATEGORY:Internal																																																																																																																								BONUS:VAR|AlchemistBombTimes|var("BonusBombCount")/2
-Bonus Bomb Damage Tracker									CATEGORY:Internal																																																																																																																								BONUS:VAR|AlchemistBombDamageBonus|var("BonusBombDamageCount")/2
+Bonus Bomb Damage Tracker									CATEGORY:Internal																																	DEFINE:BonusBombDamageCount|0																																																																																			BONUS:VAR|AlchemistBombDamageBonus|var("BonusBombDamageCount")/2
 # Barbarian
 Elf Barbarian Counter										CATEGORY:Special Ability																																																																																BONUS:MOVEADD|TYPE.Walk|ElfBarbarianFastMovementBonus*5|PREMULT:2,[PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1],[PREVARGTEQ:ElfBarbarianFastMovement,5]									BONUS:VAR|ElfBarbarianFastMovementBonus|ElfBarbarianFastMovement/5
 Barbarian Superstition Counter								CATEGORY:Internal																																																																																																																								BONUS:VAR|SuperstitionSaveBonus|SuperstitionBonusCount/3

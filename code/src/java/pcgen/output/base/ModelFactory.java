@@ -37,5 +37,5 @@ public interface ModelFactory
 	 * @return A TemplateModel produced by this ModelFactory for the given
 	 *         CharID
 	 */
-	public <T extends TemplateModel & Iterable<T>> T generate(CharID id);
+	public <T extends TemplateModel & Iterable<?>> T generate(CharID id);
 }

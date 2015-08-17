@@ -86,6 +86,7 @@ ABILITYCATEGORY:Mystic Past Life Add Spells		VISIBLE:QUALIFY	EDITABLE:YES	EDITPO
 
 
 ABILITYCATEGORY:Tengu Exotic Weapon Training Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ExoticWeaponProficiencyAmount	CATEGORY:Internal									ABILITYLIST:Tengu Exotic Weapon Training Choice							DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Oracle Non-Proficient Weapon Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:Pool_OracleNonProficient		CATEGORY:Internal			TYPE:Oracle NWP																		DISPLAYLOCATION:Class Features
 
 
 ###Block: Race Builder Design

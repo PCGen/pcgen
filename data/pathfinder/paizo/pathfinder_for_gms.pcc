@@ -42,3 +42,5 @@ PCC:@/pathfinder/paizo/roleplaying_game/bestiary/bestiary.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary_2/bestiary_2.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary_3/bestiary_3.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
+
+FORWARDREF:CLASSSPELLLIST|Magus

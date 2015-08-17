@@ -45,6 +45,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ClassWrappedToken;
 import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.PostDeferredToken;
+import pcgen.rules.persistence.token.PostValidationToken;
 import pcgen.rules.persistence.token.PreCompatibilityToken;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.rules.persistence.token.QualifierToken;
@@ -61,10 +62,12 @@ public final class TokenLibrary implements PluginLoader
 	private static final Class<CDOMObject> CDOMOBJECT_CLASS = CDOMObject.class;
 	private static final TreeMapToList<Integer, PostDeferredToken<? extends Loadable>> POST_DEFERRED_TOKENS =
 			new TreeMapToList<Integer, PostDeferredToken<? extends Loadable>>();
-	private static final DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>> QUALIFIER_MAP =
-			new DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>>();
-	private static final DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>> PRIMITIVE_MAP =
-			new DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>>();
+	private static final TreeMapToList<Integer, PostValidationToken<? extends Loadable>> POST_VALIDATION_TOKENS =
+			new TreeMapToList<Integer, PostValidationToken<? extends Loadable>>();
+	private static final DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken<?>>> QUALIFIER_MAP =
+			new DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken<?>>>();
+	private static final DoubleKeyMap<Class<?>, String, Class<? extends PrimitiveToken<?>>> PRIMITIVE_MAP =
+			new DoubleKeyMap<Class<?>, String, Class<? extends PrimitiveToken<?>>>();
 	private static final Set<TokenFamily> TOKEN_FAMILIES = new TreeSet<TokenFamily>();
 	private static final CaseInsensitiveMap<Class<? extends BonusObj>> BONUS_TAG_MAP =
 			new CaseInsensitiveMap<Class<? extends BonusObj>>();
@@ -117,15 +120,26 @@ public final class TokenLibrary implements PluginLoader
 		return list;
 	}
 
+	public static Collection<PostValidationToken<? extends Loadable>> getPostValidationTokens()
+	{
+		List<PostValidationToken<? extends Loadable>> list =
+				new ArrayList<PostValidationToken<? extends Loadable>>();
+		for (Integer key : POST_VALIDATION_TOKENS.getKeySet())
+		{
+			list.addAll(POST_VALIDATION_TOKENS.getListFor(key));
+		}
+		return list;
+	}
+
 	public static void addToPrimitiveMap(PrimitiveToken<?> p)
 	{
-		Class<? extends PrimitiveToken> newTokClass = p.getClass();
+		Class newTokClass = p.getClass();
 		if (PrimitiveToken.class.isAssignableFrom(newTokClass))
 		{
 			String name = p.getTokenName();
-			Class cl = ((PrimitiveToken) p).getReferenceClass();
-			Class<PrimitiveToken<?>> prev =
-					PRIMITIVE_MAP.put(cl, name, (Class<PrimitiveToken<?>>) newTokClass);
+			Class cl = p.getReferenceClass();
+			Class<? extends PrimitiveToken<?>> prev =
+					PRIMITIVE_MAP.put(cl, name, newTokClass);
 			if (prev != null)
 			{
 				Logging.errorPrint("Found a second " + name + " Primitive for " + cl);
@@ -135,7 +149,7 @@ public final class TokenLibrary implements PluginLoader
 
 	public static void addToQualifierMap(QualifierToken<?> p)
 	{
-		Class<? extends QualifierToken> newTokClass = p.getClass();
+		Class newTokClass = p.getClass();
 		Class<?> cl = p.getReferenceClass();
 		String name = p.getTokenName();
 		Class<? extends QualifierToken> prev = QUALIFIER_MAP.put(cl, name, newTokClass);
@@ -151,6 +165,11 @@ public final class TokenLibrary implements PluginLoader
 		{
 			PostDeferredToken<?> pdt = (PostDeferredToken<?>) newToken;
 			POST_DEFERRED_TOKENS.addToListFor(pdt.getPriority(), pdt);
+		}
+		if (newToken instanceof PostValidationToken)
+		{
+			PostValidationToken<?> pdt = (PostValidationToken<?>) newToken;
+			POST_VALIDATION_TOKENS.addToListFor(pdt.getPriority(), pdt);
 		}
 		if (newToken instanceof CDOMCompatibilityToken)
 		{
@@ -168,8 +187,10 @@ public final class TokenLibrary implements PluginLoader
 			TOKEN_FAMILIES.add(fam);
 			if (fam.compareTo(TokenFamily.REV514) <= 0 && PCCLASS_CLASS.equals(tok.getTokenClass()))
 			{
-				addToTokenMap(new ClassWrappedToken(
-						(CDOMCompatibilityToken<PCClass>) tok));
+				@SuppressWarnings("unchecked")
+				CDOMCompatibilityToken<PCClass> clTok =
+						(CDOMCompatibilityToken<PCClass>) tok;
+				addToTokenMap(new ClassWrappedToken(clTok));
 			}
 		}
 		loadFamily(TokenFamily.CURRENT, newToken);
@@ -195,8 +216,10 @@ public final class TokenLibrary implements PluginLoader
 			}
 			if (PCCLASS_CLASS.equals(tok.getTokenClass()))
 			{
-				addToTokenMap(new ClassWrappedToken(
-						(CDOMPrimaryToken<PCClass>) tok));
+				@SuppressWarnings("unchecked")
+				CDOMPrimaryToken<PCClass> clTok =
+						(CDOMPrimaryToken<PCClass>) tok;
+				addToTokenMap(new ClassWrappedToken(clTok));
 			}
 		}
 		if (newToken instanceof CDOMSecondaryToken)

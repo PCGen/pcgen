@@ -15,6 +15,26 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #
 #####1st Example
 
+# Version for 6.05.03 - this is all tab deliminated on one line, newlines to make for easier reading:
+#FOLLOWER:FamiliarLVL=1
+#	TYPE:Familiar
+#	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionEmpathicLink
+#	COPYMASTERBAB:MASTER
+#	COPYMASTERCHECK:MASTER
+#	COPYMASTERHP:max(1,MASTER/2)
+#	USEMASTERSKILL:YES
+#FOLLOWER:FamiliarLVL=1
+#	TYPE:Familiar
+#	ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionShareSpells
+#	ABILITY:Special Ability|AUTOMATIC|Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,CF_CompanionImprovedEvasion
+#	DEFINESTAT:MINVALUE|INT|5+((1+MASTERVAR("FamiliarLVL"))/2)
+#	BONUS:VAR|AC_Natural_Armor|(1+MASTERVAR("FamiliarLVL"))/2|TYPE=NaturalArmor.STACK
+#	RACETYPE:Animal/Magical Beast	DEFINE:MasterLevel|0
+#	BONUS:VAR|MasterLevel|MASTERVAR("FamiliarLVL")
+
+
+
+# Old Version
 #FOLLOWER:FamiliarLVL=1	TYPE:Familiar		COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2	USEMASTERSKILL:YES	SAB:Empathic Link	SAB:Share Spells	SAB:Improved Evasion (Ex)	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Magical beast
 
 #####
@@ -41,11 +61,10 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #The tags COPYMASTERBAB, COPYMASTERCHECK, COPYMASTERHP, and USEMASTERSKILL can be used to to define whether the creature uses
 #those values based on its master.
 #
-#The SA tag is holding a text that will be displayed as Special Ability on the output sheet.
+#The SAB tag is holding a text that will be displayed as Special Ability on the output sheet.
 #
-#The DEFINE:LOCK tag locks the specified ability score to a specific value regardless of any other bonuses to that ability.
-#If the locked value is 10 the OS will output an asterisk (*) instead of the number. This is commonly used when a creature
-#has a non-ability such as the undeads lack of a constitution score.
+#The DEFINESTAT:MINVALUE|INT| tag prevents the specified ability score (Intelligence) to be no lower than the indicated value. 
+#This allows higher intelligent creature to retain their natural intelligence if higher.
 #
 #The BONUS tags are a group of similar tags, that grant some form of Bonus to another already existing tag. To read a description
 #of them, look in the List File Tag Index under the topic "Bonus tags".
@@ -55,5 +74,5 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #The MASTERBONUSRACE tag is used if you need to define the advantages that the master gains when having that particular races
 #as the given type. (here: Familiar). The following tags are then granted to the master.
 #
-#The VFEAT tag is holding a list of feats that the character gains as virtual feats. Virtual Feats are granted to the character
+#The ABILITY:FEAT|VIRTUAL| tag is holding a list of feats that the character gains as virtual feats. Virtual Feats are granted to the character
 #regardless of the prerequisites.

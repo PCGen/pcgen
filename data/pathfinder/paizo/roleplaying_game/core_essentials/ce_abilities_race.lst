@@ -6,7 +6,7 @@ SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pa
 # COMMENT: Size_Master sets the Face and Reach - use 'RaceSizeIsLong' at a value of 1 for creatures that aren't 'Tall'
 
 # Ability Name		Category of Ability	Define																																																									Ability																																															Modify VAR
-Default			CATEGORY:Internal		DEFINE:Maneuverability|0	DEFINE:ArmorCheckPenalty|0	DEFINE:FireResistanceBonus|0	DEFINE:AcidResistanceBonus|0	DEFINE:ColdResistanceBonus|0	DEFINE:SonicResistanceBonus|0	DEFINE:ElectricityResistanceBonus|0	DEFINE:OverrideSubtypeLanguage|0	DEFINE:FastHealingRate|0	DEFINE:DefaultLanguageSetting|0	DEFINE:HasRacialVision|0	ABILITY:Internal|AUTOMATIC|Companion Tracker|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,1],[PREVARGTEQ:AnimalCompanionMasterLVL,1]	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|PREMOVE:1,Fly=1	ABILITY:Special Ability|AUTOMATIC|Fast Healing|PREVARGT:FastHealingRate,0	BONUS:VAR|Maneuverability|0	
+Default			CATEGORY:Internal		DEFINE:Maneuverability|0	DEFINE:ArmorCheckPenalty|0	DEFINE:FireResistanceBonus|0	DEFINE:AcidResistanceBonus|0	DEFINE:ColdResistanceBonus|0	DEFINE:SonicResistanceBonus|0	DEFINE:ElectricityResistanceBonus|0	DEFINE:OverrideSubtypeLanguage|0	DEFINE:FastHealingRate|0	DEFINE:DefaultLanguageSetting|0	DEFINE:HasRacialVision|0	ABILITY:Internal|AUTOMATIC|Companion Tracker|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,1],[PREVARGTEQ:AnimalCompanionMasterLVL,1]	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|PREMULT:1,[PREMOVE:1,Fly=1],[PREVARGT:Maneuverability,0]	ABILITY:Special Ability|AUTOMATIC|Fast Healing|PREVARGT:FastHealingRate,0	BONUS:VAR|Maneuverability|0	
 
 
 #BONUS:ABILITYPOOL|Feat|-HD+1/2|PRERACE:1,RACETYPE=Companion
@@ -208,10 +208,12 @@ CATEGORY=Internal|Base Size ~ Colossal.MOD																																						
 # COMMENT: Rules for standard creatures based upon Size - Just Grant the Base Internal Attack Mode and the correct Damage will be assigned
 # COMMENT: Switched to using PREBASESIZE as BONUS:SIZEMOD|NUMBER also was acting as a TYPE.Natural Dice Boost. This won't affect Dragons since they use a different system.
 ###Block:		Damage						Type		# of Attacks by default
+#			F  D   T   S   M   L   H   G   C
 # Bite -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B/S/P	Primary	x1	(Max set up is 7 for Eidolon support) - completed
 # Gore -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 P		Primary	x1	(Max set up is 7 for Eidolon support)
 # Pincers -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B		Secondary	x2	(Max set up is 7 - though pairs is normal)
 # Tail Slap -	1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B		Secondary	x1	(Max set up is 7 for Eidolon support)
+#			D  T   S   M   L   H   G   C
 # Claw -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S		Primary	x2	(Max set up is 7 for Eidolon support)
 # Slam -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Primary	x1	(Max set up is 7 for Eidolon support)
 # Sting -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 P		Primary	x1	(Max set up is 7 for Eidolon support)
@@ -220,24 +222,33 @@ CATEGORY=Internal|Base Size ~ Colossal.MOD																																						
 # Tentacle -	1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Secondary	x2	(Max set up is 8)
 # Wing -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Secondary	x2	(Max set up is 7)
 
-# Ability Name	Category of Ability	Type					Define								Modify VAR									Weapon prof. bonus
-Bite			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:BiteAttacks|0		BONUS:VAR|BiteAttacks|1	BONUS:VAR|NaturalAttacks|1		BONUS:WEAPONPROF=Bite|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
-Gore			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:GoreAttacks|0		BONUS:VAR|GoreAttacks|1	BONUS:VAR|NaturalAttacks|1		BONUS:WEAPONPROF=Gore|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
-Pincers		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:PincersAttacks|0		BONUS:VAR|PincersAttacks|2	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)
-Tail Slap		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:TailSlapAttacks|0	BONUS:VAR|TailSlapAttacks|1	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)
-Claw			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:ClawAttacks|0		BONUS:VAR|ClawAttacks|2	BONUS:VAR|NaturalAttacks|1		BONUS:WEAPONPROF=Claw|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
-Slam			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:SlamAttacks|0		BONUS:VAR|SlamAttacks|1	BONUS:VAR|NaturalAttacks|1		BONUS:WEAPONPROF=Slam|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
-Sting			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:StingAttacks|0		BONUS:VAR|StingAttacks|1	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Sting|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
-Talons		CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:TalonsAttacks|0		BONUS:VAR|TalonsAttacks|2	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Talons|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
-Hoof			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:HoofAttacks|0		BONUS:VAR|HoofAttacks|2	BONUS:VAR|NaturalAttacks|1		BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)
-Tentacle		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:TentacleAttacks|0	BONUS:VAR|TentacleAttacks|2	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Tentacle|TOHIT|-5	BONUS:WEAPONPROF=Tentacle|DAMAGE|-(STR/2)
-Wing			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:WingAttacks|0		BONUS:VAR|WingAttacks|2	BONUS:VAR|NaturalAttacks|1		BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)
+# Ability Name	Category of Ability	Type					Define								Modify VAR											Weapon prof. bonus
+Bite			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:BiteAttacks|0		BONUS:VAR|BiteAttacks|1	BONUS:VAR|NaturalAttacks|1		DEFINE:BiteOnlyAttack|0		ABILITY:Internal|AUTOMATIC|Bite Damage Increase|PREVAREQ:BiteOnlyAttack,1	BONUS:VAR|BiteOnlyAttack|1|TYPE=Base|PREVARLT:NaturalAttacks,2
+Gore			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:GoreAttacks|0		BONUS:VAR|GoreAttacks|1	BONUS:VAR|NaturalAttacks|1				BONUS:WEAPONPROF=Gore|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Pincers		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:PincersAttacks|0		BONUS:VAR|PincersAttacks|2	BONUS:VAR|NaturalAttacks|1			BONUS:WEAPONPROF=Pincers|TOHIT|-5	BONUS:WEAPONPROF=Pincers|DAMAGE|-(STR/2)
+Tail Slap		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:TailSlapAttacks|0	BONUS:VAR|TailSlapAttacks|1	BONUS:VAR|NaturalAttacks|1			BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|DAMAGE|-(STR/2)
+Claw			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:ClawAttacks|0		BONUS:VAR|ClawAttacks|2	BONUS:VAR|NaturalAttacks|ClawAttacks		BONUS:WEAPONPROF=Claw|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Slam			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:SlamAttacks|0		BONUS:VAR|SlamAttacks|1	BONUS:VAR|NaturalAttacks|1				BONUS:WEAPONPROF=Slam|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Sting			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:StingAttacks|0		BONUS:VAR|StingAttacks|1	BONUS:VAR|NaturalAttacks|1			BONUS:WEAPONPROF=Sting|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Talons		CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:TalonsAttacks|0		BONUS:VAR|TalonsAttacks|2	BONUS:VAR|NaturalAttacks|TalonsAttacks	BONUS:WEAPONPROF=Talons|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+Hoof			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:HoofAttacks|0		BONUS:VAR|HoofAttacks|2	BONUS:VAR|NaturalAttacks|1				BONUS:WEAPONPROF=Hoof|TOHIT|-5	BONUS:WEAPONPROF=Hoof|DAMAGE|-(STR/2)
+Tentacle		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:TentacleAttacks|0	BONUS:VAR|TentacleAttacks|2	BONUS:VAR|NaturalAttacks|1			BONUS:WEAPONPROF=Tentacle|TOHIT|-5	BONUS:WEAPONPROF=Tentacle|DAMAGE|-(STR/2)
+Wing			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:WingAttacks|0		BONUS:VAR|WingAttacks|2	BONUS:VAR|NaturalAttacks|1				BONUS:WEAPONPROF=Wing|TOHIT|-5	BONUS:WEAPONPROF=Wing|DAMAGE|-(STR/2)
+# Rake is a byproduct of Claws, does not count as a natural attack
+Rake			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:RakeAttacks|0		BONUS:VAR|RakeAttacks|2	BONUS:VAR|NaturalAttacks|0				BONUS:WEAPONPROF=Rake|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
 
-Rake			CATEGORY:Internal		TYPE:NaturalAttack.Primary	DEFINE:NaturalAttacks|0	DEFINE:RakeAttacks|0		BONUS:VAR|RakeAttacks|2	BONUS:VAR|NaturalAttacks|0		BONUS:WEAPONPROF=Rake|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1
+# Hair -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B		Secondary	x1	(Max set up is 7 - though pairs is normal)
+Hair			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0	DEFINE:HairAttacks|0		BONUS:VAR|HairAttacks|1	BONUS:VAR|NaturalAttacks|1	BONUS:WEAPONPROF=Hair|TOHIT|-5
+
 
 #Other - 1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B/S/P Secondary	Dragon Tail Sweep and Crush	Note: Dragons break the secondary attack rules...
 Tail Sweep		CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0						BONUS:VAR|NaturalAttacks|1						BONUS:WEAPONPROF=Tail Sweep|DAMAGE|(STR/2)
 Crush			CATEGORY:Internal		TYPE:NaturalAttack.Secondary	DEFINE:NaturalAttacks|0						BONUS:VAR|NaturalAttacks|1						BONUS:WEAPONPROF=Crush|DAMAGE|(STR/2)
+
+
+###Block: Mechanism to Grant STR 1-1/2 damage by other non-stacking means
+Bite Damage Increase	CATEGORY:Internal	BONUS:WEAPONPROF=Bite|DAMAGE|MAX(STR/2,0)
+
 
 ###Block: Mechanism to fix Wield Category Alterations by SIZEMOD
 # Ability Name				Weapon prof. bonus
@@ -254,6 +265,8 @@ CATEGORY=Internal|Tentacle.MOD	BONUS:WEAPONPROF=Tentacle|WIELDCATEGORY|SizeIncre
 CATEGORY=Internal|Wing.MOD		BONUS:WEAPONPROF=Wing|WIELDCATEGORY|SizeIncrease
 
 CATEGORY=Internal|Rake.MOD		BONUS:WEAPONPROF=Rake|WIELDCATEGORY|SizeIncrease
+
+CATEGORY=Internal|Hair.MOD		BONUS:WEAPONPROF=Hair|WIELDCATEGORY|SizeIncrease
 
 ###Block: The Grantors
 # Ability Name				Ability
@@ -273,6 +286,9 @@ CATEGORY=Internal|Rake.MOD		ABILITY:Internal|AUTOMATIC|Rake 2 (Diminutive)|PREBA
 
 CATEGORY=Internal|Tentacle.MOD	ABILITY:Internal|AUTOMATIC|Tail Sweep (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Tail Sweep (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Tail Sweep (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Tail Sweep (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Tail Sweep (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Tail Sweep (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Tail Sweep (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Tail Sweep (Colossal)|PREBASESIZEEQ:C
 CATEGORY=Internal|Wing.MOD		ABILITY:Internal|AUTOMATIC|Crush (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Crush (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Crush (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Crush (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Crush (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Crush (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Crush (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Crush (Colossal)|PREBASESIZEEQ:C
+
+CATEGORY=Internal|Hair.MOD		ABILITY:Internal|AUTOMATIC|Hair 1 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Small)|PREBASESIZEEQ:S|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Medium)|PREBASESIZEEQ:M|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Large)|PREBASESIZEEQ:L|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Huge)|PREBASESIZEEQ:H|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 1 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:HairAttacks,1	ABILITY:Internal|AUTOMATIC|Hair 2 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Small)|PREBASESIZEEQ:S|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Medium)|PREBASESIZEEQ:M|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Large)|PREBASESIZEEQ:L|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Huge)|PREBASESIZEEQ:H|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 2 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:HairAttacks,2	ABILITY:Internal|AUTOMATIC|Hair 3 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Small)|PREBASESIZEEQ:S|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Medium)|PREBASESIZEEQ:M|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Large)|PREBASESIZEEQ:L|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Huge)|PREBASESIZEEQ:H|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 3 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:HairAttacks,3	ABILITY:Internal|AUTOMATIC|Hair 4 (Tiny)|PREBASESIZEEQ:T|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Small)|PREBASESIZEEQ:S|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Medium)|PREBASESIZEEQ:M|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Large)|PREBASESIZEEQ:L|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Huge)|PREBASESIZEEQ:H|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Gargantuan)|PREBASESIZEEQ:G|PREVAREQ:HairAttacks,4	ABILITY:Internal|AUTOMATIC|Hair 4 (Colossal)|PREBASESIZEEQ:C|PREVAREQ:HairAttacks,4
+
 
 ###Block: Grants Natural Attacks
 # Bite -  1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 4d6 B/S/P Primary
@@ -1047,6 +1063,38 @@ Rake 2 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:
 Rake 2 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Rake 2 (Gargantuan)
 Rake 2 (Colossal)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Rake 2 (Colossal)
 
+# Hair - Witch Support
+Hair 1 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Hair 1 (Tiny)
+Hair 1 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Hair 1 (Small)
+Hair 1 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Hair 1 (Medium)
+Hair 1 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Hair 1 (Large)
+Hair 1 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Hair 1 (Huge)
+Hair 1 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Hair 1 (Gargantuan)
+Hair 1 (Colossal)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Hair 1 (Colossal)
+
+Hair 2 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Hair 2 (Tiny)
+Hair 2 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Hair 2 (Small)
+Hair 2 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Hair 2 (Medium)
+Hair 2 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Hair 2 (Large)
+Hair 2 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Hair 2 (Huge)
+Hair 2 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Hair 2 (Gargantuan)
+Hair 2 (Colossal)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Hair 2 (Colossal)
+
+Hair 3 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Hair 3 (Tiny)
+Hair 3 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Hair 3 (Small)
+Hair 3 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Hair 3 (Medium)
+Hair 3 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Hair 3 (Large)
+Hair 3 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Hair 3 (Huge)
+Hair 3 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Hair 3 (Gargantuan)
+Hair 3 (Colossal)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Hair 3 (Colossal)
+
+Hair 4 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Hair 4 (Tiny)
+Hair 4 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Hair 4 (Small)
+Hair 4 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Hair 4 (Medium)
+Hair 4 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Hair 4 (Large)
+Hair 4 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Hair 4 (Huge)
+Hair 4 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Hair 4 (Gargantuan)
+Hair 4 (Colossal)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Hair 4 (Colossal)
 
 ###BLOCK: Dragons
 # Natural Armor For Wyrmling is a variable based upon type, but always increases by 3 thereafter

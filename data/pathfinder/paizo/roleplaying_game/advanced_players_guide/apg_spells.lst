@@ -8,17 +8,19 @@ Corruption Resistance	TYPE:Divine	CLASSES:Antipaladin,Paladin=2	SCHOOL:Abjuratio
 Defile Armor		TYPE:Divine	CLASSES:Antipaladin=3		SCHOOL:Abjuration	DESCRIPTOR:Evil	COMPS:V, S		CASTTIME:1 standard action	RANGE:Touch		ITEM:Potion	TARGETAREA:Armor touched	DURATION:(CASTERLEVEL) minutes	SAVEINFO:Will negates (harmless, object)	SPELLRES:Yes (harmless, object)	SOURCEPAGE:p.215	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/defileArmor.html#_defile-armor				DESC:+(max(5,CASTERLEVEL/4)) AC, gain DR 5/good when usind smite.
 Resounding Blow		TYPE:Divine	CLASSES:Antipaladin=4		SCHOOL:Evocation	DESCRIPTOR:Sonic	COMPS:V		CASTTIME:1 swift action		RANGE:Personal			TARGETAREA:You			DURATION:(CASTERLEVEL) rounds		SAVEINFO:Fortitude partial, see text	SPELLRES:No					SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/resoundingBlow.html#_resounding-blow			DESC:Melee attacks deals 1d6 more damage.
 
+Resounding Blow.MOD			CLASSES:Inquisitor=5|Paladin=4
+
 ###Block: Main Spell List
 # Spell Name			Output Name						Classes of caster										School			Sub-School			Descriptor								Components																		Casting Time								Range						Item		Target Area or Effect																				Duration												Save Info									Spell Resistance				Source Page		Source Pub Link																			Description																																																																																																	Temporary Bonus
 Absorbing Touch										CLASSES:Alchemist=3									SCHOOL:Transmutation														COMPS:S																		CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:object touched																			DURATION:(CASTERLEVEL) days (D)								SAVEINFO:Fortitude negates (object)					SPELLRES:No					SOURCEPAGE:p.200	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/absorbingTouch.html#_absorbing-touch					DESC:Caster absorbs an item for (CASTERLEVEL) days
 Accelerate Poison										CLASSES:Druid,Ranger,Sorcerer,Wizard=2						SCHOOL:Transmutation														COMPS:V, S, M (a thorn)																CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:creature touched																			DURATION:Instantaneous										SAVEINFO:Fortitude negates						SPELLRES:Yes				SOURCEPAGE:p.201	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/acceleratePoison.html#_accelerate-poison				DESC:Hastens targeted poison's onset
-Acid Pit											CLASSES:Sorcerer,Summoner,Wizard=4							SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Acid							COMPS:V, S, M (drop of acid), F (Fine shovel worth 10 gp)										CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:10-ft.-by-10-ft. hole, (min(((CASTERLEVEL/2)*10),100)) ft. deep											DURATION:((CASTERLEVEL)+1) rounds								SAVEINFO:Reflex negates; see text					SPELLRES:No					SOURCEPAGE:p.201	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/acidPit.html#_acid-pit-							DESC:Creates a pit with a layer of acid on the bottom.
+Acid Pit											CLASSES:Sorcerer,Wizard=4							SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Acid							COMPS:V, S, M (drop of acid), F (Fine shovel worth 10 gp)										CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:10-ft.-by-10-ft. hole, (min(((CASTERLEVEL/2)*10),100)) ft. deep											DURATION:((CASTERLEVEL)+1) rounds								SAVEINFO:Reflex negates; see text					SPELLRES:No					SOURCEPAGE:p.201	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/acidPit.html#_acid-pit-							DESC:Creates a pit with a layer of acid on the bottom.
 Alchemical Allocation									CLASSES:Alchemist=2									SCHOOL:Transmutation														COMPS:S																		CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:1 round																											SOURCEPAGE:p.201	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/alchemicalAllocation.html#_alchemical-allocation			DESC:Gain potion's benefits without consuming it.
 Allfood											CLASSES:Ranger=2										SCHOOL:Transmutation														COMPS:V, S, M (a pinch of salt and pepper)												CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:object touched, weighing up to (CASTERLEVEL*5) lbs.													DURATION:Instantaneous										SAVEINFO:Will negates (object)					SPELLRES:Yes (object)			SOURCEPAGE:p.201	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/allfood.html#_allfood-
 Alter Winds											CLASSES:Druid,Sorcerer,Wizard=1							SCHOOL:Transmutation					DESCRIPTOR:Air							COMPS:V, S																		CASTTIME:1 minute								RANGE:Touch							TARGETAREA:immobile 10-ft.-radius emanation																DURATION:(CASTERLEVEL) hours									SAVEINFO:Will negates							SPELLRES:Yes				SOURCEPAGE:p.201	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/alterWinds.html#_alter-winds						DESC:Increase/decrease strength of natural winds.
 Amplify Elixir										CLASSES:Alchemist=3									SCHOOL:Transmutation														COMPS:S																		CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL) rounds																									SOURCEPAGE:p.202	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/amplifyElixir.html#_amplify-elixir					DESC:Empowers or extends the effects of any potion or elixir.
-Ant Haul											CLASSES:Alchemist,Cleric,Druid,Ranger,Sorcerer,Summoner,Wizard=1		SCHOOL:Transmutation														COMPS:V, S, M/DF (a small pulley)														CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:creature touched																			DURATION:(CASTERLEVEL*2) hours								SAVEINFO:Fortitude negates (harmless)				SPELLRES:Yes (harmless)			SOURCEPAGE:p.202	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/antHaul.html#_ant-haul-							DESC:Triples carrying capacity of a creature.
-Aqueous Orb											CLASSES:Druid,Sorcerer,Summoner,Wizard=3						SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Water							COMPS:V, S, M (a drop of water and a glass bead)											CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:10-ft.-diameter sphere																		DURATION:(CASTERLEVEL) rounds									SAVEINFO:Reflex negates							SPELLRES:No					SOURCEPAGE:p.202	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/aqueousOrb.html#_aqueous-orb						DESC:Creates rolling sphere of water.
+Ant Haul											CLASSES:Alchemist,Cleric,Druid,Ranger,Sorcerer,Wizard=1		SCHOOL:Transmutation														COMPS:V, S, M/DF (a small pulley)														CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:creature touched																			DURATION:(CASTERLEVEL*2) hours								SAVEINFO:Fortitude negates (harmless)				SPELLRES:Yes (harmless)			SOURCEPAGE:p.202	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/antHaul.html#_ant-haul-							DESC:Triples carrying capacity of a creature.
+Aqueous Orb											CLASSES:Druid,Sorcerer,Wizard=3						SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Water							COMPS:V, S, M (a drop of water and a glass bead)											CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:10-ft.-diameter sphere																		DURATION:(CASTERLEVEL) rounds									SAVEINFO:Reflex negates							SPELLRES:No					SOURCEPAGE:p.202	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/aqueousOrb.html#_aqueous-orb						DESC:Creates rolling sphere of water.
 Arcane Concordance									CLASSES:Bard=3										SCHOOL:Evocation															COMPS:V, S, M (a spent wand)															CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:10-ft.-radius emanation centered on you															DURATION:(CASTERLEVEL) rounds									SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.202	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/arcaneConcordance.html#_arcane-concordance				DESC:Grants metamagic to arcane spells.
 Arrow Eruption										CLASSES:Ranger,Sorcerer,Wizard=2							SCHOOL:Conjuration	SUBSCHOOL:Creation										COMPS:V, S, M (arrow or crossbow bolt)													CASTTIME:1 standard action						RANGE:Long							TARGETAREA:30-ft.-radius burst																		DURATION:Instantaneous										SAVEINFO:None								SPELLRES:Yes				SOURCEPAGE:p.202	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/arrowEruption.html#_arrow-eruption-					DESC:Creates duplicates of killing arrow.
 Aspect of the Bear									CLASSES:Druid,Ranger=2									SCHOOL:Transmutation	SUBSCHOOL:Polymorph										COMPS:V, S, DF																	CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL) minutes																								SOURCEPAGE:p.203	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/aspectOfTheBear.html#_aspect-of-the-bear				DESC:+2 AC and combat maneuver rolls.
@@ -69,7 +71,7 @@ Coordinated Effort									CLASSES:Bard,Inquisitor=3								SCHOOL:Divination			
 Coward's Lament										CLASSES:Inquisitor=4									SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting					COMPS:V, S, DF																	CASTTIME:1 standard action						RANGE:Close							TARGETAREA:one living creature																		DURATION:(CASTERLEVEL) rounds (D)								SAVEINFO:Will partial							SPELLRES:Yes				SOURCEPAGE:p.212	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/cowardSLament.html#_coward's-lament					DESC:If subject doesn't attack you it receives a penalty.
 Crafter's Curse										CLASSES:Sorcerer,Wizard=1								SCHOOL:Transmutation														COMPS:V, S, M (a broken tool)															CASTTIME:1 standard action						RANGE:Close					ITEM:Potion	TARGETAREA:one creature																				DURATION:(CASTERLEVEL) days (D)								SAVEINFO:Will negates							SPELLRES:Yes				SOURCEPAGE:p.213	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/crafterSCurse.html#_crafter's-curse					DESC:Subject takes -5 on Craft skill checks.
 Crafter's Fortune										CLASSES:Alchemist,Sorcerer,Wizard=1							SCHOOL:Transmutation														COMPS:V, S, F (a tool)																CASTTIME:1 standard action						RANGE:Close					ITEM:Potion	TARGETAREA:one creature																				DURATION:(CASTERLEVEL) days or until discharged (D)					SAVEINFO:Will negates (harmless)					SPELLRES:Yes (harmless)			SOURCEPAGE:p.213	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/crafterSFortune.html#_crafter's-fortune					DESC:Subject gains +5 on next Craft check.
-Create Pit											CLASSES:Sorcerer,Summoner,Wizard=2							SCHOOL:Conjuration	SUBSCHOOL:Creation										COMPS:V, S, F (miniature shovel costing 10 gp)												CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:10-ft.-by-10-ft. hole, (min(((CASTERLEVEL/2)*10),30)) ft. deep											DURATION:((CASTERLEVEL)+1) rounds								SAVEINFO:Reflex negates							SPELLRES:No					SOURCEPAGE:p.213	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/createPit.html#_create-pit-							DESC:Creates an extradimensional pit
+Create Pit											CLASSES:Sorcerer,Wizard=2							SCHOOL:Conjuration	SUBSCHOOL:Creation										COMPS:V, S, F (miniature shovel costing 10 gp)												CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:10-ft.-by-10-ft. hole, (min(((CASTERLEVEL/2)*10),30)) ft. deep											DURATION:((CASTERLEVEL)+1) rounds								SAVEINFO:Reflex negates							SPELLRES:No					SOURCEPAGE:p.213	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/createPit.html#_create-pit-							DESC:Creates an extradimensional pit
 Create Treasure Map									CLASSES:Bard,Ranger,Sorcerer,Wizard=2|Druid=3					SCHOOL:Divination															COMPS:V, S, M (powdered metal and rare inks worth 100 gp)										CASTTIME:1 hour								RANGE:Touch							TARGETAREA:one dead creature																			DURATION:Instantaneous										SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.214	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/createTreasureMap.html#_create-treasure-map-				DESC:Creates treasure map out of a creature's corpse.
 Cup of Dust											CLASSES:Druid,Witch=3									SCHOOL:Transmutation														COMPS:V, S, M (a pinch of dust)														CASTTIME:1 standard action						RANGE:Close					ITEM:Potion	TARGETAREA:one creature																				DURATION:(CASTERLEVEL) days (D)								SAVEINFO:Fortitude negates						SPELLRES:Yes				SOURCEPAGE:p.214	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/cupOfDust.html#_cup-of-dust							DESC:Causes a creature to become dehydrated.
 Dancing Lantern										CLASSES:Bard,Cleric,Ranger,Sorcerer,Witch,Wizard=1				SCHOOL:Transmutation					DESCRIPTOR:Fire|Light						COMPS:V, S, F (a lantern)															CASTTIME:1 standard action						RANGE:Touch							TARGETAREA:Animates one lantern																		DURATION:(CASTERLEVEL) hours (D)								SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.214	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/dancingLantern.html#_dancing-lantern-					DESC:Animates a lantern that follows you.
@@ -81,7 +83,7 @@ Delayed Consumption									CLASSES:Alchemist=5									SCHOOL:Transmutation				
 Denounce											CLASSES:Bard,Inquisitor=4								SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Language-Dependent|Mind-Affecting		COMPS:V																		CASTTIME:1 standard action						RANGE:Close							TARGETAREA:30-ft.-radius burst																		DURATION:(CASTERLEVEL) hours									SAVEINFO:Will negates							SPELLRES:Yes				SOURCEPAGE:p.215	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/denounce.html#_denounce							DESC:Worsens attitudes toward target creature.
 Detect Aberration										CLASSES:Druid,Ranger=1									SCHOOL:Divination															COMPS:V, S																		CASTTIME:1 standard action						RANGE:Long							TARGETAREA:cone-shaped emanation																		DURATION:concentration, up to (CASTERLEVEL*10) minutes (D)				SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.215	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/detectAberration.html#_detect-aberration				DESC:Reveals presence of aberrations.
 Detonate											CLASSES:Alchemist,Sorcerer,Wizard=4							SCHOOL:Evocation						DESCRIPTOR:Acid|Cold|Electricity|Fire			COMPS:V, S, M (two vials; one containing acid and one containing an alkaline solution worth a total of 50 gp)	CASTTIME:1 standard action						RANGE:30 ft.						TARGETAREA:30-ft.-radius spread centered on you																DURATION:1 round, then instantaneous							SAVEINFO:Reflex half							SPELLRES:Yes				SOURCEPAGE:p.215	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/detonate.html#_detonate							DESC:Inflicts (min(CASTERLEVEL,10))d8 energy damage to all creatures within 15 feet, and half that amount to targets past 15 feet but within 30 feet.
-Devolution											CLASSES:Sorcerer,Summoner,Wizard=3							SCHOOL:Transmutation														COMPS:V, S, M (a chameleon scale)														CASTTIME:1 standard action						RANGE:Close					ITEM:Potion	TARGETAREA:one eidolon																				DURATION:(CASTERLEVEL) rounds									SAVEINFO:Will negates							SPELLRES:Yes				SOURCEPAGE:p.216	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/devolution.html#_devolution							DESC:Target eidolon temporarily loses ((CASTERLEVEL/5)+1) evolutions
+Devolution											CLASSES:Sorcerer,Wizard=3							SCHOOL:Transmutation														COMPS:V, S, M (a chameleon scale)														CASTTIME:1 standard action						RANGE:Close					ITEM:Potion	TARGETAREA:one eidolon																				DURATION:(CASTERLEVEL) rounds									SAVEINFO:Will negates							SPELLRES:Yes				SOURCEPAGE:p.216	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/devolution.html#_devolution							DESC:Target eidolon temporarily loses ((CASTERLEVEL/5)+1) evolutions
 Discordant Blast										CLASSES:Bard=4										SCHOOL:Evocation						DESCRIPTOR:Sonic							COMPS:V, S																		CASTTIME:1 standard action						RANGE:10 ft. or 30 ft.					TARGETAREA:see text																				DURATION:Instantaneous										SAVEINFO:None								SPELLRES:Yes				SOURCEPAGE:p.216	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/discordantBlast.html#_discordant-blast					DESC:3d6 sonic damage in 10-ft. burst or 30-ft. cone can also bull rush creatures.
 Divine Transfer										CLASSES:Paladin=3										SCHOOL:Necromancy															COMPS:V, S																		CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:living creature touched																		DURATION:(CASTERLEVEL) rounds									SAVEINFO:Fortitude negates (harmless)				SPELLRES:Yes (harmless)			SOURCEPAGE:p.216	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/divineTransfer.html#_divine-transfer					DESC:Transfer hit points and give DR/evil to target creature.
 Draconic Reservoir									CLASSES:Alchemist,Sorcerer,Wizard=3							SCHOOL:Evocation						DESCRIPTOR:Acid|Cold|Electricity|Fire			COMPS:V, S, M (a scale from dragon that produces the energy you seek to absorb)						CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:creature touched																			DURATION:(CASTERLEVEL*10) minutes or until discharged; see text			SAVEINFO:Fortitude negates (harmless)				SPELLRES:Yes (harmless)			SOURCEPAGE:p.217	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/draconicReservoir.html#_draconic-reservoir-				DESC:Subject can absorb energy damage and enhance melee attacks with it.
@@ -95,9 +97,9 @@ Elude Time											CLASSES:Alchemist=5									SCHOOL:Transmutation											
 Enemy Hammer										CLASSES:Sorcerer,Wizard=6								SCHOOL:Transmutation														COMPS:V, S, M (puppet strings)														CASTTIME:1 standard action						RANGE:Long							TARGETAREA:one creature																				DURATION:(CASTERLEVEL) rounds (D)								SAVEINFO:Fortitude partial						SPELLRES:Yes				SOURCEPAGE:p.219	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/enemyHammer.html#_enemy-hammer-						DESC:Allows you to telekinetically use a creature as a weapon.
 Enter Image											CLASSES:Bard=2|Cleric,Sorcerer,Wizard=3						SCHOOL:Transmutation														COMPS:V, S, M/DF (a drop of paint and a ball of clay)											CASTTIME:1 standard action						RANGE:(CASTERLEVEL * 50) ft.				TARGETAREA:transfer consciousness to any object bearing your likeness												DURATION:concentration										SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.219	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/enterImage.html#_enter-image-						DESC:Transfers your consciousness to an object bearing your likeness.
 Euphoric Tranquility									CLASSES:Bard=6|Cleric,Druid,Sorcerer,Wizard=8					SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting					COMPS:V, S, M/DF (a poppy flower)														CASTTIME:1 standard action						RANGE:Touch							TARGETAREA:creature touched																			DURATION:(CASTERLEVEL) rounds									SAVEINFO:None and Will partial (see below)			SPELLRES:Yes				SOURCEPAGE:p.219	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/euphoricTranquility.html#_euphoric-tranquility			DESC:Makes a creature friendly.
-Evolution Surge										CLASSES:Summoner=3									SCHOOL:Transmutation														COMPS:V, S, M (a chameleon scale)														CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:Your eidolon																				DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (harmless)					SPELLRES:No					SOURCEPAGE:p.220	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/evolutionSurge.html#_evolution-surge					DESC:Grants eidolon an evolution worth up to 4 evolution points.
-Evolution Surge (Greater)	OUTPUTNAME:Evolution Surge, Greater		CLASSES:Summoner=4									SCHOOL:Transmutation														COMPS:V, S, M (a chameleon scale)														CASTTIME:1 standard action						RANGE:Touch							TARGETAREA:Your eidolon																				DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (harmless)					SPELLRES:No					SOURCEPAGE:p.220	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/evolutionSurge.html#_evolution-surge,-greater				DESC:Grants eidolon any two evolutions whose total cost does not exceed 6 evolution points.
-Evolution Surge (Lesser)	OUTPUTNAME:Evolution Surge, Lesser		CLASSES:Summoner=2									SCHOOL:Transmutation														COMPS:V, S, M (a chameleon scale)														CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:Your eidolon																				DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (harmless)					SPELLRES:No					SOURCEPAGE:p.220	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/evolutionSurge.html#_evolution-surge,-lesser				DESC:Grants eidolon an evolution worth up to 2 evolution points.
+Evolution Surge																			SCHOOL:Transmutation														COMPS:V, S, M (a chameleon scale)														CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:Your eidolon																				DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (harmless)					SPELLRES:No					SOURCEPAGE:p.220	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/evolutionSurge.html#_evolution-surge					DESC:Grants eidolon an evolution worth up to 4 evolution points.
+Evolution Surge (Greater)	OUTPUTNAME:Evolution Surge, Greater											SCHOOL:Transmutation														COMPS:V, S, M (a chameleon scale)														CASTTIME:1 standard action						RANGE:Touch							TARGETAREA:Your eidolon																				DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (harmless)					SPELLRES:No					SOURCEPAGE:p.220	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/evolutionSurge.html#_evolution-surge,-greater				DESC:Grants eidolon any two evolutions whose total cost does not exceed 6 evolution points.
+Evolution Surge (Lesser)	OUTPUTNAME:Evolution Surge, Lesser											SCHOOL:Transmutation														COMPS:V, S, M (a chameleon scale)														CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:Your eidolon																				DURATION:(CASTERLEVEL) minutes								SAVEINFO:Will negates (harmless)					SPELLRES:No					SOURCEPAGE:p.220	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/evolutionSurge.html#_evolution-surge,-lesser				DESC:Grants eidolon an evolution worth up to 2 evolution points.
 Expeditious Excavation									CLASSES:Druid,Sorcerer,Wizard=1							SCHOOL:Transmutation					DESCRIPTOR:Earth							COMPS:V, S, M (tiny shovel)															CASTTIME:1 standard action						RANGE:Close							TARGETAREA:dirt in a 5-ft. cube																		DURATION:Instantaneous										SAVEINFO:see text								SPELLRES:No					SOURCEPAGE:p.220	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/expeditiousExcavation.html#_expeditious-excavation			DESC:Moves 5-ft. cubes of earth.
 Expend											CLASSES:Sorcerer,Wizard=7								SCHOOL:Abjuration															COMPS:V, S, M (miniature broken hourglass)												CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:20-ft.-radius burst																		DURATION:Instantaneous										SAVEINFO:Will negates							SPELLRES:Yes				SOURCEPAGE:p.220	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/expend.html#_expend-								DESC:Wastes creatures' limited use magical ability
 Feast of Ashes										CLASSES:Druid,Witch=2									SCHOOL:Transmutation														COMPS:V, S, M (a pinch of ash)														CASTTIME:1 standard action						RANGE:Close					ITEM:Potion	TARGETAREA:one creature																				DURATION:(CASTERLEVEL*2) days (D)								SAVEINFO:Fortitude negates						SPELLRES:Yes				SOURCEPAGE:p.220	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/feastOfAshes.html#_feast-of-ashes						DESC:A target starves with an insatiable hunger.
@@ -127,7 +129,7 @@ Getaway											CLASSES:Bard,Sorcerer,Wizard=6							SCHOOL:Conjuration	SUBSCH
 Geyser											CLASSES:Druid=4|Sorcerer,Wizard=5							SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Fire|Water						COMPS:V, S, M/DF (a piece of lava rock)													CASTTIME:1 standard action						RANGE:Long							TARGETAREA:spout of boiling water filling a 5 ft. square and spraying upward ((CASTERLEVEL/2) *10) ft.						DURATION:concentration + (CASTERLEVEL) rounds						SAVEINFO:Reflex partial (see below)					SPELLRES:No					SOURCEPAGE:p.225	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/geyser.html#_geyser-								DESC:Creates a geyser of boiling water.
 Ghostbane Dirge										CLASSES:Paladin=1|Bard,Cleric,Inquisitor=2					SCHOOL:Transmutation														COMPS:V, S, M/DF (an old reed from a wind instrument)											CASTTIME:1 standard action						RANGE:Close							TARGETAREA:one incorporeal creature																		DURATION:(CASTERLEVEL) rounds									SAVEINFO:Will negates							SPELLRES:Yes				SOURCEPAGE:p.225	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/ghostbaneDirge.html#_ghostbane-dirge					DESC:Incorporeal creature takes half damage from nonmagical weapons.
 Ghostbane Dirge (Mass)		OUTPUTNAME:Ghostbane Dirge, Mass		CLASSES:Paladin=3|Bard=4|Cleric,Inquisitor=5					SCHOOL:Transmutation														COMPS:V, S, M/DF (an old reed from a wind instrument)											CASTTIME:1 standard action						RANGE:Close							TARGETAREA:(CASTERLEVEL) incorporeal creatures, no two of which can be more than 30 ft. apart								DURATION:(CASTERLEVEL) rounds									SAVEINFO:Will negates							SPELLRES:Yes				SOURCEPAGE:p.225	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/ghostbaneDirge.html#_ghostbane-dirge,-mass				DESC:As ghostbane dirge, but affecting multiple creatures.
-Glide												CLASSES:Ranger=1|Druid,Sorcerer,Summoner,Witch,Wizard=2			SCHOOL:Transmutation														COMPS:V, S, M/DF (a leaf )															CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:until landing or (CASTERLEVEL) minutes (D)																					SOURCEPAGE:p.225	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/glide.html#_glide-								DESC:You take no falling damage, move 60 ft./round while falling.
+Glide												CLASSES:Ranger=1|Druid,Sorcerer,Witch,Wizard=2			SCHOOL:Transmutation														COMPS:V, S, M/DF (a leaf )															CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:until landing or (CASTERLEVEL) minutes (D)																					SOURCEPAGE:p.225	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/glide.html#_glide-								DESC:You take no falling damage, move 60 ft./round while falling.
 Grace												CLASSES:Paladin=1|Cleric=2								SCHOOL:Abjuration															COMPS:V																		CASTTIME:1 swift action							RANGE:Personal						TARGETAREA:You																					DURATION:see text																											SOURCEPAGE:p.226	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/grace.html#_grace								DESC:Movement doesn't provoke attacks of opportunity.
 Gravity Bow											CLASSES:Ranger,Sorcerer,Wizard=1							SCHOOL:Transmutation														COMPS:V, S																		CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL) minutes (D)																								SOURCEPAGE:p.226	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/gravityBow.html#_gravity-bow-						DESC:Arrows do damage as though one size category bigger.
 Grove of Respite										CLASSES:Druid,Ranger=4									SCHOOL:Conjuration	SUBSCHOOL:Creation										COMPS:V, S, M/DF (a leaf or blade of grass and a drop of water)									CASTTIME:10 minutes							RANGE:Close							TARGETAREA:20-ft.-radius grove																		DURATION:(CASTERLEVEL*2) hours (D)								SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.226	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/groveOfRespite.html#_grove-of-respite					DESC:Creates trees and a small spring.
@@ -138,7 +140,7 @@ Hidden Speech										CLASSES:Bard,Witch=2|Inquisitor=3							SCHOOL:Transmutat
 Hide Campsite										CLASSES:Ranger=2|Druid=3								SCHOOL:Illusion		SUBSCHOOL:Glamer											COMPS:V, S, M (a sprig of mistletoe, and a vial of quicksilver)									CASTTIME:10 minutes							RANGE:Close							TARGETAREA:one 20-ft. cube																			DURATION:(CASTERLEVEL*2) hours (D)								SAVEINFO:Will disbelief (if interacted with)			SPELLRES:No					SOURCEPAGE:p.227	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/hideCampsite.html#_hide-campsite						DESC:Hides all traces of your campsite.
 Holy Whisper										CLASSES:Paladin=3										SCHOOL:Evocation						DESCRIPTOR:Good							COMPS:V, S																		CASTTIME:1 standard action						RANGE:30 ft.						TARGETAREA:cone-shaped burst																			DURATION:Instantaneous										SAVEINFO:Fortitude negates; see text				SPELLRES:Yes				SOURCEPAGE:p.228	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/holyWhisper.html#_holy-whisper						DESC:Whisper sickens evil creatures, gives good creatures bonuses.
 Honeyed Tongue										CLASSES:Paladin=1|Bard,Inquisitor=2							SCHOOL:Transmutation														COMPS:V, M/DF (a drop of honey)														CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL*10) minutes																								SOURCEPAGE:p.228	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/honeyedTongue.html#_honeyed-tongue					DESC:Roll 2 dice when using Diplomacy, take higher roll.
-Hungry Pit											CLASSES:Sorcerer,Summoner,Wizard=5							SCHOOL:Conjuration	SUBSCHOOL:Creation										COMPS:V, S, F (miniature shovel costing 10 gp)												CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:10-ft.-by-10-ft. hole, (min(((CASTERLEVEL/2)*10),100)) ft. deep											DURATION:((CASTERLEVEL)+1) rounds								SAVEINFO:Reflex negates; Reflex half; see text			SPELLRES:No					SOURCEPAGE:p.228	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/hungryPit.html#_hungry-pit-							DESC:As create pit, but dealing 4d6 damage to those in it as it closes.
+Hungry Pit											CLASSES:Sorcerer,Wizard=5							SCHOOL:Conjuration	SUBSCHOOL:Creation										COMPS:V, S, F (miniature shovel costing 10 gp)												CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:10-ft.-by-10-ft. hole, (min(((CASTERLEVEL/2)*10),100)) ft. deep											DURATION:((CASTERLEVEL)+1) rounds								SAVEINFO:Reflex negates; Reflex half; see text			SPELLRES:No					SOURCEPAGE:p.228	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/hungryPit.html#_hungry-pit-							DESC:As create pit, but dealing 4d6 damage to those in it as it closes.
 Hunter's Eye										CLASSES:Ranger=2|Inquisitor=3								SCHOOL:Divination															COMPS:V, S, DF																	CASTTIME:1 standard action						RANGE:Medium				ITEM:Potion	TARGETAREA:one creature																				DURATION:(CASTERLEVEL) minutes								SAVEINFO:None								SPELLRES:Yes				SOURCEPAGE:p.228	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/hunterSEye.html#_hunter's-eye						DESC:+20 on Perception checks to locate a target.
 Hunter's Howl										CLASSES:Ranger=1										SCHOOL:Necromancy						DESCRIPTOR:Fear|Mind-Affecting				COMPS:V, S																		CASTTIME:1 standard action						RANGE:20 ft.						TARGETAREA:20-ft.-radius burst																		DURATION:(CASTERLEVEL) rounds									SAVEINFO:Will negates Spell Resistance none									SOURCEPAGE:p.228	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/hunterSHowl.html#_hunter's-howl						DESC:Treat enemies as favored for (CASTERLEVEL) rounds.
 Hydraulic Push										CLASSES:Druid,Sorcerer,Wizard=1							SCHOOL:Evocation						DESCRIPTOR:Water							COMPS:V, S																		CASTTIME:1 standard action						RANGE:Close					ITEM:Potion	TARGETAREA:one creature or object																		DURATION:Instantaneous										SAVEINFO:None								SPELLRES:Yes				SOURCEPAGE:p.228	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/hydraulicPush.html#_hydraulic-push-					DESC:Wave of water bull rushes an enemy.
@@ -175,21 +177,21 @@ Phantasmal Revenge									CLASSES:Sorcerer,Wizard=7								SCHOOL:Illusion		SUB
 Phantasmal Web										CLASSES:Bard,Sorcerer,Wizard=5							SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-Affecting					COMPS:V, S																		CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:(CASTERLEVEL) creatures, no two of which may be more than 30 ft. apart										DURATION:(CASTERLEVEL) rounds (D)								SAVEINFO:Will disbelief, then Fortitude partial; see text	SPELLRES:Yes				SOURCEPAGE:p.235	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/phantasmalWeb.html#_phantasmal-web					DESC:Catches subjects in illusory web.
 Pied Piping											CLASSES:Bard=6										SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting|Sonic				COMPS:V or F (musical instrument)														CASTTIME:1 standard action						RANGE:90 ft.						TARGETAREA:90-ft.-radius emanation, centered on you															DURATION:concentration + (CASTERLEVEL) rounds						SAVEINFO:Will partial; see text					SPELLRES:Yes				SOURCEPAGE:p.236	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/piedPiping.html#_pied-piping-						DESC:Compel similar creatures to follow you.
 Pillar of Life										CLASSES:Cleric=5										SCHOOL:Conjuration	SUBSCHOOL:Healing		DESCRIPTOR:Light							COMPS:V, S, DF																	CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:5-ft.-square pillar of positive energy, 20 ft. high													DURATION:(CASTERLEVEL) rounds									SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.236	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/pillarOfLife.html#_pillar-of-life						DESC:Created pillar heals 2d8 + (min(CASTERLEVEL,20)).
-Planar Adaptation										CLASSES:Cleric=4|Alchemist,Sorcerer,Summoner,Wizard=5				SCHOOL:Transmutation														COMPS:V																		CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL) hours (D)																								SOURCEPAGE:p.236	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/planarAdaptation.html#_planar-adaptation				DESC:Resist harmful effects of other plane.
-Planar Adaptation (Mass)	OUTPUTNAME:Planar Adaptation, Mass		CLASSES:Cleric,Summoner=6|Sorcerer,Wizard=7					SCHOOL:Transmutation														COMPS:V, S																		CASTTIME:1 standard action						RANGE:Close							TARGETAREA:(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart										DURATION:(CASTERLEVEL) hours (D)								SAVEINFO:Will negates (harmless)					SPELLRES:Yes (harmless)			SOURCEPAGE:p.236	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/planarAdaptation.html#_planar-adaptation,-mass			DESC:Resist harmful effects of other plane.
+Planar Adaptation										CLASSES:Cleric=4|Alchemist,Sorcerer,Wizard=5				SCHOOL:Transmutation														COMPS:V																		CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL) hours (D)																								SOURCEPAGE:p.236	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/planarAdaptation.html#_planar-adaptation				DESC:Resist harmful effects of other plane.
+Planar Adaptation (Mass)	OUTPUTNAME:Planar Adaptation, Mass		CLASSES:Cleric=6|Sorcerer,Wizard=7					SCHOOL:Transmutation														COMPS:V, S																		CASTTIME:1 standard action						RANGE:Close							TARGETAREA:(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart										DURATION:(CASTERLEVEL) hours (D)								SAVEINFO:Will negates (harmless)					SPELLRES:Yes (harmless)			SOURCEPAGE:p.236	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/planarAdaptation.html#_planar-adaptation,-mass			DESC:Resist harmful effects of other plane.
 Pox Pustules										CLASSES:Druid,Witch=2									SCHOOL:Necromancy															COMPS:V, S, M (leaves from a toxic plant)													CASTTIME:1 standard action						RANGE:Close					ITEM:Potion	TARGETAREA:one creature																				DURATION:(CASTERLEVEL) minutes								SAVEINFO:Fortitude negates						SPELLRES:Yes				SOURCEPAGE:p.236	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/poxPustules.html#_pox-pustules						DESC:Subject is sickened and has -4 Dex.
 Protective Spirit										CLASSES:Ranger=2										SCHOOL:Conjuration	SUBSCHOOL:Creation										COMPS:V, S, DF																	CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL) rounds																									SOURCEPAGE:p.237	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/protectiveSpirit.html#_protective-spirit				DESC:Protects from attacks of opportunity.
 Purging Finale										CLASSES:Bard=3										SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S																		CASTTIME:1 standard action						RANGE:Close					ITEM:Potion	TARGETAREA:one living creature																		DURATION:Instantaneous										SAVEINFO:Will negates (harmless)					SPELLRES:Yes (harmless)			SOURCEPAGE:p.237	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/purgingFinale.html#_purging-finale					DESC:Removes one negative effect.
-Purified Calling										CLASSES:Summoner=4									SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S, M (a stick of incense)														CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:1 minute																											SOURCEPAGE:p.237	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/purifiedCalling.html#_purified-calling					DESC:Eidolon summoned is fully healed.
+Purified Calling																			SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S, M (a stick of incense)														CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:1 minute																											SOURCEPAGE:p.237	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/purifiedCalling.html#_purified-calling					DESC:Eidolon summoned is fully healed.
 Putrefy Food and Drink									CLASSES:Witch=0										SCHOOL:Transmutation														COMPS:V, S																		CASTTIME:1 standard action						RANGE:10 ft.				ITEM:Potion	TARGETAREA:(CASTERLEVEL) cu. ft. of food and water or one potion; see text											DURATION:Instantaneous										SAVEINFO:Will negates (object)					SPELLRES:Yes (object)			SOURCEPAGE:p.237	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/putrefyFoodAndDrink.html#_putrefy-food-and-drink			DESC:Makes food and water inedible.
 Rally Point											CLASSES:Paladin=1										SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Good|Mind-Affecting				COMPS:V, S, DF																	CASTTIME:1 standard action						RANGE:5 ft.							TARGETAREA:one 5-ft. square																			DURATION:(CASTERLEVEL) minutes (D)								SAVEINFO:Will negates (harmless)					SPELLRES:Yes (harmless)			SOURCEPAGE:p.237	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/rallyPoint.html#_rally-point-						DESC:Square gives good creatures bonuses.
 Rampart											CLASSES:Druid,Sorcerer,Wizard=7							SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Earth							COMPS:V, S, M (a handful of earth)														CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:10-ft.-high earthen wall, in a line up to ((CASTERLEVEL/2)*10) ft. long, or a circle with radius of up to (CASTERLEVEL+3) ft.	DURATION:Instantaneous										SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.237	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/rampart.html#_rampart								DESC:Creates 5-ft.-thick earthen barrier.
 Rebuke											CLASSES:Inquisitor=4									SCHOOL:Evocation						DESCRIPTOR:Sonic							COMPS:V, S, DF																	CASTTIME:1 standard action						RANGE:20 ft.						TARGETAREA:20-ft.-radius burst centered on you																DURATION:Instantaneous										SAVEINFO:Fortitude partial						SPELLRES:Yes				SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/rebuke.html#_rebuke								DESC:Foes take (min((CASTERLEVEL/2),5))d8 damage.
-Rejuvenate Eidolon									CLASSES:Summoner=3									SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S, M (a drop of your blood)													CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:eidolon touched																			DURATION:Instantaneous										SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/rejuvenateEidolon.html#_rejuvenate-eidolon				DESC:Eidolon cured 3d10+(min(CASTERLEVEL,10)) damage.
-Rejuvenate Eidolon (Greater)	OUTPUTNAME:Rejuvenate Eidolon, Greater	CLASSES:Summoner=5									SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S, M (a drop of your blood)													CASTTIME:1 standard action						RANGE:Touch							TARGETAREA:eidolon touched																			DURATION:Instantaneous										SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/rejuvenateEidolon.html#_rejuvenate-eidolon,-greater			DESC:Eidolon cured 5d10+(min(CASTERLEVEL,20)) damage.
-Rejuvenate Eidolon (Lesser)	OUTPUTNAME:Rejuvenate Eidolon, Lesser	CLASSES:Summoner=1									SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S, M (a drop of your blood)													CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:eidolon touched																			DURATION:Instantaneous										SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/rejuvenateEidolon.html#_rejuvenate-eidolon,-lesser			DESC:Eidolon cured 1d10+(min(CASTERLEVEL,5)) damage.
+Rejuvenate Eidolon																		SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S, M (a drop of your blood)													CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:eidolon touched																			DURATION:Instantaneous										SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/rejuvenateEidolon.html#_rejuvenate-eidolon				DESC:Eidolon cured 3d10+(min(CASTERLEVEL,10)) damage.
+Rejuvenate Eidolon (Greater)	OUTPUTNAME:Rejuvenate Eidolon, Greater										SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S, M (a drop of your blood)													CASTTIME:1 standard action						RANGE:Touch							TARGETAREA:eidolon touched																			DURATION:Instantaneous										SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/rejuvenateEidolon.html#_rejuvenate-eidolon,-greater			DESC:Eidolon cured 5d10+(min(CASTERLEVEL,20)) damage.
+Rejuvenate Eidolon (Lesser)	OUTPUTNAME:Rejuvenate Eidolon, Lesser										SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S, M (a drop of your blood)													CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:eidolon touched																			DURATION:Instantaneous										SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/rejuvenateEidolon.html#_rejuvenate-eidolon,-lesser			DESC:Eidolon cured 1d10+(min(CASTERLEVEL,5)) damage.
 Residual Tracking										CLASSES:Ranger=1										SCHOOL:Divination															COMPS:V, S, M (a bit of plaster)														CASTTIME:1 minute								RANGE:Touch							TARGETAREA:footprint touched																			DURATION:Instantaneous										SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/residualTracking.html#_residual-tracking				DESC:Tell creature's appearance by footprint.
-#Resounding Blow	SOURCEPAGE:p.238	SCHOOL:Evocation	DESCRIPTOR:Sonic	CLASSES:Antipaladin=4|Inquisitor=5|Paladin=4	CASTTIME:1 swift action	COMPS:V	RANGE:Personal	TARGETAREA:You	DURATION:(CASTERLEVEL) rounds	SAVEINFO:Fortitude partial; see text	SPELLRES:No	DESC:Melee attack deals 1d6 more damage.
+Resounding Blow	SOURCEPAGE:p.238	SCHOOL:Evocation	DESCRIPTOR:Sonic	CLASSES:Antipaladin=4|Inquisitor=5|Paladin=4	CASTTIME:1 swift action	COMPS:V	RANGE:Personal	TARGETAREA:You	DURATION:(CASTERLEVEL) rounds	SAVEINFO:Fortitude partial; see text	SPELLRES:No	DESC:Melee attack deals 1d6 more damage.
 Rest Eternal										CLASSES:Cleric=4|Druid,Witch=5							SCHOOL:Necromancy															COMPS:V, S, M/DF (ashes and a vial of holy or unholy water)										CASTTIME:1 round								RANGE:Touch							TARGETAREA:one dead creature touched																	DURATION:permanent										SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.238	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/restEternal.html#_rest-eternal						DESC:Dead creature cannot be revived.
 Restful Sleep										CLASSES:Bard=1										SCHOOL:Necromancy															COMPS:V, S, M (a pinch of sand)														CASTTIME:10 minutes							RANGE:Close							TARGETAREA:(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart										DURATION:8 hours or 24 hours; see text							SAVEINFO:Fortitude negates (harmless)				SPELLRES:Yes (harmless)			SOURCEPAGE:p.239	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/restfulSleep.html#_restful-sleep						DESC:Gain more hit points while sleeping.
 Resurgent Transformation								CLASSES:Alchemist=5									SCHOOL:Conjuration	SUBSCHOOL:Healing											COMPS:V, S, M (a pinch of meteoric iron worth 100 gp)											CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL) hours or until triggered, then (CASTERLEVEL) rounds																	SOURCEPAGE:p.239	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/resurgentTransformation.html#_resurgent-transformation		DESC:Gain second wind when close to death
@@ -206,7 +208,7 @@ Scent Trail											CLASSES:Druid=2										SCHOOL:Transmutation													
 Screech											CLASSES:Witch=3										SCHOOL:Evocation						DESCRIPTOR:Sonic							COMPS:V																		CASTTIME:1 standard action						RANGE:30 ft.						TARGETAREA:30-ft.-radius spread centered on you																DURATION:Instantaneous										SAVEINFO:Fortitude negates						SPELLRES:Yes				SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/screech.html#_screech								DESC:Foes provoke attacks of opportunity.
 Sculpt Corpse										CLASSES:Sorcerer,Wizard=1								SCHOOL:Necromancy															COMPS:V, S, M (lump of wax)															CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:one dead creature touched																	DURATION:Instantaneous										SAVEINFO:Will partial; see text					SPELLRES:No					SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/sculptCorpse.html#_sculpt-corpse-						DESC:Makes corpse look like another creature.
 Seamantle											CLASSES:Druid,Sorcerer,Wizard=8							SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Water							COMPS:V, S, M (a cup of water)														CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL) minutes																								SOURCEPAGE:p.241	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/seamantle.html#_seamantle							DESC:Sheathes you in protective water.
-Seek Thoughts										CLASSES:Alchemist,Bard,Inquisitor,Sorcerer,Summoner,Witch,Wizard=3	SCHOOL:Divination						DESCRIPTOR:Mind-Affecting					COMPS:V, S, M (a handful of copper coins)													CASTTIME:1 standard action						RANGE:40 ft.						TARGETAREA:40-ft.-radius emanation centered on you															DURATION:concentration, up to (CASTERLEVEL) minutes					SAVEINFO:Will negates							SPELLRES:No					SOURCEPAGE:p.242	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/seekThoughts.html#_seek-thoughts						DESC:Detects thinking creatures' thoughts
+Seek Thoughts										CLASSES:Alchemist,Bard,Inquisitor,Sorcerer,Witch,Wizard=3	SCHOOL:Divination						DESCRIPTOR:Mind-Affecting					COMPS:V, S, M (a handful of copper coins)													CASTTIME:1 standard action						RANGE:40 ft.						TARGETAREA:40-ft.-radius emanation centered on you															DURATION:concentration, up to (CASTERLEVEL) minutes					SAVEINFO:Will negates							SPELLRES:No					SOURCEPAGE:p.242	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/seekThoughts.html#_seek-thoughts						DESC:Detects thinking creatures' thoughts
 Shadow Projection										CLASSES:Sorcerer,Wizard=4								SCHOOL:Necromancy						DESCRIPTOR:Evil							COMPS:S																		CASTTIME:1 minute								RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL) hours (D)																								SOURCEPAGE:p.243	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/shadowProjection.html#_shadow-projection				DESC:Temporarily become a shadow.
 Share Language										CLASSES:Bard=1|Cleric,Druid,Sorcerer,Wizard=2					SCHOOL:Divination															COMPS:V, S, M (a page from a dictionary)													CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:creature touched																			DURATION:24 hours											SAVEINFO:Will negates (harmless)					SPELLRES:Yes (harmless)			SOURCEPAGE:p.243	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/shareLanguage.html#_share-language-					DESC:Subject understands chosen language.
 Share Senses										CLASSES:Witch=3|Sorcerer,Wizard=4							SCHOOL:Divination		SUBSCHOOL:Scrying											COMPS:V, S, M (a hair, scale, or feather from your familiar)									CASTTIME:1 full round							RANGE:Long					ITEM:Potion	TARGETAREA:Your familiar																			DURATION:(CASTERLEVEL) minutes (D)								SAVEINFO:Will negates (harmless)					SPELLRES:Yes (harmless)			SOURCEPAGE:p.243	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/shareSenses.html#_share-senses						DESC:Perceive the world around your familiar.
@@ -219,7 +221,7 @@ Slipstream											CLASSES:Druid,Ranger,Sorcerer,Wizard=2						SCHOOL:Conjurat
 Snake Staff											CLASSES:Cleric,Druid=5									SCHOOL:Transmutation														COMPS:V, S, M (a knife suitable for whittling)												CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:1 or more pieces of wood, no two of which can be more than 30 ft. apart										DURATION:(CASTERLEVEL) rounds									SAVEINFO:Will negates (object)					SPELLRES:Yes (object)			SOURCEPAGE:p.245	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/snakeStaff.html#_snake-staff						DESC:Transforms wood into snakes to fight for you.
 Solid Note											CLASSES:Bard=1										SCHOOL:Conjuration	SUBSCHOOL:Creation										COMPS:V																		CASTTIME:1 standard action						RANGE:Close							TARGETAREA:one solidified musical note																	DURATION:concentration + (CASTERLEVEL) rounds						SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.245	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/solidNote.html#_solid-note							DESC:Creates tangible music note.
 Spark												CLASSES:Bard,Cleric,Druid,Sorcerer,Witch,Wizard=0				SCHOOL:Evocation						DESCRIPTOR:Fire							COMPS:V or S																	CASTTIME:1 standard action						RANGE:Close					ITEM:Potion	TARGETAREA:one Fine object																			DURATION:Instantaneous										SAVEINFO:Fortitude negates (object)					SPELLRES:Yes (object)			SOURCEPAGE:p.246	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/spark.html#_spark-								DESC:Ignites flammable objects.
-Spiked Pit											CLASSES:Sorcerer,Summoner,Wizard=3							SCHOOL:Conjuration	SUBSCHOOL:Creation										COMPS:V, S, F (miniature shovel costing 10 gp)												CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:10-ft.-by-10-ft. hole, (min(((CASTERLEVEL/2)*10),50)) ft. deep											DURATION:((CASTERLEVEL)+1) rounds								SAVEINFO:Reflex negates							SPELLRES:No					SOURCEPAGE:p.246	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/spikedPit.html#_spiked-pit							DESC:This spell functions as create pit, except that the pit is lined with wickedly sharp spikes along its bottom and walls. Creatures who fall into the pit take falling damage as normal, plus 2d6 points of piercing damage from the spikes. Any creature or object coming into contact with the spikes along the walls, such as a creature trying to climb out, or rope or other typical aids to climbing, takes 1d6 points of piercing damage each round they are in contact with the walls. For those willing to accept the damage incurred while climbing, the pit's walls have a Climb DC of 20.
+Spiked Pit											CLASSES:Sorcerer,Wizard=3							SCHOOL:Conjuration	SUBSCHOOL:Creation										COMPS:V, S, F (miniature shovel costing 10 gp)												CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:10-ft.-by-10-ft. hole, (min(((CASTERLEVEL/2)*10),50)) ft. deep											DURATION:((CASTERLEVEL)+1) rounds								SAVEINFO:Reflex negates							SPELLRES:No					SOURCEPAGE:p.246	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/spikedPit.html#_spiked-pit							DESC:This spell functions as create pit, except that the pit is lined with wickedly sharp spikes along its bottom and walls. Creatures who fall into the pit take falling damage as normal, plus 2d6 points of piercing damage from the spikes. Any creature or object coming into contact with the spikes along the walls, such as a creature trying to climb out, or rope or other typical aids to climbing, takes 1d6 points of piercing damage each round they are in contact with the walls. For those willing to accept the damage incurred while climbing, the pit's walls have a Climb DC of 20.
 Spiritual Ally										CLASSES:Cleric=4										SCHOOL:Evocation						DESCRIPTOR:Force							COMPS:V, S, DF																	CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:spiritual ally of force																		DURATION:(CASTERLEVEL) rounds (D)								SAVEINFO:None								SPELLRES:Yes				SOURCEPAGE:p.246	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/spiritualAlly.html#_spiritual-ally					DESC:Creates a divine ally to aid you.
 Spite												CLASSES:Witch=4										SCHOOL:Abjuration															COMPS:V, S, M (rare inks worth 250 gp)													CASTTIME:1 round								RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL) hours (D) or until discharged																					SOURCEPAGE:p.246	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/spite.html#_spite								DESC:Inflict touch spell upon creature that attacks you.
 Stay the Hand										CLASSES:Paladin=4										SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting					COMPS:V, S, DF																	CASTTIME:1 immediate action						RANGE:Medium						TARGETAREA:one creature																				DURATION:(CASTERLEVEL) rounds and special; see text					SAVEINFO:Will partial							SPELLRES:Yes				SOURCEPAGE:p.246	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/stayTheHand.html#_stay-the-hand						DESC:Subject cannot attack with melee weapon.
@@ -231,7 +233,7 @@ Stumble Gap											CLASSES:Sorcerer,Wizard=1								SCHOOL:Conjuration	SUBSCH
 Stunning Finale										CLASSES:Bard=5										SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting					COMPS:V, S																		CASTTIME:1 standard action						RANGE:Close							TARGETAREA:up to 3 creatures, no two of which can be more than 30 ft. apart											DURATION:1 round											SAVEINFO:Fortitude partial; see text				SPELLRES:Yes				SOURCEPAGE:p.247	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/stunningFinale.html#_stunning-finale					DESC:Stuns 3 creatures for 1 round.
 Suffocation											CLASSES:Sorcerer,Witch,Wizard=5							SCHOOL:Necromancy															COMPS:V, S, M (a vial containing a bit of the caster's breath)									CASTTIME:1 standard action						RANGE:Close							TARGETAREA:one living creature																		DURATION:3 rounds											SAVEINFO:Fortitude partial						SPELLRES:Yes				SOURCEPAGE:p.248	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/suffocation.html#_suffocation						DESC:Target quickly suffocates to death.
 Suffocation (Mass)		OUTPUTNAME:Suffocation, Mass			CLASSES:Sorcerer,Witch,Wizard=9							SCHOOL:Necromancy															COMPS:V, S, M (a vial containing a bit of the caster's breath)									CASTTIME:1 standard action						RANGE:Close							TARGETAREA:(CASTERLEVEL/2) living creatures (no two of which may be more than 30 feet apart)								DURATION:(CASTERLEVEL) rounds									SAVEINFO:Fortitude partial						SPELLRES:Yes				SOURCEPAGE:p.248	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/suffocation.html#_suffocation,-mass					DESC:(CASTERLEVEL/2) creatures suffocate to death.
-Summon Eidolon										CLASSES:Summoner=2									SCHOOL:Conjuration	SUBSCHOOL:Summoning										COMPS:V, S, M (a silver coin)															CASTTIME:1 round								RANGE:Close					ITEM:Potion	TARGETAREA:one eidolon																				DURATION:(CASTERLEVEL) minutes (D)								SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.248	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/summonEidolon.html#_summon-eidolon					DESC:Instantly summons your eidolon for duration of spell.
+Summon Eidolon																			SCHOOL:Conjuration	SUBSCHOOL:Summoning										COMPS:V, S, M (a silver coin)															CASTTIME:1 round								RANGE:Close					ITEM:Potion	TARGETAREA:one eidolon																				DURATION:(CASTERLEVEL) minutes (D)								SAVEINFO:None								SPELLRES:No					SOURCEPAGE:p.248	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/summonEidolon.html#_summon-eidolon					DESC:Instantly summons your eidolon for duration of spell.
 Swarm Skin											CLASSES:Druid,Witch=6									SCHOOL:Transmutation														COMPS:V, S, M/DF (a crushed insect hive)													CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:see text																											SOURCEPAGE:p.248	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/swarmSkin.html#_swarm-skin-							DESC:Turns your body into a swarm that can attack.
 Thorn Body											CLASSES:Alchemist=3|Druid=4								SCHOOL:Transmutation														COMPS:V, S, DF																	CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL) rounds																									SOURCEPAGE:p.248	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/thornBody.html#_thorn-body							DESC:Your attackers take 1d6+(CASTERLEVEL) damage.
 Threefold Aspect										CLASSES:Witch=4|Druid=5									SCHOOL:Transmutation														COMPS:S, F (silver crescent worth 5 gp)													CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:24 hours (D)																										SOURCEPAGE:p.249	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/threefoldAspect.html#_threefold-aspect					DESC:Appear older or younger.
@@ -241,14 +243,14 @@ Tireless Pursuers										CLASSES:Ranger=3|Inquisitor=4								SCHOOL:Transmuta
 Tireless Pursuit										CLASSES:Inquisitor,Ranger=1								SCHOOL:Transmutation														COMPS:V, S, M (a hard biscuit)														CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL) hours (D)																								SOURCEPAGE:p.249	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/tirelessPursuit.html#_tireless-pursuit					DESC:Ignore fatigue while hustling.
 Touch of Gracelessness									CLASSES:Bard,Sorcerer,Wizard=1							SCHOOL:Transmutation														COMPS:V, S																		CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:creature touched																			DURATION:(CASTERLEVEL) rounds									SAVEINFO:Fortitude partial						SPELLRES:Yes				SOURCEPAGE:p.249	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/touchOfGracelessness.html#_touch-of-gracelessness			DESC:Subject loses 1d6 + (CASTERLEVEL/2) Dex and is prone to falling down.
 Touch of the Sea										CLASSES:Alchemist,Druid,Sorcerer,Wizard=1						SCHOOL:Transmutation														COMPS:V, S, M (a fish scale)															CASTTIME:1 standard action						RANGE:Touch					ITEM:Potion	TARGETAREA:creature touched																			DURATION:(CASTERLEVEL) minutes								SAVEINFO:Fortitude negates (harmless)				SPELLRES:Yes (harmless)			SOURCEPAGE:p.250	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/touchOfTheSea.html#_touch-of-the-sea					DESC:Swim speed becomes 30 ft.
-Transmogrify										CLASSES:Summoner=4									SCHOOL:Transmutation														COMPS:V, S, M (a flask of quicksilver worth 1,000 gp)											CASTTIME:1 hour								RANGE:Touch							TARGETAREA:Your eidolon																				DURATION:Instantaneous										SAVEINFO:Will negates (harmless)					SPELLRES:No					SOURCEPAGE:p.250	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/transmogrify.html#_transmogrify						DESC:Change your eidolon's evolutions
+Transmogrify																			SCHOOL:Transmutation														COMPS:V, S, M (a flask of quicksilver worth 1,000 gp)											CASTTIME:1 hour								RANGE:Touch							TARGETAREA:Your eidolon																				DURATION:Instantaneous										SAVEINFO:Will negates (harmless)					SPELLRES:No					SOURCEPAGE:p.250	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/transmogrify.html#_transmogrify						DESC:Change your eidolon's evolutions
 Transmute Potion to Poison								CLASSES:Alchemist=2									SCHOOL:Transmutation														COMPS:S																		CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:1 round then (CASTERLEVEL) minutes; see text																					SOURCEPAGE:p.250	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/transmutePotionToPoison.html#_transmute-potion-to-poison		DESC:Spit poison onto weapon after drinking potion.
 Treasure Stitching									CLASSES:Bard=4|Cleric,Sorcerer,Wizard=5						SCHOOL:Transmutation														COMPS:V, S, M (a piece of embroidered cloth no larger than 10-ft. square worth 100 gp)					CASTTIME:1 standard action						RANGE:Close							TARGETAREA:all objects on cloth																		DURATION:(CASTERLEVEL) days (D)								SAVEINFO:Fortitude negates (object)					SPELLRES:Yes (object)			SOURCEPAGE:p.250	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/treasureStitching.html#_treasure-stitching-				DESC:Objects on cloth become embroidered.
 True Form											CLASSES:Druid,Sorcerer,Wizard=4							SCHOOL:Abjuration															COMPS:V, S																		CASTTIME:1 standard action						RANGE:Medium						TARGETAREA:up to (CASTERLEVEL/3) creatures, no two of which can be more than 30 ft. apart									DURATION:(CASTERLEVEL) rounds									SAVEINFO:Will negates							SPELLRES:Yes				SOURCEPAGE:p.251	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/trueForm.html#_true-form							DESC:Removes polymorph effects.
 Tsunami											CLASSES:Druid,Sorcerer,Wizard=9							SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Water							COMPS:V, S																		CASTTIME:1 standard action						RANGE:Long							TARGETAREA:10-ft.-deep wave (CASTERLEVEL*10) ft. wide and (CASTERLEVEL*2) ft. tall										DURATION:5 rounds											SAVEINFO:see text								SPELLRES:No					SOURCEPAGE:p.251	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/tsunami.html#_tsunami								DESC:Huge wave damages and sweeps up all in its path.
 Twilight Knife										CLASSES:Sorcerer,Witch,Wizard=3							SCHOOL:Evocation						DESCRIPTOR:Force							COMPS:V, S, F (a small knife)															CASTTIME:1 standard action						RANGE:Close							TARGETAREA:floating knife of force																		DURATION:(CASTERLEVEL) rounds (D)								SAVEINFO:None								SPELLRES:Yes				SOURCEPAGE:p.252	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/twilightKnife.html#_twilight-knife-					DESC:Floating knife attacks with you.
 Twin Form											CLASSES:Alchemist=6									SCHOOL:Transmutation														COMPS:V, S, M (a blend of soil and the caster's blood)										CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:(CASTERLEVEL) rounds or until discharged (D)																					SOURCEPAGE:p.252	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/twinForm.html#_twin-form							DESC:Creates controllable duplicate of you.
-Unfetter											CLASSES:Summoner=1									SCHOOL:Transmutation														COMPS:V, S, M (a broken chain)														CASTTIME:1 standard action						RANGE:Medium				ITEM:Potion	TARGETAREA:Your eidolon																				DURATION:(CASTERLEVEL*10) minutes								SAVEINFO:Will negates (harmless)					SPELLRES:No					SOURCEPAGE:p.253	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/unfetter.html#_unfetter							DESC:Remove distance restriction on eidolon.
+Unfetter																				SCHOOL:Transmutation														COMPS:V, S, M (a broken chain)														CASTTIME:1 standard action						RANGE:Medium				ITEM:Potion	TARGETAREA:Your eidolon																				DURATION:(CASTERLEVEL*10) minutes								SAVEINFO:Will negates (harmless)					SPELLRES:No					SOURCEPAGE:p.253	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/unfetter.html#_unfetter							DESC:Remove distance restriction on eidolon.
 Universal Formula										CLASSES:Alchemist=4									SCHOOL:Transmutation														COMPS:V, S, M (quicksilver and powdered platinum worth 100 gp)									CASTTIME:1 standard action						RANGE:Personal						TARGETAREA:You																					DURATION:Instantaneous																										SOURCEPAGE:p.253	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/universalFormula.html#_universal-formula				DESC:Acts as any extract 3rd level or lower.
 Unwilling Shield										CLASSES:Bard,Inquisitor=5|Sorcerer,Witch,Wizard=6				SCHOOL:Necromancy															COMPS:V, S, M (ruby dust worth 250 gp)													CASTTIME:1 standard action						RANGE:Close							TARGETAREA:one creature																				DURATION:(CASTERLEVEL) rounds (D)								SAVEINFO:Will negates							SPELLRES:Yes				SOURCEPAGE:p.253	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/unwillingShield.html#_unwilling-shield					DESC:Subject shares wounds you receive.
 Unwitting Ally										CLASSES:Bard=0										SCHOOL:Enchantment	SUBSCHOOL:Charm		DESCRIPTOR:Mind-Affecting					COMPS:V, S																		CASTTIME:1 standard action						RANGE:Close					ITEM:Potion	TARGETAREA:one living creature																		DURATION:1 round											SAVEINFO:Will negates							SPELLRES:Yes				SOURCEPAGE:p.253	SOURCELINK:http://paizo.com/pathfinderRPG/prd/advanced/spells/unwittingAlly.html#_unwitting-ally					DESC:Subject is considered ally for 1 round.
@@ -462,148 +464,171 @@ Repulsion.MOD				CLASSES:Inquisitor=6
 Undeath to Death.MOD			CLASSES:Inquisitor=6
 Word of Chaos.MOD				CLASSES:Inquisitor=6
 
-#Summoner Spells
-Acid Splash.MOD				CLASSES:Summoner=0
-Arcane Mark.MOD				CLASSES:Summoner=0
-Daze.MOD					CLASSES:Summoner=0
-Detect Magic.MOD				CLASSES:Summoner=0
-Guidance.MOD				CLASSES:Summoner=0
-Light.MOD					CLASSES:Summoner=0
-Mage Hand.MOD				CLASSES:Summoner=0
-Mending.MOD					CLASSES:Summoner=0
-Message.MOD					CLASSES:Summoner=0
-Open/Close.MOD				CLASSES:Summoner=0
-Read Magic.MOD				CLASSES:Summoner=0
-Resistance.MOD				CLASSES:Summoner=0
+###Block: Summoner Spells - APG
+Acid Pit.MOD				CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Ant Haul.MOD				CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Aqueous Orb.MOD				CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Create Pit.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Devolution.MOD				CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Evolution Surge.MOD			CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Evolution Surge (Greater).MOD		CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Evolution Surge (Lesser).MOD		CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Glide.MOD					CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Hungry Pit.MOD				CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Planar Adaptation.MOD			CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Planar Adaptation (Mass).MOD		CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+Purified Calling.MOD			CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Rejuvenate Eidolon.MOD			CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Rejuvenate Eidolon (Greater).MOD	CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Rejuvenate Eidolon (Lesser).MOD	CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Seek Thoughts.MOD				CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Spiked Pit.MOD				CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Summon Eidolon.MOD			CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Transmogrify.MOD				CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Unfetter.MOD				CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
 
-Alarm.MOD					CLASSES:Summoner=1
-Daze Monster.MOD				CLASSES:Summoner=1
-Endure Elements.MOD			CLASSES:Summoner=1
-Enlarge Person.MOD			CLASSES:Summoner=1
-Expeditious Retreat.MOD			CLASSES:Summoner=1
-Feather Fall.MOD				CLASSES:Summoner=1
-Grease.MOD					CLASSES:Summoner=1
-Identify.MOD				CLASSES:Summoner=1
-Jump.MOD					CLASSES:Summoner=1
-Mage Armor.MOD				CLASSES:Summoner=1
-Magic Fang.MOD				CLASSES:Summoner=1
-Magic Mouth.MOD				CLASSES:Summoner=1
-Mount.MOD					CLASSES:Summoner=1
-Protection from Chaos.MOD		CLASSES:Summoner=1
-Protection from Evil.MOD		CLASSES:Summoner=1
-Protection from Good.MOD		CLASSES:Summoner=1
-Protection from Law.MOD			CLASSES:Summoner=1
-Reduce Person.MOD				CLASSES:Summoner=1
-Shield.MOD					CLASSES:Summoner=1
-#Summon Monster I.MOD			CLASSES:Summoner=1
-Unseen Servant.MOD			CLASSES:Summoner=1
-Ventriloquism.MOD				CLASSES:Summoner=1
+#Summoner Spells - CRB
+Acid Splash.MOD				CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
+Arcane Mark.MOD				CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
+Daze.MOD					CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
+Detect Magic.MOD				CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
+Guidance.MOD				CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
+Light.MOD					CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
+Mage Hand.MOD				CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
+Mending.MOD					CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
+Message.MOD					CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
+Open/Close.MOD				CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
+Read Magic.MOD				CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
+Resistance.MOD				CLASSES:Summoner=0[PREVAREQ:StandardSummoner,1]
 
-Alter Self.MOD				CLASSES:Summoner=2
-Barkskin.MOD				CLASSES:Summoner=2
-Bear's Endurance.MOD			CLASSES:Summoner=2
-Blur.MOD					CLASSES:Summoner=2
-Bull's Strength.MOD			CLASSES:Summoner=2
-Cat's Grace.MOD				CLASSES:Summoner=2
-Detect Thoughts.MOD			CLASSES:Summoner=2
-Eagle's Splendor.MOD			CLASSES:Summoner=2
-Fox's Cunning.MOD				CLASSES:Summoner=2
-Glitterdust.MOD				CLASSES:Summoner=2
-Haste.MOD					CLASSES:Summoner=2
-Invisibility.MOD				CLASSES:Summoner=2
-Levitate.MOD				CLASSES:Summoner=2
-Misdirection.MOD				CLASSES:Summoner=2
-Owl's Wisdom.MOD				CLASSES:Summoner=2
-Phantom Steed.MOD				CLASSES:Summoner=2
-Protection from Arrows.MOD		CLASSES:Summoner=2
-Resist Energy.MOD				CLASSES:Summoner=2
-See Invisibility.MOD			CLASSES:Summoner=2
-Slow.MOD					CLASSES:Summoner=2
-Spider Climb.MOD				CLASSES:Summoner=2
-#Summon Monster II.MOD			CLASSES:Summoner=2
-Summon Swarm.MOD				CLASSES:Summoner=2
-Wind Wall.MOD				CLASSES:Summoner=2
+Alarm.MOD					CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Daze Monster.MOD				CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Endure Elements.MOD			CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Enlarge Person.MOD			CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Expeditious Retreat.MOD			CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Feather Fall.MOD				CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Grease.MOD					CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Identify.MOD				CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Jump.MOD					CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Mage Armor.MOD				CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Magic Fang.MOD				CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Magic Mouth.MOD				CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Mount.MOD					CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Protection from Chaos.MOD		CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Protection from Evil.MOD		CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Protection from Good.MOD		CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Protection from Law.MOD			CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Reduce Person.MOD				CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Shield.MOD					CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+#Summon Monster I.MOD			CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Unseen Servant.MOD			CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
+Ventriloquism.MOD				CLASSES:Summoner=1[PREVAREQ:StandardSummoner,1]
 
-Black Tentacles.MOD			CLASSES:Summoner=3
-Charm Monster.MOD				CLASSES:Summoner=3
-Dimension Door.MOD			CLASSES:Summoner=3
-Dimensional Anchor.MOD			CLASSES:Summoner=3
-Dispel Magic.MOD				CLASSES:Summoner=3
-Displacement.MOD				CLASSES:Summoner=3
-Enlarge Person (Mass).MOD		CLASSES:Summoner=3
-Fire Shield.MOD				CLASSES:Summoner=3
-Fly.MOD					CLASSES:Summoner=3
-Heroism.MOD					CLASSES:Summoner=3
-Invisibility (Greater).MOD		CLASSES:Summoner=3
-Locate Creature.MOD			CLASSES:Summoner=3
-Magic Circle against Chaos.MOD	CLASSES:Summoner=3
-Magic Circle against Evil.MOD		CLASSES:Summoner=3
-Magic Circle against Good.MOD		CLASSES:Summoner=3
-Magic Circle against Law.MOD		CLASSES:Summoner=3
-Magic Fang (Greater).MOD		CLASSES:Summoner=3
-Minor Creation.MOD			CLASSES:Summoner=3
-Nondetection.MOD				CLASSES:Summoner=3
-Protection from Energy.MOD		CLASSES:Summoner=3
-Rage.MOD					CLASSES:Summoner=3
-Reduce Person (Mass).MOD		CLASSES:Summoner=3
-Stoneskin.MOD				CLASSES:Summoner=3
-#Summon Monster IV.MOD			CLASSES:Summoner=3
-Tongues.MOD					CLASSES:Summoner=3
-Wall of Fire.MOD				CLASSES:Summoner=3
-Wall of Ice.MOD				CLASSES:Summoner=3
-Water Breathing.MOD			CLASSES:Summoner=3
+Alter Self.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Barkskin.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Bear's Endurance.MOD			CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Blur.MOD					CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Bull's Strength.MOD			CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Cat's Grace.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Detect Thoughts.MOD			CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Eagle's Splendor.MOD			CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Fox's Cunning.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Glitterdust.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Haste.MOD					CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Invisibility.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Levitate.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Misdirection.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Owl's Wisdom.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Phantom Steed.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Protection from Arrows.MOD		CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Resist Energy.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+See Invisibility.MOD			CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Slow.MOD					CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Spider Climb.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+#Summon Monster II.MOD			CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Summon Swarm.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
+Wind Wall.MOD				CLASSES:Summoner=2[PREVAREQ:StandardSummoner,1]
 
-Baleful Polymorph.MOD			CLASSES:Summoner=4
-Bear's Endurance (Mass).MOD		CLASSES:Summoner=4
-Bull's Strength (Mass).MOD		CLASSES:Summoner=4
-Cat's Grace (Mass).MOD			CLASSES:Summoner=4
-Contact Other Plane.MOD			CLASSES:Summoner=4
-Dismissal.MOD				CLASSES:Summoner=4
-Eagle's Splendor (Mass).MOD		CLASSES:Summoner=4
-Fox's Cunning (Mass).MOD		CLASSES:Summoner=4
-Hold Monster.MOD				CLASSES:Summoner=4
-Insect Plague.MOD				CLASSES:Summoner=4
-Mage's Faithful Hound.MOD		CLASSES:Summoner=4
-Magic Jar.MOD				CLASSES:Summoner=4
-Major Creation.MOD			CLASSES:Summoner=4
-Overland Flight.MOD			CLASSES:Summoner=4
-Owl's Wisdom (Mass).MOD			CLASSES:Summoner=4
-Planar Binding (Lesser).MOD		CLASSES:Summoner=4
-Sending.MOD					CLASSES:Summoner=4
-#Summon Monster V.MOD			CLASSES:Summoner=4
-Teleport.MOD				CLASSES:Summoner=4
-Wall of Stone.MOD				CLASSES:Summoner=4
+Black Tentacles.MOD			CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Charm Monster.MOD				CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Dimension Door.MOD			CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Dimensional Anchor.MOD			CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Dispel Magic.MOD				CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Displacement.MOD				CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Enlarge Person (Mass).MOD		CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Fire Shield.MOD				CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Fly.MOD					CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Heroism.MOD					CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Invisibility (Greater).MOD		CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Locate Creature.MOD			CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Magic Circle against Chaos.MOD	CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Magic Circle against Evil.MOD		CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Magic Circle against Good.MOD		CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Magic Circle against Law.MOD		CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Magic Fang (Greater).MOD		CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Minor Creation.MOD			CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Nondetection.MOD				CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Protection from Energy.MOD		CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Rage.MOD					CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Reduce Person (Mass).MOD		CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Stoneskin.MOD				CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+#Summon Monster IV.MOD			CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Tongues.MOD					CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Wall of Fire.MOD				CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Wall of Ice.MOD				CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
+Water Breathing.MOD			CLASSES:Summoner=3[PREVAREQ:StandardSummoner,1]
 
-Banishment.MOD				CLASSES:Summoner=5
-Creeping Doom.MOD				CLASSES:Summoner=5
-Dispel Magic (Greater).MOD		CLASSES:Summoner=5
-Ethereal Jaunt.MOD			CLASSES:Summoner=5
-Heroism (Greater).MOD			CLASSES:Summoner=5
-Invisibility (Mass).MOD			CLASSES:Summoner=5
-Planar Binding.MOD			CLASSES:Summoner=5
-Plane Shift.MOD				CLASSES:Summoner=5
-Repulsion.MOD				CLASSES:Summoner=5
-Sequester.MOD				CLASSES:Summoner=5
-Simulacrum.MOD				CLASSES:Summoner=5
-Spell Turning.MOD				CLASSES:Summoner=5
-#Summon Monster VII.MOD			CLASSES:Summoner=5
-True Seeing.MOD				CLASSES:Summoner=5
-Teleport (Greater).MOD			CLASSES:Summoner=5
-Wall of Iron.MOD				CLASSES:Summoner=5
+Baleful Polymorph.MOD			CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Bear's Endurance (Mass).MOD		CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Bull's Strength (Mass).MOD		CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Cat's Grace (Mass).MOD			CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Contact Other Plane.MOD			CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Dismissal.MOD				CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Eagle's Splendor (Mass).MOD		CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Fox's Cunning (Mass).MOD		CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Hold Monster.MOD				CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Insect Plague.MOD				CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Mage's Faithful Hound.MOD		CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Magic Jar.MOD				CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Major Creation.MOD			CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Overland Flight.MOD			CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Owl's Wisdom (Mass).MOD			CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Planar Binding (Lesser).MOD		CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Sending.MOD					CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+#Summon Monster V.MOD			CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Teleport.MOD				CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
+Wall of Stone.MOD				CLASSES:Summoner=4[PREVAREQ:StandardSummoner,1]
 
-Antipathy.MOD				CLASSES:Summoner=6
-Binding.MOD					CLASSES:Summoner=6
-Charm Monster (Mass).MOD		CLASSES:Summoner=6
-Dimensional Lock.MOD			CLASSES:Summoner=6
-Discern Location.MOD			CLASSES:Summoner=6
-Dominate Monster.MOD			CLASSES:Summoner=6
-Incendiary Cloud.MOD			CLASSES:Summoner=6
-Maze.MOD					CLASSES:Summoner=6
-Planar Binding (Greater).MOD		CLASSES:Summoner=6
-Protection from Spells.MOD		CLASSES:Summoner=6
-#Summon Monster VIII.MOD			CLASSES:Summoner=6
-Sympathy.MOD				CLASSES:Summoner=6
-Teleportation Circle.MOD		CLASSES:Summoner=6
+Banishment.MOD				CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Creeping Doom.MOD				CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Dispel Magic (Greater).MOD		CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Ethereal Jaunt.MOD			CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Heroism (Greater).MOD			CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Invisibility (Mass).MOD			CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Planar Binding.MOD			CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Plane Shift.MOD				CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Repulsion.MOD				CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Sequester.MOD				CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Simulacrum.MOD				CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Spell Turning.MOD				CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+#Summon Monster VII.MOD			CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+True Seeing.MOD				CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Teleport (Greater).MOD			CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+Wall of Iron.MOD				CLASSES:Summoner=5[PREVAREQ:StandardSummoner,1]
+
+Antipathy.MOD				CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+Binding.MOD					CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+Charm Monster (Mass).MOD		CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+Dimensional Lock.MOD			CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+Discern Location.MOD			CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+Dominate Monster.MOD			CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+Incendiary Cloud.MOD			CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+Maze.MOD					CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+Planar Binding (Greater).MOD		CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+Protection from Spells.MOD		CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+#Summon Monster VIII.MOD			CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+Sympathy.MOD				CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
+Teleportation Circle.MOD		CLASSES:Summoner=6[PREVAREQ:StandardSummoner,1]
 
 #Witch Spells
 Arcane Mark.MOD				CLASSES:Witch=0

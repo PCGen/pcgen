@@ -642,6 +642,33 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 <!-- STOP Melee and Range Attack Table -->
 
 <!-- Add Martial Arts and Natural Attack Block Here -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Natural Attack","TYPE=NaturalAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Natural Attack","TYPE=NaturalAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; ability , ability_has_next>
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Natural Attack Block">
+		<tr>
+			<td align="center" height="25" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>${pcstring('ABILITYALL.Natural Attack.VISIBLE.${ability}.TYPE=NaturalAttack')}</b></font></td>
+			<td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>TOTAL ATTACK BONUS</b></font></td>
+			<td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>DAMAGE</b></font></td>
+			<td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>CRIT / MULT</b></font></td>
+			<td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>REACH</b></font></td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('ABILITYALL.Natural Attack.VISIBLE.${ability}.TYPE=NaturalAttack.ASPECT.NaturalAttackToHit.SIGN')}<br /></b></font></td>
+			<td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('ABILITYALL.Natural Attack.VISIBLE.${ability}.TYPE=NaturalAttack.ASPECT.NaturalAttackDamage')}<br /></b></font></td>
+			<!--	${pcstring('ABILITYALL.Natural Attack.VISIBLE.${ability}.TYPE=NaturalAttack.ASPECT.NaturalAttackDamageBonus.SIGN')}	-->
+			<td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('ABILITYALL.Natural Attack.VISIBLE.${ability}.TYPE=NaturalAttack.ASPECT.NaturalAttackThreatRange')} / ${pcstring('ABILITYALL.Natural Attack.VISIBLE.${ability}.TYPE=NaturalAttack.ASPECT.NaturalAttackCritMult')}<br /></b></font></td>
+			<td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('ABILITYALL.Natural Attack.VISIBLE.${ability}.TYPE=NaturalAttack.ASPECT=NaturalAttackReach.ASPECT.NaturalAttackReach')}<br /></b></font></td>
+		</tr>
+		<#if (pcstring("ABILITYALL.Natural Attack.VISIBLE.${ability}.TYPE=NaturalAttack.DESC:YES") = "Y")>
+		<tr>
+			<td align="center" bgcolor="black" colspan="1" width="15%" class="ablable" height="20">Special Properties</td>
+			<td colspan="4" class="border10">${pcstring('ABILITYALL.Natural Attack.${ability}.TYPE=NaturalAttack.ASPECT.NaturalAttackNotes')}${pcstring('ABILITYALL.Natural Attack.${ability}.TYPE=NaturalAttack.DESC')}</td>
+		</tr>
+		</#if>
+	</table>
+	<br />
+</@loop>
+</#if>
 
 <!-- START Unarmed Attack Table -->
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack">
@@ -860,14 +887,14 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Table">
     <tr>
      <td align="center" height="15" bgcolor="black" width="15%"><font style="font-size:6pt" color="white"><b>HAND</b></font></td>
-     <td align="center" height="15" bgcolor="black" width="15%"><font style="font-size:6pt" color="white"><b>RANGE</b></font></td>
+     <td align="center" height="15" bgcolor="black" width="15%"><font style="font-size:6pt" color="white"><b>REACH</b></font></td>
      <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td>
      <td align="center" bgcolor="black" width="15%" height="15"><font style="font-size:6pt" color="white"><b>SIZE</b></font></td>
      <td align="center" bgcolor="black" width="40%" height="15"><font style="font-size:6pt" color="white"><b>SPECIAL PROPERTIES</b></font></td>
     </tr>
     <tr>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.HAND')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.RANGE')}<br /></b></td>
+     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.REACH')}${pcstring('WEAPON.${weap}.REACHUNIT')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.TYPE')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.SIZE')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>&nbsp;${pcstring('WEAPON.${weap}.SPROP')}<br /></b></td>
@@ -881,14 +908,14 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
      <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>TYPE</b></font></td>
      <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>SIZE</b></font></td>
      <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>CRITICAL</b></font></td>
-     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>REACH</b></font></td>
+     <td align="center" bgcolor="black" width="12%" height="15"><font style="font-size:6pt" color="white"><b>RANGE</b></font></td>
     </tr>
     <tr>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.HAND')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.TYPE')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.SIZE')}<br /></b></td>
      <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.CRIT')}/x${pcstring('WEAPON.${weap}.MULT')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.REACH')}${pcstring('WEAPON.${weap}.REACHUNIT')}<br /></b></td>
+     <td align="center" bgcolor="white" class="border8"><b>${pcstring('WEAPON.${weap}.RANGE')}<br /></b></td>
     </tr>
    </table>
    <@weaponHandedToHitDmgTable weap=weap />

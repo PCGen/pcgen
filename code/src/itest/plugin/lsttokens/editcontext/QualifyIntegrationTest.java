@@ -67,7 +67,7 @@ public class QualifyIntegrationTest extends
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "FEAT|My Feat");
+		commit(testCampaign, tc, "ABILITY=Feat|My Feat");
 		commit(modCampaign, tc, "SPELL|Lightning Bolt");
 		completeRoundRobin(tc);
 	}

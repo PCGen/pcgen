@@ -30,7 +30,6 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
@@ -40,8 +39,10 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
@@ -66,7 +67,7 @@ public class AbilityRefChoiceSet implements
 	/**
 	 * The underlying Ability Category for this AbilityRefChoiceSet.
 	 */
-	private final Category<Ability> category;
+	private final CDOMSingleRef<AbilityCategory> category;
 
 	/**
 	 * The underlying Ability Nature for this AbilityRefChoiceSet.
@@ -98,7 +99,7 @@ public class AbilityRefChoiceSet implements
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
-	public AbilityRefChoiceSet(Category<Ability> cat,
+	public AbilityRefChoiceSet(CDOMSingleRef<AbilityCategory> cat,
 			Collection<? extends CDOMReference<Ability>> arCollection, Nature nat)
 	{
 		super();
@@ -199,7 +200,7 @@ public class AbilityRefChoiceSet implements
 				else
 				{
 					returnSet.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(
-						category, nature, a)));
+						category.resolvesTo(), nature, a)));
 				}
 			}
 		}
@@ -288,7 +289,7 @@ public class AbilityRefChoiceSet implements
 				availableList.size());
 		for (String s : availableList)
 		{
-			returnList.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(category,
+			returnList.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(category.resolvesTo(),
 				nature, ability), s));
 		}
 		return returnList;
@@ -346,7 +347,7 @@ public class AbilityRefChoiceSet implements
 	 * 
 	 * @return The underlying Ability Category for this AbilityRefChoiceSet
 	 */
-	public Category<Ability> getCategory()
+	public CDOMSingleRef<AbilityCategory> getCategory()
 	{
 		return category;
 	}

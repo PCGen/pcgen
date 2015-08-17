@@ -1516,3 +1516,6 @@ Resistance To Sonic Output		OUTPUTNAME:Resistance To Sonic		CATEGORY:Special Abi
 
 
 MyVarTest												CATEGORY:Special Ability	TYPE:SpecialQuality							DEFINE:MyVarTest|0	DEFINE:MyVarTestTwo|0	DESC:My Var Test =%1, My Var Test Twp =%2|MyVarTest|MyVarTestTwo										STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MyVarTest,MyVarTestTwo|1
+
+CODE-2835			CATEGORY:FEAT	TYPE:General.Code	CHOOSE:EQUIPMENT|!TYPE=Mount,TYPE=Transportation	MULT:YES	STACK:NO	DESC: causes "failed to add Ability due to Null."
+

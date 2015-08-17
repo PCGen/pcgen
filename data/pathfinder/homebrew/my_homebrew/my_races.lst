@@ -1,7 +1,40 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
 
+# Blank Race Template	
+#	SIZE:	
+#	SOURCEPAGE:p.	
+#	RACETYPE:yyy
+#	MONSTERCLASS:yyy:
+#	TYPE:yyy
+#	RACESUBTYPE:
+#	MOVE:Walk,
+#	BONUS:VAR|Manueverability|
+#	BONUS:VAR|AC_Natural_Armor|0|TYPE=Base
+#	FACE:
+#	REACH:
+#	LEGS:
+#	HANDS:
+#	STARTFEATS:1
+#	NATURALATTACKS:Claw,Natural.Melee.Weapon,*1,1d4
+#	NATURALATTACKS:Bite,Natural.Melee.Weapon,*1,1d6
+#OR	NATURALATTACKS:Claw,Natural.Melee.Weapon,*1,1d4|Bite,Natural.Melee.Weapon,*1,1d6
+#OR	ABILITY:Internal|AUTOMATIC|Bite|Claw
+#	BONUS:STAT|STR|
+#	BONUS:STAT|DEX|
+#	BONUS:STAT|CON|
+#	BONUS:STAT|INT|
+#	BONUS:STAT|WIS|
+#	BONUS:STAT|CHA|
+#	ABILITY:Internal|AUTOMATIC|Racial Traits ~ XXX	
+#	CR:
+#	LEVELADJUSTMENT:			//Only for systems where ECL/Level Adjustments are used.
+#	KIT:1|XXX Default
+#	HITDICEADVANCEMENT:		//Only for systems where HD and size are set progression.
+#	FACT:IsPC|True			//6.05.03 or higher only!
+
 #insert your data here
+
 
 #Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
 #your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.

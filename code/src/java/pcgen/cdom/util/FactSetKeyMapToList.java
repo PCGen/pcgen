@@ -59,6 +59,7 @@ public class FactSetKeyMapToList
 	/**
 	 * The internal storage of this FactSetKeyMapToList
 	 */
+	@SuppressWarnings("rawtypes")
 	private final HashMapToList map = new HashMapToList();
 
 	/**
@@ -86,6 +87,7 @@ public class FactSetKeyMapToList
 	 * @throws NullPointerException
 	 *             if the specified FactSetKeyMapToList is null.
 	 */
+	@SuppressWarnings("unchecked")
 	public void addAllLists(FactSetKeyMapToList lcs)
 	{
 		map.addAllLists(lcs.map);
@@ -108,6 +110,7 @@ public class FactSetKeyMapToList
 	 *            A List containing the items to be added to the List for the
 	 *            given key.
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> void addAllToListFor(FactSetKey<T> key,
 		Collection<ObjectContainer<T>> values)
 	{
@@ -130,6 +133,7 @@ public class FactSetKeyMapToList
 	 * @param valueElement
 	 *            The value to be added to the List for the given key.
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> void addToListFor(FactSetKey<T> key,
 		ObjectContainer<T> valueElement)
 	{
@@ -149,6 +153,7 @@ public class FactSetKeyMapToList
 	 * @return true if this FactSetKeyMapToList contains a List for the given
 	 *         key; false otherwise.
 	 */
+	@SuppressWarnings("unchecked")
 	public boolean containsListFor(FactSetKey<?> key)
 	{
 		return map.containsListFor(key);
@@ -170,6 +175,7 @@ public class FactSetKeyMapToList
 	 *         given key; null if the given key is not a key in this
 	 *         FactSetKeyMapToList.
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> List<ObjectContainer<T>> getListFor(FactSetKey<T> key)
 	{
 		return map.getListFor(key);
@@ -187,6 +193,7 @@ public class FactSetKeyMapToList
 	 *            The FactSetKey for which a List should be initialized in this
 	 *            FactSetKeyMapToList.
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> void initializeListFor(FactSetKey<T> key)
 	{
 		map.initializeListFor(key);
@@ -207,6 +214,7 @@ public class FactSetKeyMapToList
 	 * @return true if the value was successfully removed from the list for the
 	 *         given key; false otherwise
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> boolean removeFromListFor(FactSetKey<T> key,
 		ObjectContainer<T> valueElement)
 	{
@@ -226,6 +234,7 @@ public class FactSetKeyMapToList
 	 * @return The List which this FactSetKeyMapToList previous mapped the given
 	 *         key
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> List<ObjectContainer<T>> removeListFor(FactSetKey<T> key)
 	{
 		return map.removeListFor(key);
@@ -243,6 +252,7 @@ public class FactSetKeyMapToList
 	 *            The key being tested.
 	 * @return the number of objects in the List for the given key
 	 */
+	@SuppressWarnings("unchecked")
 	public int sizeOfListFor(FactSetKey<?> key)
 	{
 		return map.sizeOfListFor(key);
@@ -263,6 +273,7 @@ public class FactSetKeyMapToList
 	 * @return true if this FactSetKeyMapToList contains a List for the given
 	 *         key AND that list contains the given value; false otherwise.
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> boolean containsInList(FactSetKey<T> key,
 		ObjectContainer<T> valueElement)
 	{
@@ -287,6 +298,7 @@ public class FactSetKeyMapToList
 	 *         key AND that list contains one or more of the given values; false
 	 *         otherwise.
 	 */
+	@SuppressWarnings("unchecked")
 	public <T> boolean containsAnyInList(FactSetKey<T> key,
 		Collection<ObjectContainer<T>> values)
 	{
@@ -308,6 +320,7 @@ public class FactSetKeyMapToList
 	 * 
 	 * @return a Set containing the keys in this FactSetKeyMapToList
 	 */
+	@SuppressWarnings("unchecked")
 	public Set<FactSetKey<?>> getKeySet()
 	{
 		return map.getKeySet();
