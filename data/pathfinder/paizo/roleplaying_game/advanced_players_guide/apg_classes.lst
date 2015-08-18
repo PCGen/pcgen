@@ -66,7 +66,7 @@ CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle An
 1	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Tactician|PREVAREQ:Cavalier_CF_Tactician,0
 3	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Cavalier's Charge|PREVAREQ:Cavalier_CF_CavaliersCharge,0
 4	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Expert Trainer|PREVAREQ:Cavalier_CF_ExpertTrainer,0
-6	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Bonus Feat|PREVAREQ:Cavalier_CF_BonusFeat,TYPE.CavalierBonusFeats,0
+6	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Bonus Feat|PREVAREQ:Cavalier_CF_BonusFeat,0
 5	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Banner|PREVAREQ:Cavalier_CF_Banner,0
 9	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Greater Tactician|PREVAREQ:Cavalier_CF_GreaterTactician,0
 11	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Mighty Charge|PREVAREQ:Cavalier_CF_MightyCharge,0

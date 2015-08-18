@@ -130,7 +130,12 @@ FACTDEF:ABILITY|Summoner_Archetype_Transposition					DATAFORMAT:BOOLEAN	VISIBLE:
 FACTDEF:ABILITY|Summoner_Archetype_GreaterShieldAlly					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GreaterShieldAlly					EXPLANATION:Determines whether the archetype affects - GreaterShieldAlly				
 FACTDEF:ABILITY|Summoner_Archetype_LifeBond						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:LifeBond						EXPLANATION:Determines whether the archetype affects - LifeBond					
 FACTDEF:ABILITY|Summoner_Archetype_MergeForms						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:MergeForms						EXPLANATION:Determines whether the archetype affects - MergeForms					
-FACTDEF:ABILITY|Summoner_Archetype_SummonMonster					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SummonMonster					EXPLANATION:Determines whether the archetype affects - SummonMonster				
+FACTDEF:ABILITY|Summoner_Archetype_GreaterAspect						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GreaterAspect							EXPLANATION:Determines whether the archetype affects - GreaterAspect						
+FACTDEF:ABILITY|Summoner_Archetype_Aspect								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Aspect								EXPLANATION:Determines whether the archetype affects - Aspect							
+FACTDEF:ABILITY|Summoner_Archetype_TwinEidolon								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Aspect								EXPLANATION:Determines whether the archetype affects - Aspect							
+FACTDEF:ABILITY|Summoner_Archetype_ShareSpells								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Aspect								EXPLANATION:Determines whether the archetype affects - Aspect							
+
+
 
 FACTDEF:ABILITY|Summoner_CF_ArmorProficiencies						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArmorProficiencies						EXPLANATION:Remove Summoner ArmorProficiencies				
 FACTDEF:ABILITY|Summoner_CF_SimpleWeapons						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SimpleWeapons							EXPLANATION:Remove Summoner SimpleWeapons					
@@ -145,7 +150,13 @@ FACTDEF:ABILITY|Summoner_CF_Transposition						DATAFORMAT:BOOLEAN	VISIBLE:YES	SE
 FACTDEF:ABILITY|Summoner_CF_GreaterShieldAlly						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GreaterShieldAlly							EXPLANATION:Remove Summoner GreaterShieldAlly					
 FACTDEF:ABILITY|Summoner_CF_LifeBond							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:LifeBond								EXPLANATION:Remove Summoner LifeBond						
 FACTDEF:ABILITY|Summoner_CF_MergeForms							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:MergeForms								EXPLANATION:Remove Summoner MergeForms						
-FACTDEF:ABILITY|Summoner_CF_SummonMonster						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SummonMonster							EXPLANATION:Remove Summoner SummonMonster					
+
+
+
+FACTDEF:ABILITY|Summoner_CF_GreaterAspect							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GreaterAspect								EXPLANATION:Remove Summoner GreaterAspect						
+FACTDEF:ABILITY|Summoner_CF_Aspect							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Aspect								EXPLANATION:Remove Summoner Aspect						
+FACTDEF:ABILITY|Summoner_CF_ShareSpells							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ShareSpells								EXPLANATION:Remove Summoner ShareSpells						
+FACTDEF:ABILITY|Summoner_CF_TwinEidolon							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ShareSpells								EXPLANATION:Remove Summoner ShareSpells						
 
 # Witch
 FACTDEF:ABILITY|Witch_Archetype_Familiar						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Familiar						EXPLANATION:Determines whether the archetype affects - Familiar					

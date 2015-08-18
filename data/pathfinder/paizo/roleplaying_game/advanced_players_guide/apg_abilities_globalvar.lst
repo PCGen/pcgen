@@ -204,6 +204,12 @@ CATEGORY=Class|Summoner.MOD	DEFINE:Summoner_CF_LifeBond|0
 CATEGORY=Class|Summoner.MOD	DEFINE:Summoner_CF_MergeForms|0
 CATEGORY=Class|Summoner.MOD	DEFINE:Summoner_CF_SummonMonster|0
 
+
+CATEGORY=Class|Summoner.MOD	DEFINE:Summoner_CF_Aspect|0
+CATEGORY=Class|Summoner.MOD	DEFINE:Summoner_CF_GreaterAspect|0
+CATEGORY=Class|Summoner.MOD	DEFINE:Summoner_CF_ShareSpells|0
+CATEGORY=Class|Summoner.MOD	DEFINE:Summoner_CF_TwinEidolon|0
+
 CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_ArmorProficiencies=True
 CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_SimpleWeapons|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_SimpleWeapons=True
 CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_SummonMonsterSpells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_SummonMonsterSpells=True
@@ -217,7 +223,10 @@ CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_Transposition|1|TYPE=Boolean|P
 CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_GreaterShieldAlly|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_GreaterShieldAlly=True
 CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_LifeBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_LifeBond=True
 CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_MergeForms|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_MergeForms=True
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_SummonMonster|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_SummonMonster=True
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_GreaterAspect|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_GreaterAspect=True
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_Aspect|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_Aspect=True
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_ShareSpells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_ShareSpells=True
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_TwinEidolon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Summoner_CF_TwinEidolon=True
 
 CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_ArmorProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerArmorProficiencies
 CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_SimpleWeapons|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSimpleWeapons
@@ -232,7 +241,14 @@ CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_Transposition|1|TYPE=Boolean|!
 CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_GreaterShieldAlly|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerGreaterShieldAlly
 CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_LifeBond|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerLifeBond
 CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_MergeForms|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerMergeForms
-CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_SummonMonster|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerSummonMonster
+
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_GreaterAspect|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerGreaterAspect
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_Aspect|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerAspect
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_ShareSpells|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerShareSpells
+CATEGORY=Class|Summoner.MOD	BONUS:VAR|Summoner_CF_TwinEidolon|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerTwinEidolon
+
+
+
 
 # Witch
 CATEGORY=Class|Witch.MOD	ABILITY:Special Ability|AUTOMATIC|Witch Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfAuto
