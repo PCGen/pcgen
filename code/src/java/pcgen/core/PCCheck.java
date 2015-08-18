@@ -18,7 +18,9 @@
 package pcgen.core;
 
 import pcgen.cdom.base.NonInteractive;
+import pcgen.cdom.base.SortKeyRequired;
 
-public final class PCCheck extends PObject implements NonInteractive
+public final class PCCheck extends PObject implements NonInteractive,
+		SortKeyRequired
 {
 }

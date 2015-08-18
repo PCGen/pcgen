@@ -50,8 +50,8 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 			throw new InternalError(cl
 					+ " is categorized but was fetched without a category");
 		}
-		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map
-				.get(cl);
+		@SuppressWarnings("unchecked")
+		ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map.get(cl);
 		if (mfg == null)
 		{
 			mfg = new SimpleReferenceManufacturer<T>(new CDOMFactory<T>(cl));
@@ -75,8 +75,9 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	{
 		if (cat == null)
 		{
-			ReferenceManufacturer<T> mfg = (ReferenceManufacturer<T>) map
-					.get(cl);
+			@SuppressWarnings("unchecked")
+			ReferenceManufacturer<T> mfg =
+					(ReferenceManufacturer<T>) map.get(cl);
 			if (mfg == null)
 			{
 				mfg = new SimpleReferenceManufacturer<T>(new CDOMFactory<T>(cl));
@@ -91,6 +92,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			ManufacturableFactory<T> factory)
 	{
+		@SuppressWarnings("unchecked")
 		ReferenceManufacturer<T> rm = (ReferenceManufacturer<T>) mfgmap.get(factory);
 		if (rm == null)
 		{

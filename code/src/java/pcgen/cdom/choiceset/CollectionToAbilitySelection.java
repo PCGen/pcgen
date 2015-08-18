@@ -26,7 +26,6 @@ import java.util.Stack;
 
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveChoiceSet;
@@ -35,7 +34,9 @@ import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
@@ -44,11 +45,11 @@ public class CollectionToAbilitySelection implements
 {
 	private final PrimitiveCollection<Ability> collection;
 	
-	private final Category<Ability> category;
+	private final CDOMSingleRef<AbilityCategory> category;
 
 	private static Stack<Ability> infiniteLoopDetectionStack = new Stack<Ability>();
 
-	public CollectionToAbilitySelection(Category<Ability> cat, PrimitiveCollection<Ability> coll)
+	public CollectionToAbilitySelection(CDOMSingleRef<AbilityCategory> cat, PrimitiveCollection<Ability> coll)
 	{
 		if (cat == null)
 		{
@@ -223,7 +224,7 @@ public class CollectionToAbilitySelection implements
 		sb.append('\n');
 	}
 
-	public Category<Ability> getCategory()
+	public CDOMSingleRef<AbilityCategory> getCategory()
 	{
 		return category;
 	}

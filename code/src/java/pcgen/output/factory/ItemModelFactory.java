@@ -49,7 +49,7 @@ public class ItemModelFactory implements ModelFactory
 	 * @see pcgen.output.base.ModelFactory#generate(pcgen.cdom.enumeration.CharID)
 	 */
 	@Override
-	public ItemFacetModel generate(CharID id)
+	public ItemFacetModel<?> generate(CharID id)
 	{
 		return new ItemFacetModel<>(id, facet);
 	}

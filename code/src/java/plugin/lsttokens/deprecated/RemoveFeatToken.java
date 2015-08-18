@@ -45,6 +45,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
@@ -194,7 +195,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 
 		if (!refs.isEmpty())
 		{
-			AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(category, refs,
+			AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(CDOMDirectSingleRef.getRef(category), refs,
 					nature);
 			pcs.add(rcs);
 		}

@@ -318,6 +318,7 @@ public class IdentityList<T> implements List<T>
 	{
 		for (int i = 0; i < source.length; i++)
 		{
+			@SuppressWarnings("unchecked")
 			Identity<V> identity = (Identity<V>) source[i];
 			target[i] = identity == null ? null : identity.getUnderlying();
 		}

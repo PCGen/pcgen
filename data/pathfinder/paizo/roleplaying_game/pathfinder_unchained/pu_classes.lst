@@ -1,0 +1,43 @@
+# CVS $Revision: 21663 $ $Author: amaitland $ -- Tue Apr 21 09:24:50 2015 -- reformated by prettylst.pl v1.51 (build 25836)
+SOURCELONG:Pathfinder Unchained	SOURCESHORT:PU	SOURCEWEB:http://paizo.com/products/btpy97vo	SOURCEDATE:2015-04
+# Original Entry by: Stefan Radermacher
+
+#	# Class Name			Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class					Source Page		Ability																				Define			Combat bonus										Save bonus																						Modify VAR				Monster Role	Serves As
+#	CLASS:Unchained Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:UBr		MAXLEVEL:20	EXCLASS:Unchained Ex-Barbarian	SOURCEPAGE:p.8	ABILITY:Internal|AUTOMATIC|Class Skills ~ Unchained Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills	DEFINE:BarbarianLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|BarbarianLVL|CL	ROLE:Combat.Skill	SERVESAS:CLASS|Barbarian
+#	# Class Name			Restricted AL		Prohibited Class
+#	CLASS:Unchained Barbarian	!PREALIGN:LG,LN,LE	!PRECLASS:1,Barbarian=1,Ex-Barbarian=1
+#	# Class Name			Skill Pts/Lvl
+#	CLASS:Unchained Barbarian	STARTSKILLPTS:4
+#	###Block:Proficiencies
+#	1	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
+#	###Block: Level Progression
+#	1	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRage|PREVARGTEQ:BarbarianLVL,1
+#	1	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Fast Movement|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement|PREVARGTEQ:BarbarianLVL,1
+#	2	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Rage Powers|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePowers|PREVARGTEQ:BarbarianLVL,2
+#	2	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Uncanny Dodge Tracker|PREVARGTEQ:BarbarianLVL,2
+#	3	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Danger Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense|PREVARGTEQ:BarbarianLVL,3
+#	7	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Damage Reduction|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction|PREVARGTEQ:BarbarianLVL,7
+#	11	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Greater Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianGreaterRage|PREVARGTEQ:BarbarianLVL,11
+#	14	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Indomitable Will|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianIndomitableWill|PREVARGTEQ:BarbarianLVL,14
+#	17	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Tireless Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTirelessRage|PREVARGTEQ:BarbarianLVL,17
+#	20	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Mighty Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianMightyRage|PREVARGTEQ:BarbarianLVL,20
+#	
+#	# Class Name			Hit Dice	Type			Class Type		Abbreviation	Max Level	Ability																				Visible	Define			Combat bonus										Save bonus																						Modify VAR				Monster Role
+#	CLASS:Unchained Ex-Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	ABILITY:Internal|AUTOMATIC|Class Skills ~ Unchained Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills	VISIBLE:NO	DEFINE:BarbarianLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|BarbarianLVL|CL	ROLE:Combat.Skill
+#	# Class Name			Skill Pts/Lvl
+#	CLASS:Unchained Ex-Barbarian	STARTSKILLPTS:4
+#	###Block:Proficiencies
+#	1	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
+#	###Block: Level Progression
+#	1	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Fast Movement|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement
+#	2	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Uncanny Dodge Tracker
+#	3	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Danger Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense
+#	7	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Damage Reduction|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction
+#	14	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchained Barbarian ~ Indomitable Will|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianIndomitableWill
+#	
+#	#
+#	
+#	# Class Name		Prohibited Class
+#	CLASS:Barbarian.MOD	!PRECLASS:1,Unchained Barbarian=1,Unchained Ex-Barbarian=1
+#	
+#	

@@ -24,7 +24,8 @@ package pcgen.cdom.base;
 
 import pcgen.cdom.choiceset.CollectionToAbilitySelection;
 import pcgen.cdom.content.AbilitySelection;
-import pcgen.core.Ability;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.AbilityCategory;
 
 /**
  * CategorizedAbilitySelectionChooseInformation
@@ -60,7 +61,7 @@ public class CategorizedAbilitySelectionChooseInformation extends
 	/**
 	 * @return The ability category of the choices. 
 	 */
-	public Category<Ability> getCategory()
+	public CDOMSingleRef<AbilityCategory> getCategory()
 	{
 		return casChoiceSet.getCategory();
 	}

@@ -31,7 +31,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
-import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.list.ClassSpellList;
@@ -225,18 +224,18 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 	{
 		Set<String> set = new TreeSet<String>();
 
-		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedDomainLists = context
+		Collection<CDOMReference<? extends CDOMList<?>>> changedDomainLists = context
 				.getListContext().getChangedLists(obj, DomainSpellList.class);
-		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> domainMap =
+		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> domainMap =
 				getMap(context, obj, changedDomainLists, false);
 		for (String prereqs : domainMap.getKeySet())
 		{
 			set.add(processUnparse("DOMAIN", domainMap, prereqs).toString());
 		}
 
-		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedClassLists = context
+		Collection<CDOMReference<? extends CDOMList<?>>> changedClassLists = context
 				.getListContext().getChangedLists(obj, ClassSpellList.class);
-		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<Spell>> classMap =
+		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> classMap =
 				getMap(context, obj, changedClassLists, false);
 		for (String prereqs : classMap.getKeySet())
 		{

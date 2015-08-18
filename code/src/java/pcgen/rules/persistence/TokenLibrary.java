@@ -64,10 +64,10 @@ public final class TokenLibrary implements PluginLoader
 			new TreeMapToList<Integer, PostDeferredToken<? extends Loadable>>();
 	private static final TreeMapToList<Integer, PostValidationToken<? extends Loadable>> POST_VALIDATION_TOKENS =
 			new TreeMapToList<Integer, PostValidationToken<? extends Loadable>>();
-	private static final DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>> QUALIFIER_MAP =
-			new DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken>>();
-	private static final DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>> PRIMITIVE_MAP =
-			new DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>>();
+	private static final DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken<?>>> QUALIFIER_MAP =
+			new DoubleKeyMap<Class<?>, String, Class<? extends QualifierToken<?>>>();
+	private static final DoubleKeyMap<Class<?>, String, Class<? extends PrimitiveToken<?>>> PRIMITIVE_MAP =
+			new DoubleKeyMap<Class<?>, String, Class<? extends PrimitiveToken<?>>>();
 	private static final Set<TokenFamily> TOKEN_FAMILIES = new TreeSet<TokenFamily>();
 	private static final CaseInsensitiveMap<Class<? extends BonusObj>> BONUS_TAG_MAP =
 			new CaseInsensitiveMap<Class<? extends BonusObj>>();
@@ -133,13 +133,13 @@ public final class TokenLibrary implements PluginLoader
 
 	public static void addToPrimitiveMap(PrimitiveToken<?> p)
 	{
-		Class<? extends PrimitiveToken> newTokClass = p.getClass();
+		Class newTokClass = p.getClass();
 		if (PrimitiveToken.class.isAssignableFrom(newTokClass))
 		{
 			String name = p.getTokenName();
-			Class cl = ((PrimitiveToken) p).getReferenceClass();
-			Class<PrimitiveToken<?>> prev =
-					PRIMITIVE_MAP.put(cl, name, (Class<PrimitiveToken<?>>) newTokClass);
+			Class cl = p.getReferenceClass();
+			Class<? extends PrimitiveToken<?>> prev =
+					PRIMITIVE_MAP.put(cl, name, newTokClass);
 			if (prev != null)
 			{
 				Logging.errorPrint("Found a second " + name + " Primitive for " + cl);
@@ -149,7 +149,7 @@ public final class TokenLibrary implements PluginLoader
 
 	public static void addToQualifierMap(QualifierToken<?> p)
 	{
-		Class<? extends QualifierToken> newTokClass = p.getClass();
+		Class newTokClass = p.getClass();
 		Class<?> cl = p.getReferenceClass();
 		String name = p.getTokenName();
 		Class<? extends QualifierToken> prev = QUALIFIER_MAP.put(cl, name, newTokClass);
@@ -187,8 +187,10 @@ public final class TokenLibrary implements PluginLoader
 			TOKEN_FAMILIES.add(fam);
 			if (fam.compareTo(TokenFamily.REV514) <= 0 && PCCLASS_CLASS.equals(tok.getTokenClass()))
 			{
-				addToTokenMap(new ClassWrappedToken(
-						(CDOMCompatibilityToken<PCClass>) tok));
+				@SuppressWarnings("unchecked")
+				CDOMCompatibilityToken<PCClass> clTok =
+						(CDOMCompatibilityToken<PCClass>) tok;
+				addToTokenMap(new ClassWrappedToken(clTok));
 			}
 		}
 		loadFamily(TokenFamily.CURRENT, newToken);
@@ -214,8 +216,10 @@ public final class TokenLibrary implements PluginLoader
 			}
 			if (PCCLASS_CLASS.equals(tok.getTokenClass()))
 			{
-				addToTokenMap(new ClassWrappedToken(
-						(CDOMPrimaryToken<PCClass>) tok));
+				@SuppressWarnings("unchecked")
+				CDOMPrimaryToken<PCClass> clTok =
+						(CDOMPrimaryToken<PCClass>) tok;
+				addToTokenMap(new ClassWrappedToken(clTok));
 			}
 		}
 		if (newToken instanceof CDOMSecondaryToken)

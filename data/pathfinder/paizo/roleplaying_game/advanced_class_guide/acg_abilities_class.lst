@@ -324,7 +324,6 @@ Bloodrager ~ Uncanny Dodge Tracker							CATEGORY:Special Ability	TYPE:Bloodrage
 
 ###Block: Bloodrager Bloodline Bonus Feats
 # Ability Name							Modify VAR
-CATEGORY=Special Ability|Bloodrager ~ Bloodline.MOD	BONUS:VAR|BloodlineBonusFeats|1|PREVARGTEQ:BloodlineFeatProgression,3|!PREABILITY,CATEGORY=Archetype,TYPE.BloodragerBloodlineFeat3
 CATEGORY=Special Ability|Bloodrager ~ Bloodline.MOD	BONUS:VAR|BloodlineBonusFeats|1|PREVARGTEQ:BloodlineFeatProgression,6|!PREABILITY,CATEGORY=Archetype,TYPE.BloodragerBloodlineFeat6
 CATEGORY=Special Ability|Bloodrager ~ Bloodline.MOD	BONUS:VAR|BloodlineBonusFeats|1|PREVARGTEQ:BloodlineFeatProgression,9|!PREABILITY,CATEGORY=Archetype,TYPE.BloodragerBloodlineFeat9
 CATEGORY=Special Ability|Bloodrager ~ Bloodline.MOD	BONUS:VAR|BloodlineBonusFeats|1|PREVARGTEQ:BloodlineFeatProgression,12|!PREABILITY,CATEGORY=Archetype,TYPE.BloodragerBloodlineFeat12
@@ -3036,7 +3035,7 @@ Whip of Spiders				KEY:Magus Spellblend ~ Whip of Spiders				CATEGORY:Internal	T
 
 ###Block:
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Display Combined Grit Panache Luck|PREABILITY:2,CATEGORY=Special Ability,TYPE.GritShared
-Grit, Panache & Luck			KEY:Display Combined Grit Panache Luck						CATEGORY:Special Ability	TYPE:SpecialQuality	DESC: Shared Pool = %1|GritPanacheLuckPoints	ASPECT:CheckType|Points	ASPECT:CheckCount|%1|GritPanacheLuckPoints	DEFINE:GritPanacheLuckPoints|0	BONUS:VAR|GritPanacheLuckPoints|Panache_Max		BONUS:VAR|GritPanacheLuckPoints|GritMax
+Grit, Panache & Luck			KEY:Display Combined Grit Panache Luck						CATEGORY:Special Ability	TYPE:SpecialQuality	DESC: Shared Pool = %1|GritPanacheLuckPoints	ASPECT:CheckType|Points	ASPECT:CheckCount|%1|GritPanacheLuckPoints	DEFINE:GritPanacheLuckPoints|0	BONUS:VAR|GritPanacheLuckPoints|Panache_Max		BONUS:VAR|GritPanacheLuckPoints|GritLimit
 
 #
 # End

@@ -1,0 +1,31 @@
+# CVS $Revision: 21663 $ $Author: amaitland $ -- Fri Apr 17 13:29:30 2015 -- reformated by prettylst.pl v1.51 (build 25836)
+#SOURCELONG:Pathfinder Unchained	SOURCESHORT:PU	SOURCEWEB:http://paizo.com/products/btpy97vo	SOURCEDATE:2015-04
+# Original Entry by: Stefan Radermacher
+
+###Block: Class Feature Categories
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Unchained Rage Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnchainedRagePower		PLURAL:Unchained Rage Powers	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Unchained Raging Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnchainedRageSelection						DISPLAYLOCATION:Class Features
+
+#
+ABILITYCATEGORY:Unchained Summoner Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Unchained Summoner Class Feature		PLURAL:Unchained Summoner Class Features			DISPLAYLOCATION:Class Features
+
+
+
+
+ABILITYCATEGORY:Unchained Eidolon Subtype			POOL:Pool_UnchainedEidolonType			CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Racial Abilities	TYPE:Unchained Eidolon Subtype Selection
+ABILITYCATEGORY:Unchained Eidolon Form			POOL:Pool_UnchainedEidolonForm			CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Racial Abilities	TYPE:Unchained Eidolon Base Form Selection
+ABILITYCATEGORY:Unchained Eidolon Evolution		POOL:Pool_UnchainedEidolonEvolution			CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Racial Abilities	TYPE:Unchained Evolution
+
+ABILITYCATEGORY:Unchained Eidolon Resistance		POOL:Pool_EidolonResistance				CATEGORY:Internal			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Racial Abilities	TYPE:Unchained Eidolon Resistance
+ABILITYCATEGORY:Unchained Eidolon Immunity		POOL:Pool_EidolonImmunity				CATEGORY:Internal			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Racial Abilities	TYPE:Unchained Eidolon Immunity
+ABILITYCATEGORY:Unchained Eidolon Ability Increase	POOL:Pool_UnchainedEidolonAbilityIncrease		CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Racial Abilities	TYPE:Unchained Eidolon Ability Increase
+
+ABILITYCATEGORY:Unchained Eidolon Grab			POOL:Pool_UnchainedEidolonGrab			CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Racial Abilities	ABILITYLIST:Unchained Evolution ~ Grab
+ABILITYCATEGORY:Unchained Eidolon Constrict		POOL:Pool_UnchainedEidolonConstrict			CATEGORY:Special Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	DISPLAYLOCATION:Racial Abilities	ABILITYLIST:Unchained Evolution ~ Constrict
+
+
+
+#
+# End
+#

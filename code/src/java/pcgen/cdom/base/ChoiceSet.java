@@ -28,7 +28,8 @@ import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CNAbilitySelection;
-import pcgen.core.Ability;
+import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -249,7 +250,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 			arcs = choice;
 		}
 
-		public Category<Ability> getCategory()
+		public CDOMSingleRef<AbilityCategory> getCategory()
 		{
 			return arcs.getCategory();
 		}

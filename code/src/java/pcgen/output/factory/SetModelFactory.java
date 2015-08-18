@@ -49,7 +49,7 @@ public class SetModelFactory implements ModelFactory
 	 * @see pcgen.output.base.ModelFactory#generate(pcgen.cdom.enumeration.CharID)
 	 */
 	@Override
-	public SetFacetModel generate(CharID id)
+	public SetFacetModel<?> generate(CharID id)
 	{
 		return new SetFacetModel<>(id, facet);
 	}

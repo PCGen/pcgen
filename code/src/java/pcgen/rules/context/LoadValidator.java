@@ -34,6 +34,7 @@ import pcgen.core.Campaign;
 
 public class LoadValidator implements UnconstructedValidator
 {
+	@SuppressWarnings("rawtypes")
 	private static final Class<CategorizedCDOMObject> CATEGORIZED_CDOM_OBJECT_CLASS = CategorizedCDOMObject.class;
 	private final List<Campaign> campaignList;
 	private HashMapToList<Class<?>, String> simpleMap;
