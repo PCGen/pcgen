@@ -24,7 +24,7 @@ import java.util.List;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -42,7 +42,8 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
  * @version  $Revision$
  */
 @SuppressWarnings("serial")
-public final class Ability extends PObject implements CategorizedCDOMObject<Ability>, AbilityFacade
+public final class Ability extends PObject implements Categorized<Ability>,
+		AbilityFacade
 {
 	/**
 	 * Get the category of this ability

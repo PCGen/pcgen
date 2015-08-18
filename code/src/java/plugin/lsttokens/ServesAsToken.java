@@ -29,7 +29,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
@@ -156,7 +156,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 		for (CDOMReference<?> ref : changes.getAdded())
 		{
 			String mapKey = key;
-			if (CategorizedCDOMObject.class.isAssignableFrom(obj.getClass()))
+			if (Categorized.class.isAssignableFrom(obj.getClass()))
 			{
 				Category<?> cat = ((CategorizedCDOMReference<?>) ref)
 						.getCDOMCategory();

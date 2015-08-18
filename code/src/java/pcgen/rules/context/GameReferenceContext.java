@@ -24,7 +24,7 @@ import java.util.Map;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.ManufacturableFactory;
@@ -60,7 +60,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl)
 	{
-		if (CategorizedCDOMObject.class.isAssignableFrom(cl))
+		if (Categorized.class.isAssignableFrom(cl))
 		{
 			throw new InternalError(cl
 					+ " is categorized but was fetched without a category");
@@ -88,7 +88,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Class<? extends Category<T>> catClass, String cat)
 	{
 		@SuppressWarnings("unchecked")
@@ -109,7 +109,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
 		Class<? extends Category<T>> catClass = getGenericClass(cat);
@@ -137,7 +137,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 	}
 
 	@Override
-	protected <T extends CDOMObject & CategorizedCDOMObject<T>> boolean hasManufacturer(
+	protected <T extends Categorized<T>> boolean hasManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
 		return false;
