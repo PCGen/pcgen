@@ -84,6 +84,10 @@ public class VisibleToken extends AbstractNonEmptyToken<Skill> implements
 		{
 			vis = Visibility.OUTPUT_ONLY;
 		}
+		else if (visString.equals("NO"))
+		{
+			vis = Visibility.HIDDEN;
+		}
 		else
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
