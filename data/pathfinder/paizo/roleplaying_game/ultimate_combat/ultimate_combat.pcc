@@ -36,12 +36,15 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Combat" Copyrigh
 
 
 # Data files
+DATACONTROL:uc_datacontrols.lst
+ABILITY:uc_abilities_globalvar.lst
+
+
 ABILITY:uc_abilities_class.lst
 ABILITY:uc_abilities_race.lst
 ABILITY:uc_feats.lst
 ABILITYCATEGORY:uc_abilitycategories.lst
 CLASS:uc_classes.lst
-DATACONTROL:uc_datacontrols.lst
 EQUIPMENT:uc_equip_general.lst
 EQUIPMENT:uc_equip_arms_armor.lst|(EXCLUDE:Do-Maru|Tatami-Do|O-Yoroi|Mountain Pattern Armor)|PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
 EQUIPMENT:uc_equip_arms_armor.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment

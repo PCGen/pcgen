@@ -16,7 +16,7 @@ CATEGORY=Internal|Default.MOD	DEFINE:ProhibitSpell_Alignment_Evil|0	BONUS:VAR|Pr
 CATEGORY=Internal|Default.MOD	DEFINE:ProhibitSpell_Alignment_Lawful|0	BONUS:VAR|ProhibitSpell_Alignment_Lawful|1|PREMULT:2,[PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]],[PREVAREQ:BypassProhibitSpellAlignment_Restriction,0]	
 CATEGORY=Internal|Default.MOD	DEFINE:ProhibitSpell_Alignment_Chaotic|0	BONUS:VAR|ProhibitSpell_Alignment_Chaotic|1|PREMULT:2,[PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]],[PREVAREQ:BypassProhibitSpellAlignment_Restriction,0]
 
-# Keep defines for Caster level in one location for easier modification - for classes outside the core, the DEFINES will be with their classes. 
+# Keep defines for Caster level in one location for easier modification - for classes outside the core, the DEFINES will be with their classes.
 # Due to a Code Bug, had to use BL_Stripped_Class to make this system work consistently.
 # Core Rule Book
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Bard|0
@@ -478,7 +478,7 @@ CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, th
 Ink Cloud		KEY:Octopus Wild Shape ~ Ink Cloud		CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialQuality.Extraordinary.Defensive						DESC:An octopus can emit a 10ft radius sphere of ink once per minute as a free action. The ink provides total concealment in water, and persists for 1 minute.																																															SOURCEPAGE:p.219
 Jet			KEY:Octopus Wild Shape ~ Jet			CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialQuality.Extraordinary.ModifyMovement					DESC:An octopus can jet backward once per round as a full-round action, at a speed of 200 ft. It must move in a straight line while jetting, and does not provoke attacks of opportunity when it does so.																	MOVE:Jet,200																					SOURCEPAGE:p.219
 Poison		KEY:Octopus Wild Shape ~ Poison		CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialAttack.Extraordinary								DESC:Bite-injury; save Fort DC 13; frequency 1/round for 6 rounds; effect 1 Str; cure 1 save.																																																										SOURCEPAGE:p.219
-Poison		KEY:Lizard Monitor Wild Shape ~ Poison 	CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialAttack.Extraordinary				DEFINE:PoisonSaveDC|0	DESC:Bite--injury; save Fort DC %1; onset 1 minute; frequency 1/hour for 6 hours; effect 1d2 Dexterity damage; cure 1 save.|PoisonSaveDC																															ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)	SOURCEPAGE:p.194	ASPECT:Ability Benefit|(DC %1)|PoisonSaveDC
+Poison		KEY:Lizard Monitor Wild Shape ~ Poison	CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialAttack.Extraordinary				DEFINE:PoisonSaveDC|0	DESC:Bite--injury; save Fort DC %1; onset 1 minute; frequency 1/hour for 6 hours; effect 1d2 Dexterity damage; cure 1 save.|PoisonSaveDC																															ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)	SOURCEPAGE:p.194	ASPECT:Ability Benefit|(DC %1)|PoisonSaveDC
 Sprint		KEY:Cheetah Wild Shape ~ Sprint		CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialQuality.Extraordinary.ModifyMovement					DESC:Once per hour, a cheetah can move at 10 times its normal speed (500 feet) when it makes a charge.																																																								SOURCEPAGE:p.40
 Tongue		KEY:Giant Frog Wild Shape ~ Tongue		CATEGORY:Special Ability	TYPE:DruidClassFeatures.SpecialAttack.Extraordinary								DESC:A giant frog's tongue is a primary attack with reach equal to three times the frog's normal reach (15 feet for a Medium giant frog). A giant frog's tongue deals no damage on a hit, but can be used to grab. A giant frog does not gain the grappled condition while using its tongue in this manner.																								SOURCEPAGE:p.135
 
@@ -1198,7 +1198,7 @@ Sorcerer Bloodline	KEY:Sorcerer ~ Sorcerer Bloodline	CATEGORY:Special Ability	TY
 #
 Eschew Materials		KEY:Sorcerer ~ Eschew Materials	CATEGORY:Special Ability	TYPE:SorcererClassFeatures.Internal																																																										ABILITY:FEAT|AUTOMATIC|Eschew Materials
 
-###Block: 
+###Block:
 CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFeatCount|(BloodlineFeatProgression-1)/6	BONUS:VAR|BloodlineFeatProgression|BloodlineLVL|!PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererBloodlineFeats
 CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFeatCount|-1|PREVARGTEQ:BloodlineFeatProgression,7|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererBloodlineFeat7
 CATEGORY=Special Ability|Sorcerer ~ Sorcerer Bloodline.MOD	BONUS:VAR|BloodlineFeatCount|-1|PREVARGTEQ:BloodlineFeatProgression,13|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererBloodlineFeat13

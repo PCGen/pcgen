@@ -225,25 +225,13 @@ CLASS:Witch		STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Heal|Intimidate|Knowledge (Ar
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
 CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Witch|Caster_Level_BL_Stripped_Witch	BONUS:VAR|Caster_Level_BL_Stripped_Witch|Caster_Level_Witch-CasterLevelBLWitch	BONUS:VAR|Caster_Level_Witch|CL+Caster_Level_Bonus+CasterLevelBLWitch	DEFINE:CasterLevelBLWitch|0	BONUS:VAR|CasterLevelBL_x_Witch|charbonusto("PCLEVEL","Witch")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Witch|TYPE=Base		DEFINE:Caster_Level_Witch|0	DEFINE:Caster_Level_BL_Stripped_Witch|0
 ###Block:Proficiencies
-1	ABILITY:CLASS|AUTOMATIC|Oracle
+1	ABILITY:CLASS|AUTOMATIC|Witch
 ###Block: Witch Class Abilities
 1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Familiar|PREVAREQ:Witch_CF_Familiar,0
 1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Cantrips|PREVAREQ:Witch_CF_Cantrips,0
 1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Hex|PREVAREQ:Witch_CF_Hex,0
 1	ABILITY:Witch Class Feature|AUTOMATIC|Witch Patron
 3	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells|PREVAREQ:Witch_CF_FamiliarTouchSpells,0
-###Block: Witch Pool Progressions
-1	BONUS:ABILITYPOOL|Witch Hex|1|PREVAREQ:Witch_CF_Hex1,0
-2	BONUS:ABILITYPOOL|Witch Hex|1|PREVAREQ:Witch_CF_Hex2,0
-4	BONUS:ABILITYPOOL|Witch Hex|1|PREVAREQ:Witch_CF_Hex4,0
-6	BONUS:ABILITYPOOL|Witch Hex|1|PREVAREQ:Witch_CF_Hex6,0
-8	BONUS:ABILITYPOOL|Witch Hex|1|PREVAREQ:Witch_CF_Hex8,0
-10	BONUS:ABILITYPOOL|Witch Hex|1|PREVAREQ:Witch_CF_Hex10,0
-12	BONUS:ABILITYPOOL|Witch Hex|1|PREVAREQ:Witch_CF_Hex12,0
-14	BONUS:ABILITYPOOL|Witch Hex|1|PREVAREQ:Witch_CF_Hex14,0
-16	BONUS:ABILITYPOOL|Witch Hex|1|PREVAREQ:Witch_CF_Hex16,0
-18	BONUS:ABILITYPOOL|Witch Hex|1|PREVAREQ:Witch_CF_Hex18,0
-20	BONUS:ABILITYPOOL|Witch Hex|1|PREVAREQ:Witch_CF_Hex20,0
 ###Block: Spell Progression
 1	CAST:3,1
 2	CAST:4,2

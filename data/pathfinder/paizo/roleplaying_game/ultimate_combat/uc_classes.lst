@@ -14,13 +14,13 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Exotic Weapon Proficiency (Firearms)|Martial Weapon Proficiency Output|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Firearm
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Level progression
-1	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Gunsmith|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunsmith
-1	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Deeds|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeeds
-1	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Grit|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGrit
-2	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Nimble|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerNimble
-4	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Bonus Feats|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerBonusFeat
-5	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Gun Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining
-20	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ True Grit|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerTrueGrit
+1	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Gunsmith|PREVAREQ:Gunslinger_CF_Gunsmith,0
+1	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Deeds|PREVAREQ:Gunslinger_CF_Deeds,0
+1	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Grit|PREVAREQ:Gunslinger_CF_Grit,0
+2	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Nimble|PREVAREQ:Gunslinger_CF_Nimble,0
+4	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Bonus Feats|PREVAREQ:Gunslinger_CF_BonusFeats,0
+5	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Gun Training|PREVAREQ:Gunslinger_CF_GunTraining,0
+20	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ True Grit|PREVAREQ:Gunslinger_CF_TrueGrit,0
 
 
 ###Block: Ninja
