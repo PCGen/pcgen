@@ -56,7 +56,7 @@ CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Gunsmith|1|TYPE=Boolean|PR
 CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Deeds|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_Deeds=True			
 CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Grit|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_Grit=True			
 CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_Nimble|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_Nimble=True		
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_BonusFeat=True		
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_BonusFeats=True		
 CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_GunTraining=True		
 CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_TrueGrit|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_TrueGrit=True		
 # TYPE

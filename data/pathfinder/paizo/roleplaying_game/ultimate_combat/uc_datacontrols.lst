@@ -7,7 +7,7 @@ FACTDEF:ABILITY|Gunslinger_Archetype_Gunsmith										DATAFORMAT:BOOLEAN	VISIBL
 FACTDEF:ABILITY|Gunslinger_Archetype_Deeds										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Deeds										EXPLANATION:Determines whether the archetype affects - Deeds			
 FACTDEF:ABILITY|Gunslinger_Archetype_Grit											DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Grit											EXPLANATION:Determines whether the archetype affects - Grit				
 FACTDEF:ABILITY|Gunslinger_Archetype_Nimble										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Nimble										EXPLANATION:Determines whether the archetype affects - Nimble			
-FACTDEF:ABILITY|Gunslinger_Archetype_BonusFeat										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat										EXPLANATION:Determines whether the archetype affects - BonusFeat			
+FACTDEF:ABILITY|Gunslinger_Archetype_BonusFeats										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeats										EXPLANATION:Determines whether the archetype affects - BonusFeats			
 FACTDEF:ABILITY|Gunslinger_Archetype_GunTraining									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GunTraining									EXPLANATION:Determines whether the archetype affects - GunTraining		
 FACTDEF:ABILITY|Gunslinger_Archetype_TrueGrit										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TrueGrit										EXPLANATION:Determines whether the archetype affects - TrueGrit			
 
@@ -15,7 +15,7 @@ FACTDEF:ABILITY|Gunslinger_CF_Gunsmith									DATAFORMAT:BOOLEAN	VISIBLE:YES	SE
 FACTDEF:ABILITY|Gunslinger_CF_Deeds									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Deeds										EXPLANATION:Remove Gunslinger Deeds							
 FACTDEF:ABILITY|Gunslinger_CF_Grit										DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Grit											EXPLANATION:Remove Gunslinger Grit								
 FACTDEF:ABILITY|Gunslinger_CF_Nimble									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Nimble										EXPLANATION:Remove Gunslinger Nimble							
-FACTDEF:ABILITY|Gunslinger_CF_BonusFeat									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat										EXPLANATION:Remove Gunslinger BonusFeat							
+FACTDEF:ABILITY|Gunslinger_CF_BonusFeats									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat										EXPLANATION:Remove Gunslinger BonusFeat							
 FACTDEF:ABILITY|Gunslinger_CF_GunTraining								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:GunTraining									EXPLANATION:Remove Gunslinger GunTraining						
 FACTDEF:ABILITY|Gunslinger_CF_TrueGrit									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TrueGrit										EXPLANATION:Remove Gunslinger TrueGrit							
 FACTDEF:ABILITY|Gunslinger_CF_FirearmTraining1									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FirearmTraining1										EXPLANATION:Remove Gunslinger FirearmTraining1							
