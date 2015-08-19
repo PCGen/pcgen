@@ -41,6 +41,8 @@ ABILITYCATEGORY:Loremaster Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL
 ABILITYCATEGORY:Mystic Theurge Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Mystic Theurge Class Feature.Mystic TheurgeClassFeatures			PLURAL:Mystic Theurge Class Features		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Pathfinder Chronicler Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Pathfinder Chronicler Class Feature.Pathfinder ChroniclerClassFeatures	PLURAL:Pathfinder Chronicler Class Features	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Shadowdancer Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Shadowdancer Class Feature.ShadowdancerClassFeatures				PLURAL:Shadowdancer Class Features			DISPLAYLOCATION:Class Features
+# Companion Class
+ABILITYCATEGORY:Companion Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Companion Class Feature.CompanionClassFeatures				PLURAL:Companion Class Features			DISPLAYLOCATION:Class Features
 
 ###Block: Character Traits
 # Ability Category		Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI		Display Location
@@ -152,7 +154,6 @@ ABILITYCATEGORY:Animal Companion Feat		POOL:Pool_AnimalCompanionFeat			VISIBLE:Q
 ABILITYCATEGORY:Companion Level Increase Choice	POOL:Pool_CompanionLevelIncreaseChoice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CompChoice			PLURAL:Companion Level Increase Choice	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Companion Stat Increase		POOL:Pool_CompanionStatIncrease		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CompStatChoice		PLURAL:Companion Stat Increase Choice	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Companion Skill			POOL:Pool_CompanionSkill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:AnimalCompanionSkill	PLURAL:Companion Skill Choice			DISPLAYLOCATION:Class Features
-
 
 ###Block: Handle Animal Tricks and Training
 # Ability Category		Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
