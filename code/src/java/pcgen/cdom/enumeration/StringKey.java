@@ -24,12 +24,17 @@
 package pcgen.cdom.enumeration;
 
 /**
- * @author Tom Parker <thpr@users.sourceforge.net>
- * 
  * This is a Typesafe enumeration of legal String Characteristics of an object.
  * It is designed to act as an index to a specific String (set by various tokens
- * in LST terms). Generally this should be used for tokens that PCGen does not
- * process beyond simple input/output (e.g. holy symbol of a deity).
+ * in LST terms). This is legacy support for tokens that PCGen does not process
+ * beyond simple input/output (e.g. holy symbol of a deity). If possible, it is
+ * preferred to use a FACT: token rather than a StringKey based token.
+ * 
+ * These are distinct from PCStringKey items, in order to separate two different
+ * types of function. StringKey should be used when items are being attached to
+ * a CDOMObject (although a FACT is generally preferred at this point),
+ * PCStringKey should be used when a piece of information is attached to a
+ * PlayerCharacter (typically by the UI).
  */
 public enum StringKey
 {

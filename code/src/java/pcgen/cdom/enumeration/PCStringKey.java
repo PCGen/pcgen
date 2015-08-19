@@ -20,6 +20,11 @@ package pcgen.cdom.enumeration;
 /**
  * This is a Typesafe enumeration of legal String Characteristics of a PC.
  * 
+ * These are distinct from StringKey items, in order to separate two different
+ * types of function. These are related to the PlayerCharacter, and thus are
+ * usually capturing items from the UI and then enabling them in FreeMarker
+ * output. StringKey should be used when items are being attached to a
+ * CDOMObject (although a FACT is generally preferred at this point).
  */
 public enum PCStringKey
 {
