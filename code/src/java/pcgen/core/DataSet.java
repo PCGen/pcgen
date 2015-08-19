@@ -233,9 +233,12 @@ public class DataSet implements DataSetFacade
 			}
 		}
 
-		for(Equipment eq : context.getReferenceContext().getConstructedCDOMObjects(Equipment.class))
+		for (Equipment eq : context.getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 		{
-			equipment.addElement(eq);
+			if (eq.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
+			{
+				equipment.addElement(eq);
+			}
 		}
 		for (String xpTableName : gameMode.getXPTableNames())
 		{
