@@ -40,8 +40,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Equipment" Copyr
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-# Note: In the data files core items are .MODed to add UE source info, cost and weight. Duplicate items from APG and UC are entered in full.
+FORWARDREF:SPELL|Allegro,Arrow of Law,Chord of Shards,Corrosive Touch,Deadly Juggernaut,Dread Bolt,Forced Quiet,Interrogation,Oppressive Boredom,Piercing Shriek,Wall of Sound
 
+# Note: In the data files core items are .MODed to add UE source info, cost and weight. Duplicate items from APG and UC are entered in full.
 
 ABILITY:ue_abilities.lst
 ABILITYCATEGORY:ue_abilitycategories.lst
@@ -51,9 +52,6 @@ EQUIPMENT:ue_equip_general.lst
 EQUIPMENT:ue_equip_magic_items.lst
 EQUIPMOD:ue_equipmods.lst
 KIT:ue_kits.lst
-# ue_spells_*.lst only required if UC/UM are not loaded - avoids dependencies
-SPELL:ue_spells_uc.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
-SPELL:ue_spells_um.lst|!PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 SKILL:ue_skills.lst
 TEMPLATE:ue_templates.lst
 
