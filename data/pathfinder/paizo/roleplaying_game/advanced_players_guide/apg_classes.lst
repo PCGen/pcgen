@@ -11,7 +11,7 @@ CLASS:Alchemist	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Alc		MAXLEVEL:20	SOURCEPAGE:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|TYPE=Craft|Disable Device|Fly|Heal|Knowledge (Arcana)|Knowledge (Nature)|Perception|TYPE=Profession|Sleight of Hand|Spellcraft|Survival|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
-CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alchemist|Caster_Level_BL_Stripped_Alchemist	BONUS:VAR|Caster_Level_BL_Stripped_Alchemist|Alchemist_Caster_Level-CasterLevelBLAlchemist	BONUS:VAR|Alchemist_Caster_Level|CL+Caster_Level_Bonus+CasterLevelBLAlchemist	DEFINE:CasterLevelBLAlchemist|0	BONUS:VAR|CasterLevelBL_x_Alchemist|charbonusto("PCLEVEL","Alchemist")	BONUS:VAR|Caster_Level_Highest__Arcane|Alchemist_Caster_Level|TYPE=Base	DEFINE:Caster_Level_Alchemist|0		DEFINE:Caster_Level_BL_Stripped_Alchemist|0	
+CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alchemist|Caster_Level_BL_Stripped_Alchemist	BONUS:VAR|Caster_Level_BL_Stripped_Alchemist|Caster_Level_Alchemist-CasterLevelBLAlchemist	BONUS:VAR|Caster_Level_Alchemist|CL+Caster_Level_Bonus+CasterLevelBLAlchemist	DEFINE:CasterLevelBLAlchemist|0	BONUS:VAR|CasterLevelBLAlchemist|charbonusto("PCLEVEL","Alchemist")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Alchemist|TYPE=Base	DEFINE:Caster_Level_Alchemist|0		DEFINE:Caster_Level_BL_Stripped_Alchemist|0	
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=ArmorProfLight
 ###Block: Alchemist Book
@@ -96,7 +96,7 @@ CLASS:Inquisitor	PREVARLT:ExInquisitor,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Nature)|Knowledge (Planes)|Knowledge (Religion)|Perception|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Inquisitor|Caster_Level_BL_Stripped_Inquisitor	BONUS:VAR|Caster_Level_BL_Stripped_Inquisitor|Caster_Level_Inquisitor-CasterLevelBLInquisitor	BONUS:VAR|Caster_Level_Inquisitor|CL+Caster_Level_Bonus+CasterLevelBLInquisitor	DEFINE:CasterLevelBLInquisitor|0	BONUS:VAR|CasterLevelBL_x_Inquisitor|charbonusto("PCLEVEL","Inquisitor")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Inquisitor|TYPE=Base	DEFINE:Caster_Level_Inquisitor|0	DEFINE:Caster_Level_BL_Stripped_Inquisitor|0
+CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Inquisitor|Caster_Level_BL_Stripped_Inquisitor	BONUS:VAR|Caster_Level_BL_Stripped_Inquisitor|Caster_Level_Inquisitor-CasterLevelBLInquisitor	BONUS:VAR|Caster_Level_Inquisitor|CL+Caster_Level_Bonus+CasterLevelBLInquisitor	DEFINE:CasterLevelBLInquisitor|0	BONUS:VAR|CasterLevelBLInquisitor|charbonusto("PCLEVEL","Inquisitor")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Inquisitor|TYPE=Base	DEFINE:Caster_Level_Inquisitor|0	DEFINE:Caster_Level_BL_Stripped_Inquisitor|0
 #COMMENT: Unable to enact properly for the Domain, Inquisitor does not get a domain slot, or bonus spells from it
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple
@@ -175,7 +175,7 @@ CLASS:Oracle	HD:8		TYPE:Base.PC.SpontaneousDivine.Spontaneous	CLASSTYPE:PC	ABB:O
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Oracle	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Diplomacy|Heal|Knowledge (History)|Knowledge (Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
-CLASS:Oracle	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Oracle|Caster_Level_BL_Stripped_Oracle	BONUS:VAR|Caster_Level_BL_Stripped_Oracle|Caster_Level_Oracle-CasterLevelBLOracle	BONUS:VAR|Caster_Level_Oracle|CL+Caster_Level_Bonus+CasterLevelBLOracle	DEFINE:CasterLevelBLOracle|0	BONUS:VAR|CasterLevelBL_x_Oracle|charbonusto("PCLEVEL","Oracle")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Oracle|TYPE=Base	SPELLLIST:2|Cleric|Oracle	DEFINE:Caster_Level_Oracle|0	DEFINE:Caster_Level_BL_Stripped_Oracle|0
+CLASS:Oracle	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Oracle|Caster_Level_BL_Stripped_Oracle	BONUS:VAR|Caster_Level_BL_Stripped_Oracle|Caster_Level_Oracle-CasterLevelBLOracle	BONUS:VAR|Caster_Level_Oracle|CL+Caster_Level_Bonus+CasterLevelBLOracle	DEFINE:CasterLevelBLOracle|0	BONUS:VAR|CasterLevelBLOracle|charbonusto("PCLEVEL","Oracle")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Oracle|TYPE=Base	SPELLLIST:2|Cleric|Oracle	DEFINE:Caster_Level_Oracle|0	DEFINE:Caster_Level_BL_Stripped_Oracle|0
 ###Block:Proficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=ArmorProfMedium|TYPE=ShieldProf
 ###Block: Oracle Spell Choice
@@ -213,7 +213,7 @@ CLASS:Summoner	PREVAREQ:CLASS_SummonerAllowed,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Summoner	STARTSKILLPTS:2	
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summoner|Caster_Level_BL_Stripped_Summoner	BONUS:VAR|Caster_Level_BL_Stripped_Summoner|Caster_Level_Summoner-CasterLevelBLSummoner	BONUS:VAR|Caster_Level_Summoner|CL+Caster_Level_Bonus+CasterLevelBLSummoner	DEFINE:CasterLevelBLSummoner|0	BONUS:VAR|CasterLevelBL_x_Summoner|charbonusto("PCLEVEL","Summoner")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Summoner|TYPE=Base	DEFINE:Caster_Level_Summoner|0	DEFINE:Caster_Level_BL_Stripped_Summoner|0
+CLASS:Summoner	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Summoner|Caster_Level_BL_Stripped_Summoner	BONUS:VAR|Caster_Level_BL_Stripped_Summoner|Caster_Level_Summoner-CasterLevelBLSummoner	BONUS:VAR|Caster_Level_Summoner|CL+Caster_Level_Bonus+CasterLevelBLSummoner	DEFINE:CasterLevelBLSummoner|0	BONUS:VAR|CasterLevelBLSummoner|charbonusto("PCLEVEL","Summoner")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Summoner|TYPE=Base	DEFINE:Caster_Level_Summoner|0	DEFINE:Caster_Level_BL_Stripped_Summoner|0
 ###Block:
 1	ABILITY:Class|AUTOMATIC|Summoner
 ###Block: Casting Progression
@@ -243,7 +243,7 @@ CLASS:Witch		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wit		MAXLEVEL:20	SOURCEPAGE:p.6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Witch		STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Heal|Intimidate|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nature)|Knowledge (Planes)|TYPE=Profession|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
-CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Witch|Caster_Level_BL_Stripped_Witch	BONUS:VAR|Caster_Level_BL_Stripped_Witch|Caster_Level_Witch-CasterLevelBLWitch	BONUS:VAR|Caster_Level_Witch|CL+Caster_Level_Bonus+CasterLevelBLWitch	DEFINE:CasterLevelBLWitch|0	BONUS:VAR|CasterLevelBL_x_Witch|charbonusto("PCLEVEL","Witch")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Witch|TYPE=Base		DEFINE:Caster_Level_Witch|0	DEFINE:Caster_Level_BL_Stripped_Witch|0
+CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Witch|Caster_Level_BL_Stripped_Witch	BONUS:VAR|Caster_Level_BL_Stripped_Witch|Caster_Level_Witch-CasterLevelBLWitch	BONUS:VAR|Caster_Level_Witch|CL+Caster_Level_Bonus+CasterLevelBLWitch	DEFINE:CasterLevelBLWitch|0	BONUS:VAR|CasterLevelBLWitch|charbonusto("PCLEVEL","Witch")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Witch|TYPE=Base		DEFINE:Caster_Level_Witch|0	DEFINE:Caster_Level_BL_Stripped_Witch|0
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Witch Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfAuto
 ###Block: Level progression
@@ -332,7 +332,7 @@ CLASS:Antipaladin	PREMULT:1,[PREALIGN:CE],[PREVAREQ:BypassClassAlignment_Antipal
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Disguise|Handle Animal|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
-CLASS:Antipaladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Antipaladin|Caster_Level_BL_Stripped_Antipaladin|PRECLASS:1,Antipaladin=4	BONUS:VAR|Caster_Level_BL_Stripped_Antipaladin|Caster_Level_Antipaladin-CasterLevelBLAntipaladin	BONUS:VAR|Caster_Level_Antipaladin|CL-3+Caster_Level_Bonus+CasterLevelBLAntipaladin	DEFINE:CasterLevelBLAntipaladin|0	BONUS:VAR|CasterLevelBL_x_Antipaladin|charbonusto("PCLEVEL","Antipaladin")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Antipaladin|TYPE=Base	DEFINE:Caster_Level_Antipaladin|0	DEFINE:Caster_Level_BL_Stripped_Antipaladin|0
+CLASS:Antipaladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Antipaladin|Caster_Level_BL_Stripped_Antipaladin|PRECLASS:1,Antipaladin=4	BONUS:VAR|Caster_Level_BL_Stripped_Antipaladin|Caster_Level_Antipaladin-CasterLevelBLAntipaladin	BONUS:VAR|Caster_Level_Antipaladin|CL-3+Caster_Level_Bonus+CasterLevelBLAntipaladin	DEFINE:CasterLevelBLAntipaladin|0	BONUS:VAR|CasterLevelBLAntipaladin|charbonusto("PCLEVEL","Antipaladin")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Antipaladin|TYPE=Base	DEFINE:Caster_Level_Antipaladin|0	DEFINE:Caster_Level_BL_Stripped_Antipaladin|0
 ###Block: Proficiencies
 1	ABILITY:CLASS|AUTOMATIC|Antipaladin
 1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProf
