@@ -71,8 +71,8 @@ FOLLOWER:SpecialMountLVL=16	TYPE:Special Mount	ABILITY:Special Ability|AUTOMATIC
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	DEFINESTAT:MINVALUE|INT|5+((1+MASTERVAR("FamiliarLVL"))/2)	BONUS:VAR|AC_Natural_Armor|(1+MASTERVAR("FamiliarLVL"))/2|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast	DEFINE:MasterLevel|0	BONUS:VAR|MasterLevel|MASTERVAR("FamiliarLVL")
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Alertness
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Improved Evasion
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Share Spells
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link
 FOLLOWER:FamiliarLVL=3	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Deliver Touch Spells
 FOLLOWER:FamiliarLVL=5	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Master
