@@ -95,7 +95,7 @@ public class VisibleToken extends AbstractNonEmptyToken<Skill> implements
 					+ " in Skill");
 			cpr.addErrorMessage(" " + value + " is not a valid value for "
 					+ getTokenName());
-			cpr.addErrorMessage(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
+			cpr.addErrorMessage(" Valid values in Skill are YES, ALWAYS, NO, DISPLAY, GUI, EXPORT, CSHEET");
 			return cpr;
 		}
 		context.getObjectContext().put(skill, ObjectKey.VISIBILITY, vis);
