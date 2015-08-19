@@ -32,7 +32,7 @@ import java.util.TreeSet;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.CategorizedClassIdentity;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ClassIdentity;
@@ -63,7 +63,7 @@ public abstract class AbstractReferenceContext
 {
 
 	@SuppressWarnings("rawtypes")
-	private static final Class<CategorizedCDOMObject> CATEGORIZED_CDOM_OBJECT_CLASS = CategorizedCDOMObject.class;
+	private static final Class<Categorized> CATEGORIZED_CLASS = Categorized.class;
 	private static final Class<DomainSpellList> DOMAINSPELLLIST_CLASS = DomainSpellList.class;
 	private static final Class<ClassSkillList> CLASSSKILLLIST_CLASS = ClassSkillList.class;
 	private static final Class<ClassSpellList> CLASSSPELLLIST_CLASS = ClassSpellList.class;
@@ -83,7 +83,7 @@ public abstract class AbstractReferenceContext
 	
 	public abstract <T extends Loadable> boolean hasManufacturer(Class<T> cl);
 	
-	protected abstract <T extends CDOMObject & CategorizedCDOMObject<T>> boolean hasManufacturer(
+	protected abstract <T extends Categorized<T>> boolean hasManufacturer(
 		Class<T> cl, Category<T> cat);
 	
 	/**
@@ -110,8 +110,8 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(c).getAllReference();
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMAllReference(
-			Class<T> c, Category<T> cat)
+	public <T extends Categorized<T>> CDOMGroupRef<T> getCDOMAllReference(
+		Class<T> c, Category<T> cat)
 	{
 		return getManufacturer(c, cat).getAllReference();
 	}
@@ -122,7 +122,7 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(c).getTypeReference(val);
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMGroupRef<T> getCDOMTypeReference(
+	public <T extends Categorized<T>> CDOMGroupRef<T> getCDOMTypeReference(
 			Class<T> c, Category<T> cat, String... val)
 	{
 		return getManufacturer(c, cat).getTypeReference(val);
@@ -131,7 +131,7 @@ public abstract class AbstractReferenceContext
 	public <T extends Loadable> T constructCDOMObject(Class<T> c, String val)
 	{
 		T obj;
-		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(c))
+		if (CATEGORIZED_CLASS.isAssignableFrom(c))
 		{
 			Class cl = c;
 			obj = (T) getManufacturer(cl, (Category) null).constructObject(val);
@@ -156,7 +156,7 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(c).getReference(val);
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> CDOMSingleRef<T> getCDOMReference(
+	public <T extends Categorized<T>> CDOMSingleRef<T> getCDOMReference(
 			Class<T> c, Category<T> cat, String val)
 	{
 		return getManufacturer(c, cat).getReference(val);
@@ -164,7 +164,7 @@ public abstract class AbstractReferenceContext
 
 	public <T extends Loadable> void reassociateKey(String key, T obj)
 	{
-		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(obj.getClass()))
+		if (CATEGORIZED_CLASS.isAssignableFrom(obj.getClass()))
 		{
 			Class cl = obj.getClass();
 			reassociateCategorizedKey(key, obj, cl);
@@ -175,7 +175,7 @@ public abstract class AbstractReferenceContext
 		}
 	}
 
-	private <T extends Loadable & CategorizedCDOMObject<T>> void reassociateCategorizedKey(
+	private <T extends Categorized<T>> void reassociateCategorizedKey(
 			String key, Loadable orig, Class<T> cl)
 	{
 		T obj = (T) orig;
@@ -188,14 +188,14 @@ public abstract class AbstractReferenceContext
 		return getManufacturer(c).getActiveObject(val);
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> T silentlyGetConstructedCDOMObject(
-			Class<T> c, Category<T> cat, String val)
+	public <T extends Categorized<T>> T silentlyGetConstructedCDOMObject(
+		Class<T> c, Category<T> cat, String val)
 	{
 		return getManufacturer(c, cat).getActiveObject(val);
 	}
 
-	public <T extends CDOMObject & CategorizedCDOMObject<T>> void reassociateCategory(
-			Category<T> cat, T obj)
+	public <T extends Categorized<T>> void reassociateCategory(Category<T> cat,
+		T obj)
 	{
 		Category<T> oldCat = obj.getCDOMCategory();
 		if (oldCat == null && cat == null || oldCat != null
@@ -213,7 +213,7 @@ public abstract class AbstractReferenceContext
 		return (Class<T>) obj.getClass();
 	}
 
-	private <T extends CDOMObject & CategorizedCDOMObject<T>> void reassociateCategory(
+	private <T extends Categorized<T>> void reassociateCategory(
 			Class<T> cl, T obj, Category<T> oldCat, Category<T> cat)
 	{
 		getManufacturer(cl, oldCat).forgetObject(obj);
@@ -223,7 +223,7 @@ public abstract class AbstractReferenceContext
 
 	public <T extends Loadable> void importObject(T orig)
 	{
-		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(orig.getClass()))
+		if (CATEGORIZED_CLASS.isAssignableFrom(orig.getClass()))
 		{
 			Class cl = orig.getClass();
 			importCategorized(orig, cl);
@@ -235,8 +235,8 @@ public abstract class AbstractReferenceContext
 		}
 	}
 
-	private <T extends Loadable & CategorizedCDOMObject<T>> void importCategorized(
-			Loadable orig, Class<T> cl)
+	private <T extends Categorized<T>> void importCategorized(Loadable orig,
+		Class<T> cl)
 	{
 		T obj = (T) orig;
 		getManufacturer(cl, obj.getCDOMCategory()).addObject(obj,
@@ -245,10 +245,10 @@ public abstract class AbstractReferenceContext
 
 	public <T extends Loadable> boolean forget(T obj)
 	{
-		if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(obj.getClass()))
+		if (CATEGORIZED_CLASS.isAssignableFrom(obj.getClass()))
 		{
 			Class cl = obj.getClass();
-			CategorizedCDOMObject cdo = (CategorizedCDOMObject) obj;
+			Categorized cdo = (Categorized) obj;
 			if (hasManufacturer(cl, cdo.getCDOMCategory()))
 			{
                 // Work around a bug in the Eclipse 3.7.0/1 compiler by explicitly extracting a Category<?>
@@ -465,7 +465,7 @@ public abstract class AbstractReferenceContext
 			ClassIdentity<T> identity)
 	{
 		Class cl = identity.getChoiceClass();
-		if (CategorizedCDOMObject.class.isAssignableFrom(cl))
+		if (Categorized.class.isAssignableFrom(cl))
 		{
 			//Do categorized.
 			Category category = ((CategorizedClassIdentity) identity).getCategory();
@@ -512,13 +512,13 @@ public abstract class AbstractReferenceContext
 		return new ArrayList<>(tm);
 	}
 
-	public abstract <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
+	public abstract <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
 		Class<T> cl, Category<T> cat);
 
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 		ManufacturableFactory<T> factory);
 
-	public abstract <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
+	public abstract <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
 		Class<T> cl, Class<? extends Category<T>> catClass, String category);
 
 	abstract <T extends CDOMObject> T performCopy(T object, String copyName);

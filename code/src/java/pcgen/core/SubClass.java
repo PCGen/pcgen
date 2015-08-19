@@ -22,7 +22,7 @@
  */
 package pcgen.core;
 
-import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -33,7 +33,7 @@ import pcgen.cdom.enumeration.ObjectKey;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class SubClass extends PCClass implements CategorizedCDOMObject<SubClass>
+public final class SubClass extends PCClass implements Categorized<SubClass>
 {
 	/**
 	 * Get the choice

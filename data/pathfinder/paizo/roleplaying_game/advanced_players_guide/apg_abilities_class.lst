@@ -3103,7 +3103,7 @@ World Wave				KEY:Magus Spellblend ~ World Wave			CATEGORY:Internal	TYPE:MagusSp
 ###Block: Unchained Summoner Update
 # CFP = "Class Feature Progression"
 # Forces an irreversible choice at level 1 - this is required to 1) Force a Selection by the user (More visibility), 2) Spells will not work to refresh until Level up or reload which is unacceptable. The Choice propogates the correct spells at level 1.
-CATEGORY=Internal|Default.MOD	DEFINE:StandardSummonerAllowed|0	BONUS:VAR|CLASS_SummonerAllowed|StandardSummonerAllowed|TYPE=Base	
+CATEGORY=Internal|Default.MOD	DEFINE:CLASS_SummonerAllowed|0	DEFINE:StandardSummonerAllowed|0	BONUS:VAR|CLASS_SummonerAllowed|StandardSummonerAllowed|TYPE=Base	
 # For now, placing this to 1. 
 CATEGORY=Internal|Default.MOD	BONUS:VAR|StandardSummonerAllowed|1
 

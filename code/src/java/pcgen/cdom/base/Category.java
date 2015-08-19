@@ -29,8 +29,8 @@ import pcgen.cdom.reference.ManufacturableFactory;
  * @param <T>
  *            The Class of object being identified by this Category
  */
-public interface Category<T extends Loadable & CategorizedCDOMObject<T>>
-		extends Loadable, ManufacturableFactory<T>
+public interface Category<T extends Categorized<T>> extends Loadable,
+		ManufacturableFactory<T>
 {
 
 	/**
