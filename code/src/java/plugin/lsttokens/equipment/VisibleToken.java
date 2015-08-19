@@ -23,48 +23,20 @@ public class VisibleToken extends AbstractNonEmptyToken<Equipment>
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
-		String visString = value;
-		int pipeLoc = value.indexOf(Constants.PIPE);
-		boolean readOnly = false;
-		if (pipeLoc != -1)
-		{
-			if (value.substring(pipeLoc + 1).equals("READONLY"))
-			{
-				visString = value.substring(0, pipeLoc);
-				readOnly = true;
-			}
-			else
-			{
-				return new ParseResult.Fail("Misunderstood text after pipe on Tag: "
-						+ value, context);
-			}
-		}
 		Visibility vis;
-		if (visString.equals("YES"))
+		if (value.equals("YES"))
 		{
 			vis = Visibility.DEFAULT;
 		}
-		else if (visString.equals("ALWAYS"))
-		{
-			vis = Visibility.DEFAULT;
-		}
-		else if (visString.equals("DISPLAY"))
+		else if (value.equals("DISPLAY"))
 		{
 			vis = Visibility.DISPLAY_ONLY;
 		}
-		else if (visString.equals("GUI"))
-		{
-			vis = Visibility.DISPLAY_ONLY;
-		}
-		else if (visString.equals("EXPORT"))
+		else if (value.equals("EXPORT"))
 		{
 			vis = Visibility.OUTPUT_ONLY;
 		}
-		else if (visString.equals("CSHEET"))
-		{
-			vis = Visibility.OUTPUT_ONLY;
-		}
-		else if (visString.equals("NO"))
+		else if (value.equals("NO"))
 		{
 			vis = Visibility.HIDDEN;
 		}
@@ -75,56 +47,46 @@ public class VisibleToken extends AbstractNonEmptyToken<Equipment>
 					+ " in Skill");
 			cpr.addErrorMessage(" " + value + " is not a valid value for "
 					+ getTokenName());
-			cpr.addErrorMessage(" Valid values in Skill are YES, ALWAYS, DISPLAY, GUI, EXPORT, CSHEET");
+			cpr.addErrorMessage(" Valid values in Skill are YES, NO, DISPLAY, EXPORT");
 			return cpr;
 		}
 		context.getObjectContext().put(eq, ObjectKey.VISIBILITY, vis);
-		if (readOnly)
-		{
-			if (vis.equals(Visibility.OUTPUT_ONLY))
-			{
-				return new ParseResult.Fail("|READONLY suffix not valid with "
-						+ getTokenName() + " EXPORT or CSHEET", context);
-			}
-			context.getObjectContext().put(eq, ObjectKey.READ_ONLY,
-					Boolean.TRUE);
-		}
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, Equipment skill)
+	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		Visibility vis = context.getObjectContext().getObject(skill,
+		Visibility vis = context.getObjectContext().getObject(eq,
 				ObjectKey.VISIBILITY);
 		if (vis == null)
 		{
 			return null;
 		}
-		if (!vis.equals(Visibility.DEFAULT)
-				&& !vis.equals(Visibility.DISPLAY_ONLY)
-				&& !vis.equals(Visibility.OUTPUT_ONLY))
+		String visString;
+		if (vis.equals(Visibility.DEFAULT))
+		{
+			visString = "YES";
+		}
+		else if (vis.equals(Visibility.DISPLAY_ONLY))
+		{
+			visString = "DISPLAY";
+		}
+		else if (vis.equals(Visibility.OUTPUT_ONLY))
+		{
+			visString = "EXPORT";
+		}
+		else if (vis.equals(Visibility.HIDDEN))
+		{
+			visString = "NO";
+		}
+		else
 		{
 			context.addWriteMessage("Visibility " + vis
-					+ " is not a valid Visibility for a Skill");
+					+ " is not a valid Visibility for an Equipment");
 			return null;
 		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(vis.getLSTFormat());
-		Boolean readOnly = context.getObjectContext().getObject(skill,
-				ObjectKey.READ_ONLY);
-		if (readOnly != null)
-		{
-			if (!vis.equals(Visibility.OUTPUT_ONLY))
-			{
-				/*
-				 * Don't barf if OUTPUT and READONLY as .MOD will cause that to
-				 * happen
-				 */
-				sb.append('|').append("READONLY");
-			}
-		}
-		return new String[] { sb.toString() };
+		return new String[] { visString };
 	}
 
 	@Override
