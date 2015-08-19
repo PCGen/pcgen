@@ -12,7 +12,7 @@ Battle Aspergillum			TYPE:Simple.Melee.Light.Bludgeoning
 Brass Knuckles				TYPE:Simple.Melee.Light.Bludgeoning
 
 #-----one handed -------
-Mere Club					TYPE:Simple.Melee.OneHanded.Bludgeoning.Piercing
+Mere Club					TYPE:Simple.Melee.OneHanded.Bludgeoning.Piercing.Fragile
 
 #-----two handed -------
 Boar Spear					TYPE:Simple.Melee.TwoHanded.Piercing
@@ -27,7 +27,7 @@ Underwater Crossbow (Light)		TYPE:Simple.Ranged.Piercing
 #------light---------
 # Weapon Name				Type												Nb Hands
 Butterfly Sword				TYPE:Martial.Melee.Light.Slashing.Eastern.LightMartial
-Dogslicer					TYPE:Martial.Melee.Light.Slashing.Goblin.LightMartial
+Dogslicer					TYPE:Martial.Melee.Light.Slashing.Goblin.LightMartial.Fragile
 Gladius					TYPE:Martial.Melee.Light.Piercing.Slashing.LightMartial
 Jutte						TYPE:Martial.Melee.Light.Bludgeoning.Eastern.LightMartial
 Kerambit					TYPE:Martial.Melee.Light.Slashing.Eastern.LightMartial
@@ -39,21 +39,21 @@ Double Chicken Saber			TYPE:Martial.Melee.OneHanded.Slashing.Eastern.OneHandedMa
 Klar						TYPE:Martial.Melee.OneHanded.Slashing.OneHandedMartial
 Broadsword (Nine Ring)			TYPE:Martial.Melee.OneHanded.Slashing.Eastern.OneHandedMartial
 Scizore					TYPE:Martial.Melee.OneHanded.Piercing.OneHandedMartial
-Terbutje					TYPE:Martial.Melee.OneHanded.Slashing.OneHandedMartial
+Terbutje					TYPE:Martial.Melee.OneHanded.Slashing.OneHandedMartial.Fragile
 
 #-----two handed -------
 Earth Breaker				TYPE:Martial.Melee.TwoHanded.Bludgeoning
 Hooked Lance				TYPE:Martial.Melee.TwoHanded.Piercing.Eastern
 Horsechopper				TYPE:Martial.Melee.TwoHanded.Piercing.Slashing.Goblin
 Lucerne Hammer				TYPE:Martial.Melee.TwoHanded.Bludgeoning.Piercing
-Mattock					TYPE:Martial.Melee.TwoHanded.Piercing
+Mattock					TYPE:Martial.Melee.TwoHanded.Piercing.Fragile
 Monk's Spade				TYPE:Martial.Melee.Piercing.Slashing.Eastern
 Naginata					TYPE:Martial.Melee.TwoHanded.Slashing.Eastern
 Nodachi					TYPE:Martial.Melee.TwoHanded.Piercing.Slashing.Eastern
 Ogre Hook					TYPE:Martial.Melee.TwoHanded.Piercing
 Rhomphaia					TYPE:Martial.Melee.TwoHanded.Piercing.Slashing
 Sansetsukon					TYPE:Martial.Melee.TwoHanded.Bludgeoning.Eastern
-Tepoztopilli				TYPE:Martial.Melee.TwoHanded.Piercing.Slashing
+Tepoztopilli				TYPE:Martial.Melee.TwoHanded.Piercing.Slashing.Fragile
 Tiger Fork					TYPE:Martial.Melee.TwoHanded.Piercing.Eastern
 Sword (Tri-Point Double-Edged)	TYPE:Martial.Melee.TwoHanded.Piercing.Eastern
 
@@ -84,7 +84,7 @@ Tekko-Kagi (Iron Claw)			TYPE:Exotic.Melee.Light.Piercing
 Wakizashi					TYPE:Exotic.Melee.Light.Piercing.Slashing
 
 #-----one handed -------
-Great Terbutje				TYPE:Martial.TwoHanded.Exotic.Melee.OneHanded.Slashing
+Terbutje (Great)				TYPE:Martial.TwoHanded.Exotic.Melee.OneHanded.Slashing.Fragile
 Hooked Axe					TYPE:Exotic.Melee.OneHanded.Slashing
 Katana					TYPE:Melee.Martial.TwoHanded.Exotic.Slashing.Deadly.Tengu.Sword.Eastern
 Nine-Section Whip				TYPE:Exotic.Melee.OneHanded.Bludgeoning
@@ -217,7 +217,7 @@ Scorpion Whip.MOD				TYPE:Flail.Weapon Group Flails
 Urumi.MOD					TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
 
 #Hammers:
-Aklys (Gladiator).MOD			TYPE:Hammer.Weapon Group Hammers.Thrown.Weapon Group Thrown
+Aklys.MOD					TYPE:Hammer.Weapon Group Hammers.Thrown.Weapon Group Thrown
 Mere Club.MOD				TYPE:Hammer.Weapon Group Hammers
 Taiaha.MOD					TYPE:Hammer.Weapon Group Hammers
 Tetsubo.MOD					TYPE:Hammer.Weapon Group Hammers
@@ -242,7 +242,7 @@ Sword (Tri-Point Double-Edged).MOD	TYPE:Monk.Weapon Group Monk
 
 #Spears:
 Naginata.MOD				TYPE:Polearm.Weapon Group Spears
-Amentum (Javelin).MOD			TYPE:Spear.Weapon Group Spears.Thrown.Weapon Group Thrown
+Amentum.MOD					TYPE:Spear.Weapon Group Spears.Thrown.Weapon Group Thrown
 #Boar Spear.MOD	TYPE:Spear
 Pilum.MOD					TYPE:Spear.Weapon Group Spears
 Sibat.MOD					TYPE:Spear.Weapon Group Spears
