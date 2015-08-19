@@ -17,14 +17,14 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Parrot)	KIT:1|Raven Fam
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar				Type			Ability
-MASTERBONUSRACE:Familiar (Mongoose)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Mongoose)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Osprey)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Osprey)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Parrot)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Parrot)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Toucan)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Toucan)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Sea krait)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Sea krait)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Snail kite)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Snail kite)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Dodo)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Dodo)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Dwarf Caiman)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Dwarf Caiman)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Giant Isopod)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Giant Isopod)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Seal)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Seal)	ABILITY:FEAT|VIRTUAL|Alertness
-#MASTERBONUSRACE:Familiar (Marine Iguana)	TYPE:Familiar	ABILITY:FEAT|VIRTUAL|Alertness	BONUS:SKILL|Swim|3
+MASTERBONUSRACE:Familiar (Mongoose)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Mongoose)	
+MASTERBONUSRACE:Familiar (Osprey)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Osprey)	
+MASTERBONUSRACE:Familiar (Parrot)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Parrot)	
+MASTERBONUSRACE:Familiar (Toucan)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Toucan)	
+MASTERBONUSRACE:Familiar (Sea krait)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Sea krait)	
+MASTERBONUSRACE:Familiar (Snail kite)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Snail kite)	
+MASTERBONUSRACE:Familiar (Dodo)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Dodo)	
+MASTERBONUSRACE:Familiar (Dwarf Caiman)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Dwarf Caiman)	
+MASTERBONUSRACE:Familiar (Giant Isopod)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Giant Isopod)	
+MASTERBONUSRACE:Familiar (Seal)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Seal)	
+#MASTERBONUSRACE:Familiar (Marine Iguana)	TYPE:Familiar		BONUS:SKILL|Swim|3

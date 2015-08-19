@@ -86,20 +86,20 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Raven)	KIT:1|Raven Fami
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar				Type			Ability
-MASTERBONUSRACE:Familiar (Bat)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bat)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Cat)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Cat)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Hawk)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Hawk)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Lizard)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Lizard)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Monkey)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Monkey)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Owl)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Owl)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Rat)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rat)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Raven)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Raven)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Viper)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Viper)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Toad)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Toad)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Weasel)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Weasel)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Bat)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bat)	
+MASTERBONUSRACE:Familiar (Cat)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Cat)	
+MASTERBONUSRACE:Familiar (Hawk)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Hawk)	
+MASTERBONUSRACE:Familiar (Lizard)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Lizard)	
+MASTERBONUSRACE:Familiar (Monkey)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Monkey)	
+MASTERBONUSRACE:Familiar (Owl)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Owl)	
+MASTERBONUSRACE:Familiar (Rat)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rat)	
+MASTERBONUSRACE:Familiar (Raven)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Raven)	
+MASTERBONUSRACE:Familiar (Viper)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Viper)	
+MASTERBONUSRACE:Familiar (Toad)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Toad)	
+MASTERBONUSRACE:Familiar (Weasel)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Weasel)	
 
 # Race of familiar				Type			Ability
-MASTERBONUSRACE:Familiar (Compsognathus)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Compsognathus)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Compsognathus)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Compsognathus)	
 #
 
 # Class of the Master		Type				Copy Masters BAB		Copy Masters Checks	HP formula based on Master
