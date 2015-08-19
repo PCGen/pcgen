@@ -940,13 +940,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${outputplugins.dir}/ExportToken-SPELLPOINTS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/exporttokens/SpellPointsToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${outputplugins.dir}/ExportToken-SR.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -1448,13 +1441,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/bonustokens/SpellKnownMult.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${bonusplugins.dir}/BonusToken-SPELLPOINTCOSTS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/bonustokens/SpellPointCosts.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -4442,13 +4428,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/spell/XpcostToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${lstplugins.dir}/SpellLstToken-SpellPointCost.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/spell/SpellPointCostToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

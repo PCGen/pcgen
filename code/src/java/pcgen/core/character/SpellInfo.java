@@ -54,7 +54,6 @@ public final class SpellInfo implements Comparable<SpellInfo>
 	private int times; // times the spell is in this list
 	private String timeUnit; // the timeunit the times is for (day, week etc)
 	private int actualPPCost = -1;
-	private int actualSpellPointCost = 0;
 	private int numPages = 0;
 	private String fixedDC = null;
 	private String fixedConcentration = null;
@@ -94,15 +93,6 @@ public final class SpellInfo implements Comparable<SpellInfo>
 	public int getActualPPCost()
 	{
 		return actualPPCost;
-	}
-	public void setActualSpellPointCost(final int actualSPCost)
-	{
-		actualSpellPointCost = actualSPCost;
-	}
-
-	public int getActualSpellPointCost()
-	{
-		return actualSpellPointCost;
 	}
 
 	public String getBook()
@@ -281,17 +271,6 @@ public final class SpellInfo implements Comparable<SpellInfo>
 				compare = -1;
 			}
 			else if (actualPPCost > other.actualPPCost)
-			{
-				compare = 1;
-			}
-		}
-		if (compare == 0)
-		{
-			if (actualSpellPointCost < other.actualSpellPointCost)
-			{
-				compare = -1;
-			}
-			else if (actualSpellPointCost > other.actualSpellPointCost)
 			{
 				compare = 1;
 			}

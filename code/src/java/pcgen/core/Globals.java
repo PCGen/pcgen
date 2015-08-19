@@ -119,7 +119,6 @@ public final class Globals
 	// end of filter creation sets
 	private static JFrame rootFrame;
 	private static final StringBuilder section15 = new StringBuilder(30000);
-	private static final String spellPoints = "0";
 
 	/** whether or not the GUI is used (false for command line) */
 	private static boolean useGUI = true;
@@ -710,15 +709,6 @@ public final class Globals
 	public static Object removeFromSpellMap(final String key)
 	{
 		return spellMap.remove(key);
-	}
-
-	/**
-	 * Get spell points
-	 * @return spell points
-	 */
-	public static String getSpellPoints()
-	{
-		return spellPoints;
 	}
 
 	/**
