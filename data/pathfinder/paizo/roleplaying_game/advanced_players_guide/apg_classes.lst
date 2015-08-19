@@ -11,7 +11,7 @@ CLASS:Alchemist	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Alc		MAXLEVEL:20	SOURCEPAGE:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Alchemist	STARTSKILLPTS:4	CSKILL:Appraise|TYPE=Craft|Disable Device|Fly|Heal|Knowledge (Arcana)|Knowledge (Nature)|Perception|TYPE=Profession|Sleight of Hand|Spellcraft|Survival|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
-CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alchemist|Caster_Level_BL_Stripped_Alchemist	BONUS:VAR|Caster_Level_BL_Stripped_Alchemist|Alchemist_Caster_Level-CasterLevelBLAlchemist	BONUS:VAR|Alchemist_Caster_Level|CL+Caster_Level_Bonus+CasterLevelBLAlchemist	DEFINE:CasterLevelBLAlchemist|0	BONUS:VAR|CasterLevelBL_x_Alchemist|charbonusto("PCLEVEL","Alchemist")	BONUS:VAR|Caster_Level_Highest__Arcane|Alchemist_Caster_Level|TYPE=Base	DEFINE:Caster_Level_Alchemist|0		DEFINE:Caster_Level_BL_Stripped_Alchemist|0	
+CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alchemist|Caster_Level_BL_Stripped_Alchemist	BONUS:VAR|Caster_Level_BL_Stripped_Alchemist|Caster_Level_Alchemist-CasterLevelBLAlchemist	BONUS:VAR|Caster_Level_Alchemist|CL+Caster_Level_Bonus+CasterLevelBLAlchemist	DEFINE:CasterLevelBLAlchemist|0	BONUS:VAR|CasterLevelBL_x_Alchemist|charbonusto("PCLEVEL","Alchemist")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Alchemist|TYPE=Base	DEFINE:Caster_Level_Alchemist|0		DEFINE:Caster_Level_BL_Stripped_Alchemist|0	
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=ArmorProfLight
 ###Block: Alchemist Book
