@@ -52,6 +52,12 @@ Improved Evasion		KEY:Animal Companion ~ Improved Evasion		CATEGORY:Special Abil
 Spell Resistance		KEY:Animal Companion ~ Spell Resistance (SM)	CATEGORY:Special Ability	TYPE:CompanionClassFeatures.ClassFeatures.Special Ability											DESC:%1|mastervar("SpecialMountLVL")+5																																																																																																																																									SR:mastervar("SpecialMountLVL")+5
 Spell Resistance		KEY:Animal Companion ~ Spell Resistance (AC)	CATEGORY:Special Ability	TYPE:CompanionClassFeatures.ClassFeatures.Special Ability											DESC:%1|mastervar("AnimalCompanionLVL")+5																																																																																																																																									SR:mastervar("AnimalCompanionLVL")+5
 
+# NOTE: Animal companion class abilities are not implemented by the Companion class.
+# Instead, the master grants the abilities to the companion using the FOLLOWER tags through the "Mod *" and "KEY:Companion ~ *" abilities.
+# Companion archetypes are implemented in the companion using "CF_*" flags following the same general mechanism as regular class archetypes.
+# Each of the abilities granted by the master's FOLLOWER tags conditionally grant the appropriate companion abilities if the archetype CF_* flag doesn't exist.
+# This indirection is required because the various "CF_*" flags are unavailable to the master and are not seen on the FOLLOWER tags.
+
 # These are the abilities granted by the master companionmods using the FOLLOWER tag so that they grant the companion abilities shown in the proper ability category
 Mod Bonus Tricks			KEY:Companion ~ Bonus Tricks			CATEGORY:Special Ability	ABILITY:Companion Class Feature|AUTOMATIC|Animal Companion ~ Bonus Tricks|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_BonusTricks
 Mod Link					KEY:Companion ~ Link					CATEGORY:Special Ability	ABILITY:Companion Class Feature|AUTOMATIC|Animal Companion ~ Link|!PREABILITY:1,CATEGORY=Archetype,TYPE.CF_CompanionLink
