@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.base;
 
-
 /**
  * CategorizedCDOMObject represents an object which can possess a Category
  * object. This Category is used for establishing unique identity of an object.
@@ -27,8 +26,7 @@ package pcgen.cdom.base;
  * @param <T>
  *            The Class of object being identified
  */
-public interface CategorizedCDOMObject<T extends Loadable & CategorizedCDOMObject<T>>
-		extends PrereqObject
+public interface Categorized<T extends Categorized<T>> extends Loadable
 {
 	/**
 	 * Returns the Category of the CategorizedCDOMObject

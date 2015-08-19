@@ -38,8 +38,8 @@ import pcgen.rules.context.LoadContext;
  * 
  * @param <T>
  */
-public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMObject<T>>
-		implements ChooseInformation<T>
+public class CategorizedChooseInformation<T extends Categorized<T>> implements
+		ChooseInformation<T>
 {
 
 	/**
@@ -232,7 +232,8 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 	@Override
 	public ClassIdentity<T> getClassIdentity()
 	{
-		return CategorizedClassIdentity.getInstance(underlyingClass, category.resolvesTo());
+		return CategorizedClassIdentity.getInstance(underlyingClass,
+			category.resolvesTo());
 	}
 
 	/**

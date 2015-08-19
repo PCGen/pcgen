@@ -42,7 +42,7 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.MasterListInterface;
@@ -2683,7 +2683,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	{
 		Class<T> c = rm.getReferenceClass();
 		ReferenceManufacturer<T> mfg;
-		if (CategorizedCDOMObject.class.isAssignableFrom(c))
+		if (Categorized.class.isAssignableFrom(c))
 		{
 			TransparentCategorizedReferenceManufacturer tcrm = (TransparentCategorizedReferenceManufacturer) rm;
 			String category = tcrm.getCDOMCategory();

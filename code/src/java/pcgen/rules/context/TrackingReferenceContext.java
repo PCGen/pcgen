@@ -27,7 +27,7 @@ import java.util.WeakHashMap;
 
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.ManufacturableFactory;
@@ -45,7 +45,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 	private final Set<ReferenceManufacturer<?>> listening = new HashSet<ReferenceManufacturer<?>>();
 
 	@Override
-	public <T extends Loadable & CategorizedCDOMObject<T>> ReferenceManufacturer<T> getManufacturer(
+	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
 			Class<T> cl, Category<T> cat)
 	{
 		ReferenceManufacturer<T> mfg = super.getManufacturer(cl, cat);

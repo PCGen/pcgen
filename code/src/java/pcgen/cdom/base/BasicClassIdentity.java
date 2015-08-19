@@ -29,7 +29,7 @@ public class BasicClassIdentity<T> implements ClassIdentity<T>
 			throw new IllegalArgumentException(
 				"Class for BasicClassIdentity cannot be null");
 		}
-		if (CategorizedCDOMObject.class.isAssignableFrom(cl))
+		if (Categorized.class.isAssignableFrom(cl))
 		{
 			throw new InternalError(cl
 					+ " is categorized but was identified without a category");

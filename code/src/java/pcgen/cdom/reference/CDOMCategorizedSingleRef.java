@@ -20,9 +20,8 @@ package pcgen.cdom.reference;
 import java.util.Collection;
 import java.util.Collections;
 
-import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.GroupingState;
 
 /**
@@ -34,8 +33,8 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying object contained by this
  *            CDOMCategorizedSingleRef
  */
-public class CDOMCategorizedSingleRef<T extends Loadable & CategorizedCDOMObject<T>>
-		extends CDOMSingleRef<T> implements CategorizedCDOMReference<T>
+public class CDOMCategorizedSingleRef<T extends Categorized<T>> extends
+		CDOMSingleRef<T> implements CategorizedCDOMReference<T>
 {
 
 	/**
