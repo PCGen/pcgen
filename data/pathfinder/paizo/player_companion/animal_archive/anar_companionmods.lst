@@ -3,10 +3,10 @@
 
 ###Block: Note repeats WILL cause stacking issue! Using TYPE to prevent this issue.
 # Race of familiar				Type			Ability
-MASTERBONUSRACE:Familiar (Armadillo)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Armadillo)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Platypus)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Platypus)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Rabbit)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rabbit)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Skunk)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Skunk)	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Familiar (Squirrel)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Squirrel)	ABILITY:FEAT|VIRTUAL|Alertness
+MASTERBONUSRACE:Familiar (Armadillo)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Armadillo)	
+MASTERBONUSRACE:Familiar (Platypus)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Platypus)	
+MASTERBONUSRACE:Familiar (Rabbit)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rabbit)	
+MASTERBONUSRACE:Familiar (Skunk)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Skunk)	
+MASTERBONUSRACE:Familiar (Squirrel)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Squirrel)	
 
 FOLLOWER:FamiliarLVL=1				TYPE:Familiar	ABILITY:Familiar Archetype|AUTOMATIC|Archetype Familiar
