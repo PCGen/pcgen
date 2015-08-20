@@ -9,7 +9,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
-PRECAMPAIGN:3,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Equipment
+PRECAMPAIGN:4,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Equipment
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -75,9 +75,6 @@ SPELL:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/arg_spells.lst|(IN
 
 #Hide internal feat types
 HIDETYPE:FEAT|AberrantBloodRagerBloodline|AbyssalBloodRagerBloodline|ArcaneBloodRagerBloodline|CelestialBloodRagerBloodline|DestinedBloodRagerBloodline|DraconicBloodRagerBloodline|ElementalBloodRagerBloodline|FeyBloodRagerBloodline|InfernalBloodRagerBloodline|UndeadBloodRagerBloodline
-
-# B3 items that get some new types. Silently ignore if B3 is not loaded
-FORWARDREF:EQUIPMENT|Dagger (Chain),Binding Contract,Shears
 
 # ENTRY DATE: 2015-01
 # LST MONKEY: Stefan Radermacher and Andrew Wilson
