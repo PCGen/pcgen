@@ -44,10 +44,10 @@ public class VisibleToken extends AbstractNonEmptyToken<Equipment>
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Unexpected value used in " + getTokenName()
-					+ " in Skill");
+					+ " in Equipment");
 			cpr.addErrorMessage(" " + value + " is not a valid value for "
 					+ getTokenName());
-			cpr.addErrorMessage(" Valid values in Skill are YES, NO, DISPLAY, EXPORT");
+			cpr.addErrorMessage(" Valid values in Equipment are YES, NO, DISPLAY, EXPORT");
 			return cpr;
 		}
 		context.getObjectContext().put(eq, ObjectKey.VISIBILITY, vis);
