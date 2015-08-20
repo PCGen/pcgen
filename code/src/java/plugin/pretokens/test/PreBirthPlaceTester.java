@@ -27,7 +27,7 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
@@ -46,7 +46,7 @@ public class PreBirthPlaceTester extends AbstractDisplayPrereqTest implements Pr
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
-		if (display.getSafeStringFor(StringKey.BIRTHPLACE).equalsIgnoreCase(prereq.getKey()))
+		if (display.getSafeStringFor(PCStringKey.BIRTHPLACE).equalsIgnoreCase(prereq.getKey()))
 		{
 			return countedTotal(prereq, 1);
 		}
