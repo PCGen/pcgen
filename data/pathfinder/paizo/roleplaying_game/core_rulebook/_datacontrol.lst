@@ -300,6 +300,7 @@ FACTDEF:ABILITY|Monk_CF_EmptyBody				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:N
 FACTDEF:ABILITY|Monk_CF_PerfectSelf				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:PerfectSelf									EXPLANATION:Remove Monk PerfectSelf				
 
 # Paladin Archetype Section
+FACTDEF:ABILITY|Paladin_Archetype_Proficiency								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiency											EXPLANATION:Determines whether the archetype affects - Proficiency											
 FACTDEF:ABILITY|Paladin_Archetype_AuraOfGood								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfGood											EXPLANATION:Determines whether the archetype affects - AuraOfGood											
 FACTDEF:ABILITY|Paladin_Archetype_DetectEvil								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DetectEvil											EXPLANATION:Determines whether the archetype affects - DetectEvil											
 FACTDEF:ABILITY|Paladin_Archetype_SmiteEvil								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SmiteEvil											EXPLANATION:Determines whether the archetype affects - SmiteEvil											
@@ -430,3 +431,7 @@ FACTDEF:ABILITY|Wizard_CF_SpellBook			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:
 
 
 #FACTDEF:ABILITY|Wizard_Archetype_						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:									EXPLANATION:Determines whether the archetype affects - 									
+
+FACTDEF:ABILITY|DwarfDefensiveTraining			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DefensiveTraining								EXPLANATION:Remove DefensiveTraining			
+FACTDEF:ABILITY|DwarfStonecunning				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Stonecunning										EXPLANATION:Remove Stonecunning					
+FACTDEF:ABILITY|DwarfWeaponFamiliarity			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponFamiliarity								EXPLANATION:Remove WeaponFamiliarity			
