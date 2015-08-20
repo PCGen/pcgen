@@ -49,7 +49,7 @@ Pata.MOD				TYPE:Weapon Group Melee Light Piercing
 Quadrens.MOD			TYPE:Weapon Group Melee Light Piercing
 Tekko-Kagi (Iron Claw).MOD	TYPE:Weapon Group Melee Light Piercing
 Wakizashi.MOD			TYPE:Weapon Group Melee Light Piercing
-Amentum (Javelin).MOD		TYPE:Weapon Group Melee OneHanded Piercing
+Amentum.MOD				TYPE:Weapon Group Melee OneHanded Piercing
 Mere Club.MOD			TYPE:Weapon Group Melee OneHanded Piercing
 Scizore.MOD				TYPE:Weapon Group Melee OneHanded Piercing
 Shotel.MOD				TYPE:Weapon Group Melee OneHanded Piercing
@@ -73,7 +73,7 @@ Taiaha.MOD				TYPE:Weapon Group Melee OneHanded Piercing
 Double Chicken Saber.MOD	TYPE:Weapon Group Melee OneHanded Slashing
 Broadsword (Nine Ring).MOD	TYPE:Weapon Group Melee OneHanded Slashing
 Terbutje.MOD			TYPE:Weapon Group Melee OneHanded Slashing
-Great Terbutje.MOD	TYPE:Weapon Group Melee OneHanded Slashing
+Terbutje (Great).MOD		TYPE:Weapon Group Melee OneHanded Slashing
 Hooked Axe.MOD			TYPE:Weapon Group Melee OneHanded Slashing
 Katana.MOD				TYPE:Weapon Group Melee OneHanded Slashing
 Rhoka Sword.MOD	TYPE:Weapon Group Melee OneHanded Slashing
