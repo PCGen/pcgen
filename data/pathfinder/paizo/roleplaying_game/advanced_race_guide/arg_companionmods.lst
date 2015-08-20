@@ -23,20 +23,20 @@ FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	PRERACE:1,Familiar (Parrot)	KIT:1|Raven 
 # Class of the Master		Type				Hit Dice	Ability																					Define							Bonus Ability Pool					Combat bonus					Stat bonus			Modify VAR											Main Race Type
 FOLLOWER:PlantCompanionLVL=1	TYPE:Plant Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Companion ~ Bonus Tricks|Companion ~ Link|Companion ~ Share Spells	DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																				BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1					RACETYPE:Plant
 FOLLOWER:PlantCompanionLVL=2	TYPE:Plant Companion	HD:1																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=3	TYPE:Plant Companion			ABILITY:Special Ability|AUTOMATIC|Evasion																																BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=3	TYPE:Plant Companion			ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																																BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:PlantCompanionLVL=4	TYPE:Plant Companion	HD:1																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=5	TYPE:Plant Companion	HD:1																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=6	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																													BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:PlantCompanionLVL=7	TYPE:Plant Companion																																																				BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=8	TYPE:Plant Companion	HD:1																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:PlantCompanionLVL=9	TYPE:Plant Companion	HD:1		ABILITY:FEAT|AUTOMATIC|Multiattack																	DEFINE:Multiattack|0					BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|Multiattack|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:PlantCompanionLVL=9	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack					BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:PlantCompanionLVL=10	TYPE:Plant Companion	HD:1																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=11	TYPE:Plant Companion																																																				BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=12	TYPE:Plant Companion	HD:1																																								BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:PlantCompanionLVL=13	TYPE:Plant Companion	HD:1																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=14	TYPE:Plant Companion	HD:1																																BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=15	TYPE:Plant Companion																																									BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:PlantCompanionLVL=16	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																									BONUS:VAR|MasterLevel|1
+FOLLOWER:PlantCompanionLVL=16	TYPE:Plant Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Companion ~ Improved Evasion																																									BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=17	TYPE:Plant Companion	HD:1																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:PlantCompanionLVL=18	TYPE:Plant Companion	HD:1																																								BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:PlantCompanionLVL=19	TYPE:Plant Companion																																																				BONUS:VAR|MasterLevel|1
