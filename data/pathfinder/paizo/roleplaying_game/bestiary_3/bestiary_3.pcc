@@ -7,7 +7,7 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:3,INCLUDES=Bestiary,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Magic
+PRECAMPAIGN:2,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide
 !PRECAMPAIGN:1,INCLUDES=Bonus Bestiary,Pathfinder RPG Core Supplements,Pathfinder RPG for Game Masters
 
 PUBNAMELONG:Paizo Inc.
