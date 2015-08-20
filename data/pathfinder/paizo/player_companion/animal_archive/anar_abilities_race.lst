@@ -118,3 +118,10 @@ Familiar (Platypus)	CATEGORY:Internal																								BONUS:SKILL|Swim|3|
 Familiar (Rabbit)		CATEGORY:Internal							BONUS:COMBAT|INITIATIVE|4|TYPE=Familiar
 Familiar (Skunk)		CATEGORY:Internal																	BONUS:SAVE|Fortitude|2|TYPE=Familiar
 Familiar (Squirrel)	CATEGORY:Internal																								BONUS:SKILL|Sleight of Hand|3|TYPE=Familiar
+
+###Block
+Boon Companion Tracker									CATEGORY:Internal																									DEFINE:BoonCompanionBonus|0																							BONUS:VAR|BoonCompanionBonus|MIN(4,TL)
+Animal Companion			KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:AnimalCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion]																												BONUS:VAR|AnimalCompanionLVL|BoonCompanionBonus|PREVARGTEQ:AnimalCompanionLVL,1
+Familiar				KEY:Boon Companion ~ Familiar			CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:FamiliarLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Familiar]																															BONUS:VAR|FamiliarLVL|BoonCompanionBonus|PREVARGTEQ:FamiliarLVL,1
+Special Mount			KEY:Boon Companion ~ Special Mount		CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:SpecialMountLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Special Mount]																													BONUS:VAR|SpecialMountLVL|BoonCompanionBonus|PREVARGTEQ:SpecialMountLVL,1
+Cavalier Mount			KEY:Boon Companion ~ Cavalier Mount		CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:CavalierMountLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Cavalier Mount]																													BONUS:VAR|CavalierMountLVL|BoonCompanionBonus|PREVARGTEQ:CavalierMountLVL,1
