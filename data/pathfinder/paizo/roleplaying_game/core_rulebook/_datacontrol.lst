@@ -412,22 +412,22 @@ FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusSpell9		DATAFORMAT:BOOLEAN	VISIBLE:YES
 
 
 # Wizard Archetype Section
-FACTDEF:ABILITY|Wizard_Archetype_ArcaneSchool								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArcaneSchool											EXPLANATION:Determines whether the archetype affects - ArcaneSchool											
-FACTDEF:ABILITY|Wizard_Archetype_WeaponProficiencies							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies										EXPLANATION:Determines whether the archetype affects - WeaponProficiencies										
-FACTDEF:ABILITY|Wizard_Archetype_ScribeScroll								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ScribeScroll											EXPLANATION:Determines whether the archetype affects - ScribeScroll											
-FACTDEF:ABILITY|Wizard_Archetype_ArcaneBond								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArcaneBond											EXPLANATION:Determines whether the archetype affects - ArcaneBond											
-FACTDEF:ABILITY|Wizard_Archetype_Cantrips									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Cantrips												EXPLANATION:Determines whether the archetype affects - Cantrips												
-FACTDEF:ABILITY|Wizard_Archetype_BonusFeats								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeats											EXPLANATION:Determines whether the archetype affects - BonusFeats											
-FACTDEF:ABILITY|Wizard_Archetype_SpellBook									DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpellBook												EXPLANATION:Determines whether the archetype affects - SpellBook												
+FACTDEF:ABILITY|Wizard_Archetype_ArcaneSchool		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArcaneSchool		EXPLANATION:Determines whether the archetype affects - ArcaneSchool											
+FACTDEF:ABILITY|Wizard_Archetype_WeaponProficiencies	DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies	EXPLANATION:Determines whether the archetype affects - WeaponProficiencies										
+FACTDEF:ABILITY|Wizard_Archetype_ScribeScroll		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ScribeScroll		EXPLANATION:Determines whether the archetype affects - ScribeScroll											
+FACTDEF:ABILITY|Wizard_Archetype_ArcaneBond		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArcaneBond			EXPLANATION:Determines whether the archetype affects - ArcaneBond											
+FACTDEF:ABILITY|Wizard_Archetype_Cantrips			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Cantrips			EXPLANATION:Determines whether the archetype affects - Cantrips												
+FACTDEF:ABILITY|Wizard_Archetype_BonusFeats		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeats			EXPLANATION:Determines whether the archetype affects - BonusFeats											
+FACTDEF:ABILITY|Wizard_Archetype_SpellBook		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpellBook			EXPLANATION:Determines whether the archetype affects - SpellBook												
 
 # Wizard Class Feature
-FACTDEF:ABILITY|Wizard_CF_ArcaneSchool		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArcaneSchool									EXPLANATION:Remove Wizard ArcaneSchool				
-FACTDEF:ABILITY|Wizard_CF_WeaponProficiencies	DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies									EXPLANATION:Remove Wizard WeaponProficiencies				
-FACTDEF:ABILITY|Wizard_CF_ScribeScroll		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ScribeScroll							EXPLANATION:Remove Wizard ScribeScroll			
-FACTDEF:ABILITY|Wizard_CF_ArcaneBond		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArcaneBond								EXPLANATION:Remove Wizard ArcaneBond			
-FACTDEF:ABILITY|Wizard_CF_Cantrips			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Cantrips								EXPLANATION:Remove Wizard Cantrips			
-FACTDEF:ABILITY|Wizard_CF_BonusFeats		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeats								EXPLANATION:Remove Wizard BonusFeats			
-FACTDEF:ABILITY|Wizard_CF_SpellBook			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpellBook								EXPLANATION:Remove Wizard SpellBook			
+FACTDEF:ABILITY|Wizard_CF_ArcaneSchool		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArcaneSchool		EXPLANATION:Remove Wizard ArcaneSchool				
+FACTDEF:ABILITY|Wizard_CF_WeaponProficiencies	DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies	EXPLANATION:Remove Wizard WeaponProficiencies				
+FACTDEF:ABILITY|Wizard_CF_ScribeScroll		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ScribeScroll		EXPLANATION:Remove Wizard ScribeScroll			
+FACTDEF:ABILITY|Wizard_CF_ArcaneBond		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArcaneBond			EXPLANATION:Remove Wizard ArcaneBond			
+FACTDEF:ABILITY|Wizard_CF_Cantrips			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Cantrips			EXPLANATION:Remove Wizard Cantrips			
+FACTDEF:ABILITY|Wizard_CF_BonusFeats		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeats			EXPLANATION:Remove Wizard BonusFeats			
+FACTDEF:ABILITY|Wizard_CF_SpellBook			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpellBook			EXPLANATION:Remove Wizard SpellBook			
 
 
 #FACTDEF:ABILITY|Wizard_Archetype_						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:									EXPLANATION:Determines whether the archetype affects - 									
