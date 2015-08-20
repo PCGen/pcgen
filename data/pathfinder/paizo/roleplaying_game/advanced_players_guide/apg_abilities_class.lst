@@ -2143,53 +2143,53 @@ Shining Light		KEY:Warrior of the Holy Light ~ Shining Light	CATEGORY:Special Ab
 #------------------#
 ##	RANGER	##
 #------------------#
-###Block: New Ranger Bonus Feats
+###Block: New Ranger Combat Style Feats
 # Ability Name							Define
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Deadly_Aim|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Focused_Shot|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Point_Blank_Master|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Rapid_Reload|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Crossbow_Mastery|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Mounted_Combat|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Mounted_Archery|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Ride_By_Attack|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Trick_Riding|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Mounted_Shield|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Spirited_Charge|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Mounted_Skirmisher|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Unseat|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Aspect_of_the_Beast|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Natural_Attack|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Rending_Claws|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Weapon_Focus|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Eldritch_Claws|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Vital_Strike|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Multiattack|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Vital_Strike|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Cleave|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Power_Attack|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Pushing_Assault|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Shield_of_Swings|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Furious_Focus|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Great_Cleave|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Dreadful_Carnage|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Improved_Sunder|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Shield_Focus|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Shield_Proficiency|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Shield_Slam|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Saving_Shield|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Shield_Master|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Bashing_Finish|0
-CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Bonus_Feat_Greater_Shield_Focus|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Deadly_Aim|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Focused_Shot|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Point_Blank_Master|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Rapid_Reload|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Crossbow_Mastery|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Mounted_Combat|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Mounted_Archery|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Ride_By_Attack|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Trick_Riding|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Mounted_Shield|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Spirited_Charge|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Mounted_Skirmisher|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Unseat|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Aspect_of_the_Beast|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Improved_Natural_Attack|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Rending_Claws|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Weapon_Focus|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Eldritch_Claws|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Vital_Strike|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Multiattack|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Improved_Vital_Strike|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Cleave|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Power_Attack|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Pushing_Assault|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Shield_of_Swings|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Furious_Focus|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Great_Cleave|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Dreadful_Carnage|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Improved_Sunder|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Shield_Focus|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Shield_Proficiency|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Shield_Slam|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Saving_Shield|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Shield_Master|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Bashing_Finish|0
+CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Greater_Shield_Focus|0
 
 
 ###Block: Ranger Combat Styles ----------------------------------------------------------------------------------------------------------------------------------
 # Ability Name	Unique Key							Category of Ability		Type				Visible		Var. Min. Value							Modify VAR																																																																																												Source Page
-Crossbow		KEY:Ranger Combat Style ~ Crossbow			CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	PREVARGTEQ:RangerCombatStyleCrossbowAllowed,1		BONUS:VAR|Ranger_Bonus_Feat_Point_Blank_Master|1	BONUS:VAR|Ranger_Bonus_Feat_Deadly_Aim|1	BONUS:VAR|Ranger_Bonus_Feat_Focused_Shot|1	BONUS:VAR|Ranger_Bonus_Feat_Precise_Shot|1	BONUS:VAR|Ranger_Bonus_Feat_Rapid_Reload|1	BONUS:VAR|Ranger_Bonus_Feat_Crossbow_Mastery|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Bonus_Feat_Improved_Precise_Shot|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Bonus_Feat_Pinpoint_Targeting|1|PREVARGTEQ:CombatStyleLVL,10	BONUS:VAR|Ranger_Bonus_Feat_Shot_on_the_Run|1|PREVARGTEQ:CombatStyleLVL,10	SOURCEPAGE:p.124
-Mounted Combat	KEY:Ranger Combat Style ~ Mounted Combat		CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	PREVARGTEQ:RangerCombatStyleMountedCombatAllowed,1	BONUS:VAR|Ranger_Bonus_Feat_Mounted_Combat|1	BONUS:VAR|Ranger_Bonus_Feat_Mounted_Archery|1	BONUS:VAR|Ranger_Bonus_Feat_Ride_By_Attack|1	BONUS:VAR|Ranger_Bonus_Feat_Trick_Riding|1	BONUS:VAR|Ranger_Bonus_Feat_Mounted_Shield|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Bonus_Feat_Spirited_Charge|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Bonus_Feat_Mounted_Skirmisher|1|PREVARGTEQ:CombatStyleLVL,10	BONUS:VAR|Ranger_Bonus_Feat_Unseat|1|PREVARGTEQ:CombatStyleLVL,10												SOURCEPAGE:p.124
-Natural Weapon	KEY:Ranger Combat Style ~ Natural Weapon		CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	PREVARGTEQ:RangerCombatStyleNaturalWeaponAllowed,1	BONUS:VAR|Ranger_Bonus_Feat_Aspect_of_the_Beast|1	BONUS:VAR|Ranger_Bonus_Feat_Improved_Natural_Attack|1	BONUS:VAR|Ranger_Bonus_Feat_Rending_Claws|1	BONUS:VAR|Ranger_Bonus_Feat_Weapon_Focus|1	BONUS:VAR|Ranger_Bonus_Feat_Eldritch_Claws|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Bonus_Feat_Vital_Strike|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Bonus_Feat_Multiattack|1|PREVARGTEQ:CombatStyleLVL,10	BONUS:VAR|Ranger_Bonus_Feat_Improved_Vital_Strike|1|PREVARGTEQ:CombatStyleLVL,10									SOURCEPAGE:p.124
-Two-Handed Weapon	KEY:Ranger Combat Style ~ Two-Handed Weapon	CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	PREVARGTEQ:RangerCombatStyleTwoHandedWeaponAllowed,1	BONUS:VAR|Ranger_Bonus_Feat_Cleave|1	BONUS:VAR|Ranger_Bonus_Feat_Power_Attack|1	BONUS:VAR|Ranger_Bonus_Feat_Pushing_Assault|1	BONUS:VAR|Ranger_Bonus_Feat_Shield_of_Swings|1	BONUS:VAR|Ranger_Bonus_Feat_Furious_Focus|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Bonus_Feat_Great_Cleave|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Bonus_Feat_Dreadful_Carnage|1|PREVARGTEQ:CombatStyleLVL,10	BONUS:VAR|Ranger_Bonus_Feat_Improved_Sunder|1|PREVARGTEQ:CombatStyleLVL,10													SOURCEPAGE:p.124
-Weapon and Shield	KEY:Ranger Combat Style ~ Weapon and Shield	CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	PREVARGTEQ:RangerCombatStyleWeaponAndShieldAllowed,1	BONUS:VAR|Ranger_Bonus_Feat_Improved_Shield_Bash|1	BONUS:VAR|Ranger_Bonus_Feat_Two_Weapon_Fighting|1	BONUS:VAR|Ranger_Bonus_Feat_Shield_Focus|1	BONUS:VAR|Ranger_Bonus_Feat_Shield_Proficiency|1	BONUS:VAR|Ranger_Bonus_Feat_Shield_Slam|1	BONUS:VAR|Ranger_Bonus_Feat_Saving_Shield|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Bonus_Feat_Shield_Master|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Bonus_Feat_Bashing_Finish|1|PREVARGTEQ:CombatStyleLVL,10	BONUS:VAR|Ranger_Bonus_Feat_Greater_Shield_Focus|1|PREVARGTEQ:CombatStyleLVL,10	SOURCEPAGE:p.124
+Crossbow		KEY:Ranger Combat Style ~ Crossbow			CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	PREVARGTEQ:RangerCombatStyleCrossbowAllowed,1		BONUS:VAR|Ranger_Combat_Style_Feat_Point_Blank_Master|1	BONUS:VAR|Ranger_Combat_Style_Feat_Deadly_Aim|1	BONUS:VAR|Ranger_Combat_Style_Feat_Focused_Shot|1	BONUS:VAR|Ranger_Combat_Style_Feat_Precise_Shot|1	BONUS:VAR|Ranger_Combat_Style_Feat_Rapid_Reload|1	BONUS:VAR|Ranger_Combat_Style_Feat_Crossbow_Mastery|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Combat_Style_Feat_Improved_Precise_Shot|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Combat_Style_Feat_Pinpoint_Targeting|1|PREVARGTEQ:CombatStyleLVL,10	BONUS:VAR|Ranger_Combat_Style_Feat_Shot_on_the_Run|1|PREVARGTEQ:CombatStyleLVL,10	SOURCEPAGE:p.124
+Mounted Combat	KEY:Ranger Combat Style ~ Mounted Combat		CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	PREVARGTEQ:RangerCombatStyleMountedCombatAllowed,1	BONUS:VAR|Ranger_Combat_Style_Feat_Mounted_Combat|1	BONUS:VAR|Ranger_Combat_Style_Feat_Mounted_Archery|1	BONUS:VAR|Ranger_Combat_Style_Feat_Ride_By_Attack|1	BONUS:VAR|Ranger_Combat_Style_Feat_Trick_Riding|1	BONUS:VAR|Ranger_Combat_Style_Feat_Mounted_Shield|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Combat_Style_Feat_Spirited_Charge|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Combat_Style_Feat_Mounted_Skirmisher|1|PREVARGTEQ:CombatStyleLVL,10	BONUS:VAR|Ranger_Combat_Style_Feat_Unseat|1|PREVARGTEQ:CombatStyleLVL,10												SOURCEPAGE:p.124
+Natural Weapon	KEY:Ranger Combat Style ~ Natural Weapon		CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	PREVARGTEQ:RangerCombatStyleNaturalWeaponAllowed,1	BONUS:VAR|Ranger_Combat_Style_Feat_Aspect_of_the_Beast|1	BONUS:VAR|Ranger_Combat_Style_Feat_Improved_Natural_Attack|1	BONUS:VAR|Ranger_Combat_Style_Feat_Rending_Claws|1	BONUS:VAR|Ranger_Combat_Style_Feat_Weapon_Focus|1	BONUS:VAR|Ranger_Combat_Style_Feat_Eldritch_Claws|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Combat_Style_Feat_Vital_Strike|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Combat_Style_Feat_Multiattack|1|PREVARGTEQ:CombatStyleLVL,10	BONUS:VAR|Ranger_Combat_Style_Feat_Improved_Vital_Strike|1|PREVARGTEQ:CombatStyleLVL,10									SOURCEPAGE:p.124
+Two-Handed Weapon	KEY:Ranger Combat Style ~ Two-Handed Weapon	CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	PREVARGTEQ:RangerCombatStyleTwoHandedWeaponAllowed,1	BONUS:VAR|Ranger_Combat_Style_Feat_Cleave|1	BONUS:VAR|Ranger_Combat_Style_Feat_Power_Attack|1	BONUS:VAR|Ranger_Combat_Style_Feat_Pushing_Assault|1	BONUS:VAR|Ranger_Combat_Style_Feat_Shield_of_Swings|1	BONUS:VAR|Ranger_Combat_Style_Feat_Furious_Focus|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Combat_Style_Feat_Great_Cleave|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Combat_Style_Feat_Dreadful_Carnage|1|PREVARGTEQ:CombatStyleLVL,10	BONUS:VAR|Ranger_Combat_Style_Feat_Improved_Sunder|1|PREVARGTEQ:CombatStyleLVL,10													SOURCEPAGE:p.124
+Weapon and Shield	KEY:Ranger Combat Style ~ Weapon and Shield	CATEGORY:Special Ability	TYPE:RangerCombatStyle	VISIBLE:DISPLAY	PREVARGTEQ:RangerCombatStyleWeaponAndShieldAllowed,1	BONUS:VAR|Ranger_Combat_Style_Feat_Improved_Shield_Bash|1	BONUS:VAR|Ranger_Combat_Style_Feat_Two_Weapon_Fighting|1	BONUS:VAR|Ranger_Combat_Style_Feat_Shield_Focus|1	BONUS:VAR|Ranger_Combat_Style_Feat_Shield_Proficiency|1	BONUS:VAR|Ranger_Combat_Style_Feat_Shield_Slam|1	BONUS:VAR|Ranger_Combat_Style_Feat_Saving_Shield|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Combat_Style_Feat_Shield_Master|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Combat_Style_Feat_Bashing_Finish|1|PREVARGTEQ:CombatStyleLVL,10	BONUS:VAR|Ranger_Combat_Style_Feat_Greater_Shield_Focus|1|PREVARGTEQ:CombatStyleLVL,10	SOURCEPAGE:p.124
 
 ###Block: Master Changes
 # Ability Name							Define								Modify VAR
@@ -2203,7 +2203,7 @@ CATEGORY=Internal|Default.MOD	DEFINE:RangerCombatStyleCrossbowAllowed|0			BONUS:
 
 ###Block: Main Core Combat Styles
 # Ability Name										Var. Min. Value						Define								Modify VAR
-CATEGORY=Special Ability|Ranger Combat Style ~ Archery.MOD			PREVARGTEQ:RangerCombatStyleArcheryAllowed,1										BONUS:VAR|Ranger_Bonus_Feat_Point_Blank_Master|1
+CATEGORY=Special Ability|Ranger Combat Style ~ Archery.MOD			PREVARGTEQ:RangerCombatStyleArcheryAllowed,1										BONUS:VAR|Ranger_Combat_Style_Feat_Point_Blank_Master|1
 CATEGORY=Special Ability|Ranger Combat Style ~ Two-Weapon Combat.MOD	PREVARGTEQ:RangerCombatStyleTwoWeaponAllowed,1
 
 # Combat Styles May Be Disabled by BONUS:VAR|<ranger_combat_style_var_name>|-2
@@ -2214,80 +2214,80 @@ CATEGORY=Special Ability|Ranger Combat Style ~ Two-Weapon Combat.MOD	PREVARGTEQ:
 #	RangerCombatStyleNaturalWeaponAllowed
 #	RangerCombatStyleTwoHandedWeaponAllowed
 #	RangerCombatStyleWeaponAndShieldAllowed
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Deadly_Aim|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Focused_Shot|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Point_Blank_Master|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Rapid_Reload|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Crossbow_Mastery|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Mounted_Combat|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Mounted_Archery|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Ride_By_Attack|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Trick_Riding|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Mounted_Shield|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Spirited_Charge|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Mounted_Skirmisher|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Unseat|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Aspect_of_the_Beast|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Improved_Natural_Attack|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Rending_Claws|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Weapon_Focus|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Eldritch_Claws|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Vital_Strike|0
-CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Bonus_Feat_Multiattack|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Deadly_Aim|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Focused_Shot|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Point_Blank_Master|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Rapid_Reload|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Crossbow_Mastery|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Mounted_Combat|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Mounted_Archery|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Ride_By_Attack|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Trick_Riding|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Mounted_Shield|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Spirited_Charge|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Mounted_Skirmisher|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Unseat|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Aspect_of_the_Beast|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Improved_Natural_Attack|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Rending_Claws|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Weapon_Focus|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Eldritch_Claws|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Vital_Strike|0
+CATEGORY=Internal|Default.MOD												DEFINE:Ranger_Combat_Style_Feat_Multiattack|0
 
 ###Block: Special Requirement
 # Ability Name										Required Ability
-CATEGORY=Special Ability|Ranger Bonus Feat ~ Point Blank Master.MOD	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longbow),Weapon Focus (Shortbow)
+CATEGORY=Special Ability|Ranger Combat Style Feat ~ Point Blank Master.MOD	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longbow),Weapon Focus (Shortbow)
 
 ###Block: Ranger Combat Style Bonus Feats
 # Archery
 # Ability Name		Unique Key							Category of Ability		Type				Visible		Restricted Ability						Var. Min. Value								Multiple?	Choose												Ability																	Weapon prof. bonus
-Point Blank Master	KEY:Ranger Bonus Feat ~ Point Blank Master	CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Point Blank Master		PREVARGTEQ:Ranger_Bonus_Feat_Point_Blank_Master,1		MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|Weapon Focus							ABILITY:FEAT|VIRTUAL|Point Blank Master (%LIST)|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Point Blank Master	KEY:Ranger Combat Style Feat ~ Point Blank Master	CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Point Blank Master		PREVARGTEQ:Ranger_Combat_Style_Feat_Point_Blank_Master,1		MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|Weapon Focus							ABILITY:FEAT|VIRTUAL|Point Blank Master (%LIST)|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
 
 # Crossbow Feats
-Deadly Aim			KEY:Ranger Bonus Feat ~ Deadly Aim			CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Deadly Aim			PREVARGTEQ:Ranger_Bonus_Feat_Deadly_Aim,1																			ABILITY:FEAT|VIRTUAL|Deadly Aim|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Focused Shot		KEY:Ranger Bonus Feat ~ Focused Shot		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Focused Shot			PREVARGTEQ:Ranger_Bonus_Feat_Focused_Shot,1																		ABILITY:FEAT|VIRTUAL|Focused Shot|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Rapid Reload		KEY:Ranger Bonus Feat ~ Rapid Reload		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Rapid Reload			PREVARGTEQ:Ranger_Bonus_Feat_Rapid_Reload,1			MULT:YES	CHOOSE:WEAPONPROFICIENCY|Crossbow (Hand)|Crossbow (Heavy)|Crossbow (Light)	ABILITY:FEAT|VIRTUAL|Rapid Reload (%LIST)|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Crossbow Mastery		KEY:Ranger Bonus Feat ~ Crossbow Mastery		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Crossbow Mastery		PREVARGTEQ:Ranger_Bonus_Feat_Crossbow_Mastery,1																		ABILITY:FEAT|VIRTUAL|Crossbow Mastery|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Deadly Aim			KEY:Ranger Combat Style Feat ~ Deadly Aim			CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Deadly Aim			PREVARGTEQ:Ranger_Combat_Style_Feat_Deadly_Aim,1																			ABILITY:FEAT|VIRTUAL|Deadly Aim|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Focused Shot		KEY:Ranger Combat Style Feat ~ Focused Shot		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Focused Shot			PREVARGTEQ:Ranger_Combat_Style_Feat_Focused_Shot,1																		ABILITY:FEAT|VIRTUAL|Focused Shot|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Rapid Reload		KEY:Ranger Combat Style Feat ~ Rapid Reload		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Rapid Reload			PREVARGTEQ:Ranger_Combat_Style_Feat_Rapid_Reload,1			MULT:YES	CHOOSE:WEAPONPROFICIENCY|Crossbow (Hand)|Crossbow (Heavy)|Crossbow (Light)	ABILITY:FEAT|VIRTUAL|Rapid Reload (%LIST)|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Crossbow Mastery		KEY:Ranger Combat Style Feat ~ Crossbow Mastery		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Crossbow Mastery		PREVARGTEQ:Ranger_Combat_Style_Feat_Crossbow_Mastery,1																		ABILITY:FEAT|VIRTUAL|Crossbow Mastery|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
 
 # Mounted Combat
-Mounted Combat		KEY:Ranger Bonus Feat ~ Mounted Combat		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Mounted Combat		PREVARGTEQ:Ranger_Bonus_Feat_Mounted_Combat,1																		ABILITY:FEAT|VIRTUAL|Mounted Combat|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Mounted Archery		KEY:Ranger Bonus Feat ~ Mounted Archery		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Mounted Archery		PREVARGTEQ:Ranger_Bonus_Feat_Mounted_Archery,1																		ABILITY:FEAT|VIRTUAL|Mounted Archery|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Ride-By Attack		KEY:Ranger Bonus Feat ~ Ride-By Attack		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Ride-By Attack		PREVARGTEQ:Ranger_Bonus_Feat_Ride_By_Attack,1																		ABILITY:FEAT|VIRTUAL|Ride-By Attack|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Trick Riding		KEY:Ranger Bonus Feat ~ Trick Riding		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Trick Riding			PREVARGTEQ:Ranger_Bonus_Feat_Trick_Riding,1																		ABILITY:FEAT|VIRTUAL|Trick Riding|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Mounted Shield		KEY:Ranger Bonus Feat ~ Mounted Shield		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Mounted Shield		PREVARGTEQ:Ranger_Bonus_Feat_Mounted_Shield,1																		ABILITY:FEAT|VIRTUAL|Mounted Shield|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Spirited Charge		KEY:Ranger Bonus Feat ~ Spirited Charge		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Spirited Charge		PREVARGTEQ:Ranger_Bonus_Feat_Spirited_Charge,1																		ABILITY:FEAT|VIRTUAL|Spirited Charge|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Mounted Skirmisher	KEY:Ranger Bonus Feat ~ Mounted Skirmisher	CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Mounted Skirmisher		PREVARGTEQ:Ranger_Bonus_Feat_Mounted_Skirmisher,1																	ABILITY:FEAT|VIRTUAL|Mounted Skirmisher|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Unseat			KEY:Ranger Bonus Feat ~ Unseat			CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Unseat				PREVARGTEQ:Ranger_Bonus_Feat_Unseat,1																			ABILITY:FEAT|VIRTUAL|Unseat|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Mounted Combat		KEY:Ranger Combat Style Feat ~ Mounted Combat		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Mounted Combat		PREVARGTEQ:Ranger_Combat_Style_Feat_Mounted_Combat,1																		ABILITY:FEAT|VIRTUAL|Mounted Combat|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Mounted Archery		KEY:Ranger Combat Style Feat ~ Mounted Archery		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Mounted Archery		PREVARGTEQ:Ranger_Combat_Style_Feat_Mounted_Archery,1																		ABILITY:FEAT|VIRTUAL|Mounted Archery|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Ride-By Attack		KEY:Ranger Combat Style Feat ~ Ride-By Attack		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Ride-By Attack		PREVARGTEQ:Ranger_Combat_Style_Feat_Ride_By_Attack,1																		ABILITY:FEAT|VIRTUAL|Ride-By Attack|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Trick Riding		KEY:Ranger Combat Style Feat ~ Trick Riding		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Trick Riding			PREVARGTEQ:Ranger_Combat_Style_Feat_Trick_Riding,1																		ABILITY:FEAT|VIRTUAL|Trick Riding|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Mounted Shield		KEY:Ranger Combat Style Feat ~ Mounted Shield		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Mounted Shield		PREVARGTEQ:Ranger_Combat_Style_Feat_Mounted_Shield,1																		ABILITY:FEAT|VIRTUAL|Mounted Shield|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Spirited Charge		KEY:Ranger Combat Style Feat ~ Spirited Charge		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Spirited Charge		PREVARGTEQ:Ranger_Combat_Style_Feat_Spirited_Charge,1																		ABILITY:FEAT|VIRTUAL|Spirited Charge|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Mounted Skirmisher	KEY:Ranger Combat Style Feat ~ Mounted Skirmisher	CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Mounted Skirmisher		PREVARGTEQ:Ranger_Combat_Style_Feat_Mounted_Skirmisher,1																	ABILITY:FEAT|VIRTUAL|Mounted Skirmisher|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Unseat			KEY:Ranger Combat Style Feat ~ Unseat			CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Unseat				PREVARGTEQ:Ranger_Combat_Style_Feat_Unseat,1																			ABILITY:FEAT|VIRTUAL|Unseat|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
 
 # Natural Weapon
-Aspect of the Beast	KEY:Ranger Bonus Feat ~ Aspect of the Beast	CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Aspect of the Beast		PREVARGTEQ:Ranger_Bonus_Feat_Aspect_of_the_Beast,1																	ABILITY:FEAT|VIRTUAL|Aspect of the Beast|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Improved Natural Attack	KEY:Ranger Bonus Feat ~ Improved Natural Attack	CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Natural Attack	PREVARGTEQ:Ranger_Bonus_Feat_Improved_Natural_Attack,1	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC,TYPE=Natural																									BONUS:WEAPONPROF=%LIST|DAMAGESIZE|1|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Rending Claws		KEY:Ranger Bonus Feat ~ Rending Claws		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Rending Claws			PREVARGTEQ:Ranger_Bonus_Feat_Rending_Claws,1																		ABILITY:FEAT|VIRTUAL|Rending Claws|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Weapon Focus		KEY:Ranger Bonus Feat ~ Weapon Focus		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Weapon Focus			PREVARGTEQ:Ranger_Bonus_Feat_Weapon_Focus,1			MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																											BONUS:WEAPONPROF=%LIST|TOHIT|1|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Eldritch Claws		KEY:Ranger Bonus Feat ~ Eldritch Claws		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Eldritch Claws		PREVARGTEQ:Ranger_Bonus_Feat_Eldritch_Claws,1																		ABILITY:FEAT|VIRTUAL|Eldritch Claws|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Vital Strike		KEY:Ranger Bonus Feat ~ Vital Strike		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Vital Strike			PREVARGTEQ:Ranger_Bonus_Feat_Vital_Strike,1																		ABILITY:FEAT|VIRTUAL|Vital Strike|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Multiattack			KEY:Ranger Bonus Feat ~ Multiattack			CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Multiattack			PREVARGTEQ:Ranger_Bonus_Feat_Multiattack,1																		ABILITY:FEAT|VIRTUAL|Multiattack|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Improved Vital Strike	KEY:Ranger Bonus Feat ~ Improved Vital Strike	CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Vital Strike	PREVARGTEQ:Ranger_Bonus_Feat_Improved_Vital_Strike,1																	ABILITY:FEAT|VIRTUAL|Improved Vital Strike|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Aspect of the Beast	KEY:Ranger Combat Style Feat ~ Aspect of the Beast	CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Aspect of the Beast		PREVARGTEQ:Ranger_Combat_Style_Feat_Aspect_of_the_Beast,1																	ABILITY:FEAT|VIRTUAL|Aspect of the Beast|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Improved Natural Attack	KEY:Ranger Combat Style Feat ~ Improved Natural Attack	CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Natural Attack	PREVARGTEQ:Ranger_Combat_Style_Feat_Improved_Natural_Attack,1	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC,TYPE=Natural																									BONUS:WEAPONPROF=%LIST|DAMAGESIZE|1|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Rending Claws		KEY:Ranger Combat Style Feat ~ Rending Claws		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Rending Claws			PREVARGTEQ:Ranger_Combat_Style_Feat_Rending_Claws,1																		ABILITY:FEAT|VIRTUAL|Rending Claws|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Weapon Focus		KEY:Ranger Combat Style Feat ~ Weapon Focus		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Weapon Focus			PREVARGTEQ:Ranger_Combat_Style_Feat_Weapon_Focus,1			MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																											BONUS:WEAPONPROF=%LIST|TOHIT|1|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Eldritch Claws		KEY:Ranger Combat Style Feat ~ Eldritch Claws		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Eldritch Claws		PREVARGTEQ:Ranger_Combat_Style_Feat_Eldritch_Claws,1																		ABILITY:FEAT|VIRTUAL|Eldritch Claws|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Vital Strike		KEY:Ranger Combat Style Feat ~ Vital Strike		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Vital Strike			PREVARGTEQ:Ranger_Combat_Style_Feat_Vital_Strike,1																		ABILITY:FEAT|VIRTUAL|Vital Strike|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Multiattack			KEY:Ranger Combat Style Feat ~ Multiattack			CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Multiattack			PREVARGTEQ:Ranger_Combat_Style_Feat_Multiattack,1																		ABILITY:FEAT|VIRTUAL|Multiattack|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Improved Vital Strike	KEY:Ranger Combat Style Feat ~ Improved Vital Strike	CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Vital Strike	PREVARGTEQ:Ranger_Combat_Style_Feat_Improved_Vital_Strike,1																	ABILITY:FEAT|VIRTUAL|Improved Vital Strike|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
 
 # Two-Handed Weapon
-Cleave			KEY:Ranger Bonus Feat ~ Cleave			CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Cleave				PREVARGTEQ:Ranger_Bonus_Feat_Cleave,1																			ABILITY:FEAT|VIRTUAL|Cleave|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Power Attack		KEY:Ranger Bonus Feat ~ Power Attack		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Power Attack			PREVARGTEQ:Ranger_Bonus_Feat_Power_Attack,1																		ABILITY:FEAT|VIRTUAL|Power Attack|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Pushing Assault		KEY:Ranger Bonus Feat ~ Pushing Assault		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Pushing Assault		PREVARGTEQ:Ranger_Bonus_Feat_Pushing_Assault,1																		ABILITY:FEAT|VIRTUAL|Pushing Assault|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Shield of Swings		KEY:Ranger Bonus Feat ~ Shield of Swings		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Shield of Swings		PREVARGTEQ:Ranger_Bonus_Feat_Shield_of_Swings,1																		ABILITY:FEAT|VIRTUAL|Shield of Swings|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Furious Focus		KEY:Ranger Bonus Feat ~ Furious Focus		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Furious Focus			PREVARGTEQ:Ranger_Bonus_Feat_Furious_Focus,1																		ABILITY:FEAT|VIRTUAL|Furious Focus|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Great Cleave		KEY:Ranger Bonus Feat ~ Great Cleave		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Great Cleave			PREVARGTEQ:Ranger_Bonus_Feat_Great_Cleave,1																		ABILITY:FEAT|VIRTUAL|Great Cleave|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Dreadful Carnage		KEY:Ranger Bonus Feat ~ Dreadful Carnage		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Dreadful Carnage		PREVARGTEQ:Ranger_Bonus_Feat_Dreadful_Carnage,1																		ABILITY:FEAT|VIRTUAL|Dreadful Carnage|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Improved Sunder		KEY:Ranger Bonus Feat ~ Improved Sunder		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Sunder		PREVARGTEQ:Ranger_Bonus_Feat_Improved_Sunder,1																		ABILITY:FEAT|VIRTUAL|Improved Sunder|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Cleave			KEY:Ranger Combat Style Feat ~ Cleave			CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Cleave				PREVARGTEQ:Ranger_Combat_Style_Feat_Cleave,1																			ABILITY:FEAT|VIRTUAL|Cleave|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Power Attack		KEY:Ranger Combat Style Feat ~ Power Attack		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Power Attack			PREVARGTEQ:Ranger_Combat_Style_Feat_Power_Attack,1																		ABILITY:FEAT|VIRTUAL|Power Attack|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Pushing Assault		KEY:Ranger Combat Style Feat ~ Pushing Assault		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Pushing Assault		PREVARGTEQ:Ranger_Combat_Style_Feat_Pushing_Assault,1																		ABILITY:FEAT|VIRTUAL|Pushing Assault|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Shield of Swings		KEY:Ranger Combat Style Feat ~ Shield of Swings		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Shield of Swings		PREVARGTEQ:Ranger_Combat_Style_Feat_Shield_of_Swings,1																		ABILITY:FEAT|VIRTUAL|Shield of Swings|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Furious Focus		KEY:Ranger Combat Style Feat ~ Furious Focus		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Furious Focus			PREVARGTEQ:Ranger_Combat_Style_Feat_Furious_Focus,1																		ABILITY:FEAT|VIRTUAL|Furious Focus|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Great Cleave		KEY:Ranger Combat Style Feat ~ Great Cleave		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Great Cleave			PREVARGTEQ:Ranger_Combat_Style_Feat_Great_Cleave,1																		ABILITY:FEAT|VIRTUAL|Great Cleave|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Dreadful Carnage		KEY:Ranger Combat Style Feat ~ Dreadful Carnage		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Dreadful Carnage		PREVARGTEQ:Ranger_Combat_Style_Feat_Dreadful_Carnage,1																		ABILITY:FEAT|VIRTUAL|Dreadful Carnage|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Improved Sunder		KEY:Ranger Combat Style Feat ~ Improved Sunder		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Sunder		PREVARGTEQ:Ranger_Combat_Style_Feat_Improved_Sunder,1																		ABILITY:FEAT|VIRTUAL|Improved Sunder|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
 
 # Weapon and Shield
-Shield Focus		KEY:Ranger Bonus Feat ~ Shield Focus		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Shield Focus			PREVARGTEQ:Ranger_Bonus_Feat_Shield_Focus,1																		ABILITY:FEAT|VIRTUAL|Shield Focus|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Shield Proficiency	KEY:Ranger Bonus Feat ~ Shield Proficiency	CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Shield Proficiency		PREVARGTEQ:Ranger_Bonus_Feat_Shield_Proficiency,1																	ABILITY:FEAT|VIRTUAL|Shield Proficiency|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Shield Slam			KEY:Ranger Bonus Feat ~ Shield Slam			CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Shield Slam			PREVARGTEQ:Ranger_Bonus_Feat_Shield_Slam,1																		ABILITY:FEAT|VIRTUAL|Shield Slam|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Saving Shield		KEY:Ranger Bonus Feat ~ Saving Shield		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Saving Shield			PREVARGTEQ:Ranger_Bonus_Feat_Saving_Shield,1																		ABILITY:FEAT|VIRTUAL|Saving Shield|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Shield Master		KEY:Ranger Bonus Feat ~ Shield Master		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Shield Master			PREVARGTEQ:Ranger_Bonus_Feat_Shield_Master,1																		ABILITY:FEAT|VIRTUAL|Shield Master|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Bashing Finish		KEY:Ranger Bonus Feat ~ Bashing Finish		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Bashing Finish		PREVARGTEQ:Ranger_Bonus_Feat_Bashing_Finish,1																		ABILITY:FEAT|VIRTUAL|Bashing Finish|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
-Greater Shield Focus	KEY:Ranger Bonus Feat ~ Greater Shield Focus	CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Shield Focus	PREVARGTEQ:Ranger_Bonus_Feat_Greater_Shield_Focus,1																	ABILITY:FEAT|VIRTUAL|Greater Shield Focus|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Shield Focus		KEY:Ranger Combat Style Feat ~ Shield Focus		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Shield Focus			PREVARGTEQ:Ranger_Combat_Style_Feat_Shield_Focus,1																		ABILITY:FEAT|VIRTUAL|Shield Focus|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Shield Proficiency	KEY:Ranger Combat Style Feat ~ Shield Proficiency	CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Shield Proficiency		PREVARGTEQ:Ranger_Combat_Style_Feat_Shield_Proficiency,1																	ABILITY:FEAT|VIRTUAL|Shield Proficiency|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Shield Slam			KEY:Ranger Combat Style Feat ~ Shield Slam			CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Shield Slam			PREVARGTEQ:Ranger_Combat_Style_Feat_Shield_Slam,1																		ABILITY:FEAT|VIRTUAL|Shield Slam|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Saving Shield		KEY:Ranger Combat Style Feat ~ Saving Shield		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Saving Shield			PREVARGTEQ:Ranger_Combat_Style_Feat_Saving_Shield,1																		ABILITY:FEAT|VIRTUAL|Saving Shield|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Shield Master		KEY:Ranger Combat Style Feat ~ Shield Master		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Shield Master			PREVARGTEQ:Ranger_Combat_Style_Feat_Shield_Master,1																		ABILITY:FEAT|VIRTUAL|Shield Master|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Bashing Finish		KEY:Ranger Combat Style Feat ~ Bashing Finish		CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Bashing Finish		PREVARGTEQ:Ranger_Combat_Style_Feat_Bashing_Finish,1																		ABILITY:FEAT|VIRTUAL|Bashing Finish|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
+Greater Shield Focus	KEY:Ranger Combat Style Feat ~ Greater Shield Focus	CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Shield Focus	PREVARGTEQ:Ranger_Combat_Style_Feat_Greater_Shield_Focus,1																	ABILITY:FEAT|VIRTUAL|Greater Shield Focus|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1
 
 ###Block: Ranger archetypes ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name	Unique Key						Category of Ability	Type																									Required Class		Multiple Requirements																																								Description																																																																					Ability																																																																																										Bonus Ability Pool																							Cost		Source Page		Aspects
@@ -2307,7 +2307,7 @@ Urban Ranger	KEY:Ranger Archetype ~ Urban Ranger		CATEGORY:Archetype	TYPE:Archet
 # Ability Name			Unique Key						Category of Ability		Type																															Required Ability											Var. Min. Value				Var. Must Be Lower				Define					Description																																																																																																																																																																																																																																																										Stackable?	Multiple?	Choose		Ability										Bonus Ability Pool																									Modify VAR																																						Allow Follower				Allowed Companions						Class Skill																						Source Page
 Class Skills			KEY:Beast Master ~ Class Skills		CATEGORY:Special Ability	TYPE:ClassFeatures.RangerClassFeatures.SpecialQuality.RangerClassSkills																																																				DESC:A beast master's class skills are Acrobatics (Dex), Climb (Str), Craft (Int), Escape Artist (Dex), Handle Animal (Cha), Heal (Wis), Intimidate (Cha), Knowledge (nature) (Int), Perception (Wis), Ride (Dex), Stealth (Dex), Survival (Wis), and Swim (Wis). These replace the standard ranger class skills.																																																																																																																																																																																																																																																																																																													CSKILL:Acrobatics|Climb|TYPE=Craft|Escape Artist|Handle Animal|Heal|Intimidate|Knowledge (Nature)|Perception|Ride|Stealth|Survival|Swim	SOURCEPAGE:p.124
 Animal Companion			KEY:Beast Master ~ Animal Companion		CATEGORY:Special Ability	TYPE:ClassFeatures.RangerClassFeatures.SpecialQuality.Extraordinary.RangerHuntersBond.AnimalCompanion.Animal Companion																																						DEFINE:BeastmasterCompanionChoice|0	DESC:A beast master forms a close bond with an animal companion. This ability functions like the druid animal companion ability except that the ranger's effective druid level is equal to his ranger level - 3. The ranger gains a +2 bonus on wild empathy and Handle Animal checks made regarding his animal companion. Unlike a normal ranger, a beast master's choice of animal companion is not limited to a subset of all possible animal companion choices-he may choose freely among all animal companion choices, just as a druid can. The beast master may have more than one animal companion, but he must divide up his effective druid level between his companions to determine the abilities of each companion. For example, a beast master with an effective druid level of 4 can have one 4th-level companion, two 2nd-level companions, or one 1st-level and one 3rd-level companion. Each time a beast master's effective druid level increases, he must decide how to allocate the increase among his animal companions (including the option of adding a new 1st-level companion). Once an effective druid level is allocated to a particular companion, it cannot be redistributed while that companion is in the ranger's service (he must release a companion or wait until a companion dies to allocate its levels to another companion). The share spells animal companion ability does not give the ranger the ability to cast a single spell so that it affects all of his animal companions. This ability replaces hunter's bond.																			BONUS:ABILITYPOOL|Beastmaster Companion Choice|BeastmasterCompanionChoice																BONUS:VAR|BeastmasterCompanionChoice|RangerLVL-3|PRECLASS:1,Ranger=4	BONUS:VAR|BeastmasterCompanionChoice|3|PRECLASS:1,Ranger=12																																																								SOURCEPAGE:p.124
-Improved Empathic Link		KEY:Beast Master ~ Improved Empathic Link	CATEGORY:Special Ability	TYPE:ClassFeatures.RangerClassFeatures.SpecialQuality.Supernatural.RangerCombatStyleFeat_Six																																																DESC:The beast master gains an empathic link with all of his animal companions. This functions like an empathic link with a familiar, except the ranger can also see through a companion's eyes as a swift action, maintaining this connection as long as he likes (as long as the companion is within 1 mile) and ending it as a free action. The ranger can only see through the eyes of one companion at a time, and is blinded while maintaining this connection. This replaces the 6th-level combat style feat.																																																																																																																																																																																										BONUS:ABILITYPOOL|Ranger Bonus Feat|-1|PRECLASS:1,Ranger=6																																																																																																SOURCEPAGE:p.125
+Improved Empathic Link		KEY:Beast Master ~ Improved Empathic Link	CATEGORY:Special Ability	TYPE:ClassFeatures.RangerClassFeatures.SpecialQuality.Supernatural.RangerCombatStyleFeat_Six																																																DESC:The beast master gains an empathic link with all of his animal companions. This functions like an empathic link with a familiar, except the ranger can also see through a companion's eyes as a swift action, maintaining this connection as long as he likes (as long as the companion is within 1 mile) and ending it as a free action. The ranger can only see through the eyes of one companion at a time, and is blinded while maintaining this connection. This replaces the 6th-level combat style feat.																																																																																																																																																																																										BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PRECLASS:1,Ranger=6																																																																																																SOURCEPAGE:p.125
 Strong Bond				KEY:Beast Master ~ Strong Bond		CATEGORY:Special Ability	TYPE:ClassFeatures.RangerClassFeatures.SpecialQuality.Extraordinary.RangerCamouflage																																																	DESC:At 12th level, the ranger strengthens his bond with his animal companions. The ranger's effective druid level for his animal companions is now equal to his ranger level; he may immediately allocate these additional levels to his companions as he sees fit. This ability replaces camouflage.																																																																																																																																																																																																																																																																																																																																					SOURCEPAGE:p.125
 
 # Beastmaster Companion Choices

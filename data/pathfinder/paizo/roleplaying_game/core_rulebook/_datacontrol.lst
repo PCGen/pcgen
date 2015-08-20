@@ -339,7 +339,7 @@ FACTDEF:ABILITY|Ranger_Archetype_FavoredEnemy							DATAFORMAT:BOOLEAN	VISIBLE:Y
 FACTDEF:ABILITY|Ranger_Archetype_FavoredTerrain							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FavoredTerrain										EXPLANATION:Determines whether the archetype affects - FavoredTerrain										
 FACTDEF:ABILITY|Ranger_Archetype_Track								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Track											EXPLANATION:Determines whether the archetype affects - Track											
 FACTDEF:ABILITY|Ranger_Archetype_WildEmpathy							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WildEmpathy										EXPLANATION:Determines whether the archetype affects - WildEmpathy										
-FACTDEF:ABILITY|Ranger_Archetype_CombatStyle							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:CombatStyle										EXPLANATION:Determines whether the archetype affects - CombatStyle										
+FACTDEF:ABILITY|Ranger_Archetype_CombatStyleFeat							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:CombatStyle										EXPLANATION:Determines whether the archetype affects - CombatStyle										
 FACTDEF:ABILITY|Ranger_Archetype_WoodlandStride							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WoodlandStride										EXPLANATION:Determines whether the archetype affects - WoodlandStride										
 FACTDEF:ABILITY|Ranger_Archetype_SwiftTracker							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SwiftTracker										EXPLANATION:Determines whether the archetype affects - SwiftTracker										
 FACTDEF:ABILITY|Ranger_Archetype_Evasion								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Evasion											EXPLANATION:Determines whether the archetype affects - Evasion											
@@ -355,7 +355,7 @@ FACTDEF:ABILITY|Ranger_CF_FavoredEnemy		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABL
 FACTDEF:ABILITY|Ranger_CF_FavoredTerrain		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FavoredTerrain								EXPLANATION:Remove Ranger FavoredTerrain			
 FACTDEF:ABILITY|Ranger_CF_Track				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Track										EXPLANATION:Remove Ranger Track					
 FACTDEF:ABILITY|Ranger_CF_WildEmpathy			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WildEmpathy									EXPLANATION:Remove Ranger WildEmpathy				
-FACTDEF:ABILITY|Ranger_CF_CombatStyle			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:CombatStyle									EXPLANATION:Remove Ranger CombatStyle				
+FACTDEF:ABILITY|Ranger_CF_CombatStyleFeat			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:CombatStyle									EXPLANATION:Remove Ranger CombatStyle				
 FACTDEF:ABILITY|Ranger_CF_WoodlandStride		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WoodlandStride								EXPLANATION:Remove Ranger WoodlandStride			
 FACTDEF:ABILITY|Ranger_CF_SwiftTracker		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SwiftTracker								EXPLANATION:Remove Ranger SwiftTracker				
 FACTDEF:ABILITY|Ranger_CF_Evasion			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Evasion									EXPLANATION:Remove Ranger Evasion				
