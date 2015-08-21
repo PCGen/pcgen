@@ -2904,3 +2904,159 @@ ABILITY:Special Ability|Evolution_Ultimate_Major_Image_1				MAXVER:6.4.01	MAXDEV
 ABILITY:Special Ability|Evolution_Ultimate_Stinking_Cloud_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Stinking Cloud 1		
 ABILITY:Special Ability|Evolution_Ultimate_Tongues_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Tongues 1			
 ABILITY:Special Ability|Evolution_Ultimate_Water_Breathing_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Water Breathing 1	
+
+
+###Block: 6.05.03 Changes - 
+ABILITY:Special Ability|Ranger ~ Combat Style							MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger ~ Combat Style Feat
+ABILITY:Special Ability|Ranger Bonus Feat ~ Far Shot						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Far Shot				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Point-Blank Shot					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Point-Blank Shot			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Precise Shot					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Precise Shot			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Rapid Shot						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Rapid Shot				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Precise Shot				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Precise Shot		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Manyshot						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Manyshot				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Pinpoint Targeting				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Pinpoint Targeting		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shot on the Run					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shot on the Run			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Double Slice					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Double Slice			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Shield Bash				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Shield Bash		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Quick Draw						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Quick Draw				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Weapon Fighting				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Weapon Fighting		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Two-Weapon Fighting			MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Two-Weapon Fighting	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Weapon Defense				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Weapon Defense		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Two-Weapon Fighting			MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Two-Weapon Fighting	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Weapon Rend					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Weapon Rend			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Monstrous Mount					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Monstrous Mount		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Monstrous Mount Mastery				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Monstrous Mount Mastery
+ABILITY:Special Ability|Ranger Bonus Feat ~ Agile Maneuvers					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Agile Maneuvers					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Bashing Finish					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Bashing Finish					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Bleeding Critical					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Bleeding Critical				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Blind-Fight						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Blind-Fight					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Bloody Assault					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Bloody Assault					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Bludgeoner						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Bludgeoner						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Bodyguard						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Bodyguard						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Catch Off-Guard					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Catch Off-Guard					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Charging Hurler					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Charging Hurler					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Cleave						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Cleave						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Cleaving Finish					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Cleaving Finish					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Close-Quarters Thrower				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Close-Quarters Thrower				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Clustered Shots					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Clustered Shots					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Combat Expertise					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Combat Expertise					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Combat Reflexes					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Combat Reflexes					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Critical Focus					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Critical Focus					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Deadly Aim						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Deadly Aim						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Deadly Finish					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Deadly Finish					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Death or Glory					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Death or Glory					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Disarming Strike					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Disarming Strike					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Disengaging Flourish				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Disengaging Flourish				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Disruptive						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Disruptive						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Distance Thrower					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Distance Thrower					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Double Slice					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Double Slice					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Dreadful Carnage					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Dreadful Carnage					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Exotic Weapon Proficiency sawtooth sabre	MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Exotic Weapon Proficiency sawtooth sabre	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Exotic Weapon Proficiency spiked chain	MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Exotic Weapon Proficiency spiked chain	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Exotic Weapon Proficiency Whip		MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Exotic Weapon Proficiency Whip		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Far Shot						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Far Shot						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Felling Smash					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Felling Smash					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Furious Focus					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Furious Focus					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Blind-Fight				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Blind-Fight				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Feint					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Feint					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Grapple					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Grapple					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Shield Focus				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Shield Focus				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Sunder					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Sunder					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Trip					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Trip					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Two-Weapon Fighting			MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Two-Weapon Fighting			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Whip Mastery				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Whip Mastery				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Impaling Critical (trident)			MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Impaling Critical (trident)			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Bull Rush				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Bull Rush				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Charging Hurler			MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Charging Hurler			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Critical (rapier)			MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Critical (rapier)			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Critical (short sword)		MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Critical (short sword)		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Dirty Trick				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Dirty Trick				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Disarm					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Disarm					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Feint					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Feint					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Grapple					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Grapple					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Initiative				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Initiative				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Shield Bash				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Shield Bash				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Snap Shot				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Snap Shot				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Sunder					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Sunder					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Trip					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Trip					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Two-Weapon Feint			MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Two-Weapon Feint			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Unarmed Strike				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Unarmed Strike			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Vital Strike				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Vital Strike				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Whip Mastery				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Whip Mastery				
+ABILITY:Special Ability|Ranger Bonus Feat ~ In Harm's Way					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ In Harm's Way					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Ki Throw						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Ki Throw						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Lightning Stance					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Lightning Stance					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Lunge							MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Lunge						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Mobility						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Mobility						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Monastic Legacy					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Monastic Legacy					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Nimble Moves					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Nimble Moves					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Opening Volley					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Opening Volley					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Pin Down						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Pin Down						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Pinning Knockout					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Pinning Knockout					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Pinpoint Targeting				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Pinpoint Targeting				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Point-Blank Shot					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Point-Blank Shot					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Power Attack					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Power Attack					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Precise Shot					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Precise Shot					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Pushing Assault					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Pushing Assault					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Quick Dirty Trick					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Quick Dirty Trick				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Quick Draw						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Quick Draw						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Rapid Shot						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Rapid Shot						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield Focus					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield Focus					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield Master					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield Master					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield of Swings					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield of Swings					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield Slam						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield Slam					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shot on the Run					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shot on the Run					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Sidestep						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Sidestep						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Snap Shot						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Snap Shot						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Spring Attack					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Spring Attack					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Step Up						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Step Up						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Strike Back						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Strike Back					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Stunning Fist					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Stunning Fist					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Sundering Strike					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Sundering Strike					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Weapon Defense				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Weapon Defense				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Handed Thrower				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Handed Thrower				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Weapon Feint					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Weapon Feint					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Weapon Fighting				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Weapon Fighting				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Weapon Rend					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Weapon Rend					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Vital Strike					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Vital Strike					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Wave Strike						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Wave Strike					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Weapon Finesse					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Weapon Finesse					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Whip Mastery					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Whip Mastery					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Whirlwind Attack					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Whirlwind Attack					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Wind Stance						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Wind Stance					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Point Blank Master				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Point Blank Master	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Deadly Aim						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Deadly Aim			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Focused Shot					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Focused Shot		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Rapid Reload					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Rapid Reload		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Crossbow Mastery					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Crossbow Mastery		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Mounted Combat					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Mounted Combat		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Mounted Archery					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Mounted Archery		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Ride-By Attack					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Ride-By Attack		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Trick Riding					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Trick Riding		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Mounted Shield					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Mounted Shield		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Spirited Charge					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Spirited Charge		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Mounted Skirmisher				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Mounted Skirmisher	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Unseat						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Unseat			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Aspect of the Beast				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Aspect of the Beast	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Natural Attack				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Natural Attack
+ABILITY:Special Ability|Ranger Bonus Feat ~ Rending Claws					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Rending Claws		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Weapon Focus					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Weapon Focus		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Eldritch Claws					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Eldritch Claws		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Vital Strike					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Vital Strike		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Multiattack						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Multiattack		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Vital Strike				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Vital Strike	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Cleave						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Cleave			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Power Attack					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Power Attack		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Pushing Assault					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Pushing Assault		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield of Swings					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield of Swings		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Furious Focus					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Furious Focus		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Great Cleave					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Great Cleave		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Dreadful Carnage					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Dreadful Carnage		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Sunder					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Sunder		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield Focus					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield Focus		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield Proficiency				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield Proficiency	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield Slam						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield Slam		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Saving Shield					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Saving Shield		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield Master					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield Master		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Bashing Finish					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Bashing Finish		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Shield Focus				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Shield Focus	
