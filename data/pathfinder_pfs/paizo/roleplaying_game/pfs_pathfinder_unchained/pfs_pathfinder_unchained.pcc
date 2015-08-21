@@ -1,7 +1,7 @@
-CAMPAIGN:Pathfinder Unchained (Unchained Summoner Only)
-KEY:Pathfinder Unchained ~ Unchained Summoner
-GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder RPG
+CAMPAIGN:Pathfinder Unchained (Unchained Summoner Only) (PFS)
+KEY:PFS ~ Pathfinder Unchained ~ Unchained Summoner
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing PFS.Pathfinder RPG
 STATUS:ALPHA
 RANK:1
 GENRE:Fantasy
@@ -19,7 +19,7 @@ SOURCEDATE:2015-04
 ISOGL:YES
 INFOTEXT:Includes ONLY the Unchained Summoner and supporting rules for the Summoner. This is a PCGen Team rapid support release for those that require the Unchained Summoner to enjoy their games. The rest of the book will be implemented soon(tm).
 
-COVER:pathfinder_unchained.jpg
+COVER:/pathfinder/paizo/roleplaying_game/pathfinder_unchained/pathfinder_unchained.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -39,29 +39,23 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Pathfinder Unchained" Cop
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
-ABILITY:pu_abilities_class.lst
-ABILITY:pu_abilities_race.lst
-#ABILITY:pu_abilities_other.lst
-ABILITYCATEGORY:pu_abilitycategories.lst
-CLASS:pu_classes.lst
-COMPANIONMOD:pu_companionmods.lst
-#EQUIPMENT:pu_equip.lst
-#EQUIPMOD:pu_equipmods.lst
-#ABILITY:pu_feats.lst
-#KIT:pu_kits.lst
-#WEAPONPROF:pu_profs_weapon.lst
-#SKILL:pu_skills.lst
-SPELL:pu_spells.lst
-TEMPLATE:pu_templates.lst
+# Additional Resources
+# Last Updated July 29, 2015
+#
+# Pathfinder Roleplaying Game: Pathfinder Unchained
+# The following parts of Pathfinder Unchained are legal for play:
+# Classes: all classes on pages 8-39 are legal for play;
+# Skill Unlocks: the skill unlocks and Signature Skill feat are only available through the rogue's edge class ability.
 
-# ENTRY DATE: 2015-04
-# LST MONKEY: Stefan Radermacher (Barbarian); Andrew Maitland (Summoner + Support)
-# LICENSE MONKEY:
-# RELEASE REVIEW #
-# BETA:
-# RELEASE:
-# Built for PCGen Version: 6.05.04
-# Updated to work with version: -
-# MINVER:6.5
-# MINDEVVER:6.05.4
-# COMMENTS: 
+# Data files
+#ABILITY:pfs_pu_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained ~ Unchained Summoner
+#ABILITY:pfs_pu_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained ~ Unchained Summoner
+#ABILITYCATEGORY:pfs_pu_abilitycategories.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained ~ Unchained Summoner
+#CLASS:pfs_pu_classes.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained ~ Unchained Summoner
+#COMPANIONMOD:pfs_pu_companionmods.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained ~ Unchained Summoner
+#SPELL:pfs_pu_spells.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained ~ Unchained Summoner
+#TEMPLATE:pfs_pu_templates.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained ~ Unchained Summoner
+
+#
+# End
+#
