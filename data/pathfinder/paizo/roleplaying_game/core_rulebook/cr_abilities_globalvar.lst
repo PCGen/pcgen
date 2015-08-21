@@ -444,7 +444,7 @@ CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_FavoredEnemy|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_FavoredTerrain|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_Track|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_WildEmpathy|0
-CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_CombatStyle|0
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_CombatStyleFeat|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_WoodlandStride|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_SwiftTracker|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_Evasion|0
@@ -460,7 +460,7 @@ CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy|1|TYPE=Boolean|PREFAC
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredTerrain|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_FavoredTerrain=True
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Track|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Track=True
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_WildEmpathy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_WildEmpathy=True
-CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyle|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_CombatStyle=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyleFeat|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_CombatStyleFeat=True
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_WoodlandStride|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_WoodlandStride=True
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_SwiftTracker|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_SwiftTracker=True
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Evasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_Evasion=True
@@ -477,7 +477,7 @@ CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy|1|TYPE=Boolean|PREABI
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredTerrain|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredTerrain	
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Track|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerTrack		
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_WildEmpathy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWildEmpathy	
-CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyle|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyle	
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyleFeat|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyle	
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_WoodlandStride|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWoodlandStride	
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_SwiftTracker|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerSwiftTracker	
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Evasion|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion		
