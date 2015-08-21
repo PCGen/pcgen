@@ -67,7 +67,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Class Guide" Cop
 
 ABILITY:pfs_acg_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 EQUIPMENT:pfs_acg_equip.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
-FEAT:pfs_acg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+ABILITY:pfs_acg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 
 #
 # End
