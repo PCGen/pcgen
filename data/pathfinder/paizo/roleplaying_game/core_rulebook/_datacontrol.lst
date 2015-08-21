@@ -274,6 +274,7 @@ FACTDEF:ABILITY|Monk_Archetype_TongueOfTheSunAndMoon					DATAFORMAT:BOOLEAN	VISI
 FACTDEF:ABILITY|Monk_Archetype_TimelessBody						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TimelessBody								EXPLANATION:Determines whether the archetype affects - TimelessBody								
 FACTDEF:ABILITY|Monk_Archetype_EmptyBody							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EmptyBody									EXPLANATION:Determines whether the archetype affects - EmptyBody									
 FACTDEF:ABILITY|Monk_Archetype_PerfectSelf						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:PerfectSelf									EXPLANATION:Determines whether the archetype affects - PerfectSelf									
+FACTDEF:ABILITY|Monk_Archetype_Proficiency						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:PerfectSelf									EXPLANATION:Determines whether the archetype affects - PerfectSelf									
 
 # Monk Class Feature
 FACTDEF:ABILITY|Monk_CF_FlurryOfBlows			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FlurryOfBlows								EXPLANATION:Remove Monk FlurryOfBlows				
