@@ -74,7 +74,7 @@ PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_core_rulebook/pfs_core_rulebook.
 # Additional Resources
 # Last Updated Friday, January 9, 2015
 
-PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_advanced_class_guide/pfs_advanced_class_guide.pcc
+# PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_advanced_class_guide/pfs_advanced_class_guide.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_advanced_players_guide/pfs_advanced_players_guide.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_advanced_race_guide/pfs_advanced_race_guide.pcc
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_bestiary/pfs_bestiary.pcc
