@@ -25,19 +25,6 @@ ABILITYCATEGORY:Maharaja Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		
 ABILITYCATEGORY:Demilich Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DemilichSelection							DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Graven Guardian Domain Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GravenGuardianDomain						DISPLAYLOCATION:Racial Abilities
 
-
-###Block: Base Races
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list						Plural description for UI			Display Location
-ABILITYCATEGORY:Catfolk Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CatfolkRacialTrait													PLURAL:Catfolk Racial Traits			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Suli Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuliRacialTrait													PLURAL:Suli Racial Traits			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Vanara Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VanaraRacialTrait													PLURAL:Vanara Racial Traits			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Vishkanya Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VishkanyaRacialTrait												PLURAL:Vishkanya Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Ratfolk Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RatfolkRacialTrait													PLURAL:Ratfolk Racial Traits			DISPLAYLOCATION:Racial Abilities
-
-ABILITYCATEGORY:Suli Language Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuliLanguage														PLURAL:Suli Language Choices			DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Hag Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HagRacialTrait													PLURAL:Hag Racial Traits			DISPLAYLOCATION:Racial Abilities
-
-
 ABILITYCATEGORY:Ruinous Revivification		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability								ABILITYLIST:Graveknight ~ Ruinous Revivification	PLURAL:Ruinous Revivification			DISPLAYLOCATION:Racial Abilities
 
 ABILITYCATEGORY:Fey Creature Special Abilities	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FeyCreatureSelection												PLURAL:Fey Creature Traits			DISPLAYLOCATION:Racial Abilities
@@ -45,3 +32,4 @@ ABILITYCATEGORY:Unfettered Eidolon Evolution	VISIBLE:QUALIFY	EDITABLE:YES	EDITPO
 ABILITYCATEGORY:Eidolon AC Bonus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Eidolon AC Bonus													PLURAL:Eidolon AC Bonus				DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Unfettered Eidolon Base Form	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Unfettered Eidolon Base Form											PLURAL:Unfettered Eidolon Evolutions	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Unfettered Eidolon Stat Boost	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Unfettered Eidolon Stat Selection										PLURAL:Unfettered Eidolon Stat Selection	DISPLAYLOCATION:Racial Abilities
+
