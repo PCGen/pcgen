@@ -23,7 +23,7 @@
  * Last Edited: $Date$
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
