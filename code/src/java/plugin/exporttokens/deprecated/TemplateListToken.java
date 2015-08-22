@@ -23,7 +23,7 @@
  * Last Edited: $Date$
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
 import pcgen.core.PCTemplate;
 import pcgen.core.analysis.OutputNameFormatting;
