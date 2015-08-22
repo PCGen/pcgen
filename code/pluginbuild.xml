@@ -562,10 +562,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${outputplugins.dir}/ExportToken-INTERESTS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+		<jar jarfile="${outputplugins.dir}/ExportToken-DEPRECATED-INTERESTS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/exporttokens/InterestsToken.class" />
+					<include name="plugin/exporttokens/deprecated/InterestsToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
