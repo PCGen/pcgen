@@ -32,6 +32,7 @@ import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.core.AgeSet;
 import pcgen.core.BioSet;
 import pcgen.core.Race;
+import pcgen.output.publish.OutputDB;
 
 /**
  * AgeSetFacet stores the AgeSet for the Player Character.
@@ -206,5 +207,6 @@ public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet> implements
 		regionFacet.addDataFacetChangeListener(this);
 		ageFacet.addDataFacetChangeListener(this);
 		bioSetFacet.addDataFacetChangeListener(this);
+		OutputDB.register("ageset", this);
 	}
 }
