@@ -23,7 +23,7 @@
  * Last Edited: $Date$
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.Globals;
