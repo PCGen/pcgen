@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../../pcgen.css" type="text/css" />
+</head>
+<body>
+<div id="TOC">
+<ul class="incremental">
+<li><a href="#prefeat">PREFEAT</a></li>
+</ul>
+</div>
+<h3 id="prefeat">PREFEAT</h3>
+<h4 id="status">Status</h4>
+<p><strong><code>PREFEAT</code> is deprecated. Use <a href="./globalfilesprexxx.html#preability"><code>PREABILITY</code></a> instead.</strong></p>
+<h4 id="historical-documentation">Historical documentation</h4>
+<p><strong>Tag Name:</strong> PREFEAT:x,y,z</p>
+<p><strong>Variables Used (x):</strong> Number (Number of required feats)</p>
+<p><strong>Variables Used (y):</strong> CHECKMULT (Used to make the program count each instance of a feat separately - optional)</p>
+<p><strong>Variables Used (z):</strong> Text (Feat name)</p>
+<p><strong>Variables Used (z):</strong> <br /><span class="math display"><em>T</em><em>e</em><em>x</em><em>t</em></span><br /> (Name of a feat a character must NOT have)</p>
+<p><strong>Variables Used (z):</strong> TYPE=Text (Feat type)</p>
+<p><strong>Variables Used (z):</strong> <br /><span class="math display"><em>T</em><em>Y</em><em>P</em><em>E</em> = <em>T</em><em>e</em><em>x</em><em>t</em></span><br /> (Type of feat the character must NOT have)</p>
+<p><strong>What it does:</strong></p>
+<ul class="incremental">
+<li>Sets character feat requirements.</li>
+<li>Feats with multiple instances where the instance is expressed within parentheses, e.g. Skill Focus or Spell Focus, there is no space between the name of the feat and the parentheses.</li>
+<li>Use of the <code>(TYPE=&lt;text&gt;)</code> syntax with feats with multiple instances, e.g. <code>Weapon Focus(TYPE=Bow)</code> , though allowed, is only supported for feats with internal choosers for <code>DOMAIN</code> , <code>SKILL</code> , <code>SPELL</code> , and <code>WEAPONPROF</code> types.</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<p><code>PREFEAT:1,Dodge,Combat Reflexes</code></p>
+<p>Character must have either &quot;Dodge&quot; or &quot;Combat Reflexes&quot;.</p>
+<p><code>PREFEAT:2,CHECKMULT,Spell Focus</code></p>
+<p>Character must have &quot;Spell Focus&quot; for two schools.</p>
+<p><code>PREFEAT:2,CHECKMULT,Spell Focus,[Spell Focus(Enchantment)]</code></p>
+<p>Character must have &quot;Spell Focus&quot; for two schools, but not the &quot;Enchantment&quot; school.</p>
+<p><code>PREFEAT:2,Weapon Focus(TYPE=Bow),Weapon Focus(Longsword)</code></p>
+<p>Character must have both &quot;Weapon Focus(Longsword)&quot; and any one &quot;Bow&quot; type &quot;Weapon Focus&quot;.</p>
+<p><code>PREFEAT:2,CHECKMULT,Weapon Focus(TYPE=Sword)</code></p>
+<p>Character must have two &quot;Sword&quot; type &quot;Weapon Focus&quot; feats.</p>
+<p><code>PREFEAT:2,Skill Focus(Spot),Skill Focus(Listen),Skill Focus(Search)</code></p>
+<p>Character must have any two of &quot;Skill Focus(Spot)&quot;, &quot;Skill Focus(Listen)&quot;, or &quot;Skill Focus(Search)&quot;.</p>
+<p><code>PREFEAT:2,TYPE=ItemCreation</code></p>
+<p>Character must have any two &quot;ItemCreation&quot; type feats.</p>
+<p><code>PREFEAT:1,Skill Focus(Knowledge%)</code></p>
+<p>Character must have one &quot;Skill Focus&quot; feat for a &quot;Knowledge&quot; sub-type skill.</p>
+<p><code>Magecraft (Charismatic).MOD &lt;tab&gt; !PREFEAT:1,Untapped Potential</code></p>
+<p>Character must not (!) have one feat called &quot;Untapped Potential&quot;.</p>
+</body>
+</html>
