@@ -423,7 +423,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 ###Block: Bloodline
 1	BONUS:VAR|BloodlineLVL,BloodlineCasterLVL|CL
 ###Block:
-1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Sorcerer Bloodline
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Sorcerer Bloodline|PREVAREQ:Sorcerer_CF_Bloodline,0
 1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Cantrips
 1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Eschew Materials|PREVAREQ:Sorcerer_CF_EschewMaterials,0
 ###Block: Level progression

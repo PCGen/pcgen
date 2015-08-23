@@ -236,8 +236,8 @@ CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_AThousandFaces|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_TimelessBody|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_NatureBond|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_ClassSkills|0
-
-
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShape6|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShape8|0
 
 
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_SpontaneousCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_SpontaneousCasting=True
@@ -252,6 +252,8 @@ CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_AThousandFaces|1|TYPE=Boolean|PREFAC
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_TimelessBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_TimelessBody=True
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_NatureBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_NatureBond=True
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_ClassSkills=True
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_WildShape6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShape=True
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_WildShape8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShape=True
 
 # Old Style
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_SpontaneousCasting|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.DruidSpontaneousCasting	
@@ -265,6 +267,10 @@ CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_VenomImmunity|1|TYPE=Boolean|PREABIL
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_AThousandFaces|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.DruidAThousandFaces		
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_TimelessBody|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.DruidTimelessBody		
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_ClassSkills=True
+
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_WildShape6|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape6			
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_WildShape8|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape8			
+
 
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeats|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_Bravery|0
@@ -542,6 +548,7 @@ CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_MasterStrike|1|TYPE=Boolean|PREABILI
 
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_WeaponProficiencies|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_EschewMaterials|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_Bloodline|0
 
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell1|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell2|0
@@ -564,6 +571,7 @@ CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell6|1|TYPE=Bo
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell7=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell8=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell9=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_Bloodline|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_Bloodline=True
 
 # Old Style
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererWeaponProficiencies	

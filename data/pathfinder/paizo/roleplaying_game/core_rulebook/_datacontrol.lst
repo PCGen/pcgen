@@ -182,12 +182,26 @@ FACTDEF:ABILITY|Bard_CF_Fascinate					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:
 FACTDEF:ABILITY|Cleric_Archetype_ChannelEnergy						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ChannelEnergy							EXPLANATION:Determines whether the archetype affects - ChannelEnergy				
 FACTDEF:ABILITY|Cleric_Archetype_Orisons							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Orisons								EXPLANATION:Determines whether the archetype affects - Orisons					
 FACTDEF:ABILITY|Cleric_Archetype_SpontaneousCasting					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting					EXPLANATION:Determines whether the archetype affects - SpontaneousCasting		
+FACTDEF:ABILITY|Cleric_Archetype_Proficiencies					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting					EXPLANATION:Determines whether the archetype affects - SpontaneousCasting		
+FACTDEF:ABILITY|Cleric_Archetype_ClassSkills					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting					EXPLANATION:Determines whether the archetype affects - SpontaneousCasting		
+FACTDEF:ABILITY|Cleric_Archetype_Spellcasting					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting					EXPLANATION:Determines whether the archetype affects - SpontaneousCasting		
+FACTDEF:ABILITY|Cleric_Archetype_Domains					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting					EXPLANATION:Determines whether the archetype affects - SpontaneousCasting		
+FACTDEF:ABILITY|Cleric_Archetype_SkillRanks					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting					EXPLANATION:Determines whether the archetype affects - SpontaneousCasting		
+
 
 
 # Cleric Class Feature
 FACTDEF:ABILITY|Cleric_CF_ChannelEnergy				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ChannelEnergy				EXPLANATION:Remove Cleric ChannelEnergy		
 FACTDEF:ABILITY|Cleric_CF_Orisons					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Orisons					EXPLANATION:Remove Cleric Orisons		
 FACTDEF:ABILITY|Cleric_CF_SpontaneousCasting			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting			EXPLANATION:Remove Cleric SpontaneousCasting		
+FACTDEF:ABILITY|Cleric_CF_Domains			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting			EXPLANATION:Remove Cleric SpontaneousCasting		
+FACTDEF:ABILITY|Cleric_CF_ArmorProficiency			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting			EXPLANATION:Remove Cleric SpontaneousCasting		
+FACTDEF:ABILITY|Cleric_CF_WeaponProficiency			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting			EXPLANATION:Remove Cleric SpontaneousCasting		
+FACTDEF:ABILITY|Cleric_CF_ClassSkills			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting			EXPLANATION:Remove Cleric SpontaneousCasting		
+FACTDEF:ABILITY|Cleric_CF_SkillRanks			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting			EXPLANATION:Remove Cleric SpontaneousCasting		
+FACTDEF:ABILITY|Cleric_CF_Proficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting			EXPLANATION:Remove Cleric SpontaneousCasting		
+FACTDEF:ABILITY|Cleric_CF_Spellcasting			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting			EXPLANATION:Remove Cleric SpontaneousCasting		
+
 
 
 # Druid Archetype Section
@@ -217,6 +231,9 @@ FACTDEF:ABILITY|Druid_CF_AThousandFaces			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTA
 FACTDEF:ABILITY|Druid_CF_TimelessBody			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TimelessBody							EXPLANATION:Remove Druid TimelessBody				
 FACTDEF:ABILITY|Druid_CF_NatureBond				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:NatureSense							EXPLANATION:Remove Druid NatureSense				
 FACTDEF:ABILITY|Druid_CF_ClassSkills			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:NatureSense							EXPLANATION:Remove Druid NatureSense				
+
+FACTDEF:ABILITY|Druid_CF_WildShape6				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WildShape							EXPLANATION:Remove Druid WildShape				
+FACTDEF:ABILITY|Druid_CF_WildShape8				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WildShape							EXPLANATION:Remove Druid WildShape				
 
 
 # Fighter Archetype Section
@@ -373,19 +390,6 @@ FACTDEF:ABILITY|Paladin_CF_Mercy15				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:
 FACTDEF:ABILITY|Paladin_CF_Mercy18				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HolyChampion								EXPLANATION:Remove Paladin HolyChampion				
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Ranger Archetype Section
 FACTDEF:ABILITY|Ranger_Archetype_HuntersBond							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HuntersBond										EXPLANATION:Determines whether the archetype affects - HuntersBond										
 FACTDEF:ABILITY|Ranger_Archetype_FavoredEnemy							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FavoredEnemy										EXPLANATION:Determines whether the archetype affects - FavoredEnemy										
@@ -456,6 +460,9 @@ FACTDEF:ABILITY|Rogue_CF_MasterStrike			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABL
 # Sorcerer Archetype Section
 FACTDEF:ABILITY|Sorcerer_Archetype_WeaponProficiencies							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies										EXPLANATION:Determines whether the archetype affects - WeaponProficiencies										
 FACTDEF:ABILITY|Sorcerer_Archetype_EschewMaterials							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials										EXPLANATION:Determines whether the archetype affects - EschewMaterials										
+FACTDEF:ABILITY|Sorcerer_Archetype_Bloodline							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials										EXPLANATION:Determines whether the archetype affects - EschewMaterials										
+
+
 
 # Sorcerer Class Feature
 FACTDEF:ABILITY|Sorcerer_CF_WeaponProficiencies		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies							EXPLANATION:Remove Sorcerer WeaponProficiencies	
@@ -470,6 +477,8 @@ FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusSpell6		DATAFORMAT:BOOLEAN	VISIBLE:YES
 FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusSpell7		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell7								EXPLANATION:Remove Sorcerer BloodlineBonusSpell7			
 FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusSpell8		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell8								EXPLANATION:Remove Sorcerer BloodlineBonusSpell8			
 FACTDEF:ABILITY|Sorcerer_CF_BloodlineBonusSpell9		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BloodlineBonusSpell9								EXPLANATION:Remove Sorcerer BloodlineBonusSpell9			
+
+FACTDEF:ABILITY|Sorcerer_CF_Bloodline			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials								EXPLANATION:Remove Sorcerer EschewMaterials			
 
 
 

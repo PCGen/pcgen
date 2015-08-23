@@ -115,9 +115,6 @@ CATEGORY=Class|Inquisitor.MOD	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TY
 CATEGORY=Class|Inquisitor.MOD												AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
 
 
-
-
-
 CATEGORY=Class|Inquisitor.MOD	DEFINE:Inquisitor_CF_Domains|0
 CATEGORY=Class|Inquisitor.MOD	DEFINE:Inquisitor_CF_Judgements|0
 CATEGORY=Class|Inquisitor.MOD	DEFINE:Inquisitor_CF_MonsterLore|0
@@ -127,6 +124,7 @@ CATEGORY=Class|Inquisitor.MOD	DEFINE:Inquisitor_CF_DetectAlignment|0
 CATEGORY=Class|Inquisitor.MOD	DEFINE:Inquisitor_CF_Track|0
 CATEGORY=Class|Inquisitor.MOD	DEFINE:Inquisitor_CF_SoloTactics|0
 CATEGORY=Class|Inquisitor.MOD	DEFINE:Inquisitor_CF_TeamworkFeat|0
+CATEGORY=Class|Inquisitor.MOD	DEFINE:Inquisitor_CF_TeamworkFeat6|0
 CATEGORY=Class|Inquisitor.MOD	DEFINE:Inquisitor_CF_Bane|0
 CATEGORY=Class|Inquisitor.MOD	DEFINE:Inquisitor_CF_DiscernLies|0
 CATEGORY=Class|Inquisitor.MOD	DEFINE:Inquisitor_CF_SecondJudgment|0
@@ -156,6 +154,9 @@ CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_ThirdJudgment|1|TYPE=Boole
 CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_Slayer|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_Slayer=True
 CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_TrueJudgment|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TrueJudgment=True
 
+CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_TeamworkFeat6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Inquisitor_CF_TeamworkFeat6=True
+
+
 CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_Domains|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDomain
 CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_Judgements|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorJudgements
 CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_MonsterLore|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorMonsterLore
@@ -165,6 +166,7 @@ CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_DetectAlignment|1|TYPE=Boo
 CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_Track|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTrack
 CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_SoloTactics|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSoloTactics
 CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_TeamworkFeat|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTeamworkFeat
+CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_TeamworkFeat6|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorTeamworkFeat6
 CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_Bane|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorBane
 CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_DiscernLies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorDiscernLies
 CATEGORY=Class|Inquisitor.MOD	BONUS:VAR|Inquisitor_CF_SecondJudgment|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSecondJudgment
@@ -270,6 +272,16 @@ CATEGORY=Class|Witch.MOD	DEFINE:Witch_CF_Hex16|0
 CATEGORY=Class|Witch.MOD	DEFINE:Witch_CF_Hex18|0
 CATEGORY=Class|Witch.MOD	DEFINE:Witch_CF_Hex20|0
 
+CATEGORY=Class|Witch.MOD	DEFINE:Witch_CF_PatronSpell2|0
+CATEGORY=Class|Witch.MOD	DEFINE:Witch_CF_PatronSpell4|0
+CATEGORY=Class|Witch.MOD	DEFINE:Witch_CF_PatronSpell6|0
+CATEGORY=Class|Witch.MOD	DEFINE:Witch_CF_PatronSpell8|0
+CATEGORY=Class|Witch.MOD	DEFINE:Witch_CF_PatronSpell10|0
+CATEGORY=Class|Witch.MOD	DEFINE:Witch_CF_PatronSpell12|0
+CATEGORY=Class|Witch.MOD	DEFINE:Witch_CF_PatronSpell14|0
+CATEGORY=Class|Witch.MOD	DEFINE:Witch_CF_PatronSpell16|0
+CATEGORY=Class|Witch.MOD	DEFINE:Witch_CF_PatronSpell18|0
+
 CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_Familiar|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Familiar=True
 CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Cantrips=True
 CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_Hex|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex=True,Witch_CF_Hexes=True
@@ -286,6 +298,16 @@ CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_Hex16|1|TYPE=Boolean|PREFACT:1,ABILI
 CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_Hex18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex18=True
 CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_Hex20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_Hex20=True
 
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell2=True
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell4=True
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell6=True
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell8=True
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell10=True
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell12=True
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell14=True
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell16=True
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Witch_CF_PatronSpell18=True
+
 CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_Familiar|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar
 CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_Cantrips|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchCantrips
 CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_Hexes|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHexes
@@ -301,6 +323,16 @@ CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_Hex14|1|TYPE=Boolean|!PREABILITY:1,C
 CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_Hex16|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex16
 CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_Hex18|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex18
 CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_Hex20|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex20
+
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell2|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell2
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell4|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell4
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell6|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell6
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell8|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell8
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell10|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell10
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell12|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell12
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell14|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell14
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell16|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell16
+CATEGORY=Class|Witch.MOD	BONUS:VAR|Witch_CF_PatronSpell18|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchPatronSpell18
 
 # Antipaladin
 CATEGORY=Class|Antipaladin.MOD	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProf
