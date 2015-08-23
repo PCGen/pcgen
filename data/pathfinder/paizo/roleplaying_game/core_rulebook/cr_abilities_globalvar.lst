@@ -234,6 +234,12 @@ CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_ResistNaturesLure|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_VenomImmunity|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_AThousandFaces|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_TimelessBody|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_NatureBond|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_ClassSkills|0
+
+
+
+
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_SpontaneousCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_SpontaneousCasting=True
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_NatureSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_NatureSense=True
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_WildEmpathy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildEmpathy=True
@@ -244,6 +250,9 @@ CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_ResistNaturesLure|1|TYPE=Boolean|PRE
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_VenomImmunity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_VenomImmunity=True
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_AThousandFaces|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_AThousandFaces=True
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_TimelessBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_TimelessBody=True
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_NatureBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_NatureBond=True
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_ClassSkills=True
+
 # Old Style
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_SpontaneousCasting|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.DruidSpontaneousCasting	
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_NatureSense|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureSense		
@@ -255,6 +264,7 @@ CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_ResistNaturesLure|1|TYPE=Boolean|PRE
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_VenomImmunity|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.DruidVenomImmunity		
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_AThousandFaces|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.DruidAThousandFaces		
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_TimelessBody|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.DruidTimelessBody		
+CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_ClassSkills=True
 
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeats|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_Bravery|0

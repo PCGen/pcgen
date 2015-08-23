@@ -146,7 +146,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 13	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ A Thousand Faces|PREVAREQ:Druid_CF_AThousandFaces,0
 15	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Timeless Body|PREVAREQ:Druid_CF_TimelessBody,0
 ###Block: Nature Bond Choice
-1	BONUS:ABILITYPOOL|Nature Bond|1
+1	BONUS:ABILITYPOOL|Nature Bond|1|PREVAREQ:Druid_CF_NatureBond,0
 ###Block: Domains
 1	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomainSelection
 ###Block: Domain Selections
