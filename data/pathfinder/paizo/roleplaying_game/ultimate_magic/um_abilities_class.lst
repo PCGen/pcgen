@@ -4,10 +4,10 @@ SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRP
 # ORIGINAL ENTRY DATE: Unknown
 
 # Ability Name					Unique Key				SORTKEY	Category of Ability		Type								Required Class		Define									Bonus Ability Pool										Modify VAR										Cost
-CATEGORY=Special Ability|Domains.MOD																									DEFINE:DomainTaken|0	DEFINE:ClericInquisitionPool|0	BONUS:ABILITYPOOL|Domain Alternative ~ Inquisition|ClericInquisitionPool	BONUS:VAR|ClericInquisitionPool|1|PREVARNEQ:ClericDomainCount,DomainTaken
+CATEGORY=Special Ability|Domains.MOD																									DEFINE:DomainTaken|0	DEFINE:ClericInquisitionPool|0	BONUS:ABILITYPOOL|Domain Alternative ~ Inquisition|ClericInquisitionPool	BONUS:VAR|ClericInquisitionPool|ClericDomainCount-DomainTaken
 
 
-Take Inquisition					KEY:Take Inquisition ~ Cleric	SORTKEY:1	CATEGORY:Special Ability	TYPE:AltClassInquisition.ClericInquisition	PRECLASS:1,Cleric=1											BONUS:ABILITYPOOL|Inquisition|1								BONUS:VAR|ClericDomainCount|-1						COST:1
+Take Inquisition					KEY:Take Inquisition ~ Cleric	SORTKEY:1	CATEGORY:Special Ability	TYPE:AltClassInquisition.ClericInquisition	PRECLASS:1,Cleric=1											BONUS:ABILITYPOOL|Inquisition|1								BONUS:VAR|ClericDomainCount|-1						COST:0
 #Take Inquisition	KEY:Take Inquisition ~ Druid	CATEGORY:Special Ability	SORTKEY:1	TYPE:DruidDomainSelection		BONUS:ABILITYPOOL|Inquisition|1	PRECLASS:1,Druid=1
 
 
