@@ -355,6 +355,15 @@ CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_TongueOfTheSunAndMoon|0
 CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_TimelessBody|0
 CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_EmptyBody|0
 CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_PerfectSelf|0
+
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_Proficiencies|0
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_ClassSkills|0
+
+CATEGORY=Class|Monk.MOD	ABILITY:Internal|AUTOMATIC|Monk ~ Unarmed Damage
+CATEGORY=Class|Monk.MOD	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Monk|PREVAREQ:Monk_CF_Proficiencies,0
+CATEGORY=Class|Monk.MOD	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Monk|PREVAREQ:Monk_CF_Proficiencies,0
+CATEGORY=Class|Monk.MOD	ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|PREVAREQ:Monk_CF_ClassSkills,0
+
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_FlurryOfBlows|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_FlurryOfBlows=True
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_BonusFeats=True
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_ACBonus|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_ACBonus=True
@@ -377,6 +386,8 @@ CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_TongueOfTheSunAndMoon|1|TYPE=Boolean|P
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_TimelessBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_TimelessBody=True
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_EmptyBody|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_EmptyBody=True
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_PerfectSelf|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_PerfectSelf=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_ClassSkills=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_Proficiencies=True
 # Old style
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_FlurryOfBlows|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkFlurryOfBlows		
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_BonusFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeats			
@@ -400,7 +411,11 @@ CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_TongueOfTheSunAndMoon|1|TYPE=Boolean|P
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_TimelessBody|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkTimelessBody		
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_EmptyBody|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkEmptyBody			
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_PerfectSelf|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkPerfectSelf			
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_ClassSkills|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkClassSkills			
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_Proficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkWeaponProficiencies
 
+
+# Paladin
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfGood|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_DetectEvil|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_SmiteEvil|0

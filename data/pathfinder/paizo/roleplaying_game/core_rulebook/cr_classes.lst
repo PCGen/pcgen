@@ -138,6 +138,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Spontaneous Casting|PREVAREQ:Druid_CF_SpontaneousCasting,0
 1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Nature Sense|PREVAREQ:Druid_CF_NatureSense,0
 1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Wild Empathy|PREVAREQ:Druid_CF_WildEmpathy,0
+1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Nature Bond|PREVAREQ:Druid_CF_NatureBond,0
 2	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Woodland Stride|PREVAREQ:Druid_CF_WoodlandStride,0
 3	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Trackless Step|PREVAREQ:Druid_CF_TracklessStep,0
 4	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Wild Shape|PREVAREQ:Druid_CF_WildShape,0
@@ -145,10 +146,6 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 9	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Venom Immunity|PREVAREQ:Druid_CF_VenomImmunity,0
 13	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ A Thousand Faces|PREVAREQ:Druid_CF_AThousandFaces,0
 15	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Timeless Body|PREVAREQ:Druid_CF_TimelessBody,0
-###Block: Nature Bond Choice
-1	BONUS:ABILITYPOOL|Nature Bond|1|PREVAREQ:Druid_CF_NatureBond,0
-###Block: Domains
-1	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomainSelection
 ###Block: Domain Selections
 0	DOMAIN:Air|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Air
 0	DOMAIN:Animal|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Animal
@@ -157,9 +154,6 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 0	DOMAIN:Plant|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Plant
 0	DOMAIN:Water|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Water
 0	DOMAIN:Weather|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Weather
-###Block: Vars
-1	BONUS:VAR|DomainLVL|DruidLVL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomain
-1	BONUS:VAR|DruidWildShape|DruidLVL
 ###Block: Level progression
 1	CAST:3,1
 2	CAST:4,2
@@ -230,32 +224,14 @@ CLASS:Monk		PREMULT:1,[PREALIGN:LG,LN,LE],[PREVAREQ:BypassClassAlignment_Monk,1]
 CLASS:Monk		STARTSKILLPTS:4
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Monk
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkWeaponProficiencies
-1	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkWeaponProficiencies
-1	ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkClassSkills
-#PREVAREQ:MonkDefaultSkill,0
-###Block: Vars
-1	BONUS:VAR|FlurryLVL|MonkLVL
-1	BONUS:VAR|MonkBAB|MonkLVL*3/4
-1	BONUS:VAR|MonkFeatQualify|MonkLVL
-1	BONUS:VAR|MonkBonusFeatLVL|MonkLVL							DEFINE:MonkBonusFeatLVL|0
-1	BONUS:VAR|MonkACLVL,MonkFastMovementLVL,StunningFistMonkLVL|MonkLVL
-3	BONUS:VAR|ManeuverTrainingLVL|MonkLVL
-3	BONUS:VAR|ManeuverTrainingBAB|MonkLVL*3/4
-4	BONUS:VAR|KiPoolLVL,SlowFallLVL|MonkLVL
-5	BONUS:VAR|HighJumpLVL|MonkLVL
-7	BONUS:VAR|WholenessOfBodyLVL|MonkLVL
-12	BONUS:VAR|AbundantStepLVL|MonkLVL
-13	BONUS:VAR|DiamondSoulLVL|MonkLVL
 ###Block:
 1	KIT:1|Monk Flurry of Blows
 # MonkLVL tracks both Stunning Fist and all Flurry of Blows aspects for backwards compatibility.
 # Monk bonus feats are taken as CATEGORY=Special Ability objects of the same name because the Monk can ignore the feats prerequisites,
 #	The Special Ability then grants the actual feat as a virtual feat, See the rsrd_abilities_class.lst file to see how these are coded.
 # MonkBonusFeatLVL is used as a prerequisite for when a specific bonus feat can be taken
-###Block: Monk Bonus Feats
-1	ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike
 ###Block:
+1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Unarmed Strike
 1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Flurry of Blows|PREVAREQ:Monk_CF_FlurryOfBlows,0
 1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Monk Bonus Feat|PREVAREQ:Monk_CF_BonusFeats,0
 1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ AC Bonus|PREVAREQ:Monk_CF_ACBonus,0
@@ -278,30 +254,6 @@ CLASS:Monk		STARTSKILLPTS:4
 17	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Timeless Body|PREVAREQ:Monk_CF_TimelessBody,0
 19	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Empty Body|PREVAREQ:Monk_CF_EmptyBody,0
 20	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Perfect Self|PREVAREQ:Monk_CF_PerfectSelf,0
-###Block:
-1	ABILITY:Internal|AUTOMATIC|Monk ~ Unarmed Damage
-###Block: Level progression
-#           F   D   T   S   M   L   H   G   C
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
-3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
-4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-14	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class			Source Page		Ability																	Visible	Define								Combat bonus										Add domain number					Save bonus																					Modify VAR			Monster Role
