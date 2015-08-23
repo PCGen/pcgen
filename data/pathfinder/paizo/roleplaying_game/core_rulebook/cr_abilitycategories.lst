@@ -41,6 +41,10 @@ ABILITYCATEGORY:Loremaster Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL
 ABILITYCATEGORY:Mystic Theurge Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Mystic Theurge Class Feature.Mystic TheurgeClassFeatures			PLURAL:Mystic Theurge Class Features		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Pathfinder Chronicler Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Pathfinder Chronicler Class Feature.Pathfinder ChroniclerClassFeatures	PLURAL:Pathfinder Chronicler Class Features	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Shadowdancer Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Shadowdancer Class Feature.ShadowdancerClassFeatures				PLURAL:Shadowdancer Class Features			DISPLAYLOCATION:Class Features
+# Companion Class
+ABILITYCATEGORY:Companion Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Companion Class Feature.CompanionClassFeatures				PLURAL:Companion Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Familiar Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Familiar Class Feature.FamiliarClassFeatures				PLURAL:Familiar Class Features			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Familiar Alertness Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES		CATEGORY:Special Ability	TYPE:Familiar Alertness Choice.FamiliarAlertnessChoice				PLURAL:Familiar Alertness Choice			DISPLAYLOCATION:Class Features
 
 ###Block: Character Traits
 # Ability Category		Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI		Display Location
@@ -116,6 +120,7 @@ ABILITYCATEGORY:Favored Enemy					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRAC
 ABILITYCATEGORY:Favored Enemy Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredEnemyBonus				PLURAL:Favored Enemy Bonuses			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Favored Terrain				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredTerrain				PLURAL:Favored Terrain				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Favored Terrain Bonus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredTerrainBonus			PLURAL:Favored Terrain Bonuses		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ranger Combat Style Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RangerBonusFeat.Ranger Combat Style Feat			PLURAL:Ranger Combat Style Feats		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Combat Style					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RangerCombatStyle				PLURAL:Combat Styles				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Hunter's Bond					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HuntersBond					PLURAL:Hunter's Bond				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Rogue Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RogueTalent					PLURAL:Rogue Talents				DISPLAYLOCATION:Class Features
@@ -152,7 +157,6 @@ ABILITYCATEGORY:Animal Companion Feat		POOL:Pool_AnimalCompanionFeat			VISIBLE:Q
 ABILITYCATEGORY:Companion Level Increase Choice	POOL:Pool_CompanionLevelIncreaseChoice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CompChoice			PLURAL:Companion Level Increase Choice	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Companion Stat Increase		POOL:Pool_CompanionStatIncrease		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CompStatChoice		PLURAL:Companion Stat Increase Choice	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Companion Skill			POOL:Pool_CompanionSkill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:AnimalCompanionSkill	PLURAL:Companion Skill Choice			DISPLAYLOCATION:Class Features
-
 
 ###Block: Handle Animal Tricks and Training
 # Ability Category		Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location

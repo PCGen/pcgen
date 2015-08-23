@@ -53,7 +53,9 @@ Fortress Shield																		PROFICIENCY:SHIELD|Tower Shield			TYPE:Magic.Sh
 Quickdraw Shield (Light/Wooden)	OUTPUTNAME:Quickdraw Shield, Light Wooden								PROFICIENCY:SHIELD|Quickdraw Shield (Light)	TYPE:Shield.Light.Standard.Close																		COST:53	WT:6		ACCHECK:-2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3				EQMOD:WOOD					WIELD:Light										SIZE:M	SOURCEPAGE:p.180	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
 Quickdraw Shield (Light/Steel)	OUTPUTNAME:Quickdraw Shield, Light Steel								PROFICIENCY:SHIELD|Quickdraw Shield (Light)	TYPE:Shield.Light.Standard.Close																		COST:59	WT:7		ACCHECK:-2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3				EQMOD:STEEL					WIELD:Light										SIZE:M	SOURCEPAGE:p.180	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield.REPLACE
 
-
+###Block: Weaponize the Shields
+Quickdraw Shield (Light/Wooden).MOD	TYPE:Weapon.Melee.ShieldBash.Resizable	BONUS:WEAPON|TOHIT|4|PREWEAPONPROF:1,Shieldbash
+Quickdraw Shield (Light/Steel).MOD	TYPE:Weapon.Melee.ShieldBash.Resizable	BONUS:WEAPON|TOHIT|4|PREWEAPONPROF:1,Shieldbash
 
 ### BLOCK: Melee Weapons
 Battle Aspergillum										PROFICIENCY:WEAPON|Mace (Light)										TYPE:Weapon.Resizable.Melee.Light.Finesseable.Simple.Standard.Bludgeoning.Mace.Hammer									COST:5	WT:4					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6				EQMOD:STEEL					WIELD:Light										SIZE:M	SOURCEPAGE:p.177

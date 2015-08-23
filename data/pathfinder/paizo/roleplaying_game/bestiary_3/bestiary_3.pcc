@@ -7,7 +7,7 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:3,INCLUDES=Bestiary,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Magic
+PRECAMPAIGN:2,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide
 !PRECAMPAIGN:1,INCLUDES=Bonus Bestiary,Pathfinder RPG Core Supplements,Pathfinder RPG for Game Masters
 
 PUBNAMELONG:Paizo Inc.
@@ -81,6 +81,12 @@ RACE:b3_races.lst
 RACE:b3_races_companion.lst
 TEMPLATE:b3_templates.lst
 WEAPONPROF:b3_profs_weapon.lst
+
+# Separate out races used by ARG to simplify dependencies
+ABILITY:b3_abilities_race_arg.lst
+ABILITYCATEGORY:b3_abilitycategories_arg.lst
+RACE:b3_races_arg.lst
+
 
 #MOVE TO CORE ESSENTIALS
 KIT:b3_kits_companion.lst

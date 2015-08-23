@@ -30,6 +30,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.SourceFileLoader;
+import plugin.exporttokens.deprecated.GoldToken;
 
 /**
  * Unit test for the <code>GoldToken</code> class.
@@ -47,7 +48,7 @@ public class GoldTokenTest extends AbstractCharacterTestCase
 
 	private GoldToken goldToken = new GoldToken();
 	/**
-	 * Test formatted output of {@link plugin.exporttokens.GoldToken#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)}.
+	 * Test formatted output of {@link plugin.exporttokens.deprecated.GoldToken#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)}.
 	 */
 	@Test
 	public void testGetToken()

@@ -1,6 +1,6 @@
 # CVS $Revision: 20739 $ $Author: zaister $
 CAMPAIGN:Ultimate Campaign
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
 RANK:3
 STATUS:BETA

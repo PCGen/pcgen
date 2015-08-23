@@ -17,9 +17,8 @@
  */
 package pcgen.cdom.reference;
 
-import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.Loadable;
 
 /**
  * A CDOMTransparentCategorizedSingleRef is a CDOMReference which is intended to
@@ -38,7 +37,7 @@ import pcgen.cdom.base.Loadable;
  *            CDOMTransparentCategorizedSingleRef
  */
 // Should be T extends CategorizedCDOMObject<T>
-public class CDOMTransparentCategorizedSingleRef<T extends Loadable & CategorizedCDOMObject<T>>
+public class CDOMTransparentCategorizedSingleRef<T extends Categorized<T>>
 		extends CDOMTransparentSingleRef<T> implements TransparentReference<T>,
 		CategorizedCDOMReference<T>
 {

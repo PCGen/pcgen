@@ -110,11 +110,11 @@ Wakizashi.MOD			TYPE:Samurai.LightBlade
 Scizore					TYPE:GladiatorMelee.Martial.Piercing.Performance.OneHanded
 
 # Ranged
-Amentum (Javelin)				TYPE:GladiatorMelee.Martial.Piercing.Performance.Thrown.Ranged.Spear
+Amentum					TYPE:GladiatorMelee.Martial.Piercing.Performance.Thrown.Ranged.Spear
 
 # EXOTIC
 # Light
-Aklys (Gladiator)				TYPE:GladiatorMelee.Exotic.Bludgeoning.Ranged.Thrown.Light.Performance.Trip
+Aklys						TYPE:GladiatorMelee.Exotic.Bludgeoning.Ranged.Thrown.Light.Performance.Trip
 # COMMENT: Conflicts with Pathfinder Bestiary version which is a Simple Weapon for Derro.
 Knuckle Axe					TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light.Monk
 Madu						TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
@@ -243,7 +243,7 @@ Sansetsukon.MOD				TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
 Scorpion Whip.MOD				TYPE:Flail.Weapon Group Flails
 Urumi.MOD					TYPE:Flail.Weapon Group Flails.Monk.Weapon Group Monk
 #
-Aklys (Gladiator).MOD			TYPE:Hammer.Weapon Group Hammers.Thrown.Weapon Group Thrown
+Aklys.MOD					TYPE:Hammer.Weapon Group Hammers.Thrown.Weapon Group Thrown
 Mere Club.MOD				TYPE:Hammer.Weapon Group Hammers
 Taiaha.MOD					TYPE:Hammer.Weapon Group Hammers
 Tetsubo.MOD					TYPE:Hammer.Weapon Group Hammers
@@ -260,7 +260,7 @@ Sword (Tri-Point Double-Edged).MOD	TYPE:Monk.Weapon Group Monk
 
 Naginata.MOD				TYPE:Polearm.Weapon Group Spears
 
-Amentum (Javelin).MOD			TYPE:Spear.Weapon Group Spears.Thrown.Weapon Group Thrown
+Amentum.MOD					TYPE:Spear.Weapon Group Spears.Thrown.Weapon Group Thrown
 #Boar Spear.MOD	TYPE:Spear
 Pilum.MOD					TYPE:Spear.Weapon Group Spears
 Sibat.MOD					TYPE:Spear.Weapon Group Spears

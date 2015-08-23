@@ -19,6 +19,7 @@ package pcgen.cdom.facet.analysis;
 
 import java.util.List;
 
+import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.facet.base.AbstractItemFacet;
@@ -31,6 +32,7 @@ import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.core.AgeSet;
 import pcgen.core.BioSet;
 import pcgen.core.Race;
+import pcgen.output.publish.OutputDB;
 
 /**
  * AgeSetFacet stores the AgeSet for the Player Character.
@@ -38,7 +40,7 @@ import pcgen.core.Race;
  * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet> implements
-		DataFacetChangeListener<CharID, Object>
+		DataFacetChangeListener<CharID, Object>, ItemFacet<CharID, AgeSet>
 {
 	private AgeFacet ageFacet;
 
@@ -205,5 +207,6 @@ public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet> implements
 		regionFacet.addDataFacetChangeListener(this);
 		ageFacet.addDataFacetChangeListener(this);
 		bioSetFacet.addDataFacetChangeListener(this);
+		OutputDB.register("ageset", this);
 	}
 }
