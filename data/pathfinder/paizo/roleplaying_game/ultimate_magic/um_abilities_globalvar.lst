@@ -1,6 +1,12 @@
 
 Magus	CATEGORY:Class
 
+CATEGORY=Class|Magus.MOD	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
+CATEGORY=Class|Magus.MOD	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusLightArmorProficiency|PREVARGTEQ:MagusArmorProficiencyLVL,1
+CATEGORY=Class|Magus.MOD	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusMediumArmorProficiency|PREVARGTEQ:MagusArmorProficiencyLVL,7
+CATEGORY=Class|Magus.MOD	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusHeavyArmorProficiency|PREVARGTEQ:MagusArmorProficiencyLVL,13
+
+
 CATEGORY=Class|Magus.MOD	DEFINE:Magus_CF_ArcanaLvl3|0
 CATEGORY=Class|Magus.MOD	DEFINE:Magus_CF_ArcanePool|0
 CATEGORY=Class|Magus.MOD	DEFINE:Magus_CF_Arcana|0
@@ -9,8 +15,10 @@ CATEGORY=Class|Magus.MOD	DEFINE:Magus_CF_Spellstrike|0
 CATEGORY=Class|Magus.MOD	DEFINE:Magus_CF_ArmorProficiency|0
 CATEGORY=Class|Magus.MOD	DEFINE:Magus_CF_FighterTraining|0
 CATEGORY=Class|Magus.MOD	DEFINE:Magus_CF_WeaponProficiency|0
+CATEGORY=Class|Magus.MOD	DEFINE:Magus_CF_Spells|0
 
 
+CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Magus_CF_Spells=True
 CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_ArcanaLvl3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Magus_CF_ArcanaLvl3=True
 CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_ArcanePool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Magus_CF_ArcanePool=True
 CATEGORY=Class|Magus.MOD	BONUS:VAR|Magus_CF_Arcana|1|TYPE=Boolean|PREFACT:1,ABILITIES,Magus_CF_Arcana=True

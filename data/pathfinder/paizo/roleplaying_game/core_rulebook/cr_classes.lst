@@ -404,7 +404,7 @@ CLASS:Rogue		STARTSKILLPTS:8
 1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Sneak Attack|PREVAREQ:Rogue_CF_SneakAttack,0
 1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trapfinding|PREVAREQ:Rogue_CF_Trapfinding,0
 2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Evasion|PREVAREQ:Rogue_CF_Evasion,0
-2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Rogue Talents|PREVAREQ:Rogue_CF_Talents,0
+2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Rogue Talents|PREVAREQ:Rogue_CF_RogueTalents,0
 3	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trap Sense|PREVAREQ:Rogue_CF_TrapSense,0
 4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
 20	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Master Strike|PREVAREQ:Rogue_CF_MasterStrike,0

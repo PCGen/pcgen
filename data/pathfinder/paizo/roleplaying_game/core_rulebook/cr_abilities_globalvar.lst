@@ -210,6 +210,17 @@ CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_Proficiencies|1|TYPE=Boolean|PREABILIT
 CATEGORY=Class|Cleric.MOD	DEFINE:Cleric_CF_ChannelEnergy|0
 CATEGORY=Class|Cleric.MOD	DEFINE:Cleric_CF_Orisons|0
 CATEGORY=Class|Cleric.MOD	DEFINE:Cleric_CF_SpontaneousCasting|0
+
+CATEGORY=Class|Cleric.MOD	DEFINE:Cleric_CF_Proficiencies|0
+CATEGORY=Class|Cleric.MOD	DEFINE:Cleric_CF_ArmorProficiencies|0
+CATEGORY=Class|Cleric.MOD	DEFINE:Cleric_CF_WeaponProficiencies|0
+
+
+
+CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cleric_CF_Proficiencies=True
+CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cleric_CF_ArmorProficiencies=True
+CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cleric_CF_WeaponProficiencies=True
+
 # New Boolean Method
 CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_ChannelEnergy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cleric_CF_ChannelEnergy=True
 CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_Orisons|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cleric_CF_Orisons=True
@@ -486,6 +497,40 @@ CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_HideInPlainSight|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_Quarry|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_MasterHunter|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_Endurance|0
+
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_ImprovedEvasion|0
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_ImprovedQuarry|0
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_CombatStyleFeat2|0
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_CombatStyleFeat6|0	
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_CombatStyleFeat10|0	
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_CombatStyleFeat14|0	
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_CombatStyleFeat18|0	
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_FavoredEnemy1|0		
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_FavoredEnemy2|0		
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_FavoredEnemy3|0		
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_FavoredEnemy4|0		
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_AnimalCompanion|0		
+
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_ImprovedEvasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_ImprovedEvasion=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_ImprovedQuarry|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_ImprovedQuarry=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyleFeat2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_CombatStyleFeat2=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyleFeat6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_CombatStyleFeat6=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyleFeat10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_CombatStyleFeat10=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyleFeat14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_CombatStyleFeat14=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyleFeat18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_CombatStyleFeat18=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_FavoredEnemy1=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_FavoredEnemy2=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_FavoredEnemy3=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_FavoredEnemy4=True
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_AnimalCompanion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_AnimalCompanion=True
+
+
+
+
+
+
+
+
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_HuntersBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_HuntersBond=True
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_FavoredEnemy=True
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredTerrain|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_FavoredTerrain=True
@@ -525,15 +570,52 @@ CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_ImprovedUncannyDodge|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_SneakAttack|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_Trapfinding|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_Evasion|0
-CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_Talents|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalents|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_MasterStrike|0
+
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense1|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense2|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense3|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense4|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense5|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense6|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_AdvancedTalents|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalent2|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalent4|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalent6|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalent8|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalent10|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalent12|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalent14|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalent16|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalent18|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalent20|0
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_TrapSense1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense1=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_TrapSense2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense2=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_TrapSense3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense3=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_TrapSense4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense4=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_TrapSense5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense5=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_TrapSense6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense6=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_AdvancedTalents|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_AdvancedTalents=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalent2=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalent4=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalent6=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalent8=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalent10=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalent12=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalent14=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalent16=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalent18=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalent20=True
+
+
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_UncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_UncannyDodge=True
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_ImprovedUncannyDodge=True
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_SneakAttack|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_SneakAttack=True
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_Trapfinding|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_Trapfinding=True
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_Evasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_Evasion=True
-CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_Talents|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_Talents=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalents|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalents=True
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_TrapSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense=True
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_MasterStrike|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_MasterStrike=True
 # Old Style
@@ -542,36 +624,73 @@ CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_ImprovedUncannyDodge|1|TYPE=Boolean|
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_SneakAttack|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueSneakAttack		
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_Trapfinding|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTrapfinding		
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_Evasion|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueEvasion			
-CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_Talents|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalents			
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalents|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalents			
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_TrapSense|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTrapSense			
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_MasterStrike|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueMasterStrike		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_WeaponProficiencies|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_EschewMaterials|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_Bloodline|0
 
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell1|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell2|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell3|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell4|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell5|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell6|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell7|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell8|0
-CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineBonusSpell9|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower1|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower9|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower15|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineFeats|0
+
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells1|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells2|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells3|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells4|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells5|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells6|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells7|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells8|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells9|0
+
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlinePower1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower1=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlinePower9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower9=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlinePower15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower15=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineFeats=True
+
+
 
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_WeaponProficiencies=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_EschewMaterials|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_EschewMaterials=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell1=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell2=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell3=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell4=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell5=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell6=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell7=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell8=True
-CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineBonusSpell9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineBonusSpell9=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells1=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells2=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells3=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells4=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells5=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells6=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells7=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells8=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells9=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_Bloodline|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_Bloodline=True
+
+	
+	
+	
+
 
 # Old Style
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererWeaponProficiencies	

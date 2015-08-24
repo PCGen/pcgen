@@ -93,7 +93,7 @@ CLASS:Inquisitor	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|In
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREVAREQ:ProhibitSpell_Alignment_Chaotic,1	
 ###Block: Level progression
 1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Domains|PREVAREQ:Inquisitor_CF_Domains,0
-1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Judgement|PREVAREQ:Inquisitor_CF_Judgements,0
+1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Judgment|PREVAREQ:Inquisitor_CF_Judgment,0
 1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Monster Lore|PREVAREQ:Inquisitor_CF_MonsterLore,0
 1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Stern Gaze|PREVAREQ:Inquisitor_CF_SternGaze,0
 2	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Cunning Initiative|PREVAREQ:Inquisitor_CF_CunningInitiative,0

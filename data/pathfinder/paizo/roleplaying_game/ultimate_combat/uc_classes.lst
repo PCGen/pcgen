@@ -32,27 +32,20 @@ CLASS:Ninja		PREMULT:1,[PRECLASS:1,Ninja=1],[!PRECLASS:1,TYPE.Rogue=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
 1	ABILITY:Class|AUTOMATIC|Ninja
-###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|Ninja ~ Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaWeaponProficiencies	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Vars
-1	BONUS:VAR|NinjaSneakAttackLVL|CL
-2	BONUS:VAR|KiPoolLVL|CL
-2	BONUS:VAR|NinjaTrickLVL|CL	BONUS:VAR|RogueTalentLVL|CL
-3	BONUS:VAR|NinjaNoTraceLVL|CL
-4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
-4	BONUS:VAR|UncannyDodgeLVL|CL/4
-8	BONUS:VAR|ImprovedUncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
+4	BONUS:VAR|UncannyDodgeFlankingLevel|NinjaLVL|TYPE=EachClass.REPLACE
+4	BONUS:VAR|UncannyDodgeLVL|NinjaLVL/4
+8	BONUS:VAR|ImprovedUncannyDodgeFlankingLevel|NinjaLVL|TYPE=EachClass.REPLACE
 ###Block: Level progression
-1	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Poison Use|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaPoison
-1	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Sneak Attack|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaSneakAttack
-2	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ninja Trick|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaTrick
-2	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ki Pool|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaKiPool
-3	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ No Trace|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaNoTrace
+1	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Poison Use|PREVAREQ:Ninja_CF_Poison,0
+1	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Sneak Attack|PREVAREQ:Ninja_CF_SneakAttack,0
+2	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ninja Trick|PREVAREQ:Ninja_CF_Trick,0
+2	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ki Pool|PREVAREQ:Ninja_CF_KiPool,0
+3	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ No Trace|PREVAREQ:Ninja_CF_NoTrace,0
 4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
-6	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Light Steps|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaLightSteps
+6	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Light Steps|PREVAREQ:Ninja_CF_LightSteps,0
 8	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
-20	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Hidden Master|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaHiddenMaster
+20	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Hidden Master|PREVAREQ:Ninja_CF_HiddenMaster,0
 
 
 ###Block: Samurai
@@ -64,33 +57,21 @@ CLASS:Samurai	PREMULT:1,[PRECLASS:1,Samurai=1],[!PRECLASS:1,TYPE.Cavalier=1]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
 1	ABILITY:Class|AUTOMATIC|Samurai
-###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|Samurai Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
-###Block:
-1	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyHeavy
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyLight
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyMedium
-1	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiShieldProficiency
 ###Block: Level progression
-1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Challenge|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiChallenge
-1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Mount|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMount
-1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Order|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiOrder
-1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Resolve|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiResolve
-3	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Weapon Expertise|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponExpertise
-4	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Mounted Archer|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMountedArcher
-5	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Banner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiBanner
-6	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Bonus Feat|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiBonusFeats
-9	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Greater Resolve|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterResolve
-11	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Honorable Stand|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiHonorableStand
-12	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Demanding Challenge|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiDemandingChallenge
-14	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Greater Banner|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterBanner
-17	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ True Resolve|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiTrueResolve
-20	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Last Stand|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiLastStand
-###Block:
-6	BONUS:VAR|SamuraiBonusFeat|CL/6
-1	BONUS:VAR|OrderAbilityLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiOrder
+1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Challenge|PREVAREQ:Samurai_CF_Challenge,0
+1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Mount|PREVAREQ:Samurai_CF_Mount,0
+1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Order|PREVAREQ:Samurai_CF_Order,0
+1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Resolve|PREVAREQ:Samurai_CF_Resolve,0
+3	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Weapon Expertise|PREVAREQ:Samurai_CF_WeaponExpertise,0
+4	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Mounted Archer|PREVAREQ:Samurai_CF_MountedArcher,0
+5	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Banner|PREVAREQ:Samurai_CF_Banner,0
+6	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Bonus Feat|PREVAREQ:Samurai_CF_BonusFeats,0
+9	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Greater Resolve|PREVAREQ:Samurai_CF_GreaterResolve,0
+11	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Honorable Stand|PREVAREQ:Samurai_CF_HonorableStand,0
+12	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Demanding Challenge|PREVAREQ:Samurai_CF_DemandingChallenge,0
+14	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Greater Banner|PREVAREQ:Samurai_CF_GreaterBanner,0
+17	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ True Resolve|PREVAREQ:Samurai_CF_TrueResolve,0
+20	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Last Stand|PREVAREQ:Samurai_CF_LastStand,0
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
 1	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify
