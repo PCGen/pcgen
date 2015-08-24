@@ -149,7 +149,7 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				Category<?> cat = ((CategorizedCDOMReference<?>) ref)
 						.getCDOMCategory();
-				key += '=' + cat.toString();
+				key += '=' + cat.getKeyName();
 			}
 			map.addToListFor(key, ref);
 		}

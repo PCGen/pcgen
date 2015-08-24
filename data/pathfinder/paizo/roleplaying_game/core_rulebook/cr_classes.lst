@@ -395,7 +395,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Terrain|PREVAREQ:Ranger_CF_FavoredTerrain,0
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Track|PREVAREQ:Ranger_CF_Track,0
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Wild Empathy|PREVAREQ:Ranger_CF_WildEmpathy,0
-2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Combat Style|PREVAREQ:Ranger_CF_CombatStyle,0
+2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Combat Style Feat|PREVAREQ:Ranger_CF_CombatStyleFeat,0
 4	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hunter's Bond|PREVAREQ:Ranger_CF_HuntersBond,0
 7	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Woodland Stride|PREVAREQ:Ranger_CF_WoodlandStride,0
 8	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Swift Tracker|PREVAREQ:Ranger_CF_SwiftTracker,0

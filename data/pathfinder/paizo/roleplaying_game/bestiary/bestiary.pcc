@@ -67,6 +67,11 @@ RACE:b1_races.lst
 TEMPLATE:b1_templates.lst
 WEAPONPROF:b1_profs_weapon.lst
 
+# Separate out races used by ARG to simplify dependencies
+ABILITY:b1_abilities_race_arg.lst
+ABILITYCATEGORY:b1_abilitycategories_arg.lst
+RACE:b1_races_arg.lst
+
 #MOVE TO CORE_ESSENTIALS
 ABILITY:b1_abilities_companion.lst
 KIT:b1_kits_companion.lst

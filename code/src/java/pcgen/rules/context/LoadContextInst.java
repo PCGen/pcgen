@@ -39,6 +39,7 @@ import pcgen.core.Campaign;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.ParsingSeparator;
 import pcgen.output.library.ObjectWrapperLibrary;
+import pcgen.output.wrapper.AgeSetWrapper;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 import pcgen.output.wrapper.CDOMReferenceWrapper;
 import pcgen.output.wrapper.CNAbilitySelectionWrapper;
@@ -92,6 +93,7 @@ public abstract class LoadContextInst implements LoadContext
 		ObjectWrapperLibrary owl = ObjectWrapperLibrary.getInstance();
 		owl.add(ObjectWrapper.SIMPLE_WRAPPER);
 		owl.add(CDOMObjectWrapper.getInstance());
+		owl.add(new AgeSetWrapper());
 		owl.add(new CDOMReferenceWrapper());
 		owl.add(new TypeSafeConstantWrapper());
 		owl.add(new CNAbilitySelectionWrapper());

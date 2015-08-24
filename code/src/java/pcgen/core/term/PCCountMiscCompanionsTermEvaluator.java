@@ -29,7 +29,7 @@ package pcgen.core.term;
 import java.util.Arrays;
 import java.util.List;
 
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.display.CharacterDisplay;
 
 public class PCCountMiscCompanionsTermEvaluator
@@ -43,7 +43,7 @@ public class PCCountMiscCompanionsTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		String CompString = display.getSafeStringFor(StringKey.MISC_COMPANIONS);
+		String CompString = display.getSafeStringFor(PCStringKey.COMPANIONS);
 		List<String> companions = Arrays.asList(CompString.split("\r?\n"));
 		return (float) companions.size();
 	}

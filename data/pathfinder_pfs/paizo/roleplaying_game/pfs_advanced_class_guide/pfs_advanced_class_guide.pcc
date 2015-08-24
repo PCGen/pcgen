@@ -2,7 +2,7 @@
 CAMPAIGN:Advanced Class Guide (PFS)
 KEY:PFS ~ Advanced Class Guide
 #GAMEMODE:Pathfinder
-TYPE:Paizo Publishing PFS.Pathfinder Roleplaying Game
+TYPE:Paizo Publishing PFS.Pathfinder RPG
 STATUS:ALPHA
 RANK:1
 GENRE:Fantasy
@@ -67,7 +67,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Class Guide" Cop
 
 ABILITY:pfs_acg_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 EQUIPMENT:pfs_acg_equip.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
-FEAT:pfs_acg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+ABILITY:pfs_acg_feats.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 
 #
 # End
