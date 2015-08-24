@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 
 /**
@@ -45,12 +45,12 @@ public class FactFacet extends AbstractStorageFacet<CharID>
 	 *            The CharID for which the Map should be returned
 	 * @return The Map for the Player Character represented by the given CharID.
 	 */
-	private Map<StringKey, String> getConstructingInfo(CharID id)
+	private Map<PCStringKey, String> getConstructingInfo(CharID id)
 	{
-		Map<StringKey, String> rci = getInfo(id);
+		Map<PCStringKey, String> rci = getInfo(id);
 		if (rci == null)
 		{
-			rci = new HashMap<StringKey, String>();
+			rci = new HashMap<PCStringKey, String>();
 			setCache(id, rci);
 		}
 		return rci;
@@ -71,9 +71,9 @@ public class FactFacet extends AbstractStorageFacet<CharID>
 	 *         null if no information has been set in this FactFacet for the
 	 *         Player Character.
 	 */
-	private Map<StringKey, String> getInfo(CharID id)
+	private Map<PCStringKey, String> getInfo(CharID id)
 	{
-		return (Map<StringKey, String>) getCache(id);
+		return (Map<PCStringKey, String>) getCache(id);
 	}
 
 	/**
@@ -91,7 +91,7 @@ public class FactFacet extends AbstractStorageFacet<CharID>
 	 *            the given StringKey and Player Character identified by the
 	 *            given CharID
 	 */
-	public void set(CharID id, StringKey key, String s)
+	public void set(CharID id, PCStringKey key, String s)
 	{
 		getConstructingInfo(id).put(key, s);
 	}
@@ -111,9 +111,9 @@ public class FactFacet extends AbstractStorageFacet<CharID>
 	 * @return A String contained in the FactFacet for the given StringKey and
 	 *         Player Character identified by the given CharID
 	 */
-	public String get(CharID id, StringKey key)
+	public String get(CharID id, PCStringKey key)
 	{
-		Map<StringKey, String> rci = getInfo(id);
+		Map<PCStringKey, String> rci = getInfo(id);
 		if (rci != null)
 		{
 			return rci.get(key);
@@ -147,7 +147,7 @@ public class FactFacet extends AbstractStorageFacet<CharID>
 	@Override
 	public void copyContents(CharID source, CharID destination)
 	{
-		Map<StringKey, String> sourceRCI = getInfo(source);
+		Map<PCStringKey, String> sourceRCI = getInfo(source);
 		if (sourceRCI != null)
 		{
 			getConstructingInfo(destination).putAll(sourceRCI);

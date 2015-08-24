@@ -56,7 +56,7 @@ import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
@@ -655,14 +655,14 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendBirthdayLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_BIRTHDAY).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.BIRTHDAY)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.BIRTHDAY)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendBirthplaceLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_BIRTHPLACE).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.BIRTHPLACE)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.BIRTHPLACE)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -704,14 +704,14 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendCatchPhraseLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CATCHPHRASE).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.CATCH_PHRASE)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.CATCHPHRASE)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendCharacterAssetLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CHARACTERASSET).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.MISC_ASSETS)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.ASSETS)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -723,35 +723,35 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendCharacterBioLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CHARACTERBIO).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.BIO)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.BIO)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendCharacterCompLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CHARACTERCOMP).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.MISC_COMPANIONS)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.COMPANIONS)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendCharacterDescLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CHARACTERDESC).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.DESCRIPTION)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.DESCRIPTION)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendCharacterMagicLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CHARACTERMAGIC).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.MISC_MAGIC)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.MAGIC)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendCharacterDmNotesLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CHARACTERDMNOTES).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.MISC_GM)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.GMNOTES)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1348,7 +1348,7 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendEyeColorLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_EYECOLOR).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.EYE_COLOR)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.EYECOLOR)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1549,14 +1549,14 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendHairColorLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_HAIRCOLOR).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.HAIR_COLOR)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.HAIRCOLOR)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendHairStyleLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_HAIRSTYLE).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.HAIR_STYLE)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.HAIRSTYLE)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1570,7 +1570,7 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendInterestsLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_INTERESTS).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.INTERESTS)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.INTERESTS)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1619,7 +1619,7 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendLocationLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_LOCATION).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.LOCATION)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.LOCATION)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1662,21 +1662,21 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendPersonalityTrait1Line(StringBuilder buffer)
 	{
 		buffer.append(TAG_PERSONALITYTRAIT1).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.TRAIT1)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY1)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendPersonalityTrait2Line(StringBuilder buffer)
 	{
 		buffer.append(TAG_PERSONALITYTRAIT2).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.TRAIT2)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY2)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendPhobiasLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_PHOBIAS).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.PHOBIAS)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.PHOBIAS)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1862,14 +1862,14 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendResidenceLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CITY).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.RESIDENCE)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.RESIDENCE)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendSkinColorLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_SKINCOLOR).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.SKIN_COLOR)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.SKINCOLOR)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -2076,7 +2076,7 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendSpeechPatternLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_SPEECHPATTERN).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.SPEECH_TENDENCY)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.SPEECHTENDENCY)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -2283,7 +2283,7 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendTabNameLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_TABNAME).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.TAB_NAME)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.TABNAME)));
 		buffer.append(LINE_SEP);
 	}
 

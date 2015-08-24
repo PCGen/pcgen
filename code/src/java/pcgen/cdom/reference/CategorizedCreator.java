@@ -17,11 +17,10 @@
  */
 package pcgen.cdom.reference;
 
-import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.Loadable;
 
-public interface CategorizedCreator<T extends Loadable & CategorizedCDOMObject<T>>
+public interface CategorizedCreator<T extends Categorized<T>>
 		extends SelectionCreator<T>
 {
 

@@ -29,7 +29,7 @@ package pcgen.core.term;
 import java.util.Arrays;
 import java.util.List;
 
-import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.display.CharacterDisplay;
 
 public class PCCountMiscMagicTermEvaluator
@@ -43,7 +43,7 @@ public class PCCountMiscMagicTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		String magicString = display.getSafeStringFor(StringKey.MISC_MAGIC);
+		String magicString = display.getSafeStringFor(PCStringKey.MAGIC);
 		List<String> magicList = Arrays.asList(magicString.split("\r?\n"));
 		return (float) magicList.size();
 	}

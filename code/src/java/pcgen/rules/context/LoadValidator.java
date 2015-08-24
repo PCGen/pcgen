@@ -22,7 +22,7 @@ import java.util.List;
 
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.HashMapToList;
-import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ListKey;
@@ -35,7 +35,7 @@ import pcgen.core.Campaign;
 public class LoadValidator implements UnconstructedValidator
 {
 	@SuppressWarnings("rawtypes")
-	private static final Class<CategorizedCDOMObject> CATEGORIZED_CDOM_OBJECT_CLASS = CategorizedCDOMObject.class;
+	private static final Class<Categorized> CATEGORIZED_CLASS = Categorized.class;
 	private final List<Campaign> campaignList;
 	private HashMapToList<Class<?>, String> simpleMap;
 	private DoubleKeyMapToList<Class<?>, String, String> categoryMap;
@@ -74,7 +74,7 @@ public class LoadValidator implements UnconstructedValidator
 			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
 			{
 				Class<? extends Loadable> qcl = q.getQualifiedClass();
-				if (!CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(qcl))
+				if (!CATEGORIZED_CLASS.isAssignableFrom(qcl))
 				{
 					simpleMap.addToListFor(qcl, q.getQualifiedReference()
 							.getLSTformat(false));
@@ -91,7 +91,7 @@ public class LoadValidator implements UnconstructedValidator
 			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
 			{
 				Class<? extends Loadable> qcl = q.getQualifiedClass();
-				if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(qcl))
+				if (CATEGORIZED_CLASS.isAssignableFrom(qcl))
 				{
 					CDOMSingleRef<?> ref = q.getQualifiedReference();
 					String cat = ((CDOMTransparentCategorizedSingleRef<?>) ref)
@@ -103,7 +103,7 @@ public class LoadValidator implements UnconstructedValidator
 	}
 
 	@Override
-	public <T extends Loadable & CategorizedCDOMObject<T>> boolean allow(
+	public <T extends Categorized<T>> boolean allow(
 			Class<T> cl, Category<T> cat, String s)
 	{
 		if (categoryMap == null)
