@@ -12,7 +12,7 @@ Vindictive Harpoon		PROFICIENCY:WEAPON|Harpoon		TYPE:Weapon.Resizable.Melee.OneH
 # Equipment Name							Modifier
 Cat-O'-Nine-Tails.COPY=Masterwork Cat-O'-Nine-Tails
 Masterwork Cat-O'-Nine-Tails.MOD				EQMOD:MWORKW
-Club.COPY=Frying pan
+Club.COPY=Frying Pan
 Handaxe.COPY=Masterwork Handaxe
 Masterwork Handaxe.MOD						EQMOD:MWORKW
 Rapier.COPY=Masterwork Rapier
