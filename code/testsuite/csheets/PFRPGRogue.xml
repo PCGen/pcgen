@@ -3865,7 +3865,7 @@ BIO
 		<ability_object>
 			<name>Trapfinding</name>
 			<description>You add +6 to Perception skill checks made to locate traps and to Disable Device skill checks. You can use the Disable Device skill to disarm magical traps.</description>
-			<type>ROGUECLASSFEATURES.RANGERCLASSFEATURES.SPECIALQUALITY.EXTRAORDINARY</type>
+			<type>ROGUECLASSFEATURES.RANGERCLASSFEATURES.SPECIALQUALITY.EXTRAORDINARY.TRAPFINDING</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -4021,7 +4021,7 @@ BIO
 		<ability_object>
 			<name>Sneak Attack</name>
 			<description></description>
-			<type>INTERNAL.ROGUECLASSFEATURES.ALCHEMISTCLASSFEATURES</type>
+			<type>INTERNAL.ROGUECLASSFEATURES.ALCHEMISTCLASSFEATURES.SNEAK ATTACK</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
