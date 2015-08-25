@@ -155,6 +155,24 @@ CATEGORY=Class|Brawler.MOD	DEFINE:Brawler_CF_CloseWeaponMastery|0
 CATEGORY=Class|Brawler.MOD	DEFINE:Brawler_CF_AwesomeBlow|0
 CATEGORY=Class|Brawler.MOD	DEFINE:Brawler_CF_ImprovedAwesomeBlow|0
 
+CATEGORY=Class|Brawler.MOD	DEFINE:Brawler_CF_BonusFeat2|0
+CATEGORY=Class|Brawler.MOD	DEFINE:Brawler_CF_BonusFeat5|0
+CATEGORY=Class|Brawler.MOD	DEFINE:Brawler_CF_BonusFeat8|0
+CATEGORY=Class|Brawler.MOD	DEFINE:Brawler_CF_BonusFeat11|0
+CATEGORY=Class|Brawler.MOD	DEFINE:Brawler_CF_BonusFeat14|0
+CATEGORY=Class|Brawler.MOD	DEFINE:Brawler_CF_BonusFeat17|0
+CATEGORY=Class|Brawler.MOD	DEFINE:Brawler_CF_BonusFeat20|0
+
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BonusFeat2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_BonusFeat2=True
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BonusFeat5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_BonusFeat5=True
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BonusFeat8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_BonusFeat8=True
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BonusFeat11|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_BonusFeat11=True
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BonusFeat14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_BonusFeat14=True
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BonusFeat17|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_BonusFeat17=True
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BonusFeat20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_BonusFeat20=True
+
+
+
 CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_WeaponProficiencies=True
 CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_ClassSkills=True
 CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_UnarmedStrike|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_UnarmedStrike=True
@@ -306,7 +324,18 @@ CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_StudiedStrike|0
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_TrueInspiration|0
 
 CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_Talent9|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_PoisonResistance2|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_PoisonResistance4|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_PoisonResistance6|0
+CATEGORY=Class|Investigator.MOD	DEFINE:Investigator_CF_PoisonImmunity|0
 
+
+
+
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_PoisonResistance2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_PoisonResistance2=True
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_PoisonResistance4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_PoisonResistance4=True
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_PoisonResistance6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_PoisonResistance6=True
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_PoisonImmunity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_PoisonImmunity=True
 
 
 CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_Talent9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_Talent9=True
@@ -368,6 +397,7 @@ CATEGORY=Class|Shaman.MOD	DEFINE:Shaman_CF_Hex20|0
 CATEGORY=Class|Shaman.MOD	DEFINE:Shaman_CF_WanderingSpiritTrue|0		
 CATEGORY=Class|Shaman.MOD	DEFINE:Shaman_CF_WanderingSpiritGreater|0		
 CATEGORY=Class|Shaman.MOD	DEFINE:Shaman_CF_WanderingHex6|0			
+CATEGORY=Class|Shaman.MOD	DEFINE:Shaman_CF_WanderingHex14|0			
 
 CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_Hex1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_Hex1=True				
 CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_Hex2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_Hex2=True				
@@ -383,6 +413,7 @@ CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_Hex20|1|TYPE=Boolean|PREFACT:1,ABI
 CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_WanderingSpiritTrue|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_WanderingSpiritTrue=True	
 CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_WanderingSpiritGreater|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_WanderingSpiritGreater=True	
 CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_WanderingHex6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_WanderingHex6=True		
+CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_WanderingHex14|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_WanderingHex14=True		
 
 CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_ClassSkills=True
 CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_WeaponProficiencies=True

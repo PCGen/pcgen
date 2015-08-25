@@ -78,7 +78,9 @@ CATEGORY=Class|Cavalier.MOD	DEFINE:Cavalier_CF_DemandingChallenge|0
 CATEGORY=Class|Cavalier.MOD	DEFINE:Cavalier_CF_GreaterBanner|0
 CATEGORY=Class|Cavalier.MOD	DEFINE:Cavalier_CF_MasterTactician|0
 CATEGORY=Class|Cavalier.MOD	DEFINE:Cavalier_CF_SupremeCharge|0
+CATEGORY=Class|Cavalier.MOD	DEFINE:Cavalier_CF_Proficiencies|0
 
+CATEGORY=Class|Cavalier.MOD	BONUS:VAR|Cavalier_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Proficiencies=True
 CATEGORY=Class|Cavalier.MOD	BONUS:VAR|Cavalier_CF_Challenge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Challenge=True
 CATEGORY=Class|Cavalier.MOD	BONUS:VAR|Cavalier_CF_Mount|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Mount=True
 CATEGORY=Class|Cavalier.MOD	BONUS:VAR|Cavalier_CF_Order|1|TYPE=Boolean|PREFACT:1,ABILITIES,Cavalier_CF_Order=True
