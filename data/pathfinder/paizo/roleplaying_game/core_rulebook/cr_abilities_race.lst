@@ -21,14 +21,14 @@ Remove Excess Points from Pool	SORTKEY:1	CATEGORY:Special Ability	TYPE:HumanRaci
 ###Block: Racial Traits
 #
 # Ability Name						Ability
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Defensive Training|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDefensiveTraining
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Defensive Training|PREMULT:1,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDefensiveTraining],[!PREFACT:1,ABILITIES,DwarfDefensiveTraining=True]
 CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Greed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfGreed
 CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hatred|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfHatred
 CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hardy|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfHardy
 CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStability
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stonecunning|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stonecunning|PREMULT:1,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning],[!PREFACT:1,ABILITIES,DwarfStonecunning=True]
 CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Steady|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSteady
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity
+CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|PREMULT:1,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity],[!PREFACT:1,ABILITIES,DwarfWeaponFamiliarity=True]
 CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision
 CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfLanguage
 #

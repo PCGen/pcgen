@@ -32,3 +32,6 @@ Inexorable Cold			KEY:Winter Witch ~ Inexorable Cold			CATEGORY:Special Ability	
 
 #MAJOR HEX!
 Numbing Chill			KEY:Witch Hex ~ Numbing Chill				CATEGORY:Special Ability	TYPE:Supernatural.WitchHex.MajorHex.SpecialQuality				PREVARGTEQ:WitchHexAbilityLVL,10	DESC:Whenever the winter witch casts a spell that deals cold damage, she can imbue the spell with a debilitating eldritch chill as a swift action. She chooses one of the spell's targets or a creature within the spell effect. If that creature takes cold damage from the spell, it must also succeed at a Fortitude save or take 1d4 points of Dexterity damage and be staggered for 1 round. The creature need only make this saving throw once per spell, even if the spell deals damage multiple times. If the target saves successfully, it is immune to this hex for 1 day. This is a cold effect.																																																	SOURCEPAGE:p.13
+
+###Block:
+CATEGORY=Archetype|Witch Archetype ~ Winter Witch.MOD	FACT:Witch_Archetype_Hex|True	FACT:Witch_CF_Hex4|True	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Witch Archetype ~ Winter Witch],[!PREFACT:1,ABILITIES,Witch_Archetype_Hex=True]
