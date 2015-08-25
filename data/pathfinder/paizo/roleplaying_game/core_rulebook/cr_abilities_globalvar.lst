@@ -430,6 +430,29 @@ CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_PerfectSelf|0
 
 CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_Proficiencies|0
 CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_ClassSkills|0
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_WeaponProficiencies|0
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_BonusFeat18|0	
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_BonusFeat10|0	
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_BonusFeat6|0	
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_BonusFeat2|0	
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_BonusFeat1|0	
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_Alignment|0	
+
+
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_WeaponProficiencies=True
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_BonusFeat18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_BonusFeat18=True	
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_BonusFeat10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_BonusFeat10=True	
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_BonusFeat6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_BonusFeat6=True	
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_BonusFeat2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_BonusFeat2=True	
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_BonusFeat1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_BonusFeat1=True	
+CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_Alignment|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_Alignment=True	
+
+
+
+
+
+
+
 
 CATEGORY=Class|Monk.MOD	ABILITY:Internal|AUTOMATIC|Monk ~ Unarmed Damage
 CATEGORY=Class|Monk.MOD	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Monk|PREVAREQ:Monk_CF_Proficiencies,0
@@ -503,6 +526,44 @@ CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfJustice|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfFaith|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfRighteousness|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_HolyChampion|0
+
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_BondedWeapon|0			
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Spells|0				
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy3|0				
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy6|0				
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy9|0				
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy12|0				
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy15|0				
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy18|0				
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_WeaponProficiencies|0		
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencies|0		
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencyHeavy|0	
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencyMedium|0	
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ShieldProficiency|0		
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_BondedMount|0			
+
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_BondedWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_BondedWeapon=True			
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Spells=True				
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy3=True
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy6=True				
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy9=True				
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy12=True				
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy15=True				
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy18=True				
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_WeaponProficiencies=True		
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencies=True		
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencyHeavy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencyHeavy	=True
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencyMedium|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencyMedium=True
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ShieldProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ShieldProficiency=True
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_BondedMount|1|TYPE=Boolean|PREFACT:1,ABILITIES,	Paladin_CF_BondedMount=True
+
+
+
+
+
+
+
+
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|AlignmentAuraLVL|PaladinLVL		BONUS:VAR|AllowHolyAvenger|1	DEFINE:AllowHolyAvenger|0
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfGood|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfGood=True
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_DetectEvil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DetectEvil=True
@@ -708,8 +769,10 @@ CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_EschewMaterials|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_Bloodline|0
 
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower1|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower3|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower9|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower15|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlinePower20|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineFeats|0
 
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells1|0
@@ -723,10 +786,11 @@ CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells8|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells9|0
 
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlinePower1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower1=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlinePower3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower3=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlinePower9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower9=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlinePower15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower15=True
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlinePower20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower20=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineFeats=True
-
 
 
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_WeaponProficiencies=True
