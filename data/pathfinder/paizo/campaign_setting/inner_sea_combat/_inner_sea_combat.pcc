@@ -50,9 +50,11 @@ EQUIPMENT:isc_equip_magic.lst
 KIT:isc_kits.lst
 RACE:isc_races_companion.lst
 
-# 
+# Includes
 RACE:@/pathfinder/paizo/roleplaying_game/bestiary_2/b2_races.lst|(INCLUDE:Hippocampus|Hippogriff)|!PRECAMPAIGN:1,INCLUDES=Bestiary 2
 ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary_2/b2_abilities_race.lst|(INCLUDE:CATEGORY=Special Ability,Hippocampus ~ Water Dependency)|!PRECAMPAIGN:1,INCLUDES=Bestiary 2
+RACE:@/pathfinder/paizo/roleplaying_game/bestiary/b1_races.lst|(INCLUDE:Griffon|Worg)|!PRECAMPAIGN:1,INCLUDES=Bestiary
+ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary/b1_abilities_race.lst|(INCLUDE:CATEGORY=Internal,Race Traits ~ Griffon,Race Traits ~ Worg)|!PRECAMPAIGN:1,INCLUDES=Bestiary
 
 # ENTRY DATE: 2015-01
 # LST MONKEY: Andrew Maitland
