@@ -1,0 +1,63 @@
+
+
+CLASS:Dragon Paragon	HD:12	TYPE:Monster	SOURCEPAGE:p.12	DEFINE:DragonParagonLVL|0	BONUS:VAR|DragonParagonLVL|CL
+CLASS:Dragon Paragon	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	
+CLASS:Dragon Paragon	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Dragon Paragon	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Dragon Paragon	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Dragon Paragon	PRERACE:1,Dragon%,Kobold%
+CLASS:Dragon Paragon	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Fly|Heal|Intimidate|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Spellcraft|Stealth|Survival|Swim|Use Magic Device
+CLASS:Dragon Paragon	BONUS:CASTERLEVEL|Dragon Paragon|CL+CasterLevelBonus	SPELLTYPE:Arcane	SPELLSTAT:CHA	MEMORIZE:NO	SPELLLIST:2|Wizard|Sorcerer
+###Block
+1	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Weapon and Armor Proficiency	
+1	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Dragon Exemplar			
+1	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Heritage					
+11	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Paragon Presence			
+4	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Natural Armor				
+4	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Spells					
+6	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Blindsense				
+7	ABILITY:Dragon Paragon Class Feature|AUTOMATIC|Dragon Paragon ~ Damage Reduction			
+###Block
+4	CAST:0,1
+5	CAST:0,1
+6	CAST:0,1
+7	CAST:0,1,1
+8	CAST:0,1,1
+9	CAST:0,2,1
+10	CAST:0,2,1,1
+11	CAST:0,2,1,1
+12	CAST:0,2,2,1
+13	CAST:0,3,2,1,1
+14	CAST:0,3,2,2,1
+15	CAST:0,3,2,2,1
+16	CAST:0,3,3,2,1
+17	CAST:0,4,3,2,1
+18	CAST:0,4,3,2,2
+19	CAST:0,4,3,3,2
+20	CAST:0,4,4,3,2
+###Block
+4	KNOWN:0,2
+5	KNOWN:0,3
+6	KNOWN:0,4
+7	KNOWN:0,4,2
+8	KNOWN:0,4,3
+9	KNOWN:0,5,4
+10	KNOWN:0,5,4,2
+11	KNOWN:0,5,4,3
+12	KNOWN:0,6,5,4
+13	KNOWN:0,6,5,4,2
+14	KNOWN:0,6,5,4,3
+15	KNOWN:0,6,6,5,4
+16	KNOWN:0,6,6,5,4
+17	KNOWN:0,6,6,5,4
+18	KNOWN:0,6,6,6,5
+19	KNOWN:0,6,6,6,5
+20	KNOWN:0,6,6,6,5
+
+
+# Class Name
+CLASS:Draconic Companion	OUTPUTNAME:Draconic Companion	HD:12		TYPE:Monster.Companion	CLASSTYPE:Companion	ABB:DC		MAXLEVEL:20	SOURCEPAGE:p.52	VISIBLE:NO	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	
+# Class Name
+CLASS:Draconic Companion	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Fly|Heal|Intimidate|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Spellcraft|Stealth|Survival|Swim|Use Magic Device
+
+
