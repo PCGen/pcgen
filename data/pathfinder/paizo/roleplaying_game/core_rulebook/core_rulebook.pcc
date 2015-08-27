@@ -42,8 +42,17 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 PCC:@/homebrew/conversion_support/conversion_support.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/core_essentials/core_essentials.pcc
 
+# Fact/Factset & Formula System
 DATACONTROL:_datacontrol.lst
+#VARIABLE:cr_variables.lst
+#GLOBALMODIFIER:cr_globalmodifiers.lst
 
+### GM Moved
+#SAVE:cr_gm_saves.lst
+#STAT:cr_gm_stats.lst
+#ALIGNMENT:cr_gm_alignments.lst
+
+# Standard Files
 ABILITYCATEGORY:cr_abilitycategories.lst
 ABILITY:cr_abilities.lst
 ABILITY:cr_abilities_class.lst
