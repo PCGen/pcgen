@@ -101,7 +101,6 @@ FACTDEF:ABILITY|Barbarian_CF_WeaponProficiencies		DATAFORMAT:BOOLEAN	VISIBLE:YES
 FACTDEF:ABILITY|Barbarian_CF_ArmorProficiencies			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiencies			EXPLANATION:Barbarian Proficiencies removed
 
 
-
 FACTDEF:ABILITY|Barbarian_CF_ClassSkills				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills			EXPLANATION:Barbarian ClassSkills removed
 FACTDEF:ABILITY|Barbarian_CF_Rage					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Rage					EXPLANATION:Barbarian Rage removed
 FACTDEF:ABILITY|Barbarian_CF_FastMovement				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FastMovement			EXPLANATION:Barbarian Fast Movement removed
@@ -192,7 +191,6 @@ FACTDEF:ABILITY|Bard_CF_InspireCompetence6					DATAFORMAT:BOOLEAN	VISIBLE:YES	SE
 FACTDEF:ABILITY|Bard_CF_Proficiencies					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Fascinate						EXPLANATION:Remove Bard Fascinate			
 
 
-
 # Cleric Archetype Section
 FACTDEF:ABILITY|Cleric_Archetype_ChannelEnergy						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ChannelEnergy							EXPLANATION:Determines whether the archetype affects - ChannelEnergy				
 FACTDEF:ABILITY|Cleric_Archetype_Orisons							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Orisons								EXPLANATION:Determines whether the archetype affects - Orisons					
@@ -202,8 +200,6 @@ FACTDEF:ABILITY|Cleric_Archetype_ClassSkills					DATAFORMAT:BOOLEAN	VISIBLE:YES	
 FACTDEF:ABILITY|Cleric_Archetype_Spellcasting					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting					EXPLANATION:Determines whether the archetype affects - SpontaneousCasting		
 FACTDEF:ABILITY|Cleric_Archetype_Domains					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting					EXPLANATION:Determines whether the archetype affects - SpontaneousCasting		
 FACTDEF:ABILITY|Cleric_Archetype_SkillRanks					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:SpontaneousCasting					EXPLANATION:Determines whether the archetype affects - SpontaneousCasting		
-
-
 
 # Cleric Class Feature
 FACTDEF:ABILITY|Cleric_CF_ChannelEnergy				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ChannelEnergy				EXPLANATION:Remove Cleric ChannelEnergy		
@@ -228,8 +224,6 @@ FACTDEF:ABILITY|Cleric_CF_ChannelEnergy9				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELEC
 FACTDEF:ABILITY|Cleric_CF_ChannelEnergy10				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ChannelEnergy				EXPLANATION:Remove Cleric ChannelEnergy		
 FACTDEF:ABILITY|Cleric_CF_WeaponProficiencies				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ChannelEnergy				EXPLANATION:Remove Cleric ChannelEnergy		
 FACTDEF:ABILITY|Cleric_CF_ArmorProficiencies				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ChannelEnergy				EXPLANATION:Remove Cleric ChannelEnergy		
-
-
 
 
 # Druid Archetype Section
@@ -274,9 +268,6 @@ FACTDEF:ABILITY|Fighter_Archetype_WeaponMastery						DATAFORMAT:BOOLEAN	VISIBLE:
 FACTDEF:ABILITY|Fighter_Archetype_Proficiencies						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponMastery							EXPLANATION:Determines whether the archetype affects - WeaponMastery							
 
 
-
-
-
 # Fighter Class Feature
 FACTDEF:ABILITY|Fighter_CF_BonusFeats		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeats								EXPLANATION:Remove Fighter BonusFeats					
 FACTDEF:ABILITY|Fighter_CF_Bravery			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Bravery								EXPLANATION:Remove Fighter Bravery					
@@ -289,9 +280,6 @@ FACTDEF:ABILITY|Fighter_CF_ArmorTraining1		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECT
 FACTDEF:ABILITY|Fighter_CF_ArmorTraining2		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArmorTraining2								EXPLANATION:Remove Fighter ArmorTraining2					
 FACTDEF:ABILITY|Fighter_CF_ArmorTraining3		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArmorTraining3								EXPLANATION:Remove Fighter ArmorTraining3					
 FACTDEF:ABILITY|Fighter_CF_ArmorTraining4		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ArmorTraining4								EXPLANATION:Remove Fighter ArmorTraining4					
-
-
-
 
 
 FACTDEF:ABILITY|Fighter_CF_BonusFeat1		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:BonusFeat1								EXPLANATION:Remove Fighter BonusFeat1					
@@ -314,10 +302,6 @@ FACTDEF:ABILITY|Fighter_CF_WeaponTraining4		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELEC
 FACTDEF:ABILITY|Fighter_CF_TowerShieldProficiency		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TowerShieldProficiency								EXPLANATION:Remove Fighter TowerShieldProficiency					
 FACTDEF:ABILITY|Fighter_CF_ArmorProficiencies		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TowerShieldProficiency								EXPLANATION:Remove Fighter TowerShieldProficiency					
 FACTDEF:ABILITY|Fighter_CF_Proficiencies		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:TowerShieldProficiency								EXPLANATION:Remove Fighter TowerShieldProficiency					
-
-
-
-
 
 
 # Monk Archetype Section
@@ -381,7 +365,6 @@ FACTDEF:ABILITY|Monk_CF_BonusFeat1				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:
 FACTDEF:ABILITY|Monk_CF_Alignment				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:PerfectSelf									EXPLANATION:Remove Monk PerfectSelf				
 
 
-
 # Paladin Archetype Section
 FACTDEF:ABILITY|Paladin_Archetype_Proficiencies								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Proficiency											EXPLANATION:Determines whether the archetype affects - Proficiency											
 FACTDEF:ABILITY|Paladin_Archetype_AuraOfGood								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfGood											EXPLANATION:Determines whether the archetype affects - AuraOfGood											
@@ -400,9 +383,6 @@ FACTDEF:ABILITY|Paladin_Archetype_AuraOfFaith								DATAFORMAT:BOOLEAN	VISIBLE:
 FACTDEF:ABILITY|Paladin_Archetype_AuraOfRighteousness							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfRighteousness										EXPLANATION:Determines whether the archetype affects - AuraOfRighteousness										
 FACTDEF:ABILITY|Paladin_Archetype_HolyChampion								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HolyChampion											EXPLANATION:Determines whether the archetype affects - HolyChampion											
 FACTDEF:ABILITY|Paladin_Archetype_Spells								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Spells											EXPLANATION:Determines whether the archetype affects - Spells											
-
-
-
 
 # Paladin Class Feature - All updated
 FACTDEF:ABILITY|Paladin_CF_AuraOfGood				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:AuraOfGood									EXPLANATION:Remove Paladin AuraOfGood				
@@ -435,7 +415,7 @@ FACTDEF:ABILITY|Paladin_CF_ArmorProficiencyMedium			DATAFORMAT:BOOLEAN	VISIBLE:Y
 FACTDEF:ABILITY|Paladin_CF_ShieldProficiency			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HolyChampion								EXPLANATION:Remove Paladin HolyChampion				
 FACTDEF:ABILITY|Paladin_CF_BondedMount					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HolyChampion								EXPLANATION:Remove Paladin HolyChampion				
 
-	
+
 # Ranger Archetype Section
 FACTDEF:ABILITY|Ranger_Archetype_HuntersBond							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:HuntersBond										EXPLANATION:Determines whether the archetype affects - HuntersBond										
 FACTDEF:ABILITY|Ranger_Archetype_FavoredEnemy							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:FavoredEnemy										EXPLANATION:Determines whether the archetype affects - FavoredEnemy										
@@ -456,7 +436,6 @@ FACTDEF:ABILITY|Ranger_Archetype_Spells								DATAFORMAT:BOOLEAN	VISIBLE:YES	SE
 FACTDEF:ABILITY|Ranger_Archetype_ImprovedEvasion								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills											EXPLANATION:Determines whether the archetype affects - ClassSkills											
 FACTDEF:ABILITY|Ranger_Archetype_ImprovedQuarry								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Quarry											EXPLANATION:Determines whether the archetype affects - Quarry											
 FACTDEF:ABILITY|Ranger_Archetype_AnimalCompanion								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Quarry											EXPLANATION:Determines whether the archetype affects - Quarry											
-
 
 
 # Ranger Class Feature
@@ -489,10 +468,6 @@ FACTDEF:ABILITY|Ranger_CF_FavoredEnemy2				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECT
 FACTDEF:ABILITY|Ranger_CF_FavoredEnemy3				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills									EXPLANATION:Remove Ranger ClassSkills				
 FACTDEF:ABILITY|Ranger_CF_FavoredEnemy4				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills									EXPLANATION:Remove Ranger ClassSkills				
 FACTDEF:ABILITY|Ranger_CF_AnimalCompanion				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:ClassSkills									EXPLANATION:Remove Ranger ClassSkills				
-
-
-
-
 
 
 # Rogue Archetype Section
@@ -540,8 +515,6 @@ FACTDEF:ABILITY|Rogue_CF_RogueTalent20				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTA
 FACTDEF:ABILITY|Sorcerer_Archetype_WeaponProficiencies							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies										EXPLANATION:Determines whether the archetype affects - WeaponProficiencies										
 FACTDEF:ABILITY|Sorcerer_Archetype_EschewMaterials							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials										EXPLANATION:Determines whether the archetype affects - EschewMaterials										
 FACTDEF:ABILITY|Sorcerer_Archetype_Bloodline							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:EschewMaterials										EXPLANATION:Determines whether the archetype affects - EschewMaterials										
-
-
 
 # Sorcerer Class Feature
 FACTDEF:ABILITY|Sorcerer_CF_WeaponProficiencies		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponProficiencies							EXPLANATION:Remove Sorcerer WeaponProficiencies	
@@ -606,6 +579,25 @@ FACTDEF:ABILITY|Wizard_CF_BonusFeat20			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABL
 FACTDEF:ABILITY|DwarfDefensiveTraining			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:DefensiveTraining								EXPLANATION:Remove DefensiveTraining			
 FACTDEF:ABILITY|DwarfStonecunning				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Stonecunning										EXPLANATION:Remove Stonecunning					
 FACTDEF:ABILITY|DwarfWeaponFamiliarity			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:WeaponFamiliarity								EXPLANATION:Remove WeaponFamiliarity			
+
+###Block: Saves File
+#FACTDEF:CHECKS|MainStat	EXPLANATION:Output the Stat a save uses to the OS
+
+
+#############################
+#	Formula Parser
+############################
+
+###Block: Formula NAMESPACEDEF
+# NAMESPACEDEF:x|y
+
+#NAMESPACEDEF:x|STRING
+
+# Required
+#NAMESPACEDEF:NUMBER|VAR
+#NAMESPACEDEF:ORDEREDPAIR|AREA
+#NAMESPACEDEF:NUMBER|MOVEMENT
+
 
 # Subdomain / Domain Support
 
