@@ -25,7 +25,6 @@ FOLLOWER:FiendishServantLVL=5		TYPE:Fiendish Servant	HD:2									ABILITY:Specia
 FOLLOWER:FiendishServantLVL=13	TYPE:Fiendish Servant	HD:2									ABILITY:Special Ability|AUTOMATIC|Speak with Blackguard								DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:FiendishServantLVL=16	TYPE:Fiendish Servant	HD:2									ABILITY:Special Ability|AUTOMATIC|Blood Bond										DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:FiendishServantLVL=19	TYPE:Fiendish Servant	HD:2		SR:mastervar("FiendishServantLVL")+5																		DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
-FOLLOWER:FiendishServantLVL=20	TYPE:Fiendish Servant
 #
 
 ###Block: Undead Companion
@@ -34,7 +33,6 @@ FOLLOWER:UndeadCompanionLVL=1		TYPE:Undead Companion	HD:2									ABILITY:Specia
 FOLLOWER:UndeadCompanionLVL=13	TYPE:Undead Companion	HD:2									ABILITY:Special Ability|AUTOMATIC|Speak with Blackguard																			DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=16	TYPE:Undead Companion	HD:2									ABILITY:Special Ability|AUTOMATIC|Blood Bond																					DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:mastervar("UndeadCompanionLVL")+5																													DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
-FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion
 
 ###Block: Specific Undead Companions
 # Class of the Master		Type				Required Race						Apply Kit
@@ -46,7 +44,7 @@ FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Companion ~ Zombie
 #COMMENT: Familiar is an Animal that becomes a Magical Beast
 
 # Class of the Master	Type			Spell Res.		Ability														Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat									Combat bonus										Template
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link						COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES																							TEMPLATE:Familiar Race Change
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link|Familiar ~ Alertness		COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES																							TEMPLATE:Familiar Race Change
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Improved Evasion|Familiar ~ Share Spells																		DEFINESTAT:MINVALUE|INT|5+((mastervar("FamiliarLVL")+1)/2)	BONUS:COMBAT|AC|(mastervar("FamiliarLVL")+1)/2|TYPE=NaturalArmor.STACK
 FOLLOWER:FamiliarLVL=3	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Deliver Touch Spells
 FOLLOWER:FamiliarLVL=5	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Master
@@ -76,18 +74,17 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Companion ~ Shocker Lizard	KIT:1|
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Companion ~ Stirge			KIT:1|Stirge Familiar
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar					Type			Bonus to HP			Save bonus			Bonus to skill			Virtual Feat
-MASTERBONUSRACE:Companion ~ Bat			TYPE:Familiar									BONUS:SKILL|Listen|3		ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Companion ~ Cat			TYPE:Familiar									BONUS:SKILL|Move Silently|3	ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Companion ~ Hawk			TYPE:Familiar									BONUS:SKILL|Spot|3		ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Companion ~ Lizard			TYPE:Familiar									BONUS:SKILL|Climb|3		ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Companion ~ Owl			TYPE:Familiar									BONUS:SKILL|Spot|3		ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Companion ~ Rat			TYPE:Familiar					BONUS:SAVE|Fortitude|2						ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Companion ~ Raven			TYPE:Familiar									BONUS:SKILL|Appraise|3		ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Companion ~ Snake (Viper/Tiny)	TYPE:Familiar									BONUS:SKILL|Bluff|3		ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Companion ~ Toad			TYPE:Familiar	BONUS:HP|CURRENTMAX|3										ABILITY:FEAT|VIRTUAL|Alertness
-MASTERBONUSRACE:Companion ~ Weasel			TYPE:Familiar					BONUS:SAVE|Reflex|2						ABILITY:FEAT|VIRTUAL|Alertness
-#
+# Race of familiar					Type			
+MASTERBONUSRACE:Companion ~ Bat			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Bat			
+MASTERBONUSRACE:Companion ~ Cat			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Cat			
+MASTERBONUSRACE:Companion ~ Hawk			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Hawk			
+MASTERBONUSRACE:Companion ~ Lizard			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Lizard			
+MASTERBONUSRACE:Companion ~ Owl			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Owl			
+MASTERBONUSRACE:Companion ~ Rat			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Rat			
+MASTERBONUSRACE:Companion ~ Raven			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Raven			
+MASTERBONUSRACE:Companion ~ Snake (Viper/Tiny)	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Snake (Viper/Tiny)	
+MASTERBONUSRACE:Companion ~ Toad			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Toad			
+MASTERBONUSRACE:Companion ~ Weasel			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Weasel			
 
 ###Block:Animal Companion
 # Class of the Master			Type				Hit Dice	Ability															Auto Feat						Define							Combat bonus					Stat bonus					Modify VAR
@@ -102,42 +99,38 @@ FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Companion	HD:2																							
 
 ###Block:Specific Animal Companions
 # Class of the Master		Type				Required Race							Apply Kit
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Ape					KIT:1|Ape Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Badger					KIT:1|Badger Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bear (Black)				KIT:1|Bear (Black) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bear (Brown)				KIT:1|Bear (Brown) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bear (Polar)				KIT:1|Bear (Polar) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bison					KIT:1|Bison Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Boar					KIT:1|Boar Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Camel					KIT:1|Camel Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Cheetah					KIT:1|Cheetah Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Crocodile				KIT:1|Crocodile Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Crocodile (Giant)			KIT:1|Crocodile (Giant) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dog					KIT:1|Dog Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dog (Riding)				KIT:1|Dog (Riding) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Eagle					KIT:1|Eagle Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Elephant				KIT:1|Elephant Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Hawk					KIT:1|Hawk Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Horse (Heavy)				KIT:1|Horse (Heavy) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Horse (Light)				KIT:1|Horse (Light) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Leopard					KIT:1|Leopard Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Lion					KIT:1|Lion Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Lizard (Monitor)			KIT:1|Lizard (Monitor) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Owl					KIT:1|Owl Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Pony					KIT:1|Pony Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Porpoise				KIT:1|Porpoise Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Rhinoceros				KIT:1|Rhinoceros Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Shark (Medium)			KIT:1|Shark (Medium) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Constrictor)			KIT:1|Snake (Constrictor) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Constrictor/Giant)		KIT:1|Snake (Constrictor/Giant) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Huge)			KIT:1|Snake (Viper/Huge) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Large)			KIT:1|Snake (Viper/Large) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Medium)		KIT:1|Snake (Viper/Medium) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Small)			KIT:1|Snake (Viper/Small) Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Squid					KIT:1|Squid Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Tiger					KIT:1|Tiger Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Wolf					KIT:1|Wolf Companion
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Wolverine				KIT:1|Wolverine Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Ape					KIT:1|Ape Companion							
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Badger					KIT:1|Badger Companion							
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bear (Black)				KIT:1|Bear (Black) Companion						
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bear (Brown)				KIT:1|Bear (Brown) Companion						
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bear (Polar)				KIT:1|Bear (Polar) Companion						
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Bison					KIT:1|Bison Companion							
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Boar					KIT:1|Boar Companion							
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Camel					KIT:1|Camel Companion							
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Cheetah					KIT:1|Cheetah Companion							
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Crocodile				KIT:1|Crocodile Companion						
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Crocodile (Giant)			KIT:1|Crocodile (Giant) Companion					
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dog					KIT:1|Dog Companion							
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dog (Riding)				KIT:1|Dog (Riding) Companion						
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Eagle					KIT:1|Eagle Companion							
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Elephant				KIT:1|Elephant Companion						
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Hawk					KIT:1|Hawk Companion							
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Horse (Heavy)				KIT:1|Horse (Heavy) Companion						
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Horse (Light)				KIT:1|Horse (Light) Companion						
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Leopard					KIT:1|Leopard Companion							
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Lion					KIT:1|Lion Companion							
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Lizard (Monitor)			KIT:1|Lizard (Monitor) Companion					
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Owl					KIT:1|Owl Companion							
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Pony					KIT:1|Pony Companion							
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Porpoise				KIT:1|Porpoise Companion						
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Rhinoceros				KIT:1|Rhinoceros Companion						
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Shark (Medium)			KIT:1|Shark (Medium) Companion					
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Constrictor)			KIT:1|Snake (Constrictor) Companion					
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Constrictor/Giant)		KIT:1|Snake (Constrictor/Giant) Companion				
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Huge)			KIT:1|Snake (Viper/Huge) Companion					
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Large)			KIT:1|Snake (Viper/Large) Companion					
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Medium)		KIT:1|Snake (Viper/Medium) Companion				
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Snake (Viper/Small)			KIT:1|Snake (Viper/Small) Companion					
 
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dinosaur (Deinonychus)		KIT:1|Dinosaur (Deinonychus) Companion
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dinosaur (Megaraptor)		KIT:1|Dinosaur (Megaraptor) Companion
@@ -155,30 +148,6 @@ FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dire A
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dire Animal (Dire Weasel)		KIT:1|Dire Animal (Dire Weasel) Companion
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dire Animal (Dire Wolf)		KIT:1|Dire Animal (Dire Wolf) Companion
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Dire Animal (Dire Wolverine)	KIT:1|Dire Animal (Dire Wolverine) Companion
-
-###Block:Animal Companion Size work-around
-#
-# These bonuses prevent the listed animals from increasing in size when they gain hit dice as a companion
-# This should eventually be done by hard-coding it but for now this work-around will let the 5.8 companions come out with the correct numbers - Eddy
-# Class of the Master		Type				Adjust PC Size
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Rat),Companion ~ Wolf|PREVARGT:TL,3
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Badger)|PREVARGT:TL,3
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Weasel)|PREVARGT:TL,6
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Snake (Constrictor)|PREVARGT:TL,5
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Wolverine|PREVARGT:TL,3
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Boar)|PREVARGT:TL,16
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dinosaur (Elasmosaurus)|PREVARGT:TL,20
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Rhinoceros,Companion ~ Octopus (Giant)|PREVARGT:TL,12
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Tiger|PREVARGT:TL,12
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Lion),Companion ~ Dinosaur (Megaraptor)|PREVARGT:TL,16
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Snake (Constrictor/Giant)|PREVARGT:TL,16
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Whale (Orca)|PREVARGT:TL,13
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Bear)|PREVARGT:TL,16
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Shark)|PREVARGT:TL,32
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Tiger),Companion ~ Dinosaur (Triceratops)|PREVARGT:TL,32
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Squid (Giant)|PREVARGT:TL,18
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Eagle|PREVARGT:TL,1
-
 
 #Badger,Camel,Dire Animal (Dire Rat),Dog,Dog (Riding),Eagle,Hawk,Horse (Heavy),Horse (Light),Owl,Pony,Porpoise,Shark (Medium),Snake (Viper/Medium),Snake (Viper/Small),Squid,RACESUBTYPE=AnimalCompanion	COMPANIONLIST:Animal Companion|Ape,Bear (Black),Bison,Boar,Cheetah,Crocodile,Leopard,Lizard (Monitor),Shark (Large),Snake (Constrictor),Snake (Viper/Large),Wolverine|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Bear (Brown),Crocodile (Giant),Lion,Rhinoceros,Snake (Viper/Huge),Tiger|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Bear (Polar),Shark (Huge),Snake (Constrictor/Giant),Whale (Orca)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Elephant,Octopus (Giant)|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Squid (Giant)|FOLLOWERADJUSTMENT:-15
 ###Block:Shadowdancer summoned Shadow
