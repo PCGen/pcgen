@@ -1827,6 +1827,27 @@ Visionary (Wildblooded Dreamspun) Bloodline	KEY:Crossbloodline ~ Visionary	CATEG
 Void-Touched (Wildblooded Starsoul) Bloodline	KEY:Crossbloodline ~ Void-Touched	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassSpecialization.SorcererCrossbloodline	SERVESAS:ABILITY=Special Ability|Sorcerer Bloodline ~ Void-Touched	DESC:The darkness between the stars calls to you.																																																																																																																	ABILITY:Special Ability|AUTOMATIC|Void-Touched Bloodline ~ Bloodline Arcana																CSKILL:Knowledge (Nature)		SOURCEPAGE:p.73
 Warped (Wildblooded Aberrant) Bloodline		KEY:Crossbloodline ~ Warped		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassSpecialization.SorcererCrossbloodline	SERVESAS:ABILITY=Special Ability|Sorcerer Bloodline ~ Warped		DESC:The alien taint in your blood causes malformations and mutations in others.																																																																																																												ABILITY:Special Ability|AUTOMATIC|Warped Bloodline ~ Bloodline Arcana																	CSKILL:Knowledge (Dungeoneering)	SOURCEPAGE:p.73
 
+###Block: Controls the Displayed Name, if nothing is detected defaults to "Dragonic Bloodline"
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Black)|PREVAREQ:DraconicBloodline_Black,1
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Blue)|PREVAREQ:DraconicBloodline_Blue,1	
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Green)|PREVAREQ:DraconicBloodline_Green,1	
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Red)|PREVAREQ:DraconicBloodline_Red,1	
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (White)|PREVAREQ:DraconicBloodline_White,1	
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Brass)|PREVAREQ:DraconicBloodline_Brass,1	
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Bronze)|PREVAREQ:DraconicBloodline_Bronze,1
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Copper)|PREVAREQ:DraconicBloodline_Copper,1
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Gold)|PREVAREQ:DraconicBloodline_Gold,1	
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Silver)|PREVAREQ:DraconicBloodline_Silver,1
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Crag)|PREVAREQ:DraconicBloodline_Crag,1
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Ice)|PREVAREQ:DraconicBloodline_Ice,1
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Tarn)|PREVAREQ:DraconicBloodline_Tarn,1
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Cairn)|PREVAREQ:DraconicBloodline_Cairn,1
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Fjord)|PREVAREQ:DraconicBloodline_Fjord,1
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Taiga)|PREVAREQ:DraconicBloodline_Taiga,1
+CATEGORY=Special Ability|Crossbloodline ~ Draconic.MOD	ASPECT:NAME|Draconic Bloodline (Tor)|PREVAREQ:DraconicBloodline_Tor,1
+
+
 ###Block: This allows the Feat Choices to be selected from a master pool and allows easier expansion
 # Ability Name								Type
 CATEGORY=Special Ability|Crossbloodline ~ Aberrant.MOD	TYPE:FeatSkillFocusKnowledgeDungeoneering.FeatSilentSpell.FeatIronWill.FeatImprovedUnarmedStrike.FeatImprovedInitiative.FeatImprovedGrapple.FeatImprovedDisarm.FeatCombatCasting
