@@ -269,3 +269,5 @@ ABILITYCATEGORY:Temp Eidolon Evolution	POOL:Pool_Temp_Eidolon_Evolution		VISIBLE
 ###
 ABILITYCATEGORY:Summoner Class Selection	POOL:Pool_Summoner_Class_Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Class			TYPE:Summoner Class Selection									DISPLAYLOCATION:Class Features	
 
+ABILITYCATEGORY:Multiple Companion Combination			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Multiple Companions									DISPLAYLOCATION:Class Features
+
