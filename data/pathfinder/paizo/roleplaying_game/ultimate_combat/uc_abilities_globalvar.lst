@@ -87,24 +87,24 @@ CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_CheatDeathDeed|1|TYPE=Bool
 CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_DeathsShotDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_DeathsShotDeed=True				
 CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_StunningShotDeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_StunningShotDeed=True				
 
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_DeadeyeDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeadeyeDeed				
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunslingersDodgeDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunslingersDodgeDeed			
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_QuickClearDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerQuickClearDeed				
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunslingerInitiativeDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunslingerInitiativeDeed		
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_PistolWhipDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerPistolWhipDeed				
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_UtilityShotDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerUtilityShotDeed				
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_DeadShotDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeadShotDeed				
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_StartlingShotDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerStartlingShotDeed			
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_TargetingDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerTargetingDeed				
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_BleedingWoundDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerBleedingWoundDeed			
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_ExpertLoadingDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerExpertLoadingDeed			
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_LightningReloadDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerLightningReloadDeed			
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_EvasiveDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerEvasiveDeed				
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_MenacingShotDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerMenacingShotDeed				
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_SlingersLuckDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerSlingersLuckDeed				
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_CheatDeathDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerCheatDeathDeed				
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_DeathsShotDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeathsShotDeed				
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_StunningShotDeed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerStunningShotDeed				
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_DeadeyeDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeadeyeDeed				
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunslingersDodgeDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunslingersDodgeDeed			
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_QuickClearDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerQuickClearDeed				
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunslingerInitiativeDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunslingerInitiativeDeed		
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_PistolWhipDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerPistolWhipDeed				
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_UtilityShotDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerUtilityShotDeed				
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_DeadShotDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeadShotDeed				
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_StartlingShotDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerStartlingShotDeed			
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_TargetingDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerTargetingDeed				
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_BleedingWoundDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerBleedingWoundDeed			
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_ExpertLoadingDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerExpertLoadingDeed			
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_LightningReloadDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerLightningReloadDeed			
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_EvasiveDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerEvasiveDeed				
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_MenacingShotDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerMenacingShotDeed				
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_SlingersLuckDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerSlingersLuckDeed				
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_CheatDeathDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerCheatDeathDeed				
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_DeathsShotDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeathsShotDeed				
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_StunningShotDeed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerStunningShotDeed				
 
 
 CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_GunTraining1=True
@@ -112,10 +112,10 @@ CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining2|1|TYPE=Boolea
 CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_GunTraining3=True
 CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gunslinger_CF_GunTraining4=True
 
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining1|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining1
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining2|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining2
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining3|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining3
-CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining4|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining4
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining1|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining1
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining2|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining2
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining3|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining3
+CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining4|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining4
 
 
 
