@@ -3237,3 +3237,14 @@ CATEGORY=Archetype|Rogue Archetype ~ Spy.MOD	FACT:Rogue_CF_Trapfinding|True	FACT
 CATEGORY=Archetype|Rogue Archetype ~ Swashbuckler.MOD	FACT:Rogue_CF_Trapfinding|True	FACT:Rogue_CF_TrapSense|True	FACT:Rogue_Archetype_Trapfinding|True	FACT:Rogue_Archetype_TrapSense|True	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Swashbuckler],[!PREFACT:1,ABILITIES,Rogue_Archetype_Trapfinding=True,Rogue_Archetype_TrapSense=True]
 CATEGORY=Archetype|Rogue Archetype ~ Thug.MOD	FACT:Rogue_CF_Trapfinding|True	FACT:Rogue_CF_TrapSense|True	FACT:Rogue_Archetype_Trapfinding|True	FACT:Rogue_Archetype_TrapSense|True	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Thug],[!PREFACT:1,ABILITIES,Rogue_Archetype_Trapfinding=True,Rogue_Archetype_TrapSense=True]
 CATEGORY=Archetype|Rogue Archetype ~ Trapsmith.MOD	FACT:Rogue_CF_UncannyDodge|True	FACT:Rogue_CF_ImprovedUncannyDodge|True	FACT:Rogue_Archetype_UncannyDodge|True	FACT:Rogue_Archetype_ImprovedUncannyDodge|True	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Rogue Archetype ~ Trapsmith],[!PREFACT:1,ABILITIES,Rogue_Archetype_UncannyDodge=True,Rogue_Archetype_ImprovedUncannyDodge=True]
+
+###Block:
+CATEGORY=Internal|Default.MOD		BONUS:ABILITYPOOL|Multiple Companion Combination|1|PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Samurai ~ Mount,Cavalier ~ Mount],[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Hunter's Bond ~ Animal Companion],[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Animal Companion],[PREABILITY:1,CATEGORY=Special Ability,Divine Bond ~ Special Mount]]
+
+###Block: New Animal Companion Control System - Self-Policing
+No Combination		KEY:No Combination					CATEGORY:Internal	TYPE:Multiple Companions		
+
+# Cavalier
+Ranger Companion		KEY:Cavalier Mount Boost ~ Ranger	DESC:Remove Ranger companion and boost Cavalier Mount.		CATEGORY:Internal	TYPE:Multiple Companions		PRECLASS:2,Cavalier=1,Ranger=1	PREABILITY:1,CATEGORY=Special Ability,Hunter's Bond ~ Animal Companion	BONUS:VAR|CompanionDisable_AnimalCompanion|1	BONUS:VAR|CavalierMountLVL-3|RangerLVL|PREVARGTEQ:RangerLVL,4
+Druid Companion		KEY:Cavalier Mount Boost ~ Druid	DESC:Remove Druid companion and boost Cavalier Mount.		CATEGORY:Internal	TYPE:Multiple Companions		PRECLASS:2,Cavalier=1,Druid=1		PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Animal Companion	BONUS:VAR|CompanionDisable_AnimalCompanion|1	BONUS:VAR|CavalierMountLVL|DruidLVL
+Paladin Mount		KEY:Cavalier Mount Boost ~ Paladin	DESC:Remove Paladin companion and boost Cavalier Mount.		CATEGORY:Internal	TYPE:Multiple Companions		PRECLASS:2,Cavalier=1,Paladin=1	PREABILITY:1,CATEGORY=Special Ability,Divine Bond ~ Special Mount		BONUS:VAR|CompanionDisable_PaladinMount|1		BONUS:VAR|CavalierMountLVL|PaladinLVL
