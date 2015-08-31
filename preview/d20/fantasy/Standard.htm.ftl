@@ -227,9 +227,9 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
             <span class="font6" ><br />Hit Points</span></td>
           <td align="center" class="border9"><b>${pcstring('HP')}</b></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"><br /></td>
+          <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"><br /></td>
+          <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><b>&nbsp;${pcstring('DR')}&nbsp;</b></td>
           <td align="center"><br /></td>
@@ -269,15 +269,15 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
             <font style="font-size:5pt" color="white"><br />Vitality</font></td>
           <td align="center" class="border9"><b>${pcstring('HP')}</b></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"><br /></td>
+          <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"><br /></td>
+          <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
           <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>WP</b></span>
             <font style="font-size:5pt" color="white"><br />Wound Points</font></td>
           <td align="center" class="border9"><b>${pcstring('ALTHP')}</b></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"><br /></td>
+          <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><b>&nbsp;${pcstring('DR')}&nbsp;</b></td>
           <td align="center"><br /></td>
