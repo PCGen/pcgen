@@ -155,6 +155,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 				// The element is either of the form "TYPE=foo" or "DEX=9"
 				// if it is the later, we need to extract the '9'
 				subreq.setOperator(PrerequisiteOperator.GTEQ);
+				subreq.setCategoryName(filetype);
 				subreq.setKey(elements[i]);
 				subreq.setOperand("1");
 				prereq.addPrerequisite(subreq);
