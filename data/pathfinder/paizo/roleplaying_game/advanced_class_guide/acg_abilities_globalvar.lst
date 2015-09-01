@@ -119,17 +119,17 @@ CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_BloodlineFeat18|1|TYPE=Boo
 
 
 
-CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_Bloodline|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerBloodline
-CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_Bloodrage|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerBloodrage
-CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_FastMovement|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerFastMovement
-CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_BloodSanctuary|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerBloodSanctuary
-CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_BloodCasting|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerBloodCasting
-CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_EschewMaterials|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerEschewMaterials
-CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_DamageReduction|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerDamageReduction
-CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_GreaterBloodrage|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerGreaterBloodrage
-CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_IndomitableWill|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerIndomitableWill
-CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_TirelessBloodrage|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerTirelessBloodrage
-CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_MightyBloodrage|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerMightyBloodrage
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_Bloodline|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerBloodline
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_Bloodrage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerBloodrage
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_FastMovement|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerFastMovement
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_BloodSanctuary|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerBloodSanctuary
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_BloodCasting|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerBloodCasting
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_EschewMaterials|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerEschewMaterials
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_DamageReduction|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerDamageReduction
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_GreaterBloodrage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerGreaterBloodrage
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_IndomitableWill|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerIndomitableWill
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_TirelessBloodrage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerTirelessBloodrage
+CATEGORY=Class|Bloodrager.MOD	BONUS:VAR|Bloodrager_CF_MightyBloodrage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BloodragerMightyBloodrage
 
 
 
@@ -189,21 +189,21 @@ CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_CloseWeaponMastery|1|TYPE=Boolea
 CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_AwesomeBlow|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_AwesomeBlow=True
 CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_ImprovedAwesomeBlow|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_ImprovedAwesomeBlow=True
 
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_WeaponProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerWeaponProficiencies
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_ClassSkills|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerClassSkills
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_UnarmedStrike|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerUnarmedStrike
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BrawlersCunning|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerBrawlersCunning
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_MartialFlexibility|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerMartialFlexibility
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_MartialTraining|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerMartialTraining
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BonusFeats|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerBonusFeats
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BrawlersFlurry|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerBrawlersFlurry
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_ManeuverTraining|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerManeuverTraining
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_ACBonus|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerACBonus
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_Knockout|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerKnockout
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BrawlersStrike|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerBrawlersStrike
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_CloseWeaponMastery|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerCloseWeaponMastery
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_AwesomeBlow|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerAwesomeBlow
-CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_ImprovedAwesomeBlow|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerImprovedAwesomeBlow
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerWeaponProficiencies
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_ClassSkills|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerClassSkills
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_UnarmedStrike|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerUnarmedStrike
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BrawlersCunning|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerBrawlersCunning
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_MartialFlexibility|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerMartialFlexibility
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_MartialTraining|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerMartialTraining
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BonusFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerBonusFeats
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BrawlersFlurry|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerBrawlersFlurry
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_ManeuverTraining|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerManeuverTraining
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_ACBonus|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerACBonus
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_Knockout|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerKnockout
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_BrawlersStrike|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerBrawlersStrike
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_CloseWeaponMastery|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerCloseWeaponMastery
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_AwesomeBlow|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerAwesomeBlow
+CATEGORY=Class|Brawler.MOD	BONUS:VAR|Brawler_CF_ImprovedAwesomeBlow|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerImprovedAwesomeBlow
 
 #
 CATEGORY=Class|Hunter.MOD	ABILITY:Internal|AUTOMATIC|Hunter ~ Class Skills|PREVAREQ:Hunter_CF_ClassSkills,0
@@ -255,27 +255,27 @@ CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_GreaterEmpathicLink|1|TYPE=Boolean
 CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_OneWithTheWild|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_OneWithTheWild=True
 CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_MasterHunter|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hunter_CF_MasterHunter=True
 
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_WeaponProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterWeaponProficiencies
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_ArmorProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterArmorProficiencies
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_AnimalCompanion|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterAnimalCompanion
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_AnimalFocus|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterAnimalFocus
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_NatureTraining|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterNatureTraining
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_Orisons|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterOrisons
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_WildEmpathy|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterWildEmpathy
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_PreciseCompanion|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterPreciseCompanion
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_Track|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterTrack
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_HunterTactics|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterHunterTactics
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_TeamworkFeats|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterTeamworkFeats
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_ImprovedEmpatheticLink|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterImprovedEmpatheticLink
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_WoodlandStride|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterWoodlandStride
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_BonusTricks|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterBonusTricks
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_SecondAnimalFocus|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterSecondAnimalFocus
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_SwiftTracker|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterSwiftTracker
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_RaiseAnimalCompanion|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterRaiseAnimalCompanion
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_SpeakWithMaster|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterSpeakWithMaster
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_GreaterEmpathicLink|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterGreaterEmpathicLink
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_OneWithTheWild|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterOneWithTheWild
-CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_MasterHunter|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.HunterMasterHunter
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterWeaponProficiencies
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_ArmorProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterArmorProficiencies
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_AnimalCompanion|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterAnimalCompanion
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_AnimalFocus|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterAnimalFocus
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_NatureTraining|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterNatureTraining
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_Orisons|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterOrisons
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_WildEmpathy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterWildEmpathy
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_PreciseCompanion|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterPreciseCompanion
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_Track|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterTrack
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_HunterTactics|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterHunterTactics
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_TeamworkFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterTeamworkFeats
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_ImprovedEmpatheticLink|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterImprovedEmpatheticLink
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_WoodlandStride|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterWoodlandStride
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_BonusTricks|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterBonusTricks
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_SecondAnimalFocus|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterSecondAnimalFocus
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_SwiftTracker|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterSwiftTracker
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_RaiseAnimalCompanion|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterRaiseAnimalCompanion
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_SpeakWithMaster|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterSpeakWithMaster
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_GreaterEmpathicLink|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterGreaterEmpathicLink
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_OneWithTheWild|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterOneWithTheWild
+CATEGORY=Class|Hunter.MOD	BONUS:VAR|Hunter_CF_MasterHunter|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.HunterMasterHunter
 
 
 CATEGORY=Class|Hunter.MOD	DEFINE:Hunter_CF_TeamworkFeat3|0
@@ -354,20 +354,20 @@ CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_StudiedCombat|1|TYPE=B
 CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_StudiedStrike|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_StudiedStrike=True
 CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_TrueInspiration|1|TYPE=Boolean|PREFACT:1,ABILITIES,Investigator_CF_TrueInspiration=True
 
-CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_Proficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorWeaponProficiencies
-CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_Proficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorArmorProficiencies
-CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_Alchemy|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorAlchemy
-CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_Inspiration|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorInspiration
-CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_Trapfinding|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTrapfinding
-CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_PoisonLore|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorPoisonLore
-CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_PoisonResistance|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorPoisonResistance
-CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_Talents|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTalents
-CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_KeenRecollection|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorKeenRecollection
-CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_TrapSense|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTrapSense
-CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_SwiftAlchemy|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorSwiftAlchemy
-CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_StudiedCombat|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorStudiedCombat
-CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_StudiedStrike|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorStudiedStrike
-CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_TrueInspiration|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTrueInspiration
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_Proficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorWeaponProficiencies
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_Proficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorArmorProficiencies
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_Alchemy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorAlchemy
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_Inspiration|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorInspiration
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_Trapfinding|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTrapfinding
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_PoisonLore|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorPoisonLore
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_PoisonResistance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorPoisonResistance
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_Talents|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTalents
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_KeenRecollection|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorKeenRecollection
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_TrapSense|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTrapSense
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_SwiftAlchemy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorSwiftAlchemy
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_StudiedCombat|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorStudiedCombat
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_StudiedStrike|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorStudiedStrike
+CATEGORY=Class|Investigator.MOD	BONUS:VAR|Investigator_CF_TrueInspiration|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.InvestigatorTrueInspiration
 
 CATEGORY=Class|Shaman.MOD	ABILITY:Internal|AUTOMATIC|Shaman ~ Class Skills|PREVAREQ:Shaman_CF_ClassSkills,0
 
@@ -427,16 +427,16 @@ CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_WanderingSpirit|1|TYPE=Boolean|PRE
 CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_WanderingHex|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_WanderingHex=True
 CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_Manifestation|1|TYPE=Boolean|PREFACT:1,ABILITIES,Shaman_CF_Manifestation=True
 
-CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_WeaponProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanWeaponProficiencies
-CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_ArmorProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanArmorProficiencies
-CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_Orisons|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanOrisons
-CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_Spirit|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanSpirit
-CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_SpiritAnimal|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanSpiritAnimal
-CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_SpiritMagic|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanSpiritMagic
-CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_Hex|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanHex
-CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_WanderingSpirit|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanWanderingSpirit
-CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_WanderingHex|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanWanderingHex
-CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_Manifestation|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanManifestation
+CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanWeaponProficiencies
+CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_ArmorProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanArmorProficiencies
+CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_Orisons|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanOrisons
+CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_Spirit|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanSpirit
+CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_SpiritAnimal|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanSpiritAnimal
+CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_SpiritMagic|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanSpiritMagic
+CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_Hex|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanHex
+CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_WanderingSpirit|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanWanderingSpirit
+CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_WanderingHex|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanWanderingHex
+CATEGORY=Class|Shaman.MOD	BONUS:VAR|Shaman_CF_Manifestation|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ShamanManifestation
 
 #
 CATEGORY=Class|Skald.MOD	ABILITY:Internal|AUTOMATIC|Skald ~ Class Skills|PREVAREQ:Skald_CF_ClassSkills,0
@@ -494,26 +494,26 @@ CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_DirgeOfDoom|1|TYPE=Boolean|PREFACT:1
 CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_SongOfTheFallen|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_SongOfTheFallen=True
 CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_MasterSkald|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skald_CF_MasterSkald=True
 
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_WeaponProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldWeaponProficiencies
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_ArmorProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldArmorProficiencies
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_BardicKnowledge|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldBardicKnowledge
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_Cantrips|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldCantrips
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_RagingSong|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldRagingSong
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_InspiredRage|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldInspiredRage
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_ScribeScroll|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldScribeScroll
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_VersatilePerformance|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldVersatilePerformance
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_WellVersed|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldWellVersed
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_RagePowers|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldRagePowers
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_SongOfMarching|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldSongOfMarching
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_UncannyDodge|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldUncannyDodge
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_SpellKenning|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldSpellKenning
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_SongOfStrength|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldSongOfStrength
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_LoreMaster|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldLoreMaster
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_ImprovedUncannyDodge|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldImprovedUncannyDodge
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_DamageReduction|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldDamageReduction
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_DirgeOfDoom|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldDirgeOfDoom
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_SongOfTheFallen|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldSongOfTheFallen
-CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_MasterSkald|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldMasterSkald
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldWeaponProficiencies
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_ArmorProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldArmorProficiencies
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_BardicKnowledge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldBardicKnowledge
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_Cantrips|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldCantrips
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_RagingSong|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldRagingSong
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_InspiredRage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldInspiredRage
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_ScribeScroll|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldScribeScroll
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_VersatilePerformance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldVersatilePerformance
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_WellVersed|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldWellVersed
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_RagePowers|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldRagePowers
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_SongOfMarching|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldSongOfMarching
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_UncannyDodge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldUncannyDodge
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_SpellKenning|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldSpellKenning
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_SongOfStrength|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldSongOfStrength
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_LoreMaster|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldLoreMaster
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldImprovedUncannyDodge
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_DamageReduction|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldDamageReduction
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_DirgeOfDoom|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldDirgeOfDoom
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_SongOfTheFallen|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldSongOfTheFallen
+CATEGORY=Class|Skald.MOD	BONUS:VAR|Skald_CF_MasterSkald|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SkaldMasterSkald
 
 
 
@@ -554,21 +554,21 @@ CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Quarry|1|TYPE=Boolean|PREFACT:1,AB
 CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_ImprovedQuarry|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_ImprovedQuarry=True
 CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_MasterSlayer|1|TYPE=Boolean|PREFACT:1,ABILITIES,Slayer_CF_MasterSlayer=True
 
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_ArmorProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerArmorProficiencies
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_WeaponProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerWeaponProficiencies
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_LightArmorProficiency|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerLightArmorProficiency
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_MediumArmorProficiency|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerMediumArmorProficiency
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_ShieldProficiency|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerShieldProficiency
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_StudiedTarget|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerStudiedTarget
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Track|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerTrack
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Talents|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerTalents
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_SneakAttack|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerSneakAttack
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Stalker|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerStalker
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_SwiftTracker|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerSwiftTracker
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_SlayersAdvance|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerSlayersAdvance
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Quarry|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerQuarry
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_ImprovedQuarry|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerImprovedQuarry
-CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_MasterSlayer|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerMasterSlayer
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_ArmorProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerArmorProficiencies
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerWeaponProficiencies
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_LightArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerLightArmorProficiency
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_MediumArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerMediumArmorProficiency
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_ShieldProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerShieldProficiency
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_StudiedTarget|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerStudiedTarget
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Track|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerTrack
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Talents|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerTalents
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_SneakAttack|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerSneakAttack
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Stalker|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerStalker
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_SwiftTracker|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerSwiftTracker
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_SlayersAdvance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerSlayersAdvance
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_Quarry|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerQuarry
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_ImprovedQuarry|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerImprovedQuarry
+CATEGORY=Class|Slayer.MOD	BONUS:VAR|Slayer_CF_MasterSlayer|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SlayerMasterSlayer
 
 
 
@@ -622,18 +622,18 @@ CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_BonusFeats|1|TYPE=Bool
 CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_SwashbucklerWeaponTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Swashbuckler_CF_SwashbucklerWeaponTraining=True
 CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_SwashbucklerWeaponMastery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Swashbuckler_CF_SwashbucklerWeaponMastery=True
 
-CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_WeaponProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerWeaponProficiency
-CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_ArmorProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerArmorProficiencies
-CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_LightArmorProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerLightArmorProficiency
-CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_ShieldProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerShieldProficiency
-CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_Panache|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerPanache
-CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_Deeds|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerDeeds
-CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_SwashbucklerFinesse|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerSwashbucklerFinesse
-CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_CharmedLife|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerCharmedLife
-CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_Nimble|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerNimble
-CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_BonusFeats|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerBonusFeats
-CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_SwashbucklerWeaponTraining|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerSwashbucklerWeaponTraining
-CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_SwashbucklerWeaponMastery|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerSwashbucklerWeaponMastery
+CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerWeaponProficiency
+CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_ArmorProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerArmorProficiencies
+CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_LightArmorProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerLightArmorProficiency
+CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_ShieldProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerShieldProficiency
+CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_Panache|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerPanache
+CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_Deeds|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerDeeds
+CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_SwashbucklerFinesse|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerSwashbucklerFinesse
+CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_CharmedLife|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerCharmedLife
+CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_Nimble|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerNimble
+CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_BonusFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerBonusFeats
+CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_SwashbucklerWeaponTraining|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerSwashbucklerWeaponTraining
+CATEGORY=Class|Swashbuckler.MOD	BONUS:VAR|Swashbuckler_CF_SwashbucklerWeaponMastery|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SwashbucklerSwashbucklerWeaponMastery
 
 
 
@@ -733,24 +733,24 @@ CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_ChannelEnergy|1|TYPE=Boolean
 CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_SacredArmor|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_SacredArmor=True
 CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_AspectOfWar|1|TYPE=Boolean|PREFACT:1,ABILITIES,Warpriest_CF_AspectOfWar=True
 
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_ArmorProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestArmorProficiencies
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_WeaponProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestWeaponProficiencies
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_LightArmorProficiency|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestLightArmorProficiency
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_MediumArmorProficiency|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestMediumArmorProficiency
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_HeavyArmorProficiency|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestHeavyArmorProficiency
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_ShieldProficiencies|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestShieldProficiencies
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Aura|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestAura
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Blessings|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestBlessings
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_FocusWeapon|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestFocusWeapon
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Orisons|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestOrisons
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_SacredWeapon|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestSacredWeapon
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_SpontaneousCasting|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestSpontaneousCasting
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_BonusLanguages|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestBonusLanguages
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Fervor|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestFervor
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_BonusFeats|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestBonusFeats
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_ChannelEnergy|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestChannelEnergy
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_SacredArmor|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestSacredArmor
-CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_AspectOfWar|1|TYPE=Boolean|!PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestAspectOfWar
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_ArmorProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestArmorProficiencies
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestWeaponProficiencies
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_LightArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestLightArmorProficiency
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_MediumArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestMediumArmorProficiency
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_HeavyArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestHeavyArmorProficiency
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_ShieldProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestShieldProficiencies
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Aura|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestAura
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Blessings|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestBlessings
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_FocusWeapon|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestFocusWeapon
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Orisons|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestOrisons
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_SacredWeapon|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestSacredWeapon
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_SpontaneousCasting|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestSpontaneousCasting
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_BonusLanguages|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestBonusLanguages
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_Fervor|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestFervor
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_BonusFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestBonusFeats
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_ChannelEnergy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestChannelEnergy
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_SacredArmor|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestSacredArmor
+CATEGORY=Class|Warpriest.MOD	BONUS:VAR|Warpriest_CF_AspectOfWar|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WarpriestAspectOfWar
 
 
 
