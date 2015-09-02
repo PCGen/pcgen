@@ -113,10 +113,10 @@ CATEGORY=EqSlot|EQSlot Tracker.MOD					BONUS:SLOTS|Wrist|-2|!PREABILITY:1,CATEGO
 
 ###Block:
 # Ability Name		Category of Ability	Define				Combat bonus								Save bonus						Bonus to skill						Modify VAR
-Familiar (Armadillo)	CATEGORY:Internal		DEFINE:ArmadilloACBonus|0	BONUS:COMBAT|AC|ArmadilloACBonus|TYPE=NaturalArmor.STACK																BONUS:VAR|ArmadilloACBonus|1|TYPE=Familiar
-Familiar (Platypus)	CATEGORY:Internal																								BONUS:SKILL|Swim|3|TYPE=Familiar
-Familiar (Rabbit)		CATEGORY:Internal							BONUS:COMBAT|INITIATIVE|4|TYPE=Familiar
-Familiar (Skunk)		CATEGORY:Internal																	BONUS:SAVE|Fortitude|2|TYPE=Familiar
+Familiar (Armadillo)	CATEGORY:Internal		DEFINE:ArmadilloACBonus|0	BONUS:COMBAT|AC|ArmadilloACBonus|TYPE=NaturalArmor.STACK																BONUS:VAR|ArmadilloACBonus|FamiliarGrantedBonus_1|TYPE=Familiar
+Familiar (Platypus)	CATEGORY:Internal																								BONUS:SKILL|Swim|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar (Rabbit)		CATEGORY:Internal							BONUS:COMBAT|INITIATIVE|FamiliarGrantedBonus_4|TYPE=Familiar
+Familiar (Skunk)		CATEGORY:Internal																	BONUS:SAVE|Fortitude|FamiliarGrantedBonus_2|TYPE=Familiar
 Familiar (Squirrel)	CATEGORY:Internal																								BONUS:SKILL|Sleight of Hand|3|TYPE=Familiar
 
 ###Block: Boon Companion Selection
