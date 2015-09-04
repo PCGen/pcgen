@@ -88,4 +88,93 @@ public final class NumberUtilities
 		return new BigDecimal(number);
 	}
 
+	/**
+	 * Adds two numbers, returning the resulting Number. Maintains Integer math
+	 * if possible.
+	 * 
+	 * @param a
+	 *            The first number to be added
+	 * @param b
+	 *            The second number to be added
+	 * @return The result of the addition of the two given numbers
+	 */
+	public static Number add(Number a, Number b)
+	{
+		if (a instanceof Integer && b instanceof Integer)
+		{
+			return Integer.valueOf(a.intValue() + b.intValue());
+		}
+		return Double.valueOf(a.doubleValue() + b.doubleValue());
+	}
+
+	/**
+	 * Divides two numbers, returning the resulting Number. Maintains Integer
+	 * math if possible.
+	 * 
+	 * @param numerator
+	 *            The numerator in the division
+	 * @param divisor
+	 *            The divisor in the division
+	 * @return The result of the division of the two given numbers
+	 */
+	public static Number divide(Number numerator, Number divisor)
+	{
+		if (numerator instanceof Integer && numerator instanceof Integer)
+		{
+			int num = numerator.intValue();
+			int div = divisor.intValue();
+			if ((div != 0) && (num % div == 0))
+			{
+				return Integer.valueOf(num / div);
+			}
+		}
+		return Double.valueOf(numerator.doubleValue() / divisor.doubleValue());
+	}
+
+	/**
+	 * Returns the greater of the two given numbers.
+	 * 
+	 * @param a
+	 *            The first number to be checked
+	 * @param b
+	 *            The second number to be checked
+	 * @return The greater of the two given numbers
+	 */
+	public static Number max(Number a, Number b)
+	{
+		return (a.doubleValue() > b.doubleValue()) ? a : b;
+	}
+
+	/**
+	 * Returns the lesser of the two given numbers.
+	 * 
+	 * @param a
+	 *            The first number to be checked
+	 * @param b
+	 *            The second number to be checked
+	 * @return The lesser of the two given numbers
+	 */
+	public static Number min(Number a, Number b)
+	{
+		return (a.doubleValue() < b.doubleValue()) ? a : b;
+	}
+
+	/**
+	 * Multiplies two numbers, returning the resulting Number. Maintains Integer
+	 * math if possible.
+	 * 
+	 * @param a
+	 *            The first number to be multiplied
+	 * @param b
+	 *            The second number to be multiplied
+	 * @return The result of the multiplication of the two given numbers
+	 */
+	public static Number multiply(Number a, Number b)
+	{
+		if (a instanceof Integer && b instanceof Integer)
+		{
+			return Integer.valueOf(a.intValue() * b.intValue());
+		}
+		return Double.valueOf(a.doubleValue() * b.doubleValue());
+	}
 }

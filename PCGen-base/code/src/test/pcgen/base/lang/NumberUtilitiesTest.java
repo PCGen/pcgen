@@ -111,5 +111,52 @@ public class NumberUtilitiesTest extends TestCase
 		assertEquals(new BigDecimal("3141592653"), NumberUtilities.getPreciseNumber("3141592653"));
 	}
 
+	public void testAdd()
+	{
+		assertEquals(Integer.valueOf(6), NumberUtilities.add(3, 3));
+		assertEquals(Integer.valueOf(5), NumberUtilities.add(3, 2));
+		assertEquals(Double.valueOf(5.5), NumberUtilities.add(3, 2.5));
+		assertEquals(Double.valueOf(4.5), NumberUtilities.add(1.5, 3));
+		assertEquals(Integer.valueOf(0), NumberUtilities.add(3, -3));
+	}
+
+	public void testMax()
+	{
+		assertEquals(Integer.valueOf(3), NumberUtilities.max(3, 3));
+		assertEquals(Integer.valueOf(3), NumberUtilities.max(3, 2));
+		assertEquals(Integer.valueOf(3), NumberUtilities.max(3, 2.5));
+		assertEquals(Double.valueOf(4.5), NumberUtilities.max(4.5, 3));
+		assertEquals(Integer.valueOf(3), NumberUtilities.max(3, -3));
+	}
+
+	public void testMin()
+	{
+		assertEquals(Integer.valueOf(3), NumberUtilities.min(3, 3));
+		assertEquals(Integer.valueOf(2), NumberUtilities.min(2, 3));
+		assertEquals(Double.valueOf(2.5), NumberUtilities.min(3, 2.5));
+		assertEquals(Integer.valueOf(1), NumberUtilities.min(1.5, 1));
+		assertEquals(Integer.valueOf(-3), NumberUtilities.min(3, -3));
+	}
+
+	public void testDivide()
+	{
+		assertEquals(Integer.valueOf(1), NumberUtilities.divide(3, 3));
+		//Gets out of integer
+		assertEquals(Double.valueOf(1.5), NumberUtilities.divide(3, 2));
+		//Isn't expected to go back
+		assertEquals(Double.valueOf(3), NumberUtilities.divide(7.5, 2.5));
+		assertEquals(Integer.valueOf(3), NumberUtilities.divide(-9, -3));
+		assertEquals(Integer.valueOf(-3), NumberUtilities.divide(-12, 4));
+		assertEquals(Double.NEGATIVE_INFINITY, NumberUtilities.divide(-12, 0));
+	}
+
+	public void testMultiply()
+	{
+		assertEquals(Integer.valueOf(9), NumberUtilities.multiply(3, 3));
+		assertEquals(Integer.valueOf(6), NumberUtilities.multiply(3, 2));
+		assertEquals(Double.valueOf(7.5), NumberUtilities.multiply(3, 2.5));
+		assertEquals(Double.valueOf(4.5), NumberUtilities.multiply(1.5, 3));
+		assertEquals(Integer.valueOf(-9), NumberUtilities.multiply(3, -3));
+	}
 
 }
