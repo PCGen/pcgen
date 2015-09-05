@@ -186,4 +186,27 @@ public class OrderedPair
 	{
 		return x.toString() + "," + y.toString();
 	}
+	
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode()
+	{
+		return x.hashCode() * 17 + y.hashCode();
+	}
+	
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o instanceof OrderedPair)
+		{
+			OrderedPair other = (OrderedPair) o;
+			return x.equals(other.x) && y.equals(other.y);
+		}
+		return false;
+	}
 }
