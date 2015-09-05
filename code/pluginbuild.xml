@@ -254,10 +254,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${outputplugins.dir}/ExportToken-CLASSABB.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+		<jar jarfile="${outputplugins.dir}/ExportToken-DEPRECATED-CLASSABB.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/exporttokens/ClassAbbToken.class" />
+					<include name="plugin/exporttokens/deprecated/ClassAbbToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -268,17 +268,17 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${outputplugins.dir}/ExportToken-CLASSLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+		<jar jarfile="${outputplugins.dir}/ExportToken-DEPRECATED-CLASSLIST.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/exporttokens/ClassListToken.class" />
+					<include name="plugin/exporttokens/deprecated/ClassListToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${outputplugins.dir}/ExportToken-CLASS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+		<jar jarfile="${outputplugins.dir}/ExportToken-DEPRECATED-CLASS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/exporttokens/ClassToken.class" />
+					<include name="plugin/exporttokens/deprecated/ClassToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
