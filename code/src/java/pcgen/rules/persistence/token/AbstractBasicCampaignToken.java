@@ -27,6 +27,13 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 
+/**
+ * AbstractBasicCampaignToken is an abstract token that is a template for how
+ * most CampaignSourceEntry based tokens in Campaign (PCC) files work. This
+ * provides the basic parsing, all the implementing token needs to provide is
+ * the exact token name and the ListKey in which the CampaignSourceEntries
+ * should be stored.
+ */
 public abstract class AbstractBasicCampaignToken extends
 		AbstractTokenWithSeparator<Campaign>
 {
@@ -51,6 +58,14 @@ public abstract class AbstractBasicCampaignToken extends
 		return ParseResult.SUCCESS;
 	}
 
+	/**
+	 * The ListKey indicating the List in which the CampaignSourceEntries for
+	 * this token should be stored when a Campaign is being loaded.
+	 * 
+	 * @return The ListKey indicating the List in which the
+	 *         CampaignSourceEntries for this token should be stored when a
+	 *         Campaign is being loaded
+	 */
 	protected abstract ListKey<CampaignSourceEntry> getListKey();
 
 	public String[] unparse(LoadContext context, Campaign campaign)

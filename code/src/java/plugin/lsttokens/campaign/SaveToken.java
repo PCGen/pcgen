@@ -24,7 +24,7 @@ import pcgen.rules.persistence.token.AbstractBasicCampaignToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
- * Class deals with SAVES Token
+ * Class deals with SAVE Token
  */
 public class SaveToken extends AbstractBasicCampaignToken implements
 		CDOMPrimaryToken<Campaign>
@@ -38,6 +38,6 @@ public class SaveToken extends AbstractBasicCampaignToken implements
 	@Override
 	protected ListKey<CampaignSourceEntry> getListKey()
 	{
-		return ListKey.FILE_SAVES;
+		return ListKey.FILE_SAVE;
 	}
 }
