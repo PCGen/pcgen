@@ -21,7 +21,7 @@
  * $Id:  $
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
