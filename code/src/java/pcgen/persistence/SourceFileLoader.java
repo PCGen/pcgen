@@ -167,6 +167,11 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 	public SourceFileLoader(SourceSelectionFacade selection, UIDelegate delegate)
 	{
+		//Ensure object lists are not null (but rather empty)
+		for (ListKey<CampaignSourceEntry> lk : CampaignLoader.OBJECT_FILE_LISTKEY)
+		{
+			fileLists.initializeListFor(lk);
+		}
 		this.uiDelegate = delegate;
 		selectedCampaigns = new ArrayList<Campaign>();
 		for (CampaignFacade campaign : selection.getCampaigns())
@@ -1048,14 +1053,18 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 	private void stripLstExcludes(ListKey<?> lk)
 	{
-		for (CampaignSourceEntry exc : fileLists.getListFor(ListKey.FILE_LST_EXCLUDE))
+		List<CampaignSourceEntry> excludes = fileLists.getListFor(ListKey.FILE_LST_EXCLUDE);
+		if (excludes != null)
 		{
-			URI uri = exc.getURI();
-			for (CampaignSourceEntry cse : fileLists.getListFor(lk))
+			for (CampaignSourceEntry exc : excludes)
 			{
-				if (cse.getURI().equals(uri))
+				URI uri = exc.getURI();
+				for (CampaignSourceEntry cse : fileLists.getListFor(lk))
 				{
-					fileLists.removeFromListFor(lk, cse);
+					if (cse.getURI().equals(uri))
+					{
+						fileLists.removeFromListFor(lk, cse);
+					}
 				}
 			}
 		}
