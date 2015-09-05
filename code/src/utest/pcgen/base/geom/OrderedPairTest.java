@@ -18,13 +18,13 @@ package pcgen.base.geom;
 
 import junit.framework.TestCase;
 
-public class GridPointTest extends TestCase
+public class OrderedPairTest extends TestCase
 {
 	public void testValueOfNull()
 	{
 		try
 		{
-			GridPoint.valueOf(null);
+			OrderedPair.valueOf(null);
 			fail("null value should fail");
 		}
 		catch (NullPointerException e)
@@ -41,7 +41,7 @@ public class GridPointTest extends TestCase
 	{
 		try
 		{
-			GridPoint.valueOf("SomeString");
+			OrderedPair.valueOf("SomeString");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -54,7 +54,7 @@ public class GridPointTest extends TestCase
 	{
 		try
 		{
-			GridPoint.valueOf("1,3,4");
+			OrderedPair.valueOf("1,3,4");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -67,7 +67,7 @@ public class GridPointTest extends TestCase
 	{
 		try
 		{
-			GridPoint.valueOf("1,");
+			OrderedPair.valueOf("1,");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -80,7 +80,7 @@ public class GridPointTest extends TestCase
 	{
 		try
 		{
-			GridPoint.valueOf(",4");
+			OrderedPair.valueOf(",4");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -94,7 +94,7 @@ public class GridPointTest extends TestCase
 	{
 		try
 		{
-			GridPoint.valueOf("x,4");
+			OrderedPair.valueOf("x,4");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -103,7 +103,7 @@ public class GridPointTest extends TestCase
 		}
 		try
 		{
-			GridPoint.valueOf("3-0,4");
+			OrderedPair.valueOf("3-0,4");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -117,7 +117,7 @@ public class GridPointTest extends TestCase
 	{
 		try
 		{
-			GridPoint.valueOf("5,x");
+			OrderedPair.valueOf("5,x");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -126,7 +126,7 @@ public class GridPointTest extends TestCase
 		}
 		try
 		{
-			GridPoint.valueOf("5,5..6");
+			OrderedPair.valueOf("5,5..6");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -137,7 +137,7 @@ public class GridPointTest extends TestCase
 	
 	public void testValueOf()
 	{
-		GridPoint gp = GridPoint.valueOf("4,6");
+		OrderedPair gp = OrderedPair.valueOf("4,6");
 		assertEquals(Integer.valueOf(4), gp.getPreciseX());
 		assertEquals(Integer.valueOf(6), gp.getPreciseY());
 		assertEquals("4,6", gp.toString());

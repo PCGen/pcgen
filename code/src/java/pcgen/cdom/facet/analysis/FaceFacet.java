@@ -19,7 +19,7 @@ package pcgen.cdom.facet.analysis;
 
 import java.math.BigDecimal;
 
-import pcgen.base.geom.GridPoint;
+import pcgen.base.geom.OrderedPair;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
@@ -37,7 +37,7 @@ import pcgen.output.publish.OutputDB;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class FaceFacet implements ItemFacet<CharID, GridPoint>
+public class FaceFacet implements ItemFacet<CharID, OrderedPair>
 {
 
 	private static final Integer ZERO = Integer.valueOf(0);
@@ -58,14 +58,14 @@ public class FaceFacet implements ItemFacet<CharID, GridPoint>
 	 * @return The Face of the Player Character represented by the given CharID
 	 */
 	@Override
-	public GridPoint get(CharID id)
+	public OrderedPair get(CharID id)
 	{
 		final Race aRace = raceFacet.get(id);
 		// Default to 5' by 5'
-		GridPoint face = new GridPoint(FIVE, ZERO);
+		OrderedPair face = new OrderedPair(FIVE, ZERO);
 		if (aRace != null)
 		{
-			GridPoint rf = getFace(aRace);
+			OrderedPair rf = getFace(aRace);
 			if (rf != null)
 			{
 				face = rf;
@@ -75,7 +75,7 @@ public class FaceFacet implements ItemFacet<CharID, GridPoint>
 		// Scan templates for any overrides
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
-			GridPoint tf = getFace(template);
+			OrderedPair tf = getFace(template);
 			if (tf != null)
 			{
 				face = tf;
@@ -93,7 +93,7 @@ public class FaceFacet implements ItemFacet<CharID, GridPoint>
 	 * @return The Point2D indicating the Face as defined by the given
 	 *         CDOMObject.
 	 */
-	private GridPoint getFace(CDOMObject cdo)
+	private OrderedPair getFace(CDOMObject cdo)
 	{
 		BigDecimal width = cdo.get(ObjectKey.FACE_WIDTH);
 		BigDecimal height = cdo.get(ObjectKey.FACE_HEIGHT);
@@ -101,7 +101,7 @@ public class FaceFacet implements ItemFacet<CharID, GridPoint>
 		{
 			return null;
 		}
-		return new GridPoint(width, height);
+		return new OrderedPair(width, height);
 	}
 
 	public void setTemplateFacet(TemplateFacet templateFacet)

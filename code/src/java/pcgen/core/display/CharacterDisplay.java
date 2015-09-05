@@ -30,7 +30,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.geom.GridPoint;
+import pcgen.base.geom.OrderedPair;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
@@ -749,7 +749,7 @@ public class CharacterDisplay
 		return handedFacet.getHanded(id);
 	}
 
-	public GridPoint getFace()
+	public OrderedPair getFace()
 	{
 		return faceFacet.get(id);
 	}

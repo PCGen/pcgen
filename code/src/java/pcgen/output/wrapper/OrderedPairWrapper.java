@@ -17,17 +17,17 @@
  */
 package pcgen.output.wrapper;
 
-import pcgen.base.geom.GridPoint;
-import pcgen.output.model.GridPointModel;
+import pcgen.base.geom.OrderedPair;
+import pcgen.output.model.OrderedPairModel;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 /**
- * An GridPointWrapper is an ObjectWrapper capable of producing a TemplateModel
- * for GridPoint objects.
+ * An OrderedPairWrapper is an ObjectWrapper capable of producing a
+ * TemplateModel for OrderedPair objects.
  */
-public class GridPointWrapper implements ObjectWrapper
+public class OrderedPairWrapper implements ObjectWrapper
 {
 	/**
 	 * @see freemarker.template.ObjectWrapper#wrap(java.lang.Object)
@@ -35,10 +35,10 @@ public class GridPointWrapper implements ObjectWrapper
 	@Override
 	public TemplateModel wrap(Object o) throws TemplateModelException
 	{
-		if (o instanceof GridPoint)
+		if (o instanceof OrderedPair)
 		{
-			return new GridPointModel((GridPoint) o);
+			return new OrderedPairModel((OrderedPair) o);
 		}
-		throw new TemplateModelException("Object was not a GridPoint");
+		throw new TemplateModelException("Object was not an OrderedPair");
 	}
 }

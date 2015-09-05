@@ -27,7 +27,7 @@ package plugin.exporttokens.deprecated;
 
 import java.text.DecimalFormat;
 
-import pcgen.base.geom.GridPoint;
+import pcgen.base.geom.OrderedPair;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
@@ -94,7 +94,7 @@ public class FaceToken extends AbstractExportToken
 	 */
 	public static String getFaceToken(CharacterDisplay display)
 	{
-		GridPoint face = display.getFace();
+		OrderedPair face = display.getFace();
 		String retString = "";
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
@@ -124,7 +124,7 @@ public class FaceToken extends AbstractExportToken
 	 */
 	public static String getShortToken(CharacterDisplay display)
 	{
-		GridPoint face = display.getFace();
+		OrderedPair face = display.getFace();
 		String retString = "";
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
@@ -154,7 +154,7 @@ public class FaceToken extends AbstractExportToken
 	 */
 	public static String getSquaresToken(CharacterDisplay display)
 	{
-		GridPoint face = display.getFace();
+		OrderedPair face = display.getFace();
 		String retString = "";
 		double squareSize = SettingsHandler.getGame().getSquareSize();
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))

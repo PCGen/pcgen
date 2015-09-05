@@ -17,7 +17,7 @@
  */
 package pcgen.output.model;
 
-import pcgen.base.geom.GridPoint;
+import pcgen.base.geom.OrderedPair;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
@@ -25,27 +25,27 @@ import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;
 
 /**
- * A GridPointModel wraps a GridPoint object into a TemplateScalarModel and
+ * A OrderedPairModel wraps a OrderedPair object into a TemplateScalarModel and
  * TemplateHashModel
  */
-public class GridPointModel implements TemplateScalarModel, TemplateHashModel
+public class OrderedPairModel implements TemplateScalarModel, TemplateHashModel
 {
 	/**
-	 * The underlying GridPoint object
+	 * The underlying OrderedPair object
 	 */
-	private final GridPoint point;
+	private final OrderedPair point;
 
 	/**
-	 * Constructs a new GridPointModel with the given underlying GridPoint
+	 * Constructs a new OrderedPairModel with the given underlying OrderedPair
 	 * 
 	 * @param cat
-	 *            The GridPoint this GridPointModel wraps
+	 *            The OrderedPair this OrderedPairModel wraps
 	 */
-	public GridPointModel(GridPoint point)
+	public OrderedPairModel(OrderedPair point)
 	{
 		if (point == null)
 		{
-			throw new IllegalArgumentException("GridPoint cannot be null");
+			throw new IllegalArgumentException("OrderedPair cannot be null");
 		}
 		this.point = point;
 	}
@@ -71,7 +71,7 @@ public class GridPointModel implements TemplateScalarModel, TemplateHashModel
 			ObjectWrapper.SIMPLE_WRAPPER.wrap(point.getPreciseY());
 		}
 		throw new TemplateModelException(
-			"object of type GridPoint did not have output of type " + key);
+			"object of type OrderedPair did not have output of type " + key);
 	}
 
 	@Override
