@@ -45,14 +45,13 @@ public final class MessageFormatUtilities
 	{
 		Format[] formats = msgFormat.getFormatsByArgumentIndex();
 		int required = formats.length;
+		MessageFormat mf = new MessageFormat("");
 		for (Format fmt : formats)
 		{
 			if (fmt instanceof java.text.ChoiceFormat)
 			{
-				MessageFormat choiceMF =
-						new MessageFormat(((ChoiceFormat) fmt).toPattern());
-				required =
-						Math.max(required, getRequriedArgumentCount(choiceMF));
+				mf.applyPattern(((ChoiceFormat) fmt).toPattern());
+				required = Math.max(required, getRequriedArgumentCount(mf));
 			}
 		}
 		return required;
