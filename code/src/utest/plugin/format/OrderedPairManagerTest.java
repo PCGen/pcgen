@@ -16,11 +16,11 @@
  */
 package plugin.format;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 
 import junit.framework.TestCase;
 import pcgen.base.geom.OrderedPair;
-import plugin.format.OrderedPairManager;
 
 public class OrderedPairManagerTest extends TestCase
 {
@@ -137,7 +137,7 @@ public class OrderedPairManagerTest extends TestCase
 	{
 		assertEquals(new OrderedPair(1, 1), manager.convert(null, "1,1"));
 		assertEquals(new OrderedPair(-3, 4), manager.convert(null, "-3,4"));
-		assertEquals(new OrderedPair(1.4, 6.5), manager.convert(null, "1.4,6.5"));
+		assertEquals(new OrderedPair(new BigDecimal("1.4"), new BigDecimal("6.5")), manager.convert(null, "1.4,6.5"));
 	}
 
 	public void testUnconvert()
@@ -153,8 +153,8 @@ public class OrderedPairManagerTest extends TestCase
 			.resolvesTo());
 		assertEquals(new OrderedPair(-3, 4), manager.convertIndirect(null, "-3,4")
 			.resolvesTo());
-		assertEquals(new OrderedPair(1.4, 6.5), manager
-			.convertIndirect(null, "1.4,6.5").resolvesTo());
+		assertEquals(new OrderedPair(new BigDecimal("1.4"), new BigDecimal(
+			"6.5")), manager.convertIndirect(null, "1.4,6.5").resolvesTo());
 	}
 
 	public void testConvertObjectContainer()
@@ -168,7 +168,7 @@ public class OrderedPairManagerTest extends TestCase
 		assertEquals(new OrderedPair(-3, 4), co.iterator().next());
 		co = manager.convertObjectContainer(null, "1.4,6.5").getContainedObjects();
 		assertEquals(1, co.size());
-		assertEquals(new OrderedPair(1.4, 6.5), co.iterator().next());
+		assertEquals(new OrderedPair(new BigDecimal("1.4"), new BigDecimal("6.5")), co.iterator().next());
 	}
 
 }
