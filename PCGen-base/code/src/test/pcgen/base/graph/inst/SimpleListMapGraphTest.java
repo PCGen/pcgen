@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.inst;
 
 import java.util.Arrays;
 
@@ -23,12 +23,13 @@ import pcgen.base.graph.base.Edge;
 import pcgen.base.graph.base.Graph;
 import pcgen.base.graph.inst.DefaultGraphEdge;
 import pcgen.base.graph.inst.DefaultHyperEdge;
-import pcgen.base.graph.inst.SimpleListGraph;
+import pcgen.base.graph.inst.SimpleListMapGraph;
 
-public class SimpleListGraphTest extends AbstractGraphTestCase<Edge<Integer>>
+public class SimpleListMapGraphTest extends
+		AbstractGraphTestCase<Edge<Integer>>
 {
 
-	private Graph<Integer, Edge<Integer>> strategy;
+	private SimpleListMapGraph<Integer, Edge<Integer>> strategy;
 
 	@Override
 	protected DefaultHyperEdge<Integer> getLegalHyperEdge(Integer[] gna2)
@@ -52,7 +53,7 @@ public class SimpleListGraphTest extends AbstractGraphTestCase<Edge<Integer>>
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		strategy = new SimpleListGraph<Integer, Edge<Integer>>();
+		strategy = new SimpleListMapGraph<Integer, Edge<Integer>>();
 	}
 
 	/**
@@ -62,5 +63,38 @@ public class SimpleListGraphTest extends AbstractGraphTestCase<Edge<Integer>>
 	Graph<Integer, Edge<Integer>> getStrategy()
 	{
 		return strategy;
+	}
+
+	public void testGetInternalizedNode()
+	{
+		Integer node = new Integer(1);
+		Integer node2 = new Integer(2);
+		Integer falseNode1 = new Integer(1); //MUST NOT BE Integer.valueOf(1)!!!!!
+		assertFalse(strategy.containsNode(node));
+		assertFalse(strategy.containsNode(node2));
+		assertFalse(strategy.containsNode(falseNode1));
+		assertEquals(0, strategy.getNodeList().size());
+		// No nodes are in the graph, so response is null
+		assertNull(strategy.getInternalizedNode(null));
+		assertNull(strategy.getInternalizedNode(node));
+		assertNull(strategy.getInternalizedNode(node2));
+		assertNull(strategy.getInternalizedNode(falseNode1));
+
+		assertTrue(strategy.addNode(node));
+		assertTrue(strategy.containsNode(node));
+		assertFalse(strategy.containsNode(node2));
+		//Note that this returns true due to .equals()
+		assertTrue(strategy.containsNode(falseNode1));
+		//But that an instance test will fail
+		for (Integer i : strategy.getNodeList())
+		{
+			assertTrue(i == node || i == node2);
+			assertTrue(i != falseNode1);
+		}
+		assertTrue(node == strategy.getInternalizedNode(node));
+		assertNull(strategy.getInternalizedNode(node2));
+		//And getInternalizedNode will actually return the instance 
+		//that is .equal() to the given node, not the given node.
+		assertTrue(node == strategy.getInternalizedNode(falseNode1));
 	}
 }

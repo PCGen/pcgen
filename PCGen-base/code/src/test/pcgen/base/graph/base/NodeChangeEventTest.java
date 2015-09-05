@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.base.graph.core;
+package pcgen.base.graph.base;
 
 import pcgen.base.graph.base.Edge;
 import pcgen.base.graph.base.NodeChangeEvent;
