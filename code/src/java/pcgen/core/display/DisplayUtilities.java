@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;
 
+@Deprecated
 public final class DisplayUtilities
 {
 	private DisplayUtilities()
@@ -28,6 +29,7 @@ public final class DisplayUtilities
 	 * @return A 'separator' separated String containing the Display Name of the
 	 *         given Collection of CDOMObject objects
 	 */
+	@Deprecated
 	public static String joinDisplayName(
 		Collection<? extends CDOMObject> cdoCollection, String separator)
 	{
