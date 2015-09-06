@@ -47,15 +47,13 @@ sourceSets {
     }
 }
 
-def testSources = ['**/testsupport/**', '**/Abstract**TestCase', '**/*Test']
-
 test {
     systemProperties 'property': 'value'
 }
 
 jacocoTestReport {
     afterEvaluate {
-       	classDirectories = files(classDirectories.files.collect {fileTree(dir: it, exclude: testSources)})
+       	classDirectories = files(classDirectories.files.collect {fileTree(dir: 'code/src/test', exclude: '**')})
     }
     reports {
         html {
