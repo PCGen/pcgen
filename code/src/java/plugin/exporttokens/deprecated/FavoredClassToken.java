@@ -1,5 +1,5 @@
 /*
- * ClassListToken.java
+ * AgeToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,24 +18,25 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * Current Ver: $Revision: 1777 $
+ * Last Editor: $Author: jdempsey $
+ * Last Edited: $Date: 2006-12-17 05:36:01 +0100 (Sun, 17 Dec 2006) $
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
-import pcgen.cdom.base.Constants;
+import java.util.SortedSet;
+
+import pcgen.base.lang.StringUtil;
 import pcgen.core.PCClass;
-import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * Deal with CLASSLIST token
+ * Class handles AGE Token 
  */
-public class ClassListToken extends AbstractExportToken
+public class FavoredClassToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -43,7 +44,7 @@ public class ClassListToken extends AbstractExportToken
 	@Override
 	public String getTokenName()
 	{
-		return "CLASSLIST";
+		return "FAVOREDCLASS";
 	}
 
 	/**
@@ -53,43 +54,7 @@ public class ClassListToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getClassListToken(display);
-	}
-
-	/**
-	 * Get the class list token value for the PC
-	 * @param pc
-	 * @return token value
-	 */
-	public static String getClassListToken(CharacterDisplay display)
-	{
-		StringBuilder returnString = new StringBuilder();
-		boolean firstLine = true;
-
-		for (PCClass pcClass : display.getClassSet())
-		{
-			if (!firstLine)
-			{
-				returnString.append(" ");
-			}
-
-			firstLine = false;
-
-			String subClassKey = display.getSubClassName(pcClass);
-			if (subClassKey == null || Constants.NONE.equals(subClassKey)
-					|| "".equals(subClassKey))
-			{
-				returnString.append(OutputNameFormatting.getOutputName(pcClass));
-			}
-			else
-			{
-				returnString.append(pcClass.getSubClassKeyed(
-						subClassKey).getDisplayName());
-			}
-
-			returnString.append(display.getLevel(pcClass));
-		}
-
-		return returnString.toString();
+		SortedSet<PCClass> favClass = display.getFavoredClasses();
+		return favClass.isEmpty() ? "" : StringUtil.join(favClass, ", ");
 	}
 }

@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.analysis;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
@@ -25,6 +26,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.output.publish.OutputDB;
 
 /**
  * HasAnyFavoredClassFacet is a Facet that tracks if the Player Character has
@@ -33,7 +35,7 @@ import pcgen.cdom.facet.model.TemplateFacet;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<CharID, Boolean>
-		implements DataFacetChangeListener<CharID, CDOMObject>
+		implements DataFacetChangeListener<CharID, CDOMObject>, ItemFacet<CharID, Boolean>
 {
 
 	private RaceFacet raceFacet;
@@ -95,6 +97,7 @@ public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<CharID, Bo
 	{
 		raceFacet.addDataFacetChangeListener(this);
 		templateFacet.addDataFacetChangeListener(this);
+		OutputDB.register("hasanyfavoredclass", this);
 	}
 
 	public void setRaceFacet(RaceFacet raceFacet)
@@ -105,6 +108,12 @@ public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<CharID, Bo
 	public void setTemplateFacet(TemplateFacet templateFacet)
 	{
 		this.templateFacet = templateFacet;
+	}
+
+	@Override
+	public Boolean get(CharID id)
+	{
+		return Boolean.valueOf(contains(id, Boolean.TRUE));
 	}
 
 }

@@ -1,6 +1,6 @@
 /*
- * BRToken.java
- * Copyright 2005 (C) James Dempsey <jdempsey@users.sourceforge.net>
+ * ClassAbbToken.java
+ * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,25 +16,26 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on October 13, 2005, 8:20 PM
+ * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
  * Last Editor: $Author$
  * Last Edited: $Date$
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
+import java.util.StringTokenizer;
+
+import pcgen.core.PCClass;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * BRToken outputs a line break to the output file.
- * 
- * Token syntax: BR
+ * Deals with CLASSABB.x token
  */
-public class BRToken extends AbstractExportToken
+public class ClassAbbToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -42,7 +43,7 @@ public class BRToken extends AbstractExportToken
 	@Override
 	public String getTokenName()
 	{
-		return "BR";
+		return "CLASSABB";
 	}
 
 	/**
@@ -52,6 +53,47 @@ public class BRToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return "[BR]";
+		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
+		aTok.nextToken();
+
+		int i = 0;
+
+		if (aTok.hasMoreTokens())
+		{
+			i = Integer.parseInt(aTok.nextToken());
+		}
+
+		return getClassAbbToken(display, i);
+	}
+
+	/**
+	 * Get the token
+	 * @param pc
+	 * @param classNumber
+	 * @return token
+	 */
+	public static String getClassAbbToken(CharacterDisplay display, int classNumber)
+	{
+		String retString = "";
+
+		if (display.getClassCount() > classNumber)
+		{
+			PCClass pcClass = display.getClassList().get(classNumber);
+			String subClassKey = display.getDisplayClassName(pcClass);
+
+			if (!pcClass.getKeyName().equals(subClassKey))
+			{
+				PCClass subClass = pcClass.getSubClassKeyed(subClassKey);
+
+				if (subClass != null)
+				{
+					pcClass = subClass;
+				}
+			}
+
+			retString = pcClass.getAbbrev();
+		}
+
+		return retString;
 	}
 }

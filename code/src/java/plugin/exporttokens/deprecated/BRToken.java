@@ -1,6 +1,6 @@
 /*
- * FavoredListToken.java
- * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
+ * BRToken.java
+ * Copyright 2005 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,30 +16,25 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2003, 12:21 PM
+ * Created on October 13, 2005, 8:20 PM
  *
  * Current Ver: $Revision$
  * Last Editor: $Author$
  * Last Edited: $Date$
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
-import pcgen.core.PCClass;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * Handle the FAVOREDLIST token which produces a list of a character's
- * favored classes.
- *
- * Last Editor: $Author$
- * Last Edited: $Date$
- *
- * @version $Revision$
+ * BRToken outputs a line break to the output file.
+ * 
+ * Token syntax: BR
  */
-public class FavoredListToken extends AbstractExportToken
+public class BRToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -47,7 +42,7 @@ public class FavoredListToken extends AbstractExportToken
 	@Override
 	public String getTokenName()
 	{
-		return "FAVOREDLIST";
+		return "BR";
 	}
 
 	/**
@@ -57,30 +52,6 @@ public class FavoredListToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getFavoredListToken(display);
-	}
-
-	/**
-	 * Retrieve the list of favored classes for the PC.
-	 * @param pc The character to be queried.
-	 * @return The text comma seperated list of favored classes.
-	 */
-	public static String getFavoredListToken(CharacterDisplay display)
-	{
-		if (display.hasAnyFavoredClass())
-		{
-			return "Any";
-		}
-		StringBuilder sb = new StringBuilder();
-		boolean first = true;
-		for (PCClass pcc : display.getFavoredClasses())
-		{
-			if (!first)
-			{
-				sb.append(", ");
-			}
-			sb.append(pcc.getFullKey());
-		}
-		return sb.toString();
+		return "[BR]";
 	}
 }

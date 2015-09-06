@@ -22,6 +22,7 @@ import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
@@ -31,6 +32,7 @@ import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCClass;
+import pcgen.output.publish.OutputDB;
 
 /**
  * FavoredClassFacet is a Facet that tracks the Favored Classes that have been
@@ -38,8 +40,9 @@ import pcgen.core.PCClass;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class FavoredClassFacet extends AbstractSourcedListFacet<CharID, PCClass>
-		implements DataFacetChangeListener<CharID, CDOMObject>
+public class FavoredClassFacet extends
+		AbstractSourcedListFacet<CharID, PCClass> implements
+		DataFacetChangeListener<CharID, CDOMObject>, SetFacet<CharID, PCClass>
 {
 
 	private HasAnyFavoredClassFacet hasAnyFavoredClassFacet;
@@ -162,5 +165,6 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<CharID, PCClass>
 	{
 		raceFacet.addDataFacetChangeListener(this);
 		templateFacet.addDataFacetChangeListener(this);
+		OutputDB.register("favoredclass", this);
 	}
 }

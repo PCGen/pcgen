@@ -1,5 +1,5 @@
 /*
- * HeightToken.java
+ * FavoredListToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -23,21 +23,23 @@
  * Last Edited: $Date$
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
-import pcgen.cdom.enumeration.BiographyField;
+import pcgen.core.PCClass;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * Deals with Tokens:
- * 
- * HEIGHT
- * HEIGHT.FOOTPART
- * HEIGHT.INCHPART
+ * Handle the FAVOREDLIST token which produces a list of a character's
+ * favored classes.
+ *
+ * Last Editor: $Author$
+ * Last Edited: $Date$
+ *
+ * @version $Revision$
  */
-public class HeightToken extends AbstractExportToken
+public class FavoredListToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -45,7 +47,7 @@ public class HeightToken extends AbstractExportToken
 	@Override
 	public String getTokenName()
 	{
-		return "HEIGHT";
+		return "FAVOREDLIST";
 	}
 
 	/**
@@ -55,24 +57,30 @@ public class HeightToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		String retString = "";
+		return getFavoredListToken(display);
+	}
 
-		if (!display.getSuppressBioField(BiographyField.HEIGHT))
+	/**
+	 * Retrieve the list of favored classes for the PC.
+	 * @param pc The character to be queried.
+	 * @return The text comma seperated list of favored classes.
+	 */
+	public static String getFavoredListToken(CharacterDisplay display)
+	{
+		if (display.hasAnyFavoredClass())
 		{
-			if ("HEIGHT".equals(tokenSource))
-			{
-				retString = display.getHeightString();
-			}
-			else if ("HEIGHT.FOOTPART".equals(tokenSource))
-			{
-				retString = display.getCharacterHeightFootPart();
-			}
-			else if ("HEIGHT.INCHPART".equals(tokenSource))
-			{
-				retString = display.getCharacterHeightInchPart();
-			}
+			return "Any";
 		}
-		
-		return retString;
+		StringBuilder sb = new StringBuilder();
+		boolean first = true;
+		for (PCClass pcc : display.getFavoredClasses())
+		{
+			if (!first)
+			{
+				sb.append(", ");
+			}
+			sb.append(pcc.getFullKey());
+		}
+		return sb.toString();
 	}
 }

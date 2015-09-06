@@ -91,7 +91,6 @@ import pcgen.core.WeaponProf;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SkillInfoUtilities;
-import pcgen.core.analysis.SpellPoint;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
@@ -1748,12 +1747,6 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			b.appendI18nElement("InfoSpellsSubTab.PPCost", String //$NON-NLS-1$
 				.valueOf(aSpell.getSafe(IntegerKey.PP_COST)));
-			b.appendLineBreak();
-		}
-		if (Spell.hasSpellPointCost())
-		{
-			b.appendI18nElement("InfoSpellsSubTab.SpellPointCost", String //$NON-NLS-1$
-				.valueOf(SpellPoint.getSPCostStrings(pc, aSpell)));
 			b.appendLineBreak();
 		}
 		b.appendLineBreak();

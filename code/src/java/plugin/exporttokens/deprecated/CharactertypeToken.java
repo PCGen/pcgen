@@ -1,5 +1,5 @@
 /*
- * ReachToken.java
+ * CharactertypeToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,23 +18,21 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * Current Ver: $Revision: 5645 $
+ * Last Editor: $Author: karianna $
+ * Last Edited: $Date: 2008-03-20 13:57:06 +0100 (Do, 20 Mar 2008) $
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
-import java.text.DecimalFormat;
-
-import pcgen.core.Globals;
-import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
-//REACH
-public class ReachToken extends AbstractExportToken
+/**
+ * Deal with Charactertype Token
+ */
+public class CharactertypeToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -42,7 +40,7 @@ public class ReachToken extends AbstractExportToken
 	@Override
 	public String getTokenName()
 	{
-		return "REACH";
+		return "CHARACTERTYPE";
 	}
 
 	/**
@@ -52,39 +50,6 @@ public class ReachToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		String retString = "";
-
-		if ("REACH".equals(tokenSource))
-		{
-			retString = getToken(display);
-		}
-		else if ("REACH.VAL".equals(tokenSource))
-		{
-			return Integer.toString(getReachToken(display));
-		}
-		else if ("REACH.SQUARES".equals(tokenSource))
-		{
-			retString = getSquaresToken(display);
-		}
-
-		return retString;
-	}
-
-	public static int getReachToken(CharacterDisplay display)
-	{
-		return display.getReach();
-	}
-
-	public static String getToken(CharacterDisplay display)
-	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			getReachToken(display))
-			+ Globals.getGameModeUnitSet().getDistanceUnit();
-	}
-
-	public static String getSquaresToken(CharacterDisplay display)
-	{
-		return new DecimalFormat("#.#").format(getReachToken(display)
-			/ SettingsHandler.getGame().getSquareSize());
+		return display.getCharacterType();
 	}
 }

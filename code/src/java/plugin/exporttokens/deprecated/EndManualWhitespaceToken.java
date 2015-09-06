@@ -1,5 +1,5 @@
 /*
- * ManualWhitespaceToken.java
+ * EndManualWhitespaceToken.java
  * Copyright 2006 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -21,16 +21,16 @@
  * $Id:  $
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * Token that represents the start of controlled manual whitespace
+ * Token that represents the end of author controlled whitespace
  */
-public class ManualWhitespaceToken extends AbstractExportToken
+public class EndManualWhitespaceToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -38,7 +38,7 @@ public class ManualWhitespaceToken extends AbstractExportToken
 	@Override
 	public String getTokenName()
 	{
-		return "MANUALWHITESPACE";
+		return "ENDMANUALWHITESPACE";
 	}
 
 	/**
@@ -48,7 +48,7 @@ public class ManualWhitespaceToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		eh.setManualWhitespace(true);
+		eh.setManualWhitespace(false);
 		return "";
 	}
 

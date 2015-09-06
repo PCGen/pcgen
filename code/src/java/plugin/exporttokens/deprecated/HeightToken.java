@@ -1,5 +1,5 @@
 /*
- * GenderToken.java
+ * HeightToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -23,7 +23,7 @@
  * Last Edited: $Date$
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.display.CharacterDisplay;
@@ -31,13 +31,13 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * Deal with:
+ * Deals with Tokens:
  * 
- * GENDER
- * GENDER.SHORT
- * GENDER.LONG
+ * HEIGHT
+ * HEIGHT.FOOTPART
+ * HEIGHT.INCHPART
  */
-public class GenderToken extends AbstractExportToken
+public class HeightToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -45,7 +45,7 @@ public class GenderToken extends AbstractExportToken
 	@Override
 	public String getTokenName()
 	{
-		return "GENDER";
+		return "HEIGHT";
 	}
 
 	/**
@@ -56,19 +56,20 @@ public class GenderToken extends AbstractExportToken
 		ExportHandler eh)
 	{
 		String retString = "";
-		if (!display.getSuppressBioField(BiographyField.GENDER))
+
+		if (!display.getSuppressBioField(BiographyField.HEIGHT))
 		{
-			/*
-			 * TODO Short and long result are the same as Gender is no longer
-			 * abbreviated in PC (what to do?)
-			 */
-			if ("GENDER".equals(tokenSource) || "GENDER.SHORT".equals(tokenSource))
+			if ("HEIGHT".equals(tokenSource))
 			{
-				retString = display.getGenderObject().toString();
+				retString = display.getHeightString();
 			}
-			else if ("GENDER.LONG".equals(tokenSource))
+			else if ("HEIGHT.FOOTPART".equals(tokenSource))
 			{
-				retString = display.getGenderObject().toString();
+				retString = display.getCharacterHeightFootPart();
+			}
+			else if ("HEIGHT.INCHPART".equals(tokenSource))
+			{
+				retString = display.getCharacterHeightInchPart();
 			}
 		}
 		

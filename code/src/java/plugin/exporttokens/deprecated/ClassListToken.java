@@ -1,5 +1,5 @@
 /*
- * PaperInfoToken.java
+ * ClassListToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,21 +18,24 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision: 18611 $
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2012-12-11 00:27:59 +0100 (Di, 11 Dez 2012) $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
-import pcgen.core.SettingsHandler;
+import pcgen.cdom.base.Constants;
+import pcgen.core.PCClass;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
-import pcgen.util.Logging;
 
-//PAPERINFO
-public class InvalidTextToken extends AbstractExportToken
+/**
+ * Deal with CLASSLIST token
+ */
+public class ClassListToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -40,7 +43,7 @@ public class InvalidTextToken extends AbstractExportToken
 	@Override
 	public String getTokenName()
 	{
-		return "INVALIDTEXT";
+		return "CLASSLIST";
 	}
 
 	/**
@@ -50,20 +53,43 @@ public class InvalidTextToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		String sourceText = tokenSource.substring(12);
-		
-		if (sourceText.equals("TOHIT"))
+		return getClassListToken(display);
+	}
+
+	/**
+	 * Get the class list token value for the PC
+	 * @param pc
+	 * @return token value
+	 */
+	public static String getClassListToken(CharacterDisplay display)
+	{
+		StringBuilder returnString = new StringBuilder();
+		boolean firstLine = true;
+
+		for (PCClass pcClass : display.getClassSet())
 		{
-			return SettingsHandler.getInvalidToHitText(); 
+			if (!firstLine)
+			{
+				returnString.append(" ");
+			}
+
+			firstLine = false;
+
+			String subClassKey = display.getSubClassName(pcClass);
+			if (subClassKey == null || Constants.NONE.equals(subClassKey)
+					|| "".equals(subClassKey))
+			{
+				returnString.append(OutputNameFormatting.getOutputName(pcClass));
+			}
+			else
+			{
+				returnString.append(pcClass.getSubClassKeyed(
+						subClassKey).getDisplayName());
+			}
+
+			returnString.append(display.getLevel(pcClass));
 		}
-		else if (sourceText.equals("DAMAGE"))
-		{
-			return SettingsHandler.getInvalidDmgText();
-		}
-		else
-		{
-			Logging.errorPrint("Invalid INVALIDTEXT token:" + tokenSource);
-			return "";
-		}
+
+		return returnString.toString();
 	}
 }

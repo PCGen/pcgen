@@ -1,6 +1,6 @@
 /*
- * SpellPointsToken.java
- * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
+ * ManualWhitespaceToken.java
+ * Copyright 2006 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,24 +16,21 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2003, 12:21 PM
+ * Created on 6/05/2006
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * $Id:  $
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
-import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * SPELLPOINTS token for export
+ * Token that represents the start of controlled manual whitespace
  */
-public class SpellPointsToken extends AbstractExportToken
+public class ManualWhitespaceToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -41,7 +38,7 @@ public class SpellPointsToken extends AbstractExportToken
 	@Override
 	public String getTokenName()
 	{
-		return "SPELLPOINTS";
+		return "MANUALWHITESPACE";
 	}
 
 	/**
@@ -51,6 +48,8 @@ public class SpellPointsToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return Globals.getSpellPoints();
+		eh.setManualWhitespace(true);
+		return "";
 	}
+
 }

@@ -1,5 +1,5 @@
 /*
- * AgeToken.java
+ * ReachToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,25 +18,23 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision: 1777 $
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-12-17 05:36:01 +0100 (Sun, 17 Dec 2006) $
+ * Current Ver: $Revision$
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
-import java.util.SortedSet;
+import java.text.DecimalFormat;
 
-import pcgen.base.lang.StringUtil;
-import pcgen.core.PCClass;
+import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
-/**
- * Class handles AGE Token 
- */
-public class FavoredClassToken extends AbstractExportToken
+//REACH
+public class ReachToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -44,7 +42,7 @@ public class FavoredClassToken extends AbstractExportToken
 	@Override
 	public String getTokenName()
 	{
-		return "FAVOREDCLASS";
+		return "REACH";
 	}
 
 	/**
@@ -54,7 +52,39 @@ public class FavoredClassToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		SortedSet<PCClass> favClass = display.getFavoredClasses();
-		return favClass.isEmpty() ? "" : StringUtil.join(favClass, ", ");
+		String retString = "";
+
+		if ("REACH".equals(tokenSource))
+		{
+			retString = getToken(display);
+		}
+		else if ("REACH.VAL".equals(tokenSource))
+		{
+			return Integer.toString(getReachToken(display));
+		}
+		else if ("REACH.SQUARES".equals(tokenSource))
+		{
+			retString = getSquaresToken(display);
+		}
+
+		return retString;
+	}
+
+	public static int getReachToken(CharacterDisplay display)
+	{
+		return display.getReach();
+	}
+
+	public static String getToken(CharacterDisplay display)
+	{
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+			getReachToken(display))
+			+ Globals.getGameModeUnitSet().getDistanceUnit();
+	}
+
+	public static String getSquaresToken(CharacterDisplay display)
+	{
+		return new DecimalFormat("#.#").format(getReachToken(display)
+			/ SettingsHandler.getGame().getSquareSize());
 	}
 }
