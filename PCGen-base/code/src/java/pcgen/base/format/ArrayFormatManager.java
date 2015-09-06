@@ -255,16 +255,21 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		@Override
 		public boolean contains(T[] toCheck)
 		{
-			CHECK: for (T obj : toCheck)
+			for (T obj : toCheck)
 			{
+				boolean found = false;
 				for (ObjectContainer<T> container : array)
 				{
 					if (container.contains(obj))
 					{
-						continue CHECK;
+						found = true;
+						break;
 					}
 				}
-				return false;
+				if (!found)
+				{
+					return false;
+				}
 			}
 			return true;
 		}
