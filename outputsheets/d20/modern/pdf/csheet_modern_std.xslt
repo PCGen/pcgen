@@ -1827,7 +1827,7 @@
 						<fo:block text-align="center" space-before.optimum="5pt" font-size="6pt">+</fo:block>
 					</fo:table-cell>
 					<fo:table-cell xsl:use-attribute-sets="ac">
-						<fo:block text-align="center" space-before.optimum="2pt" font-size="10pt"><xsl:value-of select="misc - equipment_bonus"/></fo:block>
+						<fo:block text-align="center" space-before.optimum="2pt" font-size="10pt"><xsl:value-of select="misc"/></fo:block>
 <!--						<fo:block text-align="center" space-before.optimum="2pt" font-size="10pt"><xsl:value-of select="misc + competence_bonus + defense_bonus + dodge_bonus + enhancement_bonus + insight_bonus + luck_bonus + monk_bonus + sidestep_bonus + tar_bonus + toughness_bonus"/></fo:block> -->
 					</fo:table-cell>
 					<fo:table-cell/>
