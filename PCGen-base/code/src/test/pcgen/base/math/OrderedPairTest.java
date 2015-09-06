@@ -188,6 +188,7 @@ public class OrderedPairTest extends TestCase
 		OrderedPair op8 = OrderedPair.valueOf("4.1,6.0");
 		OrderedPair op9 = OrderedPair.valueOf("4.1,6.1");
 		OrderedPair op1b = OrderedPair.valueOf("4,6");
+		assertFalse(op1.equals(new Object()));
 		assertFalse(op1.equals(op2));
 		assertFalse(op1.equals(op3));
 		assertFalse(op1.equals(op4));

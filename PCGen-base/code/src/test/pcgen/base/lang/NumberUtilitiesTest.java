@@ -147,6 +147,8 @@ public class NumberUtilitiesTest extends TestCase
 		assertEquals(Double.valueOf(3), NumberUtilities.divide(7.5, 2.5));
 		assertEquals(Integer.valueOf(3), NumberUtilities.divide(-9, -3));
 		assertEquals(Integer.valueOf(-3), NumberUtilities.divide(-12, 4));
+		assertEquals(Double.valueOf(5), NumberUtilities.divide(8, 1.6));
+		assertEquals(Double.valueOf(0.2), NumberUtilities.divide(1.6, 8));
 		assertEquals(Double.NEGATIVE_INFINITY, NumberUtilities.divide(-12, 0));
 	}
 

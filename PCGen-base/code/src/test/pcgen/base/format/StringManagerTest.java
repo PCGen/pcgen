@@ -122,4 +122,21 @@ public class StringManagerTest extends TestCase
 		assertEquals("abc", co.iterator().next());
 	}
 
+	public void testGetIdentifier()
+	{
+		assertEquals("STRING", manager.getIdentifierType());
+	}
+
+	public void testHashCodeEquals()
+	{
+		assertEquals(new StringManager().hashCode(), manager.hashCode());
+		assertFalse(manager.equals(new Object()));
+		assertFalse(manager.equals(new BooleanManager()));
+		assertTrue(manager.equals(new StringManager()));
+	}
+
+	public void testGetComponent()
+	{
+		assertNull(manager.getComponentManager());
+	}
 }

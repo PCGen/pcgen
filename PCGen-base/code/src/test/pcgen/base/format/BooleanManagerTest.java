@@ -164,4 +164,21 @@ public class BooleanManagerTest extends TestCase
 		assertEquals(Boolean.FALSE, co.iterator().next());
 	}
 
+	public void testGetIdentifier()
+	{
+		assertEquals("BOOLEAN", manager.getIdentifierType());
+	}
+
+	public void testHashCodeEquals()
+	{
+		assertEquals(new BooleanManager().hashCode(), manager.hashCode());
+		assertFalse(manager.equals(new Object()));
+		assertFalse(manager.equals(new StringManager()));
+		assertTrue(manager.equals(new BooleanManager()));
+	}
+
+	public void testGetComponent()
+	{
+		assertNull(manager.getComponentManager());
+	}
 }

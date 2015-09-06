@@ -109,6 +109,12 @@ public class KeyMapTest extends TestCase
 		assertEquals(SA, otom.getKeyFor(D0));
 		assertNull(otom.get(SB));
 		assertNull(otom.getKeyFor(D5));
+		//safe
+		otom.remove(null);
+		assertEquals(D0, otom.get(SA));
+		assertEquals(SA, otom.getKeyFor(D0));
+		assertNull(otom.get(SB));
+		assertNull(otom.getKeyFor(D5));
 	}
 
 	@Test
@@ -266,4 +272,11 @@ public class KeyMapTest extends TestCase
 		//TODO Check actual ordering...
 	}
 
+	@Test
+	public void testGetItemInOrder()
+	{
+		populate();
+		assertEquals(D0, otom.getItemInOrder(0));
+		assertEquals(D5, otom.getItemInOrder(1));
+	}
 }

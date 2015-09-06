@@ -172,4 +172,21 @@ public class OrderedPairManagerTest extends TestCase
 		assertEquals(new OrderedPair(new BigDecimal("1.4"), new BigDecimal("6.5")), co.iterator().next());
 	}
 
+	public void testGetIdentifier()
+	{
+		assertEquals("ORDEREDPAIR", manager.getIdentifierType());
+	}
+
+	public void testHashCodeEquals()
+	{
+		assertEquals(new OrderedPairManager().hashCode(), manager.hashCode());
+		assertFalse(manager.equals(new Object()));
+		assertFalse(manager.equals(new StringManager()));
+		assertTrue(manager.equals(new OrderedPairManager()));
+	}
+
+	public void testGetComponent()
+	{
+		assertNull(manager.getComponentManager());
+	}
 }

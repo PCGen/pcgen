@@ -91,26 +91,10 @@ public class CaseInsensitiveString
 	@Override
 	public int hashCode()
 	{
-		/*
-		 * This method makes a rather rash assumption for the sake of
-		 * performance: The given string in this CaseInsensitiveString can be
-		 * appropriately hashed using only a subset of its values, and
-		 * converting those to upper case using Character.toUpperCase().
-		 * 
-		 * This may be possible due to the contract of a hash: It must be
-		 * identical if .equals() would return an identical value, but no
-		 * guarantee is made that if the hashCode is the same then .equals()
-		 * will return true. Locales may break this assumption.
-		 * 
-		 * This assumption is made on the grounds that a full .toUpperCase() on
-		 * a String is an expensive operation, and using only a few characters
-		 * can be much faster, at the expense of having only slightly greater
-		 * risk of a hash collision.
-		 */
 		if (hash == 0)
 		{
 			int length = string.length();
-			for (int i = 3; i < length && i < 16; i += 3)
+			for (int i = 0; i < length ; i++)
 			{
 				hash = hash * 29 + Character.toUpperCase(string.charAt(i));
 			}

@@ -119,7 +119,7 @@ public final class NumberUtilities
 	 */
 	public static Number divide(Number numerator, Number divisor)
 	{
-		if (numerator instanceof Integer && numerator instanceof Integer)
+		if (numerator instanceof Integer && divisor instanceof Integer)
 		{
 			int num = numerator.intValue();
 			int div = divisor.intValue();

@@ -170,4 +170,21 @@ public class NumberManagerTest extends TestCase
 		assertEquals(Double.valueOf(1.4), co.iterator().next());
 	}
 
+	public void testGetIdentifier()
+	{
+		assertEquals("NUMBER", manager.getIdentifierType());
+	}
+
+	public void testHashCodeEquals()
+	{
+		assertEquals(new NumberManager().hashCode(), manager.hashCode());
+		assertFalse(manager.equals(new Object()));
+		assertFalse(manager.equals(new StringManager()));
+		assertTrue(manager.equals(new NumberManager()));
+	}
+
+	public void testGetComponent()
+	{
+		assertNull(manager.getComponentManager());
+	}
 }

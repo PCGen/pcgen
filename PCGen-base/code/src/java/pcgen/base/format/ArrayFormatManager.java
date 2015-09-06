@@ -226,6 +226,24 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		return result.toString();
 	}
 
+	@Override
+	public int hashCode()
+	{
+		return componentManager.hashCode() * separator;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o instanceof ArrayFormatManager)
+		{
+			ArrayFormatManager<?> other = (ArrayFormatManager<?>) o;
+			return componentManager.equals(other.componentManager)
+				&& (separator == other.separator);
+		}
+		return false;
+	}
+	
 	/**
 	 * ArrayObjectContainer is a facade that can convert an ObjectContainer<T>[]
 	 * into an ObjectContainer<T[]>.
