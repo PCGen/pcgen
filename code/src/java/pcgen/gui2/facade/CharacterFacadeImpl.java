@@ -60,6 +60,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
@@ -436,9 +437,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		xpTableName = new DefaultReferenceFacade<String>(charDisplay.getXPTableName());
 		hpRef = new DefaultReferenceFacade<Integer>(theCharacter.hitPoints());
 
-		skinColor = new DefaultReferenceFacade<String>(charDisplay.getSkinColor());
-		hairColor = new DefaultReferenceFacade<String>(charDisplay.getHairColor());
-		eyeColor = new DefaultReferenceFacade<String>(charDisplay.getEyeColor());
+		skinColor = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(PCStringKey.SKINCOLOR));
+		hairColor = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(PCStringKey.HAIRCOLOR));
+		eyeColor = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(PCStringKey.EYECOLOR));
 		weightRef = new DefaultReferenceFacade<Integer>();
 		heightRef = new DefaultReferenceFacade<Integer>();
 		refreshHeightWeight();
