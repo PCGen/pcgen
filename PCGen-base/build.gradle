@@ -51,24 +51,16 @@ def testSources = ['**/testsupport/**', '**/Abstract**TestCase', '**/*Test']
 
 test {
     systemProperties 'property': 'value'
-    jacoco {
-         excludes = testSources
-    }
 }
 
 jacocoTestReport {
+    afterEvaluate {
+       	classDirectories = files(classDirectories.files.collect {fileTree(dir: it, exclude: testSources)})
+    }
     reports {
-        xml {
-            enabled true // coveralls plugin depends on xml format report
-        }
-
         html {
             enabled true
         }
-    }
-
-    afterEvaluate {
-       	classDirectories = files(classDirectories.files.collect {fileTree(dir: it, exclude: testSources)})
     }
 }
 
