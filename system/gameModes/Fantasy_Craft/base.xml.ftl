@@ -324,7 +324,7 @@
 		<dodge>${pcstring('AC.Dodge')}</dodge>
 		<dodge_bonus>${pcstring('AC.Dodge')}</dodge_bonus>
 		<class_bonus>${pcstring('AC.ClassDefense')}</class_bonus>
-<#if (gamemodename = "Modern" || gamemodename = "Darwins_World_2" || gamemodename = "Sidewinder") >
+<#if (gamemode.name = "Modern" || gamemode.name = "Darwins_World_2" || gamemode.name = "Sidewinder") >
 		<equipment_bonus>${pcstring('AC.Equipment')}</equipment_bonus>
 </#if>
 		<misc>${pcstring('AC.Misc')}</misc>
@@ -742,7 +742,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 </@loop>
 						<!-- Commenting this out (will need a test as well)
 			3.0 uses "Subdual", 3.5 uses "nonlethal".  We'll need a separate node for both.	-->
-<#if (gamemodename = "3e")>
+<#if (gamemode.name = "3e")>
 <#if (pcvar('VAR.Unarmed') > 0)>
 			<type>(subdual or normal)</type>
 <#else>
