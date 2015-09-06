@@ -30,9 +30,11 @@ import pcgen.core.SettingsHandler;
 import pcgen.output.base.ModeModelFactory;
 import pcgen.output.base.ModelFactory;
 import pcgen.output.factory.ItemModelFactory;
+import pcgen.output.factory.ModeNameModelFactory;
 import pcgen.output.factory.SetModelFactory;
 import pcgen.output.factory.UnitSetModelFactory;
 import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * OutputDB is the OutputDatabase for building the Map to be provided to
@@ -171,11 +173,14 @@ public final class OutputDB
 	}
 
 	/**
-	 * Builds the "game mode" data model
+	 * Builds the "game mode" data model.
 	 * 
 	 * @return Returns a Map containing the "game mode" information
+	 * @throws TemplateModelException
+	 *             If an issue occurred in generating any of the Mode Model
+	 *             information
 	 */
-	public static Map<String, Object> buildModeDataModel()
+	public static Map<String, Object> buildModeDataModel() throws TemplateModelException
 	{
 		Map<String, Object> input = new HashMap<String, Object>();
 		GameMode mode = SettingsHandler.getGame();
@@ -280,6 +285,7 @@ public final class OutputDB
 	private static void triggerLoad()
 	{
 		registerMode("unitset", new UnitSetModelFactory());
+		registerMode("name", new ModeNameModelFactory());
 	}
 
 }

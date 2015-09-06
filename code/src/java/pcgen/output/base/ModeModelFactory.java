@@ -19,6 +19,7 @@ package pcgen.output.base;
 
 import pcgen.core.GameMode;
 import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * A ModeModelFactory is a class that can generate TemplateModel objects for the
@@ -33,6 +34,8 @@ public interface ModeModelFactory
 	 *            The GameMode TemplateModel should be produced by this
 	 *            ModeModelFactory
 	 * @return A TemplateModel produced by this ModeModelFactory
+	 * @throws TemplateModelException
+	 *             If an error occurred in generating the required TemplateModel
 	 */
-	public TemplateModel generate(GameMode mode);
+	public TemplateModel generate(GameMode mode) throws TemplateModelException;
 }
