@@ -240,7 +240,7 @@ public final class OutputDB
 	}
 
 	/**
-	 * Registers anew Boolean Preference for inclusion in the global Models.
+	 * Registers a new Boolean Preference for inclusion in the global Models.
 	 * 
 	 * @param pref
 	 *            The preference name, as identified in the preference file
