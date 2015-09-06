@@ -33,8 +33,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.cdom.helper.PointCost;
-import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
@@ -43,9 +41,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.BonusActivation;
-import pcgen.core.analysis.SpellPoint;
 import pcgen.core.character.EquipSet;
-import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import plugin.bonustokens.Var;
 
@@ -221,29 +217,6 @@ public class BonusTest extends AbstractCharacterTestCase
 			.getDependsOnBonusName("STAT"));
 	}
 
-	public void testSpellPointCost()
-	{
-		LoadContext context = Globals.getContext();
-
-		Spell sp = new Spell();
-		sp.setName("Test");
-		SpellSchool ss = Globals.getContext().getReferenceContext().constructNowIfNecessary(SpellSchool.class, "INFUSE");
-		sp.addToListFor(ListKey.SPELL_SCHOOL, ss);
-		sp.addToListFor(ListKey.SPELL_POINT_COST, new PointCost("Duration", 4));
-		sp.addToListFor(ListKey.SPELL_POINT_COST, new PointCost("Infuse Fire", 4));
-		
-		int spCosts = SpellPoint.getSpellPointCostActual(sp);
-		
-		final PlayerCharacter character = getCharacter();
-		final BonusObj spCost =
-				Bonus.newBonus(context, "SPELLPOINTCOST|SCHOOL.Infuse;Duration|2|TYPE=Specialist");
-		sp.addToListFor(ListKey.BONUS, spCost);
-		BonusActivation.activateBonuses(sp, character);
-		
-		int a = spCost.resolve(character, "").intValue();
-		assertEquals(10, spCosts + a);
-	}
-	
 	/**
 	 * Test to make sure that fix for replacing %LIST within a 
 	 * bonuses value will work.

@@ -44,7 +44,6 @@ import pcgen.cdom.helper.ArmorProfProvider;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.helper.EqModRef;
 import pcgen.cdom.helper.FollowerLimit;
-import pcgen.cdom.helper.PointCost;
 import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.helper.WeaponProfProvider;
@@ -188,7 +187,6 @@ public final class ListKey<T>
 	public static final ListKey<Formula> CAST = new ListKey<Formula>();
 	public static final ListKey<QualifiedObject<CDOMSingleRef<Domain>>> DOMAIN = new ListKey<QualifiedObject<CDOMSingleRef<Domain>>>();
 	public static final ListKey<CDOMReference<Deity>> DEITY = new ListKey<CDOMReference<Deity>>();
-	public static final ListKey<PointCost> SPELL_POINT_COST = new ListKey<PointCost>();
 	public static final ListKey<KnownSpellIdentifier> KNOWN_SPELLS = new ListKey<KnownSpellIdentifier>();
 	public static final ListKey<SpellProhibitor> SPELL_PROHIBITOR = new ListKey<SpellProhibitor>();
 	public static final ListKey<Description> BENEFIT = new ListKey<Description>();

@@ -46,7 +46,6 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.analysis.SpellPoint;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.spell.Spell;
@@ -459,49 +458,6 @@ public class SpellMemToken extends Token
 						{
 							retValue.append(aSpell.getSafe(IntegerKey.CASTING_THRESHOLD));
 						}
-						else if ("SPELLPOINTCOST".equals(aLabel))
-						{
-							if("NUMELEMENTS".equals(altLabel))
-							{
-								retValue.append(SpellPoint.getSpellPointCostActualParts(aSpell).size());
-							}
-							else if("TOTAL".equals(altLabel))
-							{
-								retValue.append(SpellPoint.getSpellPointCostActual(aSpell));
-							}
-							else if ("".equals(altLabel))
-							{
-								retValue.append(SpellPoint.getSPCostStrings(aPC, aSpell));
-							}
-							if (aTok.hasMoreTokens())
-							{
-								String element = aTok.nextToken();
-								try
-								{
-									int partNumber = Integer.parseInt(element);
-									if (aTok.hasMoreTokens())
-									{
-										String elementValue = aTok.nextToken();
-										if ("NAME".equals(elementValue))
-										{
-											retValue.append(SpellPoint.getSpellPointCostPartName(aSpell, partNumber));
-										}
-										else if("VALUE".equals(elementValue))
-										{
-											retValue.append(SpellPoint.getSpellPointCostPartValue(aSpell, partNumber));
-										}
-									}
-									
-									
-								}
-								catch (NumberFormatException e)
-								{
-									
-								}
-								
-							}
-						}
-						
 					}
 				}
 				else if (eh != null && eh.getExistsOnly())
