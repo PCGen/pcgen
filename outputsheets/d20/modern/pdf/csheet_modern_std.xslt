@@ -2182,7 +2182,14 @@
 								<fo:table-cell>
 									<fo:block text-align="center" space-before.optimum="1pt" font-size="8pt">
 										<xsl:if test="ranks>0">
-											<xsl:value-of select="ranks"/>
+											<xsl:choose>
+												<xsl:when test="round(ranks) = ranks">
+													<xsl:value-of select="round(ranks)"/>
+												</xsl:when>
+												<xsl:otherwise>
+													<xsl:value-of select="ranks"/>
+												</xsl:otherwise>
+											</xsl:choose>
 										</xsl:if>
 									</fo:block>
 								</fo:table-cell>

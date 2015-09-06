@@ -53,6 +53,7 @@
 		<playername>${pcstring('PLAYERNAME')}</playername>
 		<charactertype>${pcstring('CHARACTERTYPE')}</charactertype>
 		<hero_points>${pcstring('VAR.HEROPOINTS.INTVAL')}</hero_points>
+		<remaining_action_points>${pcstring('VAR.Action.INTVAL')}</remaining_action_points>
 		<age>${pcstring('AGE')}</age>
 		<alignment>
 			<long>${pcstring('ALIGNMENT')}</long>
