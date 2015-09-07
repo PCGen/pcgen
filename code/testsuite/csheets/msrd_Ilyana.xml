@@ -8,38 +8,38 @@ BIO
 		<bonuses></bonuses>
 		<bonuses></bonuses>
 		<bonuses></bonuses>
-		<name>Elwood Oates</name>
+		<name>Ilyana Romanov</name>
 		<followerof></followerof>
-		<playername></playername>
-		<action_points>42</action_points>
-		<age>20</age>
+		<playername>Pete</playername>
+		<action_points>39</action_points>
+		<age>26</age>
 		<alignment>
 			<long></long>
 			<short></short>
 		</alignment>
-		<bab>+3</bab>
+		<bab>+5</bab>
 		<bio></bio>
-		<birthplace></birthplace>
+		<birthplace>St. Petersburg, Russia</birthplace>
 		<catchphrase></catchphrase>
 		<classes>
 			<class>
-				<name>Fast Hero</name>
-				<abbreviation>Fas</abbreviation>
+				<name>Tough Hero</name>
+				<abbreviation>Tou</abbreviation>
 				<level>3</level>
-				<bonuslist>Fast Hero</bonuslist>
+				<bonuslist>Tough Hero</bonuslist>
 				<sequence>0</sequence>
 			</class>
 			<class>
-				<name>Infiltrator</name>
-				<abbreviation>Infi</abbreviation>
+				<name>Strong Hero</name>
+				<abbreviation>Str</abbreviation>
 				<level>3</level>
-				<bonuslist>Infiltrator</bonuslist>
+				<bonuslist>Strong Hero</bonuslist>
 				<sequence>1</sequence>
 			</class>
 			<levels_total>6</levels_total>
 			<levels_ecl>6</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Fas3  Infi3                 </shortform>
+			<shortform> Tou3  Str3                 </shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -65,10 +65,10 @@ BIO
 			<penalty>0%</penalty>
 		</experience>
 		<eyes>
-			<color></color>
+			<color>Green</color>
 		</eyes>
 		<hair>
-			<color></color>
+			<color>Brown</color>
 			<length></length>
 		</hair>
 		<skin>
@@ -88,16 +88,16 @@ BIO
 		</gender>
 		<handed>Right</handed>
 		<height>
-			<total>5&#39; 5&quot;</total>
-			<feet>5</feet>
-			<inches>5</inches>
+			<total>6&#39; 2&quot;</total>
+			<feet>6</feet>
+			<inches>2</inches>
 		</height>
-		<hitdice>(3d8)+(3d8)+3</hitdice>
+		<hitdice>(3d10)+(3d8)+24</hitdice>
 		<interests></interests>
 		<languages>
 			<language>English</language>
-			<language>German</language>
-			<all>English, German</all>
+			<language>Russian</language>
+			<all>English, Russian</all>
 		</languages>
 		<location></location>
 		<move>
@@ -120,7 +120,7 @@ BIO
 			<squares>1</squares>
 		</reach>
 		<region>None</region>
-		<reputation>2</reputation>
+		<reputation>1</reputation>
 		<residence></residence>
 		<size>
 			<long>Medium</long>
@@ -131,20 +131,16 @@ BIO
 		<vision>
 			<all></all>
 		</vision>
-		<wealth>7</wealth>
+		<wealth>4</wealth>
 		<weight>
-			<weight_unit>162 lbs.</weight_unit>
-			<weight_nounit>162</weight_nounit>
+			<weight_unit>186 lbs.</weight_unit>
+			<weight_nounit>186</weight_nounit>
 		</weight>
 		<poolpoints>
 			<cost>0</cost>
 			<current>0</current>
 		</poolpoints>
 		<notes>
-			<note>
-				<name>Character Sheet Notes</name>
-				<value></value>
-			</note>
 		</notes>
 	</basics>
 	<!--
@@ -159,84 +155,84 @@ BIO
 				<long>Strength</long>
 				<short>STR</short>
 			</name>
-			<score>11</score>
-			<modifier>+0</modifier>
-			<base>11</base>
-			<basemod>+0</basemod>
-			<noequip>11</noequip>
-			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>11</no_temp_score>
-			<no_temp_modifier>+0</no_temp_modifier>
+			<score>13</score>
+			<modifier>+1</modifier>
+			<base>13</base>
+			<basemod>+1</basemod>
+			<noequip>13</noequip>
+			<noequip_mod>+1</noequip_mod>
+			<no_temp_score>13</no_temp_score>
+			<no_temp_modifier>+1</no_temp_modifier>
 		</ability>
 		<ability>
 			<name>
 				<long>Dexterity</long>
 				<short>DEX</short>
 			</name>
-			<score>16</score>
-			<modifier>+3</modifier>
-			<base>16</base>
-			<basemod>+3</basemod>
-			<noequip>16</noequip>
-			<noequip_mod>+3</noequip_mod>
-			<no_temp_score>16</no_temp_score>
-			<no_temp_modifier>+3</no_temp_modifier>
+			<score>12</score>
+			<modifier>+1</modifier>
+			<base>12</base>
+			<basemod>+1</basemod>
+			<noequip>12</noequip>
+			<noequip_mod>+1</noequip_mod>
+			<no_temp_score>12</no_temp_score>
+			<no_temp_modifier>+1</no_temp_modifier>
 		</ability>
 		<ability>
 			<name>
 				<long>Constitution</long>
 				<short>CON</short>
 			</name>
-			<score>11</score>
-			<modifier>+0</modifier>
-			<base>11</base>
-			<basemod>+0</basemod>
-			<noequip>11</noequip>
-			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>11</no_temp_score>
-			<no_temp_modifier>+0</no_temp_modifier>
+			<score>18</score>
+			<modifier>+4</modifier>
+			<base>18</base>
+			<basemod>+4</basemod>
+			<noequip>18</noequip>
+			<noequip_mod>+4</noequip_mod>
+			<no_temp_score>18</no_temp_score>
+			<no_temp_modifier>+4</no_temp_modifier>
 		</ability>
 		<ability>
 			<name>
 				<long>Intelligence</long>
 				<short>INT</short>
 			</name>
-			<score>13</score>
-			<modifier>+1</modifier>
-			<base>13</base>
-			<basemod>+1</basemod>
-			<noequip>13</noequip>
-			<noequip_mod>+1</noequip_mod>
-			<no_temp_score>13</no_temp_score>
-			<no_temp_modifier>+1</no_temp_modifier>
+			<score>10</score>
+			<modifier>+0</modifier>
+			<base>10</base>
+			<basemod>+0</basemod>
+			<noequip>10</noequip>
+			<noequip_mod>+0</noequip_mod>
+			<no_temp_score>10</no_temp_score>
+			<no_temp_modifier>+0</no_temp_modifier>
 		</ability>
 		<ability>
 			<name>
 				<long>Wisdom</long>
 				<short>WIS</short>
 			</name>
-			<score>16</score>
-			<modifier>+3</modifier>
-			<base>16</base>
-			<basemod>+3</basemod>
-			<noequip>16</noequip>
-			<noequip_mod>+3</noequip_mod>
-			<no_temp_score>16</no_temp_score>
-			<no_temp_modifier>+3</no_temp_modifier>
+			<score>12</score>
+			<modifier>+1</modifier>
+			<base>12</base>
+			<basemod>+1</basemod>
+			<noequip>12</noequip>
+			<noequip_mod>+1</noequip_mod>
+			<no_temp_score>12</no_temp_score>
+			<no_temp_modifier>+1</no_temp_modifier>
 		</ability>
 		<ability>
 			<name>
 				<long>Charisma</long>
 				<short>CHA</short>
 			</name>
-			<score>13</score>
-			<modifier>+1</modifier>
-			<base>13</base>
-			<basemod>+1</basemod>
-			<noequip>13</noequip>
-			<noequip_mod>+1</noequip_mod>
-			<no_temp_score>13</no_temp_score>
-			<no_temp_modifier>+1</no_temp_modifier>
+			<score>10</score>
+			<modifier>+0</modifier>
+			<base>10</base>
+			<basemod>+0</basemod>
+			<noequip>10</noequip>
+			<noequip_mod>+0</noequip_mod>
+			<no_temp_score>10</no_temp_score>
+			<no_temp_modifier>+0</no_temp_modifier>
 		</ability>
 	</abilities>
 	<!--
@@ -246,49 +242,49 @@ BIO
 	  ====================================
 	  ====================================-->
 	<hit_points>
-		<points>35</points>
-		<alternate>11</alternate>
-		<die>(3d8)+(3d8)+3</die>
+		<points>63</points>
+		<alternate>18</alternate>
+		<die>(3d10)+(3d8)+24</die>
 		<current/>
 		<subdual/>
 		<damage_reduction></damage_reduction>
-		<damage_threshold>11</damage_threshold>
+		<damage_threshold>18</damage_threshold>
 		<history>
 			<roll>
 				<level>1</level>
-				<roll>8</roll>
-				<stat>0</stat>
-				<total>8</total>
+				<roll>10</roll>
+				<stat>4</stat>
+				<total>14</total>
 			</roll>
 			<roll>
 				<level>2</level>
-				<roll>4</roll>
-				<stat>0</stat>
-				<total>4</total>
+				<roll>8</roll>
+				<stat>4</stat>
+				<total>12</total>
 			</roll>
 			<roll>
 				<level>3</level>
-				<roll>5</roll>
-				<stat>0</stat>
-				<total>5</total>
+				<roll>6</roll>
+				<stat>4</stat>
+				<total>10</total>
 			</roll>
 			<roll>
 				<level>4</level>
-				<roll>2</roll>
-				<stat>0</stat>
-				<total>2</total>
+				<roll>3</roll>
+				<stat>4</stat>
+				<total>7</total>
 			</roll>
 			<roll>
 				<level>5</level>
 				<roll>6</roll>
-				<stat>0</stat>
-				<total>6</total>
+				<stat>4</stat>
+				<total>10</total>
 			</roll>
 			<roll>
 				<level>6</level>
-				<roll>7</roll>
-				<stat>0</stat>
-				<total>7</total>
+				<roll>6</roll>
+				<stat>4</stat>
+				<total>10</total>
 			</roll>
 		</history>
 	</hit_points>
@@ -299,17 +295,17 @@ BIO
 	  ====================================
 	  ====================================-->
 	<armor_class>
-		<total>19</total>
-		<listing>ABILITY +3, BASE +10, CLASSDEFENSE +6</listing>
-		<flat>16</flat>
-		<touch>19</touch>
+		<total>15</total>
+		<listing>ABILITY +1, BASE +10, CLASSDEFENSE +4</listing>
+		<flat>14</flat>
+		<touch>15</touch>
 		<base>10</base>
 		<armor_bonus>0</armor_bonus>
 		<shield_bonus>0</shield_bonus>
-		<stat_mod>3</stat_mod>
+		<stat_mod>1</stat_mod>
 		<size_mod>0</size_mod>
 		<natural>0</natural>
-		<class_bonus>6</class_bonus>
+		<class_bonus>4</class_bonus>
 		<dodge_bonus>0</dodge_bonus>
 		<misc>0</misc>
 		<miss_chance/>
@@ -325,8 +321,8 @@ BIO
 	  ====================================
 	  ====================================-->
 	<initiative>
-		<total>+3</total>
-		<dex_mod>+3</dex_mod>
+		<total>+1</total>
+		<dex_mod>+1</dex_mod>
 		<misc_mod>+0</misc_mod>
 	</initiative>
 	<!--
@@ -337,20 +333,20 @@ BIO
 	  ====================================-->
 	<skills>
 		<skillpoints>
-			<total>60</total>
-			<used>44</used>
-			<unused>16</unused>
+			<total>27</total>
+			<used>27</used>
+			<unused>0</unused>
 		</skillpoints>
-		<list_mods>Climb +1, Disguise +2, Drive +7, Escape Artist +5, Hide +11, Knowledge (Art) +2, Knowledge (Current Events) +7, Knowledge (Popular Culture) +6, Knowledge (Streetwise) +2, Move Silently +9, Read/Write Language +1, Ride +7, Search +2, Sleight of Hand +7</list_mods>
+		<list_mods>Climb +3, Drive +9, Intimidate +1, Jump +3, Listen +4, Repair +5, Search +2, Speak Language +1, Spot +6, Survival +2, Swim +2</list_mods>
 		<max_class_skill_level>9</max_class_skill_level>
 		<max_cross_class_skill_level>4.5</max_cross_class_skill_level>
 		<skill>
 			<name>Balance</name>
 			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
+			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -358,62 +354,11 @@ BIO
 			<synergy>Balance</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
 			<name>Bluff</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Bluff</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Climb</name>
-			<ranks>1.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>STR</ability>
-			<synergy>Climb</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Computer Use</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Computer Use</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Concentration</name>
 			<ranks>0.0</ranks>
 			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
@@ -422,20 +367,71 @@ BIO
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
-			<ability>CON</ability>
-			<synergy>Concentration</synergy>
+			<ability>CHA</ability>
+			<synergy>Bluff</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
 			<trained_total>0</trained_total>
 			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
+			<name>Climb</name>
+			<ranks>1.0</ranks>
+			<mod>2<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>3</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>1<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>STR</ability>
+			<synergy>Climb</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>3</trained_total>
+			<exclusive_total>3</exclusive_total>
+		</skill>
+		<skill>
+			<name>Computer Use</name>
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>INT</ability>
+			<synergy>Computer Use</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Concentration</name>
+			<ranks>0.0</ranks>
+			<mod>4<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>4</skill_mod>
+			<ability_mod>4<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>CON</ability>
+			<synergy>Concentration</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>4</trained_total>
+			<exclusive_total>4</exclusive_total>
+		</skill>
+		<skill>
 			<name>Craft (Structural)</name>
 			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
+			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -443,16 +439,16 @@ BIO
 			<synergy>Craft (Structural)</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
 			<name>Craft (Visual Art)</name>
 			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
+			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -460,16 +456,16 @@ BIO
 			<synergy>Craft (Visual Art)</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
 			<name>Craft (Writing)</name>
 			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
+			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -477,16 +473,16 @@ BIO
 			<synergy>Craft (Writing)</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
 			<name>Diplomacy</name>
 			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
+			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -494,16 +490,16 @@ BIO
 			<synergy>Diplomacy</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
 			<name>Disguise</name>
-			<ranks>1.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>2</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -511,33 +507,33 @@ BIO
 			<synergy>Disguise</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>2</trained_total>
-			<exclusive_total>2</exclusive_total>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
 			<name>Drive</name>
-			<ranks>4.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
+			<ranks>5.0</ranks>
+			<mod>4<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>7</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
+			<skill_mod>9</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>DEX</ability>
 			<synergy>Drive</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>7</trained_total>
-			<exclusive_total>7</exclusive_total>
+			<trained_total>9</trained_total>
+			<exclusive_total>9</exclusive_total>
 		</skill>
 		<skill>
 			<name>Escape Artist</name>
-			<ranks>2.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
+			<ranks>0.0</ranks>
+			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>5</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -545,16 +541,16 @@ BIO
 			<synergy>Escape Artist</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>5</trained_total>
-			<exclusive_total>5</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
 			<name>Forgery</name>
 			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
+			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -562,16 +558,16 @@ BIO
 			<synergy>Forgery</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
 			<name>Gamble</name>
 			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
+			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -579,11 +575,28 @@ BIO
 			<synergy>Gamble</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
 			<name>Gather Information</name>
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>CHA</ability>
+			<synergy>Gather Information</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Hide</name>
 			<ranks>0.0</ranks>
 			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
@@ -592,37 +605,20 @@ BIO
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Gather Information</synergy>
+			<ability>DEX</ability>
+			<synergy>Hide</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
 			<trained_total>1</trained_total>
 			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
-			<name>Hide</name>
-			<ranks>7.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>11</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>1<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Hide</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>11</trained_total>
-			<exclusive_total>11</exclusive_total>
-		</skill>
-		<skill>
 			<name>Intimidate</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
+			<ranks>1.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
 			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
+			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -635,6 +631,57 @@ BIO
 		</skill>
 		<skill>
 			<name>Jump</name>
+			<ranks>2.0</ranks>
+			<mod>1<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>3</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>STR</ability>
+			<synergy>Jump</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>3</trained_total>
+			<exclusive_total>3</exclusive_total>
+		</skill>
+		<skill>
+			<name>Listen</name>
+			<ranks>1.0</ranks>
+			<mod>3<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>4</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>2<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>WIS</ability>
+			<synergy>Listen</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>4</trained_total>
+			<exclusive_total>4</exclusive_total>
+		</skill>
+		<skill>
+			<name>Move Silently</name>
+			<ranks>0.0</ranks>
+			<mod>1<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>DEX</ability>
+			<synergy>Move Silently</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
+		</skill>
+		<skill>
+			<name>Navigate</name>
 			<ranks>0.0</ranks>
 			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
@@ -643,275 +690,37 @@ BIO
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
-			<ability>STR</ability>
-			<synergy>Jump</synergy>
+			<ability>INT</ability>
+			<synergy>Navigate</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
 			<trained_total>0</trained_total>
 			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
-			<name>Knowledge (Art)</name>
-			<ranks>1.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>2</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Knowledge (Art)</synergy>
-			<untrained>NO</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>2</trained_total>
-			<exclusive_total>2</exclusive_total>
-		</skill>
-		<skill>
-			<name>Knowledge (Current Events)</name>
-			<ranks>6.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>7</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Knowledge (Current Events)</synergy>
-			<untrained>NO</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>7</trained_total>
-			<exclusive_total>7</exclusive_total>
-		</skill>
-		<skill>
-			<name>Knowledge (Popular Culture)</name>
-			<ranks>5.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>6</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Knowledge (Popular Culture)</synergy>
-			<untrained>NO</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>6</trained_total>
-			<exclusive_total>6</exclusive_total>
-		</skill>
-		<skill>
-			<name>Knowledge (Streetwise)</name>
-			<ranks>1.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>2</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Knowledge (Streetwise)</synergy>
-			<untrained>NO</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>2</trained_total>
-			<exclusive_total>2</exclusive_total>
-		</skill>
-		<skill>
-			<name>Listen</name>
+			<name>Perform (Untrained)</name>
 			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
+			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>WIS</ability>
-			<synergy>Listen</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Move Silently</name>
-			<ranks>6.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>9</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Move Silently</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>9</trained_total>
-			<exclusive_total>9</exclusive_total>
-		</skill>
-		<skill>
-			<name>Navigate</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Navigate</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Perform (Act)</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>CHA</ability>
-			<synergy>Perform (Act)</synergy>
+			<synergy>Perform (Untrained)</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Perform (Dance)</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Perform (Dance)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Perform (Keyboards)</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Perform (Keyboards)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Perform (Percussion Instruments)</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Perform (Percussion Instruments)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Perform (Sing)</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Perform (Sing)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Perform (Stand-Up)</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Perform (Stand-Up)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Perform (Stringed Instruments)</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Perform (Stringed Instruments)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
-		</skill>
-		<skill>
-			<name>Perform (Wind Instruments)</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>CHA</ability>
-			<synergy>Perform (Wind Instruments)</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
 		</skill>
 		<skill>
 			<name>Profession</name>
 			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
+			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -919,28 +728,45 @@ BIO
 			<synergy>Profession</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
-		</skill>
-		<skill>
-			<name>Read/Write Language(German)</name>
-			<ranks>1.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>1</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability></ability>
-			<synergy>Read/Write Language(German)</synergy>
-			<untrained>NO</untrained>
-			<exclusive>N</exclusive>
 			<trained_total>1</trained_total>
 			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
+			<name>Repair</name>
+			<ranks>5.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>5</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>INT</ability>
+			<synergy>Repair</synergy>
+			<untrained>NO</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>5</trained_total>
+			<exclusive_total>5</exclusive_total>
+		</skill>
+		<skill>
 			<name>Research</name>
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>INT</ability>
+			<synergy>Research</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Ride</name>
 			<ranks>0.0</ranks>
 			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
@@ -949,37 +775,20 @@ BIO
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
-			<ability>INT</ability>
-			<synergy>Research</synergy>
+			<ability>DEX</ability>
+			<synergy>Ride</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
 			<trained_total>1</trained_total>
 			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
-			<name>Ride</name>
-			<ranks>4.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
-			</mod>
-			<skill_mod>7</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
-			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
-			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Ride</synergy>
-			<untrained>Y</untrained>
-			<exclusive>N</exclusive>
-			<trained_total>7</trained_total>
-			<exclusive_total>7</exclusive_total>
-		</skill>
-		<skill>
 			<name>Search</name>
-			<ranks>1.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
+			<ranks>2.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
 			<skill_mod>2</skill_mod>
-			<ability_mod>1<!-- Mod from the key ability -->
+			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -993,10 +802,10 @@ BIO
 		<skill>
 			<name>Sense Motive</name>
 			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
+			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -1004,50 +813,50 @@ BIO
 			<synergy>Sense Motive</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
-			<name>Sleight of Hand</name>
-			<ranks>4.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
+			<name>Speak Language(English)</name>
+			<ranks>1.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>7</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
+			<skill_mod>1</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
-			<ability>DEX</ability>
-			<synergy>Sleight of Hand</synergy>
+			<ability></ability>
+			<synergy>Speak Language(English)</synergy>
 			<untrained>NO</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>7</trained_total>
-			<exclusive_total>7</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
 			<name>Spot</name>
-			<ranks>0.0</ranks>
+			<ranks>3.0</ranks>
 			<mod>3<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
+			<skill_mod>6</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>2<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>WIS</ability>
 			<synergy>Spot</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
+			<trained_total>6</trained_total>
+			<exclusive_total>6</exclusive_total>
 		</skill>
 		<skill>
 			<name>Survival</name>
-			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
+			<ranks>1.0</ranks>
+			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
+			<skill_mod>2</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -1055,16 +864,16 @@ BIO
 			<synergy>Survival</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
+			<trained_total>2</trained_total>
+			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Swim</name>
-			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<ranks>1.0</ranks>
+			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<skill_mod>2</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -1072,16 +881,16 @@ BIO
 			<synergy>Swim</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>2</trained_total>
+			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Treat Injury</name>
 			<ranks>0.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
+			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>3</skill_mod>
-			<ability_mod>3<!-- Mod from the key ability -->
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -1089,8 +898,8 @@ BIO
 			<synergy>Treat Injury</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>3</trained_total>
-			<exclusive_total>3</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 	</skills>
 	<!--
@@ -1107,9 +916,9 @@ BIO
 				<short>fort</short>
 			</name>
 			<ability>constitution</ability>
-			<total>+2</total>
-			<base>+2</base>
-			<abil_mod>+0</abil_mod>
+			<total>+8</total>
+			<base>+4</base>
+			<abil_mod>+4</abil_mod>
 			<feats>+0</feats>
 			<magic_mod>+0</magic_mod>
 			<misc_mod>+0</misc_mod>
@@ -1123,10 +932,10 @@ BIO
 				<short>ref</short>
 			</name>
 			<ability>dexterity</ability>
-			<total>+11</total>
-			<base>+8</base>
+			<total>+3</total>
+			<base>+2</base>
 			<feats>+0</feats>
-			<abil_mod>+3</abil_mod>
+			<abil_mod>+1</abil_mod>
 			<magic_mod>+0</magic_mod>
 			<misc_mod>+0</misc_mod>
 			<race>+0</race>
@@ -1139,9 +948,9 @@ BIO
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
-			<total>+5</total>
+			<total>+3</total>
 			<base>+2</base>
-			<abil_mod>+3</abil_mod>
+			<abil_mod>+1</abil_mod>
 			<feats>+0</feats>
 			<magic_mod>+0</magic_mod>
 			<misc_mod>+0</misc_mod>
@@ -1158,10 +967,10 @@ BIO
 	  ====================================-->
 	<attack>
 		<melee>
-			<total>+3</total>
-			<bab>+3</bab>
-			<base_attack_bonus>+3</base_attack_bonus>
-			<stat_mod>+0</stat_mod>
+			<total>+6</total>
+			<bab>+5</bab>
+			<base_attack_bonus>+5</base_attack_bonus>
+			<stat_mod>+1</stat_mod>
 			<size_mod>+0</size_mod>
 			<misc_mod>+0</misc_mod>
 			<epic_mod>+0</epic_mod>
@@ -1169,18 +978,18 @@ BIO
 		</melee>
 		<ranged>
 			<total>+6</total>
-			<bab>+3</bab>
-			<base_attack_bonus>+3</base_attack_bonus>
-			<stat_mod>+3</stat_mod>
+			<bab>+5</bab>
+			<base_attack_bonus>+5</base_attack_bonus>
+			<stat_mod>+1</stat_mod>
 			<size_mod>+0</size_mod>
 			<misc_mod>+0</misc_mod>
 			<epic_mod>+0</epic_mod>
 			<temp_mod/>
 		</ranged>
 		<grapple>
-			<total>+3</total>
-			<bab>+3</bab>
-			<base_attack_bonus>+3</base_attack_bonus>
+			<total>+5</total>
+			<bab>+5</bab>
+			<base_attack_bonus>+5</base_attack_bonus>
 			<stat_mod>+0</stat_mod>
 			<size_mod>+0</size_mod>
 			<misc_mod>+0</misc_mod>
@@ -1196,8 +1005,8 @@ BIO
 	  ====================================-->
 	<weapons>
 		<unarmed>
-			<total>+3</total>
-			<damage>1d4</damage>
+			<total>+6</total>
+			<damage>1d3+3</damage>
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
@@ -1205,8 +1014,8 @@ BIO
 		<weapon>
 			<common>
 				<name>
-					<short>*Colt Python (.357 revolver)</short>
-					<long>*Colt Python (.357 revolver)</long>
+					<short>*Beretta 92F (9mm autoloader) (Medium)</short>
+					<long>*Beretta 92F (9mm autoloader) (Medium)</long>
 				</name>
 				<category>Non-Standard-Ranged</category>
 				<critical>
@@ -1214,50 +1023,46 @@ BIO
 					<multiplier>2</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+7</hit>
-					<magic_hit>+1</magic_hit>
-					<total_hit>+7</total_hit>
+					<hit>+6</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+6</total_hit>
 				</to_hit>
 				<feat></feat>
 				<hand>Primary</hand>
 				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
-				<special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
+				<special_properties>Magazine 15,Lic(+1)</special_properties>
 				<template></template>
 				<type>Ba</type>
-				<weight>3</weight>
+				<weight>6</weight>
 				<sequence>0</sequence>
 			</common>
 			<ranges>
-				<ammunition>
-					<name>Bullet (.357)</name>
-					<special_properties></special_properties>
-				</ammunition>
 				<range>
 					<distance>30 ft.</distance>
-					<to_hit>+7</to_hit>
-					<damage>2d6</damage>
+					<to_hit>+6</to_hit>
+					<damage>2d8</damage>
 				</range>
 				<range>
 					<distance>40 ft.</distance>
-					<to_hit>+7</to_hit>
-					<damage>2d6</damage>
+					<to_hit>+6</to_hit>
+					<damage>2d8</damage>
 				</range>
 				<range>
 					<distance>80 ft.</distance>
-					<to_hit>+5</to_hit>
-					<damage>2d6</damage>
+					<to_hit>+4</to_hit>
+					<damage>2d8</damage>
 				</range>
 				<range>
 					<distance>120 ft.</distance>
-					<to_hit>+3</to_hit>
-					<damage>2d6</damage>
+					<to_hit>+2</to_hit>
+					<damage>2d8</damage>
 				</range>
 				<range>
 					<distance>160 ft.</distance>
-					<to_hit>+1</to_hit>
-					<damage>2d6</damage>
+					<to_hit>+0</to_hit>
+					<damage>2d8</damage>
 				</range>
 			</ranges>
 		</weapon>
@@ -1273,9 +1078,9 @@ BIO
 					<multiplier>2</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+4</hit>
+					<hit>+8</hit>
 					<magic_hit>+0</magic_hit>
-					<total_hit>+4</total_hit>
+					<total_hit>+8</total_hit>
 				</to_hit>
 				<feat></feat>
 				<hand>Primary</hand>
@@ -1289,10 +1094,130 @@ BIO
 				<sequence>1</sequence>
 			</common>
 			<simple>
-				<to_hit>+4</to_hit>
-				<damage>1d6</damage>
+				<to_hit>+8</to_hit>
+				<damage>1d8+3</damage>
 				<range>0 ft.</range>
 			</simple>
+		</weapon>
+		<weapon>
+			<common>
+				<name>
+					<short>Brass Knuckles (Medium)</short>
+					<long>Brass Knuckles (Medium)</long>
+				</name>
+				<category>Simple-Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+6</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+6</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Carried</hand>
+				<num_attacks>1</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type>Bl</type>
+				<weight>10</weight>
+				<sequence>2</sequence>
+			</common>
+			<melee>
+				<w1_h1_p>
+					<!-- One weapon, 1 hand, primary hand -->
+					<to_hit>+6</to_hit>
+					<damage>1d3+3</damage>
+				</w1_h1_p>
+				<w1_h1_o>
+					<!-- One weapon, 1 handed, offhand -->
+					<to_hit>+2</to_hit>
+					<damage>1d3+2</damage>
+				</w1_h1_o>
+				<w1_h2>
+					<!-- One weapon, 2 handed -->
+					<to_hit>+6</to_hit>
+					<damage>1d3+3</damage>
+				</w1_h2>
+				<w2_p_oh>
+					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
+					<to_hit>+0</to_hit>
+					<damage>1d3+3</damage>
+				</w2_p_oh>
+				<w2_p_ol>
+					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
+					<to_hit>+2</to_hit>
+					<damage>1d3+3</damage>
+				</w2_p_ol>
+				<w2_o>
+					<!-- Two weapons, this weapon in off-hand -->
+					<to_hit>-4</to_hit>
+					<damage>1d3+2</damage>
+				</w2_o>
+			</melee>
+		</weapon>
+		<weapon>
+			<common>
+				<name>
+					<short>Dagger (Punching) (Medium)</short>
+					<long>Dagger (Punching) (Medium)</long>
+				</name>
+				<category>Simple-Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>3</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+6</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+6</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Carried</hand>
+				<num_attacks>1</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type>P</type>
+				<weight>20</weight>
+				<sequence>3</sequence>
+			</common>
+			<melee>
+				<w1_h1_p>
+					<!-- One weapon, 1 hand, primary hand -->
+					<to_hit>+6</to_hit>
+					<damage>1d8+3</damage>
+				</w1_h1_p>
+				<w1_h1_o>
+					<!-- One weapon, 1 handed, offhand -->
+					<to_hit>+2</to_hit>
+					<damage>1d8+2</damage>
+				</w1_h1_o>
+				<w1_h2>
+					<!-- One weapon, 2 handed -->
+					<to_hit>+6</to_hit>
+					<damage>1d8+3</damage>
+				</w1_h2>
+				<w2_p_oh>
+					<!-- Two weapons, this weapon in primary hand, other hand with heavy weapon -->
+					<to_hit>+0</to_hit>
+					<damage>1d8+3</damage>
+				</w2_p_oh>
+				<w2_p_ol>
+					<!-- Two weapons, this weapon in primary hand, other hand with light weapon -->
+					<to_hit>+2</to_hit>
+					<damage>1d8+3</damage>
+				</w2_p_ol>
+				<w2_o>
+					<!-- Two weapons, this weapon in off-hand -->
+					<to_hit>-4</to_hit>
+					<damage>1d8+2</damage>
+				</w2_o>
+			</melee>
 		</weapon>
 	</weapons>
 	<!--
@@ -1333,16 +1258,16 @@ BIO
 	  ====================================-->
 	<equipment>
 		<item>
-			<longname>Colt Python (.357 revolver)</longname>
+			<longname>Beretta 92F (9mm autoloader) (Medium)</longname>
 			<id></id>
-			<name>Colt Python (.357 revolver)</name>
+			<name>Beretta 92F (9mm autoloader) (Medium)</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>0 lbs., 6 .357 Bullet</contents>
-			<contents_num>1</contents_num>
+			<contents>0 lbs.</contents>
+			<contents_num>0</contents_num>
 			<content_weight>0</content_weight>
-			<cost>5</cost>
+			<cost>16</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
@@ -1353,35 +1278,9 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
-			<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.MASTERCRAFT</type>
-			<weight>3</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Bullet (.357)</longname>
-			<id></id>
-			<name>.357 Bullet</name>
-			<carried>6.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>5</cost>
-			<equipped>N</equipped>
-			<location>Colt Python (.357 revolver)</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>6</quantity>
-			<checkbox>6</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>AMMUNITION.STANDARD.METAL.BULLET.INDIVIDUAL</type>
-			<weight>0</weight>
+			<special_properties>Magazine 15,Lic(+1)</special_properties>
+			<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.CUSTOM</type>
+			<weight>6</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
@@ -1411,16 +1310,16 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Clothing Outfit (Normal Everday)</longname>
+			<longname>Clothing Outfit (Casual)</longname>
 			<id></id>
-			<name>Normal Everday Clothing</name>
+			<name>Casual Outfit</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
 			<contents_num>0</contents_num>
 			<content_weight>0</content_weight>
-			<cost>0</cost>
+			<cost>8</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
 			<maxcharges>0</maxcharges>
@@ -1432,21 +1331,47 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>GOODS.CLOTHING.RESIZABLE</type>
-			<weight>0</weight>
+			<type>GOODS.CLOTHING</type>
+			<weight>2</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Aluminum Travel Case (75 lb)</longname>
+			<longname>Binoculars (Standard)</longname>
 			<id></id>
-			<name>Aluminum Travel Case (75 lb)</name>
+			<name>Binoculars, Standard</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>1 lbs., 1 Camera, Digital, 1 PDA (Satellite Datalink Gadget)</contents>
-			<contents_num>2</contents_num>
-			<content_weight>1</content_weight>
-			<cost>12</cost>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>7</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.GENERAL</type>
+			<weight>2</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Brass Knuckles (Medium)</longname>
+			<id></id>
+			<name>Brass Knuckles (Medium)</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>10</cost>
 			<equipped>N</equipped>
 			<location>Carried</location>
 			<maxcharges>0</maxcharges>
@@ -1458,49 +1383,23 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>GOODS.CONTAINER.GENERAL</type>
-			<weight>15</weight>
+			<type>WEAPON.SIMPLE.MELEE.BLUDGEONING.CUSTOM</type>
+			<weight>10</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Mercedes E55 AMG</longname>
+			<longname>Backpack</longname>
 			<id></id>
-			<name>Mercedes E55 AMG</name>
+			<name>Backpack</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>0 lbs.</contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>32</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties>Crew: 1, Pass: 4, Cargo: 325 lbs., Init: -2, Maneuver:+0, Top Speed: 280(28), Defense: 8, Hardness: 5, hp 34, Size:H</special_properties>
-			<type>GOODS.TRANSPORTATION.CIVILIAN.CAR.CONTAINER</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Camera (Digital)</longname>
-			<id></id>
-			<name>Camera, Digital</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>14</cost>
+			<contents>5 lbs., 1 Formal Outfit, 1 Stealth Outfit, 1 9mm Bullets, 50 pack</contents>
+			<contents_num>3</contents_num>
+			<content_weight>5</content_weight>
+			<cost>10</cost>
 			<equipped>N</equipped>
-			<location>Aluminum Travel Case (75 lb)</location>
+			<location>Carried</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1510,23 +1409,23 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>GOODS.TOOLS.ELECTRONIC.PHOTO</type>
-			<weight>0.5</weight>
+			<type>GOODS.GENERAL.CONTAINER</type>
+			<weight>3</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>PDA (Satellite Datalink Gadget)</longname>
+			<longname>Dagger (Punching) (Medium)</longname>
 			<id></id>
-			<name>PDA (Satellite Datalink Gadget)</name>
+			<name>Dagger (Punching) (Medium)</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
 			<contents_num>0</contents_num>
 			<content_weight>0</content_weight>
-			<cost>17</cost>
+			<cost>10</cost>
 			<equipped>N</equipped>
-			<location>Aluminum Travel Case (75 lb)</location>
+			<location>Carried</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1535,15 +1434,67 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>can connect to a global (or, if in place, galactic) satellite network</special_properties>
-			<type>GOODS.TOOLS.ELECTRONIC.SPELLBOOK.CUSTOM</type>
-			<weight>0.5</weight>
+			<special_properties></special_properties>
+			<type>WEAPON.SIMPLE.MELEE.PIERCING.STANDARD.METAL.FINESSEABLE.CUSTOM</type>
+			<weight>20</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Bullet (.357/50)</longname>
+			<longname>Clothing Outfit (Formal)</longname>
 			<id></id>
-			<name>.357 Bullets, 50 pack</name>
+			<name>Formal Outfit</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>15</cost>
+			<equipped>N</equipped>
+			<location>Backpack</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.CLOTHING</type>
+			<weight>3</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Clothing Outfit (Stealth)</longname>
+			<id></id>
+			<name>Stealth Outfit</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>9</cost>
+			<equipped>N</equipped>
+			<location>Backpack</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.CLOTHING</type>
+			<weight>2</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Bullet (9mm/50)</longname>
+			<id></id>
+			<name>9mm Bullets, 50 pack</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1552,7 +1503,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>5</cost>
 			<equipped>N</equipped>
-			<location>Carried</location>
+			<location>Backpack</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1567,21 +1518,21 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<total>
-			<weight>19 lbs.</weight>
-			<value>115 Wlth</value>
+			<weight>46 lbs.</weight>
+			<value>90 Wlth</value>
 			<load>Light</load>
-			<capacity>115</capacity>
+			<capacity>150</capacity>
 		</total>
 		<equipmentsets>
 
       <equipmentset name="Default Set">
 		<item>
-					<name>Colt Python (.357 revolver)</name>
+					<name>Beretta 92F (9mm autoloader) (Medium)</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
-					<contents>0 lbs., 6 .357 Bullet</contents>
-					<cost>5</cost>
+					<contents>0 lbs.</contents>
+					<cost>16</cost>
 					<equipped>Y</equipped>
 					<location>Equipped</location>
 					<maxcharges>0</maxcharges>
@@ -1591,30 +1542,9 @@ BIO
 						<long>Medium</long>
 						<short>M</short>
 					</size>
-					<special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
-					<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.MASTERCRAFT</type>
-					<weight>3</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>.357 Bullet</name>
-					<carried>6.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>5</cost>
-					<equipped>N</equipped>
-					<location>Colt Python (.357 revolver)</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>6</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>AMMUNITION.STANDARD.METAL.BULLET.INDIVIDUAL</type>
-					<weight>0</weight>
+					<special_properties>Magazine 15,Lic(+1)</special_properties>
+					<type>WEAPON.RANGED.STANDARD.FIREARM.PISTOL.BALLISTIC.PERSONAL.SEMIAUTO.CONTAINER.PROJECTILE.CUSTOM</type>
+					<weight>6</weight>
 					<bonuslist></bonuslist>
 				</item>
 		<item>
@@ -1639,12 +1569,12 @@ BIO
 					<bonuslist></bonuslist>
 				</item>
 		<item>
-					<name>Normal Everday Clothing</name>
+					<name>Casual Outfit</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
 					<contents></contents>
-					<cost>0</cost>
+					<cost>8</cost>
 					<equipped>Y</equipped>
 					<location>Equipped</location>
 					<maxcharges>0</maxcharges>
@@ -1655,17 +1585,38 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>GOODS.CLOTHING.RESIZABLE</type>
-					<weight>0</weight>
+					<type>GOODS.CLOTHING</type>
+					<weight>2</weight>
 					<bonuslist></bonuslist>
 				</item>
 		<item>
-					<name>Aluminum Travel Case (75 lb)</name>
+					<name>Binoculars, Standard</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
-					<contents>1 lbs., 1 Camera, Digital, 1 PDA (Satellite Datalink Gadget)</contents>
-					<cost>12</cost>
+					<contents></contents>
+					<cost>7</cost>
+					<equipped>Y</equipped>
+					<location>Equipped</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>GOODS.GENERAL</type>
+					<weight>2</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Brass Knuckles (Medium)</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>10</cost>
 					<equipped>N</equipped>
 					<location>Carried</location>
 					<maxcharges>0</maxcharges>
@@ -1676,40 +1627,19 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>GOODS.CONTAINER.GENERAL</type>
-					<weight>15</weight>
+					<type>WEAPON.SIMPLE.MELEE.BLUDGEONING.CUSTOM</type>
+					<weight>10</weight>
 					<bonuslist></bonuslist>
 				</item>
 		<item>
-					<name>Mercedes E55 AMG</name>
+					<name>Backpack</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
-					<contents>0 lbs.</contents>
-					<cost>32</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties>Crew: 1, Pass: 4, Cargo: 325 lbs., Init: -2, Maneuver:+0, Top Speed: 280(28), Defense: 8, Hardness: 5, hp 34, Size:H</special_properties>
-					<type>GOODS.TRANSPORTATION.CIVILIAN.CAR.CONTAINER</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Camera, Digital</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>14</cost>
+					<contents>5 lbs., 1 Formal Outfit, 1 Stealth Outfit, 1 9mm Bullets, 50 pack</contents>
+					<cost>10</cost>
 					<equipped>N</equipped>
-					<location>Aluminum Travel Case (75 lb)</location>
+					<location>Carried</location>
 					<maxcharges>0</maxcharges>
 					<note></note>
 					<quantity>1</quantity>
@@ -1718,19 +1648,19 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>GOODS.TOOLS.ELECTRONIC.PHOTO</type>
-					<weight>0.5</weight>
+					<type>GOODS.GENERAL.CONTAINER</type>
+					<weight>3</weight>
 					<bonuslist></bonuslist>
 				</item>
 		<item>
-					<name>PDA (Satellite Datalink Gadget)</name>
+					<name>Dagger (Punching) (Medium)</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
 					<contents></contents>
-					<cost>17</cost>
+					<cost>10</cost>
 					<equipped>N</equipped>
-					<location>Aluminum Travel Case (75 lb)</location>
+					<location>Carried</location>
 					<maxcharges>0</maxcharges>
 					<note></note>
 					<quantity>1</quantity>
@@ -1738,20 +1668,62 @@ BIO
 						<long>Medium</long>
 						<short>M</short>
 					</size>
-					<special_properties>can connect to a global (or, if in place, galactic) satellite network</special_properties>
-					<type>GOODS.TOOLS.ELECTRONIC.SPELLBOOK.CUSTOM</type>
-					<weight>0.5</weight>
+					<special_properties></special_properties>
+					<type>WEAPON.SIMPLE.MELEE.PIERCING.STANDARD.METAL.FINESSEABLE.CUSTOM</type>
+					<weight>20</weight>
 					<bonuslist></bonuslist>
 				</item>
 		<item>
-					<name>.357 Bullets, 50 pack</name>
+					<name>Formal Outfit</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>15</cost>
+					<equipped>N</equipped>
+					<location>Backpack</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>GOODS.CLOTHING</type>
+					<weight>3</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Stealth Outfit</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>9</cost>
+					<equipped>N</equipped>
+					<location>Backpack</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>GOODS.CLOTHING</type>
+					<weight>2</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>9mm Bullets, 50 pack</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
 					<contents></contents>
 					<cost>5</cost>
 					<equipped>N</equipped>
-					<location>Carried</location>
+					<location>Backpack</location>
 					<maxcharges>0</maxcharges>
 					<note></note>
 					<quantity>1</quantity>
@@ -1769,13 +1741,13 @@ BIO
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
-		<light>38</light>
-		<medium>76</medium>
-		<heavy>115</heavy>
-		<lift_over_head>115</lift_over_head>
-		<lift_off_ground>230</lift_off_ground>
+		<light>50</light>
+		<medium>100</medium>
+		<heavy>150</heavy>
+		<lift_over_head>150</lift_over_head>
+		<lift_off_ground>300</lift_off_ground>
 		<!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
-		<push_drag>575</push_drag>
+		<push_drag>750</push_drag>
 	</weight_allowance>
 	<!--
 	  ====================================
@@ -1784,21 +1756,13 @@ BIO
 	  ====================================
 	  ====================================-->
 	<special_abilities>
-		<ability>
-			<name>Improvised Implements</name>
-			<description></description>
-		</ability>
-		<ability>
-			<name>Sweep</name>
-			<description></description>
-		</ability>
 		<race></race>
 		<class>
-			<class>Fast Hero</class>
+			<class>Tough Hero</class>
 			<ability></ability>
 		</class>
 		<class>
-			<class>Infiltrator</class>
+			<class>Strong Hero</class>
 			<ability></ability>
 		</class>
 	</special_abilities>
@@ -1811,9 +1775,9 @@ BIO
 	<feats>
 		<!-- Visible standard feats (not including the auto feats) -->
 		<feat>
-			<name>Advanced Firearms Proficiency</name>
-			<description>The character can fire any personal firearm on autofire without penalty (provided, of course, that it has an auto-fire setting)</description>
-			<type>GENERAL.DEDICATED.SOLDIER.GUNSLINGER.BODYGUARD.INVESTIGATOR.NEGOTIATOR.DREADNOUGHT.FIELDOFFICER.HELIXWARRIOR.SPACEMONKEY.TRACER.STREETWARRIOR</type>
+			<name>Alertness</name>
+			<description>The character gets a +2 bonus on all Listen checks and Spot checks</description>
+			<type>MAGE.TELEPATH.GENERAL.SHADOWSLAYER.PERSONALITY.DEDICATED.TOUGH.INFILTRATOR.OCCULTIST.TRACER.GLAMOURIST.MYSTIC.SHADOWJACK.THRASHER.SHADOWKINDHUMAN</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1831,9 +1795,9 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Combat Martial Arts</name>
-			<description>With an unarmed strike, the character deals lethal or nonlethal damage (the character&#39;s choice) equal to 1d4 + the character&#39;s Strength modifier. The character&#39;s unarmed attacks count as armed, which means that opponents do not get attacks of opportunity when the character attacks them unarmed. The character may make attacks of opportunity against opponents who provoke such attacks. [1d4+0]</description>
-			<type>BATTLEMIND.GENERAL.LAW_ENFORCEMENT.MILITARY.STRONG.DREADNOUGHT.GLADIATOR</type>
+			<name>Improved Brawl</name>
+			<description>When making an unarmed attack, the character receives a +2 competence bonus on his or her attack roll, and the character deals nonlethal damage equal to 1d8 + the character&#39;s Strength modifier</description>
+			<type>GENERAL.STRONG.TOUGH.DAREDEVIL.BODYGUARD.DOGFIGHTER.DREADNOUGHT.SPACEMONKEY.SHADOWHUNTER.SPEEDDEMON.STREETWARRIOR.THRASHER</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1851,21 +1815,21 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Toughness</name>
-			<description>The character gains +3 hit points</description>
-			<type>GENERAL.TOUGH.DAREDEVIL.DREADNOUGHT.SPACEMONKEY.OUTCAST</type>
-			<associated></associated>
+			<name>Surface Vehicle Operation (Heavy Wheeled)</name>
+			<description>Select a class of surface vehicle (heavy wheeled, powerboat, sailboat, ship, or tracked). The character is proficient at operating that class of vehicle</description>
+			<type>GENERAL.DAREDEVIL.FIELDMEDIC.ENGINEER.HELIXWARRIOR</type>
+			<associated>Heavy Wheeled</associated>
 			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Weapon Finesse (Pistol Whip)</name>
-			<description>Choose one light melee weapon, a rapier (if the character can use it with one hand), or a chain</description>
-			<type>BATTLEMIND.GENERAL.FAST</type>
-			<associated>Pistol Whip</associated>
-			<count>1</count>
+			<name>Vehicle Expert</name>
+			<description>The character gets a +2 bonus on all Drive checks and Pilot checks</description>
+			<type>GENERAL.TOUGH.SMART.DAREDEVIL.BODYGUARD.FIELDMEDIC.ENGINEER.EXPLORER.TRANSPORTER.TECHNOSAVANT</type>
+			<associated></associated>
+			<count>0</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1906,33 +1870,11 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-		<ability_object>
-			<name>Improvised Implements</name>
-			<description></description>
-			<type>CLASS.SPECIALABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Sweep</name>
-			<description></description>
-			<type>CLASS.SPECIALABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
 	<!-- Visible Standard "Talent" Ability Objects -->
 		<ability_object>
-			<name>Evasion</name>
+			<name>Acid Resistance</name>
 			<description>See text</description>
-			<type>TALENT.FASTTALENT.DEFENSIVE</type>
+			<type>TALENT.TOUGHTALENT.ENERGYRESISTANCE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1941,9 +1883,31 @@ BIO
 			<category>Talent</category>
 		</ability_object>
 		<ability_object>
-			<name>Uncanny Dodge I</name>
+			<name>Cold Resistance</name>
 			<description>See text</description>
-			<type>TALENT.FASTTALENT.DEFENSIVE.FASTPLUS</type>
+			<type>TALENT.TOUGHTALENT.ENERGYRESISTANCE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Talent</category>
+		</ability_object>
+		<ability_object>
+			<name>Improved Melee Smash</name>
+			<description>See text</description>
+			<type>TALENT.STRONGTALENT.MELEESMASH.STRONGPLUS</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Talent</category>
+		</ability_object>
+		<ability_object>
+			<name>Melee Smash</name>
+			<description>See text</description>
+			<type>TALENT.STRONGTALENT.MELEESMASH</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1964,7 +1928,7 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>Brawl Damage ~ d6</name>
+			<name>Brawl Damage ~ d8</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
@@ -1996,28 +1960,6 @@ BIO
 			<virtual>F</virtual>
 			<category>Internal</category>
 		</ability_object>
-		<ability_object>
-			<name>Unarmed Damage</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
-			<name>Unarmed Damage ~ d4</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
 	</ability_objects>
 	<!--
 	  ====================================
@@ -2027,7 +1969,7 @@ BIO
 	  ====================================-->
 	<!-- Domains -->
 	<weapon_proficiencies>Air Pistol, Air Rifle, AKM/AK-47, Barrett Light Fifty, Beam Sword, Benelli 121 M1, Beretta 92F, Beretta 93R, Beretta M3P, Blowgun, Brass Knuckles, Brawl, Browning BPS, Cleaver, Club, Colt Double Eagle, Colt M1911, Colt Python, Concussion Rifle, Concussion Rod, Crossbow, Cryonic Rifle, Crystal Pistol, Derringer, Desert Eagle, Disintegrator, Falcon .45, Flamethrower, Flare Gun, Gauntlet, Glock 17, Glock 20, Gravity Snare, Heavy Mace, High Frequency Sword, HK G3, HK MP5, HK MP5K, HK PSG1, Javelin, Ketch-all Pole, Knife, Laser Optics, Laser Pistol, Laser Rifle, Laser Sniper Rifle, Light Mace, Lightning Gun, M-60, M16A2, M4 Carbine, MAC Ingram M10, Metal Baton, Mini-Grenade Launcher, Mini-Rocket Launcher, Mossberg, OICW Assault Rifle, Paint Ball Gun, Pathfinder, Pepper Spray, Pistol Whip, Plasma Pistol, Plasma Rifle, Pulse Rifle, Punching Dagger, Quarterstaff, Rail Gun, Remington 700, Rifle Butt, Ruger Service-Six, S and W M29, Sap, Sawed-Off Shotgun, Shortspear, Sickle, SITES M9, Skorpion, Slingshot, Sonic Beam, Speargun, Spiked Club, Steyr AUG, Sticky Foam Sprayer, Stun Baton, Stun Gun, Super Watergun, TACMIL Sniper Rifle, Tangler Gun, Taser, TEC-9, Tonfa, Twin thunder machine gun, Unarmed Strike, Uzi, Walther PPK, Water Cannon, Whip, Winchester 94</weapon_proficiencies>
-	<languages>English, German</languages>
+	<languages>English, Russian</languages>
 
 	<templates>
 		<list></list>
@@ -2068,20 +2010,7 @@ BIO
 	</known_spells>
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
-	<memorized_spells>
-			<!-- ### BEGIN innate memorized spell section -->	
-<!-- ### END innate memorized spell section -->
-			<!-- ### BEGIN class Spellbook memorized spells ### -->
-<!-- FOR,0,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
-<!-- FOR,0,COUNT[SPELLSINBOOK0.2.0],COUNT[SPELLSINBOOK0.2.0],1,1 -->
-<!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
-			<spellbook number="2" name="PDA (Satellite Datalink Gadget)">
-
-
-		</spellbook>
-<!-- END FOR,0,COUNT[SPELLSINBOOK0.2.0],COUNT[SPELLSINBOOK0.2.0],1,1 -->
-<!-- END FOR,0,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
-	</memorized_spells>
+	<memorized_spells/>
 <!-- ### END class Spellbook memorized spells ### -->
 	</spells>
 </character>
