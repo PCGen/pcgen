@@ -79,7 +79,9 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	public TripleKeyMap()
 	{
 		thirdClass = HashMap.class;
-		map = new DoubleKeyMap<K1, K2, Map<K3, V>>(HashMap.class, HashMap.class);
+		map =
+				new DoubleKeyMap<K1, K2, Map<K3, V>>(HashMap.class,
+					HashMap.class);
 	}
 
 	/**
@@ -448,14 +450,14 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 		catch (InstantiationException e)
 		{
 			throw new IllegalArgumentException(
-				"Class for TripleKeyMap must possess a zero-argument constructor",
-				e);
+				"Class for TripleKeyMap must possess "
+					+ "a zero-argument constructor", e);
 		}
 		catch (IllegalAccessException e)
 		{
 			throw new IllegalArgumentException(
-				"Class for TripleKeyMap must possess a public zero-argument constructor",
-				e);
+				"Class for TripleKeyMap must possess "
+					+ "a public zero-argument constructor", e);
 		}
 	}
 

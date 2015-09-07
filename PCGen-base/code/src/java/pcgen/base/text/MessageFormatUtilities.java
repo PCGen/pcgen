@@ -23,7 +23,7 @@ import java.text.MessageFormat;
 
 /**
  * MessageFormatUtilities contains utility methods related to
- * java.lang.MessageFormat
+ * java.lang.MessageFormat.
  */
 public final class MessageFormatUtilities
 {

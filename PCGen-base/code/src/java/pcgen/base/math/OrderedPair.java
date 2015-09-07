@@ -39,17 +39,17 @@ public class OrderedPair
 {
 
 	/**
-	 * Stores the x value of this OrderedPair
+	 * Stores the x value of this OrderedPair.
 	 */
 	private Number x;
 
 	/**
-	 * Stores the y value of this OrderedPair
+	 * Stores the y value of this OrderedPair.
 	 */
 	private Number y;
 
 	/**
-	 * Constructs a new OrderedPair from the given Numbers
+	 * Constructs a new OrderedPair from the given Numbers.
 	 * 
 	 * @param x
 	 *            The x value of the OrderedPair

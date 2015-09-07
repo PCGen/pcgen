@@ -572,14 +572,14 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 		catch (InstantiationException e)
 		{
 			throw new IllegalArgumentException(
-				"Class for DoubleKeyMap must possess a zero-argument constructor",
-				e);
+				"Class for DoubleKeyMap must possess "
+					+ "a zero-argument constructor", e);
 		}
 		catch (IllegalAccessException e)
 		{
 			throw new IllegalArgumentException(
-				"Class for DoubleKeyMap must possess a public zero-argument constructor",
-				e);
+				"Class for DoubleKeyMap must possess "
+					+ "a public zero-argument constructor", e);
 		}
 	}
 

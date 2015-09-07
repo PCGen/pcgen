@@ -69,6 +69,9 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 	 * Creates a new GenericMapToList, using the given Class as the underlying
 	 * class for construction of the Map.
 	 * 
+	 * @param cl
+	 *            The Class (extending Map) to be used as the underlying Map of
+	 *            this GenericMapToList
 	 * @throws IllegalAccessException
 	 *             if there is a security problem in accessing the given class
 	 * @throws InstantiationException
@@ -118,14 +121,14 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 		catch (InstantiationException e)
 		{
 			throw new IllegalArgumentException(
-				"Class for GenericMapToList must possess a zero-argument constructor",
-				e);
+				"Class for GenericMapToList must possess "
+					+ "a zero-argument constructor", e);
 		}
 		catch (IllegalAccessException e)
 		{
 			throw new IllegalArgumentException(
-				"Class for GenericMapToList must possess a public zero-argument constructor",
-				e);
+				"Class for GenericMapToList must possess "
+					+ "a public zero-argument constructor", e);
 		}
 	}
 

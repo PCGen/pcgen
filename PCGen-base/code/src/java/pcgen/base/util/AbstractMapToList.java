@@ -54,12 +54,14 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 {
 
 	/**
-	 * The actual map containing the map of objects to Lists
+	 * The actual map containing the map of objects to Lists.
 	 */
 	private final Map<K, List<V>> mapToList;
 
 	/**
 	 * Creates a new AbstractMapToList.
+	 * 
+	 * @param The MapToList to be used as the underlying MapToList
 	 */
 	protected AbstractMapToList(Map<K, List<V>> mtl)
 	{
@@ -362,7 +364,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	}
 
 	/**
-	 * Perform the actual list removal (package since this is reckless)
+	 * Perform the actual list removal (package since this is reckless).
 	 */
 	boolean removeFromList(List<V> list, V valueElement)
 	{

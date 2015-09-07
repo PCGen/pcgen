@@ -68,7 +68,7 @@ public class OrderedPairManager implements FormatManager<OrderedPair>
 
 	/**
 	 * "Unconverts" the object (converts the object to a "serializable" String
-	 * format that can be reinterpreted by the convert* methods)
+	 * format that can be reinterpreted by the convert* methods).
 	 * 
 	 * @see pcgen.rules.format.FormatManager#unconvert(java.lang.Object)
 	 */
@@ -79,7 +79,7 @@ public class OrderedPairManager implements FormatManager<OrderedPair>
 	}
 
 	/**
-	 * The Class that this FormatManager can convert or unconvert
+	 * The Class that this FormatManager can convert or unconvert.
 	 * 
 	 * @see pcgen.rules.format.FormatManager#getManagedClass()
 	 */
@@ -91,7 +91,7 @@ public class OrderedPairManager implements FormatManager<OrderedPair>
 
 	/**
 	 * The String used to refer to this format in files like the variable
-	 * definition file
+	 * definition file.
 	 * 
 	 * @see pcgen.rules.format.FormatManager#getIdentifierType()
 	 */
@@ -120,7 +120,7 @@ public class OrderedPairManager implements FormatManager<OrderedPair>
 	}
 
 	/**
-	 * Returns null, as this FormatManager does not have a component
+	 * Returns null, as this FormatManager does not have a component.
 	 * 
 	 * @see pcgen.base.format.FormatManager#getComponentManager()
 	 */

@@ -347,7 +347,7 @@ public class IdentityList<T> implements List<T>
 
 	/**
 	 * An object used to wrap an object to ensure checks are done with identity
-	 * (==) not equality (.equals())
+	 * (==) not equality (.equals()).
 	 * 
 	 * @param <T>
 	 *            The type of object underlying this Identity
@@ -355,8 +355,17 @@ public class IdentityList<T> implements List<T>
 	private static final class Identity<T>
 	{
 
+		/**
+		 * The underlying item for this Identity.
+		 */
 		private final T underlying;
 
+		/**
+		 * Constructs a new Identity with the given underlying item.
+		 * 
+		 * @param item
+		 *            The underlying item for this Identity
+		 */
 		public Identity(T item)
 		{
 			underlying = item;
@@ -375,6 +384,11 @@ public class IdentityList<T> implements List<T>
 			return underlying.hashCode();
 		}
 
+		/**
+		 * Returns the object underlying this Identity.
+		 * 
+		 * @return The object underlying this Identity
+		 */
 		public T getUnderlying()
 		{
 			return underlying;
@@ -391,8 +405,18 @@ public class IdentityList<T> implements List<T>
 	 */
 	private class IdentityIterator<I> implements ListIterator<I>
 	{
+		/**
+		 * The ListIterator underlying this IdentityIterator.
+		 */
 		private final ListIterator<Identity<I>> iter;
 
+		/**
+		 * Constructs a new IdentityIterator with the given underlying
+		 * ListIterator.
+		 * 
+		 * @param iterator
+		 *            The ListIterator underlying this IdentityIterator
+		 */
 		public IdentityIterator(ListIterator<Identity<I>> iterator)
 		{
 			iter = iterator;

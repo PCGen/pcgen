@@ -85,6 +85,8 @@ public interface ObjectContainer<T>
 	 * Returns a representation of this ObjectContainer, suitable for storing in
 	 * an LST file.
 	 * 
+	 * @param useAny
+	 *            indicates if the "ALL/ANY" collection should use "ANY"
 	 * @return A representation of this ObjectContainer, suitable for storing in
 	 *         an LST file.
 	 */

@@ -24,7 +24,7 @@ import pcgen.base.util.ObjectContainer;
 
 /**
  * A BooleanManager is a FormatManager that provides services for Boolean
- * objects
+ * objects.
  */
 public class BooleanManager implements FormatManager<Boolean>
 {
@@ -76,7 +76,7 @@ public class BooleanManager implements FormatManager<Boolean>
 
 	/**
 	 * "Unconverts" the object (converts the object to a "serializable" String
-	 * format that can be reinterpreted by the convert* methods)
+	 * format that can be reinterpreted by the convert* methods).
 	 * 
 	 * @see pcgen.rules.format.FormatManager#unconvert(java.lang.Object)
 	 */
@@ -87,7 +87,7 @@ public class BooleanManager implements FormatManager<Boolean>
 	}
 
 	/**
-	 * The Class that this FormatManager can convert or unconvert
+	 * The Class that this FormatManager can convert or unconvert.
 	 * 
 	 * @see pcgen.rules.format.FormatManager#getManagedClass()
 	 */
@@ -99,7 +99,7 @@ public class BooleanManager implements FormatManager<Boolean>
 
 	/**
 	 * The String used to refer to this format in files like the variable
-	 * definition file
+	 * definition file.
 	 * 
 	 * @see pcgen.rules.format.FormatManager#getIdentifierType()
 	 */
@@ -128,7 +128,7 @@ public class BooleanManager implements FormatManager<Boolean>
 	}
 
 	/**
-	 * Returns null, as this FormatManager does not have a component
+	 * Returns null, as this FormatManager does not have a component.
 	 * 
 	 * @see pcgen.base.format.FormatManager#getComponentManager()
 	 */

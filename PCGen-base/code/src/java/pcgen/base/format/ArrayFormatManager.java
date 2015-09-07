@@ -39,17 +39,17 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 
 	/**
 	 * The separator character used to parse instructions and separate items
-	 * that will be part of the array
+	 * that will be part of the array.
 	 */
 	private final char separator;
 
 	/**
-	 * The FormatManager representing objects contained within the array
+	 * The FormatManager representing objects contained within the array.
 	 */
 	private final FormatManager<T> componentManager;
 
 	/**
-	 * The class showing the class of array managed by this ArrayFormatManager
+	 * The class showing the class of array managed by this ArrayFormatManager.
 	 */
 	private final transient Class<T[]> formatClass;
 
@@ -180,7 +180,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	}
 
 	/**
-	 * Returns the identifier type for this ArrayFormatManager
+	 * Returns the identifier type for this ArrayFormatManager.
 	 * 
 	 * @see pcgen.base.format.FormatManager#getIdentifierType()
 	 */

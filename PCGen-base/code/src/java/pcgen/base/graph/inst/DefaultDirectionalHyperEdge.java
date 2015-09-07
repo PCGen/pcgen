@@ -95,17 +95,17 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 		}
 	}
 
-	private final List<N> setNodes(Collection<N> sourceNodes)
+	private final List<N> setNodes(Collection<N> nodes)
 	{
-		if (sourceNodes == null || sourceNodes.isEmpty())
+		if (nodes == null || nodes.isEmpty())
 		{
 			return null;
 		}
 		/*
 		 * Copy before content check for thread safety
 		 */
-		List<N> returnList = new ArrayList<N>(sourceNodes.size());
-		returnList.addAll(sourceNodes);
+		List<N> returnList = new ArrayList<N>(nodes.size());
+		returnList.addAll(nodes);
 		for (N node : returnList)
 		{
 			if (node == null)

@@ -19,7 +19,7 @@ package pcgen.base.lang;
 
 /**
  * ObjectUtilities are various utility methods for dealing with all
- * java.lang.Object objects
+ * java.lang.Object objects.
  */
 public final class ObjectUtil
 {
@@ -40,6 +40,8 @@ public final class ObjectUtil
 	 *            The first object to be compared for equality
 	 * @param o2
 	 *            The second object to be compared for equality
+	 * @param <T>
+	 *            The class of object being compared
 	 * @return true if the two objects are equal; false otherwise
 	 */
 	@SuppressWarnings("PMD.CompareObjectsWithEquals")

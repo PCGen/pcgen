@@ -25,7 +25,7 @@ import pcgen.base.util.ObjectContainer;
 
 /**
  * A NumberManager is a FormatManager that provides services for Numbers
- * (effectively Double and Integer)
+ * (effectively Double and Integer).
  */
 public class NumberManager implements FormatManager<Number>
 {
@@ -68,7 +68,7 @@ public class NumberManager implements FormatManager<Number>
 
 	/**
 	 * "Unconverts" the object (converts the object to a "serializable" String
-	 * format that can be reinterpreted by the convert* methods)
+	 * format that can be reinterpreted by the convert* methods).
 	 * 
 	 * @see pcgen.rules.format.FormatManager#unconvert(java.lang.Object)
 	 */
@@ -79,7 +79,7 @@ public class NumberManager implements FormatManager<Number>
 	}
 
 	/**
-	 * The Class that this FormatManager can convert or unconvert
+	 * The Class that this FormatManager can convert or unconvert.
 	 * 
 	 * @see pcgen.rules.format.FormatManager#getManagedClass()
 	 */
@@ -91,7 +91,7 @@ public class NumberManager implements FormatManager<Number>
 
 	/**
 	 * The String used to refer to this format in files like the variable
-	 * definition file
+	 * definition file.
 	 * 
 	 * @see pcgen.rules.format.FormatManager#getIdentifierType()
 	 */
@@ -120,7 +120,7 @@ public class NumberManager implements FormatManager<Number>
 	}
 
 	/**
-	 * Returns null, as this FormatManager does not have a component
+	 * Returns null, as this FormatManager does not have a component.
 	 * 
 	 * @see pcgen.base.format.FormatManager#getComponentManager()
 	 */

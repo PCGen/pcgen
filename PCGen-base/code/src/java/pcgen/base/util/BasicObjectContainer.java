@@ -41,12 +41,12 @@ public class BasicObjectContainer<T> implements ObjectContainer<T>
 
 	/**
 	 * Contains the FormatManager that can handle the object contained in this
-	 * BasicObjectContainer
+	 * BasicObjectContainer.
 	 */
 	private final FormatManager<T> formatManager;
 
 	/**
-	 * Contains the single object contained in this BasicObjectContainer
+	 * Contains the single object contained in this BasicObjectContainer.
 	 */
 	private final T object;
 

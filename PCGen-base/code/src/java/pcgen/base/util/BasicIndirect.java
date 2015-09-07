@@ -36,12 +36,12 @@ public class BasicIndirect<T> implements Indirect<T>
 
 	/**
 	 * Contains the FormatManager that can handle the object contained in this
-	 * BasicIndirect
+	 * BasicIndirect.
 	 */
 	private final FormatManager<T> formatManager;
 
 	/**
-	 * Contains the single object contained in this BasicIndirect
+	 * Contains the single object contained in this BasicIndirect.
 	 */
 	private final T object;
 
