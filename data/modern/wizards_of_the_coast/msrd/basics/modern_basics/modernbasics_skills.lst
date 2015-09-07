@@ -59,14 +59,16 @@ Knowledge (Theology and Philosophy)	KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intellig
 Listen					KEYSTAT:WIS							TYPE:Wisdom					SOURCEPAGE:msrdskillsii
 Move Silently				KEYSTAT:DEX				ACHECK:YES		TYPE:Dexterity				SOURCEPAGE:msrdskillsii
 Navigate					KEYSTAT:INT							TYPE:Intelligence				SOURCEPAGE:msrdskillsii
-Perform (Act)				KEYSTAT:CHA							TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
-Perform (Dance)				KEYSTAT:CHA							TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
-Perform (Keyboards)			KEYSTAT:CHA							TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
-Perform (Percussion Instruments)	KEYSTAT:CHA							TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
-Perform (Sing)				KEYSTAT:CHA							TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
-Perform (Stand-Up)			KEYSTAT:CHA							TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
-Perform (Stringed Instruments)	KEYSTAT:CHA							TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
-Perform (Wind Instruments)		KEYSTAT:CHA							TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
+# Set up Perform to only display if Rank>0, otherwise you have eight skills display with the exact same values. Added Perform (Untrained) to replace those.
+Perform (Untrained)			KEYSTAT:CHA							TYPE:Charisma				SOURCEPAGE:msrdskillsii	VISIBLE:EXPORT
+Perform (Act)				KEYSTAT:CHA	USEUNTRAINED:NO				TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
+Perform (Dance)				KEYSTAT:CHA	USEUNTRAINED:NO				TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
+Perform (Keyboards)			KEYSTAT:CHA	USEUNTRAINED:NO				TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
+Perform (Percussion Instruments)	KEYSTAT:CHA	USEUNTRAINED:NO				TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
+Perform (Sing)				KEYSTAT:CHA	USEUNTRAINED:NO				TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
+Perform (Stand-Up)			KEYSTAT:CHA	USEUNTRAINED:NO				TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
+Perform (Stringed Instruments)	KEYSTAT:CHA	USEUNTRAINED:NO				TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
+Perform (Wind Instruments)		KEYSTAT:CHA	USEUNTRAINED:NO				TYPE:Charisma.Perform			SOURCEPAGE:msrdskillsii
 Pilot						KEYSTAT:DEX	USEUNTRAINED:NO				TYPE:Dexterity				SOURCEPAGE:msrdskillsii
 Profession					KEYSTAT:WIS							TYPE:Wisdom.Profession			SOURCEPAGE:msrdskillsii																BONUS:VAR|WealthBonus|ceil(min(var("SKILLRANK=Profession"),23)/5)
 Read/Write Language					USEUNTRAINED:NO				TYPE:None.Language			SOURCEPAGE:msrdskillsii		CHOOSE:LANG|TYPE=Written																					AUTO:LANG|%LIST
