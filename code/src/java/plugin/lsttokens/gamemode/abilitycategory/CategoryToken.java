@@ -75,10 +75,11 @@ public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 		CDOMSingleRef<AbilityCategory> parent = ac.getAbilityCatRef();
 		if (parent == null)
 		{
-			Logging.log(Logging.LST_ERROR,
-					"All Ability Categories must have a CATEGORY token. "
-							+ ac.getKeyName() + " of " + ac.getSourceURI()
-							+ " did not");
+			Logging.log(
+				Logging.LST_ERROR,
+				"All Ability Categories must have a CATEGORY token. "
+					+ ac.getKeyName() + " of " + context.getSourceURI()
+					+ " did not");
 			return false;
 		}
 		String parentCat = parent.getLSTformat(false);
@@ -87,26 +88,26 @@ public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 		{
 			Logging.log(Logging.LST_ERROR, "TYPE " + ac.getTypes()
 				+ " is not valid in 'parent' category " + ac.getKeyName()
-				+ " of " + ac.getSourceURI() + Constants.DOT);
+				+ " of " + context.getSourceURI() + Constants.DOT);
 			return false;
 		}
 		if (ac.isAllAbilityTypes()
 				&& parentCat.equalsIgnoreCase(ac.getKeyName()))
 		{
 			Logging.log(Logging.LST_ERROR,
-					"TYPE '*' is not valid in 'parent' category "
-							+ ac.getKeyName() + " of " + ac.getSourceURI()
-							+ Constants.DOT);
+				"TYPE '*' is not valid in 'parent' category " + ac.getKeyName()
+					+ " of " + context.getSourceURI() + Constants.DOT);
 			return false;
 		}
 
 		if (ac.hasDirectReferences()
 				&& parentCat.equalsIgnoreCase(ac.getKeyName()))
 		{
-			Logging.log(Logging.LST_ERROR,
-					"ABILITYLIST is not valid in 'parent' category "
-							+ ac.getKeyName() + " of " + ac.getSourceURI()
-							+ Constants.DOT);
+			Logging.log(
+				Logging.LST_ERROR,
+				"ABILITYLIST is not valid in 'parent' category "
+					+ ac.getKeyName() + " of " + context.getSourceURI()
+					+ Constants.DOT);
 			return false;
 		}
 		// Must be a universal set if no types
@@ -115,9 +116,12 @@ public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 		{
 			if (!parentCat.equalsIgnoreCase(ac.getKeyName()))
 			{
-				Logging.log(Logging.LST_ERROR, "Ability Category "
-						+ ac.getKeyName() + " had no TYPE or ABILITYLIST, "
-						+ "but has a different CATEGORY");
+				Logging.log(
+					Logging.LST_ERROR,
+					"Ability Category " + ac.getKeyName()
+						+ " had no TYPE or ABILITYLIST, "
+						+ "but has a different CATEGORY.  File was: "
+						+ context.getSourceURI());
 				return false;
 			}
 		}
