@@ -94,7 +94,7 @@ public class CaseInsensitiveString
 		if (hash == 0)
 		{
 			int length = string.length();
-			for (int i = 0; i < length ; i++)
+			for (int i = 0; i < length; i++)
 			{
 				hash = hash * 29 + Character.toUpperCase(string.charAt(i));
 			}
