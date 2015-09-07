@@ -41,6 +41,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
 import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.FontManipulation;
 
 /**
  * The Class <code>SummaryPanel</code> presents a summary of the user's 
@@ -122,7 +123,7 @@ public class SummaryPanel extends ConvertSubPanel
 		values[3] = scrollPane;
 
 		// Place the labels on the page and lay them out
-		Font plainFont = panel.getFont().deriveFont(Font.PLAIN); 
+		Font plainFont = FontManipulation.plain(panel.getFont()); 
 		for (int i = 0; i < labels.length; i++)
 		{
 			Utility.buildRelativeConstraints(gbc, 1, 1, 0, 0, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST);

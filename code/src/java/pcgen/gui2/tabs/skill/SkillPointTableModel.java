@@ -21,7 +21,6 @@
 package pcgen.gui2.tabs.skill;
 
 import java.awt.Component;
-import java.awt.Font;
 
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -42,6 +41,7 @@ import pcgen.facade.core.CharacterLevelsFacade.SkillPointListener;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.tabs.Utilities;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.table.TableCellUtilities;
 
 /**
@@ -215,7 +215,7 @@ public class SkillPointTableModel extends AbstractTableModel
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
 			Component comp = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-			comp.setFont(table.getFont().deriveFont(Font.BOLD));
+			comp.setFont(FontManipulation.bold(table.getFont()));
 			return this;
 		}
 

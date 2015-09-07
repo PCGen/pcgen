@@ -23,7 +23,6 @@
 package pcgen.gui2.tabs.spells;
 
 import java.awt.Component;
-import java.awt.Font;
 
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -34,6 +33,7 @@ import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -81,11 +81,11 @@ public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 		}
 		if (obj instanceof InfoFacade && ((InfoFacade) obj).isNamePI())
 		{
-			setFont(getFont().deriveFont(Font.BOLD + Font.ITALIC));
+			setFont(FontManipulation.bold_italic(getFont()));
 		}
 		else
 		{
-			setFont(getFont().deriveFont(Font.PLAIN));
+			setFont(FontManipulation.plain(getFont()));
 		}
 		return this;
 	}

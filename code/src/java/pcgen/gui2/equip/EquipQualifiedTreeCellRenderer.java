@@ -21,7 +21,6 @@
 package pcgen.gui2.equip;
 
 import java.awt.Component;
-import java.awt.Font;
 
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -32,6 +31,7 @@ import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -78,11 +78,11 @@ public class EquipQualifiedTreeCellRenderer extends DefaultTreeCellRenderer
 		}
 		if (obj instanceof InfoFacade && ((InfoFacade) obj).isNamePI())
 		{
-			setFont(getFont().deriveFont(Font.BOLD + Font.ITALIC));
+			setFont(FontManipulation.bold_italic(getFont()));
 		}
 		else
 		{
-			setFont(getFont().deriveFont(Font.PLAIN));
+			setFont(FontManipulation.plain(getFont()));
 		}
 		return this;
 	}
