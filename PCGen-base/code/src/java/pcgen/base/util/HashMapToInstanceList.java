@@ -108,42 +108,19 @@ public class HashMapToInstanceList<K, V> extends AbstractMapToList<K, V>
 	}
 
 	/**
-	 * Removes the given object from the list for the given key. This is done
-	 * based on an instance test against the given object, not the value of the
-	 * object. Returns true if the object was successfully removed from the list
-	 * for the given key. Returns false if there is not a list for the given key
-	 * object or if the list for the given key object did not contain the given
-	 * value object.
+	 * Package - internal behavior. Actually remove an item from a list
 	 * 
-	 * @param key
-	 *            The key indicating which List the given object should be
-	 *            removed from
-	 * @param valueElement
-	 *            The object to be removed from the List for the given key
-	 * @return true if the value was successfully removed from the list for the
-	 *         given key; false otherwise
+	 * @see pcgen.base.util.AbstractMapToList#removeFromList(java.util.List,
+	 *      java.lang.Object)
 	 */
 	@Override
-	public boolean removeFromListFor(K key, V valueElement)
+	boolean removeFromList(List<V> list, V valueElement)
 	{
-		/*
-		 * Note there is no requirement that a Key is added before this method
-		 * is called
-		 */
-		if (!containsListFor(key))
-		{
-			return false;
-		}
-		List<V> list = mapToList.get(key);
 		for (Iterator<V> it = list.iterator(); it.hasNext();)
 		{
 			if (it.next() == valueElement)
 			{
 				it.remove();
-				if (list.isEmpty())
-				{
-					removeListFor(key);
-				}
 				return true;
 			}
 		}

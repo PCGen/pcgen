@@ -56,11 +56,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	/**
 	 * The actual map containing the map of objects to Lists
 	 */
-	/*
-	 * TODO Protected only due to ugliness in the CDOM core - change to private
-	 * when possible
-	 */
-	protected final Map<K, List<V>> mapToList;
+	private final Map<K, List<V>> mapToList;
 
 	/**
 	 * Creates a new AbstractMapToList.
@@ -357,12 +353,20 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 		{
 			return false;
 		}
-		boolean removed = list.remove(valueElement);
+		boolean removed = removeFromList(list, valueElement);
 		if (removed && list.isEmpty())
 		{
 			mapToList.remove(key);
 		}
 		return removed;
+	}
+
+	/**
+	 * Perform the actual list removal (package since this is reckless)
+	 */
+	boolean removeFromList(List<V> list, V valueElement)
+	{
+		return list.remove(valueElement);
 	}
 
 	/**
