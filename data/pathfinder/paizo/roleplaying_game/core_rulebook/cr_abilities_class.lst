@@ -1000,18 +1000,18 @@ CATEGORY=Internal|Default.MOD	DEFINE:Ranger_Combat_Style_Feat_Two_Weapon_Rend|0
 ###Block: Archetype Support
 # Ranger Combat Style
 # Ability Name							Bonus Ability Pool
-CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,1|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat2
-CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,2|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat6
-CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,3|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat10
-CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,4|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat14
-CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,5|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat18
+CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,1|PREVAREQ:Ranger_CF_CombatStyleFeat2,1
+CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,2|PREVAREQ:Ranger_CF_CombatStyleFeat6,1
+CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,3|PREVAREQ:Ranger_CF_CombatStyleFeat10,1
+CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,4|PREVAREQ:Ranger_CF_CombatStyleFeat14,1
+CATEGORY=Special Ability|Ranger ~ Combat Style Feat.MOD	BONUS:ABILITYPOOL|Ranger Combat Style Feat|-1|PREVARGTEQ:RangerCombatStyleFeatCount,5|PREVAREQ:Ranger_CF_CombatStyleFeat18,1
 
 # Ranger Favored Enemy
-CATEGORY=Special Ability|Ranger ~ Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,1|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy1	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,1|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy1
-CATEGORY=Special Ability|Ranger ~ Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,2|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy2	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,2|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy2
-CATEGORY=Special Ability|Ranger ~ Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,3|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy3	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,3|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy3
-CATEGORY=Special Ability|Ranger ~ Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,4|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy4	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,4|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy4
-CATEGORY=Special Ability|Ranger ~ Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,5|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy5	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,5|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy5
+CATEGORY=Special Ability|Ranger ~ Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,1|PREVAREQ:Ranger_CF_FavoredEnemy1,1	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,1|PREVAREQ:Ranger_CF_FavoredEnemy1,1
+CATEGORY=Special Ability|Ranger ~ Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,2|PREVAREQ:Ranger_CF_FavoredEnemy2,1	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,2|PREVAREQ:Ranger_CF_FavoredEnemy2,1
+CATEGORY=Special Ability|Ranger ~ Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,3|PREVAREQ:Ranger_CF_FavoredEnemy3,1	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,3|PREVAREQ:Ranger_CF_FavoredEnemy3,1
+CATEGORY=Special Ability|Ranger ~ Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,4|PREVAREQ:Ranger_CF_FavoredEnemy4,1	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,4|PREVAREQ:Ranger_CF_FavoredEnemy4,1
+CATEGORY=Special Ability|Ranger ~ Favored Enemy.MOD	BONUS:ABILITYPOOL|Favored Enemy|-1|PREVARGTEQ:RangerFavoredEnemyCount,5|PREVAREQ:Ranger_CF_FavoredEnemy5,1	BONUS:ABILITYPOOL|Favored Enemy Bonus|-1|PREVARGTEQ:FavoredEnemyBonusCount,5|PREVAREQ:Ranger_CF_FavoredEnemy5,1
 
 ###Block: Ranger Combat Styles
 # Ability Name	Unique Key							Category of Ability		Type										Visible		Modify VAR																																																																																								Source Page
@@ -1160,16 +1160,16 @@ Rogue Archetype Support		CATEGORY:Internal							ABILITY:Special Ability|AUTOMAT
 
 ###Block:
 # Ability Name							Bonus Ability Pool
-CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,1|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent1
-CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,2|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent2
-CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,3|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent3
-CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,4|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent4
-CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,5|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent5
-CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,6|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent6
-CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,7|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent7
-CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,8|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent8
-CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,9|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent9
-CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,10|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent10
+CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,1|PREVAREQ:Rogue_CF_RogueTalent2,1
+CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,2|PREVAREQ:Rogue_CF_RogueTalent4,1
+CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,3|PREVAREQ:Rogue_CF_RogueTalent6,1
+CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,4|PREVAREQ:Rogue_CF_RogueTalent8,1
+CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,5|PREVAREQ:Rogue_CF_RogueTalent10,1
+CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,6|PREVAREQ:Rogue_CF_RogueTalent12,1
+CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,7|PREVAREQ:Rogue_CF_RogueTalent14,1
+CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,8|PREVAREQ:Rogue_CF_RogueTalent16,1
+CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,9|PREVAREQ:Rogue_CF_RogueTalent18,1
+CATEGORY=Special Ability|Rogue ~ Rogue Talents.MOD	BONUS:ABILITYPOOL|Rogue Talent|-1|PREVARGTEQ:RogueTalentLVL,10|PREVAREQ:Rogue_CF_RogueTalent20,1
 
 
 ###Block: Rogue Talents

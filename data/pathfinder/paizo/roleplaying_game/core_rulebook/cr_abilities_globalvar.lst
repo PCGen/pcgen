@@ -11,17 +11,17 @@
 # COMMENT: When the New Formula Parser BOOLEAN is implemented, these will be moved to the correct file.
 # COMMENT: Using ONE LINE per item for EASE of debugging and reading. This will make this file exceedingly lengthy.
 # COMMENT: This will be moved into the GLOBALVARs file when it exists.
-Barbarian			CATEGORY:Class
-Bard				CATEGORY:Class
-Cleric			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericClassSkills
-Druid				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidClassSkills
-Fighter			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterClassSkills
-Monk				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkClassSkills
-Paladin			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinClassSkills
-Ranger			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Ranger|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerClassSkills
-Rogue				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueClassSkills
-Sorcerer			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Sorcerer|!PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererClassSkills
-Wizard			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardClassSkills
+Barbarian			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|PREVAREQ:Barbarian_CF_ClassSkills,0
+Bard				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|PREVAREQ:Bard_CF_ClassSkills,0
+Cleric			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|PREVAREQ:Cleric_CF_ClassSkills,0
+Druid				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|PREVAREQ:Druid_CF_ClassSkills,0
+Fighter			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Fighter|PREVAREQ:Fighter_CF_ClassSkills,0
+Monk				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|PREVAREQ:Monk_CF_ClassSkills,0
+Paladin			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|PREVAREQ:Paladin_CF_ClassSkills,0
+Ranger			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Ranger|PREVAREQ:Ranger_CF_ClassSkills,0
+Rogue				CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|PREVAREQ:Rogue_CF_ClassSkills,0
+Sorcerer			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Sorcerer|PREVAREQ:Sorcerer_CF_ClassSkills,0
+Wizard			CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|PREVAREQ:Wizard_CF_ClassSkills,0
 
 Arcane Trickster		CATEGORY:Class
 Assassin			CATEGORY:Class
@@ -41,7 +41,13 @@ Warrior			CATEGORY:Class
 
 
 
-###Block: Class Specifics
+# Class Specific Vars - This is meant to replace the old style "TYPE" system with the better robust FACT system.
+
+###
+#	Barbarian
+###
+
+###Block:
 CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_Rage|0
 CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_FastMovement|0
 CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_RagePowers|0
@@ -83,7 +89,7 @@ CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_ArmorProficiencies|0
 CATEGORY=Class|Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|PREVAREQ:Barbarian_CF_Proficiencies,0
 CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|PREVAREQ:Barbarian_CF_Weapon_Proficiencies,0
 CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|PREVAREQ:Barbarian_CF_Armor_Proficiencies,0
-CATEGORY=Class|Barbarian.MOD	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|PREVAREQ:Barbarian_CF_ClassSkills,0
+CATEGORY=Class|Barbarian.MOD	
 CATEGORY=Class|Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Uncanny Dodge Tracker
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Proficiencies=True
 #,Barbarian_CF_WeaponProficiencies=True,Barbarian_CF_ArmorProficiencies=True
@@ -160,11 +166,15 @@ CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_ClassSkills|1|TYPE=Boolean|P
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_WeaponProficiencies|1|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianWeaponProficiencies
 CATEGORY=Class|Barbarian.MOD	BONUS:VAR|Barbarian_CF_ArmorProficiencies|1|PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
 
-# Bard
+###
+#	Bard
+###
+
+###Block: Bard
 CATEGORY=Class|Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Bard|PREVAREQ:Bard_CF_Proficiencies,0
 CATEGORY=Class|Bard.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
 CATEGORY=Class|Bard.MOD	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies
-CATEGORY=Class|Bard.MOD	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|PREVAREQ:Bard_CF_ClassSkills,0
+CATEGORY=Class|Bard.MOD	
 
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_BardicKnowledge|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_CounterSong|0
@@ -230,7 +240,11 @@ CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_JackOfAllTrades|1|TYPE=Boolean|PREABIL
 CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_ClassSkills|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BardClassSkills
 CATEGORY=Class|Bard.MOD	BONUS:VAR|Bard_CF_Proficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies,TYPE.BardWeaponProficiencies
 
-# Cleric
+###
+#	Cleric
+###
+
+###Block: Cleric
 CATEGORY=Class|Cleric.MOD	DEFINE:Cleric_CF_ChannelEnergy|0
 CATEGORY=Class|Cleric.MOD	DEFINE:Cleric_CF_Orisons|0
 CATEGORY=Class|Cleric.MOD	DEFINE:Cleric_CF_SpontaneousCasting|0
@@ -285,7 +299,11 @@ CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_ChannelEnergy|1|TYPE=Boolean|PREAB
 CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_Orisons|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ClericOrisons
 CATEGORY=Class|Cleric.MOD	BONUS:VAR|Cleric_CF_SpontaneousCasting|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.ClericSpontaneousCasting
 
-# Druid
+###
+#	Druid
+###
+
+###Block: Druid
 CATEGORY=Class|Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidArmorProficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWeaponProficiencies
 CATEGORY=Class|Druid.MOD	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidArmorProficiencies
 CATEGORY=Class|Druid.MOD	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWeaponProficiencies
@@ -337,7 +355,12 @@ CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_WildShape6|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape6
 CATEGORY=Class|Druid.MOD	BONUS:VAR|Druid_CF_WildShape8|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape8
 
+###
+#	Fighter
+###
 
+###Block:
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_ClassSkills|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeats|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_Bravery|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_ArmorTraining|0
@@ -360,6 +383,7 @@ CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeat16|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeat18|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeat20|0
 
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ClassSkills=True
 CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeats=True
 CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_Bravery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_Bravery=True
 CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ArmorTraining=True
@@ -403,6 +427,10 @@ CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat14|1|TYPE=Boolean|PREAB
 CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat16|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat16
 CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat18|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat18
 CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_BonusFeat20|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.FighterBonusFeat20
+
+###
+#	Monk
+###
 
 ###Block: Monk
 CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_FlurryOfBlows|0
@@ -457,7 +485,6 @@ CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_Alignment|1|TYPE=Boolean|PREFACT:1,ABI
 CATEGORY=Class|Monk.MOD	ABILITY:Internal|AUTOMATIC|Monk ~ Unarmed Damage
 CATEGORY=Class|Monk.MOD	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Monk|PREVAREQ:Monk_CF_Proficiencies,0
 CATEGORY=Class|Monk.MOD	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Monk|PREVAREQ:Monk_CF_Proficiencies,0
-CATEGORY=Class|Monk.MOD	ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|PREVAREQ:Monk_CF_ClassSkills,0
 
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_FlurryOfBlows|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_FlurryOfBlows=True
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_BonusFeats=True
@@ -509,6 +536,11 @@ CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_PerfectSelf|1|TYPE=Boolean|PREABILITY:
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_ClassSkills|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkClassSkills
 CATEGORY=Class|Monk.MOD	BONUS:VAR|Monk_CF_Proficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkWeaponProficiencies
 
+###
+#	Paladin
+###
+
+###Block:
 
 # Paladin
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfGood|0
@@ -527,6 +559,7 @@ CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfFaith|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfRighteousness|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_HolyChampion|0
 
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ClassSkills|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_BondedWeapon|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Spells|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy3|0
@@ -542,6 +575,9 @@ CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencyMedium|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ShieldProficiency|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_BondedMount|0
 
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|AlignmentAuraLVL|PaladinLVL		BONUS:VAR|AllowHolyAvenger|1	DEFINE:AllowHolyAvenger|0
+
+CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ClassSkills=True
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_BondedWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_BondedWeapon=True
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Spells=True
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_Mercy3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy3=True
@@ -558,13 +594,6 @@ CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_ShieldProficiency|1|TYPE=Boolean
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_BondedMount|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_BondedMount=True
 
 
-
-
-
-
-
-
-CATEGORY=Class|Paladin.MOD	BONUS:VAR|AlignmentAuraLVL|PaladinLVL		BONUS:VAR|AllowHolyAvenger|1	DEFINE:AllowHolyAvenger|0
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfGood|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfGood=True
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_DetectEvil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DetectEvil=True
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_SmiteEvil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_SmiteEvil=True
@@ -597,6 +626,12 @@ CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfFaith|1|TYPE=Boolean|PREAB
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_AuraOfRighteousness|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfRighteousness
 CATEGORY=Class|Paladin.MOD	BONUS:VAR|Paladin_CF_HolyChampion|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinHolyChampion
 
+###
+#	Ranger
+###
+
+###Block:
+
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_HuntersBond|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_FavoredEnemy|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_FavoredTerrain|0
@@ -626,7 +661,9 @@ CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_FavoredEnemy2|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_FavoredEnemy3|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_FavoredEnemy4|0
 CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_AnimalCompanion|0
+CATEGORY=Class|Ranger.MOD	DEFINE:Ranger_CF_ClassSkills|0
 
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_ClassSkills=True
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_ImprovedEvasion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_ImprovedEvasion=True
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_ImprovedQuarry|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_ImprovedQuarry=True
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyleFeat2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_CombatStyleFeat2=True
@@ -639,13 +676,6 @@ CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy2|1|TYPE=Boolean|PREFA
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_FavoredEnemy3=True
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_FavoredEnemy4=True
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_AnimalCompanion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_AnimalCompanion=True
-
-
-
-
-
-
-
 
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_HuntersBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_HuntersBond=True
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ranger_CF_FavoredEnemy=True
@@ -681,6 +711,23 @@ CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Quarry|1|TYPE=Boolean|PREABILITY:1
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_MasterHunter|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerMasterHunter
 CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_Endurance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEndurance
 
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyleFeat2|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat2
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyleFeat6|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat6
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyleFeat10|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat10
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyleFeat14|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat14
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_CombatStyleFeat18|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyleFeat18
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy1|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy1
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy2|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy2
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy3|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy3
+CATEGORY=Class|Ranger.MOD	BONUS:VAR|Ranger_CF_FavoredEnemy4|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy4
+
+
+###
+#	ROGUE
+###
+
+
+###Block:
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_UncannyDodge|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_ImprovedUncannyDodge|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_SneakAttack|0
@@ -689,6 +736,7 @@ CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_Evasion|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalents|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_MasterStrike|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_ClassSkills|0
 
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense1|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_TrapSense2|0
@@ -734,6 +782,7 @@ CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_Evasion|1|TYPE=Boolean|PREFACT:1,ABI
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalents|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalents=True
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_TrapSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense=True
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_MasterStrike|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_MasterStrike=True
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_ClassSkills=True
 # Old Style
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_UncannyDodge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueUncannyDodge
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueImprovedUncannyDodge
@@ -744,27 +793,25 @@ CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalents|1|TYPE=Boolean|PREABILI
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_TrapSense|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTrapSense
 CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_MasterStrike|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueMasterStrike
 
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent2|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent1
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent4|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent2
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent6|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent3
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent8|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent4
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent10|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent5
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent12|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent6
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent14|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent7
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent16|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent8
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent18|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent9
+CATEGORY=Class|Rogue.MOD	BONUS:VAR|Rogue_CF_RogueTalent20|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.RogueTalent10
 
+###
+#	Sorcerer
+###
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+###Block:
 
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_WeaponProficiencies|0
+CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_ClassSkills|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_EschewMaterials|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_Bloodline|0
 
@@ -785,6 +832,7 @@ CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells7|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells8|0
 CATEGORY=Class|Sorcerer.MOD	DEFINE:Sorcerer_CF_BloodlineSpells9|0
 
+CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_ClassSkills=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlinePower1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower1=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlinePower3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower3=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlinePower9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlinePower9=True
@@ -806,15 +854,17 @@ CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells8|1|TYPE=Boolea
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_BloodlineSpells9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_BloodlineSpells9=True
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_Bloodline|1|TYPE=Boolean|PREFACT:1,ABILITIES,Sorcerer_CF_Bloodline=True
 
-
-
-
-
-
 # Old Style
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererWeaponProficiencies
 CATEGORY=Class|Sorcerer.MOD	BONUS:VAR|Sorcerer_CF_EschewMaterials|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererEschewMaterials
 
+###
+#	Wizard
+###
+
+###Block:
+
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ClassSkills|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ArcaneSchool|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_WeaponProficiencies|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ScribeScroll|0
@@ -822,6 +872,7 @@ CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ArcaneBond|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_Cantrips|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BonusFeats|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_SpellBook|0
+CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ClassSkills=True
 CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_ArcaneSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ArcaneSchool=True
 CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_WeaponProficiencies=True
 CATEGORY=Class|Wizard.MOD	BONUS:VAR|Wizard_CF_ScribeScroll|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ScribeScroll=True
