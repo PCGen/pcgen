@@ -18,7 +18,7 @@
 package pcgen.cdom.primitive;
 
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Level;
@@ -89,7 +89,7 @@ public class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
 	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
-		Set<R> returnSet = new HashSet<R>();
+		Set<R> returnSet = new LinkedHashSet<R>();
 		for (PrimitiveCollection<T> cs : primCollection)
 		{
 			returnSet.addAll(cs.getCollection(pc, c));
