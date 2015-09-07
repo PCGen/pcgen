@@ -52,6 +52,19 @@ public class CampaignLoader extends LstLineFileLoader
      */
 	private Campaign campaign = null;
 	private final List<Campaign> inittedCampaigns = new ArrayList<Campaign>();
+	
+	public static final ListKey[] OTHER_FILE_LISTKEY = {
+		ListKey.FILE_LST_EXCLUDE, ListKey.FILE_COVER};
+
+	public static final ListKey[] OBJECT_FILE_LISTKEY = {ListKey.FILE_RACE,
+		ListKey.FILE_CLASS, ListKey.FILE_COMPANION_MOD, ListKey.FILE_SKILL,
+		ListKey.FILE_ABILITY_CATEGORY, ListKey.FILE_ABILITY, ListKey.FILE_FEAT,
+		ListKey.FILE_DEITY, ListKey.FILE_DOMAIN, ListKey.FILE_ARMOR_PROF,
+		ListKey.FILE_SHIELD_PROF, ListKey.FILE_WEAPON_PROF, ListKey.FILE_EQUIP,
+		ListKey.FILE_SPELL, ListKey.FILE_LANGUAGE, ListKey.FILE_TEMPLATE,
+		ListKey.FILE_EQUIP_MOD, ListKey.FILE_KIT, ListKey.FILE_BIO_SET,
+		ListKey.FILE_ALIGNMENT, ListKey.FILE_STAT, ListKey.FILE_SAVE,
+		ListKey.FILE_DATACTRL};
 
 	/**
 	 * Creates a new instance of CampaignLoader
@@ -155,31 +168,23 @@ public class CampaignLoader extends LstLineFileLoader
             return;
         }
 
-        baseCampaign.addAllToListFor(ListKey.FILE_LST_EXCLUDE, subCampaign.getSafeListFor(ListKey.FILE_LST_EXCLUDE));
-        baseCampaign.addAllToListFor(ListKey.FILE_RACE, subCampaign.getSafeListFor(ListKey.FILE_RACE));
-        baseCampaign.addAllToListFor(ListKey.FILE_CLASS, subCampaign.getSafeListFor(ListKey.FILE_CLASS));
-        baseCampaign.addAllToListFor(ListKey.FILE_COMPANION_MOD, subCampaign.getSafeListFor(ListKey.FILE_COMPANION_MOD));
-        baseCampaign.addAllToListFor(ListKey.FILE_COVER, subCampaign.getSafeListFor(ListKey.FILE_COVER));
-        baseCampaign.addAllToListFor(ListKey.FILE_SKILL, subCampaign.getSafeListFor(ListKey.FILE_SKILL));
-        baseCampaign.addAllToListFor(ListKey.FILE_ABILITY_CATEGORY, subCampaign.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
-        baseCampaign.addAllToListFor(ListKey.FILE_ABILITY, subCampaign.getSafeListFor(ListKey.FILE_ABILITY));
-        baseCampaign.addAllToListFor(ListKey.FILE_FEAT, subCampaign.getSafeListFor(ListKey.FILE_FEAT));
-        baseCampaign.addAllToListFor(ListKey.FILE_DEITY, subCampaign.getSafeListFor(ListKey.FILE_DEITY));
-        baseCampaign.addAllToListFor(ListKey.FILE_DOMAIN, subCampaign.getSafeListFor(ListKey.FILE_DOMAIN));
-        baseCampaign.addAllToListFor(ListKey.FILE_ARMOR_PROF, subCampaign.getSafeListFor(ListKey.FILE_ARMOR_PROF));
-        baseCampaign.addAllToListFor(ListKey.FILE_SHIELD_PROF, subCampaign.getSafeListFor(ListKey.FILE_SHIELD_PROF));
-        baseCampaign.addAllToListFor(ListKey.FILE_WEAPON_PROF, subCampaign.getSafeListFor(ListKey.FILE_WEAPON_PROF));
-        baseCampaign.addAllToListFor(ListKey.FILE_EQUIP, subCampaign.getSafeListFor(ListKey.FILE_EQUIP));
-        baseCampaign.addAllToListFor(ListKey.FILE_SPELL, subCampaign.getSafeListFor(ListKey.FILE_SPELL));
-        baseCampaign.addAllToListFor(ListKey.FILE_LANGUAGE, subCampaign.getSafeListFor(ListKey.FILE_LANGUAGE));
-        baseCampaign.addAllToListFor(ListKey.FILE_TEMPLATE, subCampaign.getSafeListFor(ListKey.FILE_TEMPLATE));
-        baseCampaign.addAllToListFor(ListKey.FILE_EQUIP_MOD, subCampaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));
-        baseCampaign.addAllToListFor(ListKey.FILE_KIT, subCampaign.getSafeListFor(ListKey.FILE_KIT));
-        baseCampaign.addAllToListFor(ListKey.FILE_BIO_SET, subCampaign.getSafeListFor(ListKey.FILE_BIO_SET));
-        baseCampaign.addAllToListFor(ListKey.FILE_DATACTRL, subCampaign.getSafeListFor(ListKey.FILE_DATACTRL));
-    }
+		for (ListKey<?> lk : OBJECT_FILE_LISTKEY)
+		{
+			addToBaseCampaign(baseCampaign, subCampaign, lk);
+		}
+		for (ListKey<?> lk : OTHER_FILE_LISTKEY)
+		{
+			addToBaseCampaign(baseCampaign, subCampaign, lk);
+		}
+	}
 
-    /**
+	private <T> void addToBaseCampaign(Campaign baseCampaign,
+		Campaign subCampaign, ListKey<T> lk)
+	{
+		baseCampaign.addAllToListFor(lk, subCampaign.getSafeListFor(lk));
+	}
+
+	/**
      * Parses a campaign LST file and adds it to the Global container if not already added.
      * @param filePath The file path to load.
      * @throws PersistenceLayerException
