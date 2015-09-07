@@ -17,8 +17,8 @@
  */
 package pcgen.output.actor;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
@@ -65,7 +65,7 @@ public class FactSetKeyActor<T> implements OutputActor<CDOMObject>
 	@Override
 	public TemplateModel process(CDOMObject d) throws TemplateModelException
 	{
-		Collection<T> c = new HashSet<T>();
+		Collection<T> c = new ArrayList<T>();
 		for (ObjectContainer<T> oc : d.getSafeSetFor(fsk))
 		{
 			c.addAll(oc.getContainedObjects());
