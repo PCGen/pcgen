@@ -30,7 +30,6 @@ import pcgen.output.base.NamedModel;
 import pcgen.output.factory.ItemModelFactory;
 import pcgen.output.factory.SetModelFactory;
 import pcgen.output.model.BooleanOptionModel;
-import pcgen.system.PCGenSettings;
 import freemarker.template.TemplateModel;
 
 /**
@@ -216,7 +215,6 @@ public final class OutputDB
 	{
 		outModels.clear();
 		globalModels.clear();
-		triggerLoad();
 	}
 
 	/**
@@ -263,20 +261,6 @@ public final class OutputDB
 				"Cannot have two Preference Output Models using the same name: "
 					+ pref);
 		}
-	}
-
-	/*
-	 * Initialize the preferences we want to export to FreeMarker
-	 */
-	static
-	{
-		triggerLoad();
-	}
-
-	private static void triggerLoad()
-	{
-		registerBooleanPreference(
-			PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS, false);
 	}
 
 }
