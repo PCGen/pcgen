@@ -16,15 +16,15 @@
  */
 package plugin.format;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 
 import junit.framework.TestCase;
-import pcgen.base.geom.GridPoint;
-import plugin.format.GridPointManager;
+import pcgen.base.geom.OrderedPair;
 
-public class GridPointManagerTest extends TestCase
+public class OrderedPairManagerTest extends TestCase
 {
-	private GridPointManager manager = new GridPointManager();
+	private OrderedPairManager manager = new OrderedPairManager();
 
 	public void testConvertFailNull()
 	{
@@ -135,40 +135,40 @@ public class GridPointManagerTest extends TestCase
 
 	public void testConvert()
 	{
-		assertEquals(new GridPoint(1, 1), manager.convert(null, "1,1"));
-		assertEquals(new GridPoint(-3, 4), manager.convert(null, "-3,4"));
-		assertEquals(new GridPoint(1.4, 6.5), manager.convert(null, "1.4,6.5"));
+		assertEquals(new OrderedPair(1, 1), manager.convert(null, "1,1"));
+		assertEquals(new OrderedPair(-3, 4), manager.convert(null, "-3,4"));
+		assertEquals(new OrderedPair(new BigDecimal("1.4"), new BigDecimal("6.5")), manager.convert(null, "1.4,6.5"));
 	}
 
 	public void testUnconvert()
 	{
-		assertEquals("1,2", manager.unconvert(new GridPoint(1, 2)));
-		assertEquals("-3,4", manager.unconvert(new GridPoint(-3, 4)));
-		assertEquals("1.4,6.5", manager.unconvert(new GridPoint(1.4, 6.5)));
+		assertEquals("1,2", manager.unconvert(new OrderedPair(1, 2)));
+		assertEquals("-3,4", manager.unconvert(new OrderedPair(-3, 4)));
+		assertEquals("1.4,6.5", manager.unconvert(new OrderedPair(1.4, 6.5)));
 	}
 
 	public void testConvertIndirect()
 	{
-		assertEquals(new GridPoint(1, 1), manager.convertIndirect(null, "1,1")
+		assertEquals(new OrderedPair(1, 1), manager.convertIndirect(null, "1,1")
 			.resolvesTo());
-		assertEquals(new GridPoint(-3, 4), manager.convertIndirect(null, "-3,4")
+		assertEquals(new OrderedPair(-3, 4), manager.convertIndirect(null, "-3,4")
 			.resolvesTo());
-		assertEquals(new GridPoint(1.4, 6.5), manager
-			.convertIndirect(null, "1.4,6.5").resolvesTo());
+		assertEquals(new OrderedPair(new BigDecimal("1.4"), new BigDecimal(
+			"6.5")), manager.convertIndirect(null, "1.4,6.5").resolvesTo());
 	}
 
 	public void testConvertObjectContainer()
 	{
-		Collection<? extends GridPoint> co =
+		Collection<? extends OrderedPair> co =
 				manager.convertObjectContainer(null, "1,2").getContainedObjects();
 		assertEquals(1, co.size());
-		assertEquals(new GridPoint(1, 2), co.iterator().next());
+		assertEquals(new OrderedPair(1, 2), co.iterator().next());
 		co = manager.convertObjectContainer(null, "-3,4").getContainedObjects();
 		assertEquals(1, co.size());
-		assertEquals(new GridPoint(-3, 4), co.iterator().next());
+		assertEquals(new OrderedPair(-3, 4), co.iterator().next());
 		co = manager.convertObjectContainer(null, "1.4,6.5").getContainedObjects();
 		assertEquals(1, co.size());
-		assertEquals(new GridPoint(1.4, 6.5), co.iterator().next());
+		assertEquals(new OrderedPair(new BigDecimal("1.4"), new BigDecimal("6.5")), co.iterator().next());
 	}
 
 }

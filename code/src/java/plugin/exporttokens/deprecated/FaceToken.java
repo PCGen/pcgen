@@ -23,11 +23,11 @@
  * Last Edited: $Date$
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
-import java.awt.geom.Point2D;
 import java.text.DecimalFormat;
 
+import pcgen.base.geom.OrderedPair;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
@@ -94,7 +94,7 @@ public class FaceToken extends AbstractExportToken
 	 */
 	public static String getFaceToken(CharacterDisplay display)
 	{
-		Point2D.Double face = display.getFace();
+		OrderedPair face = display.getFace();
 		String retString = "";
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
@@ -124,7 +124,7 @@ public class FaceToken extends AbstractExportToken
 	 */
 	public static String getShortToken(CharacterDisplay display)
 	{
-		Point2D.Double face = display.getFace();
+		OrderedPair face = display.getFace();
 		String retString = "";
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
@@ -154,7 +154,7 @@ public class FaceToken extends AbstractExportToken
 	 */
 	public static String getSquaresToken(CharacterDisplay display)
 	{
-		Point2D.Double face = display.getFace();
+		OrderedPair face = display.getFace();
 		String retString = "";
 		double squareSize = SettingsHandler.getGame().getSquareSize();
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))

@@ -35,7 +35,7 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
-import plugin.format.GridPointManager;
+import plugin.format.OrderedPairManager;
 import plugin.format.StringManager;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
@@ -69,7 +69,7 @@ public class DataTypeTokenTest extends TestCase
 		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
-		TokenRegistration.register(new GridPointManager());
+		TokenRegistration.register(new OrderedPairManager());
 		TokenRegistration.register(new StringManager());
 		resetContext();
 	}
@@ -134,13 +134,13 @@ public class DataTypeTokenTest extends TestCase
 	public void testValidStringNo() throws PersistenceLayerException
 	{
 		assertNull(cd.getFormatManager());
-		assertTrue(token.parseToken(context, cd, "GRIDPOINT").passed());
+		assertTrue(token.parseToken(context, cd, "ORDEREDPAIR").passed());
 		assertNotNull(cd.getFormatManager());
-		assertEquals(GridPointManager.class, cd.getFormatManager().getClass());
+		assertEquals(OrderedPairManager.class, cd.getFormatManager().getClass());
 		String[] unparsed = token.unparse(context, cd);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
-		assertEquals("GRIDPOINT", unparsed[0]);
+		assertEquals("ORDEREDPAIR", unparsed[0]);
 	}
 
 }

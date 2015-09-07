@@ -17,88 +17,81 @@
  */
 package pcgen.base.geom;
 
-import java.awt.geom.Point2D;
-
 import pcgen.base.lang.NumberUtilities;
 import pcgen.cdom.base.Constants;
 
 /**
- * A GridPoint is a {@link Point2D} that stores the x and y values of the
- * Point2D as Number objects. This allows significant precision when necessary.
+ * A OrderedPair is an object that stores the x and y values of the pair as
+ * Number objects. This allows significant precision when necessary.
  */
-public class GridPoint extends Point2D
+public class OrderedPair
 {
 
 	/**
-	 * The x value of this GridPoint.
+	 * The x value of this OrderedPair.
 	 * 
-	 * Value will not be null after GridPoint is constructed
+	 * Value will not be null after OrderedPair is constructed
 	 */
 	private Number x;
 
 	/**
-	 * The y value of this GridPoint
+	 * The y value of this OrderedPair
 	 * 
-	 * Value will not be null after GridPoint is constructed
+	 * Value will not be null after OrderedPair is constructed
 	 */
 	private Number y;
 
 	/**
-	 * Constructs a new GridPoint from the given x and y values.
+	 * Constructs a new OrderedPair from the given x and y values.
 	 * 
 	 * @param x
-	 *            The x value of this GridPoint
+	 *            The x value of this OrderedPair
 	 * @param y
-	 *            The y value of this GridPoint
+	 *            The y value of this OrderedPair
 	 * @throws IllegalArgumentException
 	 *             if the given x or y value is null
 	 */
-	public GridPoint(Number x, Number y)
+	public OrderedPair(Number x, Number y)
 	{
 		if (x == null)
 		{
 			throw new IllegalArgumentException(
-				"x value of GridPoint cannot be null");
+				"x value of OrderedPair cannot be null");
 		}
 		if (y == null)
 		{
 			throw new IllegalArgumentException(
-				"y value of GridPoint cannot be null");
+				"y value of OrderedPair cannot be null");
 		}
 		this.x = x;
 		this.y = y;
 	}
 
 	/**
-	 * Returns the x value of this GridPoint to double precision. The actual
-	 * value may not match the x value of this GridPoint due to rounding or
+	 * Returns the x value of this OrderedPair to double precision. The actual
+	 * value may not match the x value of this OrderedPair due to rounding or
 	 * other modification to ensure the value can fit within a double.
-	 * 
-	 * @see java.awt.geom.Point2D#getX()
 	 */
-	@Override
 	public double getX()
 	{
 		return x.doubleValue();
 	}
 
 	/**
-	 * Returns the y value of this GridPoint to double precision. The actual
-	 * value may not match the y value of this GridPoint due to rounding or
+	 * Returns the y value of this OrderedPair to double precision. The actual
+	 * value may not match the y value of this OrderedPair due to rounding or
 	 * other modification to ensure the value can fit within a double.
-	 * 
-	 * @see java.awt.geom.Point2D#getY()
 	 */
-	@Override
 	public double getY()
 	{
 		return y.doubleValue();
 	}
 
 	/**
-	 * Returns the precise x value of this GridPoint to the original precision.
+	 * Returns the precise x value of this OrderedPair to the original
+	 * precision.
 	 * 
-	 * @return the precise x value of this GridPoint to the original precision
+	 * @return the precise x value of this OrderedPair to the original precision
 	 */
 	public Number getPreciseX()
 	{
@@ -106,9 +99,10 @@ public class GridPoint extends Point2D
 	}
 
 	/**
-	 * Returns the precise y value of this GridPoint to the original precision.
+	 * Returns the precise y value of this OrderedPair to the original
+	 * precision.
 	 * 
-	 * @return the precise y value of this GridPoint to the original precision
+	 * @return the precise y value of this OrderedPair to the original precision
 	 */
 	public Number getPreciseY()
 	{
@@ -116,51 +110,42 @@ public class GridPoint extends Point2D
 	}
 
 	/**
-	 * @see java.awt.geom.Point2D#setLocation(double, double)
-	 */
-	@Override
-	public void setLocation(double x, double y)
-	{
-		this.x = java.lang.Double.valueOf(x);
-		this.y = java.lang.Double.valueOf(y);
-	}
-
-	/**
-	 * Constructs a new GridPoint from the given String. The String should be in
-	 * the format "x,y" where x and y are valid numbers.
+	 * Constructs a new OrderedPair from the given String. The String should be
+	 * in the format "x,y" where x and y are valid numbers.
 	 * 
 	 * @param value
-	 *            The String used to construct a new GridPoint
-	 * @return a new GridPoint with the x and y values set based on the contents
-	 *         of the given String
+	 *            The String used to construct a new OrderedPair
+	 * @return a new OrderedPair with the x and y values set based on the
+	 *         contents of the given String
 	 * @throws IllegalArgumentException
 	 *             if the given String is not a String representation of a
-	 *             GridPoint
+	 *             OrderedPair
 	 */
-	public static GridPoint valueOf(String value)
+	public static OrderedPair valueOf(String value)
 	{
 		int commaLoc = value.indexOf(Constants.COMMA);
 		if (commaLoc != value.lastIndexOf(Constants.COMMA))
 		{
 			throw new IllegalArgumentException(
-				"GridPoint must have only one comma.  "
+				"OrderedPair must have only one comma.  "
 					+ "Must be of the form: <num>,<num>");
 		}
 		if (commaLoc == -1)
 		{
-			throw new IllegalArgumentException("GridPoint must have a comma.  "
-				+ "Must be of the form: <num>,<num>");
+			throw new IllegalArgumentException(
+				"OrderedPair must have a comma.  "
+					+ "Must be of the form: <num>,<num>");
 		}
 		if (commaLoc == 0)
 		{
 			throw new IllegalArgumentException(
-				"GridPoint should not start with a comma.  "
+				"OrderedPair should not start with a comma.  "
 					+ "Must be of the form: <num>,<num>");
 		}
 		if (commaLoc == value.length() - 1)
 		{
 			throw new IllegalArgumentException(
-				"GridPoint should not end with a comma.  "
+				"OrderedPair should not end with a comma.  "
 					+ "Must be of the form: <num>,<num>");
 		}
 		Number width;
@@ -173,7 +158,7 @@ public class GridPoint extends Point2D
 		catch (NumberFormatException nfe)
 		{
 			throw new IllegalArgumentException(
-				"Misunderstood first value in GridPoint: " + value);
+				"Misunderstood first value in OrderedPair: " + value);
 		}
 		try
 		{
@@ -183,16 +168,16 @@ public class GridPoint extends Point2D
 		catch (NumberFormatException ne)
 		{
 			throw new IllegalArgumentException(
-				"Misunderstood second value in GridPoint: " + value);
+				"Misunderstood second value in OrderedPair: " + value);
 		}
-		return new GridPoint(width, height);
+		return new OrderedPair(width, height);
 	}
 
 	/**
-	 * Returns a String representation of this GridPoint.
+	 * Returns a String representation of this OrderedPair.
 	 * 
 	 * Note that this method is designed to return a String that can be properly
-	 * parsed by the valueOf method of GridPoint
+	 * parsed by the valueOf method of OrderedPair
 	 * 
 	 * @see java.lang.Object#toString()
 	 */
@@ -200,5 +185,28 @@ public class GridPoint extends Point2D
 	public String toString()
 	{
 		return x.toString() + "," + y.toString();
+	}
+	
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode()
+	{
+		return x.hashCode() * 17 + y.hashCode();
+	}
+	
+	/**
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o instanceof OrderedPair)
+		{
+			OrderedPair other = (OrderedPair) o;
+			return x.equals(other.x) && y.equals(other.y);
+		}
+		return false;
 	}
 }
