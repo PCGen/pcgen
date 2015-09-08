@@ -26,7 +26,6 @@ import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.GameMode;
-import pcgen.core.SettingsHandler;
 import pcgen.output.base.ModeModelFactory;
 import pcgen.output.base.ModelFactory;
 import pcgen.output.base.NamedModel;
@@ -183,10 +182,9 @@ public final class OutputDB
 	 * 
 	 * @return Returns a Map containing the "game mode" information
 	 */
-	public static Map<String, Object> buildModeDataModel()
+	public static Map<String, Object> buildModeDataModel(GameMode mode)
 	{
 		Map<String, Object> input = new HashMap<String, Object>();
-		GameMode mode = SettingsHandler.getGame();
 		for (Object key : modeModels.keySet())
 		{
 			ModeModelFactory modelFactory = modeModels.get(key);
