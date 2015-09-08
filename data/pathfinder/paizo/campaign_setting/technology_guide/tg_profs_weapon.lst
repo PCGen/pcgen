@@ -1,39 +1,41 @@
 
 # Group Firearms - Single Feat
-Arc Pistol		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Arc Rifle		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Autograpnel		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Dart Gun		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Death Ray		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-EMP Pistol		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-EMP Rifle		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Flare Gun		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Gravity Pistol	TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Gravity Rifle	TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Id Rifle		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Laser Pistol	TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Laser Rifle		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Mindrender		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Sonic Pistol	TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Sonic Rifle		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Stun Gun		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Zero Pistol		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
-Zero Rifle		TYPE:Exotic (Firearms).Proficiency_Group_Firearms
+Arc Pistol		TYPE:Firearms.Proficiency_Group_Firearms
+Arc Rifle		TYPE:Firearms.Proficiency_Group_Firearms
+Autograpnel		TYPE:Firearms.Proficiency_Group_Firearms
+Dart Gun		TYPE:Firearms.Proficiency_Group_Firearms
+Death Ray		TYPE:Firearms.Proficiency_Group_Firearms
+EMP Pistol		TYPE:Firearms.Proficiency_Group_Firearms
+EMP Rifle		TYPE:Firearms.Proficiency_Group_Firearms
+Flare Gun		TYPE:Firearms.Proficiency_Group_Firearms
+Gravity Pistol	TYPE:Firearms.Proficiency_Group_Firearms
+Gravity Rifle	TYPE:Firearms.Proficiency_Group_Firearms
+Id Rifle		TYPE:Firearms.Proficiency_Group_Firearms
+Laser Pistol	TYPE:Firearms.Proficiency_Group_Firearms
+Laser Rifle		TYPE:Firearms.Proficiency_Group_Firearms
+Mindrender		TYPE:Firearms.Proficiency_Group_Firearms
+Sonic Pistol	TYPE:Firearms.Proficiency_Group_Firearms
+Sonic Rifle		TYPE:Firearms.Proficiency_Group_Firearms
+Stun Gun		TYPE:Firearms.Proficiency_Group_Firearms
+Zero Pistol		TYPE:Firearms.Proficiency_Group_Firearms
+Zero Rifle		TYPE:Firearms.Proficiency_Group_Firearms
 
 
 # Group Heavy Weaponry - Single Feat
-Atom Gun		TYPE:Exotic (Heavy Weaponry).Proficiency_Group_Heavy_Weaponry
-Grenade Launcher	TYPE:Exotic (Heavy Weaponry).Proficiency_Group_Heavy_Weaponry
-Nuclear Resonator	TYPE:Exotic (Heavy Weaponry).Proficiency_Group_Heavy_Weaponry
-Plasmathrower	TYPE:Exotic (Heavy Weaponry).Proficiency_Group_Heavy_Weaponry
-Rail Gun		TYPE:Exotic (Heavy Weaponry).Proficiency_Group_Heavy_Weaponry
-Rocket Launcher	TYPE:Exotic (Heavy Weaponry).Proficiency_Group_Heavy_Weaponry
-Vortex Gun		TYPE:Exotic (Heavy Weaponry).Proficiency_Group_Heavy_Weaponry
-X-Laser		TYPE:Exotic (Heavy Weaponry).Proficiency_Group_Heavy_Weaponry
+Atom Gun		TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+Grenade Launcher	TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+Nuclear Resonator	TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+Plasmathrower	TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+Rail Gun		TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+Rocket Launcher	TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+Vortex Gun		TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
+X-Laser		TYPE:Heavy Weaponry.Proficiency_Group_Heavy_Weaponry
 
 
 Chainsaw		TYPE:Exotic
 Laser Torch		TYPE:Martial
 
+Firearms		TYPE:Exotic
+Heavy Weaponry	TYPE:Exotic
 
 
