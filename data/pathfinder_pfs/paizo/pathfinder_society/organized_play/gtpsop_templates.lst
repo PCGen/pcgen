@@ -4,7 +4,7 @@ SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPSOP	SOURCEW
 # Pathfinder RPG Entry by: Stefan Radermacher
 
 # Template Name	Visible	Apply Kit
-PFS Starting Gold	!PRECHARACTERTYPE:1,PC	KIT:1|Starting Gold PFS
+PFS Starting Gold	VISIBLE:NO	KIT:1|Starting Gold PFS
 
 ### Starting Gold
 #Starting Gold ~ CRB.MOD		!PRECHARACTERTYPE:1,PC
@@ -15,5 +15,3 @@ PFS Starting Gold	!PRECHARACTERTYPE:1,PC	KIT:1|Starting Gold PFS
 ###Block:
 # Template Name						Visible	Modify VAR							Bonus Languages
 Race Bonus Language ~ Modern Human Language	!PRECHARACTERTYPE:1,PC									LANGBONUS:TYPE=ModernHumanLanguage
-
-Add PFS Society Faction							BONUS:VAR|Society_Faction_Pool|1|TYPE=Base
