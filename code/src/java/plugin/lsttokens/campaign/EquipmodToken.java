@@ -17,75 +17,27 @@
  */
 package plugin.lsttokens.campaign;
 
-import java.util.Collection;
-import java.util.Set;
-import java.util.TreeSet;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.rules.context.Changes;
-import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.AbstractBasicCampaignToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with EQUIPMOD Token
  */
-public class EquipmodToken extends AbstractTokenWithSeparator<Campaign>
+public class EquipmodToken extends AbstractBasicCampaignToken
 		implements CDOMPrimaryToken<Campaign>
 {
-
 	@Override
 	public String getTokenName()
 	{
 		return "EQUIPMOD";
 	}
 
-
 	@Override
-	protected char separator()
+	protected ListKey<CampaignSourceEntry> getListKey()
 	{
-		return '|';
+		return ListKey.FILE_EQUIP_MOD;
 	}
-
-
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Campaign campaign, String value)
-	{
-		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
-		if (cse == null)
-		{
-			//Error
-			return ParseResult.INTERNAL_ERROR;
-		}
-		context.getObjectContext().addToList(campaign, ListKey.FILE_EQUIP_MOD, cse);
-		return ParseResult.SUCCESS;
-	}
-
-    @Override
-	public String[] unparse(LoadContext context, Campaign campaign)
-	{
-		Changes<CampaignSourceEntry> cseChanges =
-				context.getObjectContext().getListChanges(campaign, ListKey.FILE_EQUIP_MOD);
-		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
-		if (added == null)
-		{
-			//empty indicates no token
-			return null;
-		}
-		Set<String> set = new TreeSet<String>();
-		for (CampaignSourceEntry cse : added)
-		{
-			set.add(cse.getLSTformat());
-		}
-		return set.toArray(new String[set.size()]);
-	}
-
-    @Override
-	public Class<Campaign> getTokenClass()
-	{
-		return Campaign.class;
-	}}
+}

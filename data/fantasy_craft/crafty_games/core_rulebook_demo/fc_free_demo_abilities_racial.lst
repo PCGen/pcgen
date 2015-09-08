@@ -134,73 +134,73 @@ Steel Golem															CATEGORY:Internal			TYPE:Subrace					VISIBLE:NO							
 
 
 # Elemental Heritage
-EH ~ Crystal														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Crystal
-EH ~ Darkness														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Darkness
-EH ~ Dust/Sand														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Dust/Sand
-EH ~ Earth															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Earth
-EH ~ Fire															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Fire
-EH ~ Ice															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Ice
-EH ~ Lava															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Lava
-EH ~ Light															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Light
-EH ~ Lightning														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Lightning
-EH ~ Metal															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Metal
-EH ~ Mist/Smoke														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Mist/Smoke
-EH ~ Water															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Water
-EH ~ Wind															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Wind
-EH ~ Wood															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Wood
+EH ~ Crystal														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Crystal
+EH ~ Darkness														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Darkness
+EH ~ Dust/Sand														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Dust/Sand
+EH ~ Earth															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Earth
+EH ~ Fire															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Fire
+EH ~ Ice															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Ice
+EH ~ Lava															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Lava
+EH ~ Light															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Light
+EH ~ Lightning														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Lightning
+EH ~ Metal															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Metal
+EH ~ Mist/Smoke														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Mist/Smoke
+EH ~ Water															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Water
+EH ~ Wind															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Wind
+EH ~ Wood															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Wood
 # Truescale
-TS ~ Aquatic														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Aquatic
-TS ~ Arctic															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Arctic
-TS ~ Caverns/Mountains													CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Caverns/Mountains
-TS ~ Desert															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Desert
-TS ~ Forest/Jungle													CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Forest/Jungle
-TS ~ Indoors/Settled													CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Indoors/Settled
-TS ~ Plains															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Plains
-TS ~ Swamp															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Swamp
+TS ~ Aquatic														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Aquatic
+TS ~ Arctic															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Arctic
+TS ~ Caverns/Mountains													CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Caverns/Mountains
+TS ~ Desert															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Desert
+TS ~ Forest/Jungle													CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Forest/Jungle
+TS ~ Indoors/Settled													CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Indoors/Settled
+TS ~ Plains															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Plains
+TS ~ Swamp															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Swamp
 # --Dwarf
-Dwarf ~ Hill														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Hill
-Dwarf ~ Magma														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Magma
+Dwarf ~ Hill														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Hill
+Dwarf ~ Magma														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Magma
 # --Elf
-Elf ~ Wood															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Wood
-Elf ~ Gray															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Gray
-Elf ~ Dark															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Dark
+Elf ~ Wood															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Wood
+Elf ~ Gray															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Gray
+Elf ~ Dark															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Dark
 # --Goblin / Orc
-Skull Tribe															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Skull Tribe
-Blood Tribe															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Blood Tribe
-Bone Tribe															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Bone Tribe
-Fang Tribe															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Fang Tribe
-Iron Tribe															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Iron Tribe
+Skull Tribe															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Skull Tribe
+Blood Tribe															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Blood Tribe
+Bone Tribe															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Bone Tribe
+Fang Tribe															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Fang Tribe
+Iron Tribe															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Iron Tribe
 # --Human
-Heavenly Blood														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Heavenly Blood
-Hellish Blood														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Hellish Blood
-Drake Blood															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Drake Blood
-Ancient Blood														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Ancient Blood
-Fey Blood															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Fey Blood
+Heavenly Blood														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Heavenly Blood
+Hellish Blood														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Hellish Blood
+Drake Blood															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Drake Blood
+Ancient Blood														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Ancient Blood
+Fey Blood															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Fey Blood
 # --Ogre
-Oni																CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Oni
-Merrow															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Merrow
-Troll																CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Troll
+Oni																CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Oni
+Merrow															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Merrow
+Troll																CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Troll
 # --Pech
-Hairfoot															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Hairfoot
-Gnome																CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Gnome
+Hairfoot															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Hairfoot
+Gnome																CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Gnome
 # --Rootwalker
-Evergreen															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Evergreen
-Ironwood															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Ironwood
-Mistbranch															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Mistbranch
-Purewood															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Purewood
-Skybranch															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Skybranch
-Sunleaf															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Sunleaf
-Tangleroot															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Tangleroot
-Whitebark															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Whitebark
+Evergreen															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Evergreen
+Ironwood															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Ironwood
+Mistbranch															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Mistbranch
+Purewood															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Purewood
+Skybranch															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Skybranch
+Sunleaf															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Sunleaf
+Tangleroot															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Tangleroot
+Whitebark															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Whitebark
 # --Saurian
-Draconian															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Draconian
-Chameleon															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Chameleon
-Frogman															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Frogman
+Draconian															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Draconian
+Chameleon															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Chameleon
+Frogman															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Frogman
 # --Unborn
-Brass																CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Brass
-Clay																CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Clay
-Clockwork															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Clockwork
-Flesh																CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Flesh
-Gem																CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Gem
-Granite															CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Granite
-Living Metal														CATEGORY:Internal			TYPE:SubraceChosen				VISIBLE:NO																																																											TEMPLATE:Living Metal
+Brass																CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Brass
+Clay																CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Clay
+Clockwork															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Clockwork
+Flesh																CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Flesh
+Gem																CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Gem
+Granite															CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Granite
+Living Metal														CATEGORY:Internal			TYPE:SubraceChosen	BONUS:VAR|Subrace|1|TYPE=Base			VISIBLE:NO																																																											TEMPLATE:Living Metal

@@ -17,19 +17,17 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import java.awt.geom.Point2D;
-import java.awt.geom.Point2D.Double;
 import java.math.BigDecimal;
 
 import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import pcgen.base.geom.OrderedPair;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.analysis.FaceFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
@@ -37,9 +35,9 @@ import pcgen.core.Race;
 
 public class FaceFacetTest extends TestCase
 {
-	private static final Double SIZE_3_2 = new Point2D.Double(3, 2);
-	private static final Double SIZE_10_5 = new Point2D.Double(10, 5);
-	private static final Point2D.Double SIZE_11_12 = new Point2D.Double(11, 12);
+	private static final OrderedPair SIZE_3_2 = new OrderedPair(new BigDecimal(3), new BigDecimal(2));
+	private static final OrderedPair SIZE_10_5 = new OrderedPair(new BigDecimal(10), new BigDecimal(5));
+	private static final OrderedPair SIZE_11_12 = new OrderedPair(new BigDecimal(11), new BigDecimal(12));
 
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -69,14 +67,14 @@ public class FaceFacetTest extends TestCase
 	@Test
 	public void testRaceTypeUnset5Square()
 	{
-		assertEquals(new Point2D.Double(5, 0), facet.getFace(id));
+		assertEquals(new OrderedPair(5, 0), facet.get(id));
 	}
 
 	@Test
 	public void testWithNothingInRace()
 	{
 		rfacet.set(id, new Race());
-		assertEquals(new Point2D.Double(5, 0), facet.getFace(id));
+		assertEquals(new OrderedPair(5, 0), facet.get(id));
 	}
 
 	@Test
@@ -85,7 +83,7 @@ public class FaceFacetTest extends TestCase
 		Race r = new Race();
 		r.put(IntegerKey.LEGS, 5);
 		rfacet.set(id, r);
-		assertEquals(new Point2D.Double(5, 0), facet.getFace(altid));
+		assertEquals(new OrderedPair(5, 0), facet.get(altid));
 	}
 
 	@Test
@@ -95,9 +93,9 @@ public class FaceFacetTest extends TestCase
 		r.put(ObjectKey.FACE_WIDTH, new BigDecimal(10));
 		r.put(ObjectKey.FACE_HEIGHT, new BigDecimal(5));
 		rfacet.set(id, r);
-		assertEquals(SIZE_10_5, facet.getFace(id));
+		assertEquals(SIZE_10_5, facet.get(id));
 		rfacet.remove(id);
-		assertEquals(new Point2D.Double(5, 0), facet.getFace(id));
+		assertEquals(new OrderedPair(5, 0), facet.get(id));
 	}
 
 	@Test
@@ -108,9 +106,9 @@ public class FaceFacetTest extends TestCase
 		t.put(ObjectKey.FACE_WIDTH, new BigDecimal(10));
 		t.put(ObjectKey.FACE_HEIGHT, new BigDecimal(5));
 		tfacet.add(id, t, this);
-		assertEquals(SIZE_10_5, facet.getFace(id));
+		assertEquals(SIZE_10_5, facet.get(id));
 		tfacet.remove(id, t, this);
-		assertEquals(new Point2D.Double(5, 0), facet.getFace(id));
+		assertEquals(new OrderedPair(5, 0), facet.get(id));
 	}
 
 	@Test
@@ -120,26 +118,26 @@ public class FaceFacetTest extends TestCase
 		r.put(ObjectKey.FACE_WIDTH, new BigDecimal(10));
 		r.put(ObjectKey.FACE_HEIGHT, new BigDecimal(5));
 		rfacet.set(id, r);
-		assertEquals(SIZE_10_5, facet.getFace(id));
+		assertEquals(SIZE_10_5, facet.get(id));
 		PCTemplate t = new PCTemplate();
 		t.setName("PCT");
 		t.put(ObjectKey.FACE_WIDTH, new BigDecimal(11));
 		t.put(ObjectKey.FACE_HEIGHT, new BigDecimal(12));
 		tfacet.add(id, t, this);
-		assertEquals(SIZE_11_12, facet.getFace(id));
+		assertEquals(SIZE_11_12, facet.get(id));
 		PCTemplate t5 = new PCTemplate();
 		t5.setName("Other");
 		t5.put(ObjectKey.FACE_WIDTH, new BigDecimal(3));
 		t5.put(ObjectKey.FACE_HEIGHT, new BigDecimal(2));
 		tfacet.add(id, t5, this);
-		assertEquals(SIZE_3_2, facet.getFace(id));
+		assertEquals(SIZE_3_2, facet.get(id));
 		tfacet.remove(id, t, this);
-		assertEquals(SIZE_3_2, facet.getFace(id));
+		assertEquals(SIZE_3_2, facet.get(id));
 		tfacet.add(id, t, this);
-		assertEquals(SIZE_11_12, facet.getFace(id));
+		assertEquals(SIZE_11_12, facet.get(id));
 		tfacet.remove(id, t, this);
-		assertEquals(SIZE_3_2, facet.getFace(id));
+		assertEquals(SIZE_3_2, facet.get(id));
 		tfacet.remove(id, t5, this);
-		assertEquals(SIZE_10_5, facet.getFace(id));
+		assertEquals(SIZE_10_5, facet.get(id));
 	}
 }

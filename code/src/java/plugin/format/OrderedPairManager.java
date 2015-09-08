@@ -17,7 +17,7 @@
  */
 package plugin.format;
 
-import pcgen.base.geom.GridPoint;
+import pcgen.base.geom.OrderedPair;
 import pcgen.base.util.BasicIndirect;
 import pcgen.base.util.BasicObjectContainer;
 import pcgen.base.util.Indirect;
@@ -26,10 +26,10 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.types.FormatManager;
 
 /**
- * A GridPointManager is a FormatManager that provides services for GridPoint
- * objects.
+ * A OrderedPairManager is a FormatManager that provides services for
+ * OrderedPair objects.
  */
-public class GridPointManager implements FormatManager<GridPoint>
+public class OrderedPairManager implements FormatManager<OrderedPair>
 {
 
 	/**
@@ -37,9 +37,9 @@ public class GridPointManager implements FormatManager<GridPoint>
 	 *      java.lang.String)
 	 */
 	@Override
-	public GridPoint convert(LoadContext context, String s)
+	public OrderedPair convert(LoadContext context, String s)
 	{
-		return GridPoint.valueOf(s);
+		return OrderedPair.valueOf(s);
 	}
 
 	/**
@@ -47,9 +47,9 @@ public class GridPointManager implements FormatManager<GridPoint>
 	 *      java.lang.String)
 	 */
 	@Override
-	public Indirect<GridPoint> convertIndirect(LoadContext context, String s)
+	public Indirect<OrderedPair> convertIndirect(LoadContext context, String s)
 	{
-		return new BasicIndirect<GridPoint>(this, convert(context, s));
+		return new BasicIndirect<OrderedPair>(this, convert(context, s));
 	}
 
 	/**
@@ -57,17 +57,17 @@ public class GridPointManager implements FormatManager<GridPoint>
 	 *      java.lang.String)
 	 */
 	@Override
-	public ObjectContainer<GridPoint> convertObjectContainer(
+	public ObjectContainer<OrderedPair> convertObjectContainer(
 		LoadContext context, String s)
 	{
-		return new BasicObjectContainer<GridPoint>(this, convert(context, s));
+		return new BasicObjectContainer<OrderedPair>(this, convert(context, s));
 	}
 
 	/**
 	 * @see pcgen.rules.types.FormatManager#unconvert(java.lang.Object)
 	 */
 	@Override
-	public String unconvert(GridPoint gp)
+	public String unconvert(OrderedPair gp)
 	{
 		return gp.getPreciseX() + "," + gp.getPreciseY();
 	}
@@ -76,9 +76,9 @@ public class GridPointManager implements FormatManager<GridPoint>
 	 * @see pcgen.rules.types.FormatManager#getType()
 	 */
 	@Override
-	public Class<GridPoint> getType()
+	public Class<OrderedPair> getType()
 	{
-		return GridPoint.class;
+		return OrderedPair.class;
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class GridPointManager implements FormatManager<GridPoint>
 	@Override
 	public String getIdentifierType()
 	{
-		return "GRIDPOINT";
+		return "ORDEREDPAIR";
 	}
 
 	@Override
@@ -99,6 +99,6 @@ public class GridPointManager implements FormatManager<GridPoint>
 	@Override
 	public boolean equals(Object o)
 	{
-		return o instanceof GridPointManager;
+		return o instanceof OrderedPairManager;
 	}
 }

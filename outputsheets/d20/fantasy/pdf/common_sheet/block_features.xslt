@@ -461,6 +461,24 @@
 		</xsl:if>
 	</xsl:template>
 
+	<!--
+====================================
+====================================
+	TEMPLATE - PRESTIGE AWARDS
+====================================
+====================================-->
+	<xsl:template match="prestige_awards">
+		<xsl:if test="count(prestige_award) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'prestige_awards'" />
+				<xsl:with-param name="title" select="'Prestige Awards'" />
+				<xsl:with-param name="list" select="prestige_award"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+
 <!-- 4e Section -->
 
 <!--

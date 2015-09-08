@@ -53,6 +53,7 @@
 		<playername>${pcstring('PLAYERNAME')}</playername>
 		<charactertype>${pcstring('CHARACTERTYPE')}</charactertype>
 		<hero_points>${pcstring('VAR.HEROPOINTS.INTVAL')}</hero_points>
+		<remaining_action_points>${pcstring('VAR.Action.INTVAL')}</remaining_action_points>
 		<age>${pcstring('AGE')}</age>
 		<alignment>
 			<long>${pcstring('ALIGNMENT')}</long>
@@ -2519,6 +2520,15 @@
 	<@abilityBlock category="Mutation" nature="ALL" hidden=false typeName="" nodeName="mutation" />
 	</mutations>
 
+	<!--
+	  ====================================
+	  ====================================
+			Prestige Awards
+	  ====================================
+	  ====================================-->
+	<prestige_awards>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Prestige Award Display" nodeName="prestige_award" />
+	</prestige_awards>
 
 
 

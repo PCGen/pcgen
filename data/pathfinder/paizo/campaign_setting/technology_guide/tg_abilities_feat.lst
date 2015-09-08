@@ -10,3 +10,11 @@ Technology Adept	TYPE:Combat	CATEGORY:FEAT		SOURCEPAGE:p.7	DESC:You utilize high
 Technophobe	CATEGORY:FEAT	TYPE:General	SOURCEPAGE:p.7	DESC:Smashing technological abominations brings you joy.	PRETEXT:Prerequisite: Improved Sunder	PREFEAT:1,Improved Sunder	BENEFIT: When you reduce a robot to 0 hit points or destroy a technological item possessed by an enemy, you receive a +2 morale bonus on ability checks, attack rolls, saving throws, and skill checks for a number of rounds equal to your Wisdom bonus (minimum 1 round). You receive this bonus for destroying an unattended object so long as it was in the possession of an enemy within the last round.
 Wrest Charge	CATEGORY:FEAT	TYPE:General	SOURCEPAGE:p.7	DESC:You can extract a charge from otherwise depleted technology.	PRETEXT:Prerequisites: Disable Device 5 ranks, Knowledge (engineering) 5 ranks	PRESKILL:2,Disable Device=5,Knowledge (Engineering)=5	BENEFIT: With a successful DC 20 Disable Device check, you can jury-rig a depleted (but not destroyed) battery so it provides 1 more charge. Using this charge or failing your check by 5 or more permanently depletes the battery. You can attempt the same check to add 1 last charge to a discharged piece of timeworn technology. Regardless of the outcome, no other attempts can be made, even by another person. Using this feat takes 1 minute. You can attempt to wrest a charge as a move action by taking a -10 penalty on your check. This feat does not stack with the charge cycling deed.
 
+###Block: Firearms
+CATEGORY=Feat|Exotic Weapon Proficiency.MOD	ABILITY:Internal|AUTOMATIC|Exotic Weapon Proficiency ~ Heavy Weaponry|PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Heavy Weaponry)
+CATEGORY=FEAT|Exotic Weapon Proficiency.MOD	ABILITY:Internal|AUTOMATIC|Exotic Weapon Proficiency ~ Firearms|PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Firearms)
+
+###Block: Firearms
+Exotic Weapon Proficiency ~ Heavy Weaponry	CATEGORY:Internal																			AUTO:WEAPONPROF|TYPE=Heavy Weaponry
+Exotic Weapon Proficiency ~ Firearms		CATEGORY:Internal																			AUTO:WEAPONPROF|TYPE=Firearms
+

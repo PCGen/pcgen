@@ -49,6 +49,10 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			Class<T> cl, Category<T> cat)
 	{
 		ReferenceManufacturer<T> mfg = super.getManufacturer(cl, cat);
+		if (mfg instanceof TrackingManufacturer)
+		{
+			return mfg;
+		}
 		if (!listening.contains(mfg))
 		{
 			mfg.addUnconstructedListener(this);
@@ -62,6 +66,10 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			Class<T> cl)
 	{
 		ReferenceManufacturer<T> mfg = super.getManufacturer(cl);
+		if (mfg instanceof TrackingManufacturer)
+		{
+			return mfg;
+		}
 		if (!listening.contains(mfg))
 		{
 			mfg.addUnconstructedListener(this);
@@ -75,6 +83,10 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		ManufacturableFactory<T> factory)
 	{
 		ReferenceManufacturer<T> mfg = super.getManufacturer(factory);
+		if (mfg instanceof TrackingManufacturer)
+		{
+			return mfg;
+		}
 		if (!listening.contains(mfg))
 		{
 			mfg.addUnconstructedListener(this);
@@ -130,9 +142,9 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		String src = getSource();
 		if (src == null)
 		{
-			src = "";
+			src = "?";
 		}
-		track.addToListFor(ref, getSourceURI(), getSource());
+		track.addToListFor(ref, getSourceURI(), src);
 	}
 
 }
