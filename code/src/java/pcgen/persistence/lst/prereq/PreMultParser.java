@@ -31,6 +31,7 @@ package pcgen.persistence.lst.prereq;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.util.Logging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,6 +89,8 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 		int nesting = 0;
 		int startIndex = 0;
 		int currIndex = 0;
+		boolean expectComma = false;
+		boolean expectStart = true;
 		List<String> subList = new ArrayList<String>();
 
 		for (currIndex = 0; currIndex < input.length(); currIndex++)
@@ -102,15 +105,35 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 				// subPre = PREARMORPROF:1,TYPE.Medium
 				subList.add(subPre);
 			}
+			else if (expectComma)
+			{
+				Logging.log(Logging.LST_WARNING,
+					"Found close bracket without trailing comma in PREMULT, "
+						+ "trailing character was: " + currChar + " in "
+						+ input);
+			}
+			expectComma = false;
 
 			if (currChar == startDelimiter)
 			{
 				nesting++;
 			}
+			else if (expectStart)
+			{
+				String loc = (currIndex == 0) ? "at start" : "after comma";
+				Logging.log(Logging.LST_WARNING, "Expected Open Bracket " + loc
+					+ " in PREMULT, " + "character was: " + currChar + " in "
+					+ input);
+			}
+			expectStart = false;
 
 			if (currChar == endDelimiter)
 			{
 				nesting--;
+				if (nesting == 0)
+				{
+					expectComma = true;
+				}
 			}
 		}
 
@@ -118,6 +141,12 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 		{
 			throw new PersistenceLayerException("Unbalanced " + startDelimiter
 				+ endDelimiter + " in PREMULT '" + input + "'.");
+		}
+		if (currIndex - startIndex <= 1)
+		{
+			throw new PersistenceLayerException(
+				"Found empty or unbracketed section in PREMULT '" + input
+					+ "'.");
 		}
 		subList.add(input.substring(startIndex + 1, currIndex - 1));
 
