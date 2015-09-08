@@ -23,7 +23,7 @@
  * Last Edited: $Date$
  *
  */
-package plugin.exporttokens;
+package plugin.exporttokens.deprecated;
 
 import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;

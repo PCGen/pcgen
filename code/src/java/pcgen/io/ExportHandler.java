@@ -54,6 +54,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
+import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
@@ -334,11 +335,14 @@ public final class ExportHandler
 			cfg.setSharedVariable("loop", new LoopDirective());
 			cfg.setSharedVariable("equipsetloop", new EquipSetLoopDirective(aPC));
 
+			GameMode gamemode = SettingsHandler.getGame();
 			// data-model
 			Map<String, Object> pc = OutputDB.buildDataModel(aPC.getCharID());
+			Map<String, Object> mode = OutputDB.buildModeDataModel(gamemode);
 			Map<String, Object> input = new HashMap<String, Object>();
 			input.put("pc", ObjectWrapper.DEFAULT_WRAPPER.wrap(pc));
-			input.put("gamemodename", SettingsHandler.getGame().getName());
+			input.put("gamemode", mode);
+			input.put("gamemodename", gamemode.getName());
 			
 			// Process the template
 			template.process(input, outputWriter);

@@ -25,9 +25,12 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.core.GameMode;
+import pcgen.output.base.ModeModelFactory;
 import pcgen.output.base.ModelFactory;
 import pcgen.output.factory.ItemModelFactory;
 import pcgen.output.factory.SetModelFactory;
+import pcgen.output.factory.UnitSetModelFactory;
 import freemarker.template.TemplateModel;
 
 /**
@@ -48,6 +51,12 @@ public final class OutputDB
 	private static DoubleKeyMap<Object, Object, ModelFactory> outModels =
 			new DoubleKeyMap<Object, Object, ModelFactory>(
 				CaseInsensitiveMap.class, CaseInsensitiveMap.class);
+
+	/**
+	 * The Map of string names to output models for the Game Mode
+	 */
+	private static Map<Object, ModeModelFactory> modeModels =
+			new CaseInsensitiveMap<ModeModelFactory>();
 
 	/**
 	 * Registers a new ModelFactory to be used in output
@@ -161,6 +170,55 @@ public final class OutputDB
 	}
 
 	/**
+	 * Builds the "game mode" data model
+	 * 
+	 * @return Returns a Map containing the "game mode" information
+	 */
+	public static Map<String, Object> buildModeDataModel(GameMode mode)
+	{
+		Map<String, Object> input = new HashMap<String, Object>();
+		for (Object key : modeModels.keySet())
+		{
+			ModeModelFactory modelFactory = modeModels.get(key);
+			input.put(key.toString(), modelFactory.generate(mode));
+		}
+		return input;
+	}
+	
+	/**
+	 * Registers a ModeModelFactory under the given name.
+	 * 
+	 * Note that only one ModeModelFactory can be registered under a given (case
+	 * insensitive) name. Additional items registered under the same name will
+	 * cause an UnsupportedOperationException.
+	 * 
+	 * @param name
+	 *            The Name the given ModeModelFactory should be registered under
+	 *            for use as an interpolation under gamemode. in FreeMarker
+	 * @param factory
+	 *            The ModeModelFactory to be registered under the given name
+	 */
+	public static void registerMode(String name, ModeModelFactory factory)
+	{
+		if (factory == null)
+		{
+			throw new IllegalArgumentException("Model Factory may not be null");
+		}
+		int dotLoc = name.indexOf('.');
+		if (dotLoc != -1)
+		{
+			throw new IllegalArgumentException("Name may not contain a dot: "
+				+ name);
+		}
+		ModeModelFactory old = modeModels.put(name, factory);
+		if (old != null)
+		{
+			throw new UnsupportedOperationException(
+				"Cannot have two Mode Models using the same name: " + name);
+		}
+	}
+	
+	/**
 	 * Returns a specific portion of the PlayerCharacter data model for the
 	 * given CharID and selection string.
 	 * 
@@ -206,6 +264,20 @@ public final class OutputDB
 	public static void reset()
 	{
 		outModels.clear();
+		modeModels.clear();
+	}
+
+	/*
+	 * Initialize the preferences we want to export to FreeMarker
+	 */
+	static
+	{
+		triggerLoad();
+	}
+
+	private static void triggerLoad()
+	{
+		registerMode("unitset", new UnitSetModelFactory());
 	}
 
 }
