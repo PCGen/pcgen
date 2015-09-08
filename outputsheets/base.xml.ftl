@@ -2520,6 +2520,15 @@
 	<@abilityBlock category="Mutation" nature="ALL" hidden=false typeName="" nodeName="mutation" />
 	</mutations>
 
+	<!--
+	  ====================================
+	  ====================================
+			Prestige Awards
+	  ====================================
+	  ====================================-->
+	<prestige_awards>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Prestige Award Display" nodeName="prestige_award" />
+	</prestige_awards>
 
 
 
