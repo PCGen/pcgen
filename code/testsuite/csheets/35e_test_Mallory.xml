@@ -39,7 +39,7 @@ BIO
 			<levels_total>10</levels_total>
 			<levels_ecl>10</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Sor9  Add1                 </shortform>
+			<shortform>Sor9,Add1</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -48,7 +48,6 @@ BIO
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source></source>
@@ -931,17 +930,22 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
+
 	<!-- Character Rage -->
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -960,10 +964,8 @@ BIO
 			<capacity>115</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="Default Set">
+		<equipmentset name="Default Set">
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1120,7 +1122,9 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
+
 		<!-- Virtual Feats -->
 		<feat>
 			<name>Dodge</name>
@@ -1233,8 +1237,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>TEST-66A</name>
 			<description></description>
@@ -1246,7 +1251,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1265,7 +1270,7 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies></weapon_proficiencies>
 	<languages>Common</languages>
 
@@ -1288,11 +1293,7 @@ BIO
 		</template>
 	</templates>
 
-
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1300,11 +1301,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================
@@ -1315,43 +1313,41 @@ BIO
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
 	<spells_innate>
-
 		<racial_innate>
-			<spell>
-					<name>Fireball</name>
-					<outputname>Fireball</outputname>
-					<times_memorized>5</times_memorized>
-					<range></range>
-					<components></components>
-					<castingtime></castingtime>
-					<casterlevel>10</casterlevel>
-					<dc>20</dc>
-					<duration>As long as you want up to 100 days [Should be CL x 10]</duration>
-					<effect>What ever you want here, 10 [casterlevel], 100 [casterlevel x 10], 10 [min casterlevel ,10]</effect>
-					<target>Anywhere but here</target>
-					<saveinfo>Fort Saves</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool>BlowThingsUp</subschool>
-						<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
-						<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Sor1</sourcelevel>
-						<source>PCGen Team - PCGen Testing Set, test</source>
-						<sourcepage>test</sourcepage>
-						<sourceshort>PTS</sourceshort>
-					</source>
-					<spell_resistance></spell_resistance>
-					<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
-					<bonusspell></bonusspell>
-				</spell>
+					<spell>
+						<name>Fireball</name>
+						<outputname>Fireball</outputname>
+						<times_memorized>5</times_memorized>
+						<range></range>
+						<components></components>
+						<castingtime></castingtime>
+						<casterlevel>10</casterlevel>
+						<dc>20</dc>
+						<duration>As long as you want up to 100 days [Should be CL x 10]</duration>
+						<effect>What ever you want here, 10 [casterlevel], 100 [casterlevel x 10], 10 [min casterlevel ,10]</effect>
+						<target>Anywhere but here</target>
+						<saveinfo>Fort Saves</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool>BlowThingsUp</subschool>
+							<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
+							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Sor1</sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, test</source>
+							<sourcepage>test</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
+						<bonusspell></bonusspell>
+					</spell>
 		</racial_innate>
 
 		<class_innate>
-
 			<spellbook number="2" name="TestSixSix">
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1380,7 +1376,7 @@ BIO
 						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1409,7 +1405,7 @@ BIO
 						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1438,7 +1434,7 @@ BIO
 						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1468,17 +1464,15 @@ BIO
 						<bonusspell></bonusspell>
 					</spell>
 			</spellbook>
-
 		</class_innate>
 		</spells_innate>
 <!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
-
 		<class number="1" spelllistclass="Sorcerer" spellcastertype="Arcane">
 			<level number="0" known="0" cast="0"/>
 			<level number="1" known="5" cast="8">
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1523,47 +1517,44 @@ BIO
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
 	<memorized_spells>
-			<!-- ### BEGIN innate memorized spell section -->	
-<!-- ### BEGIN innate memorized spells ### -->
-
+		<!-- ### BEGIN innate memorized spell section -->	
+		<!-- ### BEGIN innate memorized spells ### -->
 		<racial_innate_memorized>
-			<spell>
-					<name>Fireball</name>
-					<outputname>Fireball</outputname>
-					<times_memorized>5</times_memorized>
-					<range></range>
-					<components></components>
-					<castingtime></castingtime>
-					<casterlevel>10</casterlevel>
-					<dc>20</dc>
-					<duration>As long as you want up to 100 days [Should be CL x 10]</duration>
-					<effect>What ever you want here, 10 [casterlevel], 100 [casterlevel x 10], 10 [min casterlevel ,10]</effect>
-					<target>Anywhere but here</target>
-					<saveinfo>Fort Saves</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool>BlowThingsUp</subschool>
-						<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
-						<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
-					</school>
-					<source>
-						<sourcelevel>Sor1</sourcelevel>
-						<source>PCGen Team - PCGen Testing Set, test</source>
-						<sourcepage>test</sourcepage>
-						<sourceshort>PTS</sourceshort>
-					</source>
-					<spell_resistance></spell_resistance>
-					<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
-					<bonusspell></bonusspell>
-				</spell>
+					<spell>
+						<name>Fireball</name>
+						<outputname>Fireball</outputname>
+						<times_memorized>5</times_memorized>
+						<range></range>
+						<components></components>
+						<castingtime></castingtime>
+						<casterlevel>10</casterlevel>
+						<dc>20</dc>
+						<duration>As long as you want up to 100 days [Should be CL x 10]</duration>
+						<effect>What ever you want here, 10 [casterlevel], 100 [casterlevel x 10], 10 [min casterlevel ,10]</effect>
+						<target>Anywhere but here</target>
+						<saveinfo>Fort Saves</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool>BlowThingsUp</subschool>
+							<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
+							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Sor1</sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, test</source>
+							<sourcepage>test</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
+						<bonusspell></bonusspell>
+					</spell>
 		</racial_innate_memorized>
-
-<!-- ### END innate memorized spells ### -->
-			<!-- ### BEGIN class innate memorized spells ### -->
-			<class_innate_memorized>
-
+		<!-- ### END innate memorized spells ### -->
+		<!-- ### BEGIN class innate memorized spells ### -->
+		<class_innate_memorized>
 			<spellbook number="2" name="TestSixSix">
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1592,7 +1583,7 @@ BIO
 						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1621,7 +1612,7 @@ BIO
 						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1650,7 +1641,7 @@ BIO
 						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1680,16 +1671,13 @@ BIO
 						<bonusspell></bonusspell>
 					</spell>
 			</spellbook>
-
 		</class_innate_memorized>
 			<!-- ### END class innate memorized spells ### -->
-<!-- ### END innate memorized spell section -->
-			<!-- ### BEGIN class Spellbook memorized spells ### -->
-<!-- FOR,1,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
-<!-- FOR,0,COUNT[SPELLSINBOOK0.2.0],COUNT[SPELLSINBOOK0.2.0],1,1 -->
+		<!-- ### END innate memorized spell section -->
+	
+		<!-- ### BEGIN class Spellbook memorized spells ### -->
 <!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
-			<spellbook number="2" name="TestSixSix">
-
+		<spellbook number="2" name="TestSixSix">
 			<class number="1" spelllistclass="Sorcerer">
 				<level number="0" spellcount="0"/>
 				<level number="1" spellcount="0"/>
@@ -1702,11 +1690,19 @@ BIO
 				<level number="8" spellcount="0"/>
 				<level number="9" spellcount="0"/>
 			</class>
-
-
+			<class number="2" spelllistclass="">
+				<level number="0" spellcount="0"/>
+				<level number="1" spellcount="0"/>
+				<level number="2" spellcount="0"/>
+				<level number="3" spellcount="0"/>
+				<level number="4" spellcount="0"/>
+				<level number="5" spellcount="0"/>
+				<level number="6" spellcount="0"/>
+				<level number="7" spellcount="0"/>
+				<level number="8" spellcount="0"/>
+				<level number="9" spellcount="0"/>
+			</class>
 		</spellbook>
-<!-- END FOR,0,COUNT[SPELLSINBOOK0.2.0],COUNT[SPELLSINBOOK0.2.0],1,1 -->
-<!-- END FOR,1,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
 	</memorized_spells>
 <!-- ### END class Spellbook memorized spells ### -->
 	</spells>

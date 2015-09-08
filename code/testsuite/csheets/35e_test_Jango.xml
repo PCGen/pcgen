@@ -46,7 +46,7 @@ BIO
 			<levels_total>7</levels_total>
 			<levels_ecl>7</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Bas1  Tes4  Tes2               </shortform>
+			<shortform>Bas1,Tes4,Tes2</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -55,7 +55,6 @@ BIO
 			<description></description>
 			<domainlist></domainlist>
 			<favoredweapon></favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist></pantheonlist>
 			<source></source>
@@ -937,17 +936,22 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
 
-	<!-- Barbarian of 15th Level -->
+
 	<!-- Character Rage -->
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -966,10 +970,8 @@ BIO
 			<capacity>115</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="Default Set">
+		<equipmentset name="Default Set">
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1080,6 +1082,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
 		<feat>
 			<name>Simple Weapon Proficiency</name>
@@ -1091,6 +1094,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Virtual Feats -->
 		<feat>
 			<name>Weapon Focus (Longsword)</name>
@@ -1113,8 +1117,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>TEST-66A</name>
 			<description></description>
@@ -1126,7 +1131,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1145,7 +1150,7 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies>Dagger, Extra Blade, Simple Weapon Four, Simple Weapon One, Simple Weapon Three, Simple Weapon Two, Spear, Suns Weapon Of Choice, Unarmed Strike</weapon_proficiencies>
 	<languages>Common</languages>
 
@@ -1363,11 +1368,7 @@ BIO
 		</template>
 	</templates>
 
-
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1375,11 +1376,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================
@@ -1390,130 +1388,128 @@ BIO
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
 	<spells_innate>
-
 		<racial_innate>
-			<spell>
-					<name>Detect Magic</name>
-					<outputname>Detect Magic</outputname>
-					<times_memorized>1</times_memorized>
-					<range>60 ft.</range>
-					<components>V, S</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>1</casterlevel>
-					<dc></dc>
-					<duration>Concentration, up to 1 minutes [D]</duration>
-					<effect>Detects spells and magic items within 60 ft.</effect>
-					<target>Cone-shaped emanation</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Divination</school>
-						<subschool></subschool>
-						<descriptor></descriptor>
-						<fullschool>Divination</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>PCGen Team - PCGen Testing Set, SpellsD-E</source>
-						<sourcepage>SpellsD-E</sourcepage>
-						<sourceshort>PTS</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Detects spells and magic items within 60 ft.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Light</name>
-					<outputname>Light</outputname>
-					<times_memorized>1</times_memorized>
-					<range>Touch</range>
-					<components>V, M/DF</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>1</casterlevel>
-					<dc></dc>
-					<duration>10 minutes [D]</duration>
-					<effect>Object shines like a torch.</effect>
-					<target>Object touched</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool></subschool>
-						<descriptor>Light</descriptor>
-						<fullschool>Evocation [Light]</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>PCGen Team - PCGen Testing Set, SpellsH-L</source>
-						<sourcepage>SpellsH-L</sourcepage>
-						<sourceshort>PTS</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Object shines like a torch.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Magic Missile</name>
-					<outputname>Magic Missile</outputname>
-					<times_memorized>2</times_memorized>
-					<range>Medium (200 ft.)</range>
-					<components>V, S</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>10</casterlevel>
-					<dc></dc>
-					<duration>Instantaneous</duration>
-					<effect>5 missiles that do 1d4+1 damage each.</effect>
-					<target>Up to five creatures, no two of which can be more than 15 ft. apart</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool></subschool>
-						<descriptor>Force</descriptor>
-						<fullschool>Evocation [Force]</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>PCGen Team - PCGen Testing Set, SpellsM-O</source>
-						<sourcepage>SpellsM-O</sourcepage>
-						<sourceshort>PTS</sourceshort>
-					</source>
-					<spell_resistance>Yes</spell_resistance>
-					<description>(min((CASTERLEVEL+1)/2,5)) missiles that do 1d4+1 damage each.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Magic Missile</name>
-					<outputname>Magic Missile</outputname>
-					<times_memorized>3</times_memorized>
-					<range>Medium (200 ft.)</range>
-					<components>V, S</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>10</casterlevel>
-					<dc></dc>
-					<duration>Instantaneous</duration>
-					<effect>5 missiles that do 1d4+1 damage each.</effect>
-					<target>Up to five creatures, no two of which can be more than 15 ft. apart</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool></subschool>
-						<descriptor>Force</descriptor>
-						<fullschool>Evocation [Force]</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>PCGen Team - PCGen Testing Set, SpellsM-O</source>
-						<sourcepage>SpellsM-O</sourcepage>
-						<sourceshort>PTS</sourceshort>
-					</source>
-					<spell_resistance>Yes</spell_resistance>
-					<description>(min((CASTERLEVEL+1)/2,5)) missiles that do 1d4+1 damage each.</description>
-					<bonusspell></bonusspell>
-				</spell>
+					<spell>
+						<name>Detect Magic</name>
+						<outputname>Detect Magic</outputname>
+						<times_memorized>1</times_memorized>
+						<range>60 ft.</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration>Concentration, up to 1 minutes [D]</duration>
+						<effect>Detects spells and magic items within 60 ft.</effect>
+						<target>Cone-shaped emanation</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, SpellsD-E</source>
+							<sourcepage>SpellsD-E</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Detects spells and magic items within 60 ft.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Light</name>
+						<outputname>Light</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration>10 minutes [D]</duration>
+						<effect>Object shines like a torch.</effect>
+						<target>Object touched</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Light</descriptor>
+							<fullschool>Evocation [Light]</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, SpellsH-L</source>
+							<sourcepage>SpellsH-L</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Object shines like a torch.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Magic Missile</name>
+						<outputname>Magic Missile</outputname>
+						<times_memorized>2</times_memorized>
+						<range>Medium (200 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>10</casterlevel>
+						<dc></dc>
+						<duration>Instantaneous</duration>
+						<effect>5 missiles that do 1d4+1 damage each.</effect>
+						<target>Up to five creatures, no two of which can be more than 15 ft. apart</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Force</descriptor>
+							<fullschool>Evocation [Force]</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, SpellsM-O</source>
+							<sourcepage>SpellsM-O</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>(min((CASTERLEVEL+1)/2,5)) missiles that do 1d4+1 damage each.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Magic Missile</name>
+						<outputname>Magic Missile</outputname>
+						<times_memorized>3</times_memorized>
+						<range>Medium (200 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>10</casterlevel>
+						<dc></dc>
+						<duration>Instantaneous</duration>
+						<effect>5 missiles that do 1d4+1 damage each.</effect>
+						<target>Up to five creatures, no two of which can be more than 15 ft. apart</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Force</descriptor>
+							<fullschool>Evocation [Force]</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, SpellsM-O</source>
+							<sourcepage>SpellsM-O</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>(min((CASTERLEVEL+1)/2,5)) missiles that do 1d4+1 damage each.</description>
+						<bonusspell></bonusspell>
+					</spell>
 		</racial_innate>
 
 		<class_innate>
-
 			<spellbook number="2" name="TestSixSix">
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1542,7 +1538,7 @@ BIO
 						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1571,7 +1567,7 @@ BIO
 						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1600,7 +1596,7 @@ BIO
 						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1630,7 +1626,6 @@ BIO
 						<bonusspell></bonusspell>
 					</spell>
 			</spellbook>
-
 		</class_innate>
 		</spells_innate>
 <!-- ### END Innate spells ### -->
@@ -1643,134 +1638,131 @@ BIO
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
 	<memorized_spells>
-			<!-- ### BEGIN innate memorized spell section -->	
-<!-- ### BEGIN innate memorized spells ### -->
-
+		<!-- ### BEGIN innate memorized spell section -->	
+		<!-- ### BEGIN innate memorized spells ### -->
 		<racial_innate_memorized>
-			<spell>
-					<name>Detect Magic</name>
-					<outputname>Detect Magic</outputname>
-					<times_memorized>1</times_memorized>
-					<range>60 ft.</range>
-					<components>V, S</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>1</casterlevel>
-					<dc></dc>
-					<duration>Concentration, up to 1 minutes [D]</duration>
-					<effect>Detects spells and magic items within 60 ft.</effect>
-					<target>Cone-shaped emanation</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Divination</school>
-						<subschool></subschool>
-						<descriptor></descriptor>
-						<fullschool>Divination</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>PCGen Team - PCGen Testing Set, SpellsD-E</source>
-						<sourcepage>SpellsD-E</sourcepage>
-						<sourceshort>PTS</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Detects spells and magic items within 60 ft.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Light</name>
-					<outputname>Light</outputname>
-					<times_memorized>1</times_memorized>
-					<range>Touch</range>
-					<components>V, M/DF</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>1</casterlevel>
-					<dc></dc>
-					<duration>10 minutes [D]</duration>
-					<effect>Object shines like a torch.</effect>
-					<target>Object touched</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool></subschool>
-						<descriptor>Light</descriptor>
-						<fullschool>Evocation [Light]</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>PCGen Team - PCGen Testing Set, SpellsH-L</source>
-						<sourcepage>SpellsH-L</sourcepage>
-						<sourceshort>PTS</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Object shines like a torch.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Magic Missile</name>
-					<outputname>Magic Missile</outputname>
-					<times_memorized>2</times_memorized>
-					<range>Medium (200 ft.)</range>
-					<components>V, S</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>10</casterlevel>
-					<dc></dc>
-					<duration>Instantaneous</duration>
-					<effect>5 missiles that do 1d4+1 damage each.</effect>
-					<target>Up to five creatures, no two of which can be more than 15 ft. apart</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool></subschool>
-						<descriptor>Force</descriptor>
-						<fullschool>Evocation [Force]</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>PCGen Team - PCGen Testing Set, SpellsM-O</source>
-						<sourcepage>SpellsM-O</sourcepage>
-						<sourceshort>PTS</sourceshort>
-					</source>
-					<spell_resistance>Yes</spell_resistance>
-					<description>(min((CASTERLEVEL+1)/2,5)) missiles that do 1d4+1 damage each.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Magic Missile</name>
-					<outputname>Magic Missile</outputname>
-					<times_memorized>3</times_memorized>
-					<range>Medium (200 ft.)</range>
-					<components>V, S</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>10</casterlevel>
-					<dc></dc>
-					<duration>Instantaneous</duration>
-					<effect>5 missiles that do 1d4+1 damage each.</effect>
-					<target>Up to five creatures, no two of which can be more than 15 ft. apart</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool></subschool>
-						<descriptor>Force</descriptor>
-						<fullschool>Evocation [Force]</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>PCGen Team - PCGen Testing Set, SpellsM-O</source>
-						<sourcepage>SpellsM-O</sourcepage>
-						<sourceshort>PTS</sourceshort>
-					</source>
-					<spell_resistance>Yes</spell_resistance>
-					<description>(min((CASTERLEVEL+1)/2,5)) missiles that do 1d4+1 damage each.</description>
-					<bonusspell></bonusspell>
-				</spell>
+					<spell>
+						<name>Detect Magic</name>
+						<outputname>Detect Magic</outputname>
+						<times_memorized>1</times_memorized>
+						<range>60 ft.</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration>Concentration, up to 1 minutes [D]</duration>
+						<effect>Detects spells and magic items within 60 ft.</effect>
+						<target>Cone-shaped emanation</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, SpellsD-E</source>
+							<sourcepage>SpellsD-E</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Detects spells and magic items within 60 ft.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Light</name>
+						<outputname>Light</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration>10 minutes [D]</duration>
+						<effect>Object shines like a torch.</effect>
+						<target>Object touched</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Light</descriptor>
+							<fullschool>Evocation [Light]</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, SpellsH-L</source>
+							<sourcepage>SpellsH-L</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Object shines like a torch.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Magic Missile</name>
+						<outputname>Magic Missile</outputname>
+						<times_memorized>2</times_memorized>
+						<range>Medium (200 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>10</casterlevel>
+						<dc></dc>
+						<duration>Instantaneous</duration>
+						<effect>5 missiles that do 1d4+1 damage each.</effect>
+						<target>Up to five creatures, no two of which can be more than 15 ft. apart</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Force</descriptor>
+							<fullschool>Evocation [Force]</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, SpellsM-O</source>
+							<sourcepage>SpellsM-O</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>(min((CASTERLEVEL+1)/2,5)) missiles that do 1d4+1 damage each.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Magic Missile</name>
+						<outputname>Magic Missile</outputname>
+						<times_memorized>3</times_memorized>
+						<range>Medium (200 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>10</casterlevel>
+						<dc></dc>
+						<duration>Instantaneous</duration>
+						<effect>5 missiles that do 1d4+1 damage each.</effect>
+						<target>Up to five creatures, no two of which can be more than 15 ft. apart</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Force</descriptor>
+							<fullschool>Evocation [Force]</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, SpellsM-O</source>
+							<sourcepage>SpellsM-O</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>(min((CASTERLEVEL+1)/2,5)) missiles that do 1d4+1 damage each.</description>
+						<bonusspell></bonusspell>
+					</spell>
 		</racial_innate_memorized>
-
-<!-- ### END innate memorized spells ### -->
-			<!-- ### BEGIN class innate memorized spells ### -->
-			<class_innate_memorized>
-
+		<!-- ### END innate memorized spells ### -->
+		<!-- ### BEGIN class innate memorized spells ### -->
+		<class_innate_memorized>
 			<spellbook number="2" name="TestSixSix">
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1799,7 +1791,7 @@ BIO
 						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1828,7 +1820,7 @@ BIO
 						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1857,7 +1849,7 @@ BIO
 						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
 						<bonusspell></bonusspell>
 					</spell>
-				<spell>
+					<spell>
 						<name>Fireball</name>
 						<outputname>Fireball</outputname>
 						<times_memorized>1</times_memorized>
@@ -1887,21 +1879,50 @@ BIO
 						<bonusspell></bonusspell>
 					</spell>
 			</spellbook>
-
 		</class_innate_memorized>
 			<!-- ### END class innate memorized spells ### -->
-<!-- ### END innate memorized spell section -->
-			<!-- ### BEGIN class Spellbook memorized spells ### -->
-<!-- FOR,1,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
-<!-- FOR,0,COUNT[SPELLSINBOOK0.2.0],COUNT[SPELLSINBOOK0.2.0],1,1 -->
+		<!-- ### END innate memorized spell section -->
+	
+		<!-- ### BEGIN class Spellbook memorized spells ### -->
 <!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
-			<spellbook number="2" name="TestSixSix">
-
-
-
+		<spellbook number="2" name="TestSixSix">
+			<class number="1" spelllistclass="">
+				<level number="0" spellcount="0"/>
+				<level number="1" spellcount="0"/>
+				<level number="2" spellcount="0"/>
+				<level number="3" spellcount="0"/>
+				<level number="4" spellcount="0"/>
+				<level number="5" spellcount="0"/>
+				<level number="6" spellcount="0"/>
+				<level number="7" spellcount="0"/>
+				<level number="8" spellcount="0"/>
+				<level number="9" spellcount="0"/>
+			</class>
+			<class number="2" spelllistclass="">
+				<level number="0" spellcount="0"/>
+				<level number="1" spellcount="0"/>
+				<level number="2" spellcount="0"/>
+				<level number="3" spellcount="0"/>
+				<level number="4" spellcount="0"/>
+				<level number="5" spellcount="0"/>
+				<level number="6" spellcount="0"/>
+				<level number="7" spellcount="0"/>
+				<level number="8" spellcount="0"/>
+				<level number="9" spellcount="0"/>
+			</class>
+			<class number="3" spelllistclass="">
+				<level number="0" spellcount="0"/>
+				<level number="1" spellcount="0"/>
+				<level number="2" spellcount="0"/>
+				<level number="3" spellcount="0"/>
+				<level number="4" spellcount="0"/>
+				<level number="5" spellcount="0"/>
+				<level number="6" spellcount="0"/>
+				<level number="7" spellcount="0"/>
+				<level number="8" spellcount="0"/>
+				<level number="9" spellcount="0"/>
+			</class>
 		</spellbook>
-<!-- END FOR,0,COUNT[SPELLSINBOOK0.2.0],COUNT[SPELLSINBOOK0.2.0],1,1 -->
-<!-- END FOR,1,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
 	</memorized_spells>
 <!-- ### END class Spellbook memorized spells ### -->
 	</spells>
