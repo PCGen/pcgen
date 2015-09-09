@@ -32,7 +32,6 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
-import pcgen.core.analysis.SpellPoint;
 import pcgen.facade.core.InfoFacade;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 
@@ -54,8 +53,6 @@ public final class Spell extends PObject implements InfoFacade, Ungranted
 		SPELLS = CDOMDirectSingleRef.getRef(wpl);
 	}
 
-	static boolean hasSpellPointCost = false;
-
 	@Override
 	public String getPCCText()
 	{
@@ -64,12 +61,6 @@ public final class Spell extends PObject implements InfoFacade, Ungranted
 		txt.append("\t");
 		txt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(
 				this), "\t"));
-
-		if (hasSpellPointCost())
-		{
-			txt.append(SpellPoint.getSpellPointCostActual(this));
-		}
-
 		txt.append("\t");
 		txt.append(PrerequisiteWriter.prereqsToString(this));
 
@@ -98,11 +89,6 @@ public final class Spell extends PObject implements InfoFacade, Ungranted
 	public int hashCode()
 	{
 		return getKeyName().hashCode();
-	}
-	
-	public static boolean hasSpellPointCost()
-	{
-		return hasSpellPointCost;
 	}
 
 	public boolean isAllowed(Type t)

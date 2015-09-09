@@ -389,6 +389,7 @@
 						<xsl:apply-templates select="racial_traits"/>
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
+						<xsl:apply-templates select="prestige_awards"/>
 						<xsl:apply-templates select="intelligent_items"/>
 						<xsl:apply-templates select="talents"/>	
 						<xsl:apply-templates select="words_of_powers"/>	

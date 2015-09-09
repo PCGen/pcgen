@@ -36,7 +36,7 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
-import plugin.format.GridPointManager;
+import plugin.format.OrderedPairManager;
 import plugin.format.StringManager;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
@@ -70,7 +70,7 @@ public class FactDefTokenTest extends TestCase
 		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
-		TokenRegistration.register(new GridPointManager());
+		TokenRegistration.register(new OrderedPairManager());
 		TokenRegistration.register(new StringManager());
 		resetContext();
 	}

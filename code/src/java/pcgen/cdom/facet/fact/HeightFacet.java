@@ -17,15 +17,18 @@
  */
 package pcgen.cdom.facet.fact;
 
+import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.output.publish.OutputDB;
 
 /**
  * HeightFacet is a Facet that tracks the Player Character's height.
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class HeightFacet extends AbstractItemFacet<CharID, Integer>
+public class HeightFacet extends AbstractItemFacet<CharID, Integer> implements
+		ItemFacet<CharID, Integer>
 {
 
 	/**
@@ -43,7 +46,7 @@ public class HeightFacet extends AbstractItemFacet<CharID, Integer>
 	 */
 	public boolean setHeight(CharID id, int height)
 	{
-		return set(id, height);
+		return set(id, Integer.valueOf(height));
 	}
 
 	/**
@@ -72,6 +75,15 @@ public class HeightFacet extends AbstractItemFacet<CharID, Integer>
 	public int getHeight(CharID id)
 	{
 		Integer height = get(id);
-		return (height == null) ? 0 : height;
+		return (height == null) ? 0 : height.intValue();
+	}
+	
+	/**
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the HeightFacet.
+	 */
+	public void init()
+	{
+		OutputDB.register("height", this);
 	}
 }

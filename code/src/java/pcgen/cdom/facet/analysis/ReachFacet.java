@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.analysis;
 
+import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.facet.BonusCheckingFacet;
@@ -24,13 +25,14 @@ import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+import pcgen.output.publish.OutputDB;
 
 /**
  * ReachFacet is a Facet that calculates the Reach for a Player Character.
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ReachFacet
+public class ReachFacet implements ItemFacet<CharID, Integer>
 {
 	private TemplateFacet templateFacet;
 	private RaceFacet raceFacet;
@@ -67,6 +69,21 @@ public class ReachFacet
 		return reach;
 	}
 
+	/**
+	 * Returns the Reach for a Player Character represented by the given CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the
+	 *            Reach should be returned.
+	 * @return The Reach for the Player Character represented by the given
+	 *         CharID
+	 */
+	@Override
+	public Integer get(CharID id)
+	{
+		return Integer.valueOf(getReach(id));
+	}
+
 	public void setTemplateFacet(TemplateFacet templateFacet)
 	{
 		this.templateFacet = templateFacet;
@@ -80,6 +97,11 @@ public class ReachFacet
 	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
 	{
 		this.bonusCheckingFacet = bonusCheckingFacet;
+	}
+	
+	public void init()
+	{
+		OutputDB.register("reach", this);
 	}
 
 }

@@ -38,3 +38,6 @@ pcgen-batch-convert.jar
 /variable_report.html
 
 .idea/
+
+data/customsources/*
+!data/customsources/readme-customsources.txt

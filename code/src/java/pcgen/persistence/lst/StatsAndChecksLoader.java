@@ -73,10 +73,16 @@ public class StatsAndChecksLoader extends SimpleLoader<Loadable>
 		Class<? extends Loadable> loadClass;
 		if ("STATNAME".equals(key))
 		{
+			Logging
+				.deprecationPrint("Loading Stats in Game Mode is deprecated, "
+					+ "please use the STAT: token in a PCC file");
 			loadClass = PCStat.class;
 		}
 		else if ("CHECKNAME".equals(key))
 		{
+			Logging
+				.deprecationPrint("Loading Checks/Saves in Game Mode is deprecated, "
+					+ "please use the SAVE: token in a PCC file");
 			loadClass = PCCheck.class;
 		}
 		else if ("BONUSSPELLLEVEL".equals(key))
@@ -85,6 +91,9 @@ public class StatsAndChecksLoader extends SimpleLoader<Loadable>
 		}
 		else if ("ALIGNMENTNAME".equals(key))
 		{
+			Logging
+				.deprecationPrint("Loading Alignments in Game Mode is deprecated, "
+					+ "please use the ALIGNMENT: token in a PCC file");
 			loadClass = PCAlignment.class;
 		}
 		else

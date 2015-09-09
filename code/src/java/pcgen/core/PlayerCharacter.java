@@ -235,7 +235,6 @@ import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.analysis.SpellLevel;
-import pcgen.core.analysis.SpellPoint;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusPair;
@@ -4859,17 +4858,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 					ppCost += (int) BonusCalc.charBonusTo(feat, "PPCOST", theSpell.getKeyName(), this);
 				}
 				si.setActualPPCost(ppCost);
-			}
-			if (Spell.hasSpellPointCost())
-			{
-				final Spell theSpell = acs.getSpell();
-				int spellPointCost = SpellPoint.getSpellPointCostActual(theSpell);
-				for (Ability feat : aFeatList)
-				{
-					spellPointCost += (int) BonusCalc
-							.charBonusTo(feat, "SPELLPOINTCOST", theSpell.getKeyName(), this);
-				}
-				si.setActualSpellPointCost(spellPointCost);
 			}
 		}
 		// Set number of pages on the spell

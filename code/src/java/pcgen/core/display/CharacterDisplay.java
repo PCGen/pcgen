@@ -18,7 +18,6 @@
 package pcgen.core.display;
 
 import java.awt.Rectangle;
-import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -31,6 +30,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.geom.OrderedPair;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
@@ -298,6 +298,7 @@ public class CharacterDisplay
 	 * 
 	 * @return birthday
 	 */
+	@Deprecated
 	public String getBirthday()
 	{
 		return getSafeStringFor(PCStringKey.BIRTHDAY);
@@ -328,6 +329,7 @@ public class CharacterDisplay
 	 * 
 	 * @return the colour of their eyes
 	 */
+	@Deprecated
 	public String getEyeColor()
 	{
 		return getSafeStringFor(PCStringKey.EYECOLOR);
@@ -338,6 +340,7 @@ public class CharacterDisplay
 	 * 
 	 * @return A hair color string.
 	 */
+	@Deprecated
 	public String getHairColor()
 	{
 		return getSafeStringFor(PCStringKey.HAIRCOLOR);
@@ -348,6 +351,7 @@ public class CharacterDisplay
 	 * 
 	 * @return The character's hair style.
 	 */
+	@Deprecated
 	public String getHairStyle()
 	{
 		return getSafeStringFor(PCStringKey.HAIRSTYLE);
@@ -398,6 +402,7 @@ public class CharacterDisplay
 	 * 
 	 * @return skin colour
 	 */
+	@Deprecated
 	public String getSkinColor()
 	{
 		return getSafeStringFor(PCStringKey.SKINCOLOR);
@@ -550,6 +555,7 @@ public class CharacterDisplay
 	 * 
 	 * @return The list of templates visible on output sheets.
 	 */
+	@Deprecated
 	public List<PCTemplate> getOutputVisibleTemplateList()
 	{
 		return getVisibleToTemplateList(View.VISIBLE_EXPORT);
@@ -639,6 +645,7 @@ public class CharacterDisplay
 		return ageFacet.getAge(id);
 	}
 
+	@Deprecated
 	public String getBirthplace()
 	{
 		return getSafeStringFor(PCStringKey.BIRTHPLACE);
@@ -703,6 +710,7 @@ public class CharacterDisplay
 		return classFacet.getLevel(id, pcc);
 	}
 
+	@Deprecated
 	public SortedSet<PCClass> getFavoredClasses()
 	{
 		SortedSet<PCClass> favored = new TreeSet<PCClass>(CDOMObjectUtilities.CDOM_SORTER);
@@ -710,6 +718,7 @@ public class CharacterDisplay
 		return favored;
 	}
 
+	@Deprecated
 	public boolean hasAnyFavoredClass()
 	{
 		return hasAnyFavoredFacet.contains(id, Boolean.TRUE);
@@ -729,6 +738,7 @@ public class CharacterDisplay
 	 * Get a sorted list of the languages that this character knows.
 	 * @return a sorted list of language objects
 	 */
+	@Deprecated
 	public Set<Language> getSortedLanguageSet()
 	{
 		return new TreeSet<Language>(languageFacet.getSet(id));
@@ -749,9 +759,9 @@ public class CharacterDisplay
 		return handedFacet.getHanded(id);
 	}
 
-	public Point2D.Double getFace()
+	public OrderedPair getFace()
 	{
-		return faceFacet.getFace(id);
+		return faceFacet.get(id);
 	}
 
 	public SortedSet<WeaponProf> getSortedWeaponProfs()
@@ -764,6 +774,7 @@ public class CharacterDisplay
 		return sizeFacet.getSizeAbb(id);
 	}
 
+	@Deprecated
 	public String getResidence()
 	{
 		return getSafeStringFor(PCStringKey.RESIDENCE);
@@ -1034,11 +1045,13 @@ public class CharacterDisplay
 		return skillFacet.getSet(id);
 	}
 
+	@Deprecated
 	public List<SpecialAbility> getResolvedSpecialAbilities(CDOMObject cdo)
 	{
 		return specialAbilityFacet.getResolved(id, cdo);
 	}
 
+	@Deprecated
 	public List<SpecialAbility> getResolvedUserSpecialAbilities(CDOMObject cdo)
 	{
 		return userSpecialAbilityFacet.getResolved(id, cdo);
@@ -1068,6 +1081,7 @@ public class CharacterDisplay
 	 * Accessor, Gets the sub-race of the character.
 	 * @return character subrace.
 	 */
+	@Deprecated
 	public String getSubRace()
 	{
 		return subRaceFacet.getSubRace(id);
@@ -1688,16 +1702,19 @@ public class CharacterDisplay
 		return 0.0;
 	}
 
+	@Deprecated
 	public String getCharacterHeightInchPart()
 	{
 		return Integer.toString(getHeight() % 12);
 	}
 
+	@Deprecated
 	public String getCharacterHeightFootPart()
 	{
 		return Integer.toString(getHeight() / 12);
 	}
 
+	@Deprecated
 	public String getHeightString()
 	{
 		String retString;
@@ -1718,6 +1735,7 @@ public class CharacterDisplay
 		return retString;
 	}
 
+	@Deprecated
 	public String getAlignmentDisplayString()
 	{
 		if (Globals.getGameModeAlignmentText().length() == 0)

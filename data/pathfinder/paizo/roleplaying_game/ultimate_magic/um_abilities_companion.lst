@@ -242,18 +242,18 @@ Fused Eidolon Stats ~ Active	CATEGORY:Internal						DEFINESTAT:LOCK|STR|EidolonS
 
 ###Block: Familiar Bonuses granted to Master
 # Ability Name				Category of Ability	Combat bonus					Save bonus						Bonus to skill					Modify VAR
-Familiar (Blue-Ringed Octopus)	CATEGORY:Internal																BONUS:SKILL|Swim|3|TYPE=Familiar
-Familiar (Donkey Rat)			CATEGORY:Internal									BONUS:SAVE|Fortitude|2|TYPE=Familiar
-Familiar (Fox)				CATEGORY:Internal									BONUS:SAVE|Reflex|2|TYPE=Familiar
-Familiar (Goat)				CATEGORY:Internal																BONUS:SKILL|Survival|3|TYPE=Familiar
-Familiar (Scorpion (Greensting))	CATEGORY:Internal		BONUS:COMBAT|INITIATIVE|4|TYPE=Familiar
-Familiar (Hedgehog)			CATEGORY:Internal									BONUS:SAVE|Will|2|TYPE=Familiar
-Familiar (Centipede (House))		CATEGORY:Internal																BONUS:SKILL|Stealth|3|TYPE=Familiar
-Familiar (Crab (Giant King))		CATEGORY:Internal																							BONUS:VAR|CMB_Grapple|2|TYPE=Familiar
-Familiar (Pig)				CATEGORY:Internal																BONUS:SKILL|Diplomacy|3|TYPE=Familiar
-Familiar (Spider (Scarlet))		CATEGORY:Internal																BONUS:SKILL|Climb|3|TYPE=Familiar
-Familiar (Thrush)				CATEGORY:Internal																BONUS:SKILL|Diplomacy|3|TYPE=Familiar
-Familiar (Turtle)				CATEGORY:Internal		BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK
+Familiar (Blue-Ringed Octopus)	CATEGORY:Internal																BONUS:SKILL|Swim|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar (Donkey Rat)			CATEGORY:Internal									BONUS:SAVE|Fortitude|FamiliarGrantedBonus_2|TYPE=Familiar
+Familiar (Fox)				CATEGORY:Internal									BONUS:SAVE|Reflex|FamiliarGrantedBonus_2|TYPE=Familiar
+Familiar (Goat)				CATEGORY:Internal																BONUS:SKILL|Survival|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar (Scorpion (Greensting))	CATEGORY:Internal		BONUS:COMBAT|INITIATIVE|FamiliarGrantedBonus_4|TYPE=Familiar
+Familiar (Hedgehog)			CATEGORY:Internal									BONUS:SAVE|Will|FamiliarGrantedBonus_2|TYPE=Familiar
+Familiar (Centipede (House))		CATEGORY:Internal																BONUS:SKILL|Stealth|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar (Crab (Giant King))		CATEGORY:Internal																							BONUS:VAR|CMB_Grapple|FamiliarGrantedBonus_2|TYPE=Familiar
+Familiar (Pig)				CATEGORY:Internal																BONUS:SKILL|Diplomacy|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar (Spider (Scarlet))		CATEGORY:Internal																BONUS:SKILL|Climb|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar (Thrush)				CATEGORY:Internal																BONUS:SKILL|Diplomacy|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar (Turtle)				CATEGORY:Internal		BONUS:VAR|AC_Natural_Armor|FamiliarGrantedBonus_1|TYPE=Base.STACK
 
 
 ###Block: Temp Bonus Support - Evolution Surge
