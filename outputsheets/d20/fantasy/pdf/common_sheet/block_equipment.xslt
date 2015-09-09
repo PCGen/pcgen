@@ -335,7 +335,7 @@
 									</xsl:call-template>
 								</xsl:variable>
 								Total= <xsl:value-of select="format-number($TotalValue, '##,##0.#')"/> gp
-								<xsl:if test="misc/gold &gt; 0">
+								<xsl:if test="misc/gold != 0">
 								[Unspent Funds = <xsl:value-of select="misc/gold"/> gp]
 								</xsl:if>
 							</fo:block>
