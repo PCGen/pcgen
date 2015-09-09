@@ -43,14 +43,14 @@ PCC:@/homebrew/conversion_support/conversion_support.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/core_essentials/core_essentials.pcc
 
 # Fact/Factset & Formula System
-DATACONTROL:_datacontrol.lst
-#VARIABLE:cr_variables.lst
-#GLOBALMODIFIER:cr_globalmodifiers.lst
+DATACONTROL:cr__datacontrol.lst
+#VARIABLE:cr__variables.lst
+#GLOBALMODIFIER:cr__globalmodifiers.lst
 
 ### GM Moved
-#SAVE:cr_gm_saves.lst
-#STAT:cr_gm_stats.lst
-#ALIGNMENT:cr_gm_alignments.lst
+SAVE:cr__saves.lst
+STAT:cr__stats.lst
+ALIGNMENT:cr__alignments.lst
 
 # Standard Files
 ABILITYCATEGORY:cr_abilitycategories.lst
