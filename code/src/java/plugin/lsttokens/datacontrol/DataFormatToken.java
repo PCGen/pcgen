@@ -45,7 +45,7 @@ public class DataFormatToken extends AbstractNonEmptyToken<ContentDefinition>
 	{
 		FormatManager<?> fmtMgr = FormatManagerLibrary.getFormatManager(value);
 		FormatManager<?> old = def.setFormatManager(fmtMgr);
-		if (old != null)
+		if ((old != null) && (!old.equals(fmtMgr)))
 		{
 			return new ParseResult.Fail("Content Definition "
 				+ def.getClass().getSimpleName() + " " + def.getKeyName()
