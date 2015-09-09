@@ -26,8 +26,10 @@ import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.output.base.ModelFactory;
+import pcgen.output.base.NamedModel;
 import pcgen.output.factory.ItemModelFactory;
 import pcgen.output.factory.SetModelFactory;
+import pcgen.output.model.BooleanOptionModel;
 import freemarker.template.TemplateModel;
 
 /**
@@ -43,11 +45,17 @@ public final class OutputDB
 	}
 
 	/**
-	 * The Map of string names to output models
+	 * The Map of string names to output models (that are dynamic based on a PC)
 	 */
 	private static DoubleKeyMap<Object, Object, ModelFactory> outModels =
 			new DoubleKeyMap<Object, Object, ModelFactory>(
 				CaseInsensitiveMap.class, CaseInsensitiveMap.class);
+
+	/**
+	 * The map of string names to models for global items (not PC dependent)
+	 */
+	private static Map<Object, NamedModel> globalModels =
+			new CaseInsensitiveMap<NamedModel>();
 
 	/**
 	 * Registers a new ModelFactory to be used in output
@@ -184,7 +192,7 @@ public final class OutputDB
 		}
 		return modelFactory.generate(id);
 	}
-	
+
 	/**
 	 * Returns true if the given interpolation is legal based on the items
 	 * registered with OutputDB.
@@ -206,6 +214,53 @@ public final class OutputDB
 	public static void reset()
 	{
 		outModels.clear();
+		globalModels.clear();
+	}
+
+	/**
+	 * Returns a map of the global TemplateModel objects (those that do not
+	 * depend on a PC)
+	 * 
+	 * Note that ownership of the returned map is transferred to the calling
+	 * object, no changes to the returned map will impact OutputDB, nor will
+	 * changes to OutputDB impact the returned Map.
+	 * 
+	 * @return a Map of the global TemplateModel objects
+	 */
+	public static Map<String, TemplateModel> getGlobal()
+	{
+		Map<String, TemplateModel> hm = new HashMap<String, TemplateModel>();
+		for (NamedModel nm : globalModels.values())
+		{
+			hm.put(nm.getModelName(), nm);
+		}
+		return hm;
+	}
+
+	/**
+	 * Registers a new Boolean Preference for inclusion in the global Models.
+	 * 
+	 * @param pref
+	 *            The preference name, as identified in the preference file
+	 * @param defaultValue
+	 *            The default value for the preference if it is not defined
+	 */
+	public static void registerBooleanPreference(String pref,
+		boolean defaultValue)
+	{
+		if ((pref == null) || (pref.length() == 0))
+		{
+			throw new IllegalArgumentException(
+				"Preference Name may not be null or empty: " + pref);
+		}
+		BooleanOptionModel bom = new BooleanOptionModel(pref, defaultValue);
+		TemplateModel old = globalModels.put(pref, bom);
+		if (old != null)
+		{
+			throw new UnsupportedOperationException(
+				"Cannot have two Preference Output Models using the same name: "
+					+ pref);
+		}
 	}
 
 }
