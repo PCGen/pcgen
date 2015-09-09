@@ -37,6 +37,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
 
@@ -202,7 +203,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		ButtonGroup group = new ButtonGroup();
 		boolean haveSelected = false;
 		Font font = panel.getFont();
-		font = font.deriveFont(Font.PLAIN);
+		font = FontManipulation.plain(font);
 		for (SourceFolder folder : SourceFolder.values())
 		{
 			JRadioButton pathButton = new JRadioButton();

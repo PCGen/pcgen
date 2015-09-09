@@ -22,7 +22,6 @@ package pcgen.gui2.tabs;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,14 +46,14 @@ import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ListFacades;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.DefaultListFacade;
-import pcgen.facade.util.ListFacade;
-import pcgen.facade.util.ListFacades;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.filter.DisplayableFilter;
 import pcgen.gui2.filter.Filter;
@@ -69,6 +68,7 @@ import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.tools.PrefTableColumnModel;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JDynamicTable;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
 import pcgen.gui2.util.table.TableUtils;
@@ -294,11 +294,11 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 			if (value instanceof InfoFacade && ((InfoFacade) value).isNamePI())
 			{
-				setFont(getFont().deriveFont(Font.BOLD + Font.ITALIC));
+				setFont(FontManipulation.bold_italic(getFont()));
 			}
 			else
 			{
-				setFont(getFont().deriveFont(Font.PLAIN));
+				setFont(FontManipulation.plain(getFont()));
 			}
 			return this;
 		}
@@ -546,13 +546,13 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public void install()
 		{
-			label.setFont(label.getFont().deriveFont(Font.PLAIN));
+			label.setFont(FontManipulation.plain(label.getFont()));
 			if (ref.getReference() != null)
 			{
 				label.setText(ref.getReference().toString());
 				if (ref.getReference().isNamePI())
 				{
-					label.setFont(label.getFont().deriveFont(Font.BOLD + Font.ITALIC));
+					label.setFont(FontManipulation.bold_italic(label.getFont()));
 				}
 			}
 			else
