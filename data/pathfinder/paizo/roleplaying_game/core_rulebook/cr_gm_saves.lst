@@ -1,4 +1,0 @@
-
-Fortitude	FACT:MainStat|Constitution	SORTKEY:1	BONUS:SAVE|Fortitude|CON
-Reflex	FACT:MainStat|Dexterity		SORTKEY:2	BONUS:SAVE|Reflex|DEX
-Will		FACT:MainStat|Wisdom		SORTKEY:3	BONUS:SAVE|Will|WIS
