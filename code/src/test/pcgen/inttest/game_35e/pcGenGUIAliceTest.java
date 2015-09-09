@@ -3,7 +3,7 @@
  */
 package pcgen.inttest.game_35e;
 
-import pcgen.inttest.PcgenFtlTestCase;
+import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -12,7 +12,7 @@ import junit.framework.TestSuite;
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIAliceTest extends PcgenFtlTestCase
+public class pcGenGUIAliceTest extends pcGenGUITestCase
 {
 
 	/**
@@ -20,7 +20,7 @@ public class pcGenGUIAliceTest extends PcgenFtlTestCase
 	 */
 	public pcGenGUIAliceTest()
 	{
-		super("35e_alice");
+		// Empty Constructor
 	}
 
 	/**

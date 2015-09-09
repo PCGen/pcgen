@@ -3,7 +3,7 @@
  */
 package pcgen.inttest.game_pathfinder;
 
-import pcgen.inttest.PcgenFtlTestCase;
+import pcgen.inttest.pcGenGUITestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -12,7 +12,7 @@ import junit.framework.TestSuite;
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIPfrpgGoldielocksTest extends PcgenFtlTestCase
+public class pcGenGUIPfrpgGoldielocksTest extends pcGenGUITestCase
 {
 
 	/**
@@ -20,7 +20,7 @@ public class pcGenGUIPfrpgGoldielocksTest extends PcgenFtlTestCase
 	 */
 	public pcGenGUIPfrpgGoldielocksTest()
 	{
-		super("pf_goldielocks");
+		//	super("pf_goldielocks");
 	}
 
 	/**
