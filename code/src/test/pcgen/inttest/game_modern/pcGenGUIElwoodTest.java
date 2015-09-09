@@ -22,7 +22,7 @@
  */
 package pcgen.inttest.game_modern;
 
-import pcgen.inttest.pcGenGUITestCase;
+import pcgen.inttest.PcgenFtlTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -31,7 +31,7 @@ import junit.framework.TestSuite;
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIElwoodTest extends pcGenGUITestCase
+public class pcGenGUIElwoodTest extends PcgenFtlTestCase
 {
 
 	/**
@@ -39,7 +39,7 @@ public class pcGenGUIElwoodTest extends pcGenGUITestCase
 	 */
 	public pcGenGUIElwoodTest()
 	{
-		// Empty Constructor
+		super("msrd_elwood");
 	}
 
 	/**

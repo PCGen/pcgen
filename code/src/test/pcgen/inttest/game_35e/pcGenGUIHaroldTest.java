@@ -1,6 +1,9 @@
+/*
+ * pcGenGUIHaroldTest.java
+ */
 package pcgen.inttest.game_35e;
 
-import pcgen.inttest.pcGenGUITestCase;
+import pcgen.inttest.PcgenFtlTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -9,7 +12,7 @@ import junit.framework.TestSuite;
  * See the PCG file for details
  */
 @SuppressWarnings("nls")
-public class pcGenGUIHaroldTest extends pcGenGUITestCase
+public class pcGenGUIHaroldTest extends PcgenFtlTestCase
 {
 
 	/**
@@ -17,7 +20,7 @@ public class pcGenGUIHaroldTest extends pcGenGUITestCase
 	 */
 	public pcGenGUIHaroldTest()
 	{
-		// Empty Constructor
+		super("35e_harold");
 	}
 
 	/**
