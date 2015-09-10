@@ -17,7 +17,7 @@ SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-S
 SOURCEDATE:2011-07
 ISOGL:YES
 
-COVER:../inner_sea_combat.jpg
+#COVER:../inner_sea_combat.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

@@ -21,7 +21,7 @@ ISOGL:YES
 
 # Errata: December 4, 2012 "Monkeying Around" Article - http://paizo.com/paizo/blog/v5748dyo5le61?Monkeying-Around (Andrew Maitland)
 
-COVER:/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.jpg
+#COVER:/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

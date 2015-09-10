@@ -19,7 +19,7 @@ SOURCEDATE:2015-04
 ISOGL:YES
 INFOTEXT:Includes ONLY the Unchained Summoner and supporting rules for the Summoner. This is a PCGen Team rapid support release for those that require the Unchained Summoner to enjoy their games. The rest of the book will be implemented soon(tm).
 
-COVER:/pathfinder/paizo/roleplaying_game/pathfinder_unchained/pathfinder_unchained.jpg
+#COVER:/pathfinder/paizo/roleplaying_game/pathfinder_unchained/pathfinder_unchained.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8qif?Pathfinder-Player-Companion-Pirates
 SOURCEDATE:2012-04
 ISOGL:YES
 
-COVER:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.jpg
+#COVER:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.

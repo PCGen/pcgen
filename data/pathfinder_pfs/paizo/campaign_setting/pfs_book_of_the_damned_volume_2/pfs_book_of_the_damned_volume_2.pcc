@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8hij?Pathfinder-Campaign-Setting-Book-of
 SOURCEDATE:2010-10
 ISOGL:YES
 
-COVER:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2.jpg
+#COVER:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
