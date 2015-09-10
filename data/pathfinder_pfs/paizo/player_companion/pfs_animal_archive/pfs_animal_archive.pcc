@@ -17,7 +17,7 @@ SOURCEWEB:http://paizo.com/products/btpy8tdj?Pathfinder-Player-Companion-Animal-
 SOURCEDATE:2013-03
 ISOGL:YES
 
-COVER:../animal_archive.jpeg
+#COVER:../animal_archive.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
